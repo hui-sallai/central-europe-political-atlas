@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4f2ec;
+  --surface: #fbfaf6;
+  --surface-muted: #ece6da;
+  --foreground: #20252b;
+  --muted: #626f6d;
+  --line: #d9d2c6;
+  --accent: #3f7180;
+  --accent-soft: #d8e7e5;
+  --china-econ: #806d56;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(89, 128, 122, 0.2), transparent 30%),
+    radial-gradient(circle at 88% 16%, rgba(118, 103, 158, 0.14), transparent 28%),
+    linear-gradient(180deg, #f8f6ef 0%, var(--background) 44%, #eee8dd 100%);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-shell {
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 32px 24px 56px;
+}
+
+.eyebrow {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.card {
+  background: rgba(251, 250, 246, 0.88);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 18px 44px rgba(45, 52, 49, 0.07);
+}
+
+.home-shell {
+  height: calc(100svh - 58px);
+  max-width: 1280px;
+  overflow: hidden;
+  padding: 8px 16px 10px;
+}
+
+.home-first-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.compact-clamp-1,
+.compact-clamp-2,
+.compact-clamp-3 {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+}
+
+.compact-clamp-1 {
+  -webkit-line-clamp: 1;
+}
+
+.compact-clamp-2 {
+  -webkit-line-clamp: 2;
+}
+
+.compact-clamp-3 {
+  -webkit-line-clamp: 3;
+}
+
+.country-scroll-axis {
+  scrollbar-color: rgba(63, 113, 128, 0.38) transparent;
+  scrollbar-width: thin;
+}
+
+.country-scroll-axis::-webkit-scrollbar {
+  width: 4px;
+}
+
+.country-scroll-axis::-webkit-scrollbar-thumb {
+  background: rgba(63, 113, 128, 0.34);
+  border-radius: 999px;
+}
+
+.home-side-content {
+  scrollbar-color: rgba(63, 113, 128, 0.32) transparent;
+  scrollbar-width: thin;
+}
+
+.home-side-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.home-side-content::-webkit-scrollbar-thumb {
+  background: rgba(63, 113, 128, 0.28);
+  border-radius: 999px;
+}
+
+@media (min-width: 1024px) {
+  .home-atlas-grid {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .home-side-panel {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .home-map-svg {
+    height: 100%;
+    min-height: 0;
+  }
+}
+
+@media (max-height: 780px) and (min-width: 1024px) {
+  .home-shell {
+    padding-bottom: 8px;
+    padding-top: 6px;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+  }
+}
