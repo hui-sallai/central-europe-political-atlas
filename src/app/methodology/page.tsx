@@ -1,3 +1,5 @@
+import { dataTableSchemas } from "@/lib/dataSchema";
+
 export default function MethodologyPage() {
   const statusItems = [
     {
@@ -67,6 +69,59 @@ export default function MethodologyPage() {
         <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
           后续将按 V4 国家优先补充财政、外部、能源、产业和对华经贸数据；完成 V4 口径后，再向其余国家扩展。
         </p>
+      </section>
+
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">Data Contract</p>
+        <h2 className="mt-3 text-2xl font-semibold">数据应该长什么样</h2>
+        <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">
+          后续补数据必须先落到以下六张表。页面展示、来源核验和模型计算都从这些表读取，避免临时字段和样例内容混入正式数据。
+        </p>
+
+        <div className="mt-6 grid gap-4">
+          {dataTableSchemas.map((table) => (
+            <article key={table.id} className="rounded-2xl border border-[var(--line)] bg-white/65 p-5">
+              <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
+                <div>
+                  <h3 className="text-xl font-semibold">{table.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{table.purpose}</p>
+                </div>
+                <span className="w-fit rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs text-[var(--muted)]">
+                  {table.usedBy}
+                </span>
+              </div>
+
+              <div className="mt-4 overflow-x-auto">
+                <table className="w-full min-w-[720px] border-separate border-spacing-0 text-left text-sm">
+                  <thead>
+                    <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+                      <th className="border-b border-[var(--line)] py-3 pr-4 font-semibold">字段</th>
+                      <th className="border-b border-[var(--line)] px-4 py-3 font-semibold">中文名</th>
+                      <th className="border-b border-[var(--line)] px-4 py-3 font-semibold">英文名</th>
+                      <th className="border-b border-[var(--line)] px-4 py-3 font-semibold">要求</th>
+                      <th className="border-b border-[var(--line)] px-4 py-3 font-semibold">说明</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {table.fields.map((field) => (
+                      <tr key={field.key}>
+                        <td className="border-b border-[var(--line)] py-3 pr-4 font-mono text-xs">{field.key}</td>
+                        <td className="border-b border-[var(--line)] px-4 py-3 font-semibold">{field.labelZh}</td>
+                        <td className="border-b border-[var(--line)] px-4 py-3 text-[var(--muted)]">{field.labelEn}</td>
+                        <td className="border-b border-[var(--line)] px-4 py-3">
+                          <span className={`rounded-full px-2.5 py-1 text-[10px] font-semibold ${field.required ? "bg-emerald-50 text-emerald-800" : "bg-slate-100 text-slate-600"}`}>
+                            {field.required ? "必填" : "可选"}
+                          </span>
+                        </td>
+                        <td className="border-b border-[var(--line)] px-4 py-3 text-xs leading-5 text-[var(--muted)]">{field.note ?? "—"}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
     </main>
   );
