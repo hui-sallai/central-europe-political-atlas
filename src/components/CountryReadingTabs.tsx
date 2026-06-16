@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { DataStatusBadge } from "@/components/DataStatusBadge";
+import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
 import { getBasicIndicators } from "@/lib/basicIndicators";
 import { dataStatusItems } from "@/lib/dataStatus";
 import type { Country } from "@/lib/data";
@@ -95,6 +95,9 @@ export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
                       </div>
                       <p className="mt-2 font-semibold">{indicator.value}</p>
                       <p className="mt-1 text-[10px] text-[var(--muted)]">{indicator.year} / {indicator.source}</p>
+                      <div className="mt-2">
+                        <SourceStatusBadge status={indicator.status === "official" ? "official" : "manual"} />
+                      </div>
                     </div>
                   ))
                 ) : (
@@ -102,6 +105,9 @@ export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
                     <div className="flex items-center justify-between gap-2">
                       <p className="text-sm font-semibold">宏观指标未接入官方统计</p>
                       <DataStatusBadge status="pending" />
+                    </div>
+                    <div className="mt-2">
+                      <SourceStatusBadge status="pending" />
                     </div>
                     <p className="mt-2 text-xs leading-5 text-[var(--muted)]">正式口径以该国统计部门和经济主管机构最新发布为主。</p>
                   </div>
@@ -121,6 +127,9 @@ export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
                   <span className="text-xs text-[var(--muted)]">{party.role === "governing" ? "执政" : party.role === "support" ? "支持" : "在野"}</span>
                   <DataStatusBadge status={party.shortName === "TBD" ? "pending" : "manual"} />
                 </div>
+                <div className="mt-2">
+                  <SourceStatusBadge status={party.shortName === "TBD" ? "pending" : "manual"} />
+                </div>
                 <p className="mt-2 text-sm text-[var(--muted)]">{party.nameZh} / {party.familyZh}</p>
               </div>
             ))}
@@ -136,6 +145,9 @@ export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
                   <div className="flex items-start justify-between gap-3">
                     <p className="font-semibold">{project.name}</p>
                     <DataStatusBadge status={project.status.includes("待") ? "pending" : "manual"} />
+                  </div>
+                  <div className="mt-2">
+                    <SourceStatusBadge status={project.status.includes("待") ? "pending" : "manual"} />
                   </div>
                   <p className="mt-2 text-xs text-[var(--accent)]">{project.sector} / {project.status}</p>
                   <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{project.note}</p>

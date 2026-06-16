@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Adm1BoundaryMap } from "@/components/Adm1BoundaryMap";
-import { DataStatusBadge } from "@/components/DataStatusBadge";
+import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
 import { getBasicIndicators } from "@/lib/basicIndicators";
 import type { Country } from "@/lib/data";
 import { getCountryLayerData, getLayerOption, getRegionMetricMap, mapLayerOptions, type MapLayer } from "@/lib/mapLayerData";
@@ -265,6 +265,9 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
                     </div>
                     <p className="mt-2 text-lg font-semibold">{indicator.value}</p>
                     <p className="mt-1 text-[10px] text-[var(--muted)]">{indicator.year} / {indicator.source}</p>
+                    <div className="mt-2">
+                      <SourceStatusBadge status={indicator.status === "official" ? "official" : "manual"} />
+                    </div>
                   </div>
                 ))
               ) : (
@@ -272,6 +275,9 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
                   <div className="flex items-center justify-between gap-2">
                     <p className="text-sm font-semibold">官方统计未接入</p>
                     <DataStatusBadge status="pending" />
+                  </div>
+                  <div className="mt-2">
+                    <SourceStatusBadge status="pending" />
                   </div>
                   <p className="mt-2 text-xs leading-5 text-[var(--muted)]">该国宏观数据将以本国统计部门最新发布为主，World Bank / Eurostat 仅作交叉核验。</p>
                 </div>
@@ -281,14 +287,17 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
 
           <div className="mt-5 grid gap-3">
             {[
-              { label: "执政结构", status: partyStatus, note: governingParties.length > 0 ? "人工整理，需与官方政府名单复核。" : "未接入可信来源。" },
-              { label: "对华经贸项目", status: "pending", note: "项目入口已预留，贸易额、地区与企业字段待量化。" },
-              { label: "主要在野党", status: partyStatus, note: oppositionParties.length > 0 ? "人工整理，需与议会席位和选举结果复核。" : "未接入可信来源。" },
+              { label: "执政结构", status: partyStatus, sourceStatus: partyStatus, note: governingParties.length > 0 ? "待核验；需与官方政府名单复核后再作为正式数据。" : "未接入可信来源。" },
+              { label: "对华经贸项目", status: "pending", sourceStatus: "manual", note: "样本库初版；项目入口已预留，贸易额、地区与企业字段待量化。" },
+              { label: "主要在野党", status: partyStatus, sourceStatus: partyStatus, note: oppositionParties.length > 0 ? "待核验；需与议会席位和选举结果复核后再作为正式数据。" : "未接入可信来源。" },
             ].map((item) => (
               <div key={item.label} className="rounded-2xl border border-[var(--line)] bg-white/70 p-3">
                 <div className="flex items-center justify-between gap-3">
                   <p className="text-sm font-semibold">{item.label}</p>
                   <DataStatusBadge status={item.status as "manual" | "pending"} />
+                </div>
+                <div className="mt-2">
+                  <SourceStatusBadge status={item.sourceStatus as "manual" | "pending"} />
                 </div>
                 <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{item.note}</p>
               </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { DataStatusBadge } from "@/components/DataStatusBadge";
+import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
 import type { Country, Region } from "@/lib/data";
 
 type Admin2ExplorerProps = {
@@ -32,7 +32,7 @@ export function Admin2Explorer({ country, region }: Admin2ExplorerProps) {
         <h2 className="mt-3 text-2xl font-semibold">二级行政区选择</h2>
         <div className="mt-3 flex flex-wrap gap-2">
           <DataStatusBadge status="sample" />
-          <DataStatusBadge status="pending" />
+          <SourceStatusBadge status="sample" />
         </div>
         <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
           当前为结构样例，不进入模型。正式版将在这里接入 {country.nameZh} / {region.nameZh} 的真实二级行政区边界、名称、地方主政人员和区域级指标。
@@ -52,6 +52,7 @@ export function Admin2Explorer({ country, region }: Admin2ExplorerProps) {
               <p className="text-sm font-semibold">{item.name}</p>
               <div className="mt-2 flex flex-wrap items-center gap-2">
                 <DataStatusBadge status="sample" />
+                <SourceStatusBadge status="sample" />
                 <span className="text-xs text-[var(--muted)]">{item.type}</span>
               </div>
             </button>
@@ -71,6 +72,7 @@ export function Admin2Explorer({ country, region }: Admin2ExplorerProps) {
               <p className="text-sm font-semibold">{item}</p>
               <div className="mt-2 flex flex-wrap items-center gap-2">
                 <DataStatusBadge status="pending" />
+                <SourceStatusBadge status="pending" />
                 <span className="text-xs text-[var(--muted)]">{selectedItem.status}</span>
               </div>
             </div>

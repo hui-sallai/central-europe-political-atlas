@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Adm1BoundaryMap } from "@/components/Adm1BoundaryMap";
-import { DataStatusBadge } from "@/components/DataStatusBadge";
+import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
 import { getBasicIndicators } from "@/lib/basicIndicators";
 import { countries, getRegion } from "@/lib/data";
 import { getLatestNewsForCountry } from "@/lib/newsData";
@@ -172,6 +172,9 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
                       <p className="mt-0.5 text-sm font-semibold">{indicator.value}</p>
                       <p className="mt-0.5 text-[10px] leading-3 text-[var(--muted)]">{indicator.year}</p>
                       <p className="mt-0.5 truncate text-[10px] leading-3 text-[var(--accent)]">{indicator.source}</p>
+                      <div className="mt-1">
+                        <SourceStatusBadge status={indicator.status === "official" ? "official" : "manual"} />
+                      </div>
                     </div>
                   ))
                 ) : (
@@ -179,6 +182,9 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
                     <div className="flex items-center justify-between gap-2">
                       <p className="text-xs font-semibold">官方经济数据未接入</p>
                       <DataStatusBadge status="pending" />
+                    </div>
+                    <div className="mt-2">
+                      <SourceStatusBadge status="pending" />
                     </div>
                     <p className="mt-1 text-[10px] leading-4 text-[var(--muted)]">主源：各国统计部门最新发布</p>
                   </div>
@@ -196,7 +202,7 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
                 <article className="mt-2 rounded-xl bg-white/70 p-3">
                   <div className="mb-2 flex flex-wrap gap-2">
                     <DataStatusBadge status={selectedNews.dataStatus === "sample" ? "sample" : "manual"} />
-                    <DataStatusBadge status={selectedNews.sourceUrl ? "manual" : "pending"} />
+                    <SourceStatusBadge status={selectedNews.dataStatus === "sample" ? "sample" : selectedNews.sourceUrl ? "manual" : "pending"} />
                   </div>
                   <h3 className={`${isHome ? "text-base leading-6" : "text-lg leading-7"} font-semibold`}>{selectedNews.title}</h3>
                   <p className="mt-2 text-xs font-semibold text-[var(--accent)]">{selectedNews.topic}</p>

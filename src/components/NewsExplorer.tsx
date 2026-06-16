@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { DataStatusBadge } from "@/components/DataStatusBadge";
+import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
 import { countries } from "@/lib/data";
 import { getNewsTopics, weeklyNewsItems, type NewsTopic } from "@/lib/newsData";
 
@@ -22,6 +22,8 @@ export function NewsExplorer() {
       }),
     [countryFilter, topicFilter],
   );
+  const formalItems = filteredItems.filter((item) => item.dataStatus !== "sample");
+  const sampleItems = filteredItems.filter((item) => item.dataStatus === "sample");
 
   return (
     <section className="mt-8 grid gap-6 lg:grid-cols-[280px_1fr]">
@@ -76,15 +78,55 @@ export function NewsExplorer() {
         </div>
       </aside>
 
-      <div className="grid gap-4">
-        {filteredItems.map((item) => (
+      <div className="grid gap-5">
+        <section className="card p-6">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p className="eyebrow">Formal News</p>
+              <h2 className="mt-2 text-xl font-semibold">正式新闻区</h2>
+            </div>
+            <DataStatusBadge status="pending" />
+          </div>
+          {formalItems.length > 0 ? (
+            <div className="mt-4 grid gap-4">
+              {formalItems.map((item) => (
+                <article key={item.id} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+                  <div className="flex flex-wrap items-center gap-2 text-xs text-[var(--muted)]">
+                    <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{item.weekOf}</span>
+                    <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{item.topic}</span>
+                    <DataStatusBadge status="manual" />
+                    <SourceStatusBadge status={item.sourceUrl ? "manual" : "pending"} />
+                  </div>
+                  <p className="mt-4 text-sm font-semibold text-[var(--accent)]">{item.countryZh}</p>
+                  <h3 className="mt-2 text-lg font-semibold">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.summary}</p>
+                </article>
+              ))}
+            </div>
+          ) : (
+            <p className="mt-4 rounded-2xl border border-[var(--line)] bg-white/65 p-4 text-sm leading-6 text-[var(--muted)]">
+              暂无已接入的正式新闻。后续只在完成来源链接与人工审核后进入此区。
+            </p>
+          )}
+        </section>
+
+        <section className="card p-6">
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p className="eyebrow">Structural Samples</p>
+              <h2 className="mt-2 text-xl font-semibold">结构样例区</h2>
+            </div>
+            <DataStatusBadge status="sample" />
+          </div>
+          <div className="mt-4 grid gap-4">
+        {sampleItems.map((item) => (
           <article key={item.id} className="card p-6">
             <div className="flex flex-wrap items-center gap-2 text-xs text-[var(--muted)]">
               <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{item.weekOf}</span>
               <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{item.topic}</span>
               <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{item.language}</span>
               <DataStatusBadge status={item.dataStatus === "sample" ? "sample" : "manual"} />
-              <DataStatusBadge status={item.sourceUrl ? "manual" : "pending"} />
+              <SourceStatusBadge status="sample" />
             </div>
             <p className="mt-4 text-sm font-semibold text-[var(--accent)]">{item.countryZh}</p>
             <h2 className="mt-2 text-xl font-semibold">{item.title}</h2>
@@ -97,6 +139,8 @@ export function NewsExplorer() {
             <p className="mt-4 text-xs text-[var(--muted)]">来源：{item.sourceLabel}</p>
           </article>
         ))}
+          </div>
+        </section>
       </div>
     </section>
   );

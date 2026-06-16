@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { DataStatusBadge } from "@/components/DataStatusBadge";
+import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
 import { countries } from "@/lib/data";
 import { getEconomicSourcePolicy } from "@/lib/economicSourcePolicy";
 import {
@@ -24,7 +24,7 @@ const tableMetricIds: EconomicMetricId[] = ["population", "gdp", "gdpPerCapita",
 
 function formatMetricValue(value: number | null, metricId: EconomicMetricId) {
   if (value === null) {
-    return "缺失";
+    return "待接入";
   }
 
   if (metricId === "population") {
@@ -46,8 +46,8 @@ function valueFor(row: EconomicYearRow, metricId: EconomicMetricId) {
   return row[metricId];
 }
 
-function statusForMetric(value: number | null): "official" | "missing" {
-  return value === null ? "missing" : "official";
+function statusForMetric(value: number | null): "official" | "pending" {
+  return value === null ? "pending" : "official";
 }
 
 function projectStatusKind(status: string): "pending" | "manual" {
@@ -128,10 +128,11 @@ export function DataCountryExplorer() {
                   <span className="rounded-full bg-white/75 px-2 py-0.5 text-[10px] text-[var(--muted)]">{country.iso2}</span>
                 </div>
                 <p className="mt-2 text-xs text-[var(--muted)]">
-                  GDP {latest ? formatMetricValue(latest.gdp, "gdp") : "缺失"}
+                  GDP {latest ? formatMetricValue(latest.gdp, "gdp") : "待接入"}
                 </p>
                 <div className="mt-2">
-                  <DataStatusBadge status={latest ? statusForMetric(latest.gdp) : "missing"} />
+                  <DataStatusBadge status={latest ? statusForMetric(latest.gdp) : "pending"} />
+                  <SourceStatusBadge status={latest?.gdp === null || !latest ? "pending" : "official"} className="mt-1" />
                 </div>
               </button>
             );
@@ -183,9 +184,12 @@ export function DataCountryExplorer() {
                   <div key={label} className="card p-5">
                     <div className="flex items-center justify-between gap-2">
                       <p className="text-xs text-[var(--muted)]">{label}</p>
-                      <DataStatusBadge status={status as "official" | "missing"} />
+                      <DataStatusBadge status={status as "official" | "pending"} />
                     </div>
                     <p className="mt-2 text-2xl font-semibold">{value}</p>
+                    <div className="mt-3">
+                      <SourceStatusBadge status={status === "official" ? "official" : "pending"} />
+                    </div>
                   </div>
                 ))
               ) : null}
@@ -224,6 +228,7 @@ export function DataCountryExplorer() {
                               <div className="flex flex-col gap-2">
                                 <span>{formatMetricValue(value, metric.id)}</span>
                                 <DataStatusBadge status={statusForMetric(value)} />
+                                <SourceStatusBadge status={value === null ? "pending" : "official"} />
                               </div>
                             </td>
                           );
@@ -232,6 +237,7 @@ export function DataCountryExplorer() {
                           <div className="flex flex-col gap-2">
                             <span>{row.source}</span>
                             <DataStatusBadge status="official" />
+                            <SourceStatusBadge status="official" />
                           </div>
                         </td>
                       </tr>
@@ -251,6 +257,7 @@ export function DataCountryExplorer() {
                     <h3 className="mt-2 text-xl font-semibold">{economicPolicy.primaryAgency}</h3>
                     <div className="mt-3">
                       <DataStatusBadge status="official" />
+                      <SourceStatusBadge status="official" className="ml-2" />
                     </div>
                     <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{economicPolicy.releaseType}</p>
                     <div className="mt-4 flex flex-wrap gap-2">
@@ -263,6 +270,7 @@ export function DataCountryExplorer() {
                 ) : (
                   <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/65 p-5 text-sm text-[var(--muted)]">
                     <DataStatusBadge status="pending" />
+                    <SourceStatusBadge status="pending" className="ml-2" />
                     <p className="mt-3">该国经济数据主源待补充。</p>
                   </div>
                 )}
@@ -278,6 +286,9 @@ export function DataCountryExplorer() {
                       <div className="flex items-start justify-between gap-3">
                         <p className="font-semibold">{project.name}</p>
                         <DataStatusBadge status={projectStatusKind(project.status)} />
+                      </div>
+                      <div className="mt-2">
+                        <SourceStatusBadge status={projectStatusKind(project.status)} />
                       </div>
                       <p className="mt-2 text-xs text-[var(--accent)]">{project.sector} / {project.status}</p>
                       <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{project.note}</p>
@@ -371,6 +382,9 @@ export function DataCountryExplorer() {
                           <td className="border-b border-[var(--line)] px-4 py-3 text-xs text-[var(--muted)]">{row.source}</td>
                           <td className="border-b border-[var(--line)] px-4 py-3">
                             <DataStatusBadge status={statusForMetric(value)} />
+                            <div className="mt-2">
+                              <SourceStatusBadge status={value === null ? "pending" : "official"} />
+                            </div>
                           </td>
                         </tr>
                       );

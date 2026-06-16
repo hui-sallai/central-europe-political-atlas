@@ -1,5 +1,5 @@
 import { DataCountryExplorer } from "@/components/DataCountryExplorer";
-import { DataStatusBadge } from "@/components/DataStatusBadge";
+import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
 
 export default function DataOverviewPage() {
   return (
@@ -13,7 +13,7 @@ export default function DataOverviewPage() {
       <section className="mt-6 rounded-2xl border border-[var(--line)] bg-white/45 p-4 text-sm leading-7 text-[var(--muted)]">
         <div className="mb-2 flex flex-wrap gap-2">
           <DataStatusBadge status="pending" />
-          <DataStatusBadge status="manual" />
+          <SourceStatusBadge status="manual" />
         </div>
         对华经贸项目目前只保留研究入口和人工整理字段，贸易额、企业、地区和年份仍待量化；本页把每个国家作为独立数据档案维护。
       </section>
