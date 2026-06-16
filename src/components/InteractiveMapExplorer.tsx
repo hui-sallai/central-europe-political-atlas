@@ -88,17 +88,26 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
           ) : null}
 
           <div className={`${isHome ? "mt-2" : "mt-4"} grid grid-cols-2 gap-2`}>
-            <button
-              type="button"
-              onClick={() => setSideMode("profile")}
-              className={`rounded-full border px-3 ${isHome ? "py-1.5 text-xs" : "py-2 text-sm"} font-semibold transition ${
-                sideMode === "profile"
-                  ? "border-[var(--accent)] bg-[var(--accent)] text-white"
-                  : "border-[var(--line)] bg-white text-[var(--muted)] hover:text-[var(--foreground)]"
-              }`}
-            >
-              国家档案
-            </button>
+            {isHome ? (
+              <Link
+                href={`/countries/${selectedCountry.slug}`}
+                className="rounded-full border border-[var(--accent)] bg-[var(--accent)] px-3 py-1.5 text-center text-xs font-semibold text-white transition hover:opacity-90"
+              >
+                国家档案 →
+              </Link>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setSideMode("profile")}
+                className={`rounded-full border px-3 py-2 text-sm font-semibold transition ${
+                  sideMode === "profile"
+                    ? "border-[var(--accent)] bg-[var(--accent)] text-white"
+                    : "border-[var(--line)] bg-white text-[var(--muted)] hover:text-[var(--foreground)]"
+                }`}
+              >
+                国家档案
+              </button>
+            )}
             <button
               type="button"
               onClick={() => setSideMode("news")}
