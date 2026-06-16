@@ -1,9 +1,7 @@
 import { DataCountryExplorer } from "@/components/DataCountryExplorer";
-import { countries } from "@/lib/data";
+import { DataStatusBadge } from "@/components/DataStatusBadge";
 
 export default function DataOverviewPage() {
-  const projectCount = countries.reduce((sum, country) => sum + country.chinaProjects.length, 0);
-
   return (
     <main className="page-shell">
       <p className="eyebrow">Data Workspace</p>
@@ -13,7 +11,11 @@ export default function DataOverviewPage() {
       </p>
 
       <section className="mt-6 rounded-2xl border border-[var(--line)] bg-white/45 p-4 text-sm leading-7 text-[var(--muted)]">
-        当前对华经贸项目样本共 {projectCount} 个；本页不再做十国横向堆叠表，而是把每个国家作为一个独立数据档案维护。
+        <div className="mb-2 flex flex-wrap gap-2">
+          <DataStatusBadge status="pending" />
+          <DataStatusBadge status="manual" />
+        </div>
+        对华经贸项目目前只保留研究入口和人工整理字段，贸易额、企业、地区和年份仍待量化；本页把每个国家作为独立数据档案维护。
       </section>
 
       <DataCountryExplorer />

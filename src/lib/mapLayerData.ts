@@ -1,4 +1,5 @@
 import type { Country, Region } from "@/lib/data";
+import type { DataStatusKind } from "@/lib/dataStatusLabels";
 
 export type MapLayer = "party" | "economy" | "baseline";
 
@@ -8,6 +9,8 @@ export type LayerOption = {
   description: string;
   legend: string;
   dataStatus: string;
+  statusKind: DataStatusKind;
+  statusNote: string;
 };
 
 export type RegionLayerDatum = {
@@ -21,16 +24,20 @@ export const mapLayerOptions: LayerOption[] = [
   {
     id: "party",
     label: "党派支持率",
-    description: "模拟展示执政阵营在各一级行政区的相对支持强度。正式版将接入选举结果和可信民调。",
-    legend: "颜色越深，执政阵营支持强度越高",
-    dataStatus: "占位数据，等待正式选举与民调数据源",
+    description: "当前仅用占位色阶验证地图交互。不是选举结果、不是民调数据，也不是模型评分。",
+    legend: "颜色深浅仅表示占位色阶，不代表真实支持率",
+    dataStatus: "结构样例，不进入模型",
+    statusKind: "sample",
+    statusNote: "正式版需接入选举结果或可信民调后，才能展示党派支持率。",
   },
   {
     id: "economy",
     label: "经济强度",
-    description: "模拟展示各地经济活跃度。正式版将使用 GDP、就业、产业结构等区域经济数据。",
-    legend: "颜色越深，经济指标越强",
-    dataStatus: "占位数据，等待区域经济统计数据源",
+    description: "当前仅用占位色阶验证地图交互。不是区域 GDP、就业或产业结构数据。",
+    legend: "颜色深浅仅表示占位色阶，不代表真实经济强度",
+    dataStatus: "结构样例，不进入模型",
+    statusKind: "sample",
+    statusNote: "正式版需接入各国统计部门区域经济数据后，才能展示经济强度。",
   },
   {
     id: "baseline",
@@ -38,6 +45,8 @@ export const mapLayerOptions: LayerOption[] = [
     description: "只显示一级行政区边界和当前选择，不叠加分析强度。",
     legend: "用于阅读行政区结构",
     dataStatus: "真实 ADM1 边界，来自 geoBoundaries；部分地区仍需核验",
+    statusKind: "manual",
+    statusNote: "边界数据来自公开边界源，仍需与各国官方边界口径复核。",
   },
 ];
 
@@ -63,7 +72,7 @@ export function getCountryLayerData(country: Country, layer: MapLayer): RegionLa
     return {
       region,
       value,
-      displayValue: typeof value === "number" ? `${Math.round(value * 100)}%` : "边界",
+      displayValue: typeof value === "number" ? "占位色阶" : "边界",
     };
   });
 

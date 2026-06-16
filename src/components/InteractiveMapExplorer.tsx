@@ -2,9 +2,10 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { countries, getRegion } from "@/lib/data";
 import { Adm1BoundaryMap } from "@/components/Adm1BoundaryMap";
+import { DataStatusBadge } from "@/components/DataStatusBadge";
 import { getBasicIndicators } from "@/lib/basicIndicators";
+import { countries, getRegion } from "@/lib/data";
 import { getLatestNewsForCountry } from "@/lib/newsData";
 
 type SideMode = "profile" | "news";
@@ -31,6 +32,7 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
   const basicIndicators = getBasicIndicators(selectedCountry.slug);
   const homeEconomicIndicators = basicIndicators.filter((indicator) => indicator.id !== "population").slice(0, 4);
   const homeProfileLine = `${selectedCountry.polityZh} / ${selectedCountry.currency} / ${selectedCountry.euMember ? "EU" : "非 EU"} / ${selectedCountry.natoMember ? "NATO" : "非 NATO"}`;
+  const partyStatus = selectedCountry.parties.some((party) => party.shortName === "TBD") ? "pending" : "manual";
 
   function selectCountry(slug: string) {
     setSelectedSlug(slug);
@@ -133,11 +135,21 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
                 </div>
               ) : null}
               <div className="mt-2 flex flex-wrap gap-1.5">
-                {governingParties.map((party) => (
-                  <span key={party.shortName} className="rounded-full bg-white px-2.5 py-0.5 text-xs">
-                    {party.shortName}
-                  </span>
-                ))}
+                {governingParties.length > 0 ? (
+                  <>
+                    <DataStatusBadge status={partyStatus} />
+                    {governingParties.map((party) => (
+                      <span key={party.shortName} className="rounded-full bg-white px-2.5 py-0.5 text-xs">
+                        {party.shortName}
+                      </span>
+                    ))}
+                  </>
+                ) : (
+                  <>
+                    <DataStatusBadge status="pending" />
+                    <span className="text-xs text-[var(--muted)]">执政结构未接入</span>
+                  </>
+                )}
               </div>
               <div className="mt-2 grid grid-cols-2 gap-2">
                 <div className="rounded-xl bg-white/70 p-2">
@@ -153,17 +165,21 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
                 {basicIndicators.length > 0 ? (
                   (isHome ? homeEconomicIndicators : basicIndicators.slice(0, 4)).map((indicator) => (
                     <div key={indicator.id} className="rounded-xl bg-white/70 p-2">
-                      <p className="text-xs text-[var(--muted)]">{indicator.label}</p>
+                      <div className="flex items-center justify-between gap-1">
+                        <p className="text-xs text-[var(--muted)]">{indicator.label}</p>
+                        <DataStatusBadge status={indicator.status === "official" ? "official" : "manual"} />
+                      </div>
                       <p className="mt-0.5 text-sm font-semibold">{indicator.value}</p>
-                      <p className="mt-0.5 text-[10px] leading-3 text-[var(--muted)]">
-                        {indicator.year} / {indicator.status === "official" ? "官方" : "过渡"}
-                      </p>
+                      <p className="mt-0.5 text-[10px] leading-3 text-[var(--muted)]">{indicator.year}</p>
                       <p className="mt-0.5 truncate text-[10px] leading-3 text-[var(--accent)]">{indicator.source}</p>
                     </div>
                   ))
                 ) : (
                   <div className="col-span-2 rounded-xl bg-white/70 p-2">
-                    <p className="text-xs font-semibold">官方经济数据待接入</p>
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="text-xs font-semibold">官方经济数据未接入</p>
+                      <DataStatusBadge status="pending" />
+                    </div>
                     <p className="mt-1 text-[10px] leading-4 text-[var(--muted)]">主源：各国统计部门最新发布</p>
                   </div>
                 )}
@@ -178,12 +194,22 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
               <p className="text-xs font-semibold text-[var(--muted)]">新闻周报</p>
               {selectedNews ? (
                 <article className="mt-2 rounded-xl bg-white/70 p-3">
+                  <div className="mb-2 flex flex-wrap gap-2">
+                    <DataStatusBadge status={selectedNews.dataStatus === "sample" ? "sample" : "manual"} />
+                    <DataStatusBadge status={selectedNews.sourceUrl ? "manual" : "pending"} />
+                  </div>
                   <h3 className={`${isHome ? "text-base leading-6" : "text-lg leading-7"} font-semibold`}>{selectedNews.title}</h3>
                   <p className="mt-2 text-xs font-semibold text-[var(--accent)]">{selectedNews.topic}</p>
                   <p className={`mt-2 text-sm leading-5 text-[var(--muted)] ${isHome ? "compact-clamp-2" : ""}`}>{selectedNews.summary}</p>
+                  {selectedNews.dataStatus === "sample" ? (
+                    <p className="mt-2 text-[10px] font-semibold text-amber-800">结构样例，不进入模型。</p>
+                  ) : null}
                 </article>
               ) : (
-                <p className="mt-3 text-sm text-[var(--muted)]">本周新闻摘要待入库。</p>
+                <div className="mt-3 rounded-xl bg-white/70 p-3">
+                  <DataStatusBadge status="pending" />
+                  <p className="mt-2 text-sm text-[var(--muted)]">本周新闻摘要未接入。</p>
+                </div>
               )}
             </>
           )}
@@ -226,7 +252,10 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
                       </div>
                       <span className="rounded-full bg-white px-3 py-1 text-xs text-[var(--muted)]">{country.regions.length} 区域</span>
                     </div>
-                    <p className="mt-3 text-xs font-semibold text-[var(--accent)]">{governing || "执政结构待核验"}</p>
+                    <div className="mt-3 flex flex-wrap items-center gap-2">
+                      <DataStatusBadge status={governing ? "manual" : "pending"} />
+                      <p className="text-xs font-semibold text-[var(--accent)]">{governing || "执政结构未接入"}</p>
+                    </div>
                     {countryNews ? <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{countryNews.title}</p> : null}
                   </button>
                 );

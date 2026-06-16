@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { DataStatusBadge } from "@/components/DataStatusBadge";
 import { getBasicIndicators } from "@/lib/basicIndicators";
 import { dataStatusItems } from "@/lib/dataStatus";
 import type { Country } from "@/lib/data";
@@ -88,14 +89,20 @@ export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
                 {basicIndicators.length > 0 ? (
                   basicIndicators.slice(0, 3).map((indicator) => (
                     <div key={indicator.id} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
-                      <p className="text-xs text-[var(--muted)]">{indicator.label}</p>
+                      <div className="flex items-center justify-between gap-2">
+                        <p className="text-xs text-[var(--muted)]">{indicator.label}</p>
+                        <DataStatusBadge status={indicator.status === "official" ? "official" : "manual"} />
+                      </div>
                       <p className="mt-2 font-semibold">{indicator.value}</p>
                       <p className="mt-1 text-[10px] text-[var(--muted)]">{indicator.year} / {indicator.source}</p>
                     </div>
                   ))
                 ) : (
                   <div className="rounded-2xl border border-[var(--line)] bg-white/70 p-4 sm:col-span-3">
-                    <p className="text-sm font-semibold">宏观指标待接入官方统计</p>
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="text-sm font-semibold">宏观指标未接入官方统计</p>
+                      <DataStatusBadge status="pending" />
+                    </div>
                     <p className="mt-2 text-xs leading-5 text-[var(--muted)]">正式口径以该国统计部门和经济主管机构最新发布为主。</p>
                   </div>
                 )}
@@ -112,6 +119,7 @@ export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
                   <span className="h-3 w-3 rounded-full" style={{ background: party.color }} />
                   <p className="font-semibold">{party.shortName}</p>
                   <span className="text-xs text-[var(--muted)]">{party.role === "governing" ? "执政" : party.role === "support" ? "支持" : "在野"}</span>
+                  <DataStatusBadge status={party.shortName === "TBD" ? "pending" : "manual"} />
                 </div>
                 <p className="mt-2 text-sm text-[var(--muted)]">{party.nameZh} / {party.familyZh}</p>
               </div>
@@ -125,7 +133,10 @@ export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
             <div className="mt-5 grid gap-3 md:grid-cols-2">
               {country.chinaProjects.map((project) => (
                 <div key={project.name} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
-                  <p className="font-semibold">{project.name}</p>
+                  <div className="flex items-start justify-between gap-3">
+                    <p className="font-semibold">{project.name}</p>
+                    <DataStatusBadge status={project.status.includes("待") ? "pending" : "manual"} />
+                  </div>
                   <p className="mt-2 text-xs text-[var(--accent)]">{project.sector} / {project.status}</p>
                   <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{project.note}</p>
                 </div>

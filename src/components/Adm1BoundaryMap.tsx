@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { DataStatusBadge } from "@/components/DataStatusBadge";
 import { boundaryFeatureToRegionSlug, countryGeoJsonFiles, supplementalRegionMarkers } from "@/lib/boundaryMap";
 import { countries } from "@/lib/data";
 
@@ -316,6 +317,9 @@ export function Adm1BoundaryMap({
         <div>
           <p className="eyebrow">Boundary Pending</p>
           <h3 className="mt-3 text-2xl font-semibold">{focusCountry?.nameZh ?? focusCountrySlug} 边界待接入</h3>
+          <div className="mt-3">
+            <DataStatusBadge status="pending" />
+          </div>
           <p className="mt-3 max-w-xl text-sm leading-6 text-[var(--muted)]">
             该国已经进入十国范围和国家详情页；真实 ADM1 GeoJSON 尚未接入。下一步可批量下载 geoBoundaries ADM1 或采用各国官方边界源。
           </p>

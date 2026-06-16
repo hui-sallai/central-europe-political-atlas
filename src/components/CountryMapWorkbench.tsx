@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Adm1BoundaryMap } from "@/components/Adm1BoundaryMap";
+import { DataStatusBadge } from "@/components/DataStatusBadge";
 import { getBasicIndicators } from "@/lib/basicIndicators";
 import type { Country } from "@/lib/data";
 import { getCountryLayerData, getLayerOption, getRegionMetricMap, mapLayerOptions, type MapLayer } from "@/lib/mapLayerData";
@@ -94,22 +95,6 @@ const adm2Plans: Record<string, Adm2Plan> = {
 
 const adm2Fields = ["名称", "原文名", "所属一级区", "行政中心", "人口", "面积", "最近选举", "来源链接"];
 
-function MetricBar({ label, value, note }: { label: string; value: number; note: string }) {
-  const width = Math.max(8, Math.min(100, value * 100));
-
-  return (
-    <div>
-      <div className="flex items-center justify-between gap-3 text-xs">
-        <span className="font-semibold">{label}</span>
-        <span className="text-[var(--muted)]">{note}</span>
-      </div>
-      <div className="mt-2 h-2 overflow-hidden rounded-full bg-white/70">
-        <div className="h-full rounded-full bg-[var(--accent)]" style={{ width: `${width}%` }} />
-      </div>
-    </div>
-  );
-}
-
 export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
   const [selectedRegionSlug, setSelectedRegionSlug] = useState(country.regions[0]?.slug);
   const [activeLayer, setActiveLayer] = useState<MapLayer>("party");
@@ -121,14 +106,12 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
   const layerData = useMemo(() => getCountryLayerData(country, activeLayer), [activeLayer, country]);
   const regionMetricValues = useMemo(() => getRegionMetricMap(country, activeLayer), [activeLayer, country]);
   const selectedRegionDatum = selectedRegion ? layerData.find((item) => item.region.slug === selectedRegion.slug) : undefined;
-  const rankedLayerData = layerData
-    .filter((item) => typeof item.value === "number")
-    .sort((a, b) => (b.value ?? 0) - (a.value ?? 0))
-    .slice(0, 4);
+  const layerDataPreview = layerData.slice(0, 4);
   const adm2Plan = adm2Plans[country.slug];
   const basicIndicators = getBasicIndicators(country.slug);
   const governingParties = country.parties.filter((party) => party.role === "governing" || party.role === "support");
   const oppositionParties = country.parties.filter((party) => party.role === "opposition");
+  const partyStatus = country.parties.some((party) => party.shortName === "TBD") ? "pending" : "manual";
 
   function selectRegion(countrySlug: string, regionSlug?: string) {
     if (countrySlug !== country.slug || !regionSlug) {
@@ -182,7 +165,16 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
           <h3 className="mt-3 text-2xl font-semibold">{activeLayerOption.label}</h3>
           <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{activeLayerOption.description}</p>
           <p className="mt-3 rounded-full bg-[var(--surface-muted)] px-3 py-2 text-xs text-[var(--muted)]">{activeLayerOption.legend}</p>
-          <p className="mt-2 text-xs text-[var(--muted)]">数据状态：{activeLayerOption.dataStatus}</p>
+          <div className="mt-3 rounded-2xl border border-[var(--line)] bg-white/70 p-3">
+            <div className="flex flex-wrap items-center gap-2">
+              <DataStatusBadge status={activeLayerOption.statusKind} />
+              <span className="text-xs font-semibold text-[var(--muted)]">{activeLayerOption.dataStatus}</span>
+            </div>
+            <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{activeLayerOption.statusNote}</p>
+            <p className="mt-1 text-[10px] leading-4 text-[var(--muted)]">
+              图层类型：{activeLayer === "baseline" ? "边界底图，非评分图层" : "占位样本；不是真实选举数据、不是民调数据、不是模型评分"}
+            </p>
+          </div>
 
           {selectedRegion ? (
             <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
@@ -193,24 +185,28 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
                 {selectedRegion.typeZh}
                 {selectedRegion.capitalZh ? ` / 行政中心：${selectedRegion.capitalZh}` : ""}
               </p>
-              {typeof selectedRegionDatum?.value === "number" ? (
-                <div className="mt-4">
-                  <MetricBar label="当前图层强度" value={selectedRegionDatum.value} note={selectedRegionDatum.displayValue} />
-                  {selectedRegionDatum.rank ? <p className="mt-2 text-xs text-[var(--muted)]">图层排名：第 {selectedRegionDatum.rank} 位</p> : null}
+              {selectedRegionDatum ? (
+                <div className="mt-4 rounded-xl bg-[var(--surface-muted)] p-3">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <DataStatusBadge status={activeLayerOption.statusKind} />
+                    <span className="text-xs font-semibold text-[var(--muted)]">{selectedRegionDatum.displayValue}</span>
+                  </div>
+                  <p className="mt-2 text-xs leading-5 text-[var(--muted)]">
+                    当前区域只显示该图层的数据状态，不显示占位强度或排名，避免被误读为事实指标。
+                  </p>
                 </div>
               ) : null}
             </div>
           ) : null}
 
-          {rankedLayerData.length > 0 ? (
+          {layerDataPreview.length > 0 ? (
             <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
-              <p className="text-xs font-semibold text-[var(--muted)]">区域排行</p>
+              <p className="text-xs font-semibold text-[var(--muted)]">图层覆盖预览</p>
               <div className="mt-3 space-y-3">
-                {rankedLayerData.map((item) => (
-                  <div key={item.region.slug} className="grid grid-cols-[24px_1fr_48px] items-center gap-3 text-sm">
-                    <span className="text-xs text-[var(--muted)]">#{item.rank}</span>
+                {layerDataPreview.map((item) => (
+                  <div key={item.region.slug} className="grid grid-cols-[1fr_auto] items-center gap-3 text-sm">
                     <span className="truncate font-semibold">{item.region.nameZh}</span>
-                    <span className="text-right text-xs text-[var(--muted)]">{item.displayValue}</span>
+                    <DataStatusBadge status={activeLayerOption.statusKind} />
                   </div>
                 ))}
               </div>
@@ -224,7 +220,7 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
                 <h4 className="mt-2 text-lg font-semibold">{adm2Plan?.unitZh ?? "真实 ADM2 单元"}</h4>
                 <p className="mt-1 text-xs text-[var(--muted)]">{adm2Plan?.unitNative ?? "按该国正式行政层级接入"}</p>
               </div>
-              <span className="rounded-full bg-white/75 px-3 py-1 text-xs text-[var(--muted)]">待接入</span>
+              <DataStatusBadge status="pending" />
             </div>
 
             <div className="mt-4 rounded-xl bg-white/75 p-3">
@@ -263,24 +259,40 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
               {basicIndicators.length > 0 ? (
                 basicIndicators.slice(0, 6).map((indicator) => (
                   <div key={indicator.id} className="rounded-xl bg-white/70 p-3">
-                    <p className="text-xs text-[var(--muted)]">{indicator.label}</p>
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="text-xs text-[var(--muted)]">{indicator.label}</p>
+                      <DataStatusBadge status={indicator.status === "official" ? "official" : "manual"} />
+                    </div>
                     <p className="mt-2 text-lg font-semibold">{indicator.value}</p>
                     <p className="mt-1 text-[10px] text-[var(--muted)]">{indicator.year} / {indicator.source}</p>
                   </div>
                 ))
               ) : (
                 <div className="col-span-2 rounded-xl bg-white/70 p-3">
-                  <p className="text-sm font-semibold">待接入官方统计</p>
+                  <div className="flex items-center justify-between gap-2">
+                    <p className="text-sm font-semibold">官方统计未接入</p>
+                    <DataStatusBadge status="pending" />
+                  </div>
                   <p className="mt-2 text-xs leading-5 text-[var(--muted)]">该国宏观数据将以本国统计部门最新发布为主，World Bank / Eurostat 仅作交叉核验。</p>
                 </div>
               )}
             </div>
           </div>
 
-          <div className="mt-5 space-y-3">
-            <MetricBar label="执政联盟数量" value={governingParties.length / 5} note={`${governingParties.length} 个`} />
-            <MetricBar label="对华经贸项目样本" value={country.chinaProjects.length / 5} note={`${country.chinaProjects.length} 个`} />
-            <MetricBar label="主要在野党样本" value={oppositionParties.length / 5} note={`${oppositionParties.length} 个`} />
+          <div className="mt-5 grid gap-3">
+            {[
+              { label: "执政结构", status: partyStatus, note: governingParties.length > 0 ? "人工整理，需与官方政府名单复核。" : "未接入可信来源。" },
+              { label: "对华经贸项目", status: "pending", note: "项目入口已预留，贸易额、地区与企业字段待量化。" },
+              { label: "主要在野党", status: partyStatus, note: oppositionParties.length > 0 ? "人工整理，需与议会席位和选举结果复核。" : "未接入可信来源。" },
+            ].map((item) => (
+              <div key={item.label} className="rounded-2xl border border-[var(--line)] bg-white/70 p-3">
+                <div className="flex items-center justify-between gap-3">
+                  <p className="text-sm font-semibold">{item.label}</p>
+                  <DataStatusBadge status={item.status as "manual" | "pending"} />
+                </div>
+                <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{item.note}</p>
+              </div>
+            ))}
           </div>
 
           <div className="mt-5 flex flex-wrap gap-2">

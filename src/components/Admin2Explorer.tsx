@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { DataStatusBadge } from "@/components/DataStatusBadge";
 import type { Country, Region } from "@/lib/data";
 
 type Admin2ExplorerProps = {
@@ -29,8 +30,12 @@ export function Admin2Explorer({ country, region }: Admin2ExplorerProps) {
       <aside className="card p-6">
         <p className="eyebrow">ADM2 Explorer</p>
         <h2 className="mt-3 text-2xl font-semibold">二级行政区选择</h2>
+        <div className="mt-3 flex flex-wrap gap-2">
+          <DataStatusBadge status="sample" />
+          <DataStatusBadge status="pending" />
+        </div>
         <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
-          当前为结构占位。正式版将在这里接入 {country.nameZh} / {region.nameZh} 的二级行政区边界、名称、地方主政人员和区域级指标。
+          当前为结构样例，不进入模型。正式版将在这里接入 {country.nameZh} / {region.nameZh} 的真实二级行政区边界、名称、地方主政人员和区域级指标。
         </p>
         <div className="mt-5 space-y-2">
           {admin2Items.map((item) => (
@@ -45,7 +50,10 @@ export function Admin2Explorer({ country, region }: Admin2ExplorerProps) {
               }`}
             >
               <p className="text-sm font-semibold">{item.name}</p>
-              <p className="mt-1 text-xs text-[var(--muted)]">{item.type}</p>
+              <div className="mt-2 flex flex-wrap items-center gap-2">
+                <DataStatusBadge status="sample" />
+                <span className="text-xs text-[var(--muted)]">{item.type}</span>
+              </div>
             </button>
           ))}
         </div>
@@ -61,7 +69,10 @@ export function Admin2Explorer({ country, region }: Admin2ExplorerProps) {
           {["政治支持率", "地方主政人员", "基础经济指标"].map((item) => (
             <div key={item} className="rounded-2xl border border-[var(--line)] bg-white/60 p-4">
               <p className="text-sm font-semibold">{item}</p>
-              <p className="mt-2 text-xs text-[var(--muted)]">{selectedItem.status}</p>
+              <div className="mt-2 flex flex-wrap items-center gap-2">
+                <DataStatusBadge status="pending" />
+                <span className="text-xs text-[var(--muted)]">{selectedItem.status}</span>
+              </div>
             </div>
           ))}
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { DataStatusBadge } from "@/components/DataStatusBadge";
 import { countries } from "@/lib/data";
 import { getNewsTopics, weeklyNewsItems, type NewsTopic } from "@/lib/newsData";
 
@@ -82,11 +83,17 @@ export function NewsExplorer() {
               <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{item.weekOf}</span>
               <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{item.topic}</span>
               <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{item.language}</span>
-              <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{item.dataStatus === "sample" ? "样例" : "已核验"}</span>
+              <DataStatusBadge status={item.dataStatus === "sample" ? "sample" : "manual"} />
+              <DataStatusBadge status={item.sourceUrl ? "manual" : "pending"} />
             </div>
             <p className="mt-4 text-sm font-semibold text-[var(--accent)]">{item.countryZh}</p>
             <h2 className="mt-2 text-xl font-semibold">{item.title}</h2>
             <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.summary}</p>
+            {item.dataStatus === "sample" ? (
+              <p className="mt-3 rounded-2xl border border-amber-200 bg-amber-50 px-3 py-2 text-xs font-semibold text-amber-800">
+                结构样例，不进入模型。该条只用于验证新闻周报版式，不作为事实新闻或训练/评分输入。
+              </p>
+            ) : null}
             <p className="mt-4 text-xs text-[var(--muted)]">来源：{item.sourceLabel}</p>
           </article>
         ))}

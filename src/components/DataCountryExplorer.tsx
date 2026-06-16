@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import { DataStatusBadge } from "@/components/DataStatusBadge";
 import { countries } from "@/lib/data";
 import { getEconomicSourcePolicy } from "@/lib/economicSourcePolicy";
 import {
@@ -19,9 +20,11 @@ const dataModes: { id: DataMode; label: string; description: string }[] = [
   { id: "charts", label: "图表层", description: "只显示经济数据，可切换 GDP、CPI/通胀、失业率等指标。" },
 ];
 
+const tableMetricIds: EconomicMetricId[] = ["population", "gdp", "gdpPerCapita", "growth", "inflation", "unemployment"];
+
 function formatMetricValue(value: number | null, metricId: EconomicMetricId) {
   if (value === null) {
-    return "待接入";
+    return "缺失";
   }
 
   if (metricId === "population") {
@@ -43,6 +46,14 @@ function valueFor(row: EconomicYearRow, metricId: EconomicMetricId) {
   return row[metricId];
 }
 
+function statusForMetric(value: number | null): "official" | "missing" {
+  return value === null ? "missing" : "official";
+}
+
+function projectStatusKind(status: string): "pending" | "manual" {
+  return status.includes("待") ? "pending" : "manual";
+}
+
 function ChartBar({ label, value, max, display }: { label: string; value: number | null; max: number; display: string }) {
   const width = value === null || max <= 0 ? 0 : Math.max(3, Math.min(100, (Math.abs(value) / max) * 100));
 
@@ -50,7 +61,10 @@ function ChartBar({ label, value, max, display }: { label: string; value: number
     <div>
       <div className="flex items-center justify-between gap-3 text-xs">
         <span className="font-semibold">{label}</span>
-        <span className="text-[var(--muted)]">{display}</span>
+        <span className="flex items-center gap-2 text-[var(--muted)]">
+          {display}
+          <DataStatusBadge status={statusForMetric(value)} />
+        </span>
       </div>
       <div className="mt-2 h-3 overflow-hidden rounded-full bg-white/75">
         <div className={`h-full rounded-full ${value === null ? "bg-[var(--surface-muted)]" : "bg-[var(--accent)]"}`} style={{ width: `${width}%` }} />
@@ -114,8 +128,11 @@ export function DataCountryExplorer() {
                   <span className="rounded-full bg-white/75 px-2 py-0.5 text-[10px] text-[var(--muted)]">{country.iso2}</span>
                 </div>
                 <p className="mt-2 text-xs text-[var(--muted)]">
-                  GDP {latest ? formatMetricValue(latest.gdp, "gdp") : "待接入"}
+                  GDP {latest ? formatMetricValue(latest.gdp, "gdp") : "缺失"}
                 </p>
+                <div className="mt-2">
+                  <DataStatusBadge status={latest ? statusForMetric(latest.gdp) : "missing"} />
+                </div>
               </button>
             );
           })}
@@ -159,12 +176,15 @@ export function DataCountryExplorer() {
             <section className="grid gap-3 md:grid-cols-3">
               {latestEconomicRow ? (
                 [
-                  ["2025 GDP", formatMetricValue(latestEconomicRow.gdp, "gdp")],
-                  ["2025 CPI / HICP", formatMetricValue(latestEconomicRow.inflation, "inflation")],
-                  ["2025 失业率", formatMetricValue(latestEconomicRow.unemployment, "unemployment")],
-                ].map(([label, value]) => (
+                  ["2025 GDP", formatMetricValue(latestEconomicRow.gdp, "gdp"), statusForMetric(latestEconomicRow.gdp)],
+                  ["2025 CPI / HICP", formatMetricValue(latestEconomicRow.inflation, "inflation"), statusForMetric(latestEconomicRow.inflation)],
+                  ["2025 失业率", formatMetricValue(latestEconomicRow.unemployment, "unemployment"), statusForMetric(latestEconomicRow.unemployment)],
+                ].map(([label, value, status]) => (
                   <div key={label} className="card p-5">
-                    <p className="text-xs text-[var(--muted)]">{label}</p>
+                    <div className="flex items-center justify-between gap-2">
+                      <p className="text-xs text-[var(--muted)]">{label}</p>
+                      <DataStatusBadge status={status as "official" | "missing"} />
+                    </div>
                     <p className="mt-2 text-2xl font-semibold">{value}</p>
                   </div>
                 ))
@@ -196,13 +216,24 @@ export function DataCountryExplorer() {
                     {economicRows.map((row) => (
                       <tr key={row.year} className="align-top">
                         <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{row.year}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3">{formatMetricValue(row.population, "population")}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3">{formatMetricValue(row.gdp, "gdp")}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3">{formatMetricValue(row.gdpPerCapita, "gdpPerCapita")}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3">{formatMetricValue(row.growth, "growth")}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3">{formatMetricValue(row.inflation, "inflation")}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3">{formatMetricValue(row.unemployment, "unemployment")}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">{row.source}</td>
+                        {tableMetricIds.map((metricId) => {
+                          const metric = economicMetricOptions.find((option) => option.id === metricId) ?? economicMetricOptions[0];
+                          const value = valueFor(row, metric.id);
+                          return (
+                            <td key={metric.id} className="border-b border-[var(--line)] px-3 py-3">
+                              <div className="flex flex-col gap-2">
+                                <span>{formatMetricValue(value, metric.id)}</span>
+                                <DataStatusBadge status={statusForMetric(value)} />
+                              </div>
+                            </td>
+                          );
+                        })}
+                        <td className="border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">
+                          <div className="flex flex-col gap-2">
+                            <span>{row.source}</span>
+                            <DataStatusBadge status="official" />
+                          </div>
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -218,6 +249,9 @@ export function DataCountryExplorer() {
                   <a href={economicPolicy.primaryUrl} target="_blank" rel="noreferrer" className="mt-5 block rounded-2xl border border-[var(--line)] bg-white/65 p-5 transition hover:border-[var(--accent)]">
                     <p className="text-xs text-[var(--muted)]">主机构</p>
                     <h3 className="mt-2 text-xl font-semibold">{economicPolicy.primaryAgency}</h3>
+                    <div className="mt-3">
+                      <DataStatusBadge status="official" />
+                    </div>
                     <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{economicPolicy.releaseType}</p>
                     <div className="mt-4 flex flex-wrap gap-2">
                       {economicPolicy.indicators.map((indicator) => (
@@ -227,7 +261,10 @@ export function DataCountryExplorer() {
                     <p className="mt-4 text-xs text-[var(--muted)]">辅助核验：{economicPolicy.fallbackSources.join(" / ")}</p>
                   </a>
                 ) : (
-                  <p className="mt-5 rounded-2xl border border-[var(--line)] bg-white/65 p-5 text-sm text-[var(--muted)]">该国经济数据主源待补充。</p>
+                  <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/65 p-5 text-sm text-[var(--muted)]">
+                    <DataStatusBadge status="pending" />
+                    <p className="mt-3">该国经济数据主源待补充。</p>
+                  </div>
                 )}
               </div>
 
@@ -238,7 +275,10 @@ export function DataCountryExplorer() {
                 <div className="mt-5 grid gap-3">
                   {selectedCountry.chinaProjects.map((project) => (
                     <div key={project.name} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
-                      <p className="font-semibold">{project.name}</p>
+                      <div className="flex items-start justify-between gap-3">
+                        <p className="font-semibold">{project.name}</p>
+                        <DataStatusBadge status={projectStatusKind(project.status)} />
+                      </div>
                       <p className="mt-2 text-xs text-[var(--accent)]">{project.sector} / {project.status}</p>
                       <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{project.note}</p>
                     </div>
@@ -317,6 +357,7 @@ export function DataCountryExplorer() {
                       <th className="border-b border-[var(--line)] px-4 pb-3 font-semibold">数值</th>
                       <th className="border-b border-[var(--line)] px-4 pb-3 font-semibold">单位</th>
                       <th className="border-b border-[var(--line)] px-4 pb-3 font-semibold">来源</th>
+                      <th className="border-b border-[var(--line)] px-4 pb-3 font-semibold">数据状态</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -328,6 +369,9 @@ export function DataCountryExplorer() {
                           <td className="border-b border-[var(--line)] px-4 py-3">{formatMetricValue(value, activeMetric)}</td>
                           <td className="border-b border-[var(--line)] px-4 py-3">{activeMetricInfo.unit}</td>
                           <td className="border-b border-[var(--line)] px-4 py-3 text-xs text-[var(--muted)]">{row.source}</td>
+                          <td className="border-b border-[var(--line)] px-4 py-3">
+                            <DataStatusBadge status={statusForMetric(value)} />
+                          </td>
                         </tr>
                       );
                     })}
