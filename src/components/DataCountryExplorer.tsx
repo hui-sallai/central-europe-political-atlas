@@ -112,6 +112,17 @@ function reliabilityLevelLabel(value: string) {
   return labels[value] ?? value;
 }
 
+function reliabilityLevelDescription(value: string) {
+  const descriptions: Record<string, string> = {
+    A: "官方统计机构、央行、欧盟机构、国际组织；可以作为正式数据或事件依据。",
+    B: "主流通讯社、权威智库、官方年报；可以作为正式数据或事件依据。",
+    C: "地方媒体、企业公告、行业网站；只作补充线索。",
+    D: "未核验二手来源、社交媒体、无明确出处内容；不进入正式数据、事件库和模型计算。",
+  };
+
+  return descriptions[value] ?? "来源可靠性规则待补充。";
+}
+
 function formatExtendedValue(observation: ExtendedObservation) {
   if (observation.value === null) {
     return "待接入";
@@ -825,6 +836,7 @@ export function DataCountryExplorer() {
                       <a key={source.sourceId} href={source.url} target="_blank" rel="noreferrer" className="rounded-xl bg-[var(--surface-muted)] p-3 text-xs">
                         <p className="font-semibold text-[var(--foreground)]">{source.sourceName}</p>
                         <p className="mt-1 text-[var(--muted)]">{source.sourceType} / {reliabilityLevelLabel(source.reliabilityLevel)}</p>
+                        <p className="mt-1 leading-5 text-[var(--muted)]">{reliabilityLevelDescription(source.reliabilityLevel)}</p>
                         <p className="mt-1 leading-5 text-[var(--muted)]">{source.usageNotes}</p>
                       </a>
                     ))}

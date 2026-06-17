@@ -16,10 +16,10 @@ const sourceLevelItems = [
 ];
 
 const reliabilityItems = [
-  { level: "A 级", title: "官方与国际机构", body: "官方统计机构、央行、欧盟机构、国际组织。可作为正式数据或事件依据。" },
-  { level: "B 级", title: "权威公开材料", body: "主流通讯社、权威智库、官方年报。可作为正式事件依据；数值型数据需注明口径并优先与 A 级来源交叉核验。" },
-  { level: "C 级", title: "补充性来源", body: "地方媒体、企业公告、行业网站。只作补充说明或线索，不单独支撑正式数据。" },
-  { level: "D 级", title: "不进入正式数据", body: "未核验二手来源、社交媒体、无明确出处内容。不进入平台正式数据，也不进入模型。" },
+  { level: "A 级", field: "reliability_level = A", title: "官方统计机构、央行、欧盟机构、国际组织", body: "可以作为正式数据或事件依据。" },
+  { level: "B 级", field: "reliability_level = B", title: "主流通讯社、权威智库、官方年报", body: "可以作为正式数据或事件依据；数值型数据仍需注明口径，并优先与 A 级来源交叉核验。" },
+  { level: "C 级", field: "reliability_level = C", title: "地方媒体、企业公告、行业网站", body: "只作补充线索，不单独支撑正式数据或事件结论。" },
+  { level: "D 级", field: "reliability_level = D", title: "未核验二手来源、社交媒体、无明确出处内容", body: "不进入正式数据、事件库和模型计算。" },
 ];
 
 const dataPriorityItems = [
@@ -35,7 +35,7 @@ const fieldRules = [
   "经济指标统一优先使用各国统计部门和 Eurostat 可核验表；金额类指标统一换算或显示为欧元口径。",
   "观测值表按国家、地区、指标、日期、频率、数值、单位、来源、状态、更新时间保存。",
   "党派、项目和新闻事件必须区分事实字段、人工整理字段和结构样例字段。",
-  "来源可靠性按 A/B/C/D 标注：A/B 级可作为正式数据或事件依据，C 级只作补充，D 级不进入平台正式数据。",
+  "来源可靠性必须写入 reliability_level 字段：A/B 级可以作为正式数据或事件依据；C 级只作补充线索；D 级不进入正式数据、事件库和模型计算。",
 ];
 
 const excludedItems = [
@@ -119,8 +119,9 @@ export default function MethodologyPage() {
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {reliabilityItems.map((item) => (
             <article key={item.level} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3">
                 <span className="rounded-full bg-[var(--accent)] px-3 py-1 text-xs font-semibold text-white">{item.level}</span>
+                <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 font-mono text-[10px] text-[var(--muted)]">{item.field}</span>
                 <h3 className="font-semibold">{item.title}</h3>
               </div>
               <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{item.body}</p>
@@ -128,7 +129,7 @@ export default function MethodologyPage() {
           ))}
         </div>
         <p className="mt-4 rounded-2xl bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--muted)]">
-          使用规则：A/B 级可以作为正式数据或事件依据；C 级只作补充；D 级不进入平台正式数据。
+          使用规则：A/B 级可以作为正式数据或事件依据；C 级只作补充线索；D 级不进入正式数据、事件库和模型计算。
         </p>
       </section>
 
