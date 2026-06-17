@@ -102,6 +102,21 @@ export const extendedIndicators: ExtendedIndicator[] = [
   { id: "automotive_export_share", labelZh: "汽车产业出口占比", labelEn: "Automotive industry export share", category: "industry", unit: "%", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "NACE C29 exports / total exports" },
 ];
 
+export const v4TemplateIndicatorIds = [
+  "fiscal_deficit_gdp",
+  "government_debt_gdp",
+  "government_revenue_gdp",
+  "government_expenditure_gdp",
+  "exports_mio_eur",
+  "imports_mio_eur",
+  "trade_balance_mio_eur",
+  "current_account_gdp",
+  "fdi_mio_eur",
+  "energy_import_dependency",
+  "manufacturing_gva_gdp",
+  "automotive_export_share",
+] as const;
+
 export const countryTableRecords: CountryTableRecord[] = [
   { countryCode: "PL", countrySlug: "poland", nameZh: "波兰", nameEn: "Poland", euMember: true, eurozoneMember: false, regionalGroup: "V4", priority: 1, notes: "V4 最大经济体；财政、外部、能源和对华物流数据优先补。" },
   { countryCode: "HU", countrySlug: "hungary", nameZh: "匈牙利", nameEn: "Hungary", euMember: true, eurozoneMember: false, regionalGroup: "V4", priority: 2, notes: "对华制造业、汽车和电池供应链项目优先补。" },
@@ -178,6 +193,23 @@ export const extendedObservations: ExtendedObservation[] = [
     obs(countrySlug, "automotive_export_share", automotiveShare, `${sourceUrls.automotiveExports}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedTradeByActivity, "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"),
   ]),
 ];
+
+export function getV4TemplateCoverage(countrySlug: string) {
+  const existingIndicatorIds = new Set(
+    extendedObservations
+      .filter((observation) => observation.countrySlug === countrySlug)
+      .map((observation) => observation.indicatorId),
+  );
+  const present = v4TemplateIndicatorIds.filter((indicatorId) => existingIndicatorIds.has(indicatorId));
+  const missing = v4TemplateIndicatorIds.filter((indicatorId) => !existingIndicatorIds.has(indicatorId));
+
+  return {
+    total: v4TemplateIndicatorIds.length,
+    present,
+    missing,
+    complete: missing.length === 0,
+  };
+}
 
 export const chinaProjectRecords: ChinaProjectRecord[] = [
   {

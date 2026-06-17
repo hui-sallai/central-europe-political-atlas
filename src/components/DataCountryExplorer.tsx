@@ -14,6 +14,7 @@ import {
   getExtendedIndicator,
   getExtendedObservations,
   getNewsEventRecords,
+  getV4TemplateCoverage,
   type ExtendedCategory,
   type ExtendedObservation,
 } from "@/lib/extendedData";
@@ -189,6 +190,7 @@ export function DataCountryExplorer() {
   const newsEventRecords = getNewsEventRecords(selectedCountry.slug);
   const selectedIndicatorIds = new Set(extendedObservations.map((observation) => observation.indicatorId));
   const selectedIndicators = extendedIndicators.filter((indicator) => selectedIndicatorIds.has(indicator.id));
+  const v4TemplateCoverage = getV4TemplateCoverage(selectedCountry.slug);
 
   return (
     <section className="mt-8 grid gap-5 lg:grid-cols-[260px_minmax(0,1fr)]">
@@ -591,6 +593,45 @@ export function DataCountryExplorer() {
 
         {activeMode === "tables" ? (
           <section className="grid gap-5">
+            <div className="card p-6">
+              <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+                <div>
+                  <p className="eyebrow">V4 Template Coverage</p>
+                  <h2 className="mt-3 text-2xl font-semibold">V4 模板覆盖</h2>
+                  <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+                    以波兰扩展数据作为 V4 第一批横向比较模板，当前只检查四国是否拥有同一组财政、外部、投资、能源和产业指标；不在此处继续给波兰新增指标。
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-[var(--line)] bg-white/70 px-5 py-4 text-right">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">接入进度</p>
+                  <p className="mt-2 text-3xl font-semibold text-[var(--accent)]">
+                    {v4TemplateCoverage.present.length}/{v4TemplateCoverage.total}
+                  </p>
+                  <p className="mt-1 text-xs text-[var(--muted)]">{v4TemplateCoverage.complete ? "结构已对齐" : "仍有缺项"}</p>
+                </div>
+              </div>
+              <div className="mt-5 flex flex-wrap gap-2">
+                {v4TemplateCoverage.present.map((indicatorId) => {
+                  const indicator = getExtendedIndicator(indicatorId);
+
+                  return (
+                    <span key={indicatorId} className="rounded-full border border-[var(--line)] bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--foreground)]">
+                      {indicator?.labelZh ?? indicatorId}
+                    </span>
+                  );
+                })}
+                {v4TemplateCoverage.missing.map((indicatorId) => {
+                  const indicator = getExtendedIndicator(indicatorId);
+
+                  return (
+                    <span key={indicatorId} className="rounded-full border border-dashed border-[var(--line)] bg-white px-3 py-1 text-xs font-semibold text-[var(--muted)]">
+                      缺失：{indicator?.labelZh ?? indicatorId}
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
+
             <div className="card p-6">
               <p className="eyebrow">Country Table</p>
               <h2 className="mt-3 text-2xl font-semibold">国家表</h2>
