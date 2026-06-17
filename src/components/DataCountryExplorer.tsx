@@ -30,11 +30,12 @@ import {
   type EconomicYearRow,
 } from "@/lib/economicTimeSeries";
 
-type DataMode = "economy" | "charts" | "tables";
+type DataMode = "economy" | "charts" | "comparison" | "tables";
 
 const dataModes: { id: DataMode; label: string; description: string }[] = [
   { id: "economy", label: "经济数据", description: "近五年宏观经济表、官方统计主源与对华经贸样本。" },
   { id: "charts", label: "图表层", description: "只显示经济数据，可切换 GDP、CPI/通胀、失业率等指标。" },
+  { id: "comparison", label: "V4 横向比较", description: "按同一套 V4 模板指标并列比较波兰、匈牙利、捷克和斯洛伐克。" },
   { id: "tables", label: "数据表格", description: "按六张核心表检查当前国家的数据完整性。" },
 ];
 
@@ -287,7 +288,7 @@ export function DataCountryExplorer() {
             </Link>
           </div>
 
-          <div className="mt-6 grid gap-2 md:grid-cols-3">
+          <div className="mt-6 grid gap-2 md:grid-cols-4">
             {dataModes.map((mode) => (
               <button
                 key={mode.id}
@@ -305,76 +306,78 @@ export function DataCountryExplorer() {
           </div>
         </section>
 
-        <section className="card overflow-hidden p-6">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-            <div>
-              <p className="eyebrow">V4 Cross-Country Comparison</p>
-              <h2 className="mt-3 text-2xl font-semibold">V4 横向比较区</h2>
-              <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                按同一套 V4 模板指标并列比较波兰、匈牙利、捷克和斯洛伐克。当前区块只做事实数据对照，不输出预测或风险指数。
-              </p>
+        {activeMode === "comparison" ? (
+          <section className="card overflow-hidden p-6">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+              <div>
+                <p className="eyebrow">V4 Cross-Country Comparison</p>
+                <h2 className="mt-3 text-2xl font-semibold">V4 横向比较区</h2>
+                <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+                  按同一套 V4 模板指标并列比较波兰、匈牙利、捷克和斯洛伐克。当前区块只做事实数据对照，不输出预测或风险指数。
+                </p>
+              </div>
+              <div className="rounded-2xl border border-[var(--line)] bg-white/70 px-5 py-4 text-right">
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">模板规模</p>
+                <p className="mt-2 text-3xl font-semibold text-[var(--accent)]">{v4TemplateIndicatorIds.length}</p>
+                <p className="mt-1 text-xs text-[var(--muted)]">指标 / 4 国</p>
+              </div>
             </div>
-            <div className="rounded-2xl border border-[var(--line)] bg-white/70 px-5 py-4 text-right">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">模板规模</p>
-              <p className="mt-2 text-3xl font-semibold text-[var(--accent)]">{v4TemplateIndicatorIds.length}</p>
-              <p className="mt-1 text-xs text-[var(--muted)]">指标 / 4 国</p>
+
+            <div className="mt-5 overflow-x-auto">
+              <table className="w-full min-w-[1080px] border-separate border-spacing-0 text-left text-sm">
+                <thead>
+                  <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+                    <th className="border-b border-[var(--line)] pb-3 pr-4 font-semibold">指标</th>
+                    <th className="border-b border-[var(--line)] px-4 pb-3 font-semibold">类别</th>
+                    {v4Countries.map((country) => (
+                      <th key={country.slug} className="border-b border-[var(--line)] px-4 pb-3 font-semibold">{country.nameZh}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {v4TemplateIndicatorIds.map((indicatorId) => {
+                    const indicator = getExtendedIndicator(indicatorId);
+
+                    return (
+                      <tr key={indicatorId} className="align-top">
+                        <td className="border-b border-[var(--line)] py-3 pl-0 pr-4">
+                          <p className="font-semibold">{indicator?.labelZh ?? indicatorId}</p>
+                          <p className="mt-1 font-mono text-[10px] text-[var(--muted)]">{indicatorId}</p>
+                        </td>
+                        <td className="border-b border-[var(--line)] px-4 py-3 text-xs text-[var(--muted)]">
+                          {indicator ? extendedIndicatorLabels[indicator.category] : "待接入"}
+                        </td>
+                        {v4Countries.map((country) => {
+                          const observation = v4ObservationMaps.get(country.slug)?.get(indicatorId);
+
+                          return (
+                            <td key={`${country.slug}-${indicatorId}`} className="border-b border-[var(--line)] px-4 py-3">
+                              {observation ? (
+                                <div className="flex min-w-[150px] flex-col gap-2">
+                                  <span className="font-semibold">{formatExtendedValue(observation)}</span>
+                                  <span className="text-[10px] text-[var(--muted)]">{observation.date} / {observation.unit}</span>
+                                  <DataStatusBadge status={observation.status} />
+                                  <a href={observation.sourceUrl} target="_blank" rel="noreferrer" className="text-[10px] font-semibold text-[var(--accent)]">
+                                    {observation.sourceName}
+                                  </a>
+                                </div>
+                              ) : (
+                                <div className="flex min-w-[150px] flex-col gap-2">
+                                  <span className="text-[var(--muted)]">待接入</span>
+                                  <DataStatusBadge status="pending" />
+                                </div>
+                              )}
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
             </div>
-          </div>
-
-          <div className="mt-5 overflow-x-auto">
-            <table className="w-full min-w-[1080px] border-separate border-spacing-0 text-left text-sm">
-              <thead>
-                <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-                  <th className="border-b border-[var(--line)] pb-3 pr-4 font-semibold">指标</th>
-                  <th className="border-b border-[var(--line)] px-4 pb-3 font-semibold">类别</th>
-                  {v4Countries.map((country) => (
-                    <th key={country.slug} className="border-b border-[var(--line)] px-4 pb-3 font-semibold">{country.nameZh}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {v4TemplateIndicatorIds.map((indicatorId) => {
-                  const indicator = getExtendedIndicator(indicatorId);
-
-                  return (
-                    <tr key={indicatorId} className="align-top">
-                      <td className="border-b border-[var(--line)] py-3 pl-0 pr-4">
-                        <p className="font-semibold">{indicator?.labelZh ?? indicatorId}</p>
-                        <p className="mt-1 font-mono text-[10px] text-[var(--muted)]">{indicatorId}</p>
-                      </td>
-                      <td className="border-b border-[var(--line)] px-4 py-3 text-xs text-[var(--muted)]">
-                        {indicator ? extendedIndicatorLabels[indicator.category] : "待接入"}
-                      </td>
-                      {v4Countries.map((country) => {
-                        const observation = v4ObservationMaps.get(country.slug)?.get(indicatorId);
-
-                        return (
-                          <td key={`${country.slug}-${indicatorId}`} className="border-b border-[var(--line)] px-4 py-3">
-                            {observation ? (
-                              <div className="flex min-w-[150px] flex-col gap-2">
-                                <span className="font-semibold">{formatExtendedValue(observation)}</span>
-                                <span className="text-[10px] text-[var(--muted)]">{observation.date} / {observation.unit}</span>
-                                <DataStatusBadge status={observation.status} />
-                                <a href={observation.sourceUrl} target="_blank" rel="noreferrer" className="text-[10px] font-semibold text-[var(--accent)]">
-                                  {observation.sourceName}
-                                </a>
-                              </div>
-                            ) : (
-                              <div className="flex min-w-[150px] flex-col gap-2">
-                                <span className="text-[var(--muted)]">待接入</span>
-                                <DataStatusBadge status="pending" />
-                              </div>
-                            )}
-                          </td>
-                        );
-                      })}
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </section>
+          </section>
+        ) : null}
 
         {activeMode === "economy" ? (
           <>
