@@ -1,20 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { frozenNavItems } from "@/lib/siteStructure";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "中欧政治经济地图",
   description: "V4 political and economic atlas prototype.",
 };
-
-const navItems = [
-  { href: "/", label: "首页" },
-  { href: "/map", label: "地图" },
-  { href: "/countries", label: "国家" },
-  { href: "/data", label: "数据" },
-  { href: "/news", label: "新闻周报" },
-  { href: "/methodology", label: "文字资料" },
-];
 
 export default function RootLayout({
   children,
@@ -30,7 +22,7 @@ export default function RootLayout({
               Central Europe Political Atlas
             </Link>
             <div className="flex gap-5 text-sm text-[var(--muted)]">
-              {navItems.map((item) => (
+              {frozenNavItems.map((item) => (
                 <Link key={item.href} href={item.href} className="hover:text-[var(--foreground)]">
                   {item.label}
                 </Link>

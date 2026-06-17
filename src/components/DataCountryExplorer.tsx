@@ -64,6 +64,37 @@ function statusForMetric(value: number | null): "official" | "pending" {
   return value === null ? "pending" : "official";
 }
 
+function analysisUseLabel(value: string) {
+  const labels: Record<string, string> = {
+    eligible_after_review: "复核后可进入后续分析",
+    display_only: "仅展示",
+    excluded: "不进入分析计算",
+  };
+
+  return labels[value] ?? value;
+}
+
+function directionMeaningLabel(value: string) {
+  const labels: Record<string, string> = {
+    higher_risk: "数值上升代表压力上升",
+    lower_risk: "数值上升代表压力下降",
+    neutral: "中性",
+    context: "背景解释",
+  };
+
+  return labels[value] ?? value;
+}
+
+function analysisBoundaryLabel(value: string) {
+  const labels: Record<string, string> = {
+    excluded: "当前不进入分析计算",
+    explain_only: "仅作事件解释",
+    eligible_after_review: "复核后可进入后续分析",
+  };
+
+  return labels[value] ?? value;
+}
+
 function formatExtendedValue(observation: ExtendedObservation) {
   if (observation.value === null) {
     return "待接入";
@@ -358,7 +389,7 @@ export function DataCountryExplorer() {
                           <div><dt className="font-semibold text-[var(--foreground)]">主体</dt><dd>{project.actors}</dd></div>
                           <div><dt className="font-semibold text-[var(--foreground)]">金额</dt><dd>{project.amountEur === null ? "待接入" : `${project.amountEur.toLocaleString("zh-CN")} 欧元`}</dd></div>
                           <div><dt className="font-semibold text-[var(--foreground)]">状态</dt><dd>{project.projectStatus}</dd></div>
-                          <div><dt className="font-semibold text-[var(--foreground)]">风险标签</dt><dd>{project.riskTags.join(" / ")}</dd></div>
+                          <div><dt className="font-semibold text-[var(--foreground)]">关注标签</dt><dd>{project.riskTags.join(" / ")}</dd></div>
                         </dl>
                         <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{project.note}</p>
                       </div>
@@ -578,7 +609,7 @@ export function DataCountryExplorer() {
                 <table className="w-full min-w-[980px] border-separate border-spacing-0 text-left text-sm">
                   <thead>
                     <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-                      {["指标ID", "中文名", "英文名", "类别", "单位", "频率", "模型用途", "风险方向", "转换"].map((header) => (
+                      {["指标ID", "中文名", "英文名", "类别", "单位", "频率", "分析用途", "方向解释", "转换"].map((header) => (
                         <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
                       ))}
                     </tr>
@@ -592,8 +623,8 @@ export function DataCountryExplorer() {
                         <td className="border-b border-[var(--line)] px-3 py-3">{extendedIndicatorLabels[indicator.category]}</td>
                         <td className="border-b border-[var(--line)] px-3 py-3">{indicator.unit}</td>
                         <td className="border-b border-[var(--line)] px-3 py-3">{indicator.frequency}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3">{indicator.modelUse}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3">{indicator.riskDirection}</td>
+                        <td className="border-b border-[var(--line)] px-3 py-3">{analysisUseLabel(indicator.modelUse)}</td>
+                        <td className="border-b border-[var(--line)] px-3 py-3">{directionMeaningLabel(indicator.riskDirection)}</td>
                         <td className="border-b border-[var(--line)] px-3 py-3">{indicator.transform}</td>
                       </tr>
                     ))}
@@ -678,7 +709,7 @@ export function DataCountryExplorer() {
                       <div key={event.eventId} className="rounded-xl bg-[var(--surface-muted)] p-3 text-xs">
                         <p className="font-semibold text-[var(--foreground)]">{event.title}</p>
                         <p className="mt-1 text-[var(--muted)]">{event.date} / {event.topic} / {event.eventType}</p>
-                        <p className="mt-1 leading-5 text-[var(--muted)]">模型：{event.modelImpact}；涉华：{event.chinaRelated ? "是" : "否"}；强度：{event.intensity ?? "待量化"}</p>
+                        <p className="mt-1 leading-5 text-[var(--muted)]">分析边界：{analysisBoundaryLabel(event.modelImpact)}；涉华：{event.chinaRelated ? "是" : "否"}；强度：{event.intensity ?? "待量化"}</p>
                         <p className="mt-1 leading-5 text-[var(--muted)]">{event.summary}</p>
                       </div>
                     ))}

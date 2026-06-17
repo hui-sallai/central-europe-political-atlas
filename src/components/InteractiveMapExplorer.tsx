@@ -138,9 +138,9 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
                     {selectedRegion.typeZh}
                     {selectedRegion.capitalZh ? ` / 行政中心：${selectedRegion.capitalZh}` : ""}
                   </p>
-                  <Link href={`/regions/${selectedRegion.slug}`} className="mt-3 inline-flex rounded-full border border-[var(--line)] bg-white px-3 py-1 text-xs font-semibold">
-                    进入区域详情页
-                  </Link>
+                  <span className="mt-3 inline-flex rounded-full border border-[var(--line)] bg-white px-3 py-1 text-xs font-semibold text-[var(--muted)]">
+                    区域档案预留
+                  </span>
                 </div>
               ) : null}
               <div className="mt-2 flex flex-wrap gap-1.5">

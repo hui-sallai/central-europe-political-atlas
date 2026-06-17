@@ -133,10 +133,10 @@ export function V4SchematicMap({ compact = false, selectedCountrySlug, onSelectC
               {country.regions.map((region, index) => {
                 const point = getRegionPoint(index, country.regions.length, shape.dotArea);
                 return (
-                  <a key={region.slug} href={`/regions/${region.slug}`} aria-label={`打开${region.nameZh}区域档案`}>
+                  <g key={region.slug} aria-label={`${region.nameZh}区域样本`}>
                     <circle cx={point.x} cy={point.y} r={isSelected ? "8" : "6"} fill="#ffffff" stroke="#20242a" strokeOpacity="0.35" strokeWidth="1.5" className="transition hover:r-10" />
                     <title>{`${region.nameZh} / ${country.nameZh}`}</title>
-                  </a>
+                  </g>
                 );
               })}
             </g>

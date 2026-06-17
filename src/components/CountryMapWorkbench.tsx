@@ -306,9 +306,9 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
 
           <div className="mt-5 flex flex-wrap gap-2">
             {selectedRegion ? (
-              <Link href={`/regions/${selectedRegion.slug}`} className="rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-white">
-                打开区域详情
-              </Link>
+              <span className="rounded-full bg-[var(--accent-soft)] px-4 py-2 text-sm font-semibold text-[var(--accent)]">
+                区域档案预留
+              </span>
             ) : null}
             <Link href="/methodology" className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold">
               文字资料
