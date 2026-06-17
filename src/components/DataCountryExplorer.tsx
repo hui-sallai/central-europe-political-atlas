@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
 import { countries } from "@/lib/data";
 import { getEconomicSourcePolicy } from "@/lib/economicSourcePolicy";
+import { extendedIndicatorLabels, getChinaProjectRecords, getExtendedIndicator, getExtendedObservations, type ExtendedCategory, type ExtendedObservation } from "@/lib/extendedData";
 import {
   economicMetricOptions,
   getEconomicFiveYearRows,
@@ -21,6 +22,7 @@ const dataModes: { id: DataMode; label: string; description: string }[] = [
 ];
 
 const tableMetricIds: EconomicMetricId[] = ["population", "gdp", "gdpPerCapita", "growth", "inflation", "unemployment"];
+const extendedCategoryOrder: ExtendedCategory[] = ["fiscal", "external", "energyIndustry"];
 
 function formatMetricValue(value: number | null, metricId: EconomicMetricId) {
   if (value === null) {
@@ -50,8 +52,44 @@ function statusForMetric(value: number | null): "official" | "pending" {
   return value === null ? "pending" : "official";
 }
 
-function projectStatusKind(status: string): "pending" | "manual" {
-  return status.includes("待") ? "pending" : "manual";
+function formatExtendedValue(observation: ExtendedObservation) {
+  if (observation.value === null) {
+    return "待接入";
+  }
+
+  if (observation.unit === "百万欧元") {
+    return `${observation.value.toLocaleString("zh-CN", { maximumFractionDigits: 1 })} 百万欧元`;
+  }
+
+  return `${observation.value.toLocaleString("zh-CN", { maximumFractionDigits: 1 })}${observation.unit.startsWith("%") ? "" : " "}${observation.unit}`;
+}
+
+function economicSourceUrl(source: string) {
+  if (source.includes("Eurostat")) {
+    return "https://ec.europa.eu/eurostat/databrowser/";
+  }
+
+  if (source.includes("Destatis")) {
+    return "https://www.destatis.de/EN/Home/_node.html";
+  }
+
+  if (source.includes("Statistics Poland")) {
+    return "https://stat.gov.pl/en/";
+  }
+
+  if (source.includes("Hungarian")) {
+    return "https://www.ksh.hu/?lang=en";
+  }
+
+  if (source.includes("Czech")) {
+    return "https://www.czso.cz/csu/czso/home";
+  }
+
+  if (source.includes("Slovak")) {
+    return "https://slovak.statistics.sk/";
+  }
+
+  return "https://ec.europa.eu/eurostat/databrowser/";
 }
 
 function ChartBar({ label, value, max, display }: { label: string; value: number | null; max: number; display: string }) {
@@ -93,6 +131,8 @@ export function DataCountryExplorer() {
   const activeMetricInfo = economicMetricOptions.find((metric) => metric.id === activeMetric) ?? economicMetricOptions[0];
   const metricValues = economicRows.map((row) => valueFor(row, activeMetric)).filter((value): value is number => value !== null);
   const metricMax = Math.max(1, ...metricValues.map((value) => Math.abs(value)));
+  const extendedObservations = getExtendedObservations(selectedCountry.slug);
+  const projectRecords = getChinaProjectRecords(selectedCountry.slug);
 
   return (
     <section className="mt-8 grid gap-5 lg:grid-cols-[260px_minmax(0,1fr)]">
@@ -235,7 +275,9 @@ export function DataCountryExplorer() {
                         })}
                         <td className="border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">
                           <div className="flex flex-col gap-2">
-                            <span>{row.source}</span>
+                            <a href={economicSourceUrl(row.source)} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)]">
+                              {row.source}
+                            </a>
                             <DataStatusBadge status="official" />
                             <SourceStatusBadge status="official" />
                           </div>
@@ -278,25 +320,106 @@ export function DataCountryExplorer() {
 
               <div className="card p-6">
                 <p className="eyebrow">China Economic Data</p>
-                <h2 className="mt-3 text-2xl font-semibold">对华经贸样本</h2>
+                <h2 className="mt-3 text-2xl font-semibold">对华经贸项目表</h2>
                 <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{selectedCountry.chinaTradeNote}</p>
                 <div className="mt-5 grid gap-3">
-                  {selectedCountry.chinaProjects.map((project) => (
-                    <div key={project.name} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
-                      <div className="flex items-start justify-between gap-3">
-                        <p className="font-semibold">{project.name}</p>
-                        <DataStatusBadge status={projectStatusKind(project.status)} />
+                  {projectRecords.length > 0 ? (
+                    projectRecords.map((project) => (
+                      <div key={project.projectId} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+                        <div className="flex items-start justify-between gap-3">
+                          <p className="font-semibold">{project.projectName}</p>
+                          <DataStatusBadge status={project.status} />
+                        </div>
+                        <div className="mt-2 flex flex-wrap gap-2">
+                          <SourceStatusBadge status={project.status === "official" ? "official" : project.status === "sample" ? "sample" : project.status === "pending" ? "pending" : "manual"} />
+                          <a href={project.sourceUrl} target="_blank" rel="noreferrer" className="rounded-full border border-[var(--line)] bg-white px-2.5 py-1 text-[10px] font-semibold text-[var(--accent)]">
+                            来源链接
+                          </a>
+                        </div>
+                        <dl className="mt-3 grid gap-2 text-xs text-[var(--muted)] sm:grid-cols-2">
+                          <div><dt className="font-semibold text-[var(--foreground)]">地区</dt><dd>{project.regionName}</dd></div>
+                          <div><dt className="font-semibold text-[var(--foreground)]">行业</dt><dd>{project.sector}</dd></div>
+                          <div><dt className="font-semibold text-[var(--foreground)]">主体</dt><dd>{project.actors}</dd></div>
+                          <div><dt className="font-semibold text-[var(--foreground)]">金额</dt><dd>{project.amountEur === null ? "待接入" : `${project.amountEur.toLocaleString("zh-CN")} 欧元`}</dd></div>
+                          <div><dt className="font-semibold text-[var(--foreground)]">状态</dt><dd>{project.projectStatus}</dd></div>
+                          <div><dt className="font-semibold text-[var(--foreground)]">风险标签</dt><dd>{project.riskTags.join(" / ")}</dd></div>
+                        </dl>
+                        <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{project.note}</p>
                       </div>
-                      <div className="mt-2">
-                        <SourceStatusBadge status={projectStatusKind(project.status)} />
-                      </div>
-                      <p className="mt-2 text-xs text-[var(--accent)]">{project.sector} / {project.status}</p>
-                      <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{project.note}</p>
+                    ))
+                  ) : (
+                    <div className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+                      <DataStatusBadge status="pending" />
+                      <SourceStatusBadge status="pending" className="ml-2" />
+                      <p className="mt-3 text-sm leading-6 text-[var(--muted)]">该国对华经贸项目表待接入项目级来源。</p>
                     </div>
-                  ))}
+                  )}
                 </div>
               </div>
             </section>
+
+            {extendedObservations.length > 0 ? (
+              <section className="grid gap-5">
+                {extendedCategoryOrder.map((category) => {
+                  const rows = extendedObservations.filter((observation) => getExtendedIndicator(observation.indicatorId)?.category === category);
+
+                  if (rows.length === 0) {
+                    return null;
+                  }
+
+                  return (
+                    <div key={category} className="card overflow-hidden p-6">
+                      <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
+                        <div>
+                          <p className="eyebrow">V4 Data Extension</p>
+                          <h2 className="mt-3 text-2xl font-semibold">{extendedIndicatorLabels[category]}</h2>
+                          <p className="mt-2 text-sm leading-6 text-[var(--muted)]">2024 年官方口径优先；无法确定口径的指标保留为待接入。</p>
+                        </div>
+                        <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">V4 first</span>
+                      </div>
+
+                      <div className="mt-5 overflow-x-auto">
+                        <table className="w-full min-w-[920px] border-separate border-spacing-0 text-left text-sm">
+                          <thead>
+                            <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+                              {["指标", "日期", "数值", "状态", "来源", "更新时间", "备注"].map((header) => (
+                                <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {rows.map((observation) => {
+                              const indicator = getExtendedIndicator(observation.indicatorId);
+
+                              return (
+                                <tr key={`${observation.countrySlug}-${observation.indicatorId}`}>
+                                  <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{indicator?.labelZh ?? observation.indicatorId}</td>
+                                  <td className="border-b border-[var(--line)] px-3 py-3">{observation.date}</td>
+                                  <td className="border-b border-[var(--line)] px-3 py-3">{formatExtendedValue(observation)}</td>
+                                  <td className="border-b border-[var(--line)] px-3 py-3">
+                                    <DataStatusBadge status={observation.status} />
+                                  </td>
+                                  <td className="border-b border-[var(--line)] px-3 py-3">
+                                    <div className="flex flex-col gap-2">
+                                      <SourceStatusBadge status={observation.status === "official" ? "official" : observation.status === "sample" ? "sample" : observation.status === "pending" ? "pending" : "manual"} />
+                                      <a href={observation.sourceUrl} target="_blank" rel="noreferrer" className="text-xs font-semibold text-[var(--accent)]">
+                                        {observation.sourceName}
+                                      </a>
+                                    </div>
+                                  </td>
+                                  <td className="border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">{observation.updatedAt || "待接入"}</td>
+                                  <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{observation.note ?? "—"}</td>
+                                </tr>
+                              );
+                            })}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  );
+                })}
+              </section>
+            ) : null}
           </>
         ) : null}
 
@@ -379,7 +502,11 @@ export function DataCountryExplorer() {
                           <td className="border-b border-[var(--line)] py-3 pr-4 font-semibold">{row.year}</td>
                           <td className="border-b border-[var(--line)] px-4 py-3">{formatMetricValue(value, activeMetric)}</td>
                           <td className="border-b border-[var(--line)] px-4 py-3">{activeMetricInfo.unit}</td>
-                          <td className="border-b border-[var(--line)] px-4 py-3 text-xs text-[var(--muted)]">{row.source}</td>
+                          <td className="border-b border-[var(--line)] px-4 py-3 text-xs text-[var(--muted)]">
+                            <a href={economicSourceUrl(row.source)} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)]">
+                              {row.source}
+                            </a>
+                          </td>
                           <td className="border-b border-[var(--line)] px-4 py-3">
                             <DataStatusBadge status={statusForMetric(value)} />
                             <div className="mt-2">
