@@ -45,6 +45,17 @@ const excludedItems = [
   "当前平台暂不输出预测，不生成风险指数，也不提供政策、选举或国家关系预测。",
 ];
 
+const analysisChecklist = [
+  "有明确国家或地区。",
+  "有明确年份、季度或月份。",
+  "有数值和单位。",
+  "有来源名称。",
+  "有来源链接。",
+  "有数据状态。",
+  "指标口径在指标字典中存在。",
+  "不属于结构样例或未核验内容。",
+];
+
 export default function MethodologyPage() {
   return (
     <main className="page-shell">
@@ -163,6 +174,22 @@ export default function MethodologyPage() {
             ))}
           </ul>
         </article>
+      </section>
+
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">Analysis Checklist</p>
+        <h2 className="mt-3 text-2xl font-semibold">进入后续分析的检查清单</h2>
+        <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">
+          一个数据点只有同时满足以下条件，才可以进入后续分析：
+        </p>
+        <ol className="mt-5 grid gap-3 text-sm leading-7 text-[var(--muted)] md:grid-cols-2">
+          {analysisChecklist.map((item, index) => (
+            <li key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3">
+              <span className="mr-2 font-semibold text-[var(--foreground)]">{index + 1}.</span>
+              {item}
+            </li>
+          ))}
+        </ol>
       </section>
     </main>
   );
