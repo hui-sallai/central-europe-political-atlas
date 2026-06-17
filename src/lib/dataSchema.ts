@@ -79,7 +79,7 @@ export const dataTableSchemas: DataTableSchema[] = [
       { key: "source_id", labelZh: "来源ID", labelEn: "Source ID", required: true, note: "内部唯一标识。" },
       { key: "source_name", labelZh: "来源名称", labelEn: "Source name", required: true },
       { key: "source_type", labelZh: "类型", labelEn: "Type", required: true, note: "官方统计、政府、选举、新闻、研究机构等。" },
-      { key: "reliability_level", labelZh: "可靠性等级", labelEn: "Reliability level", required: true },
+      { key: "reliability_level", labelZh: "可靠性等级", labelEn: "Reliability level", required: true, note: "A/B/C/D 四级；A/B 可作正式依据，C 只作补充，D 不进入正式数据。" },
       { key: "url", labelZh: "链接", labelEn: "URL", required: true },
       { key: "update_frequency", labelZh: "更新频率", labelEn: "Update frequency", required: false },
       { key: "usage_notes", labelZh: "使用说明", labelEn: "Usage notes", required: false },

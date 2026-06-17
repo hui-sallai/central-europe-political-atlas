@@ -57,7 +57,7 @@ export type SourceTableRecord = {
   sourceId: string;
   sourceName: string;
   sourceType: string;
-  reliabilityLevel: "high" | "medium" | "pending";
+  reliabilityLevel: "A" | "B" | "C" | "D";
   url: string;
   updateFrequency: string;
   usageNotes: string;
@@ -110,13 +110,13 @@ export const countryTableRecords: CountryTableRecord[] = [
 ];
 
 export const sourceTableRecords: SourceTableRecord[] = [
-  { sourceId: "eurostat", sourceName: "Eurostat", sourceType: "官方统计", reliabilityLevel: "high", url: "https://ec.europa.eu/eurostat/databrowser/", updateFrequency: "按指标更新", usageNotes: "V4 跨国可比数据主来源；用于财政、国民账户、能源和经常账户指标。" },
-  { sourceId: "stat_pl", sourceName: "Statistics Poland", sourceType: "国家统计部门", reliabilityLevel: "high", url: "https://stat.gov.pl/en/", updateFrequency: "按指标更新", usageNotes: "波兰国别统计主源，用于交叉核验。" },
-  { sourceId: "stat_hu", sourceName: "Hungarian Central Statistical Office", sourceType: "国家统计部门", reliabilityLevel: "high", url: "https://www.ksh.hu/?lang=en", updateFrequency: "按指标更新", usageNotes: "匈牙利国别统计主源，用于交叉核验。" },
-  { sourceId: "stat_cz", sourceName: "Czech Statistical Office", sourceType: "国家统计部门", reliabilityLevel: "high", url: "https://www.czso.cz/csu/czso/home", updateFrequency: "按指标更新", usageNotes: "捷克国别统计主源，用于交叉核验。" },
-  { sourceId: "stat_sk", sourceName: "Statistical Office of the Slovak Republic", sourceType: "国家统计部门", reliabilityLevel: "high", url: "https://slovak.statistics.sk/", updateFrequency: "按指标更新", usageNotes: "斯洛伐克国别统计主源，用于交叉核验。" },
-  { sourceId: "news_pending", sourceName: "新闻来源待接入", sourceType: "新闻", reliabilityLevel: "pending", url: "https://hui-sallai.github.io/central-europe-political-atlas/news/", updateFrequency: "周度候选", usageNotes: "结构样例新闻使用；不进入模型。" },
-  { sourceId: "project_pending", sourceName: "项目级来源待接入", sourceType: "对华经贸", reliabilityLevel: "pending", url: "https://hui-sallai.github.io/central-europe-political-atlas/data/", updateFrequency: "不定期", usageNotes: "项目表初版入口；金额、主体和合同来源需后续逐条补。" },
+  { sourceId: "eurostat", sourceName: "Eurostat", sourceType: "官方统计", reliabilityLevel: "A", url: "https://ec.europa.eu/eurostat/databrowser/", updateFrequency: "按指标更新", usageNotes: "V4 跨国可比数据主来源；用于财政、国民账户、能源和经常账户指标。" },
+  { sourceId: "stat_pl", sourceName: "Statistics Poland", sourceType: "国家统计部门", reliabilityLevel: "A", url: "https://stat.gov.pl/en/", updateFrequency: "按指标更新", usageNotes: "波兰国别统计主源，用于交叉核验。" },
+  { sourceId: "stat_hu", sourceName: "Hungarian Central Statistical Office", sourceType: "国家统计部门", reliabilityLevel: "A", url: "https://www.ksh.hu/?lang=en", updateFrequency: "按指标更新", usageNotes: "匈牙利国别统计主源，用于交叉核验。" },
+  { sourceId: "stat_cz", sourceName: "Czech Statistical Office", sourceType: "国家统计部门", reliabilityLevel: "A", url: "https://www.czso.cz/csu/czso/home", updateFrequency: "按指标更新", usageNotes: "捷克国别统计主源，用于交叉核验。" },
+  { sourceId: "stat_sk", sourceName: "Statistical Office of the Slovak Republic", sourceType: "国家统计部门", reliabilityLevel: "A", url: "https://slovak.statistics.sk/", updateFrequency: "按指标更新", usageNotes: "斯洛伐克国别统计主源，用于交叉核验。" },
+  { sourceId: "news_pending", sourceName: "新闻来源待接入", sourceType: "新闻", reliabilityLevel: "D", url: "https://hui-sallai.github.io/central-europe-political-atlas/news/", updateFrequency: "周度候选", usageNotes: "结构样例新闻使用；不进入模型。" },
+  { sourceId: "project_pending", sourceName: "项目级来源待接入", sourceType: "对华经贸", reliabilityLevel: "D", url: "https://hui-sallai.github.io/central-europe-political-atlas/data/", updateFrequency: "不定期", usageNotes: "项目表初版入口；金额、主体和合同来源需后续逐条补。" },
 ];
 
 const eurostatUpdatedFiscal = "2026-04-22";

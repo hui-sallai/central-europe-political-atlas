@@ -98,6 +98,17 @@ function analysisBoundaryLabel(value: string) {
   return labels[value] ?? value;
 }
 
+function reliabilityLevelLabel(value: string) {
+  const labels: Record<string, string> = {
+    A: "可靠性 A 级",
+    B: "可靠性 B 级",
+    C: "可靠性 C 级",
+    D: "可靠性 D 级",
+  };
+
+  return labels[value] ?? value;
+}
+
 function formatExtendedValue(observation: ExtendedObservation) {
   if (observation.value === null) {
     return "待接入";
@@ -690,7 +701,7 @@ export function DataCountryExplorer() {
                     {sourceTableRecords.map((source) => (
                       <a key={source.sourceId} href={source.url} target="_blank" rel="noreferrer" className="rounded-xl bg-[var(--surface-muted)] p-3 text-xs">
                         <p className="font-semibold text-[var(--foreground)]">{source.sourceName}</p>
-                        <p className="mt-1 text-[var(--muted)]">{source.sourceType} / {source.reliabilityLevel}</p>
+                        <p className="mt-1 text-[var(--muted)]">{source.sourceType} / {reliabilityLevelLabel(source.reliabilityLevel)}</p>
                         <p className="mt-1 leading-5 text-[var(--muted)]">{source.usageNotes}</p>
                       </a>
                     ))}

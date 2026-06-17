@@ -15,11 +15,19 @@ const sourceLevelItems = [
   { title: sourceStatusMeta.sample.label, body: "结构样例所附来源，不作为真实来源，也不参与任何后续计算。" },
 ];
 
+const reliabilityItems = [
+  { level: "A 级", title: "官方与国际机构", body: "官方统计机构、央行、欧盟机构、国际组织。可作为正式数据或事件依据。" },
+  { level: "B 级", title: "权威公开材料", body: "主流通讯社、权威智库、官方年报。可作为正式事件依据；数值型数据需注明口径并优先与 A 级来源交叉核验。" },
+  { level: "C 级", title: "补充性来源", body: "地方媒体、企业公告、行业网站。只作补充说明或线索，不单独支撑正式数据。" },
+  { level: "D 级", title: "不进入正式数据", body: "未核验二手来源、社交媒体、无明确出处内容。不进入平台正式数据，也不进入模型。" },
+];
+
 const fieldRules = [
   "每个正式数据点必须同时具备：年份、单位、来源名称、来源链接、来源状态。",
   "经济指标统一优先使用各国统计部门和 Eurostat 可核验表；金额类指标统一换算或显示为欧元口径。",
   "观测值表按国家、地区、指标、日期、频率、数值、单位、来源、状态、更新时间保存。",
   "党派、项目和新闻事件必须区分事实字段、人工整理字段和结构样例字段。",
+  "来源可靠性按 A/B/C/D 标注：A/B 级可作为正式数据或事件依据，C 级只作补充，D 级不进入平台正式数据。",
 ];
 
 const excludedItems = [
@@ -84,6 +92,25 @@ export default function MethodologyPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">Reliability Level</p>
+        <h2 className="mt-3 text-2xl font-semibold">来源可靠性等级</h2>
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
+          {reliabilityItems.map((item) => (
+            <article key={item.level} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+              <div className="flex items-center gap-3">
+                <span className="rounded-full bg-[var(--accent)] px-3 py-1 text-xs font-semibold text-white">{item.level}</span>
+                <h3 className="font-semibold">{item.title}</h3>
+              </div>
+              <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{item.body}</p>
+            </article>
+          ))}
+        </div>
+        <p className="mt-4 rounded-2xl bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--muted)]">
+          使用规则：A/B 级可以作为正式数据或事件依据；C 级只作补充；D 级不进入平台正式数据。
+        </p>
       </section>
 
       <section className="mt-6 grid gap-4 lg:grid-cols-2">
