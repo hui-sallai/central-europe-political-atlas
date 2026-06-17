@@ -20,8 +20,11 @@ import {
 import {
   economicMetricOptions,
   getEconomicFiveYearRows,
+  getEconomicMetricSourceLinks,
+  getEconomicRowSourceLinks,
   getLatestEconomicRow,
   type EconomicMetricId,
+  type EconomicSourceLink,
   type EconomicYearRow,
 } from "@/lib/economicTimeSeries";
 
@@ -107,34 +110,6 @@ function formatExtendedValue(observation: ExtendedObservation) {
   return `${observation.value.toLocaleString("zh-CN", { maximumFractionDigits: 1 })}${observation.unit.startsWith("%") ? "" : " "}${observation.unit}`;
 }
 
-function economicSourceUrl(source: string) {
-  if (source.includes("Eurostat")) {
-    return "https://ec.europa.eu/eurostat/databrowser/";
-  }
-
-  if (source.includes("Destatis")) {
-    return "https://www.destatis.de/EN/Home/_node.html";
-  }
-
-  if (source.includes("Statistics Poland")) {
-    return "https://stat.gov.pl/en/";
-  }
-
-  if (source.includes("Hungarian")) {
-    return "https://www.ksh.hu/?lang=en";
-  }
-
-  if (source.includes("Czech")) {
-    return "https://www.czso.cz/csu/czso/home";
-  }
-
-  if (source.includes("Slovak")) {
-    return "https://slovak.statistics.sk/";
-  }
-
-  return "https://ec.europa.eu/eurostat/databrowser/";
-}
-
 function ChartBar({ label, value, max, display }: { label: string; value: number | null; max: number; display: string }) {
   const width = value === null || max <= 0 ? 0 : Math.max(3, Math.min(100, (Math.abs(value) / max) * 100));
 
@@ -150,6 +125,29 @@ function ChartBar({ label, value, max, display }: { label: string; value: number
       <div className="mt-2 h-3 overflow-hidden rounded-full bg-white/75">
         <div className={`h-full rounded-full ${value === null ? "bg-[var(--surface-muted)]" : "bg-[var(--accent)]"}`} style={{ width: `${width}%` }} />
       </div>
+    </div>
+  );
+}
+
+function SourceLinkList({ links, compact = false }: { links: EconomicSourceLink[]; compact?: boolean }) {
+  if (links.length === 0) {
+    return <span className="text-xs text-[var(--muted)]">来源待接入</span>;
+  }
+
+  return (
+    <div className={`flex flex-wrap ${compact ? "gap-1" : "gap-1.5"}`}>
+      {links.map((link) => (
+        <a
+          key={`${link.label}-${link.url}`}
+          href={link.url}
+          target="_blank"
+          rel="noreferrer"
+          title={link.note}
+          className={`${compact ? "px-2 py-0.5 text-[10px]" : "px-2.5 py-1 text-[10px]"} rounded-full border border-[var(--line)] bg-white font-semibold text-[var(--accent)]`}
+        >
+          {link.label}
+        </a>
+      ))}
     </div>
   );
 }
@@ -220,6 +218,11 @@ export function DataCountryExplorer() {
                 <div className="mt-2">
                   <DataStatusBadge status={latest ? statusForMetric(latest.gdp) : "pending"} />
                   <SourceStatusBadge status={latest?.gdp === null || !latest ? "pending" : "official"} className="mt-1" />
+                  {latest ? (
+                    <div className="mt-2">
+                      <SourceLinkList links={getEconomicMetricSourceLinks(country.slug, "gdp", latest.year, latest.gdp).slice(0, 1)} compact />
+                    </div>
+                  ) : null}
                 </div>
               </button>
             );
@@ -264,18 +267,21 @@ export function DataCountryExplorer() {
             <section className="grid gap-3 md:grid-cols-3">
               {latestEconomicRow ? (
                 [
-                  ["2025 GDP", formatMetricValue(latestEconomicRow.gdp, "gdp"), statusForMetric(latestEconomicRow.gdp)],
-                  ["2025 CPI / HICP", formatMetricValue(latestEconomicRow.inflation, "inflation"), statusForMetric(latestEconomicRow.inflation)],
-                  ["2025 失业率", formatMetricValue(latestEconomicRow.unemployment, "unemployment"), statusForMetric(latestEconomicRow.unemployment)],
-                ].map(([label, value, status]) => (
-                  <div key={label} className="card p-5">
+                  { label: "2025 GDP", metricId: "gdp" as EconomicMetricId, value: latestEconomicRow.gdp },
+                  { label: "2025 CPI / HICP", metricId: "inflation" as EconomicMetricId, value: latestEconomicRow.inflation },
+                  { label: "2025 失业率", metricId: "unemployment" as EconomicMetricId, value: latestEconomicRow.unemployment },
+                ].map((item) => (
+                  <div key={item.label} className="card p-5">
                     <div className="flex items-center justify-between gap-2">
-                      <p className="text-xs text-[var(--muted)]">{label}</p>
-                      <DataStatusBadge status={status as "official" | "pending"} />
+                      <p className="text-xs text-[var(--muted)]">{item.label}</p>
+                      <DataStatusBadge status={statusForMetric(item.value)} />
                     </div>
-                    <p className="mt-2 text-2xl font-semibold">{value}</p>
+                    <p className="mt-2 text-2xl font-semibold">{formatMetricValue(item.value, item.metricId)}</p>
                     <div className="mt-3">
-                      <SourceStatusBadge status={status === "official" ? "official" : "pending"} />
+                      <SourceStatusBadge status={item.value === null ? "pending" : "official"} />
+                    </div>
+                    <div className="mt-3">
+                      <SourceLinkList links={getEconomicMetricSourceLinks(selectedCountry.slug, item.metricId, latestEconomicRow.year, item.value)} compact />
                     </div>
                   </div>
                 ))
@@ -314,17 +320,18 @@ export function DataCountryExplorer() {
                             <td key={metric.id} className="border-b border-[var(--line)] px-3 py-3">
                               <div className="flex flex-col gap-2">
                                 <span>{formatMetricValue(value, metric.id)}</span>
+                                <span className="text-[10px] text-[var(--muted)]">{row.year} / {metric.unit}</span>
                                 <DataStatusBadge status={statusForMetric(value)} />
                                 <SourceStatusBadge status={value === null ? "pending" : "official"} />
+                                <SourceLinkList links={getEconomicMetricSourceLinks(selectedCountry.slug, metric.id, row.year, value)} compact />
                               </div>
                             </td>
                           );
                         })}
                         <td className="border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">
                           <div className="flex flex-col gap-2">
-                            <a href={economicSourceUrl(row.source)} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)]">
-                              {row.source}
-                            </a>
+                            <span className="font-semibold text-[var(--foreground)]">{row.source}</span>
+                            <SourceLinkList links={getEconomicRowSourceLinks(selectedCountry.slug, row.year)} />
                             <DataStatusBadge status="official" />
                             <SourceStatusBadge status="official" />
                           </div>
@@ -550,9 +557,10 @@ export function DataCountryExplorer() {
                           <td className="border-b border-[var(--line)] px-4 py-3">{formatMetricValue(value, activeMetric)}</td>
                           <td className="border-b border-[var(--line)] px-4 py-3">{activeMetricInfo.unit}</td>
                           <td className="border-b border-[var(--line)] px-4 py-3 text-xs text-[var(--muted)]">
-                            <a href={economicSourceUrl(row.source)} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)]">
-                              {row.source}
-                            </a>
+                            <div className="flex flex-col gap-2">
+                              <span className="font-semibold text-[var(--foreground)]">{row.source}</span>
+                              <SourceLinkList links={getEconomicMetricSourceLinks(selectedCountry.slug, activeMetric, row.year, value)} />
+                            </div>
                           </td>
                           <td className="border-b border-[var(--line)] px-4 py-3">
                             <DataStatusBadge status={statusForMetric(value)} />

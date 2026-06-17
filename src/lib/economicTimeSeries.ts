@@ -18,6 +18,12 @@ export type EconomicMetricOption = {
   note: string;
 };
 
+export type EconomicSourceLink = {
+  label: string;
+  url: string;
+  note: string;
+};
+
 export const economicMetricOptions: EconomicMetricOption[] = [
   { id: "gdp", label: "GDP", unit: "百万欧元", note: "名义 GDP，当年价格。" },
   { id: "gdpPerCapita", label: "人均 GDP", unit: "欧元", note: "按 GDP 与人口换算。" },
@@ -26,6 +32,111 @@ export const economicMetricOptions: EconomicMetricOption[] = [
   { id: "unemployment", label: "失业率", unit: "%", note: "15-74 岁劳动力口径。" },
   { id: "population", label: "人口", unit: "百万人", note: "年初人口，百万人。" },
 ];
+
+const eurostatGeoByCountry: Record<string, string> = {
+  germany: "DE",
+  poland: "PL",
+  hungary: "HU",
+  romania: "RO",
+  czechia: "CZ",
+  slovakia: "SK",
+  slovenia: "SI",
+  serbia: "RS",
+  austria: "AT",
+  croatia: "HR",
+};
+
+const nationalSourceByCountry: Record<string, EconomicSourceLink> = {
+  germany: { label: "Destatis GENESIS-Online", url: "https://www-genesis.destatis.de/datenbank/online", note: "德国官方统计数据库。" },
+  poland: { label: "Statistics Poland Data Portal", url: "https://bdl.stat.gov.pl/bdl/start", note: "波兰官方统计数据库。" },
+  hungary: { label: "HCSO STADAT", url: "https://www.ksh.hu/stadat?lang=en", note: "匈牙利中央统计局官方数据表。" },
+  romania: { label: "INSSE TEMPO Online", url: "https://statistici.insse.ro/shop/?lang=en", note: "罗马尼亚官方统计数据库。" },
+  czechia: { label: "Czech Statistical Office Public Database", url: "https://vdb.czso.cz/vdbvo2/faces/en/index.jsf", note: "捷克统计局公共数据库。" },
+  slovakia: { label: "DATAcube Slovakia", url: "https://datacube.statistics.sk/", note: "斯洛伐克统计局官方数据库。" },
+  slovenia: { label: "SURS SiStat", url: "https://pxweb.stat.si/SiStat/en", note: "斯洛文尼亚官方统计数据库。" },
+  serbia: { label: "Statistical Office of Serbia Data", url: "https://data.stat.gov.rs/?caller=SDDB", note: "塞尔维亚官方统计数据库。" },
+  austria: { label: "Statistics Austria STATcube", url: "https://www.statistik.at/en/services/tools/services/statcube", note: "奥地利官方统计数据库。" },
+  croatia: { label: "Croatian Bureau of Statistics Database", url: "https://web.dzs.hr/PXWeb/Menu.aspx?px_language=en&px_type=PX&px_db=Database", note: "克罗地亚官方统计数据库。" },
+};
+
+function eurostatApiUrl(metricId: EconomicMetricId, countrySlug: string, year: string) {
+  const geo = eurostatGeoByCountry[countrySlug] ?? countrySlug.toUpperCase();
+  const base = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data";
+
+  if (metricId === "population") {
+    return `${base}/demo_pjan?time=${year}&geo=${geo}&sex=T&age=TOTAL&unit=NR`;
+  }
+
+  if (metricId === "gdp") {
+    return `${base}/nama_10_gdp?time=${year}&geo=${geo}&unit=CP_MEUR&na_item=B1GQ`;
+  }
+
+  if (metricId === "gdpPerCapita") {
+    return `${base}/nama_10_pc?time=${year}&geo=${geo}&unit=CP_EUR_HAB&na_item=B1GQ`;
+  }
+
+  if (metricId === "growth") {
+    return `${base}/nama_10_gdp?time=${year}&geo=${geo}&unit=CLV_PCH_PRE&na_item=B1GQ`;
+  }
+
+  if (metricId === "inflation") {
+    return `${base}/prc_hicp_aind?time=${year}&geo=${geo}&coicop=CP00&unit=RCH_A_AVG`;
+  }
+
+  return `${base}/une_rt_a?time=${year}&geo=${geo}&sex=T&age=Y15-74&unit=PC_ACT`;
+}
+
+function eurostatDatasetLabel(metricId: EconomicMetricId) {
+  const labels: Record<EconomicMetricId, string> = {
+    population: "Eurostat demo_pjan",
+    gdp: "Eurostat nama_10_gdp",
+    gdpPerCapita: "Eurostat nama_10_pc",
+    growth: "Eurostat nama_10_gdp",
+    inflation: "Eurostat prc_hicp_aind",
+    unemployment: "Eurostat une_rt_a",
+  };
+
+  return labels[metricId];
+}
+
+export function getEconomicMetricSourceLinks(countrySlug: string, metricId: EconomicMetricId, year: string, value: number | null): EconomicSourceLink[] {
+  if (value === null) {
+    return [];
+  }
+
+  const links: EconomicSourceLink[] = [
+    {
+      label: eurostatDatasetLabel(metricId),
+      url: eurostatApiUrl(metricId, countrySlug, year),
+      note: `${year} 年、${eurostatGeoByCountry[countrySlug] ?? countrySlug.toUpperCase()}、${economicMetricOptions.find((metric) => metric.id === metricId)?.label ?? metricId}。`,
+    },
+  ];
+
+  const nationalSource = nationalSourceByCountry[countrySlug];
+  if (nationalSource) {
+    links.push(nationalSource);
+  }
+
+  return links;
+}
+
+export function getEconomicRowSourceLinks(countrySlug: string, year: string): EconomicSourceLink[] {
+  const nationalSource = nationalSourceByCountry[countrySlug];
+  const geo = eurostatGeoByCountry[countrySlug] ?? countrySlug.toUpperCase();
+  const links: EconomicSourceLink[] = [
+    {
+      label: "Eurostat filtered API datasets",
+      url: `https://ec.europa.eu/eurostat/databrowser/explore/all/all_themes?lang=en&display=list&sort=category`,
+      note: `${year} 年 ${geo}；具体指标链接见各数值单元格。`,
+    },
+  ];
+
+  if (nationalSource) {
+    links.push(nationalSource);
+  }
+
+  return links;
+}
 
 export const economicTimeSeriesByCountry: Record<string, EconomicYearRow[]> = {
   germany: [
