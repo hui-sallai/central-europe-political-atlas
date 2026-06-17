@@ -15,6 +15,7 @@ import {
   getExtendedObservations,
   getNewsEventRecords,
   getV4TemplateCoverage,
+  v4TemplateIndicatorIds,
   type ExtendedCategory,
   type ExtendedObservation,
 } from "@/lib/extendedData";
@@ -39,6 +40,7 @@ const dataModes: { id: DataMode; label: string; description: string }[] = [
 
 const tableMetricIds: EconomicMetricId[] = ["population", "gdp", "gdpPerCapita", "growth", "inflation", "unemployment"];
 const extendedCategoryOrder: ExtendedCategory[] = ["fiscal", "external", "investment", "energy", "industry"];
+const v4CountrySlugs = ["poland", "hungary", "czechia", "slovakia"];
 
 function formatMetricValue(value: number | null, metricId: EconomicMetricId) {
   if (value === null) {
@@ -191,6 +193,15 @@ export function DataCountryExplorer() {
   const selectedIndicatorIds = new Set(extendedObservations.map((observation) => observation.indicatorId));
   const selectedIndicators = extendedIndicators.filter((indicator) => selectedIndicatorIds.has(indicator.id));
   const v4TemplateCoverage = getV4TemplateCoverage(selectedCountry.slug);
+  const v4Countries = v4CountrySlugs
+    .map((slug) => countries.find((country) => country.slug === slug))
+    .filter((country): country is NonNullable<typeof country> => Boolean(country));
+  const v4ObservationMaps = new Map(
+    v4Countries.map((country) => [
+      country.slug,
+      new Map(getExtendedObservations(country.slug).map((observation) => [observation.indicatorId, observation])),
+    ]),
+  );
 
   return (
     <section className="mt-8 grid gap-5 lg:grid-cols-[260px_minmax(0,1fr)]">
@@ -272,6 +283,77 @@ export function DataCountryExplorer() {
                 {mode.label}
               </button>
             ))}
+          </div>
+        </section>
+
+        <section className="card overflow-hidden p-6">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+            <div>
+              <p className="eyebrow">V4 Cross-Country Comparison</p>
+              <h2 className="mt-3 text-2xl font-semibold">V4 横向比较区</h2>
+              <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+                按同一套 V4 模板指标并列比较波兰、匈牙利、捷克和斯洛伐克。当前区块只做事实数据对照，不输出预测或风险指数。
+              </p>
+            </div>
+            <div className="rounded-2xl border border-[var(--line)] bg-white/70 px-5 py-4 text-right">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">模板规模</p>
+              <p className="mt-2 text-3xl font-semibold text-[var(--accent)]">{v4TemplateIndicatorIds.length}</p>
+              <p className="mt-1 text-xs text-[var(--muted)]">指标 / 4 国</p>
+            </div>
+          </div>
+
+          <div className="mt-5 overflow-x-auto">
+            <table className="w-full min-w-[1080px] border-separate border-spacing-0 text-left text-sm">
+              <thead>
+                <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+                  <th className="border-b border-[var(--line)] pb-3 pr-4 font-semibold">指标</th>
+                  <th className="border-b border-[var(--line)] px-4 pb-3 font-semibold">类别</th>
+                  {v4Countries.map((country) => (
+                    <th key={country.slug} className="border-b border-[var(--line)] px-4 pb-3 font-semibold">{country.nameZh}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {v4TemplateIndicatorIds.map((indicatorId) => {
+                  const indicator = getExtendedIndicator(indicatorId);
+
+                  return (
+                    <tr key={indicatorId} className="align-top">
+                      <td className="border-b border-[var(--line)] py-3 pl-0 pr-4">
+                        <p className="font-semibold">{indicator?.labelZh ?? indicatorId}</p>
+                        <p className="mt-1 font-mono text-[10px] text-[var(--muted)]">{indicatorId}</p>
+                      </td>
+                      <td className="border-b border-[var(--line)] px-4 py-3 text-xs text-[var(--muted)]">
+                        {indicator ? extendedIndicatorLabels[indicator.category] : "待接入"}
+                      </td>
+                      {v4Countries.map((country) => {
+                        const observation = v4ObservationMaps.get(country.slug)?.get(indicatorId);
+
+                        return (
+                          <td key={`${country.slug}-${indicatorId}`} className="border-b border-[var(--line)] px-4 py-3">
+                            {observation ? (
+                              <div className="flex min-w-[150px] flex-col gap-2">
+                                <span className="font-semibold">{formatExtendedValue(observation)}</span>
+                                <span className="text-[10px] text-[var(--muted)]">{observation.date} / {observation.unit}</span>
+                                <DataStatusBadge status={observation.status} />
+                                <a href={observation.sourceUrl} target="_blank" rel="noreferrer" className="text-[10px] font-semibold text-[var(--accent)]">
+                                  {observation.sourceName}
+                                </a>
+                              </div>
+                            ) : (
+                              <div className="flex min-w-[150px] flex-col gap-2">
+                                <span className="text-[var(--muted)]">待接入</span>
+                                <DataStatusBadge status="pending" />
+                              </div>
+                            )}
+                          </td>
+                        );
+                      })}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
           </div>
         </section>
 
