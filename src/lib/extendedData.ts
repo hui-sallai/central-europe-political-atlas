@@ -41,6 +41,44 @@ export type ChinaProjectRecord = {
   note: string;
 };
 
+export type CountryTableRecord = {
+  countryCode: string;
+  countrySlug: string;
+  nameZh: string;
+  nameEn: string;
+  euMember: boolean;
+  eurozoneMember: boolean;
+  regionalGroup: string;
+  priority: number;
+  notes: string;
+};
+
+export type SourceTableRecord = {
+  sourceId: string;
+  sourceName: string;
+  sourceType: string;
+  reliabilityLevel: "high" | "medium" | "pending";
+  url: string;
+  updateFrequency: string;
+  usageNotes: string;
+};
+
+export type NewsEventRecord = {
+  eventId: string;
+  date: string;
+  countrySlug: string;
+  title: string;
+  sourceId: string;
+  topic: string;
+  eventType: string;
+  direction: "positive" | "negative" | "neutral" | "pending";
+  intensity: number | null;
+  modelImpact: "excluded" | "explain_only" | "eligible_after_review";
+  chinaRelated: boolean;
+  summary: string;
+  status: ObservationStatus;
+};
+
 export const extendedIndicatorLabels: Record<ExtendedCategory, string> = {
   fiscal: "财政数据",
   external: "外部经济数据",
@@ -60,6 +98,23 @@ export const extendedIndicators: ExtendedIndicator[] = [
   { id: "energy_import_dependency", labelZh: "能源进口依赖", labelEn: "Energy import dependency", category: "energyIndustry", unit: "%", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "higher_risk", transform: "level" },
   { id: "manufacturing_gva_gdp", labelZh: "制造业占比", labelEn: "Manufacturing GVA / GDP", category: "energyIndustry", unit: "% GDP", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "level" },
   { id: "automotive_export_share", labelZh: "汽车出口占比", labelEn: "Automotive export share", category: "energyIndustry", unit: "%", frequency: "annual", modelUse: "display_only", riskDirection: "context", transform: "待定" },
+];
+
+export const countryTableRecords: CountryTableRecord[] = [
+  { countryCode: "PL", countrySlug: "poland", nameZh: "波兰", nameEn: "Poland", euMember: true, eurozoneMember: false, regionalGroup: "V4", priority: 1, notes: "V4 最大经济体；财政、外部、能源和对华物流数据优先补。" },
+  { countryCode: "HU", countrySlug: "hungary", nameZh: "匈牙利", nameEn: "Hungary", euMember: true, eurozoneMember: false, regionalGroup: "V4", priority: 2, notes: "对华制造业、汽车和电池供应链项目优先补。" },
+  { countryCode: "CZ", countrySlug: "czechia", nameZh: "捷克", nameEn: "Czechia", euMember: true, eurozoneMember: false, regionalGroup: "V4", priority: 3, notes: "工业、汽车、能源和贸易结构优先补。" },
+  { countryCode: "SK", countrySlug: "slovakia", nameZh: "斯洛伐克", nameEn: "Slovakia", euMember: true, eurozoneMember: true, regionalGroup: "V4", priority: 4, notes: "欧元区身份、汽车产业链和区域外部风险优先补。" },
+];
+
+export const sourceTableRecords: SourceTableRecord[] = [
+  { sourceId: "eurostat", sourceName: "Eurostat", sourceType: "官方统计", reliabilityLevel: "high", url: "https://ec.europa.eu/eurostat/databrowser/", updateFrequency: "按指标更新", usageNotes: "V4 跨国可比数据主来源；用于财政、国民账户、能源和经常账户指标。" },
+  { sourceId: "stat_pl", sourceName: "Statistics Poland", sourceType: "国家统计部门", reliabilityLevel: "high", url: "https://stat.gov.pl/en/", updateFrequency: "按指标更新", usageNotes: "波兰国别统计主源，用于交叉核验。" },
+  { sourceId: "stat_hu", sourceName: "Hungarian Central Statistical Office", sourceType: "国家统计部门", reliabilityLevel: "high", url: "https://www.ksh.hu/?lang=en", updateFrequency: "按指标更新", usageNotes: "匈牙利国别统计主源，用于交叉核验。" },
+  { sourceId: "stat_cz", sourceName: "Czech Statistical Office", sourceType: "国家统计部门", reliabilityLevel: "high", url: "https://www.czso.cz/csu/czso/home", updateFrequency: "按指标更新", usageNotes: "捷克国别统计主源，用于交叉核验。" },
+  { sourceId: "stat_sk", sourceName: "Statistical Office of the Slovak Republic", sourceType: "国家统计部门", reliabilityLevel: "high", url: "https://slovak.statistics.sk/", updateFrequency: "按指标更新", usageNotes: "斯洛伐克国别统计主源，用于交叉核验。" },
+  { sourceId: "news_pending", sourceName: "新闻来源待接入", sourceType: "新闻", reliabilityLevel: "pending", url: "https://hui-sallai.github.io/central-europe-political-atlas/news/", updateFrequency: "周度候选", usageNotes: "结构样例新闻使用；不进入模型。" },
+  { sourceId: "project_pending", sourceName: "项目级来源待接入", sourceType: "对华经贸", reliabilityLevel: "pending", url: "https://hui-sallai.github.io/central-europe-political-atlas/data/", updateFrequency: "不定期", usageNotes: "项目表初版入口；金额、主体和合同来源需后续逐条补。" },
 ];
 
 const eurostatUpdatedFiscal = "2026-04-22";
@@ -164,6 +219,20 @@ export const chinaProjectRecords: ChinaProjectRecord[] = [
     note: "先从文字样本转为项目表；货运量、口岸、企业和年度贸易额待补。",
   },
   {
+    projectId: "cz-industrial-goods-trade",
+    projectName: "机械、电气与工业品贸易",
+    countrySlug: "czechia",
+    regionName: "捷克全国",
+    sector: "贸易 / 工业",
+    actors: "贸易主体待拆分",
+    amountEur: null,
+    projectStatus: "持续 / 待量化",
+    riskTags: ["工业贸易", "供应链"],
+    sourceUrl: "https://www.czso.cz/csu/czso/home",
+    status: "manual",
+    note: "由旧经贸样本转为项目表；后续按商品编码和年度贸易额补充。",
+  },
+  {
     projectId: "sk-auto-trade-chain",
     projectName: "汽车产业链相关贸易",
     countrySlug: "slovakia",
@@ -179,6 +248,13 @@ export const chinaProjectRecords: ChinaProjectRecord[] = [
   },
 ];
 
+export const newsEventRecords: NewsEventRecord[] = [
+  { eventId: "pl-2026-w23-security-eu", date: "2026-06-01", countrySlug: "poland", title: "政府继续强调安全、基础设施和欧盟资金议题", sourceId: "news_pending", topic: "欧盟", eventType: "weekly_sample", direction: "pending", intensity: null, modelImpact: "excluded", chinaRelated: false, summary: "结构样例，不进入模型；正式新闻源待接入。", status: "sample" },
+  { eventId: "hu-2026-w23-policy-investment", date: "2026-06-01", countrySlug: "hungary", title: "新政府与产业投资政策成为本周观察重点", sourceId: "news_pending", topic: "经济", eventType: "weekly_sample", direction: "pending", intensity: null, modelImpact: "excluded", chinaRelated: false, summary: "结构样例，不进入模型；正式新闻源待接入。", status: "sample" },
+  { eventId: "cz-2026-w23-industry-energy", date: "2026-06-01", countrySlug: "czechia", title: "产业竞争力、能源供应与政府经济政策受到关注", sourceId: "news_pending", topic: "能源", eventType: "weekly_sample", direction: "pending", intensity: null, modelImpact: "excluded", chinaRelated: false, summary: "结构样例，不进入模型；正式新闻源待接入。", status: "sample" },
+  { eventId: "sk-2026-w23-auto-regional", date: "2026-06-01", countrySlug: "slovakia", title: "政府政策、汽车产业链和区域发展是本周重点", sourceId: "news_pending", topic: "区域", eventType: "weekly_sample", direction: "pending", intensity: null, modelImpact: "excluded", chinaRelated: false, summary: "结构样例，不进入模型；正式新闻源待接入。", status: "sample" },
+];
+
 export function getExtendedObservations(countrySlug: string, category?: ExtendedCategory) {
   return extendedObservations.filter((observation) => {
     const indicator = extendedIndicators.find((item) => item.id === observation.indicatorId);
@@ -192,6 +268,14 @@ export function getExtendedIndicator(indicatorId: string) {
 
 export function getChinaProjectRecords(countrySlug: string) {
   return chinaProjectRecords.filter((project) => project.countrySlug === countrySlug);
+}
+
+export function getCountryTableRecord(countrySlug: string) {
+  return countryTableRecords.find((country) => country.countrySlug === countrySlug);
+}
+
+export function getNewsEventRecords(countrySlug: string) {
+  return newsEventRecords.filter((event) => event.countrySlug === countrySlug);
 }
 
 function countrySlugToGeo(countrySlug: string) {
