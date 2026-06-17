@@ -1,4 +1,4 @@
-export type ExtendedCategory = "fiscal" | "external" | "energyIndustry";
+export type ExtendedCategory = "fiscal" | "external" | "investment" | "energy" | "industry";
 export type ObservationStatus = "official" | "manual" | "pending" | "sample";
 
 export type ExtendedIndicator = {
@@ -82,7 +82,9 @@ export type NewsEventRecord = {
 export const extendedIndicatorLabels: Record<ExtendedCategory, string> = {
   fiscal: "财政数据",
   external: "外部经济数据",
-  energyIndustry: "能源与产业数据",
+  investment: "投资数据",
+  energy: "能源数据",
+  industry: "产业数据",
 };
 
 export const extendedIndicators: ExtendedIndicator[] = [
@@ -94,10 +96,10 @@ export const extendedIndicators: ExtendedIndicator[] = [
   { id: "imports_mio_eur", labelZh: "进口", labelEn: "Imports", category: "external", unit: "百万欧元", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "level" },
   { id: "trade_balance_mio_eur", labelZh: "贸易差额", labelEn: "Trade balance", category: "external", unit: "百万欧元", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "exports - imports" },
   { id: "current_account_gdp", labelZh: "经常账户 / GDP", labelEn: "Current account / GDP", category: "external", unit: "% GDP", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "lower_risk", transform: "level" },
-  { id: "fdi_mio_eur", labelZh: "FDI", labelEn: "Foreign direct investment", category: "external", unit: "百万欧元", frequency: "annual", modelUse: "display_only", riskDirection: "context", transform: "待定" },
-  { id: "energy_import_dependency", labelZh: "能源进口依赖", labelEn: "Energy import dependency", category: "energyIndustry", unit: "%", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "higher_risk", transform: "level" },
-  { id: "manufacturing_gva_gdp", labelZh: "制造业占比", labelEn: "Manufacturing GVA / GDP", category: "energyIndustry", unit: "% GDP", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "level" },
-  { id: "automotive_export_share", labelZh: "汽车出口占比", labelEn: "Automotive export share", category: "energyIndustry", unit: "%", frequency: "annual", modelUse: "display_only", riskDirection: "context", transform: "待定" },
+  { id: "fdi_mio_eur", labelZh: "FDI 流入", labelEn: "FDI inflow", category: "investment", unit: "百万欧元", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "level" },
+  { id: "energy_import_dependency", labelZh: "能源进口依赖", labelEn: "Energy import dependency", category: "energy", unit: "%", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "higher_risk", transform: "level" },
+  { id: "manufacturing_gva_gdp", labelZh: "制造业占 GDP 比重", labelEn: "Manufacturing GVA / GDP", category: "industry", unit: "% GDP", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "level" },
+  { id: "automotive_export_share", labelZh: "汽车产业出口占比", labelEn: "Automotive industry export share", category: "industry", unit: "%", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "NACE C29 exports / total exports" },
 ];
 
 export const countryTableRecords: CountryTableRecord[] = [
@@ -121,6 +123,8 @@ const eurostatUpdatedFiscal = "2026-04-22";
 const eurostatUpdatedNationalAccounts = "2026-06-11";
 const eurostatUpdatedCurrentAccount = "2026-04-15";
 const eurostatUpdatedEnergy = "2026-04-21";
+const eurostatUpdatedFdi = "2026-06-09";
+const eurostatUpdatedTradeByActivity = "2026-04-30";
 
 function obs(countrySlug: string, indicatorId: string, value: number | null, sourceUrl: string, updatedAt: string, note?: string): ExtendedObservation {
   const indicator = extendedIndicators.find((item) => item.id === indicatorId);
@@ -149,17 +153,17 @@ const sourceUrls = {
   currentAccount: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tipsbp20?time=2024&unit=PC_GDP",
   energyDependency: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?time=2024&unit=PC&siec=TOTAL",
   manufacturing: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?time=2024&unit=PC_GDP&na_item=B1G&nace_r2=C",
-  fdiPending: "https://ec.europa.eu/eurostat/web/balance-of-payments/database",
-  automotivePending: "https://ec.europa.eu/eurostat/web/international-trade-in-goods/database",
+  fdi: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?time=2024&freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST",
+  automotiveExports: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?time=2024&freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD",
 };
 
 export const extendedObservations: ExtendedObservation[] = [
   ...([
-    ["poland", -6.4, 54.8, 42.8, 49.2, 442878.2, 409202.0, 33676.2, 0.3, 45.669, 15.4],
-    ["hungary", -5.1, 73.5, 42.2, 47.3, 157086.7, 147873.3, 9213.4, 1.8, 48.943, 15.9],
-    ["czechia", -2.0, 43.3, 41.2, 43.2, 220888.9, 200838.3, 20050.6, 1.7, 39.32, 19.9],
-    ["slovakia", -5.3, 59.7, 42.1, 47.4, 111305.9, 111626.0, -320.1, -4.6, 53.501, 16.3],
-  ] as const).flatMap(([countrySlug, deficit, debt, revenue, expenditure, exports, imports, balance, currentAccount, energy, manufacturing]) => [
+    ["poland", -6.4, 54.8, 42.8, 49.2, 442878.2, 409202.0, 33676.2, 0.3, 19004.2, 45.669, 15.4, 15.0],
+    ["hungary", -5.1, 73.5, 42.2, 47.3, 157086.7, 147873.3, 9213.4, 1.8, -57492.7, 48.943, 15.9, 21.9],
+    ["czechia", -2.0, 43.3, 41.2, 43.2, 220888.9, 200838.3, 20050.6, 1.7, 12311.3, 39.32, 19.9, 32.4],
+    ["slovakia", -5.3, 59.7, 42.1, 47.4, 111305.9, 111626.0, -320.1, -4.6, 4600.1, 53.501, 16.3, 40.4],
+  ] as const).flatMap(([countrySlug, deficit, debt, revenue, expenditure, exports, imports, balance, currentAccount, fdi, energy, manufacturing, automotiveShare]) => [
     obs(countrySlug, "fiscal_deficit_gdp", deficit, `${sourceUrls.deficit}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedFiscal),
     obs(countrySlug, "government_debt_gdp", debt, `${sourceUrls.debt}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedFiscal),
     obs(countrySlug, "government_revenue_gdp", revenue, `${sourceUrls.revenue}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedFiscal),
@@ -168,10 +172,10 @@ export const extendedObservations: ExtendedObservation[] = [
     obs(countrySlug, "imports_mio_eur", imports, `${sourceUrls.imports}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedNationalAccounts),
     obs(countrySlug, "trade_balance_mio_eur", balance, `${sourceUrls.exports}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedNationalAccounts, "由 Eurostat P6 出口减 P7 进口计算。"),
     obs(countrySlug, "current_account_gdp", currentAccount, `${sourceUrls.currentAccount}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedCurrentAccount),
-    obs(countrySlug, "fdi_mio_eur", null, sourceUrls.fdiPending, "", "FDI 需单独确定流量/存量、方向和最终投资者口径。"),
+    obs(countrySlug, "fdi_mio_eur", fdi, `${sourceUrls.fdi}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedFdi, "Eurostat BPM6 口径：Direct investment in the reporting economy (DIRE), liabilities flow；负值表示净减少。"),
     obs(countrySlug, "energy_import_dependency", energy, `${sourceUrls.energyDependency}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedEnergy),
     obs(countrySlug, "manufacturing_gva_gdp", manufacturing, `${sourceUrls.manufacturing}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedNationalAccounts),
-    obs(countrySlug, "automotive_export_share", null, sourceUrls.automotivePending, "", "需从商品贸易口径定义汽车及零部件 HS/CN 范围后再量化。"),
+    obs(countrySlug, "automotive_export_share", automotiveShare, `${sourceUrls.automotiveExports}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedTradeByActivity, "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"),
   ]),
 ];
 

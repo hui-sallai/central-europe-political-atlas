@@ -37,7 +37,7 @@ const dataModes: { id: DataMode; label: string; description: string }[] = [
 ];
 
 const tableMetricIds: EconomicMetricId[] = ["population", "gdp", "gdpPerCapita", "growth", "inflation", "unemployment"];
-const extendedCategoryOrder: ExtendedCategory[] = ["fiscal", "external", "energyIndustry"];
+const extendedCategoryOrder: ExtendedCategory[] = ["fiscal", "external", "investment", "energy", "industry"];
 
 function formatMetricValue(value: number | null, metricId: EconomicMetricId) {
   if (value === null) {
