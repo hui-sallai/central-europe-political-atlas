@@ -5,6 +5,7 @@ import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge
 import { getBasicIndicators } from "@/lib/basicIndicators";
 import { dataStatusItems } from "@/lib/dataStatus";
 import type { Country } from "@/lib/data";
+import { getChinaProjectRecords } from "@/lib/extendedData";
 import { getCountrySources, globalSourceRegistry, sourceCategoryLabels } from "@/lib/sourceRegistry";
 
 type ReadingTab = "summary" | "parties" | "china" | "status" | "sources";
@@ -21,10 +22,19 @@ const tabs: { id: ReadingTab; label: string }[] = [
   { id: "sources", label: "资料来源" },
 ];
 
+function formatProjectAmount(amount: number | null, currency: string | null) {
+  if (amount === null || !currency) {
+    return "待接入";
+  }
+
+  return `${amount.toLocaleString("zh-CN", { maximumFractionDigits: 2 })} ${currency}`;
+}
+
 export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
   const [activeTab, setActiveTab] = useState<ReadingTab>("summary");
   const basicIndicators = getBasicIndicators(country.slug);
   const countrySources = getCountrySources(country.slug);
+  const chinaProjectRecords = getChinaProjectRecords(country.slug);
 
   return (
     <section className="mt-6 card p-6">
@@ -140,19 +150,44 @@ export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
           <div>
             <p className="leading-7 text-[var(--muted)]">{country.chinaTradeNote}</p>
             <div className="mt-5 grid gap-3 md:grid-cols-2">
-              {country.chinaProjects.map((project) => (
-                <div key={project.name} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
-                  <div className="flex items-start justify-between gap-3">
-                    <p className="font-semibold">{project.name}</p>
-                    <DataStatusBadge status={project.status.includes("待") ? "pending" : "manual"} />
+              {chinaProjectRecords.length > 0 ? (
+                chinaProjectRecords.map((project) => (
+                  <div key={project.projectId} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+                    <div className="flex items-start justify-between gap-3">
+                      <p className="font-semibold">{project.projectName}</p>
+                      <DataStatusBadge status={project.status} />
+                    </div>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      <SourceStatusBadge status={project.status === "official" ? "official" : project.status === "sample" ? "sample" : project.status === "pending" ? "pending" : "manual"} />
+                      <a href={project.sourceUrl} target="_blank" rel="noreferrer" className="rounded-full border border-[var(--line)] bg-white px-2.5 py-1 text-[10px] font-semibold text-[var(--accent)]">
+                        来源链接
+                      </a>
+                    </div>
+                    <dl className="mt-3 grid gap-2 text-xs text-[var(--muted)] sm:grid-cols-2">
+                      <div><dt className="font-semibold text-[var(--foreground)]">地区/城市</dt><dd>{project.regionName}</dd></div>
+                      <div><dt className="font-semibold text-[var(--foreground)]">行业</dt><dd>{project.sector}</dd></div>
+                      <div><dt className="font-semibold text-[var(--foreground)]">中国主体</dt><dd>{project.chineseActor}</dd></div>
+                      <div><dt className="font-semibold text-[var(--foreground)]">当地主体</dt><dd>{project.localActor}</dd></div>
+                      <div><dt className="font-semibold text-[var(--foreground)]">金额 / 币种</dt><dd>{formatProjectAmount(project.amount, project.currency)}</dd></div>
+                      <div><dt className="font-semibold text-[var(--foreground)]">年份</dt><dd>{project.year}</dd></div>
+                      <div><dt className="font-semibold text-[var(--foreground)]">状态</dt><dd>{project.projectStatus}</dd></div>
+                      <div><dt className="font-semibold text-[var(--foreground)]">暴露指数</dt><dd>{project.exposureIndexEligible ? "候选，待模型启用后复核" : "暂不进入"}</dd></div>
+                    </dl>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {project.riskTags.map((tag) => (
+                        <span key={tag} className="rounded-full bg-[var(--surface-muted)] px-2.5 py-1 text-[10px] text-[var(--muted)]">{tag}</span>
+                      ))}
+                    </div>
+                    <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{project.note}</p>
                   </div>
-                  <div className="mt-2">
-                    <SourceStatusBadge status={project.status.includes("待") ? "pending" : "manual"} />
-                  </div>
-                  <p className="mt-2 text-xs text-[var(--accent)]">{project.sector} / {project.status}</p>
-                  <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{project.note}</p>
+                ))
+              ) : (
+                <div className="rounded-2xl border border-[var(--line)] bg-white/70 p-4 md:col-span-2">
+                  <DataStatusBadge status="pending" />
+                  <SourceStatusBadge status="pending" className="ml-2" />
+                  <p className="mt-3 text-sm leading-6 text-[var(--muted)]">该国对华经贸项目表待接入项目级来源。</p>
                 </div>
-              ))}
+              )}
             </div>
           </div>
         ) : null}

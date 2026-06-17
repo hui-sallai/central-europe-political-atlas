@@ -135,6 +135,14 @@ function formatExtendedValue(observation: ExtendedObservation) {
   return `${observation.value.toLocaleString("zh-CN", { maximumFractionDigits: 1 })}${observation.unit.startsWith("%") ? "" : " "}${observation.unit}`;
 }
 
+function formatProjectAmount(amount: number | null, currency: string | null) {
+  if (amount === null || !currency) {
+    return "待接入";
+  }
+
+  return `${amount.toLocaleString("zh-CN", { maximumFractionDigits: 2 })} ${currency}`;
+}
+
 function ChartBar({ label, value, max, display }: { label: string; value: number | null; max: number; display: string }) {
   const width = value === null || max <= 0 ? 0 : Math.max(3, Math.min(100, (Math.abs(value) / max) * 100));
 
@@ -499,10 +507,13 @@ export function DataCountryExplorer() {
                         <dl className="mt-3 grid gap-2 text-xs text-[var(--muted)] sm:grid-cols-2">
                           <div><dt className="font-semibold text-[var(--foreground)]">地区</dt><dd>{project.regionName}</dd></div>
                           <div><dt className="font-semibold text-[var(--foreground)]">行业</dt><dd>{project.sector}</dd></div>
-                          <div><dt className="font-semibold text-[var(--foreground)]">主体</dt><dd>{project.actors}</dd></div>
-                          <div><dt className="font-semibold text-[var(--foreground)]">金额</dt><dd>{project.amountEur === null ? "待接入" : `${project.amountEur.toLocaleString("zh-CN")} 欧元`}</dd></div>
+                          <div><dt className="font-semibold text-[var(--foreground)]">中国主体</dt><dd>{project.chineseActor}</dd></div>
+                          <div><dt className="font-semibold text-[var(--foreground)]">当地主体</dt><dd>{project.localActor}</dd></div>
+                          <div><dt className="font-semibold text-[var(--foreground)]">金额 / 币种</dt><dd>{formatProjectAmount(project.amount, project.currency)}</dd></div>
+                          <div><dt className="font-semibold text-[var(--foreground)]">年份</dt><dd>{project.year}</dd></div>
                           <div><dt className="font-semibold text-[var(--foreground)]">状态</dt><dd>{project.projectStatus}</dd></div>
                           <div><dt className="font-semibold text-[var(--foreground)]">关注标签</dt><dd>{project.riskTags.join(" / ")}</dd></div>
+                          <div><dt className="font-semibold text-[var(--foreground)]">进入中国经济暴露指数</dt><dd>{project.exposureIndexEligible ? "是，待模型启用后复核" : "否，暂作项目样本"}</dd></div>
                         </dl>
                         <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{project.note}</p>
                       </div>
@@ -850,7 +861,10 @@ export function DataCountryExplorer() {
                       <a key={project.projectId} href={project.sourceUrl} target="_blank" rel="noreferrer" className="rounded-xl bg-[var(--surface-muted)] p-3 text-xs">
                         <p className="font-semibold text-[var(--foreground)]">{project.projectName}</p>
                         <p className="mt-1 text-[var(--muted)]">{project.regionName} / {project.sector}</p>
-                        <p className="mt-1 leading-5 text-[var(--muted)]">{project.actors}；金额：{project.amountEur === null ? "待接入" : project.amountEur}</p>
+                        <p className="mt-1 leading-5 text-[var(--muted)]">
+                          中国主体：{project.chineseActor}；当地主体：{project.localActor}；金额：{formatProjectAmount(project.amount, project.currency)}
+                        </p>
+                        <p className="mt-1 leading-5 text-[var(--muted)]">暴露指数：{project.exposureIndexEligible ? "候选" : "暂不进入"}</p>
                       </a>
                     )) : <p className="text-xs text-[var(--muted)]">待接入项目级来源。</p>}
                   </div>
