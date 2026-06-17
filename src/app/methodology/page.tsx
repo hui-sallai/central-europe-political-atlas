@@ -22,6 +22,14 @@ const reliabilityItems = [
   { level: "D 级", title: "不进入正式数据", body: "未核验二手来源、社交媒体、无明确出处内容。不进入平台正式数据，也不进入模型。" },
 ];
 
+const dataPriorityItems = [
+  { group: "财政", indicators: ["财政赤字/GDP", "政府债务/GDP"] },
+  { group: "外部", indicators: ["出口", "进口", "贸易差额", "经常账户/GDP"] },
+  { group: "投资", indicators: ["FDI 流入"] },
+  { group: "能源", indicators: ["能源进口依赖"] },
+  { group: "产业", indicators: ["制造业占 GDP 比重", "汽车出口占比"] },
+];
+
 const fieldRules = [
   "每个正式数据点必须同时具备：年份、单位、来源名称、来源链接、来源状态。",
   "经济指标统一优先使用各国统计部门和 Eurostat 可核验表；金额类指标统一换算或显示为欧元口径。",
@@ -111,6 +119,28 @@ export default function MethodologyPage() {
         <p className="mt-4 rounded-2xl bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--muted)]">
           使用规则：A/B 级可以作为正式数据或事件依据；C 级只作补充；D 级不进入平台正式数据。
         </p>
+      </section>
+
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">Data Priority</p>
+        <h2 className="mt-3 text-2xl font-semibold">数据优先级：V4 第一批指标</h2>
+        <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">
+          第一阶段优先补齐 V4 国家，即波兰、匈牙利、捷克、斯洛伐克。以下指标优先使用 A 级来源，并要求每个数据点具备年份、单位、来源名称、来源链接和来源状态。
+        </p>
+        <div className="mt-5 grid gap-3 md:grid-cols-2 lg:grid-cols-5">
+          {dataPriorityItems.map((item) => (
+            <article key={item.group} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+              <h3 className="font-semibold">{item.group}</h3>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {item.indicators.map((indicator) => (
+                  <span key={indicator} className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs text-[var(--muted)]">
+                    {indicator}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="mt-6 grid gap-4 lg:grid-cols-2">
