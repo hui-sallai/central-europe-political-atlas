@@ -144,6 +144,18 @@ function formatProjectAmount(amount: number | null, currency: string | null) {
   return `${amount.toLocaleString("zh-CN", { maximumFractionDigits: 2 })} ${currency}`;
 }
 
+function formatMatrixValue(indicatorId: string, value: number | null) {
+  if (value === null) {
+    return "待接入";
+  }
+
+  if (indicatorId === "energy_import_dependency") {
+    return value.toLocaleString("zh-CN", { maximumFractionDigits: 3 });
+  }
+
+  return value.toLocaleString("zh-CN", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+}
+
 function ChartBar({ label, value, max, display }: { label: string; value: number | null; max: number; display: string }) {
   const width = value === null || max <= 0 ? 0 : Math.max(3, Math.min(100, (Math.abs(value) / max) * 100));
 
@@ -311,9 +323,9 @@ export function DataCountryExplorer() {
             <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
               <div>
                 <p className="eyebrow">V4 Cross-Country Comparison</p>
-                <h2 className="mt-3 text-2xl font-semibold">V4 横向比较区</h2>
+                <h2 className="mt-3 text-2xl font-semibold">V4 指标矩阵</h2>
                 <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                  按同一套 V4 模板指标并列比较波兰、匈牙利、捷克和斯洛伐克。当前区块只做事实数据对照，不输出预测或风险指数。
+                  按同一套 V4 模板指标并列比较波兰、匈牙利、捷克和斯洛伐克。单元格以数值为主，点击数值可打开对应来源链接；当前区块只做事实数据对照，不输出预测或风险指数。
                 </p>
               </div>
               <div className="rounded-2xl border border-[var(--line)] bg-white/70 px-5 py-4 text-right">
@@ -324,13 +336,12 @@ export function DataCountryExplorer() {
             </div>
 
             <div className="mt-5 overflow-x-auto">
-              <table className="w-full min-w-[1080px] border-separate border-spacing-0 text-left text-sm">
+              <table className="w-full min-w-[900px] border-separate border-spacing-0 text-left text-sm">
                 <thead>
                   <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
                     <th className="border-b border-[var(--line)] pb-3 pr-4 font-semibold">指标</th>
-                    <th className="border-b border-[var(--line)] px-4 pb-3 font-semibold">类别</th>
                     {v4Countries.map((country) => (
-                      <th key={country.slug} className="border-b border-[var(--line)] px-4 pb-3 font-semibold">{country.nameZh}</th>
+                      <th key={country.slug} className="border-b border-[var(--line)] px-4 pb-3 text-right font-semibold">{country.nameZh}</th>
                     ))}
                   </tr>
                 </thead>
@@ -342,30 +353,25 @@ export function DataCountryExplorer() {
                       <tr key={indicatorId} className="align-top">
                         <td className="border-b border-[var(--line)] py-3 pl-0 pr-4">
                           <p className="font-semibold">{indicator?.labelZh ?? indicatorId}</p>
-                          <p className="mt-1 font-mono text-[10px] text-[var(--muted)]">{indicatorId}</p>
-                        </td>
-                        <td className="border-b border-[var(--line)] px-4 py-3 text-xs text-[var(--muted)]">
-                          {indicator ? extendedIndicatorLabels[indicator.category] : "待接入"}
+                          <p className="mt-1 text-[10px] text-[var(--muted)]">{indicator?.unit ?? ""} / {indicator ? extendedIndicatorLabels[indicator.category] : "待接入"}</p>
                         </td>
                         {v4Countries.map((country) => {
                           const observation = v4ObservationMaps.get(country.slug)?.get(indicatorId);
 
                           return (
-                            <td key={`${country.slug}-${indicatorId}`} className="border-b border-[var(--line)] px-4 py-3">
+                            <td key={`${country.slug}-${indicatorId}`} className="border-b border-[var(--line)] px-4 py-3 text-right">
                               {observation ? (
-                                <div className="flex min-w-[150px] flex-col gap-2">
-                                  <span className="font-semibold">{formatExtendedValue(observation)}</span>
-                                  <span className="text-[10px] text-[var(--muted)]">{observation.date} / {observation.unit}</span>
-                                  <DataStatusBadge status={observation.status} />
-                                  <a href={observation.sourceUrl} target="_blank" rel="noreferrer" className="text-[10px] font-semibold text-[var(--accent)]">
-                                    {observation.sourceName}
-                                  </a>
-                                </div>
+                                <a
+                                  href={observation.sourceUrl}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  title={`${observation.sourceName} / ${observation.date} / ${observation.status}`}
+                                  className="font-mono text-sm font-semibold text-[var(--foreground)] transition hover:text-[var(--accent)]"
+                                >
+                                  {formatMatrixValue(indicatorId, observation.value)}
+                                </a>
                               ) : (
-                                <div className="flex min-w-[150px] flex-col gap-2">
-                                  <span className="text-[var(--muted)]">待接入</span>
-                                  <DataStatusBadge status="pending" />
-                                </div>
+                                <span className="text-[var(--muted)]">待接入</span>
                               )}
                             </td>
                           );
@@ -375,6 +381,10 @@ export function DataCountryExplorer() {
                   })}
                 </tbody>
               </table>
+            </div>
+            <div className="mt-4 flex flex-wrap items-center gap-2 rounded-2xl bg-[var(--surface-muted)] px-4 py-3 text-xs text-[var(--muted)]">
+              <DataStatusBadge status="official" />
+              <span>矩阵数值均来自当前 V4 模板观测值；金额类单位为百万欧元，其余单位见指标列。来源和更新时间仍在数据表格模式逐项展开。</span>
             </div>
           </section>
         ) : null}
