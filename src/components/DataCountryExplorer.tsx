@@ -17,7 +17,6 @@ import {
   getV4TemplateCoverage,
   v4TemplateIndicatorIds,
   type ExtendedCategory,
-  type ExtendedObservation,
 } from "@/lib/extendedData";
 import {
   economicMetricOptions,
@@ -122,18 +121,6 @@ function reliabilityLevelDescription(value: string) {
   };
 
   return descriptions[value] ?? "来源可靠性规则待补充。";
-}
-
-function formatExtendedValue(observation: ExtendedObservation) {
-  if (observation.value === null) {
-    return "待接入";
-  }
-
-  if (observation.unit === "百万欧元") {
-    return `${observation.value.toLocaleString("zh-CN", { maximumFractionDigits: 1 })} 百万欧元`;
-  }
-
-  return `${observation.value.toLocaleString("zh-CN", { maximumFractionDigits: 1 })}${observation.unit.startsWith("%") ? "" : " "}${observation.unit}`;
 }
 
 function formatProjectAmount(amount: number | null, currency: string | null) {
@@ -594,7 +581,7 @@ export function DataCountryExplorer() {
                         <table className="w-full min-w-[920px] border-separate border-spacing-0 text-left text-sm">
                           <thead>
                             <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-                              {["指标", "日期", "数值", "状态", "来源", "更新时间", "备注"].map((header) => (
+                              {["指标", "年份", "数值", "单位", "状态", "来源", "更新时间", "备注"].map((header) => (
                                 <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
                               ))}
                             </tr>
@@ -607,7 +594,8 @@ export function DataCountryExplorer() {
                                 <tr key={`${observation.countrySlug}-${observation.indicatorId}`}>
                                   <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{indicator?.labelZh ?? observation.indicatorId}</td>
                                   <td className="border-b border-[var(--line)] px-3 py-3">{observation.date}</td>
-                                  <td className="border-b border-[var(--line)] px-3 py-3">{formatExtendedValue(observation)}</td>
+                                  <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatMatrixValue(observation.indicatorId, observation.value)}</td>
+                                  <td className="border-b border-[var(--line)] px-3 py-3">{observation.unit}</td>
                                   <td className="border-b border-[var(--line)] px-3 py-3">
                                     <DataStatusBadge status={observation.status} />
                                   </td>
@@ -845,7 +833,7 @@ export function DataCountryExplorer() {
                 <table className="w-full min-w-[980px] border-separate border-spacing-0 text-left text-sm">
                   <thead>
                     <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-                      {["国家", "地区", "指标", "日期", "频率", "数值", "单位", "来源", "状态", "更新时间", "备注"].map((header) => (
+                      {["指标", "年份", "数值", "单位", "状态", "来源", "更新时间", "备注"].map((header) => (
                         <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
                       ))}
                     </tr>
@@ -856,17 +844,14 @@ export function DataCountryExplorer() {
 
                       return (
                         <tr key={`table-${observation.countrySlug}-${observation.indicatorId}`}>
-                          <td className="border-b border-[var(--line)] py-3 pl-0 pr-3">{selectedCountry.iso2}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">国家级</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">{indicator?.labelZh ?? observation.indicatorId}</td>
+                          <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{indicator?.labelZh ?? observation.indicatorId}</td>
                           <td className="border-b border-[var(--line)] px-3 py-3">{observation.date}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">annual</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">{formatExtendedValue(observation)}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatMatrixValue(observation.indicatorId, observation.value)}</td>
                           <td className="border-b border-[var(--line)] px-3 py-3">{observation.unit}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3"><DataStatusBadge status={observation.status} /></td>
                           <td className="border-b border-[var(--line)] px-3 py-3">
                             <a href={observation.sourceUrl} target="_blank" rel="noreferrer" className="text-xs font-semibold text-[var(--accent)]">{observation.sourceName}</a>
                           </td>
-                          <td className="border-b border-[var(--line)] px-3 py-3"><DataStatusBadge status={observation.status} /></td>
                           <td className="border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">{observation.updatedAt || "待接入"}</td>
                           <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{observation.note ?? "—"}</td>
                         </tr>
