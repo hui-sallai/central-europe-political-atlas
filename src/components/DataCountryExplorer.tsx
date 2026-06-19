@@ -234,6 +234,16 @@ export function DataCountryExplorer() {
       new Map(getExtendedObservations(country.slug).map((observation) => [observation.indicatorId, observation])),
     ]),
   );
+  const v4CoverageItems = v4Countries.map((country) => {
+    const coverage = getV4TemplateCoverage(country.slug);
+
+    return {
+      country,
+      coverage,
+    };
+  });
+  const v4TotalExpected = v4CoverageItems.reduce((sum, item) => sum + item.coverage.total, 0);
+  const v4TotalPresent = v4CoverageItems.reduce((sum, item) => sum + item.coverage.present.length, 0);
 
   return (
     <section className="mt-8 grid gap-5 lg:grid-cols-[260px_minmax(0,1fr)]">
@@ -332,6 +342,24 @@ export function DataCountryExplorer() {
                 <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">模板规模</p>
                 <p className="mt-2 text-3xl font-semibold text-[var(--accent)]">{v4TemplateIndicatorIds.length}</p>
                 <p className="mt-1 text-xs text-[var(--muted)]">指标 / 4 国</p>
+              </div>
+            </div>
+
+            <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+              <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">Data Completeness Acceptance</p>
+                  <h3 className="mt-2 text-xl font-semibold">V4 扩展数据完整度：{v4TotalPresent} / {v4TotalExpected}</h3>
+                </div>
+                <DataStatusBadge status={v4TotalPresent === v4TotalExpected ? "official" : "pending"} />
+              </div>
+              <div className="mt-4 grid gap-2 md:grid-cols-4">
+                {v4CoverageItems.map(({ country, coverage }) => (
+                  <div key={country.slug} className="rounded-xl bg-[var(--surface-muted)] px-3 py-2">
+                    <p className="text-xs text-[var(--muted)]">{country.nameEn}</p>
+                    <p className="mt-1 font-semibold">{country.nameZh}：{coverage.present.length} / {coverage.total}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
