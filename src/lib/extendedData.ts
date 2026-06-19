@@ -92,14 +92,14 @@ export const extendedIndicatorLabels: Record<ExtendedCategory, string> = {
 };
 
 export const extendedIndicators: ExtendedIndicator[] = [
-  { id: "fiscal_deficit_gdp", labelZh: "财政赤字 / GDP", labelEn: "Government deficit / GDP", category: "fiscal", unit: "% GDP", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "higher_risk", transform: "level" },
-  { id: "government_debt_gdp", labelZh: "政府债务 / GDP", labelEn: "Government debt / GDP", category: "fiscal", unit: "% GDP", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "higher_risk", transform: "level" },
-  { id: "government_revenue_gdp", labelZh: "财政收入 / GDP", labelEn: "Government revenue / GDP", category: "fiscal", unit: "% GDP", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "level" },
-  { id: "government_expenditure_gdp", labelZh: "财政支出 / GDP", labelEn: "Government expenditure / GDP", category: "fiscal", unit: "% GDP", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "level" },
+  { id: "fiscal_deficit_gdp", labelZh: "财政赤字/GDP", labelEn: "Government deficit / GDP", category: "fiscal", unit: "% GDP", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "higher_risk", transform: "level" },
+  { id: "government_debt_gdp", labelZh: "政府债务/GDP", labelEn: "Government debt / GDP", category: "fiscal", unit: "% GDP", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "higher_risk", transform: "level" },
+  { id: "government_revenue_gdp", labelZh: "财政收入/GDP", labelEn: "Government revenue / GDP", category: "fiscal", unit: "% GDP", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "level" },
+  { id: "government_expenditure_gdp", labelZh: "财政支出/GDP", labelEn: "Government expenditure / GDP", category: "fiscal", unit: "% GDP", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "level" },
   { id: "exports_mio_eur", labelZh: "出口", labelEn: "Exports", category: "external", unit: "百万欧元", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "level" },
   { id: "imports_mio_eur", labelZh: "进口", labelEn: "Imports", category: "external", unit: "百万欧元", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "level" },
   { id: "trade_balance_mio_eur", labelZh: "贸易差额", labelEn: "Trade balance", category: "external", unit: "百万欧元", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "exports - imports" },
-  { id: "current_account_gdp", labelZh: "经常账户 / GDP", labelEn: "Current account / GDP", category: "external", unit: "% GDP", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "lower_risk", transform: "level" },
+  { id: "current_account_gdp", labelZh: "经常账户/GDP", labelEn: "Current account / GDP", category: "external", unit: "% GDP", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "lower_risk", transform: "level" },
   { id: "fdi_mio_eur", labelZh: "FDI 流入", labelEn: "FDI inflow", category: "investment", unit: "百万欧元", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "level" },
   { id: "energy_import_dependency", labelZh: "能源进口依赖", labelEn: "Energy import dependency", category: "energy", unit: "%", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "higher_risk", transform: "level" },
   { id: "manufacturing_gva_gdp", labelZh: "制造业占 GDP 比重", labelEn: "Manufacturing GVA / GDP", category: "industry", unit: "% GDP", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "level" },
