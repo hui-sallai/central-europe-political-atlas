@@ -528,7 +528,7 @@ export function Adm1BoundaryMap({
         </span>
         <span className="flex items-center gap-2">
           <span className="h-3 w-10 rounded-full bg-gradient-to-r from-white to-[var(--accent)] ring-1 ring-[var(--line)]" />
-          图层强度
+          占位色阶 / 非真实强度
         </span>
       </div>
     </div>

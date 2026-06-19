@@ -17,7 +17,6 @@ export type RegionLayerDatum = {
   region: Region;
   value?: number;
   displayValue: string;
-  rank?: number;
 };
 
 export const mapLayerOptions: LayerOption[] = [
@@ -32,17 +31,17 @@ export const mapLayerOptions: LayerOption[] = [
   },
   {
     id: "economy",
-    label: "经济强度",
+    label: "经济占位色阶",
     description: "当前仅用占位色阶验证地图交互。不是区域 GDP、就业或产业结构数据。",
-    legend: "颜色深浅仅表示占位色阶，不代表真实经济强度",
+    legend: "颜色深浅仅表示占位色阶，不代表真实区域经济指标",
     dataStatus: "结构样例，不进入模型",
     statusKind: "sample",
-    statusNote: "正式版需接入各国统计部门区域经济数据后，才能展示经济强度。",
+    statusNote: "正式版需接入各国统计部门区域经济数据后，才能展示区域经济差异。",
   },
   {
     id: "baseline",
     label: "基础底图",
-    description: "只显示一级行政区边界和当前选择，不叠加分析强度。",
+    description: "只显示一级行政区边界和当前选择，不叠加分析评分。",
     legend: "用于阅读行政区结构",
     dataStatus: "真实 ADM1 边界，来自 geoBoundaries；部分地区仍需核验",
     statusKind: "manual",
@@ -67,7 +66,7 @@ export function getRegionLayerValue(countrySlug: string, regionSlug: string, lay
 }
 
 export function getCountryLayerData(country: Country, layer: MapLayer): RegionLayerDatum[] {
-  const values = country.regions.map((region, index) => {
+  return country.regions.map((region, index) => {
     const value = getRegionLayerValue(country.slug, region.slug, layer, index);
     return {
       region,
@@ -75,17 +74,6 @@ export function getCountryLayerData(country: Country, layer: MapLayer): RegionLa
       displayValue: typeof value === "number" ? "占位色阶" : "边界",
     };
   });
-
-  const ranked = values
-    .filter((item): item is RegionLayerDatum & { value: number } => typeof item.value === "number")
-    .sort((a, b) => b.value - a.value)
-    .map((item, index) => [item.region.slug, index + 1] as const);
-  const rankBySlug = new Map(ranked);
-
-  return values.map((item) => ({
-    ...item,
-    rank: rankBySlug.get(item.region.slug),
-  }));
 }
 
 export function getRegionMetricMap(country: Country, layer: MapLayer) {

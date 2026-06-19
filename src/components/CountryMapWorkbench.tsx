@@ -3,8 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Adm1BoundaryMap } from "@/components/Adm1BoundaryMap";
-import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
-import { getBasicIndicators } from "@/lib/basicIndicators";
+import { DataStatusBadge } from "@/components/DataStatusBadge";
 import type { Country } from "@/lib/data";
 import { getCountryLayerData, getLayerOption, getRegionMetricMap, mapLayerOptions, type MapLayer } from "@/lib/mapLayerData";
 
@@ -108,10 +107,6 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
   const selectedRegionDatum = selectedRegion ? layerData.find((item) => item.region.slug === selectedRegion.slug) : undefined;
   const layerDataPreview = layerData.slice(0, 4);
   const adm2Plan = adm2Plans[country.slug];
-  const basicIndicators = getBasicIndicators(country.slug);
-  const governingParties = country.parties.filter((party) => party.role === "governing" || party.role === "support");
-  const oppositionParties = country.parties.filter((party) => party.role === "opposition");
-  const partyStatus = country.parties.some((party) => party.shortName === "TBD") ? "pending" : "manual";
 
   function selectRegion(countrySlug: string, regionSlug?: string) {
     if (countrySlug !== country.slug || !regionSlug) {
@@ -127,7 +122,7 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
           <p className="eyebrow">Dynamic Country Map</p>
           <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em]">地图图层仪表盘</h2>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--muted)]">
-            地图可切换为党派支持率、经济强度和基础底图。对华经贸先保留在项目与文字资料层，不单独作为地图图层。
+            地图可切换为党派支持率、经济占位色阶和基础底图。对华经贸先保留在项目与文字资料层，不单独作为地图图层。
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -192,7 +187,7 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
                     <span className="text-xs font-semibold text-[var(--muted)]">{selectedRegionDatum.displayValue}</span>
                   </div>
                   <p className="mt-2 text-xs leading-5 text-[var(--muted)]">
-                    当前区域只显示该图层的数据状态，不显示占位强度或排名，避免被误读为事实指标。
+                    当前区域只显示该图层的数据状态，不显示占位百分比、强度或排名，避免被误读为事实指标。
                   </p>
                 </div>
               ) : null}
@@ -251,57 +246,6 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
             </div>
 
             <p className="mt-3 text-xs leading-5 text-[var(--muted)]">{adm2Plan?.notes}</p>
-          </div>
-
-          <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
-            <p className="text-xs font-semibold text-[var(--muted)]">基础经济数据</p>
-            <div className="mt-4 grid grid-cols-2 gap-3">
-              {basicIndicators.length > 0 ? (
-                basicIndicators.slice(0, 6).map((indicator) => (
-                  <div key={indicator.id} className="rounded-xl bg-white/70 p-3">
-                    <div className="flex items-center justify-between gap-2">
-                      <p className="text-xs text-[var(--muted)]">{indicator.label}</p>
-                      <DataStatusBadge status={indicator.status === "official" ? "official" : "manual"} />
-                    </div>
-                    <p className="mt-2 text-lg font-semibold">{indicator.value}</p>
-                    <p className="mt-1 text-[10px] text-[var(--muted)]">{indicator.year} / {indicator.source}</p>
-                    <div className="mt-2">
-                      <SourceStatusBadge status={indicator.status === "official" ? "official" : "manual"} />
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <div className="col-span-2 rounded-xl bg-white/70 p-3">
-                  <div className="flex items-center justify-between gap-2">
-                    <p className="text-sm font-semibold">官方统计未接入</p>
-                    <DataStatusBadge status="pending" />
-                  </div>
-                  <div className="mt-2">
-                    <SourceStatusBadge status="pending" />
-                  </div>
-                  <p className="mt-2 text-xs leading-5 text-[var(--muted)]">该国宏观数据将以本国统计部门最新发布为主，World Bank / Eurostat 仅作交叉核验。</p>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className="mt-5 grid gap-3">
-            {[
-              { label: "执政结构", status: partyStatus, sourceStatus: partyStatus, note: governingParties.length > 0 ? "待核验；需与官方政府名单复核后再作为正式数据。" : "未接入可信来源。" },
-              { label: "对华经贸项目", status: "pending", sourceStatus: "manual", note: "样本库初版；项目入口已预留，贸易额、地区与企业字段待量化。" },
-              { label: "主要在野党", status: partyStatus, sourceStatus: partyStatus, note: oppositionParties.length > 0 ? "待核验；需与议会席位和选举结果复核后再作为正式数据。" : "未接入可信来源。" },
-            ].map((item) => (
-              <div key={item.label} className="rounded-2xl border border-[var(--line)] bg-white/70 p-3">
-                <div className="flex items-center justify-between gap-3">
-                  <p className="text-sm font-semibold">{item.label}</p>
-                  <DataStatusBadge status={item.status as "manual" | "pending"} />
-                </div>
-                <div className="mt-2">
-                  <SourceStatusBadge status={item.sourceStatus as "manual" | "pending"} />
-                </div>
-                <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{item.note}</p>
-              </div>
-            ))}
           </div>
 
           <div className="mt-5 flex flex-wrap gap-2">
