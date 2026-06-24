@@ -114,6 +114,43 @@ a {
   border-radius: 999px;
 }
 
+.research-data-table th,
+.research-data-table td {
+  vertical-align: top;
+}
+
+.research-data-table th {
+  white-space: nowrap;
+}
+
+.research-data-table th + th,
+.research-data-table td + td {
+  border-left: 1px solid color-mix(in srgb, var(--line) 58%, transparent);
+}
+
+.data-date-cell,
+.data-unit-cell {
+  white-space: nowrap;
+}
+
+.data-value-token {
+  display: inline-block;
+  min-width: 5.5ch;
+  white-space: nowrap;
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, var(--surface-muted) 72%, white);
+  padding: 0.2rem 0.45rem;
+  text-align: right;
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-variant-numeric: tabular-nums;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.data-value-negative {
+  box-shadow: inset 3px 0 0 color-mix(in srgb, #9f5f55 58%, transparent);
+}
+
 @media (min-width: 1024px) {
   .home-atlas-grid {
     flex: 1;

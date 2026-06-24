@@ -67,7 +67,7 @@ export default function MethodologyPage() {
 
       <section className="mt-8 card p-6">
         <p className="eyebrow">Current Scope</p>
-        <h2 className="mt-3 text-2xl font-semibold">当前页面结构</h2>
+        <h2 className="mt-3 text-2xl font-semibold">1. 当前页面结构</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
           {frozenNavItems.map((item) => (
             <article key={item.href} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
@@ -88,7 +88,7 @@ export default function MethodologyPage() {
       <section className="mt-6 grid gap-4 md:grid-cols-2">
         <div className="card p-6">
           <p className="eyebrow">Data Status</p>
-          <h2 className="mt-3 text-2xl font-semibold">数据状态</h2>
+          <h2 className="mt-3 text-2xl font-semibold">2. 数据状态</h2>
           <div className="mt-5 grid gap-3">
             {dataStatusItems.map((item) => (
               <article key={item.title} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
@@ -101,7 +101,7 @@ export default function MethodologyPage() {
 
         <div className="card p-6">
           <p className="eyebrow">Source Level</p>
-          <h2 className="mt-3 text-2xl font-semibold">来源等级</h2>
+          <h2 className="mt-3 text-2xl font-semibold">3. 来源等级</h2>
           <div className="mt-5 grid gap-3">
             {sourceLevelItems.map((item) => (
               <article key={item.title} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
@@ -115,7 +115,7 @@ export default function MethodologyPage() {
 
       <section className="mt-6 card p-6">
         <p className="eyebrow">Reliability Level</p>
-        <h2 className="mt-3 text-2xl font-semibold">来源可靠性等级</h2>
+        <h2 className="mt-3 text-2xl font-semibold">4. 来源可靠性等级</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {reliabilityItems.map((item) => (
             <article key={item.level} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
@@ -135,7 +135,7 @@ export default function MethodologyPage() {
 
       <section className="mt-6 card p-6">
         <p className="eyebrow">Data Priority</p>
-        <h2 className="mt-3 text-2xl font-semibold">数据优先级：V4 第一批指标</h2>
+        <h2 className="mt-3 text-2xl font-semibold">5. 数据优先级：V4 第一批指标</h2>
         <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">
           第一阶段优先补齐 V4 国家，即波兰、匈牙利、捷克、斯洛伐克。以下指标优先使用 A 级来源，并要求每个数据点具备年份、单位、来源名称、来源链接和来源状态。
         </p>
@@ -158,7 +158,7 @@ export default function MethodologyPage() {
       <section className="mt-6 grid gap-4 lg:grid-cols-2">
         <article className="card p-6">
           <p className="eyebrow">Field Rules</p>
-          <h2 className="mt-3 text-2xl font-semibold">字段口径</h2>
+          <h2 className="mt-3 text-2xl font-semibold">6. 字段口径</h2>
           <ul className="mt-5 grid gap-3 text-sm leading-7 text-[var(--muted)]">
             {fieldRules.map((rule) => (
               <li key={rule} className="rounded-2xl bg-white/65 px-4 py-3">{rule}</li>
@@ -168,7 +168,7 @@ export default function MethodologyPage() {
 
         <article className="card p-6">
           <p className="eyebrow">Excluded From Model</p>
-          <h2 className="mt-3 text-2xl font-semibold">不进入模型的内容</h2>
+          <h2 className="mt-3 text-2xl font-semibold">7. 不进入模型的内容</h2>
           <ul className="mt-5 grid gap-3 text-sm leading-7 text-[var(--muted)]">
             {excludedItems.map((item) => (
               <li key={item} className="rounded-2xl bg-white/65 px-4 py-3">{item}</li>
@@ -179,7 +179,7 @@ export default function MethodologyPage() {
 
       <section className="mt-6 card p-6">
         <p className="eyebrow">Analysis Checklist</p>
-        <h2 className="mt-3 text-2xl font-semibold">进入后续分析的检查清单</h2>
+        <h2 className="mt-3 text-2xl font-semibold">8. 进入后续分析的检查清单</h2>
         <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">
           一个数据点只有同时满足以下条件，才可以进入后续分析：
         </p>

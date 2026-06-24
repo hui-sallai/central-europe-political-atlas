@@ -33,6 +33,7 @@ import {
 } from "@/lib/economicTimeSeries";
 
 type DataMode = "economy" | "charts" | "comparison" | "tables";
+type ProjectAmountFilter = "all" | "available" | "missing";
 
 const dataModes: { id: DataMode; label: string; description: string }[] = [
   { id: "economy", label: "经济数据", description: "近五年宏观经济表、官方统计主源与对华经贸样本。" },
@@ -182,6 +183,23 @@ function formatObservationValue(value: number | null, indicatorId: string) {
   return formatMatrixValue(indicatorId, value);
 }
 
+function matrixMeanComparison(value: number | null, mean: number | null) {
+  if (value === null || mean === null) {
+    return "待比较";
+  }
+
+  const tolerance = Math.max(0.0001, Math.abs(mean) * 0.0001);
+  if (Math.abs(value - mean) <= tolerance) {
+    return "等于均值";
+  }
+
+  return value > mean ? "高于均值" : "低于均值";
+}
+
+function dataValueClass(value: number | null) {
+  return `data-value-token${value !== null && value < 0 ? " data-value-negative" : ""}`;
+}
+
 function ObservationRows({ observations }: { observations: ExtendedObservation[] }) {
   return (
     <>
@@ -191,9 +209,11 @@ function ObservationRows({ observations }: { observations: ExtendedObservation[]
         return (
           <tr key={`${observation.countrySlug}-${observation.indicatorId}`} className="align-top">
             <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{indicator?.labelZh.replaceAll(" / ", "/") ?? observation.indicatorId}</td>
-            <td className="border-b border-[var(--line)] px-3 py-3">{observation.date}</td>
-            <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatObservationValue(observation.value, observation.indicatorId)}</td>
-            <td className="border-b border-[var(--line)] px-3 py-3">{observation.unit || "待接入"}</td>
+            <td className="data-date-cell border-b border-[var(--line)] px-3 py-3">{observation.date}</td>
+            <td className="border-b border-[var(--line)] px-3 py-3 font-mono">
+              <span className={dataValueClass(observation.value)}>{formatObservationValue(observation.value, observation.indicatorId)}</span>
+            </td>
+            <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3">{observation.unit || "待接入"}</td>
             <td className="border-b border-[var(--line)] px-3 py-3">
               <DataStatusBadge status={observation.status} />
             </td>
@@ -213,6 +233,20 @@ function ObservationRows({ observations }: { observations: ExtendedObservation[]
 }
 
 function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRecord[]; countryName: string }) {
+  const [amountFilter, setAmountFilter] = useState<ProjectAmountFilter>("all");
+  const [sectorFilter, setSectorFilter] = useState("all");
+  const sectors = useMemo(() => Array.from(new Set(projects.map((project) => project.sector).filter(Boolean))).sort(), [projects]);
+  const filteredProjects = useMemo(
+    () =>
+      projects.filter((project) => {
+        const matchesAmount = amountFilter === "all" || (amountFilter === "available" ? project.amount !== null : project.amount === null);
+        const matchesSector = sectorFilter === "all" || project.sector === sectorFilter;
+        return matchesAmount && matchesSector;
+      }),
+    [amountFilter, projects, sectorFilter],
+  );
+  const availableAmountCount = projects.filter((project) => project.amount !== null).length;
+
   if (projects.length === 0) {
     return (
       <div className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
@@ -224,46 +258,93 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
   }
 
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full min-w-[1120px] border-separate border-spacing-0 text-left text-sm">
-        <thead>
-          <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-            {["项目名称", "国家", "地区/城市", "行业", "中国主体", "当地主体", "金额", "币种", "年份", "状态", "来源", "风险标签", "进入中国经济暴露指数", "备注"].map((header) => (
-              <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {projects.map((project) => (
-            <tr key={project.projectId} className="align-top">
-              <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{project.projectName}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">{countryName}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">{project.regionName || "待接入"}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">{project.sector || "待接入"}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">{project.chineseActor || "待接入"}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">{project.localActor || "待接入"}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{project.amount === null ? "待接入" : project.amount.toLocaleString("zh-CN", { maximumFractionDigits: 2 })}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">{project.currency ?? "待接入"}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">{project.year || "待接入"}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">
-                <div className="flex flex-col gap-2">
-                  <DataStatusBadge status={project.status} />
-                  <span className="text-xs text-[var(--muted)]">{project.projectStatus}</span>
-                </div>
-              </td>
-              <td className="border-b border-[var(--line)] px-3 py-3">
-                <div className="flex flex-col gap-2">
-                  <SourceStatusBadge status={project.status === "official" ? "official" : project.status === "sample" ? "sample" : project.status === "pending" ? "pending" : "manual"} />
-                  <SourceNameLink href={project.sourceUrl}>来源链接</SourceNameLink>
-                </div>
-              </td>
-              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{project.riskTags.length > 0 ? project.riskTags.join(" / ") : "待接入"}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">{project.exposureIndexEligible ? "候选，待模型启用后复核" : "否，暂作项目样本"}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{project.note || "—"}</td>
-            </tr>
+    <div>
+      <div className="mb-4 flex flex-col gap-3 rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-3 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex flex-wrap gap-2">
+          {([
+            ["all", `全部项目 ${projects.length}`],
+            ["available", `金额已接入 ${availableAmountCount}`],
+            ["missing", `金额缺失 ${projects.length - availableAmountCount}`],
+          ] as const).map(([value, label]) => (
+            <button
+              key={value}
+              type="button"
+              onClick={() => setAmountFilter(value)}
+              className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
+                amountFilter === value ? "border-[var(--accent)] bg-[var(--accent)] text-white" : "border-[var(--line)] bg-white text-[var(--muted)] hover:border-[var(--accent)]"
+              }`}
+            >
+              {label}
+            </button>
           ))}
-        </tbody>
-      </table>
+        </div>
+        <label className="flex items-center gap-2 text-xs font-semibold text-[var(--muted)]">
+          行业
+          <select
+            value={sectorFilter}
+            onChange={(event) => setSectorFilter(event.target.value)}
+            className="max-w-[240px] rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs text-[var(--foreground)]"
+          >
+            <option value="all">全部行业</option>
+            {sectors.map((sector) => (
+              <option key={sector} value={sector}>{sector}</option>
+            ))}
+          </select>
+        </label>
+      </div>
+
+      {filteredProjects.length > 0 ? (
+        <div className="overflow-x-auto">
+          <table className="research-data-table w-full min-w-[1360px] border-separate border-spacing-0 text-left text-sm">
+            <thead>
+              <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+                {["项目名称", "国家", "地区/城市", "行业", "中国主体", "当地主体", "金额", "币种", "金额状态", "年份", "状态", "来源", "风险标签", "进入中国经济暴露指数", "备注"].map((header) => (
+                  <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {filteredProjects.map((project) => (
+                <tr key={project.projectId} className="align-top">
+                  <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{project.projectName}</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">{countryName}</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">{project.regionName || "待接入"}</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">{project.sector || "待接入"}</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">{project.chineseActor || "待接入"}</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">{project.localActor || "待接入"}</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3 font-mono">
+                    <span className={dataValueClass(project.amount)}>{project.amount === null ? "—" : project.amount.toLocaleString("zh-CN", { maximumFractionDigits: 2 })}</span>
+                  </td>
+                  <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3">{project.currency ?? "—"}</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">
+                    <span className={`inline-flex whitespace-nowrap rounded-full px-2.5 py-1 text-[10px] font-semibold ${project.amount === null ? "bg-amber-50 text-amber-800" : "bg-emerald-50 text-emerald-800"}`}>
+                      {project.amount === null ? "金额缺失" : "金额已接入"}
+                    </span>
+                  </td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">{project.year || "待接入"}</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">
+                    <div className="flex flex-col gap-2">
+                      <DataStatusBadge status={project.status} />
+                      <span className="text-xs text-[var(--muted)]">{project.projectStatus}</span>
+                    </div>
+                  </td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">
+                    <div className="flex flex-col gap-2">
+                      <SourceStatusBadge status={project.status === "official" ? "official" : project.status === "sample" ? "sample" : project.status === "pending" ? "pending" : "manual"} />
+                      <SourceNameLink href={project.sourceUrl}>来源链接</SourceNameLink>
+                    </div>
+                  </td>
+                  <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{project.riskTags.length > 0 ? project.riskTags.join(" / ") : "待接入"}</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">{project.exposureIndexEligible ? "候选，待模型启用后复核" : "否，暂作项目样本"}</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{project.note || "—"}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <p className="rounded-2xl border border-[var(--line)] bg-white/65 p-4 text-sm text-[var(--muted)]">当前筛选条件下没有项目记录。</p>
+      )}
     </div>
   );
 }
@@ -476,18 +557,34 @@ export function DataCountryExplorer() {
             </div>
 
             <div className="mt-5 overflow-x-auto">
-              <table className="w-full min-w-[900px] border-separate border-spacing-0 text-left text-sm">
+              <table className="research-data-table w-full min-w-[1480px] border-separate border-spacing-0 text-left text-sm">
                 <thead>
                   <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
                     <th className="border-b border-[var(--line)] pb-3 pr-4 font-semibold">指标</th>
                     {v4Countries.map((country) => (
                       <th key={country.slug} className="border-b border-[var(--line)] px-4 pb-3 text-right font-semibold">{country.nameZh}</th>
                     ))}
+                    <th className="border-b border-[var(--line)] px-4 pb-3 text-right font-semibold">最高值</th>
+                    <th className="border-b border-[var(--line)] px-4 pb-3 text-right font-semibold">最低值</th>
+                    <th className="border-b border-[var(--line)] px-4 pb-3 text-right font-semibold">V4 均值</th>
                   </tr>
                 </thead>
                 <tbody>
                   {v4TemplateIndicatorIds.map((indicatorId) => {
                     const indicator = getExtendedIndicator(indicatorId);
+                    const countryObservations = v4Countries.map((country) => ({
+                      country,
+                      observation: v4ObservationMaps.get(country.slug)?.get(indicatorId),
+                    }));
+                    const availableObservations = countryObservations.filter(
+                      (item): item is typeof item & { observation: ExtendedObservation & { value: number } } => item.observation?.value !== null && item.observation?.value !== undefined,
+                    );
+                    const values = availableObservations.map((item) => item.observation.value);
+                    const mean = values.length > 0 ? values.reduce((sum, value) => sum + value, 0) / values.length : null;
+                    const highest = values.length > 0 ? Math.max(...values) : null;
+                    const lowest = values.length > 0 ? Math.min(...values) : null;
+                    const highestCountries = highest === null ? [] : availableObservations.filter((item) => item.observation.value === highest).map((item) => item.country.nameZh);
+                    const lowestCountries = lowest === null ? [] : availableObservations.filter((item) => item.observation.value === lowest).map((item) => item.country.nameZh);
 
                     return (
                       <tr key={indicatorId} className="align-top">
@@ -495,27 +592,44 @@ export function DataCountryExplorer() {
                           <p className="font-semibold">{indicator?.labelZh ?? indicatorId}</p>
                           <p className="mt-1 text-[10px] text-[var(--muted)]">{indicator?.unit ?? ""} / {indicator ? extendedIndicatorLabels[indicator.category] : "待接入"}</p>
                         </td>
-                        {v4Countries.map((country) => {
-                          const observation = v4ObservationMaps.get(country.slug)?.get(indicatorId);
+                        {countryObservations.map(({ country, observation }) => {
+                          const comparison = matrixMeanComparison(observation?.value ?? null, mean);
 
                           return (
                             <td key={`${country.slug}-${indicatorId}`} className="border-b border-[var(--line)] px-4 py-3 text-right">
                               {observation ? (
-                                <a
-                                  href={observation.sourceUrl}
-                                  target="_blank"
-                                  rel="noreferrer"
-                                  title={`${observation.sourceName} / ${observation.date} / ${observation.status}`}
-                                  className="font-mono text-sm font-semibold text-[var(--foreground)] transition hover:text-[var(--accent)]"
-                                >
-                                  {formatMatrixValue(indicatorId, observation.value)}
-                                </a>
+                                <div className="flex flex-col items-end gap-1.5">
+                                  <a
+                                    href={observation.sourceUrl}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    title={`${observation.sourceName} / ${observation.date} / ${observation.status}`}
+                                    className={dataValueClass(observation.value)}
+                                  >
+                                    {formatMatrixValue(indicatorId, observation.value)}
+                                  </a>
+                                  <span className={`whitespace-nowrap text-[10px] font-semibold ${comparison === "高于均值" ? "text-sky-800" : comparison === "低于均值" ? "text-amber-800" : "text-[var(--muted)]"}`}>
+                                    {comparison}
+                                  </span>
+                                </div>
                               ) : (
                                 <span className="text-[var(--muted)]">待接入</span>
                               )}
                             </td>
                           );
                         })}
+                        <td className="border-b border-[var(--line)] px-4 py-3 text-right">
+                          <span className={dataValueClass(highest)}>{formatMatrixValue(indicatorId, highest)}</span>
+                          <p className="mt-1 whitespace-nowrap text-[10px] text-[var(--muted)]">{highestCountries.join(" / ") || "待接入"}</p>
+                        </td>
+                        <td className="border-b border-[var(--line)] px-4 py-3 text-right">
+                          <span className={dataValueClass(lowest)}>{formatMatrixValue(indicatorId, lowest)}</span>
+                          <p className="mt-1 whitespace-nowrap text-[10px] text-[var(--muted)]">{lowestCountries.join(" / ") || "待接入"}</p>
+                        </td>
+                        <td className="border-b border-[var(--line)] px-4 py-3 text-right">
+                          <span className={dataValueClass(mean)}>{formatMatrixValue(indicatorId, mean)}</span>
+                          <p className="mt-1 whitespace-nowrap text-[10px] text-[var(--muted)]">算术平均</p>
+                        </td>
                       </tr>
                     );
                   })}
@@ -524,7 +638,7 @@ export function DataCountryExplorer() {
             </div>
             <div className="mt-4 flex flex-wrap items-center gap-2 rounded-2xl bg-[var(--surface-muted)] px-4 py-3 text-xs text-[var(--muted)]">
               <DataStatusBadge status="official" />
-              <span>矩阵数值均来自当前 V4 模板观测值；金额类单位为百万欧元，其余单位见指标列。来源和更新时间仍在数据表格模式逐项展开。</span>
+              <span>最高值、最低值和 V4 均值均为当前四国观测值的直接派生比较；高于或低于均值仅表示数值位置，不代表优劣、预测或风险判断。</span>
             </div>
           </section>
         ) : null}
@@ -568,7 +682,7 @@ export function DataCountryExplorer() {
               </div>
 
               <div className="mt-5 overflow-x-auto">
-                <table className="w-full min-w-[980px] border-separate border-spacing-0 text-left text-sm">
+                <table className="research-data-table w-full min-w-[1080px] border-separate border-spacing-0 text-left text-sm">
                   <thead>
                     <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
                       {["指标", "年份", "数值", "单位", "状态", "来源", "更新时间", "备注"].map((header) => (
@@ -586,9 +700,9 @@ export function DataCountryExplorer() {
                         return (
                           <tr key={`${row.year}-${metric.id}`} className="align-top">
                             <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{metric.label}</td>
-                            <td className="border-b border-[var(--line)] px-3 py-3">{row.year}</td>
-                            <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatRawMetricValue(value, metric.id)}</td>
-                            <td className="border-b border-[var(--line)] px-3 py-3">{metric.unit}</td>
+                            <td className="data-date-cell border-b border-[var(--line)] px-3 py-3">{row.year}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><span className={dataValueClass(value)}>{formatRawMetricValue(value, metric.id)}</span></td>
+                            <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3">{metric.unit}</td>
                             <td className="border-b border-[var(--line)] px-3 py-3">
                               <DataStatusBadge status={status} />
                             </td>
@@ -643,7 +757,7 @@ export function DataCountryExplorer() {
                 <h2 className="mt-3 text-2xl font-semibold">对华经贸项目表</h2>
                 <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{selectedCountry.chinaTradeNote}</p>
                 <div className="mt-5">
-                  <ChinaProjectTable projects={projectRecords} countryName={selectedCountry.nameZh} />
+                  <ChinaProjectTable key={selectedCountry.slug} projects={projectRecords} countryName={selectedCountry.nameZh} />
                 </div>
               </div>
             </section>
@@ -669,7 +783,7 @@ export function DataCountryExplorer() {
                       </div>
 
                       <div className="mt-5 overflow-x-auto">
-                        <table className="w-full min-w-[920px] border-separate border-spacing-0 text-left text-sm">
+                        <table className="research-data-table w-full min-w-[1020px] border-separate border-spacing-0 text-left text-sm">
                           <thead>
                             <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
                               {["指标", "年份", "数值", "单位", "状态", "来源", "更新时间", "备注"].map((header) => (
@@ -751,7 +865,7 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Chart Data Table</p>
               <h2 className="mt-3 text-2xl font-semibold">{activeMetricInfo.label} 数据表</h2>
               <div className="mt-5 overflow-x-auto">
-                <table className="w-full min-w-[980px] border-separate border-spacing-0 text-left text-sm">
+                <table className="research-data-table w-full min-w-[1080px] border-separate border-spacing-0 text-left text-sm">
                   <thead>
                     <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
                       {["指标", "年份", "数值", "单位", "状态", "来源", "更新时间", "备注"].map((header) => (
@@ -766,9 +880,9 @@ export function DataCountryExplorer() {
                       return (
                         <tr key={row.year} className="align-top">
                           <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{activeMetricInfo.label}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">{row.year}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatRawMetricValue(value, activeMetric)}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">{activeMetricInfo.unit}</td>
+                          <td className="data-date-cell border-b border-[var(--line)] px-3 py-3">{row.year}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><span className={dataValueClass(value)}>{formatRawMetricValue(value, activeMetric)}</span></td>
+                          <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3">{activeMetricInfo.unit}</td>
                           <td className="border-b border-[var(--line)] px-3 py-3">
                             <DataStatusBadge status={status} />
                           </td>
@@ -865,7 +979,7 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Indicator Dictionary</p>
               <h2 className="mt-3 text-2xl font-semibold">指标字典表</h2>
               <div className="mt-5 overflow-x-auto">
-                <table className="w-full min-w-[980px] border-separate border-spacing-0 text-left text-sm">
+                <table className="research-data-table w-full min-w-[1020px] border-separate border-spacing-0 text-left text-sm">
                   <thead>
                     <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
                       {["指标ID", "中文名", "英文名", "类别", "单位", "频率", "分析用途", "方向解释", "转换"].map((header) => (
@@ -932,21 +1046,34 @@ export function DataCountryExplorer() {
                 <div className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
                   <h3 className="font-semibold">对华项目表</h3>
                   <div className="mt-3">
-                    <ChinaProjectTable projects={projectRecords} countryName={selectedCountry.nameZh} />
+                    <ChinaProjectTable key={selectedCountry.slug} projects={projectRecords} countryName={selectedCountry.nameZh} />
                   </div>
                 </div>
 
                 <div className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
                   <h3 className="font-semibold">新闻事件表</h3>
                   <div className="mt-3 grid gap-3">
-                    {newsEventRecords.map((event) => (
-                      <div key={event.eventId} className="rounded-xl bg-[var(--surface-muted)] p-3 text-xs">
-                        <p className="font-semibold text-[var(--foreground)]">{event.title}</p>
-                        <p className="mt-1 text-[var(--muted)]">{event.date} / {event.topic} / {event.eventType}</p>
-                        <p className="mt-1 leading-5 text-[var(--muted)]">分析边界：{analysisBoundaryLabel(event.modelImpact)}；涉华：{event.chinaRelated ? "是" : "否"}；强度：{event.intensity ?? "待量化"}</p>
-                        <p className="mt-1 leading-5 text-[var(--muted)]">{event.summary}</p>
-                      </div>
-                    ))}
+                    {newsEventRecords.map((event) => {
+                      const source = sourceTableRecords.find((item) => item.sourceId === event.sourceId);
+
+                      return (
+                        <div key={event.eventId} className="rounded-xl bg-[var(--surface-muted)] p-3 text-xs">
+                          <div className="flex flex-wrap items-center gap-2">
+                            <DataStatusBadge status={event.status} />
+                            {source ? <span className="rounded-full bg-white px-2.5 py-1 font-semibold text-[var(--muted)]">{reliabilityLevelLabel(source.reliabilityLevel)}</span> : null}
+                          </div>
+                          <p className="mt-2 font-semibold text-[var(--foreground)]">{event.title}</p>
+                          <p className="mt-1 text-[var(--muted)]">{event.date} / {event.topic} / {event.eventType}</p>
+                          <p className="mt-1 leading-5 text-[var(--muted)]">分析边界：{analysisBoundaryLabel(event.modelImpact)}；涉华：{event.chinaRelated ? "是" : "否"}；强度：{event.intensity ?? "待量化"}</p>
+                          <p className="mt-1 leading-5 text-[var(--muted)]">{event.summary}</p>
+                          {source ? (
+                            <a href={source.url} target="_blank" rel="noreferrer" className="mt-2 inline-block font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+                              来源：{source.sourceName}
+                            </a>
+                          ) : null}
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>

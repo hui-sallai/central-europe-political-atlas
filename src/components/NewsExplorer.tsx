@@ -85,7 +85,7 @@ export function NewsExplorer() {
               <p className="eyebrow">Formal News</p>
               <h2 className="mt-2 text-xl font-semibold">正式新闻区</h2>
             </div>
-            <DataStatusBadge status="pending" />
+            <DataStatusBadge status={formalItems.length > 0 ? "manual" : "pending"} />
           </div>
           {formalItems.length > 0 ? (
             <div className="mt-4 grid gap-4">
@@ -95,11 +95,19 @@ export function NewsExplorer() {
                     <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{item.weekOf}</span>
                     <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{item.topic}</span>
                     <DataStatusBadge status="manual" />
-                    <SourceStatusBadge status={item.sourceUrl ? "manual" : "pending"} />
+                    <SourceStatusBadge status={item.sourceUrl ? "official" : "pending"} />
                   </div>
                   <p className="mt-4 text-sm font-semibold text-[var(--accent)]">{item.countryZh}</p>
                   <h3 className="mt-2 text-lg font-semibold">{item.title}</h3>
                   <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.summary}</p>
+                  <div className="mt-4 flex flex-wrap items-center gap-2 text-xs">
+                    <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-[var(--muted)]">人工摘要，暂不进入模型</span>
+                    {item.sourceUrl ? (
+                      <a href={item.sourceUrl} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+                        来源：{item.sourceLabel}
+                      </a>
+                    ) : null}
+                  </div>
                 </article>
               ))}
             </div>
