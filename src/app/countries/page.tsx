@@ -41,7 +41,7 @@ export default function CountriesPage() {
                     <DataStatusBadge status={projectStatus} />
                     <SourceStatusBadge status={projectStatus} />
                   </div>
-                  <p className="mt-2 leading-5 text-[var(--muted)]">{projectRecords.length > 0 ? "已按固定字段整理项目样本，金额、主体和指数资格仍逐条复核。" : "项目表待接入。"}</p>
+                  <p className="mt-2 leading-5 text-[var(--muted)]">{projectRecords.length > 0 ? "已按固定字段整理项目样本，金额、主体和量化状态仍逐条复核。" : "项目表待接入。"}</p>
                 </div>
               </div>
             </Link>

@@ -138,6 +138,43 @@ a {
   background: color-mix(in srgb, var(--accent-soft) 42%, white);
 }
 
+.observation-data-table {
+  table-layout: fixed;
+}
+
+.observation-data-table .data-indicator-cell {
+  width: 17rem;
+}
+
+.observation-data-table .data-date-cell {
+  width: 7.5rem;
+}
+
+.observation-data-table .data-value-cell {
+  width: 10rem;
+}
+
+.observation-data-table .data-unit-cell {
+  width: 7rem;
+}
+
+.observation-data-table .data-status-cell {
+  width: 9.5rem;
+}
+
+.observation-data-table .data-source-cell {
+  width: 12rem;
+}
+
+.observation-data-table .data-updated-cell {
+  width: 9rem;
+  white-space: nowrap;
+}
+
+.observation-data-table .data-note-cell {
+  width: 23rem;
+}
+
 .data-date-cell,
 .data-unit-cell {
   white-space: nowrap;
@@ -184,6 +221,13 @@ a {
 
 .comparison-summary-card {
   box-shadow: 0 14px 34px rgba(45, 52, 49, 0.06);
+}
+
+.v4-comparison-panel {
+  background:
+    linear-gradient(180deg, rgba(216, 231, 229, 0.58), rgba(251, 250, 246, 0.92) 18%),
+    rgba(251, 250, 246, 0.9);
+  border-color: color-mix(in srgb, var(--accent) 36%, var(--line));
 }
 
 .comparison-above {

@@ -58,6 +58,16 @@ const dataModes: { id: DataMode; label: string; description: string }[] = [
 const tableMetricIds: EconomicMetricId[] = ["population", "gdp", "gdpPerCapita", "growth", "inflation", "unemployment"];
 const extendedCategoryOrder: ExtendedCategory[] = ["fiscal", "external", "investment", "energy", "industry"];
 const v4CountrySlugs = ["poland", "hungary", "czechia", "slovakia"];
+const observationTableHeaders = [
+  { label: "指标", className: "data-indicator-cell" },
+  { label: "年份", className: "data-date-cell" },
+  { label: "数值", className: "data-value-cell" },
+  { label: "单位", className: "data-unit-cell" },
+  { label: "状态", className: "data-status-cell" },
+  { label: "来源", className: "data-source-cell" },
+  { label: "更新时间", className: "data-updated-cell" },
+  { label: "备注", className: "data-note-cell" },
+];
 
 function formatMetricValue(value: number | null, metricId: EconomicMetricId) {
   if (value === null) {
@@ -254,6 +264,30 @@ function dataValueClass(value: number | null) {
   return `data-value-token${value !== null && value < 0 ? " data-value-negative" : ""}`;
 }
 
+function ObservationTable({ children, minWidth = "1160px" }: { children: ReactNode; minWidth?: string }) {
+  return (
+    <div className="mt-5 overflow-x-auto">
+      <table className="research-data-table observation-data-table w-full border-separate border-spacing-0 text-left text-sm" style={{ minWidth }}>
+        <colgroup>
+          {observationTableHeaders.map((header) => (
+            <col key={header.label} className={header.className} />
+          ))}
+        </colgroup>
+        <thead>
+          <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+            {observationTableHeaders.map((header) => (
+              <th key={header.label} className={`${header.className} border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0`}>
+                {header.label}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>{children}</tbody>
+      </table>
+    </div>
+  );
+}
+
 function compareValueClass(value: number | null, mean: number | null) {
   const bucket = matrixMeanBucket(value, mean);
 
@@ -280,7 +314,7 @@ function ObservationRows({ observations }: { observations: ExtendedObservation[]
 
         return (
           <tr key={`${observation.countrySlug}-${observation.indicatorId}`} className="align-top">
-            <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{indicator?.labelZh.replaceAll(" / ", "/") ?? observation.indicatorId}</td>
+            <td className="data-indicator-cell border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{indicator?.labelZh.replaceAll(" / ", "/") ?? observation.indicatorId}</td>
             <td className="data-date-cell border-b border-[var(--line)] px-3 py-3">{observation.date}</td>
             <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono">
               <span className={dataValueClass(observation.value)}>{formatObservationValue(observation.value, observation.indicatorId)}</span>
@@ -295,8 +329,8 @@ function ObservationRows({ observations }: { observations: ExtendedObservation[]
                 <SourceNameLink href={observation.sourceUrl}>{observation.sourceName}</SourceNameLink>
               </div>
             </td>
-            <td className="border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">{observation.updatedAt || "待接入"}</td>
-            <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{observation.note ?? "—"}</td>
+            <td className="data-updated-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">{observation.updatedAt || "待接入"}</td>
+            <td className="data-note-cell border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{observation.note ?? "—"}</td>
           </tr>
         );
       })}
@@ -648,7 +682,7 @@ export function DataCountryExplorer() {
         </section>
 
         {activeMode === "comparison" ? (
-          <section className="card overflow-hidden p-6">
+          <section className="v4-comparison-panel card overflow-hidden p-6">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
               <div>
                 <p className="eyebrow">V4 Cross-Country Comparison</p>
@@ -880,46 +914,35 @@ export function DataCountryExplorer() {
                 <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">2021-2025</span>
               </div>
 
-              <div className="mt-5 overflow-x-auto">
-                <table className="research-data-table w-full min-w-[1080px] border-separate border-spacing-0 text-left text-sm">
-                  <thead>
-                    <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-                      {["指标", "年份", "数值", "单位", "状态", "来源", "更新时间", "备注"].map((header) => (
-                        <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {economicRows.flatMap((row) =>
-                      tableMetricIds.map((metricId) => {
-                        const metric = economicMetricOptions.find((option) => option.id === metricId) ?? economicMetricOptions[0];
-                        const value = valueFor(row, metric.id);
-                        const status = statusForMetric(value);
+              <ObservationTable>
+                {economicRows.flatMap((row) =>
+                  tableMetricIds.map((metricId) => {
+                    const metric = economicMetricOptions.find((option) => option.id === metricId) ?? economicMetricOptions[0];
+                    const value = valueFor(row, metric.id);
+                    const status = statusForMetric(value);
 
-                        return (
-                          <tr key={`${row.year}-${metric.id}`} className="align-top">
-                            <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{metric.label}</td>
-                            <td className="data-date-cell border-b border-[var(--line)] px-3 py-3">{row.year}</td>
-                            <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono"><span className={dataValueClass(value)}>{formatRawMetricValue(value, metric.id)}</span></td>
-                            <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3">{metric.unit}</td>
-                            <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
-                              <DataStatusBadge status={status} />
-                            </td>
-                            <td className="data-source-cell border-b border-[var(--line)] px-3 py-3">
-                              <div className="flex flex-col gap-2">
-                                <SourceStatusBadge status={status === "official" ? "official" : "pending"} />
-                                <SourceLinkList links={getEconomicMetricSourceLinks(selectedCountry.slug, metric.id, row.year, value)} compact />
-                              </div>
-                            </td>
-                            <td className="border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">待接入</td>
-                            <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{metric.note} 数据来源：{row.source}</td>
-                          </tr>
-                        );
-                      }),
-                    )}
-                  </tbody>
-                </table>
-              </div>
+                    return (
+                      <tr key={`${row.year}-${metric.id}`} className="align-top">
+                        <td className="data-indicator-cell border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{metric.label}</td>
+                        <td className="data-date-cell border-b border-[var(--line)] px-3 py-3">{row.year}</td>
+                        <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono"><span className={dataValueClass(value)}>{formatRawMetricValue(value, metric.id)}</span></td>
+                        <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3">{metric.unit}</td>
+                        <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
+                          <DataStatusBadge status={status} />
+                        </td>
+                        <td className="data-source-cell border-b border-[var(--line)] px-3 py-3">
+                          <div className="flex flex-col gap-2">
+                            <SourceStatusBadge status={status === "official" ? "official" : "pending"} />
+                            <SourceLinkList links={getEconomicMetricSourceLinks(selectedCountry.slug, metric.id, row.year, value)} compact />
+                          </div>
+                        </td>
+                        <td className="data-updated-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">待接入</td>
+                        <td className="data-note-cell border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{metric.note} 数据来源：{row.source}</td>
+                      </tr>
+                    );
+                  }),
+                )}
+              </ObservationTable>
             </section>
 
             <section className="grid gap-5 xl:grid-cols-[1fr_0.9fr]">
@@ -981,20 +1004,9 @@ export function DataCountryExplorer() {
                         <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">V4 first</span>
                       </div>
 
-                      <div className="mt-5 overflow-x-auto">
-                        <table className="research-data-table w-full min-w-[1020px] border-separate border-spacing-0 text-left text-sm">
-                          <thead>
-                            <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-                              {["指标", "年份", "数值", "单位", "状态", "来源", "更新时间", "备注"].map((header) => (
-                                <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
-                              ))}
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <ObservationRows observations={rows} />
-                          </tbody>
-                        </table>
-                      </div>
+                      <ObservationTable>
+                        <ObservationRows observations={rows} />
+                      </ObservationTable>
                     </div>
                   );
                 })}
@@ -1063,42 +1075,31 @@ export function DataCountryExplorer() {
             <section className="card p-6">
               <p className="eyebrow">Chart Data Table</p>
               <h2 className="mt-3 text-2xl font-semibold">{activeMetricInfo.label} 数据表</h2>
-              <div className="mt-5 overflow-x-auto">
-                <table className="research-data-table w-full min-w-[1080px] border-separate border-spacing-0 text-left text-sm">
-                  <thead>
-                    <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-                      {["指标", "年份", "数值", "单位", "状态", "来源", "更新时间", "备注"].map((header) => (
-                        <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
-                      ))}
+              <ObservationTable>
+                {economicRows.map((row) => {
+                  const value = valueFor(row, activeMetric);
+                  const status = statusForMetric(value);
+                  return (
+                    <tr key={row.year} className="align-top">
+                      <td className="data-indicator-cell border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{activeMetricInfo.label}</td>
+                      <td className="data-date-cell border-b border-[var(--line)] px-3 py-3">{row.year}</td>
+                      <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono"><span className={dataValueClass(value)}>{formatRawMetricValue(value, activeMetric)}</span></td>
+                      <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3">{activeMetricInfo.unit}</td>
+                      <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
+                        <DataStatusBadge status={status} />
+                      </td>
+                      <td className="data-source-cell border-b border-[var(--line)] px-3 py-3">
+                        <div className="flex flex-col gap-2">
+                          <SourceStatusBadge status={status === "official" ? "official" : "pending"} />
+                          <SourceLinkList links={getEconomicMetricSourceLinks(selectedCountry.slug, activeMetric, row.year, value)} />
+                        </div>
+                      </td>
+                      <td className="data-updated-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">待接入</td>
+                      <td className="data-note-cell border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{activeMetricInfo.note} 数据来源：{row.source}</td>
                     </tr>
-                  </thead>
-                  <tbody>
-                    {economicRows.map((row) => {
-                      const value = valueFor(row, activeMetric);
-                      const status = statusForMetric(value);
-                      return (
-                        <tr key={row.year} className="align-top">
-                          <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{activeMetricInfo.label}</td>
-                          <td className="data-date-cell border-b border-[var(--line)] px-3 py-3">{row.year}</td>
-                          <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono"><span className={dataValueClass(value)}>{formatRawMetricValue(value, activeMetric)}</span></td>
-                          <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3">{activeMetricInfo.unit}</td>
-                          <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
-                            <DataStatusBadge status={status} />
-                          </td>
-                          <td className="data-source-cell border-b border-[var(--line)] px-3 py-3">
-                            <div className="flex flex-col gap-2">
-                              <SourceStatusBadge status={status === "official" ? "official" : "pending"} />
-                              <SourceLinkList links={getEconomicMetricSourceLinks(selectedCountry.slug, activeMetric, row.year, value)} />
-                            </div>
-                          </td>
-                          <td className="border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">待接入</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{activeMetricInfo.note} 数据来源：{row.source}</td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
+                  );
+                })}
+              </ObservationTable>
             </section>
           </>
         ) : null}
@@ -1208,20 +1209,9 @@ export function DataCountryExplorer() {
             <div className="card p-6">
               <p className="eyebrow">Observation Table</p>
               <h2 className="mt-3 text-2xl font-semibold">观测值表</h2>
-              <div className="mt-5 overflow-x-auto">
-                <table className="w-full min-w-[980px] border-separate border-spacing-0 text-left text-sm">
-                  <thead>
-                    <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-                      {["指标", "年份", "数值", "单位", "状态", "来源", "更新时间", "备注"].map((header) => (
-                        <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <ObservationRows observations={extendedObservations} />
-                  </tbody>
-                </table>
-              </div>
+              <ObservationTable>
+                <ObservationRows observations={extendedObservations} />
+              </ObservationTable>
             </div>
 
             <div className="card p-6">
