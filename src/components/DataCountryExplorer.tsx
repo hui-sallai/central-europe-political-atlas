@@ -221,6 +221,10 @@ function SourceNameLink({ href, children }: { href: string; children: ReactNode 
   );
 }
 
+function UnitToken({ value }: { value: string }) {
+  return <span className="data-unit-token">{value || "待接入"}</span>;
+}
+
 function formatObservationValue(value: number | null, indicatorId: string) {
   if (value === null) {
     return "待接入";
@@ -319,7 +323,7 @@ function ObservationRows({ observations }: { observations: ExtendedObservation[]
             <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono">
               <span className={dataValueClass(observation.value)}>{formatObservationValue(observation.value, observation.indicatorId)}</span>
             </td>
-            <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3">{observation.unit || "待接入"}</td>
+            <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><UnitToken value={observation.unit} /></td>
             <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
               <DataStatusBadge status={observation.status} />
             </td>
@@ -424,7 +428,7 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
                   <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono">
                     <span className={dataValueClass(project.amount)}>{project.amount === null ? "—" : project.amount.toLocaleString("zh-CN", { maximumFractionDigits: 2 })}</span>
                   </td>
-                  <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3">{project.currency ?? "—"}</td>
+                  <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><UnitToken value={project.currency ?? "—"} /></td>
                   <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
                     <span className={`inline-flex whitespace-nowrap rounded-full px-2.5 py-1 text-[10px] font-semibold ${project.amount === null ? "bg-amber-50 text-amber-800" : "bg-emerald-50 text-emerald-800"}`}>
                       {project.amount === null ? "金额缺失" : "金额已接入"}
@@ -649,7 +653,7 @@ export function DataCountryExplorer() {
         </div>
       </aside>
 
-      <div className="grid gap-5">
+      <div className="grid min-w-0 gap-5">
         <section className="card p-6">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
             <div>
@@ -663,7 +667,7 @@ export function DataCountryExplorer() {
             </Link>
           </div>
 
-          <div className="mt-6 grid gap-2 md:grid-cols-4">
+          <div className="mt-6 grid grid-cols-2 gap-2 xl:grid-cols-4">
             {dataModes.map((mode) => (
               <button
                 key={mode.id}
@@ -926,7 +930,7 @@ export function DataCountryExplorer() {
                         <td className="data-indicator-cell border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{metric.label}</td>
                         <td className="data-date-cell border-b border-[var(--line)] px-3 py-3">{row.year}</td>
                         <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono"><span className={dataValueClass(value)}>{formatRawMetricValue(value, metric.id)}</span></td>
-                        <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3">{metric.unit}</td>
+                        <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><UnitToken value={metric.unit} /></td>
                         <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
                           <DataStatusBadge status={status} />
                         </td>
@@ -1084,7 +1088,7 @@ export function DataCountryExplorer() {
                       <td className="data-indicator-cell border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{activeMetricInfo.label}</td>
                       <td className="data-date-cell border-b border-[var(--line)] px-3 py-3">{row.year}</td>
                       <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono"><span className={dataValueClass(value)}>{formatRawMetricValue(value, activeMetric)}</span></td>
-                      <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3">{activeMetricInfo.unit}</td>
+                      <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><UnitToken value={activeMetricInfo.unit} /></td>
                       <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
                         <DataStatusBadge status={status} />
                       </td>

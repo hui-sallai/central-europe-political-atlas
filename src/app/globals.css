@@ -151,15 +151,15 @@ a {
 }
 
 .observation-data-table .data-value-cell {
-  width: 10rem;
+  width: 10.5rem;
 }
 
 .observation-data-table .data-unit-cell {
-  width: 7rem;
+  width: 8rem;
 }
 
 .observation-data-table .data-status-cell {
-  width: 9.5rem;
+  width: 10rem;
 }
 
 .observation-data-table .data-source-cell {
@@ -199,6 +199,18 @@ a {
   min-width: 10rem;
 }
 
+.observation-data-table .data-value-cell,
+.observation-data-table .data-unit-cell,
+.observation-data-table .data-status-cell {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.observation-data-table .data-unit-cell,
+.observation-data-table .data-status-cell {
+  border-left-color: color-mix(in srgb, var(--line) 82%, var(--foreground));
+}
+
 .data-value-token {
   display: inline-block;
   min-width: 8ch;
@@ -210,6 +222,22 @@ a {
   text-align: right;
   font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Consolas, monospace;
   font-variant-numeric: tabular-nums;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.data-unit-token {
+  display: inline-flex;
+  align-items: center;
+  min-width: 4.75rem;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: 0.45rem;
+  border: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
+  background: color-mix(in srgb, white 72%, var(--surface-muted));
+  padding: 0.22rem 0.55rem;
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.72rem;
   font-weight: 650;
   line-height: 1.35;
 }

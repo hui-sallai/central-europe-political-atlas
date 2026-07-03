@@ -183,10 +183,9 @@ export default function MethodologyPage() {
         <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">
           一个数据点只有同时满足以下条件，才可以进入后续分析：
         </p>
-        <ol className="mt-5 grid gap-3 text-sm leading-7 text-[var(--muted)] md:grid-cols-2">
-          {analysisChecklist.map((item, index) => (
+        <ol className="mt-5 grid list-decimal gap-3 pl-5 text-sm leading-7 text-[var(--muted)] md:grid-cols-2">
+          {analysisChecklist.map((item) => (
             <li key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3">
-              <span className="mr-2 font-semibold text-[var(--foreground)]">{index + 1}.</span>
               {item}
             </li>
           ))}
