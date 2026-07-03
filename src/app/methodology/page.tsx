@@ -186,7 +186,7 @@ export default function MethodologyPage() {
         <ol className="mt-5 grid gap-3 text-sm leading-7 text-[var(--muted)] md:grid-cols-2">
           {analysisChecklist.map((item, index) => (
             <li key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3">
-              <span className="mr-2 font-semibold text-[var(--foreground)]">{index + 1}.</span>
+              <span className="mr-2 font-semibold text-[var(--foreground)]">{String(index + 1).padStart(2, "0")}.</span>
               {item}
             </li>
           ))}

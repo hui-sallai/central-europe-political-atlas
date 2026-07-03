@@ -133,9 +133,28 @@ a {
   white-space: nowrap;
 }
 
+.data-value-cell {
+  min-width: 8.75rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.data-unit-cell {
+  min-width: 5.75rem;
+}
+
+.data-status-cell {
+  min-width: 8rem;
+  white-space: nowrap;
+}
+
+.data-source-cell {
+  min-width: 9.5rem;
+}
+
 .data-value-token {
   display: inline-block;
-  min-width: 5.5ch;
+  min-width: 7ch;
   white-space: nowrap;
   border-radius: 0.5rem;
   background: color-mix(in srgb, var(--surface-muted) 72%, white);
@@ -148,6 +167,7 @@ a {
 }
 
 .data-value-negative {
+  color: #82473f;
   box-shadow: inset 3px 0 0 color-mix(in srgb, #9f5f55 58%, transparent);
 }
 

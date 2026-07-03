@@ -34,6 +34,19 @@ import {
 
 type DataMode = "economy" | "charts" | "comparison" | "tables";
 type ProjectAmountFilter = "all" | "available" | "missing";
+type V4DerivedRow = {
+  indicatorId: string;
+  label: string;
+  unit: string;
+  highest: number | null;
+  highestCountries: string[];
+  lowest: number | null;
+  lowestCountries: string[];
+  mean: number | null;
+  aboveMeanCountries: string[];
+  belowMeanCountries: string[];
+  equalMeanCountries: string[];
+};
 
 const dataModes: { id: DataMode; label: string; description: string }[] = [
   { id: "economy", label: "经济数据", description: "近五年宏观经济表、官方统计主源与对华经贸样本。" },
@@ -196,6 +209,24 @@ function matrixMeanComparison(value: number | null, mean: number | null) {
   return value > mean ? "高于均值" : "低于均值";
 }
 
+function matrixMeanBucket(value: number | null, mean: number | null) {
+  const label = matrixMeanComparison(value, mean);
+
+  if (label === "高于均值") {
+    return "above";
+  }
+
+  if (label === "低于均值") {
+    return "below";
+  }
+
+  if (label === "等于均值") {
+    return "equal";
+  }
+
+  return "pending";
+}
+
 function dataValueClass(value: number | null) {
   return `data-value-token${value !== null && value < 0 ? " data-value-negative" : ""}`;
 }
@@ -210,14 +241,14 @@ function ObservationRows({ observations }: { observations: ExtendedObservation[]
           <tr key={`${observation.countrySlug}-${observation.indicatorId}`} className="align-top">
             <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{indicator?.labelZh.replaceAll(" / ", "/") ?? observation.indicatorId}</td>
             <td className="data-date-cell border-b border-[var(--line)] px-3 py-3">{observation.date}</td>
-            <td className="border-b border-[var(--line)] px-3 py-3 font-mono">
+            <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono">
               <span className={dataValueClass(observation.value)}>{formatObservationValue(observation.value, observation.indicatorId)}</span>
             </td>
             <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3">{observation.unit || "待接入"}</td>
-            <td className="border-b border-[var(--line)] px-3 py-3">
+            <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
               <DataStatusBadge status={observation.status} />
             </td>
-            <td className="border-b border-[var(--line)] px-3 py-3">
+            <td className="data-source-cell border-b border-[var(--line)] px-3 py-3">
               <div className="flex flex-col gap-2">
                 <SourceStatusBadge status={observation.status === "official" ? "official" : observation.status === "sample" ? "sample" : observation.status === "pending" ? "pending" : "manual"} />
                 <SourceNameLink href={observation.sourceUrl}>{observation.sourceName}</SourceNameLink>
@@ -259,8 +290,9 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
 
   return (
     <div>
-      <div className="mb-4 flex flex-col gap-3 rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-3 lg:flex-row lg:items-center lg:justify-between">
-        <div className="flex flex-wrap gap-2">
+        <div className="mb-4 flex flex-col gap-3 rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-3 lg:flex-row lg:items-center lg:justify-between">
+        <div>
+          <div className="flex flex-wrap gap-2">
           {([
             ["all", `全部项目 ${projects.length}`],
             ["available", `金额已接入 ${availableAmountCount}`],
@@ -277,6 +309,8 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
               {label}
             </button>
           ))}
+          </div>
+          <p className="mt-2 text-[11px] text-[var(--muted)]">当前显示 {filteredProjects.length} 条；金额状态仅按项目表 amount 字段判定。</p>
         </div>
         <label className="flex items-center gap-2 text-xs font-semibold text-[var(--muted)]">
           行业
@@ -312,23 +346,23 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
                   <td className="border-b border-[var(--line)] px-3 py-3">{project.sector || "待接入"}</td>
                   <td className="border-b border-[var(--line)] px-3 py-3">{project.chineseActor || "待接入"}</td>
                   <td className="border-b border-[var(--line)] px-3 py-3">{project.localActor || "待接入"}</td>
-                  <td className="border-b border-[var(--line)] px-3 py-3 font-mono">
+                  <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono">
                     <span className={dataValueClass(project.amount)}>{project.amount === null ? "—" : project.amount.toLocaleString("zh-CN", { maximumFractionDigits: 2 })}</span>
                   </td>
                   <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3">{project.currency ?? "—"}</td>
-                  <td className="border-b border-[var(--line)] px-3 py-3">
+                  <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
                     <span className={`inline-flex whitespace-nowrap rounded-full px-2.5 py-1 text-[10px] font-semibold ${project.amount === null ? "bg-amber-50 text-amber-800" : "bg-emerald-50 text-emerald-800"}`}>
                       {project.amount === null ? "金额缺失" : "金额已接入"}
                     </span>
                   </td>
                   <td className="border-b border-[var(--line)] px-3 py-3">{project.year || "待接入"}</td>
-                  <td className="border-b border-[var(--line)] px-3 py-3">
+                  <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
                     <div className="flex flex-col gap-2">
                       <DataStatusBadge status={project.status} />
                       <span className="text-xs text-[var(--muted)]">{project.projectStatus}</span>
                     </div>
                   </td>
-                  <td className="border-b border-[var(--line)] px-3 py-3">
+                  <td className="data-source-cell border-b border-[var(--line)] px-3 py-3">
                     <div className="flex flex-col gap-2">
                       <SourceStatusBadge status={project.status === "official" ? "official" : project.status === "sample" ? "sample" : project.status === "pending" ? "pending" : "manual"} />
                       <SourceNameLink href={project.sourceUrl}>来源链接</SourceNameLink>
@@ -437,6 +471,34 @@ export function DataCountryExplorer() {
   });
   const v4TotalExpected = v4CoverageItems.reduce((sum, item) => sum + item.coverage.total, 0);
   const v4TotalPresent = v4CoverageItems.reduce((sum, item) => sum + item.coverage.present.length, 0);
+  const v4DerivedRows: V4DerivedRow[] = v4TemplateIndicatorIds.map((indicatorId) => {
+    const indicator = getExtendedIndicator(indicatorId);
+    const countryObservations = v4Countries.map((country) => ({
+      country,
+      observation: v4ObservationMaps.get(country.slug)?.get(indicatorId),
+    }));
+    const availableObservations = countryObservations.filter(
+      (item): item is typeof item & { observation: ExtendedObservation & { value: number } } => item.observation?.value !== null && item.observation?.value !== undefined,
+    );
+    const values = availableObservations.map((item) => item.observation.value);
+    const mean = values.length > 0 ? values.reduce((sum, value) => sum + value, 0) / values.length : null;
+    const highest = values.length > 0 ? Math.max(...values) : null;
+    const lowest = values.length > 0 ? Math.min(...values) : null;
+
+    return {
+      indicatorId,
+      label: indicator?.labelZh ?? indicatorId,
+      unit: indicator?.unit ?? "",
+      highest,
+      highestCountries: highest === null ? [] : availableObservations.filter((item) => item.observation.value === highest).map((item) => item.country.nameZh),
+      lowest,
+      lowestCountries: lowest === null ? [] : availableObservations.filter((item) => item.observation.value === lowest).map((item) => item.country.nameZh),
+      mean,
+      aboveMeanCountries: availableObservations.filter((item) => matrixMeanBucket(item.observation.value, mean) === "above").map((item) => item.country.nameZh),
+      belowMeanCountries: availableObservations.filter((item) => matrixMeanBucket(item.observation.value, mean) === "below").map((item) => item.country.nameZh),
+      equalMeanCountries: availableObservations.filter((item) => matrixMeanBucket(item.observation.value, mean) === "equal").map((item) => item.country.nameZh),
+    };
+  });
 
   return (
     <section className="mt-8 grid gap-5 lg:grid-cols-[260px_minmax(0,1fr)]">
@@ -636,6 +698,52 @@ export function DataCountryExplorer() {
                 </tbody>
               </table>
             </div>
+
+            <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+              <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
+                <div>
+                  <p className="eyebrow">Derived Comparison</p>
+                  <h3 className="mt-2 text-xl font-semibold">派生比较</h3>
+                </div>
+                <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs text-[var(--muted)]">仅为事实数据派生</span>
+              </div>
+              <div className="mt-4 overflow-x-auto">
+                <table className="research-data-table w-full min-w-[1180px] border-separate border-spacing-0 text-left text-sm">
+                  <thead>
+                    <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+                      {["指标", "最高值", "最低值", "V4 均值", "高于均值", "低于均值", "等于均值"].map((header) => (
+                        <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {v4DerivedRows.map((row) => (
+                      <tr key={row.indicatorId} className="align-top">
+                        <td className="border-b border-[var(--line)] py-3 pl-0 pr-3">
+                          <p className="font-semibold">{row.label}</p>
+                          <p className="mt-1 text-[10px] text-[var(--muted)]">{row.unit}</p>
+                        </td>
+                        <td className="data-value-cell border-b border-[var(--line)] px-3 py-3">
+                          <span className={dataValueClass(row.highest)}>{formatMatrixValue(row.indicatorId, row.highest)}</span>
+                          <p className="mt-1 text-[10px] text-[var(--muted)]">{row.highestCountries.join(" / ") || "待接入"}</p>
+                        </td>
+                        <td className="data-value-cell border-b border-[var(--line)] px-3 py-3">
+                          <span className={dataValueClass(row.lowest)}>{formatMatrixValue(row.indicatorId, row.lowest)}</span>
+                          <p className="mt-1 text-[10px] text-[var(--muted)]">{row.lowestCountries.join(" / ") || "待接入"}</p>
+                        </td>
+                        <td className="data-value-cell border-b border-[var(--line)] px-3 py-3">
+                          <span className={dataValueClass(row.mean)}>{formatMatrixValue(row.indicatorId, row.mean)}</span>
+                          <p className="mt-1 text-[10px] text-[var(--muted)]">算术平均</p>
+                        </td>
+                        <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{row.aboveMeanCountries.join(" / ") || "—"}</td>
+                        <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{row.belowMeanCountries.join(" / ") || "—"}</td>
+                        <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{row.equalMeanCountries.join(" / ") || "—"}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
             <div className="mt-4 flex flex-wrap items-center gap-2 rounded-2xl bg-[var(--surface-muted)] px-4 py-3 text-xs text-[var(--muted)]">
               <DataStatusBadge status="official" />
               <span>最高值、最低值和 V4 均值均为当前四国观测值的直接派生比较；高于或低于均值仅表示数值位置，不代表优劣、预测或风险判断。</span>
@@ -701,12 +809,12 @@ export function DataCountryExplorer() {
                           <tr key={`${row.year}-${metric.id}`} className="align-top">
                             <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{metric.label}</td>
                             <td className="data-date-cell border-b border-[var(--line)] px-3 py-3">{row.year}</td>
-                            <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><span className={dataValueClass(value)}>{formatRawMetricValue(value, metric.id)}</span></td>
+                            <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono"><span className={dataValueClass(value)}>{formatRawMetricValue(value, metric.id)}</span></td>
                             <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3">{metric.unit}</td>
-                            <td className="border-b border-[var(--line)] px-3 py-3">
+                            <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
                               <DataStatusBadge status={status} />
                             </td>
-                            <td className="border-b border-[var(--line)] px-3 py-3">
+                            <td className="data-source-cell border-b border-[var(--line)] px-3 py-3">
                               <div className="flex flex-col gap-2">
                                 <SourceStatusBadge status={status === "official" ? "official" : "pending"} />
                                 <SourceLinkList links={getEconomicMetricSourceLinks(selectedCountry.slug, metric.id, row.year, value)} compact />
@@ -881,12 +989,12 @@ export function DataCountryExplorer() {
                         <tr key={row.year} className="align-top">
                           <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{activeMetricInfo.label}</td>
                           <td className="data-date-cell border-b border-[var(--line)] px-3 py-3">{row.year}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><span className={dataValueClass(value)}>{formatRawMetricValue(value, activeMetric)}</span></td>
+                          <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono"><span className={dataValueClass(value)}>{formatRawMetricValue(value, activeMetric)}</span></td>
                           <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3">{activeMetricInfo.unit}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">
+                          <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
                             <DataStatusBadge status={status} />
                           </td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">
+                          <td className="data-source-cell border-b border-[var(--line)] px-3 py-3">
                             <div className="flex flex-col gap-2">
                               <SourceStatusBadge status={status === "official" ? "official" : "pending"} />
                               <SourceLinkList links={getEconomicMetricSourceLinks(selectedCountry.slug, activeMetric, row.year, value)} />

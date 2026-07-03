@@ -24,6 +24,7 @@ export function NewsExplorer() {
   );
   const formalItems = filteredItems.filter((item) => item.dataStatus !== "sample");
   const sampleItems = filteredItems.filter((item) => item.dataStatus === "sample");
+  const totalFormalV4Count = weeklyNewsItems.filter((item) => item.dataStatus !== "sample" && ["poland", "hungary", "czechia", "slovakia"].includes(item.countrySlug)).length;
 
   return (
     <section className="mt-8 grid gap-6 lg:grid-cols-[280px_1fr]">
@@ -84,6 +85,7 @@ export function NewsExplorer() {
             <div>
               <p className="eyebrow">Formal News</p>
               <h2 className="mt-2 text-xl font-semibold">正式新闻区</h2>
+              <p className="mt-2 text-xs text-[var(--muted)]">V4 正式事件：{totalFormalV4Count} / 4；均为来源可点击的人工中文摘要。</p>
             </div>
             <DataStatusBadge status={formalItems.length > 0 ? "manual" : "pending"} />
           </div>
