@@ -270,7 +270,7 @@ function dataValueClass(value: number | null) {
 
 function ObservationTable({ children, minWidth = "1160px" }: { children: ReactNode; minWidth?: string }) {
   return (
-    <div className="mt-5 overflow-x-auto">
+    <div className="mt-5 max-w-full overflow-x-auto">
       <table className="research-data-table observation-data-table w-full border-separate border-spacing-0 text-left text-sm" style={{ minWidth }}>
         <colgroup>
           {observationTableHeaders.map((header) => (
@@ -407,7 +407,7 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
       </div>
 
       {filteredProjects.length > 0 ? (
-        <div className="overflow-x-auto">
+        <div className="max-w-full overflow-x-auto">
           <table className="research-data-table w-full min-w-[1720px] border-separate border-spacing-0 text-left text-sm">
             <thead>
               <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
@@ -603,8 +603,8 @@ export function DataCountryExplorer() {
   }));
 
   return (
-    <section className="mt-8 grid gap-5 lg:grid-cols-[260px_minmax(0,1fr)]">
-      <aside className="card h-fit p-4 lg:sticky lg:top-6">
+    <section className="mt-8 grid min-w-0 gap-5 lg:grid-cols-[260px_minmax(0,1fr)]">
+      <aside className="card h-fit min-w-0 p-4 lg:sticky lg:top-6">
         <div className="flex items-center justify-between gap-3">
           <div>
             <p className="eyebrow">Select Country</p>
@@ -653,7 +653,7 @@ export function DataCountryExplorer() {
         </div>
       </aside>
 
-      <div className="grid min-w-0 gap-5">
+      <div className="grid min-w-0 max-w-full gap-5 overflow-hidden">
         <section className="card p-6">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
             <div>
@@ -667,7 +667,7 @@ export function DataCountryExplorer() {
             </Link>
           </div>
 
-          <div className="mt-6 grid grid-cols-2 gap-2 xl:grid-cols-4">
+          <div className="mt-6 grid grid-cols-2 gap-2">
             {dataModes.map((mode) => (
               <button
                 key={mode.id}
@@ -747,7 +747,7 @@ export function DataCountryExplorer() {
               ))}
             </div>
 
-            <div className="mt-5 overflow-x-auto">
+            <div className="mt-5 max-w-full overflow-x-auto">
               <table className="research-data-table w-full min-w-[1480px] border-separate border-spacing-0 text-left text-sm">
                 <thead>
                   <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
@@ -836,7 +836,7 @@ export function DataCountryExplorer() {
                 </div>
                 <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs text-[var(--muted)]">仅为事实数据派生</span>
               </div>
-              <div className="mt-4 overflow-x-auto">
+              <div className="mt-4 max-w-full overflow-x-auto">
                 <table className="research-data-table w-full min-w-[1180px] border-separate border-spacing-0 text-left text-sm">
                   <thead>
                     <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
@@ -1152,7 +1152,7 @@ export function DataCountryExplorer() {
             <div className="card p-6">
               <p className="eyebrow">Country Table</p>
               <h2 className="mt-3 text-2xl font-semibold">国家表</h2>
-              <div className="mt-5 overflow-x-auto">
+              <div className="mt-5 max-w-full overflow-x-auto">
                 <table className="w-full min-w-[760px] border-separate border-spacing-0 text-left text-sm">
                   <thead>
                     <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
@@ -1182,7 +1182,7 @@ export function DataCountryExplorer() {
             <div className="card p-6">
               <p className="eyebrow">Indicator Dictionary</p>
               <h2 className="mt-3 text-2xl font-semibold">指标字典表</h2>
-              <div className="mt-5 overflow-x-auto">
+              <div className="mt-5 max-w-full overflow-x-auto">
                 <table className="research-data-table w-full min-w-[1020px] border-separate border-spacing-0 text-left text-sm">
                   <thead>
                     <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
