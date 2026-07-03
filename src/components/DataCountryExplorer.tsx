@@ -653,7 +653,7 @@ export function DataCountryExplorer() {
         </div>
       </aside>
 
-      <div className="grid min-w-0 max-w-full gap-5 overflow-hidden">
+      <div className="grid min-w-0 max-w-full gap-5 overflow-x-hidden">
         <section className="card p-6">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
             <div>
