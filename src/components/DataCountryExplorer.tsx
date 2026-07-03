@@ -667,13 +667,13 @@ export function DataCountryExplorer() {
             </Link>
           </div>
 
-          <div className="mt-6 grid grid-cols-2 gap-2">
+          <div className="mt-6 flex flex-wrap gap-2">
             {dataModes.map((mode) => (
               <button
                 key={mode.id}
                 type="button"
                 onClick={() => setActiveMode(mode.id)}
-                className={`rounded-full border px-4 py-2 text-sm font-semibold transition ${
+                className={`min-w-[180px] flex-1 rounded-full border px-4 py-2 text-sm font-semibold transition ${
                   activeMode === mode.id
                     ? "border-[var(--accent)] bg-[var(--accent)] text-white"
                     : "border-[var(--line)] bg-white text-[var(--muted)] hover:text-[var(--foreground)]"
