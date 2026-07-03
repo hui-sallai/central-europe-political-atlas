@@ -171,7 +171,7 @@ export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
                       <div><dt className="font-semibold text-[var(--foreground)]">金额 / 币种</dt><dd>{formatProjectAmount(project.amount, project.currency)}</dd></div>
                       <div><dt className="font-semibold text-[var(--foreground)]">年份</dt><dd>{project.year}</dd></div>
                       <div><dt className="font-semibold text-[var(--foreground)]">状态</dt><dd>{project.projectStatus}</dd></div>
-                      <div><dt className="font-semibold text-[var(--foreground)]">暴露指数</dt><dd>{project.exposureIndexEligible ? "候选，待模型启用后复核" : "暂不进入"}</dd></div>
+                      <div><dt className="font-semibold text-[var(--foreground)]">量化状态</dt><dd>{project.amount === null ? "金额缺失，暂不量化" : "金额已接入，仍需复核"}</dd></div>
                     </dl>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {project.riskTags.map((tag) => (

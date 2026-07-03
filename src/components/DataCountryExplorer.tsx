@@ -160,6 +160,29 @@ function reliabilityLevelDescription(value: string) {
   return descriptions[value] ?? "来源可靠性规则待补充。";
 }
 
+function quantificationStatusLabel(value: ChinaProjectRecord["quantificationStatus"]) {
+  const labels: Record<ChinaProjectRecord["quantificationStatus"], string> = {
+    amount_available: "金额已接入",
+    amount_missing: "金额缺失",
+    partially_quantifiable: "部分可量化",
+    not_quantifiable: "暂不可量化",
+  };
+
+  return labels[value];
+}
+
+function quantificationStatusClass(value: ChinaProjectRecord["quantificationStatus"]) {
+  if (value === "amount_available" || value === "partially_quantifiable") {
+    return "bg-emerald-50 text-emerald-800";
+  }
+
+  if (value === "amount_missing") {
+    return "bg-amber-50 text-amber-800";
+  }
+
+  return "bg-slate-50 text-slate-700";
+}
+
 function formatMatrixValue(indicatorId: string, value: number | null) {
   if (value === null) {
     return "待接入";
@@ -231,6 +254,24 @@ function dataValueClass(value: number | null) {
   return `data-value-token${value !== null && value < 0 ? " data-value-negative" : ""}`;
 }
 
+function compareValueClass(value: number | null, mean: number | null) {
+  const bucket = matrixMeanBucket(value, mean);
+
+  if (bucket === "above") {
+    return "comparison-above";
+  }
+
+  if (bucket === "below") {
+    return "comparison-below";
+  }
+
+  if (bucket === "equal") {
+    return "comparison-equal";
+  }
+
+  return "";
+}
+
 function ObservationRows({ observations }: { observations: ExtendedObservation[] }) {
   return (
     <>
@@ -290,25 +331,25 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
 
   return (
     <div>
-        <div className="mb-4 flex flex-col gap-3 rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-3 lg:flex-row lg:items-center lg:justify-between">
+      <div className="mb-4 flex flex-col gap-3 rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-3 lg:flex-row lg:items-center lg:justify-between">
         <div>
           <div className="flex flex-wrap gap-2">
-          {([
-            ["all", `全部项目 ${projects.length}`],
-            ["available", `金额已接入 ${availableAmountCount}`],
-            ["missing", `金额缺失 ${projects.length - availableAmountCount}`],
-          ] as const).map(([value, label]) => (
-            <button
-              key={value}
-              type="button"
-              onClick={() => setAmountFilter(value)}
-              className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
-                amountFilter === value ? "border-[var(--accent)] bg-[var(--accent)] text-white" : "border-[var(--line)] bg-white text-[var(--muted)] hover:border-[var(--accent)]"
-              }`}
-            >
-              {label}
-            </button>
-          ))}
+            {([
+              ["all", `全部项目 ${projects.length}`],
+              ["available", `金额已接入 ${availableAmountCount}`],
+              ["missing", `金额缺失 ${projects.length - availableAmountCount}`],
+            ] as const).map(([value, label]) => (
+              <button
+                key={value}
+                type="button"
+                onClick={() => setAmountFilter(value)}
+                className={`rounded-full border px-3 py-1.5 text-xs font-semibold transition ${
+                  amountFilter === value ? "border-[var(--accent)] bg-[var(--accent)] text-white" : "border-[var(--line)] bg-white text-[var(--muted)] hover:border-[var(--accent)]"
+                }`}
+              >
+                {label}
+              </button>
+            ))}
           </div>
           <p className="mt-2 text-[11px] text-[var(--muted)]">当前显示 {filteredProjects.length} 条；金额状态仅按项目表 amount 字段判定。</p>
         </div>
@@ -329,10 +370,10 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
 
       {filteredProjects.length > 0 ? (
         <div className="overflow-x-auto">
-          <table className="research-data-table w-full min-w-[1360px] border-separate border-spacing-0 text-left text-sm">
+          <table className="research-data-table w-full min-w-[1720px] border-separate border-spacing-0 text-left text-sm">
             <thead>
               <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-                {["项目名称", "国家", "地区/城市", "行业", "中国主体", "当地主体", "金额", "币种", "金额状态", "年份", "状态", "来源", "风险标签", "进入中国经济暴露指数", "备注"].map((header) => (
+                {["项目名称", "国家", "地区/城市", "行业", "中国主体", "当地主体", "金额", "币种", "金额状态", "年份", "项目状态", "项目状态时间线", "来源", "来源等级", "是否可量化", "风险标签", "备注"].map((header) => (
                   <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
                 ))}
               </tr>
@@ -362,14 +403,30 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
                       <span className="text-xs text-[var(--muted)]">{project.projectStatus}</span>
                     </div>
                   </td>
+                  <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">
+                    <ol className="grid gap-1">
+                      {project.statusTimeline.map((item, index) => (
+                        <li key={`${project.projectId}-${index}`} className="project-timeline-item">{item}</li>
+                      ))}
+                    </ol>
+                  </td>
                   <td className="data-source-cell border-b border-[var(--line)] px-3 py-3">
                     <div className="flex flex-col gap-2">
                       <SourceStatusBadge status={project.status === "official" ? "official" : project.status === "sample" ? "sample" : project.status === "pending" ? "pending" : "manual"} />
                       <SourceNameLink href={project.sourceUrl}>来源链接</SourceNameLink>
                     </div>
                   </td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">
+                    <span className="inline-flex whitespace-nowrap rounded-full bg-white px-2.5 py-1 text-[10px] font-semibold text-[var(--muted)]">{reliabilityLevelLabel(project.sourceReliabilityLevel)}</span>
+                    <p className="mt-1 text-[10px] leading-4 text-[var(--muted)]">{reliabilityLevelDescription(project.sourceReliabilityLevel)}</p>
+                  </td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">
+                    <span className={`inline-flex whitespace-nowrap rounded-full px-2.5 py-1 text-[10px] font-semibold ${quantificationStatusClass(project.quantificationStatus)}`}>
+                      {quantificationStatusLabel(project.quantificationStatus)}
+                    </span>
+                    <p className="mt-1 text-[10px] leading-4 text-[var(--muted)]">当前仅标注字段质量</p>
+                  </td>
                   <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{project.riskTags.length > 0 ? project.riskTags.join(" / ") : "待接入"}</td>
-                  <td className="border-b border-[var(--line)] px-3 py-3">{project.exposureIndexEligible ? "候选，待模型启用后复核" : "否，暂作项目样本"}</td>
                   <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{project.note || "—"}</td>
                 </tr>
               ))}
@@ -499,6 +556,13 @@ export function DataCountryExplorer() {
       equalMeanCountries: availableObservations.filter((item) => matrixMeanBucket(item.observation.value, mean) === "equal").map((item) => item.country.nameZh),
     };
   });
+  const v4ComparisonSummary = v4Countries.map((country) => ({
+    country,
+    highestCount: v4DerivedRows.filter((row) => row.highestCountries.includes(country.nameZh)).length,
+    lowestCount: v4DerivedRows.filter((row) => row.lowestCountries.includes(country.nameZh)).length,
+    aboveMeanCount: v4DerivedRows.filter((row) => row.aboveMeanCountries.includes(country.nameZh)).length,
+    belowMeanCount: v4DerivedRows.filter((row) => row.belowMeanCountries.includes(country.nameZh)).length,
+  }));
 
   return (
     <section className="mt-8 grid gap-5 lg:grid-cols-[260px_minmax(0,1fr)]">
@@ -618,6 +682,33 @@ export function DataCountryExplorer() {
               </div>
             </div>
 
+            <div className="mt-5 grid gap-3 md:grid-cols-4">
+              {v4ComparisonSummary.map((item) => (
+                <article key={item.country.slug} className="comparison-summary-card rounded-2xl border border-[var(--line)] bg-white/75 p-4">
+                  <p className="text-xs text-[var(--muted)]">{item.country.nameEn}</p>
+                  <h3 className="mt-1 text-lg font-semibold">{item.country.nameZh}</h3>
+                  <div className="mt-4 grid grid-cols-2 gap-2 text-xs">
+                    <div className="rounded-xl bg-[var(--surface-muted)] p-2">
+                      <p className="text-[var(--muted)]">高于均值</p>
+                      <p className="mt-1 text-lg font-semibold text-sky-800">{item.aboveMeanCount}</p>
+                    </div>
+                    <div className="rounded-xl bg-[var(--surface-muted)] p-2">
+                      <p className="text-[var(--muted)]">低于均值</p>
+                      <p className="mt-1 text-lg font-semibold text-amber-800">{item.belowMeanCount}</p>
+                    </div>
+                    <div className="rounded-xl bg-white/75 p-2">
+                      <p className="text-[var(--muted)]">最高值</p>
+                      <p className="mt-1 text-lg font-semibold">{item.highestCount}</p>
+                    </div>
+                    <div className="rounded-xl bg-white/75 p-2">
+                      <p className="text-[var(--muted)]">最低值</p>
+                      <p className="mt-1 text-lg font-semibold">{item.lowestCount}</p>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+
             <div className="mt-5 overflow-x-auto">
               <table className="research-data-table w-full min-w-[1480px] border-separate border-spacing-0 text-left text-sm">
                 <thead>
@@ -658,7 +749,7 @@ export function DataCountryExplorer() {
                           const comparison = matrixMeanComparison(observation?.value ?? null, mean);
 
                           return (
-                            <td key={`${country.slug}-${indicatorId}`} className="border-b border-[var(--line)] px-4 py-3 text-right">
+                            <td key={`${country.slug}-${indicatorId}`} className={`border-b border-[var(--line)] px-4 py-3 text-right ${compareValueClass(observation?.value ?? null, mean)}`}>
                               {observation ? (
                                 <div className="flex flex-col items-end gap-1.5">
                                   <a

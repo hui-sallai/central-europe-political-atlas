@@ -104,7 +104,7 @@ export const dataTableSchemas: DataTableSchema[] = [
       { key: "project_status", labelZh: "状态", labelEn: "Status", required: true },
       { key: "source_url", labelZh: "来源链接", labelEn: "Source URL", required: true },
       { key: "risk_tags", labelZh: "风险标签", labelEn: "Risk tags", required: false },
-      { key: "exposure_index_eligible", labelZh: "是否进入中国经济暴露指数", labelEn: "China economic exposure index eligible", required: true },
+      { key: "quantification_status", labelZh: "是否可量化", labelEn: "Quantification status", required: true },
     ],
   },
   {

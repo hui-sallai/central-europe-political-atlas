@@ -121,11 +121,21 @@ a {
 
 .research-data-table th {
   white-space: nowrap;
+  background: color-mix(in srgb, var(--surface) 88%, white);
+  color: color-mix(in srgb, var(--muted) 88%, var(--foreground));
 }
 
 .research-data-table th + th,
 .research-data-table td + td {
   border-left: 1px solid color-mix(in srgb, var(--line) 58%, transparent);
+}
+
+.research-data-table tbody tr:nth-child(even) td {
+  background: color-mix(in srgb, white 42%, transparent);
+}
+
+.research-data-table tbody tr:hover td {
+  background: color-mix(in srgb, var(--accent-soft) 42%, white);
 }
 
 .data-date-cell,
@@ -134,31 +144,32 @@ a {
 }
 
 .data-value-cell {
-  min-width: 8.75rem;
+  min-width: 9.25rem;
   text-align: right;
   white-space: nowrap;
 }
 
 .data-unit-cell {
-  min-width: 5.75rem;
+  min-width: 6.25rem;
 }
 
 .data-status-cell {
-  min-width: 8rem;
+  min-width: 9rem;
   white-space: nowrap;
 }
 
 .data-source-cell {
-  min-width: 9.5rem;
+  min-width: 10rem;
 }
 
 .data-value-token {
   display: inline-block;
-  min-width: 7ch;
+  min-width: 8ch;
   white-space: nowrap;
   border-radius: 0.5rem;
-  background: color-mix(in srgb, var(--surface-muted) 72%, white);
-  padding: 0.2rem 0.45rem;
+  border: 1px solid color-mix(in srgb, var(--line) 76%, transparent);
+  background: color-mix(in srgb, var(--surface-muted) 64%, white);
+  padding: 0.24rem 0.55rem;
   text-align: right;
   font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Consolas, monospace;
   font-variant-numeric: tabular-nums;
@@ -169,6 +180,38 @@ a {
 .data-value-negative {
   color: #82473f;
   box-shadow: inset 3px 0 0 color-mix(in srgb, #9f5f55 58%, transparent);
+}
+
+.comparison-summary-card {
+  box-shadow: 0 14px 34px rgba(45, 52, 49, 0.06);
+}
+
+.comparison-above {
+  background: color-mix(in srgb, #e7f1f4 58%, white);
+}
+
+.comparison-below {
+  background: color-mix(in srgb, #f5eadb 58%, white);
+}
+
+.comparison-equal {
+  background: color-mix(in srgb, var(--surface-muted) 50%, white);
+}
+
+.project-timeline-item {
+  position: relative;
+  padding-left: 0.95rem;
+}
+
+.project-timeline-item::before {
+  background: var(--accent);
+  border-radius: 999px;
+  content: "";
+  height: 0.35rem;
+  left: 0;
+  position: absolute;
+  top: 0.48rem;
+  width: 0.35rem;
 }
 
 @media (min-width: 1024px) {
