@@ -6,6 +6,7 @@ import { getBasicIndicators } from "@/lib/basicIndicators";
 import { dataStatusItems } from "@/lib/dataStatus";
 import type { Country } from "@/lib/data";
 import { getChinaProjectRecords } from "@/lib/extendedData";
+import { chinaProjectVerificationLabel, verifyChinaProject } from "@/lib/chinaProjectVerification";
 import { getCountrySources, globalSourceRegistry, sourceCategoryLabels } from "@/lib/sourceRegistry";
 
 type ReadingTab = "summary" | "parties" | "china" | "status" | "sources";
@@ -162,7 +163,10 @@ export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
             <p className="leading-7 text-[var(--muted)]">{country.chinaTradeNote}</p>
             <div className="mt-5 grid gap-3 md:grid-cols-2">
               {chinaProjectRecords.length > 0 ? (
-                chinaProjectRecords.map((project) => (
+                chinaProjectRecords.map((project) => {
+                  const verification = verifyChinaProject(project);
+
+                  return (
                   <div key={project.projectId} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
                     <div className="flex items-start justify-between gap-3">
                       <p className="font-semibold">{project.projectName}</p>
@@ -183,11 +187,14 @@ export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
                       <div><dt className="font-semibold text-[var(--foreground)]">年份</dt><dd>{project.year}</dd></div>
                       <div><dt className="font-semibold text-[var(--foreground)]">状态</dt><dd>{project.projectStatus}</dd></div>
                       <div><dt className="font-semibold text-[var(--foreground)]">量化状态</dt><dd>{project.amount === null ? "金额缺失，暂不量化" : "金额已接入，仍需复核"}</dd></div>
+                      <div><dt className="font-semibold text-[var(--foreground)]">核验结论</dt><dd>{chinaProjectVerificationLabel(verification.conclusion)}</dd></div>
+                      <div><dt className="font-semibold text-[var(--foreground)]">核验规则</dt><dd>{verification.rule}</dd></div>
                       <div><dt className="font-semibold text-[var(--foreground)]">金额证据</dt><dd>{project.amountEvidence}</dd></div>
                       <div><dt className="font-semibold text-[var(--foreground)]">主体核验</dt><dd>{project.actorEvidence}</dd></div>
                       <div><dt className="font-semibold text-[var(--foreground)]">暴露变量适配</dt><dd>{exposureFitLabel(project.exposureVariableFit)}</dd></div>
                       <div><dt className="font-semibold text-[var(--foreground)]">变量说明</dt><dd>{project.exposureVariableNote}</dd></div>
                     </dl>
+                    <p className="mt-3 rounded-xl bg-[var(--surface-muted)] px-3 py-2 text-xs leading-5 text-[var(--muted)]">核验理由：{verification.reason}</p>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {project.riskTags.map((tag) => (
                         <span key={tag} className="rounded-full bg-[var(--surface-muted)] px-2.5 py-1 text-[10px] text-[var(--muted)]">{tag}</span>
@@ -195,7 +202,8 @@ export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
                     </div>
                     <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{project.note}</p>
                   </div>
-                ))
+                  );
+                })
               ) : (
                 <div className="rounded-2xl border border-[var(--line)] bg-white/70 p-4 md:col-span-2">
                   <DataStatusBadge status="pending" />

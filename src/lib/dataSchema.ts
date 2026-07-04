@@ -112,6 +112,8 @@ export const dataTableSchemas: DataTableSchema[] = [
       { key: "source_reliability_level", labelZh: "来源可靠性等级", labelEn: "Source reliability level", required: true },
       { key: "tags", labelZh: "项目标签", labelEn: "Project tags", required: false },
       { key: "quantification_status", labelZh: "是否可量化", labelEn: "Quantification status", required: true },
+      { key: "verification_conclusion", labelZh: "核验结论", labelEn: "Verification conclusion", required: true, note: "可量化、部分可量化、仅作背景、不进入分析。" },
+      { key: "verification_reason", labelZh: "核验理由", labelEn: "Verification reason", required: true, note: "按统一规则说明金额、主体、年份、来源和事件口径是否满足要求。" },
       { key: "exposure_variable_fit", labelZh: "中国经济暴露变量适配性", labelEn: "China exposure variable fit", required: true },
       { key: "exposure_variable_note", labelZh: "暴露变量说明", labelEn: "Exposure variable note", required: true },
     ],

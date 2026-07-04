@@ -34,6 +34,7 @@ import {
 } from "@/lib/economicTimeSeries";
 import { indicatorDictionaryRecords, type IndicatorCategory } from "@/lib/indicatorDictionary";
 import { getV4DataQualitySummary, type V4QualityStatus } from "@/lib/v4DataQuality";
+import { chinaProjectVerificationLabel, verifyChinaProject, type ChinaProjectVerificationConclusion } from "@/lib/chinaProjectVerification";
 
 type DataMode = "economy" | "charts" | "comparison" | "tables";
 type ProjectAmountFilter = "all" | "available" | "missing";
@@ -279,6 +280,22 @@ function exposureVariableFitClass(value: ChinaProjectRecord["exposureVariableFit
   return "bg-amber-50 text-amber-800";
 }
 
+function projectVerificationClass(value: ChinaProjectVerificationConclusion) {
+  if (value === "quantifiable") {
+    return "bg-emerald-50 text-emerald-800";
+  }
+
+  if (value === "partially_quantifiable") {
+    return "bg-sky-50 text-sky-800";
+  }
+
+  if (value === "background_only") {
+    return "bg-slate-50 text-slate-700";
+  }
+
+  return "bg-rose-50 text-rose-800";
+}
+
 function formatMatrixValue(indicatorId: string, value: number | null) {
   if (value === null) {
     return "待接入";
@@ -496,6 +513,13 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
     [amountFilter, projects, sectorFilter],
   );
   const availableAmountCount = projects.filter((project) => project.amount !== null).length;
+  const verificationResults = projects.map((project) => verifyChinaProject(project));
+  const verificationCounts = {
+    quantifiable: verificationResults.filter((item) => item.conclusion === "quantifiable").length,
+    partiallyQuantifiable: verificationResults.filter((item) => item.conclusion === "partially_quantifiable").length,
+    backgroundOnly: verificationResults.filter((item) => item.conclusion === "background_only").length,
+    excluded: verificationResults.filter((item) => item.conclusion === "excluded").length,
+  };
 
   if (projects.length === 0) {
     return (
@@ -529,7 +553,15 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
               </button>
             ))}
           </div>
-          <p className="mt-2 text-[11px] text-[var(--muted)]">当前显示 {filteredProjects.length} 条；金额状态仅按项目表 amount 字段判定。</p>
+          <p className="mt-2 text-[11px] text-[var(--muted)]">
+            当前显示 {filteredProjects.length} 条；核验规则：有金额 + 有主体 + 有年份 + 有来源 = 可量化；无金额但有明确事件和主体 = 部分可量化；只有新闻线索 = 仅作背景；无可靠来源 = 不进入分析。
+          </p>
+          <div className="mt-2 flex flex-wrap gap-2 text-[10px] font-semibold">
+            <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-emerald-800">可量化 {verificationCounts.quantifiable}</span>
+            <span className="rounded-full bg-sky-50 px-2.5 py-1 text-sky-800">部分可量化 {verificationCounts.partiallyQuantifiable}</span>
+            <span className="rounded-full bg-slate-50 px-2.5 py-1 text-slate-700">仅作背景 {verificationCounts.backgroundOnly}</span>
+            <span className="rounded-full bg-rose-50 px-2.5 py-1 text-rose-800">不进入分析 {verificationCounts.excluded}</span>
+          </div>
         </div>
         <label className="flex items-center gap-2 text-xs font-semibold text-[var(--muted)]">
           行业
@@ -548,16 +580,19 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
 
       {filteredProjects.length > 0 ? (
         <div className="max-w-full overflow-x-auto">
-          <table className="research-data-table w-full min-w-[2280px] border-separate border-spacing-0 text-left text-sm">
+          <table className="research-data-table w-full min-w-[2480px] border-separate border-spacing-0 text-left text-sm">
             <thead>
               <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-                {["项目名称", "国家", "地区/城市", "行业", "中国主体", "当地主体", "金额", "币种", "金额状态", "金额证据/缺失原因", "主体核验", "年份", "项目状态", "项目状态时间线", "来源", "来源等级", "是否可量化", "暴露变量适配", "标签", "备注"].map((header) => (
+                {["项目名称", "国家", "地区/城市", "行业", "中国主体", "当地主体", "金额", "币种", "核验结论", "核验理由", "核验规则", "金额状态", "金额证据/缺失原因", "主体核验", "年份", "项目状态", "项目状态时间线", "来源", "来源等级", "是否可量化", "暴露变量适配", "标签", "备注"].map((header) => (
                   <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
-              {filteredProjects.map((project) => (
+              {filteredProjects.map((project) => {
+                const verification = verifyChinaProject(project);
+
+                return (
                 <tr key={project.projectId} className="align-top">
                   <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{project.projectName}</td>
                   <td className="border-b border-[var(--line)] px-3 py-3">{countryName}</td>
@@ -569,6 +604,13 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
                     <span className={dataValueClass(project.amount)}>{project.amount === null ? "—" : project.amount.toLocaleString("zh-CN", { maximumFractionDigits: 2 })}</span>
                   </td>
                   <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><UnitToken value={project.currency ?? "—"} /></td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">
+                    <span className={`inline-flex whitespace-nowrap rounded-full px-2.5 py-1 text-[10px] font-semibold ${projectVerificationClass(verification.conclusion)}`}>
+                      {chinaProjectVerificationLabel(verification.conclusion)}
+                    </span>
+                  </td>
+                  <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{verification.reason}</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{verification.rule}</td>
                   <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
                     <span className={`inline-flex whitespace-nowrap rounded-full px-2.5 py-1 text-[10px] font-semibold ${project.amount === null ? "bg-amber-50 text-amber-800" : "bg-emerald-50 text-emerald-800"}`}>
                       {project.amount === null ? "金额缺失" : "金额已接入"}
@@ -615,7 +657,8 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
                   <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{project.riskTags.length > 0 ? project.riskTags.join(" / ") : "待接入"}</td>
                   <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{project.note || "—"}</td>
                 </tr>
-              ))}
+                );
+              })}
             </tbody>
           </table>
         </div>
