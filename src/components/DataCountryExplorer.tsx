@@ -73,6 +73,13 @@ type V4RankChange = {
   rankDelta: number | null;
 };
 
+type V4ResearchSummary = {
+  category: string;
+  title: string;
+  body: string;
+  basis: string;
+};
+
 const dataModes: { id: DataMode; label: string; description: string }[] = [
   { id: "economy", label: "经济数据", description: "近五年宏观经济表、官方统计主源与对华经贸样本。" },
   { id: "charts", label: "图表层", description: "只显示经济数据，可切换 GDP、CPI/通胀、失业率等指标。" },
@@ -369,6 +376,18 @@ function formatRankDelta(value: number | null) {
   }
 
   return value > 0 ? `上升 ${value} 位` : `下降 ${Math.abs(value)} 位`;
+}
+
+function comparisonFor(row: V4DerivedRow | undefined, countrySlug: string) {
+  return row?.countryComparisons.find((item) => item.countrySlug === countrySlug);
+}
+
+function researchValueWithUnit(row: V4DerivedRow | undefined, value: number | null | undefined) {
+  if (!row || value === null || value === undefined) {
+    return "待接入";
+  }
+
+  return `${formatMatrixValue(row.indicatorId, value)} ${row.unit}`;
 }
 
 function rankByNumericValue(items: { countrySlug: string; countryName: string; value: number | null }[]) {
@@ -812,6 +831,40 @@ export function DataCountryExplorer() {
         : null,
     ].filter((item): item is string => Boolean(item));
   }).slice(0, 16);
+  const debtRow = v4DerivedRows.find((row) => row.indicatorId === "government_debt_gdp");
+  const currentAccountRow = v4DerivedRows.find((row) => row.indicatorId === "current_account_gdp");
+  const automotiveRow = v4DerivedRows.find((row) => row.indicatorId === "automotive_export_share");
+  const energyRow = v4DerivedRows.find((row) => row.indicatorId === "energy_import_dependency");
+  const hungaryDebt = comparisonFor(debtRow, "hungary");
+  const slovakiaCurrentAccount = comparisonFor(currentAccountRow, "slovakia");
+  const slovakiaAutomotive = comparisonFor(automotiveRow, "slovakia");
+  const czechiaEnergy = comparisonFor(energyRow, "czechia");
+  const v4ResearchSummaries: V4ResearchSummary[] = [
+    {
+      category: "财政",
+      title: "匈牙利政府债务/GDP长期高于 V4 均值",
+      body: `匈牙利政府债务/GDP最新正式值为 ${researchValueWithUnit(debtRow, hungaryDebt?.latestValue)}，与 V4 均值差距为 ${researchValueWithUnit(debtRow, hungaryDebt?.gapToMean)}。`,
+      basis: `依据：${hungaryDebt?.startYear ?? "待接入"}-${hungaryDebt?.latestYear ?? "待接入"} 年政府债务/GDP序列、V4 均值差距和排名变化。`,
+    },
+    {
+      category: "外部",
+      title: "斯洛伐克经常账户/GDP低于 V4 均值",
+      body: `斯洛伐克经常账户/GDP最新正式值为 ${researchValueWithUnit(currentAccountRow, slovakiaCurrentAccount?.latestValue)}，与 V4 均值差距为 ${researchValueWithUnit(currentAccountRow, slovakiaCurrentAccount?.gapToMean)}。`,
+      basis: `依据：${slovakiaCurrentAccount?.startYear ?? "待接入"}-${slovakiaCurrentAccount?.latestYear ?? "待接入"} 年经常账户/GDP序列和最新 V4 均值差距。`,
+    },
+    {
+      category: "产业",
+      title: "斯洛伐克汽车出口占比明显高于其他 V4 国家",
+      body: `斯洛伐克汽车出口占比最新正式值为 ${researchValueWithUnit(automotiveRow, slovakiaAutomotive?.latestValue)}，当前在 V4 中处于 ${formatRank(automotiveRow?.rankChanges.find((item) => item.countrySlug === "slovakia")?.latestRank ?? null)}。`,
+      basis: `依据：Eurostat ext_tec09 计算值、V4 最新横向矩阵和五年排名变化。`,
+    },
+    {
+      category: "能源",
+      title: "捷克能源进口依赖相对较低",
+      body: `捷克能源进口依赖最新正式值为 ${researchValueWithUnit(energyRow, czechiaEnergy?.latestValue)}，与 V4 均值差距为 ${researchValueWithUnit(energyRow, czechiaEnergy?.gapToMean)}。`,
+      basis: `依据：${czechiaEnergy?.startYear ?? "待接入"}-${czechiaEnergy?.latestYear ?? "待接入"} 年能源进口依赖序列和最新 V4 均值差距。`,
+    },
+  ];
 
   return (
     <section className="mt-8 grid min-w-0 gap-5 lg:grid-cols-[260px_minmax(0,1fr)]">
@@ -1088,6 +1141,29 @@ export function DataCountryExplorer() {
                   </div>
                 </article>
               ))}
+            </div>
+
+            <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+              <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
+                <div>
+                  <p className="eyebrow">Research Summary Draft</p>
+                  <h3 className="mt-2 text-xl font-semibold">V4 研究摘要</h3>
+                  <p className="mt-2 max-w-3xl text-xs leading-6 text-[var(--muted)]">
+                    由五年变化、V4 均值差距和排名变化整理为简短事实摘要；当前仅作为后续模型解释层原材料，不构成预测、风险指数或政策判断。
+                  </p>
+                </div>
+                <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs text-[var(--muted)]">事实摘要</span>
+              </div>
+              <div className="mt-4 grid gap-3 lg:grid-cols-2">
+                {v4ResearchSummaries.map((item) => (
+                  <article key={item.title} className="rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-4">
+                    <span className="rounded-full bg-white px-2.5 py-1 text-[10px] font-semibold text-[var(--muted)]">{item.category}</span>
+                    <h4 className="mt-3 font-semibold">{item.title}</h4>
+                    <p className="mt-2 text-sm leading-6 text-[var(--foreground)]">{item.body}</p>
+                    <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{item.basis}</p>
+                  </article>
+                ))}
+              </div>
             </div>
 
             <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
