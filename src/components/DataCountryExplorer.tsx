@@ -47,6 +47,28 @@ type V4DerivedRow = {
   aboveMeanCountries: string[];
   belowMeanCountries: string[];
   equalMeanCountries: string[];
+  countryComparisons: V4CountryDerivedComparison[];
+  rankChanges: V4RankChange[];
+};
+
+type V4CountryDerivedComparison = {
+  countrySlug: string;
+  countryName: string;
+  startYear: string | null;
+  startValue: number | null;
+  latestYear: string | null;
+  latestValue: number | null;
+  change: number | null;
+  gapToMean: number | null;
+  meanBucket: "above" | "below" | "equal" | "pending";
+};
+
+type V4RankChange = {
+  countrySlug: string;
+  countryName: string;
+  startRank: number | null;
+  latestRank: number | null;
+  rankDelta: number | null;
 };
 
 const dataModes: { id: DataMode; label: string; description: string }[] = [
@@ -247,7 +269,7 @@ function matrixMeanComparison(value: number | null, mean: number | null) {
   return value > mean ? "高于均值" : "低于均值";
 }
 
-function matrixMeanBucket(value: number | null, mean: number | null) {
+function matrixMeanBucket(value: number | null, mean: number | null): V4CountryDerivedComparison["meanBucket"] {
   const label = matrixMeanComparison(value, mean);
 
   if (label === "高于均值") {
@@ -263,6 +285,48 @@ function matrixMeanBucket(value: number | null, mean: number | null) {
   }
 
   return "pending";
+}
+
+function formatSignedMatrixValue(indicatorId: string, value: number | null) {
+  if (value === null) {
+    return "待比较";
+  }
+
+  if (Math.abs(value) < 0.0001) {
+    return "0.0";
+  }
+
+  return `${value > 0 ? "+" : ""}${formatMatrixValue(indicatorId, value)}`;
+}
+
+function formatRank(value: number | null) {
+  return value === null ? "待比较" : `第 ${value} 位`;
+}
+
+function formatRankDelta(value: number | null) {
+  if (value === null) {
+    return "待比较";
+  }
+
+  if (value === 0) {
+    return "持平";
+  }
+
+  return value > 0 ? `上升 ${value} 位` : `下降 ${Math.abs(value)} 位`;
+}
+
+function rankByNumericValue(items: { countrySlug: string; countryName: string; value: number | null }[]) {
+  const ranked = items
+    .filter((item): item is typeof item & { value: number } => item.value !== null)
+    .sort((a, b) => b.value - a.value);
+  const ranks = new Map<string, number>();
+
+  ranked.forEach((item, index) => {
+    const previous = ranked[index - 1];
+    ranks.set(item.countrySlug, previous && previous.value === item.value ? ranks.get(previous.countrySlug) ?? index + 1 : index + 1);
+  });
+
+  return ranks;
 }
 
 function dataValueClass(value: number | null) {
@@ -557,6 +621,7 @@ export function DataCountryExplorer() {
       new Map(v4TemplateIndicatorIds.map((indicatorId) => [indicatorId, getLatestExtendedObservation(country.slug, indicatorId)])),
     ]),
   );
+  const v4SeriesMaps = new Map(v4Countries.map((country) => [country.slug, getExtendedObservations(country.slug)]));
   const v4CoverageItems = v4Countries.map((country) => {
     const coverage = getV4TemplateCoverage(country.slug);
 
@@ -580,6 +645,41 @@ export function DataCountryExplorer() {
     const mean = values.length > 0 ? values.reduce((sum, value) => sum + value, 0) / values.length : null;
     const highest = values.length > 0 ? Math.max(...values) : null;
     const lowest = values.length > 0 ? Math.min(...values) : null;
+    const countryComparisons = v4Countries.map((country) => {
+      const series = (v4SeriesMaps.get(country.slug) ?? [])
+        .filter((observation) => observation.indicatorId === indicatorId && observation.status === "official" && observation.value !== null)
+        .sort((a, b) => a.date.localeCompare(b.date));
+      const startObservation = series[0];
+      const latestObservation = series[series.length - 1];
+      const startValue = startObservation?.value ?? null;
+      const latestValue = latestObservation?.value ?? null;
+
+      return {
+        countrySlug: country.slug,
+        countryName: country.nameZh,
+        startYear: startObservation?.date ?? null,
+        startValue,
+        latestYear: latestObservation?.date ?? null,
+        latestValue,
+        change: startValue !== null && latestValue !== null ? latestValue - startValue : null,
+        gapToMean: latestValue !== null && mean !== null ? latestValue - mean : null,
+        meanBucket: matrixMeanBucket(latestValue, mean),
+      };
+    });
+    const startRanks = rankByNumericValue(countryComparisons.map((item) => ({ countrySlug: item.countrySlug, countryName: item.countryName, value: item.startValue })));
+    const latestRanks = rankByNumericValue(countryComparisons.map((item) => ({ countrySlug: item.countrySlug, countryName: item.countryName, value: item.latestValue })));
+    const rankChanges = countryComparisons.map((item) => {
+      const startRank = startRanks.get(item.countrySlug) ?? null;
+      const latestRank = latestRanks.get(item.countrySlug) ?? null;
+
+      return {
+        countrySlug: item.countrySlug,
+        countryName: item.countryName,
+        startRank,
+        latestRank,
+        rankDelta: startRank !== null && latestRank !== null ? startRank - latestRank : null,
+      };
+    });
 
     return {
       indicatorId,
@@ -593,6 +693,8 @@ export function DataCountryExplorer() {
       aboveMeanCountries: availableObservations.filter((item) => matrixMeanBucket(item.observation.value, mean) === "above").map((item) => item.country.nameZh),
       belowMeanCountries: availableObservations.filter((item) => matrixMeanBucket(item.observation.value, mean) === "below").map((item) => item.country.nameZh),
       equalMeanCountries: availableObservations.filter((item) => matrixMeanBucket(item.observation.value, mean) === "equal").map((item) => item.country.nameZh),
+      countryComparisons,
+      rankChanges,
     };
   });
   const v4ComparisonSummary = v4Countries.map((country) => ({
@@ -602,6 +704,32 @@ export function DataCountryExplorer() {
     aboveMeanCount: v4DerivedRows.filter((row) => row.aboveMeanCountries.includes(country.nameZh)).length,
     belowMeanCount: v4DerivedRows.filter((row) => row.belowMeanCountries.includes(country.nameZh)).length,
   }));
+  const v4DerivedHighlights = v4DerivedRows.flatMap((row) => {
+    const biggestGap = row.countryComparisons
+      .filter((item): item is V4CountryDerivedComparison & { gapToMean: number } => item.gapToMean !== null)
+      .sort((a, b) => Math.abs(b.gapToMean) - Math.abs(a.gapToMean))[0];
+    const biggestChange = row.countryComparisons
+      .filter((item): item is V4CountryDerivedComparison & { change: number } => item.change !== null)
+      .sort((a, b) => Math.abs(b.change) - Math.abs(a.change))[0];
+    const biggestRankMove = row.rankChanges
+      .filter((item): item is V4RankChange & { rankDelta: number } => item.rankDelta !== null && item.rankDelta !== 0)
+      .sort((a, b) => Math.abs(b.rankDelta) - Math.abs(a.rankDelta))[0];
+
+    return [
+      row.highest !== null && row.highestCountries.length > 0
+        ? `${row.highestCountries.join(" / ")}的${row.label}为当前 V4 最高值（${formatMatrixValue(row.indicatorId, row.highest)} ${row.unit}）。`
+        : null,
+      biggestGap
+        ? `${biggestGap.countryName}的${row.label}与 V4 均值差距最大：${formatSignedMatrixValue(row.indicatorId, biggestGap.gapToMean)} ${row.unit}。`
+        : null,
+      biggestChange
+        ? `${biggestChange.countryName}的${row.label}从 ${biggestChange.startYear} 到 ${biggestChange.latestYear} 变化最大：${formatSignedMatrixValue(row.indicatorId, biggestChange.change)} ${row.unit}。`
+        : null,
+      biggestRankMove
+        ? `${biggestRankMove.countryName}的${row.label}数值排名${formatRankDelta(biggestRankMove.rankDelta)}（${formatRank(biggestRankMove.startRank)} → ${formatRank(biggestRankMove.latestRank)}）。`
+        : null,
+    ].filter((item): item is string => Boolean(item));
+  }).slice(0, 16);
 
   return (
     <section className="mt-8 grid min-w-0 gap-5 lg:grid-cols-[260px_minmax(0,1fr)]">
@@ -748,6 +876,21 @@ export function DataCountryExplorer() {
               ))}
             </div>
 
+            <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+              <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
+                <div>
+                  <p className="eyebrow">Derived Notes</p>
+                  <h3 className="mt-2 text-xl font-semibold">V4 派生事实摘记</h3>
+                </div>
+                <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs text-[var(--muted)]">不构成风险指数</span>
+              </div>
+              <div className="mt-4 grid gap-2 md:grid-cols-2">
+                {v4DerivedHighlights.map((item) => (
+                  <p key={item} className="rounded-xl bg-[var(--surface-muted)] px-3 py-2 text-xs leading-6 text-[var(--muted)]">{item}</p>
+                ))}
+              </div>
+            </div>
+
             <div className="mt-5 max-w-full overflow-x-auto">
               <table className="research-data-table w-full min-w-[1480px] border-separate border-spacing-0 text-left text-sm">
                 <thead>
@@ -874,6 +1017,93 @@ export function DataCountryExplorer() {
                 </table>
               </div>
             </div>
+            <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+              <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
+                <div>
+                  <p className="eyebrow">Five-Year Change And Mean Gap</p>
+                  <h3 className="mt-2 text-xl font-semibold">五年变化与 V4 均值差距</h3>
+                </div>
+                <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs text-[var(--muted)]">2021 → 最新正式年份</span>
+              </div>
+              <div className="mt-4 max-w-full overflow-x-auto">
+                <table className="research-data-table w-full min-w-[1380px] border-separate border-spacing-0 text-left text-sm">
+                  <thead>
+                    <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+                      {["指标", "国家", "起点", "最新", "五年变化", "V4 均值差距", "均值位置"].map((header) => (
+                        <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {v4DerivedRows.flatMap((row) =>
+                      row.countryComparisons.map((item) => (
+                        <tr key={`${row.indicatorId}-${item.countrySlug}-change`} className="align-top">
+                          <td className="border-b border-[var(--line)] py-3 pl-0 pr-3">
+                            <p className="font-semibold">{row.label}</p>
+                            <p className="mt-1 text-[10px] text-[var(--muted)]">{row.unit}</p>
+                          </td>
+                          <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{item.countryName}</td>
+                          <td className="data-value-cell border-b border-[var(--line)] px-3 py-3">
+                            <span className={dataValueClass(item.startValue)}>{formatMatrixValue(row.indicatorId, item.startValue)}</span>
+                            <p className="mt-1 text-[10px] text-[var(--muted)]">{item.startYear ?? "待接入"}</p>
+                          </td>
+                          <td className="data-value-cell border-b border-[var(--line)] px-3 py-3">
+                            <span className={dataValueClass(item.latestValue)}>{formatMatrixValue(row.indicatorId, item.latestValue)}</span>
+                            <p className="mt-1 text-[10px] text-[var(--muted)]">{item.latestYear ?? "待接入"}</p>
+                          </td>
+                          <td className="data-value-cell border-b border-[var(--line)] px-3 py-3">
+                            <span className={dataValueClass(item.change)}>{formatSignedMatrixValue(row.indicatorId, item.change)}</span>
+                          </td>
+                          <td className="data-value-cell border-b border-[var(--line)] px-3 py-3">
+                            <span className={dataValueClass(item.gapToMean)}>{formatSignedMatrixValue(row.indicatorId, item.gapToMean)}</span>
+                          </td>
+                          <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{matrixMeanComparison(item.latestValue, row.mean)}</td>
+                        </tr>
+                      )),
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+              <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
+                <div>
+                  <p className="eyebrow">Ranking Movement</p>
+                  <h3 className="mt-2 text-xl font-semibold">指标数值排名变化</h3>
+                </div>
+                <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs text-[var(--muted)]">仅表示数值排序</span>
+              </div>
+              <div className="mt-4 max-w-full overflow-x-auto">
+                <table className="research-data-table w-full min-w-[1080px] border-separate border-spacing-0 text-left text-sm">
+                  <thead>
+                    <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+                      {["指标", "国家", "起点排名", "最新排名", "排名变化", "说明"].map((header) => (
+                        <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {v4DerivedRows.flatMap((row) =>
+                      row.rankChanges.map((item) => (
+                        <tr key={`${row.indicatorId}-${item.countrySlug}-rank`} className="align-top">
+                          <td className="border-b border-[var(--line)] py-3 pl-0 pr-3">
+                            <p className="font-semibold">{row.label}</p>
+                            <p className="mt-1 text-[10px] text-[var(--muted)]">{row.unit}</p>
+                          </td>
+                          <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{item.countryName}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{formatRank(item.startRank)}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{formatRank(item.latestRank)}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{formatRankDelta(item.rankDelta)}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">排名按该指标数值从高到低排列，不代表政策优劣、风险或预测。</td>
+                        </tr>
+                      )),
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
             <div className="mt-4 flex flex-wrap items-center gap-2 rounded-2xl bg-[var(--surface-muted)] px-4 py-3 text-xs text-[var(--muted)]">
               <DataStatusBadge status="official" />
               <span>最高值、最低值和 V4 均值均为当前四国观测值的直接派生比较；高于或低于均值仅表示数值位置，不代表优劣、预测或风险判断。</span>
