@@ -106,9 +106,7 @@ const observationTableHeaders = [
   { label: "数值", className: "data-value-cell" },
   { label: "单位", className: "data-unit-cell" },
   { label: "状态", className: "data-status-cell" },
-  { label: "来源", className: "data-source-cell" },
-  { label: "更新时间", className: "data-updated-cell" },
-  { label: "备注", className: "data-note-cell" },
+  { label: "来源 / 更新时间 / 备注", className: "data-source-note-cell" },
 ];
 
 function formatMetricValue(value: number | null, metricId: EconomicMetricId) {
@@ -425,7 +423,7 @@ function dataValueClass(value: number | null) {
   return `data-value-token${value !== null && value < 0 ? " data-value-negative" : ""}`;
 }
 
-function ObservationTable({ children, minWidth = "1160px" }: { children: ReactNode; minWidth?: string }) {
+function ObservationTable({ children, minWidth = "900px" }: { children: ReactNode; minWidth?: string }) {
   return (
     <div className="mt-5 wide-table-scroll max-w-full">
       <table className="research-data-table observation-data-table w-full border-separate border-spacing-0 text-left text-sm" style={{ minWidth }}>
@@ -484,18 +482,132 @@ function ObservationRows({ observations }: { observations: ExtendedObservation[]
             <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
               <DataStatusBadge status={observation.status} />
             </td>
-            <td className="data-source-cell border-b border-[var(--line)] px-3 py-3">
-              <div className="flex flex-col gap-2">
-                <SourceStatusBadge status={observation.status === "official" ? "official" : observation.status === "sample" ? "sample" : observation.status === "pending" ? "pending" : "manual"} />
-                <SourceNameLink href={observation.sourceUrl}>{observation.sourceName}</SourceNameLink>
+            <td className="data-source-note-cell border-b border-[var(--line)] px-3 py-3">
+              <div className="flex flex-col gap-2 text-xs leading-5 text-[var(--muted)]">
+                <div className="flex flex-wrap items-center gap-2">
+                  <SourceStatusBadge status={observation.status === "official" ? "official" : observation.status === "sample" ? "sample" : observation.status === "pending" ? "pending" : "manual"} />
+                  <SourceNameLink href={observation.sourceUrl}>{observation.sourceName}</SourceNameLink>
+                </div>
+                <p>更新时间：{observation.updatedAt || "待接入"}</p>
+                <p>{observation.note ?? "—"}</p>
               </div>
             </td>
-            <td className="data-updated-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">{observation.updatedAt || "待接入"}</td>
-            <td className="data-note-cell border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{observation.note ?? "—"}</td>
           </tr>
         );
       })}
     </>
+  );
+}
+
+function EconomicSourceNoteCell({
+  links,
+  status,
+  updatedAt = "待接入",
+  note,
+}: {
+  links: EconomicSourceLink[];
+  status: "official" | "pending";
+  updatedAt?: string;
+  note: string;
+}) {
+  return (
+    <td className="data-source-note-cell border-b border-[var(--line)] px-3 py-3">
+      <div className="flex flex-col gap-2 text-xs leading-5 text-[var(--muted)]">
+        <div className="flex flex-col gap-2">
+          <SourceStatusBadge status={status === "official" ? "official" : "pending"} />
+          <SourceLinkList links={links} compact />
+        </div>
+        <p>更新时间：{updatedAt}</p>
+        <p>{note}</p>
+      </div>
+    </td>
+  );
+}
+
+type V4MatrixCountry = {
+  slug: string;
+  nameZh: string;
+};
+
+function V4MatrixColGroup({ matrixCountries }: { matrixCountries: V4MatrixCountry[] }) {
+  return (
+    <colgroup>
+      <col className="v4-matrix-indicator-col" />
+      {matrixCountries.map((country) => (
+        <col key={country.slug} className="v4-matrix-country-col" />
+      ))}
+      <col className="v4-matrix-derived-col" />
+      <col className="v4-matrix-derived-col" />
+      <col className="v4-matrix-derived-col" />
+    </colgroup>
+  );
+}
+
+function V4MatrixHeader({ matrixCountries }: { matrixCountries: V4MatrixCountry[] }) {
+  return (
+    <thead>
+      <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+        <th className="border-b border-[var(--line)] pb-3 pr-3 font-semibold">指标</th>
+        {matrixCountries.map((country) => (
+          <th key={country.slug} className="border-b border-[var(--line)] px-2 pb-3 text-right font-semibold">{country.nameZh}</th>
+        ))}
+        <th className="border-b border-[var(--line)] px-2 pb-3 text-right font-semibold">最高值</th>
+        <th className="border-b border-[var(--line)] px-2 pb-3 text-right font-semibold">最低值</th>
+        <th className="border-b border-[var(--line)] px-2 pb-3 text-right font-semibold">V4 均值</th>
+      </tr>
+    </thead>
+  );
+}
+
+function V4MatrixMeta({ indicator }: { indicator: ReturnType<typeof getExtendedIndicator> }) {
+  return (
+    <p className="mt-1 text-[10px] text-[var(--muted)]">
+      {indicator?.unit ?? ""} / {indicator ? extendedIndicatorLabels[indicator.category] : "待接入"}
+    </p>
+  );
+}
+
+function V4MatrixValueCell({
+  indicatorId,
+  observation,
+  mean,
+}: {
+  indicatorId: string;
+  observation: ExtendedObservation | undefined;
+  mean: number | null;
+}) {
+  const comparison = matrixMeanComparison(observation?.value ?? null, mean);
+
+  return (
+    <td className={`border-b border-[var(--line)] px-2 py-3 text-right ${compareValueClass(observation?.value ?? null, mean)}`}>
+      {observation ? (
+        <div className="flex flex-col items-end gap-1.5">
+          <a
+            href={observation.sourceUrl}
+            target="_blank"
+            rel="noreferrer"
+            title={`${observation.sourceName} / ${observation.date} / ${observation.status}`}
+            className={dataValueClass(observation.value)}
+          >
+            {formatMatrixValue(indicatorId, observation.value)}
+          </a>
+          <span className={`whitespace-nowrap text-[10px] font-semibold ${comparison === "高于均值" ? "text-sky-800" : comparison === "低于均值" ? "text-amber-800" : "text-[var(--muted)]"}`}>
+            {comparison}
+          </span>
+        </div>
+      ) : (
+        <span className="text-[var(--muted)]">待接入</span>
+      )}
+    </td>
+  );
+}
+
+function V4MatrixDerivedCell({ indicatorId, value, label }: { indicatorId: string; value: number | null; label: string }) {
+  return (
+    <td className="border-b border-[var(--line)] px-2 py-3 text-right">
+      <span className={dataValueClass(value)}>{formatMatrixValue(indicatorId, value)}</span>
+      <p className="mt-1 whitespace-nowrap text-[10px] text-[var(--muted)]">{label || "待接入"}</p>
+    </td>
   );
 }
 
@@ -1233,18 +1345,9 @@ export function DataCountryExplorer() {
             </div>
 
             <div className="mt-5 wide-table-scroll max-w-full">
-              <table className="research-data-table w-full min-w-[1480px] border-separate border-spacing-0 text-left text-sm">
-                <thead>
-                  <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-                    <th className="border-b border-[var(--line)] pb-3 pr-4 font-semibold">指标</th>
-                    {v4Countries.map((country) => (
-                      <th key={country.slug} className="border-b border-[var(--line)] px-4 pb-3 text-right font-semibold">{country.nameZh}</th>
-                    ))}
-                    <th className="border-b border-[var(--line)] px-4 pb-3 text-right font-semibold">最高值</th>
-                    <th className="border-b border-[var(--line)] px-4 pb-3 text-right font-semibold">最低值</th>
-                    <th className="border-b border-[var(--line)] px-4 pb-3 text-right font-semibold">V4 均值</th>
-                  </tr>
-                </thead>
+              <table className="research-data-table v4-matrix-table w-full min-w-[960px] border-separate border-spacing-0 text-left text-sm">
+                <V4MatrixColGroup matrixCountries={v4Countries} />
+                <V4MatrixHeader matrixCountries={v4Countries} />
                 <tbody>
                   {v4TemplateIndicatorIds.map((indicatorId) => {
                     const indicator = getExtendedIndicator(indicatorId);
@@ -1264,48 +1367,16 @@ export function DataCountryExplorer() {
 
                     return (
                       <tr key={indicatorId} className="align-top">
-                        <td className="border-b border-[var(--line)] py-3 pl-0 pr-4">
+                        <td className="border-b border-[var(--line)] py-3 pl-0 pr-3">
                           <p className="font-semibold">{indicator?.labelZh ?? indicatorId}</p>
-                          <p className="mt-1 text-[10px] text-[var(--muted)]">{indicator?.unit ?? ""} / {indicator ? extendedIndicatorLabels[indicator.category] : "待接入"}</p>
+                          <V4MatrixMeta indicator={indicator} />
                         </td>
-                        {countryObservations.map(({ country, observation }) => {
-                          const comparison = matrixMeanComparison(observation?.value ?? null, mean);
-
-                          return (
-                            <td key={`${country.slug}-${indicatorId}`} className={`border-b border-[var(--line)] px-4 py-3 text-right ${compareValueClass(observation?.value ?? null, mean)}`}>
-                              {observation ? (
-                                <div className="flex flex-col items-end gap-1.5">
-                                  <a
-                                    href={observation.sourceUrl}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    title={`${observation.sourceName} / ${observation.date} / ${observation.status}`}
-                                    className={dataValueClass(observation.value)}
-                                  >
-                                    {formatMatrixValue(indicatorId, observation.value)}
-                                  </a>
-                                  <span className={`whitespace-nowrap text-[10px] font-semibold ${comparison === "高于均值" ? "text-sky-800" : comparison === "低于均值" ? "text-amber-800" : "text-[var(--muted)]"}`}>
-                                    {comparison}
-                                  </span>
-                                </div>
-                              ) : (
-                                <span className="text-[var(--muted)]">待接入</span>
-                              )}
-                            </td>
-                          );
-                        })}
-                        <td className="border-b border-[var(--line)] px-4 py-3 text-right">
-                          <span className={dataValueClass(highest)}>{formatMatrixValue(indicatorId, highest)}</span>
-                          <p className="mt-1 whitespace-nowrap text-[10px] text-[var(--muted)]">{highestCountries.join(" / ") || "待接入"}</p>
-                        </td>
-                        <td className="border-b border-[var(--line)] px-4 py-3 text-right">
-                          <span className={dataValueClass(lowest)}>{formatMatrixValue(indicatorId, lowest)}</span>
-                          <p className="mt-1 whitespace-nowrap text-[10px] text-[var(--muted)]">{lowestCountries.join(" / ") || "待接入"}</p>
-                        </td>
-                        <td className="border-b border-[var(--line)] px-4 py-3 text-right">
-                          <span className={dataValueClass(mean)}>{formatMatrixValue(indicatorId, mean)}</span>
-                          <p className="mt-1 whitespace-nowrap text-[10px] text-[var(--muted)]">算术平均</p>
-                        </td>
+                        {countryObservations.map(({ country, observation }) => (
+                          <V4MatrixValueCell key={`${country.slug}-${indicatorId}`} indicatorId={indicatorId} observation={observation} mean={mean} />
+                        ))}
+                        <V4MatrixDerivedCell indicatorId={indicatorId} value={highest} label={highestCountries.join(" / ")} />
+                        <V4MatrixDerivedCell indicatorId={indicatorId} value={lowest} label={lowestCountries.join(" / ")} />
+                        <V4MatrixDerivedCell indicatorId={indicatorId} value={mean} label="算术平均" />
                       </tr>
                     );
                   })}
@@ -1506,14 +1577,11 @@ export function DataCountryExplorer() {
                         <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
                           <DataStatusBadge status={status} />
                         </td>
-                        <td className="data-source-cell border-b border-[var(--line)] px-3 py-3">
-                          <div className="flex flex-col gap-2">
-                            <SourceStatusBadge status={status === "official" ? "official" : "pending"} />
-                            <SourceLinkList links={getEconomicMetricSourceLinks(selectedCountry.slug, metric.id, row.year, value)} compact />
-                          </div>
-                        </td>
-                        <td className="data-updated-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">待接入</td>
-                        <td className="data-note-cell border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{metric.note} 数据来源：{row.source}</td>
+                        <EconomicSourceNoteCell
+                          links={getEconomicMetricSourceLinks(selectedCountry.slug, metric.id, row.year, value)}
+                          status={status}
+                          note={`${metric.note} 数据来源：${row.source}`}
+                        />
                       </tr>
                     );
                   }),
@@ -1664,14 +1732,11 @@ export function DataCountryExplorer() {
                       <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
                         <DataStatusBadge status={status} />
                       </td>
-                      <td className="data-source-cell border-b border-[var(--line)] px-3 py-3">
-                        <div className="flex flex-col gap-2">
-                          <SourceStatusBadge status={status === "official" ? "official" : "pending"} />
-                          <SourceLinkList links={getEconomicMetricSourceLinks(selectedCountry.slug, activeMetric, row.year, value)} />
-                        </div>
-                      </td>
-                      <td className="data-updated-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">待接入</td>
-                      <td className="data-note-cell border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{activeMetricInfo.note} 数据来源：{row.source}</td>
+                      <EconomicSourceNoteCell
+                        links={getEconomicMetricSourceLinks(selectedCountry.slug, activeMetric, row.year, value)}
+                        status={status}
+                        note={`${activeMetricInfo.note} 数据来源：${row.source}`}
+                      />
                     </tr>
                   );
                 })}

@@ -4,7 +4,7 @@ import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge
 
 export default function DataOverviewPage() {
   return (
-    <main className="page-shell">
+    <main className="page-shell data-page-shell">
       <p className="eyebrow">Data Workspace</p>
       <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">数据工作台</h1>
       <p className="mt-4 max-w-3xl leading-8 text-[var(--muted)]">
