@@ -1,3 +1,4 @@
+import { DataLayerOverview } from "@/components/DataLayerOverview";
 import { DataCountryExplorer } from "@/components/DataCountryExplorer";
 import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
 
@@ -9,6 +10,10 @@ export default function DataOverviewPage() {
       <p className="mt-4 max-w-3xl leading-8 text-[var(--muted)]">
         数据页改为按国家单独查看。先选择国家，再查看该国宏观经济、官方来源、地图图层、对华经贸样本、新闻记录和资料入口。
       </p>
+
+      <section className="mt-6">
+        <DataLayerOverview title="数据工作台层级总览" />
+      </section>
 
       <section className="mt-6 rounded-2xl border border-[var(--line)] bg-white/45 p-4 text-sm leading-7 text-[var(--muted)]">
         <div className="mb-2 flex flex-wrap gap-2">

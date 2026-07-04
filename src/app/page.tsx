@@ -1,3 +1,4 @@
+import { DataLayerOverview } from "@/components/DataLayerOverview";
 import { InteractiveMapExplorer } from "@/components/InteractiveMapExplorer";
 
 export default function Home() {
@@ -17,6 +18,10 @@ export default function Home() {
         </div>
 
         <InteractiveMapExplorer variant="home" />
+      </section>
+
+      <section className="mt-5">
+        <DataLayerOverview compact title="首页数据层总览" />
       </section>
     </main>
   );

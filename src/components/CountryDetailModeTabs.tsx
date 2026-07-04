@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { DataLayerOverview } from "@/components/DataLayerOverview";
 import { DataStatusBadge } from "@/components/DataStatusBadge";
 import { CountryMapWorkbench } from "@/components/CountryMapWorkbench";
 import { CountryReadingTabs } from "@/components/CountryReadingTabs";
@@ -50,7 +51,9 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
 
   return (
     <section className="mt-8">
-      <section className="grid gap-4 xl:grid-cols-[1fr_1.1fr]">
+      <DataLayerOverview countrySlug={country.slug} compact title={`${country.nameZh}数据层总览`} />
+
+      <section className="mt-4 grid gap-4 xl:grid-cols-[1fr_1.1fr]">
         <article className="card p-6">
           <p className="eyebrow">1. Country Profile</p>
           <h2 className="mt-3 text-2xl font-semibold">国家基础档案</h2>

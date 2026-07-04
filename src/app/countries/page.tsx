@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { DataLayerOverview } from "@/components/DataLayerOverview";
 import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
 import { countries } from "@/lib/data";
 import { getChinaProjectRecords } from "@/lib/extendedData";
@@ -11,6 +12,9 @@ export default function CountriesPage() {
       <p className="mt-4 max-w-2xl text-[var(--muted)]">
         每个国家页都以地图仪表盘为主体，展示政治支持率、经济强度、基础底图、一级行政区、二级行政区入口和可选文字资料。
       </p>
+      <section className="mt-6">
+        <DataLayerOverview compact title="国家层级数据总览" />
+      </section>
       <div className="mt-8 grid gap-4 md:grid-cols-2">
         {countries.map((country) => {
           const projectRecords = getChinaProjectRecords(country.slug);
