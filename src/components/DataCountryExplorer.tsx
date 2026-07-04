@@ -32,6 +32,7 @@ import {
   type EconomicSourceLink,
   type EconomicYearRow,
 } from "@/lib/economicTimeSeries";
+import { indicatorDictionaryRecords, type IndicatorCategory } from "@/lib/indicatorDictionary";
 
 type DataMode = "economy" | "charts" | "comparison" | "tables";
 type ProjectAmountFilter = "all" | "available" | "missing";
@@ -79,6 +80,14 @@ const dataModes: { id: DataMode; label: string; description: string }[] = [
 ];
 
 const tableMetricIds: EconomicMetricId[] = ["population", "gdp", "gdpPerCapita", "growth", "inflation", "unemployment"];
+const economicMetricIndicatorIds: Record<EconomicMetricId, string> = {
+  population: "population_million",
+  gdp: "gdp_nominal_mio_eur",
+  gdpPerCapita: "gdp_per_capita_eur",
+  growth: "real_gdp_growth",
+  inflation: "hicp_inflation",
+  unemployment: "unemployment_rate",
+};
 const extendedCategoryOrder: ExtendedCategory[] = ["fiscal", "external", "investment", "energy", "industry"];
 const v4CountrySlugs = ["poland", "hungary", "czechia", "slovakia"];
 const v4HistoricalYears = ["2021", "2022", "2023", "2024", "2025"];
@@ -141,25 +150,21 @@ function statusForMetric(value: number | null): "official" | "pending" {
   return value === null ? "pending" : "official";
 }
 
-function analysisUseLabel(value: string) {
-  const labels: Record<string, string> = {
-    eligible_after_review: "复核后可进入后续分析",
-    display_only: "仅展示",
-    excluded: "不进入分析计算",
+function indicatorCategoryLabel(value: IndicatorCategory) {
+  const labels: Record<IndicatorCategory, string> = {
+    macro: "基础宏观",
+    fiscal: "财政",
+    external: "外部经济",
+    investment: "投资",
+    energy: "能源",
+    industry: "产业",
   };
 
-  return labels[value] ?? value;
+  return labels[value];
 }
 
-function directionMeaningLabel(value: string) {
-  const labels: Record<string, string> = {
-    higher_risk: "数值上升代表压力上升",
-    lower_risk: "数值上升代表压力下降",
-    neutral: "中性",
-    context: "背景解释",
-  };
-
-  return labels[value] ?? value;
+function yesNoLabel(value: boolean) {
+  return value ? "是" : "否";
 }
 
 function analysisBoundaryLabel(value: string) {
@@ -647,6 +652,11 @@ export function DataCountryExplorer() {
   const newsEventRecords = getNewsEventRecords(selectedCountry.slug);
   const selectedIndicatorIds = new Set(extendedObservations.map((observation) => observation.indicatorId));
   const selectedIndicators = extendedIndicators.filter((indicator) => selectedIndicatorIds.has(indicator.id));
+  const indicatorDictionaryIds = new Set([
+    ...tableMetricIds.map((metricId) => economicMetricIndicatorIds[metricId]),
+    ...selectedIndicators.map((indicator) => indicator.id),
+  ]);
+  const selectedIndicatorDictionaryRows = indicatorDictionaryRecords.filter((indicator) => indicatorDictionaryIds.has(indicator.indicatorId));
   const v4TemplateCoverage = getV4TemplateCoverage(selectedCountry.slug);
   const v4Countries = v4CountrySlugs
     .map((slug) => countries.find((country) => country.slug === slug))
@@ -1482,26 +1492,29 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Indicator Dictionary</p>
               <h2 className="mt-3 text-2xl font-semibold">指标字典表</h2>
               <div className="mt-5 max-w-full overflow-x-auto">
-                <table className="research-data-table w-full min-w-[1020px] border-separate border-spacing-0 text-left text-sm">
+                <table className="research-data-table w-full min-w-[1880px] border-separate border-spacing-0 text-left text-sm">
                   <thead>
                     <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-                      {["指标ID", "中文名", "英文名", "类别", "单位", "频率", "分析用途", "方向解释", "转换"].map((header) => (
+                      {["indicator_id", "中文名", "英文名", "类别", "单位", "频率", "来源优先级", "进入派生比较", "未来模型", "数值上升的含义", "缺失值处理", "更新时间"].map((header) => (
                         <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
                       ))}
                     </tr>
                   </thead>
                   <tbody>
-                    {selectedIndicators.map((indicator) => (
-                      <tr key={indicator.id}>
-                        <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono text-xs">{indicator.id}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{indicator.labelZh}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3">{indicator.labelEn}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3">{extendedIndicatorLabels[indicator.category]}</td>
+                    {selectedIndicatorDictionaryRows.map((indicator) => (
+                      <tr key={indicator.indicatorId} className="align-top">
+                        <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono text-xs">{indicator.indicatorId}</td>
+                        <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{indicator.nameZh}</td>
+                        <td className="border-b border-[var(--line)] px-3 py-3">{indicator.nameEn}</td>
+                        <td className="border-b border-[var(--line)] px-3 py-3">{indicatorCategoryLabel(indicator.category)}</td>
                         <td className="border-b border-[var(--line)] px-3 py-3">{indicator.unit}</td>
                         <td className="border-b border-[var(--line)] px-3 py-3">{indicator.frequency}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3">{analysisUseLabel(indicator.modelUse)}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3">{directionMeaningLabel(indicator.riskDirection)}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3">{indicator.transform}</td>
+                        <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.sourcePriority.join(" → ")}</td>
+                        <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.includedInDerivedComparison)}</td>
+                        <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.futureModelEligible)}</td>
+                        <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.upwardMeaning}</td>
+                        <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.missingValueTreatment}</td>
+                        <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{indicator.updatedAt}</td>
                       </tr>
                     ))}
                   </tbody>

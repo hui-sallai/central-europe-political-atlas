@@ -1,3 +1,5 @@
+import { indicatorDictionaryRecords, type IndicatorCategory, type IndicatorFrequency, type IndicatorModelUse, type IndicatorDirection } from "./indicatorDictionary";
+
 export type ExtendedCategory = "fiscal" | "external" | "investment" | "energy" | "industry";
 export type ObservationStatus = "official" | "manual" | "pending" | "sample";
 
@@ -7,10 +9,16 @@ export type ExtendedIndicator = {
   labelEn: string;
   category: ExtendedCategory;
   unit: string;
-  frequency: "annual" | "quarterly" | "monthly";
-  modelUse: "eligible_after_review" | "display_only" | "excluded";
-  riskDirection: "higher_risk" | "lower_risk" | "neutral" | "context";
+  frequency: IndicatorFrequency;
+  sourcePriority: string[];
+  includedInDerivedComparison: boolean;
+  futureModelEligible: boolean;
+  modelUse: IndicatorModelUse;
+  riskDirection: IndicatorDirection;
+  upwardMeaning: string;
+  missingValueTreatment: string;
   transform: string;
+  updatedAt: string;
 };
 
 export type ExtendedObservation = {
@@ -97,20 +105,33 @@ export const extendedIndicatorLabels: Record<ExtendedCategory, string> = {
   industry: "产业数据",
 };
 
-export const extendedIndicators: ExtendedIndicator[] = [
-  { id: "fiscal_deficit_gdp", labelZh: "财政赤字/GDP", labelEn: "Government deficit / GDP", category: "fiscal", unit: "% GDP", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "higher_risk", transform: "level" },
-  { id: "government_debt_gdp", labelZh: "政府债务/GDP", labelEn: "Government debt / GDP", category: "fiscal", unit: "% GDP", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "higher_risk", transform: "level" },
-  { id: "government_revenue_gdp", labelZh: "财政收入/GDP", labelEn: "Government revenue / GDP", category: "fiscal", unit: "% GDP", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "level" },
-  { id: "government_expenditure_gdp", labelZh: "财政支出/GDP", labelEn: "Government expenditure / GDP", category: "fiscal", unit: "% GDP", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "level" },
-  { id: "exports_mio_eur", labelZh: "出口", labelEn: "Exports", category: "external", unit: "百万欧元", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "level" },
-  { id: "imports_mio_eur", labelZh: "进口", labelEn: "Imports", category: "external", unit: "百万欧元", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "level" },
-  { id: "trade_balance_mio_eur", labelZh: "贸易差额", labelEn: "Trade balance", category: "external", unit: "百万欧元", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "exports - imports" },
-  { id: "current_account_gdp", labelZh: "经常账户/GDP", labelEn: "Current account / GDP", category: "external", unit: "% GDP", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "lower_risk", transform: "level" },
-  { id: "fdi_mio_eur", labelZh: "FDI 流入", labelEn: "FDI inflow", category: "investment", unit: "百万欧元", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "level" },
-  { id: "energy_import_dependency", labelZh: "能源进口依赖", labelEn: "Energy import dependency", category: "energy", unit: "%", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "higher_risk", transform: "level" },
-  { id: "manufacturing_gva_gdp", labelZh: "制造业占 GDP 比重", labelEn: "Manufacturing GVA / GDP", category: "industry", unit: "% GDP", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "level" },
-  { id: "automotive_export_share", labelZh: "汽车产业出口占比", labelEn: "Automotive industry export share", category: "industry", unit: "%", frequency: "annual", modelUse: "eligible_after_review", riskDirection: "context", transform: "NACE C29 exports / total exports" },
-];
+function isExtendedCategory(category: IndicatorCategory): category is ExtendedCategory {
+  return category === "fiscal" || category === "external" || category === "investment" || category === "energy" || category === "industry";
+}
+
+export const extendedIndicators: ExtendedIndicator[] = indicatorDictionaryRecords.flatMap((indicator) => {
+  if (!isExtendedCategory(indicator.category)) {
+    return [];
+  }
+
+  return [{
+    id: indicator.indicatorId,
+    labelZh: indicator.nameZh,
+    labelEn: indicator.nameEn,
+    category: indicator.category,
+    unit: indicator.unit,
+    frequency: indicator.frequency,
+    sourcePriority: indicator.sourcePriority,
+    includedInDerivedComparison: indicator.includedInDerivedComparison,
+    futureModelEligible: indicator.futureModelEligible,
+    modelUse: indicator.modelUse,
+    riskDirection: indicator.directionMeaning,
+    upwardMeaning: indicator.upwardMeaning,
+    missingValueTreatment: indicator.missingValueTreatment,
+    transform: indicator.transform,
+    updatedAt: indicator.updatedAt,
+  }];
+});
 
 export const v4TemplateIndicatorIds = [
   "fiscal_deficit_gdp",
