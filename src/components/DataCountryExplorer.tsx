@@ -33,6 +33,7 @@ import {
   type EconomicYearRow,
 } from "@/lib/economicTimeSeries";
 import { indicatorDictionaryRecords, type IndicatorCategory } from "@/lib/indicatorDictionary";
+import { getV4DataQualitySummary, type V4QualityStatus } from "@/lib/v4DataQuality";
 
 type DataMode = "economy" | "charts" | "comparison" | "tables";
 type ProjectAmountFilter = "all" | "available" | "missing";
@@ -165,6 +166,28 @@ function indicatorCategoryLabel(value: IndicatorCategory) {
 
 function yesNoLabel(value: boolean) {
   return value ? "是" : "否";
+}
+
+function qualityStatusLabel(value: V4QualityStatus) {
+  const labels: Record<V4QualityStatus, string> = {
+    pass: "通过",
+    warning: "有待接入",
+    fail: "需修复",
+  };
+
+  return labels[value];
+}
+
+function qualityStatusClass(value: V4QualityStatus) {
+  if (value === "pass") {
+    return "bg-emerald-50 text-emerald-800";
+  }
+
+  if (value === "warning") {
+    return "bg-amber-50 text-amber-800";
+  }
+
+  return "bg-rose-50 text-rose-800";
 }
 
 function analysisBoundaryLabel(value: string) {
@@ -689,6 +712,8 @@ export function DataCountryExplorer() {
   const v4HistoricalPresent = v4HistoricalCells.filter(Boolean).length;
   const v4HistoricalOfficial = v4HistoricalCells.filter((observation) => observation?.status === "official" && observation.value !== null).length;
   const v4HistoricalPending = v4HistoricalCells.filter((observation) => observation?.status === "pending" || observation?.value === null).length;
+  const v4Quality = getV4DataQualitySummary();
+  const countryNameBySlug = new Map(v4Countries.map((country) => [country.slug, country.nameZh]));
   const v4DerivedRows: V4DerivedRow[] = v4TemplateIndicatorIds.map((indicatorId) => {
     const indicator = getExtendedIndicator(indicatorId);
     const countryObservations = v4Countries.map((country) => ({
@@ -925,6 +950,117 @@ export function DataCountryExplorer() {
               <p className="mt-3 text-xs leading-6 text-[var(--muted)]">
                 历史序列已按 4 国 × 12 指标 × 5 年建立观测格；2025 年 FDI、能源进口依赖、汽车出口占比以及个别 Eurostat 未发布值保留为待接入，不参与最新正式值比较。
               </p>
+            </div>
+
+            <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+              <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
+                <div>
+                  <p className="eyebrow">V4 Data Quality Acceptance</p>
+                  <h3 className="mt-2 text-xl font-semibold">V4 数据质量验收</h3>
+                  <p className="mt-2 max-w-3xl text-xs leading-6 text-[var(--muted)]">
+                    验收范围仅限 V4 四国、12 个扩展指标、2021-2025 年观测格；检查覆盖、待接入年份、来源 URL 格式、单位一致性、更新时间、计算值和备注说明。
+                  </p>
+                </div>
+                <span className={`rounded-full px-3 py-1 text-xs font-semibold ${qualityStatusClass(v4Quality.summary.status)}`}>
+                  {qualityStatusLabel(v4Quality.summary.status)}
+                </span>
+              </div>
+
+              <div className="mt-4 grid gap-2 md:grid-cols-4">
+                {[
+                  ["总观测格", `${v4Quality.summary.presentCells} / ${v4Quality.summary.expectedCells}`],
+                  ["正式数值", `${v4Quality.summary.officialValueCells}`],
+                  ["待接入值", `${v4Quality.summary.pendingValueCells}`],
+                  ["问题单元", `${v4Quality.summary.issueCells}`],
+                  ["来源 URL 格式有效", `${v4Quality.summary.validSourceLinkCells} / ${v4Quality.summary.expectedCells}`],
+                  ["单位一致", `${v4Quality.summary.unitConsistentCells} / ${v4Quality.summary.expectedCells}`],
+                  ["更新时间完整", `${v4Quality.summary.updatedAtCells} / ${v4Quality.summary.expectedCells}`],
+                  ["计算值备注", `${v4Quality.summary.computedCellsWithNotes} / ${v4Quality.summary.computedCells}`],
+                ].map(([label, value]) => (
+                  <div key={label} className="rounded-xl border border-[var(--line)] bg-white/75 px-3 py-2">
+                    <p className="text-xs text-[var(--muted)]">{label}</p>
+                    <p className="mt-1 font-semibold">{value}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-5 grid gap-4 xl:grid-cols-2">
+                <div className="max-w-full overflow-x-auto">
+                  <table className="research-data-table w-full min-w-[620px] border-separate border-spacing-0 text-left text-sm">
+                    <thead>
+                      <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+                        {["国家", "覆盖", "正式值", "待接入", "URL", "单位", "更新时间"].map((header) => (
+                          <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {v4Quality.byCountry.map((item) => (
+                        <tr key={item.id} className="align-top">
+                          <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{countryNameBySlug.get(item.id) ?? item.label}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{item.presentCells} / {item.expectedCells}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3 text-emerald-800">{item.officialValueCells}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3 text-amber-800">{item.pendingValueCells}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{item.validSourceLinkCells} / {item.expectedCells}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{item.unitConsistentCells} / {item.expectedCells}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{item.updatedAtCells} / {item.expectedCells}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="max-w-full overflow-x-auto">
+                  <table className="research-data-table w-full min-w-[760px] border-separate border-spacing-0 text-left text-sm">
+                    <thead>
+                      <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+                        {["指标", "覆盖", "待接入", "URL", "单位", "计算值备注", "状态"].map((header) => (
+                          <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {v4Quality.byIndicator.map((item) => (
+                        <tr key={item.id} className="align-top">
+                          <td className="border-b border-[var(--line)] py-3 pl-0 pr-3">
+                            <p className="font-semibold">{item.label}</p>
+                            <p className="mt-1 font-mono text-[10px] text-[var(--muted)]">{item.id}</p>
+                          </td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{item.presentCells} / {item.expectedCells}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3 text-amber-800">{item.pendingValueCells}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{item.validSourceLinkCells} / {item.expectedCells}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{item.unitConsistentCells} / {item.expectedCells}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{item.computedCellsWithNotes} / {item.computedCells}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">
+                            <span className={`rounded-full px-2 py-1 text-[10px] font-semibold ${qualityStatusClass(item.status)}`}>{qualityStatusLabel(item.status)}</span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              {v4Quality.issueCells.length > 0 ? (
+                <div className="mt-5 rounded-2xl bg-[var(--surface-muted)] p-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">Issue Register</p>
+                  <div className="mt-3 grid gap-2 md:grid-cols-2">
+                    {v4Quality.issueCells.slice(0, 8).map((cell) => {
+                      const indicator = getExtendedIndicator(cell.indicatorId);
+
+                      return (
+                        <div key={`${cell.countrySlug}-${cell.indicatorId}-${cell.year}`} className="rounded-xl border border-[var(--line)] bg-white/75 px-3 py-2 text-xs leading-5">
+                          <p className="font-semibold">{countryNameBySlug.get(cell.countrySlug) ?? cell.countrySlug} / {indicator?.labelZh ?? cell.indicatorId} / {cell.year}</p>
+                          <p className="mt-1 text-[var(--muted)]">{cell.issues.join("；")}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  {v4Quality.issueCells.length > 8 ? (
+                    <p className="mt-3 text-xs text-[var(--muted)]">另有 {v4Quality.issueCells.length - 8} 个待接入单元，完整清单保留在验收数据结构中。</p>
+                  ) : null}
+                </div>
+              ) : null}
             </div>
 
             <div className="mt-5 grid gap-3 md:grid-cols-4">
