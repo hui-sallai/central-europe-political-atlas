@@ -294,6 +294,10 @@ a {
   border-color: color-mix(in srgb, var(--accent) 36%, var(--line));
 }
 
+.v4-comparison-panel .research-data-table {
+  table-layout: fixed;
+}
+
 .comparison-above {
   background: color-mix(in srgb, #e7f1f4 58%, white);
 }
