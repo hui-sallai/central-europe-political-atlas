@@ -14,6 +14,7 @@ import {
   getCountryTableRecord,
   getExtendedIndicator,
   getExtendedObservations,
+  getLatestExtendedObservation,
   getNewsEventRecords,
   getV4TemplateCoverage,
   v4TemplateIndicatorIds,
@@ -553,7 +554,7 @@ export function DataCountryExplorer() {
   const v4ObservationMaps = new Map(
     v4Countries.map((country) => [
       country.slug,
-      new Map(getExtendedObservations(country.slug).map((observation) => [observation.indicatorId, observation])),
+      new Map(v4TemplateIndicatorIds.map((indicatorId) => [indicatorId, getLatestExtendedObservation(country.slug, indicatorId)])),
     ]),
   );
   const v4CoverageItems = v4Countries.map((country) => {

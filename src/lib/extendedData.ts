@@ -142,42 +142,116 @@ export const sourceTableRecords: SourceTableRecord[] = [
 ];
 
 const eurostatUpdatedFiscal = "2026-04-22";
-const eurostatUpdatedNationalAccounts = "2026-06-11";
-const eurostatUpdatedCurrentAccount = "2026-04-15";
+const eurostatUpdatedNationalAccounts = "2026-07-02";
+const eurostatUpdatedCurrentAccount = "2026-07-03";
 const eurostatUpdatedEnergy = "2026-04-21";
 const eurostatUpdatedFdi = "2026-06-09";
-const eurostatUpdatedTradeByActivity = "2026-04-30";
+const eurostatUpdatedTradeByActivity = "2026-07-03";
 
-function obs(countrySlug: string, indicatorId: string, value: number | null, sourceUrl: string, updatedAt: string, note?: string): ExtendedObservation {
+function obs(
+  countrySlug: string,
+  indicatorId: string,
+  dateOrValue: string | number | null,
+  valueOrSourceUrl: number | null | string,
+  sourceUrlOrUpdatedAt: string,
+  updatedAtOrNote?: string,
+  note?: string,
+): ExtendedObservation {
   const indicator = extendedIndicators.find((item) => item.id === indicatorId);
+  const usesLegacySignature = typeof dateOrValue !== "string";
+  const date = usesLegacySignature ? "2024" : dateOrValue;
+  const value = usesLegacySignature ? dateOrValue : (valueOrSourceUrl as number | null);
+  const sourceUrlBase = usesLegacySignature ? (valueOrSourceUrl as string) : sourceUrlOrUpdatedAt;
+  const sourceUrl = sourceUrlBase.includes("time=") ? sourceUrlBase : `${sourceUrlBase}&time=${date}`;
+  const updatedAt = usesLegacySignature ? sourceUrlOrUpdatedAt : (updatedAtOrNote ?? "");
+  const finalNote = usesLegacySignature ? updatedAtOrNote : note;
 
   return {
     countrySlug,
     indicatorId,
-    date: "2024",
+    date,
     value,
     unit: indicator?.unit ?? "",
-    sourceName: value === null ? "待接入可核验来源" : "Eurostat",
+    sourceName: "Eurostat",
     sourceUrl,
     status: value === null ? "pending" : "official",
     updatedAt,
-    note,
+    note: finalNote,
   };
 }
 
 const sourceUrls = {
-  deficit: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?time=2024&unit=PC_GDP&sector=S13&na_item=B9",
-  debt: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?time=2024&unit=PC_GDP&sector=S13&na_item=GD",
-  revenue: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?time=2024&unit=PC_GDP&sector=S13&na_item=TR",
-  expenditure: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?time=2024&unit=PC_GDP&sector=S13&na_item=TE",
-  exports: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?time=2024&unit=CP_MEUR&na_item=P6",
-  imports: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?time=2024&unit=CP_MEUR&na_item=P7",
-  currentAccount: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tipsbp20?time=2024&unit=PC_GDP",
-  energyDependency: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?time=2024&unit=PC&siec=TOTAL",
-  manufacturing: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?time=2024&unit=PC_GDP&na_item=B1G&nace_r2=C",
-  fdi: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?time=2024&freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST",
-  automotiveExports: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?time=2024&freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD",
+  deficit: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?unit=PC_GDP&sector=S13&na_item=B9",
+  debt: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?unit=PC_GDP&sector=S13&na_item=GD",
+  revenue: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?unit=PC_GDP&sector=S13&na_item=TR",
+  expenditure: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?unit=PC_GDP&sector=S13&na_item=TE",
+  exports: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6",
+  imports: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P7",
+  currentAccount: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tipsbp20?unit=PC_GDP",
+  energyDependency: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?unit=PC&siec=TOTAL",
+  manufacturing: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C",
+  fdi: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST",
+  automotiveExports: "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL",
 };
+
+function sourceUrlFor(sourceKey: keyof typeof sourceUrls, countrySlug: string, date: string) {
+  return `${sourceUrls[sourceKey]}&geo=${countrySlugToGeo(countrySlug)}&time=${date}`;
+}
+
+type V4HistoricalRow = readonly [
+  countrySlug: string,
+  date: string,
+  deficit: number,
+  debt: number,
+  revenue: number,
+  expenditure: number,
+  exports: number,
+  imports: number,
+  balance: number,
+  currentAccount: number,
+  fdi: number | null,
+  energy: number | null,
+  manufacturing: number,
+  automotiveShare: number | null,
+];
+
+const historicalV4Rows: V4HistoricalRow[] = [
+  ["poland", "2021", -1.7, 53.0, 41.9, 43.6, 332532.2, 313866.4, 18665.8, -1.3, 30813.3, 40.464, 17.3, 13.1],
+  ["poland", "2022", -3.4, 48.8, 39.9, 43.2, 412594.3, 401453.0, 11141.3, -2.2, 37532.6, 46.115, 17.7, 12.6],
+  ["poland", "2023", -5.2, 49.5, 41.7, 46.9, 435227.7, 392084.8, 43142.9, 1.6, 34037.4, 47.996, 17.5, 15.1],
+  ["poland", "2025", -7.3, 59.7, 43.6, 50.9, 461553.9, 435690.7, 25863.2, -0.9, null, null, 14.4, null],
+  ["hungary", "2021", -7.1, 76.2, 41.0, 48.1, 123065.3, 123630.4, -565.1, -4.4, 28749.9, 54.121, 16.5, 21.9],
+  ["hungary", "2022", -6.2, 74.1, 42.9, 49.1, 151371.5, 160388.2, -9016.7, -9.0, -2940.9, 64.206, 16.8, 20.4],
+  ["hungary", "2023", -7.0, 73.3, 42.8, 49.7, 160320.1, 152133.2, 8186.9, 0.0, -63063.9, 62.087, 17.2, 22.7],
+  ["hungary", "2025", -4.7, 74.6, 42.6, 47.3, 158940.0, 149132.8, 9807.2, 1.8, null, null, 15.1, null],
+  ["czechia", "2021", -5.0, 40.7, 40.1, 45.0, 173561.8, 164405.3, 9156.5, -2.1, 11082.8, 39.958, 19.6, 27.9],
+  ["czechia", "2022", -3.1, 42.5, 40.2, 43.2, 207798.3, 205481.3, 2317.0, -4.7, 9053.5, 41.772, 19.4, 27.2],
+  ["czechia", "2023", -3.7, 42.2, 40.3, 44.0, 218273.7, 202594.4, 15679.3, -0.1, null, 41.679, 20.4, 32.0],
+  ["czechia", "2025", -2.1, 44.3, 41.0, 43.2, 232020.6, 211742.9, 20277.7, 0.7, null, null, 19.4, null],
+  ["slovakia", "2021", -5.1, 60.2, 39.8, 44.8, 92478.7, 92943.1, -464.4, -4.8, 2327.0, 52.584, 16.6, 31.0],
+  ["slovakia", "2022", -1.6, 57.8, 41.5, 43.1, 108934.4, 115445.5, -6511.1, -9.6, 4647.3, 69.595, 17.4, 29.5],
+  ["slovakia", "2023", -5.3, 55.8, 43.1, 48.4, 113029.9, 111058.0, 1971.9, -3.0, 439.1, 58.41, 16.8, 33.9],
+  ["slovakia", "2025", -4.5, 61.4, 43.5, 47.9, 116370.6, 116580.1, -209.5, -3.6, null, null, 16.2, null],
+];
+
+function historicalRowToObservations([countrySlug, date, deficit, debt, revenue, expenditure, exports, imports, balance, currentAccount, fdi, energy, manufacturing, automotiveShare]: V4HistoricalRow): ExtendedObservation[] {
+  return [
+    obs(countrySlug, "fiscal_deficit_gdp", date, deficit, sourceUrlFor("deficit", countrySlug, date), eurostatUpdatedFiscal),
+    obs(countrySlug, "government_debt_gdp", date, debt, sourceUrlFor("debt", countrySlug, date), eurostatUpdatedFiscal),
+    obs(countrySlug, "government_revenue_gdp", date, revenue, sourceUrlFor("revenue", countrySlug, date), eurostatUpdatedFiscal),
+    obs(countrySlug, "government_expenditure_gdp", date, expenditure, sourceUrlFor("expenditure", countrySlug, date), eurostatUpdatedFiscal),
+    obs(countrySlug, "exports_mio_eur", date, exports, sourceUrlFor("exports", countrySlug, date), eurostatUpdatedNationalAccounts),
+    obs(countrySlug, "imports_mio_eur", date, imports, sourceUrlFor("imports", countrySlug, date), eurostatUpdatedNationalAccounts),
+    obs(countrySlug, "trade_balance_mio_eur", date, balance, sourceUrlFor("exports", countrySlug, date), eurostatUpdatedNationalAccounts, "Computed as Eurostat P6 exports minus P7 imports."),
+    obs(countrySlug, "current_account_gdp", date, currentAccount, sourceUrlFor("currentAccount", countrySlug, date), eurostatUpdatedCurrentAccount),
+    obs(countrySlug, "fdi_mio_eur", date, fdi, sourceUrlFor("fdi", countrySlug, date), eurostatUpdatedFdi, fdi === null ? "Value not available in Eurostat series at the time of import." : "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."),
+    obs(countrySlug, "energy_import_dependency", date, energy, sourceUrlFor("energyDependency", countrySlug, date), eurostatUpdatedEnergy, energy === null ? "Value not available in Eurostat series at the time of import." : undefined),
+    obs(countrySlug, "manufacturing_gva_gdp", date, manufacturing, sourceUrlFor("manufacturing", countrySlug, date), eurostatUpdatedNationalAccounts),
+    obs(countrySlug, "automotive_export_share", date, automotiveShare, sourceUrlFor("automotiveExports", countrySlug, date), eurostatUpdatedTradeByActivity, automotiveShare === null ? "Value not available in Eurostat ext_tec09 at the time of import." : "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."),
+  ];
+}
+
+const historicalExtendedObservations = historicalV4Rows.flatMap(historicalRowToObservations);
 
 export const extendedObservations: ExtendedObservation[] = [
   ...([
@@ -199,6 +273,7 @@ export const extendedObservations: ExtendedObservation[] = [
     obs(countrySlug, "manufacturing_gva_gdp", manufacturing, `${sourceUrls.manufacturing}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedNationalAccounts),
     obs(countrySlug, "automotive_export_share", automotiveShare, `${sourceUrls.automotiveExports}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedTradeByActivity, "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"),
   ]),
+  ...historicalExtendedObservations,
 ];
 
 export function getV4TemplateCoverage(countrySlug: string) {
@@ -216,6 +291,14 @@ export function getV4TemplateCoverage(countrySlug: string) {
     missing,
     complete: missing.length === 0,
   };
+}
+
+export function getLatestExtendedObservation(countrySlug: string, indicatorId: string) {
+  const observations = extendedObservations
+    .filter((observation) => observation.countrySlug === countrySlug && observation.indicatorId === indicatorId)
+    .sort((a, b) => b.date.localeCompare(a.date));
+
+  return observations.find((observation) => observation.status === "official" && observation.value !== null) ?? observations[0];
 }
 
 export const chinaProjectRecords: ChinaProjectRecord[] = [
@@ -453,10 +536,15 @@ export const newsEventRecords: NewsEventRecord[] = [
 ];
 
 export function getExtendedObservations(countrySlug: string, category?: ExtendedCategory) {
-  return extendedObservations.filter((observation) => {
-    const indicator = extendedIndicators.find((item) => item.id === observation.indicatorId);
-    return observation.countrySlug === countrySlug && (!category || indicator?.category === category);
-  });
+  return extendedObservations
+    .filter((observation) => {
+      const indicator = extendedIndicators.find((item) => item.id === observation.indicatorId);
+      return observation.countrySlug === countrySlug && (!category || indicator?.category === category);
+    })
+    .sort((a, b) => {
+      const indicatorDelta = v4TemplateIndicatorIds.indexOf(a.indicatorId as (typeof v4TemplateIndicatorIds)[number]) - v4TemplateIndicatorIds.indexOf(b.indicatorId as (typeof v4TemplateIndicatorIds)[number]);
+      return indicatorDelta || a.date.localeCompare(b.date);
+    });
 }
 
 export function getExtendedIndicator(indicatorId: string) {
