@@ -53,17 +53,16 @@ a {
 }
 
 .home-shell {
-  height: calc(100svh - 58px);
+  min-height: calc(100svh - 58px);
   max-width: 1280px;
-  overflow: hidden;
+  overflow: visible;
   padding: 8px 16px 10px;
 }
 
 .home-first-screen {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  min-height: 0;
+  min-height: calc(100svh - 76px);
 }
 
 .compact-clamp-1,
@@ -136,6 +135,43 @@ a {
 
 .research-data-table tbody tr:hover td {
   background: color-mix(in srgb, var(--accent-soft) 42%, white);
+}
+
+.wide-table-scroll {
+  border-radius: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-color: rgba(63, 113, 128, 0.38) transparent;
+  scrollbar-width: thin;
+}
+
+.wide-table-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.wide-table-scroll::-webkit-scrollbar-thumb {
+  background: rgba(63, 113, 128, 0.34);
+  border-radius: 999px;
+}
+
+.china-project-table {
+  table-layout: fixed;
+  min-width: 5200px;
+}
+
+.china-project-table th,
+.china-project-table td {
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+.china-project-table .nowrap-cell {
+  white-space: nowrap;
+}
+
+.china-project-table .text-cell {
+  line-height: 1.55;
+  min-width: 0;
 }
 
 .observation-data-table {

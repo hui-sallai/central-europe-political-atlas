@@ -579,8 +579,15 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
       </div>
 
       {filteredProjects.length > 0 ? (
-        <div className="max-w-full overflow-x-auto">
-          <table className="research-data-table w-full min-w-[2480px] border-separate border-spacing-0 text-left text-sm">
+        <div>
+          <p className="mb-2 text-[11px] text-[var(--muted)]">字段较多，请横向滚动查看完整项目表；每列已固定宽度，避免文字被挤成竖排。</p>
+          <div className="wide-table-scroll max-w-full">
+          <table className="research-data-table china-project-table border-separate border-spacing-0 text-left text-sm">
+            <colgroup>
+              {[220, 90, 170, 160, 280, 280, 140, 100, 130, 360, 260, 130, 380, 380, 110, 240, 320, 140, 280, 160, 380, 240, 380].map((width, index) => (
+                <col key={index} style={{ width }} />
+              ))}
+            </colgroup>
             <thead>
               <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
                 {["项目名称", "国家", "地区/城市", "行业", "中国主体", "当地主体", "金额", "币种", "核验结论", "核验理由", "核验规则", "金额状态", "金额证据/缺失原因", "主体核验", "年份", "项目状态", "项目状态时间线", "来源", "来源等级", "是否可量化", "暴露变量适配", "标签", "备注"].map((header) => (
@@ -594,12 +601,12 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
 
                 return (
                 <tr key={project.projectId} className="align-top">
-                  <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{project.projectName}</td>
-                  <td className="border-b border-[var(--line)] px-3 py-3">{countryName}</td>
-                  <td className="border-b border-[var(--line)] px-3 py-3">{project.regionName || "待接入"}</td>
-                  <td className="border-b border-[var(--line)] px-3 py-3">{project.sector || "待接入"}</td>
-                  <td className="border-b border-[var(--line)] px-3 py-3">{project.chineseActor || "待接入"}</td>
-                  <td className="border-b border-[var(--line)] px-3 py-3">{project.localActor || "待接入"}</td>
+                  <td className="text-cell border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{project.projectName}</td>
+                  <td className="nowrap-cell border-b border-[var(--line)] px-3 py-3">{countryName}</td>
+                  <td className="text-cell border-b border-[var(--line)] px-3 py-3">{project.regionName || "待接入"}</td>
+                  <td className="text-cell border-b border-[var(--line)] px-3 py-3">{project.sector || "待接入"}</td>
+                  <td className="text-cell border-b border-[var(--line)] px-3 py-3">{project.chineseActor || "待接入"}</td>
+                  <td className="text-cell border-b border-[var(--line)] px-3 py-3">{project.localActor || "待接入"}</td>
                   <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono">
                     <span className={dataValueClass(project.amount)}>{project.amount === null ? "—" : project.amount.toLocaleString("zh-CN", { maximumFractionDigits: 2 })}</span>
                   </td>
@@ -609,23 +616,23 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
                       {chinaProjectVerificationLabel(verification.conclusion)}
                     </span>
                   </td>
-                  <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{verification.reason}</td>
-                  <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{verification.rule}</td>
+                  <td className="text-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">{verification.reason}</td>
+                  <td className="text-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">{verification.rule}</td>
                   <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
                     <span className={`inline-flex whitespace-nowrap rounded-full px-2.5 py-1 text-[10px] font-semibold ${project.amount === null ? "bg-amber-50 text-amber-800" : "bg-emerald-50 text-emerald-800"}`}>
                       {project.amount === null ? "金额缺失" : "金额已接入"}
                     </span>
                   </td>
-                  <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{project.amountEvidence}</td>
-                  <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{project.actorEvidence}</td>
-                  <td className="border-b border-[var(--line)] px-3 py-3">{project.year || "待接入"}</td>
+                  <td className="text-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">{project.amountEvidence}</td>
+                  <td className="text-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">{project.actorEvidence}</td>
+                  <td className="nowrap-cell border-b border-[var(--line)] px-3 py-3">{project.year || "待接入"}</td>
                   <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
                     <div className="flex flex-col gap-2">
                       <DataStatusBadge status={project.status} />
                       <span className="text-xs text-[var(--muted)]">{project.projectStatus}</span>
                     </div>
                   </td>
-                  <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">
+                  <td className="text-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">
                     <ol className="grid gap-1">
                       {project.statusTimeline.map((item, index) => (
                         <li key={`${project.projectId}-${index}`} className="project-timeline-item">{item}</li>
@@ -640,7 +647,7 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
                   </td>
                   <td className="border-b border-[var(--line)] px-3 py-3">
                     <span className="inline-flex whitespace-nowrap rounded-full bg-white px-2.5 py-1 text-[10px] font-semibold text-[var(--muted)]">{reliabilityLevelLabel(project.sourceReliabilityLevel)}</span>
-                    <p className="mt-1 text-[10px] leading-4 text-[var(--muted)]">{reliabilityLevelDescription(project.sourceReliabilityLevel)}</p>
+                    <p className="text-cell mt-1 text-[10px] text-[var(--muted)]">{reliabilityLevelDescription(project.sourceReliabilityLevel)}</p>
                   </td>
                   <td className="border-b border-[var(--line)] px-3 py-3">
                     <span className={`inline-flex whitespace-nowrap rounded-full px-2.5 py-1 text-[10px] font-semibold ${quantificationStatusClass(project.quantificationStatus)}`}>
@@ -652,15 +659,16 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
                     <span className={`inline-flex whitespace-nowrap rounded-full px-2.5 py-1 text-[10px] font-semibold ${exposureVariableFitClass(project.exposureVariableFit)}`}>
                       {exposureVariableFitLabel(project.exposureVariableFit)}
                     </span>
-                    <p className="mt-1 text-[10px] leading-4 text-[var(--muted)]">{project.exposureVariableNote}</p>
+                    <p className="text-cell mt-1 text-[10px] text-[var(--muted)]">{project.exposureVariableNote}</p>
                   </td>
-                  <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{project.riskTags.length > 0 ? project.riskTags.join(" / ") : "待接入"}</td>
-                  <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{project.note || "—"}</td>
+                  <td className="text-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">{project.riskTags.length > 0 ? project.riskTags.join(" / ") : "待接入"}</td>
+                  <td className="text-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">{project.note || "—"}</td>
                 </tr>
                 );
               })}
             </tbody>
           </table>
+          </div>
         </div>
       ) : (
         <p className="rounded-2xl border border-[var(--line)] bg-white/65 p-4 text-sm text-[var(--muted)]">当前筛选条件下没有项目记录。</p>
