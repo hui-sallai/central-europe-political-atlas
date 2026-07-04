@@ -81,6 +81,7 @@ const dataModes: { id: DataMode; label: string; description: string }[] = [
 const tableMetricIds: EconomicMetricId[] = ["population", "gdp", "gdpPerCapita", "growth", "inflation", "unemployment"];
 const extendedCategoryOrder: ExtendedCategory[] = ["fiscal", "external", "investment", "energy", "industry"];
 const v4CountrySlugs = ["poland", "hungary", "czechia", "slovakia"];
+const v4HistoricalYears = ["2021", "2022", "2023", "2024", "2025"];
 const observationTableHeaders = [
   { label: "指标", className: "data-indicator-cell" },
   { label: "年份", className: "data-date-cell" },
@@ -632,6 +633,17 @@ export function DataCountryExplorer() {
   });
   const v4TotalExpected = v4CoverageItems.reduce((sum, item) => sum + item.coverage.total, 0);
   const v4TotalPresent = v4CoverageItems.reduce((sum, item) => sum + item.coverage.present.length, 0);
+  const v4HistoricalCells = v4Countries.flatMap((country) => {
+    const rows = v4SeriesMaps.get(country.slug) ?? [];
+
+    return v4TemplateIndicatorIds.flatMap((indicatorId) =>
+      v4HistoricalYears.map((year) => rows.find((observation) => observation.indicatorId === indicatorId && observation.date === year)),
+    );
+  });
+  const v4HistoricalExpected = v4Countries.length * v4TemplateIndicatorIds.length * v4HistoricalYears.length;
+  const v4HistoricalPresent = v4HistoricalCells.filter(Boolean).length;
+  const v4HistoricalOfficial = v4HistoricalCells.filter((observation) => observation?.status === "official" && observation.value !== null).length;
+  const v4HistoricalPending = v4HistoricalCells.filter((observation) => observation?.status === "pending" || observation?.value === null).length;
   const v4DerivedRows: V4DerivedRow[] = v4TemplateIndicatorIds.map((indicatorId) => {
     const indicator = getExtendedIndicator(indicatorId);
     const countryObservations = v4Countries.map((country) => ({
@@ -847,6 +859,27 @@ export function DataCountryExplorer() {
                   </div>
                 ))}
               </div>
+              <div className="mt-4 grid gap-2 md:grid-cols-4">
+                <div className="rounded-xl border border-[var(--line)] bg-white/75 px-3 py-2">
+                  <p className="text-xs text-[var(--muted)]">Historical Grid</p>
+                  <p className="mt-1 font-semibold">{v4HistoricalPresent} / {v4HistoricalExpected}</p>
+                </div>
+                <div className="rounded-xl border border-[var(--line)] bg-white/75 px-3 py-2">
+                  <p className="text-xs text-[var(--muted)]">正式数值</p>
+                  <p className="mt-1 font-semibold text-emerald-800">{v4HistoricalOfficial}</p>
+                </div>
+                <div className="rounded-xl border border-[var(--line)] bg-white/75 px-3 py-2">
+                  <p className="text-xs text-[var(--muted)]">待接入空值</p>
+                  <p className="mt-1 font-semibold text-amber-800">{v4HistoricalPending}</p>
+                </div>
+                <div className="rounded-xl border border-[var(--line)] bg-white/75 px-3 py-2">
+                  <p className="text-xs text-[var(--muted)]">时间范围</p>
+                  <p className="mt-1 font-semibold">2021-2025</p>
+                </div>
+              </div>
+              <p className="mt-3 text-xs leading-6 text-[var(--muted)]">
+                历史序列已按 4 国 × 12 指标 × 5 年建立观测格；2025 年 FDI、能源进口依赖、汽车出口占比以及个别 Eurostat 未发布值保留为待接入，不参与最新正式值比较。
+              </p>
             </div>
 
             <div className="mt-5 grid gap-3 md:grid-cols-4">
@@ -1234,7 +1267,7 @@ export function DataCountryExplorer() {
                         <div>
                           <p className="eyebrow">V4 Data Extension</p>
                           <h2 className="mt-3 text-2xl font-semibold">{extendedIndicatorLabels[category]}</h2>
-                          <p className="mt-2 text-sm leading-6 text-[var(--muted)]">2024 年官方口径优先；无法确定口径的指标保留为待接入。</p>
+                          <p className="mt-2 text-sm leading-6 text-[var(--muted)]">2021-2025 历史序列已接入；Eurostat 尚未发布的年份保留为待接入，最新正式值用于横向比较。</p>
                         </div>
                         <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">V4 first</span>
                       </div>
