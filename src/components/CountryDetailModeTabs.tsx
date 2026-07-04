@@ -149,7 +149,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
             label: "对华经贸项目",
             statusText: "待量化",
             statusKind: "manual" as const,
-            note: projectRecords.length > 0 ? `已整理 ${projectRecords.length} 个项目样本；金额、主体和量化状态仍需逐条复核。` : "项目表入口已预留，项目级来源待接入。",
+            note: projectRecords.length > 0 ? `已整理 ${projectRecords.length} 个项目样本；金额证据、主体核验和暴露变量适配已逐条标注，量化前仍需复核。` : "项目表入口已预留，项目级来源待接入。",
           },
           {
             eyebrow: "6. Party / Politics Samples",
