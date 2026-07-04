@@ -30,6 +30,17 @@ function formatProjectAmount(amount: number | null, currency: string | null) {
   return `${amount.toLocaleString("zh-CN", { maximumFractionDigits: 2 })} ${currency}`;
 }
 
+function exposureFitLabel(value: string) {
+  const labels: Record<string, string> = {
+    strong_candidate: "强候选",
+    partial_candidate: "部分候选",
+    context_only: "仅作背景",
+    not_ready: "暂不适合",
+  };
+
+  return labels[value] ?? value;
+}
+
 export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
   const [activeTab, setActiveTab] = useState<ReadingTab>("summary");
   const basicIndicators = getBasicIndicators(country.slug);
@@ -172,6 +183,10 @@ export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
                       <div><dt className="font-semibold text-[var(--foreground)]">年份</dt><dd>{project.year}</dd></div>
                       <div><dt className="font-semibold text-[var(--foreground)]">状态</dt><dd>{project.projectStatus}</dd></div>
                       <div><dt className="font-semibold text-[var(--foreground)]">量化状态</dt><dd>{project.amount === null ? "金额缺失，暂不量化" : "金额已接入，仍需复核"}</dd></div>
+                      <div><dt className="font-semibold text-[var(--foreground)]">金额证据</dt><dd>{project.amountEvidence}</dd></div>
+                      <div><dt className="font-semibold text-[var(--foreground)]">主体核验</dt><dd>{project.actorEvidence}</dd></div>
+                      <div><dt className="font-semibold text-[var(--foreground)]">暴露变量适配</dt><dd>{exposureFitLabel(project.exposureVariableFit)}</dd></div>
+                      <div><dt className="font-semibold text-[var(--foreground)]">变量说明</dt><dd>{project.exposureVariableNote}</dd></div>
                     </dl>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {project.riskTags.map((tag) => (

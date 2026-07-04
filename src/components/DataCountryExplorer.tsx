@@ -217,6 +217,33 @@ function quantificationStatusClass(value: ChinaProjectRecord["quantificationStat
   return "bg-slate-50 text-slate-700";
 }
 
+function exposureVariableFitLabel(value: ChinaProjectRecord["exposureVariableFit"]) {
+  const labels: Record<ChinaProjectRecord["exposureVariableFit"], string> = {
+    strong_candidate: "强候选",
+    partial_candidate: "部分候选",
+    context_only: "仅作背景",
+    not_ready: "暂不适合",
+  };
+
+  return labels[value];
+}
+
+function exposureVariableFitClass(value: ChinaProjectRecord["exposureVariableFit"]) {
+  if (value === "strong_candidate") {
+    return "bg-emerald-50 text-emerald-800";
+  }
+
+  if (value === "partial_candidate") {
+    return "bg-sky-50 text-sky-800";
+  }
+
+  if (value === "context_only") {
+    return "bg-slate-50 text-slate-700";
+  }
+
+  return "bg-amber-50 text-amber-800";
+}
+
 function formatMatrixValue(indicatorId: string, value: number | null) {
   if (value === null) {
     return "待接入";
@@ -474,10 +501,10 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
 
       {filteredProjects.length > 0 ? (
         <div className="max-w-full overflow-x-auto">
-          <table className="research-data-table w-full min-w-[1720px] border-separate border-spacing-0 text-left text-sm">
+          <table className="research-data-table w-full min-w-[2280px] border-separate border-spacing-0 text-left text-sm">
             <thead>
               <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-                {["项目名称", "国家", "地区/城市", "行业", "中国主体", "当地主体", "金额", "币种", "金额状态", "年份", "项目状态", "项目状态时间线", "来源", "来源等级", "是否可量化", "风险标签", "备注"].map((header) => (
+                {["项目名称", "国家", "地区/城市", "行业", "中国主体", "当地主体", "金额", "币种", "金额状态", "金额证据/缺失原因", "主体核验", "年份", "项目状态", "项目状态时间线", "来源", "来源等级", "是否可量化", "暴露变量适配", "标签", "备注"].map((header) => (
                   <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
                 ))}
               </tr>
@@ -500,6 +527,8 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
                       {project.amount === null ? "金额缺失" : "金额已接入"}
                     </span>
                   </td>
+                  <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{project.amountEvidence}</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{project.actorEvidence}</td>
                   <td className="border-b border-[var(--line)] px-3 py-3">{project.year || "待接入"}</td>
                   <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
                     <div className="flex flex-col gap-2">
@@ -529,6 +558,12 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
                       {quantificationStatusLabel(project.quantificationStatus)}
                     </span>
                     <p className="mt-1 text-[10px] leading-4 text-[var(--muted)]">当前仅标注字段质量</p>
+                  </td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">
+                    <span className={`inline-flex whitespace-nowrap rounded-full px-2.5 py-1 text-[10px] font-semibold ${exposureVariableFitClass(project.exposureVariableFit)}`}>
+                      {exposureVariableFitLabel(project.exposureVariableFit)}
+                    </span>
+                    <p className="mt-1 text-[10px] leading-4 text-[var(--muted)]">{project.exposureVariableNote}</p>
                   </td>
                   <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{project.riskTags.length > 0 ? project.riskTags.join(" / ") : "待接入"}</td>
                   <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{project.note || "—"}</td>
