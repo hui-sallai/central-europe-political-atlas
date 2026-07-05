@@ -84,7 +84,7 @@ type V4ResearchSummary = {
 const dataModes: { id: DataMode; label: string; description: string }[] = [
   { id: "economy", label: "经济数据", description: "近五年宏观经济表、官方统计主源与对华经贸样本。" },
   { id: "charts", label: "图表层", description: "只显示经济数据，可切换 GDP、CPI/通胀、失业率等指标。" },
-  { id: "comparison", label: "V4 横向比较", description: "按同一套 V4 模板指标并列比较波兰、匈牙利、捷克和斯洛伐克。" },
+  { id: "comparison", label: "V4 横向比较", description: "保留 V4 完整度、数据质量与派生事实摘要；具体横向轴已拆入各个数据板块。" },
   { id: "tables", label: "数据表格", description: "按六张核心表检查当前国家的数据完整性。" },
 ];
 
@@ -611,6 +611,74 @@ function V4MatrixDerivedCell({ indicatorId, value, label }: { indicatorId: strin
   );
 }
 
+function V4CategoryMatrix({
+  category,
+  matrixCountries,
+  observationMaps,
+}: {
+  category: ExtendedCategory;
+  matrixCountries: V4MatrixCountry[];
+  observationMaps: Map<string, Map<string, ExtendedObservation>>;
+}) {
+  const indicatorIds = v4TemplateIndicatorIds.filter((indicatorId) => getExtendedIndicator(indicatorId)?.category === category);
+
+  if (indicatorIds.length === 0) {
+    return null;
+  }
+
+  return (
+    <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+      <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <p className="eyebrow">V4 Horizontal Axis</p>
+          <h3 className="mt-2 text-lg font-semibold">{extendedIndicatorLabels[category]}横向比较</h3>
+          <p className="mt-2 text-xs leading-5 text-[var(--muted)]">该横向轴只显示本板块指标，便于在同一数据板块内比较 V4 四国最新正式值。</p>
+        </div>
+        <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs text-[var(--muted)]">{indicatorIds.length} 指标</span>
+      </div>
+      <div className="mt-4 wide-table-scroll max-w-full">
+        <table className="research-data-table v4-matrix-table w-full min-w-[960px] border-separate border-spacing-0 text-left text-sm">
+          <V4MatrixColGroup matrixCountries={matrixCountries} />
+          <V4MatrixHeader matrixCountries={matrixCountries} />
+          <tbody>
+            {indicatorIds.map((indicatorId) => {
+              const indicator = getExtendedIndicator(indicatorId);
+              const countryObservations = matrixCountries.map((country) => ({
+                country,
+                observation: observationMaps.get(country.slug)?.get(indicatorId),
+              }));
+              const availableObservations = countryObservations.filter(
+                (item): item is typeof item & { observation: ExtendedObservation & { value: number } } => item.observation?.value !== null && item.observation?.value !== undefined,
+              );
+              const values = availableObservations.map((item) => item.observation.value);
+              const mean = values.length > 0 ? values.reduce((sum, value) => sum + value, 0) / values.length : null;
+              const highest = values.length > 0 ? Math.max(...values) : null;
+              const lowest = values.length > 0 ? Math.min(...values) : null;
+              const highestCountries = highest === null ? [] : availableObservations.filter((item) => item.observation.value === highest).map((item) => item.country.nameZh);
+              const lowestCountries = lowest === null ? [] : availableObservations.filter((item) => item.observation.value === lowest).map((item) => item.country.nameZh);
+
+              return (
+                <tr key={`${category}-${indicatorId}`} className="align-top">
+                  <td className="border-b border-[var(--line)] py-3 pl-0 pr-3">
+                    <p className="font-semibold">{indicator?.labelZh ?? indicatorId}</p>
+                    <V4MatrixMeta indicator={indicator} />
+                  </td>
+                  {countryObservations.map(({ country, observation }) => (
+                    <V4MatrixValueCell key={`${country.slug}-${indicatorId}`} indicatorId={indicatorId} observation={observation} mean={mean} />
+                  ))}
+                  <V4MatrixDerivedCell indicatorId={indicatorId} value={highest} label={highestCountries.join(" / ")} />
+                  <V4MatrixDerivedCell indicatorId={indicatorId} value={lowest} label={lowestCountries.join(" / ")} />
+                  <V4MatrixDerivedCell indicatorId={indicatorId} value={mean} label="算术平均" />
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
 function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRecord[]; countryName: string }) {
   const [amountFilter, setAmountFilter] = useState<ProjectAmountFilter>("all");
   const [sectorFilter, setSectorFilter] = useState("all");
@@ -1117,9 +1185,9 @@ export function DataCountryExplorer() {
             <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
               <div>
                 <p className="eyebrow">V4 Cross-Country Comparison</p>
-                <h2 className="mt-3 text-2xl font-semibold">V4 指标矩阵</h2>
+                <h2 className="mt-3 text-2xl font-semibold">V4 横向比较总览</h2>
                 <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                  按同一套 V4 模板指标并列比较波兰、匈牙利、捷克和斯洛伐克。单元格以数值为主，点击数值可打开对应来源链接；当前区块只做事实数据对照，不输出预测或风险指数。
+                  本页保留完整度验收、数据质量和派生事实摘要。具体横向轴已经拆入财政、外部、投资、能源和产业等单独数据板块；当前区块不再展示一张总矩阵，也不输出预测或风险指数。
                 </p>
               </div>
               <div className="rounded-2xl border border-[var(--line)] bg-white/70 px-5 py-4 text-right">
@@ -1342,46 +1410,6 @@ export function DataCountryExplorer() {
                   <p key={item} className="rounded-xl bg-[var(--surface-muted)] px-3 py-2 text-xs leading-6 text-[var(--muted)]">{item}</p>
                 ))}
               </div>
-            </div>
-
-            <div className="mt-5 wide-table-scroll max-w-full">
-              <table className="research-data-table v4-matrix-table w-full min-w-[960px] border-separate border-spacing-0 text-left text-sm">
-                <V4MatrixColGroup matrixCountries={v4Countries} />
-                <V4MatrixHeader matrixCountries={v4Countries} />
-                <tbody>
-                  {v4TemplateIndicatorIds.map((indicatorId) => {
-                    const indicator = getExtendedIndicator(indicatorId);
-                    const countryObservations = v4Countries.map((country) => ({
-                      country,
-                      observation: v4ObservationMaps.get(country.slug)?.get(indicatorId),
-                    }));
-                    const availableObservations = countryObservations.filter(
-                      (item): item is typeof item & { observation: ExtendedObservation & { value: number } } => item.observation?.value !== null && item.observation?.value !== undefined,
-                    );
-                    const values = availableObservations.map((item) => item.observation.value);
-                    const mean = values.length > 0 ? values.reduce((sum, value) => sum + value, 0) / values.length : null;
-                    const highest = values.length > 0 ? Math.max(...values) : null;
-                    const lowest = values.length > 0 ? Math.min(...values) : null;
-                    const highestCountries = highest === null ? [] : availableObservations.filter((item) => item.observation.value === highest).map((item) => item.country.nameZh);
-                    const lowestCountries = lowest === null ? [] : availableObservations.filter((item) => item.observation.value === lowest).map((item) => item.country.nameZh);
-
-                    return (
-                      <tr key={indicatorId} className="align-top">
-                        <td className="border-b border-[var(--line)] py-3 pl-0 pr-3">
-                          <p className="font-semibold">{indicator?.labelZh ?? indicatorId}</p>
-                          <V4MatrixMeta indicator={indicator} />
-                        </td>
-                        {countryObservations.map(({ country, observation }) => (
-                          <V4MatrixValueCell key={`${country.slug}-${indicatorId}`} indicatorId={indicatorId} observation={observation} mean={mean} />
-                        ))}
-                        <V4MatrixDerivedCell indicatorId={indicatorId} value={highest} label={highestCountries.join(" / ")} />
-                        <V4MatrixDerivedCell indicatorId={indicatorId} value={lowest} label={lowestCountries.join(" / ")} />
-                        <V4MatrixDerivedCell indicatorId={indicatorId} value={mean} label="算术平均" />
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
             </div>
 
             <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
@@ -1647,6 +1675,8 @@ export function DataCountryExplorer() {
                         </div>
                         <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">V4 first</span>
                       </div>
+
+                      <V4CategoryMatrix category={category} matrixCountries={v4Countries} observationMaps={v4ObservationMaps} />
 
                       <ObservationTable>
                         <ObservationRows observations={rows} />
