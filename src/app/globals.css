@@ -206,8 +206,16 @@ a {
   width: 7.5rem;
 }
 
-.observation-data-table .data-source-note-cell {
-  width: 23rem;
+.observation-data-table .data-source-cell {
+  width: 14rem;
+}
+
+.observation-data-table .data-updated-cell {
+  width: 7.5rem;
+}
+
+.observation-data-table .data-note-cell {
+  width: 24rem;
 }
 
 .data-date-cell,
@@ -230,8 +238,17 @@ a {
   white-space: nowrap;
 }
 
-.data-source-note-cell {
-  min-width: 18rem;
+.data-source-cell {
+  min-width: 12rem;
+}
+
+.data-updated-cell {
+  min-width: 7rem;
+  white-space: nowrap;
+}
+
+.data-note-cell {
+  min-width: 20rem;
 }
 
 .observation-data-table .data-value-cell,

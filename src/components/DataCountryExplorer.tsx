@@ -106,7 +106,9 @@ const observationTableHeaders = [
   { label: "数值", className: "data-value-cell" },
   { label: "单位", className: "data-unit-cell" },
   { label: "状态", className: "data-status-cell" },
-  { label: "来源 / 更新时间 / 备注", className: "data-source-note-cell" },
+  { label: "来源", className: "data-source-cell" },
+  { label: "更新时间", className: "data-updated-cell" },
+  { label: "备注", className: "data-note-cell" },
 ];
 
 function formatMetricValue(value: number | null, metricId: EconomicMetricId) {
@@ -326,6 +328,14 @@ function UnitToken({ value }: { value: string }) {
   return <span className="data-unit-token">{value || "待接入"}</span>;
 }
 
+function displayUnit(value: number | null, unit: string) {
+  if (value === null) {
+    return "待接入";
+  }
+
+  return unit || "待接入";
+}
+
 function formatObservationValue(value: number | null, indicatorId: string) {
   if (value === null) {
     return "待接入";
@@ -423,7 +433,7 @@ function dataValueClass(value: number | null) {
   return `data-value-token${value !== null && value < 0 ? " data-value-negative" : ""}`;
 }
 
-function ObservationTable({ children, minWidth = "900px" }: { children: ReactNode; minWidth?: string }) {
+function ObservationTable({ children, minWidth = "1180px" }: { children: ReactNode; minWidth?: string }) {
   return (
     <div className="mt-5 wide-table-scroll max-w-full">
       <table className="research-data-table observation-data-table w-full border-separate border-spacing-0 text-left text-sm" style={{ minWidth }}>
@@ -472,26 +482,24 @@ function ObservationRows({ observations }: { observations: ExtendedObservation[]
         const indicator = getExtendedIndicator(observation.indicatorId);
 
         return (
-          <tr key={`${observation.countrySlug}-${observation.indicatorId}`} className="align-top">
+          <tr key={`${observation.countrySlug}-${observation.indicatorId}-${observation.date}`} className="align-top">
             <td className="data-indicator-cell border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{indicator?.labelZh.replaceAll(" / ", "/") ?? observation.indicatorId}</td>
             <td className="data-date-cell border-b border-[var(--line)] px-3 py-3">{observation.date}</td>
             <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono">
               <span className={dataValueClass(observation.value)}>{formatObservationValue(observation.value, observation.indicatorId)}</span>
             </td>
-            <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><UnitToken value={observation.unit} /></td>
+            <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><UnitToken value={displayUnit(observation.value, observation.unit)} /></td>
             <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
               <DataStatusBadge status={observation.status} />
             </td>
-            <td className="data-source-note-cell border-b border-[var(--line)] px-3 py-3">
+            <td className="data-source-cell border-b border-[var(--line)] px-3 py-3">
               <div className="flex flex-col gap-2 text-xs leading-5 text-[var(--muted)]">
-                <div className="flex flex-wrap items-center gap-2">
-                  <SourceStatusBadge status={observation.status === "official" ? "official" : observation.status === "sample" ? "sample" : observation.status === "pending" ? "pending" : "manual"} />
-                  <SourceNameLink href={observation.sourceUrl}>{observation.sourceName}</SourceNameLink>
-                </div>
-                <p>更新时间：{observation.updatedAt || "待接入"}</p>
-                <p>{observation.note ?? "—"}</p>
+                <SourceStatusBadge status={observation.status === "official" ? "official" : observation.status === "sample" ? "sample" : observation.status === "pending" ? "pending" : "manual"} />
+                <SourceNameLink href={observation.sourceUrl}>{observation.sourceName}</SourceNameLink>
               </div>
             </td>
+            <td className="data-updated-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">{observation.updatedAt || "待接入"}</td>
+            <td className="data-note-cell border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{observation.note ?? "—"}</td>
           </tr>
         );
       })}
@@ -511,16 +519,16 @@ function EconomicSourceNoteCell({
   note: string;
 }) {
   return (
-    <td className="data-source-note-cell border-b border-[var(--line)] px-3 py-3">
-      <div className="flex flex-col gap-2 text-xs leading-5 text-[var(--muted)]">
-        <div className="flex flex-col gap-2">
+    <>
+      <td className="data-source-cell border-b border-[var(--line)] px-3 py-3">
+        <div className="flex flex-col gap-2 text-xs leading-5 text-[var(--muted)]">
           <SourceStatusBadge status={status === "official" ? "official" : "pending"} />
           <SourceLinkList links={links} compact />
         </div>
-        <p>更新时间：{updatedAt}</p>
-        <p>{note}</p>
-      </div>
-    </td>
+      </td>
+      <td className="data-updated-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">{updatedAt}</td>
+      <td className="data-note-cell border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{note}</td>
+    </>
   );
 }
 
@@ -1614,7 +1622,7 @@ export function DataCountryExplorer() {
                         <td className="data-indicator-cell border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{metric.label}</td>
                         <td className="data-date-cell border-b border-[var(--line)] px-3 py-3">{row.year}</td>
                         <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono"><span className={dataValueClass(value)}>{formatRawMetricValue(value, metric.id)}</span></td>
-                        <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><UnitToken value={metric.unit} /></td>
+                        <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><UnitToken value={displayUnit(value, metric.unit)} /></td>
                         <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
                           <DataStatusBadge status={status} />
                         </td>
@@ -1771,7 +1779,7 @@ export function DataCountryExplorer() {
                       <td className="data-indicator-cell border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{activeMetricInfo.label}</td>
                       <td className="data-date-cell border-b border-[var(--line)] px-3 py-3">{row.year}</td>
                       <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono"><span className={dataValueClass(value)}>{formatRawMetricValue(value, activeMetric)}</span></td>
-                      <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><UnitToken value={activeMetricInfo.unit} /></td>
+                      <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><UnitToken value={displayUnit(value, activeMetricInfo.unit)} /></td>
                       <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
                         <DataStatusBadge status={status} />
                       </td>

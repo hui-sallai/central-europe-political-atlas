@@ -269,12 +269,12 @@ function historicalRowToObservations([countrySlug, date, deficit, debt, revenue,
     obs(countrySlug, "government_expenditure_gdp", date, expenditure, sourceUrlFor("expenditure", countrySlug, date), eurostatUpdatedFiscal),
     obs(countrySlug, "exports_mio_eur", date, exports, sourceUrlFor("exports", countrySlug, date), eurostatUpdatedNationalAccounts),
     obs(countrySlug, "imports_mio_eur", date, imports, sourceUrlFor("imports", countrySlug, date), eurostatUpdatedNationalAccounts),
-    obs(countrySlug, "trade_balance_mio_eur", date, balance, sourceUrlFor("exports", countrySlug, date), eurostatUpdatedNationalAccounts, "Computed as Eurostat P6 exports minus P7 imports."),
+    obs(countrySlug, "trade_balance_mio_eur", date, balance, sourceUrlFor("exports", countrySlug, date), eurostatUpdatedNationalAccounts, "由 Eurostat P6 出口减 P7 进口计算。"),
     obs(countrySlug, "current_account_gdp", date, currentAccount, sourceUrlFor("currentAccount", countrySlug, date), eurostatUpdatedCurrentAccount),
-    obs(countrySlug, "fdi_mio_eur", date, fdi, sourceUrlFor("fdi", countrySlug, date), eurostatUpdatedFdi, fdi === null ? "Value not available in Eurostat series at the time of import." : "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."),
-    obs(countrySlug, "energy_import_dependency", date, energy, sourceUrlFor("energyDependency", countrySlug, date), eurostatUpdatedEnergy, energy === null ? "Value not available in Eurostat series at the time of import." : undefined),
+    obs(countrySlug, "fdi_mio_eur", date, fdi, sourceUrlFor("fdi", countrySlug, date), eurostatUpdatedFdi, fdi === null ? "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。" : "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"),
+    obs(countrySlug, "energy_import_dependency", date, energy, sourceUrlFor("energyDependency", countrySlug, date), eurostatUpdatedEnergy, energy === null ? "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。" : undefined),
     obs(countrySlug, "manufacturing_gva_gdp", date, manufacturing, sourceUrlFor("manufacturing", countrySlug, date), eurostatUpdatedNationalAccounts),
-    obs(countrySlug, "automotive_export_share", date, automotiveShare, sourceUrlFor("automotiveExports", countrySlug, date), eurostatUpdatedTradeByActivity, automotiveShare === null ? "Value not available in Eurostat ext_tec09 at the time of import." : "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."),
+    obs(countrySlug, "automotive_export_share", date, automotiveShare, sourceUrlFor("automotiveExports", countrySlug, date), eurostatUpdatedTradeByActivity, automotiveShare === null ? "导入时 Eurostat ext_tec09 暂未发布该年度数值，保留为待接入。" : "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"),
   ];
 }
 

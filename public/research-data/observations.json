@@ -9962,13 +9962,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=PL&time=2021",
-          "note": "Computed as Eurostat P6 exports minus P7 imports."
+          "note": "由 Eurostat P6 出口减 P7 进口计算。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-02",
-      "note": "Computed as Eurostat P6 exports minus P7 imports."
+      "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
       "observation_id": "v4:poland:current_account_gdp:2021",
@@ -10010,13 +10010,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=PL&time=2021",
-          "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+          "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-06-09",
-      "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+      "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
       "observation_id": "v4:poland:energy_import_dependency:2021",
@@ -10082,13 +10082,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=PL&time=2021",
-          "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+          "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-03",
-      "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+      "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
       "observation_id": "v4:poland:fiscal_deficit_gdp:2022",
@@ -10250,13 +10250,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=PL&time=2022",
-          "note": "Computed as Eurostat P6 exports minus P7 imports."
+          "note": "由 Eurostat P6 出口减 P7 进口计算。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-02",
-      "note": "Computed as Eurostat P6 exports minus P7 imports."
+      "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
       "observation_id": "v4:poland:current_account_gdp:2022",
@@ -10298,13 +10298,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=PL&time=2022",
-          "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+          "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-06-09",
-      "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+      "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
       "observation_id": "v4:poland:energy_import_dependency:2022",
@@ -10370,13 +10370,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=PL&time=2022",
-          "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+          "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-03",
-      "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+      "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
       "observation_id": "v4:poland:fiscal_deficit_gdp:2023",
@@ -10538,13 +10538,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=PL&time=2023",
-          "note": "Computed as Eurostat P6 exports minus P7 imports."
+          "note": "由 Eurostat P6 出口减 P7 进口计算。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-02",
-      "note": "Computed as Eurostat P6 exports minus P7 imports."
+      "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
       "observation_id": "v4:poland:current_account_gdp:2023",
@@ -10586,13 +10586,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=PL&time=2023",
-          "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+          "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-06-09",
-      "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+      "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
       "observation_id": "v4:poland:energy_import_dependency:2023",
@@ -10658,13 +10658,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=PL&time=2023",
-          "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+          "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-03",
-      "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+      "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
       "observation_id": "v4:poland:fiscal_deficit_gdp:2025",
@@ -10826,13 +10826,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=PL&time=2025",
-          "note": "Computed as Eurostat P6 exports minus P7 imports."
+          "note": "由 Eurostat P6 出口减 P7 进口计算。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-02",
-      "note": "Computed as Eurostat P6 exports minus P7 imports."
+      "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
       "observation_id": "v4:poland:current_account_gdp:2025",
@@ -10874,13 +10874,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=PL&time=2025",
-          "note": "Value not available in Eurostat series at the time of import."
+          "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
         }
       ],
       "status": "pending",
       "source_status": "pending",
       "updated_at": "2026-06-09",
-      "note": "Value not available in Eurostat series at the time of import."
+      "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
     },
     {
       "observation_id": "v4:poland:energy_import_dependency:2025",
@@ -10898,13 +10898,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?unit=PC&siec=TOTAL&geo=PL&time=2025",
-          "note": "Value not available in Eurostat series at the time of import."
+          "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
         }
       ],
       "status": "pending",
       "source_status": "pending",
       "updated_at": "2026-04-21",
-      "note": "Value not available in Eurostat series at the time of import."
+      "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
     },
     {
       "observation_id": "v4:poland:manufacturing_gva_gdp:2025",
@@ -10946,13 +10946,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=PL&time=2025",
-          "note": "Value not available in Eurostat ext_tec09 at the time of import."
+          "note": "导入时 Eurostat ext_tec09 暂未发布该年度数值，保留为待接入。"
         }
       ],
       "status": "pending",
       "source_status": "pending",
       "updated_at": "2026-07-03",
-      "note": "Value not available in Eurostat ext_tec09 at the time of import."
+      "note": "导入时 Eurostat ext_tec09 暂未发布该年度数值，保留为待接入。"
     },
     {
       "observation_id": "v4:hungary:fiscal_deficit_gdp:2021",
@@ -11114,13 +11114,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=HU&time=2021",
-          "note": "Computed as Eurostat P6 exports minus P7 imports."
+          "note": "由 Eurostat P6 出口减 P7 进口计算。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-02",
-      "note": "Computed as Eurostat P6 exports minus P7 imports."
+      "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
       "observation_id": "v4:hungary:current_account_gdp:2021",
@@ -11162,13 +11162,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=HU&time=2021",
-          "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+          "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-06-09",
-      "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+      "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
       "observation_id": "v4:hungary:energy_import_dependency:2021",
@@ -11234,13 +11234,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=HU&time=2021",
-          "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+          "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-03",
-      "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+      "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
       "observation_id": "v4:hungary:fiscal_deficit_gdp:2022",
@@ -11402,13 +11402,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=HU&time=2022",
-          "note": "Computed as Eurostat P6 exports minus P7 imports."
+          "note": "由 Eurostat P6 出口减 P7 进口计算。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-02",
-      "note": "Computed as Eurostat P6 exports minus P7 imports."
+      "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
       "observation_id": "v4:hungary:current_account_gdp:2022",
@@ -11450,13 +11450,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=HU&time=2022",
-          "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+          "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-06-09",
-      "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+      "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
       "observation_id": "v4:hungary:energy_import_dependency:2022",
@@ -11522,13 +11522,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=HU&time=2022",
-          "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+          "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-03",
-      "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+      "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
       "observation_id": "v4:hungary:fiscal_deficit_gdp:2023",
@@ -11690,13 +11690,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=HU&time=2023",
-          "note": "Computed as Eurostat P6 exports minus P7 imports."
+          "note": "由 Eurostat P6 出口减 P7 进口计算。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-02",
-      "note": "Computed as Eurostat P6 exports minus P7 imports."
+      "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
       "observation_id": "v4:hungary:current_account_gdp:2023",
@@ -11738,13 +11738,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=HU&time=2023",
-          "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+          "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-06-09",
-      "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+      "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
       "observation_id": "v4:hungary:energy_import_dependency:2023",
@@ -11810,13 +11810,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=HU&time=2023",
-          "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+          "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-03",
-      "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+      "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
       "observation_id": "v4:hungary:fiscal_deficit_gdp:2025",
@@ -11978,13 +11978,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=HU&time=2025",
-          "note": "Computed as Eurostat P6 exports minus P7 imports."
+          "note": "由 Eurostat P6 出口减 P7 进口计算。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-02",
-      "note": "Computed as Eurostat P6 exports minus P7 imports."
+      "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
       "observation_id": "v4:hungary:current_account_gdp:2025",
@@ -12026,13 +12026,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=HU&time=2025",
-          "note": "Value not available in Eurostat series at the time of import."
+          "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
         }
       ],
       "status": "pending",
       "source_status": "pending",
       "updated_at": "2026-06-09",
-      "note": "Value not available in Eurostat series at the time of import."
+      "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
     },
     {
       "observation_id": "v4:hungary:energy_import_dependency:2025",
@@ -12050,13 +12050,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?unit=PC&siec=TOTAL&geo=HU&time=2025",
-          "note": "Value not available in Eurostat series at the time of import."
+          "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
         }
       ],
       "status": "pending",
       "source_status": "pending",
       "updated_at": "2026-04-21",
-      "note": "Value not available in Eurostat series at the time of import."
+      "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
     },
     {
       "observation_id": "v4:hungary:manufacturing_gva_gdp:2025",
@@ -12098,13 +12098,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=HU&time=2025",
-          "note": "Value not available in Eurostat ext_tec09 at the time of import."
+          "note": "导入时 Eurostat ext_tec09 暂未发布该年度数值，保留为待接入。"
         }
       ],
       "status": "pending",
       "source_status": "pending",
       "updated_at": "2026-07-03",
-      "note": "Value not available in Eurostat ext_tec09 at the time of import."
+      "note": "导入时 Eurostat ext_tec09 暂未发布该年度数值，保留为待接入。"
     },
     {
       "observation_id": "v4:czechia:fiscal_deficit_gdp:2021",
@@ -12266,13 +12266,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=CZ&time=2021",
-          "note": "Computed as Eurostat P6 exports minus P7 imports."
+          "note": "由 Eurostat P6 出口减 P7 进口计算。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-02",
-      "note": "Computed as Eurostat P6 exports minus P7 imports."
+      "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
       "observation_id": "v4:czechia:current_account_gdp:2021",
@@ -12314,13 +12314,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=CZ&time=2021",
-          "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+          "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-06-09",
-      "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+      "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
       "observation_id": "v4:czechia:energy_import_dependency:2021",
@@ -12386,13 +12386,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=CZ&time=2021",
-          "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+          "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-03",
-      "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+      "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
       "observation_id": "v4:czechia:fiscal_deficit_gdp:2022",
@@ -12554,13 +12554,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=CZ&time=2022",
-          "note": "Computed as Eurostat P6 exports minus P7 imports."
+          "note": "由 Eurostat P6 出口减 P7 进口计算。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-02",
-      "note": "Computed as Eurostat P6 exports minus P7 imports."
+      "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
       "observation_id": "v4:czechia:current_account_gdp:2022",
@@ -12602,13 +12602,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=CZ&time=2022",
-          "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+          "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-06-09",
-      "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+      "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
       "observation_id": "v4:czechia:energy_import_dependency:2022",
@@ -12674,13 +12674,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=CZ&time=2022",
-          "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+          "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-03",
-      "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+      "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
       "observation_id": "v4:czechia:fiscal_deficit_gdp:2023",
@@ -12842,13 +12842,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=CZ&time=2023",
-          "note": "Computed as Eurostat P6 exports minus P7 imports."
+          "note": "由 Eurostat P6 出口减 P7 进口计算。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-02",
-      "note": "Computed as Eurostat P6 exports minus P7 imports."
+      "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
       "observation_id": "v4:czechia:current_account_gdp:2023",
@@ -12890,13 +12890,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=CZ&time=2023",
-          "note": "Value not available in Eurostat series at the time of import."
+          "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
         }
       ],
       "status": "pending",
       "source_status": "pending",
       "updated_at": "2026-06-09",
-      "note": "Value not available in Eurostat series at the time of import."
+      "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
     },
     {
       "observation_id": "v4:czechia:energy_import_dependency:2023",
@@ -12962,13 +12962,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=CZ&time=2023",
-          "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+          "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-03",
-      "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+      "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
       "observation_id": "v4:czechia:fiscal_deficit_gdp:2025",
@@ -13130,13 +13130,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=CZ&time=2025",
-          "note": "Computed as Eurostat P6 exports minus P7 imports."
+          "note": "由 Eurostat P6 出口减 P7 进口计算。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-02",
-      "note": "Computed as Eurostat P6 exports minus P7 imports."
+      "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
       "observation_id": "v4:czechia:current_account_gdp:2025",
@@ -13178,13 +13178,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=CZ&time=2025",
-          "note": "Value not available in Eurostat series at the time of import."
+          "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
         }
       ],
       "status": "pending",
       "source_status": "pending",
       "updated_at": "2026-06-09",
-      "note": "Value not available in Eurostat series at the time of import."
+      "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
     },
     {
       "observation_id": "v4:czechia:energy_import_dependency:2025",
@@ -13202,13 +13202,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?unit=PC&siec=TOTAL&geo=CZ&time=2025",
-          "note": "Value not available in Eurostat series at the time of import."
+          "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
         }
       ],
       "status": "pending",
       "source_status": "pending",
       "updated_at": "2026-04-21",
-      "note": "Value not available in Eurostat series at the time of import."
+      "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
     },
     {
       "observation_id": "v4:czechia:manufacturing_gva_gdp:2025",
@@ -13250,13 +13250,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=CZ&time=2025",
-          "note": "Value not available in Eurostat ext_tec09 at the time of import."
+          "note": "导入时 Eurostat ext_tec09 暂未发布该年度数值，保留为待接入。"
         }
       ],
       "status": "pending",
       "source_status": "pending",
       "updated_at": "2026-07-03",
-      "note": "Value not available in Eurostat ext_tec09 at the time of import."
+      "note": "导入时 Eurostat ext_tec09 暂未发布该年度数值，保留为待接入。"
     },
     {
       "observation_id": "v4:slovakia:fiscal_deficit_gdp:2021",
@@ -13418,13 +13418,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=SK&time=2021",
-          "note": "Computed as Eurostat P6 exports minus P7 imports."
+          "note": "由 Eurostat P6 出口减 P7 进口计算。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-02",
-      "note": "Computed as Eurostat P6 exports minus P7 imports."
+      "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
       "observation_id": "v4:slovakia:current_account_gdp:2021",
@@ -13466,13 +13466,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=SK&time=2021",
-          "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+          "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-06-09",
-      "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+      "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
       "observation_id": "v4:slovakia:energy_import_dependency:2021",
@@ -13538,13 +13538,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=SK&time=2021",
-          "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+          "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-03",
-      "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+      "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
       "observation_id": "v4:slovakia:fiscal_deficit_gdp:2022",
@@ -13706,13 +13706,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=SK&time=2022",
-          "note": "Computed as Eurostat P6 exports minus P7 imports."
+          "note": "由 Eurostat P6 出口减 P7 进口计算。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-02",
-      "note": "Computed as Eurostat P6 exports minus P7 imports."
+      "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
       "observation_id": "v4:slovakia:current_account_gdp:2022",
@@ -13754,13 +13754,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=SK&time=2022",
-          "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+          "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-06-09",
-      "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+      "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
       "observation_id": "v4:slovakia:energy_import_dependency:2022",
@@ -13826,13 +13826,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=SK&time=2022",
-          "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+          "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-03",
-      "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+      "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
       "observation_id": "v4:slovakia:fiscal_deficit_gdp:2023",
@@ -13994,13 +13994,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=SK&time=2023",
-          "note": "Computed as Eurostat P6 exports minus P7 imports."
+          "note": "由 Eurostat P6 出口减 P7 进口计算。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-02",
-      "note": "Computed as Eurostat P6 exports minus P7 imports."
+      "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
       "observation_id": "v4:slovakia:current_account_gdp:2023",
@@ -14042,13 +14042,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=SK&time=2023",
-          "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+          "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-06-09",
-      "note": "Eurostat BPM6: direct investment liabilities flow; negative values indicate net reduction."
+      "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
       "observation_id": "v4:slovakia:energy_import_dependency:2023",
@@ -14114,13 +14114,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=SK&time=2023",
-          "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+          "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-03",
-      "note": "Computed as NACE C29 exports divided by total exports in Eurostat ext_tec09."
+      "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
       "observation_id": "v4:slovakia:fiscal_deficit_gdp:2025",
@@ -14282,13 +14282,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=SK&time=2025",
-          "note": "Computed as Eurostat P6 exports minus P7 imports."
+          "note": "由 Eurostat P6 出口减 P7 进口计算。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-07-02",
-      "note": "Computed as Eurostat P6 exports minus P7 imports."
+      "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
       "observation_id": "v4:slovakia:current_account_gdp:2025",
@@ -14330,13 +14330,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=SK&time=2025",
-          "note": "Value not available in Eurostat series at the time of import."
+          "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
         }
       ],
       "status": "pending",
       "source_status": "pending",
       "updated_at": "2026-06-09",
-      "note": "Value not available in Eurostat series at the time of import."
+      "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
     },
     {
       "observation_id": "v4:slovakia:energy_import_dependency:2025",
@@ -14354,13 +14354,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?unit=PC&siec=TOTAL&geo=SK&time=2025",
-          "note": "Value not available in Eurostat series at the time of import."
+          "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
         }
       ],
       "status": "pending",
       "source_status": "pending",
       "updated_at": "2026-04-21",
-      "note": "Value not available in Eurostat series at the time of import."
+      "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
     },
     {
       "observation_id": "v4:slovakia:manufacturing_gva_gdp:2025",
@@ -14402,13 +14402,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=SK&time=2025",
-          "note": "Value not available in Eurostat ext_tec09 at the time of import."
+          "note": "导入时 Eurostat ext_tec09 暂未发布该年度数值，保留为待接入。"
         }
       ],
       "status": "pending",
       "source_status": "pending",
       "updated_at": "2026-07-03",
-      "note": "Value not available in Eurostat ext_tec09 at the time of import."
+      "note": "导入时 Eurostat ext_tec09 暂未发布该年度数值，保留为待接入。"
     }
   ]
 }
