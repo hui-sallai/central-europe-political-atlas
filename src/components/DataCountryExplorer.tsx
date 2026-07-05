@@ -81,6 +81,13 @@ type V4ResearchSummary = {
   basis: string;
 };
 
+type CategoryResearchSummary = {
+  highLow: string;
+  change: string;
+  meanGap: string;
+  dataGap: string;
+};
+
 const dataModes: { id: DataMode; label: string; description: string }[] = [
   { id: "economy", label: "经济数据", description: "近五年宏观经济表、官方统计主源与对华经贸样本。" },
   { id: "charts", label: "图表层", description: "只显示经济数据，可切换 GDP、CPI/通胀、失业率等指标。" },
@@ -415,6 +422,81 @@ function researchValueWithUnit(row: V4DerivedRow | undefined, value: number | nu
   return `${formatMatrixValue(row.indicatorId, value)} ${row.unit}`;
 }
 
+function compactResearchValue(row: V4DerivedRow, value: number | null) {
+  if (value === null) {
+    return "待接入";
+  }
+
+  return `${formatMatrixValue(row.indicatorId, value)} ${row.unit}`;
+}
+
+function signedResearchValue(row: V4DerivedRow, value: number | null) {
+  if (value === null) {
+    return "待比较";
+  }
+
+  return `${formatSignedMatrixValue(row.indicatorId, value)} ${row.unit}`;
+}
+
+function changeDirection(value: number | null) {
+  if (value === null) {
+    return "待比较";
+  }
+
+  if (Math.abs(value) < 0.0001) {
+    return "基本持平";
+  }
+
+  return value > 0 ? "上升" : "下降";
+}
+
+function summarizeCategoryResearch(categoryRows: V4DerivedRow[], categoryObservations: ExtendedObservation[]): CategoryResearchSummary {
+  if (categoryRows.length === 0) {
+    return {
+      highLow: "本板块指标尚未接入，无法形成高低位置摘要。",
+      change: "本板块五年序列尚未接入，无法描述变化方向。",
+      meanGap: "本板块 V4 均值尚未形成，暂不比较均值差距。",
+      dataGap: "本板块观测值待接入。",
+    };
+  }
+
+  const highLow = categoryRows
+    .map((row) => `${row.label}：最高 ${row.highestCountries.join(" / ") || "待接入"}（${compactResearchValue(row, row.highest)}），最低 ${row.lowestCountries.join(" / ") || "待接入"}（${compactResearchValue(row, row.lowest)}）`)
+    .join("；");
+
+  const biggestChange = categoryRows
+    .flatMap((row) => row.countryComparisons.map((comparison) => ({ row, comparison })))
+    .filter((item): item is typeof item & { comparison: V4CountryDerivedComparison & { change: number } } => item.comparison.change !== null)
+    .sort((a, b) => Math.abs(b.comparison.change) - Math.abs(a.comparison.change))[0];
+
+  const change = biggestChange
+    ? `${biggestChange.comparison.countryName}的${biggestChange.row.label}在 ${biggestChange.comparison.startYear}-${biggestChange.comparison.latestYear} 年${changeDirection(biggestChange.comparison.change)} ${signedResearchValue(biggestChange.row, biggestChange.comparison.change)}；该句只描述数值变化方向。`
+    : "本板块可比较五年序列不足，暂不描述变化方向。";
+
+  const biggestGap = categoryRows
+    .flatMap((row) => row.countryComparisons.map((comparison) => ({ row, comparison })))
+    .filter((item): item is typeof item & { comparison: V4CountryDerivedComparison & { gapToMean: number } } => item.comparison.gapToMean !== null)
+    .sort((a, b) => Math.abs(b.comparison.gapToMean) - Math.abs(a.comparison.gapToMean))[0];
+
+  const meanGap = biggestGap
+    ? `${biggestGap.comparison.countryName}的${biggestGap.row.label}与 V4 均值差距最大，为 ${signedResearchValue(biggestGap.row, biggestGap.comparison.gapToMean)}；高于/低于均值仅表示数值位置。`
+    : "本板块最新正式值不足，暂不计算与 V4 均值差距。";
+
+  const pending = categoryObservations.filter((observation) => observation.status === "pending" || observation.value === null).length;
+  const official = categoryObservations.filter((observation) => observation.status === "official" && observation.value !== null).length;
+  const computed = categoryObservations.filter((observation) => observation.value !== null && /computed|计算/i.test(observation.note ?? "")).length;
+  const dataGap = pending > 0
+    ? `本板块共有 ${categoryObservations.length} 条观测记录，正式值 ${official} 条，待接入 ${pending} 条，计算值 ${computed} 条；待接入值不参与最新正式值比较。`
+    : `本板块共有 ${categoryObservations.length} 条观测记录，正式值 ${official} 条，计算值 ${computed} 条；当前无待接入观测值。`;
+
+  return {
+    highLow,
+    change,
+    meanGap,
+    dataGap,
+  };
+}
+
 function rankByNumericValue(items: { countrySlug: string; countryName: string; value: number | null }[]) {
   const ranked = items
     .filter((item): item is typeof item & { value: number } => item.value !== null)
@@ -619,16 +701,44 @@ function V4MatrixDerivedCell({ indicatorId, value, label }: { indicatorId: strin
   );
 }
 
+function V4CategoryResearchSummary({ summary }: { summary: CategoryResearchSummary }) {
+  const items = [
+    { label: "主要高低位置", body: summary.highLow },
+    { label: "五年变化方向", body: summary.change },
+    { label: "与 V4 均值差距", body: summary.meanGap },
+    { label: "数据缺口说明", body: summary.dataGap },
+  ];
+
+  return (
+    <div className="mt-4 grid gap-3 lg:grid-cols-2">
+      {items.map((item) => (
+        <article key={item.label} className="rounded-2xl border border-[var(--line)] bg-white/75 p-4">
+          <p className="text-xs font-semibold text-[var(--muted)]">{item.label}</p>
+          <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{item.body}</p>
+        </article>
+      ))}
+    </div>
+  );
+}
+
 function V4CategoryMatrix({
   category,
   matrixCountries,
   observationMaps,
+  derivedRows,
+  categoryObservations,
 }: {
   category: ExtendedCategory;
   matrixCountries: V4MatrixCountry[];
   observationMaps: Map<string, Map<string, ExtendedObservation>>;
+  derivedRows: V4DerivedRow[];
+  categoryObservations: ExtendedObservation[];
 }) {
   const indicatorIds = v4TemplateIndicatorIds.filter((indicatorId) => getExtendedIndicator(indicatorId)?.category === category);
+  const summary = summarizeCategoryResearch(
+    derivedRows.filter((row) => getExtendedIndicator(row.indicatorId)?.category === category),
+    categoryObservations,
+  );
 
   if (indicatorIds.length === 0) {
     return null;
@@ -644,6 +754,7 @@ function V4CategoryMatrix({
         </div>
         <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs text-[var(--muted)]">{indicatorIds.length} 指标</span>
       </div>
+      <V4CategoryResearchSummary summary={summary} />
       <div className="mt-4 wide-table-scroll max-w-full">
         <table className="research-data-table v4-matrix-table w-full min-w-[960px] border-separate border-spacing-0 text-left text-sm">
           <V4MatrixColGroup matrixCountries={matrixCountries} />
@@ -1681,6 +1792,9 @@ export function DataCountryExplorer() {
               <section className="grid gap-5">
                 {extendedCategoryOrder.map((category) => {
                   const rows = extendedObservations.filter((observation) => getExtendedIndicator(observation.indicatorId)?.category === category);
+                  const v4CategoryRows = v4Countries.flatMap((country) =>
+                    (v4SeriesMaps.get(country.slug) ?? []).filter((observation) => getExtendedIndicator(observation.indicatorId)?.category === category),
+                  );
 
                   if (rows.length === 0) {
                     return null;
@@ -1697,7 +1811,15 @@ export function DataCountryExplorer() {
                         <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">V4 first</span>
                       </div>
 
-                      {isV4SelectedCountry ? <V4CategoryMatrix category={category} matrixCountries={v4Countries} observationMaps={v4ObservationMaps} /> : null}
+                      {isV4SelectedCountry ? (
+                        <V4CategoryMatrix
+                          category={category}
+                          matrixCountries={v4Countries}
+                          observationMaps={v4ObservationMaps}
+                          derivedRows={v4DerivedRows}
+                          categoryObservations={v4CategoryRows}
+                        />
+                      ) : null}
 
                       <ObservationTable>
                         <ObservationRows observations={rows} />
