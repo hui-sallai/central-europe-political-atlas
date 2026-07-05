@@ -14,6 +14,22 @@ type InteractiveMapExplorerProps = {
   variant?: "home" | "full";
 };
 
+function politicalSampleStatus(country: (typeof countries)[number]) {
+  if (country.parties.some((party) => party.shortName === "TBD")) {
+    return {
+      badge: "pending" as const,
+      label: "政治样本：待核验",
+      note: "不进入模型",
+    };
+  }
+
+  return {
+    badge: "manual" as const,
+    label: "政治样本：人工整理",
+    note: "不进入模型",
+  };
+}
+
 export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplorerProps) {
   const [selectedSlug, setSelectedSlug] = useState(countries[0]?.slug ?? "");
   const [selectedRegionSlug, setSelectedRegionSlug] = useState<string | undefined>();
@@ -28,6 +44,7 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
 
   const isHome = variant === "home";
   const governingParties = selectedCountry.parties.filter((party) => party.role === "governing" || party.role === "support");
+  const selectedPoliticalStatus = politicalSampleStatus(selectedCountry);
   const selectedNews = getLatestNewsForCountry(selectedCountry.slug);
   const basicIndicators = getBasicIndicators(selectedCountry.slug);
   const homeEconomicIndicators = basicIndicators.filter((indicator) => indicator.id !== "population").slice(0, 4);
@@ -93,7 +110,7 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
                 href={`/countries/${selectedCountry.slug}`}
                 className="rounded-full border border-[var(--accent)] bg-[var(--accent)] px-3 py-1.5 text-center text-xs font-semibold text-white transition hover:opacity-90"
               >
-                国家档案 →
+                国家详情 →
               </Link>
             ) : (
               <button
@@ -144,7 +161,13 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
                 </div>
               ) : null}
               <div className="mt-2 flex flex-wrap gap-1.5">
-                {governingParties.length > 0 ? (
+                {isHome ? (
+                  <>
+                    <DataStatusBadge status={selectedPoliticalStatus.badge} />
+                    <span className="rounded-full bg-white px-2.5 py-0.5 text-xs font-semibold text-[var(--muted)]">{selectedPoliticalStatus.label}</span>
+                    <span className="rounded-full bg-white px-2.5 py-0.5 text-xs font-semibold text-[var(--muted)]">{selectedPoliticalStatus.note}</span>
+                  </>
+                ) : governingParties.length > 0 ? (
                   <>
                     <DataStatusBadge status={partyStatus} />
                     {governingParties.map((party) => (
@@ -201,7 +224,7 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
               </div>
               {!isHome ? <p className="mt-4 text-sm leading-6 text-[var(--muted)]">{selectedCountry.chinaTradeNote}</p> : null}
               <Link href={`/countries/${selectedCountry.slug}`} className="mt-2 inline-flex rounded-full bg-[var(--accent)] px-3 py-1.5 text-xs font-semibold text-white">
-                查看该国详细数据
+                {isHome ? "查看国家详情与政治样本" : "查看该国详细数据"}
               </Link>
             </>
           ) : (
@@ -244,10 +267,7 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
               {countries.map((country) => {
                 const isSelected = country.slug === selectedCountry.slug;
                 const countryNews = getLatestNewsForCountry(country.slug);
-                const governing = country.parties
-                  .filter((party) => party.role === "governing" || party.role === "support")
-                  .map((party) => party.shortName)
-                  .join(" / ");
+                const status = politicalSampleStatus(country);
 
                 return (
                   <button
@@ -268,8 +288,9 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
                       <span className="rounded-full bg-white px-3 py-1 text-xs text-[var(--muted)]">{country.regions.length} 区域</span>
                     </div>
                     <div className="mt-3 flex flex-wrap items-center gap-2">
-                      <DataStatusBadge status={governing ? "manual" : "pending"} />
-                      <p className="text-xs font-semibold text-[var(--accent)]">{governing || "执政结构未接入"}</p>
+                      <DataStatusBadge status={status.badge} />
+                      <p className="text-xs font-semibold text-[var(--accent)]">{status.label}</p>
+                      <span className="rounded-full bg-white px-2.5 py-0.5 text-[10px] font-semibold text-[var(--muted)]">{status.note}</span>
                     </div>
                     {countryNews ? <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{countryNews.title}</p> : null}
                   </button>
