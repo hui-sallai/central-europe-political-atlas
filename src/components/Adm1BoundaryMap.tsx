@@ -321,7 +321,7 @@ export function Adm1BoundaryMap({
             <DataStatusBadge status="pending" />
           </div>
           <p className="mt-3 max-w-xl text-sm leading-6 text-[var(--muted)]">
-            该国已经进入十国范围和国家详情页；真实 ADM1 GeoJSON 尚未接入。下一步可批量下载 geoBoundaries ADM1 或采用各国官方边界源。
+            真实行政边界待接入；当前仅保留地图工作台入口和结构样例。
           </p>
         </div>
         <div className="mt-6 grid max-h-[260px] gap-2 overflow-auto sm:grid-cols-2 lg:grid-cols-3">
@@ -347,7 +347,7 @@ export function Adm1BoundaryMap({
   if (!project) {
     return (
       <div className={`flex items-center justify-center rounded-[24px] border border-[var(--line)] bg-[#edf0e8] p-8 text-sm text-[var(--muted)] ${compact ? "h-full min-h-0" : "min-h-[360px]"}`}>
-        正在加载真实行政边界...
+        真实行政边界待接入；当前仅保留地图工作台入口和结构样例。
       </div>
     );
   }
@@ -357,7 +357,7 @@ export function Adm1BoundaryMap({
       <svg
         viewBox={`0 0 ${viewBox.width} ${viewBox.height}`}
         role="img"
-        aria-label="V4 一级行政区真实边界地图"
+        aria-label="地图工作台结构样例"
         className={`w-full ${compact ? "home-map-svg min-h-0 flex-1" : "h-full min-h-[580px]"}`}
       >
         <rect width={viewBox.width} height={viewBox.height} fill="#edf0e8" />
@@ -517,20 +517,26 @@ export function Adm1BoundaryMap({
           );
         })}
       </svg>
-      <div className={`${compact ? "hidden" : "grid"} gap-3 border-t border-[var(--line)] bg-white/70 px-4 py-3 text-xs text-[var(--muted)] sm:grid-cols-3`}>
-        <span className="flex items-center gap-2">
-          <span className="h-3 w-3 rounded-sm bg-[var(--accent-soft)] ring-1 ring-[var(--accent)]" />
-          当前国家
-        </span>
-        <span className="flex items-center gap-2">
-          <span className="h-3 w-3 rounded-sm bg-white ring-2 ring-[#20242a]" />
-          {enableRegionSelection ? "当前区域" : "一级行政区边界"}
-        </span>
-        <span className="flex items-center gap-2">
-          <span className="h-3 w-10 rounded-full bg-gradient-to-r from-white to-[var(--accent)] ring-1 ring-[var(--line)]" />
-          占位色阶 / 非真实强度
-        </span>
-      </div>
+      {compact ? (
+        <div className="border-t border-[var(--line)] bg-white/70 px-3 py-2 text-[10px] font-semibold leading-4 text-[var(--muted)]">
+          真实行政边界待接入；当前仅保留地图工作台入口和结构样例。
+        </div>
+      ) : (
+        <div className="grid gap-3 border-t border-[var(--line)] bg-white/70 px-4 py-3 text-xs text-[var(--muted)] sm:grid-cols-3">
+          <span className="flex items-center gap-2">
+            <span className="h-3 w-3 rounded-sm bg-[var(--accent-soft)] ring-1 ring-[var(--accent)]" />
+            当前国家
+          </span>
+          <span className="flex items-center gap-2">
+            <span className="h-3 w-3 rounded-sm bg-white ring-2 ring-[#20242a]" />
+            {enableRegionSelection ? "当前区域" : "一级行政区边界"}
+          </span>
+          <span className="flex items-center gap-2">
+            <span className="h-3 w-10 rounded-full bg-gradient-to-r from-white to-[var(--accent)] ring-1 ring-[var(--line)]" />
+            结构样例 / 不进入模型
+          </span>
+        </div>
+      )}
     </div>
   );
 }

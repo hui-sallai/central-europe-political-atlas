@@ -19,7 +19,7 @@ const detailModes: { id: DetailMode; label: string; description: string }[] = [
   {
     id: "map",
     label: "地图层级",
-    description: "默认视图：切换党派支持率、经济占位色阶和基础底图。",
+    description: "默认视图：真实行政边界待接入；当前仅保留地图工作台入口和结构样例。",
   },
   {
     id: "reading",

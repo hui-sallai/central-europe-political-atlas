@@ -6,7 +6,7 @@ export default function MapPage() {
       <p className="eyebrow">Interactive Map</p>
       <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">V4 交互地图</h1>
       <p className="mt-4 max-w-2xl text-[var(--muted)]">
-        这个页面保留为独立地图入口；首页已经是主交互页。侧边栏可在当前国家档案和新闻周报之间切换。
+        真实行政边界待接入；当前仅保留地图工作台入口和结构样例。暂不提供风险图层、真实党派支持率图层或预测图层。
       </p>
 
       <div className="mt-8">

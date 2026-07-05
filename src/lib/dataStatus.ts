@@ -1,7 +1,7 @@
 export const dataStatusItems = [
   {
-    title: "真实边界",
-    body: "V4 一级行政区边界已接入 geoBoundaries ADM1 简化 GeoJSON；匈牙利 Budapest 暂以补充点位处理。",
+    title: "地图边界待接入",
+    body: "真实行政边界待接入；当前仅保留地图工作台入口和结构样例。",
   },
   {
     title: "基础宏观指标",
@@ -9,7 +9,7 @@ export const dataStatusItems = [
   },
   {
     title: "图层状态",
-    body: "党派支持率与经济强度目前仅使用占位色阶验证交互，属于结构样例，不是真实选举数据、民调数据或模型评分，也不进入模型。",
+    body: "政治样本色阶与区域经济样例色阶只用于验证地图工作台结构，不是真实选举数据、民调数据、区域经济数据或模型评分，也不进入模型。",
   },
   {
     title: "二级行政区",

@@ -122,7 +122,7 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
           <p className="eyebrow">Dynamic Country Map</p>
           <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em]">地图图层仪表盘</h2>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--muted)]">
-            地图可切换为党派支持率、经济占位色阶和基础底图。对华经贸先保留在项目与文字资料层，不单独作为地图图层。
+            真实行政边界待接入；当前仅保留地图工作台入口和结构样例。暂不提供风险图层、真实党派支持率图层或预测图层。
           </p>
         </div>
         <div className="flex flex-wrap gap-2">
@@ -187,7 +187,7 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
                     <span className="text-xs font-semibold text-[var(--muted)]">{selectedRegionDatum.displayValue}</span>
                   </div>
                   <p className="mt-2 text-xs leading-5 text-[var(--muted)]">
-                    当前区域只显示该图层的数据状态，不显示占位百分比、强度或排名，避免被误读为事实指标。
+                    当前区域只显示该图层的数据状态；结构样例不显示百分比、强度或排名，也不进入模型。
                   </p>
                 </div>
               ) : null}
@@ -222,7 +222,7 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
               <p className="text-xs font-semibold text-[var(--muted)]">当前一级区</p>
               <p className="mt-1 text-sm font-semibold">{selectedRegion?.nameZh ?? country.nameZh}</p>
               <p className="mt-2 text-xs leading-5 text-[var(--muted)]">
-                下一步将在这里加载该一级行政区下的真实二级行政区列表与边界，而不是继续使用 A/B/C/D 样本。
+                真实行政边界待接入；当前仅保留该一级行政区下钻入口和字段结构，不使用 A/B/C/D 样本。
               </p>
             </div>
 
