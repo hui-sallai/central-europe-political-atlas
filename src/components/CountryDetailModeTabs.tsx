@@ -7,7 +7,7 @@ import { CountryMapWorkbench } from "@/components/CountryMapWorkbench";
 import { CountryReadingTabs } from "@/components/CountryReadingTabs";
 import { getBasicIndicators } from "@/lib/basicIndicators";
 import type { Country } from "@/lib/data";
-import { getChinaProjectRecords, getNewsEventRecords, getV4TemplateCoverage } from "@/lib/extendedData";
+import { getChinaProjectRecords, getNewsEventRecords, getV4ObservationCoverage, getV4TemplateCoverage } from "@/lib/extendedData";
 
 type DetailMode = "map" | "reading";
 
@@ -38,6 +38,16 @@ function StatusTextPill({ label }: { label: string }) {
   );
 }
 
+function CoverageStat({ label, value, note }: { label: string; value: string; note: string }) {
+  return (
+    <div className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+      <p className="text-xs font-semibold text-[var(--muted)]">{label}</p>
+      <p className="mt-2 text-2xl font-semibold text-[var(--accent)]">{value}</p>
+      <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{note}</p>
+    </div>
+  );
+}
+
 export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
   const [activeMode, setActiveMode] = useState<DetailMode>("map");
   const activeModeInfo = detailModes.find((mode) => mode.id === activeMode) ?? detailModes[0];
@@ -45,6 +55,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
   const projectRecords = getChinaProjectRecords(country.slug);
   const newsEventRecords = getNewsEventRecords(country.slug);
   const v4Coverage = getV4TemplateCoverage(country.slug);
+  const v4ObservationCoverage = getV4ObservationCoverage(country.slug);
   const isV4Country = v4CountrySlugs.includes(country.slug);
   const partyStatus = country.parties.some((party) => party.shortName === "TBD") ? "pending" : "manual";
   const governingParties = country.parties.filter((party) => party.role === "governing" || party.role === "support");
@@ -104,17 +115,40 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
             <p className="eyebrow">{isV4Country ? "3. V4 Extended Data Completeness" : "3. Extended Data Status"}</p>
             <h2 className="mt-3 text-2xl font-semibold">{isV4Country ? "V4 扩展数据完整度" : "扩展数据待接入"}</h2>
             <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-              {isV4Country ? "该国属于 V4 第一批扩展数据模板，已按财政、外部、投资、能源和产业指标验收。" : "该国扩展数据字段已预留但尚未接入；不会显示横向比较或模板验收。"}
+              {isV4Country
+                ? "该国属于 V4 第一批扩展数据模板。完整度分为指标覆盖、观测值覆盖和正式数据覆盖，避免把 12/12 指标误读为全部年份观测值均已正式接入。"
+                : "该国扩展数据字段已预留但尚未接入；不会显示横向比较或模板验收。"}
             </p>
           </div>
           <div className="rounded-2xl border border-[var(--line)] bg-white/70 px-5 py-4 text-right">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">{isV4Country ? "接入进度" : "当前状态"}</p>
-            <p className="mt-2 text-3xl font-semibold text-[var(--accent)]">{isV4Country ? `${v4Coverage.present.length}/${v4Coverage.total}` : "待接入"}</p>
+            <p className="mt-2 text-3xl font-semibold text-[var(--accent)]">
+              {isV4Country ? `${v4ObservationCoverage.present}/${v4ObservationCoverage.expected}` : "待接入"}
+            </p>
             <div className="mt-2">
-              <DataStatusBadge status={isV4Country && v4Coverage.complete ? "official" : "pending"} />
+              <DataStatusBadge status={isV4Country && v4ObservationCoverage.pending === 0 ? "official" : "pending"} />
             </div>
           </div>
         </div>
+        {isV4Country ? (
+          <div className="mt-5 grid gap-3 lg:grid-cols-3">
+            <CoverageStat
+              label="指标覆盖率"
+              value={`${v4Coverage.present.length}/${v4Coverage.total}`}
+              note="12 个 V4 扩展指标是否至少拥有一个观测记录；不等于所有年份值均已正式接入。"
+            />
+            <CoverageStat
+              label="观测值覆盖率"
+              value={`${v4ObservationCoverage.present}/${v4ObservationCoverage.expected}`}
+              note={`2021-2025 共 ${v4ObservationCoverage.expected} 个观测位置；已接入 ${v4ObservationCoverage.present}，待接入 ${v4ObservationCoverage.pending}。`}
+            />
+            <CoverageStat
+              label="正式数据覆盖率"
+              value={`${v4ObservationCoverage.official}/${v4ObservationCoverage.expected}`}
+              note={`正式数据 ${v4ObservationCoverage.official}；待接入 ${v4ObservationCoverage.pending}；计算值 ${v4ObservationCoverage.computed}；人工整理 ${v4ObservationCoverage.manual}。`}
+            />
+          </div>
+        ) : null}
       </section>
 
       <div className="card p-3">

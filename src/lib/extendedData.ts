@@ -148,6 +148,8 @@ export const v4TemplateIndicatorIds = [
   "automotive_export_share",
 ] as const;
 
+export const v4TemplateYears = ["2021", "2022", "2023", "2024", "2025"] as const;
+
 export const countryTableRecords: CountryTableRecord[] = [
   { countryCode: "PL", countrySlug: "poland", nameZh: "波兰", nameEn: "Poland", euMember: true, eurozoneMember: false, regionalGroup: "V4", priority: 1, notes: "V4 最大经济体；财政、外部、能源和对华物流数据优先补。" },
   { countryCode: "HU", countrySlug: "hungary", nameZh: "匈牙利", nameEn: "Hungary", euMember: true, eurozoneMember: false, regionalGroup: "V4", priority: 2, notes: "对华制造业、汽车和电池供应链项目优先补。" },
@@ -315,6 +317,35 @@ export function getV4TemplateCoverage(countrySlug: string) {
     present,
     missing,
     complete: missing.length === 0,
+  };
+}
+
+export function getV4ObservationCoverage(countrySlug: string) {
+  const observations = getExtendedObservations(countrySlug);
+  const cells = v4TemplateIndicatorIds.flatMap((indicatorId) =>
+    v4TemplateYears.map((year) => observations.find((observation) => observation.indicatorId === indicatorId && observation.date === year)),
+  );
+  const expected = v4TemplateIndicatorIds.length * v4TemplateYears.length;
+  const pendingCells = cells.filter((observation) => !observation || observation.status === "pending" || observation.value === null).length;
+  const officialCells = cells.filter((observation) => observation?.status === "official" && observation.value !== null).length;
+  const manualCells = cells.filter((observation) => observation?.status === "manual" && observation.value !== null).length;
+  const sampleCells = cells.filter((observation) => observation?.status === "sample" && observation.value !== null).length;
+  const computedCells = cells.filter((observation) => {
+    if (!observation || observation.value === null) {
+      return false;
+    }
+    return /computed|计算/i.test(observation.note ?? "");
+  }).length;
+
+  return {
+    expected,
+    present: expected - pendingCells,
+    pending: pendingCells,
+    official: officialCells,
+    manual: manualCells,
+    sample: sampleCells,
+    computed: computedCells,
+    years: v4TemplateYears,
   };
 }
 
