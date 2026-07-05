@@ -15,6 +15,7 @@
       "local_actor": "PKP Cargo / 波兰铁路与物流主体待拆分",
       "amount": null,
       "currency": null,
+      "amount_status": "amount_missing",
       "year": "持续运营",
       "project_status": "运营 / 贸易额与货运量待量化",
       "status_timeline": [
@@ -31,6 +32,7 @@
         "边境转运"
       ],
       "quantification_status": "amount_missing",
+      "is_quantifiable": false,
       "exposure_variable_fit": "partial_candidate",
       "exposure_variable_note": "适合作为物流通道暴露变量候选，但必须先补年度 TEU、货值、口岸吞吐和运营主体字段；现阶段不直接进入量化指数。",
       "status": "manual",
@@ -57,6 +59,7 @@
       "local_actor": "Stellantis Poland",
       "amount": null,
       "currency": null,
+      "amount_status": "amount_missing",
       "year": "2024",
       "project_status": "已启动后出现调整 / 状态待持续核验",
       "status_timeline": [
@@ -74,6 +77,7 @@
         "产能转移"
       ],
       "quantification_status": "amount_missing",
+      "is_quantifiable": false,
       "exposure_variable_fit": "partial_candidate",
       "exposure_variable_note": "适合作为中国 EV 企业进入欧盟制造网络的事件型变量；金额和产量缺失前只能作解释变量，不进入量化暴露指数。",
       "status": "manual",
@@ -100,6 +104,7 @@
       "local_actor": "Nuctech Warsaw Company / 当地实体待核验",
       "amount": null,
       "currency": null,
+      "amount_status": "amount_missing",
       "year": "2018",
       "project_status": "运营 / 欧盟外资补贴调查相关风险待跟踪",
       "status_timeline": [
@@ -117,6 +122,7 @@
         "外资补贴"
       ],
       "quantification_status": "amount_missing",
+      "is_quantifiable": false,
       "exposure_variable_fit": "context_only",
       "exposure_variable_note": "更适合作为公共采购和监管事件样本；金额、合同和客户结构缺失前，不适合作为经济暴露变量主项。",
       "status": "manual",
@@ -143,6 +149,7 @@
       "local_actor": "匈牙利政府 / Debrecen 地方主体",
       "amount": 7.34,
       "currency": "十亿欧元",
+      "amount_status": "amount_available",
       "year": "2022",
       "project_status": "在建 / 量产进度待跟踪",
       "status_timeline": [
@@ -160,6 +167,7 @@
         "环境与用水"
       ],
       "quantification_status": "partially_quantifiable",
+      "is_quantifiable": true,
       "exposure_variable_fit": "strong_candidate",
       "exposure_variable_note": "金额、地点、行业和主体较清楚，适合作为后续中国制造业投资暴露变量的高优先级候选；量化前需补产能和补贴字段。",
       "status": "manual",
@@ -186,6 +194,7 @@
       "local_actor": "匈牙利政府 / Szeged 地方主体",
       "amount": null,
       "currency": null,
+      "amount_status": "amount_missing",
       "year": "2023",
       "project_status": "已宣布 / 投资额待接入",
       "status_timeline": [
@@ -202,6 +211,7 @@
         "地方就业"
       ],
       "quantification_status": "amount_missing",
+      "is_quantifiable": false,
       "exposure_variable_fit": "partial_candidate",
       "exposure_variable_note": "适合作为整车制造进入欧盟市场的项目变量候选；金额和产能未接入前，不进入金额型暴露计算。",
       "status": "manual",
@@ -228,6 +238,7 @@
       "local_actor": "MAV / Kínai-Magyar Vasúti Nonprofit Zrt.",
       "amount": 949,
       "currency": "十亿福林",
+      "amount_status": "amount_available",
       "year": "2021",
       "project_status": "建设 / 测试和投运进度待核验",
       "status_timeline": [
@@ -245,6 +256,7 @@
         "一带一路"
       ],
       "quantification_status": "partially_quantifiable",
+      "is_quantifiable": true,
       "exposure_variable_fit": "strong_candidate",
       "exposure_variable_note": "金额和基础设施属性明确，适合作为中国融资/承包暴露变量候选；进入量化前需拆分贷款结构、承包商份额和项目阶段。",
       "status": "manual",
@@ -271,6 +283,7 @@
       "local_actor": "Changhong Europe Electric s.r.o.",
       "amount": 20,
       "currency": "百万美元",
+      "amount_status": "amount_available",
       "year": "2007",
       "project_status": "运营 / 最新产能与雇佣待核验",
       "status_timeline": [
@@ -288,6 +301,7 @@
         "早期投资"
       ],
       "quantification_status": "partially_quantifiable",
+      "is_quantifiable": true,
       "exposure_variable_fit": "context_only",
       "exposure_variable_note": "可作为早期制造业进入样本；金额年代较早且当前产能/雇佣缺失，暂不适合作为当前中国经济暴露核心变量。",
       "status": "manual",
@@ -314,6 +328,7 @@
       "local_actor": "SK Slavia Praha / Eden Arena 相关实体",
       "amount": null,
       "currency": null,
+      "amount_status": "amount_missing",
       "year": "2015-2018",
       "project_status": "存续结构复杂 / 所有权与金额待拆分",
       "status_timeline": [
@@ -331,6 +346,7 @@
         "所有权变更"
       ],
       "quantification_status": "amount_missing",
+      "is_quantifiable": false,
       "exposure_variable_fit": "context_only",
       "exposure_variable_note": "适合作为资产收购和政治经济关系样本；在资产范围和所有权链条未拆分前，不进入经济暴露量化。",
       "status": "manual",
@@ -357,6 +373,7 @@
       "local_actor": "J&T Finance Group",
       "amount": null,
       "currency": null,
+      "amount_status": "amount_missing",
       "year": "2015-至今待核验",
       "project_status": "少数股权 / 监管与所有权状态待核验",
       "status_timeline": [
@@ -374,6 +391,7 @@
         "跨境资本"
       ],
       "quantification_status": "amount_missing",
+      "is_quantifiable": false,
       "exposure_variable_fit": "partial_candidate",
       "exposure_variable_note": "金融网络暴露相关性较强，但金额、股比和治理权缺失；补齐后可作为金融权益暴露变量候选。",
       "status": "manual",
@@ -400,6 +418,7 @@
       "local_actor": "InoBat / 斯洛伐克政府与地方主体",
       "amount": 1.2,
       "currency": "十亿欧元",
+      "amount_status": "amount_available",
       "year": "2023",
       "project_status": "规划 / 政府支持和建设进度待跟踪",
       "status_timeline": [
@@ -417,6 +436,7 @@
         "汽车供应链"
       ],
       "quantification_status": "partially_quantifiable",
+      "is_quantifiable": true,
       "exposure_variable_fit": "strong_candidate",
       "exposure_variable_note": "金额、行业和地点较明确，适合作为电池供应链暴露变量候选；进入量化前需补股权、补贴、产能和建设进度。",
       "status": "manual",
@@ -443,6 +463,7 @@
       "local_actor": "InoBat",
       "amount": null,
       "currency": null,
+      "amount_status": "amount_missing",
       "year": "2023",
       "project_status": "股权合作 / 具体金额与权利结构待核验",
       "status_timeline": [
@@ -459,6 +480,7 @@
         "供应链依赖"
       ],
       "quantification_status": "amount_missing",
+      "is_quantifiable": false,
       "exposure_variable_fit": "partial_candidate",
       "exposure_variable_note": "适合作为供应链控制关系或技术合作变量候选；金额、股比和治理权缺失前不进入金额型暴露计算。",
       "status": "manual",

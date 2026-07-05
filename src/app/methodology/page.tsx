@@ -30,6 +30,22 @@ const dataPriorityItems = [
   { group: "产业", indicators: ["制造业占 GDP 比重", "汽车出口占比"] },
 ];
 
+const projectVerificationItems = [
+  { title: "可量化", rule: "有金额 + 有主体 + 有年份 + 有来源", body: "可作为项目级量化候选；进入正式分析前仍需复核金额口径、合同主体和时间口径。" },
+  { title: "部分可量化", rule: "无金额但有明确事件和主体", body: "可作为事件型或结构型变量候选；金额、股比、产能、TEU、合同口径等字段缺失时不做金额型计算。" },
+  { title: "仅作背景", rule: "只有新闻线索", body: "只用于背景说明或后续追踪，不作为正式数据点。" },
+  { title: "不进入分析", rule: "无可靠来源", body: "来源缺失或可靠性为 D 级时，不进入正式数据、事件库和后续分析。" },
+];
+
+const projectFieldItems = [
+  "项目表必须保留核验结论、核验理由和核验规则。",
+  "金额字段必须同步写明金额状态、金额证据或金额缺失原因。",
+  "主体字段必须写明中国主体、当地主体和主体核验说明。",
+  "项目状态必须写明年份、项目状态和项目状态时间线。",
+  "来源必须保留可点击来源链接和 A/B/C/D 来源等级。",
+  "暴露变量适配只作为候选库字段，不生成中国经济暴露指数。",
+];
+
 const fieldRules = [
   "每个正式数据点必须同时具备：年份、单位、来源名称、来源链接、来源状态。",
   "经济指标统一优先使用各国统计部门和 Eurostat 可核验表；金额类指标统一换算或显示为欧元口径。",
@@ -42,6 +58,7 @@ const excludedItems = [
   "结构样例、占位色阶、样例新闻不进入模型。",
   "待接入、缺失、未标来源链接的数据不进入模型。",
   "未核验党派关系、未量化项目样本、缺少来源链接的新闻摘要不进入模型。",
+  "对华项目表当前只建立暴露变量候选库，不生成中国经济暴露指数。",
   "当前平台暂不输出预测，不生成风险指数，也不提供政策、选举或国家关系预测。",
 ];
 
@@ -137,7 +154,7 @@ export default function MethodologyPage() {
         <p className="eyebrow">Data Priority</p>
         <h2 className="mt-3 text-2xl font-semibold">5. 数据优先级：V4 第一批指标</h2>
         <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-          第一阶段优先补齐 V4 国家，即波兰、匈牙利、捷克、斯洛伐克。以下指标优先使用 A 级来源，并要求每个数据点具备年份、单位、来源名称、来源链接和来源状态。
+          V4 国家，即波兰、匈牙利、捷克、斯洛伐克，已进入 2021-2025 历史序列、横向比较和数据质量验收阶段。以下指标优先使用 A 级来源，并要求每个数据点具备年份、单位、来源名称、来源链接和来源状态。
         </p>
         <div className="mt-5 grid gap-3 md:grid-cols-2 lg:grid-cols-5">
           {dataPriorityItems.map((item) => (
@@ -155,10 +172,34 @@ export default function MethodologyPage() {
         </div>
       </section>
 
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">China Project Verification</p>
+        <h2 className="mt-3 text-2xl font-semibold">6. 对华项目核验规则</h2>
+        <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">
+          V4 对华项目表当前定位为项目核验表和暴露变量候选库。它不生成中国经济暴露指数，只记录项目是否具备后续量化所需字段。
+        </p>
+        <div className="mt-5 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+          {projectVerificationItems.map((item) => (
+            <article key={item.title} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+              <h3 className="font-semibold">{item.title}</h3>
+              <p className="mt-2 rounded-xl bg-[var(--surface-muted)] px-3 py-2 text-xs font-semibold text-[var(--muted)]">{item.rule}</p>
+              <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{item.body}</p>
+            </article>
+          ))}
+        </div>
+        <div className="mt-5 grid gap-2">
+          {projectFieldItems.map((item) => (
+            <p key={item} className="rounded-2xl bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--muted)]">
+              {item}
+            </p>
+          ))}
+        </div>
+      </section>
+
       <section className="mt-6 grid gap-4 lg:grid-cols-2">
         <article className="card p-6">
           <p className="eyebrow">Field Rules</p>
-          <h2 className="mt-3 text-2xl font-semibold">6. 字段口径</h2>
+          <h2 className="mt-3 text-2xl font-semibold">7. 字段口径</h2>
           <ul className="mt-5 grid gap-3 text-sm leading-7 text-[var(--muted)]">
             {fieldRules.map((rule) => (
               <li key={rule} className="rounded-2xl bg-white/65 px-4 py-3">{rule}</li>
@@ -168,7 +209,7 @@ export default function MethodologyPage() {
 
         <article className="card p-6">
           <p className="eyebrow">Excluded From Model</p>
-          <h2 className="mt-3 text-2xl font-semibold">7. 不进入模型的内容</h2>
+          <h2 className="mt-3 text-2xl font-semibold">8. 不进入模型的内容</h2>
           <ul className="mt-5 grid gap-3 text-sm leading-7 text-[var(--muted)]">
             {excludedItems.map((item) => (
               <li key={item} className="rounded-2xl bg-white/65 px-4 py-3">{item}</li>
@@ -179,17 +220,18 @@ export default function MethodologyPage() {
 
       <section className="mt-6 card p-6">
         <p className="eyebrow">Analysis Checklist</p>
-        <h2 className="mt-3 text-2xl font-semibold">8. 进入后续分析的检查清单</h2>
+        <h2 className="mt-3 text-2xl font-semibold">9. 进入后续分析的检查清单</h2>
         <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">
           一个数据点只有同时满足以下条件，才可以进入后续分析：
         </p>
-        <ol className="mt-5 grid list-decimal gap-3 pl-5 text-sm leading-7 text-[var(--muted)] md:grid-cols-2">
-          {analysisChecklist.map((item) => (
-            <li key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3">
-              {item}
-            </li>
+        <div className="mt-5 grid gap-3 text-sm leading-7 text-[var(--muted)] md:grid-cols-2">
+          {analysisChecklist.map((item, index) => (
+            <div key={item} className="flex gap-3 rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3">
+              <span className="shrink-0 font-mono text-xs font-semibold text-[var(--accent)]">{String(index + 1).padStart(2, "0")}</span>
+              <span>{item}</span>
+            </div>
           ))}
-        </ol>
+        </div>
       </section>
     </main>
   );

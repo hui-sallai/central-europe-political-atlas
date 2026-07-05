@@ -42,6 +42,28 @@ function exposureFitLabel(value: string) {
   return labels[value] ?? value;
 }
 
+function quantificationStatusLabel(value: string) {
+  const labels: Record<string, string> = {
+    amount_available: "金额已接入",
+    amount_missing: "金额缺失",
+    partially_quantifiable: "部分可量化",
+    not_quantifiable: "暂不可量化",
+  };
+
+  return labels[value] ?? value;
+}
+
+function reliabilityLevelLabel(value: string) {
+  const labels: Record<string, string> = {
+    A: "可靠性 A 级",
+    B: "可靠性 B 级",
+    C: "可靠性 C 级",
+    D: "可靠性 D 级",
+  };
+
+  return labels[value] ?? value;
+}
+
 export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
   const [activeTab, setActiveTab] = useState<ReadingTab>("summary");
   const basicIndicators = getBasicIndicators(country.slug);
@@ -184,17 +206,27 @@ export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
                       <div><dt className="font-semibold text-[var(--foreground)]">中国主体</dt><dd>{project.chineseActor}</dd></div>
                       <div><dt className="font-semibold text-[var(--foreground)]">当地主体</dt><dd>{project.localActor}</dd></div>
                       <div><dt className="font-semibold text-[var(--foreground)]">金额 / 币种</dt><dd>{formatProjectAmount(project.amount, project.currency)}</dd></div>
+                      <div><dt className="font-semibold text-[var(--foreground)]">金额状态</dt><dd>{project.amount === null ? "金额缺失" : "金额已接入"}</dd></div>
                       <div><dt className="font-semibold text-[var(--foreground)]">年份</dt><dd>{project.year}</dd></div>
                       <div><dt className="font-semibold text-[var(--foreground)]">状态</dt><dd>{project.projectStatus}</dd></div>
-                      <div><dt className="font-semibold text-[var(--foreground)]">量化状态</dt><dd>{project.amount === null ? "金额缺失，暂不量化" : "金额已接入，仍需复核"}</dd></div>
+                      <div><dt className="font-semibold text-[var(--foreground)]">来源等级</dt><dd>{reliabilityLevelLabel(project.sourceReliabilityLevel)}</dd></div>
+                      <div><dt className="font-semibold text-[var(--foreground)]">是否可量化</dt><dd>{quantificationStatusLabel(project.quantificationStatus)}</dd></div>
                       <div><dt className="font-semibold text-[var(--foreground)]">核验结论</dt><dd>{chinaProjectVerificationLabel(verification.conclusion)}</dd></div>
+                      <div><dt className="font-semibold text-[var(--foreground)]">核验理由</dt><dd>{verification.reason}</dd></div>
                       <div><dt className="font-semibold text-[var(--foreground)]">核验规则</dt><dd>{verification.rule}</dd></div>
-                      <div><dt className="font-semibold text-[var(--foreground)]">金额证据</dt><dd>{project.amountEvidence}</dd></div>
+                      <div><dt className="font-semibold text-[var(--foreground)]">金额证据/缺失原因</dt><dd>{project.amountEvidence}</dd></div>
                       <div><dt className="font-semibold text-[var(--foreground)]">主体核验</dt><dd>{project.actorEvidence}</dd></div>
                       <div><dt className="font-semibold text-[var(--foreground)]">暴露变量适配</dt><dd>{exposureFitLabel(project.exposureVariableFit)}</dd></div>
                       <div><dt className="font-semibold text-[var(--foreground)]">变量说明</dt><dd>{project.exposureVariableNote}</dd></div>
                     </dl>
-                    <p className="mt-3 rounded-xl bg-[var(--surface-muted)] px-3 py-2 text-xs leading-5 text-[var(--muted)]">核验理由：{verification.reason}</p>
+                    <div className="mt-3 rounded-xl bg-[var(--surface-muted)] px-3 py-2 text-xs leading-5 text-[var(--muted)]">
+                      <p className="font-semibold text-[var(--foreground)]">项目状态时间线</p>
+                      <div className="mt-2 grid gap-1">
+                        {project.statusTimeline.map((item, index) => (
+                          <p key={`${project.projectId}-${index}`}>{String(index + 1).padStart(2, "0")} {item}</p>
+                        ))}
+                      </div>
+                    </div>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {project.riskTags.map((tag) => (
                         <span key={tag} className="rounded-full bg-[var(--surface-muted)] px-2.5 py-1 text-[10px] text-[var(--muted)]">{tag}</span>
