@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "next build",
+    "build": "node scripts/export-research-data.mjs && next build",
+    "export:research-data": "node scripts/export-research-data.mjs",
     "preview": "next start",
     "start": "next start",
     "lint": "next lint"

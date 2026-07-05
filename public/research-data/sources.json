@@ -1,0 +1,86 @@
+{
+  "schema_version": "research-data-v0.1",
+  "generated_at": "2026-07-05",
+  "data_type": "sources",
+  "record_count": 8,
+  "reliability_levels": {
+    "A": "Official statistical agencies, central banks, EU institutions, international organizations.",
+    "B": "Mainstream news agencies, authoritative think tanks, official annual reports.",
+    "C": "Local media, company announcements, industry websites.",
+    "D": "Unverified secondary sources, social media, unclear provenance."
+  },
+  "records": [
+    {
+      "source_id": "eurostat",
+      "source_name": "Eurostat",
+      "source_type": "官方统计",
+      "reliability_level": "A",
+      "url": "https://ec.europa.eu/eurostat/databrowser/",
+      "update_frequency": "按指标更新",
+      "usage_notes": "V4 跨国可比数据主来源；用于财政、国民账户、能源和经常账户指标。"
+    },
+    {
+      "source_id": "stat_pl",
+      "source_name": "Statistics Poland",
+      "source_type": "国家统计部门",
+      "reliability_level": "A",
+      "url": "https://stat.gov.pl/en/",
+      "update_frequency": "按指标更新",
+      "usage_notes": "波兰国别统计主源，用于交叉核验。"
+    },
+    {
+      "source_id": "stat_hu",
+      "source_name": "Hungarian Central Statistical Office",
+      "source_type": "国家统计部门",
+      "reliability_level": "A",
+      "url": "https://www.ksh.hu/?lang=en",
+      "update_frequency": "按指标更新",
+      "usage_notes": "匈牙利国别统计主源，用于交叉核验。"
+    },
+    {
+      "source_id": "stat_cz",
+      "source_name": "Czech Statistical Office",
+      "source_type": "国家统计部门",
+      "reliability_level": "A",
+      "url": "https://www.czso.cz/csu/czso/home",
+      "update_frequency": "按指标更新",
+      "usage_notes": "捷克国别统计主源，用于交叉核验。"
+    },
+    {
+      "source_id": "stat_sk",
+      "source_name": "Statistical Office of the Slovak Republic",
+      "source_type": "国家统计部门",
+      "reliability_level": "A",
+      "url": "https://slovak.statistics.sk/",
+      "update_frequency": "按指标更新",
+      "usage_notes": "斯洛伐克国别统计主源，用于交叉核验。"
+    },
+    {
+      "source_id": "hu_gov_v4_summit_2026",
+      "source_name": "匈牙利政府",
+      "source_type": "政府公告",
+      "reliability_level": "A",
+      "url": "https://kormany.hu/en/news/v4-csucs-godollon-orszagainkat-sokkal-tobb-koti-ossze-mint-ami-elvalasztja",
+      "update_frequency": "事件更新",
+      "usage_notes": "2026 年 6 月 24 日格德勒 V4 峰会公告；用于四国正式事件记录，中文摘要由人工整理。"
+    },
+    {
+      "source_id": "news_pending",
+      "source_name": "新闻来源待接入",
+      "source_type": "新闻",
+      "reliability_level": "D",
+      "url": "https://hui-sallai.github.io/central-europe-political-atlas/news/",
+      "update_frequency": "周度候选",
+      "usage_notes": "结构样例新闻使用；不进入模型。"
+    },
+    {
+      "source_id": "project_pending",
+      "source_name": "项目级来源待接入",
+      "source_type": "对华经贸",
+      "reliability_level": "D",
+      "url": "https://hui-sallai.github.io/central-europe-political-atlas/data/",
+      "update_frequency": "不定期",
+      "usage_notes": "项目表初版入口；金额、主体和合同来源需后续逐条补。"
+    }
+  ]
+}

@@ -1,0 +1,376 @@
+{
+  "schema_version": "research-data-v0.1",
+  "generated_at": "2026-07-05",
+  "data_type": "indicators",
+  "record_count": 18,
+  "records": [
+    {
+      "indicator_id": "population_million",
+      "name_zh": "人口",
+      "name_en": "Population",
+      "category": "macro",
+      "unit": "百万人",
+      "frequency": "annual",
+      "source_priority": [
+        "Eurostat demo_pjan",
+        "各国统计部门人口数据库"
+      ],
+      "included_in_derived_comparison": false,
+      "future_model_eligible": true,
+      "model_use": "eligible_after_review",
+      "direction_meaning": "context",
+      "upward_meaning": "数值上升通常代表人口规模扩大，可作为经济体量和人均指标分母背景。",
+      "missing_value_treatment": "不使用插值；若年度缺失，保留缺失并标注待接入。",
+      "transform": "level",
+      "updated_at": "2026-07-05"
+    },
+    {
+      "indicator_id": "gdp_nominal_mio_eur",
+      "name_zh": "名义 GDP",
+      "name_en": "Nominal GDP",
+      "category": "macro",
+      "unit": "百万欧元",
+      "frequency": "annual",
+      "source_priority": [
+        "Eurostat nama_10_gdp",
+        "各国统计部门国民账户"
+      ],
+      "included_in_derived_comparison": false,
+      "future_model_eligible": true,
+      "model_use": "eligible_after_review",
+      "direction_meaning": "context",
+      "upward_meaning": "数值上升通常代表以当年价格计的经济总量扩大，但需结合通胀和汇率背景解释。",
+      "missing_value_treatment": "不使用插值；若年度缺失，保留缺失并标注待接入。",
+      "transform": "level",
+      "updated_at": "2026-07-05"
+    },
+    {
+      "indicator_id": "gdp_per_capita_eur",
+      "name_zh": "人均 GDP",
+      "name_en": "GDP per capita",
+      "category": "macro",
+      "unit": "欧元",
+      "frequency": "annual",
+      "source_priority": [
+        "Eurostat nama_10_pc",
+        "各国统计部门国民账户"
+      ],
+      "included_in_derived_comparison": false,
+      "future_model_eligible": true,
+      "model_use": "eligible_after_review",
+      "direction_meaning": "context",
+      "upward_meaning": "数值上升通常代表按人均口径的经济产出提高，但不直接等同于收入分配改善。",
+      "missing_value_treatment": "不使用插值；若年度缺失，保留缺失并标注待接入。",
+      "transform": "level",
+      "updated_at": "2026-07-05"
+    },
+    {
+      "indicator_id": "real_gdp_growth",
+      "name_zh": "GDP 实际增长",
+      "name_en": "Real GDP growth",
+      "category": "macro",
+      "unit": "%",
+      "frequency": "annual",
+      "source_priority": [
+        "Eurostat nama_10_gdp",
+        "各国统计部门国民账户"
+      ],
+      "included_in_derived_comparison": false,
+      "future_model_eligible": true,
+      "model_use": "eligible_after_review",
+      "direction_meaning": "context",
+      "upward_meaning": "数值上升通常代表实际经济增长加快；负值代表实际产出收缩。",
+      "missing_value_treatment": "不使用插值；若年度缺失，保留缺失并标注待接入。",
+      "transform": "annual percentage change",
+      "updated_at": "2026-07-05"
+    },
+    {
+      "indicator_id": "hicp_inflation",
+      "name_zh": "CPI / HICP 通胀率",
+      "name_en": "CPI / HICP inflation",
+      "category": "macro",
+      "unit": "%",
+      "frequency": "annual",
+      "source_priority": [
+        "Eurostat prc_hicp_aind",
+        "各国统计部门价格指数"
+      ],
+      "included_in_derived_comparison": false,
+      "future_model_eligible": true,
+      "model_use": "eligible_after_review",
+      "direction_meaning": "higher_risk",
+      "upward_meaning": "数值上升通常代表消费价格压力上升，需结合工资、利率和能源价格解释。",
+      "missing_value_treatment": "不使用插值；若年度缺失，保留缺失并标注待接入。",
+      "transform": "annual average rate of change",
+      "updated_at": "2026-07-05"
+    },
+    {
+      "indicator_id": "unemployment_rate",
+      "name_zh": "失业率",
+      "name_en": "Unemployment rate",
+      "category": "macro",
+      "unit": "%",
+      "frequency": "annual",
+      "source_priority": [
+        "Eurostat une_rt_a",
+        "各国统计部门劳动力调查"
+      ],
+      "included_in_derived_comparison": false,
+      "future_model_eligible": true,
+      "model_use": "eligible_after_review",
+      "direction_meaning": "higher_risk",
+      "upward_meaning": "数值上升通常代表劳动力市场闲置程度上升。",
+      "missing_value_treatment": "不使用插值；若年度缺失，保留缺失并标注待接入。",
+      "transform": "level",
+      "updated_at": "2026-07-05"
+    },
+    {
+      "indicator_id": "fiscal_deficit_gdp",
+      "name_zh": "财政赤字/GDP",
+      "name_en": "Government deficit / GDP",
+      "category": "fiscal",
+      "unit": "% GDP",
+      "frequency": "annual",
+      "source_priority": [
+        "Eurostat gov_10dd_edpt1",
+        "各国财政部 / 统计部门",
+        "欧盟稳定与增长程序文件"
+      ],
+      "included_in_derived_comparison": true,
+      "future_model_eligible": true,
+      "model_use": "eligible_after_review",
+      "direction_meaning": "higher_risk",
+      "upward_meaning": "数值越高通常代表财政余额改善；负值绝对值扩大通常代表财政赤字压力上升。",
+      "missing_value_treatment": "不使用插值；若年度缺失，保留缺失并标注待接入。",
+      "transform": "level",
+      "updated_at": "2026-07-05"
+    },
+    {
+      "indicator_id": "government_debt_gdp",
+      "name_zh": "政府债务/GDP",
+      "name_en": "Government debt / GDP",
+      "category": "fiscal",
+      "unit": "% GDP",
+      "frequency": "annual",
+      "source_priority": [
+        "Eurostat gov_10dd_edpt1",
+        "各国财政部 / 统计部门",
+        "欧盟稳定与增长程序文件"
+      ],
+      "included_in_derived_comparison": true,
+      "future_model_eligible": true,
+      "model_use": "eligible_after_review",
+      "direction_meaning": "higher_risk",
+      "upward_meaning": "数值上升通常代表政府债务负担上升。",
+      "missing_value_treatment": "不使用插值；若年度缺失，保留缺失并标注待接入。",
+      "transform": "level",
+      "updated_at": "2026-07-05"
+    },
+    {
+      "indicator_id": "government_revenue_gdp",
+      "name_zh": "财政收入/GDP",
+      "name_en": "Government revenue / GDP",
+      "category": "fiscal",
+      "unit": "% GDP",
+      "frequency": "annual",
+      "source_priority": [
+        "Eurostat gov_10a_main",
+        "各国财政部 / 统计部门"
+      ],
+      "included_in_derived_comparison": true,
+      "future_model_eligible": true,
+      "model_use": "eligible_after_review",
+      "direction_meaning": "context",
+      "upward_meaning": "数值上升通常代表政府收入占经济总量比重提高，可反映税收能力或财政汲取程度变化。",
+      "missing_value_treatment": "不使用插值；若年度缺失，保留缺失并标注待接入。",
+      "transform": "level",
+      "updated_at": "2026-07-05"
+    },
+    {
+      "indicator_id": "government_expenditure_gdp",
+      "name_zh": "财政支出/GDP",
+      "name_en": "Government expenditure / GDP",
+      "category": "fiscal",
+      "unit": "% GDP",
+      "frequency": "annual",
+      "source_priority": [
+        "Eurostat gov_10a_main",
+        "各国财政部 / 统计部门"
+      ],
+      "included_in_derived_comparison": true,
+      "future_model_eligible": true,
+      "model_use": "eligible_after_review",
+      "direction_meaning": "context",
+      "upward_meaning": "数值上升通常代表政府支出占经济总量比重提高，需结合收入、赤字和周期位置解释。",
+      "missing_value_treatment": "不使用插值；若年度缺失，保留缺失并标注待接入。",
+      "transform": "level",
+      "updated_at": "2026-07-05"
+    },
+    {
+      "indicator_id": "exports_mio_eur",
+      "name_zh": "出口",
+      "name_en": "Exports",
+      "category": "external",
+      "unit": "百万欧元",
+      "frequency": "annual",
+      "source_priority": [
+        "Eurostat nama_10_gdp",
+        "各国统计部门国民账户",
+        "海关 / 外贸统计"
+      ],
+      "included_in_derived_comparison": true,
+      "future_model_eligible": true,
+      "model_use": "eligible_after_review",
+      "direction_meaning": "context",
+      "upward_meaning": "数值上升通常代表出口规模扩大，但需结合进口、贸易差额和价格因素解释。",
+      "missing_value_treatment": "不使用插值；若年度缺失，保留缺失并标注待接入。",
+      "transform": "level",
+      "updated_at": "2026-07-05"
+    },
+    {
+      "indicator_id": "imports_mio_eur",
+      "name_zh": "进口",
+      "name_en": "Imports",
+      "category": "external",
+      "unit": "百万欧元",
+      "frequency": "annual",
+      "source_priority": [
+        "Eurostat nama_10_gdp",
+        "各国统计部门国民账户",
+        "海关 / 外贸统计"
+      ],
+      "included_in_derived_comparison": true,
+      "future_model_eligible": true,
+      "model_use": "eligible_after_review",
+      "direction_meaning": "context",
+      "upward_meaning": "数值上升通常代表进口规模扩大，可能反映内需、能源依赖或中间品需求上升。",
+      "missing_value_treatment": "不使用插值；若年度缺失，保留缺失并标注待接入。",
+      "transform": "level",
+      "updated_at": "2026-07-05"
+    },
+    {
+      "indicator_id": "trade_balance_mio_eur",
+      "name_zh": "贸易差额",
+      "name_en": "Trade balance",
+      "category": "external",
+      "unit": "百万欧元",
+      "frequency": "annual",
+      "source_priority": [
+        "由 Eurostat P6 出口与 P7 进口计算",
+        "各国统计部门 / 海关贸易差额"
+      ],
+      "included_in_derived_comparison": true,
+      "future_model_eligible": true,
+      "model_use": "eligible_after_review",
+      "direction_meaning": "context",
+      "upward_meaning": "数值上升通常代表贸易余额改善；负值扩大代表贸易逆差扩大。",
+      "missing_value_treatment": "若出口或进口任一缺失，则贸易差额标记为缺失，不做单边估算。",
+      "transform": "exports - imports",
+      "updated_at": "2026-07-05"
+    },
+    {
+      "indicator_id": "current_account_gdp",
+      "name_zh": "经常账户/GDP",
+      "name_en": "Current account / GDP",
+      "category": "external",
+      "unit": "% GDP",
+      "frequency": "annual",
+      "source_priority": [
+        "Eurostat tipsbp20",
+        "各国央行 / 国际收支统计",
+        "IMF Balance of Payments"
+      ],
+      "included_in_derived_comparison": true,
+      "future_model_eligible": true,
+      "model_use": "eligible_after_review",
+      "direction_meaning": "lower_risk",
+      "upward_meaning": "数值上升通常代表经常账户余额改善；负值扩大代表外部融资需求上升。",
+      "missing_value_treatment": "不使用插值；若年度缺失，保留缺失并标注待接入。",
+      "transform": "level",
+      "updated_at": "2026-07-05"
+    },
+    {
+      "indicator_id": "fdi_mio_eur",
+      "name_zh": "FDI 流入",
+      "name_en": "FDI inflow",
+      "category": "investment",
+      "unit": "百万欧元",
+      "frequency": "annual",
+      "source_priority": [
+        "Eurostat bop_fdi6_flow",
+        "各国央行 / 投资促进机构",
+        "UNCTAD / OECD FDI"
+      ],
+      "included_in_derived_comparison": true,
+      "future_model_eligible": true,
+      "model_use": "eligible_after_review",
+      "direction_meaning": "context",
+      "upward_meaning": "数值上升通常代表直接投资流入增加；负值可代表撤资、还款或权益减少，需结合来源注释解释。",
+      "missing_value_treatment": "不使用插值；负值保留为真实观测；缺失值保留缺失并标注待接入。",
+      "transform": "level",
+      "updated_at": "2026-07-05"
+    },
+    {
+      "indicator_id": "energy_import_dependency",
+      "name_zh": "能源进口依赖",
+      "name_en": "Energy import dependency",
+      "category": "energy",
+      "unit": "%",
+      "frequency": "annual",
+      "source_priority": [
+        "Eurostat nrg_ind_id",
+        "各国能源统计部门",
+        "能源监管机构"
+      ],
+      "included_in_derived_comparison": true,
+      "future_model_eligible": true,
+      "model_use": "eligible_after_review",
+      "direction_meaning": "higher_risk",
+      "upward_meaning": "数值上升通常代表能源供应对进口依赖程度提高。",
+      "missing_value_treatment": "不使用插值；若年度缺失，保留缺失并标注待接入。",
+      "transform": "level",
+      "updated_at": "2026-07-05"
+    },
+    {
+      "indicator_id": "manufacturing_gva_gdp",
+      "name_zh": "制造业占 GDP 比重",
+      "name_en": "Manufacturing GVA / GDP",
+      "category": "industry",
+      "unit": "% GDP",
+      "frequency": "annual",
+      "source_priority": [
+        "Eurostat nama_10_a10",
+        "各国统计部门国民账户"
+      ],
+      "included_in_derived_comparison": true,
+      "future_model_eligible": true,
+      "model_use": "eligible_after_review",
+      "direction_meaning": "context",
+      "upward_meaning": "数值上升通常代表制造业在经济结构中的比重提高。",
+      "missing_value_treatment": "不使用插值；若年度缺失，保留缺失并标注待接入。",
+      "transform": "level",
+      "updated_at": "2026-07-05"
+    },
+    {
+      "indicator_id": "automotive_export_share",
+      "name_zh": "汽车产业出口占比",
+      "name_en": "Automotive industry export share",
+      "category": "industry",
+      "unit": "%",
+      "frequency": "annual",
+      "source_priority": [
+        "Eurostat ext_tec09",
+        "各国海关 / 外贸统计",
+        "汽车行业协会"
+      ],
+      "included_in_derived_comparison": true,
+      "future_model_eligible": true,
+      "model_use": "eligible_after_review",
+      "direction_meaning": "context",
+      "upward_meaning": "数值上升通常代表汽车产业在出口结构中的集中度提高。",
+      "missing_value_treatment": "若 NACE C29 或总出口缺失，则保留缺失；不以相邻年份替代。",
+      "transform": "NACE C29 exports / total exports",
+      "updated_at": "2026-07-05"
+    }
+  ]
+}

@@ -1,0 +1,1909 @@
+{
+  "schema_version": "research-data-v0.1",
+  "generated_at": "2026-07-05",
+  "data_type": "derived_metrics",
+  "record_count": 13,
+  "model_boundary": "Fact-derived comparison layer only. No risk score, forecast, scenario, or model output.",
+  "records": [
+    {
+      "derived_metric_id": "v4_data_quality_summary",
+      "scope": "V4",
+      "metric_type": "data_quality",
+      "model_boundary": "quality_control_only_not_model_output",
+      "summary": {
+        "expectedCells": 240,
+        "presentCells": 240,
+        "officialValueCells": 227,
+        "pendingValueCells": 13,
+        "missingObservationCells": 0,
+        "validSourceLinkCells": 240,
+        "unitConsistentCells": 240,
+        "updatedAtCells": 240,
+        "computedCells": 40,
+        "computedCellsWithNotes": 40,
+        "issueCells": 13,
+        "status": "warning"
+      },
+      "by_country": [
+        {
+          "id": "poland",
+          "label": "poland",
+          "expectedCells": 60,
+          "presentCells": 60,
+          "officialValueCells": 57,
+          "pendingValueCells": 3,
+          "missingObservationCells": 0,
+          "validSourceLinkCells": 60,
+          "unitConsistentCells": 60,
+          "updatedAtCells": 60,
+          "computedCells": 10,
+          "computedCellsWithNotes": 10,
+          "issueCells": 3,
+          "status": "warning"
+        },
+        {
+          "id": "hungary",
+          "label": "hungary",
+          "expectedCells": 60,
+          "presentCells": 60,
+          "officialValueCells": 57,
+          "pendingValueCells": 3,
+          "missingObservationCells": 0,
+          "validSourceLinkCells": 60,
+          "unitConsistentCells": 60,
+          "updatedAtCells": 60,
+          "computedCells": 10,
+          "computedCellsWithNotes": 10,
+          "issueCells": 3,
+          "status": "warning"
+        },
+        {
+          "id": "czechia",
+          "label": "czechia",
+          "expectedCells": 60,
+          "presentCells": 60,
+          "officialValueCells": 56,
+          "pendingValueCells": 4,
+          "missingObservationCells": 0,
+          "validSourceLinkCells": 60,
+          "unitConsistentCells": 60,
+          "updatedAtCells": 60,
+          "computedCells": 10,
+          "computedCellsWithNotes": 10,
+          "issueCells": 4,
+          "status": "warning"
+        },
+        {
+          "id": "slovakia",
+          "label": "slovakia",
+          "expectedCells": 60,
+          "presentCells": 60,
+          "officialValueCells": 57,
+          "pendingValueCells": 3,
+          "missingObservationCells": 0,
+          "validSourceLinkCells": 60,
+          "unitConsistentCells": 60,
+          "updatedAtCells": 60,
+          "computedCells": 10,
+          "computedCellsWithNotes": 10,
+          "issueCells": 3,
+          "status": "warning"
+        }
+      ],
+      "by_indicator": [
+        {
+          "id": "fiscal_deficit_gdp",
+          "label": "财政赤字/GDP",
+          "expectedCells": 20,
+          "presentCells": 20,
+          "officialValueCells": 20,
+          "pendingValueCells": 0,
+          "missingObservationCells": 0,
+          "validSourceLinkCells": 20,
+          "unitConsistentCells": 20,
+          "updatedAtCells": 20,
+          "computedCells": 0,
+          "computedCellsWithNotes": 0,
+          "issueCells": 0,
+          "status": "pass"
+        },
+        {
+          "id": "government_debt_gdp",
+          "label": "政府债务/GDP",
+          "expectedCells": 20,
+          "presentCells": 20,
+          "officialValueCells": 20,
+          "pendingValueCells": 0,
+          "missingObservationCells": 0,
+          "validSourceLinkCells": 20,
+          "unitConsistentCells": 20,
+          "updatedAtCells": 20,
+          "computedCells": 0,
+          "computedCellsWithNotes": 0,
+          "issueCells": 0,
+          "status": "pass"
+        },
+        {
+          "id": "government_revenue_gdp",
+          "label": "财政收入/GDP",
+          "expectedCells": 20,
+          "presentCells": 20,
+          "officialValueCells": 20,
+          "pendingValueCells": 0,
+          "missingObservationCells": 0,
+          "validSourceLinkCells": 20,
+          "unitConsistentCells": 20,
+          "updatedAtCells": 20,
+          "computedCells": 0,
+          "computedCellsWithNotes": 0,
+          "issueCells": 0,
+          "status": "pass"
+        },
+        {
+          "id": "government_expenditure_gdp",
+          "label": "财政支出/GDP",
+          "expectedCells": 20,
+          "presentCells": 20,
+          "officialValueCells": 20,
+          "pendingValueCells": 0,
+          "missingObservationCells": 0,
+          "validSourceLinkCells": 20,
+          "unitConsistentCells": 20,
+          "updatedAtCells": 20,
+          "computedCells": 0,
+          "computedCellsWithNotes": 0,
+          "issueCells": 0,
+          "status": "pass"
+        },
+        {
+          "id": "exports_mio_eur",
+          "label": "出口",
+          "expectedCells": 20,
+          "presentCells": 20,
+          "officialValueCells": 20,
+          "pendingValueCells": 0,
+          "missingObservationCells": 0,
+          "validSourceLinkCells": 20,
+          "unitConsistentCells": 20,
+          "updatedAtCells": 20,
+          "computedCells": 0,
+          "computedCellsWithNotes": 0,
+          "issueCells": 0,
+          "status": "pass"
+        },
+        {
+          "id": "imports_mio_eur",
+          "label": "进口",
+          "expectedCells": 20,
+          "presentCells": 20,
+          "officialValueCells": 20,
+          "pendingValueCells": 0,
+          "missingObservationCells": 0,
+          "validSourceLinkCells": 20,
+          "unitConsistentCells": 20,
+          "updatedAtCells": 20,
+          "computedCells": 0,
+          "computedCellsWithNotes": 0,
+          "issueCells": 0,
+          "status": "pass"
+        },
+        {
+          "id": "trade_balance_mio_eur",
+          "label": "贸易差额",
+          "expectedCells": 20,
+          "presentCells": 20,
+          "officialValueCells": 20,
+          "pendingValueCells": 0,
+          "missingObservationCells": 0,
+          "validSourceLinkCells": 20,
+          "unitConsistentCells": 20,
+          "updatedAtCells": 20,
+          "computedCells": 20,
+          "computedCellsWithNotes": 20,
+          "issueCells": 0,
+          "status": "pass"
+        },
+        {
+          "id": "current_account_gdp",
+          "label": "经常账户/GDP",
+          "expectedCells": 20,
+          "presentCells": 20,
+          "officialValueCells": 20,
+          "pendingValueCells": 0,
+          "missingObservationCells": 0,
+          "validSourceLinkCells": 20,
+          "unitConsistentCells": 20,
+          "updatedAtCells": 20,
+          "computedCells": 0,
+          "computedCellsWithNotes": 0,
+          "issueCells": 0,
+          "status": "pass"
+        },
+        {
+          "id": "fdi_mio_eur",
+          "label": "FDI 流入",
+          "expectedCells": 20,
+          "presentCells": 20,
+          "officialValueCells": 15,
+          "pendingValueCells": 5,
+          "missingObservationCells": 0,
+          "validSourceLinkCells": 20,
+          "unitConsistentCells": 20,
+          "updatedAtCells": 20,
+          "computedCells": 0,
+          "computedCellsWithNotes": 0,
+          "issueCells": 5,
+          "status": "warning"
+        },
+        {
+          "id": "energy_import_dependency",
+          "label": "能源进口依赖",
+          "expectedCells": 20,
+          "presentCells": 20,
+          "officialValueCells": 16,
+          "pendingValueCells": 4,
+          "missingObservationCells": 0,
+          "validSourceLinkCells": 20,
+          "unitConsistentCells": 20,
+          "updatedAtCells": 20,
+          "computedCells": 0,
+          "computedCellsWithNotes": 0,
+          "issueCells": 4,
+          "status": "warning"
+        },
+        {
+          "id": "manufacturing_gva_gdp",
+          "label": "制造业占 GDP 比重",
+          "expectedCells": 20,
+          "presentCells": 20,
+          "officialValueCells": 20,
+          "pendingValueCells": 0,
+          "missingObservationCells": 0,
+          "validSourceLinkCells": 20,
+          "unitConsistentCells": 20,
+          "updatedAtCells": 20,
+          "computedCells": 0,
+          "computedCellsWithNotes": 0,
+          "issueCells": 0,
+          "status": "pass"
+        },
+        {
+          "id": "automotive_export_share",
+          "label": "汽车产业出口占比",
+          "expectedCells": 20,
+          "presentCells": 20,
+          "officialValueCells": 16,
+          "pendingValueCells": 4,
+          "missingObservationCells": 0,
+          "validSourceLinkCells": 20,
+          "unitConsistentCells": 20,
+          "updatedAtCells": 20,
+          "computedCells": 20,
+          "computedCellsWithNotes": 20,
+          "issueCells": 4,
+          "status": "warning"
+        }
+      ]
+    },
+    {
+      "derived_metric_id": "v4_latest_comparison:fiscal_deficit_gdp",
+      "scope": "V4",
+      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_name_zh": "财政赤字/GDP",
+      "indicator_name_en": "Government deficit / GDP",
+      "category": "fiscal",
+      "unit": "% GDP",
+      "latest_values": [
+        {
+          "country_slug": "poland",
+          "date": "2025",
+          "value": -7.3,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?unit=PC_GDP&sector=S13&na_item=B9&geo=PL&time=2025"
+        },
+        {
+          "country_slug": "hungary",
+          "date": "2025",
+          "value": -4.7,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?unit=PC_GDP&sector=S13&na_item=B9&geo=HU&time=2025"
+        },
+        {
+          "country_slug": "czechia",
+          "date": "2025",
+          "value": -2.1,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?unit=PC_GDP&sector=S13&na_item=B9&geo=CZ&time=2025"
+        },
+        {
+          "country_slug": "slovakia",
+          "date": "2025",
+          "value": -4.5,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?unit=PC_GDP&sector=S13&na_item=B9&geo=SK&time=2025"
+        }
+      ],
+      "highest_value": -2.1,
+      "highest_countries": [
+        "czechia"
+      ],
+      "lowest_value": -7.3,
+      "lowest_countries": [
+        "poland"
+      ],
+      "v4_mean": -4.65,
+      "mean_comparison": [
+        {
+          "country_slug": "poland",
+          "value": -7.3,
+          "gap_to_v4_mean": -2.6499999999999995,
+          "position": "below_mean"
+        },
+        {
+          "country_slug": "hungary",
+          "value": -4.7,
+          "gap_to_v4_mean": -0.04999999999999982,
+          "position": "below_mean"
+        },
+        {
+          "country_slug": "czechia",
+          "value": -2.1,
+          "gap_to_v4_mean": 2.5500000000000003,
+          "position": "above_mean"
+        },
+        {
+          "country_slug": "slovakia",
+          "value": -4.5,
+          "gap_to_v4_mean": 0.15000000000000036,
+          "position": "above_mean"
+        }
+      ],
+      "five_year_change": [
+        {
+          "country_slug": "poland",
+          "start_year": "2021",
+          "start_value": -1.7,
+          "latest_year": "2025",
+          "latest_value": -7.3,
+          "change": -5.6
+        },
+        {
+          "country_slug": "hungary",
+          "start_year": "2021",
+          "start_value": -7.1,
+          "latest_year": "2025",
+          "latest_value": -4.7,
+          "change": 2.3999999999999995
+        },
+        {
+          "country_slug": "czechia",
+          "start_year": "2021",
+          "start_value": -5,
+          "latest_year": "2025",
+          "latest_value": -2.1,
+          "change": 2.9
+        },
+        {
+          "country_slug": "slovakia",
+          "start_year": "2021",
+          "start_value": -5.1,
+          "latest_year": "2025",
+          "latest_value": -4.5,
+          "change": 0.5999999999999996
+        }
+      ],
+      "rank_change": [
+        {
+          "country_slug": "poland",
+          "start_rank": 1,
+          "latest_rank": 4,
+          "rank_delta": -3
+        },
+        {
+          "country_slug": "hungary",
+          "start_rank": 4,
+          "latest_rank": 3,
+          "rank_delta": 1
+        },
+        {
+          "country_slug": "czechia",
+          "start_rank": 2,
+          "latest_rank": 1,
+          "rank_delta": 1
+        },
+        {
+          "country_slug": "slovakia",
+          "start_rank": 3,
+          "latest_rank": 2,
+          "rank_delta": 1
+        }
+      ],
+      "model_boundary": "fact_derived_only_not_risk_index"
+    },
+    {
+      "derived_metric_id": "v4_latest_comparison:government_debt_gdp",
+      "scope": "V4",
+      "indicator_id": "government_debt_gdp",
+      "indicator_name_zh": "政府债务/GDP",
+      "indicator_name_en": "Government debt / GDP",
+      "category": "fiscal",
+      "unit": "% GDP",
+      "latest_values": [
+        {
+          "country_slug": "poland",
+          "date": "2025",
+          "value": 59.7,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?unit=PC_GDP&sector=S13&na_item=GD&geo=PL&time=2025"
+        },
+        {
+          "country_slug": "hungary",
+          "date": "2025",
+          "value": 74.6,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?unit=PC_GDP&sector=S13&na_item=GD&geo=HU&time=2025"
+        },
+        {
+          "country_slug": "czechia",
+          "date": "2025",
+          "value": 44.3,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?unit=PC_GDP&sector=S13&na_item=GD&geo=CZ&time=2025"
+        },
+        {
+          "country_slug": "slovakia",
+          "date": "2025",
+          "value": 61.4,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?unit=PC_GDP&sector=S13&na_item=GD&geo=SK&time=2025"
+        }
+      ],
+      "highest_value": 74.6,
+      "highest_countries": [
+        "hungary"
+      ],
+      "lowest_value": 44.3,
+      "lowest_countries": [
+        "czechia"
+      ],
+      "v4_mean": 60.00000000000001,
+      "mean_comparison": [
+        {
+          "country_slug": "poland",
+          "value": 59.7,
+          "gap_to_v4_mean": -0.30000000000000426,
+          "position": "below_mean"
+        },
+        {
+          "country_slug": "hungary",
+          "value": 74.6,
+          "gap_to_v4_mean": 14.599999999999987,
+          "position": "above_mean"
+        },
+        {
+          "country_slug": "czechia",
+          "value": 44.3,
+          "gap_to_v4_mean": -15.70000000000001,
+          "position": "below_mean"
+        },
+        {
+          "country_slug": "slovakia",
+          "value": 61.4,
+          "gap_to_v4_mean": 1.3999999999999915,
+          "position": "above_mean"
+        }
+      ],
+      "five_year_change": [
+        {
+          "country_slug": "poland",
+          "start_year": "2021",
+          "start_value": 53,
+          "latest_year": "2025",
+          "latest_value": 59.7,
+          "change": 6.700000000000003
+        },
+        {
+          "country_slug": "hungary",
+          "start_year": "2021",
+          "start_value": 76.2,
+          "latest_year": "2025",
+          "latest_value": 74.6,
+          "change": -1.6000000000000085
+        },
+        {
+          "country_slug": "czechia",
+          "start_year": "2021",
+          "start_value": 40.7,
+          "latest_year": "2025",
+          "latest_value": 44.3,
+          "change": 3.5999999999999943
+        },
+        {
+          "country_slug": "slovakia",
+          "start_year": "2021",
+          "start_value": 60.2,
+          "latest_year": "2025",
+          "latest_value": 61.4,
+          "change": 1.1999999999999957
+        }
+      ],
+      "rank_change": [
+        {
+          "country_slug": "poland",
+          "start_rank": 3,
+          "latest_rank": 3,
+          "rank_delta": 0
+        },
+        {
+          "country_slug": "hungary",
+          "start_rank": 1,
+          "latest_rank": 1,
+          "rank_delta": 0
+        },
+        {
+          "country_slug": "czechia",
+          "start_rank": 4,
+          "latest_rank": 4,
+          "rank_delta": 0
+        },
+        {
+          "country_slug": "slovakia",
+          "start_rank": 2,
+          "latest_rank": 2,
+          "rank_delta": 0
+        }
+      ],
+      "model_boundary": "fact_derived_only_not_risk_index"
+    },
+    {
+      "derived_metric_id": "v4_latest_comparison:government_revenue_gdp",
+      "scope": "V4",
+      "indicator_id": "government_revenue_gdp",
+      "indicator_name_zh": "财政收入/GDP",
+      "indicator_name_en": "Government revenue / GDP",
+      "category": "fiscal",
+      "unit": "% GDP",
+      "latest_values": [
+        {
+          "country_slug": "poland",
+          "date": "2025",
+          "value": 43.6,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?unit=PC_GDP&sector=S13&na_item=TR&geo=PL&time=2025"
+        },
+        {
+          "country_slug": "hungary",
+          "date": "2025",
+          "value": 42.6,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?unit=PC_GDP&sector=S13&na_item=TR&geo=HU&time=2025"
+        },
+        {
+          "country_slug": "czechia",
+          "date": "2025",
+          "value": 41,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?unit=PC_GDP&sector=S13&na_item=TR&geo=CZ&time=2025"
+        },
+        {
+          "country_slug": "slovakia",
+          "date": "2025",
+          "value": 43.5,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?unit=PC_GDP&sector=S13&na_item=TR&geo=SK&time=2025"
+        }
+      ],
+      "highest_value": 43.6,
+      "highest_countries": [
+        "poland"
+      ],
+      "lowest_value": 41,
+      "lowest_countries": [
+        "czechia"
+      ],
+      "v4_mean": 42.675,
+      "mean_comparison": [
+        {
+          "country_slug": "poland",
+          "value": 43.6,
+          "gap_to_v4_mean": 0.9250000000000043,
+          "position": "above_mean"
+        },
+        {
+          "country_slug": "hungary",
+          "value": 42.6,
+          "gap_to_v4_mean": -0.07499999999999574,
+          "position": "below_mean"
+        },
+        {
+          "country_slug": "czechia",
+          "value": 41,
+          "gap_to_v4_mean": -1.6749999999999972,
+          "position": "below_mean"
+        },
+        {
+          "country_slug": "slovakia",
+          "value": 43.5,
+          "gap_to_v4_mean": 0.8250000000000028,
+          "position": "above_mean"
+        }
+      ],
+      "five_year_change": [
+        {
+          "country_slug": "poland",
+          "start_year": "2021",
+          "start_value": 41.9,
+          "latest_year": "2025",
+          "latest_value": 43.6,
+          "change": 1.7000000000000028
+        },
+        {
+          "country_slug": "hungary",
+          "start_year": "2021",
+          "start_value": 41,
+          "latest_year": "2025",
+          "latest_value": 42.6,
+          "change": 1.6000000000000014
+        },
+        {
+          "country_slug": "czechia",
+          "start_year": "2021",
+          "start_value": 40.1,
+          "latest_year": "2025",
+          "latest_value": 41,
+          "change": 0.8999999999999986
+        },
+        {
+          "country_slug": "slovakia",
+          "start_year": "2021",
+          "start_value": 39.8,
+          "latest_year": "2025",
+          "latest_value": 43.5,
+          "change": 3.700000000000003
+        }
+      ],
+      "rank_change": [
+        {
+          "country_slug": "poland",
+          "start_rank": 1,
+          "latest_rank": 1,
+          "rank_delta": 0
+        },
+        {
+          "country_slug": "hungary",
+          "start_rank": 2,
+          "latest_rank": 3,
+          "rank_delta": -1
+        },
+        {
+          "country_slug": "czechia",
+          "start_rank": 3,
+          "latest_rank": 4,
+          "rank_delta": -1
+        },
+        {
+          "country_slug": "slovakia",
+          "start_rank": 4,
+          "latest_rank": 2,
+          "rank_delta": 2
+        }
+      ],
+      "model_boundary": "fact_derived_only_not_risk_index"
+    },
+    {
+      "derived_metric_id": "v4_latest_comparison:government_expenditure_gdp",
+      "scope": "V4",
+      "indicator_id": "government_expenditure_gdp",
+      "indicator_name_zh": "财政支出/GDP",
+      "indicator_name_en": "Government expenditure / GDP",
+      "category": "fiscal",
+      "unit": "% GDP",
+      "latest_values": [
+        {
+          "country_slug": "poland",
+          "date": "2025",
+          "value": 50.9,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?unit=PC_GDP&sector=S13&na_item=TE&geo=PL&time=2025"
+        },
+        {
+          "country_slug": "hungary",
+          "date": "2025",
+          "value": 47.3,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?unit=PC_GDP&sector=S13&na_item=TE&geo=HU&time=2025"
+        },
+        {
+          "country_slug": "czechia",
+          "date": "2025",
+          "value": 43.2,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?unit=PC_GDP&sector=S13&na_item=TE&geo=CZ&time=2025"
+        },
+        {
+          "country_slug": "slovakia",
+          "date": "2025",
+          "value": 47.9,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?unit=PC_GDP&sector=S13&na_item=TE&geo=SK&time=2025"
+        }
+      ],
+      "highest_value": 50.9,
+      "highest_countries": [
+        "poland"
+      ],
+      "lowest_value": 43.2,
+      "lowest_countries": [
+        "czechia"
+      ],
+      "v4_mean": 47.324999999999996,
+      "mean_comparison": [
+        {
+          "country_slug": "poland",
+          "value": 50.9,
+          "gap_to_v4_mean": 3.575000000000003,
+          "position": "above_mean"
+        },
+        {
+          "country_slug": "hungary",
+          "value": 47.3,
+          "gap_to_v4_mean": -0.02499999999999858,
+          "position": "below_mean"
+        },
+        {
+          "country_slug": "czechia",
+          "value": 43.2,
+          "gap_to_v4_mean": -4.124999999999993,
+          "position": "below_mean"
+        },
+        {
+          "country_slug": "slovakia",
+          "value": 47.9,
+          "gap_to_v4_mean": 0.5750000000000028,
+          "position": "above_mean"
+        }
+      ],
+      "five_year_change": [
+        {
+          "country_slug": "poland",
+          "start_year": "2021",
+          "start_value": 43.6,
+          "latest_year": "2025",
+          "latest_value": 50.9,
+          "change": 7.299999999999997
+        },
+        {
+          "country_slug": "hungary",
+          "start_year": "2021",
+          "start_value": 48.1,
+          "latest_year": "2025",
+          "latest_value": 47.3,
+          "change": -0.8000000000000043
+        },
+        {
+          "country_slug": "czechia",
+          "start_year": "2021",
+          "start_value": 45,
+          "latest_year": "2025",
+          "latest_value": 43.2,
+          "change": -1.7999999999999972
+        },
+        {
+          "country_slug": "slovakia",
+          "start_year": "2021",
+          "start_value": 44.8,
+          "latest_year": "2025",
+          "latest_value": 47.9,
+          "change": 3.1000000000000014
+        }
+      ],
+      "rank_change": [
+        {
+          "country_slug": "poland",
+          "start_rank": 4,
+          "latest_rank": 1,
+          "rank_delta": 3
+        },
+        {
+          "country_slug": "hungary",
+          "start_rank": 1,
+          "latest_rank": 3,
+          "rank_delta": -2
+        },
+        {
+          "country_slug": "czechia",
+          "start_rank": 2,
+          "latest_rank": 4,
+          "rank_delta": -2
+        },
+        {
+          "country_slug": "slovakia",
+          "start_rank": 3,
+          "latest_rank": 2,
+          "rank_delta": 1
+        }
+      ],
+      "model_boundary": "fact_derived_only_not_risk_index"
+    },
+    {
+      "derived_metric_id": "v4_latest_comparison:exports_mio_eur",
+      "scope": "V4",
+      "indicator_id": "exports_mio_eur",
+      "indicator_name_zh": "出口",
+      "indicator_name_en": "Exports",
+      "category": "external",
+      "unit": "百万欧元",
+      "latest_values": [
+        {
+          "country_slug": "poland",
+          "date": "2025",
+          "value": 461553.9,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=PL&time=2025"
+        },
+        {
+          "country_slug": "hungary",
+          "date": "2025",
+          "value": 158940,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=HU&time=2025"
+        },
+        {
+          "country_slug": "czechia",
+          "date": "2025",
+          "value": 232020.6,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=CZ&time=2025"
+        },
+        {
+          "country_slug": "slovakia",
+          "date": "2025",
+          "value": 116370.6,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=SK&time=2025"
+        }
+      ],
+      "highest_value": 461553.9,
+      "highest_countries": [
+        "poland"
+      ],
+      "lowest_value": 116370.6,
+      "lowest_countries": [
+        "slovakia"
+      ],
+      "v4_mean": 242221.275,
+      "mean_comparison": [
+        {
+          "country_slug": "poland",
+          "value": 461553.9,
+          "gap_to_v4_mean": 219332.62500000003,
+          "position": "above_mean"
+        },
+        {
+          "country_slug": "hungary",
+          "value": 158940,
+          "gap_to_v4_mean": -83281.275,
+          "position": "below_mean"
+        },
+        {
+          "country_slug": "czechia",
+          "value": 232020.6,
+          "gap_to_v4_mean": -10200.674999999988,
+          "position": "below_mean"
+        },
+        {
+          "country_slug": "slovakia",
+          "value": 116370.6,
+          "gap_to_v4_mean": -125850.67499999999,
+          "position": "below_mean"
+        }
+      ],
+      "five_year_change": [
+        {
+          "country_slug": "poland",
+          "start_year": "2021",
+          "start_value": 332532.2,
+          "latest_year": "2025",
+          "latest_value": 461553.9,
+          "change": 129021.70000000001
+        },
+        {
+          "country_slug": "hungary",
+          "start_year": "2021",
+          "start_value": 123065.3,
+          "latest_year": "2025",
+          "latest_value": 158940,
+          "change": 35874.7
+        },
+        {
+          "country_slug": "czechia",
+          "start_year": "2021",
+          "start_value": 173561.8,
+          "latest_year": "2025",
+          "latest_value": 232020.6,
+          "change": 58458.80000000002
+        },
+        {
+          "country_slug": "slovakia",
+          "start_year": "2021",
+          "start_value": 92478.7,
+          "latest_year": "2025",
+          "latest_value": 116370.6,
+          "change": 23891.90000000001
+        }
+      ],
+      "rank_change": [
+        {
+          "country_slug": "poland",
+          "start_rank": 1,
+          "latest_rank": 1,
+          "rank_delta": 0
+        },
+        {
+          "country_slug": "hungary",
+          "start_rank": 3,
+          "latest_rank": 3,
+          "rank_delta": 0
+        },
+        {
+          "country_slug": "czechia",
+          "start_rank": 2,
+          "latest_rank": 2,
+          "rank_delta": 0
+        },
+        {
+          "country_slug": "slovakia",
+          "start_rank": 4,
+          "latest_rank": 4,
+          "rank_delta": 0
+        }
+      ],
+      "model_boundary": "fact_derived_only_not_risk_index"
+    },
+    {
+      "derived_metric_id": "v4_latest_comparison:imports_mio_eur",
+      "scope": "V4",
+      "indicator_id": "imports_mio_eur",
+      "indicator_name_zh": "进口",
+      "indicator_name_en": "Imports",
+      "category": "external",
+      "unit": "百万欧元",
+      "latest_values": [
+        {
+          "country_slug": "poland",
+          "date": "2025",
+          "value": 435690.7,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P7&geo=PL&time=2025"
+        },
+        {
+          "country_slug": "hungary",
+          "date": "2025",
+          "value": 149132.8,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P7&geo=HU&time=2025"
+        },
+        {
+          "country_slug": "czechia",
+          "date": "2025",
+          "value": 211742.9,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P7&geo=CZ&time=2025"
+        },
+        {
+          "country_slug": "slovakia",
+          "date": "2025",
+          "value": 116580.1,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P7&geo=SK&time=2025"
+        }
+      ],
+      "highest_value": 435690.7,
+      "highest_countries": [
+        "poland"
+      ],
+      "lowest_value": 116580.1,
+      "lowest_countries": [
+        "slovakia"
+      ],
+      "v4_mean": 228286.625,
+      "mean_comparison": [
+        {
+          "country_slug": "poland",
+          "value": 435690.7,
+          "gap_to_v4_mean": 207404.075,
+          "position": "above_mean"
+        },
+        {
+          "country_slug": "hungary",
+          "value": 149132.8,
+          "gap_to_v4_mean": -79153.82500000001,
+          "position": "below_mean"
+        },
+        {
+          "country_slug": "czechia",
+          "value": 211742.9,
+          "gap_to_v4_mean": -16543.725000000006,
+          "position": "below_mean"
+        },
+        {
+          "country_slug": "slovakia",
+          "value": 116580.1,
+          "gap_to_v4_mean": -111706.525,
+          "position": "below_mean"
+        }
+      ],
+      "five_year_change": [
+        {
+          "country_slug": "poland",
+          "start_year": "2021",
+          "start_value": 313866.4,
+          "latest_year": "2025",
+          "latest_value": 435690.7,
+          "change": 121824.29999999999
+        },
+        {
+          "country_slug": "hungary",
+          "start_year": "2021",
+          "start_value": 123630.4,
+          "latest_year": "2025",
+          "latest_value": 149132.8,
+          "change": 25502.399999999994
+        },
+        {
+          "country_slug": "czechia",
+          "start_year": "2021",
+          "start_value": 164405.3,
+          "latest_year": "2025",
+          "latest_value": 211742.9,
+          "change": 47337.600000000006
+        },
+        {
+          "country_slug": "slovakia",
+          "start_year": "2021",
+          "start_value": 92943.1,
+          "latest_year": "2025",
+          "latest_value": 116580.1,
+          "change": 23637
+        }
+      ],
+      "rank_change": [
+        {
+          "country_slug": "poland",
+          "start_rank": 1,
+          "latest_rank": 1,
+          "rank_delta": 0
+        },
+        {
+          "country_slug": "hungary",
+          "start_rank": 3,
+          "latest_rank": 3,
+          "rank_delta": 0
+        },
+        {
+          "country_slug": "czechia",
+          "start_rank": 2,
+          "latest_rank": 2,
+          "rank_delta": 0
+        },
+        {
+          "country_slug": "slovakia",
+          "start_rank": 4,
+          "latest_rank": 4,
+          "rank_delta": 0
+        }
+      ],
+      "model_boundary": "fact_derived_only_not_risk_index"
+    },
+    {
+      "derived_metric_id": "v4_latest_comparison:trade_balance_mio_eur",
+      "scope": "V4",
+      "indicator_id": "trade_balance_mio_eur",
+      "indicator_name_zh": "贸易差额",
+      "indicator_name_en": "Trade balance",
+      "category": "external",
+      "unit": "百万欧元",
+      "latest_values": [
+        {
+          "country_slug": "poland",
+          "date": "2025",
+          "value": 25863.2,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=PL&time=2025"
+        },
+        {
+          "country_slug": "hungary",
+          "date": "2025",
+          "value": 9807.2,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=HU&time=2025"
+        },
+        {
+          "country_slug": "czechia",
+          "date": "2025",
+          "value": 20277.7,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=CZ&time=2025"
+        },
+        {
+          "country_slug": "slovakia",
+          "date": "2025",
+          "value": -209.5,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?unit=CP_MEUR&na_item=P6&geo=SK&time=2025"
+        }
+      ],
+      "highest_value": 25863.2,
+      "highest_countries": [
+        "poland"
+      ],
+      "lowest_value": -209.5,
+      "lowest_countries": [
+        "slovakia"
+      ],
+      "v4_mean": 13934.650000000001,
+      "mean_comparison": [
+        {
+          "country_slug": "poland",
+          "value": 25863.2,
+          "gap_to_v4_mean": 11928.55,
+          "position": "above_mean"
+        },
+        {
+          "country_slug": "hungary",
+          "value": 9807.2,
+          "gap_to_v4_mean": -4127.450000000001,
+          "position": "below_mean"
+        },
+        {
+          "country_slug": "czechia",
+          "value": 20277.7,
+          "gap_to_v4_mean": 6343.049999999999,
+          "position": "above_mean"
+        },
+        {
+          "country_slug": "slovakia",
+          "value": -209.5,
+          "gap_to_v4_mean": -14144.150000000001,
+          "position": "below_mean"
+        }
+      ],
+      "five_year_change": [
+        {
+          "country_slug": "poland",
+          "start_year": "2021",
+          "start_value": 18665.8,
+          "latest_year": "2025",
+          "latest_value": 25863.2,
+          "change": 7197.4000000000015
+        },
+        {
+          "country_slug": "hungary",
+          "start_year": "2021",
+          "start_value": -565.1,
+          "latest_year": "2025",
+          "latest_value": 9807.2,
+          "change": 10372.300000000001
+        },
+        {
+          "country_slug": "czechia",
+          "start_year": "2021",
+          "start_value": 9156.5,
+          "latest_year": "2025",
+          "latest_value": 20277.7,
+          "change": 11121.2
+        },
+        {
+          "country_slug": "slovakia",
+          "start_year": "2021",
+          "start_value": -464.4,
+          "latest_year": "2025",
+          "latest_value": -209.5,
+          "change": 254.89999999999998
+        }
+      ],
+      "rank_change": [
+        {
+          "country_slug": "poland",
+          "start_rank": 1,
+          "latest_rank": 1,
+          "rank_delta": 0
+        },
+        {
+          "country_slug": "hungary",
+          "start_rank": 4,
+          "latest_rank": 3,
+          "rank_delta": 1
+        },
+        {
+          "country_slug": "czechia",
+          "start_rank": 2,
+          "latest_rank": 2,
+          "rank_delta": 0
+        },
+        {
+          "country_slug": "slovakia",
+          "start_rank": 3,
+          "latest_rank": 4,
+          "rank_delta": -1
+        }
+      ],
+      "model_boundary": "fact_derived_only_not_risk_index"
+    },
+    {
+      "derived_metric_id": "v4_latest_comparison:current_account_gdp",
+      "scope": "V4",
+      "indicator_id": "current_account_gdp",
+      "indicator_name_zh": "经常账户/GDP",
+      "indicator_name_en": "Current account / GDP",
+      "category": "external",
+      "unit": "% GDP",
+      "latest_values": [
+        {
+          "country_slug": "poland",
+          "date": "2025",
+          "value": -0.9,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tipsbp20?unit=PC_GDP&geo=PL&time=2025"
+        },
+        {
+          "country_slug": "hungary",
+          "date": "2025",
+          "value": 1.8,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tipsbp20?unit=PC_GDP&geo=HU&time=2025"
+        },
+        {
+          "country_slug": "czechia",
+          "date": "2025",
+          "value": 0.7,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tipsbp20?unit=PC_GDP&geo=CZ&time=2025"
+        },
+        {
+          "country_slug": "slovakia",
+          "date": "2025",
+          "value": -3.6,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tipsbp20?unit=PC_GDP&geo=SK&time=2025"
+        }
+      ],
+      "highest_value": 1.8,
+      "highest_countries": [
+        "hungary"
+      ],
+      "lowest_value": -3.6,
+      "lowest_countries": [
+        "slovakia"
+      ],
+      "v4_mean": -0.5,
+      "mean_comparison": [
+        {
+          "country_slug": "poland",
+          "value": -0.9,
+          "gap_to_v4_mean": -0.4,
+          "position": "below_mean"
+        },
+        {
+          "country_slug": "hungary",
+          "value": 1.8,
+          "gap_to_v4_mean": 2.3,
+          "position": "above_mean"
+        },
+        {
+          "country_slug": "czechia",
+          "value": 0.7,
+          "gap_to_v4_mean": 1.2,
+          "position": "above_mean"
+        },
+        {
+          "country_slug": "slovakia",
+          "value": -3.6,
+          "gap_to_v4_mean": -3.1,
+          "position": "below_mean"
+        }
+      ],
+      "five_year_change": [
+        {
+          "country_slug": "poland",
+          "start_year": "2021",
+          "start_value": -1.3,
+          "latest_year": "2025",
+          "latest_value": -0.9,
+          "change": 0.4
+        },
+        {
+          "country_slug": "hungary",
+          "start_year": "2021",
+          "start_value": -4.4,
+          "latest_year": "2025",
+          "latest_value": 1.8,
+          "change": 6.2
+        },
+        {
+          "country_slug": "czechia",
+          "start_year": "2021",
+          "start_value": -2.1,
+          "latest_year": "2025",
+          "latest_value": 0.7,
+          "change": 2.8
+        },
+        {
+          "country_slug": "slovakia",
+          "start_year": "2021",
+          "start_value": -4.8,
+          "latest_year": "2025",
+          "latest_value": -3.6,
+          "change": 1.1999999999999997
+        }
+      ],
+      "rank_change": [
+        {
+          "country_slug": "poland",
+          "start_rank": 1,
+          "latest_rank": 3,
+          "rank_delta": -2
+        },
+        {
+          "country_slug": "hungary",
+          "start_rank": 3,
+          "latest_rank": 1,
+          "rank_delta": 2
+        },
+        {
+          "country_slug": "czechia",
+          "start_rank": 2,
+          "latest_rank": 2,
+          "rank_delta": 0
+        },
+        {
+          "country_slug": "slovakia",
+          "start_rank": 4,
+          "latest_rank": 4,
+          "rank_delta": 0
+        }
+      ],
+      "model_boundary": "fact_derived_only_not_risk_index"
+    },
+    {
+      "derived_metric_id": "v4_latest_comparison:fdi_mio_eur",
+      "scope": "V4",
+      "indicator_id": "fdi_mio_eur",
+      "indicator_name_zh": "FDI 流入",
+      "indicator_name_en": "FDI inflow",
+      "category": "investment",
+      "unit": "百万欧元",
+      "latest_values": [
+        {
+          "country_slug": "poland",
+          "date": "2024",
+          "value": 19004.2,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=PL&time=2024"
+        },
+        {
+          "country_slug": "hungary",
+          "date": "2024",
+          "value": -57492.7,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=HU&time=2024"
+        },
+        {
+          "country_slug": "czechia",
+          "date": "2024",
+          "value": 12311.3,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=CZ&time=2024"
+        },
+        {
+          "country_slug": "slovakia",
+          "date": "2024",
+          "value": 4600.1,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=SK&time=2024"
+        }
+      ],
+      "highest_value": 19004.2,
+      "highest_countries": [
+        "poland"
+      ],
+      "lowest_value": -57492.7,
+      "lowest_countries": [
+        "hungary"
+      ],
+      "v4_mean": -5394.275,
+      "mean_comparison": [
+        {
+          "country_slug": "poland",
+          "value": 19004.2,
+          "gap_to_v4_mean": 24398.475,
+          "position": "above_mean"
+        },
+        {
+          "country_slug": "hungary",
+          "value": -57492.7,
+          "gap_to_v4_mean": -52098.424999999996,
+          "position": "below_mean"
+        },
+        {
+          "country_slug": "czechia",
+          "value": 12311.3,
+          "gap_to_v4_mean": 17705.574999999997,
+          "position": "above_mean"
+        },
+        {
+          "country_slug": "slovakia",
+          "value": 4600.1,
+          "gap_to_v4_mean": 9994.375,
+          "position": "above_mean"
+        }
+      ],
+      "five_year_change": [
+        {
+          "country_slug": "poland",
+          "start_year": "2021",
+          "start_value": 30813.3,
+          "latest_year": "2024",
+          "latest_value": 19004.2,
+          "change": -11809.099999999999
+        },
+        {
+          "country_slug": "hungary",
+          "start_year": "2021",
+          "start_value": 28749.9,
+          "latest_year": "2024",
+          "latest_value": -57492.7,
+          "change": -86242.6
+        },
+        {
+          "country_slug": "czechia",
+          "start_year": "2021",
+          "start_value": 11082.8,
+          "latest_year": "2024",
+          "latest_value": 12311.3,
+          "change": 1228.5
+        },
+        {
+          "country_slug": "slovakia",
+          "start_year": "2021",
+          "start_value": 2327,
+          "latest_year": "2024",
+          "latest_value": 4600.1,
+          "change": 2273.1000000000004
+        }
+      ],
+      "rank_change": [
+        {
+          "country_slug": "poland",
+          "start_rank": 1,
+          "latest_rank": 1,
+          "rank_delta": 0
+        },
+        {
+          "country_slug": "hungary",
+          "start_rank": 2,
+          "latest_rank": 4,
+          "rank_delta": -2
+        },
+        {
+          "country_slug": "czechia",
+          "start_rank": 3,
+          "latest_rank": 2,
+          "rank_delta": 1
+        },
+        {
+          "country_slug": "slovakia",
+          "start_rank": 4,
+          "latest_rank": 3,
+          "rank_delta": 1
+        }
+      ],
+      "model_boundary": "fact_derived_only_not_risk_index"
+    },
+    {
+      "derived_metric_id": "v4_latest_comparison:energy_import_dependency",
+      "scope": "V4",
+      "indicator_id": "energy_import_dependency",
+      "indicator_name_zh": "能源进口依赖",
+      "indicator_name_en": "Energy import dependency",
+      "category": "energy",
+      "unit": "%",
+      "latest_values": [
+        {
+          "country_slug": "poland",
+          "date": "2024",
+          "value": 45.669,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?unit=PC&siec=TOTAL&geo=PL&time=2024"
+        },
+        {
+          "country_slug": "hungary",
+          "date": "2024",
+          "value": 48.943,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?unit=PC&siec=TOTAL&geo=HU&time=2024"
+        },
+        {
+          "country_slug": "czechia",
+          "date": "2024",
+          "value": 39.32,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?unit=PC&siec=TOTAL&geo=CZ&time=2024"
+        },
+        {
+          "country_slug": "slovakia",
+          "date": "2024",
+          "value": 53.501,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?unit=PC&siec=TOTAL&geo=SK&time=2024"
+        }
+      ],
+      "highest_value": 53.501,
+      "highest_countries": [
+        "slovakia"
+      ],
+      "lowest_value": 39.32,
+      "lowest_countries": [
+        "czechia"
+      ],
+      "v4_mean": 46.85825,
+      "mean_comparison": [
+        {
+          "country_slug": "poland",
+          "value": 45.669,
+          "gap_to_v4_mean": -1.1892500000000013,
+          "position": "below_mean"
+        },
+        {
+          "country_slug": "hungary",
+          "value": 48.943,
+          "gap_to_v4_mean": 2.0847499999999997,
+          "position": "above_mean"
+        },
+        {
+          "country_slug": "czechia",
+          "value": 39.32,
+          "gap_to_v4_mean": -7.538249999999998,
+          "position": "below_mean"
+        },
+        {
+          "country_slug": "slovakia",
+          "value": 53.501,
+          "gap_to_v4_mean": 6.6427499999999995,
+          "position": "above_mean"
+        }
+      ],
+      "five_year_change": [
+        {
+          "country_slug": "poland",
+          "start_year": "2021",
+          "start_value": 40.464,
+          "latest_year": "2024",
+          "latest_value": 45.669,
+          "change": 5.204999999999998
+        },
+        {
+          "country_slug": "hungary",
+          "start_year": "2021",
+          "start_value": 54.121,
+          "latest_year": "2024",
+          "latest_value": 48.943,
+          "change": -5.178000000000004
+        },
+        {
+          "country_slug": "czechia",
+          "start_year": "2021",
+          "start_value": 39.958,
+          "latest_year": "2024",
+          "latest_value": 39.32,
+          "change": -0.6379999999999981
+        },
+        {
+          "country_slug": "slovakia",
+          "start_year": "2021",
+          "start_value": 52.584,
+          "latest_year": "2024",
+          "latest_value": 53.501,
+          "change": 0.9169999999999945
+        }
+      ],
+      "rank_change": [
+        {
+          "country_slug": "poland",
+          "start_rank": 3,
+          "latest_rank": 3,
+          "rank_delta": 0
+        },
+        {
+          "country_slug": "hungary",
+          "start_rank": 1,
+          "latest_rank": 2,
+          "rank_delta": -1
+        },
+        {
+          "country_slug": "czechia",
+          "start_rank": 4,
+          "latest_rank": 4,
+          "rank_delta": 0
+        },
+        {
+          "country_slug": "slovakia",
+          "start_rank": 2,
+          "latest_rank": 1,
+          "rank_delta": 1
+        }
+      ],
+      "model_boundary": "fact_derived_only_not_risk_index"
+    },
+    {
+      "derived_metric_id": "v4_latest_comparison:manufacturing_gva_gdp",
+      "scope": "V4",
+      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_name_zh": "制造业占 GDP 比重",
+      "indicator_name_en": "Manufacturing GVA / GDP",
+      "category": "industry",
+      "unit": "% GDP",
+      "latest_values": [
+        {
+          "country_slug": "poland",
+          "date": "2025",
+          "value": 14.4,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=PL&time=2025"
+        },
+        {
+          "country_slug": "hungary",
+          "date": "2025",
+          "value": 15.1,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=HU&time=2025"
+        },
+        {
+          "country_slug": "czechia",
+          "date": "2025",
+          "value": 19.4,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=CZ&time=2025"
+        },
+        {
+          "country_slug": "slovakia",
+          "date": "2025",
+          "value": 16.2,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=SK&time=2025"
+        }
+      ],
+      "highest_value": 19.4,
+      "highest_countries": [
+        "czechia"
+      ],
+      "lowest_value": 14.4,
+      "lowest_countries": [
+        "poland"
+      ],
+      "v4_mean": 16.275,
+      "mean_comparison": [
+        {
+          "country_slug": "poland",
+          "value": 14.4,
+          "gap_to_v4_mean": -1.8749999999999982,
+          "position": "below_mean"
+        },
+        {
+          "country_slug": "hungary",
+          "value": 15.1,
+          "gap_to_v4_mean": -1.174999999999999,
+          "position": "below_mean"
+        },
+        {
+          "country_slug": "czechia",
+          "value": 19.4,
+          "gap_to_v4_mean": 3.125,
+          "position": "above_mean"
+        },
+        {
+          "country_slug": "slovakia",
+          "value": 16.2,
+          "gap_to_v4_mean": -0.07499999999999929,
+          "position": "below_mean"
+        }
+      ],
+      "five_year_change": [
+        {
+          "country_slug": "poland",
+          "start_year": "2021",
+          "start_value": 17.3,
+          "latest_year": "2025",
+          "latest_value": 14.4,
+          "change": -2.9000000000000004
+        },
+        {
+          "country_slug": "hungary",
+          "start_year": "2021",
+          "start_value": 16.5,
+          "latest_year": "2025",
+          "latest_value": 15.1,
+          "change": -1.4000000000000004
+        },
+        {
+          "country_slug": "czechia",
+          "start_year": "2021",
+          "start_value": 19.6,
+          "latest_year": "2025",
+          "latest_value": 19.4,
+          "change": -0.20000000000000284
+        },
+        {
+          "country_slug": "slovakia",
+          "start_year": "2021",
+          "start_value": 16.6,
+          "latest_year": "2025",
+          "latest_value": 16.2,
+          "change": -0.40000000000000213
+        }
+      ],
+      "rank_change": [
+        {
+          "country_slug": "poland",
+          "start_rank": 2,
+          "latest_rank": 4,
+          "rank_delta": -2
+        },
+        {
+          "country_slug": "hungary",
+          "start_rank": 4,
+          "latest_rank": 3,
+          "rank_delta": 1
+        },
+        {
+          "country_slug": "czechia",
+          "start_rank": 1,
+          "latest_rank": 1,
+          "rank_delta": 0
+        },
+        {
+          "country_slug": "slovakia",
+          "start_rank": 3,
+          "latest_rank": 2,
+          "rank_delta": 1
+        }
+      ],
+      "model_boundary": "fact_derived_only_not_risk_index"
+    },
+    {
+      "derived_metric_id": "v4_latest_comparison:automotive_export_share",
+      "scope": "V4",
+      "indicator_id": "automotive_export_share",
+      "indicator_name_zh": "汽车产业出口占比",
+      "indicator_name_en": "Automotive industry export share",
+      "category": "industry",
+      "unit": "%",
+      "latest_values": [
+        {
+          "country_slug": "poland",
+          "date": "2024",
+          "value": 15,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=PL&time=2024"
+        },
+        {
+          "country_slug": "hungary",
+          "date": "2024",
+          "value": 21.9,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=HU&time=2024"
+        },
+        {
+          "country_slug": "czechia",
+          "date": "2024",
+          "value": 32.4,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=CZ&time=2024"
+        },
+        {
+          "country_slug": "slovakia",
+          "date": "2024",
+          "value": 40.4,
+          "status": "official",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=SK&time=2024"
+        }
+      ],
+      "highest_value": 40.4,
+      "highest_countries": [
+        "slovakia"
+      ],
+      "lowest_value": 15,
+      "lowest_countries": [
+        "poland"
+      ],
+      "v4_mean": 27.424999999999997,
+      "mean_comparison": [
+        {
+          "country_slug": "poland",
+          "value": 15,
+          "gap_to_v4_mean": -12.424999999999997,
+          "position": "below_mean"
+        },
+        {
+          "country_slug": "hungary",
+          "value": 21.9,
+          "gap_to_v4_mean": -5.524999999999999,
+          "position": "below_mean"
+        },
+        {
+          "country_slug": "czechia",
+          "value": 32.4,
+          "gap_to_v4_mean": 4.975000000000001,
+          "position": "above_mean"
+        },
+        {
+          "country_slug": "slovakia",
+          "value": 40.4,
+          "gap_to_v4_mean": 12.975000000000001,
+          "position": "above_mean"
+        }
+      ],
+      "five_year_change": [
+        {
+          "country_slug": "poland",
+          "start_year": "2021",
+          "start_value": 13.1,
+          "latest_year": "2024",
+          "latest_value": 15,
+          "change": 1.9000000000000004
+        },
+        {
+          "country_slug": "hungary",
+          "start_year": "2021",
+          "start_value": 21.9,
+          "latest_year": "2024",
+          "latest_value": 21.9,
+          "change": 0
+        },
+        {
+          "country_slug": "czechia",
+          "start_year": "2021",
+          "start_value": 27.9,
+          "latest_year": "2024",
+          "latest_value": 32.4,
+          "change": 4.5
+        },
+        {
+          "country_slug": "slovakia",
+          "start_year": "2021",
+          "start_value": 31,
+          "latest_year": "2024",
+          "latest_value": 40.4,
+          "change": 9.399999999999999
+        }
+      ],
+      "rank_change": [
+        {
+          "country_slug": "poland",
+          "start_rank": 4,
+          "latest_rank": 4,
+          "rank_delta": 0
+        },
+        {
+          "country_slug": "hungary",
+          "start_rank": 3,
+          "latest_rank": 3,
+          "rank_delta": 0
+        },
+        {
+          "country_slug": "czechia",
+          "start_rank": 2,
+          "latest_rank": 2,
+          "rank_delta": 0
+        },
+        {
+          "country_slug": "slovakia",
+          "start_rank": 1,
+          "latest_rank": 1,
+          "rank_delta": 0
+        }
+      ],
+      "model_boundary": "fact_derived_only_not_risk_index"
+    }
+  ]
+}
