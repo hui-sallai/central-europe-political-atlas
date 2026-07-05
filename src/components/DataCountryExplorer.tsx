@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
 import { countries } from "@/lib/data";
 import { getEconomicSourcePolicy } from "@/lib/economicSourcePolicy";
@@ -907,6 +907,14 @@ export function DataCountryExplorer() {
     () => countries.find((country) => country.slug === selectedSlug) ?? countries[0],
     [selectedSlug],
   );
+  const isV4SelectedCountry = selectedCountry ? v4CountrySlugs.includes(selectedCountry.slug) : false;
+  const visibleDataModes = dataModes.filter((mode) => mode.id !== "comparison" || isV4SelectedCountry);
+
+  useEffect(() => {
+    if (!isV4SelectedCountry && activeMode === "comparison") {
+      setActiveMode("economy");
+    }
+  }, [activeMode, isV4SelectedCountry]);
 
   if (!selectedCountry) {
     return null;
@@ -915,7 +923,7 @@ export function DataCountryExplorer() {
   const economicRows = getEconomicFiveYearRows(selectedCountry.slug);
   const latestEconomicRow = getLatestEconomicRow(selectedCountry.slug);
   const economicPolicy = getEconomicSourcePolicy(selectedCountry.slug);
-  const activeModeInfo = dataModes.find((mode) => mode.id === activeMode) ?? dataModes[0];
+  const activeModeInfo = visibleDataModes.find((mode) => mode.id === activeMode) ?? visibleDataModes[0] ?? dataModes[0];
   const activeMetricInfo = economicMetricOptions.find((metric) => metric.id === activeMetric) ?? economicMetricOptions[0];
   const metricValues = economicRows.map((row) => valueFor(row, activeMetric)).filter((value): value is number => value !== null);
   const metricMax = Math.max(1, ...metricValues.map((value) => Math.abs(value)));
@@ -1116,7 +1124,12 @@ export function DataCountryExplorer() {
               <button
                 key={country.slug}
                 type="button"
-                onClick={() => setSelectedSlug(country.slug)}
+                onClick={() => {
+                  setSelectedSlug(country.slug);
+                  if (!v4CountrySlugs.includes(country.slug) && activeMode === "comparison") {
+                    setActiveMode("economy");
+                  }
+                }}
                 className={`rounded-2xl border p-3 text-left transition ${
                   isSelected
                     ? "border-[var(--accent)] bg-[var(--accent-soft)]"
@@ -1163,7 +1176,7 @@ export function DataCountryExplorer() {
           </div>
 
           <div className="mt-6 flex flex-wrap gap-2">
-            {dataModes.map((mode) => (
+            {visibleDataModes.map((mode) => (
               <button
                 key={mode.id}
                 type="button"
@@ -1180,7 +1193,7 @@ export function DataCountryExplorer() {
           </div>
         </section>
 
-        {activeMode === "comparison" ? (
+        {activeMode === "comparison" && isV4SelectedCountry ? (
           <section className="v4-comparison-panel card overflow-visible p-6">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
               <div>
@@ -1676,7 +1689,7 @@ export function DataCountryExplorer() {
                         <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">V4 first</span>
                       </div>
 
-                      <V4CategoryMatrix category={category} matrixCountries={v4Countries} observationMaps={v4ObservationMaps} />
+                      {isV4SelectedCountry ? <V4CategoryMatrix category={category} matrixCountries={v4Countries} observationMaps={v4ObservationMaps} /> : null}
 
                       <ObservationTable>
                         <ObservationRows observations={rows} />
@@ -1777,6 +1790,7 @@ export function DataCountryExplorer() {
 
         {activeMode === "tables" ? (
           <section className="grid gap-5">
+            {isV4SelectedCountry ? (
             <div className="card p-6">
               <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
                 <div>
@@ -1815,6 +1829,7 @@ export function DataCountryExplorer() {
                 })}
               </div>
             </div>
+            ) : null}
 
             <div className="card p-6">
               <p className="eyebrow">Country Table</p>

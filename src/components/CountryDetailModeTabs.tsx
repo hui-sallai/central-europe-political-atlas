@@ -101,10 +101,10 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
       <section className="mt-4 card p-6">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <p className="eyebrow">3. V4 Extended Data Completeness</p>
-            <h2 className="mt-3 text-2xl font-semibold">V4 扩展数据完整度</h2>
+            <p className="eyebrow">{isV4Country ? "3. V4 Extended Data Completeness" : "3. Extended Data Status"}</p>
+            <h2 className="mt-3 text-2xl font-semibold">{isV4Country ? "V4 扩展数据完整度" : "扩展数据待接入"}</h2>
             <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-              {isV4Country ? "该国属于 V4 第一批扩展数据模板，已按财政、外部、投资、能源和产业指标验收。" : "该国不属于 V4 第一批扩展数据模板，扩展数据字段已预留但尚未接入。"}
+              {isV4Country ? "该国属于 V4 第一批扩展数据模板，已按财政、外部、投资、能源和产业指标验收。" : "该国扩展数据字段已预留但尚未接入；不会显示横向比较或模板验收。"}
             </p>
           </div>
           <div className="rounded-2xl border border-[var(--line)] bg-white/70 px-5 py-4 text-right">
