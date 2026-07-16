@@ -6,6 +6,7 @@ import { DataStatusBadge } from "@/components/DataStatusBadge";
 import { CountryMapWorkbench } from "@/components/CountryMapWorkbench";
 import { CountryReadingTabs } from "@/components/CountryReadingTabs";
 import { getBasicIndicators } from "@/lib/basicIndicators";
+import { chinaProjectVerificationLabel, verifyChinaProject } from "@/lib/chinaProjectVerification";
 import type { Country } from "@/lib/data";
 import { getChinaProjectRecords, getNewsEventRecords, getV4ObservationCoverage, getV4TemplateCoverage } from "@/lib/extendedData";
 
@@ -59,6 +60,19 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
   const isV4Country = v4CountrySlugs.includes(country.slug);
   const partyStatus = country.parties.some((party) => party.shortName === "TBD") ? "pending" : "manual";
   const governingParties = country.parties.filter((party) => party.role === "governing" || party.role === "support");
+  const projectVerificationSummary = projectRecords.length > 0
+    ? Object.entries(projectRecords.reduce(
+        (acc, project) => {
+          const verification = verifyChinaProject(project);
+          acc[verification.conclusion] += 1;
+          return acc;
+        },
+        { quantifiable: 0, partially_quantifiable: 0, background_only: 0, excluded: 0 },
+      ))
+        .filter(([, count]) => count > 0)
+        .map(([conclusion, count]) => `${chinaProjectVerificationLabel(conclusion as ReturnType<typeof verifyChinaProject>["conclusion"])} ${count}`)
+        .join("；")
+    : "";
 
   return (
     <section className="mt-8">
@@ -186,21 +200,21 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
             label: "对华经贸项目",
             statusText: "待量化",
             statusKind: "manual" as const,
-            note: projectRecords.length > 0 ? `已整理 ${projectRecords.length} 个项目样本；金额证据、主体核验和暴露变量适配已逐条标注，量化前仍需复核。` : "项目表入口已预留，项目级来源待接入。",
+            note: projectRecords.length > 0 ? `已整理 ${projectRecords.length} 个项目；核验结论：${projectVerificationSummary}。金额证据、主体核验和暴露变量适配仍逐条复核。` : "项目表入口已预留，项目级来源待接入。",
           },
           {
             eyebrow: "6. Party / Politics Samples",
             label: "党派 / 政治样本区",
-            statusText: "待核验",
+            statusText: "待核验 / 不进入模型",
             statusKind: partyStatus as "manual" | "pending",
-            note: governingParties.length > 0 ? "党派、执政结构和政治样本需继续与官方政府名单、议会席位和选举结果复核。" : "政治样本字段已预留，可信来源待接入。",
+            note: governingParties.length > 0 ? "党派、执政结构和政治样本需继续与官方政府名单、议会席位和选举结果复核；当前不进入模型。" : "政治样本字段已预留，可信来源待接入；当前不进入模型。",
           },
           {
             eyebrow: "7. News Event Entry",
             label: "新闻事件入口",
             statusText: "待接入",
             statusKind: "pending" as const,
-            note: newsEventRecords.length > 0 ? "当前仅有结构样例或候选事件；正式新闻事件库尚未接入，不进入模型。" : "新闻事件库入口已预留，正式新闻源待接入。",
+            note: newsEventRecords.length > 0 ? "新闻事件入口已保留；正式新闻源和事件库口径按后续数据接入同步。" : "新闻事件库入口已预留，正式新闻源待接入。",
           },
         ].map((item) => (
           <article key={item.label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
