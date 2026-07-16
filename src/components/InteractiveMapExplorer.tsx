@@ -43,13 +43,11 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
   }
 
   const isHome = variant === "home";
-  const governingParties = selectedCountry.parties.filter((party) => party.role === "governing" || party.role === "support");
   const selectedPoliticalStatus = politicalSampleStatus(selectedCountry);
   const selectedNews = getLatestNewsForCountry(selectedCountry.slug);
   const basicIndicators = getBasicIndicators(selectedCountry.slug);
   const homeEconomicIndicators = basicIndicators.filter((indicator) => indicator.id !== "population").slice(0, 4);
   const homeProfileLine = `${selectedCountry.polityZh} / ${selectedCountry.currency} / ${selectedCountry.euMember ? "EU" : "非 EU"} / ${selectedCountry.natoMember ? "NATO" : "非 NATO"}`;
-  const partyStatus = selectedCountry.parties.some((party) => party.shortName === "TBD") ? "pending" : "manual";
 
   function selectCountry(slug: string) {
     setSelectedSlug(slug);
@@ -144,7 +142,7 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
             <>
               <p className="text-xs font-semibold text-[var(--muted)]">当前国家档案</p>
               <p className={`mt-1.5 text-sm leading-5 ${isHome ? "truncate text-[var(--foreground)]" : ""}`}>
-                {isHome ? homeProfileLine : selectedCountry.governmentZh}
+                {isHome ? homeProfileLine : selectedCountry.summaryZh}
               </p>
               {!isHome && selectedRegion ? (
                 <div className="mt-4 rounded-xl border border-[var(--line)] bg-white/70 p-3">
@@ -161,27 +159,10 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
                 </div>
               ) : null}
               <div className="mt-2 flex flex-wrap gap-1.5">
-                {isHome ? (
-                  <>
-                    <DataStatusBadge status={selectedPoliticalStatus.badge} />
-                    <span className="rounded-full bg-white px-2.5 py-0.5 text-xs font-semibold text-[var(--muted)]">{selectedPoliticalStatus.label}</span>
-                    <span className="rounded-full bg-white px-2.5 py-0.5 text-xs font-semibold text-[var(--muted)]">{selectedPoliticalStatus.note}</span>
-                  </>
-                ) : governingParties.length > 0 ? (
-                  <>
-                    <DataStatusBadge status={partyStatus} />
-                    {governingParties.map((party) => (
-                      <span key={party.shortName} className="rounded-full bg-white px-2.5 py-0.5 text-xs">
-                        {party.shortName}
-                      </span>
-                    ))}
-                  </>
-                ) : (
-                  <>
-                    <DataStatusBadge status="pending" />
-                    <span className="text-xs text-[var(--muted)]">执政结构未接入</span>
-                  </>
-                )}
+                <DataStatusBadge status={selectedPoliticalStatus.badge} />
+                <span className="rounded-full bg-white px-2.5 py-0.5 text-xs font-semibold text-[var(--muted)]">{selectedPoliticalStatus.label}</span>
+                <span className="rounded-full bg-white px-2.5 py-0.5 text-xs font-semibold text-[var(--muted)]">执政结构：待核验</span>
+                <span className="rounded-full bg-white px-2.5 py-0.5 text-xs font-semibold text-[var(--muted)]">{selectedPoliticalStatus.note}</span>
               </div>
               <div className="mt-2 grid grid-cols-2 gap-2">
                 <div className="rounded-xl bg-white/70 p-2">
