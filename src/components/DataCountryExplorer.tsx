@@ -117,6 +117,50 @@ const observationTableHeaders = [
   { label: "更新时间", className: "data-updated-cell" },
   { label: "备注", className: "data-note-cell" },
 ];
+const completeIndicatorDictionaryIds = [
+  ...tableMetricIds.map((metricId) => economicMetricIndicatorIds[metricId]),
+  ...v4TemplateIndicatorIds,
+];
+
+const computedIndicatorIds = new Set(["trade_balance_mio_eur", "automotive_export_share"]);
+
+type SourceDictionaryRecord = {
+  sourceId: string;
+  nameZh: string;
+  nameEn: string;
+  sourceType: string;
+  coverage: string;
+  indicatorCoverage: string;
+  url: string;
+  reliabilityLevel: "A" | "B" | "C" | "D";
+  sourceStatus: "official" | "manual" | "pending" | "sample";
+  updateFrequency: string;
+  canBeOfficialData: boolean;
+  canBeEventBasis: boolean;
+  supplementalOnly: boolean;
+  excludedFromAnalysis: boolean;
+  lastCheckedAt: string;
+  note: string;
+};
+
+const sourceDictionaryRows: SourceDictionaryRecord[] = [
+  { sourceId: "eurostat", nameZh: "Eurostat", nameEn: "Eurostat", sourceType: "欧盟官方统计", coverage: "欧盟与欧洲国家", indicatorCoverage: "宏观、财政、外部、能源、产业", url: "https://ec.europa.eu/eurostat/databrowser/", reliabilityLevel: "A", sourceStatus: "official", updateFrequency: "按数据集更新", canBeOfficialData: true, canBeEventBasis: true, supplementalOnly: false, excludedFromAnalysis: false, lastCheckedAt: "2026-07-16", note: "V4 横向可比数据主来源。" },
+  { sourceId: "national_statistics", nameZh: "各国统计局", nameEn: "National statistical offices", sourceType: "官方统计机构", coverage: "十国", indicatorCoverage: "人口、国民账户、价格、劳动力、产业", url: "https://hui-sallai.github.io/central-europe-political-atlas/data/", reliabilityLevel: "A", sourceStatus: "official", updateFrequency: "按国家发布节奏", canBeOfficialData: true, canBeEventBasis: true, supplementalOnly: false, excludedFromAnalysis: false, lastCheckedAt: "2026-07-16", note: "正式版逐国替换为具体统计局链接。" },
+  { sourceId: "national_central_banks", nameZh: "各国央行", nameEn: "National central banks", sourceType: "央行", coverage: "十国", indicatorCoverage: "国际收支、FDI、金融与宏观背景", url: "https://www.ecb.europa.eu/", reliabilityLevel: "A", sourceStatus: "official", updateFrequency: "按指标更新", canBeOfficialData: true, canBeEventBasis: true, supplementalOnly: false, excludedFromAnalysis: false, lastCheckedAt: "2026-07-16", note: "用于 FDI、经常账户和金融口径交叉核验。" },
+  { sourceId: "international_organizations", nameZh: "国际组织", nameEn: "International organizations", sourceType: "国际组织", coverage: "全球 / 欧洲", indicatorCoverage: "宏观、投资、能源、贸易补充", url: "https://data.oecd.org/", reliabilityLevel: "A", sourceStatus: "official", updateFrequency: "按机构更新", canBeOfficialData: true, canBeEventBasis: true, supplementalOnly: false, excludedFromAnalysis: false, lastCheckedAt: "2026-07-16", note: "用于 OECD、IMF、World Bank、UNCTAD 等补充口径。" },
+  { sourceId: "eu_institutions", nameZh: "欧盟机构", nameEn: "EU institutions", sourceType: "欧盟机构", coverage: "欧盟", indicatorCoverage: "财政、监管、项目与政策事件", url: "https://european-union.europa.eu/", reliabilityLevel: "A", sourceStatus: "official", updateFrequency: "按公告更新", canBeOfficialData: true, canBeEventBasis: true, supplementalOnly: false, excludedFromAnalysis: false, lastCheckedAt: "2026-07-16", note: "用于欧盟委员会、理事会、议会等官方材料。" },
+  { sourceId: "official_government", nameZh: "官方政府部门", nameEn: "Official government departments", sourceType: "政府公告", coverage: "十国", indicatorCoverage: "政府结构、政策事件、项目公告", url: "https://hui-sallai.github.io/central-europe-political-atlas/methodology/", reliabilityLevel: "A", sourceStatus: "official", updateFrequency: "按公告更新", canBeOfficialData: true, canBeEventBasis: true, supplementalOnly: false, excludedFromAnalysis: false, lastCheckedAt: "2026-07-16", note: "用于国家页和新闻事件库的正式事件依据。" },
+  { sourceId: "electoral_commissions", nameZh: "选举机构", nameEn: "Electoral commissions", sourceType: "选举机构", coverage: "十国", indicatorCoverage: "选举结果、政党、区域投票", url: "https://hui-sallai.github.io/central-europe-political-atlas/methodology/", reliabilityLevel: "A", sourceStatus: "pending", updateFrequency: "按选举周期", canBeOfficialData: true, canBeEventBasis: true, supplementalOnly: false, excludedFromAnalysis: false, lastCheckedAt: "2026-07-16", note: "当前区域选举数据待接入，不上真实党派支持率图层。" },
+  { sourceId: "mainstream_wire", nameZh: "主流通讯社", nameEn: "Mainstream news agencies", sourceType: "新闻通讯社", coverage: "全球 / 欧洲", indicatorCoverage: "新闻事件、项目状态", url: "https://www.reuters.com/", reliabilityLevel: "B", sourceStatus: "manual", updateFrequency: "实时 / 日更", canBeOfficialData: false, canBeEventBasis: true, supplementalOnly: false, excludedFromAnalysis: false, lastCheckedAt: "2026-07-16", note: "可作为事件依据，正式数据仍优先使用 A 级来源。" },
+  { sourceId: "authoritative_thinktanks", nameZh: "权威智库", nameEn: "Authoritative think tanks", sourceType: "研究机构", coverage: "欧洲 / 区域", indicatorCoverage: "背景解释、专题事件", url: "https://www.bruegel.org/", reliabilityLevel: "B", sourceStatus: "manual", updateFrequency: "按报告更新", canBeOfficialData: false, canBeEventBasis: true, supplementalOnly: false, excludedFromAnalysis: false, lastCheckedAt: "2026-07-16", note: "作为解释材料或事件依据，不能替代官方统计。" },
+  { sourceId: "official_annual_reports", nameZh: "官方年报", nameEn: "Official annual reports", sourceType: "年报", coverage: "机构 / 企业 / 政府", indicatorCoverage: "项目主体、金额、股权、产能", url: "https://hui-sallai.github.io/central-europe-political-atlas/data/", reliabilityLevel: "B", sourceStatus: "manual", updateFrequency: "年度", canBeOfficialData: false, canBeEventBasis: true, supplementalOnly: false, excludedFromAnalysis: false, lastCheckedAt: "2026-07-16", note: "项目核验的重要补充来源。" },
+  { sourceId: "company_announcements", nameZh: "企业公告", nameEn: "Company announcements", sourceType: "企业公告", coverage: "项目主体", indicatorCoverage: "对华项目金额、主体、时间线", url: "https://hui-sallai.github.io/central-europe-political-atlas/data/", reliabilityLevel: "C", sourceStatus: "manual", updateFrequency: "按公告更新", canBeOfficialData: false, canBeEventBasis: false, supplementalOnly: true, excludedFromAnalysis: false, lastCheckedAt: "2026-07-16", note: "只作补充线索，量化前需与官方或年报交叉核验。" },
+  { sourceId: "local_media", nameZh: "地方媒体", nameEn: "Local media", sourceType: "地方媒体", coverage: "国家 / 地方", indicatorCoverage: "项目线索、地方事件", url: "https://hui-sallai.github.io/central-europe-political-atlas/news/", reliabilityLevel: "C", sourceStatus: "manual", updateFrequency: "不定期", canBeOfficialData: false, canBeEventBasis: false, supplementalOnly: true, excludedFromAnalysis: false, lastCheckedAt: "2026-07-16", note: "只作补充线索，不单独进入正式事件库。" },
+  { sourceId: "industry_sites", nameZh: "行业网站", nameEn: "Industry websites", sourceType: "行业网站", coverage: "行业 / 企业", indicatorCoverage: "产业链、汽车、能源、物流项目", url: "https://hui-sallai.github.io/central-europe-political-atlas/data/", reliabilityLevel: "C", sourceStatus: "manual", updateFrequency: "不定期", canBeOfficialData: false, canBeEventBasis: false, supplementalOnly: true, excludedFromAnalysis: false, lastCheckedAt: "2026-07-16", note: "只作产业背景和项目线索。" },
+  { sourceId: "manual_sources", nameZh: "人工整理来源", nameEn: "Manually curated sources", sourceType: "人工整理", coverage: "平台内部", indicatorCoverage: "摘要、翻译、字段整理", url: "https://hui-sallai.github.io/central-europe-political-atlas/methodology/", reliabilityLevel: "C", sourceStatus: "manual", updateFrequency: "随数据维护", canBeOfficialData: false, canBeEventBasis: false, supplementalOnly: true, excludedFromAnalysis: false, lastCheckedAt: "2026-07-16", note: "必须回链到原始来源，不能单独作为正式依据。" },
+  { sourceId: "pending_sources", nameZh: "待接入来源", nameEn: "Pending sources", sourceType: "待接入", coverage: "待定", indicatorCoverage: "缺失字段", url: "https://hui-sallai.github.io/central-europe-political-atlas/data/", reliabilityLevel: "D", sourceStatus: "pending", updateFrequency: "待定", canBeOfficialData: false, canBeEventBasis: false, supplementalOnly: false, excludedFromAnalysis: true, lastCheckedAt: "2026-07-16", note: "不进入正式数据、事件库或后续分析。" },
+  { sourceId: "sample_sources", nameZh: "结构样例来源", nameEn: "Structural sample sources", sourceType: "结构样例", coverage: "平台结构测试", indicatorCoverage: "页面结构、地图样例、新闻样例", url: "https://hui-sallai.github.io/central-europe-political-atlas/methodology/", reliabilityLevel: "D", sourceStatus: "sample", updateFrequency: "不更新", canBeOfficialData: false, canBeEventBasis: false, supplementalOnly: false, excludedFromAnalysis: true, lastCheckedAt: "2026-07-16", note: "只用于验证结构，不进入模型或分析。" },
+];
 
 function formatMetricValue(value: number | null, metricId: EconomicMetricId) {
   if (value === null) {
@@ -237,6 +281,36 @@ function reliabilityLevelDescription(value: string) {
   return descriptions[value] ?? "来源可靠性规则待补充。";
 }
 
+function sourceReliabilityForName(sourceName: string | undefined): "A" | "B" | "C" | "D" {
+  if (!sourceName) {
+    return "D";
+  }
+
+  const normalized = sourceName.toLowerCase();
+  if (normalized.includes("eurostat") || normalized.includes("statistics") || normalized.includes("statistical") || normalized.includes("central bank")) {
+    return "A";
+  }
+
+  const sourceRecord = sourceTableRecords.find((source) => source.sourceName.toLowerCase() === normalized);
+  return sourceRecord?.reliabilityLevel ?? "D";
+}
+
+function sourceStatusForReliability(level: "A" | "B" | "C" | "D", isPending: boolean): "official" | "manual" | "pending" | "sample" {
+  if (isPending) {
+    return "pending";
+  }
+
+  if (level === "A") {
+    return "official";
+  }
+
+  if (level === "D") {
+    return "sample";
+  }
+
+  return "manual";
+}
+
 function quantificationStatusLabel(value: ChinaProjectRecord["quantificationStatus"]) {
   const labels: Record<ChinaProjectRecord["quantificationStatus"], string> = {
     amount_available: "金额已接入",
@@ -337,7 +411,7 @@ function UnitToken({ value }: { value: string }) {
 
 function displayUnit(value: number | null, unit: string) {
   if (value === null) {
-    return "待接入";
+    return unit || "待接入";
   }
 
   return unit || "待接入";
@@ -1050,13 +1124,9 @@ export function DataCountryExplorer() {
   const projectRecords = getChinaProjectRecords(selectedCountry.slug);
   const countryTableRecord = getCountryTableRecord(selectedCountry.slug);
   const newsEventRecords = getNewsEventRecords(selectedCountry.slug);
-  const selectedIndicatorIds = new Set(extendedObservations.map((observation) => observation.indicatorId));
-  const selectedIndicators = extendedIndicators.filter((indicator) => selectedIndicatorIds.has(indicator.id));
-  const indicatorDictionaryIds = new Set([
-    ...tableMetricIds.map((metricId) => economicMetricIndicatorIds[metricId]),
-    ...selectedIndicators.map((indicator) => indicator.id),
-  ]);
-  const selectedIndicatorDictionaryRows = indicatorDictionaryRecords.filter((indicator) => indicatorDictionaryIds.has(indicator.indicatorId));
+  const completeIndicatorDictionaryRows = completeIndicatorDictionaryIds
+    .map((indicatorId) => indicatorDictionaryRecords.find((indicator) => indicator.indicatorId === indicatorId))
+    .filter((indicator): indicator is NonNullable<typeof indicator> => Boolean(indicator));
   const v4TemplateCoverage = getV4TemplateCoverage(selectedCountry.slug);
   const v4Countries = v4CountrySlugs
     .map((slug) => countries.find((country) => country.slug === slug))
@@ -1368,13 +1438,13 @@ export function DataCountryExplorer() {
               </p>
             </div>
 
-            <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+            <div id="v4-data-quality-entry" className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
               <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
                 <div>
                   <p className="eyebrow">V4 Data Quality Acceptance</p>
-                  <h3 className="mt-2 text-xl font-semibold">V4 数据质量验收</h3>
+                  <h3 className="mt-2 text-xl font-semibold">数据质量验收入口</h3>
                   <p className="mt-2 max-w-3xl text-xs leading-6 text-[var(--muted)]">
-                    验收范围仅限 V4 四国、12 个扩展指标、2021-2025 年观测格；检查覆盖、待接入年份、来源 URL 格式、单位一致性、更新时间、计算值和备注说明。
+                    验收范围仅限 V4 四国、12 个扩展指标、2021-2025 年观测格，共 240 个观测位置；检查覆盖、待接入年份、来源 URL 格式、单位一致性、更新时间、计算值和备注说明。
                   </p>
                 </div>
                 <span className={`rounded-full px-3 py-1 text-xs font-semibold ${qualityStatusClass(v4Quality.summary.status)}`}>
@@ -1477,6 +1547,75 @@ export function DataCountryExplorer() {
                   ) : null}
                 </div>
               ) : null}
+
+              <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/75 p-4">
+                <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
+                  <div>
+                    <p className="eyebrow">Observation Acceptance Register</p>
+                    <h4 className="mt-2 text-lg font-semibold">240 个观测位置验收明细</h4>
+                    <p className="mt-2 max-w-3xl text-xs leading-6 text-[var(--muted)]">
+                      每个观测位置均按国家、指标、年份、数值、单位、状态、来源、可靠性等级、更新时间、计算属性和派生比较资格分列。
+                    </p>
+                  </div>
+                  <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs text-[var(--muted)]">4 国 × 12 指标 × 5 年</span>
+                </div>
+                <div className="mt-4 wide-table-scroll max-w-full">
+                  <table className="research-data-table w-full min-w-[2360px] border-separate border-spacing-0 text-left text-sm">
+                    <thead>
+                      <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+                        {["国家", "指标", "年份", "数值", "单位", "状态", "来源名称", "来源链接", "来源等级", "更新时间", "正式数据", "待接入", "计算值", "人工整理", "横向比较", "五年变化", "均值差距", "排名变化", "缺失原因", "备注"].map((header) => (
+                          <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {v4Quality.cells.map((cell) => {
+                        const indicator = getExtendedIndicator(cell.indicatorId);
+                        const reliabilityLevel = sourceReliabilityForName(cell.observation?.sourceName);
+                        const entersDerived = Boolean(indicator?.includedInDerivedComparison && cell.hasValue && !cell.isPending);
+                        const missingReason = cell.isPending ? cell.issues.join("；") || "数值待接入" : "—";
+
+                        return (
+                          <tr key={`${cell.countrySlug}-${cell.indicatorId}-${cell.year}-quality-detail`} className="align-top">
+                            <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{countryNameBySlug.get(cell.countrySlug) ?? cell.countrySlug}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3">
+                              <p className="font-semibold">{indicator?.labelZh ?? cell.indicatorId}</p>
+                              <p className="mt-1 font-mono text-[10px] text-[var(--muted)]">{cell.indicatorId}</p>
+                            </td>
+                            <td className="border-b border-[var(--line)] px-3 py-3">{cell.year}</td>
+                            <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono">
+                              <span className={dataValueClass(cell.observation?.value ?? null)}>{formatObservationValue(cell.observation?.value ?? null, cell.indicatorId)}</span>
+                            </td>
+                            <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><UnitToken value={cell.observation?.unit ?? indicator?.unit ?? "待接入"} /></td>
+                            <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
+                              <DataStatusBadge status={cell.isPending ? "pending" : cell.observation?.status ?? "pending"} />
+                            </td>
+                            <td className="border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">{cell.observation?.sourceName ?? "待接入"}</td>
+                            <td className="data-source-cell border-b border-[var(--line)] px-3 py-3">
+                              <div className="flex flex-col gap-2">
+                                <SourceStatusBadge status={sourceStatusForReliability(reliabilityLevel, cell.isPending)} />
+                                <SourceNameLink href={cell.observation?.sourceUrl ?? ""}>{cell.observation?.sourceName ?? "来源待接入"}</SourceNameLink>
+                              </div>
+                            </td>
+                            <td className="border-b border-[var(--line)] px-3 py-3">{reliabilityLevelLabel(reliabilityLevel)}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{cell.observation?.updatedAt || "待接入"}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(cell.observation?.status === "official" && cell.hasValue)}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(cell.isPending)}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(cell.isComputed)}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(cell.observation?.status === "manual")}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(entersDerived)}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(entersDerived)}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(entersDerived)}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(entersDerived)}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{missingReason}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{cell.observation?.note || "—"}</td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
 
             <div className="mt-5 grid gap-3 md:grid-cols-4">
@@ -1544,11 +1683,11 @@ export function DataCountryExplorer() {
               </div>
             </div>
 
-            <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+            <div id="v4-derived-comparison-entry" className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
               <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
                 <div>
                   <p className="eyebrow">Derived Comparison</p>
-                  <h3 className="mt-2 text-xl font-semibold">派生比较</h3>
+                  <h3 className="mt-2 text-xl font-semibold">派生比较表入口</h3>
                 </div>
                 <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs text-[var(--muted)]">仅为事实数据派生</span>
               </div>
@@ -1993,33 +2132,55 @@ export function DataCountryExplorer() {
 
             <div className="card p-6">
               <p className="eyebrow">Indicator Dictionary</p>
-              <h2 className="mt-3 text-2xl font-semibold">指标字典表</h2>
+              <h2 className="mt-3 text-2xl font-semibold">指标字典入口</h2>
+              <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+                覆盖 18 个指标：6 个基础宏观指标和 12 个 V4 扩展指标。每个指标均明确来源、覆盖范围、计算属性、派生比较资格和待接入处理规则。
+              </p>
               <div className="mt-5 wide-table-scroll max-w-full">
-                <table className="research-data-table w-full min-w-[1880px] border-separate border-spacing-0 text-left text-sm">
+                <table className="research-data-table w-full min-w-[3600px] border-separate border-spacing-0 text-left text-sm">
                   <thead>
                     <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-                      {["indicator_id", "中文名", "英文名", "类别", "单位", "频率", "来源优先级", "进入派生比较", "未来模型", "数值上升的含义", "缺失值处理", "更新时间"].map((header) => (
+                      {["indicator_id", "中文名", "英文名", "指标类别", "所属板块", "单位", "频率", "国家覆盖范围", "年份覆盖范围", "主来源", "备用来源", "来源等级", "原始值", "计算值", "派生值", "进入横向比较", "进入五年变化", "进入均值差距", "进入排名变化", "未来模型候选变量", "数值上升含义", "缺失值处理规则", "待接入处理规则", "更新时间", "备注"].map((header) => (
                         <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
                       ))}
                     </tr>
                   </thead>
                   <tbody>
-                    {selectedIndicatorDictionaryRows.map((indicator) => (
-                      <tr key={indicator.indicatorId} className="align-top">
-                        <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono text-xs">{indicator.indicatorId}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{indicator.nameZh}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3">{indicator.nameEn}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3">{indicatorCategoryLabel(indicator.category)}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3">{indicator.unit}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3">{indicator.frequency}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.sourcePriority.join(" → ")}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.includedInDerivedComparison)}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.futureModelEligible)}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.upwardMeaning}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.missingValueTreatment}</td>
-                        <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{indicator.updatedAt}</td>
-                      </tr>
-                    ))}
+                    {completeIndicatorDictionaryRows.map((indicator) => {
+                      const isComputed = computedIndicatorIds.has(indicator.indicatorId) || indicator.transform.includes("-");
+                      const isV4Indicator = v4TemplateIndicatorIds.includes(indicator.indicatorId as typeof v4TemplateIndicatorIds[number]);
+                      const sourceLevel = indicator.sourcePriority.some((source) => /Eurostat|统计|央行|IMF|OECD|UNCTAD|World Bank/i.test(source)) ? "A" : "B";
+
+                      return (
+                        <tr key={indicator.indicatorId} className="align-top">
+                          <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono text-xs">{indicator.indicatorId}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{indicator.nameZh}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{indicator.nameEn}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{indicatorCategoryLabel(indicator.category)}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{indicatorCategoryLabel(indicator.category)}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{indicator.unit}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{indicator.frequency}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{isV4Indicator ? "V4 四国" : "十国"}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">2021-2025</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.sourcePriority[0] ?? "待接入"}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.sourcePriority.slice(1).join(" / ") || "待接入"}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{reliabilityLevelLabel(sourceLevel)}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(!isComputed)}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(isComputed)}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(false)}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.includedInDerivedComparison)}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.includedInDerivedComparison)}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.includedInDerivedComparison)}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.includedInDerivedComparison)}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.futureModelEligible)}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.upwardMeaning}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.missingValueTreatment}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">待接入行保留指标单位，数值显示“待接入”，状态与来源状态均显示“待接入”。</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{indicator.updatedAt}</td>
+                          <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.transform}</td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
@@ -2038,16 +2199,40 @@ export function DataCountryExplorer() {
               <h2 className="mt-3 text-2xl font-semibold">来源表、对华项目表、新闻事件表</h2>
               <div className="mt-5 grid gap-4">
                 <div className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
-                  <h3 className="font-semibold">来源表</h3>
-                  <div className="mt-3 grid gap-3">
-                    {sourceTableRecords.map((source) => (
-                      <a key={source.sourceId} href={source.url} target="_blank" rel="noreferrer" className="rounded-xl bg-[var(--surface-muted)] p-3 text-xs">
-                        <p className="font-semibold text-[var(--foreground)]">{source.sourceName}</p>
-                        <p className="mt-1 text-[var(--muted)]">{source.sourceType} / {reliabilityLevelLabel(source.reliabilityLevel)}</p>
-                        <p className="mt-1 leading-5 text-[var(--muted)]">{reliabilityLevelDescription(source.reliabilityLevel)}</p>
-                        <p className="mt-1 leading-5 text-[var(--muted)]">{source.usageNotes}</p>
-                      </a>
-                    ))}
+                  <h3 className="font-semibold">来源字典入口</h3>
+                  <p className="mt-2 text-sm leading-6 text-[var(--muted)]">覆盖 Eurostat、各国统计局、央行、国际组织、欧盟机构、政府部门、选举机构、新闻与项目线索等 16 类来源。</p>
+                  <div className="mt-4 wide-table-scroll max-w-full">
+                    <table className="research-data-table w-full min-w-[2920px] border-separate border-spacing-0 text-left text-sm">
+                      <thead>
+                        <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+                          {["source_id", "来源中文名", "来源英文名", "来源类型", "国家或地区覆盖", "指标覆盖范围", "链接", "可靠性等级", "来源状态", "更新频率", "正式数据", "事件依据", "补充线索", "不进入分析", "最后检查日期", "备注"].map((header) => (
+                            <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {sourceDictionaryRows.map((source) => (
+                          <tr key={source.sourceId} className="align-top">
+                            <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono text-xs">{source.sourceId}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{source.nameZh}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3">{source.nameEn}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3">{source.sourceType}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3">{source.coverage}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{source.indicatorCoverage}</td>
+                            <td className="data-source-cell border-b border-[var(--line)] px-3 py-3"><SourceNameLink href={source.url}>来源链接</SourceNameLink></td>
+                            <td className="border-b border-[var(--line)] px-3 py-3">{reliabilityLevelLabel(source.reliabilityLevel)}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3"><SourceStatusBadge status={source.sourceStatus} /></td>
+                            <td className="border-b border-[var(--line)] px-3 py-3">{source.updateFrequency}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(source.canBeOfficialData)}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(source.canBeEventBasis)}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(source.supplementalOnly)}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(source.excludedFromAnalysis)}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{source.lastCheckedAt}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{source.note}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
                 </div>
 
