@@ -4,6 +4,8 @@ import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge
 import { countries } from "@/lib/data";
 import { getChinaProjectRecords } from "@/lib/extendedData";
 
+const v4CountrySlugs = ["poland", "hungary", "czechia", "slovakia"];
+
 export default function CountriesPage() {
   return (
     <main className="page-shell">
@@ -18,8 +20,10 @@ export default function CountriesPage() {
       <div className="mt-8 grid gap-4 md:grid-cols-2">
         {countries.map((country) => {
           const projectRecords = getChinaProjectRecords(country.slug);
-          const partyStatus = country.parties.some((party) => party.shortName === "TBD") ? "pending" : "manual";
+          const isV4Country = v4CountrySlugs.includes(country.slug);
+          const partyStatus = isV4Country ? "manual" : "pending";
           const projectStatus = projectRecords.length > 0 ? "manual" : "pending";
+          const partyStatusText = isV4Country ? "待核验 / 人工整理" : "待接入";
 
           return (
             <Link key={country.slug} href={`/countries/${country.slug}`} className="card p-6 transition hover:-translate-y-1 hover:shadow-xl">
@@ -37,7 +41,7 @@ export default function CountriesPage() {
                     <DataStatusBadge status={partyStatus} />
                     <SourceStatusBadge status={partyStatus} />
                   </div>
-                  <p className="mt-2 leading-5 text-[var(--muted)]">用于页面结构和政党关系展示；不是正式统计数量。</p>
+                  <p className="mt-2 leading-5 text-[var(--muted)]">{partyStatusText}；用于页面结构和政党关系展示，不是正式统计数量。</p>
                 </div>
                 <div className="rounded-2xl border border-[var(--line)] bg-white/60 p-3">
                   <p className="font-semibold text-[var(--foreground)]">对华经贸项目表</p>
