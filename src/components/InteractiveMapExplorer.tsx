@@ -18,15 +18,17 @@ function politicalSampleStatus(country: (typeof countries)[number]) {
   if (country.parties.some((party) => party.shortName === "TBD")) {
     return {
       badge: "pending" as const,
+      access: "待接入",
       label: "政治样本：待核验",
-      note: "不进入模型",
+      display: "待接入 / 政治样本：待核验 / 不进入模型",
     };
   }
 
   return {
     badge: "manual" as const,
+    access: "人工整理",
     label: "政治样本：人工整理",
-    note: "不进入模型",
+    display: "政治样本：人工整理 / 不进入模型",
   };
 }
 
@@ -160,9 +162,8 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
               ) : null}
               <div className="mt-2 flex flex-wrap gap-1.5">
                 <DataStatusBadge status={selectedPoliticalStatus.badge} />
-                <span className="rounded-full bg-white px-2.5 py-0.5 text-xs font-semibold text-[var(--muted)]">{selectedPoliticalStatus.label}</span>
+                <span className="rounded-full bg-white px-2.5 py-0.5 text-xs font-semibold text-[var(--muted)]">{selectedPoliticalStatus.display}</span>
                 <span className="rounded-full bg-white px-2.5 py-0.5 text-xs font-semibold text-[var(--muted)]">执政结构：待核验</span>
-                <span className="rounded-full bg-white px-2.5 py-0.5 text-xs font-semibold text-[var(--muted)]">{selectedPoliticalStatus.note}</span>
               </div>
               <div className="mt-2 grid grid-cols-2 gap-2">
                 <div className="rounded-xl bg-white/70 p-2">
@@ -271,7 +272,8 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
                     <div className="mt-3 flex flex-wrap items-center gap-2">
                       <DataStatusBadge status={status.badge} />
                       <p className="text-xs font-semibold text-[var(--accent)]">{status.label}</p>
-                      <span className="rounded-full bg-white px-2.5 py-0.5 text-[10px] font-semibold text-[var(--muted)]">{status.note}</span>
+                      <span className="rounded-full bg-white px-2.5 py-0.5 text-[10px] font-semibold text-[var(--muted)]">{status.access}</span>
+                      <span className="rounded-full bg-white px-2.5 py-0.5 text-[10px] font-semibold text-[var(--muted)]">不进入模型</span>
                     </div>
                     {countryNews ? <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{countryNews.title}</p> : null}
                   </button>
