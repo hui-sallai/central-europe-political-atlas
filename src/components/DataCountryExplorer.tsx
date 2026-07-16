@@ -38,6 +38,13 @@ import { chinaProjectVerificationLabel, verifyChinaProject, type ChinaProjectVer
 
 type DataMode = "economy" | "charts" | "comparison" | "tables";
 type ProjectAmountFilter = "all" | "available" | "missing";
+type DataEntryShortcut = {
+  id: string;
+  label: string;
+  mode: DataMode;
+  description: string;
+  requiresV4?: boolean;
+};
 type V4DerivedRow = {
   indicatorId: string;
   label: string;
@@ -93,6 +100,12 @@ const dataModes: { id: DataMode; label: string; description: string }[] = [
   { id: "charts", label: "图表层", description: "只显示经济数据，可切换 GDP、CPI/通胀、失业率等指标。" },
   { id: "comparison", label: "V4 横向比较", description: "保留 V4 完整度、数据质量与派生事实摘要；具体横向轴已拆入各个数据板块。" },
   { id: "tables", label: "数据表格", description: "按六张核心表检查当前国家的数据完整性。" },
+];
+const dataEntryShortcuts: DataEntryShortcut[] = [
+  { id: "indicator-dictionary-entry", label: "指标字典入口", mode: "tables", description: "18 个指标的口径、单位、来源优先级和比较资格。" },
+  { id: "source-dictionary-entry", label: "来源字典入口", mode: "tables", description: "16 类来源的链接、可靠性等级和使用边界。" },
+  { id: "v4-data-quality-entry", label: "数据质量验收入口", mode: "comparison", description: "V4 四国 240 个观测位置的验收清单。", requiresV4: true },
+  { id: "v4-derived-comparison-entry", label: "派生比较表入口", mode: "comparison", description: "最高值、最低值、V4 均值和事实派生比较。", requiresV4: true },
 ];
 
 const tableMetricIds: EconomicMetricId[] = ["population", "gdp", "gdpPerCapita", "growth", "inflation", "unemployment"];
@@ -409,6 +422,10 @@ function UnitToken({ value }: { value: string }) {
   return <span className="data-unit-token">{value || "待接入"}</span>;
 }
 
+function SemanticCellPrefix({ label }: { label: string }) {
+  return <span className="semantic-cell-prefix">{` ${label}：`}</span>;
+}
+
 function displayUnit(value: number | null, unit: string) {
   if (value === null) {
     return unit || "待接入";
@@ -640,22 +657,25 @@ function ObservationRows({ observations }: { observations: ExtendedObservation[]
         return (
           <tr key={`${observation.countrySlug}-${observation.indicatorId}-${observation.date}`} className="align-top">
             <td className="data-indicator-cell border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{indicator?.labelZh.replaceAll(" / ", "/") ?? observation.indicatorId}</td>
-            <td className="data-date-cell border-b border-[var(--line)] px-3 py-3">{observation.date}</td>
+            <td className="data-date-cell border-b border-[var(--line)] px-3 py-3"><SemanticCellPrefix label="年份" />{observation.date}</td>
             <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono">
+              <SemanticCellPrefix label="数值" />
               <span className={dataValueClass(observation.value)}>{formatObservationValue(observation.value, observation.indicatorId)}</span>
             </td>
-            <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><UnitToken value={displayUnit(observation.value, observation.unit)} /></td>
+            <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><SemanticCellPrefix label="单位" /><UnitToken value={displayUnit(observation.value, observation.unit)} /></td>
             <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
+              <SemanticCellPrefix label="状态" />
               <DataStatusBadge status={observation.status} />
             </td>
             <td className="data-source-cell border-b border-[var(--line)] px-3 py-3">
+              <SemanticCellPrefix label="来源" />
               <div className="flex flex-col gap-2 text-xs leading-5 text-[var(--muted)]">
                 <SourceStatusBadge status={observation.status === "official" ? "official" : observation.status === "sample" ? "sample" : observation.status === "pending" ? "pending" : "manual"} />
                 <SourceNameLink href={observation.sourceUrl}>{observation.sourceName}</SourceNameLink>
               </div>
             </td>
-            <td className="data-updated-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">{observation.updatedAt || "待接入"}</td>
-            <td className="data-note-cell border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{observation.note ?? "—"}</td>
+            <td className="data-updated-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]"><SemanticCellPrefix label="更新时间" />{observation.updatedAt || "待接入"}</td>
+            <td className="data-note-cell border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]"><SemanticCellPrefix label="备注" />{observation.note ?? "—"}</td>
           </tr>
         );
       })}
@@ -677,13 +697,14 @@ function EconomicSourceNoteCell({
   return (
     <>
       <td className="data-source-cell border-b border-[var(--line)] px-3 py-3">
+        <SemanticCellPrefix label="来源" />
         <div className="flex flex-col gap-2 text-xs leading-5 text-[var(--muted)]">
           <SourceStatusBadge status={status === "official" ? "official" : "pending"} />
           <SourceLinkList links={links} compact />
         </div>
       </td>
-      <td className="data-updated-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">{updatedAt}</td>
-      <td className="data-note-cell border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{note}</td>
+      <td className="data-updated-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]"><SemanticCellPrefix label="更新时间" />{updatedAt}</td>
+      <td className="data-note-cell border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]"><SemanticCellPrefix label="备注" />{note}</td>
     </>
   );
 }
@@ -1293,6 +1314,16 @@ export function DataCountryExplorer() {
       basis: `依据：${czechiaEnergy?.startYear ?? "待接入"}-${czechiaEnergy?.latestYear ?? "待接入"} 年能源进口依赖序列和最新 V4 均值差距。`,
     },
   ];
+  const openDataEntry = (entry: DataEntryShortcut) => {
+    if (entry.requiresV4 && !isV4SelectedCountry) {
+      setSelectedSlug("poland");
+    }
+
+    setActiveMode(entry.mode);
+    window.setTimeout(() => {
+      document.getElementById(entry.id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 80);
+  };
 
   return (
     <section className="mt-8 grid min-w-0 gap-5 lg:grid-cols-[260px_minmax(0,1fr)]">
@@ -1380,6 +1411,32 @@ export function DataCountryExplorer() {
               </button>
             ))}
           </div>
+
+          <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/60 p-4">
+            <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
+              <div>
+                <p className="eyebrow">Research Data Entries</p>
+                <h3 className="mt-2 text-lg font-semibold">研究数据入口</h3>
+              </div>
+              <span className="text-xs text-[var(--muted)]">点击后切换到对应板块</span>
+            </div>
+            <div className="mt-4 grid gap-2 md:grid-cols-2 xl:grid-cols-4">
+              {dataEntryShortcuts.map((entry) => (
+                <button
+                  key={entry.id}
+                  type="button"
+                  onClick={() => openDataEntry(entry)}
+                  className="rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-3 text-left transition hover:border-[var(--accent)] hover:bg-white"
+                >
+                  <span className="text-sm font-semibold">{entry.label}</span>
+                  <span className="mt-1 block text-xs leading-5 text-[var(--muted)]">{entry.description}</span>
+                  {entry.requiresV4 && !isV4SelectedCountry ? (
+                    <span className="mt-2 inline-flex rounded-full bg-white px-2.5 py-1 text-[10px] font-semibold text-[var(--muted)]">将切换到波兰 V4 工作台</span>
+                  ) : null}
+                </button>
+              ))}
+            </div>
+          </div>
         </section>
 
         {activeMode === "comparison" && isV4SelectedCountry ? (
@@ -1438,7 +1495,7 @@ export function DataCountryExplorer() {
               </p>
             </div>
 
-            <div id="v4-data-quality-entry" className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+            <div id="v4-data-quality-entry" className="mt-5 scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
               <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
                 <div>
                   <p className="eyebrow">V4 Data Quality Acceptance</p>
@@ -1582,23 +1639,26 @@ export function DataCountryExplorer() {
                               <p className="font-semibold">{indicator?.labelZh ?? cell.indicatorId}</p>
                               <p className="mt-1 font-mono text-[10px] text-[var(--muted)]">{cell.indicatorId}</p>
                             </td>
-                            <td className="border-b border-[var(--line)] px-3 py-3">{cell.year}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3"><SemanticCellPrefix label="年份" />{cell.year}</td>
                             <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono">
+                              <SemanticCellPrefix label="数值" />
                               <span className={dataValueClass(cell.observation?.value ?? null)}>{formatObservationValue(cell.observation?.value ?? null, cell.indicatorId)}</span>
                             </td>
-                            <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><UnitToken value={cell.observation?.unit ?? indicator?.unit ?? "待接入"} /></td>
+                            <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><SemanticCellPrefix label="单位" /><UnitToken value={cell.observation?.unit ?? indicator?.unit ?? "待接入"} /></td>
                             <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
+                              <SemanticCellPrefix label="状态" />
                               <DataStatusBadge status={cell.isPending ? "pending" : cell.observation?.status ?? "pending"} />
                             </td>
-                            <td className="border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">{cell.observation?.sourceName ?? "待接入"}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]"><SemanticCellPrefix label="来源名称" />{cell.observation?.sourceName ?? "待接入"}</td>
                             <td className="data-source-cell border-b border-[var(--line)] px-3 py-3">
+                              <SemanticCellPrefix label="来源链接" />
                               <div className="flex flex-col gap-2">
                                 <SourceStatusBadge status={sourceStatusForReliability(reliabilityLevel, cell.isPending)} />
                                 <SourceNameLink href={cell.observation?.sourceUrl ?? ""}>{cell.observation?.sourceName ?? "来源待接入"}</SourceNameLink>
                               </div>
                             </td>
                             <td className="border-b border-[var(--line)] px-3 py-3">{reliabilityLevelLabel(reliabilityLevel)}</td>
-                            <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{cell.observation?.updatedAt || "待接入"}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs"><SemanticCellPrefix label="更新时间" />{cell.observation?.updatedAt || "待接入"}</td>
                             <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(cell.observation?.status === "official" && cell.hasValue)}</td>
                             <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(cell.isPending)}</td>
                             <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(cell.isComputed)}</td>
@@ -1607,8 +1667,8 @@ export function DataCountryExplorer() {
                             <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(entersDerived)}</td>
                             <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(entersDerived)}</td>
                             <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(entersDerived)}</td>
-                            <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{missingReason}</td>
-                            <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{cell.observation?.note || "—"}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]"><SemanticCellPrefix label="缺失原因" />{missingReason}</td>
+                            <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]"><SemanticCellPrefix label="备注" />{cell.observation?.note || "—"}</td>
                           </tr>
                         );
                       })}
@@ -1683,7 +1743,7 @@ export function DataCountryExplorer() {
               </div>
             </div>
 
-            <div id="v4-derived-comparison-entry" className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+            <div id="v4-derived-comparison-entry" className="mt-5 scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
               <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
                 <div>
                   <p className="eyebrow">Derived Comparison</p>
@@ -1870,10 +1930,11 @@ export function DataCountryExplorer() {
                     return (
                       <tr key={`${row.year}-${metric.id}`} className="align-top">
                         <td className="data-indicator-cell border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{metric.label}</td>
-                        <td className="data-date-cell border-b border-[var(--line)] px-3 py-3">{row.year}</td>
-                        <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono"><span className={dataValueClass(value)}>{formatRawMetricValue(value, metric.id)}</span></td>
-                        <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><UnitToken value={displayUnit(value, metric.unit)} /></td>
+                        <td className="data-date-cell border-b border-[var(--line)] px-3 py-3"><SemanticCellPrefix label="年份" />{row.year}</td>
+                        <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticCellPrefix label="数值" /><span className={dataValueClass(value)}>{formatRawMetricValue(value, metric.id)}</span></td>
+                        <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><SemanticCellPrefix label="单位" /><UnitToken value={displayUnit(value, metric.unit)} /></td>
                         <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
+                          <SemanticCellPrefix label="状态" />
                           <DataStatusBadge status={status} />
                         </td>
                         <EconomicSourceNoteCell
@@ -2038,10 +2099,11 @@ export function DataCountryExplorer() {
                   return (
                     <tr key={row.year} className="align-top">
                       <td className="data-indicator-cell border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{activeMetricInfo.label}</td>
-                      <td className="data-date-cell border-b border-[var(--line)] px-3 py-3">{row.year}</td>
-                      <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono"><span className={dataValueClass(value)}>{formatRawMetricValue(value, activeMetric)}</span></td>
-                      <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><UnitToken value={displayUnit(value, activeMetricInfo.unit)} /></td>
+                      <td className="data-date-cell border-b border-[var(--line)] px-3 py-3"><SemanticCellPrefix label="年份" />{row.year}</td>
+                      <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticCellPrefix label="数值" /><span className={dataValueClass(value)}>{formatRawMetricValue(value, activeMetric)}</span></td>
+                      <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><SemanticCellPrefix label="单位" /><UnitToken value={displayUnit(value, activeMetricInfo.unit)} /></td>
                       <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
+                        <SemanticCellPrefix label="状态" />
                         <DataStatusBadge status={status} />
                       </td>
                       <EconomicSourceNoteCell
@@ -2100,7 +2162,7 @@ export function DataCountryExplorer() {
             </div>
             ) : null}
 
-            <div className="card p-6">
+            <div id="indicator-dictionary-entry" className="card p-6 scroll-mt-6">
               <p className="eyebrow">Country Table</p>
               <h2 className="mt-3 text-2xl font-semibold">国家表</h2>
               <div className="mt-5 wide-table-scroll max-w-full">
@@ -2198,7 +2260,7 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Sources / Projects / Events</p>
               <h2 className="mt-3 text-2xl font-semibold">来源表、对华项目表、新闻事件表</h2>
               <div className="mt-5 grid gap-4">
-                <div className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+                <div id="source-dictionary-entry" className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-4">
                   <h3 className="font-semibold">来源字典入口</h3>
                   <p className="mt-2 text-sm leading-6 text-[var(--muted)]">覆盖 Eurostat、各国统计局、央行、国际组织、欧盟机构、政府部门、选举机构、新闻与项目线索等 16 类来源。</p>
                   <div className="mt-4 wide-table-scroll max-w-full">
