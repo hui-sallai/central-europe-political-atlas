@@ -24,8 +24,9 @@
       ],
       "amount_evidence": "金额缺失：当前来源只能证明通道和运营网络存在，未给出项目投资额、年度货值或 TEU 口径；后续需接入口岸统计、铁路运营商或海关数据。",
       "actor_evidence": "中国主体暂按中欧班列运营网络记录；当地主体需拆分 PKP Cargo、边境口岸、场站和海关相关实体，当前为人工整理。",
+      "source_id": "company_announcements",
       "source_url": "https://www.crexpress.cn/",
-      "source_reliability_level": "C",
+      "source_reliability_level": "B",
       "risk_tags": [
         "物流通道",
         "贸易暴露",
@@ -69,6 +70,7 @@
       ],
       "amount_evidence": "金额缺失：Reuters 来源可核验生产调整和地点，但未披露投资额；需补 Stellantis/Leapmotor 公告、工厂产量或地方投资资料。",
       "actor_evidence": "中国主体为 Leapmotor / Leapmotor International；当地主体为 Stellantis Poland，仍需用企业公告或当地登记资料核验具体生产实体。",
+      "source_id": "mainstream_wire",
       "source_url": "https://www.reuters.com/business/autos-transportation/stellantis-stops-making-leapmotor-ev-poland-eyes-other-options-2025-04-08/",
       "source_reliability_level": "B",
       "risk_tags": [
@@ -114,6 +116,7 @@
       ],
       "amount_evidence": "金额缺失：欧盟委员会来源可核验外资补贴调查事件，但不提供波兰基地投资额；需补企业登记、采购合同或厂区投资资料。",
       "actor_evidence": "中国主体为 Nuctech；当地主体暂记 Nuctech Warsaw Company，需以波兰商业登记或企业年报核验。",
+      "source_id": "eu_institutions",
       "source_url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_24_1803",
       "source_reliability_level": "A",
       "risk_tags": [
@@ -159,8 +162,9 @@
       ],
       "amount_evidence": "金额已接入：CATL 企业公告披露 73.4 亿欧元投资额；仍需补政府补贴、产能、就业和实际支出进度。",
       "actor_evidence": "中国主体为 CATL；当地主体暂记匈牙利政府与 Debrecen 地方主体，需补项目公司、土地/许可主体和补贴签署方。",
+      "source_id": "company_announcements",
       "source_url": "https://www.catl.com/en/news/958.html",
-      "source_reliability_level": "C",
+      "source_reliability_level": "B",
       "risk_tags": [
         "电池产业",
         "制造业集中",
@@ -203,6 +207,7 @@
       ],
       "amount_evidence": "金额缺失：AP 来源可核验项目宣布和地点，但未给出明确投资额；需补 BYD、匈牙利政府或地方政府披露的金额、产能和补贴信息。",
       "actor_evidence": "中国主体为 BYD；当地主体暂记匈牙利政府 / Szeged 地方主体，项目公司和许可主体待核验。",
+      "source_id": "mainstream_wire",
       "source_url": "https://apnews.com/article/4c4754f43703d061e1dc02516be0c14a",
       "source_reliability_level": "B",
       "risk_tags": [
@@ -248,6 +253,7 @@
       ],
       "amount_evidence": "金额已接入：项目官网/项目口径保留 9490 亿福林合同金额；需进一步拆分贷款、承包比例、匈牙利段实际支出和现金流。",
       "actor_evidence": "中国主体暂记 China Railway International / China Railway Engineering partners；当地主体为 MAV 及 Kínai-Magyar Vasúti Nonprofit Zrt.，仍需合同文件交叉核验。",
+      "source_id": "official_government",
       "source_url": "https://bbrailway.hu/",
       "source_reliability_level": "A",
       "risk_tags": [
@@ -293,8 +299,9 @@
       ],
       "amount_evidence": "金额已接入但为历史公开口径：2007 年约 2000 万美元；需用捷克商业登记、企业年报或地方投资资料核验是否仍适合作为当前暴露值。",
       "actor_evidence": "中国主体为 Sichuan Changhong / Changhong Europe Electric；当地主体为 Changhong Europe Electric s.r.o.，需以捷克登记资料确认存续和控制关系。",
+      "source_id": "company_announcements",
       "source_url": "https://www.changhong.com/",
-      "source_reliability_level": "C",
+      "source_reliability_level": "B",
       "risk_tags": [
         "制造业",
         "电子产业",
@@ -338,6 +345,7 @@
       ],
       "amount_evidence": "金额缺失：Reuters 来源可核验 CEFC 在捷克资产收购活动，但 Slavia、Eden Arena、地产和相关资产金额需拆分，不能作为单一项目金额。",
       "actor_evidence": "中国主体涉及 CEFC / CITIC / Sinobo 等连续变化；当地主体涉及 SK Slavia Praha 与 Eden Arena 相关实体，所有权链条需逐项核验。",
+      "source_id": "mainstream_wire",
       "source_url": "https://www.reuters.com/article/czech-china-cefc-idUSL5N11B07B/",
       "source_reliability_level": "B",
       "risk_tags": [
@@ -383,8 +391,9 @@
       ],
       "amount_evidence": "金额缺失：当前来源主要指向集团层面信息，未形成可直接引用的交易金额、股比和治理权字段；需补 J&T 年报、监管披露或交易公告。",
       "actor_evidence": "中国主体暂记 CEFC / CITIC-linked Rainbow Wisdom；当地主体为 J&T Finance Group，需用年报和监管资料核验最终受益人、股比和权利结构。",
+      "source_id": "company_announcements",
       "source_url": "https://www.jtfg.com/",
-      "source_reliability_level": "C",
+      "source_reliability_level": "B",
       "risk_tags": [
         "金融股权",
         "监管审查",
@@ -428,8 +437,9 @@
       ],
       "amount_evidence": "金额已接入：公开资料口径约 12 亿欧元；需补政府补贴、股权结构、产能、投产年份和实际建设进度。",
       "actor_evidence": "中国主体为 Gotion High-Tech；当地主体为 InoBat 及斯洛伐克政府/地方主体，项目公司和审批主体需进一步核验。",
+      "source_id": "company_announcements",
       "source_url": "https://www.inobat.eu/",
-      "source_reliability_level": "C",
+      "source_reliability_level": "B",
       "risk_tags": [
         "电池产业",
         "政府补贴",
@@ -472,8 +482,9 @@
       ],
       "amount_evidence": "金额缺失：当前来源可证明股权/技术合作关系，但未给出可直接使用的交易金额、股比和权利结构。",
       "actor_evidence": "中国主体为 Gotion High-Tech；当地主体为 InoBat。该记录与 Surany 工厂相关但应作为股权/技术合作单独核验。",
+      "source_id": "company_announcements",
       "source_url": "https://www.inobat.eu/",
-      "source_reliability_level": "C",
+      "source_reliability_level": "B",
       "risk_tags": [
         "股权投资",
         "技术合作",

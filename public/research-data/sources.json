@@ -15,7 +15,7 @@
       "source_id": "eurostat",
       "name_zh": "Eurostat",
       "name_en": "Eurostat",
-      "source_type": "欧盟官方统计",
+      "source_type": "Eurostat",
       "coverage": "欧盟与欧洲国家",
       "indicator_coverage": "宏观、财政、外部、能源、产业",
       "url": "https://ec.europa.eu/eurostat/databrowser/",
@@ -23,17 +23,17 @@
       "source_status": "official",
       "update_frequency": "按数据集更新",
       "can_be_official_data": true,
-      "can_be_event_basis": true,
+      "can_be_event_basis": false,
       "supplemental_only": false,
       "excluded_from_analysis": false,
       "last_checked_at": "2026-07-17",
-      "note": "V4 横向可比数据主来源。"
+      "note": "官方统计数据库；可作为宏观数据和正式观测值来源，不作为新闻事件依据。"
     },
     {
       "source_id": "national_statistics",
       "name_zh": "各国统计局",
       "name_en": "National statistical offices",
-      "source_type": "官方统计机构",
+      "source_type": "各国统计局",
       "coverage": "十国",
       "indicator_coverage": "人口、国民账户、价格、劳动力、产业",
       "url": "https://hui-sallai.github.io/central-europe-political-atlas/data/",
@@ -41,17 +41,17 @@
       "source_status": "official",
       "update_frequency": "按国家发布节奏",
       "can_be_official_data": true,
-      "can_be_event_basis": true,
+      "can_be_event_basis": false,
       "supplemental_only": false,
       "excluded_from_analysis": false,
       "last_checked_at": "2026-07-17",
-      "note": "正式版逐国替换为具体统计局链接。"
+      "note": "国家官方统计机构；用于正式观测值，正式版逐国替换为具体统计局链接。"
     },
     {
       "source_id": "national_central_banks",
       "name_zh": "各国央行",
       "name_en": "National central banks",
-      "source_type": "央行",
+      "source_type": "各国央行",
       "coverage": "十国",
       "indicator_coverage": "国际收支、FDI、金融与宏观背景",
       "url": "https://www.ecb.europa.eu/",
@@ -59,11 +59,11 @@
       "source_status": "official",
       "update_frequency": "按指标更新",
       "can_be_official_data": true,
-      "can_be_event_basis": true,
+      "can_be_event_basis": false,
       "supplemental_only": false,
       "excluded_from_analysis": false,
       "last_checked_at": "2026-07-17",
-      "note": "用于 FDI、经常账户和金融口径交叉核验。"
+      "note": "用于 FDI、经常账户和金融口径交叉核验；不作为新闻事件依据。"
     },
     {
       "source_id": "international_organizations",
@@ -81,7 +81,7 @@
       "supplemental_only": false,
       "excluded_from_analysis": false,
       "last_checked_at": "2026-07-17",
-      "note": "用于 OECD、IMF、World Bank、UNCTAD 等补充口径。"
+      "note": "OECD、IMF、World Bank、UNCTAD 等可作为正式数据或事件依据。"
     },
     {
       "source_id": "eu_institutions",
@@ -99,13 +99,13 @@
       "supplemental_only": false,
       "excluded_from_analysis": false,
       "last_checked_at": "2026-07-17",
-      "note": "用于欧盟委员会、理事会、议会等官方材料。"
+      "note": "欧盟委员会、理事会、议会等官方材料可作为正式数据和事件依据。"
     },
     {
       "source_id": "official_government",
       "name_zh": "官方政府部门",
       "name_en": "Official government departments",
-      "source_type": "政府公告",
+      "source_type": "官方政府部门",
       "coverage": "十国",
       "indicator_coverage": "政府结构、政策事件、项目公告",
       "url": "https://hui-sallai.github.io/central-europe-political-atlas/methodology/",
@@ -117,7 +117,7 @@
       "supplemental_only": false,
       "excluded_from_analysis": false,
       "last_checked_at": "2026-07-17",
-      "note": "用于国家页和新闻事件库的正式事件依据。"
+      "note": "政府公告、部委材料和正式政策文件可作为正式数据或事件依据。"
     },
     {
       "source_id": "electoral_commissions",
@@ -135,13 +135,13 @@
       "supplemental_only": false,
       "excluded_from_analysis": false,
       "last_checked_at": "2026-07-17",
-      "note": "当前区域选举数据待接入，不上真实党派支持率图层。"
+      "note": "官方选举结果可作为正式数据和事件依据；当前区域选举数据待接入。"
     },
     {
       "source_id": "mainstream_wire",
       "name_zh": "主流通讯社",
       "name_en": "Mainstream news agencies",
-      "source_type": "新闻通讯社",
+      "source_type": "主流通讯社",
       "coverage": "全球 / 欧洲",
       "indicator_coverage": "新闻事件、项目状态",
       "url": "https://www.reuters.com/",
@@ -150,16 +150,16 @@
       "update_frequency": "实时 / 日更",
       "can_be_official_data": false,
       "can_be_event_basis": true,
-      "supplemental_only": false,
+      "supplemental_only": true,
       "excluded_from_analysis": false,
       "last_checked_at": "2026-07-17",
-      "note": "可作为事件依据，正式数据仍优先使用 A 级来源。"
+      "note": "可作为事件依据和补充线索；正式数据仍优先使用 A 级来源。"
     },
     {
       "source_id": "authoritative_thinktanks",
       "name_zh": "权威智库",
       "name_en": "Authoritative think tanks",
-      "source_type": "研究机构",
+      "source_type": "权威智库",
       "coverage": "欧洲 / 区域",
       "indicator_coverage": "背景解释、专题事件",
       "url": "https://www.bruegel.org/",
@@ -168,28 +168,28 @@
       "update_frequency": "按报告更新",
       "can_be_official_data": false,
       "can_be_event_basis": true,
-      "supplemental_only": false,
+      "supplemental_only": true,
       "excluded_from_analysis": false,
       "last_checked_at": "2026-07-17",
-      "note": "作为解释材料或事件依据，不能替代官方统计。"
+      "note": "可作为事件依据或补充解释，不能替代官方统计。"
     },
     {
       "source_id": "official_annual_reports",
       "name_zh": "官方年报",
       "name_en": "Official annual reports",
-      "source_type": "年报",
+      "source_type": "官方年报",
       "coverage": "机构 / 企业 / 政府",
       "indicator_coverage": "项目主体、金额、股权、产能",
       "url": "https://hui-sallai.github.io/central-europe-political-atlas/data/",
       "reliability_level": "B",
       "source_status": "manual",
       "update_frequency": "年度",
-      "can_be_official_data": false,
+      "can_be_official_data": true,
       "can_be_event_basis": true,
       "supplemental_only": false,
       "excluded_from_analysis": false,
       "last_checked_at": "2026-07-17",
-      "note": "项目核验的重要补充来源。"
+      "note": "可作为项目金额、主体、股权和产能核验来源。"
     },
     {
       "source_id": "company_announcements",
@@ -199,15 +199,15 @@
       "coverage": "项目主体",
       "indicator_coverage": "对华项目金额、主体、时间线",
       "url": "https://hui-sallai.github.io/central-europe-political-atlas/data/",
-      "reliability_level": "C",
+      "reliability_level": "B",
       "source_status": "manual",
       "update_frequency": "按公告更新",
-      "can_be_official_data": false,
-      "can_be_event_basis": false,
-      "supplemental_only": true,
+      "can_be_official_data": true,
+      "can_be_event_basis": true,
+      "supplemental_only": false,
       "excluded_from_analysis": false,
       "last_checked_at": "2026-07-17",
-      "note": "只作补充线索，量化前需与官方或年报交叉核验。"
+      "note": "可作为项目和企业行为依据；关键金额进入分析前需与官方或年报交叉核验。"
     },
     {
       "source_id": "local_media",
@@ -221,11 +221,11 @@
       "source_status": "manual",
       "update_frequency": "不定期",
       "can_be_official_data": false,
-      "can_be_event_basis": false,
+      "can_be_event_basis": true,
       "supplemental_only": true,
       "excluded_from_analysis": false,
       "last_checked_at": "2026-07-17",
-      "note": "只作补充线索，不单独进入正式事件库。"
+      "note": "可作为事件线索和地方补充，不单独进入正式数据。"
     },
     {
       "source_id": "industry_sites",
@@ -239,17 +239,17 @@
       "source_status": "manual",
       "update_frequency": "不定期",
       "can_be_official_data": false,
-      "can_be_event_basis": false,
+      "can_be_event_basis": true,
       "supplemental_only": true,
       "excluded_from_analysis": false,
       "last_checked_at": "2026-07-17",
-      "note": "只作产业背景和项目线索。"
+      "note": "可作为行业事件和项目线索，进入正式分析前需更高等级来源复核。"
     },
     {
       "source_id": "manual_sources",
       "name_zh": "人工整理来源",
       "name_en": "Manually curated sources",
-      "source_type": "人工整理",
+      "source_type": "人工整理来源",
       "coverage": "平台内部",
       "indicator_coverage": "摘要、翻译、字段整理",
       "url": "https://hui-sallai.github.io/central-europe-political-atlas/methodology/",
@@ -257,7 +257,7 @@
       "source_status": "manual",
       "update_frequency": "随数据维护",
       "can_be_official_data": false,
-      "can_be_event_basis": false,
+      "can_be_event_basis": true,
       "supplemental_only": true,
       "excluded_from_analysis": false,
       "last_checked_at": "2026-07-17",
@@ -267,7 +267,7 @@
       "source_id": "pending_sources",
       "name_zh": "待接入来源",
       "name_en": "Pending sources",
-      "source_type": "待接入",
+      "source_type": "待接入来源",
       "coverage": "待定",
       "indicator_coverage": "缺失字段",
       "url": "https://hui-sallai.github.io/central-europe-political-atlas/data/",
@@ -279,13 +279,13 @@
       "supplemental_only": false,
       "excluded_from_analysis": true,
       "last_checked_at": "2026-07-17",
-      "note": "不进入正式数据、事件库或后续分析。"
+      "note": "字段预留但来源尚未接入；不进入正式数据、事件库或后续分析。"
     },
     {
       "source_id": "sample_sources",
       "name_zh": "结构样例来源",
       "name_en": "Structural sample sources",
-      "source_type": "结构样例",
+      "source_type": "结构样例来源",
       "coverage": "平台结构测试",
       "indicator_coverage": "页面结构、地图样例、新闻样例",
       "url": "https://hui-sallai.github.io/central-europe-political-atlas/methodology/",
@@ -297,7 +297,7 @@
       "supplemental_only": false,
       "excluded_from_analysis": true,
       "last_checked_at": "2026-07-17",
-      "note": "只用于验证结构，不进入模型或分析。"
+      "note": "只用于验证结构，不进入正式数据、事件库、模型或分析。"
     }
   ]
 }

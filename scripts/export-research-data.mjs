@@ -39,6 +39,7 @@ const {
   getEconomicMetricSourceLinks,
 } = require("../src/lib/economicTimeSeries.ts");
 const { indicatorDictionaryRecords } = require("../src/lib/indicatorDictionary.ts");
+const { sourceDictionaryRows } = require("../src/lib/sourceDictionary.ts");
 const { getV4DataQualitySummary, v4QualityCountrySlugs } = require("../src/lib/v4DataQuality.ts");
 const { verifyChinaProject, chinaProjectVerificationLabel } = require("../src/lib/chinaProjectVerification.ts");
 
@@ -73,6 +74,36 @@ function countryCoverage(indicator) {
 
 function yearCoverage(indicator) {
   return v4ExtendedIndicatorIds.has(indicator.indicatorId) ? "2021-2025" : "2021-2025";
+}
+
+function sourceIdFromText(value) {
+  const text = (value ?? "").toLowerCase();
+
+  if (!text) return "pending_sources";
+  if (text.includes("eurostat")) return "eurostat";
+  if (text.includes("statistics") || text.includes("statistical") || text.includes("gus") || text.includes("ksh") || text.includes("czso") || text.includes("统计")) return "national_statistics";
+  if (text.includes("central bank") || text.includes("bank polski") || text.includes("央行")) return "national_central_banks";
+  if (text.includes("oecd") || text.includes("imf") || text.includes("world bank") || text.includes("unctad")) return "international_organizations";
+  if (text.includes("europa.eu") || text.includes("european commission") || text.includes("欧盟")) return "eu_institutions";
+  if (text.includes("government") || text.includes("ministry") || text.includes("kormany") || text.includes("政府")) return "official_government";
+  if (text.includes("reuters") || text.includes("apnews") || text.includes("associated press")) return "mainstream_wire";
+  if (text.includes("sample") || text.includes("结构样例")) return "sample_sources";
+
+  return "manual_sources";
+}
+
+function sourceIdForChinaProject(project) {
+  const text = `${project.sourceUrl} ${project.sourceReliabilityLevel}`.toLowerCase();
+
+  if (text.includes("reuters") || text.includes("apnews")) return "mainstream_wire";
+  if (text.includes("europa.eu")) return "eu_institutions";
+  if (text.includes("gov") || text.includes("bbrailway")) return "official_government";
+  if (text.includes("catl") || text.includes("changhong") || text.includes("inobat") || text.includes("jtfg") || text.includes("crexpress")) return "company_announcements";
+  if (project.sourceReliabilityLevel === "A") return "official_government";
+  if (project.sourceReliabilityLevel === "B") return "mainstream_wire";
+  if (project.sourceReliabilityLevel === "C") return "industry_sites";
+
+  return "pending_sources";
 }
 
 function envelope(dataType, records, extra = {}) {
@@ -127,6 +158,7 @@ function economicObservationRecords() {
         const value = metric.id === "population" && rawValue !== null ? rawValue * 1_000_000 : rawValue;
         const indicator = indicatorDictionaryRecords.find((item) => item.indicatorId === indicatorId);
         const sourceLinks = getEconomicMetricSourceLinks(countrySlug, metric.id, row.year, value);
+        const sourceName = sourceLinks.map((item) => item.label).join(" / ") || row.source;
 
         return {
           observation_id: `macro:${countrySlug}:${indicatorId}:${row.year}`,
@@ -138,7 +170,8 @@ function economicObservationRecords() {
           frequency: "annual",
           value,
           unit: indicator?.unit ?? metric.unit,
-          source_name: sourceLinks.map((item) => item.label).join(" / ") || row.source,
+          source_id: sourceIdFromText(sourceName),
+          source_name: sourceName,
           source_url: sourceLinks[0]?.url ?? "",
           source_links: sourceLinks,
           status: value === null ? "pending" : "official",
@@ -162,6 +195,7 @@ function extendedObservationRecords() {
     frequency: "annual",
     value: observation.value,
     unit: observation.unit,
+    source_id: sourceIdFromText(`${observation.sourceName} ${observation.sourceUrl}`),
     source_name: observation.sourceName,
     source_url: observation.sourceUrl,
     source_links: [{ label: observation.sourceName, url: observation.sourceUrl, note: observation.note ?? "" }],
@@ -278,25 +312,6 @@ function derivedMetricRecords() {
     ...metricRecords,
   ];
 }
-
-const sourceDictionaryRecords = [
-  { source_id: "eurostat", name_zh: "Eurostat", name_en: "Eurostat", source_type: "欧盟官方统计", coverage: "欧盟与欧洲国家", indicator_coverage: "宏观、财政、外部、能源、产业", url: "https://ec.europa.eu/eurostat/databrowser/", reliability_level: "A", source_status: "official", update_frequency: "按数据集更新", can_be_official_data: true, can_be_event_basis: true, supplemental_only: false, excluded_from_analysis: false, last_checked_at: generatedAt, note: "V4 横向可比数据主来源。" },
-  { source_id: "national_statistics", name_zh: "各国统计局", name_en: "National statistical offices", source_type: "官方统计机构", coverage: "十国", indicator_coverage: "人口、国民账户、价格、劳动力、产业", url: "https://hui-sallai.github.io/central-europe-political-atlas/data/", reliability_level: "A", source_status: "official", update_frequency: "按国家发布节奏", can_be_official_data: true, can_be_event_basis: true, supplemental_only: false, excluded_from_analysis: false, last_checked_at: generatedAt, note: "正式版逐国替换为具体统计局链接。" },
-  { source_id: "national_central_banks", name_zh: "各国央行", name_en: "National central banks", source_type: "央行", coverage: "十国", indicator_coverage: "国际收支、FDI、金融与宏观背景", url: "https://www.ecb.europa.eu/", reliability_level: "A", source_status: "official", update_frequency: "按指标更新", can_be_official_data: true, can_be_event_basis: true, supplemental_only: false, excluded_from_analysis: false, last_checked_at: generatedAt, note: "用于 FDI、经常账户和金融口径交叉核验。" },
-  { source_id: "international_organizations", name_zh: "国际组织", name_en: "International organizations", source_type: "国际组织", coverage: "全球 / 欧洲", indicator_coverage: "宏观、投资、能源、贸易补充", url: "https://data.oecd.org/", reliability_level: "A", source_status: "official", update_frequency: "按机构更新", can_be_official_data: true, can_be_event_basis: true, supplemental_only: false, excluded_from_analysis: false, last_checked_at: generatedAt, note: "用于 OECD、IMF、World Bank、UNCTAD 等补充口径。" },
-  { source_id: "eu_institutions", name_zh: "欧盟机构", name_en: "EU institutions", source_type: "欧盟机构", coverage: "欧盟", indicator_coverage: "财政、监管、项目与政策事件", url: "https://european-union.europa.eu/", reliability_level: "A", source_status: "official", update_frequency: "按公告更新", can_be_official_data: true, can_be_event_basis: true, supplemental_only: false, excluded_from_analysis: false, last_checked_at: generatedAt, note: "用于欧盟委员会、理事会、议会等官方材料。" },
-  { source_id: "official_government", name_zh: "官方政府部门", name_en: "Official government departments", source_type: "政府公告", coverage: "十国", indicator_coverage: "政府结构、政策事件、项目公告", url: "https://hui-sallai.github.io/central-europe-political-atlas/methodology/", reliability_level: "A", source_status: "official", update_frequency: "按公告更新", can_be_official_data: true, can_be_event_basis: true, supplemental_only: false, excluded_from_analysis: false, last_checked_at: generatedAt, note: "用于国家页和新闻事件库的正式事件依据。" },
-  { source_id: "electoral_commissions", name_zh: "选举机构", name_en: "Electoral commissions", source_type: "选举机构", coverage: "十国", indicator_coverage: "选举结果、政党、区域投票", url: "https://hui-sallai.github.io/central-europe-political-atlas/methodology/", reliability_level: "A", source_status: "pending", update_frequency: "按选举周期", can_be_official_data: true, can_be_event_basis: true, supplemental_only: false, excluded_from_analysis: false, last_checked_at: generatedAt, note: "当前区域选举数据待接入，不上真实党派支持率图层。" },
-  { source_id: "mainstream_wire", name_zh: "主流通讯社", name_en: "Mainstream news agencies", source_type: "新闻通讯社", coverage: "全球 / 欧洲", indicator_coverage: "新闻事件、项目状态", url: "https://www.reuters.com/", reliability_level: "B", source_status: "manual", update_frequency: "实时 / 日更", can_be_official_data: false, can_be_event_basis: true, supplemental_only: false, excluded_from_analysis: false, last_checked_at: generatedAt, note: "可作为事件依据，正式数据仍优先使用 A 级来源。" },
-  { source_id: "authoritative_thinktanks", name_zh: "权威智库", name_en: "Authoritative think tanks", source_type: "研究机构", coverage: "欧洲 / 区域", indicator_coverage: "背景解释、专题事件", url: "https://www.bruegel.org/", reliability_level: "B", source_status: "manual", update_frequency: "按报告更新", can_be_official_data: false, can_be_event_basis: true, supplemental_only: false, excluded_from_analysis: false, last_checked_at: generatedAt, note: "作为解释材料或事件依据，不能替代官方统计。" },
-  { source_id: "official_annual_reports", name_zh: "官方年报", name_en: "Official annual reports", source_type: "年报", coverage: "机构 / 企业 / 政府", indicator_coverage: "项目主体、金额、股权、产能", url: "https://hui-sallai.github.io/central-europe-political-atlas/data/", reliability_level: "B", source_status: "manual", update_frequency: "年度", can_be_official_data: false, can_be_event_basis: true, supplemental_only: false, excluded_from_analysis: false, last_checked_at: generatedAt, note: "项目核验的重要补充来源。" },
-  { source_id: "company_announcements", name_zh: "企业公告", name_en: "Company announcements", source_type: "企业公告", coverage: "项目主体", indicator_coverage: "对华项目金额、主体、时间线", url: "https://hui-sallai.github.io/central-europe-political-atlas/data/", reliability_level: "C", source_status: "manual", update_frequency: "按公告更新", can_be_official_data: false, can_be_event_basis: false, supplemental_only: true, excluded_from_analysis: false, last_checked_at: generatedAt, note: "只作补充线索，量化前需与官方或年报交叉核验。" },
-  { source_id: "local_media", name_zh: "地方媒体", name_en: "Local media", source_type: "地方媒体", coverage: "国家 / 地方", indicator_coverage: "项目线索、地方事件", url: "https://hui-sallai.github.io/central-europe-political-atlas/news/", reliability_level: "C", source_status: "manual", update_frequency: "不定期", can_be_official_data: false, can_be_event_basis: false, supplemental_only: true, excluded_from_analysis: false, last_checked_at: generatedAt, note: "只作补充线索，不单独进入正式事件库。" },
-  { source_id: "industry_sites", name_zh: "行业网站", name_en: "Industry websites", source_type: "行业网站", coverage: "行业 / 企业", indicator_coverage: "产业链、汽车、能源、物流项目", url: "https://hui-sallai.github.io/central-europe-political-atlas/data/", reliability_level: "C", source_status: "manual", update_frequency: "不定期", can_be_official_data: false, can_be_event_basis: false, supplemental_only: true, excluded_from_analysis: false, last_checked_at: generatedAt, note: "只作产业背景和项目线索。" },
-  { source_id: "manual_sources", name_zh: "人工整理来源", name_en: "Manually curated sources", source_type: "人工整理", coverage: "平台内部", indicator_coverage: "摘要、翻译、字段整理", url: "https://hui-sallai.github.io/central-europe-political-atlas/methodology/", reliability_level: "C", source_status: "manual", update_frequency: "随数据维护", can_be_official_data: false, can_be_event_basis: false, supplemental_only: true, excluded_from_analysis: false, last_checked_at: generatedAt, note: "必须回链到原始来源，不能单独作为正式依据。" },
-  { source_id: "pending_sources", name_zh: "待接入来源", name_en: "Pending sources", source_type: "待接入", coverage: "待定", indicator_coverage: "缺失字段", url: "https://hui-sallai.github.io/central-europe-political-atlas/data/", reliability_level: "D", source_status: "pending", update_frequency: "待定", can_be_official_data: false, can_be_event_basis: false, supplemental_only: false, excluded_from_analysis: true, last_checked_at: generatedAt, note: "不进入正式数据、事件库或后续分析。" },
-  { source_id: "sample_sources", name_zh: "结构样例来源", name_en: "Structural sample sources", source_type: "结构样例", coverage: "平台结构测试", indicator_coverage: "页面结构、地图样例、新闻样例", url: "https://hui-sallai.github.io/central-europe-political-atlas/methodology/", reliability_level: "D", source_status: "sample", update_frequency: "不更新", can_be_official_data: false, can_be_event_basis: false, supplemental_only: false, excluded_from_analysis: true, last_checked_at: generatedAt, note: "只用于验证结构，不进入模型或分析。" },
-];
 
 function dataQualityCheckRecords() {
   return getV4DataQualitySummary().cells.map((cell) => {
@@ -415,9 +430,29 @@ const indicatorRecords = indicatorDictionaryRecords.map((indicator) => {
   };
 });
 const observationRecords = [...economicObservationRecords(), ...extendedObservationRecords()];
-const sourceRecords = sourceDictionaryRecords;
+const sourceRecords = sourceDictionaryRows.map((source) => ({
+  source_id: source.sourceId,
+  name_zh: source.nameZh,
+  name_en: source.nameEn,
+  source_type: source.sourceType,
+  coverage: source.coverage,
+  indicator_coverage: source.indicatorCoverage,
+  url: source.url,
+  reliability_level: source.reliabilityLevel,
+  source_status: source.sourceStatus,
+  update_frequency: source.updateFrequency,
+  can_be_official_data: source.canBeOfficialData,
+  can_be_event_basis: source.canBeEventBasis,
+  supplemental_only: source.supplementalOnly,
+  excluded_from_analysis: source.excludedFromAnalysis,
+  last_checked_at: source.lastCheckedAt,
+  note: source.note,
+}));
 const chinaProjectExportRecords = chinaProjectRecords.map((project) => {
   const verification = verifyChinaProject(project);
+  const sourceId = sourceIdForChinaProject(project);
+  const sourceReliability = sourceDictionaryRows.find((source) => source.sourceId === sourceId)?.reliabilityLevel ?? project.sourceReliabilityLevel;
+
   return {
     project_id: project.projectId,
     project_name: project.projectName,
@@ -434,8 +469,9 @@ const chinaProjectExportRecords = chinaProjectRecords.map((project) => {
     status_timeline: project.statusTimeline,
     amount_evidence: project.amountEvidence,
     actor_evidence: project.actorEvidence,
+    source_id: sourceId,
     source_url: project.sourceUrl,
-    source_reliability_level: project.sourceReliabilityLevel,
+    source_reliability_level: sourceReliability,
     risk_tags: project.riskTags,
     quantification_status: project.quantificationStatus,
     is_quantifiable: verification.conclusion === "quantifiable",
