@@ -321,7 +321,7 @@ export function Adm1BoundaryMap({
             <DataStatusBadge status="pending" />
           </div>
           <p className="mt-3 max-w-xl text-sm leading-6 text-[var(--muted)]">
-            边界数据接入前仅显示结构样例；当前仅保留地图工作台入口。
+            地图工作台入口已保留。
           </p>
         </div>
         <div className="mt-6 grid max-h-[260px] gap-2 overflow-auto sm:grid-cols-2 lg:grid-cols-3">
@@ -347,7 +347,7 @@ export function Adm1BoundaryMap({
   if (!project) {
     return (
       <div className={`flex items-center justify-center rounded-[24px] border border-[var(--line)] bg-[#edf0e8] p-8 text-sm text-[var(--muted)] ${compact ? "h-full min-h-0" : "min-h-[360px]"}`}>
-        边界数据接入前仅显示结构样例；当前仅保留地图工作台入口。
+        地图工作台入口已保留。
       </div>
     );
   }
