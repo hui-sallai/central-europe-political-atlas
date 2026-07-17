@@ -409,6 +409,24 @@ a {
   text-align: center;
 }
 
+.semantic-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+}
+
+.semantic-field-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.semantic-field-value {
+  display: inline-flex;
+  align-items: center;
+}
+
 .dictionary-token,
 .boolean-cell-token {
   display: inline-flex;
