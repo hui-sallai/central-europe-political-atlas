@@ -38,6 +38,14 @@ import { chinaProjectVerificationLabel, verifyChinaProject, type ChinaProjectVer
 
 type DataMode = "economy" | "charts" | "comparison" | "tables";
 type ProjectAmountFilter = "all" | "available" | "missing";
+type QualityFilterState = {
+  country: string;
+  indicator: string;
+  status: string;
+  reliability: string;
+  computed: string;
+  pending: string;
+};
 type DataEntryShortcut = {
   id: string;
   label: string;
@@ -240,6 +248,18 @@ function indicatorCategoryLabel(value: IndicatorCategory) {
 
 function yesNoLabel(value: boolean) {
   return value ? "是" : "否";
+}
+
+function BooleanCell({ value }: { value: boolean }) {
+  return (
+    <span className={`boolean-cell-token ${value ? "boolean-cell-yes" : "boolean-cell-no"}`}>
+      {yesNoLabel(value)}
+    </span>
+  );
+}
+
+function DictionaryToken({ children }: { children: ReactNode }) {
+  return <span className="dictionary-token">{children}</span>;
 }
 
 function qualityStatusLabel(value: V4QualityStatus) {
@@ -898,7 +918,16 @@ function V4CategoryMatrix({
 function IndicatorDictionaryTable({ rows }: { rows: IndicatorDictionaryRecord[] }) {
   return (
     <div className="mt-5 wide-table-scroll max-w-full">
-      <table className="research-data-table w-full min-w-[3600px] border-separate border-spacing-0 text-left text-sm">
+      <table className="research-data-table indicator-dictionary-table w-full min-w-[3800px] border-separate border-spacing-0 text-left text-sm">
+        <colgroup>
+          <col className="indicator-id-col" />
+          <col className="indicator-name-col" />
+          <col className="indicator-name-en-col" />
+          <col className="indicator-category-col" />
+          <col className="indicator-section-col" />
+          <col className="indicator-unit-col" />
+          <col className="indicator-frequency-col" />
+        </colgroup>
         <thead>
           <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
             {["indicator_id", "中文名", "英文名", "指标类别", "所属板块", "单位", "频率", "国家覆盖范围", "年份覆盖范围", "主来源", "备用来源", "来源等级", "原始值", "计算值", "派生值", "进入横向比较", "进入五年变化", "进入均值差距", "进入排名变化", "未来模型候选变量", "数值上升含义", "缺失值处理规则", "待接入处理规则", "更新时间", "备注"].map((header) => (
@@ -917,23 +946,23 @@ function IndicatorDictionaryTable({ rows }: { rows: IndicatorDictionaryRecord[] 
                 <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono text-xs">{indicator.indicatorId}</td>
                 <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{indicator.nameZh}</td>
                 <td className="border-b border-[var(--line)] px-3 py-3">{indicator.nameEn}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{indicatorCategoryLabel(indicator.category)}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{indicatorCategoryLabel(indicator.category)}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{indicator.unit}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{indicator.frequency}</td>
+                <td className="dictionary-section-cell border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{indicatorCategoryLabel(indicator.category)}</DictionaryToken></td>
+                <td className="dictionary-section-cell border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{indicatorCategoryLabel(indicator.category)}</DictionaryToken></td>
+                <td className="dictionary-unit-cell border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{indicator.unit}</DictionaryToken></td>
+                <td className="dictionary-frequency-cell border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{indicator.frequency}</DictionaryToken></td>
                 <td className="border-b border-[var(--line)] px-3 py-3">{isV4Indicator ? "V4 四国" : "十国"}</td>
                 <td className="border-b border-[var(--line)] px-3 py-3">2021-2025</td>
                 <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.sourcePriority[0] ?? "待接入"}</td>
                 <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.sourcePriority.slice(1).join(" / ") || "待接入"}</td>
                 <td className="border-b border-[var(--line)] px-3 py-3">{reliabilityLevelLabel(sourceLevel)}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(!isComputed)}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(isComputed)}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(false)}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.includedInDerivedComparison)}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.includedInDerivedComparison)}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.includedInDerivedComparison)}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.includedInDerivedComparison)}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.futureModelEligible)}</td>
+                <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={!isComputed} /></td>
+                <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={isComputed} /></td>
+                <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={false} /></td>
+                <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={indicator.includedInDerivedComparison} /></td>
+                <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={indicator.includedInDerivedComparison} /></td>
+                <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={indicator.includedInDerivedComparison} /></td>
+                <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={indicator.includedInDerivedComparison} /></td>
+                <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={indicator.futureModelEligible} /></td>
                 <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.upwardMeaning}</td>
                 <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.missingValueTreatment}</td>
                 <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">待接入行保留指标单位，数值显示“待接入”，状态与来源状态均显示“待接入”。</td>
@@ -951,7 +980,23 @@ function IndicatorDictionaryTable({ rows }: { rows: IndicatorDictionaryRecord[] 
 function SourceDictionaryTable({ rows }: { rows: SourceDictionaryRecord[] }) {
   return (
     <div className="mt-4 wide-table-scroll max-w-full">
-      <table className="research-data-table w-full min-w-[2920px] border-separate border-spacing-0 text-left text-sm">
+      <table className="research-data-table source-dictionary-table w-full min-w-[2920px] border-separate border-spacing-0 text-left text-sm">
+        <colgroup>
+          <col className="source-id-col" />
+          <col className="source-name-col" />
+          <col className="source-name-en-col" />
+          <col className="source-type-col" />
+          <col className="source-coverage-col" />
+          <col className="source-indicator-col" />
+          <col className="source-link-col" />
+          <col className="source-reliability-col" />
+          <col className="source-status-col" />
+          <col className="source-frequency-col" />
+          <col className="boolean-col" />
+          <col className="boolean-col" />
+          <col className="boolean-col" />
+          <col className="boolean-col" />
+        </colgroup>
         <thead>
           <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
             {["source_id", "来源中文名", "来源英文名", "来源类型", "国家或地区覆盖", "指标覆盖范围", "链接", "可靠性等级", "来源状态", "更新频率", "正式数据", "事件依据", "补充线索", "不进入分析", "最后检查日期", "备注"].map((header) => (
@@ -972,10 +1017,10 @@ function SourceDictionaryTable({ rows }: { rows: SourceDictionaryRecord[] }) {
               <td className="border-b border-[var(--line)] px-3 py-3">{reliabilityLevelLabel(source.reliabilityLevel)}</td>
               <td className="border-b border-[var(--line)] px-3 py-3"><SourceStatusBadge status={source.sourceStatus} /></td>
               <td className="border-b border-[var(--line)] px-3 py-3">{source.updateFrequency}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(source.canBeOfficialData)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(source.canBeEventBasis)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(source.supplementalOnly)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(source.excludedFromAnalysis)}</td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={source.canBeOfficialData} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={source.canBeEventBasis} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={source.supplementalOnly} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={source.excludedFromAnalysis} /></td>
               <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{source.lastCheckedAt}</td>
               <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{source.note}</td>
             </tr>
@@ -987,8 +1032,107 @@ function SourceDictionaryTable({ rows }: { rows: SourceDictionaryRecord[] }) {
 }
 
 function V4QualityDetailTable({ v4Quality, countryNameBySlug }: { v4Quality: V4DataQualitySummary; countryNameBySlug: Map<string, string> }) {
+  const [filters, setFilters] = useState<QualityFilterState>({
+    country: "all",
+    indicator: "all",
+    status: "all",
+    reliability: "all",
+    computed: "all",
+    pending: "all",
+  });
+  const filterOptions = useMemo(() => {
+    const countries = Array.from(new Set(v4Quality.cells.map((cell) => cell.countrySlug))).map((slug) => ({
+      value: slug,
+      label: countryNameBySlug.get(slug) ?? slug,
+    }));
+    const indicators = Array.from(new Set(v4Quality.cells.map((cell) => cell.indicatorId))).map((indicatorId) => ({
+      value: indicatorId,
+      label: getExtendedIndicator(indicatorId)?.labelZh ?? indicatorId,
+    }));
+
+    return {
+      countries,
+      indicators,
+    };
+  }, [countryNameBySlug, v4Quality.cells]);
+  const filteredCells = useMemo(
+    () =>
+      v4Quality.cells.filter((cell) => {
+        const reliabilityLevel = sourceReliabilityForName(cell.observation?.sourceName);
+        const status = cell.isPending ? "pending" : cell.observation?.status ?? "pending";
+        const matchesCountry = filters.country === "all" || cell.countrySlug === filters.country;
+        const matchesIndicator = filters.indicator === "all" || cell.indicatorId === filters.indicator;
+        const matchesStatus = filters.status === "all" || status === filters.status;
+        const matchesReliability = filters.reliability === "all" || reliabilityLevel === filters.reliability;
+        const matchesComputed = filters.computed === "all" || (filters.computed === "yes" ? cell.isComputed : !cell.isComputed);
+        const matchesPending = filters.pending === "all" || (filters.pending === "yes" ? cell.isPending : !cell.isPending);
+
+        return matchesCountry && matchesIndicator && matchesStatus && matchesReliability && matchesComputed && matchesPending;
+      }),
+    [filters, v4Quality.cells],
+  );
+  const updateFilter = (key: keyof QualityFilterState, value: string) => {
+    setFilters((current) => ({ ...current, [key]: value }));
+  };
+
   return (
-    <div className="mt-4 wide-table-scroll max-w-full">
+    <div className="mt-4">
+      <div className="rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-3">
+        <div className="grid gap-2 md:grid-cols-3 xl:grid-cols-6">
+          <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">
+            国家
+            <select value={filters.country} onChange={(event) => updateFilter("country", event.target.value)} className="rounded-full border border-[var(--line)] bg-white px-3 py-2 text-xs text-[var(--foreground)]">
+              <option value="all">全部国家</option>
+              {filterOptions.countries.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
+            </select>
+          </label>
+          <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">
+            指标
+            <select value={filters.indicator} onChange={(event) => updateFilter("indicator", event.target.value)} className="rounded-full border border-[var(--line)] bg-white px-3 py-2 text-xs text-[var(--foreground)]">
+              <option value="all">全部指标</option>
+              {filterOptions.indicators.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
+            </select>
+          </label>
+          <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">
+            状态
+            <select value={filters.status} onChange={(event) => updateFilter("status", event.target.value)} className="rounded-full border border-[var(--line)] bg-white px-3 py-2 text-xs text-[var(--foreground)]">
+              <option value="all">全部状态</option>
+              <option value="official">正式数据</option>
+              <option value="manual">人工整理</option>
+              <option value="pending">待接入</option>
+              <option value="sample">结构样例</option>
+            </select>
+          </label>
+          <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">
+            来源等级
+            <select value={filters.reliability} onChange={(event) => updateFilter("reliability", event.target.value)} className="rounded-full border border-[var(--line)] bg-white px-3 py-2 text-xs text-[var(--foreground)]">
+              <option value="all">全部等级</option>
+              <option value="A">A 级</option>
+              <option value="B">B 级</option>
+              <option value="C">C 级</option>
+              <option value="D">D 级</option>
+            </select>
+          </label>
+          <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">
+            是否计算值
+            <select value={filters.computed} onChange={(event) => updateFilter("computed", event.target.value)} className="rounded-full border border-[var(--line)] bg-white px-3 py-2 text-xs text-[var(--foreground)]">
+              <option value="all">全部</option>
+              <option value="yes">计算值</option>
+              <option value="no">非计算值</option>
+            </select>
+          </label>
+          <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">
+            是否待接入
+            <select value={filters.pending} onChange={(event) => updateFilter("pending", event.target.value)} className="rounded-full border border-[var(--line)] bg-white px-3 py-2 text-xs text-[var(--foreground)]">
+              <option value="all">全部</option>
+              <option value="yes">待接入</option>
+              <option value="no">已接入</option>
+            </select>
+          </label>
+        </div>
+        <p className="mt-3 text-xs text-[var(--muted)]">当前显示 {filteredCells.length} / {v4Quality.cells.length} 个观测位置。</p>
+      </div>
+      <div className="mt-4 wide-table-scroll max-w-full">
       <table className="research-data-table w-full min-w-[2360px] border-separate border-spacing-0 text-left text-sm">
         <thead>
           <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
@@ -998,7 +1142,7 @@ function V4QualityDetailTable({ v4Quality, countryNameBySlug }: { v4Quality: V4D
           </tr>
         </thead>
         <tbody>
-          {v4Quality.cells.map((cell) => {
+          {filteredCells.map((cell) => {
             const indicator = getExtendedIndicator(cell.indicatorId);
             const reliabilityLevel = sourceReliabilityForName(cell.observation?.sourceName);
             const entersDerived = Boolean(indicator?.includedInDerivedComparison && cell.hasValue && !cell.isPending);
@@ -1046,6 +1190,7 @@ function V4QualityDetailTable({ v4Quality, countryNameBySlug }: { v4Quality: V4D
           })}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }
@@ -1635,6 +1780,7 @@ export function DataCountryExplorer() {
 
             <details id="v4-derived-comparison-entry" className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-4" open>
               <summary className="cursor-pointer text-lg font-semibold">派生比较表入口：五个板块事实派生表</summary>
+              <h3 className="mt-4 text-xl font-semibold">派生比较表</h3>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
                 按财政、外部、投资、能源和产业五个板块展开。每个板块只做最高值、最低值、V4 均值、高于/低于均值和事实摘要，不输出风险判断。
               </p>

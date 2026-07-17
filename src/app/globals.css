@@ -323,6 +323,100 @@ a {
   box-shadow: inset 3px 0 0 color-mix(in srgb, #9f5f55 58%, transparent);
 }
 
+.indicator-dictionary-table,
+.source-dictionary-table {
+  table-layout: fixed;
+}
+
+.indicator-id-col {
+  width: 13rem;
+}
+
+.indicator-name-col {
+  width: 13rem;
+}
+
+.indicator-name-en-col {
+  width: 16rem;
+}
+
+.indicator-category-col,
+.indicator-section-col {
+  width: 9rem;
+}
+
+.indicator-unit-col {
+  width: 8rem;
+}
+
+.indicator-frequency-col {
+  width: 8rem;
+}
+
+.source-id-col {
+  width: 13rem;
+}
+
+.source-name-col,
+.source-name-en-col {
+  width: 14rem;
+}
+
+.source-type-col,
+.source-reliability-col,
+.source-status-col,
+.source-frequency-col {
+  width: 10rem;
+}
+
+.source-coverage-col,
+.source-indicator-col {
+  width: 16rem;
+}
+
+.source-link-col {
+  width: 10rem;
+}
+
+.boolean-col {
+  width: 8rem;
+}
+
+.dictionary-section-cell,
+.dictionary-unit-cell,
+.dictionary-frequency-cell,
+.boolean-column {
+  white-space: nowrap;
+  text-align: center;
+}
+
+.dictionary-token,
+.boolean-cell-token {
+  display: inline-flex;
+  min-width: 5.5rem;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
+  background: color-mix(in srgb, white 78%, var(--surface-muted));
+  padding: 0.28rem 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.boolean-cell-yes {
+  color: #12624f;
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+}
+
+.boolean-cell-no {
+  color: #64748b;
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
 .comparison-summary-card {
   box-shadow: 0 14px 34px rgba(45, 52, 49, 0.06);
 }
