@@ -1049,99 +1049,73 @@ function V4DerivedComparisonTable({ records }: { records: DerivedComparisonRecor
       .split(" / ")
       .map((countryId) => countryLabelById.get(countryId) ?? countryId)
       .join(" / ");
-  const headers = [
-    "comparison_id",
-    "板块",
-    "指标",
-    "latest_comparable_year",
-    "poland_value",
-    "hungary_value",
-    "czechia_value",
-    "slovakia_value",
-    "unit",
-    "highest_value",
-    "highest_country",
-    "lowest_value",
-    "lowest_country",
-    "v4_average",
-    "poland_gap_from_v4_average",
-    "hungary_gap_from_v4_average",
-    "czechia_gap_from_v4_average",
-    "slovakia_gap_from_v4_average",
-    "largest_gap_country",
-    "largest_gap_value",
-    "poland_five_year_change",
-    "hungary_five_year_change",
-    "czechia_five_year_change",
-    "slovakia_five_year_change",
-    "largest_five_year_change_country",
-    "largest_five_year_change_value",
-    "poland_rank",
-    "hungary_rank",
-    "czechia_rank",
-    "slovakia_rank",
-    "missing_observation_count",
-    "calculated_value_count",
-    "comparison_status",
-    "interpretation_boundary",
-    "notes",
-  ];
+
+  const fieldRowsFor = (record: DerivedComparisonRecord) => [
+    ["comparison_id", <span key="comparison_id" className="font-mono text-xs">{record.comparison_id}</span>],
+    ["板块", <DictionaryToken key="section">{record.section}</DictionaryToken>],
+    ["指标", (
+      <span key="indicator" className="grid gap-1">
+        <span className="font-semibold">{record.indicator_name}</span>
+        <span className="font-mono text-[10px] text-[var(--muted)]">{record.indicator_id}</span>
+      </span>
+    )],
+    ["latest_comparable_year", record.latest_comparable_year],
+    ["poland_value", formatDerivedComparisonValue(record.poland_value, record.unit)],
+    ["hungary_value", formatDerivedComparisonValue(record.hungary_value, record.unit)],
+    ["czechia_value", formatDerivedComparisonValue(record.czechia_value, record.unit)],
+    ["slovakia_value", formatDerivedComparisonValue(record.slovakia_value, record.unit)],
+    ["unit", record.unit],
+    ["highest_value", formatDerivedComparisonValue(record.highest_value, record.unit)],
+    ["highest_country", displayCountry(record.highest_country)],
+    ["lowest_value", formatDerivedComparisonValue(record.lowest_value, record.unit)],
+    ["lowest_country", displayCountry(record.lowest_country)],
+    ["v4_average", formatDerivedComparisonValue(record.v4_average, record.unit)],
+    ["poland_gap_from_v4_average", formatDerivedComparisonSignedValue(record.poland_gap_from_v4_average, record.unit)],
+    ["hungary_gap_from_v4_average", formatDerivedComparisonSignedValue(record.hungary_gap_from_v4_average, record.unit)],
+    ["czechia_gap_from_v4_average", formatDerivedComparisonSignedValue(record.czechia_gap_from_v4_average, record.unit)],
+    ["slovakia_gap_from_v4_average", formatDerivedComparisonSignedValue(record.slovakia_gap_from_v4_average, record.unit)],
+    ["largest_gap_country", displayCountry(record.largest_gap_country)],
+    ["largest_gap_value", formatDerivedComparisonSignedValue(record.largest_gap_value, record.unit)],
+    ["poland_five_year_change", formatDerivedComparisonSignedValue(record.poland_five_year_change, record.unit)],
+    ["hungary_five_year_change", formatDerivedComparisonSignedValue(record.hungary_five_year_change, record.unit)],
+    ["czechia_five_year_change", formatDerivedComparisonSignedValue(record.czechia_five_year_change, record.unit)],
+    ["slovakia_five_year_change", formatDerivedComparisonSignedValue(record.slovakia_five_year_change, record.unit)],
+    ["largest_five_year_change_country", displayCountry(record.largest_five_year_change_country)],
+    ["largest_five_year_change_value", formatDerivedComparisonSignedValue(record.largest_five_year_change_value, record.unit)],
+    ["poland_rank", record.poland_rank ?? "待接入"],
+    ["hungary_rank", record.hungary_rank ?? "待接入"],
+    ["czechia_rank", record.czechia_rank ?? "待接入"],
+    ["slovakia_rank", record.slovakia_rank ?? "待接入"],
+    ["missing_observation_count", record.missing_observation_count],
+    ["calculated_value_count", record.calculated_value_count],
+    ["comparison_status", record.comparison_status],
+    ["interpretation_boundary", record.interpretation_boundary],
+    ["notes", record.notes],
+  ] as const;
 
   return (
-    <div className="mt-5 wide-table-scroll max-w-full">
-      <table className="research-data-table derived-comparison-table w-full min-w-[5200px] border-separate border-spacing-0 text-left text-sm">
-        <thead>
-          <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-            {headers.map((header) => (
-              <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
+    <div className="mt-5 grid gap-4">
+      {records.map((record) => (
+        <article key={record.comparison_id} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+          <div className="flex flex-col gap-2 border-b border-[var(--line)] pb-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">{record.comparison_id}</p>
+              <h4 className="mt-2 text-lg font-semibold">{record.indicator_name}</h4>
+            </div>
+            <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">
+              derived_comparisons
+            </span>
+          </div>
+          <dl className="mt-4 grid gap-2 md:grid-cols-2 xl:grid-cols-3">
+            {fieldRowsFor(record).map(([label, value]) => (
+              <div key={`${record.comparison_id}-${label}`} className="grid gap-1 rounded-xl border border-[var(--line)] bg-white/75 p-3">
+                <dt className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">{label}</dt>
+                <dd className="break-words text-sm leading-6 text-[var(--foreground)]">{value}</dd>
+              </div>
             ))}
-          </tr>
-        </thead>
-        <tbody>
-          {records.map((record) => (
-            <tr key={record.comparison_id} className="align-top">
-              <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono text-xs">{record.comparison_id}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{record.section}</DictionaryToken></td>
-              <td className="border-b border-[var(--line)] px-3 py-3">
-                <p className="font-semibold">{record.indicator_name}</p>
-                <p className="mt-1 font-mono text-[10px] text-[var(--muted)]">{record.indicator_id}</p>
-              </td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{record.latest_comparable_year}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonValue(record.poland_value, record.unit)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonValue(record.hungary_value, record.unit)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonValue(record.czechia_value, record.unit)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonValue(record.slovakia_value, record.unit)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">{record.unit}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonValue(record.highest_value, record.unit)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">{displayCountry(record.highest_country)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonValue(record.lowest_value, record.unit)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">{displayCountry(record.lowest_country)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonValue(record.v4_average, record.unit)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonSignedValue(record.poland_gap_from_v4_average, record.unit)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonSignedValue(record.hungary_gap_from_v4_average, record.unit)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonSignedValue(record.czechia_gap_from_v4_average, record.unit)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonSignedValue(record.slovakia_gap_from_v4_average, record.unit)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">{displayCountry(record.largest_gap_country)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonSignedValue(record.largest_gap_value, record.unit)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonSignedValue(record.poland_five_year_change, record.unit)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonSignedValue(record.hungary_five_year_change, record.unit)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonSignedValue(record.czechia_five_year_change, record.unit)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonSignedValue(record.slovakia_five_year_change, record.unit)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">{displayCountry(record.largest_five_year_change_country)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonSignedValue(record.largest_five_year_change_value, record.unit)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono">{record.poland_rank ?? "待接入"}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono">{record.hungary_rank ?? "待接入"}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono">{record.czechia_rank ?? "待接入"}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono">{record.slovakia_rank ?? "待接入"}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono">{record.missing_observation_count}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono">{record.calculated_value_count}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{record.comparison_status}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{record.interpretation_boundary}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{record.notes}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+          </dl>
+        </article>
+      ))}
     </div>
   );
 }
