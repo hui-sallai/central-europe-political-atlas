@@ -1037,48 +1037,6 @@ function formatDerivedComparisonSignedValue(value: number | null, unit: string) 
   return unit ? `${signed} ${unit}` : signed;
 }
 
-function derivedComparisonSemanticLine(record: DerivedComparisonRecord, displayCountry: (value: string) => string) {
-  const fields = [
-    ["comparison_id", record.comparison_id],
-    ["板块", record.section],
-    ["指标", `${record.indicator_name} (${record.indicator_id})`],
-    ["latest_comparable_year", record.latest_comparable_year],
-    ["poland_value", formatDerivedComparisonValue(record.poland_value, record.unit)],
-    ["hungary_value", formatDerivedComparisonValue(record.hungary_value, record.unit)],
-    ["czechia_value", formatDerivedComparisonValue(record.czechia_value, record.unit)],
-    ["slovakia_value", formatDerivedComparisonValue(record.slovakia_value, record.unit)],
-    ["unit", record.unit],
-    ["highest_value", formatDerivedComparisonValue(record.highest_value, record.unit)],
-    ["highest_country", displayCountry(record.highest_country)],
-    ["lowest_value", formatDerivedComparisonValue(record.lowest_value, record.unit)],
-    ["lowest_country", displayCountry(record.lowest_country)],
-    ["v4_average", formatDerivedComparisonValue(record.v4_average, record.unit)],
-    ["poland_gap_from_v4_average", formatDerivedComparisonSignedValue(record.poland_gap_from_v4_average, record.unit)],
-    ["hungary_gap_from_v4_average", formatDerivedComparisonSignedValue(record.hungary_gap_from_v4_average, record.unit)],
-    ["czechia_gap_from_v4_average", formatDerivedComparisonSignedValue(record.czechia_gap_from_v4_average, record.unit)],
-    ["slovakia_gap_from_v4_average", formatDerivedComparisonSignedValue(record.slovakia_gap_from_v4_average, record.unit)],
-    ["largest_gap_country", displayCountry(record.largest_gap_country)],
-    ["largest_gap_value", formatDerivedComparisonSignedValue(record.largest_gap_value, record.unit)],
-    ["poland_five_year_change", formatDerivedComparisonSignedValue(record.poland_five_year_change, record.unit)],
-    ["hungary_five_year_change", formatDerivedComparisonSignedValue(record.hungary_five_year_change, record.unit)],
-    ["czechia_five_year_change", formatDerivedComparisonSignedValue(record.czechia_five_year_change, record.unit)],
-    ["slovakia_five_year_change", formatDerivedComparisonSignedValue(record.slovakia_five_year_change, record.unit)],
-    ["largest_five_year_change_country", displayCountry(record.largest_five_year_change_country)],
-    ["largest_five_year_change_value", formatDerivedComparisonSignedValue(record.largest_five_year_change_value, record.unit)],
-    ["poland_rank", record.poland_rank ?? "待接入"],
-    ["hungary_rank", record.hungary_rank ?? "待接入"],
-    ["czechia_rank", record.czechia_rank ?? "待接入"],
-    ["slovakia_rank", record.slovakia_rank ?? "待接入"],
-    ["missing_observation_count", record.missing_observation_count],
-    ["calculated_value_count", record.calculated_value_count],
-    ["comparison_status", record.comparison_status],
-    ["interpretation_boundary", record.interpretation_boundary],
-    ["notes", record.notes],
-  ];
-
-  return fields.map(([label, value]) => `${label}: ${value}`).join(" | ");
-}
-
 function V4DerivedComparisonTable({ records }: { records: DerivedComparisonRecord[] }) {
   const countryLabelById = new Map([
     ["poland", "波兰"],
@@ -1140,13 +1098,9 @@ function V4DerivedComparisonTable({ records }: { records: DerivedComparisonRecor
           </tr>
         </thead>
         <tbody>
-          {records.map((record) => {
-            const semanticLine = derivedComparisonSemanticLine(record, displayCountry);
-
-            return (
+          {records.map((record) => (
             <tr key={record.comparison_id} className="align-top">
               <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono text-xs">
-                <span className="semantic-copy-row">{semanticLine}</span>
                 <SemanticField label="comparison_id">{record.comparison_id}</SemanticField>
               </td>
               <td className="border-b border-[var(--line)] px-3 py-3"><SemanticField label="板块"><DictionaryToken>{record.section}</DictionaryToken></SemanticField></td>
@@ -1188,8 +1142,7 @@ function V4DerivedComparisonTable({ records }: { records: DerivedComparisonRecor
               <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]"><SemanticField label="interpretation_boundary">{record.interpretation_boundary}</SemanticField></td>
               <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{record.notes}</td>
             </tr>
-            );
-          })}
+          ))}
         </tbody>
       </table>
     </div>
