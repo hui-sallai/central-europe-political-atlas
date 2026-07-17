@@ -1106,14 +1106,22 @@ function V4DerivedComparisonTable({ records }: { records: DerivedComparisonRecor
               derived_comparisons
             </span>
           </div>
-          <dl className="mt-4 grid gap-2 md:grid-cols-2 xl:grid-cols-3">
-            {fieldRowsFor(record).map(([label, value]) => (
-              <div key={`${record.comparison_id}-${label}`} className="grid gap-1 rounded-xl border border-[var(--line)] bg-white/75 p-3">
-                <dt className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">{label}</dt>
-                <dd className="break-words text-sm leading-6 text-[var(--foreground)]">{value}</dd>
-              </div>
-            ))}
-          </dl>
+          <div className="mt-4 overflow-hidden rounded-2xl border border-[var(--line)] bg-white/75">
+            <table className="w-full border-separate border-spacing-0 text-left text-sm">
+              <tbody>
+                {fieldRowsFor(record).map(([label, value]) => (
+                  <tr key={`${record.comparison_id}-${label}`} className="align-top">
+                    <th className="w-[260px] border-b border-[var(--line)] bg-[var(--surface-muted)] px-3 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">
+                      {label}
+                    </th>
+                    <td className="border-b border-[var(--line)] px-3 py-2 text-sm leading-6 text-[var(--foreground)]">
+                      <span className="break-words">{value}</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </article>
       ))}
     </div>
