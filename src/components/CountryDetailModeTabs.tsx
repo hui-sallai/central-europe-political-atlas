@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { DataLayerOverview } from "@/components/DataLayerOverview";
-import { DataStatusBadge } from "@/components/DataStatusBadge";
+import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
 import { CountryMapWorkbench } from "@/components/CountryMapWorkbench";
 import { CountryReadingTabs } from "@/components/CountryReadingTabs";
 import { getBasicIndicators } from "@/lib/basicIndicators";
@@ -30,6 +30,34 @@ const detailModes: { id: DetailMode; label: string; description: string }[] = [
 ];
 
 const v4CountrySlugs = ["poland", "hungary", "czechia", "slovakia"];
+
+function politicalPersonSourceStatus(countrySlug: string, field: "headOfGovernment" | "headOfState") {
+  if (!v4CountrySlugs.includes(countrySlug)) {
+    return {
+      sourceStatus: "pending" as const,
+      note: "来源状态：待接入；不进入模型。",
+    };
+  }
+
+  if (field === "headOfGovernment" && countrySlug !== "hungary") {
+    return {
+      sourceStatus: "official" as const,
+      note: "来源状态：官方政府页面；仍保留定期复核。",
+    };
+  }
+
+  if (countrySlug === "poland" && field === "headOfState") {
+    return {
+      sourceStatus: "pending" as const,
+      note: "来源状态：待核验；不进入模型。",
+    };
+  }
+
+  return {
+    sourceStatus: "manual" as const,
+    note: "来源状态：人工整理；需与官方人物页面复核，不进入模型。",
+  };
+}
 
 function StatusTextPill({ label }: { label: string }) {
   return (
@@ -84,18 +112,28 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
           <h2 className="mt-3 text-2xl font-semibold">国家基础档案</h2>
           <dl className="mt-5 grid gap-3 text-sm sm:grid-cols-2">
             {[
-              ["首都", country.capitalZh],
-              ["政体", country.polityZh],
-              ["议会结构", country.parliamentZh],
-              ["货币", country.currency],
-              ["政府首脑", country.headOfGovernmentZh],
-              ["国家元首", country.headOfStateZh],
-            ].map(([label, value]) => (
-              <div key={label} className="rounded-2xl bg-white/60 p-3">
-                <dt className="text-xs text-[var(--muted)]">{label}</dt>
-                <dd className="mt-1 font-semibold">{value}</dd>
-              </div>
-            ))}
+              { label: "首都", value: country.capitalZh },
+              { label: "政体", value: country.polityZh },
+              { label: "议会结构", value: country.parliamentZh },
+              { label: "货币", value: country.currency },
+              { label: "政府首脑", value: country.headOfGovernmentZh, personField: "headOfGovernment" as const },
+              { label: "国家元首", value: country.headOfStateZh, personField: "headOfState" as const },
+            ].map((item) => {
+              const personStatus = item.personField ? politicalPersonSourceStatus(country.slug, item.personField) : null;
+
+              return (
+                <div key={item.label} className="rounded-2xl bg-white/60 p-3">
+                  <dt className="text-xs text-[var(--muted)]">{item.label}</dt>
+                  <dd className="mt-1 font-semibold">{item.value}</dd>
+                  {personStatus ? (
+                    <div className="mt-2 flex flex-wrap items-center gap-2">
+                      <SourceStatusBadge status={personStatus.sourceStatus} />
+                      <span className="text-[10px] leading-4 text-[var(--muted)]">{personStatus.note}</span>
+                    </div>
+                  ) : null}
+                </div>
+              );
+            })}
           </dl>
           <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{country.summaryZh}</p>
         </article>

@@ -22,6 +22,35 @@ const tabs: { id: ReadingTab; label: string }[] = [
   { id: "status", label: "数据状态" },
   { id: "sources", label: "资料来源" },
 ];
+const v4CountrySlugs = ["poland", "hungary", "czechia", "slovakia"];
+
+function politicalPersonSourceStatus(countrySlug: string, field: "headOfGovernment" | "headOfState") {
+  if (!v4CountrySlugs.includes(countrySlug)) {
+    return {
+      sourceStatus: "pending" as const,
+      note: "来源状态：待接入；不进入模型。",
+    };
+  }
+
+  if (field === "headOfGovernment" && countrySlug !== "hungary") {
+    return {
+      sourceStatus: "official" as const,
+      note: "来源状态：官方政府页面；仍保留定期复核。",
+    };
+  }
+
+  if (countrySlug === "poland" && field === "headOfState") {
+    return {
+      sourceStatus: "pending" as const,
+      note: "来源状态：待核验；不进入模型。",
+    };
+  }
+
+  return {
+    sourceStatus: "manual" as const,
+    note: "来源状态：人工整理；需与官方人物页面复核，不进入模型。",
+  };
+}
 
 function formatProjectAmount(amount: number | null, currency: string | null) {
   if (amount === null || !currency) {
@@ -119,10 +148,18 @@ export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
               <div>
                 <dt className="text-[var(--muted)]">政府首脑</dt>
                 <dd className="mt-1 font-semibold">{country.headOfGovernmentZh}</dd>
+                <div className="mt-2 flex flex-wrap items-center gap-2">
+                  <SourceStatusBadge status={politicalPersonSourceStatus(country.slug, "headOfGovernment").sourceStatus} />
+                  <span className="text-[10px] leading-4 text-[var(--muted)]">{politicalPersonSourceStatus(country.slug, "headOfGovernment").note}</span>
+                </div>
               </div>
               <div>
                 <dt className="text-[var(--muted)]">国家元首</dt>
                 <dd className="mt-1 font-semibold">{country.headOfStateZh}</dd>
+                <div className="mt-2 flex flex-wrap items-center gap-2">
+                  <SourceStatusBadge status={politicalPersonSourceStatus(country.slug, "headOfState").sourceStatus} />
+                  <span className="text-[10px] leading-4 text-[var(--muted)]">{politicalPersonSourceStatus(country.slug, "headOfState").note}</span>
+                </div>
               </div>
             </dl>
             <div>

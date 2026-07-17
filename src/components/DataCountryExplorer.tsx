@@ -94,6 +94,8 @@ type CategoryResearchSummary = {
   meanGap: string;
   dataGap: string;
 };
+type IndicatorDictionaryRecord = (typeof indicatorDictionaryRecords)[number];
+type V4DataQualitySummary = ReturnType<typeof getV4DataQualitySummary>;
 
 const dataModes: { id: DataMode; label: string; description: string }[] = [
   { id: "economy", label: "经济数据", description: "近五年宏观经济表、官方统计主源与对华经贸样本。" },
@@ -893,6 +895,161 @@ function V4CategoryMatrix({
   );
 }
 
+function IndicatorDictionaryTable({ rows }: { rows: IndicatorDictionaryRecord[] }) {
+  return (
+    <div className="mt-5 wide-table-scroll max-w-full">
+      <table className="research-data-table w-full min-w-[3600px] border-separate border-spacing-0 text-left text-sm">
+        <thead>
+          <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+            {["indicator_id", "中文名", "英文名", "指标类别", "所属板块", "单位", "频率", "国家覆盖范围", "年份覆盖范围", "主来源", "备用来源", "来源等级", "原始值", "计算值", "派生值", "进入横向比较", "进入五年变化", "进入均值差距", "进入排名变化", "未来模型候选变量", "数值上升含义", "缺失值处理规则", "待接入处理规则", "更新时间", "备注"].map((header) => (
+              <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((indicator) => {
+            const isComputed = computedIndicatorIds.has(indicator.indicatorId) || indicator.transform.includes("-");
+            const isV4Indicator = v4TemplateIndicatorIds.includes(indicator.indicatorId as typeof v4TemplateIndicatorIds[number]);
+            const sourceLevel = indicator.sourcePriority.some((source) => /Eurostat|统计|央行|IMF|OECD|UNCTAD|World Bank/i.test(source)) ? "A" : "B";
+
+            return (
+              <tr key={indicator.indicatorId} className="align-top">
+                <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono text-xs">{indicator.indicatorId}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{indicator.nameZh}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{indicator.nameEn}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{indicatorCategoryLabel(indicator.category)}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{indicatorCategoryLabel(indicator.category)}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{indicator.unit}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{indicator.frequency}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{isV4Indicator ? "V4 四国" : "十国"}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">2021-2025</td>
+                <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.sourcePriority[0] ?? "待接入"}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.sourcePriority.slice(1).join(" / ") || "待接入"}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{reliabilityLevelLabel(sourceLevel)}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(!isComputed)}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(isComputed)}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(false)}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.includedInDerivedComparison)}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.includedInDerivedComparison)}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.includedInDerivedComparison)}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.includedInDerivedComparison)}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.futureModelEligible)}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.upwardMeaning}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.missingValueTreatment}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">待接入行保留指标单位，数值显示“待接入”，状态与来源状态均显示“待接入”。</td>
+                <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{indicator.updatedAt}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.transform}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function SourceDictionaryTable({ rows }: { rows: SourceDictionaryRecord[] }) {
+  return (
+    <div className="mt-4 wide-table-scroll max-w-full">
+      <table className="research-data-table w-full min-w-[2920px] border-separate border-spacing-0 text-left text-sm">
+        <thead>
+          <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+            {["source_id", "来源中文名", "来源英文名", "来源类型", "国家或地区覆盖", "指标覆盖范围", "链接", "可靠性等级", "来源状态", "更新频率", "正式数据", "事件依据", "补充线索", "不进入分析", "最后检查日期", "备注"].map((header) => (
+              <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((source) => (
+            <tr key={source.sourceId} className="align-top">
+              <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono text-xs">{source.sourceId}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{source.nameZh}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{source.nameEn}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{source.sourceType}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{source.coverage}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{source.indicatorCoverage}</td>
+              <td className="data-source-cell border-b border-[var(--line)] px-3 py-3"><SourceNameLink href={source.url}>来源链接</SourceNameLink></td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{reliabilityLevelLabel(source.reliabilityLevel)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><SourceStatusBadge status={source.sourceStatus} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{source.updateFrequency}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(source.canBeOfficialData)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(source.canBeEventBasis)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(source.supplementalOnly)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(source.excludedFromAnalysis)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{source.lastCheckedAt}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{source.note}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function V4QualityDetailTable({ v4Quality, countryNameBySlug }: { v4Quality: V4DataQualitySummary; countryNameBySlug: Map<string, string> }) {
+  return (
+    <div className="mt-4 wide-table-scroll max-w-full">
+      <table className="research-data-table w-full min-w-[2360px] border-separate border-spacing-0 text-left text-sm">
+        <thead>
+          <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+            {["国家", "指标", "年份", "数值", "单位", "状态", "来源名称", "来源链接", "来源等级", "更新时间", "正式数据", "待接入", "计算值", "人工整理", "横向比较", "五年变化", "均值差距", "排名变化", "缺失原因", "备注"].map((header) => (
+              <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {v4Quality.cells.map((cell) => {
+            const indicator = getExtendedIndicator(cell.indicatorId);
+            const reliabilityLevel = sourceReliabilityForName(cell.observation?.sourceName);
+            const entersDerived = Boolean(indicator?.includedInDerivedComparison && cell.hasValue && !cell.isPending);
+            const missingReason = cell.isPending ? cell.issues.join("；") || "数值待接入" : "—";
+
+            return (
+              <tr key={`${cell.countrySlug}-${cell.indicatorId}-${cell.year}-quality-full`} className="align-top">
+                <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{countryNameBySlug.get(cell.countrySlug) ?? cell.countrySlug}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">
+                  <p className="font-semibold">{indicator?.labelZh ?? cell.indicatorId}</p>
+                  <p className="mt-1 font-mono text-[10px] text-[var(--muted)]">{cell.indicatorId}</p>
+                </td>
+                <td className="border-b border-[var(--line)] px-3 py-3"><SemanticCellPrefix label="年份" />{cell.year}</td>
+                <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono">
+                  <SemanticCellPrefix label="数值" />
+                  <span className={dataValueClass(cell.observation?.value ?? null)}>{formatObservationValue(cell.observation?.value ?? null, cell.indicatorId)}</span>
+                </td>
+                <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><SemanticCellPrefix label="单位" /><UnitToken value={cell.observation?.unit ?? indicator?.unit ?? "待接入"} /></td>
+                <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
+                  <SemanticCellPrefix label="状态" />
+                  <DataStatusBadge status={cell.isPending ? "pending" : cell.observation?.status ?? "pending"} />
+                </td>
+                <td className="border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]"><SemanticCellPrefix label="来源名称" />{cell.observation?.sourceName ?? "待接入"}</td>
+                <td className="data-source-cell border-b border-[var(--line)] px-3 py-3">
+                  <SemanticCellPrefix label="来源链接" />
+                  <div className="flex flex-col gap-2">
+                    <SourceStatusBadge status={sourceStatusForReliability(reliabilityLevel, cell.isPending)} />
+                    <SourceNameLink href={cell.observation?.sourceUrl ?? ""}>{cell.observation?.sourceName ?? "来源待接入"}</SourceNameLink>
+                  </div>
+                </td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{reliabilityLevelLabel(reliabilityLevel)}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs"><SemanticCellPrefix label="更新时间" />{cell.observation?.updatedAt || "待接入"}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(cell.observation?.status === "official" && cell.hasValue)}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(cell.isPending)}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(cell.isComputed)}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(cell.observation?.status === "manual")}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(entersDerived)}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(entersDerived)}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(entersDerived)}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(entersDerived)}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]"><SemanticCellPrefix label="缺失原因" />{missingReason}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]"><SemanticCellPrefix label="备注" />{cell.observation?.note || "—"}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRecord[]; countryName: string }) {
   const [amountFilter, setAmountFilter] = useState<ProjectAmountFilter>("all");
   const [sectorFilter, setSectorFilter] = useState("all");
@@ -1439,6 +1596,70 @@ export function DataCountryExplorer() {
           </div>
         </section>
 
+        <section className="card overflow-visible p-6">
+          <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="eyebrow">Research Registry Tables</p>
+              <h2 className="mt-3 text-2xl font-semibold">研究数据结构总表</h2>
+              <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+                以下四组表体常驻在数据页，不依赖国家 tab 或视图切换。它们用于页面检索、复制、抓取和后续研究数据导出。
+              </p>
+            </div>
+            <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">完整展开</span>
+          </div>
+
+          <div className="mt-5 grid gap-5">
+            <details id="indicator-dictionary-entry" className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-4" open>
+              <summary className="cursor-pointer text-lg font-semibold">指标字典入口：18 个指标完整表体</summary>
+              <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+                覆盖 6 个基础宏观指标和 12 个 V4 扩展指标；每个指标均展开为完整字段。
+              </p>
+              <IndicatorDictionaryTable rows={completeIndicatorDictionaryRows} />
+            </details>
+
+            <details id="source-dictionary-entry" className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-4" open>
+              <summary className="cursor-pointer text-lg font-semibold">来源字典入口：16 类来源完整表体</summary>
+              <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+                覆盖 Eurostat、各国统计局、央行、国际组织、欧盟机构、政府部门、新闻来源、企业公告、人工整理来源和结构样例来源等。
+              </p>
+              <SourceDictionaryTable rows={sourceDictionaryRows} />
+            </details>
+
+            <details id="v4-data-quality-entry" className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-4" open>
+              <summary className="cursor-pointer text-lg font-semibold">数据质量验收入口：240 个 V4 观测位置验收结构</summary>
+              <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+                验收范围为 V4 四国 × 12 个扩展指标 × 2021-2025 年，共 240 个观测位置；每行均分列数值、单位、状态、来源、来源等级、更新时间和派生资格。
+              </p>
+              <V4QualityDetailTable v4Quality={v4Quality} countryNameBySlug={countryNameBySlug} />
+            </details>
+
+            <details id="v4-derived-comparison-entry" className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-4" open>
+              <summary className="cursor-pointer text-lg font-semibold">派生比较表入口：五个板块事实派生表</summary>
+              <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+                按财政、外部、投资、能源和产业五个板块展开。每个板块只做最高值、最低值、V4 均值、高于/低于均值和事实摘要，不输出风险判断。
+              </p>
+              <div className="grid gap-5">
+                {extendedCategoryOrder.map((category) => {
+                  const v4CategoryRows = v4Countries.flatMap((country) =>
+                    (v4SeriesMaps.get(country.slug) ?? []).filter((observation) => getExtendedIndicator(observation.indicatorId)?.category === category),
+                  );
+
+                  return (
+                    <V4CategoryMatrix
+                      key={`registry-${category}`}
+                      category={category}
+                      matrixCountries={v4Countries}
+                      observationMaps={v4ObservationMaps}
+                      derivedRows={v4DerivedRows}
+                      categoryObservations={v4CategoryRows}
+                    />
+                  );
+                })}
+              </div>
+            </details>
+          </div>
+        </section>
+
         {activeMode === "comparison" && isV4SelectedCountry ? (
           <section className="v4-comparison-panel card overflow-visible p-6">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
@@ -1495,7 +1716,7 @@ export function DataCountryExplorer() {
               </p>
             </div>
 
-            <div id="v4-data-quality-entry" className="mt-5 scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+            <div id="v4-data-quality-panel" className="mt-5 scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
               <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
                 <div>
                   <p className="eyebrow">V4 Data Quality Acceptance</p>
@@ -1743,7 +1964,7 @@ export function DataCountryExplorer() {
               </div>
             </div>
 
-            <div id="v4-derived-comparison-entry" className="mt-5 scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+            <div id="v4-derived-comparison-panel" className="mt-5 scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
               <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
                 <div>
                   <p className="eyebrow">Derived Comparison</p>
@@ -2162,7 +2383,7 @@ export function DataCountryExplorer() {
             </div>
             ) : null}
 
-            <div id="indicator-dictionary-entry" className="card p-6 scroll-mt-6">
+            <div id="indicator-dictionary-panel" className="card p-6 scroll-mt-6">
               <p className="eyebrow">Country Table</p>
               <h2 className="mt-3 text-2xl font-semibold">国家表</h2>
               <div className="mt-5 wide-table-scroll max-w-full">
@@ -2260,7 +2481,7 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Sources / Projects / Events</p>
               <h2 className="mt-3 text-2xl font-semibold">来源表、对华项目表、新闻事件表</h2>
               <div className="mt-5 grid gap-4">
-                <div id="source-dictionary-entry" className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+                <div id="source-dictionary-panel" className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-4">
                   <h3 className="font-semibold">来源字典入口</h3>
                   <p className="mt-2 text-sm leading-6 text-[var(--muted)]">覆盖 Eurostat、各国统计局、央行、国际组织、欧盟机构、政府部门、选举机构、新闻与项目线索等 16 类来源。</p>
                   <div className="mt-4 wide-table-scroll max-w-full">
