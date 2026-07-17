@@ -334,6 +334,6 @@ export const researchDataLayerFiles = [
   { id: "data_quality_checks", label: "data_quality_checks", description: "V4 四国 240 个观测位置的质量验收表。" },
   { id: "derived_comparisons", label: "derived_comparisons", description: "V4 事实型派生比较，不输出风险分数。" },
   { id: "china_projects", label: "china_projects", description: "对华项目核验表。" },
-  { id: "china_exposure_candidates", label: "china_exposure_candidates", description: "暴露变量候选库，不等于指数。" },
+  { id: "china_exposure_candidates", label: "china_exposure_candidates", description: "china_exposure_candidates（暴露变量候选库）：不等于指数。" },
   { id: "methodology_rules", label: "methodology_rules", description: "方法论边界、数据状态、来源等级和分析准入规则。" },
 ];
