@@ -106,6 +106,101 @@ function sourceIdForChinaProject(project) {
   return "pending_sources";
 }
 
+function sourceRecordForId(sourceId) {
+  return sourceDictionaryRows.find((source) => source.sourceId === sourceId);
+}
+
+function sourceStatusLabel(sourceId) {
+  const sourceStatus = sourceRecordForId(sourceId)?.sourceStatus ?? "pending";
+  const labels = {
+    official: "官方",
+    manual: "人工整理",
+    pending: "待接入",
+    sample: "结构样例",
+  };
+
+  return labels[sourceStatus] ?? "待接入";
+}
+
+function valueStatusLabel(status, value, isCalculated) {
+  if (status === "sample") return "结构样例";
+  if (value === null || value === undefined || status === "pending") return "待接入";
+  if (isCalculated) return "计算值";
+  if (status === "manual") return "人工整理";
+  if (status === "official") return "正式数据";
+
+  return "不进入分析";
+}
+
+function calculationMethodForIndicator(indicatorId) {
+  if (indicatorId === "trade_balance") {
+    return "出口 - 进口";
+  }
+
+  if (indicatorId === "automotive_export_share") {
+    return "NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口";
+  }
+
+  return "无";
+}
+
+function standardObservationRecord({
+  observationId,
+  countryId,
+  indicatorId,
+  year,
+  value,
+  unit,
+  sourceId,
+  sourceName,
+  sourceUrl,
+  status,
+  lastUpdated,
+  notes,
+  dataset,
+}) {
+  const indicator = indicatorDictionaryRecords.find((item) => item.indicatorId === indicatorId);
+  const source = sourceRecordForId(sourceId);
+  const isCalculated = computedIndicatorIds.has(indicatorId) && value !== null && value !== undefined;
+  const valueStatus = valueStatusLabel(status, value, isCalculated);
+  const isPending = valueStatus === "待接入";
+  const isStructuralSample = valueStatus === "结构样例";
+  const isV4Extended = dataset === "v4_extended";
+  const comparisonEligible = Boolean(value !== null && value !== undefined && !isStructuralSample);
+  const v4DerivedEligible = Boolean(isV4Extended && comparisonEligible && indicator?.includedInDerivedComparison);
+  const noteText = notes?.trim() || "无";
+
+  return {
+    observation_id: observationId,
+    country_id: countryId,
+    indicator_id: indicatorId,
+    year,
+    period_type: "annual",
+    period: year,
+    value,
+    unit,
+    value_status: valueStatus,
+    source_id: sourceId,
+    source_name: sourceName || source?.nameZh || "待接入",
+    source_url: sourceUrl || source?.url || "",
+    source_reliability: source?.reliabilityLevel ?? "D",
+    source_status: sourceStatusLabel(sourceId),
+    last_updated: lastUpdated || generatedAt,
+    is_official_data: valueStatus === "正式数据",
+    is_pending: isPending,
+    is_calculated: valueStatus === "计算值",
+    is_manual: valueStatus === "人工整理",
+    is_structural_sample: isStructuralSample,
+    is_in_cross_country_comparison: comparisonEligible && (dataset === "macro_time_series" || Boolean(indicator?.includedInDerivedComparison)),
+    is_in_five_year_change: comparisonEligible && (dataset === "macro_time_series" || Boolean(indicator?.includedInDerivedComparison)),
+    is_in_mean_gap: v4DerivedEligible,
+    is_in_ranking_change: v4DerivedEligible,
+    missing_reason: isPending ? noteText || "数值待接入" : "无",
+    calculation_method: valueStatus === "计算值" ? calculationMethodForIndicator(indicatorId) : "无",
+    notes: noteText,
+  };
+}
+
 function envelope(dataType, records, extra = {}) {
   return {
     schema_version: schemaVersion,
@@ -159,50 +254,43 @@ function economicObservationRecords() {
         const indicator = indicatorDictionaryRecords.find((item) => item.indicatorId === indicatorId);
         const sourceLinks = getEconomicMetricSourceLinks(countrySlug, metric.id, row.year, value);
         const sourceName = sourceLinks.map((item) => item.label).join(" / ") || row.source;
+        const metricNote = metric.id === "population" ? "年初人口；单位已按指标字典转换为人。" : metric.note;
 
-        return {
-          observation_id: `macro:${countrySlug}:${indicatorId}:${row.year}`,
-          dataset: "macro_time_series",
-          country_slug: countrySlug,
-          region_slug: null,
-          indicator_id: indicatorId,
-          date: row.year,
-          frequency: "annual",
+        return standardObservationRecord({
+          observationId: `macro:${countrySlug}:${indicatorId}:${row.year}`,
+          countryId: countrySlug,
+          indicatorId,
+          year: row.year,
           value,
           unit: indicator?.unit ?? metric.unit,
-          source_id: sourceIdFromText(sourceName),
-          source_name: sourceName,
-          source_url: sourceLinks[0]?.url ?? "",
-          source_links: sourceLinks,
+          sourceId: sourceIdFromText(sourceName),
+          sourceName,
+          sourceUrl: sourceLinks[0]?.url ?? "",
           status: value === null ? "pending" : "official",
-          source_status: value === null ? "pending" : "official",
-          updated_at: indicator?.updatedAt ?? generatedAt,
-          note: `${metric.note} 数据来源：${row.source}`,
-        };
+          lastUpdated: indicator?.updatedAt ?? generatedAt,
+          notes: `${metricNote} 数据来源：${row.source}`,
+          dataset: "macro_time_series",
+        });
       }),
     ),
   );
 }
 
 function extendedObservationRecords() {
-  return extendedObservations.map((observation) => ({
-    observation_id: `v4:${observation.countrySlug}:${observation.indicatorId}:${observation.date}`,
-    dataset: "v4_extended",
-    country_slug: observation.countrySlug,
-    region_slug: null,
-    indicator_id: observation.indicatorId,
-    date: observation.date,
-    frequency: "annual",
+  return extendedObservations.map((observation) => standardObservationRecord({
+    observationId: `v4:${observation.countrySlug}:${observation.indicatorId}:${observation.date}`,
+    countryId: observation.countrySlug,
+    indicatorId: observation.indicatorId,
+    year: observation.date,
     value: observation.value,
     unit: observation.unit,
-    source_id: sourceIdFromText(`${observation.sourceName} ${observation.sourceUrl}`),
-    source_name: observation.sourceName,
-    source_url: observation.sourceUrl,
-    source_links: [{ label: observation.sourceName, url: observation.sourceUrl, note: observation.note ?? "" }],
+    sourceId: sourceIdFromText(`${observation.sourceName} ${observation.sourceUrl}`),
+    sourceName: observation.sourceName,
+    sourceUrl: observation.sourceUrl,
     status: observation.status,
-    source_status: observation.status === "official" ? "official" : observation.status === "sample" ? "sample" : observation.status === "pending" ? "pending" : "manual",
-    updated_at: observation.updatedAt,
-    note: observation.note ?? "",
+    lastUpdated: observation.updatedAt,
+    notes: observation.note ?? "",
+    dataset: "v4_extended",
   }));
 }
 
@@ -536,7 +624,9 @@ writeLayer("sources", sourceRecords, {
   },
 });
 writeLayer("observations", observationRecords, {
-  note: "Unified research observations. Includes macro_time_series for ten countries and v4_extended observations for V4 countries.",
+  scope: "10 countries x 6 macro indicators x 2021-2025 plus 4 V4 countries x 12 extended indicators x 2021-2025 = 540 annual observations.",
+  primary_key: "observation_id",
+  relation_note: "Every observation references country_id, indicator_id, and source_id.",
 });
 writeLayer("data_quality_checks", dataQualityRecords, {
   scope: "V4 countries x 12 V4 indicators x 2021-2025 = 240 observation positions.",

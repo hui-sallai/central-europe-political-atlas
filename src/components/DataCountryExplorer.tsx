@@ -37,6 +37,7 @@ import { indicatorDictionaryRecords, type IndicatorCategory } from "@/lib/indica
 import { sourceDictionaryRows, type SourceDictionaryRecord } from "@/lib/sourceDictionary";
 import { getV4DataQualitySummary, type V4QualityStatus } from "@/lib/v4DataQuality";
 import { chinaProjectVerificationLabel, verifyChinaProject, type ChinaProjectVerificationConclusion } from "@/lib/chinaProjectVerification";
+import observationsData from "../../public/research-data/observations.json";
 
 type DataMode = "economy" | "charts" | "comparison" | "tables";
 type ProjectAmountFilter = "all" | "available" | "missing";
@@ -129,6 +130,7 @@ type CategoryResearchSummary = {
 };
 type IndicatorDictionaryRecord = (typeof indicatorDictionaryRecords)[number];
 type V4DataQualitySummary = ReturnType<typeof getV4DataQualitySummary>;
+type StandardObservationRecord = (typeof observationsData.records)[number];
 
 const dataModes: { id: DataMode; label: string; description: string }[] = [
   { id: "economy", label: "经济数据", description: "近五年宏观经济表、官方统计主源与对华经贸样本。" },
@@ -699,6 +701,96 @@ function ObservationRows({ observations }: { observations: ExtendedObservation[]
         );
       })}
     </>
+  );
+}
+
+const standardObservationHeaders = [
+  "observation_id",
+  "country_id",
+  "indicator_id",
+  "year",
+  "period_type",
+  "period",
+  "value",
+  "unit",
+  "value_status",
+  "source_id",
+  "source_name",
+  "source_url",
+  "source_reliability",
+  "source_status",
+  "last_updated",
+  "is_official_data",
+  "is_pending",
+  "is_calculated",
+  "is_manual",
+  "is_structural_sample",
+  "is_in_cross_country_comparison",
+  "is_in_five_year_change",
+  "is_in_mean_gap",
+  "is_in_ranking_change",
+  "missing_reason",
+  "calculation_method",
+  "notes",
+] as const;
+
+function formatStandardObservationValue(value: number | null, indicatorId: string) {
+  if (value === null) {
+    return "待接入";
+  }
+
+  return formatMatrixValue(indicatorId, value);
+}
+
+function StandardObservationTable({ records }: { records: StandardObservationRecord[] }) {
+  return (
+    <div className="mt-5 wide-table-scroll max-w-full">
+      <table className="research-data-table observation-data-table w-full min-w-[5600px] border-separate border-spacing-0 text-left text-sm">
+        <thead>
+          <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+            {standardObservationHeaders.map((header) => (
+              <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {records.map((record) => (
+            <tr key={record.observation_id} className="align-top">
+              <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono text-xs">{record.observation_id}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{record.country_id}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{record.indicator_id}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><SemanticCellPrefix label="年份" />{record.year}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{record.period_type}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{record.period}</td>
+              <td className="data-value-cell border-b border-[var(--line)] px-3 py-3 font-mono">
+                <SemanticCellPrefix label="数值" />
+                <span className={dataValueClass(record.value)}>{formatStandardObservationValue(record.value, record.indicator_id)}</span>
+              </td>
+              <td className="data-unit-cell border-b border-[var(--line)] px-3 py-3"><SemanticCellPrefix label="单位" /><UnitToken value={record.unit} /></td>
+              <td className="data-status-cell border-b border-[var(--line)] px-3 py-3"><SemanticCellPrefix label="状态" />{record.value_status}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{record.source_id}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]"><SemanticCellPrefix label="来源" />{record.source_name}</td>
+              <td className="data-source-cell border-b border-[var(--line)] px-3 py-3"><SourceNameLink href={record.source_url}>来源链接</SourceNameLink></td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{record.source_reliability}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{record.source_status}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs"><SemanticCellPrefix label="更新时间" />{record.last_updated}</td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={record.is_official_data} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={record.is_pending} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={record.is_calculated} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={record.is_manual} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={record.is_structural_sample} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={record.is_in_cross_country_comparison} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={record.is_in_five_year_change} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={record.is_in_mean_gap} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={record.is_in_ranking_change} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{record.missing_reason}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{record.calculation_method}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]"><SemanticCellPrefix label="备注" />{record.notes}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
@@ -2895,9 +2987,10 @@ export function DataCountryExplorer() {
             <div className="card p-6">
               <p className="eyebrow">Observation Table</p>
               <h2 className="mt-3 text-2xl font-semibold">观测值表</h2>
-              <ObservationTable>
-                <ObservationRows observations={extendedObservations} />
-              </ObservationTable>
+              <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+                标准 observations 表覆盖 10 国 × 6 个基础宏观指标 × 2021–2025，以及 V4 四国 × 12 个扩展指标 × 2021–2025，共 {observationsData.records.length} 条年度观测值。
+              </p>
+              <StandardObservationTable records={observationsData.records} />
             </div>
 
             <div className="card p-6">
