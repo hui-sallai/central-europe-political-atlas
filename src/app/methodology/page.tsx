@@ -2,6 +2,8 @@ import { dataStatusMeta, sourceStatusMeta } from "@/lib/dataStatusLabels";
 import { researchDataLayerFiles } from "@/lib/countryMetadata";
 import { frozenNavItems, frozenScopeNotes } from "@/lib/siteStructure";
 
+const chinaExposureCandidatesLabel = "china_exposure_candidates（暴露变量候选库）";
+
 const dataStatusItems = [
   { title: dataStatusMeta.official.label, body: "已接入可核验来源，页面可作为当前事实数据展示；仍必须保留年份、单位、来源链接和更新时间。" },
   { title: dataStatusMeta.manual.label, body: "由人工从公开材料整理，适合研究展示和后续复核；在完成来源复核前，不作为最终事实口径。" },
@@ -45,7 +47,7 @@ const projectFieldItems = [
   "主体字段必须写明中国主体、当地主体和主体核验说明。",
   "项目状态必须写明年份、项目状态和项目状态时间线。",
   "来源必须保留可点击来源链接和 A/B/C/D 来源等级。",
-  "暴露变量适配只作为候选库字段，不生成中国经济暴露指数。",
+  `${chinaExposureCandidatesLabel}只记录暴露变量适配候选，不生成中国经济暴露指数。`,
 ];
 
 const fieldRuleGroups = [
@@ -63,7 +65,7 @@ const fieldRuleGroups = [
   },
   {
     title: "项目核验表",
-    body: "记录项目名称、国家、地区、行业、中方主体、当地主体、金额、币种、年份、状态时间线、金额证据或缺失原因、主体核验、来源等级、核验结论和暴露变量候选说明。",
+    body: `记录项目名称、国家、地区、行业、中方主体、当地主体、金额、币种、年份、状态时间线、金额证据或缺失原因、主体核验、来源等级、核验结论和 ${chinaExposureCandidatesLabel} 说明。`,
   },
   {
     title: "派生比较表",
@@ -99,7 +101,7 @@ const excludedItems = [
   "结构样例、占位色阶、样例新闻不进入模型。",
   "待接入、缺失、未标来源链接的数据不进入模型。",
   "未核验党派关系、未量化项目样本、缺少来源链接的新闻摘要不进入模型。",
-  "对华项目表当前只建立暴露变量候选库，不生成中国经济暴露指数。",
+  `对华项目表当前只建立 ${chinaExposureCandidatesLabel}，不生成中国经济暴露指数。`,
   "当前平台暂不输出预测，不生成风险指数，也不提供政策、选举或国家关系预测。",
 ];
 
@@ -250,7 +252,7 @@ export default function MethodologyPage() {
         <p className="eyebrow">China Project Verification</p>
         <h2 className="mt-3 text-2xl font-semibold">6. 对华项目核验规则</h2>
         <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-          V4 对华项目表当前定位为项目核验表和暴露变量候选库。它不生成中国经济暴露指数，只记录项目是否具备后续量化所需字段。
+          V4 对华项目表当前定位为项目核验表和 {chinaExposureCandidatesLabel}。它不生成中国经济暴露指数，只记录项目是否具备后续量化所需字段。
         </p>
         <div className="mt-5 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
           {projectVerificationItems.map((item) => (
