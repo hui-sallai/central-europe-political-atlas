@@ -93,9 +93,12 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
               { label: "政府首脑", value: metadata?.head_of_government ?? "待核验", sourceNote: metadata?.head_of_government_source_status ?? "待核验" },
               { label: "国家元首", value: metadata?.head_of_state ?? "待核验", sourceNote: metadata?.head_of_state_source_status ?? "待核验" },
             ].map((item) => {
+              const isPoliticalPerson = item.label === "政府首脑" || item.label === "国家元首";
+              const isUnverifiedPoliticalPerson = isPoliticalPerson && item.sourceNote === "待核验";
               const personStatus = item.sourceNote ? {
                 sourceStatus: item.sourceNote === "官方来源" ? "official" as const : item.sourceNote === "人工整理" ? "manual" as const : "pending" as const,
-                note: `来源状态：${item.sourceNote}；未核验政治人物不进入模型。`,
+                note: isUnverifiedPoliticalPerson ? "来源状态：待核验；不进入模型。" : `来源状态：${item.sourceNote}；未核验政治人物不进入模型。`,
+                useBadge: !isUnverifiedPoliticalPerson,
               } : null;
 
               return (
@@ -104,7 +107,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
                   <dd className="mt-1 font-semibold">{item.value}</dd>
                   {personStatus ? (
                     <div className="mt-2 flex flex-wrap items-center gap-2">
-                      <SourceStatusBadge status={personStatus.sourceStatus} />
+                      {personStatus.useBadge ? <SourceStatusBadge status={personStatus.sourceStatus} /> : null}
                       <span className="text-[10px] leading-4 text-[var(--muted)]">{personStatus.note}</span>
                     </div>
                   ) : null}

@@ -5,6 +5,7 @@ import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge
 import { getBasicIndicators } from "@/lib/basicIndicators";
 import { dataStatusItems } from "@/lib/dataStatus";
 import type { Country } from "@/lib/data";
+import { getCountryMetadata } from "@/lib/countryMetadata";
 import { getChinaProjectRecords } from "@/lib/extendedData";
 import { chinaProjectVerificationLabel, verifyChinaProject } from "@/lib/chinaProjectVerification";
 import { getCountrySources, globalSourceRegistry, sourceCategoryLabels } from "@/lib/sourceRegistry";
@@ -22,33 +23,23 @@ const tabs: { id: ReadingTab; label: string }[] = [
   { id: "status", label: "数据状态" },
   { id: "sources", label: "资料来源" },
 ];
-const v4CountrySlugs = ["poland", "hungary", "czechia", "slovakia"];
+function politicalPersonDisplay(countrySlug: string, field: "headOfGovernment" | "headOfState", fallbackValue: string) {
+  const metadata = getCountryMetadata(countrySlug);
+  const value = field === "headOfGovernment" ? metadata?.head_of_government : metadata?.head_of_state;
+  const sourceNote = field === "headOfGovernment" ? metadata?.head_of_government_source_status : metadata?.head_of_state_source_status;
 
-function politicalPersonSourceStatus(countrySlug: string, field: "headOfGovernment" | "headOfState") {
-  if (!v4CountrySlugs.includes(countrySlug)) {
+  if (sourceNote === "官方来源" || sourceNote === "人工整理") {
     return {
-      sourceStatus: "pending" as const,
-      note: "来源状态：待接入；不进入模型。",
-    };
-  }
-
-  if (field === "headOfGovernment" && countrySlug !== "hungary") {
-    return {
-      sourceStatus: "official" as const,
-      note: "来源状态：官方政府页面；仍保留定期复核。",
-    };
-  }
-
-  if (countrySlug === "poland" && field === "headOfState") {
-    return {
-      sourceStatus: "pending" as const,
-      note: "来源状态：待核验；不进入模型。",
+      value: value ?? fallbackValue,
+      sourceStatus: sourceNote === "官方来源" ? "official" as const : "manual" as const,
+      note: `来源状态：${sourceNote}；未核验政治人物不进入模型。`,
     };
   }
 
   return {
-    sourceStatus: "manual" as const,
-    note: "来源状态：人工整理；需与官方人物页面复核，不进入模型。",
+    value: value ?? "待核验",
+    sourceStatus: null,
+    note: "来源状态：待核验；不进入模型。",
   };
 }
 
@@ -98,6 +89,8 @@ export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
   const basicIndicators = getBasicIndicators(country.slug);
   const countrySources = getCountrySources(country.slug);
   const chinaProjectRecords = getChinaProjectRecords(country.slug);
+  const headOfGovernment = politicalPersonDisplay(country.slug, "headOfGovernment", country.headOfGovernmentZh);
+  const headOfState = politicalPersonDisplay(country.slug, "headOfState", country.headOfStateZh);
 
   return (
     <section className="mt-6 card p-6">
@@ -147,18 +140,18 @@ export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
               </div>
               <div>
                 <dt className="text-[var(--muted)]">政府首脑</dt>
-                <dd className="mt-1 font-semibold">{country.headOfGovernmentZh}</dd>
+                <dd className="mt-1 font-semibold">{headOfGovernment.value}</dd>
                 <div className="mt-2 flex flex-wrap items-center gap-2">
-                  <SourceStatusBadge status={politicalPersonSourceStatus(country.slug, "headOfGovernment").sourceStatus} />
-                  <span className="text-[10px] leading-4 text-[var(--muted)]">{politicalPersonSourceStatus(country.slug, "headOfGovernment").note}</span>
+                  {headOfGovernment.sourceStatus ? <SourceStatusBadge status={headOfGovernment.sourceStatus} /> : null}
+                  <span className="text-[10px] leading-4 text-[var(--muted)]">{headOfGovernment.note}</span>
                 </div>
               </div>
               <div>
                 <dt className="text-[var(--muted)]">国家元首</dt>
-                <dd className="mt-1 font-semibold">{country.headOfStateZh}</dd>
+                <dd className="mt-1 font-semibold">{headOfState.value}</dd>
                 <div className="mt-2 flex flex-wrap items-center gap-2">
-                  <SourceStatusBadge status={politicalPersonSourceStatus(country.slug, "headOfState").sourceStatus} />
-                  <span className="text-[10px] leading-4 text-[var(--muted)]">{politicalPersonSourceStatus(country.slug, "headOfState").note}</span>
+                  {headOfState.sourceStatus ? <SourceStatusBadge status={headOfState.sourceStatus} /> : null}
+                  <span className="text-[10px] leading-4 text-[var(--muted)]">{headOfState.note}</span>
                 </div>
               </div>
             </dl>
