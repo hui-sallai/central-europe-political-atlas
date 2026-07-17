@@ -1037,6 +1037,48 @@ function formatDerivedComparisonSignedValue(value: number | null, unit: string) 
   return unit ? `${signed} ${unit}` : signed;
 }
 
+function derivedComparisonSemanticLine(record: DerivedComparisonRecord, displayCountry: (value: string) => string) {
+  const fields = [
+    ["comparison_id", record.comparison_id],
+    ["板块", record.section],
+    ["指标", `${record.indicator_name} (${record.indicator_id})`],
+    ["latest_comparable_year", record.latest_comparable_year],
+    ["poland_value", formatDerivedComparisonValue(record.poland_value, record.unit)],
+    ["hungary_value", formatDerivedComparisonValue(record.hungary_value, record.unit)],
+    ["czechia_value", formatDerivedComparisonValue(record.czechia_value, record.unit)],
+    ["slovakia_value", formatDerivedComparisonValue(record.slovakia_value, record.unit)],
+    ["unit", record.unit],
+    ["highest_value", formatDerivedComparisonValue(record.highest_value, record.unit)],
+    ["highest_country", displayCountry(record.highest_country)],
+    ["lowest_value", formatDerivedComparisonValue(record.lowest_value, record.unit)],
+    ["lowest_country", displayCountry(record.lowest_country)],
+    ["v4_average", formatDerivedComparisonValue(record.v4_average, record.unit)],
+    ["poland_gap_from_v4_average", formatDerivedComparisonSignedValue(record.poland_gap_from_v4_average, record.unit)],
+    ["hungary_gap_from_v4_average", formatDerivedComparisonSignedValue(record.hungary_gap_from_v4_average, record.unit)],
+    ["czechia_gap_from_v4_average", formatDerivedComparisonSignedValue(record.czechia_gap_from_v4_average, record.unit)],
+    ["slovakia_gap_from_v4_average", formatDerivedComparisonSignedValue(record.slovakia_gap_from_v4_average, record.unit)],
+    ["largest_gap_country", displayCountry(record.largest_gap_country)],
+    ["largest_gap_value", formatDerivedComparisonSignedValue(record.largest_gap_value, record.unit)],
+    ["poland_five_year_change", formatDerivedComparisonSignedValue(record.poland_five_year_change, record.unit)],
+    ["hungary_five_year_change", formatDerivedComparisonSignedValue(record.hungary_five_year_change, record.unit)],
+    ["czechia_five_year_change", formatDerivedComparisonSignedValue(record.czechia_five_year_change, record.unit)],
+    ["slovakia_five_year_change", formatDerivedComparisonSignedValue(record.slovakia_five_year_change, record.unit)],
+    ["largest_five_year_change_country", displayCountry(record.largest_five_year_change_country)],
+    ["largest_five_year_change_value", formatDerivedComparisonSignedValue(record.largest_five_year_change_value, record.unit)],
+    ["poland_rank", record.poland_rank ?? "待接入"],
+    ["hungary_rank", record.hungary_rank ?? "待接入"],
+    ["czechia_rank", record.czechia_rank ?? "待接入"],
+    ["slovakia_rank", record.slovakia_rank ?? "待接入"],
+    ["missing_observation_count", record.missing_observation_count],
+    ["calculated_value_count", record.calculated_value_count],
+    ["comparison_status", record.comparison_status],
+    ["interpretation_boundary", record.interpretation_boundary],
+    ["notes", record.notes],
+  ];
+
+  return fields.map(([label, value]) => `${label}: ${value}`).join(" | ");
+}
+
 function V4DerivedComparisonTable({ records }: { records: DerivedComparisonRecord[] }) {
   const countryLabelById = new Map([
     ["poland", "波兰"],
@@ -1053,37 +1095,37 @@ function V4DerivedComparisonTable({ records }: { records: DerivedComparisonRecor
     "comparison_id",
     "板块",
     "指标",
-    "最新可比年份",
-    "波兰数值",
-    "匈牙利数值",
-    "捷克数值",
-    "斯洛伐克数值",
-    "单位",
-    "最高值",
-    "最高国家",
-    "最低值",
-    "最低国家",
-    "V4 均值",
-    "波兰均值差距",
-    "匈牙利均值差距",
-    "捷克均值差距",
-    "斯洛伐克均值差距",
-    "最大均值差距国家",
-    "最大均值差距",
-    "波兰五年变化",
-    "匈牙利五年变化",
-    "捷克五年变化",
-    "斯洛伐克五年变化",
-    "五年变化最大国家",
-    "五年变化值",
-    "波兰排名",
-    "匈牙利排名",
-    "捷克排名",
-    "斯洛伐克排名",
-    "缺失观测值",
-    "计算值数量",
-    "比较状态",
-    "解释边界",
+    "latest_comparable_year",
+    "poland_value",
+    "hungary_value",
+    "czechia_value",
+    "slovakia_value",
+    "unit",
+    "highest_value",
+    "highest_country",
+    "lowest_value",
+    "lowest_country",
+    "v4_average",
+    "poland_gap_from_v4_average",
+    "hungary_gap_from_v4_average",
+    "czechia_gap_from_v4_average",
+    "slovakia_gap_from_v4_average",
+    "largest_gap_country",
+    "largest_gap_value",
+    "poland_five_year_change",
+    "hungary_five_year_change",
+    "czechia_five_year_change",
+    "slovakia_five_year_change",
+    "largest_five_year_change_country",
+    "largest_five_year_change_value",
+    "poland_rank",
+    "hungary_rank",
+    "czechia_rank",
+    "slovakia_rank",
+    "missing_observation_count",
+    "calculated_value_count",
+    "comparison_status",
+    "interpretation_boundary",
     "备注",
   ];
 
@@ -1098,48 +1140,56 @@ function V4DerivedComparisonTable({ records }: { records: DerivedComparisonRecor
           </tr>
         </thead>
         <tbody>
-          {records.map((record) => (
+          {records.map((record) => {
+            const semanticLine = derivedComparisonSemanticLine(record, displayCountry);
+
+            return (
             <tr key={record.comparison_id} className="align-top">
-              <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono text-xs">{record.comparison_id}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{record.section}</DictionaryToken></td>
+              <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono text-xs">
+                <span className="semantic-copy-row">{semanticLine}</span>
+                <SemanticField label="comparison_id">{record.comparison_id}</SemanticField>
+              </td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><SemanticField label="板块"><DictionaryToken>{record.section}</DictionaryToken></SemanticField></td>
               <td className="border-b border-[var(--line)] px-3 py-3">
+                <span className="semantic-field-label">指标：</span>
                 <p className="font-semibold">{record.indicator_name}</p>
                 <p className="mt-1 font-mono text-[10px] text-[var(--muted)]">{record.indicator_id}</p>
               </td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs"><SemanticField label="最新可比年份">{record.latest_comparable_year}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="波兰数值">{formatDerivedComparisonValue(record.poland_value, record.unit)}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="匈牙利数值">{formatDerivedComparisonValue(record.hungary_value, record.unit)}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="捷克数值">{formatDerivedComparisonValue(record.czechia_value, record.unit)}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="斯洛伐克数值">{formatDerivedComparisonValue(record.slovakia_value, record.unit)}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3"><SemanticField label="单位">{record.unit}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="最高值">{formatDerivedComparisonValue(record.highest_value, record.unit)}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3"><SemanticField label="最高国家">{displayCountry(record.highest_country)}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="最低值">{formatDerivedComparisonValue(record.lowest_value, record.unit)}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3"><SemanticField label="最低国家">{displayCountry(record.lowest_country)}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="V4 均值">{formatDerivedComparisonValue(record.v4_average, record.unit)}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="波兰均值差距">{formatDerivedComparisonSignedValue(record.poland_gap_from_v4_average, record.unit)}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="匈牙利均值差距">{formatDerivedComparisonSignedValue(record.hungary_gap_from_v4_average, record.unit)}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="捷克均值差距">{formatDerivedComparisonSignedValue(record.czechia_gap_from_v4_average, record.unit)}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="斯洛伐克均值差距">{formatDerivedComparisonSignedValue(record.slovakia_gap_from_v4_average, record.unit)}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3"><SemanticField label="最大均值差距国家">{displayCountry(record.largest_gap_country)}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="最大均值差距">{formatDerivedComparisonSignedValue(record.largest_gap_value, record.unit)}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="波兰五年变化">{formatDerivedComparisonSignedValue(record.poland_five_year_change, record.unit)}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="匈牙利五年变化">{formatDerivedComparisonSignedValue(record.hungary_five_year_change, record.unit)}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="捷克五年变化">{formatDerivedComparisonSignedValue(record.czechia_five_year_change, record.unit)}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="斯洛伐克五年变化">{formatDerivedComparisonSignedValue(record.slovakia_five_year_change, record.unit)}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3"><SemanticField label="五年变化最大国家">{displayCountry(record.largest_five_year_change_country)}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="五年变化值">{formatDerivedComparisonSignedValue(record.largest_five_year_change_value, record.unit)}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono"><SemanticField label="波兰排名">{record.poland_rank ?? "待接入"}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono"><SemanticField label="匈牙利排名">{record.hungary_rank ?? "待接入"}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono"><SemanticField label="捷克排名">{record.czechia_rank ?? "待接入"}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono"><SemanticField label="斯洛伐克排名">{record.slovakia_rank ?? "待接入"}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono"><SemanticField label="缺失观测值">{record.missing_observation_count}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono"><SemanticField label="计算值数量">{record.calculated_value_count}</SemanticField></td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{record.comparison_status}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{record.interpretation_boundary}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs"><SemanticField label="latest_comparable_year">{record.latest_comparable_year}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="poland_value">{formatDerivedComparisonValue(record.poland_value, record.unit)}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="hungary_value">{formatDerivedComparisonValue(record.hungary_value, record.unit)}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="czechia_value">{formatDerivedComparisonValue(record.czechia_value, record.unit)}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="slovakia_value">{formatDerivedComparisonValue(record.slovakia_value, record.unit)}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><SemanticField label="unit">{record.unit}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="highest_value">{formatDerivedComparisonValue(record.highest_value, record.unit)}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><SemanticField label="highest_country">{displayCountry(record.highest_country)}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="lowest_value">{formatDerivedComparisonValue(record.lowest_value, record.unit)}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><SemanticField label="lowest_country">{displayCountry(record.lowest_country)}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="v4_average">{formatDerivedComparisonValue(record.v4_average, record.unit)}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="poland_gap_from_v4_average">{formatDerivedComparisonSignedValue(record.poland_gap_from_v4_average, record.unit)}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="hungary_gap_from_v4_average">{formatDerivedComparisonSignedValue(record.hungary_gap_from_v4_average, record.unit)}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="czechia_gap_from_v4_average">{formatDerivedComparisonSignedValue(record.czechia_gap_from_v4_average, record.unit)}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="slovakia_gap_from_v4_average">{formatDerivedComparisonSignedValue(record.slovakia_gap_from_v4_average, record.unit)}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><SemanticField label="largest_gap_country">{displayCountry(record.largest_gap_country)}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="largest_gap_value">{formatDerivedComparisonSignedValue(record.largest_gap_value, record.unit)}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="poland_five_year_change">{formatDerivedComparisonSignedValue(record.poland_five_year_change, record.unit)}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="hungary_five_year_change">{formatDerivedComparisonSignedValue(record.hungary_five_year_change, record.unit)}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="czechia_five_year_change">{formatDerivedComparisonSignedValue(record.czechia_five_year_change, record.unit)}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="slovakia_five_year_change">{formatDerivedComparisonSignedValue(record.slovakia_five_year_change, record.unit)}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><SemanticField label="largest_five_year_change_country">{displayCountry(record.largest_five_year_change_country)}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono"><SemanticField label="largest_five_year_change_value">{formatDerivedComparisonSignedValue(record.largest_five_year_change_value, record.unit)}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono"><SemanticField label="poland_rank">{record.poland_rank ?? "待接入"}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono"><SemanticField label="hungary_rank">{record.hungary_rank ?? "待接入"}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono"><SemanticField label="czechia_rank">{record.czechia_rank ?? "待接入"}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono"><SemanticField label="slovakia_rank">{record.slovakia_rank ?? "待接入"}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono"><SemanticField label="missing_observation_count">{record.missing_observation_count}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono"><SemanticField label="calculated_value_count">{record.calculated_value_count}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-semibold"><SemanticField label="comparison_status">{record.comparison_status}</SemanticField></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]"><SemanticField label="interpretation_boundary">{record.interpretation_boundary}</SemanticField></td>
               <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{record.notes}</td>
             </tr>
-          ))}
+            );
+          })}
         </tbody>
       </table>
     </div>
@@ -1483,6 +1533,9 @@ function V4QualityDetailTable({ countryNameBySlug }: { v4Quality: V4DataQualityS
             <p className="mt-1 text-xs leading-5 text-[var(--muted)]">
               汇总 240 个 V4 扩展观测位置的正式数据、待接入、计算值、人工整理和 A/B/C/D 来源数量。
             </p>
+            <p className="mt-1 text-xs leading-5 text-[var(--muted)]">
+              汇总字段：总观测位置、正式数据数量、待接入数量、计算值数量、人工整理数量、通过数量、部分通过数量、需复核数量、不进入分析数量、A 级来源数量、B 级来源数量、C 级来源数量、D 级来源数量。
+            </p>
           </div>
           <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-[var(--muted)]">data_quality_checks</span>
         </div>
@@ -1495,6 +1548,9 @@ function V4QualityDetailTable({ countryNameBySlug }: { v4Quality: V4DataQualityS
           ))}
         </div>
         <h4 className="mb-2 text-base font-semibold">筛选</h4>
+        <p className="mb-3 text-xs leading-5 text-[var(--muted)]">
+          筛选字段：国家、指标、年份、状态、来源等级、是否正式数据、是否待接入、是否计算值、是否人工整理、是否进入横向比较、是否进入五年变化、是否进入均值差距、是否进入排名变化、质量状态。
+        </p>
         <div className="grid gap-2 md:grid-cols-3 xl:grid-cols-4">
           <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">
             国家
@@ -2198,7 +2254,7 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Research Registry Tables</p>
               <h2 className="mt-3 text-2xl font-semibold">研究数据结构总表</h2>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                以下九个逻辑数据层常驻在数据页，不依赖国家 tab 或视图切换。它们用于页面检索、复制、抓取和后续研究数据导出。
+                以下九个逻辑数据层常驻在数据页；它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。
               </p>
             </div>
             <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">完整展开</span>
