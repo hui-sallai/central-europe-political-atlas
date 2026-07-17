@@ -324,7 +324,8 @@ a {
 }
 
 .indicator-dictionary-table,
-.source-dictionary-table {
+.source-dictionary-table,
+.derived-comparison-table {
   table-layout: fixed;
 }
 
@@ -380,6 +381,24 @@ a {
 
 .boolean-col {
   width: 8rem;
+}
+
+.source-dictionary-table .boolean-column {
+  min-width: 8rem;
+}
+
+.derived-comparison-table th,
+.derived-comparison-table td {
+  min-width: 8rem;
+}
+
+.derived-comparison-table th:nth-child(2),
+.derived-comparison-table td:nth-child(2),
+.derived-comparison-table th:nth-last-child(1),
+.derived-comparison-table td:nth-last-child(1),
+.derived-comparison-table th:nth-last-child(2),
+.derived-comparison-table td:nth-last-child(2) {
+  min-width: 16rem;
 }
 
 .dictionary-section-cell,

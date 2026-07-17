@@ -41,10 +41,17 @@ type ProjectAmountFilter = "all" | "available" | "missing";
 type QualityFilterState = {
   country: string;
   indicator: string;
+  year: string;
   status: string;
   reliability: string;
-  computed: string;
+  official: string;
   pending: string;
+  computed: string;
+  manual: string;
+  comparison: string;
+  fiveYearChange: string;
+  meanGap: string;
+  rankChange: string;
 };
 type DataEntryShortcut = {
   id: string;
@@ -94,6 +101,22 @@ type V4ResearchSummary = {
   title: string;
   body: string;
   basis: string;
+};
+
+type V4DerivedTableRow = {
+  category: ExtendedCategory;
+  categoryLabel: string;
+  row: V4DerivedRow;
+  latestComparableYear: string;
+  valuesByCountry: Record<string, number | null>;
+  highestCountry: string;
+  lowestCountry: string;
+  biggestMeanGapCountry: string;
+  biggestMeanGapValue: number | null;
+  biggestChangeCountry: string;
+  biggestChangeValue: number | null;
+  pendingObservationCount: number;
+  computedObservationCount: number;
 };
 
 type CategoryResearchSummary = {
@@ -543,6 +566,14 @@ function compactResearchValue(row: V4DerivedRow, value: number | null) {
   return `${formatMatrixValue(row.indicatorId, value)} ${row.unit}`;
 }
 
+function compactSignedResearchValue(row: V4DerivedRow, value: number | null) {
+  if (value === null) {
+    return "待比较";
+  }
+
+  return `${formatSignedMatrixValue(row.indicatorId, value)} ${row.unit}`;
+}
+
 function signedResearchValue(row: V4DerivedRow, value: number | null) {
   if (value === null) {
     return "待比较";
@@ -915,6 +946,77 @@ function V4CategoryMatrix({
   );
 }
 
+function V4DerivedComparisonTable({ rows }: { rows: V4DerivedTableRow[] }) {
+  const countryOrder = [
+    { slug: "poland", label: "波兰数值" },
+    { slug: "hungary", label: "匈牙利数值" },
+    { slug: "czechia", label: "捷克数值" },
+    { slug: "slovakia", label: "斯洛伐克数值" },
+  ];
+
+  return (
+    <div className="mt-5 wide-table-scroll max-w-full">
+      <table className="research-data-table derived-comparison-table w-full min-w-[2860px] border-separate border-spacing-0 text-left text-sm">
+        <thead>
+          <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+            {[
+              "板块",
+              "指标",
+              "最新可比年份",
+              ...countryOrder.map((country) => country.label),
+              "最高值",
+              "最高国家",
+              "最低值",
+              "最低国家",
+              "V4 均值",
+              "与均值差距最大的国家",
+              "最大均值差距",
+              "五年变化最大的国家",
+              "五年变化数值",
+              "待接入观测值数量",
+              "计算值数量",
+              "解释边界",
+              "备注",
+            ].map((header) => (
+              <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((item) => (
+            <tr key={`${item.category}-${item.row.indicatorId}-derived-table`} className="align-top">
+              <td className="border-b border-[var(--line)] py-3 pl-0 pr-3"><DictionaryToken>{item.categoryLabel}</DictionaryToken></td>
+              <td className="border-b border-[var(--line)] px-3 py-3">
+                <p className="font-semibold">{item.row.label}</p>
+                <p className="mt-1 font-mono text-[10px] text-[var(--muted)]">{item.row.indicatorId}</p>
+              </td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{item.latestComparableYear}</td>
+              {countryOrder.map((country) => (
+                <td key={`${item.row.indicatorId}-${country.slug}`} className="border-b border-[var(--line)] px-3 py-3 font-mono">
+                  <span className={dataValueClass(item.valuesByCountry[country.slug])}>{compactResearchValue(item.row, item.valuesByCountry[country.slug])}</span>
+                </td>
+              ))}
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{compactResearchValue(item.row, item.row.highest)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{item.highestCountry}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{compactResearchValue(item.row, item.row.lowest)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{item.lowestCountry}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{compactResearchValue(item.row, item.row.mean)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{item.biggestMeanGapCountry}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{compactSignedResearchValue(item.row, item.biggestMeanGapValue)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{item.biggestChangeCountry}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{compactSignedResearchValue(item.row, item.biggestChangeValue)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono">{item.pendingObservationCount}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono">{item.computedObservationCount}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">仅表示事实位置，不代表风险、预测或政策优劣。</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">派生自 2021-2025 V4 扩展观测值；待接入值不参与最高、最低和均值计算。</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 function IndicatorDictionaryTable({ rows }: { rows: IndicatorDictionaryRecord[] }) {
   return (
     <div className="mt-5 wide-table-scroll max-w-full">
@@ -946,10 +1048,10 @@ function IndicatorDictionaryTable({ rows }: { rows: IndicatorDictionaryRecord[] 
                 <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono text-xs">{indicator.indicatorId}</td>
                 <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{indicator.nameZh}</td>
                 <td className="border-b border-[var(--line)] px-3 py-3">{indicator.nameEn}</td>
-                <td className="dictionary-section-cell border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{indicatorCategoryLabel(indicator.category)}</DictionaryToken></td>
-                <td className="dictionary-section-cell border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{indicatorCategoryLabel(indicator.category)}</DictionaryToken></td>
-                <td className="dictionary-unit-cell border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{indicator.unit}</DictionaryToken></td>
-                <td className="dictionary-frequency-cell border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{indicator.frequency}</DictionaryToken></td>
+                <td className="dictionary-section-cell border-b border-[var(--line)] px-3 py-3"><SemanticCellPrefix label="指标类别" /><DictionaryToken>{indicatorCategoryLabel(indicator.category)}</DictionaryToken></td>
+                <td className="dictionary-section-cell border-b border-[var(--line)] px-3 py-3"><SemanticCellPrefix label="所属板块" /><DictionaryToken>{indicatorCategoryLabel(indicator.category)}</DictionaryToken></td>
+                <td className="dictionary-unit-cell border-b border-[var(--line)] px-3 py-3"><SemanticCellPrefix label="单位" /><DictionaryToken>{indicator.unit}</DictionaryToken></td>
+                <td className="dictionary-frequency-cell border-b border-[var(--line)] px-3 py-3"><SemanticCellPrefix label="频率" /><DictionaryToken>{indicator.frequency}</DictionaryToken></td>
                 <td className="border-b border-[var(--line)] px-3 py-3">{isV4Indicator ? "V4 四国" : "十国"}</td>
                 <td className="border-b border-[var(--line)] px-3 py-3">2021-2025</td>
                 <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.sourcePriority[0] ?? "待接入"}</td>
@@ -999,7 +1101,7 @@ function SourceDictionaryTable({ rows }: { rows: SourceDictionaryRecord[] }) {
         </colgroup>
         <thead>
           <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-            {["source_id", "来源中文名", "来源英文名", "来源类型", "国家或地区覆盖", "指标覆盖范围", "链接", "可靠性等级", "来源状态", "更新频率", "正式数据", "事件依据", "补充线索", "不进入分析", "最后检查日期", "备注"].map((header) => (
+            {["source_id", "来源中文名", "来源英文名", "来源类型", "国家或地区覆盖", "指标覆盖范围", "链接", "可靠性等级", "来源状态", "更新频率", "是否可作为正式数据", "是否可作为事件依据", "是否仅作补充线索", "是否不进入分析", "最后检查日期", "备注"].map((header) => (
               <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
             ))}
           </tr>
@@ -1035,10 +1137,17 @@ function V4QualityDetailTable({ v4Quality, countryNameBySlug }: { v4Quality: V4D
   const [filters, setFilters] = useState<QualityFilterState>({
     country: "all",
     indicator: "all",
+    year: "all",
     status: "all",
     reliability: "all",
-    computed: "all",
+    official: "all",
     pending: "all",
+    computed: "all",
+    manual: "all",
+    comparison: "all",
+    fiveYearChange: "all",
+    meanGap: "all",
+    rankChange: "all",
   });
   const filterOptions = useMemo(() => {
     const countries = Array.from(new Set(v4Quality.cells.map((cell) => cell.countrySlug))).map((slug) => ({
@@ -1049,25 +1158,54 @@ function V4QualityDetailTable({ v4Quality, countryNameBySlug }: { v4Quality: V4D
       value: indicatorId,
       label: getExtendedIndicator(indicatorId)?.labelZh ?? indicatorId,
     }));
+    const years = Array.from(new Set(v4Quality.cells.map((cell) => cell.year))).sort();
 
     return {
       countries,
       indicators,
+      years,
     };
   }, [countryNameBySlug, v4Quality.cells]);
+  const qualitySummaryCards = useMemo(() => {
+    const cells = v4Quality.cells;
+    const reliabilityCounts = (["A", "B", "C", "D"] as const).map((level) => ({
+      label: `${level} 级来源数量`,
+      value: cells.filter((cell) => sourceReliabilityForName(cell.observation?.sourceName) === level).length,
+    }));
+
+    return [
+      { label: "总观测位置", value: cells.length },
+      { label: "正式数据数量", value: cells.filter((cell) => cell.observation?.status === "official" && cell.hasValue).length },
+      { label: "待接入数量", value: cells.filter((cell) => cell.isPending).length },
+      { label: "计算值数量", value: cells.filter((cell) => cell.isComputed).length },
+      { label: "人工整理数量", value: cells.filter((cell) => cell.observation?.status === "manual").length },
+      ...reliabilityCounts,
+    ];
+  }, [v4Quality.cells]);
   const filteredCells = useMemo(
     () =>
       v4Quality.cells.filter((cell) => {
+        const indicator = getExtendedIndicator(cell.indicatorId);
         const reliabilityLevel = sourceReliabilityForName(cell.observation?.sourceName);
         const status = cell.isPending ? "pending" : cell.observation?.status ?? "pending";
+        const isOfficial = cell.observation?.status === "official" && cell.hasValue;
+        const isManual = cell.observation?.status === "manual";
+        const entersDerived = Boolean(indicator?.includedInDerivedComparison && cell.hasValue && !cell.isPending);
         const matchesCountry = filters.country === "all" || cell.countrySlug === filters.country;
         const matchesIndicator = filters.indicator === "all" || cell.indicatorId === filters.indicator;
+        const matchesYear = filters.year === "all" || cell.year === filters.year;
         const matchesStatus = filters.status === "all" || status === filters.status;
         const matchesReliability = filters.reliability === "all" || reliabilityLevel === filters.reliability;
-        const matchesComputed = filters.computed === "all" || (filters.computed === "yes" ? cell.isComputed : !cell.isComputed);
+        const matchesOfficial = filters.official === "all" || (filters.official === "yes" ? isOfficial : !isOfficial);
         const matchesPending = filters.pending === "all" || (filters.pending === "yes" ? cell.isPending : !cell.isPending);
+        const matchesComputed = filters.computed === "all" || (filters.computed === "yes" ? cell.isComputed : !cell.isComputed);
+        const matchesManual = filters.manual === "all" || (filters.manual === "yes" ? isManual : !isManual);
+        const matchesComparison = filters.comparison === "all" || (filters.comparison === "yes" ? entersDerived : !entersDerived);
+        const matchesFiveYearChange = filters.fiveYearChange === "all" || (filters.fiveYearChange === "yes" ? entersDerived : !entersDerived);
+        const matchesMeanGap = filters.meanGap === "all" || (filters.meanGap === "yes" ? entersDerived : !entersDerived);
+        const matchesRankChange = filters.rankChange === "all" || (filters.rankChange === "yes" ? entersDerived : !entersDerived);
 
-        return matchesCountry && matchesIndicator && matchesStatus && matchesReliability && matchesComputed && matchesPending;
+        return matchesCountry && matchesIndicator && matchesYear && matchesStatus && matchesReliability && matchesOfficial && matchesPending && matchesComputed && matchesManual && matchesComparison && matchesFiveYearChange && matchesMeanGap && matchesRankChange;
       }),
     [filters, v4Quality.cells],
   );
@@ -1078,7 +1216,15 @@ function V4QualityDetailTable({ v4Quality, countryNameBySlug }: { v4Quality: V4D
   return (
     <div className="mt-4">
       <div className="rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-3">
-        <div className="grid gap-2 md:grid-cols-3 xl:grid-cols-6">
+        <div className="mb-4 grid gap-2 md:grid-cols-3 xl:grid-cols-5">
+          {qualitySummaryCards.map((item) => (
+            <div key={item.label} className="rounded-2xl border border-[var(--line)] bg-white/75 px-3 py-2">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">{item.label}</p>
+              <p className="mt-1 font-mono text-lg font-semibold">{item.value}</p>
+            </div>
+          ))}
+        </div>
+        <div className="grid gap-2 md:grid-cols-3 xl:grid-cols-4">
           <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">
             国家
             <select value={filters.country} onChange={(event) => updateFilter("country", event.target.value)} className="rounded-full border border-[var(--line)] bg-white px-3 py-2 text-xs text-[var(--foreground)]">
@@ -1091,6 +1237,13 @@ function V4QualityDetailTable({ v4Quality, countryNameBySlug }: { v4Quality: V4D
             <select value={filters.indicator} onChange={(event) => updateFilter("indicator", event.target.value)} className="rounded-full border border-[var(--line)] bg-white px-3 py-2 text-xs text-[var(--foreground)]">
               <option value="all">全部指标</option>
               {filterOptions.indicators.map((option) => <option key={option.value} value={option.value}>{option.label}</option>)}
+            </select>
+          </label>
+          <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">
+            年份
+            <select value={filters.year} onChange={(event) => updateFilter("year", event.target.value)} className="rounded-full border border-[var(--line)] bg-white px-3 py-2 text-xs text-[var(--foreground)]">
+              <option value="all">全部年份</option>
+              {filterOptions.years.map((year) => <option key={year} value={year}>{year}</option>)}
             </select>
           </label>
           <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">
@@ -1114,11 +1267,11 @@ function V4QualityDetailTable({ v4Quality, countryNameBySlug }: { v4Quality: V4D
             </select>
           </label>
           <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">
-            是否计算值
-            <select value={filters.computed} onChange={(event) => updateFilter("computed", event.target.value)} className="rounded-full border border-[var(--line)] bg-white px-3 py-2 text-xs text-[var(--foreground)]">
+            是否正式数据
+            <select value={filters.official} onChange={(event) => updateFilter("official", event.target.value)} className="rounded-full border border-[var(--line)] bg-white px-3 py-2 text-xs text-[var(--foreground)]">
               <option value="all">全部</option>
-              <option value="yes">计算值</option>
-              <option value="no">非计算值</option>
+              <option value="yes">正式数据</option>
+              <option value="no">非正式数据</option>
             </select>
           </label>
           <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">
@@ -1129,11 +1282,59 @@ function V4QualityDetailTable({ v4Quality, countryNameBySlug }: { v4Quality: V4D
               <option value="no">已接入</option>
             </select>
           </label>
+          <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">
+            是否计算值
+            <select value={filters.computed} onChange={(event) => updateFilter("computed", event.target.value)} className="rounded-full border border-[var(--line)] bg-white px-3 py-2 text-xs text-[var(--foreground)]">
+              <option value="all">全部</option>
+              <option value="yes">计算值</option>
+              <option value="no">非计算值</option>
+            </select>
+          </label>
+          <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">
+            是否人工整理
+            <select value={filters.manual} onChange={(event) => updateFilter("manual", event.target.value)} className="rounded-full border border-[var(--line)] bg-white px-3 py-2 text-xs text-[var(--foreground)]">
+              <option value="all">全部</option>
+              <option value="yes">人工整理</option>
+              <option value="no">非人工整理</option>
+            </select>
+          </label>
+          <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">
+            是否进入横向比较
+            <select value={filters.comparison} onChange={(event) => updateFilter("comparison", event.target.value)} className="rounded-full border border-[var(--line)] bg-white px-3 py-2 text-xs text-[var(--foreground)]">
+              <option value="all">全部</option>
+              <option value="yes">进入</option>
+              <option value="no">不进入</option>
+            </select>
+          </label>
+          <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">
+            是否进入五年变化
+            <select value={filters.fiveYearChange} onChange={(event) => updateFilter("fiveYearChange", event.target.value)} className="rounded-full border border-[var(--line)] bg-white px-3 py-2 text-xs text-[var(--foreground)]">
+              <option value="all">全部</option>
+              <option value="yes">进入</option>
+              <option value="no">不进入</option>
+            </select>
+          </label>
+          <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">
+            是否进入均值差距
+            <select value={filters.meanGap} onChange={(event) => updateFilter("meanGap", event.target.value)} className="rounded-full border border-[var(--line)] bg-white px-3 py-2 text-xs text-[var(--foreground)]">
+              <option value="all">全部</option>
+              <option value="yes">进入</option>
+              <option value="no">不进入</option>
+            </select>
+          </label>
+          <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">
+            是否进入排名变化
+            <select value={filters.rankChange} onChange={(event) => updateFilter("rankChange", event.target.value)} className="rounded-full border border-[var(--line)] bg-white px-3 py-2 text-xs text-[var(--foreground)]">
+              <option value="all">全部</option>
+              <option value="yes">进入</option>
+              <option value="no">不进入</option>
+            </select>
+          </label>
         </div>
         <p className="mt-3 text-xs text-[var(--muted)]">当前显示 {filteredCells.length} / {v4Quality.cells.length} 个观测位置。</p>
       </div>
       <div className="mt-4 wide-table-scroll max-w-full">
-      <table className="research-data-table w-full min-w-[2360px] border-separate border-spacing-0 text-left text-sm">
+      <table className="research-data-table w-full min-w-[3060px] border-separate border-spacing-0 text-left text-sm">
         <thead>
           <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
             {["国家", "指标", "年份", "数值", "单位", "状态", "来源名称", "来源链接", "来源等级", "更新时间", "正式数据", "待接入", "计算值", "人工整理", "横向比较", "五年变化", "均值差距", "排名变化", "缺失原因", "备注"].map((header) => (
@@ -1175,14 +1376,14 @@ function V4QualityDetailTable({ v4Quality, countryNameBySlug }: { v4Quality: V4D
                 </td>
                 <td className="border-b border-[var(--line)] px-3 py-3">{reliabilityLevelLabel(reliabilityLevel)}</td>
                 <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs"><SemanticCellPrefix label="更新时间" />{cell.observation?.updatedAt || "待接入"}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(cell.observation?.status === "official" && cell.hasValue)}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(cell.isPending)}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(cell.isComputed)}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(cell.observation?.status === "manual")}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(entersDerived)}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(entersDerived)}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(entersDerived)}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(entersDerived)}</td>
+                <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={cell.observation?.status === "official" && cell.hasValue} /></td>
+                <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={cell.isPending} /></td>
+                <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={cell.isComputed} /></td>
+                <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={cell.observation?.status === "manual"} /></td>
+                <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={entersDerived} /></td>
+                <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={entersDerived} /></td>
+                <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={entersDerived} /></td>
+                <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={entersDerived} /></td>
                 <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]"><SemanticCellPrefix label="缺失原因" />{missingReason}</td>
                 <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]"><SemanticCellPrefix label="备注" />{cell.observation?.note || "—"}</td>
               </tr>
@@ -1549,6 +1750,38 @@ export function DataCountryExplorer() {
       rankChanges,
     };
   });
+  const v4DerivedTableRows: V4DerivedTableRow[] = v4DerivedRows.map((row) => {
+    const category = getExtendedIndicator(row.indicatorId)?.category ?? "external";
+    const valueComparisons = row.countryComparisons.filter((item) => item.latestValue !== null);
+    const comparableYears = valueComparisons
+      .map((item) => item.latestYear)
+      .filter((year): year is string => Boolean(year))
+      .sort();
+    const latestComparableYear = comparableYears[comparableYears.length - 1] ?? "待接入";
+    const biggestGap = row.countryComparisons
+      .filter((item): item is V4CountryDerivedComparison & { gapToMean: number } => item.gapToMean !== null)
+      .sort((a, b) => Math.abs(b.gapToMean) - Math.abs(a.gapToMean))[0];
+    const biggestChange = row.countryComparisons
+      .filter((item): item is V4CountryDerivedComparison & { change: number } => item.change !== null)
+      .sort((a, b) => Math.abs(b.change) - Math.abs(a.change))[0];
+    const relatedQualityCells = v4Quality.cells.filter((cell) => cell.indicatorId === row.indicatorId);
+
+    return {
+      category,
+      categoryLabel: extendedIndicatorLabels[category],
+      row,
+      latestComparableYear,
+      valuesByCountry: Object.fromEntries(row.countryComparisons.map((item) => [item.countrySlug, item.latestValue])) as Record<string, number | null>,
+      highestCountry: row.highestCountries.join(" / ") || "待接入",
+      lowestCountry: row.lowestCountries.join(" / ") || "待接入",
+      biggestMeanGapCountry: biggestGap?.countryName ?? "待比较",
+      biggestMeanGapValue: biggestGap?.gapToMean ?? null,
+      biggestChangeCountry: biggestChange?.countryName ?? "待比较",
+      biggestChangeValue: biggestChange?.change ?? null,
+      pendingObservationCount: relatedQualityCells.filter((cell) => cell.isPending).length,
+      computedObservationCount: relatedQualityCells.filter((cell) => cell.isComputed).length,
+    };
+  });
   const v4ComparisonSummary = v4Countries.map((country) => ({
     country,
     highestCount: v4DerivedRows.filter((row) => row.highestCountries.includes(country.nameZh)).length,
@@ -1784,6 +2017,7 @@ export function DataCountryExplorer() {
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
                 按财政、外部、投资、能源和产业五个板块展开。每个板块只做最高值、最低值、V4 均值、高于/低于均值和事实摘要，不输出风险判断。
               </p>
+              <V4DerivedComparisonTable rows={v4DerivedTableRows} />
               <div className="grid gap-5">
                 {extendedCategoryOrder.map((category) => {
                   const v4CategoryRows = v4Countries.flatMap((country) =>
