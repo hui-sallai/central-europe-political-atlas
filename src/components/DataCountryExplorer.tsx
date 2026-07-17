@@ -39,6 +39,7 @@ import { getV4DataQualitySummary, type V4QualityStatus } from "@/lib/v4DataQuali
 import { chinaProjectVerificationLabel, verifyChinaProject, type ChinaProjectVerificationConclusion } from "@/lib/chinaProjectVerification";
 import observationsData from "../../public/research-data/observations.json";
 import dataQualityChecksData from "../../public/research-data/data_quality_checks.json";
+import derivedComparisonsData from "../../public/research-data/derived_comparisons.json";
 
 type DataMode = "economy" | "charts" | "comparison" | "tables";
 type ProjectAmountFilter = "all" | "available" | "missing";
@@ -134,6 +135,7 @@ type IndicatorDictionaryRecord = (typeof indicatorDictionaryRecords)[number];
 type V4DataQualitySummary = ReturnType<typeof getV4DataQualitySummary>;
 type StandardObservationRecord = (typeof observationsData.records)[number];
 type DataQualityCheckRecord = (typeof dataQualityChecksData.records)[number];
+type DerivedComparisonRecord = (typeof derivedComparisonsData.records)[number];
 
 const dataModes: { id: DataMode; label: string; description: string }[] = [
   { id: "economy", label: "经济数据", description: "近五年宏观经济表、官方统计主源与对华经贸样本。" },
@@ -1007,69 +1009,126 @@ function V4CategoryMatrix({
   );
 }
 
-function V4DerivedComparisonTable({ rows }: { rows: V4DerivedTableRow[] }) {
-  const countryOrder = [
-    { slug: "poland", label: "波兰数值" },
-    { slug: "hungary", label: "匈牙利数值" },
-    { slug: "czechia", label: "捷克数值" },
-    { slug: "slovakia", label: "斯洛伐克数值" },
+function formatDerivedComparisonValue(value: number | null, unit: string) {
+  if (value === null) {
+    return "待接入";
+  }
+
+  const formatted = Number.isInteger(value) ? value.toLocaleString("en-US") : value.toLocaleString("en-US", { maximumFractionDigits: 3 });
+  return unit ? `${formatted} ${unit}` : formatted;
+}
+
+function formatDerivedComparisonSignedValue(value: number | null, unit: string) {
+  if (value === null) {
+    return "待接入";
+  }
+
+  const formatted = Number.isInteger(value) ? value.toLocaleString("en-US") : value.toLocaleString("en-US", { maximumFractionDigits: 3 });
+  const signed = value > 0 ? `+${formatted}` : formatted;
+  return unit ? `${signed} ${unit}` : signed;
+}
+
+function V4DerivedComparisonTable({ records }: { records: DerivedComparisonRecord[] }) {
+  const countryLabelById = new Map([
+    ["poland", "波兰"],
+    ["hungary", "匈牙利"],
+    ["czechia", "捷克"],
+    ["slovakia", "斯洛伐克"],
+  ]);
+  const displayCountry = (value: string) =>
+    value
+      .split(" / ")
+      .map((countryId) => countryLabelById.get(countryId) ?? countryId)
+      .join(" / ");
+  const headers = [
+    "comparison_id",
+    "板块",
+    "指标",
+    "最新可比年份",
+    "波兰数值",
+    "匈牙利数值",
+    "捷克数值",
+    "斯洛伐克数值",
+    "单位",
+    "最高值",
+    "最高国家",
+    "最低值",
+    "最低国家",
+    "V4 均值",
+    "波兰均值差距",
+    "匈牙利均值差距",
+    "捷克均值差距",
+    "斯洛伐克均值差距",
+    "最大均值差距国家",
+    "最大均值差距",
+    "波兰五年变化",
+    "匈牙利五年变化",
+    "捷克五年变化",
+    "斯洛伐克五年变化",
+    "五年变化最大国家",
+    "五年变化值",
+    "波兰排名",
+    "匈牙利排名",
+    "捷克排名",
+    "斯洛伐克排名",
+    "缺失观测值",
+    "计算值数量",
+    "比较状态",
+    "解释边界",
+    "备注",
   ];
 
   return (
     <div className="mt-5 wide-table-scroll max-w-full">
-      <table className="research-data-table derived-comparison-table w-full min-w-[2860px] border-separate border-spacing-0 text-left text-sm">
+      <table className="research-data-table derived-comparison-table w-full min-w-[5200px] border-separate border-spacing-0 text-left text-sm">
         <thead>
           <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-            {[
-              "板块",
-              "指标",
-              "最新可比年份",
-              ...countryOrder.map((country) => country.label),
-              "最高值",
-              "最高国家",
-              "最低值",
-              "最低国家",
-              "V4 均值",
-              "与均值差距最大的国家",
-              "最大均值差距",
-              "五年变化最大的国家",
-              "五年变化数值",
-              "待接入观测值数量",
-              "计算值数量",
-              "解释边界",
-              "备注",
-            ].map((header) => (
+            {headers.map((header) => (
               <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {rows.map((item) => (
-            <tr key={`${item.category}-${item.row.indicatorId}-derived-table`} className="align-top">
-              <td className="border-b border-[var(--line)] py-3 pl-0 pr-3"><DictionaryToken>{item.categoryLabel}</DictionaryToken></td>
+          {records.map((record) => (
+            <tr key={record.comparison_id} className="align-top">
+              <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono text-xs">{record.comparison_id}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{record.section}</DictionaryToken></td>
               <td className="border-b border-[var(--line)] px-3 py-3">
-                <p className="font-semibold">{item.row.label}</p>
-                <p className="mt-1 font-mono text-[10px] text-[var(--muted)]">{item.row.indicatorId}</p>
+                <p className="font-semibold">{record.indicator_name}</p>
+                <p className="mt-1 font-mono text-[10px] text-[var(--muted)]">{record.indicator_id}</p>
               </td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{item.latestComparableYear}</td>
-              {countryOrder.map((country) => (
-                <td key={`${item.row.indicatorId}-${country.slug}`} className="border-b border-[var(--line)] px-3 py-3 font-mono">
-                  <span className={dataValueClass(item.valuesByCountry[country.slug])}>{compactResearchValue(item.row, item.valuesByCountry[country.slug])}</span>
-                </td>
-              ))}
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{compactResearchValue(item.row, item.row.highest)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">{item.highestCountry}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{compactResearchValue(item.row, item.row.lowest)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">{item.lowestCountry}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{compactResearchValue(item.row, item.row.mean)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">{item.biggestMeanGapCountry}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{compactSignedResearchValue(item.row, item.biggestMeanGapValue)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3">{item.biggestChangeCountry}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{compactSignedResearchValue(item.row, item.biggestChangeValue)}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono">{item.pendingObservationCount}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono">{item.computedObservationCount}</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">仅表示事实位置，不代表风险、预测或政策优劣。</td>
-              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">派生自 2021-2025 V4 扩展观测值；待接入值不参与最高、最低和均值计算。</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{record.latest_comparable_year}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonValue(record.poland_value, record.unit)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonValue(record.hungary_value, record.unit)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonValue(record.czechia_value, record.unit)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonValue(record.slovakia_value, record.unit)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{record.unit}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonValue(record.highest_value, record.unit)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{displayCountry(record.highest_country)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonValue(record.lowest_value, record.unit)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{displayCountry(record.lowest_country)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonValue(record.v4_average, record.unit)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonSignedValue(record.poland_gap_from_v4_average, record.unit)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonSignedValue(record.hungary_gap_from_v4_average, record.unit)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonSignedValue(record.czechia_gap_from_v4_average, record.unit)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonSignedValue(record.slovakia_gap_from_v4_average, record.unit)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{displayCountry(record.largest_gap_country)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonSignedValue(record.largest_gap_value, record.unit)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonSignedValue(record.poland_five_year_change, record.unit)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonSignedValue(record.hungary_five_year_change, record.unit)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonSignedValue(record.czechia_five_year_change, record.unit)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonSignedValue(record.slovakia_five_year_change, record.unit)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{displayCountry(record.largest_five_year_change_country)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{formatDerivedComparisonSignedValue(record.largest_five_year_change_value, record.unit)}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono">{record.poland_rank ?? "待接入"}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono">{record.hungary_rank ?? "待接入"}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono">{record.czechia_rank ?? "待接入"}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono">{record.slovakia_rank ?? "待接入"}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono">{record.missing_observation_count}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-center font-mono">{record.calculated_value_count}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{record.comparison_status}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{record.interpretation_boundary}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{record.notes}</td>
             </tr>
           ))}
         </tbody>
@@ -2147,9 +2206,9 @@ export function DataCountryExplorer() {
               <summary className="cursor-pointer text-lg font-semibold">派生比较表入口：五个板块事实派生表</summary>
               <h3 className="mt-4 text-xl font-semibold">派生比较表</h3>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                按财政、外部、投资、能源和产业五个板块展开。每个板块只做最高值、最低值、V4 均值、高于/低于均值和事实摘要，不输出风险判断。
+                按财政、外部经济、投资、能源和产业五个板块展开。每行固定展示最高值、最低值、V4 均值、均值差距、五年变化和排名变化；只做事实位置比较，不输出风险判断。
               </p>
-              <V4DerivedComparisonTable rows={v4DerivedTableRows} />
+              <V4DerivedComparisonTable records={derivedComparisonsData.records as DerivedComparisonRecord[]} />
               <div className="grid gap-5">
                 {extendedCategoryOrder.map((category) => {
                   const v4CategoryRows = v4Countries.flatMap((country) =>

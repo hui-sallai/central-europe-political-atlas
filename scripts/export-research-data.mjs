@@ -501,6 +501,10 @@ function derivedComparisonRecords() {
   return derivedMetricRecords()
     .filter((record) => record.indicator_id)
     .map((record) => {
+      const valueFor = (countryId) => record.latest_values.find((item) => item.country_slug === countryId)?.value ?? null;
+      const gapFor = (countryId) => record.mean_comparison.find((item) => item.country_slug === countryId)?.gap_to_v4_mean ?? null;
+      const changeFor = (countryId) => record.five_year_change.find((item) => item.country_slug === countryId)?.change ?? null;
+      const rankFor = (countryId) => record.rank_change.find((item) => item.country_slug === countryId)?.latest_rank ?? null;
       const biggestGap = record.mean_comparison
         .filter((item) => item.gap_to_v4_mean !== null)
         .sort((a, b) => Math.abs(b.gap_to_v4_mean) - Math.abs(a.gap_to_v4_mean))[0];
@@ -508,29 +512,56 @@ function derivedComparisonRecords() {
         .filter((item) => item.change !== null)
         .sort((a, b) => Math.abs(b.change) - Math.abs(a.change))[0];
       const qualityCells = dataQualityCheckRecords().filter((cell) => cell.indicator_id === record.indicator_id);
+      const latestValueCount = record.latest_values.filter((item) => item.value !== null).length;
+      const missingObservationCount = qualityCells.filter((cell) => cell.is_pending).length;
+      const comparisonStatus =
+        qualityCells.some((cell) => cell.quality_status === "不进入分析")
+          ? "不进入分析"
+          : latestValueCount === 0
+            ? "待接入"
+            : latestValueCount < 4
+              ? "数据不足"
+              : missingObservationCount > 0
+                ? "部分可比较"
+                : "可比较";
 
       return {
-        derived_comparison_id: record.derived_metric_id.replace("v4_latest_comparison:", "v4_derived_comparison:"),
-        category: record.category,
+        comparison_id: record.derived_metric_id.replace("v4_latest_comparison:", "v4_derived_comparison:"),
+        section: categoryLabels[record.category] ?? record.category,
         indicator_id: record.indicator_id,
+        indicator_name: record.indicator_name_zh,
         latest_comparable_year: record.latest_values.map((item) => item.date).filter(Boolean).sort().at(-1) ?? "",
-        poland_value: record.latest_values.find((item) => item.country_slug === "poland")?.value ?? null,
-        hungary_value: record.latest_values.find((item) => item.country_slug === "hungary")?.value ?? null,
-        czechia_value: record.latest_values.find((item) => item.country_slug === "czechia")?.value ?? null,
-        slovakia_value: record.latest_values.find((item) => item.country_slug === "slovakia")?.value ?? null,
+        poland_value: valueFor("poland"),
+        hungary_value: valueFor("hungary"),
+        czechia_value: valueFor("czechia"),
+        slovakia_value: valueFor("slovakia"),
+        unit: record.unit,
         highest_value: record.highest_value,
-        highest_country_ids: record.highest_countries,
+        highest_country: record.highest_countries.join(" / ") || "",
         lowest_value: record.lowest_value,
-        lowest_country_ids: record.lowest_countries,
-        v4_mean: record.v4_mean,
-        biggest_mean_gap_country_id: biggestGap?.country_slug ?? "",
-        biggest_mean_gap: biggestGap?.gap_to_v4_mean ?? null,
-        biggest_five_year_change_country_id: biggestChange?.country_slug ?? "",
-        biggest_five_year_change: biggestChange?.change ?? null,
-        pending_observation_count: qualityCells.filter((cell) => cell.is_pending).length,
-        computed_observation_count: qualityCells.filter((cell) => cell.is_calculated).length,
+        lowest_country: record.lowest_countries.join(" / ") || "",
+        v4_average: record.v4_mean,
+        poland_gap_from_v4_average: gapFor("poland"),
+        hungary_gap_from_v4_average: gapFor("hungary"),
+        czechia_gap_from_v4_average: gapFor("czechia"),
+        slovakia_gap_from_v4_average: gapFor("slovakia"),
+        largest_gap_country: biggestGap?.country_slug ?? "",
+        largest_gap_value: biggestGap?.gap_to_v4_mean ?? null,
+        poland_five_year_change: changeFor("poland"),
+        hungary_five_year_change: changeFor("hungary"),
+        czechia_five_year_change: changeFor("czechia"),
+        slovakia_five_year_change: changeFor("slovakia"),
+        largest_five_year_change_country: biggestChange?.country_slug ?? "",
+        largest_five_year_change_value: biggestChange?.change ?? null,
+        poland_rank: rankFor("poland"),
+        hungary_rank: rankFor("hungary"),
+        czechia_rank: rankFor("czechia"),
+        slovakia_rank: rankFor("slovakia"),
+        missing_observation_count: missingObservationCount,
+        calculated_value_count: qualityCells.filter((cell) => cell.is_calculated).length,
+        comparison_status: comparisonStatus,
         interpretation_boundary: "仅表示事实位置，不代表风险、预测或政策优劣。",
-        note: "派生自 V4 2021-2025 扩展观测值；不输出风险指数。",
+        notes: "派生自 V4 2021-2025 扩展观测值；待接入值不参与最高、最低、均值、差距、变化和排名计算。",
       };
     });
 }
