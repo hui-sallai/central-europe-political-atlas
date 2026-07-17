@@ -149,7 +149,7 @@ const dataEntryShortcuts: DataEntryShortcut[] = [
   { id: "source-dictionary-entry", label: "来源字典入口", mode: "tables", description: "16 类来源的链接、可靠性等级和使用边界。" },
   { id: "v4-data-quality-entry", label: "数据质量验收入口", mode: "comparison", description: "V4 四国 240 个观测位置的验收清单。", requiresV4: true },
   { id: "v4-derived-comparison-entry", label: "派生比较表入口", mode: "comparison", description: "最高值、最低值、V4 均值和事实派生比较。", requiresV4: true },
-  { id: "data-export-entry", label: "CSV / JSON 导出", mode: "tables", description: "9 个逻辑数据层的 JSON 与 CSV 文件。" },
+  { id: "data-export-entry", label: "数据导出与接口准备", mode: "tables", description: "9 个逻辑数据层的 CSV / JSON 结构预留；当前不提供模型 API。" },
 ];
 
 const tableMetricIds: EconomicMetricId[] = ["population", "gdp", "gdpPerCapita", "growth", "inflation", "unemployment"];
@@ -1224,24 +1224,40 @@ function CountryMetadataTable() {
 
 function ResearchDataExportLinks() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  const exportStatusCards = [
+    { label: "CSV 导出结构", value: "已预留", note: "9 个逻辑数据层均生成 .csv 文件。" },
+    { label: "JSON 导出结构", value: "已预留", note: "9 个逻辑数据层均生成 .json 文件。" },
+    { label: "当前阶段", value: "结构准备", note: "不提供模型 API，不输出预测、指数或风险分数。" },
+  ];
 
   return (
-    <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-      {researchDataLayerFiles.map((layer) => (
-        <article key={layer.id} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
-          <p className="font-mono text-xs font-semibold text-[var(--accent)]">{layer.label}</p>
-          <p className="mt-2 min-h-[3rem] text-xs leading-5 text-[var(--muted)]">{layer.description}</p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            <a href={`${basePath}/research-data/${layer.id}.json`} className="rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs font-semibold text-[var(--accent)] hover:border-[var(--accent)]">
-              JSON
-            </a>
-            <a href={`${basePath}/research-data/${layer.id}.csv`} className="rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs font-semibold text-[var(--accent)] hover:border-[var(--accent)]">
-              CSV
-            </a>
-          </div>
-        </article>
-      ))}
-    </div>
+    <>
+      <div className="mt-5 grid gap-3 md:grid-cols-3">
+        {exportStatusCards.map((item) => (
+          <article key={item.label} className="rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">{item.label}</p>
+            <p className="mt-2 text-xl font-semibold text-[var(--accent)]">{item.value}</p>
+            <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{item.note}</p>
+          </article>
+        ))}
+      </div>
+      <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+        {researchDataLayerFiles.map((layer) => (
+          <article key={layer.id} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+            <p className="font-mono text-xs font-semibold text-[var(--accent)]">{layer.label}</p>
+            <p className="mt-2 min-h-[3rem] text-xs leading-5 text-[var(--muted)]">{layer.description}</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              <a href={`${basePath}/research-data/${layer.id}.json`} className="rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs font-semibold text-[var(--accent)] hover:border-[var(--accent)]">
+                JSON
+              </a>
+              <a href={`${basePath}/research-data/${layer.id}.csv`} className="rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs font-semibold text-[var(--accent)] hover:border-[var(--accent)]">
+                CSV
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </>
   );
 }
 
@@ -2230,9 +2246,10 @@ export function DataCountryExplorer() {
             </details>
 
             <details id="data-export-entry" className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-4" open>
-              <summary className="cursor-pointer text-lg font-semibold">CSV / JSON 导出入口：9 个逻辑数据层</summary>
+              <summary className="cursor-pointer text-lg font-semibold">数据导出与接口准备</summary>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                当前导出层包括 countries、indicators、sources、observations、data_quality_checks、derived_comparisons、china_projects、china_exposure_candidates 和 methodology_rules。导出文件只提供研究数据结构，不代表模型已经启用。
+                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：结构准备，不提供模型 API。
+                当前导出对象包括 countries、indicators、sources、observations、data_quality_checks、derived_comparisons、china_projects、china_exposure_candidates 和 methodology_rules。
               </p>
               <ResearchDataExportLinks />
             </details>
