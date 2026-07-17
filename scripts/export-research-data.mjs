@@ -402,35 +402,99 @@ function derivedMetricRecords() {
 }
 
 function dataQualityCheckRecords() {
-  return getV4DataQualitySummary().cells.map((cell) => {
-    const indicator = getExtendedIndicator(cell.indicatorId);
-    const reliabilityLevel = cell.observation?.sourceName?.toLowerCase().includes("eurostat") ? "A" : cell.observation?.sourceName ? "B" : "D";
-    const entersDerived = Boolean(indicator?.includedInDerivedComparison && cell.hasValue && !cell.isPending);
+  return v4QualityCountrySlugs.flatMap((countryId) =>
+    v4TemplateIndicatorIds.flatMap((indicatorId) =>
+      ["2021", "2022", "2023", "2024", "2025"].map((year) => {
+        const observationId = `v4:${countryId}:${indicatorId}:${year}`;
+        const observation = observationRecords.find((item) => item.observation_id === observationId);
+        const indicator = indicatorDictionaryRecords.find((item) => item.indicatorId === indicatorId);
+        const valuePresent = observation?.value !== null && observation?.value !== undefined;
+        const unitPresent = Boolean(observation?.unit);
+        const sourceNamePresent = Boolean(observation?.source_name);
+        const sourceUrlPresent = Boolean(observation?.source_url);
+        const sourceReliabilityPresent = Boolean(observation?.source_reliability);
+        const statusPresent = Boolean(observation?.value_status);
+        const lastUpdatedPresent = Boolean(observation?.last_updated);
+        const sourceReliability = observation?.source_reliability ?? "D";
+        const methodologicallyConsistent = Boolean(
+          observation &&
+          indicator &&
+          observation.unit === indicator.unit &&
+          sourceReliabilityPresent &&
+          (observation.is_calculated ? observation.calculation_method !== "无" : true) &&
+          !observation.is_structural_sample,
+        );
+        const readyForExport = Boolean(
+          observation &&
+          unitPresent &&
+          sourceNamePresent &&
+          sourceUrlPresent &&
+          sourceReliabilityPresent &&
+          statusPresent &&
+          lastUpdatedPresent &&
+          (valuePresent || observation.is_pending),
+        );
+        const readyForDerivedComparison = Boolean(observation?.is_in_mean_gap && observation?.is_in_ranking_change && methodologicallyConsistent);
+        const readyForFutureModelCandidate = Boolean(
+          observation &&
+          indicator?.futureModelEligible &&
+          !observation.is_pending &&
+          !observation.is_structural_sample &&
+          (sourceReliability === "A" || sourceReliability === "B") &&
+          methodologicallyConsistent,
+        );
+        const qualityIssues = [
+          observation ? "" : "观测记录缺失",
+          valuePresent || observation?.is_pending ? "" : "数值缺失但未标记待接入",
+          unitPresent ? "" : "单位缺失",
+          sourceNamePresent ? "" : "来源名称缺失",
+          sourceUrlPresent ? "" : "来源链接缺失",
+          sourceReliabilityPresent ? "" : "来源等级缺失",
+          statusPresent ? "" : "数据状态缺失",
+          lastUpdatedPresent ? "" : "更新时间缺失",
+          methodologicallyConsistent ? "" : "方法或单位需复核",
+        ].filter(Boolean);
+        const qualityStatus =
+          observation?.is_structural_sample || sourceReliability === "D"
+            ? "不进入分析"
+            : observation?.is_pending
+              ? "待接入"
+              : qualityIssues.length > 0
+                ? "需复核"
+                : observation?.is_calculated || observation?.is_manual
+                  ? "部分通过"
+                  : "通过";
 
-    return {
-      check_id: `v4_quality:${cell.countrySlug}:${cell.indicatorId}:${cell.year}`,
-      country_id: cell.countrySlug,
-      indicator_id: cell.indicatorId,
-      year: cell.year,
-      value: cell.observation?.value ?? null,
-      unit: cell.observation?.unit ?? indicator?.unit ?? "",
-      status: cell.isPending ? "pending" : cell.observation?.status ?? "pending",
-      source_name: cell.observation?.sourceName ?? "待接入",
-      source_url: cell.observation?.sourceUrl ?? "",
-      source_reliability_level: reliabilityLevel,
-      updated_at: cell.observation?.updatedAt ?? "",
-      is_official_data: cell.observation?.status === "official" && cell.hasValue,
-      is_pending: cell.isPending,
-      is_computed: cell.isComputed,
-      is_manual: cell.observation?.status === "manual",
-      included_in_derived_comparison: entersDerived,
-      included_in_five_year_change: entersDerived,
-      included_in_mean_gap: entersDerived,
-      included_in_rank_change: entersDerived,
-      missing_reason: cell.isPending ? cell.issues.join("；") || "数值待接入" : "",
-      note: cell.observation?.note ?? "",
-    };
-  });
+        return {
+          check_id: `v4_quality:${countryId}:${indicatorId}:${year}`,
+          observation_id: observationId,
+          country_id: countryId,
+          indicator_id: indicatorId,
+          year,
+          value_present: valuePresent,
+          unit_present: unitPresent,
+          source_name_present: sourceNamePresent,
+          source_url_present: sourceUrlPresent,
+          source_reliability_present: sourceReliabilityPresent,
+          status_present: statusPresent,
+          last_updated_present: lastUpdatedPresent,
+          is_official_data: Boolean(observation?.is_official_data),
+          is_pending: Boolean(observation?.is_pending),
+          is_calculated: Boolean(observation?.is_calculated),
+          is_manual: Boolean(observation?.is_manual),
+          is_cross_country_comparable: Boolean(observation?.is_in_cross_country_comparison),
+          is_time_series_comparable: Boolean(observation?.is_in_five_year_change),
+          is_methodologically_consistent: methodologicallyConsistent,
+          is_ready_for_export: readyForExport,
+          is_ready_for_derived_comparison: readyForDerivedComparison,
+          is_ready_for_future_model_candidate: readyForFutureModelCandidate,
+          missing_reason: observation?.is_pending ? observation.missing_reason || "数值待接入" : "无",
+          quality_status: qualityStatus,
+          quality_notes: qualityIssues.length > 0 ? qualityIssues.join("；") : qualityStatus === "部分通过" ? "计算值或人工整理字段完整，但需保留计算/复核说明。" : "字段完整，可用于导出与事实对照。",
+        };
+      }),
+    ),
+  );
 }
 
 function derivedComparisonRecords() {
@@ -464,7 +528,7 @@ function derivedComparisonRecords() {
         biggest_five_year_change_country_id: biggestChange?.country_slug ?? "",
         biggest_five_year_change: biggestChange?.change ?? null,
         pending_observation_count: qualityCells.filter((cell) => cell.is_pending).length,
-        computed_observation_count: qualityCells.filter((cell) => cell.is_computed).length,
+        computed_observation_count: qualityCells.filter((cell) => cell.is_calculated).length,
         interpretation_boundary: "仅表示事实位置，不代表风险、预测或政策优劣。",
         note: "派生自 V4 2021-2025 扩展观测值；不输出风险指数。",
       };
