@@ -1,0 +1,71 @@
+{
+  "schema_version": "research-data-v0.1",
+  "generated_at": "2026-07-17",
+  "data_type": "research_data_layers",
+  "record_count": 9,
+  "records": [
+    {
+      "id": "countries",
+      "label": "countries",
+      "description": "十国国家元数据表，作为所有观测值、项目和派生比较的 country_id 关联表。",
+      "json_file": "countries.json",
+      "csv_file": "countries.csv"
+    },
+    {
+      "id": "indicators",
+      "label": "indicators",
+      "description": "18 个指标的口径、单位、频率、来源优先级和派生资格。",
+      "json_file": "indicators.json",
+      "csv_file": "indicators.csv"
+    },
+    {
+      "id": "sources",
+      "label": "sources",
+      "description": "来源字典与 A/B/C/D 可靠性等级。",
+      "json_file": "sources.json",
+      "csv_file": "sources.csv"
+    },
+    {
+      "id": "observations",
+      "label": "observations",
+      "description": "十国基础宏观观测值和 V4 扩展观测值。",
+      "json_file": "observations.json",
+      "csv_file": "observations.csv"
+    },
+    {
+      "id": "data_quality_checks",
+      "label": "data_quality_checks",
+      "description": "V4 四国 240 个观测位置的质量验收表。",
+      "json_file": "data_quality_checks.json",
+      "csv_file": "data_quality_checks.csv"
+    },
+    {
+      "id": "derived_comparisons",
+      "label": "derived_comparisons",
+      "description": "V4 事实型派生比较，不输出风险分数。",
+      "json_file": "derived_comparisons.json",
+      "csv_file": "derived_comparisons.csv"
+    },
+    {
+      "id": "china_projects",
+      "label": "china_projects",
+      "description": "对华项目核验表。",
+      "json_file": "china_projects.json",
+      "csv_file": "china_projects.csv"
+    },
+    {
+      "id": "china_exposure_candidates",
+      "label": "china_exposure_candidates",
+      "description": "暴露变量候选库，不等于指数。",
+      "json_file": "china_exposure_candidates.json",
+      "csv_file": "china_exposure_candidates.csv"
+    },
+    {
+      "id": "methodology_rules",
+      "label": "methodology_rules",
+      "description": "方法论边界、数据状态、来源等级和分析准入规则。",
+      "json_file": "methodology_rules.json",
+      "csv_file": "methodology_rules.csv"
+    }
+  ]
+}

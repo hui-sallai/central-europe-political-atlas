@@ -2,6 +2,7 @@ import Link from "next/link";
 import { DataLayerOverview } from "@/components/DataLayerOverview";
 import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
 import { countries } from "@/lib/data";
+import { getCountryMetadata } from "@/lib/countryMetadata";
 import { getChinaProjectRecords } from "@/lib/extendedData";
 
 const v4CountrySlugs = ["poland", "hungary", "czechia", "slovakia"];
@@ -19,11 +20,12 @@ export default function CountriesPage() {
       </section>
       <div className="mt-8 grid gap-4 md:grid-cols-2">
         {countries.map((country) => {
+          const metadata = getCountryMetadata(country.slug);
           const projectRecords = getChinaProjectRecords(country.slug);
           const isV4Country = v4CountrySlugs.includes(country.slug);
-          const partyStatus = isV4Country ? "manual" : "pending";
+          const partyStatus = metadata?.political_sample_status.includes("人工整理") ? "manual" : "pending";
           const projectStatus = projectRecords.length > 0 ? "manual" : "pending";
-          const partyStatusText = isV4Country ? "待核验 / 人工整理" : "待接入";
+          const partyStatusText = metadata?.political_sample_status ?? (isV4Country ? "待核验 / 人工整理" : "待接入");
 
           return (
             <Link key={country.slug} href={`/countries/${country.slug}`} className="card p-6 transition hover:-translate-y-1 hover:shadow-xl">
@@ -50,6 +52,12 @@ export default function CountriesPage() {
                     <SourceStatusBadge status={projectStatus} />
                   </div>
                   <p className="mt-2 leading-5 text-[var(--muted)]">{projectRecords.length > 0 ? "已按固定字段整理项目样本，金额、主体和量化状态仍逐条复核。" : "项目表待接入。"}</p>
+                </div>
+                <div className="rounded-2xl border border-[var(--line)] bg-white/60 p-3">
+                  <p className="font-semibold text-[var(--foreground)]">countries 元数据状态</p>
+                  <p className="mt-2 leading-5 text-[var(--muted)]">
+                    {metadata ? `${metadata.v4_extended_status} / ${metadata.map_region_status} / ${metadata.news_event_status}` : "待接入"}
+                  </p>
                 </div>
               </div>
             </Link>

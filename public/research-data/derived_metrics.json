@@ -1,8 +1,9 @@
 {
   "schema_version": "research-data-v0.1",
-  "generated_at": "2026-07-05",
+  "generated_at": "2026-07-17",
   "data_type": "derived_metrics",
   "record_count": 13,
+  "compatibility_note": "Deprecated compatibility alias. Prefer derived_comparisons.json.",
   "model_boundary": "Fact-derived comparison layer only. No risk score, forecast, scenario, or model output.",
   "records": [
     {

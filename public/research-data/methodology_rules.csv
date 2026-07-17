@@ -1,0 +1,9 @@
+rule_id,rule_group,title,rule
+"data_status_official","data_status","正式数据","有明确数值、单位、年份、来源名称、来源链接和更新时间，可作为当前事实展示。"
+"data_status_manual","data_status","人工整理","人工从公开材料整理，需保留来源和复核记录；未复核前不作为最终事实口径。"
+"data_status_pending","data_status","待接入","字段已预留但可信来源尚未接入，不能被读作已有数据。"
+"data_status_sample","data_status","结构样例","只用于验证页面结构，不进入模型或分析。"
+"derived_boundary","derived_comparisons","派生比较边界","只保存最高、最低、均值、五年变化、均值差距和排名变化，不生成风险指数或预测。"
+"china_exposure_boundary","china_exposure_candidates","暴露变量候选库边界","暴露变量候选库不等于中国经济暴露指数；金额、主体、年份和来源未齐时不得指数化。"
+"analysis_checklist","analysis","进入后续分析条件","必须同时具备国家或地区、时间、数值、单位、来源名称、来源链接、来源等级、数据状态，并存在于指标和来源字典中。"
+"political_review","political_fields","政治人物字段复核","政府首脑、国家元首、执政结构和党派缩写只有官方来源复核后才能作为正式字段展示。"

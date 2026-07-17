@@ -1,4 +1,5 @@
 import { dataStatusMeta, sourceStatusMeta } from "@/lib/dataStatusLabels";
+import { researchDataLayerFiles } from "@/lib/countryMetadata";
 import { frozenNavItems, frozenScopeNotes } from "@/lib/siteStructure";
 
 const dataStatusItems = [
@@ -206,6 +207,22 @@ export default function MethodologyPage() {
             <article key={item.group} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
               <h3 className="font-semibold">{item.group}</h3>
               <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{item.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">Logical Data Layers</p>
+        <h2 className="mt-3 text-2xl font-semibold">5.1 九个逻辑数据层</h2>
+        <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">
+          当前先固化研究数据结构，并在数据页提供 JSON / CSV 导出入口；这些逻辑层不是模型页，也不代表预测功能已经启用。
+        </p>
+        <div className="mt-5 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+          {researchDataLayerFiles.map((layer) => (
+            <article key={layer.id} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+              <p className="font-mono text-xs font-semibold text-[var(--accent)]">{layer.label}</p>
+              <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{layer.description}</p>
             </article>
           ))}
         </div>

@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
 import { countries } from "@/lib/data";
+import { countryMetadataRecords, researchDataLayerFiles } from "@/lib/countryMetadata";
 import { getEconomicSourcePolicy } from "@/lib/economicSourcePolicy";
 import {
   extendedIndicatorLabels,
@@ -135,10 +136,12 @@ const dataModes: { id: DataMode; label: string; description: string }[] = [
   { id: "tables", label: "数据表格", description: "按六张核心表检查当前国家的数据完整性。" },
 ];
 const dataEntryShortcuts: DataEntryShortcut[] = [
+  { id: "countries-layer-entry", label: "国家元数据表", mode: "tables", description: "十国 countries 逻辑层，作为 country_id 关联表。" },
   { id: "indicator-dictionary-entry", label: "指标字典入口", mode: "tables", description: "18 个指标的口径、单位、来源优先级和比较资格。" },
   { id: "source-dictionary-entry", label: "来源字典入口", mode: "tables", description: "16 类来源的链接、可靠性等级和使用边界。" },
   { id: "v4-data-quality-entry", label: "数据质量验收入口", mode: "comparison", description: "V4 四国 240 个观测位置的验收清单。", requiresV4: true },
   { id: "v4-derived-comparison-entry", label: "派生比较表入口", mode: "comparison", description: "最高值、最低值、V4 均值和事实派生比较。", requiresV4: true },
+  { id: "data-export-entry", label: "CSV / JSON 导出", mode: "tables", description: "9 个逻辑数据层的 JSON 与 CSV 文件。" },
 ];
 
 const tableMetricIds: EconomicMetricId[] = ["population", "gdp", "gdpPerCapita", "growth", "inflation", "unemployment"];
@@ -1013,6 +1016,114 @@ function V4DerivedComparisonTable({ rows }: { rows: V4DerivedTableRow[] }) {
           ))}
         </tbody>
       </table>
+    </div>
+  );
+}
+
+function CountryMetadataTable() {
+  const headers = [
+    "country_id",
+    "中文名",
+    "英文名",
+    "本地名",
+    "ISO2",
+    "ISO3",
+    "V4",
+    "EU",
+    "Eurozone",
+    "Schengen",
+    "区域分组",
+    "首都",
+    "货币",
+    "国家基础档案状态",
+    "基础宏观数据状态",
+    "V4 扩展数据状态",
+    "对华项目数据状态",
+    "新闻事件数据状态",
+    "地图与区域层状态",
+    "政府首脑",
+    "政府首脑来源状态",
+    "国家元首",
+    "国家元首来源状态",
+    "政治样本状态",
+    "V4 横向比较",
+    "基础宏观十国比较",
+    "对华项目核验",
+    "未来模型候选",
+    "最后更新日期",
+    "备注",
+  ];
+
+  return (
+    <div className="mt-5 wide-table-scroll max-w-full">
+      <table className="research-data-table country-metadata-table w-full min-w-[4200px] border-separate border-spacing-0 text-left text-sm">
+        <thead>
+          <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+            {headers.map((header) => (
+              <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {countryMetadataRecords.map((country) => (
+            <tr key={country.country_id} className="align-top">
+              <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono text-xs">{country.country_id}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{country.name_zh}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{country.name_en}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{country.local_name}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{country.iso2}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{country.iso3}</td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={country.is_v4} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={country.is_eu_member} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={country.is_eurozone_member} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={country.is_schengen_member} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{country.regional_group}</DictionaryToken></td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{country.capital}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{country.currency}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{country.country_profile_status}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{country.basic_macro_status}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{country.v4_extended_status}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{country.china_project_status}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{country.news_event_status}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{country.map_region_status}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{country.head_of_government}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{country.head_of_government_source_status}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{country.head_of_state}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{country.head_of_state_source_status}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{country.political_sample_status}</td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={country.included_in_v4_comparison} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={country.included_in_macro_ten_country_comparison} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={country.included_in_china_project_verification} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={country.future_model_candidate} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{country.last_updated_at}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{country.notes}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function ResearchDataExportLinks() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+  return (
+    <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+      {researchDataLayerFiles.map((layer) => (
+        <article key={layer.id} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+          <p className="font-mono text-xs font-semibold text-[var(--accent)]">{layer.label}</p>
+          <p className="mt-2 min-h-[3rem] text-xs leading-5 text-[var(--muted)]">{layer.description}</p>
+          <div className="mt-3 flex flex-wrap gap-2">
+            <a href={`${basePath}/research-data/${layer.id}.json`} className="rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs font-semibold text-[var(--accent)] hover:border-[var(--accent)]">
+              JSON
+            </a>
+            <a href={`${basePath}/research-data/${layer.id}.csv`} className="rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs font-semibold text-[var(--accent)] hover:border-[var(--accent)]">
+              CSV
+            </a>
+          </div>
+        </article>
+      ))}
     </div>
   );
 }
@@ -1987,6 +2098,14 @@ export function DataCountryExplorer() {
           </div>
 
           <div className="mt-5 grid gap-5">
+            <details id="countries-layer-entry" className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-4" open>
+              <summary className="cursor-pointer text-lg font-semibold">countries：十国国家元数据表</summary>
+              <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+                countries 是所有 observations、china_projects、derived_comparisons 和 china_exposure_candidates 的 country_id 关联表。政治人物字段未逐条官方核验前保留“待核验”。
+              </p>
+              <CountryMetadataTable />
+            </details>
+
             <details id="indicator-dictionary-entry" className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-4" open>
               <summary className="cursor-pointer text-lg font-semibold">指标字典入口：18 个指标完整表体</summary>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
@@ -2036,6 +2155,14 @@ export function DataCountryExplorer() {
                   );
                 })}
               </div>
+            </details>
+
+            <details id="data-export-entry" className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-4" open>
+              <summary className="cursor-pointer text-lg font-semibold">CSV / JSON 导出入口：9 个逻辑数据层</summary>
+              <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+                当前导出层包括 countries、indicators、sources、observations、data_quality_checks、derived_comparisons、china_projects、china_exposure_candidates 和 methodology_rules。导出文件只提供研究数据结构，不代表模型已经启用。
+              </p>
+              <ResearchDataExportLinks />
             </details>
           </div>
         </section>

@@ -1,0 +1,333 @@
+{
+  "schema_version": "research-data-v0.1",
+  "generated_at": "2026-07-17",
+  "data_type": "derived_comparisons",
+  "record_count": 12,
+  "model_boundary": "Fact-derived comparison layer only. No risk score, forecast, scenario, or model output.",
+  "records": [
+    {
+      "derived_comparison_id": "v4_derived_comparison:fiscal_deficit_gdp",
+      "category": "fiscal",
+      "indicator_id": "fiscal_deficit_gdp",
+      "latest_comparable_year": "2025",
+      "poland_value": -7.3,
+      "hungary_value": -4.7,
+      "czechia_value": -2.1,
+      "slovakia_value": -4.5,
+      "highest_value": -2.1,
+      "highest_country_ids": [
+        "czechia"
+      ],
+      "lowest_value": -7.3,
+      "lowest_country_ids": [
+        "poland"
+      ],
+      "v4_mean": -4.65,
+      "biggest_mean_gap_country_id": "poland",
+      "biggest_mean_gap": -2.6499999999999995,
+      "biggest_five_year_change_country_id": "poland",
+      "biggest_five_year_change": -5.6,
+      "pending_observation_count": 0,
+      "computed_observation_count": 0,
+      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
+      "note": "派生自 V4 2021-2025 扩展观测值；不输出风险指数。"
+    },
+    {
+      "derived_comparison_id": "v4_derived_comparison:government_debt_gdp",
+      "category": "fiscal",
+      "indicator_id": "government_debt_gdp",
+      "latest_comparable_year": "2025",
+      "poland_value": 59.7,
+      "hungary_value": 74.6,
+      "czechia_value": 44.3,
+      "slovakia_value": 61.4,
+      "highest_value": 74.6,
+      "highest_country_ids": [
+        "hungary"
+      ],
+      "lowest_value": 44.3,
+      "lowest_country_ids": [
+        "czechia"
+      ],
+      "v4_mean": 60.00000000000001,
+      "biggest_mean_gap_country_id": "czechia",
+      "biggest_mean_gap": -15.70000000000001,
+      "biggest_five_year_change_country_id": "poland",
+      "biggest_five_year_change": 6.700000000000003,
+      "pending_observation_count": 0,
+      "computed_observation_count": 0,
+      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
+      "note": "派生自 V4 2021-2025 扩展观测值；不输出风险指数。"
+    },
+    {
+      "derived_comparison_id": "v4_derived_comparison:government_revenue_gdp",
+      "category": "fiscal",
+      "indicator_id": "government_revenue_gdp",
+      "latest_comparable_year": "2025",
+      "poland_value": 43.6,
+      "hungary_value": 42.6,
+      "czechia_value": 41,
+      "slovakia_value": 43.5,
+      "highest_value": 43.6,
+      "highest_country_ids": [
+        "poland"
+      ],
+      "lowest_value": 41,
+      "lowest_country_ids": [
+        "czechia"
+      ],
+      "v4_mean": 42.675,
+      "biggest_mean_gap_country_id": "czechia",
+      "biggest_mean_gap": -1.6749999999999972,
+      "biggest_five_year_change_country_id": "slovakia",
+      "biggest_five_year_change": 3.700000000000003,
+      "pending_observation_count": 0,
+      "computed_observation_count": 0,
+      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
+      "note": "派生自 V4 2021-2025 扩展观测值；不输出风险指数。"
+    },
+    {
+      "derived_comparison_id": "v4_derived_comparison:government_expenditure_gdp",
+      "category": "fiscal",
+      "indicator_id": "government_expenditure_gdp",
+      "latest_comparable_year": "2025",
+      "poland_value": 50.9,
+      "hungary_value": 47.3,
+      "czechia_value": 43.2,
+      "slovakia_value": 47.9,
+      "highest_value": 50.9,
+      "highest_country_ids": [
+        "poland"
+      ],
+      "lowest_value": 43.2,
+      "lowest_country_ids": [
+        "czechia"
+      ],
+      "v4_mean": 47.324999999999996,
+      "biggest_mean_gap_country_id": "czechia",
+      "biggest_mean_gap": -4.124999999999993,
+      "biggest_five_year_change_country_id": "poland",
+      "biggest_five_year_change": 7.299999999999997,
+      "pending_observation_count": 0,
+      "computed_observation_count": 0,
+      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
+      "note": "派生自 V4 2021-2025 扩展观测值；不输出风险指数。"
+    },
+    {
+      "derived_comparison_id": "v4_derived_comparison:exports_mio_eur",
+      "category": "external",
+      "indicator_id": "exports_mio_eur",
+      "latest_comparable_year": "2025",
+      "poland_value": 461553.9,
+      "hungary_value": 158940,
+      "czechia_value": 232020.6,
+      "slovakia_value": 116370.6,
+      "highest_value": 461553.9,
+      "highest_country_ids": [
+        "poland"
+      ],
+      "lowest_value": 116370.6,
+      "lowest_country_ids": [
+        "slovakia"
+      ],
+      "v4_mean": 242221.275,
+      "biggest_mean_gap_country_id": "poland",
+      "biggest_mean_gap": 219332.62500000003,
+      "biggest_five_year_change_country_id": "poland",
+      "biggest_five_year_change": 129021.70000000001,
+      "pending_observation_count": 0,
+      "computed_observation_count": 0,
+      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
+      "note": "派生自 V4 2021-2025 扩展观测值；不输出风险指数。"
+    },
+    {
+      "derived_comparison_id": "v4_derived_comparison:imports_mio_eur",
+      "category": "external",
+      "indicator_id": "imports_mio_eur",
+      "latest_comparable_year": "2025",
+      "poland_value": 435690.7,
+      "hungary_value": 149132.8,
+      "czechia_value": 211742.9,
+      "slovakia_value": 116580.1,
+      "highest_value": 435690.7,
+      "highest_country_ids": [
+        "poland"
+      ],
+      "lowest_value": 116580.1,
+      "lowest_country_ids": [
+        "slovakia"
+      ],
+      "v4_mean": 228286.625,
+      "biggest_mean_gap_country_id": "poland",
+      "biggest_mean_gap": 207404.075,
+      "biggest_five_year_change_country_id": "poland",
+      "biggest_five_year_change": 121824.29999999999,
+      "pending_observation_count": 0,
+      "computed_observation_count": 0,
+      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
+      "note": "派生自 V4 2021-2025 扩展观测值；不输出风险指数。"
+    },
+    {
+      "derived_comparison_id": "v4_derived_comparison:trade_balance_mio_eur",
+      "category": "external",
+      "indicator_id": "trade_balance_mio_eur",
+      "latest_comparable_year": "2025",
+      "poland_value": 25863.2,
+      "hungary_value": 9807.2,
+      "czechia_value": 20277.7,
+      "slovakia_value": -209.5,
+      "highest_value": 25863.2,
+      "highest_country_ids": [
+        "poland"
+      ],
+      "lowest_value": -209.5,
+      "lowest_country_ids": [
+        "slovakia"
+      ],
+      "v4_mean": 13934.650000000001,
+      "biggest_mean_gap_country_id": "slovakia",
+      "biggest_mean_gap": -14144.150000000001,
+      "biggest_five_year_change_country_id": "czechia",
+      "biggest_five_year_change": 11121.2,
+      "pending_observation_count": 0,
+      "computed_observation_count": 20,
+      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
+      "note": "派生自 V4 2021-2025 扩展观测值；不输出风险指数。"
+    },
+    {
+      "derived_comparison_id": "v4_derived_comparison:current_account_gdp",
+      "category": "external",
+      "indicator_id": "current_account_gdp",
+      "latest_comparable_year": "2025",
+      "poland_value": -0.9,
+      "hungary_value": 1.8,
+      "czechia_value": 0.7,
+      "slovakia_value": -3.6,
+      "highest_value": 1.8,
+      "highest_country_ids": [
+        "hungary"
+      ],
+      "lowest_value": -3.6,
+      "lowest_country_ids": [
+        "slovakia"
+      ],
+      "v4_mean": -0.5,
+      "biggest_mean_gap_country_id": "slovakia",
+      "biggest_mean_gap": -3.1,
+      "biggest_five_year_change_country_id": "hungary",
+      "biggest_five_year_change": 6.2,
+      "pending_observation_count": 0,
+      "computed_observation_count": 0,
+      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
+      "note": "派生自 V4 2021-2025 扩展观测值；不输出风险指数。"
+    },
+    {
+      "derived_comparison_id": "v4_derived_comparison:fdi_mio_eur",
+      "category": "investment",
+      "indicator_id": "fdi_mio_eur",
+      "latest_comparable_year": "2024",
+      "poland_value": 19004.2,
+      "hungary_value": -57492.7,
+      "czechia_value": 12311.3,
+      "slovakia_value": 4600.1,
+      "highest_value": 19004.2,
+      "highest_country_ids": [
+        "poland"
+      ],
+      "lowest_value": -57492.7,
+      "lowest_country_ids": [
+        "hungary"
+      ],
+      "v4_mean": -5394.275,
+      "biggest_mean_gap_country_id": "hungary",
+      "biggest_mean_gap": -52098.424999999996,
+      "biggest_five_year_change_country_id": "hungary",
+      "biggest_five_year_change": -86242.6,
+      "pending_observation_count": 5,
+      "computed_observation_count": 0,
+      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
+      "note": "派生自 V4 2021-2025 扩展观测值；不输出风险指数。"
+    },
+    {
+      "derived_comparison_id": "v4_derived_comparison:energy_import_dependency",
+      "category": "energy",
+      "indicator_id": "energy_import_dependency",
+      "latest_comparable_year": "2024",
+      "poland_value": 45.669,
+      "hungary_value": 48.943,
+      "czechia_value": 39.32,
+      "slovakia_value": 53.501,
+      "highest_value": 53.501,
+      "highest_country_ids": [
+        "slovakia"
+      ],
+      "lowest_value": 39.32,
+      "lowest_country_ids": [
+        "czechia"
+      ],
+      "v4_mean": 46.85825,
+      "biggest_mean_gap_country_id": "czechia",
+      "biggest_mean_gap": -7.538249999999998,
+      "biggest_five_year_change_country_id": "poland",
+      "biggest_five_year_change": 5.204999999999998,
+      "pending_observation_count": 4,
+      "computed_observation_count": 0,
+      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
+      "note": "派生自 V4 2021-2025 扩展观测值；不输出风险指数。"
+    },
+    {
+      "derived_comparison_id": "v4_derived_comparison:manufacturing_gva_gdp",
+      "category": "industry",
+      "indicator_id": "manufacturing_gva_gdp",
+      "latest_comparable_year": "2025",
+      "poland_value": 14.4,
+      "hungary_value": 15.1,
+      "czechia_value": 19.4,
+      "slovakia_value": 16.2,
+      "highest_value": 19.4,
+      "highest_country_ids": [
+        "czechia"
+      ],
+      "lowest_value": 14.4,
+      "lowest_country_ids": [
+        "poland"
+      ],
+      "v4_mean": 16.275,
+      "biggest_mean_gap_country_id": "czechia",
+      "biggest_mean_gap": 3.125,
+      "biggest_five_year_change_country_id": "poland",
+      "biggest_five_year_change": -2.9000000000000004,
+      "pending_observation_count": 0,
+      "computed_observation_count": 0,
+      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
+      "note": "派生自 V4 2021-2025 扩展观测值；不输出风险指数。"
+    },
+    {
+      "derived_comparison_id": "v4_derived_comparison:automotive_export_share",
+      "category": "industry",
+      "indicator_id": "automotive_export_share",
+      "latest_comparable_year": "2024",
+      "poland_value": 15,
+      "hungary_value": 21.9,
+      "czechia_value": 32.4,
+      "slovakia_value": 40.4,
+      "highest_value": 40.4,
+      "highest_country_ids": [
+        "slovakia"
+      ],
+      "lowest_value": 15,
+      "lowest_country_ids": [
+        "poland"
+      ],
+      "v4_mean": 27.424999999999997,
+      "biggest_mean_gap_country_id": "slovakia",
+      "biggest_mean_gap": 12.975000000000001,
+      "biggest_five_year_change_country_id": "slovakia",
+      "biggest_five_year_change": 9.399999999999999,
+      "pending_observation_count": 4,
+      "computed_observation_count": 20,
+      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
+      "note": "派生自 V4 2021-2025 扩展观测值；不输出风险指数。"
+    }
+  ]
+}

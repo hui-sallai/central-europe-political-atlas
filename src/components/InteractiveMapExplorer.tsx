@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import { Adm1BoundaryMap } from "@/components/Adm1BoundaryMap";
 import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
 import { getBasicIndicators } from "@/lib/basicIndicators";
+import { getCountryMetadata } from "@/lib/countryMetadata";
 import { countries, getRegion } from "@/lib/data";
 import { getLatestNewsForCountry } from "@/lib/newsData";
 
@@ -15,12 +16,15 @@ type InteractiveMapExplorerProps = {
 };
 
 function politicalSampleStatus(country: (typeof countries)[number]) {
-  if (country.parties.some((party) => party.shortName === "TBD")) {
+  const metadata = getCountryMetadata(country.slug);
+  const statusText = metadata?.political_sample_status;
+
+  if (!statusText || statusText.includes("待核验") && !statusText.includes("人工整理")) {
     return {
       badge: "pending" as const,
       access: "待接入",
       label: "政治样本：待核验",
-      display: "待接入 / 政治样本：待核验 / 不进入模型",
+      display: statusText ? `${statusText} / 不进入模型` : "待接入 / 政治样本：待核验 / 不进入模型",
     };
   }
 
@@ -28,7 +32,7 @@ function politicalSampleStatus(country: (typeof countries)[number]) {
     badge: "manual" as const,
     access: "人工整理",
     label: "政治样本：人工整理",
-    display: "政治样本：人工整理 / 不进入模型",
+    display: statusText,
   };
 }
 
@@ -47,9 +51,10 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
   const isHome = variant === "home";
   const selectedPoliticalStatus = politicalSampleStatus(selectedCountry);
   const selectedNews = getLatestNewsForCountry(selectedCountry.slug);
+  const selectedMetadata = getCountryMetadata(selectedCountry.slug);
   const basicIndicators = getBasicIndicators(selectedCountry.slug);
   const homeEconomicIndicators = basicIndicators.filter((indicator) => indicator.id !== "population").slice(0, 4);
-  const homeProfileLine = `${selectedCountry.polityZh} / ${selectedCountry.currency} / ${selectedCountry.euMember ? "EU" : "非 EU"} / ${selectedCountry.natoMember ? "NATO" : "非 NATO"}`;
+  const homeProfileLine = `${selectedCountry.polityZh} / ${selectedCountry.currency} / ${selectedCountry.euMember ? "EU" : "非 EU"} / ${selectedMetadata?.v4_extended_status ?? "扩展数据待接入"}`;
 
   function selectCountry(slug: string) {
     setSelectedSlug(slug);

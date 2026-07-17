@@ -1,0 +1,57 @@
+{
+  "schema_version": "research-data-v0.1",
+  "generated_at": "2026-07-17",
+  "data_type": "methodology_rules",
+  "record_count": 8,
+  "model_boundary": "Rules and boundaries only; no model, forecast, or scenario output.",
+  "records": [
+    {
+      "rule_id": "data_status_official",
+      "rule_group": "data_status",
+      "title": "正式数据",
+      "rule": "有明确数值、单位、年份、来源名称、来源链接和更新时间，可作为当前事实展示。"
+    },
+    {
+      "rule_id": "data_status_manual",
+      "rule_group": "data_status",
+      "title": "人工整理",
+      "rule": "人工从公开材料整理，需保留来源和复核记录；未复核前不作为最终事实口径。"
+    },
+    {
+      "rule_id": "data_status_pending",
+      "rule_group": "data_status",
+      "title": "待接入",
+      "rule": "字段已预留但可信来源尚未接入，不能被读作已有数据。"
+    },
+    {
+      "rule_id": "data_status_sample",
+      "rule_group": "data_status",
+      "title": "结构样例",
+      "rule": "只用于验证页面结构，不进入模型或分析。"
+    },
+    {
+      "rule_id": "derived_boundary",
+      "rule_group": "derived_comparisons",
+      "title": "派生比较边界",
+      "rule": "只保存最高、最低、均值、五年变化、均值差距和排名变化，不生成风险指数或预测。"
+    },
+    {
+      "rule_id": "china_exposure_boundary",
+      "rule_group": "china_exposure_candidates",
+      "title": "暴露变量候选库边界",
+      "rule": "暴露变量候选库不等于中国经济暴露指数；金额、主体、年份和来源未齐时不得指数化。"
+    },
+    {
+      "rule_id": "analysis_checklist",
+      "rule_group": "analysis",
+      "title": "进入后续分析条件",
+      "rule": "必须同时具备国家或地区、时间、数值、单位、来源名称、来源链接、来源等级、数据状态，并存在于指标和来源字典中。"
+    },
+    {
+      "rule_id": "political_review",
+      "rule_group": "political_fields",
+      "title": "政治人物字段复核",
+      "rule": "政府首脑、国家元首、执政结构和党派缩写只有官方来源复核后才能作为正式字段展示。"
+    }
+  ]
+}

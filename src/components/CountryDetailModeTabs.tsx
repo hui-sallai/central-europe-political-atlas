@@ -7,6 +7,7 @@ import { CountryMapWorkbench } from "@/components/CountryMapWorkbench";
 import { CountryReadingTabs } from "@/components/CountryReadingTabs";
 import { getBasicIndicators } from "@/lib/basicIndicators";
 import { chinaProjectVerificationLabel, verifyChinaProject } from "@/lib/chinaProjectVerification";
+import { getCountryMetadata } from "@/lib/countryMetadata";
 import type { Country } from "@/lib/data";
 import { getChinaProjectRecords, getNewsEventRecords, getV4ObservationCoverage, getV4TemplateCoverage } from "@/lib/extendedData";
 
@@ -30,34 +31,6 @@ const detailModes: { id: DetailMode; label: string; description: string }[] = [
 ];
 
 const v4CountrySlugs = ["poland", "hungary", "czechia", "slovakia"];
-
-function politicalPersonSourceStatus(countrySlug: string, field: "headOfGovernment" | "headOfState") {
-  if (!v4CountrySlugs.includes(countrySlug)) {
-    return {
-      sourceStatus: "pending" as const,
-      note: "来源状态：待接入；不进入模型。",
-    };
-  }
-
-  if (field === "headOfGovernment" && countrySlug !== "hungary") {
-    return {
-      sourceStatus: "official" as const,
-      note: "来源状态：官方政府页面；仍保留定期复核。",
-    };
-  }
-
-  if (countrySlug === "poland" && field === "headOfState") {
-    return {
-      sourceStatus: "pending" as const,
-      note: "来源状态：待核验；不进入模型。",
-    };
-  }
-
-  return {
-    sourceStatus: "manual" as const,
-    note: "来源状态：人工整理；需与官方人物页面复核，不进入模型。",
-  };
-}
 
 function StatusTextPill({ label }: { label: string }) {
   return (
@@ -85,6 +58,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
   const newsEventRecords = getNewsEventRecords(country.slug);
   const v4Coverage = getV4TemplateCoverage(country.slug);
   const v4ObservationCoverage = getV4ObservationCoverage(country.slug);
+  const metadata = getCountryMetadata(country.slug);
   const isV4Country = v4CountrySlugs.includes(country.slug);
   const partyStatus = country.parties.some((party) => party.shortName === "TBD") ? "pending" : "manual";
   const governingParties = country.parties.filter((party) => party.role === "governing" || party.role === "support");
@@ -116,10 +90,13 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
               { label: "政体", value: country.polityZh },
               { label: "议会结构", value: country.parliamentZh },
               { label: "货币", value: country.currency },
-              { label: "政府首脑", value: country.headOfGovernmentZh, personField: "headOfGovernment" as const },
-              { label: "国家元首", value: country.headOfStateZh, personField: "headOfState" as const },
+              { label: "政府首脑", value: metadata?.head_of_government ?? "待核验", sourceNote: metadata?.head_of_government_source_status ?? "待核验" },
+              { label: "国家元首", value: metadata?.head_of_state ?? "待核验", sourceNote: metadata?.head_of_state_source_status ?? "待核验" },
             ].map((item) => {
-              const personStatus = item.personField ? politicalPersonSourceStatus(country.slug, item.personField) : null;
+              const personStatus = item.sourceNote ? {
+                sourceStatus: item.sourceNote === "官方来源" ? "official" as const : item.sourceNote === "人工整理" ? "manual" as const : "pending" as const,
+                note: `来源状态：${item.sourceNote}；未核验政治人物不进入模型。`,
+              } : null;
 
               return (
                 <div key={item.label} className="rounded-2xl bg-white/60 p-3">
