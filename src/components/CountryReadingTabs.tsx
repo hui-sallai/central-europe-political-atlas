@@ -31,8 +31,8 @@ function politicalPersonDisplay(countrySlug: string, field: "headOfGovernment" |
   if (sourceNote === "官方来源" || sourceNote === "人工整理") {
     return {
       value: value ?? fallbackValue,
-      sourceStatus: sourceNote === "官方来源" ? "official" as const : "manual" as const,
-      note: `来源状态：${sourceNote}；未核验政治人物不进入模型。`,
+      sourceStatus: null,
+      note: `来源状态：${sourceNote}；不进入模型。`,
     };
   }
 
