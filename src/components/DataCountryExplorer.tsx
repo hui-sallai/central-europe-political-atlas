@@ -1106,21 +1106,13 @@ function V4DerivedComparisonTable({ records }: { records: DerivedComparisonRecor
               derived_comparisons
             </span>
           </div>
-          <div className="mt-4 overflow-hidden rounded-2xl border border-[var(--line)] bg-white/75">
-            <table className="w-full border-separate border-spacing-0 text-left text-sm">
-              <tbody>
-                {fieldRowsFor(record).map(([label, value]) => (
-                  <tr key={`${record.comparison_id}-${label}`} className="align-top">
-                    <th className="w-[260px] border-b border-[var(--line)] bg-[var(--surface-muted)] px-3 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">
-                      {label}
-                    </th>
-                    <td className="border-b border-[var(--line)] px-3 py-2 text-sm leading-6 text-[var(--foreground)]">
-                      <span className="break-words">{value}</span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="mt-4 space-y-2">
+            {fieldRowsFor(record).map(([label, value]) => (
+              <div key={`${record.comparison_id}-${label}`} className="rounded-xl border border-[var(--line)] bg-white/75 p-3">
+                <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">{label}</p>
+                <p className="mt-1 block break-words text-sm leading-6 text-[var(--foreground)]">{value}</p>
+              </div>
+            ))}
           </div>
         </article>
       ))}
