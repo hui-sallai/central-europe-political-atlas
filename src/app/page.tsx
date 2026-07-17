@@ -16,6 +16,19 @@ export default function Home() {
             </p>
           </div>
         </div>
+        <div className="mb-3 grid gap-2 text-xs md:grid-cols-4">
+          {[
+            ["当前阶段", "v0.8 data export preparation"],
+            ["最后更新日期", "2026-07-17"],
+            ["数据导出结构", "准备中"],
+            ["模型层", "未启用"],
+          ].map(([label, value]) => (
+            <div key={label} className="rounded-2xl border border-[var(--line)] bg-white/70 px-3 py-2">
+              <p className="font-semibold text-[var(--muted)]">{label}</p>
+              <p className="mt-1 font-semibold text-[var(--foreground)]">{value}</p>
+            </div>
+          ))}
+        </div>
 
         <InteractiveMapExplorer variant="home" />
       </section>

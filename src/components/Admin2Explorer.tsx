@@ -64,10 +64,10 @@ export function Admin2Explorer({ country, region }: Admin2ExplorerProps) {
         <p className="eyebrow">Selected ADM2</p>
         <h2 className="mt-3 text-2xl font-semibold">{selectedItem.name}</h2>
         <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
-          这里将展示二级行政区的政治支持率、地方负责人、最近选举结果、人口和基础经济指标。当前只保留选择交互和信息结构，不填充未经核验的具体数据。
+          这里将展示二级行政区的政治样本色阶、地方负责人、最近选举结果、人口和基础经济指标。当前只保留选择交互和信息结构，不填充未经核验的具体数据。
         </p>
         <div className="mt-6 grid gap-3 md:grid-cols-3">
-          {["政治支持率", "地方主政人员", "基础经济指标"].map((item) => (
+          {["政治样本色阶", "地方主政人员", "基础经济指标"].map((item) => (
             <div key={item} className="rounded-2xl border border-[var(--line)] bg-white/60 p-4">
               <p className="text-sm font-semibold">{item}</p>
               <div className="mt-2 flex flex-wrap items-center gap-2">

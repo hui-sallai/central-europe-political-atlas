@@ -13,7 +13,7 @@ export default function CountriesPage() {
       <p className="eyebrow">Countries</p>
       <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">国家档案</h1>
       <p className="mt-4 max-w-2xl text-[var(--muted)]">
-        每个国家页都以地图仪表盘为主体，展示政治支持率、经济强度、基础底图、一级行政区、二级行政区入口和可选文字资料。
+        每个国家页都以地图仪表盘为主体，展示政治样本色阶、经济强度、基础底图、一级行政区、二级行政区入口和可选文字资料。
       </p>
       <section className="mt-6">
         <DataLayerOverview compact title="国家层级数据总览" />

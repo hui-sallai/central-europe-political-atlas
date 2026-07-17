@@ -122,7 +122,7 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
           <p className="eyebrow">Dynamic Country Map</p>
           <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em]">地图图层仪表盘</h2>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--muted)]">
-            真实行政边界待接入；当前仅保留地图工作台入口和结构样例。暂不提供风险图层、真实党派支持率图层或预测图层。
+            真实行政边界待接入；当前仅保留地图工作台入口和结构样例。不新增风险图层，不新增预测图层，不新增真实党派支持率图层。
           </p>
         </div>
         <div className="flex flex-wrap gap-2">

@@ -160,12 +160,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
           </div>
         </div>
         {isV4Country ? (
-          <div className="mt-5 grid gap-3 lg:grid-cols-3">
-            <CoverageStat
-              label="指标覆盖率"
-              value={`${v4Coverage.present.length}/${v4Coverage.total}`}
-              note="12 个 V4 扩展指标是否至少拥有一个观测记录；不等于所有年份值均已正式接入。"
-            />
+          <div className="mt-5 grid gap-3 lg:grid-cols-5">
             <CoverageStat
               label="观测值覆盖率"
               value={`${v4ObservationCoverage.present}/${v4ObservationCoverage.expected}`}
@@ -176,8 +171,46 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
               value={`${v4ObservationCoverage.official}/${v4ObservationCoverage.expected}`}
               note={`正式数据 ${v4ObservationCoverage.official}；待接入 ${v4ObservationCoverage.pending}；计算值 ${v4ObservationCoverage.computed}；人工整理 ${v4ObservationCoverage.manual}。`}
             />
+            <CoverageStat
+              label="数据质量状态"
+              value={v4ObservationCoverage.pending === 0 ? "通过" : "部分通过"}
+              note="与 data_quality_checks 的字段完整性、来源等级和派生比较资格保持同步。"
+            />
+            <CoverageStat
+              label="项目核验状态"
+              value={projectRecords.length > 0 ? `${projectRecords.length} 项` : "待接入"}
+              note={projectRecords.length > 0 ? `项目核验结论：${projectVerificationSummary}。` : "该国对华项目表待接入。"}
+            />
+            <CoverageStat
+              label="导出结构"
+              value="已覆盖该国"
+              note="countries、observations、data_quality_checks、derived_comparisons、china_projects 与候选变量导出层均可追溯到 country_id。"
+            />
           </div>
-        ) : null}
+        ) : (
+          <div className="mt-5 grid gap-3 lg:grid-cols-4">
+            <CoverageStat
+              label="基础宏观数据"
+              value="已进入 observations"
+              note="人口、GDP、人均 GDP、增长、通胀和失业率已纳入标准观测值表。"
+            />
+            <CoverageStat
+              label="V4 扩展数据"
+              value="待接入"
+              note="财政、外部、投资、能源和产业扩展指标不在非 V4 国家页做模板验收。"
+            />
+            <CoverageStat
+              label="对华项目"
+              value="待接入"
+              note="非 V4 国家暂不扩项目核验表，不进入暴露变量候选库。"
+            />
+            <CoverageStat
+              label="区域层"
+              value="待接入"
+              note="真实行政边界、区域经济、区域选举和区域对华项目数据均待接入。"
+            />
+          </div>
+        )}
       </section>
 
       <div className="card p-3">

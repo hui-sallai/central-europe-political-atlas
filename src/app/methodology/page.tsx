@@ -229,6 +229,24 @@ export default function MethodologyPage() {
       </section>
 
       <section className="mt-6 card p-6">
+        <p className="eyebrow">Export Layer</p>
+        <h2 className="mt-3 text-2xl font-semibold">5.2 数据导出与接口准备</h2>
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
+          {[
+            "当前只做 CSV / JSON 数据结构准备。",
+            "不提供预测 API。",
+            "不提供模型 API。",
+            "不输出风险指数。",
+            "不输出中国经济暴露指数。",
+          ].map((item) => (
+            <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
+              {item}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-6 card p-6">
         <p className="eyebrow">China Project Verification</p>
         <h2 className="mt-3 text-2xl font-semibold">6. 对华项目核验规则</h2>
         <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">
