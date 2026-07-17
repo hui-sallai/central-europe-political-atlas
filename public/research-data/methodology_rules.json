@@ -2,56 +2,433 @@
   "schema_version": "research-data-v0.1",
   "generated_at": "2026-07-17",
   "data_type": "methodology_rules",
-  "record_count": 8,
+  "record_count": 15,
   "model_boundary": "Rules and boundaries only; no model, forecast, or scenario output.",
   "records": [
     {
-      "rule_id": "data_status_official",
-      "rule_group": "data_status",
-      "title": "正式数据",
-      "rule": "有明确数值、单位、年份、来源名称、来源链接和更新时间，可作为当前事实展示。"
+      "rule_id": "official_observation_entry",
+      "rule_category": "观测值规则",
+      "rule_name": "正式数据进入观测值表规则",
+      "rule_description": "正式观测值必须同时具备国家、指标、年份、数值、单位、来源名称、来源链接、来源等级、数据状态和更新时间。",
+      "applies_to": "observations",
+      "required_fields": [
+        "country_id",
+        "indicator_id",
+        "year",
+        "value",
+        "unit",
+        "source_name",
+        "source_url",
+        "source_reliability",
+        "value_status",
+        "last_updated"
+      ],
+      "allowed_statuses": [
+        "正式数据",
+        "计算值",
+        "人工整理"
+      ],
+      "excluded_statuses": [
+        "结构样例",
+        "不进入分析"
+      ],
+      "source_requirement": "A/B 级来源可作为正式观测值依据；C 级仅作补充线索；D 级不得进入正式观测值。",
+      "quality_requirement": "必须通过 data_quality_checks 中的字段完整性、来源完整性和方法一致性检查。",
+      "model_boundary": "可作为未来模型候选输入，但不代表模型已启用。",
+      "export_boundary": "可导出至 observations.json/csv。",
+      "last_updated": "2026-07-17",
+      "notes": "待核验政治样本和结构样例不得伪装为正式观测值。"
     },
     {
-      "rule_id": "data_status_manual",
-      "rule_group": "data_status",
-      "title": "人工整理",
-      "rule": "人工从公开材料整理，需保留来源和复核记录；未复核前不作为最终事实口径。"
+      "rule_id": "pending_data_retention",
+      "rule_category": "数据状态规则",
+      "rule_name": "待接入数据保留但不参与比较规则",
+      "rule_description": "待接入字段可以保留在表结构中，用于提示缺口，但不得参与横向比较、五年变化、均值差距或排名变化计算。",
+      "applies_to": "observations,data_quality_checks,derived_comparisons",
+      "required_fields": [
+        "value_status",
+        "missing_reason",
+        "source_id"
+      ],
+      "allowed_statuses": [
+        "待接入"
+      ],
+      "excluded_statuses": [
+        "正式数据"
+      ],
+      "source_requirement": "待接入来源使用 pending_sources 或明确缺失原因。",
+      "quality_requirement": "必须标注 is_pending=true，并在缺失原因中说明尚未接入的字段。",
+      "model_boundary": "不进入模型候选输入。",
+      "export_boundary": "可导出，但只能作为数据缺口记录。",
+      "last_updated": "2026-07-17",
+      "notes": "待接入不得显示为 0、百分比或事实数值。"
     },
     {
-      "rule_id": "data_status_pending",
-      "rule_group": "data_status",
-      "title": "待接入",
-      "rule": "字段已预留但可信来源尚未接入，不能被读作已有数据。"
+      "rule_id": "calculated_value_labeling",
+      "rule_category": "数据状态规则",
+      "rule_name": "计算值标注规则",
+      "rule_description": "由现有观测值计算得到的贸易差额、汽车出口占比等指标必须明确标注为计算值，并保留计算方法。",
+      "applies_to": "observations,indicators,data_quality_checks",
+      "required_fields": [
+        "is_calculated",
+        "calculation_method",
+        "unit",
+        "source_url"
+      ],
+      "allowed_statuses": [
+        "计算值"
+      ],
+      "excluded_statuses": [
+        "结构样例"
+      ],
+      "source_requirement": "计算值的输入来源必须可回溯，优先使用 A/B 级来源。",
+      "quality_requirement": "计算方法不得为“无”；单位必须与指标字典一致。",
+      "model_boundary": "可作为未来模型候选，但必须在解释层说明为计算值。",
+      "export_boundary": "可导出，并必须保留 calculation_method。",
+      "last_updated": "2026-07-17",
+      "notes": "计算值不是模型输出，只是事实型转换或派生口径。"
     },
     {
-      "rule_id": "data_status_sample",
-      "rule_group": "data_status",
-      "title": "结构样例",
-      "rule": "只用于验证页面结构，不进入模型或分析。"
+      "rule_id": "derived_value_interpretation_boundary",
+      "rule_category": "派生比较规则",
+      "rule_name": "派生值解释边界规则",
+      "rule_description": "派生比较只保存最高值、最低值、V4 均值、均值差距、五年变化和排名变化。",
+      "applies_to": "derived_comparisons",
+      "required_fields": [
+        "comparison_id",
+        "indicator_id",
+        "v4_average",
+        "largest_gap_value",
+        "largest_five_year_change_value",
+        "comparison_status",
+        "interpretation_boundary"
+      ],
+      "allowed_statuses": [
+        "可比较",
+        "部分可比较",
+        "数据不足",
+        "待接入"
+      ],
+      "excluded_statuses": [
+        "不进入分析"
+      ],
+      "source_requirement": "必须由 observations 和 data_quality_checks 中的可比观测值派生。",
+      "quality_requirement": "解释边界必须固定为：仅表示事实位置，不代表风险、预测或政策优劣。",
+      "model_boundary": "不生成风险指数、不生成预测、不生成政策优劣判断。",
+      "export_boundary": "可导出至 derived_comparisons.json/csv。",
+      "last_updated": "2026-07-17",
+      "notes": "派生比较表是研究解释材料，不是模型页。"
     },
     {
-      "rule_id": "derived_boundary",
-      "rule_group": "derived_comparisons",
-      "title": "派生比较边界",
-      "rule": "只保存最高、最低、均值、五年变化、均值差距和排名变化，不生成风险指数或预测。"
+      "rule_id": "source_reliability_abcd",
+      "rule_category": "可靠性等级规则",
+      "rule_name": "A/B/C/D 来源可靠性规则",
+      "rule_description": "A 级为官方统计、官方机构、正式数据库；B 级为权威媒体、智库、企业公告、年报；C 级为地方媒体、行业网站、二级转述；D 级为无法核验、结构样例或占位内容。",
+      "applies_to": "sources,observations,china_projects,news_events",
+      "required_fields": [
+        "source_id",
+        "source_reliability",
+        "source_url"
+      ],
+      "allowed_statuses": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "excluded_statuses": [],
+      "source_requirement": "A/B 级可作为正式数据或事件依据；C 级只作补充线索；D 级不进入正式数据、事件库和模型计算。",
+      "quality_requirement": "每个正式数据点必须有来源等级；缺失来源等级不得通过质量验收。",
+      "model_boundary": "D 级来源不得进入未来模型候选。",
+      "export_boundary": "必须在 sources.json/csv 和相关记录中保留 source_reliability。",
+      "last_updated": "2026-07-17",
+      "notes": "来源等级不等于政治立场判断，只表示可核验程度。"
     },
     {
-      "rule_id": "china_exposure_boundary",
-      "rule_group": "china_exposure_candidates",
-      "title": "暴露变量候选库边界",
-      "rule": "暴露变量候选库不等于中国经济暴露指数；金额、主体、年份和来源未齐时不得指数化。"
+      "rule_id": "source_status_levels",
+      "rule_category": "来源等级规则",
+      "rule_name": "来源状态等级规则",
+      "rule_description": "来源状态统一使用官方、人工整理、待接入、结构样例四类，用于区分来源是否可直接支撑正式数据或仅用于结构展示。",
+      "applies_to": "sources,observations,china_projects,news_events",
+      "required_fields": [
+        "source_id",
+        "source_status",
+        "source_reliability",
+        "source_url"
+      ],
+      "allowed_statuses": [
+        "官方",
+        "人工整理",
+        "待接入",
+        "结构样例"
+      ],
+      "excluded_statuses": [
+        "未标注来源",
+        "无明确出处"
+      ],
+      "source_requirement": "官方来源可直接作为正式数据候选；人工整理必须回链原始来源；待接入和结构样例不得作为正式依据。",
+      "quality_requirement": "每条正式记录必须同时有来源状态和可靠性等级。",
+      "model_boundary": "待接入和结构样例来源不进入未来模型候选。",
+      "export_boundary": "来源状态必须随 sources.json/csv 和相关数据层导出。",
+      "last_updated": "2026-07-17",
+      "notes": "来源状态解决“来源是否已经接入”的问题，可靠性等级解决“来源可核验程度”的问题。"
     },
     {
-      "rule_id": "analysis_checklist",
-      "rule_group": "analysis",
-      "title": "进入后续分析条件",
-      "rule": "必须同时具备国家或地区、时间、数值、单位、来源名称、来源链接、来源等级、数据状态，并存在于指标和来源字典中。"
+      "rule_id": "source_dictionary_reference",
+      "rule_category": "来源字典规则",
+      "rule_name": "来源字典引用规则",
+      "rule_description": "所有观测值、项目、新闻事件和候选变量必须通过 source_id 或来源字段回链来源字典。",
+      "applies_to": "sources,observations,china_projects,china_exposure_candidates,news_events",
+      "required_fields": [
+        "source_id",
+        "source_name",
+        "source_url",
+        "source_reliability"
+      ],
+      "allowed_statuses": [
+        "官方",
+        "人工整理",
+        "待接入",
+        "结构样例"
+      ],
+      "excluded_statuses": [],
+      "source_requirement": "来源类型、可靠性等级、来源状态、更新频率和使用边界必须在来源字典中存在。",
+      "quality_requirement": "缺少来源链接或来源等级的记录不得进入正式分析。",
+      "model_boundary": "来源字典只提供准入边界，不生成模型判断。",
+      "export_boundary": "可导出至 sources.json/csv。",
+      "last_updated": "2026-07-17",
+      "notes": "人工整理来源必须回链原始资料，不能单独作为正式依据。"
     },
     {
-      "rule_id": "political_review",
-      "rule_group": "political_fields",
-      "title": "政治人物字段复核",
-      "rule": "政府首脑、国家元首、执政结构和党派缩写只有官方来源复核后才能作为正式字段展示。"
+      "rule_id": "indicator_dictionary_reference",
+      "rule_category": "指标字典规则",
+      "rule_name": "指标字典引用规则",
+      "rule_description": "所有观测值和派生比较必须通过 indicator_id 引用指标字典，不能在展示层临时发明指标口径。",
+      "applies_to": "indicators,observations,derived_comparisons,data_quality_checks",
+      "required_fields": [
+        "indicator_id",
+        "unit",
+        "frequency",
+        "source_priority",
+        "future_model_eligible"
+      ],
+      "allowed_statuses": [
+        "正式数据",
+        "计算值",
+        "待接入"
+      ],
+      "excluded_statuses": [
+        "结构样例"
+      ],
+      "source_requirement": "指标主来源和备用来源必须在指标字典中定义。",
+      "quality_requirement": "观测值单位必须与指标字典一致。",
+      "model_boundary": "是否可作为未来模型候选变量只表示资格，不代表模型已启用。",
+      "export_boundary": "可导出至 indicators.json/csv。",
+      "last_updated": "2026-07-17",
+      "notes": "当前指标字典覆盖 18 个指标。"
+    },
+    {
+      "rule_id": "china_project_verification_four_classes",
+      "rule_category": "项目核验规则",
+      "rule_name": "对华项目四类核验规则",
+      "rule_description": "对华项目按可量化、部分可量化、仅作背景、不进入分析四类核验结论管理。",
+      "applies_to": "china_projects",
+      "required_fields": [
+        "project_id",
+        "country_id",
+        "chinese_actor",
+        "local_actor",
+        "year",
+        "source_url",
+        "source_reliability",
+        "verification_conclusion"
+      ],
+      "allowed_statuses": [
+        "可量化",
+        "部分可量化",
+        "仅作背景",
+        "不进入分析"
+      ],
+      "excluded_statuses": [],
+      "source_requirement": "有金额、有主体、有年份、有来源为可量化；无金额但有明确事件和主体为部分可量化；只有新闻线索为仅作背景；无可靠来源为不进入分析。",
+      "quality_requirement": "必须写明金额证据/缺失原因、主体核验、状态时间线和来源等级。",
+      "model_boundary": "对华项目核验表不生成中国经济暴露指数。",
+      "export_boundary": "可导出至 china_projects.json/csv。",
+      "last_updated": "2026-07-17",
+      "notes": "现阶段优先 V4 项目；非 V4 项目继续待接入。"
+    },
+    {
+      "rule_id": "china_exposure_candidate_not_index",
+      "rule_category": "暴露变量候选规则",
+      "rule_name": "暴露变量候选不等于指数规则",
+      "rule_description": "暴露变量候选库只判断项目能否作为未来变量，不生成指数、国家排名、风险分数或政策判断。",
+      "applies_to": "china_exposure_candidates",
+      "required_fields": [
+        "candidate_id",
+        "project_id",
+        "exposure_dimension",
+        "candidate_variable_type",
+        "quantification_status",
+        "model_readiness",
+        "not_index_score",
+        "interpretation_boundary"
+      ],
+      "allowed_statuses": [
+        "可量化",
+        "部分可量化",
+        "暂不可量化",
+        "不适合量化"
+      ],
+      "excluded_statuses": [
+        "指数分数",
+        "风险分数",
+        "国家排名"
+      ],
+      "source_requirement": "候选变量必须回链到 china_projects 和可核验来源。",
+      "quality_requirement": "必须列明 required_data、available_data、missing_data 和 model_readiness。",
+      "model_boundary": "不生成中国经济暴露指数；不输出国家排名；不输出风险分数；不输出政策判断。",
+      "export_boundary": "可导出至 china_exposure_candidates.json/csv。",
+      "last_updated": "2026-07-17",
+      "notes": "not_index_score 必须为 true。"
+    },
+    {
+      "rule_id": "political_person_fields_review",
+      "rule_category": "政治人物复核规则",
+      "rule_name": "政治人物字段待核验规则",
+      "rule_description": "政府首脑、国家元首、执政结构和党派缩写只有官方来源复核后才能作为正式字段展示。",
+      "applies_to": "countries,country_pages,map_page",
+      "required_fields": [
+        "head_of_government",
+        "head_of_government_source_status",
+        "head_of_state",
+        "head_of_state_source_status",
+        "political_sample_status"
+      ],
+      "allowed_statuses": [
+        "官方来源",
+        "人工整理",
+        "待核验"
+      ],
+      "excluded_statuses": [
+        "未标注缩写",
+        "裸露党派缩写",
+        "结构样例"
+      ],
+      "source_requirement": "政治人物字段优先使用政府、总统府、议会或官方机构来源。",
+      "quality_requirement": "未核验前显示待核验；政治样本标注人工整理/不进入模型。",
+      "model_boundary": "政治人物和政党样本暂不进入当前分析和模型。",
+      "export_boundary": "可作为 countries 元数据导出，但必须带来源状态。",
+      "last_updated": "2026-07-17",
+      "notes": "首页和地图页不得裸露 KO/TD/NL 等未解释缩写。"
+    },
+    {
+      "rule_id": "structural_sample_exclusion",
+      "rule_category": "不进入模型规则",
+      "rule_name": "结构样例不进入分析规则",
+      "rule_description": "结构样例仅用于验证页面结构、地图入口和新闻样式，不进入正式数据、事件库、派生比较或模型候选。",
+      "applies_to": "map_page,news_page,observations,methodology",
+      "required_fields": [
+        "data_status",
+        "source_status"
+      ],
+      "allowed_statuses": [
+        "结构样例，不进入模型"
+      ],
+      "excluded_statuses": [
+        "正式数据",
+        "可比较"
+      ],
+      "source_requirement": "结构样例来源等级为 D 或 sample_sources。",
+      "quality_requirement": "必须明确标注结构样例，不得显示为 0、95%、84% 等事实数值。",
+      "model_boundary": "不进入任何模型、预测、指数或风险判断。",
+      "export_boundary": "可导出为结构说明，但不得进入正式观测值比较。",
+      "last_updated": "2026-07-17",
+      "notes": "地图真实行政边界待接入时，只保留工作台入口和结构样例说明。"
+    },
+    {
+      "rule_id": "news_current_phase_exclusion",
+      "rule_category": "不进入模型规则",
+      "rule_name": "新闻区暂不进入当前阶段规则",
+      "rule_description": "新闻区当前只作为事件库预留和少量正式事件展示，不进入当前数据比较、模型、预测或指数计算。",
+      "applies_to": "news_page,news_events",
+      "required_fields": [
+        "event_id",
+        "date",
+        "country_id",
+        "title",
+        "source_id",
+        "status"
+      ],
+      "allowed_statuses": [
+        "已接入",
+        "暂不评价",
+        "结构样例"
+      ],
+      "excluded_statuses": [
+        "模型输入",
+        "风险分数"
+      ],
+      "source_requirement": "新闻事件至少需要来源名称、来源链接和来源等级；结构样例明确标注不进入模型。",
+      "quality_requirement": "正式新闻事件和结构样例必须分区展示。",
+      "model_boundary": "新闻区暂不进入模型阶段。",
+      "export_boundary": "未来可导出 news_events；当前不作为模型输入。",
+      "last_updated": "2026-07-17",
+      "notes": "每周新闻更新仅限国家级新闻，不自动更新民调等数据。"
+    },
+    {
+      "rule_id": "no_model_pages_current_phase",
+      "rule_category": "不进入模型规则",
+      "rule_name": "模型页暂不新增规则",
+      "rule_description": "当前阶段不新增 /models、/forecast、/scenario，不输出财政压力指数、产业依赖指数、中国暴露指数、风险指数或选举预测。",
+      "applies_to": "site_routes,methodology,data_exports",
+      "required_fields": [
+        "model_boundary",
+        "export_boundary"
+      ],
+      "allowed_statuses": [
+        "结构准备",
+        "未来模型候选"
+      ],
+      "excluded_statuses": [
+        "模型已启用",
+        "预测已输出",
+        "风险指数"
+      ],
+      "source_requirement": "任何未来模型必须先完成数据字典、来源字典、质量验收和方法论更新。",
+      "quality_requirement": "现阶段所有导出层只能声明候选资格和解释边界。",
+      "model_boundary": "不新增模型页，不输出模型结果。",
+      "export_boundary": "导出文件只提供研究数据结构，不代表模型已经启用。",
+      "last_updated": "2026-07-17",
+      "notes": "这是 v0.8 的硬边界。"
+    },
+    {
+      "rule_id": "research_data_export_boundary",
+      "rule_category": "导出规则",
+      "rule_name": "研究数据导出边界规则",
+      "rule_description": "导出层提供 JSON/CSV 研究数据结构，供未来 Python/R/Stata 读取，但不是对外 API，也不是模型输出。",
+      "applies_to": "countries,indicators,sources,observations,data_quality_checks,derived_comparisons,china_projects,china_exposure_candidates,methodology_rules",
+      "required_fields": [
+        "schema_version",
+        "generated_at",
+        "data_type",
+        "record_count",
+        "records"
+      ],
+      "allowed_statuses": [
+        "可导出",
+        "待接入",
+        "结构说明"
+      ],
+      "excluded_statuses": [
+        "风险分数",
+        "预测结果"
+      ],
+      "source_requirement": "导出记录必须保留可追溯字段或明确缺失原因。",
+      "quality_requirement": "导出前必须通过字段结构检查和枚举检查。",
+      "model_boundary": "导出文件不代表模型已启用。",
+      "export_boundary": "JSON/CSV 均可公开读取，但需保留数据边界说明。",
+      "last_updated": "2026-07-17",
+      "notes": "当前 9 个逻辑数据层均从导出脚本生成。"
     }
   ]
 }
