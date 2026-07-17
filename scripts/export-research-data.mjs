@@ -110,6 +110,122 @@ function sourceRecordForId(sourceId) {
   return sourceDictionaryRows.find((source) => source.sourceId === sourceId);
 }
 
+function countryNameForId(countryId) {
+  return countryMetadataRecords.find((country) => country.country_id === countryId)?.name_zh ?? countryId;
+}
+
+const verificationConclusionLabels = {
+  quantifiable: "可量化",
+  partially_quantifiable: "部分可量化",
+  background_only: "仅作背景",
+  excluded: "不进入分析",
+};
+
+function amountStatusForProject(project) {
+  if (!project.sourceUrl) return "待接入";
+  if (project.amount === null) return "金额缺失";
+  if (!project.currency) return "金额部分核验";
+  if (project.sourceReliabilityLevel === "A") return "金额已核验";
+  return "金额部分核验";
+}
+
+function exposureVariableFitForProject(project) {
+  const text = `${project.sector} ${project.riskTags.join(" ")} ${project.exposureVariableNote}`.toLowerCase();
+
+  if (project.exposureVariableFit === "not_ready") return "不进入暴露变量";
+  if (project.exposureVariableFit === "context_only") return "仅背景材料";
+  if (/finance|financial|bank|jt|金融|股权|资产|收购/.test(text)) return "金融暴露候选";
+  if (/rail|logistics|物流|铁路|转运|通道/.test(text)) return "物流暴露候选";
+  if (/battery|ev|auto|automotive|电池|新能源|汽车|供应链|产能/.test(text)) return "供应链暴露候选";
+  if (/investment|factory|plant|manufacturing|投资|工厂|制造/.test(text)) return "投资暴露候选";
+  if (/presence|entity|company|企业|实体/.test(text)) return "企业存在候选";
+
+  return project.amount !== null ? "投资暴露候选" : "仅背景材料";
+}
+
+function exposureDimensionForProject(project) {
+  const fit = exposureVariableFitForProject(project);
+  const text = `${project.sector} ${project.riskTags.join(" ")} ${project.exposureVariableNote}`.toLowerCase();
+
+  if (fit === "投资暴露候选") return "投资暴露";
+  if (fit === "供应链暴露候选") return "供应链暴露";
+  if (fit === "物流暴露候选") return "物流暴露";
+  if (fit === "金融暴露候选") return "金融暴露";
+  if (fit === "企业存在候选") return "企业存在";
+  if (/trade|贸易/.test(text)) return "贸易暴露";
+  if (/technology|equipment|设备|技术/.test(text)) return "技术/设备暴露";
+  if (/subsidy|investigation|tariff|监管|调查|关税|争议/.test(text)) return "政策争议";
+
+  return "仅背景";
+}
+
+function candidateVariableTypeForProject(project) {
+  if (project.amount !== null) return "金额变量";
+  if (/持续|运营|启动|调整|调查|至今/.test(project.year) || project.statusTimeline.length > 0) return "状态变量";
+  if (project.chineseActor && project.localActor) return "存在变量";
+  if (project.riskTags.length > 0) return "文本标签变量";
+  return "不可量化";
+}
+
+function quantificationStatusForVerification(conclusion) {
+  const labels = {
+    quantifiable: "可量化",
+    partially_quantifiable: "部分可量化",
+    background_only: "暂不可量化",
+    excluded: "不适合量化",
+  };
+
+  return labels[conclusion] ?? "暂不可量化";
+}
+
+function modelReadinessForVerification(conclusion) {
+  const labels = {
+    quantifiable: "可作为未来模型候选",
+    partially_quantifiable: "需补数据后再评估",
+    background_only: "仅作背景解释",
+    excluded: "不进入模型",
+  };
+
+  return labels[conclusion] ?? "需补数据后再评估";
+}
+
+function requiredDataForCandidate(project) {
+  const base = ["项目名称", "国家", "行业", "中国主体", "当地主体", "年份", "来源链接", "来源等级"];
+  const dimension = exposureDimensionForProject(project);
+
+  if (dimension === "物流暴露") return [...base, "年度 TEU 或货运量", "年度货值", "口岸或线路主体"].join("；");
+  if (dimension === "供应链暴露") return [...base, "投资金额", "产能", "工厂状态", "股权或合作关系"].join("；");
+  if (dimension === "金融暴露") return [...base, "金额", "股比", "治理权", "所有权链条"].join("；");
+  if (dimension === "投资暴露") return [...base, "投资金额", "产能或建设阶段"].join("；");
+
+  return [...base, "可量化口径"].join("；");
+}
+
+function availableDataForCandidate(project) {
+  return [
+    "项目名称",
+    "国家",
+    project.regionName ? "地区/城市" : "",
+    project.sector ? "行业" : "",
+    project.chineseActor ? "中国主体" : "",
+    project.localActor ? "当地主体" : "",
+    project.year ? "年份/状态时间" : "",
+    project.amount !== null ? "金额" : "",
+    project.sourceUrl ? "来源链接" : "",
+    project.sourceReliabilityLevel ? "来源等级" : "",
+  ].filter(Boolean).join("；");
+}
+
+function missingDataForCandidate(project) {
+  const missing = [];
+  if (project.amount === null) missing.push("金额或年度流量");
+  if (project.currency === null) missing.push("币种或金额口径");
+  if (/待|缺失|拆分|核验/.test(project.actorEvidence)) missing.push("主体链条复核");
+  if (/TEU|货值|产量|产能|股比|治理权|补贴|合同/.test(project.exposureVariableNote)) missing.push("产能/货运量/股权/合同等量化字段");
+
+  return missing.length > 0 ? missing.join("；") : "核心字段已具备，仍需正式分析前复核口径";
+}
+
 function sourceStatusLabel(sourceId) {
   const sourceStatus = sourceRecordForId(sourceId)?.sourceStatus ?? "pending";
   const labels = {
@@ -634,69 +750,68 @@ const sourceRecords = sourceDictionaryRows.map((source) => ({
 const chinaProjectExportRecords = chinaProjectRecords.map((project) => {
   const verification = verifyChinaProject(project);
   const sourceId = sourceIdForChinaProject(project);
-  const sourceReliability = sourceDictionaryRows.find((source) => source.sourceId === sourceId)?.reliabilityLevel ?? project.sourceReliabilityLevel;
+  const sourceRecord = sourceRecordForId(sourceId);
 
   return {
     project_id: project.projectId,
     project_name: project.projectName,
-    country_slug: project.countrySlug,
-    region_name: project.regionName,
+    country_id: project.countrySlug,
+    country_name: countryNameForId(project.countrySlug),
+    region_or_city: project.regionName,
     sector: project.sector,
     chinese_actor: project.chineseActor,
     local_actor: project.localActor,
-    amount: project.amount,
-    currency: project.currency,
-    amount_status: project.amount === null ? "amount_missing" : "amount_available",
+    amount_value: project.amount,
+    amount_currency: project.currency,
+    verification_conclusion: verificationConclusionLabels[verification.conclusion],
+    verification_reason: verification.reason,
+    verification_rule: verification.rule,
+    amount_status: amountStatusForProject(project),
+    amount_evidence_or_missing_reason: project.amountEvidence,
+    actor_verification: project.actorEvidence,
     year: project.year,
     project_status: project.projectStatus,
     status_timeline: project.statusTimeline,
-    amount_evidence: project.amountEvidence,
-    actor_evidence: project.actorEvidence,
     source_id: sourceId,
+    source_name: sourceRecord?.nameZh ?? sourceId,
     source_url: project.sourceUrl,
-    source_reliability_level: sourceReliability,
-    risk_tags: project.riskTags,
-    quantification_status: project.quantificationStatus,
+    source_reliability: project.sourceReliabilityLevel,
     is_quantifiable: verification.conclusion === "quantifiable",
-    exposure_variable_fit: project.exposureVariableFit,
-    exposure_variable_note: project.exposureVariableNote,
-    status: project.status,
-    note: project.note,
-    verification_conclusion: verification.conclusion,
-    verification_label_zh: chinaProjectVerificationLabel(verification.conclusion),
-    verification_reason: verification.reason,
-    verification_rule: verification.rule,
-    verification_checks: {
-      has_amount: verification.hasAmount,
-      has_actors: verification.hasActors,
-      has_year: verification.hasYear,
-      has_reliable_source: verification.hasReliableSource,
-      has_clear_event: verification.hasClearEvent,
-    },
+    exposure_variable_fit: exposureVariableFitForProject(project),
+    tags: project.riskTags,
+    notes: `${project.note} ${project.exposureVariableNote}`,
+    last_updated: generatedAt,
   };
 });
 
-const chinaExposureCandidateRecords = chinaProjectExportRecords.map((project) => ({
-  candidate_id: `china_exposure:${project.project_id}`,
-  project_id: project.project_id,
-  country_id: project.country_slug,
-  variable_family: project.exposure_variable_fit === "strong_candidate" ? "project_amount_or_capacity" : project.exposure_variable_fit === "partial_candidate" ? "event_or_presence" : "context_only",
-  candidate_status: project.verification_conclusion,
-  can_enter_future_model: project.verification_conclusion === "quantifiable" || project.verification_conclusion === "partially_quantifiable",
-  is_index_output: false,
-  amount_available: project.amount !== null,
-  amount: project.amount,
-  currency: project.currency,
-  year: project.year,
-  chinese_actor: project.chinese_actor,
-  local_actor: project.local_actor,
-  source_url: project.source_url,
-  source_reliability_level: project.source_reliability_level,
-  exposure_variable_fit: project.exposure_variable_fit,
-  exposure_variable_note: project.exposure_variable_note,
-  verification_reason: project.verification_reason,
-  boundary_note: "暴露变量候选库仅保存变量候选，不生成中国经济暴露指数。",
-}));
+const chinaExposureCandidateRecords = chinaProjectRecords.map((project) => {
+  const verification = verifyChinaProject(project);
+  const exposureDimension = exposureDimensionForProject(project);
+  const variableType = candidateVariableTypeForProject(project);
+  const quantificationStatus = quantificationStatusForVerification(verification.conclusion);
+  const modelReadiness = modelReadinessForVerification(verification.conclusion);
+
+  return {
+    candidate_id: `china_exposure:${project.projectId}`,
+    project_id: project.projectId,
+    country_id: project.countrySlug,
+    exposure_dimension: exposureDimension,
+    candidate_variable_name: `${countryNameForId(project.countrySlug)}-${project.projectName}-${exposureDimension}`,
+    candidate_variable_type: variableType,
+    required_data: requiredDataForCandidate(project),
+    available_data: availableDataForCandidate(project),
+    missing_data: missingDataForCandidate(project),
+    evidence_status: verificationConclusionLabels[verification.conclusion],
+    source_reliability: project.sourceReliabilityLevel,
+    quantification_status: quantificationStatus,
+    time_coverage: project.year,
+    spatial_coverage: project.regionName,
+    model_readiness: modelReadiness,
+    not_index_score: true,
+    interpretation_boundary: "暴露变量候选库不生成中国经济暴露指数；不输出国家排名；不输出风险分数；不输出政策判断。",
+    notes: `${project.exposureVariableNote} ${verification.reason}`,
+  };
+});
 
 const dataQualityRecords = dataQualityCheckRecords();
 const derivedComparisonExportRecords = derivedComparisonRecords();
