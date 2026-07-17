@@ -235,6 +235,7 @@ export default function MethodologyPage() {
         <h2 className="mt-3 text-2xl font-semibold">5.2 数据导出与接口准备</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {[
+            "当前阶段：v0.8 stable。",
             "当前只做 CSV / JSON 数据结构准备。",
             "不提供预测 API。",
             "不提供模型 API。",

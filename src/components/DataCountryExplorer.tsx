@@ -1224,7 +1224,7 @@ function ResearchDataExportLinks() {
   const exportStatusCards = [
     { label: "CSV 导出结构", value: "已预留", note: "9 个逻辑数据层均生成 .csv 文件。" },
     { label: "JSON 导出结构", value: "已预留", note: "9 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: "结构准备", note: "不提供模型 API，不输出预测、指数或风险分数。" },
+    { label: "当前阶段", value: "v0.8 stable", note: "不提供模型 API，不输出预测、指数或风险分数。" },
   ];
 
   return (
@@ -2261,7 +2261,7 @@ export function DataCountryExplorer() {
             <details id="data-export-entry" className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-4" open>
               <summary className="cursor-pointer text-lg font-semibold">数据导出与接口准备</summary>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：结构准备，不提供模型 API。
+                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.8 stable，不提供模型 API。
                 当前导出对象包括 countries、indicators、sources、observations、data_quality_checks、derived_comparisons、china_projects、china_exposure_candidates 和 methodology_rules。
               </p>
               <ResearchDataExportLinks />
