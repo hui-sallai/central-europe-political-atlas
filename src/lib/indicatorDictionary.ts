@@ -21,15 +21,15 @@ export type IndicatorDictionaryRecord = {
   updatedAt: string;
 };
 
-const dictionaryUpdatedAt = "2026-07-05";
+const dictionaryUpdatedAt = "2026-07-17";
 
 export const indicatorDictionaryRecords: IndicatorDictionaryRecord[] = [
   {
-    indicatorId: "population_million",
+    indicatorId: "population",
     nameZh: "人口",
     nameEn: "Population",
     category: "macro",
-    unit: "百万人",
+    unit: "人",
     frequency: "annual",
     sourcePriority: ["Eurostat demo_pjan", "各国统计部门人口数据库"],
     includedInDerivedComparison: false,
@@ -42,9 +42,9 @@ export const indicatorDictionaryRecords: IndicatorDictionaryRecord[] = [
     updatedAt: dictionaryUpdatedAt,
   },
   {
-    indicatorId: "gdp_nominal_mio_eur",
-    nameZh: "名义 GDP",
-    nameEn: "Nominal GDP",
+    indicatorId: "gdp_current_eur",
+    nameZh: "GDP",
+    nameEn: "GDP, current prices",
     category: "macro",
     unit: "百万欧元",
     frequency: "annual",
@@ -127,7 +127,7 @@ export const indicatorDictionaryRecords: IndicatorDictionaryRecord[] = [
     updatedAt: dictionaryUpdatedAt,
   },
   {
-    indicatorId: "fiscal_deficit_gdp",
+    indicatorId: "fiscal_balance_gdp",
     nameZh: "财政赤字/GDP",
     nameEn: "Government deficit / GDP",
     category: "fiscal",
@@ -195,9 +195,9 @@ export const indicatorDictionaryRecords: IndicatorDictionaryRecord[] = [
     updatedAt: dictionaryUpdatedAt,
   },
   {
-    indicatorId: "exports_mio_eur",
+    indicatorId: "exports_goods_services",
     nameZh: "出口",
-    nameEn: "Exports",
+    nameEn: "Exports of goods and services",
     category: "external",
     unit: "百万欧元",
     frequency: "annual",
@@ -212,9 +212,9 @@ export const indicatorDictionaryRecords: IndicatorDictionaryRecord[] = [
     updatedAt: dictionaryUpdatedAt,
   },
   {
-    indicatorId: "imports_mio_eur",
+    indicatorId: "imports_goods_services",
     nameZh: "进口",
-    nameEn: "Imports",
+    nameEn: "Imports of goods and services",
     category: "external",
     unit: "百万欧元",
     frequency: "annual",
@@ -229,7 +229,7 @@ export const indicatorDictionaryRecords: IndicatorDictionaryRecord[] = [
     updatedAt: dictionaryUpdatedAt,
   },
   {
-    indicatorId: "trade_balance_mio_eur",
+    indicatorId: "trade_balance",
     nameZh: "贸易差额",
     nameEn: "Trade balance",
     category: "external",
@@ -263,7 +263,7 @@ export const indicatorDictionaryRecords: IndicatorDictionaryRecord[] = [
     updatedAt: dictionaryUpdatedAt,
   },
   {
-    indicatorId: "fdi_mio_eur",
+    indicatorId: "fdi_inflow",
     nameZh: "FDI 流入",
     nameEn: "FDI inflow",
     category: "investment",
@@ -297,11 +297,11 @@ export const indicatorDictionaryRecords: IndicatorDictionaryRecord[] = [
     updatedAt: dictionaryUpdatedAt,
   },
   {
-    indicatorId: "manufacturing_gva_gdp",
+    indicatorId: "manufacturing_share_gdp",
     nameZh: "制造业占 GDP 比重",
     nameEn: "Manufacturing GVA / GDP",
     category: "industry",
-    unit: "% GDP",
+    unit: "%",
     frequency: "annual",
     sourcePriority: ["Eurostat nama_10_a10", "各国统计部门国民账户"],
     includedInDerivedComparison: true,

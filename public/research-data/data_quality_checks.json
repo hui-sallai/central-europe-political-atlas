@@ -6,9 +6,9 @@
   "scope": "V4 countries x 12 V4 indicators x 2021-2025 = 240 observation positions.",
   "records": [
     {
-      "check_id": "v4_quality:poland:fiscal_deficit_gdp:2021",
+      "check_id": "v4_quality:poland:fiscal_balance_gdp:2021",
       "country_id": "poland",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "year": "2021",
       "value": -1.7,
       "unit": "% GDP",
@@ -29,9 +29,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:poland:fiscal_deficit_gdp:2022",
+      "check_id": "v4_quality:poland:fiscal_balance_gdp:2022",
       "country_id": "poland",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "year": "2022",
       "value": -3.4,
       "unit": "% GDP",
@@ -52,9 +52,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:poland:fiscal_deficit_gdp:2023",
+      "check_id": "v4_quality:poland:fiscal_balance_gdp:2023",
       "country_id": "poland",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "year": "2023",
       "value": -5.2,
       "unit": "% GDP",
@@ -75,9 +75,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:poland:fiscal_deficit_gdp:2024",
+      "check_id": "v4_quality:poland:fiscal_balance_gdp:2024",
       "country_id": "poland",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "year": "2024",
       "value": -6.4,
       "unit": "% GDP",
@@ -98,9 +98,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:poland:fiscal_deficit_gdp:2025",
+      "check_id": "v4_quality:poland:fiscal_balance_gdp:2025",
       "country_id": "poland",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "year": "2025",
       "value": -7.3,
       "unit": "% GDP",
@@ -466,9 +466,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:poland:exports_mio_eur:2021",
+      "check_id": "v4_quality:poland:exports_goods_services:2021",
       "country_id": "poland",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "year": "2021",
       "value": 332532.2,
       "unit": "百万欧元",
@@ -489,9 +489,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:poland:exports_mio_eur:2022",
+      "check_id": "v4_quality:poland:exports_goods_services:2022",
       "country_id": "poland",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "year": "2022",
       "value": 412594.3,
       "unit": "百万欧元",
@@ -512,9 +512,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:poland:exports_mio_eur:2023",
+      "check_id": "v4_quality:poland:exports_goods_services:2023",
       "country_id": "poland",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "year": "2023",
       "value": 435227.7,
       "unit": "百万欧元",
@@ -535,9 +535,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:poland:exports_mio_eur:2024",
+      "check_id": "v4_quality:poland:exports_goods_services:2024",
       "country_id": "poland",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "year": "2024",
       "value": 442878.2,
       "unit": "百万欧元",
@@ -558,9 +558,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:poland:exports_mio_eur:2025",
+      "check_id": "v4_quality:poland:exports_goods_services:2025",
       "country_id": "poland",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "year": "2025",
       "value": 461553.9,
       "unit": "百万欧元",
@@ -581,9 +581,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:poland:imports_mio_eur:2021",
+      "check_id": "v4_quality:poland:imports_goods_services:2021",
       "country_id": "poland",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "year": "2021",
       "value": 313866.4,
       "unit": "百万欧元",
@@ -604,9 +604,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:poland:imports_mio_eur:2022",
+      "check_id": "v4_quality:poland:imports_goods_services:2022",
       "country_id": "poland",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "year": "2022",
       "value": 401453,
       "unit": "百万欧元",
@@ -627,9 +627,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:poland:imports_mio_eur:2023",
+      "check_id": "v4_quality:poland:imports_goods_services:2023",
       "country_id": "poland",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "year": "2023",
       "value": 392084.8,
       "unit": "百万欧元",
@@ -650,9 +650,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:poland:imports_mio_eur:2024",
+      "check_id": "v4_quality:poland:imports_goods_services:2024",
       "country_id": "poland",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "year": "2024",
       "value": 409202,
       "unit": "百万欧元",
@@ -673,9 +673,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:poland:imports_mio_eur:2025",
+      "check_id": "v4_quality:poland:imports_goods_services:2025",
       "country_id": "poland",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "year": "2025",
       "value": 435690.7,
       "unit": "百万欧元",
@@ -696,9 +696,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:poland:trade_balance_mio_eur:2021",
+      "check_id": "v4_quality:poland:trade_balance:2021",
       "country_id": "poland",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "year": "2021",
       "value": 18665.8,
       "unit": "百万欧元",
@@ -719,9 +719,9 @@
       "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
-      "check_id": "v4_quality:poland:trade_balance_mio_eur:2022",
+      "check_id": "v4_quality:poland:trade_balance:2022",
       "country_id": "poland",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "year": "2022",
       "value": 11141.3,
       "unit": "百万欧元",
@@ -742,9 +742,9 @@
       "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
-      "check_id": "v4_quality:poland:trade_balance_mio_eur:2023",
+      "check_id": "v4_quality:poland:trade_balance:2023",
       "country_id": "poland",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "year": "2023",
       "value": 43142.9,
       "unit": "百万欧元",
@@ -765,9 +765,9 @@
       "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
-      "check_id": "v4_quality:poland:trade_balance_mio_eur:2024",
+      "check_id": "v4_quality:poland:trade_balance:2024",
       "country_id": "poland",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "year": "2024",
       "value": 33676.2,
       "unit": "百万欧元",
@@ -788,9 +788,9 @@
       "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
-      "check_id": "v4_quality:poland:trade_balance_mio_eur:2025",
+      "check_id": "v4_quality:poland:trade_balance:2025",
       "country_id": "poland",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "year": "2025",
       "value": 25863.2,
       "unit": "百万欧元",
@@ -926,9 +926,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:poland:fdi_mio_eur:2021",
+      "check_id": "v4_quality:poland:fdi_inflow:2021",
       "country_id": "poland",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "year": "2021",
       "value": 30813.3,
       "unit": "百万欧元",
@@ -949,9 +949,9 @@
       "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
-      "check_id": "v4_quality:poland:fdi_mio_eur:2022",
+      "check_id": "v4_quality:poland:fdi_inflow:2022",
       "country_id": "poland",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "year": "2022",
       "value": 37532.6,
       "unit": "百万欧元",
@@ -972,9 +972,9 @@
       "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
-      "check_id": "v4_quality:poland:fdi_mio_eur:2023",
+      "check_id": "v4_quality:poland:fdi_inflow:2023",
       "country_id": "poland",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "year": "2023",
       "value": 34037.4,
       "unit": "百万欧元",
@@ -995,9 +995,9 @@
       "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
-      "check_id": "v4_quality:poland:fdi_mio_eur:2024",
+      "check_id": "v4_quality:poland:fdi_inflow:2024",
       "country_id": "poland",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "year": "2024",
       "value": 19004.2,
       "unit": "百万欧元",
@@ -1015,12 +1015,12 @@
       "included_in_mean_gap": true,
       "included_in_rank_change": true,
       "missing_reason": "",
-      "note": "Eurostat BPM6 口径：Direct investment in the reporting economy (DIRE), liabilities flow；负值表示净减少。"
+      "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
-      "check_id": "v4_quality:poland:fdi_mio_eur:2025",
+      "check_id": "v4_quality:poland:fdi_inflow:2025",
       "country_id": "poland",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "year": "2025",
       "value": null,
       "unit": "百万欧元",
@@ -1156,12 +1156,12 @@
       "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
     },
     {
-      "check_id": "v4_quality:poland:manufacturing_gva_gdp:2021",
+      "check_id": "v4_quality:poland:manufacturing_share_gdp:2021",
       "country_id": "poland",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "year": "2021",
       "value": 17.3,
-      "unit": "% GDP",
+      "unit": "%",
       "status": "official",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=PL&time=2021",
@@ -1179,12 +1179,12 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:poland:manufacturing_gva_gdp:2022",
+      "check_id": "v4_quality:poland:manufacturing_share_gdp:2022",
       "country_id": "poland",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "year": "2022",
       "value": 17.7,
-      "unit": "% GDP",
+      "unit": "%",
       "status": "official",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=PL&time=2022",
@@ -1202,12 +1202,12 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:poland:manufacturing_gva_gdp:2023",
+      "check_id": "v4_quality:poland:manufacturing_share_gdp:2023",
       "country_id": "poland",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "year": "2023",
       "value": 17.5,
-      "unit": "% GDP",
+      "unit": "%",
       "status": "official",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=PL&time=2023",
@@ -1225,12 +1225,12 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:poland:manufacturing_gva_gdp:2024",
+      "check_id": "v4_quality:poland:manufacturing_share_gdp:2024",
       "country_id": "poland",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "year": "2024",
       "value": 15.4,
-      "unit": "% GDP",
+      "unit": "%",
       "status": "official",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=PL&time=2024",
@@ -1248,12 +1248,12 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:poland:manufacturing_gva_gdp:2025",
+      "check_id": "v4_quality:poland:manufacturing_share_gdp:2025",
       "country_id": "poland",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "year": "2025",
       "value": 14.4,
-      "unit": "% GDP",
+      "unit": "%",
       "status": "official",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=PL&time=2025",
@@ -1386,9 +1386,9 @@
       "note": "导入时 Eurostat ext_tec09 暂未发布该年度数值，保留为待接入。"
     },
     {
-      "check_id": "v4_quality:hungary:fiscal_deficit_gdp:2021",
+      "check_id": "v4_quality:hungary:fiscal_balance_gdp:2021",
       "country_id": "hungary",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "year": "2021",
       "value": -7.1,
       "unit": "% GDP",
@@ -1409,9 +1409,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:hungary:fiscal_deficit_gdp:2022",
+      "check_id": "v4_quality:hungary:fiscal_balance_gdp:2022",
       "country_id": "hungary",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "year": "2022",
       "value": -6.2,
       "unit": "% GDP",
@@ -1432,9 +1432,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:hungary:fiscal_deficit_gdp:2023",
+      "check_id": "v4_quality:hungary:fiscal_balance_gdp:2023",
       "country_id": "hungary",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "year": "2023",
       "value": -7,
       "unit": "% GDP",
@@ -1455,9 +1455,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:hungary:fiscal_deficit_gdp:2024",
+      "check_id": "v4_quality:hungary:fiscal_balance_gdp:2024",
       "country_id": "hungary",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "year": "2024",
       "value": -5.1,
       "unit": "% GDP",
@@ -1478,9 +1478,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:hungary:fiscal_deficit_gdp:2025",
+      "check_id": "v4_quality:hungary:fiscal_balance_gdp:2025",
       "country_id": "hungary",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "year": "2025",
       "value": -4.7,
       "unit": "% GDP",
@@ -1846,9 +1846,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:hungary:exports_mio_eur:2021",
+      "check_id": "v4_quality:hungary:exports_goods_services:2021",
       "country_id": "hungary",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "year": "2021",
       "value": 123065.3,
       "unit": "百万欧元",
@@ -1869,9 +1869,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:hungary:exports_mio_eur:2022",
+      "check_id": "v4_quality:hungary:exports_goods_services:2022",
       "country_id": "hungary",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "year": "2022",
       "value": 151371.5,
       "unit": "百万欧元",
@@ -1892,9 +1892,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:hungary:exports_mio_eur:2023",
+      "check_id": "v4_quality:hungary:exports_goods_services:2023",
       "country_id": "hungary",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "year": "2023",
       "value": 160320.1,
       "unit": "百万欧元",
@@ -1915,9 +1915,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:hungary:exports_mio_eur:2024",
+      "check_id": "v4_quality:hungary:exports_goods_services:2024",
       "country_id": "hungary",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "year": "2024",
       "value": 157086.7,
       "unit": "百万欧元",
@@ -1938,9 +1938,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:hungary:exports_mio_eur:2025",
+      "check_id": "v4_quality:hungary:exports_goods_services:2025",
       "country_id": "hungary",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "year": "2025",
       "value": 158940,
       "unit": "百万欧元",
@@ -1961,9 +1961,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:hungary:imports_mio_eur:2021",
+      "check_id": "v4_quality:hungary:imports_goods_services:2021",
       "country_id": "hungary",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "year": "2021",
       "value": 123630.4,
       "unit": "百万欧元",
@@ -1984,9 +1984,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:hungary:imports_mio_eur:2022",
+      "check_id": "v4_quality:hungary:imports_goods_services:2022",
       "country_id": "hungary",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "year": "2022",
       "value": 160388.2,
       "unit": "百万欧元",
@@ -2007,9 +2007,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:hungary:imports_mio_eur:2023",
+      "check_id": "v4_quality:hungary:imports_goods_services:2023",
       "country_id": "hungary",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "year": "2023",
       "value": 152133.2,
       "unit": "百万欧元",
@@ -2030,9 +2030,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:hungary:imports_mio_eur:2024",
+      "check_id": "v4_quality:hungary:imports_goods_services:2024",
       "country_id": "hungary",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "year": "2024",
       "value": 147873.3,
       "unit": "百万欧元",
@@ -2053,9 +2053,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:hungary:imports_mio_eur:2025",
+      "check_id": "v4_quality:hungary:imports_goods_services:2025",
       "country_id": "hungary",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "year": "2025",
       "value": 149132.8,
       "unit": "百万欧元",
@@ -2076,9 +2076,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:hungary:trade_balance_mio_eur:2021",
+      "check_id": "v4_quality:hungary:trade_balance:2021",
       "country_id": "hungary",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "year": "2021",
       "value": -565.1,
       "unit": "百万欧元",
@@ -2099,9 +2099,9 @@
       "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
-      "check_id": "v4_quality:hungary:trade_balance_mio_eur:2022",
+      "check_id": "v4_quality:hungary:trade_balance:2022",
       "country_id": "hungary",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "year": "2022",
       "value": -9016.7,
       "unit": "百万欧元",
@@ -2122,9 +2122,9 @@
       "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
-      "check_id": "v4_quality:hungary:trade_balance_mio_eur:2023",
+      "check_id": "v4_quality:hungary:trade_balance:2023",
       "country_id": "hungary",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "year": "2023",
       "value": 8186.9,
       "unit": "百万欧元",
@@ -2145,9 +2145,9 @@
       "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
-      "check_id": "v4_quality:hungary:trade_balance_mio_eur:2024",
+      "check_id": "v4_quality:hungary:trade_balance:2024",
       "country_id": "hungary",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "year": "2024",
       "value": 9213.4,
       "unit": "百万欧元",
@@ -2168,9 +2168,9 @@
       "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
-      "check_id": "v4_quality:hungary:trade_balance_mio_eur:2025",
+      "check_id": "v4_quality:hungary:trade_balance:2025",
       "country_id": "hungary",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "year": "2025",
       "value": 9807.2,
       "unit": "百万欧元",
@@ -2306,9 +2306,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:hungary:fdi_mio_eur:2021",
+      "check_id": "v4_quality:hungary:fdi_inflow:2021",
       "country_id": "hungary",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "year": "2021",
       "value": 28749.9,
       "unit": "百万欧元",
@@ -2329,9 +2329,9 @@
       "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
-      "check_id": "v4_quality:hungary:fdi_mio_eur:2022",
+      "check_id": "v4_quality:hungary:fdi_inflow:2022",
       "country_id": "hungary",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "year": "2022",
       "value": -2940.9,
       "unit": "百万欧元",
@@ -2352,9 +2352,9 @@
       "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
-      "check_id": "v4_quality:hungary:fdi_mio_eur:2023",
+      "check_id": "v4_quality:hungary:fdi_inflow:2023",
       "country_id": "hungary",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "year": "2023",
       "value": -63063.9,
       "unit": "百万欧元",
@@ -2375,9 +2375,9 @@
       "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
-      "check_id": "v4_quality:hungary:fdi_mio_eur:2024",
+      "check_id": "v4_quality:hungary:fdi_inflow:2024",
       "country_id": "hungary",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "year": "2024",
       "value": -57492.7,
       "unit": "百万欧元",
@@ -2395,12 +2395,12 @@
       "included_in_mean_gap": true,
       "included_in_rank_change": true,
       "missing_reason": "",
-      "note": "Eurostat BPM6 口径：Direct investment in the reporting economy (DIRE), liabilities flow；负值表示净减少。"
+      "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
-      "check_id": "v4_quality:hungary:fdi_mio_eur:2025",
+      "check_id": "v4_quality:hungary:fdi_inflow:2025",
       "country_id": "hungary",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "year": "2025",
       "value": null,
       "unit": "百万欧元",
@@ -2536,12 +2536,12 @@
       "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
     },
     {
-      "check_id": "v4_quality:hungary:manufacturing_gva_gdp:2021",
+      "check_id": "v4_quality:hungary:manufacturing_share_gdp:2021",
       "country_id": "hungary",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "year": "2021",
       "value": 16.5,
-      "unit": "% GDP",
+      "unit": "%",
       "status": "official",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=HU&time=2021",
@@ -2559,12 +2559,12 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:hungary:manufacturing_gva_gdp:2022",
+      "check_id": "v4_quality:hungary:manufacturing_share_gdp:2022",
       "country_id": "hungary",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "year": "2022",
       "value": 16.8,
-      "unit": "% GDP",
+      "unit": "%",
       "status": "official",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=HU&time=2022",
@@ -2582,12 +2582,12 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:hungary:manufacturing_gva_gdp:2023",
+      "check_id": "v4_quality:hungary:manufacturing_share_gdp:2023",
       "country_id": "hungary",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "year": "2023",
       "value": 17.2,
-      "unit": "% GDP",
+      "unit": "%",
       "status": "official",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=HU&time=2023",
@@ -2605,12 +2605,12 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:hungary:manufacturing_gva_gdp:2024",
+      "check_id": "v4_quality:hungary:manufacturing_share_gdp:2024",
       "country_id": "hungary",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "year": "2024",
       "value": 15.9,
-      "unit": "% GDP",
+      "unit": "%",
       "status": "official",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=HU&time=2024",
@@ -2628,12 +2628,12 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:hungary:manufacturing_gva_gdp:2025",
+      "check_id": "v4_quality:hungary:manufacturing_share_gdp:2025",
       "country_id": "hungary",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "year": "2025",
       "value": 15.1,
-      "unit": "% GDP",
+      "unit": "%",
       "status": "official",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=HU&time=2025",
@@ -2766,9 +2766,9 @@
       "note": "导入时 Eurostat ext_tec09 暂未发布该年度数值，保留为待接入。"
     },
     {
-      "check_id": "v4_quality:czechia:fiscal_deficit_gdp:2021",
+      "check_id": "v4_quality:czechia:fiscal_balance_gdp:2021",
       "country_id": "czechia",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "year": "2021",
       "value": -5,
       "unit": "% GDP",
@@ -2789,9 +2789,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:czechia:fiscal_deficit_gdp:2022",
+      "check_id": "v4_quality:czechia:fiscal_balance_gdp:2022",
       "country_id": "czechia",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "year": "2022",
       "value": -3.1,
       "unit": "% GDP",
@@ -2812,9 +2812,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:czechia:fiscal_deficit_gdp:2023",
+      "check_id": "v4_quality:czechia:fiscal_balance_gdp:2023",
       "country_id": "czechia",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "year": "2023",
       "value": -3.7,
       "unit": "% GDP",
@@ -2835,9 +2835,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:czechia:fiscal_deficit_gdp:2024",
+      "check_id": "v4_quality:czechia:fiscal_balance_gdp:2024",
       "country_id": "czechia",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "year": "2024",
       "value": -2,
       "unit": "% GDP",
@@ -2858,9 +2858,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:czechia:fiscal_deficit_gdp:2025",
+      "check_id": "v4_quality:czechia:fiscal_balance_gdp:2025",
       "country_id": "czechia",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "year": "2025",
       "value": -2.1,
       "unit": "% GDP",
@@ -3226,9 +3226,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:czechia:exports_mio_eur:2021",
+      "check_id": "v4_quality:czechia:exports_goods_services:2021",
       "country_id": "czechia",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "year": "2021",
       "value": 173561.8,
       "unit": "百万欧元",
@@ -3249,9 +3249,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:czechia:exports_mio_eur:2022",
+      "check_id": "v4_quality:czechia:exports_goods_services:2022",
       "country_id": "czechia",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "year": "2022",
       "value": 207798.3,
       "unit": "百万欧元",
@@ -3272,9 +3272,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:czechia:exports_mio_eur:2023",
+      "check_id": "v4_quality:czechia:exports_goods_services:2023",
       "country_id": "czechia",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "year": "2023",
       "value": 218273.7,
       "unit": "百万欧元",
@@ -3295,9 +3295,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:czechia:exports_mio_eur:2024",
+      "check_id": "v4_quality:czechia:exports_goods_services:2024",
       "country_id": "czechia",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "year": "2024",
       "value": 220888.9,
       "unit": "百万欧元",
@@ -3318,9 +3318,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:czechia:exports_mio_eur:2025",
+      "check_id": "v4_quality:czechia:exports_goods_services:2025",
       "country_id": "czechia",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "year": "2025",
       "value": 232020.6,
       "unit": "百万欧元",
@@ -3341,9 +3341,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:czechia:imports_mio_eur:2021",
+      "check_id": "v4_quality:czechia:imports_goods_services:2021",
       "country_id": "czechia",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "year": "2021",
       "value": 164405.3,
       "unit": "百万欧元",
@@ -3364,9 +3364,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:czechia:imports_mio_eur:2022",
+      "check_id": "v4_quality:czechia:imports_goods_services:2022",
       "country_id": "czechia",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "year": "2022",
       "value": 205481.3,
       "unit": "百万欧元",
@@ -3387,9 +3387,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:czechia:imports_mio_eur:2023",
+      "check_id": "v4_quality:czechia:imports_goods_services:2023",
       "country_id": "czechia",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "year": "2023",
       "value": 202594.4,
       "unit": "百万欧元",
@@ -3410,9 +3410,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:czechia:imports_mio_eur:2024",
+      "check_id": "v4_quality:czechia:imports_goods_services:2024",
       "country_id": "czechia",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "year": "2024",
       "value": 200838.3,
       "unit": "百万欧元",
@@ -3433,9 +3433,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:czechia:imports_mio_eur:2025",
+      "check_id": "v4_quality:czechia:imports_goods_services:2025",
       "country_id": "czechia",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "year": "2025",
       "value": 211742.9,
       "unit": "百万欧元",
@@ -3456,9 +3456,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:czechia:trade_balance_mio_eur:2021",
+      "check_id": "v4_quality:czechia:trade_balance:2021",
       "country_id": "czechia",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "year": "2021",
       "value": 9156.5,
       "unit": "百万欧元",
@@ -3479,9 +3479,9 @@
       "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
-      "check_id": "v4_quality:czechia:trade_balance_mio_eur:2022",
+      "check_id": "v4_quality:czechia:trade_balance:2022",
       "country_id": "czechia",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "year": "2022",
       "value": 2317,
       "unit": "百万欧元",
@@ -3502,9 +3502,9 @@
       "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
-      "check_id": "v4_quality:czechia:trade_balance_mio_eur:2023",
+      "check_id": "v4_quality:czechia:trade_balance:2023",
       "country_id": "czechia",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "year": "2023",
       "value": 15679.3,
       "unit": "百万欧元",
@@ -3525,9 +3525,9 @@
       "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
-      "check_id": "v4_quality:czechia:trade_balance_mio_eur:2024",
+      "check_id": "v4_quality:czechia:trade_balance:2024",
       "country_id": "czechia",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "year": "2024",
       "value": 20050.6,
       "unit": "百万欧元",
@@ -3548,9 +3548,9 @@
       "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
-      "check_id": "v4_quality:czechia:trade_balance_mio_eur:2025",
+      "check_id": "v4_quality:czechia:trade_balance:2025",
       "country_id": "czechia",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "year": "2025",
       "value": 20277.7,
       "unit": "百万欧元",
@@ -3686,9 +3686,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:czechia:fdi_mio_eur:2021",
+      "check_id": "v4_quality:czechia:fdi_inflow:2021",
       "country_id": "czechia",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "year": "2021",
       "value": 11082.8,
       "unit": "百万欧元",
@@ -3709,9 +3709,9 @@
       "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
-      "check_id": "v4_quality:czechia:fdi_mio_eur:2022",
+      "check_id": "v4_quality:czechia:fdi_inflow:2022",
       "country_id": "czechia",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "year": "2022",
       "value": 9053.5,
       "unit": "百万欧元",
@@ -3732,9 +3732,9 @@
       "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
-      "check_id": "v4_quality:czechia:fdi_mio_eur:2023",
+      "check_id": "v4_quality:czechia:fdi_inflow:2023",
       "country_id": "czechia",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "year": "2023",
       "value": null,
       "unit": "百万欧元",
@@ -3755,9 +3755,9 @@
       "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
     },
     {
-      "check_id": "v4_quality:czechia:fdi_mio_eur:2024",
+      "check_id": "v4_quality:czechia:fdi_inflow:2024",
       "country_id": "czechia",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "year": "2024",
       "value": 12311.3,
       "unit": "百万欧元",
@@ -3775,12 +3775,12 @@
       "included_in_mean_gap": true,
       "included_in_rank_change": true,
       "missing_reason": "",
-      "note": "Eurostat BPM6 口径：Direct investment in the reporting economy (DIRE), liabilities flow；负值表示净减少。"
+      "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
-      "check_id": "v4_quality:czechia:fdi_mio_eur:2025",
+      "check_id": "v4_quality:czechia:fdi_inflow:2025",
       "country_id": "czechia",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "year": "2025",
       "value": null,
       "unit": "百万欧元",
@@ -3916,12 +3916,12 @@
       "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
     },
     {
-      "check_id": "v4_quality:czechia:manufacturing_gva_gdp:2021",
+      "check_id": "v4_quality:czechia:manufacturing_share_gdp:2021",
       "country_id": "czechia",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "year": "2021",
       "value": 19.6,
-      "unit": "% GDP",
+      "unit": "%",
       "status": "official",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=CZ&time=2021",
@@ -3939,12 +3939,12 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:czechia:manufacturing_gva_gdp:2022",
+      "check_id": "v4_quality:czechia:manufacturing_share_gdp:2022",
       "country_id": "czechia",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "year": "2022",
       "value": 19.4,
-      "unit": "% GDP",
+      "unit": "%",
       "status": "official",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=CZ&time=2022",
@@ -3962,12 +3962,12 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:czechia:manufacturing_gva_gdp:2023",
+      "check_id": "v4_quality:czechia:manufacturing_share_gdp:2023",
       "country_id": "czechia",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "year": "2023",
       "value": 20.4,
-      "unit": "% GDP",
+      "unit": "%",
       "status": "official",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=CZ&time=2023",
@@ -3985,12 +3985,12 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:czechia:manufacturing_gva_gdp:2024",
+      "check_id": "v4_quality:czechia:manufacturing_share_gdp:2024",
       "country_id": "czechia",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "year": "2024",
       "value": 19.9,
-      "unit": "% GDP",
+      "unit": "%",
       "status": "official",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=CZ&time=2024",
@@ -4008,12 +4008,12 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:czechia:manufacturing_gva_gdp:2025",
+      "check_id": "v4_quality:czechia:manufacturing_share_gdp:2025",
       "country_id": "czechia",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "year": "2025",
       "value": 19.4,
-      "unit": "% GDP",
+      "unit": "%",
       "status": "official",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=CZ&time=2025",
@@ -4146,9 +4146,9 @@
       "note": "导入时 Eurostat ext_tec09 暂未发布该年度数值，保留为待接入。"
     },
     {
-      "check_id": "v4_quality:slovakia:fiscal_deficit_gdp:2021",
+      "check_id": "v4_quality:slovakia:fiscal_balance_gdp:2021",
       "country_id": "slovakia",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "year": "2021",
       "value": -5.1,
       "unit": "% GDP",
@@ -4169,9 +4169,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:slovakia:fiscal_deficit_gdp:2022",
+      "check_id": "v4_quality:slovakia:fiscal_balance_gdp:2022",
       "country_id": "slovakia",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "year": "2022",
       "value": -1.6,
       "unit": "% GDP",
@@ -4192,9 +4192,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:slovakia:fiscal_deficit_gdp:2023",
+      "check_id": "v4_quality:slovakia:fiscal_balance_gdp:2023",
       "country_id": "slovakia",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "year": "2023",
       "value": -5.3,
       "unit": "% GDP",
@@ -4215,9 +4215,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:slovakia:fiscal_deficit_gdp:2024",
+      "check_id": "v4_quality:slovakia:fiscal_balance_gdp:2024",
       "country_id": "slovakia",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "year": "2024",
       "value": -5.3,
       "unit": "% GDP",
@@ -4238,9 +4238,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:slovakia:fiscal_deficit_gdp:2025",
+      "check_id": "v4_quality:slovakia:fiscal_balance_gdp:2025",
       "country_id": "slovakia",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "year": "2025",
       "value": -4.5,
       "unit": "% GDP",
@@ -4606,9 +4606,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:slovakia:exports_mio_eur:2021",
+      "check_id": "v4_quality:slovakia:exports_goods_services:2021",
       "country_id": "slovakia",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "year": "2021",
       "value": 92478.7,
       "unit": "百万欧元",
@@ -4629,9 +4629,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:slovakia:exports_mio_eur:2022",
+      "check_id": "v4_quality:slovakia:exports_goods_services:2022",
       "country_id": "slovakia",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "year": "2022",
       "value": 108934.4,
       "unit": "百万欧元",
@@ -4652,9 +4652,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:slovakia:exports_mio_eur:2023",
+      "check_id": "v4_quality:slovakia:exports_goods_services:2023",
       "country_id": "slovakia",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "year": "2023",
       "value": 113029.9,
       "unit": "百万欧元",
@@ -4675,9 +4675,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:slovakia:exports_mio_eur:2024",
+      "check_id": "v4_quality:slovakia:exports_goods_services:2024",
       "country_id": "slovakia",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "year": "2024",
       "value": 111305.9,
       "unit": "百万欧元",
@@ -4698,9 +4698,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:slovakia:exports_mio_eur:2025",
+      "check_id": "v4_quality:slovakia:exports_goods_services:2025",
       "country_id": "slovakia",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "year": "2025",
       "value": 116370.6,
       "unit": "百万欧元",
@@ -4721,9 +4721,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:slovakia:imports_mio_eur:2021",
+      "check_id": "v4_quality:slovakia:imports_goods_services:2021",
       "country_id": "slovakia",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "year": "2021",
       "value": 92943.1,
       "unit": "百万欧元",
@@ -4744,9 +4744,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:slovakia:imports_mio_eur:2022",
+      "check_id": "v4_quality:slovakia:imports_goods_services:2022",
       "country_id": "slovakia",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "year": "2022",
       "value": 115445.5,
       "unit": "百万欧元",
@@ -4767,9 +4767,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:slovakia:imports_mio_eur:2023",
+      "check_id": "v4_quality:slovakia:imports_goods_services:2023",
       "country_id": "slovakia",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "year": "2023",
       "value": 111058,
       "unit": "百万欧元",
@@ -4790,9 +4790,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:slovakia:imports_mio_eur:2024",
+      "check_id": "v4_quality:slovakia:imports_goods_services:2024",
       "country_id": "slovakia",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "year": "2024",
       "value": 111626,
       "unit": "百万欧元",
@@ -4813,9 +4813,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:slovakia:imports_mio_eur:2025",
+      "check_id": "v4_quality:slovakia:imports_goods_services:2025",
       "country_id": "slovakia",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "year": "2025",
       "value": 116580.1,
       "unit": "百万欧元",
@@ -4836,9 +4836,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:slovakia:trade_balance_mio_eur:2021",
+      "check_id": "v4_quality:slovakia:trade_balance:2021",
       "country_id": "slovakia",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "year": "2021",
       "value": -464.4,
       "unit": "百万欧元",
@@ -4859,9 +4859,9 @@
       "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
-      "check_id": "v4_quality:slovakia:trade_balance_mio_eur:2022",
+      "check_id": "v4_quality:slovakia:trade_balance:2022",
       "country_id": "slovakia",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "year": "2022",
       "value": -6511.1,
       "unit": "百万欧元",
@@ -4882,9 +4882,9 @@
       "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
-      "check_id": "v4_quality:slovakia:trade_balance_mio_eur:2023",
+      "check_id": "v4_quality:slovakia:trade_balance:2023",
       "country_id": "slovakia",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "year": "2023",
       "value": 1971.9,
       "unit": "百万欧元",
@@ -4905,9 +4905,9 @@
       "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
-      "check_id": "v4_quality:slovakia:trade_balance_mio_eur:2024",
+      "check_id": "v4_quality:slovakia:trade_balance:2024",
       "country_id": "slovakia",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "year": "2024",
       "value": -320.1,
       "unit": "百万欧元",
@@ -4928,9 +4928,9 @@
       "note": "由 Eurostat P6 出口减 P7 进口计算。"
     },
     {
-      "check_id": "v4_quality:slovakia:trade_balance_mio_eur:2025",
+      "check_id": "v4_quality:slovakia:trade_balance:2025",
       "country_id": "slovakia",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "year": "2025",
       "value": -209.5,
       "unit": "百万欧元",
@@ -5066,9 +5066,9 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:slovakia:fdi_mio_eur:2021",
+      "check_id": "v4_quality:slovakia:fdi_inflow:2021",
       "country_id": "slovakia",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "year": "2021",
       "value": 2327,
       "unit": "百万欧元",
@@ -5089,9 +5089,9 @@
       "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
-      "check_id": "v4_quality:slovakia:fdi_mio_eur:2022",
+      "check_id": "v4_quality:slovakia:fdi_inflow:2022",
       "country_id": "slovakia",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "year": "2022",
       "value": 4647.3,
       "unit": "百万欧元",
@@ -5112,9 +5112,9 @@
       "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
-      "check_id": "v4_quality:slovakia:fdi_mio_eur:2023",
+      "check_id": "v4_quality:slovakia:fdi_inflow:2023",
       "country_id": "slovakia",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "year": "2023",
       "value": 439.1,
       "unit": "百万欧元",
@@ -5135,9 +5135,9 @@
       "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
-      "check_id": "v4_quality:slovakia:fdi_mio_eur:2024",
+      "check_id": "v4_quality:slovakia:fdi_inflow:2024",
       "country_id": "slovakia",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "year": "2024",
       "value": 4600.1,
       "unit": "百万欧元",
@@ -5155,12 +5155,12 @@
       "included_in_mean_gap": true,
       "included_in_rank_change": true,
       "missing_reason": "",
-      "note": "Eurostat BPM6 口径：Direct investment in the reporting economy (DIRE), liabilities flow；负值表示净减少。"
+      "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
-      "check_id": "v4_quality:slovakia:fdi_mio_eur:2025",
+      "check_id": "v4_quality:slovakia:fdi_inflow:2025",
       "country_id": "slovakia",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "year": "2025",
       "value": null,
       "unit": "百万欧元",
@@ -5296,12 +5296,12 @@
       "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
     },
     {
-      "check_id": "v4_quality:slovakia:manufacturing_gva_gdp:2021",
+      "check_id": "v4_quality:slovakia:manufacturing_share_gdp:2021",
       "country_id": "slovakia",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "year": "2021",
       "value": 16.6,
-      "unit": "% GDP",
+      "unit": "%",
       "status": "official",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=SK&time=2021",
@@ -5319,12 +5319,12 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:slovakia:manufacturing_gva_gdp:2022",
+      "check_id": "v4_quality:slovakia:manufacturing_share_gdp:2022",
       "country_id": "slovakia",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "year": "2022",
       "value": 17.4,
-      "unit": "% GDP",
+      "unit": "%",
       "status": "official",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=SK&time=2022",
@@ -5342,12 +5342,12 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:slovakia:manufacturing_gva_gdp:2023",
+      "check_id": "v4_quality:slovakia:manufacturing_share_gdp:2023",
       "country_id": "slovakia",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "year": "2023",
       "value": 16.8,
-      "unit": "% GDP",
+      "unit": "%",
       "status": "official",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=SK&time=2023",
@@ -5365,12 +5365,12 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:slovakia:manufacturing_gva_gdp:2024",
+      "check_id": "v4_quality:slovakia:manufacturing_share_gdp:2024",
       "country_id": "slovakia",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "year": "2024",
       "value": 16.3,
-      "unit": "% GDP",
+      "unit": "%",
       "status": "official",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=SK&time=2024",
@@ -5388,12 +5388,12 @@
       "note": ""
     },
     {
-      "check_id": "v4_quality:slovakia:manufacturing_gva_gdp:2025",
+      "check_id": "v4_quality:slovakia:manufacturing_share_gdp:2025",
       "country_id": "slovakia",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "year": "2025",
       "value": 16.2,
-      "unit": "% GDP",
+      "unit": "%",
       "status": "official",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=SK&time=2025",

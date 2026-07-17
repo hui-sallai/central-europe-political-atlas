@@ -134,17 +134,17 @@ export const extendedIndicators: ExtendedIndicator[] = indicatorDictionaryRecord
 });
 
 export const v4TemplateIndicatorIds = [
-  "fiscal_deficit_gdp",
+  "fiscal_balance_gdp",
   "government_debt_gdp",
   "government_revenue_gdp",
   "government_expenditure_gdp",
-  "exports_mio_eur",
-  "imports_mio_eur",
-  "trade_balance_mio_eur",
+  "exports_goods_services",
+  "imports_goods_services",
+  "trade_balance",
   "current_account_gdp",
-  "fdi_mio_eur",
+  "fdi_inflow",
   "energy_import_dependency",
-  "manufacturing_gva_gdp",
+  "manufacturing_share_gdp",
   "automotive_export_share",
 ] as const;
 
@@ -263,17 +263,17 @@ const historicalV4Rows: V4HistoricalRow[] = [
 
 function historicalRowToObservations([countrySlug, date, deficit, debt, revenue, expenditure, exports, imports, balance, currentAccount, fdi, energy, manufacturing, automotiveShare]: V4HistoricalRow): ExtendedObservation[] {
   return [
-    obs(countrySlug, "fiscal_deficit_gdp", date, deficit, sourceUrlFor("deficit", countrySlug, date), eurostatUpdatedFiscal),
+    obs(countrySlug, "fiscal_balance_gdp", date, deficit, sourceUrlFor("deficit", countrySlug, date), eurostatUpdatedFiscal),
     obs(countrySlug, "government_debt_gdp", date, debt, sourceUrlFor("debt", countrySlug, date), eurostatUpdatedFiscal),
     obs(countrySlug, "government_revenue_gdp", date, revenue, sourceUrlFor("revenue", countrySlug, date), eurostatUpdatedFiscal),
     obs(countrySlug, "government_expenditure_gdp", date, expenditure, sourceUrlFor("expenditure", countrySlug, date), eurostatUpdatedFiscal),
-    obs(countrySlug, "exports_mio_eur", date, exports, sourceUrlFor("exports", countrySlug, date), eurostatUpdatedNationalAccounts),
-    obs(countrySlug, "imports_mio_eur", date, imports, sourceUrlFor("imports", countrySlug, date), eurostatUpdatedNationalAccounts),
-    obs(countrySlug, "trade_balance_mio_eur", date, balance, sourceUrlFor("exports", countrySlug, date), eurostatUpdatedNationalAccounts, "由 Eurostat P6 出口减 P7 进口计算。"),
+    obs(countrySlug, "exports_goods_services", date, exports, sourceUrlFor("exports", countrySlug, date), eurostatUpdatedNationalAccounts),
+    obs(countrySlug, "imports_goods_services", date, imports, sourceUrlFor("imports", countrySlug, date), eurostatUpdatedNationalAccounts),
+    obs(countrySlug, "trade_balance", date, balance, sourceUrlFor("exports", countrySlug, date), eurostatUpdatedNationalAccounts, "由 Eurostat P6 出口减 P7 进口计算。"),
     obs(countrySlug, "current_account_gdp", date, currentAccount, sourceUrlFor("currentAccount", countrySlug, date), eurostatUpdatedCurrentAccount),
-    obs(countrySlug, "fdi_mio_eur", date, fdi, sourceUrlFor("fdi", countrySlug, date), eurostatUpdatedFdi, fdi === null ? "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。" : "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"),
+    obs(countrySlug, "fdi_inflow", date, fdi, sourceUrlFor("fdi", countrySlug, date), eurostatUpdatedFdi, fdi === null ? "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。" : "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"),
     obs(countrySlug, "energy_import_dependency", date, energy, sourceUrlFor("energyDependency", countrySlug, date), eurostatUpdatedEnergy, energy === null ? "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。" : undefined),
-    obs(countrySlug, "manufacturing_gva_gdp", date, manufacturing, sourceUrlFor("manufacturing", countrySlug, date), eurostatUpdatedNationalAccounts),
+    obs(countrySlug, "manufacturing_share_gdp", date, manufacturing, sourceUrlFor("manufacturing", countrySlug, date), eurostatUpdatedNationalAccounts),
     obs(countrySlug, "automotive_export_share", date, automotiveShare, sourceUrlFor("automotiveExports", countrySlug, date), eurostatUpdatedTradeByActivity, automotiveShare === null ? "导入时 Eurostat ext_tec09 暂未发布该年度数值，保留为待接入。" : "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"),
   ];
 }
@@ -287,17 +287,17 @@ export const extendedObservations: ExtendedObservation[] = [
     ["czechia", -2.0, 43.3, 41.2, 43.2, 220888.9, 200838.3, 20050.6, 1.7, 12311.3, 39.32, 19.9, 32.4],
     ["slovakia", -5.3, 59.7, 42.1, 47.4, 111305.9, 111626.0, -320.1, -4.6, 4600.1, 53.501, 16.3, 40.4],
   ] as const).flatMap(([countrySlug, deficit, debt, revenue, expenditure, exports, imports, balance, currentAccount, fdi, energy, manufacturing, automotiveShare]) => [
-    obs(countrySlug, "fiscal_deficit_gdp", deficit, `${sourceUrls.deficit}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedFiscal),
+    obs(countrySlug, "fiscal_balance_gdp", deficit, `${sourceUrls.deficit}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedFiscal),
     obs(countrySlug, "government_debt_gdp", debt, `${sourceUrls.debt}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedFiscal),
     obs(countrySlug, "government_revenue_gdp", revenue, `${sourceUrls.revenue}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedFiscal),
     obs(countrySlug, "government_expenditure_gdp", expenditure, `${sourceUrls.expenditure}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedFiscal),
-    obs(countrySlug, "exports_mio_eur", exports, `${sourceUrls.exports}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedNationalAccounts),
-    obs(countrySlug, "imports_mio_eur", imports, `${sourceUrls.imports}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedNationalAccounts),
-    obs(countrySlug, "trade_balance_mio_eur", balance, `${sourceUrls.exports}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedNationalAccounts, "由 Eurostat P6 出口减 P7 进口计算。"),
+    obs(countrySlug, "exports_goods_services", exports, `${sourceUrls.exports}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedNationalAccounts),
+    obs(countrySlug, "imports_goods_services", imports, `${sourceUrls.imports}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedNationalAccounts),
+    obs(countrySlug, "trade_balance", balance, `${sourceUrls.exports}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedNationalAccounts, "由 Eurostat P6 出口减 P7 进口计算。"),
     obs(countrySlug, "current_account_gdp", currentAccount, `${sourceUrls.currentAccount}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedCurrentAccount),
-    obs(countrySlug, "fdi_mio_eur", fdi, `${sourceUrls.fdi}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedFdi, "Eurostat BPM6 口径：Direct investment in the reporting economy (DIRE), liabilities flow；负值表示净减少。"),
+    obs(countrySlug, "fdi_inflow", fdi, `${sourceUrls.fdi}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedFdi, "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"),
     obs(countrySlug, "energy_import_dependency", energy, `${sourceUrls.energyDependency}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedEnergy),
-    obs(countrySlug, "manufacturing_gva_gdp", manufacturing, `${sourceUrls.manufacturing}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedNationalAccounts),
+    obs(countrySlug, "manufacturing_share_gdp", manufacturing, `${sourceUrls.manufacturing}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedNationalAccounts),
     obs(countrySlug, "automotive_export_share", automotiveShare, `${sourceUrls.automotiveExports}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedTradeByActivity, "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"),
   ]),
   ...historicalExtendedObservations,

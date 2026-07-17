@@ -6,11 +6,11 @@
   "note": "Unified research observations. Includes macro_time_series for ten countries and v4_extended observations for V4 countries.",
   "records": [
     {
-      "observation_id": "macro:germany:gdp_nominal_mio_eur:2021",
+      "observation_id": "macro:germany:gdp_current_eur:2021",
       "dataset": "macro_time_series",
       "country_slug": "germany",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2021",
       "frequency": "annual",
       "value": 3682340,
@@ -31,7 +31,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Destatis"
     },
     {
@@ -60,7 +60,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Destatis"
     },
     {
@@ -89,7 +89,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Destatis"
     },
     {
@@ -118,7 +118,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Destatis"
     },
     {
@@ -147,19 +147,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Destatis"
     },
     {
-      "observation_id": "macro:germany:population_million:2021",
+      "observation_id": "macro:germany:population:2021",
       "dataset": "macro_time_series",
       "country_slug": "germany",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2021",
       "frequency": "annual",
-      "value": 83.16,
-      "unit": "百万人",
+      "value": 83160000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Destatis GENESIS-Online",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2021&geo=DE&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -176,15 +176,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Destatis"
     },
     {
-      "observation_id": "macro:germany:gdp_nominal_mio_eur:2022",
+      "observation_id": "macro:germany:gdp_current_eur:2022",
       "dataset": "macro_time_series",
       "country_slug": "germany",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2022",
       "frequency": "annual",
       "value": 3989390,
@@ -205,7 +205,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Destatis"
     },
     {
@@ -234,7 +234,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Destatis"
     },
     {
@@ -263,7 +263,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Destatis"
     },
     {
@@ -292,7 +292,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Destatis"
     },
     {
@@ -321,19 +321,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Destatis"
     },
     {
-      "observation_id": "macro:germany:population_million:2022",
+      "observation_id": "macro:germany:population:2022",
       "dataset": "macro_time_series",
       "country_slug": "germany",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2022",
       "frequency": "annual",
-      "value": 83.24,
-      "unit": "百万人",
+      "value": 83240000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Destatis GENESIS-Online",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2022&geo=DE&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -350,15 +350,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Destatis"
     },
     {
-      "observation_id": "macro:germany:gdp_nominal_mio_eur:2023",
+      "observation_id": "macro:germany:gdp_current_eur:2023",
       "dataset": "macro_time_series",
       "country_slug": "germany",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2023",
       "frequency": "annual",
       "value": 4219310,
@@ -379,7 +379,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Destatis"
     },
     {
@@ -408,7 +408,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Destatis"
     },
     {
@@ -437,7 +437,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Destatis"
     },
     {
@@ -466,7 +466,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Destatis"
     },
     {
@@ -495,19 +495,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Destatis"
     },
     {
-      "observation_id": "macro:germany:population_million:2023",
+      "observation_id": "macro:germany:population:2023",
       "dataset": "macro_time_series",
       "country_slug": "germany",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2023",
       "frequency": "annual",
-      "value": 83.12,
-      "unit": "百万人",
+      "value": 83120000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Destatis GENESIS-Online",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2023&geo=DE&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -524,15 +524,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Destatis"
     },
     {
-      "observation_id": "macro:germany:gdp_nominal_mio_eur:2024",
+      "observation_id": "macro:germany:gdp_current_eur:2024",
       "dataset": "macro_time_series",
       "country_slug": "germany",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2024",
       "frequency": "annual",
       "value": 4328970,
@@ -553,7 +553,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Destatis"
     },
     {
@@ -582,7 +582,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Destatis"
     },
     {
@@ -611,7 +611,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Destatis"
     },
     {
@@ -640,7 +640,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Destatis"
     },
     {
@@ -669,19 +669,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Destatis"
     },
     {
-      "observation_id": "macro:germany:population_million:2024",
+      "observation_id": "macro:germany:population:2024",
       "dataset": "macro_time_series",
       "country_slug": "germany",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2024",
       "frequency": "annual",
-      "value": 83.46,
-      "unit": "百万人",
+      "value": 83460000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Destatis GENESIS-Online",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2024&geo=DE&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -698,15 +698,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Destatis"
     },
     {
-      "observation_id": "macro:germany:gdp_nominal_mio_eur:2025",
+      "observation_id": "macro:germany:gdp_current_eur:2025",
       "dataset": "macro_time_series",
       "country_slug": "germany",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2025",
       "frequency": "annual",
       "value": 4469810,
@@ -727,7 +727,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Destatis"
     },
     {
@@ -756,7 +756,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Destatis"
     },
     {
@@ -785,7 +785,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Destatis"
     },
     {
@@ -814,7 +814,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Destatis"
     },
     {
@@ -843,19 +843,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Destatis"
     },
     {
-      "observation_id": "macro:germany:population_million:2025",
+      "observation_id": "macro:germany:population:2025",
       "dataset": "macro_time_series",
       "country_slug": "germany",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2025",
       "frequency": "annual",
-      "value": 83.58,
-      "unit": "百万人",
+      "value": 83580000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Destatis GENESIS-Online",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2025&geo=DE&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -872,15 +872,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Destatis"
     },
     {
-      "observation_id": "macro:poland:gdp_nominal_mio_eur:2021",
+      "observation_id": "macro:poland:gdp_current_eur:2021",
       "dataset": "macro_time_series",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2021",
       "frequency": "annual",
       "value": 583001.4,
@@ -901,7 +901,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Statistics Poland"
     },
     {
@@ -930,7 +930,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Statistics Poland"
     },
     {
@@ -959,7 +959,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Statistics Poland"
     },
     {
@@ -988,7 +988,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Statistics Poland"
     },
     {
@@ -1017,19 +1017,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Statistics Poland"
     },
     {
-      "observation_id": "macro:poland:population_million:2021",
+      "observation_id": "macro:poland:population:2021",
       "dataset": "macro_time_series",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2021",
       "frequency": "annual",
-      "value": 37.07,
-      "unit": "百万人",
+      "value": 37070000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Statistics Poland Data Portal",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2021&geo=PL&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -1046,15 +1046,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Statistics Poland"
     },
     {
-      "observation_id": "macro:poland:gdp_nominal_mio_eur:2022",
+      "observation_id": "macro:poland:gdp_current_eur:2022",
       "dataset": "macro_time_series",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2022",
       "frequency": "annual",
       "value": 661712.3,
@@ -1075,7 +1075,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Statistics Poland"
     },
     {
@@ -1104,7 +1104,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Statistics Poland"
     },
     {
@@ -1133,7 +1133,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Statistics Poland"
     },
     {
@@ -1162,7 +1162,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Statistics Poland"
     },
     {
@@ -1191,19 +1191,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Statistics Poland"
     },
     {
-      "observation_id": "macro:poland:population_million:2022",
+      "observation_id": "macro:poland:population:2022",
       "dataset": "macro_time_series",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2022",
       "frequency": "annual",
-      "value": 36.89,
-      "unit": "百万人",
+      "value": 36890000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Statistics Poland Data Portal",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2022&geo=PL&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -1220,15 +1220,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Statistics Poland"
     },
     {
-      "observation_id": "macro:poland:gdp_nominal_mio_eur:2023",
+      "observation_id": "macro:poland:gdp_current_eur:2023",
       "dataset": "macro_time_series",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2023",
       "frequency": "annual",
       "value": 751931.7,
@@ -1249,7 +1249,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Statistics Poland"
     },
     {
@@ -1278,7 +1278,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Statistics Poland"
     },
     {
@@ -1307,7 +1307,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Statistics Poland"
     },
     {
@@ -1336,7 +1336,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Statistics Poland"
     },
     {
@@ -1365,19 +1365,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Statistics Poland"
     },
     {
-      "observation_id": "macro:poland:population_million:2023",
+      "observation_id": "macro:poland:population:2023",
       "dataset": "macro_time_series",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2023",
       "frequency": "annual",
-      "value": 36.75,
-      "unit": "百万人",
+      "value": 36750000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Statistics Poland Data Portal",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2023&geo=PL&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -1394,15 +1394,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Statistics Poland"
     },
     {
-      "observation_id": "macro:poland:gdp_nominal_mio_eur:2024",
+      "observation_id": "macro:poland:gdp_current_eur:2024",
       "dataset": "macro_time_series",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2024",
       "frequency": "annual",
       "value": 852229.8,
@@ -1423,7 +1423,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Statistics Poland"
     },
     {
@@ -1452,7 +1452,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Statistics Poland"
     },
     {
@@ -1481,7 +1481,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Statistics Poland"
     },
     {
@@ -1510,7 +1510,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Statistics Poland"
     },
     {
@@ -1539,19 +1539,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Statistics Poland"
     },
     {
-      "observation_id": "macro:poland:population_million:2024",
+      "observation_id": "macro:poland:population:2024",
       "dataset": "macro_time_series",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2024",
       "frequency": "annual",
-      "value": 36.62,
-      "unit": "百万人",
+      "value": 36620000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Statistics Poland Data Portal",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2024&geo=PL&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -1568,15 +1568,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Statistics Poland"
     },
     {
-      "observation_id": "macro:poland:gdp_nominal_mio_eur:2025",
+      "observation_id": "macro:poland:gdp_current_eur:2025",
       "dataset": "macro_time_series",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2025",
       "frequency": "annual",
       "value": 922865.5,
@@ -1597,7 +1597,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Statistics Poland"
     },
     {
@@ -1626,7 +1626,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Statistics Poland"
     },
     {
@@ -1655,7 +1655,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Statistics Poland"
     },
     {
@@ -1684,7 +1684,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Statistics Poland"
     },
     {
@@ -1713,19 +1713,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Statistics Poland"
     },
     {
-      "observation_id": "macro:poland:population_million:2025",
+      "observation_id": "macro:poland:population:2025",
       "dataset": "macro_time_series",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2025",
       "frequency": "annual",
-      "value": 36.5,
-      "unit": "百万人",
+      "value": 36500000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Statistics Poland Data Portal",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2025&geo=PL&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -1742,15 +1742,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Statistics Poland"
     },
     {
-      "observation_id": "macro:hungary:gdp_nominal_mio_eur:2021",
+      "observation_id": "macro:hungary:gdp_current_eur:2021",
       "dataset": "macro_time_series",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2021",
       "frequency": "annual",
       "value": 154971.7,
@@ -1771,7 +1771,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
@@ -1800,7 +1800,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
@@ -1829,7 +1829,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
@@ -1858,7 +1858,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
@@ -1887,19 +1887,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
-      "observation_id": "macro:hungary:population_million:2021",
+      "observation_id": "macro:hungary:population:2021",
       "dataset": "macro_time_series",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2021",
       "frequency": "annual",
-      "value": 9.65,
-      "unit": "百万人",
+      "value": 9650000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / HCSO STADAT",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2021&geo=HU&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -1916,15 +1916,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
-      "observation_id": "macro:hungary:gdp_nominal_mio_eur:2022",
+      "observation_id": "macro:hungary:gdp_current_eur:2022",
       "dataset": "macro_time_series",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2022",
       "frequency": "annual",
       "value": 168546.2,
@@ -1945,7 +1945,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
@@ -1974,7 +1974,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
@@ -2003,7 +2003,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
@@ -2032,7 +2032,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
@@ -2061,19 +2061,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
-      "observation_id": "macro:hungary:population_million:2022",
+      "observation_id": "macro:hungary:population:2022",
       "dataset": "macro_time_series",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2022",
       "frequency": "annual",
-      "value": 9.61,
-      "unit": "百万人",
+      "value": 9610000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / HCSO STADAT",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2022&geo=HU&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -2090,15 +2090,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
-      "observation_id": "macro:hungary:gdp_nominal_mio_eur:2023",
+      "observation_id": "macro:hungary:gdp_current_eur:2023",
       "dataset": "macro_time_series",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2023",
       "frequency": "annual",
       "value": 196983.7,
@@ -2119,7 +2119,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
@@ -2148,7 +2148,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
@@ -2177,7 +2177,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
@@ -2206,7 +2206,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
@@ -2235,19 +2235,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
-      "observation_id": "macro:hungary:population_million:2023",
+      "observation_id": "macro:hungary:population:2023",
       "dataset": "macro_time_series",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2023",
       "frequency": "annual",
-      "value": 9.6,
-      "unit": "百万人",
+      "value": 9600000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / HCSO STADAT",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2023&geo=HU&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -2264,15 +2264,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
-      "observation_id": "macro:hungary:gdp_nominal_mio_eur:2024",
+      "observation_id": "macro:hungary:gdp_current_eur:2024",
       "dataset": "macro_time_series",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2024",
       "frequency": "annual",
       "value": 206156.2,
@@ -2293,7 +2293,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
@@ -2322,7 +2322,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
@@ -2351,7 +2351,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
@@ -2380,7 +2380,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
@@ -2409,19 +2409,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
-      "observation_id": "macro:hungary:population_million:2024",
+      "observation_id": "macro:hungary:population:2024",
       "dataset": "macro_time_series",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2024",
       "frequency": "annual",
-      "value": 9.58,
-      "unit": "百万人",
+      "value": 9580000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / HCSO STADAT",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2024&geo=HU&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -2438,15 +2438,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
-      "observation_id": "macro:hungary:gdp_nominal_mio_eur:2025",
+      "observation_id": "macro:hungary:gdp_current_eur:2025",
       "dataset": "macro_time_series",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2025",
       "frequency": "annual",
       "value": 218833.9,
@@ -2467,7 +2467,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
@@ -2496,7 +2496,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
@@ -2525,7 +2525,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
@@ -2554,7 +2554,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
@@ -2583,19 +2583,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
-      "observation_id": "macro:hungary:population_million:2025",
+      "observation_id": "macro:hungary:population:2025",
       "dataset": "macro_time_series",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2025",
       "frequency": "annual",
-      "value": 9.54,
-      "unit": "百万人",
+      "value": 9540000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / HCSO STADAT",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2025&geo=HU&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -2612,15 +2612,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Hungarian Central Statistical Office"
     },
     {
-      "observation_id": "macro:romania:gdp_nominal_mio_eur:2021",
+      "observation_id": "macro:romania:gdp_current_eur:2021",
       "dataset": "macro_time_series",
       "country_slug": "romania",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2021",
       "frequency": "annual",
       "value": 240986.6,
@@ -2641,7 +2641,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / INSSE"
     },
     {
@@ -2670,7 +2670,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / INSSE"
     },
     {
@@ -2699,7 +2699,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / INSSE"
     },
     {
@@ -2728,7 +2728,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / INSSE"
     },
     {
@@ -2757,19 +2757,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / INSSE"
     },
     {
-      "observation_id": "macro:romania:population_million:2021",
+      "observation_id": "macro:romania:population:2021",
       "dataset": "macro_time_series",
       "country_slug": "romania",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2021",
       "frequency": "annual",
-      "value": 19.2,
-      "unit": "百万人",
+      "value": 19200000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / INSSE TEMPO Online",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2021&geo=RO&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -2786,15 +2786,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / INSSE"
     },
     {
-      "observation_id": "macro:romania:gdp_nominal_mio_eur:2022",
+      "observation_id": "macro:romania:gdp_current_eur:2022",
       "dataset": "macro_time_series",
       "country_slug": "romania",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2022",
       "frequency": "annual",
       "value": 280777.4,
@@ -2815,7 +2815,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / INSSE"
     },
     {
@@ -2844,7 +2844,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / INSSE"
     },
     {
@@ -2873,7 +2873,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / INSSE"
     },
     {
@@ -2902,7 +2902,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / INSSE"
     },
     {
@@ -2931,19 +2931,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / INSSE"
     },
     {
-      "observation_id": "macro:romania:population_million:2022",
+      "observation_id": "macro:romania:population:2022",
       "dataset": "macro_time_series",
       "country_slug": "romania",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2022",
       "frequency": "annual",
-      "value": 19.04,
-      "unit": "百万人",
+      "value": 19040000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / INSSE TEMPO Online",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2022&geo=RO&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -2960,15 +2960,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / INSSE"
     },
     {
-      "observation_id": "macro:romania:gdp_nominal_mio_eur:2023",
+      "observation_id": "macro:romania:gdp_current_eur:2023",
       "dataset": "macro_time_series",
       "country_slug": "romania",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2023",
       "frequency": "annual",
       "value": 321577.9,
@@ -2989,7 +2989,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / INSSE"
     },
     {
@@ -3018,7 +3018,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / INSSE"
     },
     {
@@ -3047,7 +3047,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / INSSE"
     },
     {
@@ -3076,7 +3076,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / INSSE"
     },
     {
@@ -3105,19 +3105,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / INSSE"
     },
     {
-      "observation_id": "macro:romania:population_million:2023",
+      "observation_id": "macro:romania:population:2023",
       "dataset": "macro_time_series",
       "country_slug": "romania",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2023",
       "frequency": "annual",
-      "value": 19.06,
-      "unit": "百万人",
+      "value": 19060000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / INSSE TEMPO Online",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2023&geo=RO&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -3134,15 +3134,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / INSSE"
     },
     {
-      "observation_id": "macro:romania:gdp_nominal_mio_eur:2024",
+      "observation_id": "macro:romania:gdp_current_eur:2024",
       "dataset": "macro_time_series",
       "country_slug": "romania",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2024",
       "frequency": "annual",
       "value": 353633.1,
@@ -3163,7 +3163,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / INSSE"
     },
     {
@@ -3192,7 +3192,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / INSSE"
     },
     {
@@ -3221,7 +3221,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / INSSE"
     },
     {
@@ -3250,7 +3250,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / INSSE"
     },
     {
@@ -3279,19 +3279,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / INSSE"
     },
     {
-      "observation_id": "macro:romania:population_million:2024",
+      "observation_id": "macro:romania:population:2024",
       "dataset": "macro_time_series",
       "country_slug": "romania",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2024",
       "frequency": "annual",
-      "value": 19.07,
-      "unit": "百万人",
+      "value": 19070000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / INSSE TEMPO Online",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2024&geo=RO&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -3308,15 +3308,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / INSSE"
     },
     {
-      "observation_id": "macro:romania:gdp_nominal_mio_eur:2025",
+      "observation_id": "macro:romania:gdp_current_eur:2025",
       "dataset": "macro_time_series",
       "country_slug": "romania",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2025",
       "frequency": "annual",
       "value": 380058.1,
@@ -3337,7 +3337,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / INSSE"
     },
     {
@@ -3366,7 +3366,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / INSSE"
     },
     {
@@ -3395,7 +3395,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / INSSE"
     },
     {
@@ -3424,7 +3424,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / INSSE"
     },
     {
@@ -3453,19 +3453,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / INSSE"
     },
     {
-      "observation_id": "macro:romania:population_million:2025",
+      "observation_id": "macro:romania:population:2025",
       "dataset": "macro_time_series",
       "country_slug": "romania",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2025",
       "frequency": "annual",
-      "value": 19.04,
-      "unit": "百万人",
+      "value": 19040000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / INSSE TEMPO Online",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2025&geo=RO&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -3482,15 +3482,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / INSSE"
     },
     {
-      "observation_id": "macro:czechia:gdp_nominal_mio_eur:2021",
+      "observation_id": "macro:czechia:gdp_current_eur:2021",
       "dataset": "macro_time_series",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2021",
       "frequency": "annual",
       "value": 246012.3,
@@ -3511,7 +3511,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
@@ -3540,7 +3540,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
@@ -3569,7 +3569,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
@@ -3598,7 +3598,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
@@ -3627,19 +3627,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
-      "observation_id": "macro:czechia:population_million:2021",
+      "observation_id": "macro:czechia:population:2021",
       "dataset": "macro_time_series",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2021",
       "frequency": "annual",
-      "value": 10.49,
-      "unit": "百万人",
+      "value": 10490000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Czech Statistical Office Public Database",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2021&geo=CZ&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -3656,15 +3656,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
-      "observation_id": "macro:czechia:gdp_nominal_mio_eur:2022",
+      "observation_id": "macro:czechia:gdp_current_eur:2022",
       "dataset": "macro_time_series",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2022",
       "frequency": "annual",
       "value": 286976.8,
@@ -3685,7 +3685,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
@@ -3714,7 +3714,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
@@ -3743,7 +3743,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
@@ -3772,7 +3772,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
@@ -3801,19 +3801,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
-      "observation_id": "macro:czechia:population_million:2022",
+      "observation_id": "macro:czechia:population:2022",
       "dataset": "macro_time_series",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2022",
       "frequency": "annual",
-      "value": 10.52,
-      "unit": "百万人",
+      "value": 10520000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Czech Statistical Office Public Database",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2022&geo=CZ&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -3830,15 +3830,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
-      "observation_id": "macro:czechia:gdp_nominal_mio_eur:2023",
+      "observation_id": "macro:czechia:gdp_current_eur:2023",
       "dataset": "macro_time_series",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2023",
       "frequency": "annual",
       "value": 319099.1,
@@ -3859,7 +3859,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
@@ -3888,7 +3888,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
@@ -3917,7 +3917,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
@@ -3946,7 +3946,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
@@ -3975,19 +3975,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
-      "observation_id": "macro:czechia:population_million:2023",
+      "observation_id": "macro:czechia:population:2023",
       "dataset": "macro_time_series",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2023",
       "frequency": "annual",
-      "value": 10.83,
-      "unit": "百万人",
+      "value": 10830000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Czech Statistical Office Public Database",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2023&geo=CZ&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -4004,15 +4004,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
-      "observation_id": "macro:czechia:gdp_nominal_mio_eur:2024",
+      "observation_id": "macro:czechia:gdp_current_eur:2024",
       "dataset": "macro_time_series",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2024",
       "frequency": "annual",
       "value": 320786.5,
@@ -4033,7 +4033,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
@@ -4062,7 +4062,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
@@ -4091,7 +4091,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
@@ -4120,7 +4120,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
@@ -4149,19 +4149,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
-      "observation_id": "macro:czechia:population_million:2024",
+      "observation_id": "macro:czechia:population:2024",
       "dataset": "macro_time_series",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2024",
       "frequency": "annual",
-      "value": 10.9,
-      "unit": "百万人",
+      "value": 10900000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Czech Statistical Office Public Database",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2024&geo=CZ&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -4178,15 +4178,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
-      "observation_id": "macro:czechia:gdp_nominal_mio_eur:2025",
+      "observation_id": "macro:czechia:gdp_current_eur:2025",
       "dataset": "macro_time_series",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2025",
       "frequency": "annual",
       "value": 346583.4,
@@ -4207,7 +4207,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
@@ -4236,7 +4236,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
@@ -4265,7 +4265,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
@@ -4294,7 +4294,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
@@ -4323,19 +4323,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
-      "observation_id": "macro:czechia:population_million:2025",
+      "observation_id": "macro:czechia:population:2025",
       "dataset": "macro_time_series",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2025",
       "frequency": "annual",
-      "value": 10.91,
-      "unit": "百万人",
+      "value": 10910000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Czech Statistical Office Public Database",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2025&geo=CZ&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -4352,15 +4352,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Czech Statistical Office"
     },
     {
-      "observation_id": "macro:slovakia:gdp_nominal_mio_eur:2021",
+      "observation_id": "macro:slovakia:gdp_current_eur:2021",
       "dataset": "macro_time_series",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2021",
       "frequency": "annual",
       "value": 101891.6,
@@ -4381,7 +4381,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
@@ -4410,7 +4410,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
@@ -4439,7 +4439,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
@@ -4468,7 +4468,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
@@ -4497,19 +4497,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
-      "observation_id": "macro:slovakia:population_million:2021",
+      "observation_id": "macro:slovakia:population:2021",
       "dataset": "macro_time_series",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2021",
       "frequency": "annual",
-      "value": 5.46,
-      "unit": "百万人",
+      "value": 5460000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / DATAcube Slovakia",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2021&geo=SK&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -4526,15 +4526,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
-      "observation_id": "macro:slovakia:gdp_nominal_mio_eur:2022",
+      "observation_id": "macro:slovakia:gdp_current_eur:2022",
       "dataset": "macro_time_series",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2022",
       "frequency": "annual",
       "value": 109959.8,
@@ -4555,7 +4555,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
@@ -4584,7 +4584,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
@@ -4613,7 +4613,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
@@ -4642,7 +4642,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
@@ -4671,19 +4671,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
-      "observation_id": "macro:slovakia:population_million:2022",
+      "observation_id": "macro:slovakia:population:2022",
       "dataset": "macro_time_series",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2022",
       "frequency": "annual",
-      "value": 5.43,
-      "unit": "百万人",
+      "value": 5430000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / DATAcube Slovakia",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2022&geo=SK&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -4700,15 +4700,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
-      "observation_id": "macro:slovakia:gdp_nominal_mio_eur:2023",
+      "observation_id": "macro:slovakia:gdp_current_eur:2023",
       "dataset": "macro_time_series",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2023",
       "frequency": "annual",
       "value": 123538.7,
@@ -4729,7 +4729,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
@@ -4758,7 +4758,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
@@ -4787,7 +4787,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
@@ -4816,7 +4816,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
@@ -4845,19 +4845,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
-      "observation_id": "macro:slovakia:population_million:2023",
+      "observation_id": "macro:slovakia:population:2023",
       "dataset": "macro_time_series",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2023",
       "frequency": "annual",
-      "value": 5.43,
-      "unit": "百万人",
+      "value": 5430000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / DATAcube Slovakia",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2023&geo=SK&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -4874,15 +4874,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
-      "observation_id": "macro:slovakia:gdp_nominal_mio_eur:2024",
+      "observation_id": "macro:slovakia:gdp_current_eur:2024",
       "dataset": "macro_time_series",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2024",
       "frequency": "annual",
       "value": 130207.5,
@@ -4903,7 +4903,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
@@ -4932,7 +4932,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
@@ -4961,7 +4961,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
@@ -4990,7 +4990,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
@@ -5019,19 +5019,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
-      "observation_id": "macro:slovakia:population_million:2024",
+      "observation_id": "macro:slovakia:population:2024",
       "dataset": "macro_time_series",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2024",
       "frequency": "annual",
-      "value": 5.42,
-      "unit": "百万人",
+      "value": 5420000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / DATAcube Slovakia",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2024&geo=SK&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -5048,15 +5048,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
-      "observation_id": "macro:slovakia:gdp_nominal_mio_eur:2025",
+      "observation_id": "macro:slovakia:gdp_current_eur:2025",
       "dataset": "macro_time_series",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2025",
       "frequency": "annual",
       "value": 136754.3,
@@ -5077,7 +5077,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
@@ -5106,7 +5106,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
@@ -5135,7 +5135,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
@@ -5164,7 +5164,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
@@ -5193,19 +5193,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
-      "observation_id": "macro:slovakia:population_million:2025",
+      "observation_id": "macro:slovakia:population:2025",
       "dataset": "macro_time_series",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2025",
       "frequency": "annual",
-      "value": 5.42,
-      "unit": "百万人",
+      "value": 5420000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / DATAcube Slovakia",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2025&geo=SK&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -5222,15 +5222,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Statistical Office of the Slovak Republic"
     },
     {
-      "observation_id": "macro:slovenia:gdp_nominal_mio_eur:2021",
+      "observation_id": "macro:slovenia:gdp_current_eur:2021",
       "dataset": "macro_time_series",
       "country_slug": "slovenia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2021",
       "frequency": "annual",
       "value": 52032.4,
@@ -5251,7 +5251,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / SURS"
     },
     {
@@ -5280,7 +5280,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / SURS"
     },
     {
@@ -5309,7 +5309,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / SURS"
     },
     {
@@ -5338,7 +5338,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / SURS"
     },
     {
@@ -5367,19 +5367,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / SURS"
     },
     {
-      "observation_id": "macro:slovenia:population_million:2021",
+      "observation_id": "macro:slovenia:population:2021",
       "dataset": "macro_time_series",
       "country_slug": "slovenia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2021",
       "frequency": "annual",
-      "value": 2.11,
-      "unit": "百万人",
+      "value": 2110000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / SURS SiStat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2021&geo=SI&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -5396,15 +5396,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / SURS"
     },
     {
-      "observation_id": "macro:slovenia:gdp_nominal_mio_eur:2022",
+      "observation_id": "macro:slovenia:gdp_current_eur:2022",
       "dataset": "macro_time_series",
       "country_slug": "slovenia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2022",
       "frequency": "annual",
       "value": 56881.6,
@@ -5425,7 +5425,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / SURS"
     },
     {
@@ -5454,7 +5454,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / SURS"
     },
     {
@@ -5483,7 +5483,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / SURS"
     },
     {
@@ -5512,7 +5512,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / SURS"
     },
     {
@@ -5541,19 +5541,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / SURS"
     },
     {
-      "observation_id": "macro:slovenia:population_million:2022",
+      "observation_id": "macro:slovenia:population:2022",
       "dataset": "macro_time_series",
       "country_slug": "slovenia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2022",
       "frequency": "annual",
-      "value": 2.11,
-      "unit": "百万人",
+      "value": 2110000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / SURS SiStat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2022&geo=SI&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -5570,15 +5570,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / SURS"
     },
     {
-      "observation_id": "macro:slovenia:gdp_nominal_mio_eur:2023",
+      "observation_id": "macro:slovenia:gdp_current_eur:2023",
       "dataset": "macro_time_series",
       "country_slug": "slovenia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2023",
       "frequency": "annual",
       "value": 64050,
@@ -5599,7 +5599,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / SURS"
     },
     {
@@ -5628,7 +5628,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / SURS"
     },
     {
@@ -5657,7 +5657,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / SURS"
     },
     {
@@ -5686,7 +5686,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / SURS"
     },
     {
@@ -5715,19 +5715,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / SURS"
     },
     {
-      "observation_id": "macro:slovenia:population_million:2023",
+      "observation_id": "macro:slovenia:population:2023",
       "dataset": "macro_time_series",
       "country_slug": "slovenia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2023",
       "frequency": "annual",
-      "value": 2.12,
-      "unit": "百万人",
+      "value": 2120000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / SURS SiStat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2023&geo=SI&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -5744,15 +5744,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / SURS"
     },
     {
-      "observation_id": "macro:slovenia:gdp_nominal_mio_eur:2024",
+      "observation_id": "macro:slovenia:gdp_current_eur:2024",
       "dataset": "macro_time_series",
       "country_slug": "slovenia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2024",
       "frequency": "annual",
       "value": 67418.1,
@@ -5773,7 +5773,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / SURS"
     },
     {
@@ -5802,7 +5802,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / SURS"
     },
     {
@@ -5831,7 +5831,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / SURS"
     },
     {
@@ -5860,7 +5860,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / SURS"
     },
     {
@@ -5889,19 +5889,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / SURS"
     },
     {
-      "observation_id": "macro:slovenia:population_million:2024",
+      "observation_id": "macro:slovenia:population:2024",
       "dataset": "macro_time_series",
       "country_slug": "slovenia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2024",
       "frequency": "annual",
-      "value": 2.12,
-      "unit": "百万人",
+      "value": 2120000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / SURS SiStat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2024&geo=SI&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -5918,15 +5918,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / SURS"
     },
     {
-      "observation_id": "macro:slovenia:gdp_nominal_mio_eur:2025",
+      "observation_id": "macro:slovenia:gdp_current_eur:2025",
       "dataset": "macro_time_series",
       "country_slug": "slovenia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2025",
       "frequency": "annual",
       "value": 70486.2,
@@ -5947,7 +5947,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / SURS"
     },
     {
@@ -5976,7 +5976,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / SURS"
     },
     {
@@ -6005,7 +6005,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / SURS"
     },
     {
@@ -6034,7 +6034,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / SURS"
     },
     {
@@ -6063,19 +6063,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / SURS"
     },
     {
-      "observation_id": "macro:slovenia:population_million:2025",
+      "observation_id": "macro:slovenia:population:2025",
       "dataset": "macro_time_series",
       "country_slug": "slovenia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2025",
       "frequency": "annual",
-      "value": 2.13,
-      "unit": "百万人",
+      "value": 2130000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / SURS SiStat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2025&geo=SI&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -6092,15 +6092,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / SURS"
     },
     {
-      "observation_id": "macro:serbia:gdp_nominal_mio_eur:2021",
+      "observation_id": "macro:serbia:gdp_current_eur:2021",
       "dataset": "macro_time_series",
       "country_slug": "serbia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2021",
       "frequency": "annual",
       "value": 55931.3,
@@ -6121,7 +6121,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
@@ -6150,7 +6150,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
@@ -6179,7 +6179,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
@@ -6197,7 +6197,7 @@
       "source_links": [],
       "status": "pending",
       "source_status": "pending",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
@@ -6226,19 +6226,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
-      "observation_id": "macro:serbia:population_million:2021",
+      "observation_id": "macro:serbia:population:2021",
       "dataset": "macro_time_series",
       "country_slug": "serbia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2021",
       "frequency": "annual",
-      "value": 6.87,
-      "unit": "百万人",
+      "value": 6870000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Statistical Office of Serbia Data",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2021&geo=RS&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -6255,15 +6255,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
-      "observation_id": "macro:serbia:gdp_nominal_mio_eur:2022",
+      "observation_id": "macro:serbia:gdp_current_eur:2022",
       "dataset": "macro_time_series",
       "country_slug": "serbia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2022",
       "frequency": "annual",
       "value": 63512.8,
@@ -6284,7 +6284,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
@@ -6313,7 +6313,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
@@ -6342,7 +6342,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
@@ -6360,7 +6360,7 @@
       "source_links": [],
       "status": "pending",
       "source_status": "pending",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
@@ -6389,19 +6389,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
-      "observation_id": "macro:serbia:population_million:2022",
+      "observation_id": "macro:serbia:population:2022",
       "dataset": "macro_time_series",
       "country_slug": "serbia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2022",
       "frequency": "annual",
-      "value": 6.8,
-      "unit": "百万人",
+      "value": 6800000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Statistical Office of Serbia Data",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2022&geo=RS&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -6418,15 +6418,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
-      "observation_id": "macro:serbia:gdp_nominal_mio_eur:2023",
+      "observation_id": "macro:serbia:gdp_current_eur:2023",
       "dataset": "macro_time_series",
       "country_slug": "serbia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2023",
       "frequency": "annual",
       "value": 75205.2,
@@ -6447,7 +6447,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
@@ -6476,7 +6476,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
@@ -6505,7 +6505,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
@@ -6523,7 +6523,7 @@
       "source_links": [],
       "status": "pending",
       "source_status": "pending",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
@@ -6552,19 +6552,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
-      "observation_id": "macro:serbia:population_million:2023",
+      "observation_id": "macro:serbia:population:2023",
       "dataset": "macro_time_series",
       "country_slug": "serbia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2023",
       "frequency": "annual",
-      "value": 6.64,
-      "unit": "百万人",
+      "value": 6640000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Statistical Office of Serbia Data",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2023&geo=RS&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -6581,15 +6581,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
-      "observation_id": "macro:serbia:gdp_nominal_mio_eur:2024",
+      "observation_id": "macro:serbia:gdp_current_eur:2024",
       "dataset": "macro_time_series",
       "country_slug": "serbia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2024",
       "frequency": "annual",
       "value": 83257.9,
@@ -6610,7 +6610,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
@@ -6639,7 +6639,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
@@ -6668,7 +6668,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
@@ -6686,7 +6686,7 @@
       "source_links": [],
       "status": "pending",
       "source_status": "pending",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
@@ -6715,19 +6715,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
-      "observation_id": "macro:serbia:population_million:2024",
+      "observation_id": "macro:serbia:population:2024",
       "dataset": "macro_time_series",
       "country_slug": "serbia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2024",
       "frequency": "annual",
-      "value": 6.61,
-      "unit": "百万人",
+      "value": 6610000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Statistical Office of Serbia Data",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2024&geo=RS&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -6744,15 +6744,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
-      "observation_id": "macro:serbia:gdp_nominal_mio_eur:2025",
+      "observation_id": "macro:serbia:gdp_current_eur:2025",
       "dataset": "macro_time_series",
       "country_slug": "serbia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2025",
       "frequency": "annual",
       "value": 88672.8,
@@ -6773,7 +6773,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
@@ -6802,7 +6802,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
@@ -6831,7 +6831,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
@@ -6849,7 +6849,7 @@
       "source_links": [],
       "status": "pending",
       "source_status": "pending",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
@@ -6878,19 +6878,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
-      "observation_id": "macro:serbia:population_million:2025",
+      "observation_id": "macro:serbia:population:2025",
       "dataset": "macro_time_series",
       "country_slug": "serbia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2025",
       "frequency": "annual",
-      "value": 6.57,
-      "unit": "百万人",
+      "value": 6570000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Statistical Office of Serbia Data",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2025&geo=RS&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -6907,15 +6907,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import"
     },
     {
-      "observation_id": "macro:austria:gdp_nominal_mio_eur:2021",
+      "observation_id": "macro:austria:gdp_current_eur:2021",
       "dataset": "macro_time_series",
       "country_slug": "austria",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2021",
       "frequency": "annual",
       "value": 406231.5,
@@ -6936,7 +6936,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Statistics Austria"
     },
     {
@@ -6965,7 +6965,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Statistics Austria"
     },
     {
@@ -6994,7 +6994,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Statistics Austria"
     },
     {
@@ -7023,7 +7023,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Statistics Austria"
     },
     {
@@ -7052,19 +7052,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Statistics Austria"
     },
     {
-      "observation_id": "macro:austria:population_million:2021",
+      "observation_id": "macro:austria:population:2021",
       "dataset": "macro_time_series",
       "country_slug": "austria",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2021",
       "frequency": "annual",
-      "value": 8.93,
-      "unit": "百万人",
+      "value": 8930000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Statistics Austria STATcube",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2021&geo=AT&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -7081,15 +7081,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Statistics Austria"
     },
     {
-      "observation_id": "macro:austria:gdp_nominal_mio_eur:2022",
+      "observation_id": "macro:austria:gdp_current_eur:2022",
       "dataset": "macro_time_series",
       "country_slug": "austria",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2022",
       "frequency": "annual",
       "value": 449382.2,
@@ -7110,7 +7110,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Statistics Austria"
     },
     {
@@ -7139,7 +7139,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Statistics Austria"
     },
     {
@@ -7168,7 +7168,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Statistics Austria"
     },
     {
@@ -7197,7 +7197,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Statistics Austria"
     },
     {
@@ -7226,19 +7226,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Statistics Austria"
     },
     {
-      "observation_id": "macro:austria:population_million:2022",
+      "observation_id": "macro:austria:population:2022",
       "dataset": "macro_time_series",
       "country_slug": "austria",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2022",
       "frequency": "annual",
-      "value": 8.98,
-      "unit": "百万人",
+      "value": 8980000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Statistics Austria STATcube",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2022&geo=AT&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -7255,15 +7255,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Statistics Austria"
     },
     {
-      "observation_id": "macro:austria:gdp_nominal_mio_eur:2023",
+      "observation_id": "macro:austria:gdp_current_eur:2023",
       "dataset": "macro_time_series",
       "country_slug": "austria",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2023",
       "frequency": "annual",
       "value": 477837.3,
@@ -7284,7 +7284,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Statistics Austria"
     },
     {
@@ -7313,7 +7313,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Statistics Austria"
     },
     {
@@ -7342,7 +7342,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Statistics Austria"
     },
     {
@@ -7371,7 +7371,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Statistics Austria"
     },
     {
@@ -7400,19 +7400,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Statistics Austria"
     },
     {
-      "observation_id": "macro:austria:population_million:2023",
+      "observation_id": "macro:austria:population:2023",
       "dataset": "macro_time_series",
       "country_slug": "austria",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2023",
       "frequency": "annual",
-      "value": 9.1,
-      "unit": "百万人",
+      "value": 9100000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Statistics Austria STATcube",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2023&geo=AT&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -7429,15 +7429,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Statistics Austria"
     },
     {
-      "observation_id": "macro:austria:gdp_nominal_mio_eur:2024",
+      "observation_id": "macro:austria:gdp_current_eur:2024",
       "dataset": "macro_time_series",
       "country_slug": "austria",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2024",
       "frequency": "annual",
       "value": 494087.6,
@@ -7458,7 +7458,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Statistics Austria"
     },
     {
@@ -7487,7 +7487,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Statistics Austria"
     },
     {
@@ -7516,7 +7516,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Statistics Austria"
     },
     {
@@ -7545,7 +7545,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Statistics Austria"
     },
     {
@@ -7574,19 +7574,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Statistics Austria"
     },
     {
-      "observation_id": "macro:austria:population_million:2024",
+      "observation_id": "macro:austria:population:2024",
       "dataset": "macro_time_series",
       "country_slug": "austria",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2024",
       "frequency": "annual",
-      "value": 9.16,
-      "unit": "百万人",
+      "value": 9160000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Statistics Austria STATcube",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2024&geo=AT&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -7603,15 +7603,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Statistics Austria"
     },
     {
-      "observation_id": "macro:austria:gdp_nominal_mio_eur:2025",
+      "observation_id": "macro:austria:gdp_current_eur:2025",
       "dataset": "macro_time_series",
       "country_slug": "austria",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2025",
       "frequency": "annual",
       "value": 514328.1,
@@ -7632,7 +7632,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Statistics Austria"
     },
     {
@@ -7661,7 +7661,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Statistics Austria"
     },
     {
@@ -7690,7 +7690,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Statistics Austria"
     },
     {
@@ -7719,7 +7719,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Statistics Austria"
     },
     {
@@ -7748,19 +7748,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Statistics Austria"
     },
     {
-      "observation_id": "macro:austria:population_million:2025",
+      "observation_id": "macro:austria:population:2025",
       "dataset": "macro_time_series",
       "country_slug": "austria",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2025",
       "frequency": "annual",
-      "value": 9.2,
-      "unit": "百万人",
+      "value": 9200000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Statistics Austria STATcube",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2025&geo=AT&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -7777,15 +7777,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Statistics Austria"
     },
     {
-      "observation_id": "macro:croatia:gdp_nominal_mio_eur:2021",
+      "observation_id": "macro:croatia:gdp_current_eur:2021",
       "dataset": "macro_time_series",
       "country_slug": "croatia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2021",
       "frequency": "annual",
       "value": 58390.4,
@@ -7806,7 +7806,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
@@ -7835,7 +7835,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
@@ -7864,7 +7864,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
@@ -7893,7 +7893,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
@@ -7922,19 +7922,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
-      "observation_id": "macro:croatia:population_million:2021",
+      "observation_id": "macro:croatia:population:2021",
       "dataset": "macro_time_series",
       "country_slug": "croatia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2021",
       "frequency": "annual",
-      "value": 3.89,
-      "unit": "百万人",
+      "value": 3890000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Croatian Bureau of Statistics Database",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2021&geo=HR&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -7951,15 +7951,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
-      "observation_id": "macro:croatia:gdp_nominal_mio_eur:2022",
+      "observation_id": "macro:croatia:gdp_current_eur:2022",
       "dataset": "macro_time_series",
       "country_slug": "croatia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2022",
       "frequency": "annual",
       "value": 67609.4,
@@ -7980,7 +7980,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
@@ -8009,7 +8009,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
@@ -8038,7 +8038,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
@@ -8067,7 +8067,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
@@ -8096,19 +8096,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
-      "observation_id": "macro:croatia:population_million:2022",
+      "observation_id": "macro:croatia:population:2022",
       "dataset": "macro_time_series",
       "country_slug": "croatia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2022",
       "frequency": "annual",
-      "value": 3.86,
-      "unit": "百万人",
+      "value": 3860000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Croatian Bureau of Statistics Database",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2022&geo=HR&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -8125,15 +8125,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
-      "observation_id": "macro:croatia:gdp_nominal_mio_eur:2023",
+      "observation_id": "macro:croatia:gdp_current_eur:2023",
       "dataset": "macro_time_series",
       "country_slug": "croatia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2023",
       "frequency": "annual",
       "value": 79186.3,
@@ -8154,7 +8154,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
@@ -8183,7 +8183,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
@@ -8212,7 +8212,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
@@ -8241,7 +8241,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
@@ -8270,19 +8270,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
-      "observation_id": "macro:croatia:population_million:2023",
+      "observation_id": "macro:croatia:population:2023",
       "dataset": "macro_time_series",
       "country_slug": "croatia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2023",
       "frequency": "annual",
-      "value": 3.85,
-      "unit": "百万人",
+      "value": 3850000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Croatian Bureau of Statistics Database",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2023&geo=HR&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -8299,15 +8299,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
-      "observation_id": "macro:croatia:gdp_nominal_mio_eur:2024",
+      "observation_id": "macro:croatia:gdp_current_eur:2024",
       "dataset": "macro_time_series",
       "country_slug": "croatia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2024",
       "frequency": "annual",
       "value": 85905.2,
@@ -8328,7 +8328,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
@@ -8357,7 +8357,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
@@ -8386,7 +8386,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
@@ -8415,7 +8415,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
@@ -8444,19 +8444,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
-      "observation_id": "macro:croatia:population_million:2024",
+      "observation_id": "macro:croatia:population:2024",
       "dataset": "macro_time_series",
       "country_slug": "croatia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2024",
       "frequency": "annual",
-      "value": 3.86,
-      "unit": "百万人",
+      "value": 3860000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Croatian Bureau of Statistics Database",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2024&geo=HR&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -8473,15 +8473,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
-      "observation_id": "macro:croatia:gdp_nominal_mio_eur:2025",
+      "observation_id": "macro:croatia:gdp_current_eur:2025",
       "dataset": "macro_time_series",
       "country_slug": "croatia",
       "region_slug": null,
-      "indicator_id": "gdp_nominal_mio_eur",
+      "indicator_id": "gdp_current_eur",
       "date": "2025",
       "frequency": "annual",
       "value": 92975.1,
@@ -8502,7 +8502,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "名义 GDP，当年价格。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
@@ -8531,7 +8531,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "按 GDP 与人口换算。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
@@ -8560,7 +8560,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "链式体量，较上年变化率。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
@@ -8589,7 +8589,7 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年均消费者价格变化率；欧盟国家采用 HICP。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
@@ -8618,19 +8618,19 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "15-74 岁劳动力口径。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
-      "observation_id": "macro:croatia:population_million:2025",
+      "observation_id": "macro:croatia:population:2025",
       "dataset": "macro_time_series",
       "country_slug": "croatia",
       "region_slug": null,
-      "indicator_id": "population_million",
+      "indicator_id": "population",
       "date": "2025",
       "frequency": "annual",
-      "value": 3.87,
-      "unit": "百万人",
+      "value": 3870000,
+      "unit": "人",
       "source_name": "Eurostat demo_pjan / Croatian Bureau of Statistics Database",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?time=2025&geo=HR&sex=T&age=TOTAL&unit=NR",
       "source_links": [
@@ -8647,15 +8647,15 @@
       ],
       "status": "official",
       "source_status": "official",
-      "updated_at": "2026-07-05",
+      "updated_at": "2026-07-17",
       "note": "年初人口，百万人。 数据来源：Eurostat / Croatian Bureau of Statistics"
     },
     {
-      "observation_id": "v4:poland:fiscal_deficit_gdp:2024",
+      "observation_id": "v4:poland:fiscal_balance_gdp:2024",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "date": "2024",
       "frequency": "annual",
       "value": -6.4,
@@ -8747,11 +8747,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:exports_mio_eur:2024",
+      "observation_id": "v4:poland:exports_goods_services:2024",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "date": "2024",
       "frequency": "annual",
       "value": 442878.2,
@@ -8771,11 +8771,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:imports_mio_eur:2024",
+      "observation_id": "v4:poland:imports_goods_services:2024",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "date": "2024",
       "frequency": "annual",
       "value": 409202,
@@ -8795,11 +8795,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:trade_balance_mio_eur:2024",
+      "observation_id": "v4:poland:trade_balance:2024",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "date": "2024",
       "frequency": "annual",
       "value": 33676.2,
@@ -8843,11 +8843,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:fdi_mio_eur:2024",
+      "observation_id": "v4:poland:fdi_inflow:2024",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "date": "2024",
       "frequency": "annual",
       "value": 19004.2,
@@ -8858,13 +8858,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=PL&time=2024",
-          "note": "Eurostat BPM6 口径：Direct investment in the reporting economy (DIRE), liabilities flow；负值表示净减少。"
+          "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-06-09",
-      "note": "Eurostat BPM6 口径：Direct investment in the reporting economy (DIRE), liabilities flow；负值表示净减少。"
+      "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
       "observation_id": "v4:poland:energy_import_dependency:2024",
@@ -8891,15 +8891,15 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:manufacturing_gva_gdp:2024",
+      "observation_id": "v4:poland:manufacturing_share_gdp:2024",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "date": "2024",
       "frequency": "annual",
       "value": 15.4,
-      "unit": "% GDP",
+      "unit": "%",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=PL&time=2024",
       "source_links": [
@@ -8939,11 +8939,11 @@
       "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
-      "observation_id": "v4:hungary:fiscal_deficit_gdp:2024",
+      "observation_id": "v4:hungary:fiscal_balance_gdp:2024",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "date": "2024",
       "frequency": "annual",
       "value": -5.1,
@@ -9035,11 +9035,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:exports_mio_eur:2024",
+      "observation_id": "v4:hungary:exports_goods_services:2024",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "date": "2024",
       "frequency": "annual",
       "value": 157086.7,
@@ -9059,11 +9059,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:imports_mio_eur:2024",
+      "observation_id": "v4:hungary:imports_goods_services:2024",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "date": "2024",
       "frequency": "annual",
       "value": 147873.3,
@@ -9083,11 +9083,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:trade_balance_mio_eur:2024",
+      "observation_id": "v4:hungary:trade_balance:2024",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "date": "2024",
       "frequency": "annual",
       "value": 9213.4,
@@ -9131,11 +9131,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:fdi_mio_eur:2024",
+      "observation_id": "v4:hungary:fdi_inflow:2024",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "date": "2024",
       "frequency": "annual",
       "value": -57492.7,
@@ -9146,13 +9146,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=HU&time=2024",
-          "note": "Eurostat BPM6 口径：Direct investment in the reporting economy (DIRE), liabilities flow；负值表示净减少。"
+          "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-06-09",
-      "note": "Eurostat BPM6 口径：Direct investment in the reporting economy (DIRE), liabilities flow；负值表示净减少。"
+      "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
       "observation_id": "v4:hungary:energy_import_dependency:2024",
@@ -9179,15 +9179,15 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:manufacturing_gva_gdp:2024",
+      "observation_id": "v4:hungary:manufacturing_share_gdp:2024",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "date": "2024",
       "frequency": "annual",
       "value": 15.9,
-      "unit": "% GDP",
+      "unit": "%",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=HU&time=2024",
       "source_links": [
@@ -9227,11 +9227,11 @@
       "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
-      "observation_id": "v4:czechia:fiscal_deficit_gdp:2024",
+      "observation_id": "v4:czechia:fiscal_balance_gdp:2024",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "date": "2024",
       "frequency": "annual",
       "value": -2,
@@ -9323,11 +9323,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:exports_mio_eur:2024",
+      "observation_id": "v4:czechia:exports_goods_services:2024",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "date": "2024",
       "frequency": "annual",
       "value": 220888.9,
@@ -9347,11 +9347,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:imports_mio_eur:2024",
+      "observation_id": "v4:czechia:imports_goods_services:2024",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "date": "2024",
       "frequency": "annual",
       "value": 200838.3,
@@ -9371,11 +9371,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:trade_balance_mio_eur:2024",
+      "observation_id": "v4:czechia:trade_balance:2024",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "date": "2024",
       "frequency": "annual",
       "value": 20050.6,
@@ -9419,11 +9419,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:fdi_mio_eur:2024",
+      "observation_id": "v4:czechia:fdi_inflow:2024",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "date": "2024",
       "frequency": "annual",
       "value": 12311.3,
@@ -9434,13 +9434,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=CZ&time=2024",
-          "note": "Eurostat BPM6 口径：Direct investment in the reporting economy (DIRE), liabilities flow；负值表示净减少。"
+          "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-06-09",
-      "note": "Eurostat BPM6 口径：Direct investment in the reporting economy (DIRE), liabilities flow；负值表示净减少。"
+      "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
       "observation_id": "v4:czechia:energy_import_dependency:2024",
@@ -9467,15 +9467,15 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:manufacturing_gva_gdp:2024",
+      "observation_id": "v4:czechia:manufacturing_share_gdp:2024",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "date": "2024",
       "frequency": "annual",
       "value": 19.9,
-      "unit": "% GDP",
+      "unit": "%",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=CZ&time=2024",
       "source_links": [
@@ -9515,11 +9515,11 @@
       "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
-      "observation_id": "v4:slovakia:fiscal_deficit_gdp:2024",
+      "observation_id": "v4:slovakia:fiscal_balance_gdp:2024",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "date": "2024",
       "frequency": "annual",
       "value": -5.3,
@@ -9611,11 +9611,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:exports_mio_eur:2024",
+      "observation_id": "v4:slovakia:exports_goods_services:2024",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "date": "2024",
       "frequency": "annual",
       "value": 111305.9,
@@ -9635,11 +9635,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:imports_mio_eur:2024",
+      "observation_id": "v4:slovakia:imports_goods_services:2024",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "date": "2024",
       "frequency": "annual",
       "value": 111626,
@@ -9659,11 +9659,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:trade_balance_mio_eur:2024",
+      "observation_id": "v4:slovakia:trade_balance:2024",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "date": "2024",
       "frequency": "annual",
       "value": -320.1,
@@ -9707,11 +9707,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:fdi_mio_eur:2024",
+      "observation_id": "v4:slovakia:fdi_inflow:2024",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "date": "2024",
       "frequency": "annual",
       "value": 4600.1,
@@ -9722,13 +9722,13 @@
         {
           "label": "Eurostat",
           "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/bop_fdi6_flow?freq=A&currency=MIO_EUR&nace_r2=FDI&stk_flow=LIAB&entity=TOTAL&fdi_item=DI__D__F&partner=WRL_REST&geo=SK&time=2024",
-          "note": "Eurostat BPM6 口径：Direct investment in the reporting economy (DIRE), liabilities flow；负值表示净减少。"
+          "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
         }
       ],
       "status": "official",
       "source_status": "official",
       "updated_at": "2026-06-09",
-      "note": "Eurostat BPM6 口径：Direct investment in the reporting economy (DIRE), liabilities flow；负值表示净减少。"
+      "note": "Eurostat BPM6 口径：直接投资负债流入；负值表示净减少。"
     },
     {
       "observation_id": "v4:slovakia:energy_import_dependency:2024",
@@ -9755,15 +9755,15 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:manufacturing_gva_gdp:2024",
+      "observation_id": "v4:slovakia:manufacturing_share_gdp:2024",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "date": "2024",
       "frequency": "annual",
       "value": 16.3,
-      "unit": "% GDP",
+      "unit": "%",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=SK&time=2024",
       "source_links": [
@@ -9803,11 +9803,11 @@
       "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
-      "observation_id": "v4:poland:fiscal_deficit_gdp:2021",
+      "observation_id": "v4:poland:fiscal_balance_gdp:2021",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "date": "2021",
       "frequency": "annual",
       "value": -1.7,
@@ -9899,11 +9899,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:exports_mio_eur:2021",
+      "observation_id": "v4:poland:exports_goods_services:2021",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "date": "2021",
       "frequency": "annual",
       "value": 332532.2,
@@ -9923,11 +9923,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:imports_mio_eur:2021",
+      "observation_id": "v4:poland:imports_goods_services:2021",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "date": "2021",
       "frequency": "annual",
       "value": 313866.4,
@@ -9947,11 +9947,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:trade_balance_mio_eur:2021",
+      "observation_id": "v4:poland:trade_balance:2021",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "date": "2021",
       "frequency": "annual",
       "value": 18665.8,
@@ -9995,11 +9995,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:fdi_mio_eur:2021",
+      "observation_id": "v4:poland:fdi_inflow:2021",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "date": "2021",
       "frequency": "annual",
       "value": 30813.3,
@@ -10043,15 +10043,15 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:manufacturing_gva_gdp:2021",
+      "observation_id": "v4:poland:manufacturing_share_gdp:2021",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "date": "2021",
       "frequency": "annual",
       "value": 17.3,
-      "unit": "% GDP",
+      "unit": "%",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=PL&time=2021",
       "source_links": [
@@ -10091,11 +10091,11 @@
       "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
-      "observation_id": "v4:poland:fiscal_deficit_gdp:2022",
+      "observation_id": "v4:poland:fiscal_balance_gdp:2022",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "date": "2022",
       "frequency": "annual",
       "value": -3.4,
@@ -10187,11 +10187,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:exports_mio_eur:2022",
+      "observation_id": "v4:poland:exports_goods_services:2022",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "date": "2022",
       "frequency": "annual",
       "value": 412594.3,
@@ -10211,11 +10211,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:imports_mio_eur:2022",
+      "observation_id": "v4:poland:imports_goods_services:2022",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "date": "2022",
       "frequency": "annual",
       "value": 401453,
@@ -10235,11 +10235,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:trade_balance_mio_eur:2022",
+      "observation_id": "v4:poland:trade_balance:2022",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "date": "2022",
       "frequency": "annual",
       "value": 11141.3,
@@ -10283,11 +10283,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:fdi_mio_eur:2022",
+      "observation_id": "v4:poland:fdi_inflow:2022",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "date": "2022",
       "frequency": "annual",
       "value": 37532.6,
@@ -10331,15 +10331,15 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:manufacturing_gva_gdp:2022",
+      "observation_id": "v4:poland:manufacturing_share_gdp:2022",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "date": "2022",
       "frequency": "annual",
       "value": 17.7,
-      "unit": "% GDP",
+      "unit": "%",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=PL&time=2022",
       "source_links": [
@@ -10379,11 +10379,11 @@
       "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
-      "observation_id": "v4:poland:fiscal_deficit_gdp:2023",
+      "observation_id": "v4:poland:fiscal_balance_gdp:2023",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "date": "2023",
       "frequency": "annual",
       "value": -5.2,
@@ -10475,11 +10475,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:exports_mio_eur:2023",
+      "observation_id": "v4:poland:exports_goods_services:2023",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "date": "2023",
       "frequency": "annual",
       "value": 435227.7,
@@ -10499,11 +10499,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:imports_mio_eur:2023",
+      "observation_id": "v4:poland:imports_goods_services:2023",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "date": "2023",
       "frequency": "annual",
       "value": 392084.8,
@@ -10523,11 +10523,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:trade_balance_mio_eur:2023",
+      "observation_id": "v4:poland:trade_balance:2023",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "date": "2023",
       "frequency": "annual",
       "value": 43142.9,
@@ -10571,11 +10571,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:fdi_mio_eur:2023",
+      "observation_id": "v4:poland:fdi_inflow:2023",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "date": "2023",
       "frequency": "annual",
       "value": 34037.4,
@@ -10619,15 +10619,15 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:manufacturing_gva_gdp:2023",
+      "observation_id": "v4:poland:manufacturing_share_gdp:2023",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "date": "2023",
       "frequency": "annual",
       "value": 17.5,
-      "unit": "% GDP",
+      "unit": "%",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=PL&time=2023",
       "source_links": [
@@ -10667,11 +10667,11 @@
       "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
-      "observation_id": "v4:poland:fiscal_deficit_gdp:2025",
+      "observation_id": "v4:poland:fiscal_balance_gdp:2025",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "date": "2025",
       "frequency": "annual",
       "value": -7.3,
@@ -10763,11 +10763,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:exports_mio_eur:2025",
+      "observation_id": "v4:poland:exports_goods_services:2025",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "date": "2025",
       "frequency": "annual",
       "value": 461553.9,
@@ -10787,11 +10787,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:imports_mio_eur:2025",
+      "observation_id": "v4:poland:imports_goods_services:2025",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "date": "2025",
       "frequency": "annual",
       "value": 435690.7,
@@ -10811,11 +10811,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:trade_balance_mio_eur:2025",
+      "observation_id": "v4:poland:trade_balance:2025",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "date": "2025",
       "frequency": "annual",
       "value": 25863.2,
@@ -10859,11 +10859,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:poland:fdi_mio_eur:2025",
+      "observation_id": "v4:poland:fdi_inflow:2025",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "date": "2025",
       "frequency": "annual",
       "value": null,
@@ -10907,15 +10907,15 @@
       "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
     },
     {
-      "observation_id": "v4:poland:manufacturing_gva_gdp:2025",
+      "observation_id": "v4:poland:manufacturing_share_gdp:2025",
       "dataset": "v4_extended",
       "country_slug": "poland",
       "region_slug": null,
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "date": "2025",
       "frequency": "annual",
       "value": 14.4,
-      "unit": "% GDP",
+      "unit": "%",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=PL&time=2025",
       "source_links": [
@@ -10955,11 +10955,11 @@
       "note": "导入时 Eurostat ext_tec09 暂未发布该年度数值，保留为待接入。"
     },
     {
-      "observation_id": "v4:hungary:fiscal_deficit_gdp:2021",
+      "observation_id": "v4:hungary:fiscal_balance_gdp:2021",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "date": "2021",
       "frequency": "annual",
       "value": -7.1,
@@ -11051,11 +11051,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:exports_mio_eur:2021",
+      "observation_id": "v4:hungary:exports_goods_services:2021",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "date": "2021",
       "frequency": "annual",
       "value": 123065.3,
@@ -11075,11 +11075,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:imports_mio_eur:2021",
+      "observation_id": "v4:hungary:imports_goods_services:2021",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "date": "2021",
       "frequency": "annual",
       "value": 123630.4,
@@ -11099,11 +11099,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:trade_balance_mio_eur:2021",
+      "observation_id": "v4:hungary:trade_balance:2021",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "date": "2021",
       "frequency": "annual",
       "value": -565.1,
@@ -11147,11 +11147,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:fdi_mio_eur:2021",
+      "observation_id": "v4:hungary:fdi_inflow:2021",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "date": "2021",
       "frequency": "annual",
       "value": 28749.9,
@@ -11195,15 +11195,15 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:manufacturing_gva_gdp:2021",
+      "observation_id": "v4:hungary:manufacturing_share_gdp:2021",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "date": "2021",
       "frequency": "annual",
       "value": 16.5,
-      "unit": "% GDP",
+      "unit": "%",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=HU&time=2021",
       "source_links": [
@@ -11243,11 +11243,11 @@
       "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
-      "observation_id": "v4:hungary:fiscal_deficit_gdp:2022",
+      "observation_id": "v4:hungary:fiscal_balance_gdp:2022",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "date": "2022",
       "frequency": "annual",
       "value": -6.2,
@@ -11339,11 +11339,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:exports_mio_eur:2022",
+      "observation_id": "v4:hungary:exports_goods_services:2022",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "date": "2022",
       "frequency": "annual",
       "value": 151371.5,
@@ -11363,11 +11363,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:imports_mio_eur:2022",
+      "observation_id": "v4:hungary:imports_goods_services:2022",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "date": "2022",
       "frequency": "annual",
       "value": 160388.2,
@@ -11387,11 +11387,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:trade_balance_mio_eur:2022",
+      "observation_id": "v4:hungary:trade_balance:2022",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "date": "2022",
       "frequency": "annual",
       "value": -9016.7,
@@ -11435,11 +11435,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:fdi_mio_eur:2022",
+      "observation_id": "v4:hungary:fdi_inflow:2022",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "date": "2022",
       "frequency": "annual",
       "value": -2940.9,
@@ -11483,15 +11483,15 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:manufacturing_gva_gdp:2022",
+      "observation_id": "v4:hungary:manufacturing_share_gdp:2022",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "date": "2022",
       "frequency": "annual",
       "value": 16.8,
-      "unit": "% GDP",
+      "unit": "%",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=HU&time=2022",
       "source_links": [
@@ -11531,11 +11531,11 @@
       "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
-      "observation_id": "v4:hungary:fiscal_deficit_gdp:2023",
+      "observation_id": "v4:hungary:fiscal_balance_gdp:2023",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "date": "2023",
       "frequency": "annual",
       "value": -7,
@@ -11627,11 +11627,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:exports_mio_eur:2023",
+      "observation_id": "v4:hungary:exports_goods_services:2023",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "date": "2023",
       "frequency": "annual",
       "value": 160320.1,
@@ -11651,11 +11651,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:imports_mio_eur:2023",
+      "observation_id": "v4:hungary:imports_goods_services:2023",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "date": "2023",
       "frequency": "annual",
       "value": 152133.2,
@@ -11675,11 +11675,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:trade_balance_mio_eur:2023",
+      "observation_id": "v4:hungary:trade_balance:2023",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "date": "2023",
       "frequency": "annual",
       "value": 8186.9,
@@ -11723,11 +11723,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:fdi_mio_eur:2023",
+      "observation_id": "v4:hungary:fdi_inflow:2023",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "date": "2023",
       "frequency": "annual",
       "value": -63063.9,
@@ -11771,15 +11771,15 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:manufacturing_gva_gdp:2023",
+      "observation_id": "v4:hungary:manufacturing_share_gdp:2023",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "date": "2023",
       "frequency": "annual",
       "value": 17.2,
-      "unit": "% GDP",
+      "unit": "%",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=HU&time=2023",
       "source_links": [
@@ -11819,11 +11819,11 @@
       "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
-      "observation_id": "v4:hungary:fiscal_deficit_gdp:2025",
+      "observation_id": "v4:hungary:fiscal_balance_gdp:2025",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "date": "2025",
       "frequency": "annual",
       "value": -4.7,
@@ -11915,11 +11915,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:exports_mio_eur:2025",
+      "observation_id": "v4:hungary:exports_goods_services:2025",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "date": "2025",
       "frequency": "annual",
       "value": 158940,
@@ -11939,11 +11939,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:imports_mio_eur:2025",
+      "observation_id": "v4:hungary:imports_goods_services:2025",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "date": "2025",
       "frequency": "annual",
       "value": 149132.8,
@@ -11963,11 +11963,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:trade_balance_mio_eur:2025",
+      "observation_id": "v4:hungary:trade_balance:2025",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "date": "2025",
       "frequency": "annual",
       "value": 9807.2,
@@ -12011,11 +12011,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:hungary:fdi_mio_eur:2025",
+      "observation_id": "v4:hungary:fdi_inflow:2025",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "date": "2025",
       "frequency": "annual",
       "value": null,
@@ -12059,15 +12059,15 @@
       "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
     },
     {
-      "observation_id": "v4:hungary:manufacturing_gva_gdp:2025",
+      "observation_id": "v4:hungary:manufacturing_share_gdp:2025",
       "dataset": "v4_extended",
       "country_slug": "hungary",
       "region_slug": null,
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "date": "2025",
       "frequency": "annual",
       "value": 15.1,
-      "unit": "% GDP",
+      "unit": "%",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=HU&time=2025",
       "source_links": [
@@ -12107,11 +12107,11 @@
       "note": "导入时 Eurostat ext_tec09 暂未发布该年度数值，保留为待接入。"
     },
     {
-      "observation_id": "v4:czechia:fiscal_deficit_gdp:2021",
+      "observation_id": "v4:czechia:fiscal_balance_gdp:2021",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "date": "2021",
       "frequency": "annual",
       "value": -5,
@@ -12203,11 +12203,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:exports_mio_eur:2021",
+      "observation_id": "v4:czechia:exports_goods_services:2021",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "date": "2021",
       "frequency": "annual",
       "value": 173561.8,
@@ -12227,11 +12227,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:imports_mio_eur:2021",
+      "observation_id": "v4:czechia:imports_goods_services:2021",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "date": "2021",
       "frequency": "annual",
       "value": 164405.3,
@@ -12251,11 +12251,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:trade_balance_mio_eur:2021",
+      "observation_id": "v4:czechia:trade_balance:2021",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "date": "2021",
       "frequency": "annual",
       "value": 9156.5,
@@ -12299,11 +12299,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:fdi_mio_eur:2021",
+      "observation_id": "v4:czechia:fdi_inflow:2021",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "date": "2021",
       "frequency": "annual",
       "value": 11082.8,
@@ -12347,15 +12347,15 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:manufacturing_gva_gdp:2021",
+      "observation_id": "v4:czechia:manufacturing_share_gdp:2021",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "date": "2021",
       "frequency": "annual",
       "value": 19.6,
-      "unit": "% GDP",
+      "unit": "%",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=CZ&time=2021",
       "source_links": [
@@ -12395,11 +12395,11 @@
       "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
-      "observation_id": "v4:czechia:fiscal_deficit_gdp:2022",
+      "observation_id": "v4:czechia:fiscal_balance_gdp:2022",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "date": "2022",
       "frequency": "annual",
       "value": -3.1,
@@ -12491,11 +12491,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:exports_mio_eur:2022",
+      "observation_id": "v4:czechia:exports_goods_services:2022",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "date": "2022",
       "frequency": "annual",
       "value": 207798.3,
@@ -12515,11 +12515,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:imports_mio_eur:2022",
+      "observation_id": "v4:czechia:imports_goods_services:2022",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "date": "2022",
       "frequency": "annual",
       "value": 205481.3,
@@ -12539,11 +12539,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:trade_balance_mio_eur:2022",
+      "observation_id": "v4:czechia:trade_balance:2022",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "date": "2022",
       "frequency": "annual",
       "value": 2317,
@@ -12587,11 +12587,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:fdi_mio_eur:2022",
+      "observation_id": "v4:czechia:fdi_inflow:2022",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "date": "2022",
       "frequency": "annual",
       "value": 9053.5,
@@ -12635,15 +12635,15 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:manufacturing_gva_gdp:2022",
+      "observation_id": "v4:czechia:manufacturing_share_gdp:2022",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "date": "2022",
       "frequency": "annual",
       "value": 19.4,
-      "unit": "% GDP",
+      "unit": "%",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=CZ&time=2022",
       "source_links": [
@@ -12683,11 +12683,11 @@
       "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
-      "observation_id": "v4:czechia:fiscal_deficit_gdp:2023",
+      "observation_id": "v4:czechia:fiscal_balance_gdp:2023",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "date": "2023",
       "frequency": "annual",
       "value": -3.7,
@@ -12779,11 +12779,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:exports_mio_eur:2023",
+      "observation_id": "v4:czechia:exports_goods_services:2023",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "date": "2023",
       "frequency": "annual",
       "value": 218273.7,
@@ -12803,11 +12803,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:imports_mio_eur:2023",
+      "observation_id": "v4:czechia:imports_goods_services:2023",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "date": "2023",
       "frequency": "annual",
       "value": 202594.4,
@@ -12827,11 +12827,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:trade_balance_mio_eur:2023",
+      "observation_id": "v4:czechia:trade_balance:2023",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "date": "2023",
       "frequency": "annual",
       "value": 15679.3,
@@ -12875,11 +12875,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:fdi_mio_eur:2023",
+      "observation_id": "v4:czechia:fdi_inflow:2023",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "date": "2023",
       "frequency": "annual",
       "value": null,
@@ -12923,15 +12923,15 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:manufacturing_gva_gdp:2023",
+      "observation_id": "v4:czechia:manufacturing_share_gdp:2023",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "date": "2023",
       "frequency": "annual",
       "value": 20.4,
-      "unit": "% GDP",
+      "unit": "%",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=CZ&time=2023",
       "source_links": [
@@ -12971,11 +12971,11 @@
       "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
-      "observation_id": "v4:czechia:fiscal_deficit_gdp:2025",
+      "observation_id": "v4:czechia:fiscal_balance_gdp:2025",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "date": "2025",
       "frequency": "annual",
       "value": -2.1,
@@ -13067,11 +13067,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:exports_mio_eur:2025",
+      "observation_id": "v4:czechia:exports_goods_services:2025",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "date": "2025",
       "frequency": "annual",
       "value": 232020.6,
@@ -13091,11 +13091,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:imports_mio_eur:2025",
+      "observation_id": "v4:czechia:imports_goods_services:2025",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "date": "2025",
       "frequency": "annual",
       "value": 211742.9,
@@ -13115,11 +13115,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:trade_balance_mio_eur:2025",
+      "observation_id": "v4:czechia:trade_balance:2025",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "date": "2025",
       "frequency": "annual",
       "value": 20277.7,
@@ -13163,11 +13163,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:czechia:fdi_mio_eur:2025",
+      "observation_id": "v4:czechia:fdi_inflow:2025",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "date": "2025",
       "frequency": "annual",
       "value": null,
@@ -13211,15 +13211,15 @@
       "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
     },
     {
-      "observation_id": "v4:czechia:manufacturing_gva_gdp:2025",
+      "observation_id": "v4:czechia:manufacturing_share_gdp:2025",
       "dataset": "v4_extended",
       "country_slug": "czechia",
       "region_slug": null,
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "date": "2025",
       "frequency": "annual",
       "value": 19.4,
-      "unit": "% GDP",
+      "unit": "%",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=CZ&time=2025",
       "source_links": [
@@ -13259,11 +13259,11 @@
       "note": "导入时 Eurostat ext_tec09 暂未发布该年度数值，保留为待接入。"
     },
     {
-      "observation_id": "v4:slovakia:fiscal_deficit_gdp:2021",
+      "observation_id": "v4:slovakia:fiscal_balance_gdp:2021",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "date": "2021",
       "frequency": "annual",
       "value": -5.1,
@@ -13355,11 +13355,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:exports_mio_eur:2021",
+      "observation_id": "v4:slovakia:exports_goods_services:2021",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "date": "2021",
       "frequency": "annual",
       "value": 92478.7,
@@ -13379,11 +13379,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:imports_mio_eur:2021",
+      "observation_id": "v4:slovakia:imports_goods_services:2021",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "date": "2021",
       "frequency": "annual",
       "value": 92943.1,
@@ -13403,11 +13403,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:trade_balance_mio_eur:2021",
+      "observation_id": "v4:slovakia:trade_balance:2021",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "date": "2021",
       "frequency": "annual",
       "value": -464.4,
@@ -13451,11 +13451,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:fdi_mio_eur:2021",
+      "observation_id": "v4:slovakia:fdi_inflow:2021",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "date": "2021",
       "frequency": "annual",
       "value": 2327,
@@ -13499,15 +13499,15 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:manufacturing_gva_gdp:2021",
+      "observation_id": "v4:slovakia:manufacturing_share_gdp:2021",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "date": "2021",
       "frequency": "annual",
       "value": 16.6,
-      "unit": "% GDP",
+      "unit": "%",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=SK&time=2021",
       "source_links": [
@@ -13547,11 +13547,11 @@
       "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
-      "observation_id": "v4:slovakia:fiscal_deficit_gdp:2022",
+      "observation_id": "v4:slovakia:fiscal_balance_gdp:2022",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "date": "2022",
       "frequency": "annual",
       "value": -1.6,
@@ -13643,11 +13643,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:exports_mio_eur:2022",
+      "observation_id": "v4:slovakia:exports_goods_services:2022",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "date": "2022",
       "frequency": "annual",
       "value": 108934.4,
@@ -13667,11 +13667,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:imports_mio_eur:2022",
+      "observation_id": "v4:slovakia:imports_goods_services:2022",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "date": "2022",
       "frequency": "annual",
       "value": 115445.5,
@@ -13691,11 +13691,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:trade_balance_mio_eur:2022",
+      "observation_id": "v4:slovakia:trade_balance:2022",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "date": "2022",
       "frequency": "annual",
       "value": -6511.1,
@@ -13739,11 +13739,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:fdi_mio_eur:2022",
+      "observation_id": "v4:slovakia:fdi_inflow:2022",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "date": "2022",
       "frequency": "annual",
       "value": 4647.3,
@@ -13787,15 +13787,15 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:manufacturing_gva_gdp:2022",
+      "observation_id": "v4:slovakia:manufacturing_share_gdp:2022",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "date": "2022",
       "frequency": "annual",
       "value": 17.4,
-      "unit": "% GDP",
+      "unit": "%",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=SK&time=2022",
       "source_links": [
@@ -13835,11 +13835,11 @@
       "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
-      "observation_id": "v4:slovakia:fiscal_deficit_gdp:2023",
+      "observation_id": "v4:slovakia:fiscal_balance_gdp:2023",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "date": "2023",
       "frequency": "annual",
       "value": -5.3,
@@ -13931,11 +13931,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:exports_mio_eur:2023",
+      "observation_id": "v4:slovakia:exports_goods_services:2023",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "date": "2023",
       "frequency": "annual",
       "value": 113029.9,
@@ -13955,11 +13955,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:imports_mio_eur:2023",
+      "observation_id": "v4:slovakia:imports_goods_services:2023",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "date": "2023",
       "frequency": "annual",
       "value": 111058,
@@ -13979,11 +13979,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:trade_balance_mio_eur:2023",
+      "observation_id": "v4:slovakia:trade_balance:2023",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "date": "2023",
       "frequency": "annual",
       "value": 1971.9,
@@ -14027,11 +14027,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:fdi_mio_eur:2023",
+      "observation_id": "v4:slovakia:fdi_inflow:2023",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "date": "2023",
       "frequency": "annual",
       "value": 439.1,
@@ -14075,15 +14075,15 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:manufacturing_gva_gdp:2023",
+      "observation_id": "v4:slovakia:manufacturing_share_gdp:2023",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "date": "2023",
       "frequency": "annual",
       "value": 16.8,
-      "unit": "% GDP",
+      "unit": "%",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=SK&time=2023",
       "source_links": [
@@ -14123,11 +14123,11 @@
       "note": "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"
     },
     {
-      "observation_id": "v4:slovakia:fiscal_deficit_gdp:2025",
+      "observation_id": "v4:slovakia:fiscal_balance_gdp:2025",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "date": "2025",
       "frequency": "annual",
       "value": -4.5,
@@ -14219,11 +14219,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:exports_mio_eur:2025",
+      "observation_id": "v4:slovakia:exports_goods_services:2025",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "date": "2025",
       "frequency": "annual",
       "value": 116370.6,
@@ -14243,11 +14243,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:imports_mio_eur:2025",
+      "observation_id": "v4:slovakia:imports_goods_services:2025",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "date": "2025",
       "frequency": "annual",
       "value": 116580.1,
@@ -14267,11 +14267,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:trade_balance_mio_eur:2025",
+      "observation_id": "v4:slovakia:trade_balance:2025",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "date": "2025",
       "frequency": "annual",
       "value": -209.5,
@@ -14315,11 +14315,11 @@
       "note": ""
     },
     {
-      "observation_id": "v4:slovakia:fdi_mio_eur:2025",
+      "observation_id": "v4:slovakia:fdi_inflow:2025",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "date": "2025",
       "frequency": "annual",
       "value": null,
@@ -14363,15 +14363,15 @@
       "note": "导入时 Eurostat 序列暂未发布该年度数值，保留为待接入。"
     },
     {
-      "observation_id": "v4:slovakia:manufacturing_gva_gdp:2025",
+      "observation_id": "v4:slovakia:manufacturing_share_gdp:2025",
       "dataset": "v4_extended",
       "country_slug": "slovakia",
       "region_slug": null,
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "date": "2025",
       "frequency": "annual",
       "value": 16.2,
-      "unit": "% GDP",
+      "unit": "%",
       "source_name": "Eurostat",
       "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=SK&time=2025",
       "source_links": [

@@ -93,7 +93,7 @@
       ],
       "by_indicator": [
         {
-          "id": "fiscal_deficit_gdp",
+          "id": "fiscal_balance_gdp",
           "label": "财政赤字/GDP",
           "expectedCells": 20,
           "presentCells": 20,
@@ -157,7 +157,7 @@
           "status": "pass"
         },
         {
-          "id": "exports_mio_eur",
+          "id": "exports_goods_services",
           "label": "出口",
           "expectedCells": 20,
           "presentCells": 20,
@@ -173,7 +173,7 @@
           "status": "pass"
         },
         {
-          "id": "imports_mio_eur",
+          "id": "imports_goods_services",
           "label": "进口",
           "expectedCells": 20,
           "presentCells": 20,
@@ -189,7 +189,7 @@
           "status": "pass"
         },
         {
-          "id": "trade_balance_mio_eur",
+          "id": "trade_balance",
           "label": "贸易差额",
           "expectedCells": 20,
           "presentCells": 20,
@@ -221,7 +221,7 @@
           "status": "pass"
         },
         {
-          "id": "fdi_mio_eur",
+          "id": "fdi_inflow",
           "label": "FDI 流入",
           "expectedCells": 20,
           "presentCells": 20,
@@ -253,7 +253,7 @@
           "status": "warning"
         },
         {
-          "id": "manufacturing_gva_gdp",
+          "id": "manufacturing_share_gdp",
           "label": "制造业占 GDP 比重",
           "expectedCells": 20,
           "presentCells": 20,
@@ -287,9 +287,9 @@
       ]
     },
     {
-      "derived_metric_id": "v4_latest_comparison:fiscal_deficit_gdp",
+      "derived_metric_id": "v4_latest_comparison:fiscal_balance_gdp",
       "scope": "V4",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "indicator_name_zh": "财政赤字/GDP",
       "indicator_name_en": "Government deficit / GDP",
       "category": "fiscal",
@@ -827,11 +827,11 @@
       "model_boundary": "fact_derived_only_not_risk_index"
     },
     {
-      "derived_metric_id": "v4_latest_comparison:exports_mio_eur",
+      "derived_metric_id": "v4_latest_comparison:exports_goods_services",
       "scope": "V4",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "indicator_name_zh": "出口",
-      "indicator_name_en": "Exports",
+      "indicator_name_en": "Exports of goods and services",
       "category": "external",
       "unit": "百万欧元",
       "latest_values": [
@@ -962,11 +962,11 @@
       "model_boundary": "fact_derived_only_not_risk_index"
     },
     {
-      "derived_metric_id": "v4_latest_comparison:imports_mio_eur",
+      "derived_metric_id": "v4_latest_comparison:imports_goods_services",
       "scope": "V4",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "indicator_name_zh": "进口",
-      "indicator_name_en": "Imports",
+      "indicator_name_en": "Imports of goods and services",
       "category": "external",
       "unit": "百万欧元",
       "latest_values": [
@@ -1097,9 +1097,9 @@
       "model_boundary": "fact_derived_only_not_risk_index"
     },
     {
-      "derived_metric_id": "v4_latest_comparison:trade_balance_mio_eur",
+      "derived_metric_id": "v4_latest_comparison:trade_balance",
       "scope": "V4",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "indicator_name_zh": "贸易差额",
       "indicator_name_en": "Trade balance",
       "category": "external",
@@ -1367,9 +1367,9 @@
       "model_boundary": "fact_derived_only_not_risk_index"
     },
     {
-      "derived_metric_id": "v4_latest_comparison:fdi_mio_eur",
+      "derived_metric_id": "v4_latest_comparison:fdi_inflow",
       "scope": "V4",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "indicator_name_zh": "FDI 流入",
       "indicator_name_en": "FDI inflow",
       "category": "investment",
@@ -1637,13 +1637,13 @@
       "model_boundary": "fact_derived_only_not_risk_index"
     },
     {
-      "derived_metric_id": "v4_latest_comparison:manufacturing_gva_gdp",
+      "derived_metric_id": "v4_latest_comparison:manufacturing_share_gdp",
       "scope": "V4",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "indicator_name_zh": "制造业占 GDP 比重",
       "indicator_name_en": "Manufacturing GVA / GDP",
       "category": "industry",
-      "unit": "% GDP",
+      "unit": "%",
       "latest_values": [
         {
           "country_slug": "poland",

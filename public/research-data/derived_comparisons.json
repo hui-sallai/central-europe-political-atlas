@@ -6,9 +6,9 @@
   "model_boundary": "Fact-derived comparison layer only. No risk score, forecast, scenario, or model output.",
   "records": [
     {
-      "derived_comparison_id": "v4_derived_comparison:fiscal_deficit_gdp",
+      "derived_comparison_id": "v4_derived_comparison:fiscal_balance_gdp",
       "category": "fiscal",
-      "indicator_id": "fiscal_deficit_gdp",
+      "indicator_id": "fiscal_balance_gdp",
       "latest_comparable_year": "2025",
       "poland_value": -7.3,
       "hungary_value": -4.7,
@@ -114,9 +114,9 @@
       "note": "派生自 V4 2021-2025 扩展观测值；不输出风险指数。"
     },
     {
-      "derived_comparison_id": "v4_derived_comparison:exports_mio_eur",
+      "derived_comparison_id": "v4_derived_comparison:exports_goods_services",
       "category": "external",
-      "indicator_id": "exports_mio_eur",
+      "indicator_id": "exports_goods_services",
       "latest_comparable_year": "2025",
       "poland_value": 461553.9,
       "hungary_value": 158940,
@@ -141,9 +141,9 @@
       "note": "派生自 V4 2021-2025 扩展观测值；不输出风险指数。"
     },
     {
-      "derived_comparison_id": "v4_derived_comparison:imports_mio_eur",
+      "derived_comparison_id": "v4_derived_comparison:imports_goods_services",
       "category": "external",
-      "indicator_id": "imports_mio_eur",
+      "indicator_id": "imports_goods_services",
       "latest_comparable_year": "2025",
       "poland_value": 435690.7,
       "hungary_value": 149132.8,
@@ -168,9 +168,9 @@
       "note": "派生自 V4 2021-2025 扩展观测值；不输出风险指数。"
     },
     {
-      "derived_comparison_id": "v4_derived_comparison:trade_balance_mio_eur",
+      "derived_comparison_id": "v4_derived_comparison:trade_balance",
       "category": "external",
-      "indicator_id": "trade_balance_mio_eur",
+      "indicator_id": "trade_balance",
       "latest_comparable_year": "2025",
       "poland_value": 25863.2,
       "hungary_value": 9807.2,
@@ -222,9 +222,9 @@
       "note": "派生自 V4 2021-2025 扩展观测值；不输出风险指数。"
     },
     {
-      "derived_comparison_id": "v4_derived_comparison:fdi_mio_eur",
+      "derived_comparison_id": "v4_derived_comparison:fdi_inflow",
       "category": "investment",
-      "indicator_id": "fdi_mio_eur",
+      "indicator_id": "fdi_inflow",
       "latest_comparable_year": "2024",
       "poland_value": 19004.2,
       "hungary_value": -57492.7,
@@ -276,9 +276,9 @@
       "note": "派生自 V4 2021-2025 扩展观测值；不输出风险指数。"
     },
     {
-      "derived_comparison_id": "v4_derived_comparison:manufacturing_gva_gdp",
+      "derived_comparison_id": "v4_derived_comparison:manufacturing_share_gdp",
       "category": "industry",
-      "indicator_id": "manufacturing_gva_gdp",
+      "indicator_id": "manufacturing_share_gdp",
       "latest_comparable_year": "2025",
       "poland_value": 14.4,
       "hungary_value": 15.1,

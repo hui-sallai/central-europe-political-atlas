@@ -146,8 +146,8 @@ const dataEntryShortcuts: DataEntryShortcut[] = [
 
 const tableMetricIds: EconomicMetricId[] = ["population", "gdp", "gdpPerCapita", "growth", "inflation", "unemployment"];
 const economicMetricIndicatorIds: Record<EconomicMetricId, string> = {
-  population: "population_million",
-  gdp: "gdp_nominal_mio_eur",
+  population: "population",
+  gdp: "gdp_current_eur",
   gdpPerCapita: "gdp_per_capita_eur",
   growth: "real_gdp_growth",
   inflation: "hicp_inflation",
@@ -171,7 +171,7 @@ const completeIndicatorDictionaryIds = [
   ...v4TemplateIndicatorIds,
 ];
 
-const computedIndicatorIds = new Set(["trade_balance_mio_eur", "automotive_export_share"]);
+const computedIndicatorIds = new Set(["trade_balance", "automotive_export_share"]);
 
 type SourceDictionaryRecord = {
   sourceId: string;
@@ -2926,54 +2926,7 @@ export function DataCountryExplorer() {
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
                 覆盖 18 个指标：6 个基础宏观指标和 12 个 V4 扩展指标。每个指标均明确来源、覆盖范围、计算属性、派生比较资格和待接入处理规则。
               </p>
-              <div className="mt-5 wide-table-scroll max-w-full">
-                <table className="research-data-table w-full min-w-[3600px] border-separate border-spacing-0 text-left text-sm">
-                  <thead>
-                    <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-                      {["indicator_id", "中文名", "英文名", "指标类别", "所属板块", "单位", "频率", "国家覆盖范围", "年份覆盖范围", "主来源", "备用来源", "来源等级", "原始值", "计算值", "派生值", "进入横向比较", "进入五年变化", "进入均值差距", "进入排名变化", "未来模型候选变量", "数值上升含义", "缺失值处理规则", "待接入处理规则", "更新时间", "备注"].map((header) => (
-                        <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {completeIndicatorDictionaryRows.map((indicator) => {
-                      const isComputed = computedIndicatorIds.has(indicator.indicatorId) || indicator.transform.includes("-");
-                      const isV4Indicator = v4TemplateIndicatorIds.includes(indicator.indicatorId as typeof v4TemplateIndicatorIds[number]);
-                      const sourceLevel = indicator.sourcePriority.some((source) => /Eurostat|统计|央行|IMF|OECD|UNCTAD|World Bank/i.test(source)) ? "A" : "B";
-
-                      return (
-                        <tr key={indicator.indicatorId} className="align-top">
-                          <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono text-xs">{indicator.indicatorId}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{indicator.nameZh}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">{indicator.nameEn}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">{indicatorCategoryLabel(indicator.category)}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">{indicatorCategoryLabel(indicator.category)}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">{indicator.unit}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">{indicator.frequency}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">{isV4Indicator ? "V4 四国" : "十国"}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">2021-2025</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.sourcePriority[0] ?? "待接入"}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.sourcePriority.slice(1).join(" / ") || "待接入"}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">{reliabilityLevelLabel(sourceLevel)}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(!isComputed)}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(isComputed)}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(false)}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.includedInDerivedComparison)}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.includedInDerivedComparison)}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.includedInDerivedComparison)}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.includedInDerivedComparison)}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3">{yesNoLabel(indicator.futureModelEligible)}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.upwardMeaning}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.missingValueTreatment}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">待接入行保留指标单位，数值显示“待接入”，状态与来源状态均显示“待接入”。</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{indicator.updatedAt}</td>
-                          <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.transform}</td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
+              <IndicatorDictionaryTable rows={completeIndicatorDictionaryRows} />
             </div>
 
             <div className="card p-6">

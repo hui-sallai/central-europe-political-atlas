@@ -43,13 +43,37 @@ const { getV4DataQualitySummary, v4QualityCountrySlugs } = require("../src/lib/v
 const { verifyChinaProject, chinaProjectVerificationLabel } = require("../src/lib/chinaProjectVerification.ts");
 
 const economicIndicatorIdByMetric = {
-  population: "population_million",
-  gdp: "gdp_nominal_mio_eur",
+  population: "population",
+  gdp: "gdp_current_eur",
   gdpPerCapita: "gdp_per_capita_eur",
   growth: "real_gdp_growth",
   inflation: "hicp_inflation",
   unemployment: "unemployment_rate",
 };
+
+const categoryLabels = {
+  macro: "基础宏观",
+  fiscal: "财政",
+  external: "外部经济",
+  investment: "投资",
+  energy: "能源",
+  industry: "产业",
+};
+
+const computedIndicatorIds = new Set(["trade_balance", "automotive_export_share"]);
+const v4ExtendedIndicatorIds = new Set(v4TemplateIndicatorIds);
+
+function sourceReliabilityLevel(indicator) {
+  return indicator.sourcePriority.some((source) => /Eurostat|统计|央行|IMF|OECD|UNCTAD|World Bank|欧盟/i.test(source)) ? "A" : "B";
+}
+
+function countryCoverage(indicator) {
+  return v4ExtendedIndicatorIds.has(indicator.indicatorId) ? "V4 四国" : "十国";
+}
+
+function yearCoverage(indicator) {
+  return v4ExtendedIndicatorIds.has(indicator.indicatorId) ? "2021-2025" : "2021-2025";
+}
 
 function envelope(dataType, records, extra = {}) {
   return {
@@ -99,7 +123,8 @@ function economicObservationRecords() {
     rows.flatMap((row) =>
       economicMetricOptions.map((metric) => {
         const indicatorId = economicIndicatorIdByMetric[metric.id];
-        const value = row[metric.id];
+        const rawValue = row[metric.id];
+        const value = metric.id === "population" && rawValue !== null ? rawValue * 1_000_000 : rawValue;
         const indicator = indicatorDictionaryRecords.find((item) => item.indicatorId === indicatorId);
         const sourceLinks = getEconomicMetricSourceLinks(countrySlug, metric.id, row.year, value);
 
@@ -112,7 +137,7 @@ function economicObservationRecords() {
           date: row.year,
           frequency: "annual",
           value,
-          unit: metric.unit,
+          unit: indicator?.unit ?? metric.unit,
           source_name: sourceLinks.map((item) => item.label).join(" / ") || row.source,
           source_url: sourceLinks[0]?.url ?? "",
           source_links: sourceLinks,
@@ -357,23 +382,38 @@ function methodologyRuleRecords() {
 }
 
 const countryRecords = countryMetadataRecords;
-const indicatorRecords = indicatorDictionaryRecords.map((indicator) => ({
-  indicator_id: indicator.indicatorId,
-  name_zh: indicator.nameZh,
-  name_en: indicator.nameEn,
-  category: indicator.category,
-  unit: indicator.unit,
-  frequency: indicator.frequency,
-  source_priority: indicator.sourcePriority,
-  included_in_derived_comparison: indicator.includedInDerivedComparison,
-  future_model_eligible: indicator.futureModelEligible,
-  model_use: indicator.modelUse,
-  direction_meaning: indicator.directionMeaning,
-  upward_meaning: indicator.upwardMeaning,
-  missing_value_treatment: indicator.missingValueTreatment,
-  transform: indicator.transform,
-  updated_at: indicator.updatedAt,
-}));
+const indicatorRecords = indicatorDictionaryRecords.map((indicator) => {
+  const isComputed = computedIndicatorIds.has(indicator.indicatorId);
+  const entersV4Comparisons = indicator.includedInDerivedComparison;
+
+  return {
+    indicator_id: indicator.indicatorId,
+    name_zh: indicator.nameZh,
+    name_en: indicator.nameEn,
+    indicator_category: indicator.category,
+    section: categoryLabels[indicator.category] ?? indicator.category,
+    unit: indicator.unit,
+    frequency: indicator.frequency,
+    country_coverage: countryCoverage(indicator),
+    year_coverage: yearCoverage(indicator),
+    primary_source: indicator.sourcePriority[0] ?? "待接入",
+    backup_source: indicator.sourcePriority.slice(1).join(" / ") || "待接入",
+    source_reliability_level: sourceReliabilityLevel(indicator),
+    is_raw_value: !isComputed,
+    is_computed_value: isComputed,
+    is_derived_value: false,
+    included_in_cross_country_comparison: entersV4Comparisons,
+    included_in_five_year_change: entersV4Comparisons,
+    included_in_mean_gap: entersV4Comparisons,
+    included_in_rank_change: entersV4Comparisons,
+    future_model_candidate: indicator.futureModelEligible,
+    upward_meaning: indicator.upwardMeaning,
+    missing_value_treatment: indicator.missingValueTreatment,
+    pending_value_treatment: "待接入行保留指标单位，数值显示待接入，状态与来源状态均显示待接入。",
+    updated_at: indicator.updatedAt,
+    note: `转换方式：${indicator.transform}；当前仅作为研究数据结构字段，不代表模型已启用。`,
+  };
+});
 const observationRecords = [...economicObservationRecords(), ...extendedObservationRecords()];
 const sourceRecords = sourceDictionaryRecords;
 const chinaProjectExportRecords = chinaProjectRecords.map((project) => {

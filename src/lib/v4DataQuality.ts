@@ -42,7 +42,7 @@ export type V4QualityGroupSummary = V4QualitySummary & {
   label: string;
 };
 
-const computedIndicatorIds = new Set(["trade_balance_mio_eur", "automotive_export_share"]);
+const computedIndicatorIds = new Set(["trade_balance", "automotive_export_share"]);
 
 function hasValidSourceUrl(value: string | undefined) {
   if (!value) {
