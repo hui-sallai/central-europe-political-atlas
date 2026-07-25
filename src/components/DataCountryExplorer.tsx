@@ -37,8 +37,6 @@ import { indicatorDictionaryRecords, type IndicatorCategory } from "@/lib/indica
 import { sourceDictionaryRows, type SourceDictionaryRecord } from "@/lib/sourceDictionary";
 import { getV4DataQualitySummary, type V4QualityStatus } from "@/lib/v4DataQuality";
 import { chinaProjectVerificationLabel, verifyChinaProject, type ChinaProjectVerificationConclusion } from "@/lib/chinaProjectVerification";
-import observationsData from "../../public/research-data/observations.json";
-import dataQualityChecksData from "../../public/research-data/data_quality_checks.json";
 import derivedComparisonsData from "../../public/research-data/derived_comparisons.json";
 
 type DataMode = "economy" | "charts" | "comparison" | "tables";
@@ -65,6 +63,12 @@ type DataEntryShortcut = {
   mode: DataMode;
   description: string;
   requiresV4?: boolean;
+};
+type DeferredDetailsProps = {
+  id: string;
+  title: string;
+  children: ReactNode;
+  initiallyOpen?: boolean;
 };
 type V4DerivedRow = {
   indicatorId: string;
@@ -133,9 +137,140 @@ type CategoryResearchSummary = {
 };
 type IndicatorDictionaryRecord = (typeof indicatorDictionaryRecords)[number];
 type V4DataQualitySummary = ReturnType<typeof getV4DataQualitySummary>;
-type StandardObservationRecord = (typeof observationsData.records)[number];
-type DataQualityCheckRecord = (typeof dataQualityChecksData.records)[number];
 type DerivedComparisonRecord = (typeof derivedComparisonsData.records)[number];
+type ResearchDataResponse<T> = {
+  record_count?: number;
+  records: T[];
+};
+type StandardObservationRecord = {
+  observation_id: string;
+  country_id: string;
+  indicator_id: string;
+  year: string;
+  period_type: string;
+  period: string;
+  value: number | null;
+  unit: string;
+  value_status: string;
+  source_id: string;
+  source_name: string;
+  source_url: string;
+  source_reliability: string;
+  source_status: string;
+  last_updated: string;
+  is_official_data: boolean;
+  is_pending: boolean;
+  is_calculated: boolean;
+  is_manual: boolean;
+  is_structural_sample: boolean;
+  is_in_cross_country_comparison: boolean;
+  is_in_five_year_change: boolean;
+  is_in_mean_gap: boolean;
+  is_in_ranking_change: boolean;
+  missing_reason: string;
+  calculation_method: string;
+  notes: string;
+};
+type DataQualityCheckRecord = {
+  check_id: string;
+  observation_id: string;
+  country_id: string;
+  indicator_id: string;
+  year: string;
+  value_present: boolean;
+  unit_present: boolean;
+  source_name_present: boolean;
+  source_url_present: boolean;
+  source_reliability_present: boolean;
+  status_present: boolean;
+  last_updated_present: boolean;
+  is_official_data: boolean;
+  is_pending: boolean;
+  is_calculated: boolean;
+  is_manual: boolean;
+  is_cross_country_comparable: boolean;
+  is_time_series_comparable: boolean;
+  is_methodologically_consistent: boolean;
+  is_ready_for_export: boolean;
+  is_ready_for_derived_comparison: boolean;
+  is_ready_for_future_model_candidate: boolean;
+  missing_reason: string;
+  quality_status: string;
+  quality_notes: string;
+};
+
+function useResearchDataRecords<T>(fileName: string) {
+  const [records, setRecords] = useState<T[] | null>(null);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+    setRecords(null);
+    setError(null);
+    fetch(`${basePath}/research-data/${fileName}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+        return response.json() as Promise<ResearchDataResponse<T>>;
+      })
+      .then((payload) => {
+        if (!cancelled) {
+          setRecords(payload.records);
+        }
+      })
+      .catch((fetchError: unknown) => {
+        if (!cancelled) {
+          setError(fetchError instanceof Error ? fetchError.message : "Unknown error");
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [fileName]);
+
+  return { records, error, isLoading: records === null && error === null };
+}
+
+function DeferredTableState({ label }: { label: string }) {
+  return (
+    <p className="mt-4 rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--muted)]">
+      {label}
+    </p>
+  );
+}
+
+function DeferredDetails({ id, title, children, initiallyOpen = false }: DeferredDetailsProps) {
+  const [hasOpened, setHasOpened] = useState(initiallyOpen);
+  const [isOpen, setIsOpen] = useState(initiallyOpen);
+
+  return (
+    <details
+      id={id}
+      className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-4"
+      open={isOpen}
+      onToggle={(event) => {
+        const nextOpen = event.currentTarget.open;
+        setIsOpen(nextOpen);
+        if (nextOpen) {
+          setHasOpened(true);
+        }
+      }}
+    >
+      <summary className="cursor-pointer text-lg font-semibold">{title}</summary>
+      {hasOpened ? (
+        children
+      ) : (
+        <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+          该表体已保留为研究数据入口；点击展开后加载完整字段，减少数据页初始渲染负担。
+        </p>
+      )}
+    </details>
+  );
+}
 
 const dataModes: { id: DataMode; label: string; description: string }[] = [
   { id: "economy", label: "经济数据", description: "近五年宏观经济表、官方统计主源与对华经贸样本。" },
@@ -808,6 +943,25 @@ function StandardObservationTable({ records }: { records: StandardObservationRec
   );
 }
 
+function StandardObservationTableLoader() {
+  const { records, isLoading, error } = useResearchDataRecords<StandardObservationRecord>("observations.json");
+
+  if (isLoading) {
+    return <DeferredTableState label="正在加载 observations.json；该重表不再进入数据页首屏渲染。" />;
+  }
+
+  if (error || !records) {
+    return <DeferredTableState label={`observations.json 加载失败：${error ?? "未知错误"}`} />;
+  }
+
+  return (
+    <>
+      <p className="mt-4 text-xs leading-5 text-[var(--muted)]">已加载 {records.length} 条 observations 观测值。</p>
+      <StandardObservationTable records={records} />
+    </>
+  );
+}
+
 function EconomicSourceNoteCell({
   links,
   status,
@@ -1375,8 +1529,11 @@ function SourceDictionaryTable({ rows }: { rows: SourceDictionaryRecord[] }) {
 }
 
 function V4QualityDetailTable({ countryNameBySlug }: { v4Quality: V4DataQualitySummary; countryNameBySlug: Map<string, string> }) {
-  const records = dataQualityChecksData.records as DataQualityCheckRecord[];
-  const observationById = useMemo(() => new Map(observationsData.records.map((observation) => [observation.observation_id, observation])), []);
+  const qualityQuery = useResearchDataRecords<DataQualityCheckRecord>("data_quality_checks.json");
+  const observationQuery = useResearchDataRecords<StandardObservationRecord>("observations.json");
+  const records = qualityQuery.records ?? [];
+  const observationRecords = observationQuery.records ?? [];
+  const observationById = useMemo(() => new Map(observationRecords.map((observation) => [observation.observation_id, observation])), [observationRecords]);
   const [filters, setFilters] = useState<QualityFilterState>({
     country: "all",
     indicator: "all",
@@ -1461,6 +1618,14 @@ function V4QualityDetailTable({ countryNameBySlug }: { v4Quality: V4DataQualityS
     ["yes", "是"],
     ["no", "否"],
   ] as const;
+
+  if (qualityQuery.isLoading || observationQuery.isLoading) {
+    return <DeferredTableState label="正在加载 data_quality_checks.json 和 observations.json；质量验收表不再进入数据页首屏渲染。" />;
+  }
+
+  if (qualityQuery.error || observationQuery.error) {
+    return <DeferredTableState label={`数据质量验收加载失败：${qualityQuery.error ?? observationQuery.error ?? "未知错误"}`} />;
+  }
 
   return (
     <div className="mt-4">
@@ -2195,44 +2360,39 @@ export function DataCountryExplorer() {
                 以下九个逻辑数据层常驻在数据页；它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。
               </p>
             </div>
-            <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">完整展开</span>
+            <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">按需展开</span>
           </div>
 
           <div className="mt-5 grid gap-5">
-            <details id="countries-layer-entry" className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-4" open>
-              <summary className="cursor-pointer text-lg font-semibold">countries：十国国家元数据表</summary>
+            <DeferredDetails id="countries-layer-entry" title="countries：十国国家元数据表">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
                 countries 是所有 observations、china_projects、derived_comparisons 和 china_exposure_candidates 的 country_id 关联表。政治人物字段未逐条官方核验前保留“待核验”。
               </p>
               <CountryMetadataTable />
-            </details>
+            </DeferredDetails>
 
-            <details id="indicator-dictionary-entry" className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-4" open>
-              <summary className="cursor-pointer text-lg font-semibold">指标字典入口：18 个指标完整表体</summary>
+            <DeferredDetails id="indicator-dictionary-entry" title="指标字典入口：18 个指标完整表体">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
                 覆盖 6 个基础宏观指标和 12 个 V4 扩展指标；每个指标均展开为完整字段。
               </p>
               <IndicatorDictionaryTable rows={completeIndicatorDictionaryRows} />
-            </details>
+            </DeferredDetails>
 
-            <details id="source-dictionary-entry" className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-4" open>
-              <summary className="cursor-pointer text-lg font-semibold">来源字典入口：16 类来源完整表体</summary>
+            <DeferredDetails id="source-dictionary-entry" title="来源字典入口：16 类来源完整表体">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
                 覆盖 Eurostat、各国统计局、央行、国际组织、欧盟机构、政府部门、新闻来源、企业公告、人工整理来源和结构样例来源等。
               </p>
               <SourceDictionaryTable rows={sourceDictionaryRows} />
-            </details>
+            </DeferredDetails>
 
-            <details id="v4-data-quality-entry" className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-4" open>
-              <summary className="cursor-pointer text-lg font-semibold">数据质量验收入口：240 个 V4 观测位置验收结构</summary>
+            <DeferredDetails id="v4-data-quality-entry" title="数据质量验收入口：240 个 V4 观测位置验收结构">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
                 验收范围为 V4 四国 × 12 个扩展指标 × 2021-2025 年，共 240 个观测位置；每行均分列数值、单位、状态、来源、来源等级、更新时间和派生资格。
               </p>
               <V4QualityDetailTable v4Quality={v4Quality} countryNameBySlug={countryNameBySlug} />
-            </details>
+            </DeferredDetails>
 
-            <details id="v4-derived-comparison-entry" className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-4" open>
-              <summary className="cursor-pointer text-lg font-semibold">派生比较表入口：五个板块事实派生表</summary>
+            <DeferredDetails id="v4-derived-comparison-entry" title="派生比较表入口：五个板块事实派生表">
               <h3 className="mt-4 text-xl font-semibold">派生比较表</h3>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
                 按财政、外部经济、投资、能源和产业五个板块展开。每行固定展示最高值、最低值、V4 均值、均值差距、五年变化和排名变化；只做事实位置比较，不输出风险判断。
@@ -2256,16 +2416,15 @@ export function DataCountryExplorer() {
                   );
                 })}
               </div>
-            </details>
+            </DeferredDetails>
 
-            <details id="data-export-entry" className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-4" open>
-              <summary className="cursor-pointer text-lg font-semibold">数据导出与接口准备</summary>
+            <DeferredDetails id="data-export-entry" title="数据导出与接口准备">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
                 CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.8 stable，不提供模型 API。
                 当前导出对象包括 countries、indicators、sources、observations、data_quality_checks、derived_comparisons、china_projects、china_exposure_candidates 和 methodology_rules。
               </p>
               <ResearchDataExportLinks />
-            </details>
+            </DeferredDetails>
           </div>
         </section>
 
@@ -3035,9 +3194,9 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Observation Table</p>
               <h2 className="mt-3 text-2xl font-semibold">观测值表</h2>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                标准 observations 表覆盖 10 国 × 6 个基础宏观指标 × 2021–2025，以及 V4 四国 × 12 个扩展指标 × 2021–2025，共 {observationsData.records.length} 条年度观测值。
+                标准 observations 表覆盖 10 国 × 6 个基础宏观指标 × 2021–2025，以及 V4 四国 × 12 个扩展指标 × 2021–2025，共 540 条年度观测值。完整表体按需从导出文件加载。
               </p>
-              <StandardObservationTable records={observationsData.records} />
+              <StandardObservationTableLoader />
             </div>
 
             <div className="card p-6">
