@@ -328,6 +328,7 @@ export function getCountryMetadata(countryId: string) {
 
 export const researchDataLayerFiles = [
   { id: "countries", label: "countries", description: "十国国家元数据表，作为所有观测值、项目和派生比较的 country_id 关联表。" },
+  { id: "regions", label: "regions", description: "v0.9 区域元数据表；V4 优先建立 ADM1 稳定主键，非 V4 暂保留国家级待接入。" },
   { id: "indicators", label: "indicators", description: "18 个指标的口径、单位、频率、来源优先级和派生资格。" },
   { id: "sources", label: "sources", description: "来源字典与 A/B/C/D 可靠性等级。" },
   { id: "observations", label: "observations", description: "十国基础宏观观测值和 V4 扩展观测值。" },

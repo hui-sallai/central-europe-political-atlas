@@ -1,8 +1,8 @@
 {
   "schema_version": "research-data-v0.1",
-  "generated_at": "2026-07-17",
+  "generated_at": "2026-07-25",
   "data_type": "research_data_layers",
-  "record_count": 9,
+  "record_count": 10,
   "records": [
     {
       "id": "countries",
@@ -10,6 +10,13 @@
       "description": "十国国家元数据表，作为所有观测值、项目和派生比较的 country_id 关联表。",
       "json_file": "countries.json",
       "csv_file": "countries.csv"
+    },
+    {
+      "id": "regions",
+      "label": "regions",
+      "description": "v0.9 区域元数据表；V4 优先建立 ADM1 稳定主键，非 V4 暂保留国家级待接入。",
+      "json_file": "regions.json",
+      "csv_file": "regions.csv"
     },
     {
       "id": "indicators",

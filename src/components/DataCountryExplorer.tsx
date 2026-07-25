@@ -6,6 +6,7 @@ import { useEffect, useMemo, useState } from "react";
 import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
 import { countries } from "@/lib/data";
 import { countryMetadataRecords, researchDataLayerFiles } from "@/lib/countryMetadata";
+import { regionMetadataRecords } from "@/lib/regions";
 import { getEconomicSourcePolicy } from "@/lib/economicSourcePolicy";
 import {
   extendedIndicatorLabels,
@@ -135,6 +136,7 @@ type CategoryResearchSummary = {
   meanGap: string;
   dataGap: string;
 };
+type RegionMetadataRecord = (typeof regionMetadataRecords)[number];
 type IndicatorDictionaryRecord = (typeof indicatorDictionaryRecords)[number];
 type V4DataQualitySummary = ReturnType<typeof getV4DataQualitySummary>;
 type DerivedComparisonRecord = (typeof derivedComparisonsData.records)[number];
@@ -280,11 +282,12 @@ const dataModes: { id: DataMode; label: string; description: string }[] = [
 ];
 const dataEntryShortcuts: DataEntryShortcut[] = [
   { id: "countries-layer-entry", label: "国家元数据表", mode: "tables", description: "十国 countries 逻辑层，作为 country_id 关联表。" },
+  { id: "regions-layer-entry", label: "区域元数据表", mode: "tables", description: "v0.9 regions 区域主键层；V4 ADM1 优先，非 V4 国家级待接入。" },
   { id: "indicator-dictionary-entry", label: "指标字典入口", mode: "tables", description: "18 个指标的口径、单位、来源优先级和比较资格。" },
   { id: "source-dictionary-entry", label: "来源字典入口", mode: "tables", description: "16 类来源的链接、可靠性等级和使用边界。" },
   { id: "v4-data-quality-entry", label: "数据质量验收入口", mode: "comparison", description: "V4 四国 240 个观测位置的验收清单。", requiresV4: true },
   { id: "v4-derived-comparison-entry", label: "派生比较表入口", mode: "comparison", description: "最高值、最低值、V4 均值和事实派生比较。", requiresV4: true },
-  { id: "data-export-entry", label: "数据导出与接口准备", mode: "tables", description: "9 个逻辑数据层的 CSV / JSON 结构预留；当前不提供模型 API。" },
+  { id: "data-export-entry", label: "数据导出与接口准备", mode: "tables", description: "10 个逻辑数据层的 CSV / JSON 结构预留；当前不提供模型 API。" },
 ];
 
 const tableMetricIds: EconomicMetricId[] = ["population", "gdp", "gdpPerCapita", "growth", "inflation", "unemployment"];
@@ -1373,12 +1376,75 @@ function CountryMetadataTable() {
   );
 }
 
+function RegionMetadataTable({ rows }: { rows: RegionMetadataRecord[] }) {
+  const headers = [
+    "region_id",
+    "country_id",
+    "region_name_zh",
+    "region_name_en",
+    "region_name_local",
+    "admin_level",
+    "admin_code",
+    "parent_region_id",
+    "capital_or_main_city",
+    "region_type",
+    "is_v4_region",
+    "is_boundary_available",
+    "is_statistical_data_available",
+    "is_election_data_available",
+    "is_china_project_mapped",
+    "data_status",
+    "source_status",
+    "last_updated",
+    "notes",
+  ];
+
+  return (
+    <div className="mt-5 wide-table-scroll max-w-full">
+      <table className="research-data-table region-metadata-table w-full min-w-[3200px] border-separate border-spacing-0 text-left text-sm">
+        <thead>
+          <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+            {headers.map((header) => (
+              <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((region) => (
+            <tr key={region.region_id} className="align-top">
+              <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono text-xs">{region.region_id}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{region.country_id}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{region.region_name_zh}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{region.region_name_en}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{region.region_name_local}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{region.admin_level}</DictionaryToken></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{region.admin_code}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{region.parent_region_id || "—"}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{region.capital_or_main_city}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{region.region_type}</td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={region.is_v4_region} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={region.is_boundary_available} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={region.is_statistical_data_available} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={region.is_election_data_available} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={region.is_china_project_mapped} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{region.data_status}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{region.source_status}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{region.last_updated}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{region.notes}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 function ResearchDataExportLinks() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const exportStatusCards = [
-    { label: "CSV 导出结构", value: "已预留", note: "9 个逻辑数据层均生成 .csv 文件。" },
-    { label: "JSON 导出结构", value: "已预留", note: "9 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: "v0.8 stable", note: "不提供模型 API，不输出预测、指数或风险分数。" },
+    { label: "CSV 导出结构", value: "已预留", note: "10 个逻辑数据层均生成 .csv 文件。" },
+    { label: "JSON 导出结构", value: "已预留", note: "10 个逻辑数据层均生成 .json 文件。" },
+    { label: "当前阶段", value: "v0.9 beta", note: "regions 区域主键层准备中；不提供模型 API，不输出预测、指数或风险分数。" },
   ];
 
   return (
@@ -2357,7 +2423,7 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Research Registry Tables</p>
               <h2 className="mt-3 text-2xl font-semibold">研究数据结构总表</h2>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                以下九个逻辑数据层常驻在数据页；它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。
+                以下十个逻辑数据层常驻在数据页；它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。其中 regions 是 v0.9 区域主键层，先服务后续地图边界、区域统计和项目坐标接入。
               </p>
             </div>
             <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">按需展开</span>
@@ -2366,9 +2432,16 @@ export function DataCountryExplorer() {
           <div className="mt-5 grid gap-5">
             <DeferredDetails id="countries-layer-entry" title="countries：十国国家元数据表">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                countries 是所有 observations、china_projects、derived_comparisons 和 china_exposure_candidates 的 country_id 关联表。政治人物字段未逐条官方核验前保留“待核验”。
+                countries 是所有 regions、observations、china_projects、derived_comparisons 和 china_exposure_candidates 的 country_id 关联表。政治人物字段未逐条官方核验前保留“待核验”。
               </p>
               <CountryMetadataTable />
+            </DeferredDetails>
+
+            <DeferredDetails id="regions-layer-entry" title="regions：v0.9 区域元数据表">
+              <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+                regions 是地图层的稳定区域主键表。v0.9 第一版只建立 V4 四国 ADM1 区域元数据；非 V4 六国暂时保留国家级待接入占位。当前不建立 ADM2，不接入真实边界、区域经济、区域选举或区域预测图层。
+              </p>
+              <RegionMetadataTable rows={regionMetadataRecords} />
             </DeferredDetails>
 
             <DeferredDetails id="indicator-dictionary-entry" title="指标字典入口：18 个指标完整表体">
@@ -2420,8 +2493,8 @@ export function DataCountryExplorer() {
 
             <DeferredDetails id="data-export-entry" title="数据导出与接口准备">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.8 stable，不提供模型 API。
-                当前导出对象包括 countries、indicators、sources、observations、data_quality_checks、derived_comparisons、china_projects、china_exposure_candidates 和 methodology_rules。
+                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.9 beta / regions 区域主键层准备，不提供模型 API。
+                当前导出对象包括 countries、regions、indicators、sources、observations、data_quality_checks、derived_comparisons、china_projects、china_exposure_candidates 和 methodology_rules。
               </p>
               <ResearchDataExportLinks />
             </DeferredDetails>
