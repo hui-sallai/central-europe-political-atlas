@@ -222,7 +222,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
               { label: "区域统计数据状态", value: "待接入" },
               { label: "区域项目定位状态", value: "准备中" },
               { label: "地图图层注册状态", value: "已预留" },
-              { label: "是否进入 v0.9 区域准备", value: "是" },
+              { label: "是否进入 v0.9 第一批", value: "是" },
               { label: "是否进入真实地图展示", value: "否" },
               { label: "备注", value: "完整区域表保留在数据页；国家页只显示状态摘要。" },
             ].map((item) => (
