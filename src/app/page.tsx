@@ -7,7 +7,7 @@ export default function Home() {
       <section className="home-first-screen">
         <div className="mb-2 flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <p className="eyebrow">V4 Prototype / Research Atlas</p>
+            <p className="eyebrow">V4 Prototype / Research Atlas / v0.9 regional data preparation</p>
             <h1 className="mt-1 max-w-4xl text-3xl font-semibold leading-tight tracking-[-0.04em] text-[var(--foreground)]">
               中欧政治经济地图
             </h1>

@@ -2033,7 +2033,7 @@ function ResearchDataExportLinks() {
   const exportStatusCards = [
     { label: "CSV 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .csv 文件。" },
     { label: "JSON 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: "v0.9 beta", note: "区域主键、边界、指标、观测值、质量验收、来源字典、项目地区定位与地图图层注册准备中；不提供模型 API，不输出预测、指数或风险分数。" },
+    { label: "当前阶段", value: "v0.9 regional data preparation", note: "区域主键、边界、指标、观测值、质量验收、来源字典、项目地区定位与地图图层注册准备中；不提供模型 API，不输出预测、指数或风险分数。" },
   ];
 
   return (
@@ -3161,7 +3161,7 @@ export function DataCountryExplorer() {
 
             <DeferredDetails id="data-export-entry" title="数据导出与接口准备">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.9 beta / regions、region_boundaries、region_indicators、region_observations、region_quality_checks、region_sources、project_locations 与 map_layers 区域层准备，不提供模型 API。
+                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.9 regional data preparation / regions、region_boundaries、region_indicators、region_observations、region_quality_checks、region_sources、project_locations 与 map_layers 区域层准备，不提供模型 API。
                 当前导出对象包括 countries、regions、region_boundaries、region_indicators、region_observations、region_quality_checks、region_sources、project_locations、map_layers、indicators、sources、observations、data_quality_checks、derived_comparisons、china_projects、china_exposure_candidates 和 methodology_rules。
               </p>
               <ResearchDataExportLinks />
