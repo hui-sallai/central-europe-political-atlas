@@ -2,7 +2,7 @@
   "schema_version": "research-data-v0.1",
   "generated_at": "2026-07-26",
   "data_type": "research_data_layers",
-  "record_count": 13,
+  "record_count": 14,
   "records": [
     {
       "id": "countries",
@@ -38,6 +38,13 @@
       "description": "v0.9 区域观测值表；V4 ADM1 × 5 个第一批区域指标先保留待接入观测位置。",
       "json_file": "region_observations.json",
       "csv_file": "region_observations.csv"
+    },
+    {
+      "id": "region_sources",
+      "label": "region_sources",
+      "description": "v0.9 区域来源字典；单独管理区域统计、边界、选举、项目坐标来源和许可状态。",
+      "json_file": "region_sources.json",
+      "csv_file": "region_sources.csv"
     },
     {
       "id": "indicators",
