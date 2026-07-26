@@ -212,6 +212,36 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
         )}
       </section>
 
+      <section className="mt-4 card p-6">
+        <p className="eyebrow">v0.9 Regional Data</p>
+        <h2 className="mt-3 text-2xl font-semibold">区域数据准备状态</h2>
+        {isV4Country ? (
+          <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            {[
+              { label: "ADM1 / NUTS2 边界状态", value: "待接入" },
+              { label: "区域统计数据状态", value: "待接入" },
+              { label: "区域项目定位状态", value: "准备中" },
+              { label: "地图图层注册状态", value: "已预留" },
+              { label: "是否进入 v0.9 区域准备", value: "是" },
+              { label: "是否进入真实地图展示", value: "否" },
+              { label: "备注", value: "完整区域表保留在数据页；国家页只显示状态摘要。" },
+            ].map((item) => (
+              <article key={item.label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+                <p className="text-xs font-semibold text-[var(--muted)]">{item.label}</p>
+                <p className="mt-2 text-sm font-semibold leading-6 text-[var(--foreground)]">{item.value}</p>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+            <DataStatusBadge status="pending" />
+            <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
+              该国暂不进入 v0.9 第一批区域地图数据准备。
+            </p>
+          </div>
+        )}
+      </section>
+
       <div className="card p-3">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
           <div className="px-2">
