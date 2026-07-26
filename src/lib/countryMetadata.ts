@@ -335,6 +335,7 @@ export const researchDataLayerFiles = [
   { id: "region_quality_checks", label: "region_quality_checks", description: "v0.9 区域数据质量验收表；检查边界、许可、来源、区域代码、数值和地图图层准备状态。" },
   { id: "region_sources", label: "region_sources", description: "v0.9 区域来源字典；单独管理区域统计、边界、选举、项目坐标来源和许可状态。" },
   { id: "project_locations", label: "project_locations", description: "v0.9 对华项目地区定位表；把 china_projects 映射到 regions，保留定位精度、来源和地图准备状态。" },
+  { id: "map_layers", label: "map_layers", description: "v0.9 地图图层注册表；只注册边界、区域指标和对华项目定位图层，不提前显示真实图层。" },
   { id: "indicators", label: "indicators", description: "18 个指标的口径、单位、频率、来源优先级和派生资格。" },
   { id: "sources", label: "sources", description: "来源字典与 A/B/C/D 可靠性等级。" },
   { id: "observations", label: "observations", description: "十国基础宏观观测值和 V4 扩展观测值。" },

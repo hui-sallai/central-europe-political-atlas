@@ -2,7 +2,7 @@
   "schema_version": "research-data-v0.1",
   "generated_at": "2026-07-26",
   "data_type": "research_data_layers",
-  "record_count": 16,
+  "record_count": 17,
   "records": [
     {
       "id": "countries",
@@ -59,6 +59,13 @@
       "description": "v0.9 对华项目地区定位表；把 china_projects 映射到 regions，保留定位精度、来源和地图准备状态。",
       "json_file": "project_locations.json",
       "csv_file": "project_locations.csv"
+    },
+    {
+      "id": "map_layers",
+      "label": "map_layers",
+      "description": "v0.9 地图图层注册表；只注册边界、区域指标和对华项目定位图层，不提前显示真实图层。",
+      "json_file": "map_layers.json",
+      "csv_file": "map_layers.csv"
     },
     {
       "id": "indicators",
