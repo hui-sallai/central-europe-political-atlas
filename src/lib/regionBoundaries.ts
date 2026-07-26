@@ -35,7 +35,7 @@ export type RegionBoundaryRecord = {
   notes: string;
 };
 
-const lastChecked = "2026-07-26";
+const lastChecked = "2026-07-27";
 const giscoSourceUrl = "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html";
 const giscoHungarySandboxSourceUrl =
   "https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2024_4326_LEVL_3.geojson";
@@ -65,14 +65,15 @@ const hungaryPilotBoundary: RegionBoundaryRecord = {
   display_status: "not_ready_for_display",
   geometry_available: true,
   geometry_simplified: false,
-  topology_checked: false,
+  topology_checked: true,
   coordinate_system: "EPSG:4326",
   file_path_or_url: hungarySandboxFileUrl,
   region_code_match_status: "sandbox_pre_matched_20_of_20_pending_verification",
   source_reliability: "A",
   source_status: "官方来源",
   last_checked: lastChecked,
-  notes: "v0.11 Hungary boundary file sandbox；已锁定并离线过滤 NUTS_RG_01M_2024_4326_LEVL_3.geojson，状态为 sandbox_downloaded / sandbox_filtered / not_ready_for_display。20 个 NUTS code 已预匹配，许可、拓扑和最终主键验收尚未通过。",
+  notes:
+    "v0.12 sandbox validation and topology QA；20 个要素已完成基础几何与异常穿越检查，但该结果不替代权威拓扑验收。状态继续为 sandbox_downloaded / sandbox_filtered / not_ready_for_display；20 个 NUTS code 仅为预匹配，许可和最终主键验收尚未通过。",
 };
 
 function v4Boundary(region: (typeof regionMetadataRecords)[number]): RegionBoundaryRecord {

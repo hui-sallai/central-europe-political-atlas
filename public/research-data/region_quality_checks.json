@@ -1,9 +1,9 @@
 {
   "schema_version": "research-data-v0.1",
-  "generated_at": "2026-07-26",
+  "generated_at": "2026-07-27",
   "data_type": "region_quality_checks",
   "record_count": 291,
-  "scope": "v0.11 regional data quality checks. Hungary NUTS3 sandbox checks include download, HU filtering, CRS, licence, topology, final region_id matching, and display readiness.",
+  "scope": "v0.12 regional data quality checks. Hungary NUTS3 sandbox QA covers file counts, NUTS codes, CRS, geometry, basic topology, final region_id matching, and display readiness.",
   "primary_key": "region_check_id",
   "summary": {
     "total_region_count": 64,
@@ -18,8 +18,22 @@
     "source_c_count": 0,
     "source_d_count": 296
   },
+  "sandbox_qa_summary": {
+    "source_file": "NUTS_RG_01M_2024_4326_LEVL_3.geojson",
+    "filtered_file": "public/data/boundaries/sandbox/hu_nuts3_gisco_2024.geojson",
+    "validation_file": "public/data/boundaries/sandbox/hu_nuts3_gisco_2024.validation.json",
+    "feature_count": 20,
+    "expected_feature_count": 20,
+    "nuts_code_count": 20,
+    "geometry_present_count": 20,
+    "crs_confirmed": true,
+    "topology_checked": true,
+    "topology_status": "sandbox_basic_topology_passed_pending_authoritative_validation",
+    "region_id_matched": false,
+    "ready_for_display": false
+  },
   "relation_note": "Every check references region_id from regions and region_indicator_id from region_indicators. Boundary readiness is cross-checked through region_boundaries.",
-  "validation_note": "Pending rows remain explicit. A missing value is not converted to zero, and a boundary source does not mean geometry is available.",
+  "validation_note": "Basic topology QA does not replace authoritative validation. A 20/20 pre-match does not set region_id_matched=true, and pending rows remain explicit.",
   "model_boundary": "Quality checks only. No regional model, risk layer, forecast, election prediction, or live boundary rendering is generated.",
   "records": [
     {
@@ -28,7 +42,7 @@
       "country_id": "hungary",
       "admin_level": "NUTS3",
       "region_indicator_id": "regional_boundary_status",
-      "year": "2026-07-26",
+      "year": "2026-07-27",
       "boundary_available": true,
       "boundary_source_available": true,
       "boundary_license_checked": false,
@@ -39,7 +53,7 @@
       "hungary_filtered": true,
       "geometry_filtered": true,
       "crs_confirmed": true,
-      "topology_checked": false,
+      "topology_checked": true,
       "region_id_matched": false,
       "ready_for_display": false,
       "value_present": false,
@@ -57,9 +71,9 @@
       "is_region_comparable": false,
       "is_export_ready": true,
       "quality_status": "需复核",
-      "missing_reason": "许可确认、拓扑检查和 region_id / NUTS code 最终核验尚未完成。",
-      "quality_notes": "v0.11 Hungary NUTS3 boundary file sandbox 专项验收；文件已下载并过滤为 20 个 HU NUTS3 要素，仅供离线解析和主键预匹配，不代表真实地图展示已启用。",
-      "last_updated": "2026-07-26"
+      "missing_reason": "许可确认、权威拓扑验收和 region_id / NUTS code 最终核验尚未完成。",
+      "quality_notes": "v0.12 Hungary NUTS3 sandbox validation and topology QA；20 个要素已完成坐标、环闭合、退化环、自相交和区域间异常穿越基础检查。基础 QA 不替代权威拓扑验收，20 / 20 预匹配不等于 region_id_matched=true。",
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lower_silesian_regional_population_2025_quality_check",
@@ -98,7 +112,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lower_silesian_regional_gdp_2025_quality_check",
@@ -137,7 +151,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lower_silesian_regional_gdp_per_capita_2025_quality_check",
@@ -176,7 +190,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lower_silesian_regional_unemployment_rate_2025_quality_check",
@@ -215,7 +229,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lower_silesian_regional_manufacturing_share_2025_quality_check",
@@ -254,7 +268,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_kuyavian_pomeranian_regional_population_2025_quality_check",
@@ -293,7 +307,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_kuyavian_pomeranian_regional_gdp_2025_quality_check",
@@ -332,7 +346,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_kuyavian_pomeranian_regional_gdp_per_capita_2025_quality_check",
@@ -371,7 +385,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_kuyavian_pomeranian_regional_unemployment_rate_2025_quality_check",
@@ -410,7 +424,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_kuyavian_pomeranian_regional_manufacturing_share_2025_quality_check",
@@ -449,7 +463,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lublin_regional_population_2025_quality_check",
@@ -488,7 +502,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lublin_regional_gdp_2025_quality_check",
@@ -527,7 +541,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lublin_regional_gdp_per_capita_2025_quality_check",
@@ -566,7 +580,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lublin_regional_unemployment_rate_2025_quality_check",
@@ -605,7 +619,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lublin_regional_manufacturing_share_2025_quality_check",
@@ -644,7 +658,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lubusz_regional_population_2025_quality_check",
@@ -683,7 +697,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lubusz_regional_gdp_2025_quality_check",
@@ -722,7 +736,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lubusz_regional_gdp_per_capita_2025_quality_check",
@@ -761,7 +775,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lubusz_regional_unemployment_rate_2025_quality_check",
@@ -800,7 +814,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lubusz_regional_manufacturing_share_2025_quality_check",
@@ -839,7 +853,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lodz_regional_population_2025_quality_check",
@@ -878,7 +892,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lodz_regional_gdp_2025_quality_check",
@@ -917,7 +931,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lodz_regional_gdp_per_capita_2025_quality_check",
@@ -956,7 +970,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lodz_regional_unemployment_rate_2025_quality_check",
@@ -995,7 +1009,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lodz_regional_manufacturing_share_2025_quality_check",
@@ -1034,7 +1048,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lesser_poland_regional_population_2025_quality_check",
@@ -1073,7 +1087,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lesser_poland_regional_gdp_2025_quality_check",
@@ -1112,7 +1126,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lesser_poland_regional_gdp_per_capita_2025_quality_check",
@@ -1151,7 +1165,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lesser_poland_regional_unemployment_rate_2025_quality_check",
@@ -1190,7 +1204,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_lesser_poland_regional_manufacturing_share_2025_quality_check",
@@ -1229,7 +1243,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_masovian_regional_population_2025_quality_check",
@@ -1268,7 +1282,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_masovian_regional_gdp_2025_quality_check",
@@ -1307,7 +1321,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_masovian_regional_gdp_per_capita_2025_quality_check",
@@ -1346,7 +1360,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_masovian_regional_unemployment_rate_2025_quality_check",
@@ -1385,7 +1399,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_masovian_regional_manufacturing_share_2025_quality_check",
@@ -1424,7 +1438,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_opole_regional_population_2025_quality_check",
@@ -1463,7 +1477,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_opole_regional_gdp_2025_quality_check",
@@ -1502,7 +1516,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_opole_regional_gdp_per_capita_2025_quality_check",
@@ -1541,7 +1555,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_opole_regional_unemployment_rate_2025_quality_check",
@@ -1580,7 +1594,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_opole_regional_manufacturing_share_2025_quality_check",
@@ -1619,7 +1633,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_subcarpathian_regional_population_2025_quality_check",
@@ -1658,7 +1672,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_subcarpathian_regional_gdp_2025_quality_check",
@@ -1697,7 +1711,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_subcarpathian_regional_gdp_per_capita_2025_quality_check",
@@ -1736,7 +1750,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_subcarpathian_regional_unemployment_rate_2025_quality_check",
@@ -1775,7 +1789,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_subcarpathian_regional_manufacturing_share_2025_quality_check",
@@ -1814,7 +1828,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_podlaskie_regional_population_2025_quality_check",
@@ -1853,7 +1867,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_podlaskie_regional_gdp_2025_quality_check",
@@ -1892,7 +1906,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_podlaskie_regional_gdp_per_capita_2025_quality_check",
@@ -1931,7 +1945,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_podlaskie_regional_unemployment_rate_2025_quality_check",
@@ -1970,7 +1984,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_podlaskie_regional_manufacturing_share_2025_quality_check",
@@ -2009,7 +2023,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_pomeranian_regional_population_2025_quality_check",
@@ -2048,7 +2062,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_pomeranian_regional_gdp_2025_quality_check",
@@ -2087,7 +2101,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_pomeranian_regional_gdp_per_capita_2025_quality_check",
@@ -2126,7 +2140,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_pomeranian_regional_unemployment_rate_2025_quality_check",
@@ -2165,7 +2179,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_pomeranian_regional_manufacturing_share_2025_quality_check",
@@ -2204,7 +2218,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_silesian_regional_population_2025_quality_check",
@@ -2243,7 +2257,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_silesian_regional_gdp_2025_quality_check",
@@ -2282,7 +2296,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_silesian_regional_gdp_per_capita_2025_quality_check",
@@ -2321,7 +2335,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_silesian_regional_unemployment_rate_2025_quality_check",
@@ -2360,7 +2374,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_silesian_regional_manufacturing_share_2025_quality_check",
@@ -2399,7 +2413,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_swietokrzyskie_regional_population_2025_quality_check",
@@ -2438,7 +2452,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_swietokrzyskie_regional_gdp_2025_quality_check",
@@ -2477,7 +2491,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_swietokrzyskie_regional_gdp_per_capita_2025_quality_check",
@@ -2516,7 +2530,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_swietokrzyskie_regional_unemployment_rate_2025_quality_check",
@@ -2555,7 +2569,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_swietokrzyskie_regional_manufacturing_share_2025_quality_check",
@@ -2594,7 +2608,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_warmian_masurian_regional_population_2025_quality_check",
@@ -2633,7 +2647,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_warmian_masurian_regional_gdp_2025_quality_check",
@@ -2672,7 +2686,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_warmian_masurian_regional_gdp_per_capita_2025_quality_check",
@@ -2711,7 +2725,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_warmian_masurian_regional_unemployment_rate_2025_quality_check",
@@ -2750,7 +2764,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_warmian_masurian_regional_manufacturing_share_2025_quality_check",
@@ -2789,7 +2803,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_greater_poland_regional_population_2025_quality_check",
@@ -2828,7 +2842,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_greater_poland_regional_gdp_2025_quality_check",
@@ -2867,7 +2881,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_greater_poland_regional_gdp_per_capita_2025_quality_check",
@@ -2906,7 +2920,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_greater_poland_regional_unemployment_rate_2025_quality_check",
@@ -2945,7 +2959,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_greater_poland_regional_manufacturing_share_2025_quality_check",
@@ -2984,7 +2998,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_west_pomeranian_regional_population_2025_quality_check",
@@ -3023,7 +3037,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_west_pomeranian_regional_gdp_2025_quality_check",
@@ -3062,7 +3076,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_west_pomeranian_regional_gdp_per_capita_2025_quality_check",
@@ -3101,7 +3115,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_west_pomeranian_regional_unemployment_rate_2025_quality_check",
@@ -3140,7 +3154,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "poland_west_pomeranian_regional_manufacturing_share_2025_quality_check",
@@ -3179,7 +3193,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_budapest_regional_population_2025_quality_check",
@@ -3218,7 +3232,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_budapest_regional_gdp_2025_quality_check",
@@ -3257,7 +3271,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_budapest_regional_gdp_per_capita_2025_quality_check",
@@ -3296,7 +3310,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_budapest_regional_unemployment_rate_2025_quality_check",
@@ -3335,7 +3349,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_budapest_regional_manufacturing_share_2025_quality_check",
@@ -3374,7 +3388,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_bacs_kiskun_regional_population_2025_quality_check",
@@ -3413,7 +3427,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_bacs_kiskun_regional_gdp_2025_quality_check",
@@ -3452,7 +3466,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_bacs_kiskun_regional_gdp_per_capita_2025_quality_check",
@@ -3491,7 +3505,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_bacs_kiskun_regional_unemployment_rate_2025_quality_check",
@@ -3530,7 +3544,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_bacs_kiskun_regional_manufacturing_share_2025_quality_check",
@@ -3569,7 +3583,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_baranya_regional_population_2025_quality_check",
@@ -3608,7 +3622,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_baranya_regional_gdp_2025_quality_check",
@@ -3647,7 +3661,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_baranya_regional_gdp_per_capita_2025_quality_check",
@@ -3686,7 +3700,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_baranya_regional_unemployment_rate_2025_quality_check",
@@ -3725,7 +3739,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_baranya_regional_manufacturing_share_2025_quality_check",
@@ -3764,7 +3778,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_bekes_regional_population_2025_quality_check",
@@ -3803,7 +3817,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_bekes_regional_gdp_2025_quality_check",
@@ -3842,7 +3856,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_bekes_regional_gdp_per_capita_2025_quality_check",
@@ -3881,7 +3895,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_bekes_regional_unemployment_rate_2025_quality_check",
@@ -3920,7 +3934,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_bekes_regional_manufacturing_share_2025_quality_check",
@@ -3959,7 +3973,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_borsod_abauj_zemplen_regional_population_2025_quality_check",
@@ -3998,7 +4012,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_borsod_abauj_zemplen_regional_gdp_2025_quality_check",
@@ -4037,7 +4051,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_borsod_abauj_zemplen_regional_gdp_per_capita_2025_quality_check",
@@ -4076,7 +4090,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_borsod_abauj_zemplen_regional_unemployment_rate_2025_quality_check",
@@ -4115,7 +4129,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_borsod_abauj_zemplen_regional_manufacturing_share_2025_quality_check",
@@ -4154,7 +4168,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_csongrad_csanad_regional_population_2025_quality_check",
@@ -4193,7 +4207,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_csongrad_csanad_regional_gdp_2025_quality_check",
@@ -4232,7 +4246,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_csongrad_csanad_regional_gdp_per_capita_2025_quality_check",
@@ -4271,7 +4285,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_csongrad_csanad_regional_unemployment_rate_2025_quality_check",
@@ -4310,7 +4324,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_csongrad_csanad_regional_manufacturing_share_2025_quality_check",
@@ -4349,7 +4363,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_fejer_regional_population_2025_quality_check",
@@ -4388,7 +4402,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_fejer_regional_gdp_2025_quality_check",
@@ -4427,7 +4441,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_fejer_regional_gdp_per_capita_2025_quality_check",
@@ -4466,7 +4480,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_fejer_regional_unemployment_rate_2025_quality_check",
@@ -4505,7 +4519,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_fejer_regional_manufacturing_share_2025_quality_check",
@@ -4544,7 +4558,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_gyor_moson_sopron_regional_population_2025_quality_check",
@@ -4583,7 +4597,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_gyor_moson_sopron_regional_gdp_2025_quality_check",
@@ -4622,7 +4636,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_gyor_moson_sopron_regional_gdp_per_capita_2025_quality_check",
@@ -4661,7 +4675,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_gyor_moson_sopron_regional_unemployment_rate_2025_quality_check",
@@ -4700,7 +4714,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_gyor_moson_sopron_regional_manufacturing_share_2025_quality_check",
@@ -4739,7 +4753,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_hajdu_bihar_regional_population_2025_quality_check",
@@ -4778,7 +4792,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_hajdu_bihar_regional_gdp_2025_quality_check",
@@ -4817,7 +4831,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_hajdu_bihar_regional_gdp_per_capita_2025_quality_check",
@@ -4856,7 +4870,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_hajdu_bihar_regional_unemployment_rate_2025_quality_check",
@@ -4895,7 +4909,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_hajdu_bihar_regional_manufacturing_share_2025_quality_check",
@@ -4934,7 +4948,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_heves_regional_population_2025_quality_check",
@@ -4973,7 +4987,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_heves_regional_gdp_2025_quality_check",
@@ -5012,7 +5026,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_heves_regional_gdp_per_capita_2025_quality_check",
@@ -5051,7 +5065,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_heves_regional_unemployment_rate_2025_quality_check",
@@ -5090,7 +5104,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_heves_regional_manufacturing_share_2025_quality_check",
@@ -5129,7 +5143,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_jasz_nagykun_szolnok_regional_population_2025_quality_check",
@@ -5168,7 +5182,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_jasz_nagykun_szolnok_regional_gdp_2025_quality_check",
@@ -5207,7 +5221,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_jasz_nagykun_szolnok_regional_gdp_per_capita_2025_quality_check",
@@ -5246,7 +5260,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_jasz_nagykun_szolnok_regional_unemployment_rate_2025_quality_check",
@@ -5285,7 +5299,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_jasz_nagykun_szolnok_regional_manufacturing_share_2025_quality_check",
@@ -5324,7 +5338,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_komarom_esztergom_regional_population_2025_quality_check",
@@ -5363,7 +5377,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_komarom_esztergom_regional_gdp_2025_quality_check",
@@ -5402,7 +5416,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_komarom_esztergom_regional_gdp_per_capita_2025_quality_check",
@@ -5441,7 +5455,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_komarom_esztergom_regional_unemployment_rate_2025_quality_check",
@@ -5480,7 +5494,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_komarom_esztergom_regional_manufacturing_share_2025_quality_check",
@@ -5519,7 +5533,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_nograd_regional_population_2025_quality_check",
@@ -5558,7 +5572,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_nograd_regional_gdp_2025_quality_check",
@@ -5597,7 +5611,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_nograd_regional_gdp_per_capita_2025_quality_check",
@@ -5636,7 +5650,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_nograd_regional_unemployment_rate_2025_quality_check",
@@ -5675,7 +5689,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_nograd_regional_manufacturing_share_2025_quality_check",
@@ -5714,7 +5728,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_pest_regional_population_2025_quality_check",
@@ -5753,7 +5767,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_pest_regional_gdp_2025_quality_check",
@@ -5792,7 +5806,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_pest_regional_gdp_per_capita_2025_quality_check",
@@ -5831,7 +5845,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_pest_regional_unemployment_rate_2025_quality_check",
@@ -5870,7 +5884,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_pest_regional_manufacturing_share_2025_quality_check",
@@ -5909,7 +5923,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_somogy_regional_population_2025_quality_check",
@@ -5948,7 +5962,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_somogy_regional_gdp_2025_quality_check",
@@ -5987,7 +6001,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_somogy_regional_gdp_per_capita_2025_quality_check",
@@ -6026,7 +6040,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_somogy_regional_unemployment_rate_2025_quality_check",
@@ -6065,7 +6079,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_somogy_regional_manufacturing_share_2025_quality_check",
@@ -6104,7 +6118,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_szabolcs_szatmar_bereg_regional_population_2025_quality_check",
@@ -6143,7 +6157,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_szabolcs_szatmar_bereg_regional_gdp_2025_quality_check",
@@ -6182,7 +6196,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_szabolcs_szatmar_bereg_regional_gdp_per_capita_2025_quality_check",
@@ -6221,7 +6235,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_szabolcs_szatmar_bereg_regional_unemployment_rate_2025_quality_check",
@@ -6260,7 +6274,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_szabolcs_szatmar_bereg_regional_manufacturing_share_2025_quality_check",
@@ -6299,7 +6313,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_tolna_regional_population_2025_quality_check",
@@ -6338,7 +6352,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_tolna_regional_gdp_2025_quality_check",
@@ -6377,7 +6391,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_tolna_regional_gdp_per_capita_2025_quality_check",
@@ -6416,7 +6430,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_tolna_regional_unemployment_rate_2025_quality_check",
@@ -6455,7 +6469,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_tolna_regional_manufacturing_share_2025_quality_check",
@@ -6494,7 +6508,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_vas_regional_population_2025_quality_check",
@@ -6533,7 +6547,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_vas_regional_gdp_2025_quality_check",
@@ -6572,7 +6586,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_vas_regional_gdp_per_capita_2025_quality_check",
@@ -6611,7 +6625,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_vas_regional_unemployment_rate_2025_quality_check",
@@ -6650,7 +6664,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_vas_regional_manufacturing_share_2025_quality_check",
@@ -6689,7 +6703,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_veszprem_regional_population_2025_quality_check",
@@ -6728,7 +6742,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_veszprem_regional_gdp_2025_quality_check",
@@ -6767,7 +6781,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_veszprem_regional_gdp_per_capita_2025_quality_check",
@@ -6806,7 +6820,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_veszprem_regional_unemployment_rate_2025_quality_check",
@@ -6845,7 +6859,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_veszprem_regional_manufacturing_share_2025_quality_check",
@@ -6884,7 +6898,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_zala_regional_population_2025_quality_check",
@@ -6923,7 +6937,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_zala_regional_gdp_2025_quality_check",
@@ -6962,7 +6976,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_zala_regional_gdp_per_capita_2025_quality_check",
@@ -7001,7 +7015,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_zala_regional_unemployment_rate_2025_quality_check",
@@ -7040,7 +7054,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "hungary_zala_regional_manufacturing_share_2025_quality_check",
@@ -7079,7 +7093,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_prague_regional_population_2025_quality_check",
@@ -7118,7 +7132,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_prague_regional_gdp_2025_quality_check",
@@ -7157,7 +7171,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_prague_regional_gdp_per_capita_2025_quality_check",
@@ -7196,7 +7210,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_prague_regional_unemployment_rate_2025_quality_check",
@@ -7235,7 +7249,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_prague_regional_manufacturing_share_2025_quality_check",
@@ -7274,7 +7288,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_central_bohemian_regional_population_2025_quality_check",
@@ -7313,7 +7327,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_central_bohemian_regional_gdp_2025_quality_check",
@@ -7352,7 +7366,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_central_bohemian_regional_gdp_per_capita_2025_quality_check",
@@ -7391,7 +7405,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_central_bohemian_regional_unemployment_rate_2025_quality_check",
@@ -7430,7 +7444,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_central_bohemian_regional_manufacturing_share_2025_quality_check",
@@ -7469,7 +7483,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_south_bohemian_regional_population_2025_quality_check",
@@ -7508,7 +7522,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_south_bohemian_regional_gdp_2025_quality_check",
@@ -7547,7 +7561,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_south_bohemian_regional_gdp_per_capita_2025_quality_check",
@@ -7586,7 +7600,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_south_bohemian_regional_unemployment_rate_2025_quality_check",
@@ -7625,7 +7639,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_south_bohemian_regional_manufacturing_share_2025_quality_check",
@@ -7664,7 +7678,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_plzen_regional_population_2025_quality_check",
@@ -7703,7 +7717,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_plzen_regional_gdp_2025_quality_check",
@@ -7742,7 +7756,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_plzen_regional_gdp_per_capita_2025_quality_check",
@@ -7781,7 +7795,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_plzen_regional_unemployment_rate_2025_quality_check",
@@ -7820,7 +7834,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_plzen_regional_manufacturing_share_2025_quality_check",
@@ -7859,7 +7873,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_karlovy_vary_regional_population_2025_quality_check",
@@ -7898,7 +7912,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_karlovy_vary_regional_gdp_2025_quality_check",
@@ -7937,7 +7951,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_karlovy_vary_regional_gdp_per_capita_2025_quality_check",
@@ -7976,7 +7990,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_karlovy_vary_regional_unemployment_rate_2025_quality_check",
@@ -8015,7 +8029,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_karlovy_vary_regional_manufacturing_share_2025_quality_check",
@@ -8054,7 +8068,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_usti_regional_population_2025_quality_check",
@@ -8093,7 +8107,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_usti_regional_gdp_2025_quality_check",
@@ -8132,7 +8146,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_usti_regional_gdp_per_capita_2025_quality_check",
@@ -8171,7 +8185,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_usti_regional_unemployment_rate_2025_quality_check",
@@ -8210,7 +8224,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_usti_regional_manufacturing_share_2025_quality_check",
@@ -8249,7 +8263,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_liberec_regional_population_2025_quality_check",
@@ -8288,7 +8302,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_liberec_regional_gdp_2025_quality_check",
@@ -8327,7 +8341,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_liberec_regional_gdp_per_capita_2025_quality_check",
@@ -8366,7 +8380,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_liberec_regional_unemployment_rate_2025_quality_check",
@@ -8405,7 +8419,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_liberec_regional_manufacturing_share_2025_quality_check",
@@ -8444,7 +8458,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_hradec_kralove_regional_population_2025_quality_check",
@@ -8483,7 +8497,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_hradec_kralove_regional_gdp_2025_quality_check",
@@ -8522,7 +8536,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_hradec_kralove_regional_gdp_per_capita_2025_quality_check",
@@ -8561,7 +8575,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_hradec_kralove_regional_unemployment_rate_2025_quality_check",
@@ -8600,7 +8614,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_hradec_kralove_regional_manufacturing_share_2025_quality_check",
@@ -8639,7 +8653,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_pardubice_regional_population_2025_quality_check",
@@ -8678,7 +8692,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_pardubice_regional_gdp_2025_quality_check",
@@ -8717,7 +8731,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_pardubice_regional_gdp_per_capita_2025_quality_check",
@@ -8756,7 +8770,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_pardubice_regional_unemployment_rate_2025_quality_check",
@@ -8795,7 +8809,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_pardubice_regional_manufacturing_share_2025_quality_check",
@@ -8834,7 +8848,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_vysocina_regional_population_2025_quality_check",
@@ -8873,7 +8887,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_vysocina_regional_gdp_2025_quality_check",
@@ -8912,7 +8926,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_vysocina_regional_gdp_per_capita_2025_quality_check",
@@ -8951,7 +8965,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_vysocina_regional_unemployment_rate_2025_quality_check",
@@ -8990,7 +9004,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_vysocina_regional_manufacturing_share_2025_quality_check",
@@ -9029,7 +9043,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_south_moravian_regional_population_2025_quality_check",
@@ -9068,7 +9082,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_south_moravian_regional_gdp_2025_quality_check",
@@ -9107,7 +9121,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_south_moravian_regional_gdp_per_capita_2025_quality_check",
@@ -9146,7 +9160,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_south_moravian_regional_unemployment_rate_2025_quality_check",
@@ -9185,7 +9199,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_south_moravian_regional_manufacturing_share_2025_quality_check",
@@ -9224,7 +9238,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_olomouc_regional_population_2025_quality_check",
@@ -9263,7 +9277,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_olomouc_regional_gdp_2025_quality_check",
@@ -9302,7 +9316,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_olomouc_regional_gdp_per_capita_2025_quality_check",
@@ -9341,7 +9355,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_olomouc_regional_unemployment_rate_2025_quality_check",
@@ -9380,7 +9394,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_olomouc_regional_manufacturing_share_2025_quality_check",
@@ -9419,7 +9433,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_zlin_regional_population_2025_quality_check",
@@ -9458,7 +9472,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_zlin_regional_gdp_2025_quality_check",
@@ -9497,7 +9511,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_zlin_regional_gdp_per_capita_2025_quality_check",
@@ -9536,7 +9550,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_zlin_regional_unemployment_rate_2025_quality_check",
@@ -9575,7 +9589,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_zlin_regional_manufacturing_share_2025_quality_check",
@@ -9614,7 +9628,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_moravian_silesian_regional_population_2025_quality_check",
@@ -9653,7 +9667,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_moravian_silesian_regional_gdp_2025_quality_check",
@@ -9692,7 +9706,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_moravian_silesian_regional_gdp_per_capita_2025_quality_check",
@@ -9731,7 +9745,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_moravian_silesian_regional_unemployment_rate_2025_quality_check",
@@ -9770,7 +9784,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "czechia_moravian_silesian_regional_manufacturing_share_2025_quality_check",
@@ -9809,7 +9823,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_bratislava_regional_population_2025_quality_check",
@@ -9848,7 +9862,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_bratislava_regional_gdp_2025_quality_check",
@@ -9887,7 +9901,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_bratislava_regional_gdp_per_capita_2025_quality_check",
@@ -9926,7 +9940,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_bratislava_regional_unemployment_rate_2025_quality_check",
@@ -9965,7 +9979,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_bratislava_regional_manufacturing_share_2025_quality_check",
@@ -10004,7 +10018,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_trnava_regional_population_2025_quality_check",
@@ -10043,7 +10057,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_trnava_regional_gdp_2025_quality_check",
@@ -10082,7 +10096,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_trnava_regional_gdp_per_capita_2025_quality_check",
@@ -10121,7 +10135,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_trnava_regional_unemployment_rate_2025_quality_check",
@@ -10160,7 +10174,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_trnava_regional_manufacturing_share_2025_quality_check",
@@ -10199,7 +10213,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_trencin_regional_population_2025_quality_check",
@@ -10238,7 +10252,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_trencin_regional_gdp_2025_quality_check",
@@ -10277,7 +10291,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_trencin_regional_gdp_per_capita_2025_quality_check",
@@ -10316,7 +10330,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_trencin_regional_unemployment_rate_2025_quality_check",
@@ -10355,7 +10369,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_trencin_regional_manufacturing_share_2025_quality_check",
@@ -10394,7 +10408,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_nitra_regional_population_2025_quality_check",
@@ -10433,7 +10447,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_nitra_regional_gdp_2025_quality_check",
@@ -10472,7 +10486,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_nitra_regional_gdp_per_capita_2025_quality_check",
@@ -10511,7 +10525,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_nitra_regional_unemployment_rate_2025_quality_check",
@@ -10550,7 +10564,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_nitra_regional_manufacturing_share_2025_quality_check",
@@ -10589,7 +10603,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_zilina_regional_population_2025_quality_check",
@@ -10628,7 +10642,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_zilina_regional_gdp_2025_quality_check",
@@ -10667,7 +10681,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_zilina_regional_gdp_per_capita_2025_quality_check",
@@ -10706,7 +10720,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_zilina_regional_unemployment_rate_2025_quality_check",
@@ -10745,7 +10759,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_zilina_regional_manufacturing_share_2025_quality_check",
@@ -10784,7 +10798,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_banska_bystrica_regional_population_2025_quality_check",
@@ -10823,7 +10837,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_banska_bystrica_regional_gdp_2025_quality_check",
@@ -10862,7 +10876,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_banska_bystrica_regional_gdp_per_capita_2025_quality_check",
@@ -10901,7 +10915,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_banska_bystrica_regional_unemployment_rate_2025_quality_check",
@@ -10940,7 +10954,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_banska_bystrica_regional_manufacturing_share_2025_quality_check",
@@ -10979,7 +10993,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_presov_regional_population_2025_quality_check",
@@ -11018,7 +11032,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_presov_regional_gdp_2025_quality_check",
@@ -11057,7 +11071,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_presov_regional_gdp_per_capita_2025_quality_check",
@@ -11096,7 +11110,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_presov_regional_unemployment_rate_2025_quality_check",
@@ -11135,7 +11149,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_presov_regional_manufacturing_share_2025_quality_check",
@@ -11174,7 +11188,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_kosice_regional_population_2025_quality_check",
@@ -11213,7 +11227,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_kosice_regional_gdp_2025_quality_check",
@@ -11252,7 +11266,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_kosice_regional_gdp_per_capita_2025_quality_check",
@@ -11291,7 +11305,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_kosice_regional_unemployment_rate_2025_quality_check",
@@ -11330,7 +11344,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     },
     {
       "region_check_id": "slovakia_kosice_regional_manufacturing_share_2025_quality_check",
@@ -11369,7 +11383,7 @@
       "quality_status": "待接入",
       "missing_reason": "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
       "quality_notes": "区域边界尚未接入几何文件；当前仅完成来源或占位登记。 区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。 尚未接入可点击的区域统计来源链接。",
-      "last_updated": "2026-07-26"
+      "last_updated": "2026-07-27"
     }
   ]
 }

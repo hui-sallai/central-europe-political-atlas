@@ -1,9 +1,9 @@
 {
   "schema_version": "research-data-v0.1",
-  "generated_at": "2026-07-26",
+  "generated_at": "2026-07-27",
   "data_type": "region_boundaries",
   "record_count": 65,
-  "scope": "v0.11 boundary file sandbox registry. hu_nuts3_gisco_2024 is sandbox_downloaded, sandbox_filtered, and not_ready_for_display. The filtered geometry is not rendered.",
+  "scope": "v0.12 sandbox validation and topology QA registry. hu_nuts3_gisco_2024 remains sandbox_downloaded, sandbox_filtered, and not_ready_for_display. Basic QA does not enable rendering.",
   "primary_key": "boundary_id",
   "relation_note": "Every boundary record references region_id from regions and country_id from countries.",
   "validation_note": "Records track source credibility, public display licence, simplification readiness, front-end suitability, region_id matching, admin codes, and historical boundary issues before geometry ingestion.",
@@ -28,14 +28,14 @@
       "display_status": "not_ready_for_display",
       "geometry_available": true,
       "geometry_simplified": false,
-      "topology_checked": false,
+      "topology_checked": true,
       "coordinate_system": "EPSG:4326",
       "file_path_or_url": "/data/boundaries/sandbox/hu_nuts3_gisco_2024.geojson",
       "region_code_match_status": "sandbox_pre_matched_20_of_20_pending_verification",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
-      "notes": "v0.11 Hungary boundary file sandbox；已锁定并离线过滤 NUTS_RG_01M_2024_4326_LEVL_3.geojson，状态为 sandbox_downloaded / sandbox_filtered / not_ready_for_display。20 个 NUTS code 已预匹配，许可、拓扑和最终主键验收尚未通过。"
+      "last_checked": "2026-07-27",
+      "notes": "v0.12 sandbox validation and topology QA；20 个要素已完成基础几何与异常穿越检查，但该结果不替代权威拓扑验收。状态继续为 sandbox_downloaded / sandbox_filtered / not_ready_for_display；20 个 NUTS code 仅为预匹配，许可和最终主键验收尚未通过。"
     },
     {
       "boundary_id": "poland_lower_silesian_boundary_candidate",
@@ -62,7 +62,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -90,7 +90,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -118,7 +118,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -146,7 +146,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -174,7 +174,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -202,7 +202,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -230,7 +230,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -258,7 +258,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -286,7 +286,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -314,7 +314,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -342,7 +342,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -370,7 +370,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -398,7 +398,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -426,7 +426,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -454,7 +454,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -482,7 +482,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -510,7 +510,7 @@
       "region_code_match_status": "pilot_pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -538,7 +538,7 @@
       "region_code_match_status": "pilot_pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -566,7 +566,7 @@
       "region_code_match_status": "pilot_pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -594,7 +594,7 @@
       "region_code_match_status": "pilot_pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -622,7 +622,7 @@
       "region_code_match_status": "pilot_pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -650,7 +650,7 @@
       "region_code_match_status": "pilot_pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -678,7 +678,7 @@
       "region_code_match_status": "pilot_pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -706,7 +706,7 @@
       "region_code_match_status": "pilot_pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -734,7 +734,7 @@
       "region_code_match_status": "pilot_pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -762,7 +762,7 @@
       "region_code_match_status": "pilot_pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -790,7 +790,7 @@
       "region_code_match_status": "pilot_pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -818,7 +818,7 @@
       "region_code_match_status": "pilot_pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -846,7 +846,7 @@
       "region_code_match_status": "pilot_pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -874,7 +874,7 @@
       "region_code_match_status": "pilot_pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -902,7 +902,7 @@
       "region_code_match_status": "pilot_pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -930,7 +930,7 @@
       "region_code_match_status": "pilot_pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -958,7 +958,7 @@
       "region_code_match_status": "pilot_pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -986,7 +986,7 @@
       "region_code_match_status": "pilot_pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1014,7 +1014,7 @@
       "region_code_match_status": "pilot_pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1042,7 +1042,7 @@
       "region_code_match_status": "pilot_pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1070,7 +1070,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1098,7 +1098,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1126,7 +1126,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1154,7 +1154,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1182,7 +1182,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1210,7 +1210,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1238,7 +1238,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1266,7 +1266,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1294,7 +1294,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1322,7 +1322,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1350,7 +1350,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1378,7 +1378,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1406,7 +1406,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1434,7 +1434,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1462,7 +1462,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1490,7 +1490,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1518,7 +1518,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1546,7 +1546,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1574,7 +1574,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1602,7 +1602,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1630,7 +1630,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1658,7 +1658,7 @@
       "region_code_match_status": "pending_region_code_match",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1686,7 +1686,7 @@
       "region_code_match_status": "待接入",
       "source_reliability": "D",
       "source_status": "待接入",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "非 V4 国家在 v0.9 第一版只保留国家级待接入占位；尚未选择边界来源，不进入真实地图渲染。"
     },
     {
@@ -1714,7 +1714,7 @@
       "region_code_match_status": "待接入",
       "source_reliability": "D",
       "source_status": "待接入",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "非 V4 国家在 v0.9 第一版只保留国家级待接入占位；尚未选择边界来源，不进入真实地图渲染。"
     },
     {
@@ -1742,7 +1742,7 @@
       "region_code_match_status": "待接入",
       "source_reliability": "D",
       "source_status": "待接入",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "非 V4 国家在 v0.9 第一版只保留国家级待接入占位；尚未选择边界来源，不进入真实地图渲染。"
     },
     {
@@ -1770,7 +1770,7 @@
       "region_code_match_status": "待接入",
       "source_reliability": "D",
       "source_status": "待接入",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "非 V4 国家在 v0.9 第一版只保留国家级待接入占位；尚未选择边界来源，不进入真实地图渲染。"
     },
     {
@@ -1798,7 +1798,7 @@
       "region_code_match_status": "待接入",
       "source_reliability": "D",
       "source_status": "待接入",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "非 V4 国家在 v0.9 第一版只保留国家级待接入占位；尚未选择边界来源，不进入真实地图渲染。"
     },
     {
@@ -1826,7 +1826,7 @@
       "region_code_match_status": "待接入",
       "source_reliability": "D",
       "source_status": "待接入",
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-07-27",
       "notes": "非 V4 国家在 v0.9 第一版只保留国家级待接入占位；尚未选择边界来源，不进入真实地图渲染。"
     }
   ]

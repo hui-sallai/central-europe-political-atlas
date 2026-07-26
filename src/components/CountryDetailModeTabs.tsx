@@ -10,6 +10,7 @@ import { chinaProjectVerificationLabel, verifyChinaProject } from "@/lib/chinaPr
 import { getCountryMetadata } from "@/lib/countryMetadata";
 import type { Country } from "@/lib/data";
 import { getChinaProjectRecords, getNewsEventRecords, getV4ObservationCoverage, getV4TemplateCoverage } from "@/lib/extendedData";
+import { hungaryNuts3SandboxQaSummary } from "@/lib/regionQualityChecks";
 
 type DetailMode = "map" | "reading";
 
@@ -279,6 +280,33 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
         <p className="mt-3 rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
           v0.11 沙盒状态：边界文件可进入离线解析与主键预匹配；真实地图展示仍未启用。
         </p>
+      ) : null}
+
+      {country.slug === "hungary" ? (
+        <section className="mt-4 card p-6">
+          <p className="eyebrow">4.2 v0.12 Sandbox Validation And Topology QA</p>
+          <h2 className="mt-3 text-2xl font-semibold">v0.12 沙盒验收状态</h2>
+          <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            {[
+              ["要素数量", `${hungaryNuts3SandboxQaSummary.feature_count} / ${hungaryNuts3SandboxQaSummary.expected_feature_count}；沙盒基础验收通过`],
+              ["NUTS code 数量", `${hungaryNuts3SandboxQaSummary.nuts_code_count} / 20；唯一性检查通过`],
+              ["CRS", hungaryNuts3SandboxQaSummary.crs_confirmed ? "EPSG:4326 已确认（沙盒）" : "EPSG:4326 待确认"],
+              ["几何完整性", `${hungaryNuts3SandboxQaSummary.geometry_present_count} / 20；基础完整性通过`],
+              ["拓扑检查", "基础 QA 已执行；权威拓扑验收待完成"],
+              ["主键匹配", "20 / 20 预匹配；待最终核验"],
+              ["region_id_matched", "false"],
+              ["真实地图展示", "未启用"],
+            ].map(([label, value]) => (
+              <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+                <p className="text-xs font-semibold text-[var(--muted)]">{label}</p>
+                <p className="mt-2 text-sm font-semibold leading-6 text-[var(--foreground)]">{value}</p>
+              </article>
+            ))}
+          </div>
+          <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
+            沙盒过滤完成不等于拓扑正式通过；基础 QA 与 20 / 20 预匹配均不启用真实地图展示。
+          </p>
+        </section>
       ) : null}
 
       <div className="card p-3">

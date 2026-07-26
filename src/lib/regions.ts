@@ -105,7 +105,7 @@ function v4Region(record: Omit<RegionMetadataRecord, keyof typeof v4RegionDefaul
     source_status: v4RegionDefaults.source_status,
     last_updated: v4RegionDefaults.last_updated,
     notes: isHungaryPilot
-      ? "v0.11 匈牙利 NUTS3 边界文件沙盒；20 个 region_id 与 NUTS code 已完成离线预匹配，但未通过许可、拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      ? "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
       : v4RegionDefaults.notes,
   };
 }

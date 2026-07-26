@@ -1,6 +1,6 @@
 {
   "schema_version": "research-data-v0.1",
-  "generated_at": "2026-07-26",
+  "generated_at": "2026-07-27",
   "data_type": "research_data_layers",
   "record_count": 17,
   "records": [
@@ -21,7 +21,7 @@
     {
       "id": "region_boundaries",
       "label": "region_boundaries",
-      "description": "v0.11 区域边界来源表；hu_nuts3_gisco_2024 已标记 sandbox_downloaded / sandbox_filtered / not_ready_for_display。",
+      "description": "v0.12 区域边界来源表；hu_nuts3_gisco_2024 已进入沙盒验证与基础拓扑 QA，并继续保持 not_ready_for_display。",
       "json_file": "region_boundaries.json",
       "csv_file": "region_boundaries.csv"
     },
@@ -42,7 +42,7 @@
     {
       "id": "region_quality_checks",
       "label": "region_quality_checks",
-      "description": "v0.11 区域数据质量验收表；同步 Hungary NUTS3 沙盒的下载、过滤、CRS、许可、拓扑、主键和展示准备状态。",
+      "description": "v0.12 区域数据质量验收表；增加 Hungary NUTS3 sandbox QA 摘要，同步要素、代码、CRS、几何、拓扑、主键和展示状态。",
       "json_file": "region_quality_checks.json",
       "csv_file": "region_quality_checks.csv"
     },
@@ -63,7 +63,7 @@
     {
       "id": "map_layers",
       "label": "map_layers",
-      "description": "v0.11 地图图层注册表；hu_nuts3_boundary_pilot 继续保持 is_ready_for_display=false。",
+      "description": "v0.12 地图图层注册表；hu_nuts3_boundary_pilot 继续保持 is_ready_for_display=false。",
       "json_file": "map_layers.json",
       "csv_file": "map_layers.csv"
     },

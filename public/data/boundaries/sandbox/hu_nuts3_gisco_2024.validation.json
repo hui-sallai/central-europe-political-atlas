@@ -1,10 +1,13 @@
 {
   "source_file": "NUTS_RG_01M_2024_4326_LEVL_3.geojson",
   "source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2024_4326_LEVL_3.geojson",
+  "filtered_file": "public/data/boundaries/sandbox/hu_nuts3_gisco_2024.geojson",
+  "validation_file": "public/data/boundaries/sandbox/hu_nuts3_gisco_2024.validation.json",
   "filtered_country": "Hungary / HU",
   "admin_level": "NUTS3",
   "coordinate_system": "EPSG:4326",
   "feature_count": 20,
+  "expected_feature_count": 20,
   "nuts_codes": [
     "HU110",
     "HU120",
@@ -27,13 +30,25 @@
     "HU332",
     "HU333"
   ],
+  "nuts_codes_count": 20,
   "geometry_present": true,
-  "topology_checked": false,
+  "geometry_present_count": 20,
+  "ring_count": 22,
+  "coordinate_count": 10357,
+  "invalid_coordinate_count": 0,
+  "unclosed_ring_count": 0,
+  "degenerate_ring_count": 0,
+  "self_intersection_count": 0,
+  "cross_feature_intersection_count": 0,
+  "crs_confirmed": true,
+  "topology_checked": true,
+  "topology_status": "sandbox_basic_topology_passed_pending_authoritative_validation",
   "region_id_match_status": "sandbox_pre_matched_20_of_20_pending_verification",
   "matched_region_count": 20,
   "missing_expected_nuts_codes": [],
   "unexpected_nuts_codes": [],
   "license_checked": false,
+  "region_id_matched": false,
   "ready_for_display": false,
-  "notes": "v0.11 sandbox only. The file is filtered for offline parsing and region_id pre-matching. It must not enter a live map layer before licence acceptance, topology checks, final key verification, and regional quality acceptance."
+  "notes": "v0.12 sandbox validation and topology QA only. Basic geometry and crossing checks do not replace authoritative topology validation. A 20/20 pre-match does not set region_id_matched=true. The file must not enter a live map layer before source, licence, file, CRS, geometry, topology, final key verification, and regional quality acceptance all pass."
 }

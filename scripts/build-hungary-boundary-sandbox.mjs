@@ -9,6 +9,10 @@ const projectRoot = path.resolve(scriptDirectory, "..");
 const outputDirectory = path.join(projectRoot, "public", "data", "boundaries", "sandbox");
 const geojsonOutputPath = path.join(outputDirectory, "hu_nuts3_gisco_2024.geojson");
 const validationOutputPath = path.join(outputDirectory, "hu_nuts3_gisco_2024.validation.json");
+const filteredFile = "public/data/boundaries/sandbox/hu_nuts3_gisco_2024.geojson";
+const validationFile = "public/data/boundaries/sandbox/hu_nuts3_gisco_2024.validation.json";
+const expectedFeatureCount = 20;
+const epsilon = 1e-12;
 
 const regionIdByNutsCode = new Map([
   ["HU110", "hungary_budapest"],
@@ -74,6 +78,145 @@ function hasGeometry(feature) {
   return Boolean(feature?.geometry?.type && Array.isArray(feature.geometry.coordinates) && feature.geometry.coordinates.length);
 }
 
+function polygonsForGeometry(geometry) {
+  if (geometry?.type === "Polygon") return [geometry.coordinates];
+  if (geometry?.type === "MultiPolygon") return geometry.coordinates;
+  return [];
+}
+
+function positionsEqual(left, right) {
+  return left?.[0] === right?.[0] && left?.[1] === right?.[1];
+}
+
+function orientation(a, b, c) {
+  return (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0]);
+}
+
+function segmentBoundsOverlap(a, b, c, d) {
+  return (
+    Math.max(Math.min(a[0], b[0]), Math.min(c[0], d[0])) <= Math.min(Math.max(a[0], b[0]), Math.max(c[0], d[0])) + epsilon &&
+    Math.max(Math.min(a[1], b[1]), Math.min(c[1], d[1])) <= Math.min(Math.max(a[1], b[1]), Math.max(c[1], d[1])) + epsilon
+  );
+}
+
+function properSegmentIntersection(a, b, c, d) {
+  if (!segmentBoundsOverlap(a, b, c, d)) return false;
+  const first = orientation(a, b, c);
+  const second = orientation(a, b, d);
+  const third = orientation(c, d, a);
+  const fourth = orientation(c, d, b);
+  return first * second < -epsilon && third * fourth < -epsilon;
+}
+
+function ringArea(ring) {
+  let twiceArea = 0;
+  for (let index = 0; index < ring.length - 1; index += 1) {
+    twiceArea += ring[index][0] * ring[index + 1][1] - ring[index + 1][0] * ring[index][1];
+  }
+  return Math.abs(twiceArea / 2);
+}
+
+function ringSegments(ring) {
+  return ring.slice(0, -1).map((position, index) => [position, ring[index + 1]]);
+}
+
+function ringSelfIntersectionCount(ring) {
+  const segments = ringSegments(ring);
+  let count = 0;
+  for (let first = 0; first < segments.length; first += 1) {
+    for (let second = first + 1; second < segments.length; second += 1) {
+      const adjacent = second === first + 1 || (first === 0 && second === segments.length - 1);
+      if (adjacent) continue;
+      if (properSegmentIntersection(...segments[first], ...segments[second])) count += 1;
+    }
+  }
+  return count;
+}
+
+function featureSegments(feature) {
+  return polygonsForGeometry(feature.geometry).flatMap((polygon) => polygon.flatMap(ringSegments));
+}
+
+function featureBounds(feature) {
+  const positions = polygonsForGeometry(feature.geometry).flat(2);
+  return positions.reduce(
+    (bounds, position) => [
+      Math.min(bounds[0], position[0]),
+      Math.min(bounds[1], position[1]),
+      Math.max(bounds[2], position[0]),
+      Math.max(bounds[3], position[1]),
+    ],
+    [Infinity, Infinity, -Infinity, -Infinity],
+  );
+}
+
+function featureBoundsOverlap(left, right) {
+  return left[0] <= right[2] && left[2] >= right[0] && left[1] <= right[3] && left[3] >= right[1];
+}
+
+function crossFeatureIntersectionCount(features) {
+  const prepared = features.map((feature) => ({
+    bounds: featureBounds(feature),
+    segments: featureSegments(feature),
+  }));
+  let count = 0;
+  for (let left = 0; left < prepared.length; left += 1) {
+    for (let right = left + 1; right < prepared.length; right += 1) {
+      if (!featureBoundsOverlap(prepared[left].bounds, prepared[right].bounds)) continue;
+      for (const leftSegment of prepared[left].segments) {
+        for (const rightSegment of prepared[right].segments) {
+          if (properSegmentIntersection(...leftSegment, ...rightSegment)) count += 1;
+        }
+      }
+    }
+  }
+  return count;
+}
+
+function runGeometryQa(features) {
+  const geometries = features.filter(hasGeometry);
+  const rings = geometries.flatMap((feature) => polygonsForGeometry(feature.geometry).flat());
+  const positions = rings.flat();
+  const invalidCoordinateCount = positions.filter(
+    (position) =>
+      !Array.isArray(position) ||
+      position.length < 2 ||
+      !Number.isFinite(position[0]) ||
+      !Number.isFinite(position[1]) ||
+      position[0] < -180 ||
+      position[0] > 180 ||
+      position[1] < -90 ||
+      position[1] > 90,
+  ).length;
+  const unclosedRingCount = rings.filter((ring) => ring.length < 4 || !positionsEqual(ring[0], ring.at(-1))).length;
+  const degenerateRingCount = rings.filter((ring) => ring.length < 4 || ringArea(ring) <= epsilon).length;
+  const selfIntersectionCount = rings.reduce((total, ring) => total + ringSelfIntersectionCount(ring), 0);
+  const crossFeatureIntersections = crossFeatureIntersectionCount(geometries);
+  const topologyPassed =
+    geometries.length === features.length &&
+    invalidCoordinateCount === 0 &&
+    unclosedRingCount === 0 &&
+    degenerateRingCount === 0 &&
+    selfIntersectionCount === 0 &&
+    crossFeatureIntersections === 0;
+
+  return {
+    geometry_present_count: geometries.length,
+    ring_count: rings.length,
+    coordinate_count: positions.length,
+    invalid_coordinate_count: invalidCoordinateCount,
+    unclosed_ring_count: unclosedRingCount,
+    degenerate_ring_count: degenerateRingCount,
+    self_intersection_count: selfIntersectionCount,
+    cross_feature_intersection_count: crossFeatureIntersections,
+    crs_confirmed: sourceFile.includes("_4326_") && invalidCoordinateCount === 0,
+    topology_checked: true,
+    topology_status: topologyPassed
+      ? "sandbox_basic_topology_passed_pending_authoritative_validation"
+      : "sandbox_topology_issues_detected",
+  };
+}
+
 const source = await loadSource();
 if (source?.type !== "FeatureCollection" || !Array.isArray(source.features)) {
   throw new Error("GISCO source is not a GeoJSON FeatureCollection.");
@@ -103,6 +246,7 @@ const missingExpectedCodes = [...regionIdByNutsCode.keys()].filter((code) => !nu
 const unexpectedCodes = nutsCodes.filter((code) => !regionIdByNutsCode.has(code));
 const geometryPresent = filteredFeatures.length > 0 && filteredFeatures.every(hasGeometry);
 const preMatchComplete = matchedCodes.length === regionIdByNutsCode.size && missingExpectedCodes.length === 0 && unexpectedCodes.length === 0;
+const geometryQa = runGeometryQa(filteredFeatures);
 
 const outputGeojson = {
   type: "FeatureCollection",
@@ -121,13 +265,17 @@ const outputGeojson = {
 const validation = {
   source_file: sourceFile,
   source_url: sourceUrl,
+  filtered_file: filteredFile,
+  validation_file: validationFile,
   filtered_country: "Hungary / HU",
   admin_level: "NUTS3",
   coordinate_system: "EPSG:4326",
   feature_count: filteredFeatures.length,
+  expected_feature_count: expectedFeatureCount,
   nuts_codes: nutsCodes,
+  nuts_codes_count: new Set(nutsCodes).size,
   geometry_present: geometryPresent,
-  topology_checked: false,
+  ...geometryQa,
   region_id_match_status: preMatchComplete
     ? "sandbox_pre_matched_20_of_20_pending_verification"
     : "sandbox_pre_match_incomplete",
@@ -135,13 +283,14 @@ const validation = {
   missing_expected_nuts_codes: missingExpectedCodes,
   unexpected_nuts_codes: unexpectedCodes,
   license_checked: false,
+  region_id_matched: false,
   ready_for_display: false,
   notes:
-    "v0.11 sandbox only. The file is filtered for offline parsing and region_id pre-matching. It must not enter a live map layer before licence acceptance, topology checks, final key verification, and regional quality acceptance.",
+    "v0.12 sandbox validation and topology QA only. Basic geometry and crossing checks do not replace authoritative topology validation. A 20/20 pre-match does not set region_id_matched=true. The file must not enter a live map layer before source, licence, file, CRS, geometry, topology, final key verification, and regional quality acceptance all pass.",
 };
 
-if (filteredFeatures.length !== 20) {
-  throw new Error(`Expected 20 Hungary NUTS3 features, received ${filteredFeatures.length}.`);
+if (filteredFeatures.length !== expectedFeatureCount) {
+  throw new Error(`Expected ${expectedFeatureCount} Hungary NUTS3 features, received ${filteredFeatures.length}.`);
 }
 if (!geometryPresent) {
   throw new Error("At least one filtered Hungary NUTS3 feature has no geometry.");
@@ -158,6 +307,7 @@ console.log(
       output_geojson: path.relative(projectRoot, geojsonOutputPath),
       output_validation: path.relative(projectRoot, validationOutputPath),
       feature_count: filteredFeatures.length,
+      topology_status: validation.topology_status,
       region_id_match_status: validation.region_id_match_status,
       ready_for_display: false,
     },

@@ -1,9 +1,9 @@
 {
   "schema_version": "research-data-v0.1",
-  "generated_at": "2026-07-26",
+  "generated_at": "2026-07-27",
   "data_type": "map_layers",
   "record_count": 8,
-  "scope": "v0.11 map layer registry. hu_nuts3_boundary_pilot remains registered for sandbox verification only with is_ready_for_display=false.",
+  "scope": "v0.12 map layer registry. hu_nuts3_boundary_pilot remains registered for sandbox validation and topology QA only with is_ready_for_display=false.",
   "primary_key": "layer_id",
   "relation_note": "Each layer declares its data_source_table, geometry_source_table, indicator_or_variable, tooltip fields, filters, source requirements, and quality requirements.",
   "validation_note": "All registered real boundary and analytical layers keep is_ready_for_display=false until boundary, source, observation, project-location, and quality checks pass.",
@@ -48,7 +48,7 @@
       "quality_requirement": "许可确认、几何下载与过滤、拓扑检查、NUTS / region_id 主键匹配均通过前，is_ready_for_display 必须保持 false。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 Hungary boundary file sandbox；文件已离线过滤并完成主键预匹配，但许可、拓扑和最终主键验收未通过，真实地图展示仍未启用。"
+      "notes": "v0.12 sandbox validation and topology QA；基础几何与异常穿越检查已执行，但许可、权威拓扑验收和最终主键验收未全部通过，真实地图展示仍未启用。"
     },
     {
       "layer_id": "v4_adm1_boundary",
@@ -89,7 +89,7 @@
       "quality_requirement": "region_boundaries.geometry_available=true、geometry_simplified=true、topology_checked=true、boundary_license_checked=true，且 region_quality_checks 中对应区域 is_map_ready=true。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 只允许匈牙利边界文件进入离线沙盒；is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
+      "notes": "v0.12 只允许匈牙利边界文件进入沙盒验证与拓扑 QA；is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
     },
     {
       "layer_id": "regional_population_choropleth",
@@ -133,7 +133,7 @@
       "quality_requirement": "需要 region_observations 有正式数值、来源链接、单位、来源等级，并通过 region_quality_checks；当前待接入观测值不得进入地图显示。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 只允许匈牙利边界文件进入离线沙盒；is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
+      "notes": "v0.12 只允许匈牙利边界文件进入沙盒验证与拓扑 QA；is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
     },
     {
       "layer_id": "regional_gdp_choropleth",
@@ -177,7 +177,7 @@
       "quality_requirement": "需要 region_observations 有正式数值、来源链接、单位、来源等级，并通过 region_quality_checks；当前待接入观测值不得进入地图显示。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 只允许匈牙利边界文件进入离线沙盒；is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
+      "notes": "v0.12 只允许匈牙利边界文件进入沙盒验证与拓扑 QA；is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
     },
     {
       "layer_id": "regional_gdp_per_capita_choropleth",
@@ -221,7 +221,7 @@
       "quality_requirement": "需要 region_observations 有正式数值、来源链接、单位、来源等级，并通过 region_quality_checks；当前待接入观测值不得进入地图显示。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 只允许匈牙利边界文件进入离线沙盒；is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
+      "notes": "v0.12 只允许匈牙利边界文件进入沙盒验证与拓扑 QA；is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
     },
     {
       "layer_id": "regional_unemployment_rate_choropleth",
@@ -265,7 +265,7 @@
       "quality_requirement": "需要 region_observations 有正式数值、来源链接、单位、来源等级，并通过 region_quality_checks；当前待接入观测值不得进入地图显示。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 只允许匈牙利边界文件进入离线沙盒；is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
+      "notes": "v0.12 只允许匈牙利边界文件进入沙盒验证与拓扑 QA；is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
     },
     {
       "layer_id": "regional_manufacturing_share_choropleth",
@@ -309,7 +309,7 @@
       "quality_requirement": "需要 region_observations 有正式数值、来源链接、单位、来源等级，并通过 region_quality_checks；当前待接入观测值不得进入地图显示。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 只允许匈牙利边界文件进入离线沙盒；is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
+      "notes": "v0.12 只允许匈牙利边界文件进入沙盒验证与拓扑 QA；is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
     },
     {
       "layer_id": "china_project_locations",

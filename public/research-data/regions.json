@@ -1,9 +1,9 @@
 {
   "schema_version": "research-data-v0.1",
-  "generated_at": "2026-07-26",
+  "generated_at": "2026-07-27",
   "data_type": "regions",
   "record_count": 64,
-  "scope": "v0.11 regions metadata. Hungary NUTS3 keeps 20 region_id and NUTS code pre-match positions in pilot_pending_region_code_match status; non-V4 countries keep national-level pending placeholders.",
+  "scope": "v0.12 regions metadata. Hungary NUTS3 keeps 20 region_id and NUTS code pre-match positions in pilot_pending_region_code_match status; non-V4 countries keep national-level pending placeholders.",
   "primary_key": "region_id",
   "relation_note": "Every region references country_id from countries. ADM2 is intentionally excluded from the current boundary verification pass.",
   "model_boundary": "Region metadata only. No regional risk layer, forecast, election model, or ADM2 analysis is generated.",
@@ -363,7 +363,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 匈牙利 NUTS3 边界文件沙盒；20 个 region_id 与 NUTS code 已完成离线预匹配，但未通过许可、拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      "notes": "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
     },
     {
       "region_id": "hungary_bacs_kiskun",
@@ -384,7 +384,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 匈牙利 NUTS3 边界文件沙盒；20 个 region_id 与 NUTS code 已完成离线预匹配，但未通过许可、拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      "notes": "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
     },
     {
       "region_id": "hungary_baranya",
@@ -405,7 +405,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 匈牙利 NUTS3 边界文件沙盒；20 个 region_id 与 NUTS code 已完成离线预匹配，但未通过许可、拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      "notes": "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
     },
     {
       "region_id": "hungary_bekes",
@@ -426,7 +426,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 匈牙利 NUTS3 边界文件沙盒；20 个 region_id 与 NUTS code 已完成离线预匹配，但未通过许可、拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      "notes": "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
     },
     {
       "region_id": "hungary_borsod_abauj_zemplen",
@@ -447,7 +447,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 匈牙利 NUTS3 边界文件沙盒；20 个 region_id 与 NUTS code 已完成离线预匹配，但未通过许可、拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      "notes": "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
     },
     {
       "region_id": "hungary_csongrad_csanad",
@@ -468,7 +468,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 匈牙利 NUTS3 边界文件沙盒；20 个 region_id 与 NUTS code 已完成离线预匹配，但未通过许可、拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      "notes": "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
     },
     {
       "region_id": "hungary_fejer",
@@ -489,7 +489,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 匈牙利 NUTS3 边界文件沙盒；20 个 region_id 与 NUTS code 已完成离线预匹配，但未通过许可、拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      "notes": "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
     },
     {
       "region_id": "hungary_gyor_moson_sopron",
@@ -510,7 +510,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 匈牙利 NUTS3 边界文件沙盒；20 个 region_id 与 NUTS code 已完成离线预匹配，但未通过许可、拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      "notes": "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
     },
     {
       "region_id": "hungary_hajdu_bihar",
@@ -531,7 +531,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 匈牙利 NUTS3 边界文件沙盒；20 个 region_id 与 NUTS code 已完成离线预匹配，但未通过许可、拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      "notes": "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
     },
     {
       "region_id": "hungary_heves",
@@ -552,7 +552,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 匈牙利 NUTS3 边界文件沙盒；20 个 region_id 与 NUTS code 已完成离线预匹配，但未通过许可、拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      "notes": "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
     },
     {
       "region_id": "hungary_jasz_nagykun_szolnok",
@@ -573,7 +573,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 匈牙利 NUTS3 边界文件沙盒；20 个 region_id 与 NUTS code 已完成离线预匹配，但未通过许可、拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      "notes": "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
     },
     {
       "region_id": "hungary_komarom_esztergom",
@@ -594,7 +594,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 匈牙利 NUTS3 边界文件沙盒；20 个 region_id 与 NUTS code 已完成离线预匹配，但未通过许可、拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      "notes": "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
     },
     {
       "region_id": "hungary_nograd",
@@ -615,7 +615,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 匈牙利 NUTS3 边界文件沙盒；20 个 region_id 与 NUTS code 已完成离线预匹配，但未通过许可、拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      "notes": "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
     },
     {
       "region_id": "hungary_pest",
@@ -636,7 +636,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 匈牙利 NUTS3 边界文件沙盒；20 个 region_id 与 NUTS code 已完成离线预匹配，但未通过许可、拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      "notes": "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
     },
     {
       "region_id": "hungary_somogy",
@@ -657,7 +657,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 匈牙利 NUTS3 边界文件沙盒；20 个 region_id 与 NUTS code 已完成离线预匹配，但未通过许可、拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      "notes": "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
     },
     {
       "region_id": "hungary_szabolcs_szatmar_bereg",
@@ -678,7 +678,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 匈牙利 NUTS3 边界文件沙盒；20 个 region_id 与 NUTS code 已完成离线预匹配，但未通过许可、拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      "notes": "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
     },
     {
       "region_id": "hungary_tolna",
@@ -699,7 +699,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 匈牙利 NUTS3 边界文件沙盒；20 个 region_id 与 NUTS code 已完成离线预匹配，但未通过许可、拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      "notes": "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
     },
     {
       "region_id": "hungary_vas",
@@ -720,7 +720,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 匈牙利 NUTS3 边界文件沙盒；20 个 region_id 与 NUTS code 已完成离线预匹配，但未通过许可、拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      "notes": "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
     },
     {
       "region_id": "hungary_veszprem",
@@ -741,7 +741,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 匈牙利 NUTS3 边界文件沙盒；20 个 region_id 与 NUTS code 已完成离线预匹配，但未通过许可、拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      "notes": "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
     },
     {
       "region_id": "hungary_zala",
@@ -762,7 +762,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.11 匈牙利 NUTS3 边界文件沙盒；20 个 region_id 与 NUTS code 已完成离线预匹配，但未通过许可、拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      "notes": "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
     },
     {
       "region_id": "czechia_prague",

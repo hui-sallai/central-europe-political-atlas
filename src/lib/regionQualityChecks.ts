@@ -1,6 +1,7 @@
 import { regionBoundaryRecords } from "./regionBoundaries";
 import { regionObservationRecords } from "./regionObservations";
 import { regionMetadataRecords } from "./regions";
+import hungaryBoundaryValidation from "../../public/data/boundaries/sandbox/hu_nuts3_gisco_2024.validation.json";
 
 export type RegionQualityStatus = "通过" | "部分通过" | "待接入" | "需复核" | "不进入分析";
 
@@ -58,7 +59,22 @@ export type RegionQualitySummary = {
   source_d_count: number;
 };
 
-const updatedAt = "2026-07-26";
+export type HungaryNuts3SandboxQaSummary = {
+  source_file: string;
+  filtered_file: string;
+  validation_file: string;
+  feature_count: number;
+  expected_feature_count: number;
+  nuts_code_count: number;
+  geometry_present_count: number;
+  crs_confirmed: boolean;
+  topology_checked: boolean;
+  topology_status: string;
+  region_id_matched: boolean;
+  ready_for_display: boolean;
+};
+
+const updatedAt = "2026-07-27";
 const pendingText = "待接入";
 const noBoundaryText = "区域边界尚未接入几何文件；当前仅完成来源或占位登记。";
 const pendingObservationText = "区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。";
@@ -211,6 +227,21 @@ function buildRegionQualityCheck(observation: (typeof regionObservationRecords)[
 
 const hungaryPilotBoundary = regionBoundaryRecords.find((boundary) => boundary.boundary_id === "hu_nuts3_gisco_2024");
 
+export const hungaryNuts3SandboxQaSummary: HungaryNuts3SandboxQaSummary = {
+  source_file: hungaryBoundaryValidation.source_file,
+  filtered_file: hungaryBoundaryValidation.filtered_file,
+  validation_file: hungaryBoundaryValidation.validation_file,
+  feature_count: hungaryBoundaryValidation.feature_count,
+  expected_feature_count: hungaryBoundaryValidation.expected_feature_count,
+  nuts_code_count: hungaryBoundaryValidation.nuts_codes_count,
+  geometry_present_count: hungaryBoundaryValidation.geometry_present_count,
+  crs_confirmed: hungaryBoundaryValidation.crs_confirmed,
+  topology_checked: hungaryBoundaryValidation.topology_checked,
+  topology_status: hungaryBoundaryValidation.topology_status,
+  region_id_matched: false,
+  ready_for_display: false,
+};
+
 const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {
   region_check_id: "hungary_nuts3_boundary_pilot_quality_check",
   region_id: "hungary_nuts3_pilot",
@@ -227,8 +258,8 @@ const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {
   file_downloaded: hungaryPilotBoundary?.file_status === "sandbox_downloaded",
   hungary_filtered: hungaryPilotBoundary?.filter_status === "sandbox_filtered",
   geometry_filtered: hungaryPilotBoundary?.filter_status === "sandbox_filtered",
-  crs_confirmed: hungaryPilotBoundary?.coordinate_system === "EPSG:4326",
-  topology_checked: Boolean(hungaryPilotBoundary?.topology_checked),
+  crs_confirmed: hungaryNuts3SandboxQaSummary.crs_confirmed,
+  topology_checked: hungaryNuts3SandboxQaSummary.topology_checked,
   region_id_matched: false,
   ready_for_display: false,
   value_present: false,
@@ -246,8 +277,9 @@ const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {
   is_region_comparable: false,
   is_export_ready: true,
   quality_status: "需复核",
-  missing_reason: "许可确认、拓扑检查和 region_id / NUTS code 最终核验尚未完成。",
-  quality_notes: "v0.11 Hungary NUTS3 boundary file sandbox 专项验收；文件已下载并过滤为 20 个 HU NUTS3 要素，仅供离线解析和主键预匹配，不代表真实地图展示已启用。",
+  missing_reason: "许可确认、权威拓扑验收和 region_id / NUTS code 最终核验尚未完成。",
+  quality_notes:
+    "v0.12 Hungary NUTS3 sandbox validation and topology QA；20 个要素已完成坐标、环闭合、退化环、自相交和区域间异常穿越基础检查。基础 QA 不替代权威拓扑验收，20 / 20 预匹配不等于 region_id_matched=true。",
   last_updated: updatedAt,
 };
 

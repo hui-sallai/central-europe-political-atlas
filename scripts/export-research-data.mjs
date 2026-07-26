@@ -7,7 +7,7 @@ import ts from "typescript";
 const require = createRequire(import.meta.url);
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outDir = path.join(projectRoot, "public", "research-data");
-const generatedAt = "2026-07-26";
+const generatedAt = "2026-07-27";
 const schemaVersion = "research-data-v0.1";
 
 require.extensions[".ts"] = (module, filename) => {
@@ -29,7 +29,7 @@ const { regionMetadataRecords } = require("../src/lib/regions.ts");
 const { regionBoundaryRecords } = require("../src/lib/regionBoundaries.ts");
 const { regionIndicatorRecords } = require("../src/lib/regionIndicators.ts");
 const { regionObservationRecords } = require("../src/lib/regionObservations.ts");
-const { regionQualityCheckRecords, regionQualitySummary } = require("../src/lib/regionQualityChecks.ts");
+const { hungaryNuts3SandboxQaSummary, regionQualityCheckRecords, regionQualitySummary } = require("../src/lib/regionQualityChecks.ts");
 const { regionSourceRecords } = require("../src/lib/regionSources.ts");
 const { projectLocationRecords } = require("../src/lib/projectLocations.ts");
 const { mapLayerRecords } = require("../src/lib/mapLayers.ts");
@@ -1062,13 +1062,13 @@ writeLayer("countries", countryRecords, {
   relation_note: "All observations, projects, derived comparisons, and exposure candidates should reference country_id.",
 });
 writeLayer("regions", regionMetadataRecords, {
-  scope: "v0.11 regions metadata. Hungary NUTS3 keeps 20 region_id and NUTS code pre-match positions in pilot_pending_region_code_match status; non-V4 countries keep national-level pending placeholders.",
+  scope: "v0.12 regions metadata. Hungary NUTS3 keeps 20 region_id and NUTS code pre-match positions in pilot_pending_region_code_match status; non-V4 countries keep national-level pending placeholders.",
   primary_key: "region_id",
   relation_note: "Every region references country_id from countries. ADM2 is intentionally excluded from the current boundary verification pass.",
   model_boundary: "Region metadata only. No regional risk layer, forecast, election model, or ADM2 analysis is generated.",
 });
 writeLayer("region_boundaries", regionBoundaryRecords, {
-  scope: "v0.11 boundary file sandbox registry. hu_nuts3_gisco_2024 is sandbox_downloaded, sandbox_filtered, and not_ready_for_display. The filtered geometry is not rendered.",
+  scope: "v0.12 sandbox validation and topology QA registry. hu_nuts3_gisco_2024 remains sandbox_downloaded, sandbox_filtered, and not_ready_for_display. Basic QA does not enable rendering.",
   primary_key: "boundary_id",
   relation_note: "Every boundary record references region_id from regions and country_id from countries.",
   validation_note: "Records track source credibility, public display licence, simplification readiness, front-end suitability, region_id matching, admin codes, and historical boundary issues before geometry ingestion.",
@@ -1089,15 +1089,16 @@ writeLayer("region_observations", regionObservationRecords, {
   model_boundary: "Observation structure only. Pending rows do not enter map layers, regional comparison, or future model candidate inputs.",
 });
 writeLayer("region_quality_checks", regionQualityCheckRecords, {
-  scope: "v0.11 regional data quality checks. Hungary NUTS3 sandbox checks include download, HU filtering, CRS, licence, topology, final region_id matching, and display readiness.",
+  scope: "v0.12 regional data quality checks. Hungary NUTS3 sandbox QA covers file counts, NUTS codes, CRS, geometry, basic topology, final region_id matching, and display readiness.",
   primary_key: "region_check_id",
   summary: regionQualitySummary,
+  sandbox_qa_summary: hungaryNuts3SandboxQaSummary,
   relation_note: "Every check references region_id from regions and region_indicator_id from region_indicators. Boundary readiness is cross-checked through region_boundaries.",
-  validation_note: "Pending rows remain explicit. A missing value is not converted to zero, and a boundary source does not mean geometry is available.",
+  validation_note: "Basic topology QA does not replace authoritative validation. A 20/20 pre-match does not set region_id_matched=true, and pending rows remain explicit.",
   model_boundary: "Quality checks only. No regional model, risk layer, forecast, election prediction, or live boundary rendering is generated.",
 });
 writeLayer("region_sources", regionSourceRecords, {
-  scope: "v0.11 regional source dictionary. GISCO NUTS 2024 Level 3 GeoJSON is locked for sandbox use while licence status remains pending for public display.",
+  scope: "v0.12 regional source dictionary. GISCO NUTS 2024 Level 3 GeoJSON is locked for sandbox QA while licence status remains pending for public display.",
   primary_key: "region_source_id",
   relation_note: "Future region_observations, region_boundaries, election regional data, and project_locations should reference region_source_id where applicable.",
   validation_note: "Licence status is mandatory because regional maps and boundaries may involve public display, simplification, redistribution, and commercial-use constraints.",
@@ -1111,7 +1112,7 @@ writeLayer("project_locations", projectLocationRecords, {
   model_boundary: "Location bridge only. No China exposure index, regional risk layer, forecast, or live project map layer is generated.",
 });
 writeLayer("map_layers", mapLayerRecords, {
-  scope: "v0.11 map layer registry. hu_nuts3_boundary_pilot remains registered for sandbox verification only with is_ready_for_display=false.",
+  scope: "v0.12 map layer registry. hu_nuts3_boundary_pilot remains registered for sandbox validation and topology QA only with is_ready_for_display=false.",
   primary_key: "layer_id",
   relation_note: "Each layer declares its data_source_table, geometry_source_table, indicator_or_variable, tooltip fields, filters, source requirements, and quality requirements.",
   validation_note: "All registered real boundary and analytical layers keep is_ready_for_display=false until boundary, source, observation, project-location, and quality checks pass.",

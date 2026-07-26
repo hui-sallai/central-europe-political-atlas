@@ -1,4 +1,5 @@
 import { InteractiveMapExplorer } from "@/components/InteractiveMapExplorer";
+import { hungaryNuts3SandboxQaSummary } from "@/lib/regionQualityChecks";
 
 export default function MapPage() {
   return (
@@ -14,7 +15,8 @@ export default function MapPage() {
         <h2 className="mt-2 text-2xl font-semibold">区域地图数据准备状态</h2>
         <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           {[
-            ["区域地图数据", "匈牙利 NUTS3 沙盒已过滤"],
+            ["当前阶段", "v0.12 sandbox validation and topology QA"],
+            ["区域地图数据", "匈牙利 NUTS3 沙盒验收中"],
             ["V4 ADM1 / NUTS2 边界", "待接入"],
             ["区域统计数据", "待接入"],
             ["对华项目地区定位", "准备中"],
@@ -35,8 +37,8 @@ export default function MapPage() {
       </section>
 
       <section className="mt-6 rounded-3xl border border-[var(--line)] bg-white/65 p-5">
-        <p className="eyebrow">v0.11 Boundary File Sandbox</p>
-        <h2 className="mt-2 text-2xl font-semibold">v0.11 匈牙利边界文件沙盒状态</h2>
+        <p className="eyebrow">v0.12 Sandbox Validation And Topology QA</p>
+        <h2 className="mt-2 text-2xl font-semibold">v0.12 匈牙利 NUTS3 沙盒验收状态</h2>
         <div className="mt-4 overflow-x-auto rounded-2xl border border-[var(--line)] bg-white/70">
           <table className="min-w-full border-collapse text-left text-sm">
             <thead className="bg-[var(--surface-muted)] text-xs text-[var(--muted)]">
@@ -56,8 +58,13 @@ export default function MapPage() {
                 ["来源等级", "A"],
                 ["许可状态", "待确认 / 待接受使用条款"],
                 ["几何状态", "sandbox_downloaded / sandbox_filtered"],
+                ["要素数量", `${hungaryNuts3SandboxQaSummary.feature_count} / ${hungaryNuts3SandboxQaSummary.expected_feature_count}`],
+                ["NUTS code 数量", String(hungaryNuts3SandboxQaSummary.nuts_code_count)],
+                ["CRS 确认", hungaryNuts3SandboxQaSummary.crs_confirmed ? "EPSG:4326 已确认（沙盒）" : "待确认"],
+                ["几何完整性", `${hungaryNuts3SandboxQaSummary.geometry_present_count} / ${hungaryNuts3SandboxQaSummary.expected_feature_count}`],
                 ["主键状态", "20 / 20 预匹配；待最终核验"],
-                ["拓扑检查", "未执行"],
+                ["拓扑检查", "基础 QA 已执行；权威拓扑验收待完成"],
+                ["topology_status", hungaryNuts3SandboxQaSummary.topology_status],
                 ["是否进入真实地图展示", "否"],
                 ["is_ready_for_display", "false"],
               ].map(([field, value]) => (
@@ -70,7 +77,7 @@ export default function MapPage() {
           </table>
         </div>
         <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-          v0.11 沙盒文件仅供离线解析和主键预匹配；许可、拓扑、最终主键匹配和质量验收通过前，真实地图展示仍未启用。
+          v0.12 只做沙盒验证与基础拓扑 QA；过滤完成或 20 / 20 预匹配均不代表正式验收通过。来源、许可、文件、CRS、几何、权威拓扑、最终主键和质量验收全部通过前，真实地图展示仍未启用。
         </p>
       </section>
 
