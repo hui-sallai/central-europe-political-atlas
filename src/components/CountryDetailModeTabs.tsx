@@ -21,7 +21,7 @@ const detailModes: { id: DetailMode; label: string; description: string }[] = [
   {
     id: "map",
     label: "地图层级",
-    description: "默认视图：真实行政边界待接入；当前仅保留地图工作台入口和结构样例。",
+    description: "默认视图：地图工作台入口；边界和图层状态见下方仪表盘。",
   },
   {
     id: "reading",
@@ -213,7 +213,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
       </section>
 
       <section className="mt-4 card p-6">
-        <p className="eyebrow">v0.9 Regional Data</p>
+        <p className="eyebrow">4. v0.9 Regional Data</p>
         <h2 className="mt-3 text-2xl font-semibold">区域数据准备状态</h2>
         {isV4Country ? (
           <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
@@ -245,7 +245,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
       <div className="card p-3">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
           <div className="px-2">
-            <p className="eyebrow">4. Map Layer Dashboard</p>
+            <p className="eyebrow">Map View Selector</p>
             <p className="mt-2 text-sm text-[var(--muted)]">{activeModeInfo.description}</p>
           </div>
           <div className="grid grid-cols-2 gap-2">
@@ -273,21 +273,21 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
       <section className="mt-4 grid gap-3 lg:grid-cols-3">
         {[
           {
-            eyebrow: "5. China Economic Projects",
+            eyebrow: "7. China Economic Projects",
             label: "对华经贸项目",
             statusText: "待量化",
             statusKind: "manual" as const,
             note: projectRecords.length > 0 ? `已整理 ${projectRecords.length} 个项目；核验结论：${projectVerificationSummary}。金额证据、主体核验和暴露变量适配仍逐条复核。` : "项目表入口已预留，项目级来源待接入。",
           },
           {
-            eyebrow: "6. Party / Politics Samples",
+            eyebrow: "8. Party / Politics Samples",
             label: "党派 / 政治样本区",
             statusText: "待核验 / 不进入模型",
             statusKind: partyStatus as "manual" | "pending",
             note: governingParties.length > 0 ? "党派、执政结构和政治样本需继续与官方政府名单、议会席位和选举结果复核；当前不进入模型。" : "政治样本字段已预留，可信来源待接入；当前不进入模型。",
           },
           {
-            eyebrow: "7. News Event Entry",
+            eyebrow: "9. News Event Entry",
             label: "新闻事件入口",
             statusText: "待接入",
             statusKind: "pending" as const,

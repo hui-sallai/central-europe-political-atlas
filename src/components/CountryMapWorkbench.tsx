@@ -120,7 +120,7 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
       <div className="mb-4 flex flex-col gap-3 px-2 pt-2 lg:flex-row lg:items-end lg:justify-between">
         <div>
           <p className="eyebrow">Dynamic Country Map</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em]">地图图层仪表盘</h2>
+          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em]">5. 地图图层仪表盘</h2>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--muted)]">
             真实行政边界待接入；当前仅保留地图工作台入口和结构样例。不新增风险图层，不新增预测图层，不新增真实党派支持率图层。
           </p>
@@ -211,7 +211,7 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
           <div className="mt-5 rounded-2xl border border-[var(--line)] bg-[var(--accent-soft)] p-4">
             <div className="flex items-start justify-between gap-3">
               <div>
-                <p className="text-xs font-semibold text-[var(--muted)]">二级行政区接入</p>
+                <p className="text-xs font-semibold text-[var(--muted)]">6. 二级行政区接入</p>
                 <h4 className="mt-2 text-lg font-semibold">{adm2Plan?.unitZh ?? "真实 ADM2 单元"}</h4>
                 <p className="mt-1 text-xs text-[var(--muted)]">{adm2Plan?.unitNative ?? "按该国正式行政层级接入"}</p>
               </div>
@@ -222,7 +222,7 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
               <p className="text-xs font-semibold text-[var(--muted)]">当前一级区</p>
               <p className="mt-1 text-sm font-semibold">{selectedRegion?.nameZh ?? country.nameZh}</p>
               <p className="mt-2 text-xs leading-5 text-[var(--muted)]">
-                真实行政边界待接入；当前仅保留该一级行政区下钻入口和字段结构，不使用 A/B/C/D 样本。
+                当前仅保留该一级行政区下钻入口和字段结构，不使用 A/B/C/D 样本。
               </p>
             </div>
 

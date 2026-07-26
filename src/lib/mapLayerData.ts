@@ -23,7 +23,7 @@ export const mapLayerOptions: LayerOption[] = [
   {
     id: "party",
     label: "政治样本色阶",
-    description: "真实行政边界待接入；当前仅保留地图工作台入口和结构样例。该层不是选举结果、不是民调数据，也不是模型评分。",
+    description: "结构样例图层：该层不是选举结果、不是民调数据，也不是模型评分。",
     legend: "颜色深浅仅表示结构样例，不代表真实支持率",
     dataStatus: "结构样例，不进入模型",
     statusKind: "sample",
@@ -32,7 +32,7 @@ export const mapLayerOptions: LayerOption[] = [
   {
     id: "economy",
     label: "区域经济样例色阶",
-    description: "真实行政边界待接入；当前仅保留地图工作台入口和结构样例。该层不是区域 GDP、就业或产业结构数据。",
+    description: "结构样例图层：该层不是区域 GDP、就业或产业结构数据。",
     legend: "颜色深浅仅表示结构样例，不代表真实区域经济指标",
     dataStatus: "结构样例，不进入模型",
     statusKind: "sample",
@@ -41,7 +41,7 @@ export const mapLayerOptions: LayerOption[] = [
   {
     id: "baseline",
     label: "基础工作台",
-    description: "真实行政边界待接入；当前仅保留地图工作台入口和结构样例，不叠加分析评分。",
+    description: "地图工作台入口；当前不叠加分析评分。",
     legend: "用于保留地图工作台入口",
     dataStatus: "待接入",
     statusKind: "pending",
