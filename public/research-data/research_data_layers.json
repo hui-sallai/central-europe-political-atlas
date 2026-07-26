@@ -2,7 +2,7 @@
   "schema_version": "research-data-v0.1",
   "generated_at": "2026-07-26",
   "data_type": "research_data_layers",
-  "record_count": 15,
+  "record_count": 16,
   "records": [
     {
       "id": "countries",
@@ -52,6 +52,13 @@
       "description": "v0.9 区域来源字典；单独管理区域统计、边界、选举、项目坐标来源和许可状态。",
       "json_file": "region_sources.json",
       "csv_file": "region_sources.csv"
+    },
+    {
+      "id": "project_locations",
+      "label": "project_locations",
+      "description": "v0.9 对华项目地区定位表；把 china_projects 映射到 regions，保留定位精度、来源和地图准备状态。",
+      "json_file": "project_locations.json",
+      "csv_file": "project_locations.csv"
     },
     {
       "id": "indicators",

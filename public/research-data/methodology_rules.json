@@ -406,7 +406,7 @@
       "rule_category": "导出规则",
       "rule_name": "研究数据导出边界规则",
       "rule_description": "导出层提供 JSON/CSV 研究数据结构，供未来 Python/R/Stata 读取，但不是对外 API，也不是模型输出。",
-      "applies_to": "countries,regions,region_boundaries,region_indicators,region_observations,region_quality_checks,region_sources,indicators,sources,observations,data_quality_checks,derived_comparisons,china_projects,china_exposure_candidates,methodology_rules",
+      "applies_to": "countries,regions,region_boundaries,region_indicators,region_observations,region_quality_checks,region_sources,project_locations,indicators,sources,observations,data_quality_checks,derived_comparisons,china_projects,china_exposure_candidates,methodology_rules",
       "required_fields": [
         "schema_version",
         "generated_at",
@@ -428,7 +428,7 @@
       "model_boundary": "导出文件不代表模型已启用。",
       "export_boundary": "JSON/CSV 均可公开读取，但需保留数据边界说明。",
       "last_updated": "2026-07-26",
-      "notes": "当前 15 个逻辑数据层均从导出脚本生成；regions 为 v0.9 区域主键层，region_boundaries 为边界来源登记层，region_indicators 为区域指标字典，region_observations 为区域观测值主表，region_quality_checks 为区域数据质量验收层，region_sources 为区域来源字典。"
+      "notes": "当前 16 个逻辑数据层均从导出脚本生成；regions 为 v0.9 区域主键层，region_boundaries 为边界来源登记层，region_indicators 为区域指标字典，region_observations 为区域观测值主表，region_quality_checks 为区域数据质量验收层，region_sources 为区域来源字典，project_locations 为对华项目地区定位表。"
     }
   ]
 }

@@ -216,7 +216,7 @@ export default function MethodologyPage() {
 
       <section className="mt-6 card p-6">
         <p className="eyebrow">Logical Data Layers</p>
-        <h2 className="mt-3 text-2xl font-semibold">5.1 十五个逻辑数据层</h2>
+        <h2 className="mt-3 text-2xl font-semibold">5.1 十六个逻辑数据层</h2>
         <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">
           当前先固化研究数据结构，并在数据页提供 JSON / CSV 导出入口；这些逻辑层不是模型页，也不代表预测功能已经启用。
         </p>
@@ -235,7 +235,7 @@ export default function MethodologyPage() {
         <h2 className="mt-3 text-2xl font-semibold">5.2 数据导出与接口准备</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {[
-            "当前阶段：v0.9 beta / regions + region_boundaries + region_indicators + region_observations + region_quality_checks + region_sources 区域层准备。",
+            "当前阶段：v0.9 beta / regions + region_boundaries + region_indicators + region_observations + region_quality_checks + region_sources + project_locations 区域层准备。",
             "当前只做 CSV / JSON 数据结构准备。",
             "不提供预测 API。",
             "不提供模型 API。",

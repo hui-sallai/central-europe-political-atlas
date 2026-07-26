@@ -31,6 +31,7 @@ const { regionIndicatorRecords } = require("../src/lib/regionIndicators.ts");
 const { regionObservationRecords } = require("../src/lib/regionObservations.ts");
 const { regionQualityCheckRecords, regionQualitySummary } = require("../src/lib/regionQualityChecks.ts");
 const { regionSourceRecords } = require("../src/lib/regionSources.ts");
+const { projectLocationRecords } = require("../src/lib/projectLocations.ts");
 const {
   chinaProjectRecords,
   extendedObservations,
@@ -919,7 +920,7 @@ function methodologyRuleRecords() {
       rule_category: "导出规则",
       rule_name: "研究数据导出边界规则",
       rule_description: "导出层提供 JSON/CSV 研究数据结构，供未来 Python/R/Stata 读取，但不是对外 API，也不是模型输出。",
-      applies_to: "countries,regions,region_boundaries,region_indicators,region_observations,region_quality_checks,region_sources,indicators,sources,observations,data_quality_checks,derived_comparisons,china_projects,china_exposure_candidates,methodology_rules",
+      applies_to: "countries,regions,region_boundaries,region_indicators,region_observations,region_quality_checks,region_sources,project_locations,indicators,sources,observations,data_quality_checks,derived_comparisons,china_projects,china_exposure_candidates,methodology_rules",
       required_fields: ["schema_version", "generated_at", "data_type", "record_count", "records"],
       allowed_statuses: ["可导出", "待接入", "结构说明"],
       excluded_statuses: ["风险分数", "预测结果"],
@@ -928,7 +929,7 @@ function methodologyRuleRecords() {
       model_boundary: "导出文件不代表模型已启用。",
       export_boundary: "JSON/CSV 均可公开读取，但需保留数据边界说明。",
       last_updated: generatedAt,
-      notes: "当前 15 个逻辑数据层均从导出脚本生成；regions 为 v0.9 区域主键层，region_boundaries 为边界来源登记层，region_indicators 为区域指标字典，region_observations 为区域观测值主表，region_quality_checks 为区域数据质量验收层，region_sources 为区域来源字典。",
+      notes: "当前 16 个逻辑数据层均从导出脚本生成；regions 为 v0.9 区域主键层，region_boundaries 为边界来源登记层，region_indicators 为区域指标字典，region_observations 为区域观测值主表，region_quality_checks 为区域数据质量验收层，region_sources 为区域来源字典，project_locations 为对华项目地区定位表。",
     },
   ];
 }
@@ -1100,6 +1101,13 @@ writeLayer("region_sources", regionSourceRecords, {
   relation_note: "Future region_observations, region_boundaries, election regional data, and project_locations should reference region_source_id where applicable.",
   validation_note: "Licence status is mandatory because regional maps and boundaries may involve public display, simplification, redistribution, and commercial-use constraints.",
   model_boundary: "Source dictionary only. No regional model, risk layer, forecast, election prediction, or live boundary rendering is generated.",
+});
+writeLayer("project_locations", projectLocationRecords, {
+  scope: "v0.9 project location bridge table. It maps current V4 china_projects to regions where the project geography is clear enough.",
+  primary_key: "project_location_id",
+  relation_note: "Every record references project_id from china_projects and, where available, region_id from regions.",
+  validation_note: "Coordinates remain null until a verifiable geocoding or official site source is added. Region mapping does not mean exact site location is verified.",
+  model_boundary: "Location bridge only. No China exposure index, regional risk layer, forecast, or live project map layer is generated.",
 });
 writeLayer("indicators", indicatorRecords, {
   primary_key: "indicator_id",
