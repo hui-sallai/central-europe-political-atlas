@@ -107,6 +107,17 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
   const selectedRegionDatum = selectedRegion ? layerData.find((item) => item.region.slug === selectedRegion.slug) : undefined;
   const layerDataPreview = layerData.slice(0, 4);
   const adm2Plan = adm2Plans[country.slug];
+  const layerStatusRows = activeLayer === "baseline"
+    ? [
+        ["图层状态", "结构样例"],
+        ["模型状态", "不进入模型"],
+        ["色阶状态", "不适用"],
+      ]
+    : [
+        ["图层状态", "结构样例"],
+        ["模型状态", "不进入模型"],
+        ["色阶状态", "占位色阶"],
+      ];
 
   function selectRegion(countrySlug: string, regionSlug?: string) {
     if (countrySlug !== country.slug || !regionSlug) {
@@ -161,9 +172,13 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
           <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{activeLayerOption.description}</p>
           <p className="mt-3 rounded-full bg-[var(--surface-muted)] px-3 py-2 text-xs text-[var(--muted)]">{activeLayerOption.legend}</p>
           <div className="mt-3 rounded-2xl border border-[var(--line)] bg-white/70 p-3">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs font-semibold text-[var(--muted)]">图层数据状态：</span>
-              <DataStatusBadge status={activeLayerOption.statusKind} />
+            <div className="grid gap-2 text-xs">
+              {layerStatusRows.map(([label, value]) => (
+                <div key={label} className="flex items-start justify-between gap-3 rounded-xl bg-[var(--surface-muted)] px-3 py-2">
+                  <span className="font-semibold text-[var(--muted)]">{`${label}：`}</span>
+                  <span className="text-right font-semibold text-[var(--foreground)]">{value}</span>
+                </div>
+              ))}
             </div>
             <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{activeLayerOption.statusNote}</p>
             <p className="mt-1 text-[10px] leading-4 text-[var(--muted)]">
@@ -182,9 +197,19 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
               </p>
               {selectedRegionDatum ? (
                 <div className="mt-4 rounded-xl bg-[var(--surface-muted)] p-3">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <DataStatusBadge status={activeLayerOption.statusKind} />
-                    <span className="text-xs font-semibold text-[var(--muted)]">{selectedRegionDatum.displayValue}</span>
+                  <div className="grid gap-2 text-xs">
+                    <div className="flex items-start justify-between gap-3 rounded-lg bg-white/60 px-3 py-2">
+                      <span className="font-semibold text-[var(--muted)]">图层状态：</span>
+                      <span className="text-right font-semibold text-[var(--foreground)]">结构样例</span>
+                    </div>
+                    <div className="flex items-start justify-between gap-3 rounded-lg bg-white/60 px-3 py-2">
+                      <span className="font-semibold text-[var(--muted)]">模型状态：</span>
+                      <span className="text-right font-semibold text-[var(--foreground)]">不进入模型</span>
+                    </div>
+                    <div className="flex items-start justify-between gap-3 rounded-lg bg-white/60 px-3 py-2">
+                      <span className="font-semibold text-[var(--muted)]">色阶状态：</span>
+                      <span className="text-right font-semibold text-[var(--foreground)]">{activeLayer === "baseline" ? "不适用" : selectedRegionDatum.displayValue}</span>
+                    </div>
                   </div>
                   <p className="mt-2 text-xs leading-5 text-[var(--muted)]">
                     当前区域只显示该图层的数据状态；结构样例不显示百分比、强度或排名，也不进入模型。
@@ -237,12 +262,18 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
               </div>
             </div>
 
-            <div className="mt-3 flex flex-wrap gap-1.5">
-              {adm2Fields.map((field) => (
-                <span key={field} className="rounded-full bg-white/75 px-2.5 py-1 text-[10px] text-[var(--muted)]">
-                  {field}
-                </span>
-              ))}
+            <div className="mt-3 overflow-x-auto rounded-xl border border-[var(--line)] bg-white/75">
+              <table className="min-w-full border-collapse text-left text-[10px] text-[var(--muted)]">
+                <thead>
+                  <tr>
+                    {adm2Fields.map((field) => (
+                      <th key={field} className="whitespace-nowrap border-r border-[var(--line)] px-3 py-2 font-semibold last:border-r-0">
+                        {field}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+              </table>
             </div>
 
             <p className="mt-3 text-xs leading-5 text-[var(--muted)]">{adm2Plan?.notes}</p>

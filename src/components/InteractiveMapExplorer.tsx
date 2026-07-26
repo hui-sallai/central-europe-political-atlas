@@ -166,18 +166,16 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
                 </div>
               ) : null}
               <div className="mt-2 grid gap-2 text-xs">
-                <div className="rounded-xl bg-white/75 p-2">
-                  <div className="flex flex-wrap items-center gap-1.5">
-                    <span className="font-semibold text-[var(--muted)]">政治样本状态：</span>
-                    <DataStatusBadge status={selectedPoliticalStatus.badge} />
-                    <SourceStatusBadge status={selectedPoliticalStatus.badge === "manual" ? "manual" : "pending"} />
+                {[
+                  ["国家基础档案", "待核验"],
+                  ["政治样本", `${selectedPoliticalStatus.access} / 待核验 / 不进入模型`],
+                  ["执政结构", "待核验"],
+                ].map(([label, value]) => (
+                  <div key={label} className="rounded-xl bg-white/75 p-2">
+                    <p className="font-semibold text-[var(--muted)]">{`${label}：`}</p>
+                    <p className="mt-1 leading-5 text-[var(--foreground)]">{value}</p>
                   </div>
-                  <p className="mt-1 leading-5 text-[var(--muted)]">{selectedPoliticalStatus.display}</p>
-                </div>
-                <div className="rounded-xl bg-white/75 p-2">
-                  <p className="font-semibold text-[var(--muted)]">执政结构：</p>
-                  <p className="mt-1 leading-5 text-[var(--muted)]">待核验 / 不进入模型</p>
-                </div>
+                ))}
               </div>
               <div className="mt-2 grid grid-cols-2 gap-2">
                 <div className="rounded-xl bg-white/70 p-2">
@@ -283,11 +281,17 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
                       </div>
                       <span className="rounded-full bg-white px-3 py-1 text-xs text-[var(--muted)]">{country.regions.length} 区域</span>
                     </div>
-                    <div className="mt-3 flex flex-wrap items-center gap-2">
-                      <DataStatusBadge status={status.badge} />
-                      <p className="text-xs font-semibold text-[var(--accent)]">{status.label}</p>
-                      <span className="rounded-full bg-white px-2.5 py-0.5 text-[10px] font-semibold text-[var(--muted)]">{status.access}</span>
-                      <span className="rounded-full bg-white px-2.5 py-0.5 text-[10px] font-semibold text-[var(--muted)]">不进入模型</span>
+                    <div className="mt-3 grid gap-1.5 text-[10px]">
+                      {[
+                        ["国家基础档案", "待核验"],
+                        ["政治样本", `${status.access} / 待核验 / 不进入模型`],
+                        ["执政结构", "待核验"],
+                      ].map(([label, value]) => (
+                        <div key={label} className="flex items-start justify-between gap-2 rounded-lg bg-white/70 px-2.5 py-1.5">
+                          <span className="font-semibold text-[var(--muted)]">{`${label}：`}</span>
+                          <span className="text-right font-semibold text-[var(--foreground)]">{value}</span>
+                        </div>
+                      ))}
                     </div>
                     {countryNews ? <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{countryNews.title}</p> : null}
                   </button>

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { DataLayerOverview } from "@/components/DataLayerOverview";
-import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
 import { countries } from "@/lib/data";
 import { getCountryMetadata } from "@/lib/countryMetadata";
 import { getChinaProjectRecords } from "@/lib/extendedData";
@@ -26,10 +25,12 @@ export default function CountriesPage() {
           const partyStatus = metadata?.political_sample_status.includes("人工整理") ? "manual" : "pending";
           const projectStatus = projectRecords.length > 0 ? "manual" : "pending";
           const partyStatusText = metadata?.political_sample_status ?? (isV4Country ? "待核验 / 人工整理" : "待接入");
+          const partySourceStatus = partyStatus === "manual" ? "人工整理" : "待接入";
+          const projectSourceStatus = projectStatus === "manual" ? "人工整理" : "待接入";
           const regionalDataStatus = isV4Country ? "区域数据准备中" : "区域数据待接入";
           const regionalDataItems = isV4Country
             ? [
-                ["v0.9 第一批", "区域数据准备中"],
+                ["v0.9 第一批状态", "区域数据准备中"],
                 ["区域主键", "已预留"],
                 ["边界来源", "待接入"],
                 ["区域统计", "待接入"],
@@ -37,7 +38,7 @@ export default function CountriesPage() {
                 ["真实地图展示", "未启用"],
               ]
             : [
-                ["v0.9 第一批", "暂不进入 v0.9 第一批"],
+                ["v0.9 第一批状态", "暂不进入 v0.9 第一批"],
                 ["区域主键", "国家级待接入"],
                 ["边界来源", "待接入"],
                 ["区域统计", "待接入"],
@@ -50,24 +51,47 @@ export default function CountriesPage() {
               <p className="text-sm text-[var(--muted)]">{country.nameEn}</p>
               <h2 className="mt-2 text-2xl font-semibold">{country.nameZh}</h2>
               <p className="mt-4 text-sm leading-6 text-[var(--muted)]">{country.summaryZh}</p>
-              <div className="mt-5 flex flex-wrap gap-2 text-xs text-[var(--muted)]">
-                <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{country.regions.length} 个一级行政区</span>
+              <div className="mt-5 grid gap-2 text-xs">
+                <div className="rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-3">
+                  <p className="font-semibold text-[var(--muted)]">一级行政区数量</p>
+                  <p className="mt-1 text-sm font-semibold text-[var(--foreground)]">{country.regions.length}</p>
+                </div>
               </div>
 
               <div className="mt-4 grid gap-2 text-xs">
                 <div className="rounded-2xl border border-[var(--line)] bg-white/60 p-3">
-                  <p className="font-semibold text-[var(--foreground)]">党派样本库</p>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    <DataStatusBadge status={partyStatus} />
-                    <SourceStatusBadge status={partyStatus} />
+                  <p className="font-semibold text-[var(--foreground)]">党派样本库状态</p>
+                  <div className="mt-2 grid gap-2">
+                    <div className="flex items-start justify-between gap-3 rounded-xl bg-[var(--surface-muted)] px-3 py-2">
+                      <span className="font-semibold text-[var(--muted)]">状态：</span>
+                      <span className="text-right font-semibold text-[var(--foreground)]">待核验</span>
+                    </div>
+                    <div className="flex items-start justify-between gap-3 rounded-xl bg-[var(--surface-muted)] px-3 py-2">
+                      <span className="font-semibold text-[var(--muted)]">来源状态：</span>
+                      <span className="text-right font-semibold text-[var(--foreground)]">{partySourceStatus}</span>
+                    </div>
+                    <div className="flex items-start justify-between gap-3 rounded-xl bg-[var(--surface-muted)] px-3 py-2">
+                      <span className="font-semibold text-[var(--muted)]">模型状态：</span>
+                      <span className="text-right font-semibold text-[var(--foreground)]">不进入模型</span>
+                    </div>
                   </div>
                   <p className="mt-2 leading-5 text-[var(--muted)]">{partyStatusText}；用于页面结构和政党关系展示，不是正式统计数量。</p>
                 </div>
                 <div className="rounded-2xl border border-[var(--line)] bg-white/60 p-3">
-                  <p className="font-semibold text-[var(--foreground)]">对华经贸项目表</p>
-                  <div className="mt-2 flex flex-wrap gap-2">
-                    <DataStatusBadge status={projectStatus} />
-                    <SourceStatusBadge status={projectStatus} />
+                  <p className="font-semibold text-[var(--foreground)]">对华经贸项目表状态</p>
+                  <div className="mt-2 grid gap-2">
+                    <div className="flex items-start justify-between gap-3 rounded-xl bg-[var(--surface-muted)] px-3 py-2">
+                      <span className="font-semibold text-[var(--muted)]">状态：</span>
+                      <span className="text-right font-semibold text-[var(--foreground)]">{projectRecords.length > 0 ? "待核验" : "待接入"}</span>
+                    </div>
+                    <div className="flex items-start justify-between gap-3 rounded-xl bg-[var(--surface-muted)] px-3 py-2">
+                      <span className="font-semibold text-[var(--muted)]">来源状态：</span>
+                      <span className="text-right font-semibold text-[var(--foreground)]">{projectSourceStatus}</span>
+                    </div>
+                    <div className="flex items-start justify-between gap-3 rounded-xl bg-[var(--surface-muted)] px-3 py-2">
+                      <span className="font-semibold text-[var(--muted)]">量化状态：</span>
+                      <span className="text-right font-semibold text-[var(--foreground)]">{projectRecords.length > 0 ? "逐条复核" : "待接入"}</span>
+                    </div>
                   </div>
                   <p className="mt-2 leading-5 text-[var(--muted)]">{projectRecords.length > 0 ? "已按固定字段整理项目样本，金额、主体和量化状态仍逐条复核。" : "项目表待接入。"}</p>
                 </div>

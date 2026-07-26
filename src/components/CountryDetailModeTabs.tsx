@@ -32,14 +32,6 @@ const detailModes: { id: DetailMode; label: string; description: string }[] = [
 
 const v4CountrySlugs = ["poland", "hungary", "czechia", "slovakia"];
 
-function StatusTextPill({ label }: { label: string }) {
-  return (
-    <span className="inline-flex rounded-full border border-[var(--line)] bg-white px-2.5 py-1 text-[10px] font-semibold leading-none text-[var(--muted)]">
-      {label}
-    </span>
-  );
-}
-
 function CoverageStat({ label, value, note }: { label: string; value: string; note: string }) {
   return (
     <div className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
@@ -275,22 +267,30 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
           {
             eyebrow: "7. China Economic Projects",
             label: "对华经贸项目",
-            statusText: "待量化",
-            statusKind: "manual" as const,
+            statusRows: [
+              ["状态", projectRecords.length > 0 ? "待核验" : "待接入"],
+              ["量化状态", "待量化"],
+              ["来源状态", projectRecords.length > 0 ? "待核验" : "待接入"],
+            ],
             note: projectRecords.length > 0 ? `已整理 ${projectRecords.length} 个项目；核验结论：${projectVerificationSummary}。金额证据、主体核验和暴露变量适配仍逐条复核。` : "项目表入口已预留，项目级来源待接入。",
           },
           {
             eyebrow: "8. Party / Politics Samples",
             label: "党派 / 政治样本区",
-            statusText: "待核验 / 不进入模型",
-            statusKind: partyStatus as "manual" | "pending",
+            statusRows: [
+              ["状态", "待核验"],
+              ["模型状态", "不进入模型"],
+              ["来源状态", partyStatus === "manual" ? "待核验" : "待接入"],
+            ],
             note: governingParties.length > 0 ? "党派、执政结构和政治样本需继续与官方政府名单、议会席位和选举结果复核；当前不进入模型。" : "政治样本字段已预留，可信来源待接入；当前不进入模型。",
           },
           {
             eyebrow: "9. News Event Entry",
             label: "新闻事件入口",
-            statusText: "待接入",
-            statusKind: "pending" as const,
+            statusRows: [
+              ["状态", "待接入"],
+              ["来源状态", "待接入"],
+            ],
             note: newsEventRecords.length > 0 ? "新闻事件入口已保留；正式新闻源和事件库口径按后续数据接入同步。" : "新闻事件库入口已预留，正式新闻源待接入。",
           },
         ].map((item) => (
@@ -298,10 +298,14 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
             <p className="eyebrow">{item.eyebrow}</p>
             <div className="flex items-start justify-between gap-3">
               <h3 className="mt-2 font-semibold">{item.label}</h3>
-              <div className="flex flex-wrap justify-end gap-1.5">
-                <StatusTextPill label={item.statusText} />
-                <DataStatusBadge status={item.statusKind} />
-              </div>
+            </div>
+            <div className="mt-3 grid gap-2 text-xs">
+              {item.statusRows.map(([label, value]) => (
+                <div key={label} className="flex items-start justify-between gap-3 rounded-xl bg-[var(--surface-muted)] px-3 py-2">
+                  <span className="font-semibold text-[var(--muted)]">{`${label}：`}</span>
+                  <span className="text-right font-semibold text-[var(--foreground)]">{value}</span>
+                </div>
+              ))}
             </div>
             <p className="mt-3 text-xs leading-5 text-[var(--muted)]">{item.note}</p>
           </article>
