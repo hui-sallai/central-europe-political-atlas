@@ -250,6 +250,25 @@ export default function MethodologyPage() {
       </section>
 
       <section className="mt-6 card p-6">
+        <p className="eyebrow">Regional Map Data</p>
+        <h2 className="mt-3 text-2xl font-semibold">5.3 区域地图数据准备规则</h2>
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
+          {[
+            "regions 是区域主键层；v0.9 第一版只优先准备 V4 四国 ADM1 / NUTS2，非 V4 国家暂不进入第一批区域层。",
+            "region_boundaries 只登记边界来源、许可、格式、坐标系、几何状态和拓扑检查；未通过许可与质量验收前不显示真实边界。",
+            "region_indicators 与国家级 indicators 分开管理；region_observations 必须保留年份、数值、单位、来源链接、来源等级和缺失原因。",
+            "region_quality_checks 用于检查边界、许可、区域代码、数值、单位和来源状态；未通过项不得进入正式地图图层。",
+            "project_locations 只把对华项目定位到城市、区域或国家层级；缺少可核验位置来源时不进入地图展示。",
+            "map_layers 仅注册未来图层，is_ready_for_display=false 的图层不得作为真实图层展示；风险图层、预测图层和真实党派支持率图层均未启用，新闻区仍不做评价。",
+          ].map((item) => (
+            <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
+              {item}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-6 card p-6">
         <p className="eyebrow">China Project Verification</p>
         <h2 className="mt-3 text-2xl font-semibold">6. 对华项目核验规则</h2>
         <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">
