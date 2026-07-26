@@ -18,9 +18,9 @@ export default function Home() {
         </div>
         <div className="mb-3 grid gap-2 text-xs md:grid-cols-4">
           {[
-            ["当前阶段", "v0.9 beta / 区域数据、来源、质量验收、项目定位与图层注册准备"],
-            ["最后更新日期", "2026-07-26"],
+            ["当前阶段", "v0.9 regional data preparation"],
             ["数据导出结构", "已预留"],
+            ["区域地图数据", "准备中"],
             ["模型层", "未启用"],
           ].map(([label, value]) => (
             <div key={label} className="rounded-2xl border border-[var(--line)] bg-white/70 px-3 py-2">
