@@ -26,6 +26,7 @@ export default function CountriesPage() {
           const partyStatus = metadata?.political_sample_status.includes("人工整理") ? "manual" : "pending";
           const projectStatus = projectRecords.length > 0 ? "manual" : "pending";
           const partyStatusText = metadata?.political_sample_status ?? (isV4Country ? "待核验 / 人工整理" : "待接入");
+          const regionalDataStatus = isV4Country ? "区域数据准备中" : "区域数据待接入";
 
           return (
             <Link key={country.slug} href={`/countries/${country.slug}`} className="card p-6 transition hover:-translate-y-1 hover:shadow-xl">
@@ -58,6 +59,10 @@ export default function CountriesPage() {
                   <p className="mt-2 leading-5 text-[var(--muted)]">
                     {metadata ? `${metadata.v4_extended_status} / ${metadata.map_region_status} / ${metadata.news_event_status}` : "待接入"}
                   </p>
+                </div>
+                <div className="rounded-2xl border border-[var(--line)] bg-white/60 p-3">
+                  <p className="font-semibold text-[var(--foreground)]">区域数据状态</p>
+                  <p className="mt-2 leading-5 text-[var(--muted)]">{regionalDataStatus}</p>
                 </div>
               </div>
             </Link>
