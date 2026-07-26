@@ -23,17 +23,26 @@ function politicalSampleStatus(country: (typeof countries)[number]) {
     return {
       badge: "pending" as const,
       access: "待接入",
-      label: "政治样本：待核验",
-      display: statusText ? `${statusText} / 不进入模型` : "待接入 / 政治样本：待核验 / 不进入模型",
     };
   }
 
   return {
     badge: "manual" as const,
     access: "人工整理",
-    label: "政治样本：人工整理",
-    display: statusText,
   };
+}
+
+function CountryStatusFields({ rows, compact = false }: { rows: [string, string][]; compact?: boolean }) {
+  return (
+    <div className={compact ? "grid gap-1.5 text-[10px]" : "grid gap-2 text-xs"}>
+      {rows.map(([label, value]) => (
+        <div key={label} className={`flex items-start justify-between gap-2 rounded-lg bg-white/75 ${compact ? "px-2.5 py-1.5" : "p-2"}`}>
+          <span className="font-semibold text-[var(--muted)]">{`${label}：`}</span>
+          <span className="text-right font-semibold text-[var(--foreground)]">{value}</span>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplorerProps) {
@@ -165,17 +174,14 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
                   </span>
                 </div>
               ) : null}
-              <div className="mt-2 grid gap-2 text-xs">
-                {[
-                  ["国家基础档案", "待核验"],
-                  ["政治样本", `${selectedPoliticalStatus.access} / 待核验 / 不进入模型`],
-                  ["执政结构", "待核验"],
-                ].map(([label, value]) => (
-                  <div key={label} className="rounded-xl bg-white/75 p-2">
-                    <p className="font-semibold text-[var(--muted)]">{`${label}：`}</p>
-                    <p className="mt-1 leading-5 text-[var(--foreground)]">{value}</p>
-                  </div>
-                ))}
+              <div className="mt-2">
+                <CountryStatusFields
+                  rows={[
+                    ["国家基础档案", "待核验"],
+                    ["政治样本", `${selectedPoliticalStatus.access} / 待核验 / 不进入模型`],
+                    ["执政结构", "待核验"],
+                  ]}
+                />
               </div>
               <div className="mt-2 grid grid-cols-2 gap-2">
                 <div className="rounded-xl bg-white/70 p-2">
@@ -281,17 +287,15 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
                       </div>
                       <span className="rounded-full bg-white px-3 py-1 text-xs text-[var(--muted)]">{country.regions.length} 区域</span>
                     </div>
-                    <div className="mt-3 grid gap-1.5 text-[10px]">
-                      {[
-                        ["国家基础档案", "待核验"],
-                        ["政治样本", `${status.access} / 待核验 / 不进入模型`],
-                        ["执政结构", "待核验"],
-                      ].map(([label, value]) => (
-                        <div key={label} className="flex items-start justify-between gap-2 rounded-lg bg-white/70 px-2.5 py-1.5">
-                          <span className="font-semibold text-[var(--muted)]">{`${label}：`}</span>
-                          <span className="text-right font-semibold text-[var(--foreground)]">{value}</span>
-                        </div>
-                      ))}
+                    <div className="mt-3">
+                      <CountryStatusFields
+                        compact
+                        rows={[
+                          ["国家基础档案", "待核验"],
+                          ["政治样本", `${status.access} / 待核验 / 不进入模型`],
+                          ["执政结构", "待核验"],
+                        ]}
+                      />
                     </div>
                     {countryNews ? <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{countryNews.title}</p> : null}
                   </button>
