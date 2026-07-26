@@ -320,6 +320,72 @@ const regionMapDataStructureEntryIds = [
 const regionMapDataStructureEntries = regionMapDataStructureEntryIds
   .map((entryId) => dataEntryShortcuts.find((entry) => entry.id === entryId))
   .filter((entry): entry is DataEntryShortcut => Boolean(entry));
+const regionalSchemaChecks = [
+  {
+    table: "regions",
+    priority: "最高优先级",
+    why: "没有 regions，地图没有稳定区域主键。",
+    fields: "region_id, country_id, region_name_zh, region_name_en, region_name_local, admin_level, admin_code, parent_region_id, capital_or_main_city, region_type, is_v4_region, is_boundary_available, is_statistical_data_available, is_election_data_available, is_china_project_mapped, data_status, source_status, last_updated, notes",
+    enums: "admin_level: ADM1 / ADM2 / NUTS1 / NUTS2 / NUTS3；data_status: 正式数据 / 待核验 / 待接入 / 结构样例；source_status: 官方来源 / 人工整理 / 待接入 / 结构样例。",
+    status: "V4 四国建立 ADM1 区域主键；非 V4 六国只保留国家级待接入占位。",
+  },
+  {
+    table: "region_boundaries",
+    priority: "最高优先级",
+    why: "没有 region_boundaries，真实边界来源、许可和几何状态无法核验。",
+    fields: "boundary_id, region_id, country_id, admin_level, boundary_source_name, boundary_source_url, boundary_source_type, boundary_license, boundary_format, geometry_available, geometry_simplified, topology_checked, coordinate_system, file_path_or_url, source_reliability, source_status, last_checked, notes",
+    enums: "boundary_format: GeoJSON / TopoJSON / Shapefile / PMTiles / Vector Tiles / Not available；source_reliability: A / B / C / D；source_status: official / manual / pending / sample。",
+    status: "当前只登记来源和接入准备状态；geometry_available=false 的边界不进入真实地图展示。",
+  },
+  {
+    table: "region_indicators",
+    priority: "标准表体",
+    why: "区域指标独立于国家级 indicators，避免把国家级指标直接下放。",
+    fields: "region_indicator_id, 中文名, 英文名, 指标类别, 所属板块, 单位, 频率, 适用国家, 适用行政层级, 主来源, 备用来源, 来源等级, 是否为官方区域数据, 是否为人工整理, 是否为计算值, 是否进入地图图层, 是否进入区域比较, 是否进入未来模型候选, 缺失值处理规则, 待接入处理规则, last_updated, notes",
+    enums: "频率: annual / not_applicable；来源等级: A / B / C / D；地图图层、区域比较和模型候选均为布尔字段。",
+    status: "第一批只覆盖区域人口、GDP、人均 GDP、失业率、产业结构、制造业比重、首府/主要城市、项目数量、项目状态和边界状态。",
+  },
+  {
+    table: "region_observations",
+    priority: "标准表体",
+    why: "区域经济数据主表，后续地图图层和区域比较都从这里读取。",
+    fields: "region_observation_id, region_id, country_id, region_indicator_id, year, period_type, value, unit, value_status, source_id, source_name, source_url, source_reliability, source_status, is_official_data, is_pending, is_calculated, is_manual, is_structural_sample, is_in_map_layer, is_in_region_comparison, is_in_future_model_candidate, missing_reason, calculation_method, last_updated, notes",
+    enums: "period_type: annual / quarterly / monthly / event_date / not_applicable；value_status: 正式数据 / 待接入 / 计算值 / 人工整理 / 结构样例 / 不进入分析。",
+    status: "v0.9 只建立 V4 ADM1 待接入观测位置；不硬填数值，不进入正式地图图层。",
+  },
+  {
+    table: "region_sources",
+    priority: "标准表体",
+    why: "区域统计、边界和项目定位来源需要单独管理许可状态。",
+    fields: "region_source_id, source_name_zh, source_name_en, source_type, country_coverage, admin_level_coverage, indicator_coverage, boundary_coverage, source_url, source_reliability, source_status, update_frequency, license_status, can_be_used_for_boundary, can_be_used_for_regional_statistics, can_be_used_for_election_data, can_be_used_for_project_location, is_supplementary_only, is_excluded_from_analysis, last_checked, notes",
+    enums: "source_type: Eurostat regional statistics / 各国统计局区域数据 / 欧盟 GIS / 官方开放数据门户 / 地方政府官网 / 人工整理来源 / 待接入来源 / 结构样例来源；source_reliability: A / B / C / D。",
+    status: "license_status 必须保留；未检查许可的边界来源不能公开展示或复用。",
+  },
+  {
+    table: "region_quality_checks",
+    priority: "标准表体",
+    why: "区域数据比国家数据更乱，必须提前验收边界、许可、来源和区域代码。",
+    fields: "region_check_id, region_id, country_id, admin_level, region_indicator_id, year, boundary_available, boundary_source_available, boundary_license_checked, value_present, unit_present, source_name_present, source_url_present, source_reliability_present, region_code_present, is_official_data, is_pending, is_calculated, is_manual, is_structural_sample, is_map_ready, is_region_comparable, is_export_ready, quality_status, missing_reason, quality_notes, last_updated",
+    enums: "quality_status: 通过 / 部分通过 / 待接入 / 需复核 / 不进入分析。",
+    status: "当前待接入项保留缺失原因；is_map_ready=false 的区域不进入地图图层。",
+  },
+  {
+    table: "project_locations",
+    priority: "最高优先级",
+    why: "没有 project_locations，对华项目无法从国家级进入区域级。",
+    fields: "project_location_id, project_id, project_name, country_id, region_id, region_name, city_or_locality, latitude, longitude, location_precision, location_source_name, location_source_url, location_source_reliability, is_exact_location, is_city_level, is_region_level, is_country_level_only, is_mapped_to_region, is_ready_for_map_layer, location_status, missing_location_reason, last_updated, notes",
+    enums: "location_precision: exact_site / city_level / region_level / country_level_only / unknown；location_status: 已定位 / 部分定位 / 仅国家级 / 待核验 / 待接入 / 不进入地图。",
+    status: "当前只做区域级或城市级定位结构；缺少可核验位置来源时不进入正式地图图层。",
+  },
+  {
+    table: "map_layers",
+    priority: "最高优先级",
+    why: "没有 map_layers，地图页无法管理哪些图层只是注册、哪些可以显示。",
+    fields: "layer_id, layer_name_zh, layer_name_en, layer_type, data_source_table, geometry_source_table, admin_level, country_coverage, indicator_or_variable, is_active, is_ready_for_display, is_structural_sample, is_official_data, is_manual, is_pending, legend_type, legend_unit, color_scale, interaction_type, tooltip_fields, allowed_filters, source_requirement, quality_requirement, model_boundary, last_updated, notes",
+    enums: "layer_type: boundary / choropleth / point / symbol / label / table_only / structural_sample；is_ready_for_display=false 的图层不得作为真实图层展示。",
+    status: "v0.9 只注册图层；不启用风险图层、预测图层、真实党派支持率图层或中国经济暴露指数。",
+  },
+];
 
 const tableMetricIds: EconomicMetricId[] = ["population", "gdp", "gdpPerCapita", "growth", "inflation", "unemployment"];
 const economicMetricIndicatorIds: Record<EconomicMetricId, string> = {
@@ -3005,6 +3071,40 @@ export function DataCountryExplorer() {
                   <span className="mt-1 block text-xs leading-5 text-[var(--muted)]">{entry.description}</span>
                 </button>
               ))}
+            </div>
+            <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+              <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
+                <div>
+                  <p className="eyebrow">v0.9 Field-Level Acceptance</p>
+                  <h4 className="mt-2 text-base font-semibold">区域表字段级验收</h4>
+                  <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
+                    八个 v0.9 区域表均保留完整字段、枚举/状态和用途说明；其中 regions、region_boundaries、map_layers、project_locations 为地图落地的最高优先级。
+                  </p>
+                </div>
+                <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">8 / 8 表体已实化</span>
+              </div>
+              <div className="mt-4 grid gap-3 xl:grid-cols-2">
+                {regionalSchemaChecks.map((schema) => (
+                  <article key={schema.table} className="rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-4">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <h5 className="font-mono text-sm font-semibold text-[var(--accent)]">{schema.table}</h5>
+                      <span className="rounded-full bg-white px-3 py-1 text-[10px] font-semibold text-[var(--muted)]">{schema.priority}</span>
+                    </div>
+                    <p className="mt-3 text-xs leading-5 text-[var(--muted)]">
+                      <span className="font-semibold text-[var(--foreground)]">原因：</span>{schema.why}
+                    </p>
+                    <p className="mt-2 text-xs leading-5 text-[var(--muted)]">
+                      <span className="font-semibold text-[var(--foreground)]">完整字段：</span>{schema.fields}
+                    </p>
+                    <p className="mt-2 text-xs leading-5 text-[var(--muted)]">
+                      <span className="font-semibold text-[var(--foreground)]">枚举 / 状态：</span>{schema.enums}
+                    </p>
+                    <p className="mt-2 text-xs leading-5 text-[var(--muted)]">
+                      <span className="font-semibold text-[var(--foreground)]">当前说明：</span>{schema.status}
+                    </p>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
 

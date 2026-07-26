@@ -236,7 +236,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
           <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/65 p-4">
             <DataStatusBadge status="pending" />
             <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
-              该国暂不进入 v0.9 第一批区域地图数据准备。
+              该国暂不进入 v0.9 第一批区域地图数据准备；当前仅保留国家级宏观数据、区域层结构样例和后续接入入口。
             </p>
           </div>
         )}
