@@ -7,7 +7,7 @@ export default function Home() {
       <section className="home-first-screen">
         <div className="mb-2 flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <p className="eyebrow">V4 Prototype / Research Atlas / v0.9 regional data preparation</p>
+            <p className="eyebrow">V4 Prototype / Research Atlas / v0.10 boundary source verification</p>
             <h1 className="mt-1 max-w-4xl text-3xl font-semibold leading-tight tracking-[-0.04em] text-[var(--foreground)]">
               中欧政治经济地图
             </h1>
@@ -18,9 +18,9 @@ export default function Home() {
         </div>
         <div className="mb-3 grid gap-2 text-xs md:grid-cols-4">
           {[
-            ["当前阶段", "v0.9 regional data preparation"],
-            ["数据导出结构", "已预留"],
-            ["区域地图数据", "准备中"],
+            ["当前阶段", "v0.10 boundary source verification"],
+            ["区域地图数据", "匈牙利试点核验中"],
+            ["真实地图展示", "未启用"],
             ["模型层", "未启用"],
           ].map(([label, value]) => (
             <div key={label} className="rounded-2xl border border-[var(--line)] bg-white/70 px-3 py-2">

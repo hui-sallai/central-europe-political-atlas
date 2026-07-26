@@ -24,13 +24,34 @@ export type RegionBoundaryRecord = {
   notes: string;
 };
 
-const lastChecked = "2026-07-25";
+const lastChecked = "2026-07-26";
 const giscoSourceUrl = "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html";
 const giscoLicense =
   "非商业使用；必须标注 © EuroGeographics for the administrative boundaries；商业使用需联系 EuroGeographics。";
 
 const v4BoundaryNotes =
   "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。";
+
+const hungaryPilotBoundary: RegionBoundaryRecord = {
+  boundary_id: "hu_nuts3_gisco_2024",
+  region_id: "hungary_nuts3_pilot",
+  country_id: "hungary",
+  admin_level: "NUTS3",
+  boundary_source_name: "Eurostat GISCO NUTS 2024",
+  boundary_source_url: giscoSourceUrl,
+  boundary_source_type: "EU official statistical geodata",
+  boundary_license: "待确认 / 待接受使用条款",
+  boundary_format: "GeoJSON",
+  geometry_available: false,
+  geometry_simplified: false,
+  topology_checked: false,
+  coordinate_system: "EPSG:4326 候选",
+  file_path_or_url: giscoSourceUrl,
+  source_reliability: "A",
+  source_status: "官方来源",
+  last_checked: lastChecked,
+  notes: "v0.10 匈牙利 NUTS 3 / Megyék 边界来源核验试点；边界格式显示口径为 GeoJSON / JSON 候选。几何待下载 / 待过滤，主键匹配待核验，is_ready_for_display=false。",
+};
 
 function v4Boundary(region: (typeof regionMetadataRecords)[number]): RegionBoundaryRecord {
   return {
@@ -78,6 +99,7 @@ function pendingBoundary(region: (typeof regionMetadataRecords)[number]): Region
   };
 }
 
-export const regionBoundaryRecords: RegionBoundaryRecord[] = regionMetadataRecords.map((region) =>
-  region.is_v4_region ? v4Boundary(region) : pendingBoundary(region),
-);
+export const regionBoundaryRecords: RegionBoundaryRecord[] = [
+  hungaryPilotBoundary,
+  ...regionMetadataRecords.map((region) => (region.is_v4_region ? v4Boundary(region) : pendingBoundary(region))),
+];

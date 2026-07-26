@@ -293,14 +293,14 @@ const dataModes: { id: DataMode; label: string; description: string }[] = [
 ];
 const dataEntryShortcuts: DataEntryShortcut[] = [
   { id: "countries-layer-entry", label: "国家元数据表", mode: "tables", description: "十国 countries 逻辑层，作为 country_id 关联表。" },
-  { id: "regions-layer-entry", label: "区域元数据表", mode: "tables", description: "v0.9 regions 区域主键层；V4 ADM1 优先，非 V4 国家级待接入。" },
-  { id: "region-boundaries-layer-entry", label: "区域边界来源表", mode: "tables", description: "v0.9 region_boundaries 边界来源、许可、格式和几何接入状态。" },
-  { id: "region-indicators-layer-entry", label: "区域指标字典", mode: "tables", description: "v0.9 region_indicators 独立区域指标字典，第一批 10 项。" },
-  { id: "region-observations-layer-entry", label: "区域观测值表", mode: "tables", description: "v0.9 region_observations 区域经济数据主表，第一批待接入观测位置。" },
-  { id: "region-quality-checks-layer-entry", label: "区域质量验收表", mode: "tables", description: "v0.9 region_quality_checks 检查边界、许可、来源、区域代码、数值和地图准备状态。" },
-  { id: "region-sources-layer-entry", label: "区域来源字典", mode: "tables", description: "v0.9 region_sources 区域统计、边界、选举和项目坐标来源及许可状态。" },
-  { id: "project-locations-layer-entry", label: "项目地区定位表", mode: "tables", description: "v0.9 project_locations 把对华项目映射到区域，保留定位精度与地图准备状态。" },
-  { id: "map-layers-layer-entry", label: "地图图层注册表", mode: "tables", description: "v0.9 map_layers 只注册未来地图图层，不提前显示真实分析图层。" },
+  { id: "regions-layer-entry", label: "区域元数据表", mode: "tables", description: "v0.10 regions 标记匈牙利 NUTS3 试点主键匹配状态；非 V4 国家级待接入。" },
+  { id: "region-boundaries-layer-entry", label: "区域边界来源表", mode: "tables", description: "v0.10 region_boundaries 登记 hu_nuts3_gisco_2024，保留许可、格式和几何状态。" },
+  { id: "region-indicators-layer-entry", label: "区域指标字典", mode: "tables", description: "v0.10 region_indicators 继续保留独立区域指标字典，第一批 10 项。" },
+  { id: "region-observations-layer-entry", label: "区域观测值表", mode: "tables", description: "v0.10 region_observations 继续保留区域经济数据主表和待接入观测位置。" },
+  { id: "region-quality-checks-layer-entry", label: "区域质量验收表", mode: "tables", description: "v0.10 region_quality_checks 检查边界、许可、来源、区域代码、几何和地图准备状态。" },
+  { id: "region-sources-layer-entry", label: "区域来源字典", mode: "tables", description: "v0.10 region_sources 登记 eurostat_gisco_nuts_2024 并保留许可状态。" },
+  { id: "project-locations-layer-entry", label: "项目地区定位表", mode: "tables", description: "v0.10 project_locations 继续保留项目地区定位结构，不启用真实项目点位图层。" },
+  { id: "map-layers-layer-entry", label: "地图图层注册表", mode: "tables", description: "v0.10 map_layers 登记 hu_nuts3_boundary_pilot，is_ready_for_display=false。" },
   { id: "indicator-dictionary-entry", label: "指标字典入口", mode: "tables", description: "18 个指标的口径、单位、来源优先级和比较资格。" },
   { id: "source-dictionary-entry", label: "来源字典入口", mode: "tables", description: "16 类来源的链接、可靠性等级和使用边界。" },
   { id: "v4-data-quality-entry", label: "数据质量验收入口", mode: "comparison", description: "V4 四国 240 个观测位置的验收清单。", requiresV4: true },
@@ -351,7 +351,7 @@ const regionalSchemaChecks = [
     why: "区域经济数据主表，后续地图图层和区域比较都从这里读取。",
     fields: "region_observation_id, region_id, country_id, region_indicator_id, year, period_type, value, unit, value_status, source_id, source_name, source_url, source_reliability, source_status, is_official_data, is_pending, is_calculated, is_manual, is_structural_sample, is_in_map_layer, is_in_region_comparison, is_in_future_model_candidate, missing_reason, calculation_method, last_updated, notes",
     enums: "period_type: annual / quarterly / monthly / event_date / not_applicable；value_status: 正式数据 / 待接入 / 计算值 / 人工整理 / 结构样例 / 不进入分析。",
-    status: "v0.9 只建立 V4 ADM1 待接入观测位置；不硬填数值，不进入正式地图图层。",
+    status: "v0.10 继续保留 V4 区域待接入观测位置；不硬填数值，不进入正式地图图层。",
   },
   {
     table: "region_sources",
@@ -383,7 +383,7 @@ const regionalSchemaChecks = [
     why: "没有 map_layers，地图页无法管理哪些图层只是注册、哪些可以显示。",
     fields: "layer_id, layer_name_zh, layer_name_en, layer_type, data_source_table, geometry_source_table, admin_level, country_coverage, indicator_or_variable, is_active, is_ready_for_display, is_structural_sample, is_official_data, is_manual, is_pending, legend_type, legend_unit, color_scale, interaction_type, tooltip_fields, allowed_filters, source_requirement, quality_requirement, model_boundary, last_updated, notes",
     enums: "layer_type: boundary / choropleth / point / symbol / label / table_only / structural_sample；is_ready_for_display=false 的图层不得作为真实图层展示。",
-    status: "v0.9 只注册图层；不启用风险图层、预测图层、真实党派支持率图层或中国经济暴露指数。",
+    status: "v0.10 只登记匈牙利边界试点和既有图层；不启用风险图层、预测图层、真实党派支持率图层或中国经济暴露指数。",
   },
 ];
 
@@ -456,7 +456,7 @@ function regionalFieldMeaning(field: string) {
 }
 
 function regionalFieldAllowedStatus(table: string, field: string) {
-  if (table === "map_layers" && field === "is_ready_for_display") return "v0.9.1 必须保持 false";
+  if (table === "map_layers" && field === "is_ready_for_display") return "v0.10 必须保持 false";
   if (field === "admin_level") return "ADM1 / ADM2 / NUTS1 / NUTS2 / NUTS3";
   if (field === "boundary_format") return "GeoJSON / TopoJSON / Shapefile / PMTiles / Vector Tiles / Not available";
   if (field === "layer_type") return "boundary / choropleth / point / symbol / label / table_only / structural_sample";
@@ -487,7 +487,7 @@ function regionalFieldMapDisplayRule(table: string, field: string) {
     return field === "is_ready_for_display" ? "决定是否可真实展示；当前 false。" : "图层注册字段；不等于真实展示。";
   }
   if (field === "is_in_map_layer" || field === "is_map_ready" || field === "is_ready_for_map_layer") return "控制是否可进入地图展示；当前未通过项为 false。";
-  if (table === "region_boundaries" && ["geometry_available", "geometry_simplified", "topology_checked"].includes(field)) return "真实边界展示前置条件。";
+  if (table === "region_boundaries" && ["geometry_available", "geometry_simplified", "topology_checked"].includes(field)) return "真实地图展示前置条件。";
   if (table === "project_locations" && ["latitude", "longitude", "location_precision", "location_status"].includes(field)) return "未来点位图层前置字段；当前不进入正式图层。";
   return "不直接展示；作为地图关联、说明或导出字段。";
 }
@@ -2211,7 +2211,7 @@ function ResearchDataExportLinks() {
   const exportStatusCards = [
     { label: "CSV 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .csv 文件。" },
     { label: "JSON 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: "v0.9 regional data preparation", note: "区域主键、边界、指标、观测值、质量验收、来源字典、项目地区定位与地图图层注册准备中；不提供模型 API，不输出预测、指数或风险分数。" },
+    { label: "当前阶段", value: "v0.10 boundary source verification", note: "匈牙利 NUTS3 / Megyék 边界来源核验中；不提供模型 API，不输出预测、指数或风险分数。" },
   ];
 
   return (
@@ -3163,7 +3163,7 @@ export function DataCountryExplorer() {
                 <p className="eyebrow">Regional Map Data Structure</p>
                 <h3 className="mt-2 text-lg font-semibold">区域地图数据结构</h3>
                 <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
-                  v0.9 区域地图数据层集中在这里；完整表体仍在下方研究数据结构总表按需展开。v0.8 的九个逻辑数据层继续保留，不删除、不合并。
+                  v0.10 边界来源核验集中在这里；完整表体仍在下方研究数据结构总表按需展开。v0.8 的九个逻辑数据层继续保留，不删除、不合并。
                 </p>
               </div>
               <span className="text-xs text-[var(--muted)]">8 个区域地图数据表</span>
@@ -3187,10 +3187,10 @@ export function DataCountryExplorer() {
             <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
               <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
                 <div>
-                  <p className="eyebrow">v0.9 Field-Level Acceptance</p>
+                  <p className="eyebrow">v0.10 Field-Level Acceptance</p>
                   <h4 className="mt-2 text-base font-semibold">区域表字段级验收</h4>
                   <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
-                    八个 v0.9 区域表均保留完整字段、枚举/状态和用途说明；其中 regions、region_boundaries、map_layers、project_locations 为地图落地的最高优先级。
+                    八个 v0.10 区域表均保留完整字段、枚举/状态和用途说明；其中 regions、region_boundaries、map_layers、project_locations 为地图落地的最高优先级。
                   </p>
                 </div>
                 <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">8 / 8 表体已实化</span>
@@ -3234,7 +3234,7 @@ export function DataCountryExplorer() {
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldSourceRequirement(schema.table, field)}</td>
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldMapDisplayRule(schema.table, field)}</td>
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldModelRule(field)}</td>
-                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">v0.9 regional data preparation 字段口径；不新增模型、预测、风险指数或中国经济暴露指数。</td>
+                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">v0.10 boundary source verification 字段口径；不新增模型、预测、风险指数或中国经济暴露指数。</td>
                               </tr>
                             ))}
                           </tbody>
@@ -3280,7 +3280,7 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Research Registry Tables</p>
               <h2 className="mt-3 text-2xl font-semibold">研究数据结构总表</h2>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                以下十七个逻辑数据层常驻在数据页；v0.8 的九个逻辑数据层继续保留，v0.9 只是在此基础上新增区域地图数据结构。它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。其中 regions 是 v0.9 区域主键层，region_boundaries 是真实边界接入前的来源、许可、格式和几何状态登记层，region_indicators 是独立于国家级 indicators 的区域指标字典，region_observations 是区域经济数据主表，region_quality_checks 是区域质量验收层，region_sources 是区域来源字典，project_locations 是对华项目地区定位桥表，map_layers 是地图图层注册表。
+                以下十七个逻辑数据层常驻在数据页；v0.8 的九个逻辑数据层继续保留，v0.10 只是在既有区域地图数据结构上推进匈牙利边界来源核验。它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。其中 regions 是区域主键层，region_boundaries 是真实边界接入前的来源、许可、格式和几何状态登记层，region_indicators 是独立于国家级 indicators 的区域指标字典，region_observations 是区域经济数据主表，region_quality_checks 是区域质量验收层，region_sources 是区域来源字典，project_locations 是对华项目地区定位桥表，map_layers 是地图图层注册表。
               </p>
             </div>
             <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">按需展开</span>
@@ -3294,16 +3294,16 @@ export function DataCountryExplorer() {
               <CountryMetadataTable />
             </DeferredDetails>
 
-            <DeferredDetails id="regions-layer-entry" title="regions：v0.9 区域元数据表">
+            <DeferredDetails id="regions-layer-entry" title="regions：v0.10 区域元数据表">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                regions 是地图层的稳定区域主键表。v0.9 第一版只建立 V4 四国 ADM1 区域元数据；非 V4 六国暂时保留国家级待接入占位。当前不建立 ADM2，不接入真实边界、区域经济、区域选举或区域预测图层。
+                regions 是地图层的稳定区域主键表。v0.10 标记匈牙利 NUTS3 / Megyék 试点主键匹配状态为 pilot_pending_region_code_match；非 V4 六国暂时保留国家级待接入占位。当前不建立 ADM2，不接入真实地图展示、区域选举或区域预测图层。
               </p>
               <RegionMetadataTable rows={regionMetadataRecords} />
             </DeferredDetails>
 
-            <DeferredDetails id="region-boundaries-layer-entry" title="region_boundaries：v0.9 区域边界来源表">
+            <DeferredDetails id="region-boundaries-layer-entry" title="region_boundaries：v0.10 区域边界来源表">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                region_boundaries 只登记边界来源与接入准备状态。v0.9 不直接渲染真实边界；每条记录先检查来源可信度、公开展示许可、可否简化、前端加载适配、region_id 对齐、行政区代码和历史边界变动风险。
+                region_boundaries 只登记边界来源与接入准备状态。v0.10 已登记 hu_nuts3_gisco_2024；每条记录先检查来源可信度、公开展示许可、可否简化、前端加载适配、region_id 对齐、行政区代码和历史边界变动风险，不直接渲染真实边界。
               </p>
               <RegionBoundaryTable rows={regionBoundaryRecords} />
             </DeferredDetails>
@@ -3330,9 +3330,9 @@ export function DataCountryExplorer() {
               <RegionQualityCheckTable rows={regionQualityCheckRecords} />
             </DeferredDetails>
 
-            <DeferredDetails id="region-sources-layer-entry" title="region_sources：v0.9 区域来源字典">
+            <DeferredDetails id="region-sources-layer-entry" title="region_sources：v0.10 区域来源字典">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                region_sources 独立于国家级 sources，专门管理区域统计、行政区划、GIS 边界、地方政府、选举机构和项目坐标来源。v0.9 特别保留 license_status 字段，用于判断边界数据能否公开展示、简化、再分发或后续复用。
+                region_sources 独立于国家级 sources，专门管理区域统计、行政区划、GIS 边界、地方政府、选举机构和项目坐标来源。v0.10 已登记 eurostat_gisco_nuts_2024，并继续通过 license_status 判断边界数据能否公开展示、简化、再分发或后续复用。
               </p>
               <RegionSourceTable rows={regionSourceRecords} />
             </DeferredDetails>
@@ -3344,9 +3344,9 @@ export function DataCountryExplorer() {
               <ProjectLocationTable rows={projectLocationRecords} />
             </DeferredDetails>
 
-            <DeferredDetails id="map-layers-layer-entry" title="map_layers：v0.9 地图图层注册表">
+            <DeferredDetails id="map-layers-layer-entry" title="map_layers：v0.10 地图图层注册表">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                map_layers 只注册未来地图工作台的可控图层。v0.9 第一版注册 V4 ADM1 边界、区域人口、区域 GDP、区域人均 GDP、区域失业率、区域制造业比重和对华项目地区定位图层；所有图层均保持 is_ready_for_display=false，直到来源、边界和质量验收通过。
+                map_layers 只注册未来地图工作台的可控图层。v0.10 已登记 hu_nuts3_boundary_pilot；所有真实分析图层均保持 is_ready_for_display=false，直到来源、许可、几何、拓扑、主键匹配和质量验收通过。
               </p>
               <MapLayerRegistryTable rows={mapLayerRecords} />
             </DeferredDetails>
@@ -3400,7 +3400,7 @@ export function DataCountryExplorer() {
 
             <DeferredDetails id="data-export-entry" title="数据导出与接口准备">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.9 regional data preparation / regions、region_boundaries、region_indicators、region_observations、region_quality_checks、region_sources、project_locations 与 map_layers 区域层准备，不提供模型 API。
+                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.10 boundary source verification / Hungary pilot；regions、region_boundaries、region_sources 与 map_layers 已登记匈牙利边界试点准备字段，不提供模型 API。
                 当前导出对象包括 countries、regions、region_boundaries、region_indicators、region_observations、region_quality_checks、region_sources、project_locations、map_layers、indicators、sources、observations、data_quality_checks、derived_comparisons、china_projects、china_exposure_candidates 和 methodology_rules。
               </p>
               <ResearchDataExportLinks />

@@ -23,7 +23,7 @@ export type RegionMetadataRecord = {
   notes: string;
 };
 
-const updatedAt = "2026-07-25";
+const updatedAt = "2026-07-26";
 
 const v4RegionDefaults = {
   admin_level: "ADM1" as const,
@@ -60,13 +60,15 @@ const nonV4RegionDefaults = {
 };
 
 function v4Region(record: Omit<RegionMetadataRecord, keyof typeof v4RegionDefaults>): RegionMetadataRecord {
+  const isHungaryPilot = record.country_id === "hungary";
+
   return {
     region_id: record.region_id,
     country_id: record.country_id,
     region_name_zh: record.region_name_zh,
     region_name_en: record.region_name_en,
     region_name_local: record.region_name_local,
-    admin_level: v4RegionDefaults.admin_level,
+    admin_level: isHungaryPilot ? "NUTS3" : v4RegionDefaults.admin_level,
     admin_code: record.admin_code,
     parent_region_id: v4RegionDefaults.parent_region_id,
     capital_or_main_city: record.capital_or_main_city,
@@ -79,7 +81,9 @@ function v4Region(record: Omit<RegionMetadataRecord, keyof typeof v4RegionDefaul
     data_status: v4RegionDefaults.data_status,
     source_status: v4RegionDefaults.source_status,
     last_updated: v4RegionDefaults.last_updated,
-    notes: v4RegionDefaults.notes,
+    notes: isHungaryPilot
+      ? "v0.10 匈牙利 NUTS3 / Megyék 边界来源核验试点；区域主键匹配状态：pilot_pending_region_code_match。真实边界、区域统计、区域选举和对华项目坐标尚未接入。"
+      : v4RegionDefaults.notes,
   };
 }
 

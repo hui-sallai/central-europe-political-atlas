@@ -97,6 +97,16 @@ const politicalFieldReviewItems = [
   "首页和地图页不得裸露未解释的党派缩写；缩写说明应放在国家页政治样本区并标注数据状态。",
 ];
 
+const boundarySourceVerificationItems = [
+  "v0.10 只做边界来源核验，不启用真实地图展示。",
+  "Eurostat GISCO NUTS 2024 作为第一批边界候选来源。",
+  "所有边界数据必须记录来源、许可、格式、坐标系、几何状态、拓扑检查状态。",
+  "区域主键必须与 NUTS / ADM 代码匹配后才能进入 map_layers。",
+  "map_layers 中注册边界图层不代表图层已启用。",
+  "is_ready_for_display 在许可、几何、拓扑、主键匹配通过前必须保持 false。",
+  "风险图层、预测图层、真实党派支持率图层继续未启用。",
+];
+
 const excludedItems = [
   "结构样例、占位色阶、样例新闻不进入模型。",
   "待接入、缺失、未标来源链接的数据不进入模型。",
@@ -235,7 +245,7 @@ export default function MethodologyPage() {
         <h2 className="mt-3 text-2xl font-semibold">5.2 数据导出与接口准备</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {[
-            "当前阶段：v0.9 regional data preparation / regions + region_boundaries + region_indicators + region_observations + region_quality_checks + region_sources + project_locations + map_layers 区域层准备。",
+            "当前阶段：v0.10 boundary source verification / Hungary pilot；只做边界来源核验与匈牙利试点接入准备。",
             "当前只做 CSV / JSON 数据结构准备。",
             "不提供预测 API。",
             "不提供模型 API。",
@@ -254,14 +264,26 @@ export default function MethodologyPage() {
         <h2 className="mt-3 text-2xl font-semibold">5.3 区域地图数据准备规则</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {[
-            "regions 是区域主键层；v0.9 第一版只优先准备 V4 四国 ADM1 / NUTS2，非 V4 国家暂不进入第一批区域层。",
-            "region_boundaries 只登记边界来源、许可、格式、坐标系、几何状态和拓扑检查；未通过许可与质量验收前不显示真实边界。",
+            "regions 是区域主键层；v0.10 在既有 V4 区域结构上优先推进匈牙利 NUTS3 / Megyék 边界来源核验，非 V4 国家暂不进入第一批边界核验。",
+            "region_boundaries 只登记边界来源、许可、格式、坐标系、几何状态和拓扑检查；未通过许可与质量验收前不显示真实地图边界。",
             "region_indicators 与国家级 indicators 分开管理；region_observations 必须保留年份、数值、单位、来源链接、来源等级和缺失原因。",
             "region_quality_checks 用于检查边界、许可、区域代码、数值、单位和来源状态；未通过项不得进入正式地图图层。",
             "project_locations 只把对华项目定位到城市、区域或国家层级；缺少可核验位置来源时不进入地图展示。",
             "map_layers 仅注册未来图层，is_ready_for_display=false 的图层不得作为真实图层展示；风险图层、预测图层和真实党派支持率图层均未启用，新闻区仍不做评价。",
-            "v0.9 regional data preparation 要求八张区域表保留字段名、字段含义、允许状态、来源要求、地图展示资格、未来模型候选边界和备注；字段级口径只用于验收和导出准备。",
+            "v0.10 boundary source verification 继续要求八张区域表保留字段名、字段含义、允许状态、来源要求、地图展示资格、未来模型候选边界和备注；字段级口径只用于验收和导出准备。",
           ].map((item) => (
+            <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
+              {item}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">Boundary Source Verification</p>
+        <h2 className="mt-3 text-2xl font-semibold">5.4 真实区域边界来源核验规则</h2>
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
+          {boundarySourceVerificationItems.map((item) => (
             <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
               {item}
             </p>

@@ -48,10 +48,12 @@ const firstBatchIndicators = firstBatchIndicatorIds.map((indicatorId) => {
   return indicator;
 });
 
-const v4Adm1Regions = regionMetadataRecords.filter((region) => region.is_v4_region && region.admin_level === "ADM1");
+const v4FirstBatchRegions = regionMetadataRecords.filter((region) =>
+  region.is_v4_region && (region.admin_level === "ADM1" || region.admin_level === "NUTS3")
+);
 
 function buildPendingObservation(
-  region: (typeof v4Adm1Regions)[number],
+  region: (typeof v4FirstBatchRegions)[number],
   indicator: (typeof firstBatchIndicators)[number],
 ): RegionObservationRecord {
   const isCalculated = indicator.region_indicator_id === "regional_gdp_per_capita" || indicator.region_indicator_id === "regional_manufacturing_share";
@@ -79,13 +81,13 @@ function buildPendingObservation(
     is_in_map_layer: false,
     is_in_region_comparison: false,
     is_in_future_model_candidate: false,
-    missing_reason: "v0.9 仅建立区域观测值结构；尚未接入具体 ADM1/NUTS2 区域统计表、来源链接和数值。",
+    missing_reason: "v0.10 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
     calculation_method: isCalculated ? "待接入原始分子和分母后再计算；当前不生成计算结果。" : "不适用。",
     last_updated: updatedAt,
     notes: "第一批区域观测位置；不得填 0，不进入地图图层、区域比较或未来模型候选输入。",
   };
 }
 
-export const regionObservationRecords: RegionObservationRecord[] = v4Adm1Regions.flatMap((region) =>
+export const regionObservationRecords: RegionObservationRecord[] = v4FirstBatchRegions.flatMap((region) =>
   firstBatchIndicators.map((indicator) => buildPendingObservation(region, indicator)),
 );

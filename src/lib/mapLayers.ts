@@ -31,7 +31,7 @@ export type MapLayerRecord = {
 
 const updatedAt = "2026-07-26";
 const v4Adm1Coverage = "V4 四国 ADM1：poland, hungary, czechia, slovakia";
-const noDisplayBoundary = "v0.9 只注册图层；is_ready_for_display=false 时不得在地图工作台显示为真实图层。";
+const noDisplayBoundary = "v0.10 只注册图层和匈牙利边界试点；is_ready_for_display=false 时不得在地图工作台显示为真实图层。";
 const noModelBoundary = "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。";
 const boundaryQuality = "region_boundaries.geometry_available=true、geometry_simplified=true、topology_checked=true、boundary_license_checked=true，且 region_quality_checks 中对应区域 is_map_ready=true。";
 const choroplethQuality = "需要 region_observations 有正式数值、来源链接、单位、来源等级，并通过 region_quality_checks；当前待接入观测值不得进入地图显示。";
@@ -65,6 +65,37 @@ function boundaryLayer(): MapLayerRecord {
     model_boundary: noModelBoundary,
     last_updated: updatedAt,
     notes: noDisplayBoundary,
+  };
+}
+
+function hungaryNuts3PilotLayer(): MapLayerRecord {
+  return {
+    layer_id: "hu_nuts3_boundary_pilot",
+    layer_name_zh: "匈牙利 NUTS3 边界试点图层",
+    layer_name_en: "Hungary NUTS3 boundary pilot layer",
+    layer_type: "boundary",
+    data_source_table: "regions",
+    geometry_source_table: "region_boundaries",
+    admin_level: "NUTS3",
+    country_coverage: "hungary",
+    indicator_or_variable: "hu_nuts3_gisco_2024",
+    is_active: false,
+    is_ready_for_display: false,
+    is_structural_sample: false,
+    is_official_data: false,
+    is_manual: false,
+    is_pending: true,
+    legend_type: "none",
+    legend_unit: "not_applicable",
+    color_scale: "not_applicable",
+    interaction_type: "table_only_until_boundary_verified",
+    tooltip_fields: ["region_id", "region_name_zh", "admin_code", "boundary_source_name", "boundary_license", "topology_checked"],
+    allowed_filters: ["country_id", "admin_level", "source_reliability", "source_status", "is_ready_for_display"],
+    source_requirement: "Eurostat GISCO NUTS 2024 来源、许可、格式、坐标系、几何状态、拓扑检查状态和 NUTS 主键匹配必须完成核验。",
+    quality_requirement: "许可确认、几何下载与过滤、拓扑检查、NUTS / region_id 主键匹配均通过前，is_ready_for_display 必须保持 false。",
+    model_boundary: noModelBoundary,
+    last_updated: updatedAt,
+    notes: "v0.10 boundary source verification / Hungary pilot；只注册试点边界图层，不启用真实地图展示。",
   };
 }
 
@@ -138,6 +169,7 @@ function projectLocationLayer(): MapLayerRecord {
 }
 
 export const mapLayerRecords: MapLayerRecord[] = [
+  hungaryNuts3PilotLayer(),
   boundaryLayer(),
   choroplethLayer({
     layer_id: "regional_population_choropleth",

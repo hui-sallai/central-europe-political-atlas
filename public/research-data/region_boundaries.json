@@ -2,13 +2,33 @@
   "schema_version": "research-data-v0.1",
   "generated_at": "2026-07-26",
   "data_type": "region_boundaries",
-  "record_count": 64,
+  "record_count": 65,
   "scope": "v0.9 region boundary source registry. Geometry is not rendered yet.",
   "primary_key": "boundary_id",
   "relation_note": "Every boundary record references region_id from regions and country_id from countries.",
   "validation_note": "Records track source credibility, public display licence, simplification readiness, front-end suitability, region_id matching, admin codes, and historical boundary issues before geometry ingestion.",
   "model_boundary": "Boundary source registry only. No real boundary rendering, regional risk layer, forecast, or election model is generated.",
   "records": [
+    {
+      "boundary_id": "hu_nuts3_gisco_2024",
+      "region_id": "hungary_nuts3_pilot",
+      "country_id": "hungary",
+      "admin_level": "NUTS3",
+      "boundary_source_name": "Eurostat GISCO NUTS 2024",
+      "boundary_source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
+      "boundary_source_type": "EU official statistical geodata",
+      "boundary_license": "待确认 / 待接受使用条款",
+      "boundary_format": "GeoJSON",
+      "geometry_available": false,
+      "geometry_simplified": false,
+      "topology_checked": false,
+      "coordinate_system": "EPSG:4326 候选",
+      "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
+      "source_reliability": "A",
+      "source_status": "官方来源",
+      "last_checked": "2026-07-26",
+      "notes": "v0.10 匈牙利 NUTS 3 / Megyék 边界来源核验试点；边界格式显示口径为 GeoJSON / JSON 候选。几何待下载 / 待过滤，主键匹配待核验，is_ready_for_display=false。"
+    },
     {
       "boundary_id": "poland_lower_silesian_boundary_candidate",
       "region_id": "poland_lower_silesian",
@@ -26,7 +46,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -46,7 +66,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -66,7 +86,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -86,7 +106,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -106,7 +126,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -126,7 +146,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -146,7 +166,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -166,7 +186,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -186,7 +206,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -206,7 +226,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -226,7 +246,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -246,7 +266,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -266,7 +286,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -286,7 +306,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -306,7 +326,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -326,14 +346,14 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
       "boundary_id": "hungary_budapest_boundary_candidate",
       "region_id": "hungary_budapest",
       "country_id": "hungary",
-      "admin_level": "ADM1",
+      "admin_level": "NUTS3",
       "boundary_source_name": "Eurostat GISCO NUTS 2024",
       "boundary_source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "boundary_source_type": "EU official statistical geodata",
@@ -346,14 +366,14 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
       "boundary_id": "hungary_bacs_kiskun_boundary_candidate",
       "region_id": "hungary_bacs_kiskun",
       "country_id": "hungary",
-      "admin_level": "ADM1",
+      "admin_level": "NUTS3",
       "boundary_source_name": "Eurostat GISCO NUTS 2024",
       "boundary_source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "boundary_source_type": "EU official statistical geodata",
@@ -366,14 +386,14 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
       "boundary_id": "hungary_baranya_boundary_candidate",
       "region_id": "hungary_baranya",
       "country_id": "hungary",
-      "admin_level": "ADM1",
+      "admin_level": "NUTS3",
       "boundary_source_name": "Eurostat GISCO NUTS 2024",
       "boundary_source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "boundary_source_type": "EU official statistical geodata",
@@ -386,14 +406,14 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
       "boundary_id": "hungary_bekes_boundary_candidate",
       "region_id": "hungary_bekes",
       "country_id": "hungary",
-      "admin_level": "ADM1",
+      "admin_level": "NUTS3",
       "boundary_source_name": "Eurostat GISCO NUTS 2024",
       "boundary_source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "boundary_source_type": "EU official statistical geodata",
@@ -406,14 +426,14 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
       "boundary_id": "hungary_borsod_abauj_zemplen_boundary_candidate",
       "region_id": "hungary_borsod_abauj_zemplen",
       "country_id": "hungary",
-      "admin_level": "ADM1",
+      "admin_level": "NUTS3",
       "boundary_source_name": "Eurostat GISCO NUTS 2024",
       "boundary_source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "boundary_source_type": "EU official statistical geodata",
@@ -426,14 +446,14 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
       "boundary_id": "hungary_csongrad_csanad_boundary_candidate",
       "region_id": "hungary_csongrad_csanad",
       "country_id": "hungary",
-      "admin_level": "ADM1",
+      "admin_level": "NUTS3",
       "boundary_source_name": "Eurostat GISCO NUTS 2024",
       "boundary_source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "boundary_source_type": "EU official statistical geodata",
@@ -446,14 +466,14 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
       "boundary_id": "hungary_fejer_boundary_candidate",
       "region_id": "hungary_fejer",
       "country_id": "hungary",
-      "admin_level": "ADM1",
+      "admin_level": "NUTS3",
       "boundary_source_name": "Eurostat GISCO NUTS 2024",
       "boundary_source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "boundary_source_type": "EU official statistical geodata",
@@ -466,14 +486,14 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
       "boundary_id": "hungary_gyor_moson_sopron_boundary_candidate",
       "region_id": "hungary_gyor_moson_sopron",
       "country_id": "hungary",
-      "admin_level": "ADM1",
+      "admin_level": "NUTS3",
       "boundary_source_name": "Eurostat GISCO NUTS 2024",
       "boundary_source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "boundary_source_type": "EU official statistical geodata",
@@ -486,14 +506,14 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
       "boundary_id": "hungary_hajdu_bihar_boundary_candidate",
       "region_id": "hungary_hajdu_bihar",
       "country_id": "hungary",
-      "admin_level": "ADM1",
+      "admin_level": "NUTS3",
       "boundary_source_name": "Eurostat GISCO NUTS 2024",
       "boundary_source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "boundary_source_type": "EU official statistical geodata",
@@ -506,14 +526,14 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
       "boundary_id": "hungary_heves_boundary_candidate",
       "region_id": "hungary_heves",
       "country_id": "hungary",
-      "admin_level": "ADM1",
+      "admin_level": "NUTS3",
       "boundary_source_name": "Eurostat GISCO NUTS 2024",
       "boundary_source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "boundary_source_type": "EU official statistical geodata",
@@ -526,14 +546,14 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
       "boundary_id": "hungary_jasz_nagykun_szolnok_boundary_candidate",
       "region_id": "hungary_jasz_nagykun_szolnok",
       "country_id": "hungary",
-      "admin_level": "ADM1",
+      "admin_level": "NUTS3",
       "boundary_source_name": "Eurostat GISCO NUTS 2024",
       "boundary_source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "boundary_source_type": "EU official statistical geodata",
@@ -546,14 +566,14 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
       "boundary_id": "hungary_komarom_esztergom_boundary_candidate",
       "region_id": "hungary_komarom_esztergom",
       "country_id": "hungary",
-      "admin_level": "ADM1",
+      "admin_level": "NUTS3",
       "boundary_source_name": "Eurostat GISCO NUTS 2024",
       "boundary_source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "boundary_source_type": "EU official statistical geodata",
@@ -566,14 +586,14 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
       "boundary_id": "hungary_nograd_boundary_candidate",
       "region_id": "hungary_nograd",
       "country_id": "hungary",
-      "admin_level": "ADM1",
+      "admin_level": "NUTS3",
       "boundary_source_name": "Eurostat GISCO NUTS 2024",
       "boundary_source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "boundary_source_type": "EU official statistical geodata",
@@ -586,14 +606,14 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
       "boundary_id": "hungary_pest_boundary_candidate",
       "region_id": "hungary_pest",
       "country_id": "hungary",
-      "admin_level": "ADM1",
+      "admin_level": "NUTS3",
       "boundary_source_name": "Eurostat GISCO NUTS 2024",
       "boundary_source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "boundary_source_type": "EU official statistical geodata",
@@ -606,14 +626,14 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
       "boundary_id": "hungary_somogy_boundary_candidate",
       "region_id": "hungary_somogy",
       "country_id": "hungary",
-      "admin_level": "ADM1",
+      "admin_level": "NUTS3",
       "boundary_source_name": "Eurostat GISCO NUTS 2024",
       "boundary_source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "boundary_source_type": "EU official statistical geodata",
@@ -626,14 +646,14 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
       "boundary_id": "hungary_szabolcs_szatmar_bereg_boundary_candidate",
       "region_id": "hungary_szabolcs_szatmar_bereg",
       "country_id": "hungary",
-      "admin_level": "ADM1",
+      "admin_level": "NUTS3",
       "boundary_source_name": "Eurostat GISCO NUTS 2024",
       "boundary_source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "boundary_source_type": "EU official statistical geodata",
@@ -646,14 +666,14 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
       "boundary_id": "hungary_tolna_boundary_candidate",
       "region_id": "hungary_tolna",
       "country_id": "hungary",
-      "admin_level": "ADM1",
+      "admin_level": "NUTS3",
       "boundary_source_name": "Eurostat GISCO NUTS 2024",
       "boundary_source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "boundary_source_type": "EU official statistical geodata",
@@ -666,14 +686,14 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
       "boundary_id": "hungary_vas_boundary_candidate",
       "region_id": "hungary_vas",
       "country_id": "hungary",
-      "admin_level": "ADM1",
+      "admin_level": "NUTS3",
       "boundary_source_name": "Eurostat GISCO NUTS 2024",
       "boundary_source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "boundary_source_type": "EU official statistical geodata",
@@ -686,14 +706,14 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
       "boundary_id": "hungary_veszprem_boundary_candidate",
       "region_id": "hungary_veszprem",
       "country_id": "hungary",
-      "admin_level": "ADM1",
+      "admin_level": "NUTS3",
       "boundary_source_name": "Eurostat GISCO NUTS 2024",
       "boundary_source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "boundary_source_type": "EU official statistical geodata",
@@ -706,14 +726,14 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
       "boundary_id": "hungary_zala_boundary_candidate",
       "region_id": "hungary_zala",
       "country_id": "hungary",
-      "admin_level": "ADM1",
+      "admin_level": "NUTS3",
       "boundary_source_name": "Eurostat GISCO NUTS 2024",
       "boundary_source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "boundary_source_type": "EU official statistical geodata",
@@ -726,7 +746,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -746,7 +766,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -766,7 +786,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -786,7 +806,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -806,7 +826,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -826,7 +846,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -846,7 +866,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -866,7 +886,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -886,7 +906,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -906,7 +926,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -926,7 +946,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -946,7 +966,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -966,7 +986,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -986,7 +1006,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1006,7 +1026,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1026,7 +1046,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1046,7 +1066,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1066,7 +1086,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1086,7 +1106,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1106,7 +1126,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1126,7 +1146,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1146,7 +1166,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1166,7 +1186,7 @@
       "file_path_or_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
       "source_reliability": "A",
       "source_status": "官方来源",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。"
     },
     {
@@ -1186,7 +1206,7 @@
       "file_path_or_url": "",
       "source_reliability": "D",
       "source_status": "待接入",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "非 V4 国家在 v0.9 第一版只保留国家级待接入占位；尚未选择边界来源，不进入真实地图渲染。"
     },
     {
@@ -1206,7 +1226,7 @@
       "file_path_or_url": "",
       "source_reliability": "D",
       "source_status": "待接入",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "非 V4 国家在 v0.9 第一版只保留国家级待接入占位；尚未选择边界来源，不进入真实地图渲染。"
     },
     {
@@ -1226,7 +1246,7 @@
       "file_path_or_url": "",
       "source_reliability": "D",
       "source_status": "待接入",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "非 V4 国家在 v0.9 第一版只保留国家级待接入占位；尚未选择边界来源，不进入真实地图渲染。"
     },
     {
@@ -1246,7 +1266,7 @@
       "file_path_or_url": "",
       "source_reliability": "D",
       "source_status": "待接入",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "非 V4 国家在 v0.9 第一版只保留国家级待接入占位；尚未选择边界来源，不进入真实地图渲染。"
     },
     {
@@ -1266,7 +1286,7 @@
       "file_path_or_url": "",
       "source_reliability": "D",
       "source_status": "待接入",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "非 V4 国家在 v0.9 第一版只保留国家级待接入占位；尚未选择边界来源，不进入真实地图渲染。"
     },
     {
@@ -1286,7 +1306,7 @@
       "file_path_or_url": "",
       "source_reliability": "D",
       "source_status": "待接入",
-      "last_checked": "2026-07-25",
+      "last_checked": "2026-07-26",
       "notes": "非 V4 国家在 v0.9 第一版只保留国家级待接入占位；尚未选择边界来源，不进入真实地图渲染。"
     }
   ]
