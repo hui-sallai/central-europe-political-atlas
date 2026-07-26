@@ -307,6 +307,19 @@ const dataEntryShortcuts: DataEntryShortcut[] = [
   { id: "v4-derived-comparison-entry", label: "派生比较表入口", mode: "comparison", description: "最高值、最低值、V4 均值和事实派生比较。", requiresV4: true },
   { id: "data-export-entry", label: "数据导出与接口准备", mode: "tables", description: "17 个逻辑数据层的 CSV / JSON 结构预留；当前不提供模型 API。" },
 ];
+const regionMapDataStructureEntryIds = [
+  "regions-layer-entry",
+  "region-boundaries-layer-entry",
+  "region-indicators-layer-entry",
+  "region-observations-layer-entry",
+  "region-sources-layer-entry",
+  "region-quality-checks-layer-entry",
+  "project-locations-layer-entry",
+  "map-layers-layer-entry",
+];
+const regionMapDataStructureEntries = regionMapDataStructureEntryIds
+  .map((entryId) => dataEntryShortcuts.find((entry) => entry.id === entryId))
+  .filter((entry): entry is DataEntryShortcut => Boolean(entry));
 
 const tableMetricIds: EconomicMetricId[] = ["population", "gdp", "gdpPerCapita", "growth", "inflation", "unemployment"];
 const economicMetricIndicatorIds: Record<EconomicMetricId, string> = {
@@ -2969,6 +2982,35 @@ export function DataCountryExplorer() {
           <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/60 p-4">
             <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
               <div>
+                <p className="eyebrow">Regional Map Data Structure</p>
+                <h3 className="mt-2 text-lg font-semibold">区域地图数据结构</h3>
+                <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
+                  v0.9 区域地图数据层集中在这里；完整表体仍在下方研究数据结构总表按需展开。v0.8 的九个逻辑数据层继续保留，不删除、不合并。
+                </p>
+              </div>
+              <span className="text-xs text-[var(--muted)]">8 个区域地图数据表</span>
+            </div>
+            <div className="mt-4 grid gap-2 md:grid-cols-2 xl:grid-cols-4">
+              {regionMapDataStructureEntries.map((entry) => (
+                <button
+                  key={`region-map-${entry.id}`}
+                  type="button"
+                  onClick={() => openDataEntry(entry)}
+                  className="rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-3 text-left transition hover:border-[var(--accent)] hover:bg-white"
+                >
+                  <span className="font-mono text-xs font-semibold text-[var(--accent)]">
+                    {entry.id.replace("-layer-entry", "").replace(/-/g, "_").replace("_entry", "")}
+                  </span>
+                  <span className="mt-1 block text-sm font-semibold">{entry.label}</span>
+                  <span className="mt-1 block text-xs leading-5 text-[var(--muted)]">{entry.description}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/60 p-4">
+            <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
+              <div>
                 <p className="eyebrow">Research Data Entries</p>
                 <h3 className="mt-2 text-lg font-semibold">研究数据入口</h3>
               </div>
@@ -2999,7 +3041,7 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Research Registry Tables</p>
               <h2 className="mt-3 text-2xl font-semibold">研究数据结构总表</h2>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                以下十七个逻辑数据层常驻在数据页；它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。其中 regions 是 v0.9 区域主键层，region_boundaries 是真实边界接入前的来源、许可、格式和几何状态登记层，region_indicators 是独立于国家级 indicators 的区域指标字典，region_observations 是区域经济数据主表，region_quality_checks 是区域质量验收层，region_sources 是区域来源字典，project_locations 是对华项目地区定位桥表，map_layers 是地图图层注册表。
+                以下十七个逻辑数据层常驻在数据页；v0.8 的九个逻辑数据层继续保留，v0.9 只是在此基础上新增区域地图数据结构。它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。其中 regions 是 v0.9 区域主键层，region_boundaries 是真实边界接入前的来源、许可、格式和几何状态登记层，region_indicators 是独立于国家级 indicators 的区域指标字典，region_observations 是区域经济数据主表，region_quality_checks 是区域质量验收层，region_sources 是区域来源字典，project_locations 是对华项目地区定位桥表，map_layers 是地图图层注册表。
               </p>
             </div>
             <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">按需展开</span>
