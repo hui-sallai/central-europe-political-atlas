@@ -333,7 +333,7 @@ const regionalSchemaChecks = [
     table: "region_boundaries",
     priority: "最高优先级",
     why: "没有 region_boundaries，真实边界来源、许可和几何状态无法核验。",
-    fields: "boundary_id, region_id, country_id, admin_level, boundary_source_name, boundary_source_url, boundary_source_type, boundary_license, boundary_format, geometry_available, geometry_simplified, topology_checked, coordinate_system, file_path_or_url, source_reliability, source_status, last_checked, notes",
+    fields: "boundary_id, region_id, country_id, admin_level, nuts_version, boundary_source_name, boundary_source_url, boundary_source_type, boundary_license, boundary_format, geometry_format, file_selected, file_url, geometry_available, geometry_simplified, topology_checked, coordinate_system, file_path_or_url, region_code_match_status, source_reliability, source_status, last_checked, notes",
     enums: "boundary_format: GeoJSON / TopoJSON / Shapefile / PMTiles / Vector Tiles / Not available；source_reliability: A / B / C / D；source_status: official / manual / pending / sample。",
     status: "当前只登记来源和接入准备状态；geometry_available=false 的边界不进入真实地图展示。",
   },
@@ -402,6 +402,7 @@ function regionalFieldMeaning(field: string) {
     boundary_source_url: "边界来源链接，用于核验公开展示、许可和复用条件。",
     boundary_license: "边界数据许可状态，决定是否可以公开展示和简化。",
     boundary_format: "边界文件格式或待接入状态。",
+    file_url: "已选定的具体几何文件地址；文件尚未选择时必须留空。",
     geometry_available: "几何文件是否已经可用。",
     geometry_simplified: "几何是否已完成前端加载所需简化。",
     topology_checked: "拓扑关系是否完成检查。",
@@ -1659,10 +1660,15 @@ function RegionBoundaryTable({ rows }: { rows: RegionBoundaryRecord[] }) {
     "boundary_source_type",
     "boundary_license",
     "boundary_format",
+    "nuts_version",
+    "geometry_format",
+    "file_selected",
+    "file_url",
     "geometry_available",
     "geometry_simplified",
     "topology_checked",
     "coordinate_system",
+    "region_code_match_status",
     "file_path_or_url",
     "source_reliability",
     "source_status",
@@ -1698,10 +1704,21 @@ function RegionBoundaryTable({ rows }: { rows: RegionBoundaryRecord[] }) {
               <td className="border-b border-[var(--line)] px-3 py-3">{boundary.boundary_source_type}</td>
               <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{boundary.boundary_license}</td>
               <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{boundary.boundary_format}</DictionaryToken></td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{boundary.nuts_version}</DictionaryToken></td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{boundary.geometry_format}</DictionaryToken></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={boundary.file_selected} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3">
+                {boundary.file_url ? (
+                  <a href={boundary.file_url} target="_blank" rel="noreferrer" className="text-xs font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+                    geometry file
+                  </a>
+                ) : "—"}
+              </td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={boundary.geometry_available} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={boundary.geometry_simplified} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={boundary.topology_checked} /></td>
               <td className="border-b border-[var(--line)] px-3 py-3">{boundary.coordinate_system}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{boundary.region_code_match_status}</DictionaryToken></td>
               <td className="border-b border-[var(--line)] px-3 py-3">
                 {boundary.file_path_or_url ? (
                   <a href={boundary.file_path_or_url} target="_blank" rel="noreferrer" className="text-xs font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
@@ -1911,6 +1928,14 @@ function RegionQualityCheckTable({ rows }: { rows: RegionQualityCheckRecord[] })
     "boundary_available",
     "boundary_source_available",
     "boundary_license_checked",
+    "source_available",
+    "license_checked",
+    "file_selected",
+    "geometry_filtered",
+    "crs_confirmed",
+    "topology_checked",
+    "region_id_matched",
+    "ready_for_display",
     "value_present",
     "unit_present",
     "source_name_present",
@@ -1953,6 +1978,14 @@ function RegionQualityCheckTable({ rows }: { rows: RegionQualityCheckRecord[] })
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.boundary_available} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.boundary_source_available} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.boundary_license_checked} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.source_available} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.license_checked} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.file_selected} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.geometry_filtered} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.crs_confirmed} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.topology_checked} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.region_id_matched} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.ready_for_display} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.value_present} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.unit_present} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.source_name_present} /></td>
@@ -1994,6 +2027,8 @@ function RegionSourceTable({ rows }: { rows: RegionSourceRecord[] }) {
     "source_status",
     "update_frequency",
     "license_status",
+    "license_url",
+    "usage_note",
     "can_be_used_for_boundary",
     "can_be_used_for_regional_statistics",
     "can_be_used_for_election_data",
@@ -2036,6 +2071,14 @@ function RegionSourceTable({ rows }: { rows: RegionSourceRecord[] }) {
               <td className="border-b border-[var(--line)] px-3 py-3">{source.source_status}</td>
               <td className="border-b border-[var(--line)] px-3 py-3">{source.update_frequency}</td>
               <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{source.license_status}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">
+                {source.license_url ? (
+                  <a href={source.license_url} target="_blank" rel="noreferrer" className="text-xs font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+                    license
+                  </a>
+                ) : "—"}
+              </td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{source.usage_note ?? "—"}</td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={source.can_be_used_for_boundary} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={source.can_be_used_for_regional_statistics} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={source.can_be_used_for_election_data} /></td>

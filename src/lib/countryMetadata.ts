@@ -328,12 +328,12 @@ export function getCountryMetadata(countryId: string) {
 
 export const researchDataLayerFiles = [
   { id: "countries", label: "countries", description: "十国国家元数据表，作为所有观测值、项目和派生比较的 country_id 关联表。" },
-  { id: "regions", label: "regions", description: "v0.10 区域元数据表；匈牙利 NUTS3 试点标记主键匹配状态，非 V4 暂保留国家级待接入。" },
-  { id: "region_boundaries", label: "region_boundaries", description: "v0.10 区域边界来源表；登记 hu_nuts3_gisco_2024，暂不渲染真实边界。" },
+  { id: "regions", label: "regions", description: "v0.10.1 区域元数据表；匈牙利 NUTS3 预留 20 个 region_id 与 NUTS code 匹配位置，未核验前保持 pilot_pending_region_code_match。" },
+  { id: "region_boundaries", label: "region_boundaries", description: "v0.10.1 区域边界来源表；细化 hu_nuts3_gisco_2024 的版本、格式、文件选择、file_url、坐标系、拓扑和主键匹配状态，暂不渲染真实边界。" },
   { id: "region_indicators", label: "region_indicators", description: "v0.10 继续保留区域指标字典；独立于国家级 indicators，第一批只覆盖 10 个区域指标。" },
   { id: "region_observations", label: "region_observations", description: "v0.10 继续保留区域观测值表；第一批区域指标仍保留待接入观测位置。" },
-  { id: "region_quality_checks", label: "region_quality_checks", description: "v0.10 区域数据质量验收表；检查边界、许可、来源、区域代码、几何与地图图层准备状态。" },
-  { id: "region_sources", label: "region_sources", description: "v0.10 区域来源字典；登记 eurostat_gisco_nuts_2024 并保留许可状态。" },
+  { id: "region_quality_checks", label: "region_quality_checks", description: "v0.10.1 区域数据质量验收表；增加 Hungary NUTS3 boundary pilot 的来源、许可、文件、几何、CRS、拓扑、主键匹配和展示准备核验项。" },
+  { id: "region_sources", label: "region_sources", description: "v0.10.1 区域来源字典；登记 eurostat_gisco_nuts_2024，并补充 license_status、license_url、usage_note 与 last_checked。" },
   { id: "project_locations", label: "project_locations", description: "v0.10 继续保留对华项目地区定位表；不启用真实项目点位图层。" },
   { id: "map_layers", label: "map_layers", description: "v0.10 地图图层注册表；登记 hu_nuts3_boundary_pilot，is_ready_for_display=false。" },
   { id: "indicators", label: "indicators", description: "18 个指标的口径、单位、频率、来源优先级和派生资格。" },

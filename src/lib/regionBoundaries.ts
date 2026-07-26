@@ -8,16 +8,21 @@ export type RegionBoundaryRecord = {
   region_id: string;
   country_id: string;
   admin_level: string;
+  nuts_version: string;
   boundary_source_name: string;
   boundary_source_url: string;
   boundary_source_type: string;
   boundary_license: string;
   boundary_format: BoundaryFormat;
+  geometry_format: string;
+  file_selected: boolean;
+  file_url: string;
   geometry_available: boolean;
   geometry_simplified: boolean;
   topology_checked: boolean;
   coordinate_system: string;
   file_path_or_url: string;
+  region_code_match_status: string;
   source_reliability: "A" | "B" | "C" | "D";
   source_status: BoundarySourceStatus;
   last_checked: string;
@@ -37,20 +42,25 @@ const hungaryPilotBoundary: RegionBoundaryRecord = {
   region_id: "hungary_nuts3_pilot",
   country_id: "hungary",
   admin_level: "NUTS3",
+  nuts_version: "NUTS 2024",
   boundary_source_name: "Eurostat GISCO NUTS 2024",
   boundary_source_url: giscoSourceUrl,
   boundary_source_type: "EU official statistical geodata",
   boundary_license: "待确认 / 待接受使用条款",
   boundary_format: "GeoJSON",
+  geometry_format: "GeoJSON / JSON 候选",
+  file_selected: false,
+  file_url: "",
   geometry_available: false,
   geometry_simplified: false,
   topology_checked: false,
   coordinate_system: "EPSG:4326 候选",
   file_path_or_url: giscoSourceUrl,
+  region_code_match_status: "pilot_pending_region_code_match",
   source_reliability: "A",
   source_status: "官方来源",
   last_checked: lastChecked,
-  notes: "v0.10 匈牙利 NUTS 3 / Megyék 边界来源核验试点；边界格式显示口径为 GeoJSON / JSON 候选。几何待下载 / 待过滤，主键匹配待核验，is_ready_for_display=false。",
+  notes: "v0.10.1 匈牙利 NUTS 3 / Megyék 边界来源核验试点；边界格式显示口径为 GeoJSON / JSON 候选。几何待下载 / 待过滤，文件未选择，主键匹配待核验，is_ready_for_display=false。",
 };
 
 function v4Boundary(region: (typeof regionMetadataRecords)[number]): RegionBoundaryRecord {
@@ -59,16 +69,21 @@ function v4Boundary(region: (typeof regionMetadataRecords)[number]): RegionBound
     region_id: region.region_id,
     country_id: region.country_id,
     admin_level: region.admin_level,
+    nuts_version: "NUTS 2024",
     boundary_source_name: "Eurostat GISCO NUTS 2024",
     boundary_source_url: giscoSourceUrl,
     boundary_source_type: "EU official statistical geodata",
     boundary_license: giscoLicense,
     boundary_format: "GeoJSON",
-    geometry_available: false,
+  geometry_format: "GeoJSON",
+  file_selected: false,
+  file_url: "",
+  geometry_available: false,
     geometry_simplified: false,
     topology_checked: false,
     coordinate_system: "EPSG:4326 候选；源数据也提供 EPSG:3035 和 EPSG:3857。",
     file_path_or_url: giscoSourceUrl,
+    region_code_match_status: region.country_id === "hungary" ? "pilot_pending_region_code_match" : "pending_region_code_match",
     source_reliability: "A",
     source_status: "官方来源",
     last_checked: lastChecked,
@@ -82,16 +97,21 @@ function pendingBoundary(region: (typeof regionMetadataRecords)[number]): Region
     region_id: region.region_id,
     country_id: region.country_id,
     admin_level: region.admin_level,
+    nuts_version: "Not available",
     boundary_source_name: "待接入",
     boundary_source_url: "",
     boundary_source_type: "Not available",
     boundary_license: "待接入",
     boundary_format: "Not available",
+    geometry_format: "Not available",
+    file_selected: false,
+    file_url: "",
     geometry_available: false,
     geometry_simplified: false,
     topology_checked: false,
     coordinate_system: "待接入",
     file_path_or_url: "",
+    region_code_match_status: "待接入",
     source_reliability: "D",
     source_status: "待接入",
     last_checked: lastChecked,

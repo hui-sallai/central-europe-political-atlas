@@ -12,6 +12,8 @@ export type RegionSourceRecord = {
   source_status: "官方来源" | "人工整理" | "待接入" | "结构样例";
   update_frequency: string;
   license_status: string;
+  license_url?: string;
+  usage_note?: string;
   can_be_used_for_boundary: boolean;
   can_be_used_for_regional_statistics: boolean;
   can_be_used_for_election_data: boolean;
@@ -111,6 +113,8 @@ export const regionSourceRecords: RegionSourceRecord[] = [
     source_status: "官方来源",
     update_frequency: "随 NUTS 版本更新。",
     license_status: "待确认 / 待接受使用条款；上线真实边界前必须确认公开展示、简化、再分发和版权标注要求。",
+    license_url: "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
+    usage_note: "v0.10.1 只登记来源和许可核验字段；下载、过滤、简化、公开展示和版权标注规则确认前，不启用真实地图展示。",
     can_be_used_for_boundary: true,
     can_be_used_for_regional_statistics: false,
     can_be_used_for_election_data: false,
@@ -118,7 +122,7 @@ export const regionSourceRecords: RegionSourceRecord[] = [
     is_supplementary_only: false,
     is_excluded_from_analysis: false,
     last_checked: checkedAt,
-    notes: "v0.10 boundary source verification / Hungary pilot；只登记候选来源，不下载几何，不启用真实地图展示。",
+    notes: "v0.10.1 Hungary boundary verification detail pass；只登记候选来源、许可链接和使用说明，不下载几何，不启用真实地图展示。",
   },
   {
     region_source_id: "eu_gis_gisco",

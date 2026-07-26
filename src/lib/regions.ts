@@ -1,4 +1,4 @@
-export type RegionDataStatus = "正式数据" | "待核验" | "待接入" | "结构样例";
+export type RegionDataStatus = "正式数据" | "待核验" | "待接入" | "结构样例" | "pilot_pending_region_code_match";
 export type RegionSourceStatus = "官方来源" | "人工整理" | "待接入" | "结构样例";
 
 export type RegionMetadataRecord = {
@@ -24,6 +24,29 @@ export type RegionMetadataRecord = {
 };
 
 const updatedAt = "2026-07-26";
+
+const hungaryNuts3CandidateCodes = new Map([
+  ["hungary_budapest", "HU110"],
+  ["hungary_pest", "HU120"],
+  ["hungary_fejer", "HU211"],
+  ["hungary_komarom_esztergom", "HU212"],
+  ["hungary_veszprem", "HU213"],
+  ["hungary_gyor_moson_sopron", "HU221"],
+  ["hungary_vas", "HU222"],
+  ["hungary_zala", "HU223"],
+  ["hungary_baranya", "HU231"],
+  ["hungary_somogy", "HU232"],
+  ["hungary_tolna", "HU233"],
+  ["hungary_borsod_abauj_zemplen", "HU311"],
+  ["hungary_heves", "HU312"],
+  ["hungary_nograd", "HU313"],
+  ["hungary_hajdu_bihar", "HU321"],
+  ["hungary_jasz_nagykun_szolnok", "HU322"],
+  ["hungary_szabolcs_szatmar_bereg", "HU323"],
+  ["hungary_bacs_kiskun", "HU331"],
+  ["hungary_bekes", "HU332"],
+  ["hungary_csongrad_csanad", "HU333"],
+]);
 
 const v4RegionDefaults = {
   admin_level: "ADM1" as const,
@@ -69,7 +92,7 @@ function v4Region(record: Omit<RegionMetadataRecord, keyof typeof v4RegionDefaul
     region_name_en: record.region_name_en,
     region_name_local: record.region_name_local,
     admin_level: isHungaryPilot ? "NUTS3" : v4RegionDefaults.admin_level,
-    admin_code: record.admin_code,
+    admin_code: isHungaryPilot ? hungaryNuts3CandidateCodes.get(record.region_id) ?? record.admin_code : record.admin_code,
     parent_region_id: v4RegionDefaults.parent_region_id,
     capital_or_main_city: record.capital_or_main_city,
     region_type: record.region_type,
@@ -78,11 +101,11 @@ function v4Region(record: Omit<RegionMetadataRecord, keyof typeof v4RegionDefaul
     is_statistical_data_available: v4RegionDefaults.is_statistical_data_available,
     is_election_data_available: v4RegionDefaults.is_election_data_available,
     is_china_project_mapped: v4RegionDefaults.is_china_project_mapped,
-    data_status: v4RegionDefaults.data_status,
+    data_status: isHungaryPilot ? "pilot_pending_region_code_match" : v4RegionDefaults.data_status,
     source_status: v4RegionDefaults.source_status,
     last_updated: v4RegionDefaults.last_updated,
     notes: isHungaryPilot
-      ? "v0.10 匈牙利 NUTS3 / Megyék 边界来源核验试点；区域主键匹配状态：pilot_pending_region_code_match。真实边界、区域统计、区域选举和对华项目坐标尚未接入。"
+      ? "v0.10.1 匈牙利 NUTS3 / Megyék 边界来源核验试点；已预留 region_id 与 NUTS code 候选匹配位置，匹配状态：pilot_pending_region_code_match。真实边界、区域统计、区域选举和对华项目坐标尚未接入。"
       : v4RegionDefaults.notes,
   };
 }

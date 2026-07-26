@@ -14,6 +14,14 @@ export type RegionQualityCheckRecord = {
   boundary_available: boolean;
   boundary_source_available: boolean;
   boundary_license_checked: boolean;
+  source_available: boolean;
+  license_checked: boolean;
+  file_selected: boolean;
+  geometry_filtered: boolean;
+  crs_confirmed: boolean;
+  topology_checked: boolean;
+  region_id_matched: boolean;
+  ready_for_display: boolean;
   value_present: boolean;
   unit_present: boolean;
   source_name_present: boolean;
@@ -60,7 +68,10 @@ function hasText(value: string | null | undefined) {
   return Boolean(value && value.trim() && value !== pendingText);
 }
 
-type RegionQualityCheckBase = Omit<RegionQualityCheckRecord, "region_check_id" | "quality_status" | "missing_reason" | "quality_notes" | "last_updated">;
+type RegionQualityCheckBase = Omit<
+  RegionQualityCheckRecord,
+  "region_check_id" | "quality_status" | "missing_reason" | "quality_notes" | "last_updated"
+>;
 
 function qualityStatusFor(check: RegionQualityCheckBase): RegionQualityStatus {
   if (check.is_structural_sample) {
@@ -90,7 +101,7 @@ function qualityNotesFor(check: RegionQualityCheckBase) {
     notes.push("尚未接入可点击的区域统计来源链接。");
   }
   if (!check.region_code_present) {
-    notes.push("区域代码缺失或仍为占位，需要复核后才能关联边界和统计表。");
+    notes.push("区域代码缺失或仍为占位，需复核后才能关联边界和统计表。");
   }
   return notes.join(" ");
 }
@@ -98,7 +109,7 @@ function qualityNotesFor(check: RegionQualityCheckBase) {
 function buildRegionQualityCheck(observation: (typeof regionObservationRecords)[number]): RegionQualityCheckRecord {
   const region = regionById.get(observation.region_id);
   const boundary = boundaryByRegion.get(observation.region_id);
-  const boundaryLicenseChecked = Boolean(boundary && hasText(boundary.boundary_license));
+  const boundaryLicenseChecked = Boolean(boundary && hasText(boundary.boundary_license) && !boundary.boundary_license.includes("待确认"));
   const regionCodePresent = Boolean(region && hasText(region.admin_code) && region.admin_code !== "PENDING");
   const valuePresent = observation.value !== null && observation.value !== "";
   const unitPresent = hasText(observation.unit);
@@ -107,10 +118,25 @@ function buildRegionQualityCheck(observation: (typeof regionObservationRecords)[
   const sourceReliabilityPresent = hasText(observation.source_reliability);
   const boundaryAvailable = Boolean(boundary?.geometry_available);
   const boundarySourceAvailable = hasText(boundary?.boundary_source_name) && hasText(boundary?.boundary_source_url);
+  const fileSelected = Boolean(boundary?.file_selected);
+  const geometryFiltered = Boolean(boundary?.geometry_simplified);
+  const crsConfirmed = Boolean(
+    boundary &&
+      hasText(boundary.coordinate_system) &&
+      !boundary.coordinate_system.includes("候选") &&
+      boundary.coordinate_system !== pendingText,
+  );
+  const topologyChecked = Boolean(boundary?.topology_checked);
+  const regionIdMatched = Boolean(boundary && boundary.region_code_match_status === "matched");
   const isMapReady =
     boundaryAvailable &&
     boundarySourceAvailable &&
     boundaryLicenseChecked &&
+    fileSelected &&
+    geometryFiltered &&
+    crsConfirmed &&
+    topologyChecked &&
+    regionIdMatched &&
     valuePresent &&
     unitPresent &&
     sourceNamePresent &&
@@ -134,15 +160,23 @@ function buildRegionQualityCheck(observation: (typeof regionObservationRecords)[
     Boolean(observation.value_status) &&
     Boolean(observation.missing_reason || valuePresent);
 
-  const baseCheck = {
+  const baseCheck: RegionQualityCheckBase = {
     region_id: observation.region_id,
     country_id: observation.country_id,
-    admin_level: region?.admin_level ?? "待接入",
+    admin_level: region?.admin_level ?? pendingText,
     region_indicator_id: observation.region_indicator_id,
     year: observation.year,
     boundary_available: boundaryAvailable,
     boundary_source_available: boundarySourceAvailable,
     boundary_license_checked: boundaryLicenseChecked,
+    source_available: boundarySourceAvailable,
+    license_checked: boundaryLicenseChecked,
+    file_selected: fileSelected,
+    geometry_filtered: geometryFiltered,
+    crs_confirmed: crsConfirmed,
+    topology_checked: topologyChecked,
+    region_id_matched: regionIdMatched,
+    ready_for_display: isMapReady,
     value_present: valuePresent,
     unit_present: unitPresent,
     source_name_present: sourceNamePresent,
@@ -169,7 +203,50 @@ function buildRegionQualityCheck(observation: (typeof regionObservationRecords)[
   };
 }
 
-export const regionQualityCheckRecords: RegionQualityCheckRecord[] = regionObservationRecords.map(buildRegionQualityCheck);
+const hungaryPilotBoundary = regionBoundaryRecords.find((boundary) => boundary.boundary_id === "hu_nuts3_gisco_2024");
+
+const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {
+  region_check_id: "hungary_nuts3_boundary_pilot_quality_check",
+  region_id: "hungary_nuts3_pilot",
+  country_id: "hungary",
+  admin_level: "NUTS3",
+  region_indicator_id: "regional_boundary_status",
+  year: updatedAt,
+  boundary_available: Boolean(hungaryPilotBoundary?.geometry_available),
+  boundary_source_available: hasText(hungaryPilotBoundary?.boundary_source_name) && hasText(hungaryPilotBoundary?.boundary_source_url),
+  boundary_license_checked: false,
+  source_available: hasText(hungaryPilotBoundary?.boundary_source_name) && hasText(hungaryPilotBoundary?.boundary_source_url),
+  license_checked: false,
+  file_selected: Boolean(hungaryPilotBoundary?.file_selected),
+  geometry_filtered: Boolean(hungaryPilotBoundary?.geometry_simplified),
+  crs_confirmed: false,
+  topology_checked: Boolean(hungaryPilotBoundary?.topology_checked),
+  region_id_matched: false,
+  ready_for_display: false,
+  value_present: false,
+  unit_present: true,
+  source_name_present: hasText(hungaryPilotBoundary?.boundary_source_name),
+  source_url_present: hasText(hungaryPilotBoundary?.boundary_source_url),
+  source_reliability_present: hasText(hungaryPilotBoundary?.source_reliability),
+  region_code_present: false,
+  is_official_data: false,
+  is_pending: true,
+  is_calculated: false,
+  is_manual: false,
+  is_structural_sample: false,
+  is_map_ready: false,
+  is_region_comparable: false,
+  is_export_ready: true,
+  quality_status: "需复核",
+  missing_reason: "许可、文件选择、几何过滤、CRS 确认、拓扑检查和 region_id / NUTS code 匹配均未完成。",
+  quality_notes: "v0.10.1 Hungary NUTS3 boundary pilot 专项核验；该记录只检验边界来源接入准备，不代表真实地图展示已启用。",
+  last_updated: updatedAt,
+};
+
+export const regionQualityCheckRecords: RegionQualityCheckRecord[] = [
+  hungaryBoundaryPilotQualityCheck,
+  ...regionObservationRecords.map(buildRegionQualityCheck),
+];
 
 const boundaryAvailableRegionIds = new Set(regionBoundaryRecords.filter((boundary) => boundary.geometry_available).map((boundary) => boundary.region_id));
 const statisticalDataAvailableRegionIds = new Set(

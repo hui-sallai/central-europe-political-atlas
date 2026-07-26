@@ -3,10 +3,10 @@
   "generated_at": "2026-07-26",
   "data_type": "map_layers",
   "record_count": 8,
-  "scope": "v0.9 map layer registry. Layers are registered for future map workbench control, but not displayed as live analytical layers.",
+  "scope": "v0.10.1 map layer registry. hu_nuts3_boundary_pilot remains registered for verification only and is not displayed as a live analytical layer.",
   "primary_key": "layer_id",
   "relation_note": "Each layer declares its data_source_table, geometry_source_table, indicator_or_variable, tooltip fields, filters, source requirements, and quality requirements.",
-  "validation_note": "All v0.9 registered layers keep is_ready_for_display=false until boundary, source, observation, project-location, and quality checks pass.",
+  "validation_note": "All registered real boundary and analytical layers keep is_ready_for_display=false until boundary, source, observation, project-location, and quality checks pass.",
   "model_boundary": "Registry only. No risk layer, prediction layer, party-support layer, China exposure index, or live boundary rendering is generated.",
   "records": [
     {

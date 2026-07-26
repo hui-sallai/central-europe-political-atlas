@@ -3,7 +3,7 @@
   "generated_at": "2026-07-26",
   "data_type": "region_sources",
   "record_count": 11,
-  "scope": "v0.9 regional source dictionary. It is separate from national sources and tracks licence status explicitly.",
+  "scope": "v0.10.1 regional source dictionary. It is separate from national sources and tracks licence status, licence URL, usage note, and last checked date explicitly.",
   "primary_key": "region_source_id",
   "relation_note": "Future region_observations, region_boundaries, election regional data, and project_locations should reference region_source_id where applicable.",
   "validation_note": "Licence status is mandatory because regional maps and boundaries may involve public display, simplification, redistribution, and commercial-use constraints.",
@@ -92,6 +92,8 @@
       "source_status": "官方来源",
       "update_frequency": "随 NUTS 版本更新。",
       "license_status": "待确认 / 待接受使用条款；上线真实边界前必须确认公开展示、简化、再分发和版权标注要求。",
+      "license_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
+      "usage_note": "v0.10.1 只登记来源和许可核验字段；下载、过滤、简化、公开展示和版权标注规则确认前，不启用真实地图展示。",
       "can_be_used_for_boundary": true,
       "can_be_used_for_regional_statistics": false,
       "can_be_used_for_election_data": false,
@@ -99,7 +101,7 @@
       "is_supplementary_only": false,
       "is_excluded_from_analysis": false,
       "last_checked": "2026-07-26",
-      "notes": "v0.10 boundary source verification / Hungary pilot；只登记候选来源，不下载几何，不启用真实地图展示。"
+      "notes": "v0.10.1 Hungary boundary verification detail pass；只登记候选来源、许可链接和使用说明，不下载几何，不启用真实地图展示。"
     },
     {
       "region_source_id": "eu_gis_gisco",

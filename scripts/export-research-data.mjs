@@ -1062,13 +1062,13 @@ writeLayer("countries", countryRecords, {
   relation_note: "All observations, projects, derived comparisons, and exposure candidates should reference country_id.",
 });
 writeLayer("regions", regionMetadataRecords, {
-  scope: "v0.9 regions metadata. V4 countries use ADM1 records; non-V4 countries keep national-level pending placeholders.",
+  scope: "v0.10.1 regions metadata. Hungary NUTS3 reserves 20 region_id and NUTS code matching positions; non-V4 countries keep national-level pending placeholders.",
   primary_key: "region_id",
-  relation_note: "Every region references country_id from countries. ADM2 is intentionally excluded from v0.9 first pass.",
+  relation_note: "Every region references country_id from countries. ADM2 is intentionally excluded from the current boundary verification pass.",
   model_boundary: "Region metadata only. No regional risk layer, forecast, election model, or ADM2 analysis is generated.",
 });
 writeLayer("region_boundaries", regionBoundaryRecords, {
-  scope: "v0.9 region boundary source registry. Geometry is not rendered yet.",
+  scope: "v0.10.1 region boundary source registry. hu_nuts3_gisco_2024 tracks NUTS version, geometry format, file selection, selected file URL, CRS, topology, and region-code matching status. Geometry is not rendered yet.",
   primary_key: "boundary_id",
   relation_note: "Every boundary record references region_id from regions and country_id from countries.",
   validation_note: "Records track source credibility, public display licence, simplification readiness, front-end suitability, region_id matching, admin codes, and historical boundary issues before geometry ingestion.",
@@ -1089,7 +1089,7 @@ writeLayer("region_observations", regionObservationRecords, {
   model_boundary: "Observation structure only. Pending rows do not enter map layers, regional comparison, or future model candidate inputs.",
 });
 writeLayer("region_quality_checks", regionQualityCheckRecords, {
-  scope: "v0.9 regional data quality checks. First batch validates V4 ADM1 regional observation positions against boundary, licence, value, source, and region-code readiness.",
+  scope: "v0.10.1 regional data quality checks. Adds Hungary NUTS3 boundary pilot checks for source, licence, file selection, geometry filtering, CRS, topology, region_id matching, and display readiness.",
   primary_key: "region_check_id",
   summary: regionQualitySummary,
   relation_note: "Every check references region_id from regions and region_indicator_id from region_indicators. Boundary readiness is cross-checked through region_boundaries.",
@@ -1097,7 +1097,7 @@ writeLayer("region_quality_checks", regionQualityCheckRecords, {
   model_boundary: "Quality checks only. No regional model, risk layer, forecast, election prediction, or live boundary rendering is generated.",
 });
 writeLayer("region_sources", regionSourceRecords, {
-  scope: "v0.9 regional source dictionary. It is separate from national sources and tracks licence status explicitly.",
+  scope: "v0.10.1 regional source dictionary. It is separate from national sources and tracks licence status, licence URL, usage note, and last checked date explicitly.",
   primary_key: "region_source_id",
   relation_note: "Future region_observations, region_boundaries, election regional data, and project_locations should reference region_source_id where applicable.",
   validation_note: "Licence status is mandatory because regional maps and boundaries may involve public display, simplification, redistribution, and commercial-use constraints.",
@@ -1111,10 +1111,10 @@ writeLayer("project_locations", projectLocationRecords, {
   model_boundary: "Location bridge only. No China exposure index, regional risk layer, forecast, or live project map layer is generated.",
 });
 writeLayer("map_layers", mapLayerRecords, {
-  scope: "v0.9 map layer registry. Layers are registered for future map workbench control, but not displayed as live analytical layers.",
+  scope: "v0.10.1 map layer registry. hu_nuts3_boundary_pilot remains registered for verification only and is not displayed as a live analytical layer.",
   primary_key: "layer_id",
   relation_note: "Each layer declares its data_source_table, geometry_source_table, indicator_or_variable, tooltip fields, filters, source requirements, and quality requirements.",
-  validation_note: "All v0.9 registered layers keep is_ready_for_display=false until boundary, source, observation, project-location, and quality checks pass.",
+  validation_note: "All registered real boundary and analytical layers keep is_ready_for_display=false until boundary, source, observation, project-location, and quality checks pass.",
   model_boundary: "Registry only. No risk layer, prediction layer, party-support layer, China exposure index, or live boundary rendering is generated.",
 });
 writeLayer("indicators", indicatorRecords, {

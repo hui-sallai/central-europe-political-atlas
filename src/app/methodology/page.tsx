@@ -98,13 +98,13 @@ const politicalFieldReviewItems = [
 ];
 
 const boundarySourceVerificationItems = [
-  "v0.10 只做边界来源核验，不启用真实地图展示。",
-  "Eurostat GISCO NUTS 2024 作为第一批边界候选来源。",
-  "所有边界数据必须记录来源、许可、格式、坐标系、几何状态、拓扑检查状态。",
-  "区域主键必须与 NUTS / ADM 代码匹配后才能进入 map_layers。",
-  "map_layers 中注册边界图层不代表图层已启用。",
-  "is_ready_for_display 在许可、几何、拓扑、主键匹配通过前必须保持 false。",
-  "风险图层、预测图层、真实党派支持率图层继续未启用。",
+  "v0.10.1 只做边界来源核验与匈牙利 NUTS3 / Megyék 试点接入准备，不启用真实地图展示。",
+  "Eurostat GISCO NUTS 2024 作为第一批边界候选来源；region_sources 必须记录 license_status、license_url、usage_note 和 last_checked。",
+  "region_boundaries 必须记录 NUTS version、admin_level、geometry_format、coordinate_system、file_selected、file_url、geometry_available、topology_checked 和 region_code_match_status；未选定具体文件时 file_url 必须留空。",
+  "regions 中匈牙利 NUTS3 只预留 20 个 region_id 与 NUTS code 匹配位置；未核验前 data_status 保持 pilot_pending_region_code_match。",
+  "region_quality_checks 必须核验 source_available、license_checked、file_selected、geometry_filtered、crs_confirmed、topology_checked、region_id_matched 和 ready_for_display。",
+  "map_layers 中注册 hu_nuts3_boundary_pilot 不代表图层已启用；is_ready_for_display 在许可、几何、拓扑和主键匹配通过前必须保持 false。",
+  "风险图层、预测图层、真实党派支持率图层继续未启用；不新增模型、预测、风险指数或中国经济暴露指数。",
 ];
 
 const excludedItems = [
