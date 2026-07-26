@@ -165,10 +165,19 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
                   </span>
                 </div>
               ) : null}
-              <div className="mt-2 flex flex-wrap gap-1.5">
-                <DataStatusBadge status={selectedPoliticalStatus.badge} />
-                <span className="rounded-full bg-white px-2.5 py-0.5 text-xs font-semibold text-[var(--muted)]">{selectedPoliticalStatus.display}</span>
-                <span className="rounded-full bg-white px-2.5 py-0.5 text-xs font-semibold text-[var(--muted)]">执政结构：待核验</span>
+              <div className="mt-2 grid gap-2 text-xs">
+                <div className="rounded-xl bg-white/75 p-2">
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    <span className="font-semibold text-[var(--muted)]">政治样本状态：</span>
+                    <DataStatusBadge status={selectedPoliticalStatus.badge} />
+                    <SourceStatusBadge status={selectedPoliticalStatus.badge === "manual" ? "manual" : "pending"} />
+                  </div>
+                  <p className="mt-1 leading-5 text-[var(--muted)]">{selectedPoliticalStatus.display}</p>
+                </div>
+                <div className="rounded-xl bg-white/75 p-2">
+                  <p className="font-semibold text-[var(--muted)]">执政结构：</p>
+                  <p className="mt-1 leading-5 text-[var(--muted)]">待核验 / 不进入模型</p>
+                </div>
               </div>
               <div className="mt-2 grid grid-cols-2 gap-2">
                 <div className="rounded-xl bg-white/70 p-2">

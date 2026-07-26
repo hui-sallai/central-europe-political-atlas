@@ -162,8 +162,8 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
           <p className="mt-3 rounded-full bg-[var(--surface-muted)] px-3 py-2 text-xs text-[var(--muted)]">{activeLayerOption.legend}</p>
           <div className="mt-3 rounded-2xl border border-[var(--line)] bg-white/70 p-3">
             <div className="flex flex-wrap items-center gap-2">
+              <span className="text-xs font-semibold text-[var(--muted)]">图层数据状态：</span>
               <DataStatusBadge status={activeLayerOption.statusKind} />
-              <span className="text-xs font-semibold text-[var(--muted)]">{activeLayerOption.dataStatus}</span>
             </div>
             <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{activeLayerOption.statusNote}</p>
             <p className="mt-1 text-[10px] leading-4 text-[var(--muted)]">

@@ -11,7 +11,7 @@ export default function DataOverviewPage() {
         数据页改为按国家单独查看。先选择国家，再查看该国宏观经济、官方来源、地图图层、对华经贸样本、新闻记录和资料入口。
       </p>
       <div className="mt-4 inline-flex rounded-full border border-[var(--line)] bg-white/70 px-4 py-2 text-xs font-semibold text-[var(--muted)]">
-        当前阶段：v0.9 beta / regions + region_boundaries + region_indicators + region_observations + region_quality_checks + region_sources + project_locations + map_layers 区域层准备 / 模型层未启用
+        当前阶段：v0.9 regional data preparation / regions + region_boundaries + region_indicators + region_observations + region_quality_checks + region_sources + project_locations + map_layers 区域层准备 / 模型层未启用
       </div>
 
       <section className="mt-6">
