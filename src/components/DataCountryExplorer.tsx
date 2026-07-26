@@ -10,6 +10,7 @@ import { regionMetadataRecords } from "@/lib/regions";
 import { regionBoundaryRecords } from "@/lib/regionBoundaries";
 import { regionIndicatorRecords } from "@/lib/regionIndicators";
 import { regionObservationRecords } from "@/lib/regionObservations";
+import { regionQualityCheckRecords, regionQualitySummary, type RegionQualityCheckRecord, type RegionQualitySummary } from "@/lib/regionQualityChecks";
 import { regionSourceRecords } from "@/lib/regionSources";
 import { getEconomicSourcePolicy } from "@/lib/economicSourcePolicy";
 import {
@@ -294,12 +295,13 @@ const dataEntryShortcuts: DataEntryShortcut[] = [
   { id: "region-boundaries-layer-entry", label: "区域边界来源表", mode: "tables", description: "v0.9 region_boundaries 边界来源、许可、格式和几何接入状态。" },
   { id: "region-indicators-layer-entry", label: "区域指标字典", mode: "tables", description: "v0.9 region_indicators 独立区域指标字典，第一批 10 项。" },
   { id: "region-observations-layer-entry", label: "区域观测值表", mode: "tables", description: "v0.9 region_observations 区域经济数据主表，第一批待接入观测位置。" },
+  { id: "region-quality-checks-layer-entry", label: "区域质量验收表", mode: "tables", description: "v0.9 region_quality_checks 检查边界、许可、来源、区域代码、数值和地图准备状态。" },
   { id: "region-sources-layer-entry", label: "区域来源字典", mode: "tables", description: "v0.9 region_sources 区域统计、边界、选举和项目坐标来源及许可状态。" },
   { id: "indicator-dictionary-entry", label: "指标字典入口", mode: "tables", description: "18 个指标的口径、单位、来源优先级和比较资格。" },
   { id: "source-dictionary-entry", label: "来源字典入口", mode: "tables", description: "16 类来源的链接、可靠性等级和使用边界。" },
   { id: "v4-data-quality-entry", label: "数据质量验收入口", mode: "comparison", description: "V4 四国 240 个观测位置的验收清单。", requiresV4: true },
   { id: "v4-derived-comparison-entry", label: "派生比较表入口", mode: "comparison", description: "最高值、最低值、V4 均值和事实派生比较。", requiresV4: true },
-  { id: "data-export-entry", label: "数据导出与接口准备", mode: "tables", description: "14 个逻辑数据层的 CSV / JSON 结构预留；当前不提供模型 API。" },
+  { id: "data-export-entry", label: "数据导出与接口准备", mode: "tables", description: "15 个逻辑数据层的 CSV / JSON 结构预留；当前不提供模型 API。" },
 ];
 
 const tableMetricIds: EconomicMetricId[] = ["population", "gdp", "gdpPerCapita", "growth", "inflation", "unemployment"];
@@ -1676,6 +1678,112 @@ function RegionObservationTable({ rows }: { rows: RegionObservationRecord[] }) {
   );
 }
 
+function RegionQualitySummaryCards({ summary }: { summary: RegionQualitySummary }) {
+  const cards = [
+    ["区域总数", summary.total_region_count],
+    ["边界已接入区域数", summary.boundary_available_region_count],
+    ["边界待接入区域数", summary.boundary_pending_region_count],
+    ["区域统计数据已接入数", summary.regional_statistical_data_available_count],
+    ["区域统计数据待接入数", summary.regional_statistical_data_pending_count],
+    ["可进入地图图层区域数", summary.map_layer_ready_region_count],
+    ["不可进入地图图层区域数", summary.map_layer_not_ready_region_count],
+    ["来源 A 级数量", summary.source_a_count],
+    ["来源 B 级数量", summary.source_b_count],
+    ["来源 C 级数量", summary.source_c_count],
+    ["来源 D 级数量", summary.source_d_count],
+  ];
+
+  return (
+    <div className="mt-5 grid gap-3 md:grid-cols-3 xl:grid-cols-4">
+      {cards.map(([label, value]) => (
+        <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">{label}</p>
+          <p className="mt-2 text-2xl font-semibold text-[var(--accent)]">{value}</p>
+        </article>
+      ))}
+    </div>
+  );
+}
+
+function RegionQualityCheckTable({ rows }: { rows: RegionQualityCheckRecord[] }) {
+  const headers = [
+    "region_check_id",
+    "region_id",
+    "country_id",
+    "admin_level",
+    "region_indicator_id",
+    "year",
+    "boundary_available",
+    "boundary_source_available",
+    "boundary_license_checked",
+    "value_present",
+    "unit_present",
+    "source_name_present",
+    "source_url_present",
+    "source_reliability_present",
+    "region_code_present",
+    "is_official_data",
+    "is_pending",
+    "is_calculated",
+    "is_manual",
+    "is_structural_sample",
+    "is_map_ready",
+    "is_region_comparable",
+    "is_export_ready",
+    "quality_status",
+    "missing_reason",
+    "quality_notes",
+    "last_updated",
+  ];
+
+  return (
+    <div className="mt-5 wide-table-scroll max-w-full">
+      <table className="research-data-table region-quality-table w-full min-w-[5200px] border-separate border-spacing-0 text-left text-sm">
+        <thead>
+          <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+            {headers.map((header) => (
+              <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((check) => (
+            <tr key={check.region_check_id} className="align-top">
+              <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono text-xs">{check.region_check_id}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{check.region_id}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{check.country_id}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{check.admin_level}</DictionaryToken></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{check.region_indicator_id}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{check.year}</td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.boundary_available} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.boundary_source_available} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.boundary_license_checked} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.value_present} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.unit_present} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.source_name_present} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.source_url_present} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.source_reliability_present} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.region_code_present} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.is_official_data} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.is_pending} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.is_calculated} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.is_manual} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.is_structural_sample} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.is_map_ready} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.is_region_comparable} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.is_export_ready} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{check.quality_status}</DictionaryToken></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{check.missing_reason}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{check.quality_notes}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{check.last_updated}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 function RegionSourceTable({ rows }: { rows: RegionSourceRecord[] }) {
   const headers = [
     "region_source_id",
@@ -1752,9 +1860,9 @@ function RegionSourceTable({ rows }: { rows: RegionSourceRecord[] }) {
 function ResearchDataExportLinks() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const exportStatusCards = [
-    { label: "CSV 导出结构", value: "已预留", note: "14 个逻辑数据层均生成 .csv 文件。" },
-    { label: "JSON 导出结构", value: "已预留", note: "14 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: "v0.9 beta", note: "区域主键、边界、指标、观测值与来源字典准备中；不提供模型 API，不输出预测、指数或风险分数。" },
+    { label: "CSV 导出结构", value: "已预留", note: "15 个逻辑数据层均生成 .csv 文件。" },
+    { label: "JSON 导出结构", value: "已预留", note: "15 个逻辑数据层均生成 .json 文件。" },
+    { label: "当前阶段", value: "v0.9 beta", note: "区域主键、边界、指标、观测值、质量验收与来源字典准备中；不提供模型 API，不输出预测、指数或风险分数。" },
   ];
 
   return (
@@ -2733,7 +2841,7 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Research Registry Tables</p>
               <h2 className="mt-3 text-2xl font-semibold">研究数据结构总表</h2>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                以下十四个逻辑数据层常驻在数据页；它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。其中 regions 是 v0.9 区域主键层，region_boundaries 是真实边界接入前的来源、许可、格式和几何状态登记层，region_indicators 是独立于国家级 indicators 的区域指标字典，region_observations 是区域经济数据主表，region_sources 是区域来源字典。
+                以下十五个逻辑数据层常驻在数据页；它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。其中 regions 是 v0.9 区域主键层，region_boundaries 是真实边界接入前的来源、许可、格式和几何状态登记层，region_indicators 是独立于国家级 indicators 的区域指标字典，region_observations 是区域经济数据主表，region_quality_checks 是区域质量验收层，region_sources 是区域来源字典。
               </p>
             </div>
             <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">按需展开</span>
@@ -2773,6 +2881,14 @@ export function DataCountryExplorer() {
                 region_observations 是区域经济数据主表。v0.9 第一版只为 V4 四国 ADM1 区域建立区域人口、区域 GDP、区域人均 GDP、区域失业率和区域制造业比重的 2025 待接入观测位置；当前不硬填数值，不进入地图图层、区域比较或未来模型候选。
               </p>
               <RegionObservationTable rows={regionObservationRecords} />
+            </DeferredDetails>
+
+            <DeferredDetails id="region-quality-checks-layer-entry" title="region_quality_checks：v0.9 区域数据质量验收">
+              <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+                region_quality_checks 用于提前验收区域数据是否具备边界、许可、来源、区域代码、数值、单位和地图图层准备条件。当前待接入值保留为空值和缺失原因，不进入地图图层、区域比较或模型候选。
+              </p>
+              <RegionQualitySummaryCards summary={regionQualitySummary} />
+              <RegionQualityCheckTable rows={regionQualityCheckRecords} />
             </DeferredDetails>
 
             <DeferredDetails id="region-sources-layer-entry" title="region_sources：v0.9 区域来源字典">
@@ -2831,8 +2947,8 @@ export function DataCountryExplorer() {
 
             <DeferredDetails id="data-export-entry" title="数据导出与接口准备">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.9 beta / regions、region_boundaries、region_indicators、region_observations 与 region_sources 区域层准备，不提供模型 API。
-                当前导出对象包括 countries、regions、region_boundaries、region_indicators、region_observations、region_sources、indicators、sources、observations、data_quality_checks、derived_comparisons、china_projects、china_exposure_candidates 和 methodology_rules。
+                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.9 beta / regions、region_boundaries、region_indicators、region_observations、region_quality_checks 与 region_sources 区域层准备，不提供模型 API。
+                当前导出对象包括 countries、regions、region_boundaries、region_indicators、region_observations、region_quality_checks、region_sources、indicators、sources、observations、data_quality_checks、derived_comparisons、china_projects、china_exposure_candidates 和 methodology_rules。
               </p>
               <ResearchDataExportLinks />
             </DeferredDetails>

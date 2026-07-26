@@ -29,6 +29,7 @@ const { regionMetadataRecords } = require("../src/lib/regions.ts");
 const { regionBoundaryRecords } = require("../src/lib/regionBoundaries.ts");
 const { regionIndicatorRecords } = require("../src/lib/regionIndicators.ts");
 const { regionObservationRecords } = require("../src/lib/regionObservations.ts");
+const { regionQualityCheckRecords, regionQualitySummary } = require("../src/lib/regionQualityChecks.ts");
 const { regionSourceRecords } = require("../src/lib/regionSources.ts");
 const {
   chinaProjectRecords,
@@ -918,7 +919,7 @@ function methodologyRuleRecords() {
       rule_category: "导出规则",
       rule_name: "研究数据导出边界规则",
       rule_description: "导出层提供 JSON/CSV 研究数据结构，供未来 Python/R/Stata 读取，但不是对外 API，也不是模型输出。",
-      applies_to: "countries,regions,region_boundaries,region_indicators,region_observations,region_sources,indicators,sources,observations,data_quality_checks,derived_comparisons,china_projects,china_exposure_candidates,methodology_rules",
+      applies_to: "countries,regions,region_boundaries,region_indicators,region_observations,region_quality_checks,region_sources,indicators,sources,observations,data_quality_checks,derived_comparisons,china_projects,china_exposure_candidates,methodology_rules",
       required_fields: ["schema_version", "generated_at", "data_type", "record_count", "records"],
       allowed_statuses: ["可导出", "待接入", "结构说明"],
       excluded_statuses: ["风险分数", "预测结果"],
@@ -927,7 +928,7 @@ function methodologyRuleRecords() {
       model_boundary: "导出文件不代表模型已启用。",
       export_boundary: "JSON/CSV 均可公开读取，但需保留数据边界说明。",
       last_updated: generatedAt,
-      notes: "当前 14 个逻辑数据层均从导出脚本生成；regions 为 v0.9 区域主键层，region_boundaries 为边界来源登记层，region_indicators 为区域指标字典，region_observations 为区域观测值主表，region_sources 为区域来源字典。",
+      notes: "当前 15 个逻辑数据层均从导出脚本生成；regions 为 v0.9 区域主键层，region_boundaries 为边界来源登记层，region_indicators 为区域指标字典，region_observations 为区域观测值主表，region_quality_checks 为区域数据质量验收层，region_sources 为区域来源字典。",
     },
   ];
 }
@@ -1084,6 +1085,14 @@ writeLayer("region_observations", regionObservationRecords, {
   relation_note: "Every record references region_id from regions and region_indicator_id from region_indicators. It does not use national indicator_id.",
   validation_note: "Missing regional values are kept as null with value_status=pending. No zero-filling or structural sample values are generated.",
   model_boundary: "Observation structure only. Pending rows do not enter map layers, regional comparison, or future model candidate inputs.",
+});
+writeLayer("region_quality_checks", regionQualityCheckRecords, {
+  scope: "v0.9 regional data quality checks. First batch validates V4 ADM1 regional observation positions against boundary, licence, value, source, and region-code readiness.",
+  primary_key: "region_check_id",
+  summary: regionQualitySummary,
+  relation_note: "Every check references region_id from regions and region_indicator_id from region_indicators. Boundary readiness is cross-checked through region_boundaries.",
+  validation_note: "Pending rows remain explicit. A missing value is not converted to zero, and a boundary source does not mean geometry is available.",
+  model_boundary: "Quality checks only. No regional model, risk layer, forecast, election prediction, or live boundary rendering is generated.",
 });
 writeLayer("region_sources", regionSourceRecords, {
   scope: "v0.9 regional source dictionary. It is separate from national sources and tracks licence status explicitly.",

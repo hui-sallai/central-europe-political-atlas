@@ -332,6 +332,7 @@ export const researchDataLayerFiles = [
   { id: "region_boundaries", label: "region_boundaries", description: "v0.9 区域边界来源表；先登记可信来源、许可、格式和几何接入状态，暂不渲染真实边界。" },
   { id: "region_indicators", label: "region_indicators", description: "v0.9 区域指标字典；独立于国家级 indicators，第一批只覆盖 10 个区域指标。" },
   { id: "region_observations", label: "region_observations", description: "v0.9 区域观测值表；V4 ADM1 × 5 个第一批区域指标先保留待接入观测位置。" },
+  { id: "region_quality_checks", label: "region_quality_checks", description: "v0.9 区域数据质量验收表；检查边界、许可、来源、区域代码、数值和地图图层准备状态。" },
   { id: "region_sources", label: "region_sources", description: "v0.9 区域来源字典；单独管理区域统计、边界、选举、项目坐标来源和许可状态。" },
   { id: "indicators", label: "indicators", description: "18 个指标的口径、单位、频率、来源优先级和派生资格。" },
   { id: "sources", label: "sources", description: "来源字典与 A/B/C/D 可靠性等级。" },
