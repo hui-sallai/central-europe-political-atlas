@@ -18,7 +18,7 @@ export default function Home() {
         </div>
         <div className="mb-3 grid gap-2 text-xs md:grid-cols-4">
           {[
-            ["当前阶段", "v0.9 beta / 区域主键、边界、指标字典准备"],
+            ["当前阶段", "v0.9 beta / 区域数据结构准备"],
             ["最后更新日期", "2026-07-25"],
             ["数据导出结构", "已预留"],
             ["模型层", "未启用"],

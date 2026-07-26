@@ -2,7 +2,7 @@
   "schema_version": "research-data-v0.1",
   "generated_at": "2026-07-26",
   "data_type": "research_data_layers",
-  "record_count": 12,
+  "record_count": 13,
   "records": [
     {
       "id": "countries",
@@ -31,6 +31,13 @@
       "description": "v0.9 区域指标字典；独立于国家级 indicators，第一批只覆盖 10 个区域指标。",
       "json_file": "region_indicators.json",
       "csv_file": "region_indicators.csv"
+    },
+    {
+      "id": "region_observations",
+      "label": "region_observations",
+      "description": "v0.9 区域观测值表；V4 ADM1 × 5 个第一批区域指标先保留待接入观测位置。",
+      "json_file": "region_observations.json",
+      "csv_file": "region_observations.csv"
     },
     {
       "id": "indicators",

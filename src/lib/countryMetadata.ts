@@ -331,6 +331,7 @@ export const researchDataLayerFiles = [
   { id: "regions", label: "regions", description: "v0.9 区域元数据表；V4 优先建立 ADM1 稳定主键，非 V4 暂保留国家级待接入。" },
   { id: "region_boundaries", label: "region_boundaries", description: "v0.9 区域边界来源表；先登记可信来源、许可、格式和几何接入状态，暂不渲染真实边界。" },
   { id: "region_indicators", label: "region_indicators", description: "v0.9 区域指标字典；独立于国家级 indicators，第一批只覆盖 10 个区域指标。" },
+  { id: "region_observations", label: "region_observations", description: "v0.9 区域观测值表；V4 ADM1 × 5 个第一批区域指标先保留待接入观测位置。" },
   { id: "indicators", label: "indicators", description: "18 个指标的口径、单位、频率、来源优先级和派生资格。" },
   { id: "sources", label: "sources", description: "来源字典与 A/B/C/D 可靠性等级。" },
   { id: "observations", label: "observations", description: "十国基础宏观观测值和 V4 扩展观测值。" },
