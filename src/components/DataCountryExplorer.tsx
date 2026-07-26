@@ -293,14 +293,14 @@ const dataModes: { id: DataMode; label: string; description: string }[] = [
 ];
 const dataEntryShortcuts: DataEntryShortcut[] = [
   { id: "countries-layer-entry", label: "国家元数据表", mode: "tables", description: "十国 countries 逻辑层，作为 country_id 关联表。" },
-  { id: "regions-layer-entry", label: "区域元数据表", mode: "tables", description: "v0.10 regions 标记匈牙利 NUTS3 试点主键匹配状态；非 V4 国家级待接入。" },
-  { id: "region-boundaries-layer-entry", label: "区域边界来源表", mode: "tables", description: "v0.10 region_boundaries 登记 hu_nuts3_gisco_2024，保留许可、格式和几何状态。" },
-  { id: "region-indicators-layer-entry", label: "区域指标字典", mode: "tables", description: "v0.10 region_indicators 继续保留独立区域指标字典，第一批 10 项。" },
-  { id: "region-observations-layer-entry", label: "区域观测值表", mode: "tables", description: "v0.10 region_observations 继续保留区域经济数据主表和待接入观测位置。" },
-  { id: "region-quality-checks-layer-entry", label: "区域质量验收表", mode: "tables", description: "v0.10 region_quality_checks 检查边界、许可、来源、区域代码、几何和地图准备状态。" },
-  { id: "region-sources-layer-entry", label: "区域来源字典", mode: "tables", description: "v0.10 region_sources 登记 eurostat_gisco_nuts_2024 并保留许可状态。" },
-  { id: "project-locations-layer-entry", label: "项目地区定位表", mode: "tables", description: "v0.10 project_locations 继续保留项目地区定位结构，不启用真实项目点位图层。" },
-  { id: "map-layers-layer-entry", label: "地图图层注册表", mode: "tables", description: "v0.10 map_layers 登记 hu_nuts3_boundary_pilot，is_ready_for_display=false。" },
+  { id: "regions-layer-entry", label: "区域元数据表", mode: "tables", description: "v0.11 regions 保留匈牙利 NUTS3 的 20 个预匹配位置；非 V4 国家级待接入。" },
+  { id: "region-boundaries-layer-entry", label: "区域边界来源表", mode: "tables", description: "v0.11 region_boundaries 登记匈牙利沙盒下载、过滤和不可展示状态。" },
+  { id: "region-indicators-layer-entry", label: "区域指标字典", mode: "tables", description: "v0.11 region_indicators 继续保留独立区域指标字典，第一批 10 项。" },
+  { id: "region-observations-layer-entry", label: "区域观测值表", mode: "tables", description: "v0.11 region_observations 继续保留区域经济数据主表和待接入观测位置。" },
+  { id: "region-quality-checks-layer-entry", label: "区域质量验收表", mode: "tables", description: "v0.11 region_quality_checks 同步沙盒下载、过滤、许可、拓扑、主键和展示状态。" },
+  { id: "region-sources-layer-entry", label: "区域来源字典", mode: "tables", description: "v0.11 region_sources 锁定 GISCO Level 3 GeoJSON 并保留待确认许可状态。" },
+  { id: "project-locations-layer-entry", label: "项目地区定位表", mode: "tables", description: "v0.11 project_locations 继续保留项目地区定位结构，不启用真实项目点位图层。" },
+  { id: "map-layers-layer-entry", label: "地图图层注册表", mode: "tables", description: "v0.11 map_layers 保持 hu_nuts3_boundary_pilot.is_ready_for_display=false。" },
   { id: "indicator-dictionary-entry", label: "指标字典入口", mode: "tables", description: "18 个指标的口径、单位、来源优先级和比较资格。" },
   { id: "source-dictionary-entry", label: "来源字典入口", mode: "tables", description: "16 类来源的链接、可靠性等级和使用边界。" },
   { id: "v4-data-quality-entry", label: "数据质量验收入口", mode: "comparison", description: "V4 四国 240 个观测位置的验收清单。", requiresV4: true },
@@ -333,9 +333,9 @@ const regionalSchemaChecks = [
     table: "region_boundaries",
     priority: "最高优先级",
     why: "没有 region_boundaries，真实边界来源、许可和几何状态无法核验。",
-    fields: "boundary_id, region_id, country_id, admin_level, nuts_version, boundary_source_name, boundary_source_url, boundary_source_type, boundary_license, boundary_format, geometry_format, file_selected, file_url, geometry_available, geometry_simplified, topology_checked, coordinate_system, file_path_or_url, region_code_match_status, source_reliability, source_status, last_checked, notes",
-    enums: "boundary_format: GeoJSON / TopoJSON / Shapefile / PMTiles / Vector Tiles / Not available；source_reliability: A / B / C / D；source_status: official / manual / pending / sample。",
-    status: "当前只登记来源和接入准备状态；geometry_available=false 的边界不进入真实地图展示。",
+    fields: "boundary_id, region_id, country_id, admin_level, nuts_version, boundary_source_name, boundary_source_url, boundary_source_type, boundary_license, boundary_format, geometry_format, file_selected, file_url, file_status, filter_status, display_status, geometry_available, geometry_simplified, topology_checked, coordinate_system, file_path_or_url, region_code_match_status, source_reliability, source_status, last_checked, notes",
+    enums: "boundary_format: GeoJSON / TopoJSON / Shapefile / PMTiles / Vector Tiles / Not available；file_status: sandbox_downloaded / not_downloaded / not_applicable；filter_status: sandbox_filtered / not_filtered / not_applicable；display_status: not_ready_for_display。",
+    status: "v0.11 只允许匈牙利文件进入离线沙盒；沙盒几何存在不等于可以进入真实地图展示。",
   },
   {
     table: "region_indicators",
@@ -351,7 +351,7 @@ const regionalSchemaChecks = [
     why: "区域经济数据主表，后续地图图层和区域比较都从这里读取。",
     fields: "region_observation_id, region_id, country_id, region_indicator_id, year, period_type, value, unit, value_status, source_id, source_name, source_url, source_reliability, source_status, is_official_data, is_pending, is_calculated, is_manual, is_structural_sample, is_in_map_layer, is_in_region_comparison, is_in_future_model_candidate, missing_reason, calculation_method, last_updated, notes",
     enums: "period_type: annual / quarterly / monthly / event_date / not_applicable；value_status: 正式数据 / 待接入 / 计算值 / 人工整理 / 结构样例 / 不进入分析。",
-    status: "v0.10 继续保留 V4 区域待接入观测位置；不硬填数值，不进入正式地图图层。",
+    status: "v0.11 继续保留 V4 区域待接入观测位置；不硬填数值，不进入正式地图图层。",
   },
   {
     table: "region_sources",
@@ -365,7 +365,7 @@ const regionalSchemaChecks = [
     table: "region_quality_checks",
     priority: "标准表体",
     why: "区域数据比国家数据更乱，必须提前验收边界、许可、来源和区域代码。",
-    fields: "region_check_id, region_id, country_id, admin_level, region_indicator_id, year, boundary_available, boundary_source_available, boundary_license_checked, value_present, unit_present, source_name_present, source_url_present, source_reliability_present, region_code_present, is_official_data, is_pending, is_calculated, is_manual, is_structural_sample, is_map_ready, is_region_comparable, is_export_ready, quality_status, missing_reason, quality_notes, last_updated",
+    fields: "region_check_id, region_id, country_id, admin_level, region_indicator_id, year, boundary_available, boundary_source_available, boundary_license_checked, source_available, license_checked, file_selected, file_downloaded, hungary_filtered, geometry_filtered, crs_confirmed, topology_checked, region_id_matched, ready_for_display, value_present, unit_present, source_name_present, source_url_present, source_reliability_present, region_code_present, is_official_data, is_pending, is_calculated, is_manual, is_structural_sample, is_map_ready, is_region_comparable, is_export_ready, quality_status, missing_reason, quality_notes, last_updated",
     enums: "quality_status: 通过 / 部分通过 / 待接入 / 需复核 / 不进入分析。",
     status: "当前待接入项保留缺失原因；is_map_ready=false 的区域不进入地图图层。",
   },
@@ -383,7 +383,7 @@ const regionalSchemaChecks = [
     why: "没有 map_layers，地图页无法管理哪些图层只是注册、哪些可以显示。",
     fields: "layer_id, layer_name_zh, layer_name_en, layer_type, data_source_table, geometry_source_table, admin_level, country_coverage, indicator_or_variable, is_active, is_ready_for_display, is_structural_sample, is_official_data, is_manual, is_pending, legend_type, legend_unit, color_scale, interaction_type, tooltip_fields, allowed_filters, source_requirement, quality_requirement, model_boundary, last_updated, notes",
     enums: "layer_type: boundary / choropleth / point / symbol / label / table_only / structural_sample；is_ready_for_display=false 的图层不得作为真实图层展示。",
-    status: "v0.10 只登记匈牙利边界试点和既有图层；不启用风险图层、预测图层、真实党派支持率图层或中国经济暴露指数。",
+    status: "v0.11 只登记匈牙利边界文件沙盒和既有图层；不启用风险图层、预测图层、真实党派支持率图层或中国经济暴露指数。",
   },
 ];
 
@@ -403,6 +403,9 @@ function regionalFieldMeaning(field: string) {
     boundary_license: "边界数据许可状态，决定是否可以公开展示和简化。",
     boundary_format: "边界文件格式或待接入状态。",
     file_url: "已选定的具体几何文件地址；文件尚未选择时必须留空。",
+    file_status: "候选文件的沙盒下载状态。",
+    filter_status: "候选文件是否已筛选为目标国家和行政层级。",
+    display_status: "真实地图展示状态；沙盒阶段必须为 not_ready_for_display。",
     geometry_available: "几何文件是否已经可用。",
     geometry_simplified: "几何是否已完成前端加载所需简化。",
     topology_checked: "拓扑关系是否完成检查。",
@@ -457,7 +460,10 @@ function regionalFieldMeaning(field: string) {
 }
 
 function regionalFieldAllowedStatus(table: string, field: string) {
-  if (table === "map_layers" && field === "is_ready_for_display") return "v0.10 必须保持 false";
+  if (table === "map_layers" && field === "is_ready_for_display") return "v0.11 必须保持 false";
+  if (field === "file_status") return "sandbox_downloaded / not_downloaded / not_applicable";
+  if (field === "filter_status") return "sandbox_filtered / not_filtered / not_applicable";
+  if (field === "display_status") return "not_ready_for_display";
   if (field === "admin_level") return "ADM1 / ADM2 / NUTS1 / NUTS2 / NUTS3";
   if (field === "boundary_format") return "GeoJSON / TopoJSON / Shapefile / PMTiles / Vector Tiles / Not available";
   if (field === "layer_type") return "boundary / choropleth / point / symbol / label / table_only / structural_sample";
@@ -468,7 +474,7 @@ function regionalFieldAllowedStatus(table: string, field: string) {
   if (field === "value_status") return "正式数据 / 待接入 / 计算值 / 人工整理 / 结构样例 / 不进入分析";
   if (field.includes("reliability")) return "A / B / C / D";
   if (field.includes("status")) return "正式数据 / 待核验 / 待接入 / 结构样例 / 不进入分析";
-  if (field.startsWith("is_") || field.startsWith("can_be_") || field.endsWith("_present") || field.endsWith("_checked") || field.endsWith("_available")) return "true / false";
+  if (field.startsWith("is_") || field.startsWith("can_be_") || field.endsWith("_present") || field.endsWith("_checked") || field.endsWith("_available") || field === "file_downloaded" || field === "hungary_filtered" || field === "ready_for_display") return "true / false";
   if (field === "value" || field === "latitude" || field === "longitude") return "数值 / null / 待接入";
   if (field === "year") return "YYYY";
   return "文本 / ID / URL / 待接入";
@@ -1664,6 +1670,9 @@ function RegionBoundaryTable({ rows }: { rows: RegionBoundaryRecord[] }) {
     "geometry_format",
     "file_selected",
     "file_url",
+    "file_status",
+    "filter_status",
+    "display_status",
     "geometry_available",
     "geometry_simplified",
     "topology_checked",
@@ -1678,7 +1687,7 @@ function RegionBoundaryTable({ rows }: { rows: RegionBoundaryRecord[] }) {
 
   return (
     <div className="mt-5 wide-table-scroll max-w-full">
-      <table className="research-data-table region-boundary-table w-full min-w-[3800px] border-separate border-spacing-0 text-left text-sm">
+      <table className="research-data-table region-boundary-table w-full min-w-[4300px] border-separate border-spacing-0 text-left text-sm">
         <thead>
           <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
             {headers.map((header) => (
@@ -1709,11 +1718,14 @@ function RegionBoundaryTable({ rows }: { rows: RegionBoundaryRecord[] }) {
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={boundary.file_selected} /></td>
               <td className="border-b border-[var(--line)] px-3 py-3">
                 {boundary.file_url ? (
-                  <a href={boundary.file_url} target="_blank" rel="noreferrer" className="text-xs font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+                  <a href={boundary.file_url.startsWith("/") ? `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${boundary.file_url}` : boundary.file_url} target="_blank" rel="noreferrer" className="text-xs font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
                     geometry file
                   </a>
                 ) : "—"}
               </td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{boundary.file_status}</DictionaryToken></td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{boundary.filter_status}</DictionaryToken></td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{boundary.display_status}</DictionaryToken></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={boundary.geometry_available} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={boundary.geometry_simplified} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={boundary.topology_checked} /></td>
@@ -1721,7 +1733,7 @@ function RegionBoundaryTable({ rows }: { rows: RegionBoundaryRecord[] }) {
               <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{boundary.region_code_match_status}</DictionaryToken></td>
               <td className="border-b border-[var(--line)] px-3 py-3">
                 {boundary.file_path_or_url ? (
-                  <a href={boundary.file_path_or_url} target="_blank" rel="noreferrer" className="text-xs font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+                  <a href={boundary.file_path_or_url.startsWith("/") ? `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${boundary.file_path_or_url}` : boundary.file_path_or_url} target="_blank" rel="noreferrer" className="text-xs font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
                     file/source
                   </a>
                 ) : "—"}
@@ -1931,6 +1943,8 @@ function RegionQualityCheckTable({ rows }: { rows: RegionQualityCheckRecord[] })
     "source_available",
     "license_checked",
     "file_selected",
+    "file_downloaded",
+    "hungary_filtered",
     "geometry_filtered",
     "crs_confirmed",
     "topology_checked",
@@ -1958,7 +1972,7 @@ function RegionQualityCheckTable({ rows }: { rows: RegionQualityCheckRecord[] })
 
   return (
     <div className="mt-5 wide-table-scroll max-w-full">
-      <table className="research-data-table region-quality-table w-full min-w-[5200px] border-separate border-spacing-0 text-left text-sm">
+      <table className="research-data-table region-quality-table w-full min-w-[5500px] border-separate border-spacing-0 text-left text-sm">
         <thead>
           <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
             {headers.map((header) => (
@@ -1981,6 +1995,8 @@ function RegionQualityCheckTable({ rows }: { rows: RegionQualityCheckRecord[] })
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.source_available} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.license_checked} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.file_selected} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.file_downloaded} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.hungary_filtered} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.geometry_filtered} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.crs_confirmed} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.topology_checked} /></td>
@@ -2254,7 +2270,7 @@ function ResearchDataExportLinks() {
   const exportStatusCards = [
     { label: "CSV 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .csv 文件。" },
     { label: "JSON 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: "v0.10 boundary source verification", note: "匈牙利 NUTS3 / Megyék 边界来源核验中；不提供模型 API，不输出预测、指数或风险分数。" },
+    { label: "当前阶段", value: "v0.11 Hungary boundary file sandbox", note: "匈牙利 NUTS3 文件已进入离线过滤和主键预匹配；不提供模型 API，不输出预测、指数或风险分数。" },
   ];
 
   return (
@@ -3206,7 +3222,7 @@ export function DataCountryExplorer() {
                 <p className="eyebrow">Regional Map Data Structure</p>
                 <h3 className="mt-2 text-lg font-semibold">区域地图数据结构</h3>
                 <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
-                  v0.10 边界来源核验集中在这里；完整表体仍在下方研究数据结构总表按需展开。v0.8 的九个逻辑数据层继续保留，不删除、不合并。
+                  v0.11 匈牙利边界文件沙盒状态集中在这里；完整表体仍在下方研究数据结构总表按需展开。v0.8 的九个逻辑数据层继续保留，不删除、不合并。
                 </p>
               </div>
               <span className="text-xs text-[var(--muted)]">8 个区域地图数据表</span>
@@ -3230,10 +3246,10 @@ export function DataCountryExplorer() {
             <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
               <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
                 <div>
-                  <p className="eyebrow">v0.10 Field-Level Acceptance</p>
+                  <p className="eyebrow">v0.11 Field-Level Acceptance</p>
                   <h4 className="mt-2 text-base font-semibold">区域表字段级验收</h4>
                   <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
-                    八个 v0.10 区域表均保留完整字段、枚举/状态和用途说明；其中 regions、region_boundaries、map_layers、project_locations 为地图落地的最高优先级。
+                    八个 v0.11 区域表均保留完整字段、枚举/状态和用途说明；其中 regions、region_boundaries、map_layers、project_locations 为地图落地的最高优先级。
                   </p>
                 </div>
                 <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">8 / 8 表体已实化</span>
@@ -3277,7 +3293,7 @@ export function DataCountryExplorer() {
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldSourceRequirement(schema.table, field)}</td>
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldMapDisplayRule(schema.table, field)}</td>
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldModelRule(field)}</td>
-                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">v0.10 boundary source verification 字段口径；不新增模型、预测、风险指数或中国经济暴露指数。</td>
+                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">v0.11 Hungary boundary file sandbox 字段口径；不新增模型、预测、风险指数或中国经济暴露指数。</td>
                               </tr>
                             ))}
                           </tbody>
@@ -3323,7 +3339,7 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Research Registry Tables</p>
               <h2 className="mt-3 text-2xl font-semibold">研究数据结构总表</h2>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                以下十七个逻辑数据层常驻在数据页；v0.8 的九个逻辑数据层继续保留，v0.10 只是在既有区域地图数据结构上推进匈牙利边界来源核验。它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。其中 regions 是区域主键层，region_boundaries 是真实边界接入前的来源、许可、格式和几何状态登记层，region_indicators 是独立于国家级 indicators 的区域指标字典，region_observations 是区域经济数据主表，region_quality_checks 是区域质量验收层，region_sources 是区域来源字典，project_locations 是对华项目地区定位桥表，map_layers 是地图图层注册表。
+                以下十七个逻辑数据层常驻在数据页；v0.8 的九个逻辑数据层继续保留，v0.11 只在既有区域地图数据结构上推进匈牙利边界文件沙盒。它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。其中 regions 是区域主键层，region_boundaries 是边界来源、沙盒文件和展示状态登记层，region_indicators 是独立于国家级 indicators 的区域指标字典，region_observations 是区域经济数据主表，region_quality_checks 是区域质量验收层，region_sources 是区域来源字典，project_locations 是对华项目地区定位桥表，map_layers 是地图图层注册表。
               </p>
             </div>
             <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">按需展开</span>
@@ -3337,17 +3353,32 @@ export function DataCountryExplorer() {
               <CountryMetadataTable />
             </DeferredDetails>
 
-            <DeferredDetails id="regions-layer-entry" title="regions：v0.10 区域元数据表">
+            <DeferredDetails id="regions-layer-entry" title="regions：v0.11 区域元数据表">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                regions 是地图层的稳定区域主键表。v0.10 标记匈牙利 NUTS3 / Megyék 试点主键匹配状态为 pilot_pending_region_code_match；非 V4 六国暂时保留国家级待接入占位。当前不建立 ADM2，不接入真实地图展示、区域选举或区域预测图层。
+                regions 是地图层的稳定区域主键表。v0.11 已将匈牙利 20 个 NUTS3 code 与 region_id 做离线预匹配；最终核验前仍保持 pilot_pending_region_code_match。非 V4 六国继续保留国家级待接入占位。
               </p>
               <RegionMetadataTable rows={regionMetadataRecords} />
             </DeferredDetails>
 
-            <DeferredDetails id="region-boundaries-layer-entry" title="region_boundaries：v0.10 区域边界来源表">
+            <DeferredDetails id="region-boundaries-layer-entry" title="region_boundaries：v0.11 区域边界沙盒登记表">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                region_boundaries 只登记边界来源与接入准备状态。v0.10 已登记 hu_nuts3_gisco_2024；每条记录先检查来源可信度、公开展示许可、可否简化、前端加载适配、region_id 对齐、行政区代码和历史边界变动风险，不直接渲染真实边界。
+                region_boundaries 已将 hu_nuts3_gisco_2024 标记为 sandbox_downloaded / sandbox_filtered / not_ready_for_display。沙盒文件仅供离线解析和主键预匹配，不直接渲染真实边界。
               </p>
+              <div className="mt-4 grid gap-3 rounded-2xl border border-[var(--line)] bg-white/65 p-4 text-xs leading-6 text-[var(--muted)]">
+                <p>
+                  <span className="font-semibold text-[var(--foreground)]">GeoJSON 沙盒路径：</span>{" "}
+                  <code>/data/boundaries/sandbox/hu_nuts3_gisco_2024.geojson</code>
+                </p>
+                <p>
+                  <span className="font-semibold text-[var(--foreground)]">校验记录路径：</span>{" "}
+                  <code>/data/boundaries/sandbox/hu_nuts3_gisco_2024.validation.json</code>
+                </p>
+                <p>
+                  <span className="font-semibold text-[var(--foreground)]">validation.json 字段：</span>{" "}
+                  source_file、filtered_country、admin_level、coordinate_system、feature_count、nuts_codes、geometry_present、topology_checked、region_id_match_status、ready_for_display、notes。
+                </p>
+                <p>当前边界：拓扑检查与最终主键核验尚未完成，ready_for_display 必须保持 false。</p>
+              </div>
               <RegionBoundaryTable rows={regionBoundaryRecords} />
             </DeferredDetails>
 
@@ -3365,7 +3396,7 @@ export function DataCountryExplorer() {
               <RegionObservationTable rows={regionObservationRecords} />
             </DeferredDetails>
 
-            <DeferredDetails id="region-quality-checks-layer-entry" title="region_quality_checks：v0.9 区域数据质量验收">
+            <DeferredDetails id="region-quality-checks-layer-entry" title="region_quality_checks：v0.11 区域数据质量验收">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
                 region_quality_checks 用于提前验收区域数据是否具备边界、许可、来源、区域代码、数值、单位和地图图层准备条件。当前待接入值保留为空值和缺失原因，不进入地图图层、区域比较或模型候选。
               </p>
@@ -3373,9 +3404,9 @@ export function DataCountryExplorer() {
               <RegionQualityCheckTable rows={regionQualityCheckRecords} />
             </DeferredDetails>
 
-            <DeferredDetails id="region-sources-layer-entry" title="region_sources：v0.10 区域来源字典">
+            <DeferredDetails id="region-sources-layer-entry" title="region_sources：v0.11 区域来源字典">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                region_sources 独立于国家级 sources，专门管理区域统计、行政区划、GIS 边界、地方政府、选举机构和项目坐标来源。v0.10 已登记 eurostat_gisco_nuts_2024，并继续通过 license_status 判断边界数据能否公开展示、简化、再分发或后续复用。
+                region_sources 独立于国家级 sources。v0.11 已锁定 GISCO NUTS 2024 Level 3 GeoJSON，但 license_status 继续保持待确认，沙盒下载不代表已获得公开展示资格。
               </p>
               <RegionSourceTable rows={regionSourceRecords} />
             </DeferredDetails>
@@ -3387,9 +3418,9 @@ export function DataCountryExplorer() {
               <ProjectLocationTable rows={projectLocationRecords} />
             </DeferredDetails>
 
-            <DeferredDetails id="map-layers-layer-entry" title="map_layers：v0.10 地图图层注册表">
+            <DeferredDetails id="map-layers-layer-entry" title="map_layers：v0.11 地图图层注册表">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                map_layers 只注册未来地图工作台的可控图层。v0.10 已登记 hu_nuts3_boundary_pilot；所有真实分析图层均保持 is_ready_for_display=false，直到来源、许可、几何、拓扑、主键匹配和质量验收通过。
+                map_layers 只注册未来地图工作台的可控图层。v0.11 的 hu_nuts3_boundary_pilot 继续保持 is_ready_for_display=false，直到许可、拓扑、最终主键匹配和质量验收通过。
               </p>
               <MapLayerRegistryTable rows={mapLayerRecords} />
             </DeferredDetails>
@@ -3443,7 +3474,7 @@ export function DataCountryExplorer() {
 
             <DeferredDetails id="data-export-entry" title="数据导出与接口准备">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.10 boundary source verification / Hungary pilot；regions、region_boundaries、region_sources 与 map_layers 已登记匈牙利边界试点准备字段，不提供模型 API。
+                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.11 Hungary boundary file sandbox；既有 17 个逻辑层同步沙盒下载、过滤和验收状态，不提供模型 API。
                 当前导出对象包括 countries、regions、region_boundaries、region_indicators、region_observations、region_quality_checks、region_sources、project_locations、map_layers、indicators、sources、observations、data_quality_checks、derived_comparisons、china_projects、china_exposure_candidates 和 methodology_rules。
               </p>
               <ResearchDataExportLinks />

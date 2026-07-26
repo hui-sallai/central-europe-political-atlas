@@ -98,13 +98,22 @@ const politicalFieldReviewItems = [
 ];
 
 const boundarySourceVerificationItems = [
-  "v0.10.1 只做边界来源核验与匈牙利 NUTS3 / Megyék 试点接入准备，不启用真实地图展示。",
+  "v0.10 已完成边界来源核验字段准备；v0.11 只增加匈牙利 NUTS3 边界文件离线沙盒，不启用真实地图展示。",
   "Eurostat GISCO NUTS 2024 作为第一批边界候选来源；region_sources 必须记录 license_status、license_url、usage_note 和 last_checked。",
-  "region_boundaries 必须记录 NUTS version、admin_level、geometry_format、coordinate_system、file_selected、file_url、geometry_available、topology_checked 和 region_code_match_status；未选定具体文件时 file_url 必须留空。",
+  "region_boundaries 必须记录 NUTS version、admin_level、geometry_format、coordinate_system、file_selected、file_url、file_status、filter_status、display_status、geometry_available、topology_checked 和 region_code_match_status。",
   "regions 中匈牙利 NUTS3 只预留 20 个 region_id 与 NUTS code 匹配位置；未核验前 data_status 保持 pilot_pending_region_code_match。",
-  "region_quality_checks 必须核验 source_available、license_checked、file_selected、geometry_filtered、crs_confirmed、topology_checked、region_id_matched 和 ready_for_display。",
+  "region_quality_checks 必须核验 source_available、license_checked、file_selected、file_downloaded、hungary_filtered、geometry_filtered、crs_confirmed、topology_checked、region_id_matched 和 ready_for_display。",
   "map_layers 中注册 hu_nuts3_boundary_pilot 不代表图层已启用；is_ready_for_display 在许可、几何、拓扑和主键匹配通过前必须保持 false。",
   "风险图层、预测图层、真实党派支持率图层继续未启用；不新增模型、预测、风险指数或中国经济暴露指数。",
+];
+
+const boundarySandboxItems = [
+  "v0.11 锁定 NUTS_RG_01M_2024_4326_LEVL_3.geojson 作为匈牙利 NUTS3 沙盒候选文件。",
+  "沙盒脚本只过滤 Hungary / HU / NUTS3 要素，并输出 hu_nuts3_gisco_2024.geojson 与对应 validation.json。",
+  "validation.json 必须记录来源文件、国家、层级、坐标系、要素数、NUTS codes、几何状态、拓扑状态、主键匹配状态和展示资格。",
+  "沙盒文件不等于真实地图展示；未通过许可、拓扑、主键匹配和质量验收前不得进入正式地图图层。",
+  "20 / 20 代码预匹配只表示离线关联候选完整，不把 region_id_matched 或 ready_for_display 改为 true。",
+  "v0.11 不新增第 18 张表，不生成风险、预测、党派支持率、中国经济暴露指数或区域评分。",
 ];
 
 const excludedItems = [
@@ -245,7 +254,7 @@ export default function MethodologyPage() {
         <h2 className="mt-3 text-2xl font-semibold">5.2 数据导出与接口准备</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {[
-            "当前阶段：v0.10 boundary source verification / Hungary pilot；只做边界来源核验与匈牙利试点接入准备。",
+            "当前阶段：v0.11 Hungary boundary file sandbox；只做匈牙利 NUTS3 文件离线过滤与主键预匹配。",
             "当前只做 CSV / JSON 数据结构准备。",
             "不提供预测 API。",
             "不提供模型 API。",
@@ -264,13 +273,13 @@ export default function MethodologyPage() {
         <h2 className="mt-3 text-2xl font-semibold">5.3 区域地图数据准备规则</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {[
-            "regions 是区域主键层；v0.10 在既有 V4 区域结构上优先推进匈牙利 NUTS3 / Megyék 边界来源核验，非 V4 国家暂不进入第一批边界核验。",
+            "regions 是区域主键层；v0.11 在既有 V4 区域结构上只推进匈牙利 NUTS3 边界文件沙盒，非 V4 国家暂不进入第一批边界核验。",
             "region_boundaries 只登记边界来源、许可、格式、坐标系、几何状态和拓扑检查；未通过许可与质量验收前不显示真实地图边界。",
             "region_indicators 与国家级 indicators 分开管理；region_observations 必须保留年份、数值、单位、来源链接、来源等级和缺失原因。",
             "region_quality_checks 用于检查边界、许可、区域代码、数值、单位和来源状态；未通过项不得进入正式地图图层。",
             "project_locations 只把对华项目定位到城市、区域或国家层级；缺少可核验位置来源时不进入地图展示。",
             "map_layers 仅注册未来图层，is_ready_for_display=false 的图层不得作为真实图层展示；风险图层、预测图层和真实党派支持率图层均未启用，新闻区仍不做评价。",
-            "v0.10 boundary source verification 继续要求八张区域表保留字段名、字段含义、允许状态、来源要求、地图展示资格、未来模型候选边界和备注；字段级口径只用于验收和导出准备。",
+            "v0.11 Hungary boundary file sandbox 继续要求八张区域表保留字段名、字段含义、允许状态、来源要求、地图展示资格、未来模型候选边界和备注；字段级口径只用于验收和导出准备。",
           ].map((item) => (
             <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
               {item}
@@ -284,6 +293,18 @@ export default function MethodologyPage() {
         <h2 className="mt-3 text-2xl font-semibold">5.4 真实区域边界来源核验规则</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {boundarySourceVerificationItems.map((item) => (
+            <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
+              {item}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">Boundary File Sandbox</p>
+        <h2 className="mt-3 text-2xl font-semibold">5.5 v0.11 沙盒边界说明</h2>
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
+          {boundarySandboxItems.map((item) => (
             <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
               {item}
             </p>

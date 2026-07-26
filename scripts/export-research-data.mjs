@@ -1062,13 +1062,13 @@ writeLayer("countries", countryRecords, {
   relation_note: "All observations, projects, derived comparisons, and exposure candidates should reference country_id.",
 });
 writeLayer("regions", regionMetadataRecords, {
-  scope: "v0.10.1 regions metadata. Hungary NUTS3 reserves 20 region_id and NUTS code matching positions; non-V4 countries keep national-level pending placeholders.",
+  scope: "v0.11 regions metadata. Hungary NUTS3 keeps 20 region_id and NUTS code pre-match positions in pilot_pending_region_code_match status; non-V4 countries keep national-level pending placeholders.",
   primary_key: "region_id",
   relation_note: "Every region references country_id from countries. ADM2 is intentionally excluded from the current boundary verification pass.",
   model_boundary: "Region metadata only. No regional risk layer, forecast, election model, or ADM2 analysis is generated.",
 });
 writeLayer("region_boundaries", regionBoundaryRecords, {
-  scope: "v0.10.1 region boundary source registry. hu_nuts3_gisco_2024 tracks NUTS version, geometry format, file selection, selected file URL, CRS, topology, and region-code matching status. Geometry is not rendered yet.",
+  scope: "v0.11 boundary file sandbox registry. hu_nuts3_gisco_2024 is sandbox_downloaded, sandbox_filtered, and not_ready_for_display. The filtered geometry is not rendered.",
   primary_key: "boundary_id",
   relation_note: "Every boundary record references region_id from regions and country_id from countries.",
   validation_note: "Records track source credibility, public display licence, simplification readiness, front-end suitability, region_id matching, admin codes, and historical boundary issues before geometry ingestion.",
@@ -1089,7 +1089,7 @@ writeLayer("region_observations", regionObservationRecords, {
   model_boundary: "Observation structure only. Pending rows do not enter map layers, regional comparison, or future model candidate inputs.",
 });
 writeLayer("region_quality_checks", regionQualityCheckRecords, {
-  scope: "v0.10.1 regional data quality checks. Adds Hungary NUTS3 boundary pilot checks for source, licence, file selection, geometry filtering, CRS, topology, region_id matching, and display readiness.",
+  scope: "v0.11 regional data quality checks. Hungary NUTS3 sandbox checks include download, HU filtering, CRS, licence, topology, final region_id matching, and display readiness.",
   primary_key: "region_check_id",
   summary: regionQualitySummary,
   relation_note: "Every check references region_id from regions and region_indicator_id from region_indicators. Boundary readiness is cross-checked through region_boundaries.",
@@ -1097,7 +1097,7 @@ writeLayer("region_quality_checks", regionQualityCheckRecords, {
   model_boundary: "Quality checks only. No regional model, risk layer, forecast, election prediction, or live boundary rendering is generated.",
 });
 writeLayer("region_sources", regionSourceRecords, {
-  scope: "v0.10.1 regional source dictionary. It is separate from national sources and tracks licence status, licence URL, usage note, and last checked date explicitly.",
+  scope: "v0.11 regional source dictionary. GISCO NUTS 2024 Level 3 GeoJSON is locked for sandbox use while licence status remains pending for public display.",
   primary_key: "region_source_id",
   relation_note: "Future region_observations, region_boundaries, election regional data, and project_locations should reference region_source_id where applicable.",
   validation_note: "Licence status is mandatory because regional maps and boundaries may involve public display, simplification, redistribution, and commercial-use constraints.",
@@ -1111,7 +1111,7 @@ writeLayer("project_locations", projectLocationRecords, {
   model_boundary: "Location bridge only. No China exposure index, regional risk layer, forecast, or live project map layer is generated.",
 });
 writeLayer("map_layers", mapLayerRecords, {
-  scope: "v0.10.1 map layer registry. hu_nuts3_boundary_pilot remains registered for verification only and is not displayed as a live analytical layer.",
+  scope: "v0.11 map layer registry. hu_nuts3_boundary_pilot remains registered for sandbox verification only with is_ready_for_display=false.",
   primary_key: "layer_id",
   relation_note: "Each layer declares its data_source_table, geometry_source_table, indicator_or_variable, tooltip fields, filters, source requirements, and quality requirements.",
   validation_note: "All registered real boundary and analytical layers keep is_ready_for_display=false until boundary, source, observation, project-location, and quality checks pass.",

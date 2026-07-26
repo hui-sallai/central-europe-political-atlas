@@ -14,7 +14,7 @@ export default function MapPage() {
         <h2 className="mt-2 text-2xl font-semibold">区域地图数据准备状态</h2>
         <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           {[
-            ["区域地图数据", "匈牙利试点核验中"],
+            ["区域地图数据", "匈牙利 NUTS3 沙盒已过滤"],
             ["V4 ADM1 / NUTS2 边界", "待接入"],
             ["区域统计数据", "待接入"],
             ["对华项目地区定位", "准备中"],
@@ -35,8 +35,8 @@ export default function MapPage() {
       </section>
 
       <section className="mt-6 rounded-3xl border border-[var(--line)] bg-white/65 p-5">
-        <p className="eyebrow">v0.10 Boundary Verification</p>
-        <h2 className="mt-2 text-2xl font-semibold">v0.10 边界来源核验状态</h2>
+        <p className="eyebrow">v0.11 Boundary File Sandbox</p>
+        <h2 className="mt-2 text-2xl font-semibold">v0.11 匈牙利边界文件沙盒状态</h2>
         <div className="mt-4 overflow-x-auto rounded-2xl border border-[var(--line)] bg-white/70">
           <table className="min-w-full border-collapse text-left text-sm">
             <thead className="bg-[var(--surface-muted)] text-xs text-[var(--muted)]">
@@ -50,11 +50,13 @@ export default function MapPage() {
                 ["试点国家", "匈牙利"],
                 ["试点层级", "NUTS 3 / Megyék"],
                 ["边界来源", "Eurostat GISCO NUTS 2024"],
-                ["边界格式", "GeoJSON / JSON 候选"],
-                ["坐标系", "EPSG:4326 候选"],
+                ["候选文件", "NUTS_RG_01M_2024_4326_LEVL_3.geojson"],
+                ["边界格式", "GeoJSON"],
+                ["坐标系", "EPSG:4326"],
                 ["来源等级", "A"],
                 ["许可状态", "待确认 / 待接受使用条款"],
-                ["几何状态", "待下载 / 待过滤"],
+                ["几何状态", "sandbox_downloaded / sandbox_filtered"],
+                ["主键状态", "20 / 20 预匹配；待最终核验"],
                 ["拓扑检查", "未执行"],
                 ["是否进入真实地图展示", "否"],
                 ["is_ready_for_display", "false"],
@@ -68,7 +70,7 @@ export default function MapPage() {
           </table>
         </div>
         <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-          v0.10 只核验边界来源、许可、格式和可展示条件；真实地图展示仍未启用。
+          v0.11 沙盒文件仅供离线解析和主键预匹配；许可、拓扑、最终主键匹配和质量验收通过前，真实地图展示仍未启用。
         </p>
       </section>
 

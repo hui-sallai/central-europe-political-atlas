@@ -2,6 +2,9 @@ import { regionMetadataRecords } from "./regions";
 
 export type BoundaryFormat = "GeoJSON" | "TopoJSON" | "Shapefile" | "PMTiles" | "Vector Tiles" | "Not available";
 export type BoundarySourceStatus = "官方来源" | "人工整理" | "待接入" | "结构样例";
+export type BoundaryFileStatus = "sandbox_downloaded" | "not_downloaded" | "not_applicable";
+export type BoundaryFilterStatus = "sandbox_filtered" | "not_filtered" | "not_applicable";
+export type BoundaryDisplayStatus = "not_ready_for_display";
 
 export type RegionBoundaryRecord = {
   boundary_id: string;
@@ -17,6 +20,9 @@ export type RegionBoundaryRecord = {
   geometry_format: string;
   file_selected: boolean;
   file_url: string;
+  file_status: BoundaryFileStatus;
+  filter_status: BoundaryFilterStatus;
+  display_status: BoundaryDisplayStatus;
   geometry_available: boolean;
   geometry_simplified: boolean;
   topology_checked: boolean;
@@ -31,6 +37,9 @@ export type RegionBoundaryRecord = {
 
 const lastChecked = "2026-07-26";
 const giscoSourceUrl = "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html";
+const giscoHungarySandboxSourceUrl =
+  "https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2024_4326_LEVL_3.geojson";
+const hungarySandboxFileUrl = "/data/boundaries/sandbox/hu_nuts3_gisco_2024.geojson";
 const giscoLicense =
   "非商业使用；必须标注 © EuroGeographics for the administrative boundaries；商业使用需联系 EuroGeographics。";
 
@@ -44,23 +53,26 @@ const hungaryPilotBoundary: RegionBoundaryRecord = {
   admin_level: "NUTS3",
   nuts_version: "NUTS 2024",
   boundary_source_name: "Eurostat GISCO NUTS 2024",
-  boundary_source_url: giscoSourceUrl,
+  boundary_source_url: giscoHungarySandboxSourceUrl,
   boundary_source_type: "EU official statistical geodata",
   boundary_license: "待确认 / 待接受使用条款",
   boundary_format: "GeoJSON",
-  geometry_format: "GeoJSON / JSON 候选",
-  file_selected: false,
-  file_url: "",
-  geometry_available: false,
+  geometry_format: "GeoJSON",
+  file_selected: true,
+  file_url: hungarySandboxFileUrl,
+  file_status: "sandbox_downloaded",
+  filter_status: "sandbox_filtered",
+  display_status: "not_ready_for_display",
+  geometry_available: true,
   geometry_simplified: false,
   topology_checked: false,
-  coordinate_system: "EPSG:4326 候选",
-  file_path_or_url: giscoSourceUrl,
-  region_code_match_status: "pilot_pending_region_code_match",
+  coordinate_system: "EPSG:4326",
+  file_path_or_url: hungarySandboxFileUrl,
+  region_code_match_status: "sandbox_pre_matched_20_of_20_pending_verification",
   source_reliability: "A",
   source_status: "官方来源",
   last_checked: lastChecked,
-  notes: "v0.10.1 匈牙利 NUTS 3 / Megyék 边界来源核验试点；边界格式显示口径为 GeoJSON / JSON 候选。几何待下载 / 待过滤，文件未选择，主键匹配待核验，is_ready_for_display=false。",
+  notes: "v0.11 Hungary boundary file sandbox；已锁定并离线过滤 NUTS_RG_01M_2024_4326_LEVL_3.geojson，状态为 sandbox_downloaded / sandbox_filtered / not_ready_for_display。20 个 NUTS code 已预匹配，许可、拓扑和最终主键验收尚未通过。",
 };
 
 function v4Boundary(region: (typeof regionMetadataRecords)[number]): RegionBoundaryRecord {
@@ -75,10 +87,13 @@ function v4Boundary(region: (typeof regionMetadataRecords)[number]): RegionBound
     boundary_source_type: "EU official statistical geodata",
     boundary_license: giscoLicense,
     boundary_format: "GeoJSON",
-  geometry_format: "GeoJSON",
-  file_selected: false,
-  file_url: "",
-  geometry_available: false,
+    geometry_format: "GeoJSON",
+    file_selected: false,
+    file_url: "",
+    file_status: "not_downloaded",
+    filter_status: "not_filtered",
+    display_status: "not_ready_for_display",
+    geometry_available: false,
     geometry_simplified: false,
     topology_checked: false,
     coordinate_system: "EPSG:4326 候选；源数据也提供 EPSG:3035 和 EPSG:3857。",
@@ -106,6 +121,9 @@ function pendingBoundary(region: (typeof regionMetadataRecords)[number]): Region
     geometry_format: "Not available",
     file_selected: false,
     file_url: "",
+    file_status: "not_applicable",
+    filter_status: "not_applicable",
+    display_status: "not_ready_for_display",
     geometry_available: false,
     geometry_simplified: false,
     topology_checked: false,

@@ -31,7 +31,7 @@ export type MapLayerRecord = {
 
 const updatedAt = "2026-07-26";
 const v4Adm1Coverage = "V4 四国 ADM1：poland, hungary, czechia, slovakia";
-const noDisplayBoundary = "v0.10 只注册图层和匈牙利边界试点；is_ready_for_display=false 时不得在地图工作台显示为真实图层。";
+const noDisplayBoundary = "v0.11 只允许匈牙利边界文件进入离线沙盒；is_ready_for_display=false 时不得在地图工作台显示为真实图层。";
 const noModelBoundary = "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。";
 const boundaryQuality = "region_boundaries.geometry_available=true、geometry_simplified=true、topology_checked=true、boundary_license_checked=true，且 region_quality_checks 中对应区域 is_map_ready=true。";
 const choroplethQuality = "需要 region_observations 有正式数值、来源链接、单位、来源等级，并通过 region_quality_checks；当前待接入观测值不得进入地图显示。";
@@ -95,7 +95,7 @@ function hungaryNuts3PilotLayer(): MapLayerRecord {
     quality_requirement: "许可确认、几何下载与过滤、拓扑检查、NUTS / region_id 主键匹配均通过前，is_ready_for_display 必须保持 false。",
     model_boundary: noModelBoundary,
     last_updated: updatedAt,
-    notes: "v0.10 boundary source verification / Hungary pilot；只注册试点边界图层，不启用真实地图展示。",
+    notes: "v0.11 Hungary boundary file sandbox；文件已离线过滤并完成主键预匹配，但许可、拓扑和最终主键验收未通过，真实地图展示仍未启用。",
   };
 }
 

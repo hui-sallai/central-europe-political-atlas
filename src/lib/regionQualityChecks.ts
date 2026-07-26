@@ -17,6 +17,8 @@ export type RegionQualityCheckRecord = {
   source_available: boolean;
   license_checked: boolean;
   file_selected: boolean;
+  file_downloaded: boolean;
+  hungary_filtered: boolean;
   geometry_filtered: boolean;
   crs_confirmed: boolean;
   topology_checked: boolean;
@@ -119,7 +121,9 @@ function buildRegionQualityCheck(observation: (typeof regionObservationRecords)[
   const boundaryAvailable = Boolean(boundary?.geometry_available);
   const boundarySourceAvailable = hasText(boundary?.boundary_source_name) && hasText(boundary?.boundary_source_url);
   const fileSelected = Boolean(boundary?.file_selected);
-  const geometryFiltered = Boolean(boundary?.geometry_simplified);
+  const fileDownloaded = boundary?.file_status === "sandbox_downloaded";
+  const hungaryFiltered = observation.country_id === "hungary" && boundary?.filter_status === "sandbox_filtered";
+  const geometryFiltered = Boolean(boundary?.geometry_simplified) || boundary?.filter_status === "sandbox_filtered";
   const crsConfirmed = Boolean(
     boundary &&
       hasText(boundary.coordinate_system) &&
@@ -172,6 +176,8 @@ function buildRegionQualityCheck(observation: (typeof regionObservationRecords)[
     source_available: boundarySourceAvailable,
     license_checked: boundaryLicenseChecked,
     file_selected: fileSelected,
+    file_downloaded: fileDownloaded,
+    hungary_filtered: hungaryFiltered,
     geometry_filtered: geometryFiltered,
     crs_confirmed: crsConfirmed,
     topology_checked: topologyChecked,
@@ -218,8 +224,10 @@ const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {
   source_available: hasText(hungaryPilotBoundary?.boundary_source_name) && hasText(hungaryPilotBoundary?.boundary_source_url),
   license_checked: false,
   file_selected: Boolean(hungaryPilotBoundary?.file_selected),
-  geometry_filtered: Boolean(hungaryPilotBoundary?.geometry_simplified),
-  crs_confirmed: false,
+  file_downloaded: hungaryPilotBoundary?.file_status === "sandbox_downloaded",
+  hungary_filtered: hungaryPilotBoundary?.filter_status === "sandbox_filtered",
+  geometry_filtered: hungaryPilotBoundary?.filter_status === "sandbox_filtered",
+  crs_confirmed: hungaryPilotBoundary?.coordinate_system === "EPSG:4326",
   topology_checked: Boolean(hungaryPilotBoundary?.topology_checked),
   region_id_matched: false,
   ready_for_display: false,
@@ -238,8 +246,8 @@ const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {
   is_region_comparable: false,
   is_export_ready: true,
   quality_status: "需复核",
-  missing_reason: "许可、文件选择、几何过滤、CRS 确认、拓扑检查和 region_id / NUTS code 匹配均未完成。",
-  quality_notes: "v0.10.1 Hungary NUTS3 boundary pilot 专项核验；该记录只检验边界来源接入准备，不代表真实地图展示已启用。",
+  missing_reason: "许可确认、拓扑检查和 region_id / NUTS code 最终核验尚未完成。",
+  quality_notes: "v0.11 Hungary NUTS3 boundary file sandbox 专项验收；文件已下载并过滤为 20 个 HU NUTS3 要素，仅供离线解析和主键预匹配，不代表真实地图展示已启用。",
   last_updated: updatedAt,
 };
 

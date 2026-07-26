@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "node scripts/export-research-data.mjs && next build",
+    "sandbox:hungary-boundary": "node scripts/build-hungary-boundary-sandbox.mjs",
     "export:research-data": "node scripts/export-research-data.mjs",
     "preview": "next start",
     "start": "next start",

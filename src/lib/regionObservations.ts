@@ -81,7 +81,7 @@ function buildPendingObservation(
     is_in_map_layer: false,
     is_in_region_comparison: false,
     is_in_future_model_candidate: false,
-    missing_reason: "v0.10 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
+    missing_reason: "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
     calculation_method: isCalculated ? "待接入原始分子和分母后再计算；当前不生成计算结果。" : "不适用。",
     last_updated: updatedAt,
     notes: "第一批区域观测位置；不得填 0，不进入地图图层、区域比较或未来模型候选输入。",

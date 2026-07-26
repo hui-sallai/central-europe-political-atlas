@@ -29,10 +29,10 @@ export default function CountriesPage() {
           const projectSourceStatus = projectStatus === "manual" ? "人工整理" : "待接入";
           const regionalDataStatus = isV4Country ? "区域数据准备中" : "区域数据待接入";
           const boundaryVerificationStatus = country.slug === "hungary"
-            ? "试点核验中"
+            ? "沙盒文件已下载并过滤；真实展示未启用"
             : isV4Country
-              ? "待排期"
-              : "暂不进入 v0.10 第一批边界核验";
+              ? "当前不进入匈牙利沙盒试点"
+              : "暂不进入 v0.11 匈牙利边界文件沙盒";
           const regionalDataItems = isV4Country
             ? [
                 ["v0.9 第一批状态", "区域数据准备中"],
@@ -119,7 +119,7 @@ export default function CountriesPage() {
                   </div>
                 </div>
                 <div className="rounded-2xl border border-[var(--line)] bg-white/60 p-3">
-                  <p className="font-semibold text-[var(--foreground)]">v0.10 边界核验状态：</p>
+                  <p className="font-semibold text-[var(--foreground)]">v0.11 边界文件沙盒状态：</p>
                   <p className="mt-2 leading-5 text-[var(--muted)]">{boundaryVerificationStatus}</p>
                 </div>
               </div>

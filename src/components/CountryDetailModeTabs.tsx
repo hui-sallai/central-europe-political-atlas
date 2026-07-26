@@ -235,9 +235,9 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
       </section>
 
       <section className="mt-4 card p-6">
-        <p className="eyebrow">4.1 v0.10 Boundary Verification</p>
+        <p className="eyebrow">4.1 v0.11 Boundary File Sandbox</p>
         <h2 className="mt-3 text-2xl font-semibold">
-          {country.slug === "hungary" ? "v0.10 匈牙利边界试点" : "v0.10 边界核验状态"}
+          {country.slug === "hungary" ? "v0.11 匈牙利边界文件沙盒" : "v0.11 边界文件沙盒状态"}
         </h2>
         {country.slug === "hungary" ? (
           <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
@@ -246,13 +246,13 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
               ["区域数量", "20"],
               ["边界来源", "Eurostat GISCO NUTS 2024"],
               ["区域代码来源", "Eurostat NUTS correspondence table"],
-              ["几何文件状态", "待下载 / 待过滤"],
-              ["主键匹配状态", "待核验"],
+              ["几何文件状态", "sandbox_downloaded / sandbox_filtered"],
+              ["主键匹配状态", "20 / 20 预匹配；待最终核验"],
               ["许可状态", "待确认"],
               ["拓扑检查状态", "未执行"],
               ["是否显示真实边界", "否"],
               ["是否进入 map_layers 展示", "否"],
-              ["备注", "v0.10 仅做来源核验与主键对齐，不启用真实图层"],
+              ["备注", "v0.11 仅做离线解析与主键预匹配，不启用真实图层"],
             ].map(([label, value]) => (
               <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
                 <p className="text-xs font-semibold text-[var(--muted)]">{label}</p>
@@ -262,18 +262,24 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
           </div>
         ) : isV4Country ? (
           <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/65 p-4">
-            <p className="text-sm font-semibold text-[var(--foreground)]">v0.10 边界核验状态：待排期</p>
-            <p className="mt-2 text-sm leading-6 text-[var(--muted)]">当前不进入第一批试点。</p>
+            <p className="text-sm font-semibold text-[var(--foreground)]">v0.11 沙盒状态：不进入本轮</p>
+            <p className="mt-2 text-sm leading-6 text-[var(--muted)]">当前沙盒仅处理匈牙利 NUTS3 文件。</p>
           </div>
         ) : (
           <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/65 p-4">
             <DataStatusBadge status="pending" />
             <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
-              暂不进入 v0.10 第一批真实区域边界来源核验。
+              暂不进入 v0.11 匈牙利边界文件沙盒。
             </p>
           </div>
         )}
       </section>
+
+      {country.slug === "hungary" ? (
+        <p className="mt-3 rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
+          v0.11 沙盒状态：边界文件可进入离线解析与主键预匹配；真实地图展示仍未启用。
+        </p>
+      ) : null}
 
       <div className="card p-3">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
