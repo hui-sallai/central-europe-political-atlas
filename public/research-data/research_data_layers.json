@@ -1,8 +1,8 @@
 {
   "schema_version": "research-data-v0.1",
-  "generated_at": "2026-07-25",
+  "generated_at": "2026-07-26",
   "data_type": "research_data_layers",
-  "record_count": 11,
+  "record_count": 12,
   "records": [
     {
       "id": "countries",
@@ -24,6 +24,13 @@
       "description": "v0.9 区域边界来源表；先登记可信来源、许可、格式和几何接入状态，暂不渲染真实边界。",
       "json_file": "region_boundaries.json",
       "csv_file": "region_boundaries.csv"
+    },
+    {
+      "id": "region_indicators",
+      "label": "region_indicators",
+      "description": "v0.9 区域指标字典；独立于国家级 indicators，第一批只覆盖 10 个区域指标。",
+      "json_file": "region_indicators.json",
+      "csv_file": "region_indicators.csv"
     },
     {
       "id": "indicators",

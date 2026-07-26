@@ -7,7 +7,7 @@ import ts from "typescript";
 const require = createRequire(import.meta.url);
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outDir = path.join(projectRoot, "public", "research-data");
-const generatedAt = "2026-07-25";
+const generatedAt = "2026-07-26";
 const schemaVersion = "research-data-v0.1";
 
 require.extensions[".ts"] = (module, filename) => {
@@ -27,6 +27,7 @@ require.extensions[".ts"] = (module, filename) => {
 const { countryMetadataRecords, researchDataLayerFiles } = require("../src/lib/countryMetadata.ts");
 const { regionMetadataRecords } = require("../src/lib/regions.ts");
 const { regionBoundaryRecords } = require("../src/lib/regionBoundaries.ts");
+const { regionIndicatorRecords } = require("../src/lib/regionIndicators.ts");
 const {
   chinaProjectRecords,
   extendedObservations,
@@ -915,7 +916,7 @@ function methodologyRuleRecords() {
       rule_category: "导出规则",
       rule_name: "研究数据导出边界规则",
       rule_description: "导出层提供 JSON/CSV 研究数据结构，供未来 Python/R/Stata 读取，但不是对外 API，也不是模型输出。",
-      applies_to: "countries,regions,region_boundaries,indicators,sources,observations,data_quality_checks,derived_comparisons,china_projects,china_exposure_candidates,methodology_rules",
+      applies_to: "countries,regions,region_boundaries,region_indicators,indicators,sources,observations,data_quality_checks,derived_comparisons,china_projects,china_exposure_candidates,methodology_rules",
       required_fields: ["schema_version", "generated_at", "data_type", "record_count", "records"],
       allowed_statuses: ["可导出", "待接入", "结构说明"],
       excluded_statuses: ["风险分数", "预测结果"],
@@ -924,7 +925,7 @@ function methodologyRuleRecords() {
       model_boundary: "导出文件不代表模型已启用。",
       export_boundary: "JSON/CSV 均可公开读取，但需保留数据边界说明。",
       last_updated: generatedAt,
-      notes: "当前 11 个逻辑数据层均从导出脚本生成；regions 为 v0.9 区域主键层，region_boundaries 为边界来源登记层。",
+      notes: "当前 12 个逻辑数据层均从导出脚本生成；regions 为 v0.9 区域主键层，region_boundaries 为边界来源登记层，region_indicators 为区域指标字典。",
     },
   ];
 }
@@ -1067,6 +1068,13 @@ writeLayer("region_boundaries", regionBoundaryRecords, {
   relation_note: "Every boundary record references region_id from regions and country_id from countries.",
   validation_note: "Records track source credibility, public display licence, simplification readiness, front-end suitability, region_id matching, admin codes, and historical boundary issues before geometry ingestion.",
   model_boundary: "Boundary source registry only. No real boundary rendering, regional risk layer, forecast, or election model is generated.",
+});
+writeLayer("region_indicators", regionIndicatorRecords, {
+  scope: "v0.9 regional indicator dictionary. It is intentionally separate from national indicators.",
+  primary_key: "region_indicator_id",
+  relation_note: "Future region_observations should reference region_indicator_id and region_id. National observations continue to use indicator_id from indicators.",
+  validation_note: "First batch covers 10 regional indicators only; national 18 indicators are not automatically downscaled.",
+  model_boundary: "Dictionary only. No regional model, risk layer, forecast, or election prediction is generated.",
 });
 writeLayer("indicators", indicatorRecords, {
   primary_key: "indicator_id",
