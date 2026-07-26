@@ -53,14 +53,14 @@ export default function CountriesPage() {
               <p className="mt-4 text-sm leading-6 text-[var(--muted)]">{country.summaryZh}</p>
               <div className="mt-5 grid gap-2 text-xs">
                 <div className="rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-3">
-                  <p className="font-semibold text-[var(--muted)]">一级行政区数量</p>
+                  <p className="font-semibold text-[var(--muted)]">一级行政区数量：</p>
                   <p className="mt-1 text-sm font-semibold text-[var(--foreground)]">{country.regions.length}</p>
                 </div>
               </div>
 
               <div className="mt-4 grid gap-2 text-xs">
                 <div className="rounded-2xl border border-[var(--line)] bg-white/60 p-3">
-                  <p className="font-semibold text-[var(--foreground)]">党派样本库状态</p>
+                  <p className="font-semibold text-[var(--foreground)]">党派样本库状态：</p>
                   <div className="mt-2 grid gap-2">
                     <div className="flex items-start justify-between gap-3 rounded-xl bg-[var(--surface-muted)] px-3 py-2">
                       <span className="font-semibold text-[var(--muted)]">状态：</span>
@@ -78,7 +78,7 @@ export default function CountriesPage() {
                   <p className="mt-2 leading-5 text-[var(--muted)]">{partyStatusText}；用于页面结构和政党关系展示，不是正式统计数量。</p>
                 </div>
                 <div className="rounded-2xl border border-[var(--line)] bg-white/60 p-3">
-                  <p className="font-semibold text-[var(--foreground)]">对华经贸项目表状态</p>
+                  <p className="font-semibold text-[var(--foreground)]">对华经贸项目表状态：</p>
                   <div className="mt-2 grid gap-2">
                     <div className="flex items-start justify-between gap-3 rounded-xl bg-[var(--surface-muted)] px-3 py-2">
                       <span className="font-semibold text-[var(--muted)]">状态：</span>
@@ -96,18 +96,18 @@ export default function CountriesPage() {
                   <p className="mt-2 leading-5 text-[var(--muted)]">{projectRecords.length > 0 ? "已按固定字段整理项目样本，金额、主体和量化状态仍逐条复核。" : "项目表待接入。"}</p>
                 </div>
                 <div className="rounded-2xl border border-[var(--line)] bg-white/60 p-3">
-                  <p className="font-semibold text-[var(--foreground)]">countries 元数据状态</p>
+                  <p className="font-semibold text-[var(--foreground)]">countries 元数据状态：</p>
                   <p className="mt-2 leading-5 text-[var(--muted)]">
                     {metadata ? `${metadata.v4_extended_status} / ${metadata.map_region_status} / ${metadata.news_event_status}` : "待接入"}
                   </p>
                 </div>
                 <div className="rounded-2xl border border-[var(--line)] bg-white/60 p-3">
-                  <p className="font-semibold text-[var(--foreground)]">区域数据状态</p>
+                  <p className="font-semibold text-[var(--foreground)]">区域数据状态：</p>
                   <p className="mt-2 leading-5 text-[var(--muted)]">{regionalDataStatus}</p>
                   <div className="mt-3 grid gap-2">
                     {regionalDataItems.map(([label, value]) => (
                       <div key={label} className="flex items-start justify-between gap-3 rounded-xl bg-[var(--surface-muted)] px-3 py-2">
-                        <span className="font-semibold text-[var(--muted)]">{label}</span>
+                        <span className="font-semibold text-[var(--muted)]">{`${label}：`}</span>
                         <span className="text-right font-semibold text-[var(--foreground)]">{value}</span>
                       </div>
                     ))}

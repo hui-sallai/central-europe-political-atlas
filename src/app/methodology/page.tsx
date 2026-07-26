@@ -260,7 +260,7 @@ export default function MethodologyPage() {
             "region_quality_checks 用于检查边界、许可、区域代码、数值、单位和来源状态；未通过项不得进入正式地图图层。",
             "project_locations 只把对华项目定位到城市、区域或国家层级；缺少可核验位置来源时不进入地图展示。",
             "map_layers 仅注册未来图层，is_ready_for_display=false 的图层不得作为真实图层展示；风险图层、预测图层和真实党派支持率图层均未启用，新闻区仍不做评价。",
-            "v0.9.1 stable candidate 要求八张区域表保留字段名、字段含义、允许状态、来源要求、地图展示资格、未来模型候选边界和备注；字段级口径只用于验收和导出准备。",
+            "v0.9 regional data preparation 要求八张区域表保留字段名、字段含义、允许状态、来源要求、地图展示资格、未来模型候选边界和备注；字段级口径只用于验收和导出准备。",
           ].map((item) => (
             <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
               {item}
