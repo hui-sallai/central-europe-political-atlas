@@ -27,6 +27,23 @@ export default function CountriesPage() {
           const projectStatus = projectRecords.length > 0 ? "manual" : "pending";
           const partyStatusText = metadata?.political_sample_status ?? (isV4Country ? "待核验 / 人工整理" : "待接入");
           const regionalDataStatus = isV4Country ? "区域数据准备中" : "区域数据待接入";
+          const regionalDataItems = isV4Country
+            ? [
+                ["v0.9 第一批", "区域数据准备中"],
+                ["区域主键", "已预留"],
+                ["边界来源", "待接入"],
+                ["区域统计", "待接入"],
+                ["项目定位", "准备中"],
+                ["真实地图展示", "未启用"],
+              ]
+            : [
+                ["v0.9 第一批", "暂不进入 v0.9 第一批"],
+                ["区域主键", "国家级待接入"],
+                ["边界来源", "待接入"],
+                ["区域统计", "待接入"],
+                ["项目定位", "待接入"],
+                ["真实地图展示", "未启用"],
+              ];
 
           return (
             <Link key={country.slug} href={`/countries/${country.slug}`} className="card p-6 transition hover:-translate-y-1 hover:shadow-xl">
@@ -63,6 +80,14 @@ export default function CountriesPage() {
                 <div className="rounded-2xl border border-[var(--line)] bg-white/60 p-3">
                   <p className="font-semibold text-[var(--foreground)]">区域数据状态</p>
                   <p className="mt-2 leading-5 text-[var(--muted)]">{regionalDataStatus}</p>
+                  <div className="mt-3 grid gap-2">
+                    {regionalDataItems.map(([label, value]) => (
+                      <div key={label} className="flex items-start justify-between gap-3 rounded-xl bg-[var(--surface-muted)] px-3 py-2">
+                        <span className="font-semibold text-[var(--muted)]">{label}</span>
+                        <span className="text-right font-semibold text-[var(--foreground)]">{value}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </Link>
