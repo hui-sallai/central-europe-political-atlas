@@ -26,6 +26,7 @@ require.extensions[".ts"] = (module, filename) => {
 
 const { countryMetadataRecords, researchDataLayerFiles } = require("../src/lib/countryMetadata.ts");
 const { regionMetadataRecords } = require("../src/lib/regions.ts");
+const { regionBoundaryRecords } = require("../src/lib/regionBoundaries.ts");
 const {
   chinaProjectRecords,
   extendedObservations,
@@ -914,7 +915,7 @@ function methodologyRuleRecords() {
       rule_category: "导出规则",
       rule_name: "研究数据导出边界规则",
       rule_description: "导出层提供 JSON/CSV 研究数据结构，供未来 Python/R/Stata 读取，但不是对外 API，也不是模型输出。",
-      applies_to: "countries,regions,indicators,sources,observations,data_quality_checks,derived_comparisons,china_projects,china_exposure_candidates,methodology_rules",
+      applies_to: "countries,regions,region_boundaries,indicators,sources,observations,data_quality_checks,derived_comparisons,china_projects,china_exposure_candidates,methodology_rules",
       required_fields: ["schema_version", "generated_at", "data_type", "record_count", "records"],
       allowed_statuses: ["可导出", "待接入", "结构说明"],
       excluded_statuses: ["风险分数", "预测结果"],
@@ -923,7 +924,7 @@ function methodologyRuleRecords() {
       model_boundary: "导出文件不代表模型已启用。",
       export_boundary: "JSON/CSV 均可公开读取，但需保留数据边界说明。",
       last_updated: generatedAt,
-      notes: "当前 10 个逻辑数据层均从导出脚本生成；regions 为 v0.9 区域主键层。",
+      notes: "当前 11 个逻辑数据层均从导出脚本生成；regions 为 v0.9 区域主键层，region_boundaries 为边界来源登记层。",
     },
   ];
 }
@@ -1059,6 +1060,13 @@ writeLayer("regions", regionMetadataRecords, {
   primary_key: "region_id",
   relation_note: "Every region references country_id from countries. ADM2 is intentionally excluded from v0.9 first pass.",
   model_boundary: "Region metadata only. No regional risk layer, forecast, election model, or ADM2 analysis is generated.",
+});
+writeLayer("region_boundaries", regionBoundaryRecords, {
+  scope: "v0.9 region boundary source registry. Geometry is not rendered yet.",
+  primary_key: "boundary_id",
+  relation_note: "Every boundary record references region_id from regions and country_id from countries.",
+  validation_note: "Records track source credibility, public display licence, simplification readiness, front-end suitability, region_id matching, admin codes, and historical boundary issues before geometry ingestion.",
+  model_boundary: "Boundary source registry only. No real boundary rendering, regional risk layer, forecast, or election model is generated.",
 });
 writeLayer("indicators", indicatorRecords, {
   primary_key: "indicator_id",

@@ -2,7 +2,7 @@
   "schema_version": "research-data-v0.1",
   "generated_at": "2026-07-25",
   "data_type": "research_data_layers",
-  "record_count": 10,
+  "record_count": 11,
   "records": [
     {
       "id": "countries",
@@ -17,6 +17,13 @@
       "description": "v0.9 区域元数据表；V4 优先建立 ADM1 稳定主键，非 V4 暂保留国家级待接入。",
       "json_file": "regions.json",
       "csv_file": "regions.csv"
+    },
+    {
+      "id": "region_boundaries",
+      "label": "region_boundaries",
+      "description": "v0.9 区域边界来源表；先登记可信来源、许可、格式和几何接入状态，暂不渲染真实边界。",
+      "json_file": "region_boundaries.json",
+      "csv_file": "region_boundaries.csv"
     },
     {
       "id": "indicators",

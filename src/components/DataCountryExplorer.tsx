@@ -7,6 +7,7 @@ import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge
 import { countries } from "@/lib/data";
 import { countryMetadataRecords, researchDataLayerFiles } from "@/lib/countryMetadata";
 import { regionMetadataRecords } from "@/lib/regions";
+import { regionBoundaryRecords } from "@/lib/regionBoundaries";
 import { getEconomicSourcePolicy } from "@/lib/economicSourcePolicy";
 import {
   extendedIndicatorLabels,
@@ -137,6 +138,7 @@ type CategoryResearchSummary = {
   dataGap: string;
 };
 type RegionMetadataRecord = (typeof regionMetadataRecords)[number];
+type RegionBoundaryRecord = (typeof regionBoundaryRecords)[number];
 type IndicatorDictionaryRecord = (typeof indicatorDictionaryRecords)[number];
 type V4DataQualitySummary = ReturnType<typeof getV4DataQualitySummary>;
 type DerivedComparisonRecord = (typeof derivedComparisonsData.records)[number];
@@ -283,11 +285,12 @@ const dataModes: { id: DataMode; label: string; description: string }[] = [
 const dataEntryShortcuts: DataEntryShortcut[] = [
   { id: "countries-layer-entry", label: "国家元数据表", mode: "tables", description: "十国 countries 逻辑层，作为 country_id 关联表。" },
   { id: "regions-layer-entry", label: "区域元数据表", mode: "tables", description: "v0.9 regions 区域主键层；V4 ADM1 优先，非 V4 国家级待接入。" },
+  { id: "region-boundaries-layer-entry", label: "区域边界来源表", mode: "tables", description: "v0.9 region_boundaries 边界来源、许可、格式和几何接入状态。" },
   { id: "indicator-dictionary-entry", label: "指标字典入口", mode: "tables", description: "18 个指标的口径、单位、来源优先级和比较资格。" },
   { id: "source-dictionary-entry", label: "来源字典入口", mode: "tables", description: "16 类来源的链接、可靠性等级和使用边界。" },
   { id: "v4-data-quality-entry", label: "数据质量验收入口", mode: "comparison", description: "V4 四国 240 个观测位置的验收清单。", requiresV4: true },
   { id: "v4-derived-comparison-entry", label: "派生比较表入口", mode: "comparison", description: "最高值、最低值、V4 均值和事实派生比较。", requiresV4: true },
-  { id: "data-export-entry", label: "数据导出与接口准备", mode: "tables", description: "10 个逻辑数据层的 CSV / JSON 结构预留；当前不提供模型 API。" },
+  { id: "data-export-entry", label: "数据导出与接口准备", mode: "tables", description: "11 个逻辑数据层的 CSV / JSON 结构预留；当前不提供模型 API。" },
 ];
 
 const tableMetricIds: EconomicMetricId[] = ["population", "gdp", "gdpPerCapita", "growth", "inflation", "unemployment"];
@@ -1439,12 +1442,85 @@ function RegionMetadataTable({ rows }: { rows: RegionMetadataRecord[] }) {
   );
 }
 
+function RegionBoundaryTable({ rows }: { rows: RegionBoundaryRecord[] }) {
+  const headers = [
+    "boundary_id",
+    "region_id",
+    "country_id",
+    "admin_level",
+    "boundary_source_name",
+    "boundary_source_url",
+    "boundary_source_type",
+    "boundary_license",
+    "boundary_format",
+    "geometry_available",
+    "geometry_simplified",
+    "topology_checked",
+    "coordinate_system",
+    "file_path_or_url",
+    "source_reliability",
+    "source_status",
+    "last_checked",
+    "notes",
+  ];
+
+  return (
+    <div className="mt-5 wide-table-scroll max-w-full">
+      <table className="research-data-table region-boundary-table w-full min-w-[3800px] border-separate border-spacing-0 text-left text-sm">
+        <thead>
+          <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
+            {headers.map((header) => (
+              <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((boundary) => (
+            <tr key={boundary.boundary_id} className="align-top">
+              <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono text-xs">{boundary.boundary_id}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{boundary.region_id}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{boundary.country_id}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{boundary.admin_level}</DictionaryToken></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{boundary.boundary_source_name}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">
+                {boundary.boundary_source_url ? (
+                  <a href={boundary.boundary_source_url} target="_blank" rel="noreferrer" className="text-xs font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+                    source
+                  </a>
+                ) : "—"}
+              </td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{boundary.boundary_source_type}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{boundary.boundary_license}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{boundary.boundary_format}</DictionaryToken></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={boundary.geometry_available} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={boundary.geometry_simplified} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={boundary.topology_checked} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{boundary.coordinate_system}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">
+                {boundary.file_path_or_url ? (
+                  <a href={boundary.file_path_or_url} target="_blank" rel="noreferrer" className="text-xs font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+                    file/source
+                  </a>
+                ) : "—"}
+              </td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{boundary.source_reliability}</DictionaryToken></td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{boundary.source_status}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{boundary.last_checked}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{boundary.notes}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 function ResearchDataExportLinks() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const exportStatusCards = [
-    { label: "CSV 导出结构", value: "已预留", note: "10 个逻辑数据层均生成 .csv 文件。" },
-    { label: "JSON 导出结构", value: "已预留", note: "10 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: "v0.9 beta", note: "regions 区域主键层准备中；不提供模型 API，不输出预测、指数或风险分数。" },
+    { label: "CSV 导出结构", value: "已预留", note: "11 个逻辑数据层均生成 .csv 文件。" },
+    { label: "JSON 导出结构", value: "已预留", note: "11 个逻辑数据层均生成 .json 文件。" },
+    { label: "当前阶段", value: "v0.9 beta", note: "regions 与 region_boundaries 准备中；不提供模型 API，不输出预测、指数或风险分数。" },
   ];
 
   return (
@@ -2423,7 +2499,7 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Research Registry Tables</p>
               <h2 className="mt-3 text-2xl font-semibold">研究数据结构总表</h2>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                以下十个逻辑数据层常驻在数据页；它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。其中 regions 是 v0.9 区域主键层，先服务后续地图边界、区域统计和项目坐标接入。
+                以下十一个逻辑数据层常驻在数据页；它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。其中 regions 是 v0.9 区域主键层，region_boundaries 是真实边界接入前的来源、许可、格式和几何状态登记层。
               </p>
             </div>
             <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">按需展开</span>
@@ -2442,6 +2518,13 @@ export function DataCountryExplorer() {
                 regions 是地图层的稳定区域主键表。v0.9 第一版只建立 V4 四国 ADM1 区域元数据；非 V4 六国暂时保留国家级待接入占位。当前不建立 ADM2，不接入真实边界、区域经济、区域选举或区域预测图层。
               </p>
               <RegionMetadataTable rows={regionMetadataRecords} />
+            </DeferredDetails>
+
+            <DeferredDetails id="region-boundaries-layer-entry" title="region_boundaries：v0.9 区域边界来源表">
+              <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+                region_boundaries 只登记边界来源与接入准备状态。v0.9 不直接渲染真实边界；每条记录先检查来源可信度、公开展示许可、可否简化、前端加载适配、region_id 对齐、行政区代码和历史边界变动风险。
+              </p>
+              <RegionBoundaryTable rows={regionBoundaryRecords} />
             </DeferredDetails>
 
             <DeferredDetails id="indicator-dictionary-entry" title="指标字典入口：18 个指标完整表体">
@@ -2493,8 +2576,8 @@ export function DataCountryExplorer() {
 
             <DeferredDetails id="data-export-entry" title="数据导出与接口准备">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.9 beta / regions 区域主键层准备，不提供模型 API。
-                当前导出对象包括 countries、regions、indicators、sources、observations、data_quality_checks、derived_comparisons、china_projects、china_exposure_candidates 和 methodology_rules。
+                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.9 beta / regions 与 region_boundaries 区域层准备，不提供模型 API。
+                当前导出对象包括 countries、regions、region_boundaries、indicators、sources、observations、data_quality_checks、derived_comparisons、china_projects、china_exposure_candidates 和 methodology_rules。
               </p>
               <ResearchDataExportLinks />
             </DeferredDetails>
