@@ -387,6 +387,118 @@ const regionalSchemaChecks = [
   },
 ];
 
+function splitRegionalSchemaFields(fields: string) {
+  return fields.split(",").map((field) => field.trim()).filter(Boolean);
+}
+
+function regionalFieldMeaning(field: string) {
+  const meanings: Record<string, string> = {
+    region_id: "区域唯一主键，地图、观测值、边界和项目定位都通过它关联。",
+    country_id: "国家唯一主键，必须关联 countries 表。",
+    admin_level: "行政或统计层级，用于区分 ADM1、ADM2、NUTS2 等层级。",
+    admin_code: "官方行政区或统计区代码，用于和边界、统计来源对齐。",
+    parent_region_id: "上级区域主键；二级区域接入后必须回溯到一级区域。",
+    boundary_id: "边界记录唯一主键。",
+    boundary_source_url: "边界来源链接，用于核验公开展示、许可和复用条件。",
+    boundary_license: "边界数据许可状态，决定是否可以公开展示和简化。",
+    boundary_format: "边界文件格式或待接入状态。",
+    geometry_available: "几何文件是否已经可用。",
+    geometry_simplified: "几何是否已完成前端加载所需简化。",
+    topology_checked: "拓扑关系是否完成检查。",
+    file_path_or_url: "边界文件路径或来源 URL。",
+    region_indicator_id: "区域指标唯一主键，不与国家级 indicators 混用。",
+    year: "观测年份或验收年份。",
+    period_type: "时间频率。",
+    value: "观测值；待接入时必须保留为空值或明确待接入。",
+    unit: "单位，必须与指标字典一致。",
+    value_status: "数值状态，用于区分正式数据、待接入、计算值、人工整理和结构样例。",
+    source_id: "来源主键，用于关联来源字典。",
+    source_name: "来源名称。",
+    source_url: "来源链接。",
+    source_reliability: "来源可靠性等级。",
+    source_status: "来源接入状态。",
+    source_type: "来源类型。",
+    license_status: "来源许可状态，区域边界和公开展示必须核验。",
+    quality_status: "质量验收结论。",
+    project_location_id: "项目地区定位记录唯一主键。",
+    project_id: "对华项目主键，关联 china_projects。",
+    latitude: "纬度；缺少可核验点位时保留为空。",
+    longitude: "经度；缺少可核验点位时保留为空。",
+    location_precision: "定位精度。",
+    location_status: "项目定位状态。",
+    layer_id: "地图图层唯一主键。",
+    layer_type: "图层类型。",
+    data_source_table: "图层读取的数据表。",
+    geometry_source_table: "图层读取的几何来源表。",
+    is_ready_for_display: "图层是否具备真实展示条件。",
+    model_boundary: "模型、预测和指数边界说明。",
+  };
+
+  if (meanings[field]) {
+    return meanings[field];
+  }
+  if (field.startsWith("is_") || field.startsWith("can_be_")) {
+    return "布尔状态字段，用于控制接入、展示、验收或候选资格。";
+  }
+  if (field.endsWith("_name") || field.includes("name_")) {
+    return "名称字段，用于页面展示、检索和导出。";
+  }
+  if (field.endsWith("_notes") || field === "notes" || field.includes("note")) {
+    return "备注字段，用于说明口径、缺失原因或边界条件。";
+  }
+  if (field.includes("status")) {
+    return "状态字段，用于区分正式数据、待接入、待核验或不进入分析。";
+  }
+  if (field.includes("source")) {
+    return "来源字段，用于保存来源名称、链接、等级或使用边界。";
+  }
+  return "标准字段，用于表内记录、关联、展示或导出。";
+}
+
+function regionalFieldAllowedStatus(table: string, field: string) {
+  if (table === "map_layers" && field === "is_ready_for_display") return "v0.9.1 必须保持 false";
+  if (field === "admin_level") return "ADM1 / ADM2 / NUTS1 / NUTS2 / NUTS3";
+  if (field === "boundary_format") return "GeoJSON / TopoJSON / Shapefile / PMTiles / Vector Tiles / Not available";
+  if (field === "layer_type") return "boundary / choropleth / point / symbol / label / table_only / structural_sample";
+  if (field === "location_precision") return "exact_site / city_level / region_level / country_level_only / unknown";
+  if (field === "location_status") return "已定位 / 部分定位 / 仅国家级 / 待核验 / 待接入 / 不进入地图";
+  if (field === "quality_status") return "通过 / 部分通过 / 待接入 / 需复核 / 不进入分析";
+  if (field === "period_type") return "annual / quarterly / monthly / event_date / not_applicable";
+  if (field === "value_status") return "正式数据 / 待接入 / 计算值 / 人工整理 / 结构样例 / 不进入分析";
+  if (field.includes("reliability")) return "A / B / C / D";
+  if (field.includes("status")) return "正式数据 / 待核验 / 待接入 / 结构样例 / 不进入分析";
+  if (field.startsWith("is_") || field.startsWith("can_be_") || field.endsWith("_present") || field.endsWith("_checked") || field.endsWith("_available")) return "true / false";
+  if (field === "value" || field === "latitude" || field === "longitude") return "数值 / null / 待接入";
+  if (field === "year") return "YYYY";
+  return "文本 / ID / URL / 待接入";
+}
+
+function regionalFieldSourceRequirement(table: string, field: string) {
+  if (field.includes("source") || field.includes("license") || field.includes("url")) return "必须保留可核验来源、链接、来源等级或许可说明。";
+  if (table === "region_boundaries") return "边界相关字段必须等待官方或可信 GIS 来源核验。";
+  if (table === "project_locations") return "项目定位字段需要项目来源和位置来源双重核验。";
+  if (table === "region_observations") return "正式数值必须有来源名称、来源链接、来源等级和更新时间。";
+  if (table === "map_layers") return "真实展示前必须满足 source_requirement 和 quality_requirement。";
+  return "通过对应表的来源字段或待接入状态追溯。";
+}
+
+function regionalFieldMapDisplayRule(table: string, field: string) {
+  if (table === "map_layers") {
+    return field === "is_ready_for_display" ? "决定是否可真实展示；当前 false。" : "图层注册字段；不等于真实展示。";
+  }
+  if (field === "is_in_map_layer" || field === "is_map_ready" || field === "is_ready_for_map_layer") return "控制是否可进入地图展示；当前未通过项为 false。";
+  if (table === "region_boundaries" && ["geometry_available", "geometry_simplified", "topology_checked"].includes(field)) return "真实边界展示前置条件。";
+  if (table === "project_locations" && ["latitude", "longitude", "location_precision", "location_status"].includes(field)) return "未来点位图层前置字段；当前不进入正式图层。";
+  return "不直接展示；作为地图关联、说明或导出字段。";
+}
+
+function regionalFieldModelRule(field: string) {
+  if (field.includes("future_model_candidate")) return "候选资格字段；不代表模型已启用。";
+  if (field === "model_boundary") return "明确不输出模型、预测、风险指数或中国经济暴露指数。";
+  if (field.includes("structural_sample")) return "结构样例为 true 时不进入未来模型候选。";
+  return "不直接进入模型；仅作为未来候选前置元数据。";
+}
+
 const tableMetricIds: EconomicMetricId[] = ["population", "gdp", "gdpPerCapita", "growth", "inflation", "unemployment"];
 const economicMetricIndicatorIds: Record<EconomicMetricId, string> = {
   population: "population",
@@ -3102,6 +3214,33 @@ export function DataCountryExplorer() {
                     <p className="mt-2 text-xs leading-5 text-[var(--muted)]">
                       <span className="font-semibold text-[var(--foreground)]">当前说明：</span>{schema.status}
                     </p>
+                    <details className="mt-3 rounded-xl border border-[var(--line)] bg-white/75 p-3">
+                      <summary className="cursor-pointer text-xs font-semibold text-[var(--foreground)]">字段级表体矩阵</summary>
+                      <div className="mt-3 wide-table-scroll max-w-full">
+                        <table className="research-data-table w-full min-w-[1600px] border-separate border-spacing-0 text-left text-xs">
+                          <thead>
+                            <tr className="uppercase tracking-[0.14em] text-[var(--muted)]">
+                              {["字段名", "字段含义", "允许状态", "来源要求", "是否进入地图展示", "是否进入未来模型候选", "备注"].map((header) => (
+                                <th key={header} className="border-b border-[var(--line)] px-3 pb-2 font-semibold first:pl-0">{header}</th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {splitRegionalSchemaFields(schema.fields).map((field) => (
+                              <tr key={`${schema.table}-${field}`} className="align-top">
+                                <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono font-semibold text-[var(--accent)]">{field}</td>
+                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldMeaning(field)}</td>
+                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldAllowedStatus(schema.table, field)}</td>
+                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldSourceRequirement(schema.table, field)}</td>
+                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldMapDisplayRule(schema.table, field)}</td>
+                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldModelRule(field)}</td>
+                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">v0.9.1 stable candidate 字段口径；不新增模型、预测、风险指数或中国经济暴露指数。</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </details>
                   </article>
                 ))}
               </div>

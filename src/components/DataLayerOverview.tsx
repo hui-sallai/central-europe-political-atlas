@@ -137,7 +137,9 @@ export function DataLayerOverview({ countrySlug, compact = false, title = "数�
       title: "地图与区域层",
       value: `${regionCount} 个一级区域`,
       status: "sample" as const,
-      description: "真实行政边界待接入；当前仅保留地图工作台入口和结构样例。",
+      description: country
+        ? "区域层结构样例和后续接入入口已保留；完整边界说明见国家页地图图层仪表盘。"
+        : "区域层结构样例和后续接入入口已保留；完整边界说明见地图页。",
       href: country ? `/countries/${country.slug}` : "/map",
     },
   ];
