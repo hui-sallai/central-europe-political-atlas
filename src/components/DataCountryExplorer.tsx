@@ -1941,21 +1941,21 @@ function HungarySandboxQaSummaryCards({ summary }: { summary: HungaryNuts3Sandbo
     ["source_file", summary.source_file],
     ["filtered_file", summary.filtered_file],
     ["validation_file", summary.validation_file],
-    ["feature_count", summary.feature_count],
-    ["expected_feature_count", summary.expected_feature_count],
-    ["nuts_code_count", summary.nuts_code_count],
-    ["geometry_present_count", summary.geometry_present_count],
-    ["crs_confirmed", summary.crs_confirmed],
-    ["topology_checked", summary.topology_checked],
+    ["feature_count", String(summary.feature_count)],
+    ["expected_feature_count", String(summary.expected_feature_count)],
+    ["nuts_code_count", String(summary.nuts_code_count)],
+    ["geometry_present_count", String(summary.geometry_present_count)],
+    ["crs_confirmed", summary.crs_confirmed ? "true / EPSG:4326" : "false / 待确认"],
+    ["topology_checked", summary.topology_checked ? "basic_qa_done" : "not_checked"],
     ["topology_status", summary.topology_status],
-    ["region_id_matched", summary.region_id_matched],
-    ["ready_for_display", summary.ready_for_display],
+    ["region_id_matched", String(summary.region_id_matched)],
+    ["ready_for_display", String(summary.ready_for_display)],
   ] as const;
 
   return (
     <section className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
-      <p className="eyebrow">Hungary NUTS3 Sandbox QA</p>
-      <h3 className="mt-2 text-lg font-semibold">匈牙利 NUTS3 沙盒验收摘要</h3>
+      <p className="eyebrow">Hungary NUTS3 sandbox QA summary</p>
+      <h3 className="mt-2 text-lg font-semibold">Hungary NUTS3 sandbox QA summary</h3>
       <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
         基础拓扑 QA 只检查坐标、环闭合、退化环、自相交和区域间异常穿越；它不替代权威拓扑验收，也不把 20 / 20 预匹配视为最终主键匹配。
       </p>
@@ -1964,7 +1964,7 @@ function HungarySandboxQaSummaryCards({ summary }: { summary: HungaryNuts3Sandbo
           <div key={field} className="rounded-xl bg-[var(--surface-muted)] p-3">
             <dt className="font-mono text-[10px] font-semibold text-[var(--muted)]">{field}</dt>
             <dd className="mt-2 break-words text-sm font-semibold leading-5 text-[var(--foreground)]">
-              {typeof value === "boolean" ? <BooleanCell value={value} /> : value}
+              {value}
             </dd>
           </div>
         ))}
