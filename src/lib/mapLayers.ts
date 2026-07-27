@@ -12,6 +12,13 @@ export type MapLayerRecord = {
   indicator_or_variable: string;
   is_active: boolean;
   is_ready_for_display: boolean;
+  visual_qa_started: boolean;
+  feature_rendered_count: number;
+  fit_bounds_checked: boolean;
+  tooltip_checked: boolean;
+  visual_overlap_checked: boolean;
+  missing_geometry_checked: boolean;
+  public_display_ready: boolean;
   is_structural_sample: boolean;
   is_official_data: boolean;
   is_manual: boolean;
@@ -50,6 +57,13 @@ function boundaryLayer(): MapLayerRecord {
     indicator_or_variable: "regional_boundary_status",
     is_active: false,
     is_ready_for_display: false,
+    visual_qa_started: false,
+    feature_rendered_count: 0,
+    fit_bounds_checked: false,
+    tooltip_checked: false,
+    visual_overlap_checked: false,
+    missing_geometry_checked: false,
+    public_display_ready: false,
     is_structural_sample: false,
     is_official_data: false,
     is_manual: true,
@@ -81,6 +95,13 @@ function hungaryNuts3PilotLayer(): MapLayerRecord {
     indicator_or_variable: "hu_nuts3_gisco_2024",
     is_active: false,
     is_ready_for_display: false,
+    visual_qa_started: true,
+    feature_rendered_count: 20,
+    fit_bounds_checked: false,
+    tooltip_checked: false,
+    visual_overlap_checked: false,
+    missing_geometry_checked: true,
+    public_display_ready: false,
     is_structural_sample: false,
     is_official_data: false,
     is_manual: false,
@@ -88,8 +109,8 @@ function hungaryNuts3PilotLayer(): MapLayerRecord {
     legend_type: "none",
     legend_unit: "not_applicable",
     color_scale: "not_applicable",
-    interaction_type: "table_only_until_boundary_verified",
-    tooltip_fields: ["region_id", "region_name_zh", "admin_code", "boundary_source_name", "boundary_license", "topology_checked"],
+    interaction_type: "sandbox_visual_qa_hover_only",
+    tooltip_fields: ["NUTS_ID", "NAME_LATN", "region_id_candidate"],
     allowed_filters: ["country_id", "admin_level", "source_reliability", "source_status", "is_ready_for_display"],
     source_requirement: "Eurostat GISCO NUTS 2024 来源、许可、格式、坐标系、几何状态、拓扑检查状态和 NUTS 主键匹配必须完成核验。",
     quality_requirement: "许可确认、几何下载与过滤、拓扑检查、NUTS / region_id 主键匹配均通过前，is_ready_for_display 必须保持 false。",
@@ -120,6 +141,13 @@ function choroplethLayer(layer: {
     indicator_or_variable: layer.indicator,
     is_active: false,
     is_ready_for_display: false,
+    visual_qa_started: false,
+    feature_rendered_count: 0,
+    fit_bounds_checked: false,
+    tooltip_checked: false,
+    visual_overlap_checked: false,
+    missing_geometry_checked: false,
+    public_display_ready: false,
     is_structural_sample: false,
     is_official_data: false,
     is_manual: false,
@@ -151,6 +179,13 @@ function projectLocationLayer(): MapLayerRecord {
     indicator_or_variable: "project_locations.location_status",
     is_active: false,
     is_ready_for_display: false,
+    visual_qa_started: false,
+    feature_rendered_count: 0,
+    fit_bounds_checked: false,
+    tooltip_checked: false,
+    visual_overlap_checked: false,
+    missing_geometry_checked: false,
+    public_display_ready: false,
     is_structural_sample: false,
     is_official_data: false,
     is_manual: true,

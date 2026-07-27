@@ -29,7 +29,7 @@ const { regionMetadataRecords } = require("../src/lib/regions.ts");
 const { regionBoundaryRecords } = require("../src/lib/regionBoundaries.ts");
 const { regionIndicatorRecords } = require("../src/lib/regionIndicators.ts");
 const { regionObservationRecords } = require("../src/lib/regionObservations.ts");
-const { hungaryNuts3SandboxQaSummary, regionQualityCheckRecords, regionQualitySummary } = require("../src/lib/regionQualityChecks.ts");
+const { hungaryNuts3SandboxQaSummary, hungaryNuts3VisualQaSummary, regionQualityCheckRecords, regionQualitySummary } = require("../src/lib/regionQualityChecks.ts");
 const { regionSourceRecords } = require("../src/lib/regionSources.ts");
 const { projectLocationRecords } = require("../src/lib/projectLocations.ts");
 const { mapLayerRecords } = require("../src/lib/mapLayers.ts");
@@ -1089,10 +1089,11 @@ writeLayer("region_observations", regionObservationRecords, {
   model_boundary: "Observation structure only. Pending rows do not enter map layers, regional comparison, or future model candidate inputs.",
 });
 writeLayer("region_quality_checks", regionQualityCheckRecords, {
-  scope: "v0.12 regional data quality checks. Hungary NUTS3 sandbox QA covers file counts, NUTS codes, CRS, geometry, basic topology, final region_id matching, and display readiness.",
+  scope: "v0.13 regional data quality checks. Hungary NUTS3 adds internal visual QA fields while formal display remains disabled.",
   primary_key: "region_check_id",
   summary: regionQualitySummary,
   sandbox_qa_summary: hungaryNuts3SandboxQaSummary,
+  visual_qa_summary: hungaryNuts3VisualQaSummary,
   relation_note: "Every check references region_id from regions and region_indicator_id from region_indicators. Boundary readiness is cross-checked through region_boundaries.",
   validation_note: "Basic topology QA does not replace authoritative validation. A 20/20 pre-match does not set region_id_matched=true, and pending rows remain explicit.",
   model_boundary: "Quality checks only. No regional model, risk layer, forecast, election prediction, or live boundary rendering is generated.",
@@ -1112,7 +1113,7 @@ writeLayer("project_locations", projectLocationRecords, {
   model_boundary: "Location bridge only. No China exposure index, regional risk layer, forecast, or live project map layer is generated.",
 });
 writeLayer("map_layers", mapLayerRecords, {
-  scope: "v0.12 map layer registry. hu_nuts3_boundary_pilot remains registered for sandbox validation and topology QA only with is_ready_for_display=false.",
+  scope: "v0.13 map layer registry. hu_nuts3_boundary_pilot supports internal visual QA only; is_ready_for_display and public_display_ready remain false.",
   primary_key: "layer_id",
   relation_note: "Each layer declares its data_source_table, geometry_source_table, indicator_or_variable, tooltip fields, filters, source requirements, and quality requirements.",
   validation_note: "All registered real boundary and analytical layers keep is_ready_for_display=false until boundary, source, observation, project-location, and quality checks pass.",

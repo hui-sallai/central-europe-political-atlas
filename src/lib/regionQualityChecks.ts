@@ -25,6 +25,13 @@ export type RegionQualityCheckRecord = {
   topology_checked: boolean;
   region_id_matched: boolean;
   ready_for_display: boolean;
+  visual_qa_started: boolean;
+  feature_rendered_count: number;
+  fit_bounds_checked: boolean;
+  tooltip_checked: boolean;
+  visual_overlap_checked: boolean;
+  missing_geometry_checked: boolean;
+  public_display_ready: boolean;
   value_present: boolean;
   unit_present: boolean;
   source_name_present: boolean;
@@ -72,6 +79,16 @@ export type HungaryNuts3SandboxQaSummary = {
   topology_status: string;
   region_id_matched: boolean;
   ready_for_display: boolean;
+};
+
+export type HungaryNuts3VisualQaSummary = {
+  visual_qa_started: boolean;
+  feature_rendered_count: number;
+  fit_bounds_checked: boolean;
+  tooltip_checked: boolean;
+  visual_overlap_checked: boolean;
+  missing_geometry_checked: boolean;
+  public_display_ready: boolean;
 };
 
 const updatedAt = "2026-07-27";
@@ -199,6 +216,13 @@ function buildRegionQualityCheck(observation: (typeof regionObservationRecords)[
     topology_checked: topologyChecked,
     region_id_matched: regionIdMatched,
     ready_for_display: isMapReady,
+    visual_qa_started: false,
+    feature_rendered_count: 0,
+    fit_bounds_checked: false,
+    tooltip_checked: false,
+    visual_overlap_checked: false,
+    missing_geometry_checked: false,
+    public_display_ready: false,
     value_present: valuePresent,
     unit_present: unitPresent,
     source_name_present: sourceNamePresent,
@@ -242,6 +266,16 @@ export const hungaryNuts3SandboxQaSummary: HungaryNuts3SandboxQaSummary = {
   ready_for_display: false,
 };
 
+export const hungaryNuts3VisualQaSummary: HungaryNuts3VisualQaSummary = {
+  visual_qa_started: true,
+  feature_rendered_count: 20,
+  fit_bounds_checked: false,
+  tooltip_checked: false,
+  visual_overlap_checked: false,
+  missing_geometry_checked: true,
+  public_display_ready: false,
+};
+
 const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {
   region_check_id: "hungary_nuts3_boundary_pilot_quality_check",
   region_id: "hungary_nuts3_pilot",
@@ -262,6 +296,13 @@ const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {
   topology_checked: hungaryNuts3SandboxQaSummary.topology_checked,
   region_id_matched: false,
   ready_for_display: false,
+  visual_qa_started: hungaryNuts3VisualQaSummary.visual_qa_started,
+  feature_rendered_count: hungaryNuts3VisualQaSummary.feature_rendered_count,
+  fit_bounds_checked: hungaryNuts3VisualQaSummary.fit_bounds_checked,
+  tooltip_checked: hungaryNuts3VisualQaSummary.tooltip_checked,
+  visual_overlap_checked: hungaryNuts3VisualQaSummary.visual_overlap_checked,
+  missing_geometry_checked: hungaryNuts3VisualQaSummary.missing_geometry_checked,
+  public_display_ready: hungaryNuts3VisualQaSummary.public_display_ready,
   value_present: false,
   unit_present: true,
   source_name_present: hasText(hungaryPilotBoundary?.boundary_source_name),

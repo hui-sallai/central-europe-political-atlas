@@ -1,4 +1,5 @@
 import { InteractiveMapExplorer } from "@/components/InteractiveMapExplorer";
+import { HungaryBoundaryVisualQaSandbox } from "@/components/HungaryBoundaryVisualQaSandbox";
 import { hungaryNuts3SandboxQaSummary } from "@/lib/regionQualityChecks";
 
 export default function MapPage() {
@@ -15,8 +16,8 @@ export default function MapPage() {
         <h2 className="mt-2 text-2xl font-semibold">区域地图数据准备状态</h2>
         <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           {[
-            ["当前阶段", "v0.12 sandbox validation and topology QA"],
-            ["区域地图数据", "匈牙利 NUTS3 沙盒验收中"],
+            ["当前阶段", "v0.13 Hungary boundary visual QA sandbox"],
+            ["区域地图数据", "匈牙利 NUTS3 视觉验收沙盒"],
             ["V4 ADM1 / NUTS2 边界", "待接入"],
             ["区域统计数据", "待接入"],
             ["对华项目地区定位", "准备中"],
@@ -79,6 +80,42 @@ export default function MapPage() {
         <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--muted)]">
           v0.12 只做沙盒验证与基础拓扑 QA；过滤完成或 20 / 20 预匹配均不代表正式验收通过。来源、许可、文件、CRS、几何、权威拓扑、最终主键和质量验收全部通过前，真实地图展示仍未启用。
         </p>
+      </section>
+
+      <section className="mt-6 rounded-3xl border border-[var(--line)] bg-white/65 p-5">
+        <p className="eyebrow">v0.13 Hungary Boundary Visual QA Sandbox</p>
+        <h2 className="mt-2 text-2xl font-semibold">v0.13 匈牙利边界视觉 QA 沙盒</h2>
+        <div className="mt-4 overflow-x-auto rounded-2xl border border-[var(--line)] bg-white/70">
+          <table className="min-w-full border-collapse text-left text-sm">
+            <tbody>
+              {[
+                ["沙盒文件", "hu_nuts3_gisco_2024.geojson"],
+                ["要素数量", "20 / 20"],
+                ["坐标系", "EPSG:4326"],
+                ["fit bounds", "待检查"],
+                ["tooltip fields", "NUTS code / region name / region_id candidate"],
+                ["visual overlap check", "待检查"],
+                ["missing geometry check", "20 / 20"],
+                ["ready_for_public_display", "false"],
+                ["is_ready_for_display", "false"],
+              ].map(([field, value]) => (
+                <tr key={field} className="border-b border-[var(--line)] last:border-b-0">
+                  <th className="w-64 px-4 py-3 font-semibold text-[var(--foreground)]">{field}</th>
+                  <td className="px-4 py-3 text-[var(--muted)]">{value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <details className="mt-4 rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-4">
+          <summary className="cursor-pointer font-semibold">打开内部边界视觉 QA 预览</summary>
+          <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
+            此预览仅用于人工检查形状、定位与候选 tooltip。它不接入正式主地图，能渲染也不代表拓扑、主键或公开展示资格通过。
+          </p>
+          <div className="mt-4">
+            <HungaryBoundaryVisualQaSandbox />
+          </div>
+        </details>
       </section>
 
       <div className="mt-8">

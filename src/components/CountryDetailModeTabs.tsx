@@ -309,6 +309,31 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
         </section>
       ) : null}
 
+      {country.slug === "hungary" ? (
+        <section className="mt-4 card p-6">
+          <p className="eyebrow">4.3 v0.13 Visual QA Status</p>
+          <h2 className="mt-3 text-2xl font-semibold">v0.13 视觉 QA 状态</h2>
+          <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            {[
+              ["边界形状", "待人工目视检查"],
+              ["区域数量", "20 / 20"],
+              ["tooltip", "待检查"],
+              ["视图定位", "待检查"],
+              ["错位/破碎边界", "待检查"],
+              ["是否进入正式地图", "否"],
+            ].map(([label, value]) => (
+              <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+                <p className="text-xs font-semibold text-[var(--muted)]">{label}</p>
+                <p className="mt-2 text-sm font-semibold leading-6 text-[var(--foreground)]">{value}</p>
+              </article>
+            ))}
+          </div>
+          <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
+            v0.13 仅进行内部视觉 QA；许可、权威拓扑、最终主键匹配和人工视觉检查全部通过前，真实地图展示保持未启用。
+          </p>
+        </section>
+      ) : null}
+
       <div className="card p-3">
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
           <div className="px-2">
