@@ -89,6 +89,7 @@ export type HungaryNuts3VisualQaSummary = {
   visual_overlap_checked: boolean;
   missing_geometry_checked: boolean;
   public_display_ready: boolean;
+  is_ready_for_display: boolean;
 };
 
 const updatedAt = "2026-07-27";
@@ -274,6 +275,7 @@ export const hungaryNuts3VisualQaSummary: HungaryNuts3VisualQaSummary = {
   visual_overlap_checked: true,
   missing_geometry_checked: true,
   public_display_ready: false,
+  is_ready_for_display: false,
 };
 
 const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {

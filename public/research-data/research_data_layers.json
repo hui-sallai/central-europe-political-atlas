@@ -42,7 +42,7 @@
     {
       "id": "region_quality_checks",
       "label": "region_quality_checks",
-      "description": "v0.13 区域数据质量验收表；在既有 Hungary NUTS3 sandbox QA 中增加视觉 QA 字段，正式展示状态保持 false。",
+      "description": "v0.13.1 区域数据质量验收表；记录 Hungary NUTS3 视觉 QA 结果，正式展示状态保持 false。",
       "json_file": "region_quality_checks.json",
       "csv_file": "region_quality_checks.csv"
     },
@@ -63,7 +63,7 @@
     {
       "id": "map_layers",
       "label": "map_layers",
-      "description": "v0.13 地图图层注册表；hu_nuts3_boundary_pilot 仅进入内部视觉 QA，is_ready_for_display=false。",
+      "description": "v0.13.1 地图图层注册表；hu_nuts3_boundary_pilot 仅记录内部视觉 QA 结果，is_ready_for_display=false。",
       "json_file": "map_layers.json",
       "csv_file": "map_layers.csv"
     },

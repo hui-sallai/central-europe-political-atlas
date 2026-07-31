@@ -16,8 +16,8 @@ export default function MapPage() {
         <h2 className="mt-2 text-2xl font-semibold">区域地图数据准备状态</h2>
         <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           {[
-            ["当前阶段", "v0.13 Hungary boundary visual QA sandbox"],
-            ["区域地图数据", "匈牙利 NUTS3 视觉验收沙盒"],
+            ["当前阶段", "v0.13.1 visual QA result pass"],
+            ["区域地图数据", "匈牙利 NUTS3 视觉 QA 结果已记录"],
             ["V4 ADM1 / NUTS2 边界", "待接入"],
             ["区域统计数据", "待接入"],
             ["对华项目地区定位", "准备中"],
@@ -83,8 +83,8 @@ export default function MapPage() {
       </section>
 
       <section className="mt-6 rounded-3xl border border-[var(--line)] bg-white/65 p-5">
-        <p className="eyebrow">v0.13 Hungary Boundary Visual QA Sandbox</p>
-        <h2 className="mt-2 text-2xl font-semibold">v0.13 匈牙利边界视觉 QA 沙盒</h2>
+        <p className="eyebrow">v0.13.1 Hungary Boundary Visual QA Result Pass</p>
+        <h2 className="mt-2 text-2xl font-semibold">v0.13.1 匈牙利边界视觉 QA 结果</h2>
         <div className="mt-4 overflow-x-auto rounded-2xl border border-[var(--line)] bg-white/70">
           <table className="min-w-full border-collapse text-left text-sm">
             <tbody>
@@ -96,6 +96,7 @@ export default function MapPage() {
                 ["tooltip", "通过；20 / 20 均显示 NUTS code / region name / region_id candidate"],
                 ["visual overlap check", "通过；未发现明显重叠、错位或破碎边界"],
                 ["missing geometry check", "通过；20 / 20 几何存在，缺失 0"],
+                ["feature rendered", "20 / 20"],
                 ["ready_for_public_display", "false"],
                 ["is_ready_for_display", "false"],
               ].map(([field, value]) => (

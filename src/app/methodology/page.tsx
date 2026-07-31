@@ -126,11 +126,11 @@ const boundarySandboxQaItems = [
 ];
 
 const boundaryVisualQaItems = [
-  "v0.13 视觉 QA 沙盒不等于正式地图展示；所有公开展示状态继续保持 false。",
-  "边界文件能够渲染不等于通过权威拓扑验收；视觉检查不能替代几何与拓扑校验。",
-  "tooltip 能正常显示不等于区域数据可以进入比较、分析或未来模型候选。",
-  "只有许可、几何、拓扑、区域主键与视觉 QA 全部通过后，才能讨论进入真实地图展示。",
-  "v0.13 不新增第 18 张表，不启用风险图层、预测图层、真实党派支持率图层、中国经济暴露指数或区域评分。",
+  "v0.13.1 只记录匈牙利 NUTS3 内部视觉 QA 结果，不启用正式真实地图展示。",
+  "视觉 QA 通过不等于许可通过；license_checked=false 时，public_display_ready 必须保持 false。",
+  "视觉 QA 通过不等于权威拓扑通过；基础重叠与破碎检查不能替代权威拓扑验收。",
+  "视觉 QA 通过不等于正式地图展示启用；is_ready_for_display 必须继续保持 false。",
+  "v0.13.1 不新增第 18 张表，不启用风险图层、预测图层、真实党派支持率图层、中国经济暴露指数或区域评分。",
 ];
 
 const excludedItems = [
@@ -271,7 +271,7 @@ export default function MethodologyPage() {
         <h2 className="mt-3 text-2xl font-semibold">5.2 数据导出与接口准备</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {[
-            "当前阶段：v0.13 Hungary boundary visual QA sandbox；只做匈牙利 NUTS3 内部视觉 QA，正式真实地图展示仍未启用。",
+            "当前阶段：v0.13.1 visual QA result pass；只记录匈牙利 NUTS3 内部视觉 QA 结果，正式真实地图展示仍未启用。",
             "当前只做 CSV / JSON 数据结构准备。",
             "不提供预测 API。",
             "不提供模型 API。",
@@ -296,7 +296,7 @@ export default function MethodologyPage() {
             "region_quality_checks 用于检查边界、许可、区域代码、数值、单位和来源状态；未通过项不得进入正式地图图层。",
             "project_locations 只把对华项目定位到城市、区域或国家层级；缺少可核验位置来源时不进入地图展示。",
             "map_layers 仅注册未来图层，is_ready_for_display=false 的图层不得作为真实图层展示；风险图层、预测图层和真实党派支持率图层均未启用，新闻区仍不做评价。",
-            "v0.13 Hungary boundary visual QA sandbox 继续要求八张区域表保留字段名、字段含义、允许状态、来源要求、地图展示资格、未来模型候选边界和备注；视觉 QA 字段只用于验收和导出准备。",
+            "v0.13.1 visual QA result pass 继续要求八张区域表保留字段名、字段含义、允许状态、来源要求、地图展示资格、未来模型候选边界和备注；视觉 QA 结果只用于验收和导出准备。",
           ].map((item) => (
             <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
               {item}
@@ -342,8 +342,8 @@ export default function MethodologyPage() {
       </section>
 
       <section className="mt-6 card p-6">
-        <p className="eyebrow">Boundary Visual QA Sandbox</p>
-        <h2 className="mt-3 text-2xl font-semibold">5.7 v0.13 视觉 QA 规则</h2>
+        <p className="eyebrow">Boundary Visual QA Result Pass</p>
+        <h2 className="mt-3 text-2xl font-semibold">5.7 v0.13.1 视觉 QA 结果记录规则</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {boundaryVisualQaItems.map((item) => (
             <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">

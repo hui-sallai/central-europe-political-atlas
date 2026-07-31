@@ -3,7 +3,7 @@
   "generated_at": "2026-07-27",
   "data_type": "region_quality_checks",
   "record_count": 291,
-  "scope": "v0.13 regional data quality checks. Hungary NUTS3 adds internal visual QA fields while formal display remains disabled.",
+  "scope": "v0.13.1 regional data quality checks. Hungary NUTS3 records the internal visual QA result while formal display remains disabled.",
   "primary_key": "region_check_id",
   "summary": {
     "total_region_count": 64,
@@ -39,7 +39,8 @@
     "tooltip_checked": true,
     "visual_overlap_checked": true,
     "missing_geometry_checked": true,
-    "public_display_ready": false
+    "public_display_ready": false,
+    "is_ready_for_display": false
   },
   "relation_note": "Every check references region_id from regions and region_indicator_id from region_indicators. Boundary readiness is cross-checked through region_boundaries.",
   "validation_note": "Basic topology QA does not replace authoritative validation. A 20/20 pre-match does not set region_id_matched=true, and pending rows remain explicit.",

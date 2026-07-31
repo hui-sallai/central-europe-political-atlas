@@ -309,7 +309,7 @@ const dataEntryShortcuts: DataEntryShortcut[] = [
   { id: "region-quality-checks-layer-entry", label: "区域质量验收表", mode: "tables", description: "v0.12 region_quality_checks 增加 Hungary NUTS3 sandbox QA 摘要，并继续区分预匹配与最终主键核验。" },
   { id: "region-sources-layer-entry", label: "区域来源字典", mode: "tables", description: "v0.11 region_sources 锁定 GISCO Level 3 GeoJSON 并保留待确认许可状态。" },
   { id: "project-locations-layer-entry", label: "项目地区定位表", mode: "tables", description: "v0.11 project_locations 继续保留项目地区定位结构，不启用真实项目点位图层。" },
-  { id: "map-layers-layer-entry", label: "地图图层注册表", mode: "tables", description: "v0.12 map_layers 保持 hu_nuts3_boundary_pilot.is_ready_for_display=false。" },
+  { id: "map-layers-layer-entry", label: "地图图层注册表", mode: "tables", description: "v0.13.1 map_layers 记录视觉 QA 结果，并保持 hu_nuts3_boundary_pilot.is_ready_for_display=false。" },
   { id: "indicator-dictionary-entry", label: "指标字典入口", mode: "tables", description: "18 个指标的口径、单位、来源优先级和比较资格。" },
   { id: "source-dictionary-entry", label: "来源字典入口", mode: "tables", description: "16 类来源的链接、可靠性等级和使用边界。" },
   { id: "v4-data-quality-entry", label: "数据质量验收入口", mode: "comparison", description: "V4 四国 240 个观测位置的验收清单。", requiresV4: true },
@@ -1984,11 +1984,12 @@ function HungaryVisualQaSummaryCards({ summary }: { summary: HungaryNuts3VisualQ
     ["visual_overlap_checked", String(summary.visual_overlap_checked)],
     ["missing_geometry_checked", String(summary.missing_geometry_checked)],
     ["public_display_ready", String(summary.public_display_ready)],
+    ["is_ready_for_display", String(summary.is_ready_for_display)],
   ] as const;
 
   return (
     <section className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
-      <p className="eyebrow">v0.13 Visual QA Fields</p>
+      <p className="eyebrow">v0.13.1 Visual QA Result Fields</p>
       <h3 className="mt-2 text-lg font-semibold">Hungary NUTS3 visual QA summary</h3>
       <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
         该摘要属于既有 region_quality_checks，不新增第 18 张表。渲染成功不代表拓扑、主键或公开展示资格已通过。
@@ -1996,7 +1997,7 @@ function HungaryVisualQaSummaryCards({ summary }: { summary: HungaryNuts3VisualQ
       <p className="mt-3 rounded-xl border border-[var(--line)] bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--foreground)]">
         <span className="font-mono text-xs font-semibold text-[var(--accent)]">visual QA summary</span>
         <span className="mt-1 block">
-          fit bounds：通过；tooltip：通过；visual overlap：未发现明显问题；missing geometry：20 / 20 通过；权威拓扑、许可和最终主键仍需复核；public_display_ready=false。
+          visual_qa_started=true；feature_rendered_count=20；fit_bounds_checked=true；tooltip_checked=true；visual_overlap_checked=true；missing_geometry_checked=true；public_display_ready=false；is_ready_for_display=false。权威拓扑、许可和最终主键仍需复核。
         </span>
       </p>
       <dl className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
@@ -2380,7 +2381,7 @@ function ResearchDataExportLinks() {
   const exportStatusCards = [
     { label: "CSV 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .csv 文件。" },
     { label: "JSON 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: "v0.13 Hungary boundary visual QA sandbox", note: "匈牙利 NUTS3 边界进入内部视觉 QA；正式真实地图、模型、预测、指数和风险分数仍未启用。" },
+    { label: "当前阶段", value: "v0.13.1 visual QA result pass", note: "匈牙利 NUTS3 内部视觉 QA 结果已记录；正式真实地图、模型、预测、指数和风险分数仍未启用。" },
   ];
 
   return (
@@ -3356,10 +3357,10 @@ export function DataCountryExplorer() {
             <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
               <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
                 <div>
-                  <p className="eyebrow">v0.13 Field-Level Visual QA</p>
+                  <p className="eyebrow">v0.13.1 Visual QA Result Pass</p>
                   <h4 className="mt-2 text-base font-semibold">区域表字段级验收</h4>
                   <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
-                    八个区域表继续保留完整字段、枚举/状态和用途说明；v0.13 只在既有 region_quality_checks 与 map_layers 中增加视觉 QA 字段，不新增第 18 张表。
+                    八个区域表继续保留完整字段、枚举/状态和用途说明；v0.13.1 只在既有 region_quality_checks 与 map_layers 中记录视觉 QA 结果，不新增第 18 张表。
                   </p>
                 </div>
                 <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">8 / 8 表体已实化</span>
@@ -3403,7 +3404,7 @@ export function DataCountryExplorer() {
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldSourceRequirement(schema.table, field)}</td>
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldMapDisplayRule(schema.table, field)}</td>
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldModelRule(field)}</td>
-                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">v0.13 visual QA sandbox 字段口径；不新增模型、预测、风险指数或中国经济暴露指数。</td>
+                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">v0.13.1 visual QA result pass 字段口径；不新增模型、预测、风险指数或中国经济暴露指数。</td>
                               </tr>
                             ))}
                           </tbody>
@@ -3449,7 +3450,7 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Research Registry Tables</p>
               <h2 className="mt-3 text-2xl font-semibold">研究数据结构总表</h2>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                以下十七个逻辑数据层常驻在数据页；v0.8 的九个逻辑数据层继续保留，v0.13 只在既有区域地图数据结构上推进匈牙利 NUTS3 内部视觉 QA。它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。其中 regions 是区域主键层，region_boundaries 是边界来源、沙盒文件和展示状态登记层，region_indicators 是独立于国家级 indicators 的区域指标字典，region_observations 是区域经济数据主表，region_quality_checks 是区域质量验收层，region_sources 是区域来源字典，project_locations 是对华项目地区定位桥表，map_layers 是地图图层注册表。
+                以下十七个逻辑数据层常驻在数据页；v0.8 的九个逻辑数据层继续保留，v0.13.1 只在既有区域地图数据结构上记录匈牙利 NUTS3 内部视觉 QA 结果。它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。其中 regions 是区域主键层，region_boundaries 是边界来源、沙盒文件和展示状态登记层，region_indicators 是独立于国家级 indicators 的区域指标字典，region_observations 是区域经济数据主表，region_quality_checks 是区域质量验收层，region_sources 是区域来源字典，project_locations 是对华项目地区定位桥表，map_layers 是地图图层注册表。
               </p>
             </div>
             <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">按需展开</span>
@@ -3532,7 +3533,7 @@ export function DataCountryExplorer() {
 
             <DeferredDetails id="map-layers-layer-entry" title="map_layers：v0.12 地图图层注册表">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                map_layers 只注册未来地图工作台的可控图层。v0.12 的 hu_nuts3_boundary_pilot 继续保持 is_ready_for_display=false，直到来源、许可、文件、CRS、几何、权威拓扑、最终主键匹配和质量验收全部通过。
+                map_layers 只注册未来地图工作台的可控图层。v0.13.1 的 hu_nuts3_boundary_pilot 已记录内部视觉 QA 结果，但继续保持 is_ready_for_display=false，直到来源、许可、文件、CRS、几何、权威拓扑、最终主键匹配和质量验收全部通过。
               </p>
               <MapLayerRegistryTable rows={mapLayerRecords} />
             </DeferredDetails>
@@ -3586,7 +3587,7 @@ export function DataCountryExplorer() {
 
             <DeferredDetails id="data-export-entry" title="数据导出与接口准备">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.13 Hungary boundary visual QA sandbox；既有 17 个逻辑层同步视觉 QA 状态，不提供模型 API。
+                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.13.1 visual QA result pass；既有 17 个逻辑层同步视觉 QA 结果，不提供模型 API。
                 当前导出对象包括 countries、regions、region_boundaries、region_indicators、region_observations、region_quality_checks、region_sources、project_locations、map_layers、indicators、sources、observations、data_quality_checks、derived_comparisons、china_projects、china_exposure_candidates 和 methodology_rules。
               </p>
               <ResearchDataExportLinks />

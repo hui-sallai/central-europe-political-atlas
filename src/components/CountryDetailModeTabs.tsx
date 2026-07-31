@@ -311,8 +311,8 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
 
       {country.slug === "hungary" ? (
         <section className="mt-4 card p-6">
-          <p className="eyebrow">4.3 v0.13 Visual QA Status</p>
-          <h2 className="mt-3 text-2xl font-semibold">v0.13 视觉 QA 状态</h2>
+          <p className="eyebrow">4.3 v0.13.1 Visual QA Result</p>
+          <h2 className="mt-3 text-2xl font-semibold">v0.13.1 视觉 QA 结果</h2>
           <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             {[
               ["边界形状", "通过（内部视觉 QA）；权威拓扑仍需复核"],
@@ -329,7 +329,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
             ))}
           </div>
           <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
-            v0.13 仅进行内部视觉 QA；许可、权威拓扑、最终主键匹配和人工视觉检查全部通过前，真实地图展示保持未启用。
+            v0.13.1 仅记录内部视觉 QA 结果；视觉 QA 通过不等于许可或权威拓扑通过，真实地图展示保持未启用。
           </p>
         </section>
       ) : null}

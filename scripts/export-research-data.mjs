@@ -1089,7 +1089,7 @@ writeLayer("region_observations", regionObservationRecords, {
   model_boundary: "Observation structure only. Pending rows do not enter map layers, regional comparison, or future model candidate inputs.",
 });
 writeLayer("region_quality_checks", regionQualityCheckRecords, {
-  scope: "v0.13 regional data quality checks. Hungary NUTS3 adds internal visual QA fields while formal display remains disabled.",
+  scope: "v0.13.1 regional data quality checks. Hungary NUTS3 records the internal visual QA result while formal display remains disabled.",
   primary_key: "region_check_id",
   summary: regionQualitySummary,
   sandbox_qa_summary: hungaryNuts3SandboxQaSummary,
@@ -1113,7 +1113,7 @@ writeLayer("project_locations", projectLocationRecords, {
   model_boundary: "Location bridge only. No China exposure index, regional risk layer, forecast, or live project map layer is generated.",
 });
 writeLayer("map_layers", mapLayerRecords, {
-  scope: "v0.13 map layer registry. hu_nuts3_boundary_pilot supports internal visual QA only; is_ready_for_display and public_display_ready remain false.",
+  scope: "v0.13.1 map layer registry. hu_nuts3_boundary_pilot records internal visual QA results only; is_ready_for_display and public_display_ready remain false.",
   primary_key: "layer_id",
   relation_note: "Each layer declares its data_source_table, geometry_source_table, indicator_or_variable, tooltip fields, filters, source requirements, and quality requirements.",
   validation_note: "All registered real boundary and analytical layers keep is_ready_for_display=false until boundary, source, observation, project-location, and quality checks pass.",
