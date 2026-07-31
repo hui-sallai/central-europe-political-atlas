@@ -21,7 +21,7 @@
     {
       "id": "region_boundaries",
       "label": "region_boundaries",
-      "description": "v0.12 区域边界来源表；hu_nuts3_gisco_2024 已进入沙盒验证与基础拓扑 QA，并继续保持 not_ready_for_display。",
+      "description": "v0.15 区域边界来源表；hu_nuts3_gisco_2024 已记录许可、署名和权威拓扑证据状态，并继续保持 not_ready_for_display。",
       "json_file": "region_boundaries.json",
       "csv_file": "region_boundaries.csv"
     },
@@ -42,14 +42,14 @@
     {
       "id": "region_quality_checks",
       "label": "region_quality_checks",
-      "description": "v0.14 区域数据质量验收表；记录 Hungary NUTS3 展示准入闸门，正式展示状态保持 false。",
+      "description": "v0.15 区域数据质量验收表；记录 Hungary NUTS3 许可与权威拓扑证据，正式展示状态保持 false。",
       "json_file": "region_quality_checks.json",
       "csv_file": "region_quality_checks.csv"
     },
     {
       "id": "region_sources",
       "label": "region_sources",
-      "description": "v0.11 区域来源字典；锁定 GISCO NUTS 2024 Level 3 GeoJSON，同时保留待确认的许可状态。",
+      "description": "v0.15 区域来源字典；锁定 GISCO NUTS 2024 Level 3 GeoJSON，并记录官方许可来源与署名要求。",
       "json_file": "region_sources.json",
       "csv_file": "region_sources.csv"
     },
@@ -63,7 +63,7 @@
     {
       "id": "map_layers",
       "label": "map_layers",
-      "description": "v0.14 地图图层注册表；hu_nuts3_boundary_pilot 记录 readiness gate，is_ready_for_display=false。",
+      "description": "v0.15 地图图层注册表；hu_nuts3_boundary_pilot 记录许可与权威拓扑证据，is_ready_for_display=false。",
       "json_file": "map_layers.json",
       "csv_file": "map_layers.csv"
     },

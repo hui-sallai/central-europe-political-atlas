@@ -11,7 +11,7 @@ export default function DataOverviewPage() {
         数据页改为按国家单独查看。先选择国家，再查看该国宏观经济、官方来源、地图图层、对华经贸样本、新闻记录和资料入口。
       </p>
       <div className="mt-4 inline-flex rounded-full border border-[var(--line)] bg-white/70 px-4 py-2 text-xs font-semibold text-[var(--muted)]">
-        当前阶段：v0.14 Hungary boundary readiness gate / 匈牙利 NUTS3 展示准入核验中 / 模型层未启用 / 真实地图展示未启用
+        当前阶段：v0.15 Hungary boundary license and topology evidence record / 匈牙利 NUTS3 许可与拓扑证据核验中 / 模型层未启用 / 真实地图展示未启用
       </div>
 
       <section className="mt-6">

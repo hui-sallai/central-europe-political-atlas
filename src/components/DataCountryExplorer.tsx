@@ -303,13 +303,13 @@ const dataModes: { id: DataMode; label: string; description: string }[] = [
 const dataEntryShortcuts: DataEntryShortcut[] = [
   { id: "countries-layer-entry", label: "国家元数据表", mode: "tables", description: "十国 countries 逻辑层，作为 country_id 关联表。" },
   { id: "regions-layer-entry", label: "区域元数据表", mode: "tables", description: "v0.11 regions 保留匈牙利 NUTS3 的 20 个预匹配位置；非 V4 国家级待接入。" },
-  { id: "region-boundaries-layer-entry", label: "区域边界来源表", mode: "tables", description: "v0.12 region_boundaries 登记匈牙利沙盒过滤、基础拓扑 QA 和不可展示状态。" },
+  { id: "region-boundaries-layer-entry", label: "区域边界来源表", mode: "tables", description: "v0.15 region_boundaries 登记匈牙利许可、署名、权威拓扑方法与不可展示状态。" },
   { id: "region-indicators-layer-entry", label: "区域指标字典", mode: "tables", description: "v0.11 region_indicators 继续保留独立区域指标字典，第一批 10 项。" },
   { id: "region-observations-layer-entry", label: "区域观测值表", mode: "tables", description: "v0.11 region_observations 继续保留区域经济数据主表和待接入观测位置。" },
-  { id: "region-quality-checks-layer-entry", label: "区域质量验收表", mode: "tables", description: "v0.14 region_quality_checks 记录 Hungary NUTS3 readiness gate，并继续区分预匹配、视觉 QA 与最终主键核验。" },
-  { id: "region-sources-layer-entry", label: "区域来源字典", mode: "tables", description: "v0.11 region_sources 锁定 GISCO Level 3 GeoJSON 并保留待确认许可状态。" },
+  { id: "region-quality-checks-layer-entry", label: "区域质量验收表", mode: "tables", description: "v0.15 region_quality_checks 记录 Hungary NUTS3 许可与权威拓扑证据，并继续区分基础 QA、权威验收与最终主键核验。" },
+  { id: "region-sources-layer-entry", label: "区域来源字典", mode: "tables", description: "v0.15 region_sources 锁定 GISCO Level 3 GeoJSON，并记录许可来源、署名要求与未完成核验状态。" },
   { id: "project-locations-layer-entry", label: "项目地区定位表", mode: "tables", description: "v0.11 project_locations 继续保留项目地区定位结构，不启用真实项目点位图层。" },
-  { id: "map-layers-layer-entry", label: "地图图层注册表", mode: "tables", description: "v0.14 map_layers 记录展示准入闸门，并保持 hu_nuts3_boundary_pilot.is_ready_for_display=false。" },
+  { id: "map-layers-layer-entry", label: "地图图层注册表", mode: "tables", description: "v0.15 map_layers 记录许可与权威拓扑证据，并保持 hu_nuts3_boundary_pilot.is_ready_for_display=false。" },
   { id: "indicator-dictionary-entry", label: "指标字典入口", mode: "tables", description: "18 个指标的口径、单位、来源优先级和比较资格。" },
   { id: "source-dictionary-entry", label: "来源字典入口", mode: "tables", description: "16 类来源的链接、可靠性等级和使用边界。" },
   { id: "v4-data-quality-entry", label: "数据质量验收入口", mode: "comparison", description: "V4 四国 240 个观测位置的验收清单。", requiresV4: true },
@@ -342,7 +342,7 @@ const regionalSchemaChecks = [
     table: "region_boundaries",
     priority: "最高优先级",
     why: "没有 region_boundaries，真实边界来源、许可和几何状态无法核验。",
-    fields: "boundary_id, region_id, country_id, admin_level, nuts_version, boundary_source_name, boundary_source_url, boundary_source_type, boundary_license, boundary_format, geometry_format, file_selected, file_url, file_status, filter_status, display_status, geometry_available, geometry_simplified, topology_checked, coordinate_system, file_path_or_url, region_code_match_status, source_reliability, source_status, last_checked, notes",
+    fields: "boundary_id, region_id, country_id, admin_level, nuts_version, boundary_source_name, boundary_source_url, boundary_source_type, boundary_license, license_source, license_url, attribution_required, attribution_text, license_checked, boundary_format, geometry_format, file_selected, file_url, file_status, filter_status, display_status, geometry_available, geometry_simplified, topology_checked, authoritative_topology_method, authoritative_topology_checked, topology_evidence_status, coordinate_system, file_path_or_url, region_code_match_status, region_id_final_matched, public_display_ready, is_ready_for_display, source_reliability, source_status, last_checked, notes",
     enums: "boundary_format: GeoJSON / TopoJSON / Shapefile / PMTiles / Vector Tiles / Not available；file_status: sandbox_downloaded / not_downloaded / not_applicable；filter_status: sandbox_filtered / not_filtered / not_applicable；display_status: not_ready_for_display。",
     status: "v0.12 只允许匈牙利文件进入沙盒验证与拓扑 QA；基础检查通过不等于可以进入真实地图展示。",
   },
@@ -366,7 +366,7 @@ const regionalSchemaChecks = [
     table: "region_sources",
     priority: "标准表体",
     why: "区域统计、边界和项目定位来源需要单独管理许可状态。",
-    fields: "region_source_id, source_name_zh, source_name_en, source_type, country_coverage, admin_level_coverage, indicator_coverage, boundary_coverage, source_url, source_reliability, source_status, update_frequency, license_status, can_be_used_for_boundary, can_be_used_for_regional_statistics, can_be_used_for_election_data, can_be_used_for_project_location, is_supplementary_only, is_excluded_from_analysis, last_checked, notes",
+    fields: "region_source_id, source_name_zh, source_name_en, source_type, country_coverage, admin_level_coverage, indicator_coverage, boundary_coverage, source_url, source_reliability, source_status, update_frequency, license_status, license_source, license_url, attribution_required, attribution_text, license_checked, usage_note, can_be_used_for_boundary, can_be_used_for_regional_statistics, can_be_used_for_election_data, can_be_used_for_project_location, is_supplementary_only, is_excluded_from_analysis, last_checked, notes",
     enums: "source_type: Eurostat regional statistics / 各国统计局区域数据 / 欧盟 GIS / 官方开放数据门户 / 地方政府官网 / 人工整理来源 / 待接入来源 / 结构样例来源；source_reliability: A / B / C / D。",
     status: "license_status 必须保留；未检查许可的边界来源不能公开展示或复用。",
   },
@@ -374,7 +374,7 @@ const regionalSchemaChecks = [
     table: "region_quality_checks",
     priority: "标准表体",
     why: "区域数据比国家数据更乱，必须提前验收边界、许可、来源和区域代码。",
-    fields: "region_check_id, region_id, country_id, admin_level, region_indicator_id, year, boundary_available, boundary_source_available, boundary_license_checked, source_available, license_checked, authoritative_topology_checked, region_id_final_matched, visual_qa_passed, file_selected, file_downloaded, hungary_filtered, geometry_filtered, crs_confirmed, topology_checked, region_id_matched, ready_for_display, visual_qa_started, feature_rendered_count, fit_bounds_checked, tooltip_checked, visual_overlap_checked, missing_geometry_checked, public_display_ready, is_ready_for_display, readiness_gate_status, value_present, unit_present, source_name_present, source_url_present, source_reliability_present, region_code_present, is_official_data, is_pending, is_calculated, is_manual, is_structural_sample, is_map_ready, is_region_comparable, is_export_ready, quality_status, missing_reason, quality_notes, last_updated",
+    fields: "region_check_id, region_id, country_id, admin_level, region_indicator_id, year, boundary_available, boundary_source_available, boundary_license_checked, source_available, license_source, license_url, attribution_required, attribution_text, license_checked, authoritative_topology_method, authoritative_topology_checked, topology_evidence_status, region_id_final_matched, visual_qa_passed, file_selected, file_downloaded, hungary_filtered, geometry_filtered, crs_confirmed, topology_checked, region_id_matched, ready_for_display, visual_qa_started, feature_rendered_count, fit_bounds_checked, tooltip_checked, visual_overlap_checked, missing_geometry_checked, public_display_ready, is_ready_for_display, readiness_gate_status, value_present, unit_present, source_name_present, source_url_present, source_reliability_present, region_code_present, is_official_data, is_pending, is_calculated, is_manual, is_structural_sample, is_map_ready, is_region_comparable, is_export_ready, quality_status, missing_reason, quality_notes, last_updated",
     enums: "quality_status: 通过 / 部分通过 / 待接入 / 需复核 / 不进入分析。",
     status: "当前待接入项保留缺失原因；is_map_ready=false 的区域不进入地图图层。",
   },
@@ -390,7 +390,7 @@ const regionalSchemaChecks = [
     table: "map_layers",
     priority: "最高优先级",
     why: "没有 map_layers，地图页无法管理哪些图层只是注册、哪些可以显示。",
-    fields: "layer_id, layer_name_zh, layer_name_en, layer_type, data_source_table, geometry_source_table, admin_level, country_coverage, indicator_or_variable, is_active, license_checked, authoritative_topology_checked, region_id_final_matched, visual_qa_passed, public_display_ready, is_ready_for_display, readiness_gate_status, visual_qa_started, feature_rendered_count, fit_bounds_checked, tooltip_checked, visual_overlap_checked, missing_geometry_checked, is_structural_sample, is_official_data, is_manual, is_pending, legend_type, legend_unit, color_scale, interaction_type, tooltip_fields, allowed_filters, source_requirement, quality_requirement, model_boundary, last_updated, notes",
+    fields: "layer_id, layer_name_zh, layer_name_en, layer_type, data_source_table, geometry_source_table, admin_level, country_coverage, indicator_or_variable, is_active, license_source, license_url, attribution_required, attribution_text, license_checked, authoritative_topology_method, authoritative_topology_checked, topology_evidence_status, region_id_final_matched, visual_qa_passed, public_display_ready, is_ready_for_display, readiness_gate_status, visual_qa_started, feature_rendered_count, fit_bounds_checked, tooltip_checked, visual_overlap_checked, missing_geometry_checked, is_structural_sample, is_official_data, is_manual, is_pending, legend_type, legend_unit, color_scale, interaction_type, tooltip_fields, allowed_filters, source_requirement, quality_requirement, model_boundary, last_updated, notes",
     enums: "layer_type: boundary / choropleth / point / symbol / label / table_only / structural_sample；is_ready_for_display=false 的图层不得作为真实图层展示。",
     status: "v0.11 只登记匈牙利边界文件沙盒和既有图层；不启用风险图层、预测图层、真实党派支持率图层或中国经济暴露指数。",
   },
@@ -410,6 +410,11 @@ function regionalFieldMeaning(field: string) {
     boundary_id: "边界记录唯一主键。",
     boundary_source_url: "边界来源链接，用于核验公开展示、许可和复用条件。",
     boundary_license: "边界数据许可状态，决定是否可以公开展示和简化。",
+    license_source: "许可条件或使用条款的官方来源。",
+    license_url: "许可条件、使用条款或数据集许可页面链接。",
+    attribution_required: "是否要求在地图或发布物中保留署名。",
+    attribution_text: "公开展示时需要使用的署名文本。",
+    license_checked: "许可来源虽可记录，但只有完成适用范围与使用条款核验后才能为 true。",
     boundary_format: "边界文件格式或待接入状态。",
     file_url: "已选定的具体几何文件地址；文件尚未选择时必须留空。",
     file_status: "候选文件的沙盒下载状态。",
@@ -418,6 +423,8 @@ function regionalFieldMeaning(field: string) {
     geometry_available: "几何文件是否已经可用。",
     geometry_simplified: "几何是否已完成前端加载所需简化。",
     topology_checked: "拓扑关系是否完成检查。",
+    authoritative_topology_method: "计划或已经采用的权威拓扑验收方法。",
+    topology_evidence_status: "拓扑证据处于基础 QA、待权威核验或已通过等状态。",
     file_path_or_url: "边界文件路径或来源 URL。",
     region_indicator_id: "区域指标唯一主键，不与国家级 indicators 混用。",
     year: "观测年份或验收年份。",
@@ -474,7 +481,7 @@ function regionalFieldMeaning(field: string) {
 }
 
 function regionalFieldAllowedStatus(table: string, field: string) {
-  if (table === "map_layers" && field === "is_ready_for_display") return "v0.14 必须保持 false";
+  if (table === "map_layers" && field === "is_ready_for_display") return "v0.15 必须保持 false";
   if (field === "readiness_gate_status") return "not_ready_for_public_display / ready_for_public_display";
   if (field === "file_status") return "sandbox_downloaded / not_downloaded / not_applicable";
   if (field === "filter_status") return "sandbox_filtered / not_filtered / not_applicable";
@@ -1680,6 +1687,11 @@ function RegionBoundaryTable({ rows }: { rows: RegionBoundaryRecord[] }) {
     "boundary_source_url",
     "boundary_source_type",
     "boundary_license",
+    "license_source",
+    "license_url",
+    "attribution_required",
+    "attribution_text",
+    "license_checked",
     "boundary_format",
     "nuts_version",
     "geometry_format",
@@ -1691,8 +1703,14 @@ function RegionBoundaryTable({ rows }: { rows: RegionBoundaryRecord[] }) {
     "geometry_available",
     "geometry_simplified",
     "topology_checked",
+    "authoritative_topology_method",
+    "authoritative_topology_checked",
+    "topology_evidence_status",
     "coordinate_system",
     "region_code_match_status",
+    "region_id_final_matched",
+    "public_display_ready",
+    "is_ready_for_display",
     "file_path_or_url",
     "source_reliability",
     "source_status",
@@ -1702,7 +1720,7 @@ function RegionBoundaryTable({ rows }: { rows: RegionBoundaryRecord[] }) {
 
   return (
     <div className="mt-5 wide-table-scroll max-w-full">
-      <table className="research-data-table region-boundary-table w-full min-w-[4300px] border-separate border-spacing-0 text-left text-sm">
+      <table className="research-data-table region-boundary-table w-full min-w-[6500px] border-separate border-spacing-0 text-left text-sm">
         <thead>
           <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
             {headers.map((header) => (
@@ -1727,6 +1745,17 @@ function RegionBoundaryTable({ rows }: { rows: RegionBoundaryRecord[] }) {
               </td>
               <td className="border-b border-[var(--line)] px-3 py-3">{boundary.boundary_source_type}</td>
               <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{boundary.boundary_license}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{boundary.license_source}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">
+                {boundary.license_url ? (
+                  <a href={boundary.license_url} target="_blank" rel="noreferrer" className="text-xs font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+                    license
+                  </a>
+                ) : "—"}
+              </td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={boundary.attribution_required} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{boundary.attribution_text}</td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={boundary.license_checked} /></td>
               <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{boundary.boundary_format}</DictionaryToken></td>
               <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{boundary.nuts_version}</DictionaryToken></td>
               <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{boundary.geometry_format}</DictionaryToken></td>
@@ -1744,8 +1773,14 @@ function RegionBoundaryTable({ rows }: { rows: RegionBoundaryRecord[] }) {
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={boundary.geometry_available} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={boundary.geometry_simplified} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={boundary.topology_checked} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{boundary.authoritative_topology_method}</td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={boundary.authoritative_topology_checked} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{boundary.topology_evidence_status}</DictionaryToken></td>
               <td className="border-b border-[var(--line)] px-3 py-3">{boundary.coordinate_system}</td>
               <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{boundary.region_code_match_status}</DictionaryToken></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={boundary.region_id_final_matched} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={boundary.public_display_ready} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={boundary.is_ready_for_display} /></td>
               <td className="border-b border-[var(--line)] px-3 py-3">
                 {boundary.file_path_or_url ? (
                   <a href={boundary.file_path_or_url.startsWith("/") ? `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}${boundary.file_path_or_url}` : boundary.file_path_or_url} target="_blank" rel="noreferrer" className="text-xs font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
@@ -2030,8 +2065,14 @@ function RegionQualityCheckTable({ rows }: { rows: RegionQualityCheckRecord[] })
     "boundary_source_available",
     "boundary_license_checked",
     "source_available",
+    "license_source",
+    "license_url",
+    "attribution_required",
+    "attribution_text",
     "license_checked",
+    "authoritative_topology_method",
     "authoritative_topology_checked",
+    "topology_evidence_status",
     "region_id_final_matched",
     "visual_qa_passed",
     "file_selected",
@@ -2073,7 +2114,7 @@ function RegionQualityCheckTable({ rows }: { rows: RegionQualityCheckRecord[] })
 
   return (
     <div className="mt-5 wide-table-scroll max-w-full">
-      <table className="research-data-table region-quality-table w-full min-w-[5500px] border-separate border-spacing-0 text-left text-sm">
+      <table className="research-data-table region-quality-table w-full min-w-[7000px] border-separate border-spacing-0 text-left text-sm">
         <thead>
           <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
             {headers.map((header) => (
@@ -2094,8 +2135,20 @@ function RegionQualityCheckTable({ rows }: { rows: RegionQualityCheckRecord[] })
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.boundary_source_available} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.boundary_license_checked} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.source_available} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{check.license_source}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">
+                {check.license_url ? (
+                  <a href={check.license_url} target="_blank" rel="noreferrer" className="text-xs font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+                    license
+                  </a>
+                ) : "—"}
+              </td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.attribution_required} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{check.attribution_text}</td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.license_checked} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{check.authoritative_topology_method}</td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.authoritative_topology_checked} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{check.topology_evidence_status}</DictionaryToken></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.region_id_final_matched} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.visual_qa_passed} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.file_selected} /></td>
@@ -2156,7 +2209,11 @@ function RegionSourceTable({ rows }: { rows: RegionSourceRecord[] }) {
     "source_status",
     "update_frequency",
     "license_status",
+    "license_source",
     "license_url",
+    "attribution_required",
+    "attribution_text",
+    "license_checked",
     "usage_note",
     "can_be_used_for_boundary",
     "can_be_used_for_regional_statistics",
@@ -2170,7 +2227,7 @@ function RegionSourceTable({ rows }: { rows: RegionSourceRecord[] }) {
 
   return (
     <div className="mt-5 wide-table-scroll max-w-full">
-      <table className="research-data-table region-source-table w-full min-w-[4600px] border-separate border-spacing-0 text-left text-sm">
+      <table className="research-data-table region-source-table w-full min-w-[5600px] border-separate border-spacing-0 text-left text-sm">
         <thead>
           <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
             {headers.map((header) => (
@@ -2200,6 +2257,7 @@ function RegionSourceTable({ rows }: { rows: RegionSourceRecord[] }) {
               <td className="border-b border-[var(--line)] px-3 py-3">{source.source_status}</td>
               <td className="border-b border-[var(--line)] px-3 py-3">{source.update_frequency}</td>
               <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{source.license_status}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{source.license_source ?? "待接入"}</td>
               <td className="border-b border-[var(--line)] px-3 py-3">
                 {source.license_url ? (
                   <a href={source.license_url} target="_blank" rel="noreferrer" className="text-xs font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
@@ -2207,6 +2265,9 @@ function RegionSourceTable({ rows }: { rows: RegionSourceRecord[] }) {
                   </a>
                 ) : "—"}
               </td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={Boolean(source.attribution_required)} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{source.attribution_text ?? "待接入"}</td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={Boolean(source.license_checked)} /></td>
               <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{source.usage_note ?? "—"}</td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={source.can_be_used_for_boundary} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={source.can_be_used_for_regional_statistics} /></td>
@@ -2313,8 +2374,14 @@ function MapLayerRegistryTable({ rows }: { rows: MapLayerRecord[] }) {
     "country_coverage",
     "indicator_or_variable",
     "is_active",
+    "license_source",
+    "license_url",
+    "attribution_required",
+    "attribution_text",
     "license_checked",
+    "authoritative_topology_method",
     "authoritative_topology_checked",
+    "topology_evidence_status",
     "region_id_final_matched",
     "visual_qa_passed",
     "public_display_ready",
@@ -2345,7 +2412,7 @@ function MapLayerRegistryTable({ rows }: { rows: MapLayerRecord[] }) {
 
   return (
     <div className="mt-5 wide-table-scroll max-w-full">
-      <table className="research-data-table map-layer-table w-full min-w-[5600px] border-separate border-spacing-0 text-left text-sm">
+      <table className="research-data-table map-layer-table w-full min-w-[7200px] border-separate border-spacing-0 text-left text-sm">
         <thead>
           <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
             {headers.map((header) => (
@@ -2366,8 +2433,20 @@ function MapLayerRegistryTable({ rows }: { rows: MapLayerRecord[] }) {
               <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{layer.country_coverage}</td>
               <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{layer.indicator_or_variable}</td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.is_active} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{layer.license_source}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">
+                {layer.license_url ? (
+                  <a href={layer.license_url} target="_blank" rel="noreferrer" className="text-xs font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+                    license
+                  </a>
+                ) : "—"}
+              </td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.attribution_required} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{layer.attribution_text}</td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.license_checked} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{layer.authoritative_topology_method}</td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.authoritative_topology_checked} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{layer.topology_evidence_status}</DictionaryToken></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.region_id_final_matched} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.visual_qa_passed} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.public_display_ready} /></td>
@@ -2407,7 +2486,7 @@ function ResearchDataExportLinks() {
   const exportStatusCards = [
     { label: "CSV 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .csv 文件。" },
     { label: "JSON 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: "v0.14 Hungary boundary readiness gate", note: "匈牙利 NUTS3 展示准入核验中；正式真实地图、模型、预测、指数和风险分数仍未启用。" },
+    { label: "当前阶段", value: "v0.15 Hungary boundary license and topology evidence record", note: "匈牙利 NUTS3 许可与拓扑证据核验中；正式真实地图、模型、预测、指数和风险分数仍未启用。" },
   ];
 
   return (
@@ -3383,10 +3462,10 @@ export function DataCountryExplorer() {
             <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
               <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
                 <div>
-                  <p className="eyebrow">v0.14 Hungary Boundary Readiness Gate</p>
+                  <p className="eyebrow">v0.15 Hungary Boundary License And Topology Evidence Record</p>
                   <h4 className="mt-2 text-base font-semibold">区域表字段级验收</h4>
                   <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
-                    八个区域表继续保留完整字段、枚举/状态和用途说明；v0.14 只在既有 region_quality_checks 与 map_layers 中记录展示准入闸门，不新增第 18 张表。
+                    八个区域表继续保留完整字段、枚举/状态和用途说明；v0.15 只在既有 region_sources、region_boundaries、region_quality_checks 与 map_layers 中补充许可和权威拓扑证据，不新增第 18 张表。
                   </p>
                 </div>
                 <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">8 / 8 表体已实化</span>
@@ -3430,7 +3509,7 @@ export function DataCountryExplorer() {
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldSourceRequirement(schema.table, field)}</td>
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldMapDisplayRule(schema.table, field)}</td>
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldModelRule(field)}</td>
-                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">v0.14 readiness gate 字段口径；不新增模型、预测、风险指数或中国经济暴露指数。</td>
+                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">v0.15 许可与权威拓扑证据字段口径；不新增模型、预测、风险指数或中国经济暴露指数。</td>
                               </tr>
                             ))}
                           </tbody>
@@ -3476,7 +3555,7 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Research Registry Tables</p>
               <h2 className="mt-3 text-2xl font-semibold">研究数据结构总表</h2>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                以下十七个逻辑数据层常驻在数据页；v0.8 的九个逻辑数据层继续保留，v0.14 只在既有区域地图数据结构上增加匈牙利 NUTS3 展示准入闸门。它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。其中 regions 是区域主键层，region_boundaries 是边界来源、沙盒文件和展示状态登记层，region_indicators 是独立于国家级 indicators 的区域指标字典，region_observations 是区域经济数据主表，region_quality_checks 是区域质量验收层，region_sources 是区域来源字典，project_locations 是对华项目地区定位桥表，map_layers 是地图图层注册表。
+                以下十七个逻辑数据层常驻在数据页；v0.8 的九个逻辑数据层继续保留，v0.15 只在既有四个区域表中补充匈牙利 NUTS3 许可与权威拓扑证据。它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。其中 regions 是区域主键层，region_boundaries 是边界来源、沙盒文件和展示状态登记层，region_indicators 是独立于国家级 indicators 的区域指标字典，region_observations 是区域经济数据主表，region_quality_checks 是区域质量验收层，region_sources 是区域来源字典，project_locations 是对华项目地区定位桥表，map_layers 是地图图层注册表。
               </p>
             </div>
             <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">按需展开</span>
@@ -3497,9 +3576,9 @@ export function DataCountryExplorer() {
               <RegionMetadataTable rows={regionMetadataRecords} />
             </DeferredDetails>
 
-            <DeferredDetails id="region-boundaries-layer-entry" title="region_boundaries：v0.12 区域边界沙盒登记表">
+            <DeferredDetails id="region-boundaries-layer-entry" title="region_boundaries：v0.15 许可与拓扑证据登记表">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                region_boundaries 已将 hu_nuts3_gisco_2024 标记为 sandbox_downloaded / sandbox_filtered / not_ready_for_display。v0.12 只执行沙盒验证与基础拓扑 QA，不直接渲染真实边界。
+                region_boundaries 已将 hu_nuts3_gisco_2024 标记为 sandbox_downloaded / sandbox_filtered / not_ready_for_display。v0.15 记录许可来源、署名要求与权威拓扑方法，但不直接渲染真实边界。
               </p>
               <div className="mt-4 grid gap-3 rounded-2xl border border-[var(--line)] bg-white/65 p-4 text-xs leading-6 text-[var(--muted)]">
                 <p>
@@ -3533,9 +3612,9 @@ export function DataCountryExplorer() {
               <RegionObservationTable rows={regionObservationRecords} />
             </DeferredDetails>
 
-            <DeferredDetails id="region-quality-checks-layer-entry" title="region_quality_checks：v0.14 展示准入质量验收">
+            <DeferredDetails id="region-quality-checks-layer-entry" title="region_quality_checks：v0.15 许可与拓扑证据验收">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                region_quality_checks 用于提前验收区域数据是否具备边界、许可、来源、区域代码、数值、单位和地图图层准备条件。v0.12 在同一逻辑层内增加 Hungary NUTS3 sandbox QA 摘要；不展开新的逻辑表。
+                region_quality_checks 用于提前验收区域数据是否具备边界、许可、来源、区域代码、数值、单位和地图图层准备条件。v0.15 在同一逻辑层内补充许可与权威拓扑证据；不展开新的逻辑表。
               </p>
               <HungarySandboxQaSummaryCards summary={hungaryNuts3SandboxQaSummary} />
               <HungaryVisualQaSummaryCards summary={hungaryNuts3VisualQaSummary} />
@@ -3543,7 +3622,7 @@ export function DataCountryExplorer() {
               <RegionQualityCheckTable rows={regionQualityCheckRecords} />
             </DeferredDetails>
 
-            <DeferredDetails id="region-sources-layer-entry" title="region_sources：v0.11 区域来源字典">
+            <DeferredDetails id="region-sources-layer-entry" title="region_sources：v0.15 区域许可来源字典">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
                 region_sources 独立于国家级 sources。v0.11 已锁定 GISCO NUTS 2024 Level 3 GeoJSON，但 license_status 继续保持待确认，沙盒下载不代表已获得公开展示资格。
               </p>
@@ -3557,9 +3636,9 @@ export function DataCountryExplorer() {
               <ProjectLocationTable rows={projectLocationRecords} />
             </DeferredDetails>
 
-            <DeferredDetails id="map-layers-layer-entry" title="map_layers：v0.14 展示准入图层注册表">
+            <DeferredDetails id="map-layers-layer-entry" title="map_layers：v0.15 许可与拓扑证据注册表">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                map_layers 只注册未来地图工作台的可控图层。v0.14 的 hu_nuts3_boundary_pilot 已通过内部视觉 QA，但 license、authoritative topology 与 final region_id match 尚未完成，因此 public_display_ready=false、is_ready_for_display=false、readiness_gate_status=not_ready_for_public_display。
+                map_layers 只注册未来地图工作台的可控图层。v0.15 的 hu_nuts3_boundary_pilot 已记录许可来源与署名要求，但 license_checked、authoritative topology 与 final region_id match 尚未完成，因此 public_display_ready=false、is_ready_for_display=false、readiness_gate_status=not_ready_for_public_display。
               </p>
               <MapLayerRegistryTable rows={mapLayerRecords} />
             </DeferredDetails>
@@ -3613,7 +3692,7 @@ export function DataCountryExplorer() {
 
             <DeferredDetails id="data-export-entry" title="数据导出与接口准备">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.14 Hungary boundary readiness gate；既有 17 个逻辑层同步展示准入状态，不提供模型 API。
+                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.15 Hungary boundary license and topology evidence record；既有 17 个逻辑层同步许可与拓扑证据状态，不提供模型 API。
                 当前导出对象包括 countries、regions、region_boundaries、region_indicators、region_observations、region_quality_checks、region_sources、project_locations、map_layers、indicators、sources、observations、data_quality_checks、derived_comparisons、china_projects、china_exposure_candidates 和 methodology_rules。
               </p>
               <ResearchDataExportLinks />

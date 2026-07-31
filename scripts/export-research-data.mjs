@@ -954,6 +954,22 @@ function methodologyRuleRecords() {
       last_updated: generatedAt,
       notes: "v0.14 Hungary boundary readiness gate；当前 gate_status=not_ready_for_public_display。",
     },
+    {
+      rule_id: "hungary_boundary_license_topology_evidence",
+      rule_category: "区域边界准入规则",
+      rule_name: "匈牙利 NUTS3 许可与权威拓扑证据规则",
+      rule_description: "许可记录与权威拓扑证据是正式展示前的必要条件；视觉 QA 通过不能替代许可、权威拓扑或最终主键验收。",
+      applies_to: "region_sources,region_boundaries,region_quality_checks,map_layers,map_page,hungary_country_page",
+      required_fields: ["license_source", "license_url", "attribution_required", "attribution_text", "license_checked", "authoritative_topology_method", "authoritative_topology_checked", "topology_evidence_status", "region_id_final_matched", "public_display_ready", "is_ready_for_display"],
+      allowed_statuses: ["evidence_recorded_pending_verification", "sandbox_basic_topology_passed_pending_authoritative_validation", "not_ready_for_public_display"],
+      excluded_statuses: ["正式地图已启用", "风险图层", "预测图层", "真实党派支持率图层"],
+      source_requirement: "许可来源、许可链接与署名文本必须来自可核验官方页面；权威拓扑方法和证据状态必须单独记录。",
+      quality_requirement: "license_checked 或 authoritative_topology_checked 为 false 时，public_display_ready 与 is_ready_for_display 必须为 false。",
+      model_boundary: "证据记录不生成风险指数、预测、中国经济暴露指数或区域评分。",
+      export_boundary: "随既有四个区域表和 methodology_rules 导出；不新增第 18 张表。",
+      last_updated: "2026-07-31",
+      notes: "v0.15 Hungary boundary license and topology evidence record；当前真实地图展示未启用。",
+    },
   ];
 }
 
@@ -1090,7 +1106,7 @@ writeLayer("regions", regionMetadataRecords, {
   model_boundary: "Region metadata only. No regional risk layer, forecast, election model, or ADM2 analysis is generated.",
 });
 writeLayer("region_boundaries", regionBoundaryRecords, {
-  scope: "v0.12 sandbox validation and topology QA registry. hu_nuts3_gisco_2024 remains sandbox_downloaded, sandbox_filtered, and not_ready_for_display. Basic QA does not enable rendering.",
+  scope: "v0.15 boundary license and authoritative topology evidence registry. hu_nuts3_gisco_2024 remains sandbox_downloaded, sandbox_filtered, and not_ready_for_display.",
   primary_key: "boundary_id",
   relation_note: "Every boundary record references region_id from regions and country_id from countries.",
   validation_note: "Records track source credibility, public display licence, simplification readiness, front-end suitability, region_id matching, admin codes, and historical boundary issues before geometry ingestion.",
@@ -1111,7 +1127,7 @@ writeLayer("region_observations", regionObservationRecords, {
   model_boundary: "Observation structure only. Pending rows do not enter map layers, regional comparison, or future model candidate inputs.",
 });
 writeLayer("region_quality_checks", regionQualityCheckRecords, {
-  scope: "v0.14 regional data quality checks. Hungary NUTS3 records the readiness gate while formal display remains disabled.",
+  scope: "v0.15 regional data quality checks. Hungary NUTS3 records licence, attribution and authoritative topology evidence while formal display remains disabled.",
   primary_key: "region_check_id",
   summary: regionQualitySummary,
   sandbox_qa_summary: hungaryNuts3SandboxQaSummary,
@@ -1122,7 +1138,7 @@ writeLayer("region_quality_checks", regionQualityCheckRecords, {
   model_boundary: "Quality checks only. No regional model, risk layer, forecast, election prediction, or live boundary rendering is generated.",
 });
 writeLayer("region_sources", regionSourceRecords, {
-  scope: "v0.12 regional source dictionary. GISCO NUTS 2024 Level 3 GeoJSON is locked for sandbox QA while licence status remains pending for public display.",
+  scope: "v0.15 regional source dictionary. GISCO NUTS 2024 records the official licence source and attribution text while licence verification remains pending for public display.",
   primary_key: "region_source_id",
   relation_note: "Future region_observations, region_boundaries, election regional data, and project_locations should reference region_source_id where applicable.",
   validation_note: "Licence status is mandatory because regional maps and boundaries may involve public display, simplification, redistribution, and commercial-use constraints.",
@@ -1136,7 +1152,7 @@ writeLayer("project_locations", projectLocationRecords, {
   model_boundary: "Location bridge only. No China exposure index, regional risk layer, forecast, or live project map layer is generated.",
 });
 writeLayer("map_layers", mapLayerRecords, {
-  scope: "v0.14 map layer registry. hu_nuts3_boundary_pilot records the readiness gate; is_ready_for_display and public_display_ready remain false.",
+  scope: "v0.15 map layer registry. hu_nuts3_boundary_pilot records licence and authoritative topology evidence; is_ready_for_display and public_display_ready remain false.",
   primary_key: "layer_id",
   relation_note: "Each layer declares its data_source_table, geometry_source_table, indicator_or_variable, tooltip fields, filters, source requirements, and quality requirements.",
   validation_note: "All registered real boundary and analytical layers keep is_ready_for_display=false until boundary, source, observation, project-location, and quality checks pass.",

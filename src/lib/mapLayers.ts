@@ -11,8 +11,14 @@ export type MapLayerRecord = {
   country_coverage: string;
   indicator_or_variable: string;
   is_active: boolean;
+  license_source: string;
+  license_url: string;
+  attribution_required: boolean;
+  attribution_text: string;
   license_checked: boolean;
+  authoritative_topology_method: string;
   authoritative_topology_checked: boolean;
+  topology_evidence_status: string;
   region_id_final_matched: boolean;
   visual_qa_passed: boolean;
   public_display_ready: boolean;
@@ -43,8 +49,12 @@ export type MapLayerRecord = {
 
 const updatedAt = "2026-07-31";
 const v4Adm1Coverage = "V4 四国 ADM1：poland, hungary, czechia, slovakia";
-const noDisplayBoundary = "v0.14 展示准入闸门未通过；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。";
+const noDisplayBoundary = "v0.15 许可与权威拓扑证据核验未通过；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。";
 const noModelBoundary = "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。";
+const giscoLicenseSource = "European Commission / Eurostat GISCO geodata and NUTS usage conditions";
+const giscoLicenseUrl = "https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units/territorial-units-statistics";
+const giscoAttribution = "Source: European Commission – Eurostat/GISCO; administrative boundaries: © EuroGeographics.";
+const pendingTopologyMethod = "待确认：以 GISCO NUTS 2024 官方几何与元数据复核 NUTS code、几何有效性、共享边界、重叠与缝隙。";
 const boundaryQuality = "region_boundaries.geometry_available=true、geometry_simplified=true、topology_checked=true、boundary_license_checked=true，且 region_quality_checks 中对应区域 is_map_ready=true。";
 const choroplethQuality = "需要 region_observations 有正式数值、来源链接、单位、来源等级，并通过 region_quality_checks；当前待接入观测值不得进入地图显示。";
 const projectQuality = "需要 project_locations 有可核验位置来源、region_id 映射、经纬度或明确区域级定位，并通过后续项目位置质量验收；当前不进入正式地图图层。";
@@ -61,8 +71,14 @@ function boundaryLayer(): MapLayerRecord {
     country_coverage: v4Adm1Coverage,
     indicator_or_variable: "regional_boundary_status",
     is_active: false,
+    license_source: giscoLicenseSource,
+    license_url: giscoLicenseUrl,
+    attribution_required: true,
+    attribution_text: giscoAttribution,
     license_checked: false,
+    authoritative_topology_method: pendingTopologyMethod,
     authoritative_topology_checked: false,
+    topology_evidence_status: "not_started",
     region_id_final_matched: false,
     visual_qa_passed: false,
     public_display_ready: false,
@@ -104,8 +120,14 @@ function hungaryNuts3PilotLayer(): MapLayerRecord {
     country_coverage: "hungary",
     indicator_or_variable: "hu_nuts3_gisco_2024",
     is_active: false,
+    license_source: giscoLicenseSource,
+    license_url: giscoLicenseUrl,
+    attribution_required: true,
+    attribution_text: giscoAttribution,
     license_checked: false,
+    authoritative_topology_method: pendingTopologyMethod,
     authoritative_topology_checked: false,
+    topology_evidence_status: "sandbox_basic_topology_passed_pending_authoritative_validation",
     region_id_final_matched: false,
     visual_qa_passed: true,
     public_display_ready: false,
@@ -132,7 +154,7 @@ function hungaryNuts3PilotLayer(): MapLayerRecord {
     model_boundary: noModelBoundary,
     last_updated: updatedAt,
     notes:
-      "v0.14 Hungary boundary readiness gate；视觉 QA 已通过，但许可、权威拓扑验收和最终主键匹配仍待完成，真实地图展示保持未启用。",
+      "v0.15 license and authoritative topology evidence record；许可来源与署名文本已记录，但 license_checked=false；权威拓扑验收和最终主键匹配仍待完成，真实地图展示保持未启用。",
   };
 }
 
@@ -155,8 +177,14 @@ function choroplethLayer(layer: {
     country_coverage: v4Adm1Coverage,
     indicator_or_variable: layer.indicator,
     is_active: false,
+    license_source: giscoLicenseSource,
+    license_url: giscoLicenseUrl,
+    attribution_required: true,
+    attribution_text: giscoAttribution,
     license_checked: false,
+    authoritative_topology_method: pendingTopologyMethod,
     authoritative_topology_checked: false,
+    topology_evidence_status: "not_started",
     region_id_final_matched: false,
     visual_qa_passed: false,
     public_display_ready: false,
@@ -198,8 +226,14 @@ function projectLocationLayer(): MapLayerRecord {
     country_coverage: v4Adm1Coverage,
     indicator_or_variable: "project_locations.location_status",
     is_active: false,
+    license_source: giscoLicenseSource,
+    license_url: giscoLicenseUrl,
+    attribution_required: true,
+    attribution_text: giscoAttribution,
     license_checked: false,
+    authoritative_topology_method: pendingTopologyMethod,
     authoritative_topology_checked: false,
+    topology_evidence_status: "not_started",
     region_id_final_matched: false,
     visual_qa_passed: false,
     public_display_ready: false,

@@ -16,8 +16,14 @@ export type RegionQualityCheckRecord = {
   boundary_source_available: boolean;
   boundary_license_checked: boolean;
   source_available: boolean;
+  license_source: string;
+  license_url: string;
+  attribution_required: boolean;
+  attribution_text: string;
   license_checked: boolean;
+  authoritative_topology_method: string;
   authoritative_topology_checked: boolean;
+  topology_evidence_status: string;
   region_id_final_matched: boolean;
   visual_qa_passed: boolean;
   file_selected: boolean;
@@ -98,8 +104,14 @@ export type HungaryNuts3VisualQaSummary = {
 };
 
 export type HungaryNuts3ReadinessGateSummary = {
+  license_source: string;
+  license_url: string;
+  attribution_required: boolean;
+  attribution_text: string;
   license_checked: boolean;
+  authoritative_topology_method: string;
   authoritative_topology_checked: boolean;
+  topology_evidence_status: string;
   region_id_final_matched: boolean;
   visual_qa_passed: boolean;
   public_display_ready: boolean;
@@ -160,7 +172,7 @@ function qualityNotesFor(check: RegionQualityCheckBase) {
 function buildRegionQualityCheck(observation: (typeof regionObservationRecords)[number]): RegionQualityCheckRecord {
   const region = regionById.get(observation.region_id);
   const boundary = boundaryByRegion.get(observation.region_id);
-  const boundaryLicenseChecked = Boolean(boundary && hasText(boundary.boundary_license) && !boundary.boundary_license.includes("待确认"));
+  const boundaryLicenseChecked = Boolean(boundary?.license_checked);
   const regionCodePresent = Boolean(region && hasText(region.admin_code) && region.admin_code !== "PENDING");
   const valuePresent = observation.value !== null && observation.value !== "";
   const unitPresent = hasText(observation.unit);
@@ -223,9 +235,15 @@ function buildRegionQualityCheck(observation: (typeof regionObservationRecords)[
     boundary_source_available: boundarySourceAvailable,
     boundary_license_checked: boundaryLicenseChecked,
     source_available: boundarySourceAvailable,
+    license_source: boundary?.license_source ?? pendingText,
+    license_url: boundary?.license_url ?? "",
+    attribution_required: Boolean(boundary?.attribution_required),
+    attribution_text: boundary?.attribution_text ?? pendingText,
     license_checked: boundaryLicenseChecked,
-    authoritative_topology_checked: false,
-    region_id_final_matched: false,
+    authoritative_topology_method: boundary?.authoritative_topology_method ?? "待确认",
+    authoritative_topology_checked: Boolean(boundary?.authoritative_topology_checked),
+    topology_evidence_status: boundary?.topology_evidence_status ?? pendingText,
+    region_id_final_matched: Boolean(boundary?.region_id_final_matched),
     visual_qa_passed: false,
     file_selected: fileSelected,
     file_downloaded: fileDownloaded,
@@ -299,8 +317,14 @@ export const hungaryNuts3VisualQaSummary: HungaryNuts3VisualQaSummary = {
 };
 
 export const hungaryNuts3ReadinessGateSummary: HungaryNuts3ReadinessGateSummary = {
+  license_source: hungaryPilotBoundary?.license_source ?? "待核验",
+  license_url: hungaryPilotBoundary?.license_url ?? "",
+  attribution_required: Boolean(hungaryPilotBoundary?.attribution_required),
+  attribution_text: hungaryPilotBoundary?.attribution_text ?? "待核验",
   license_checked: false,
+  authoritative_topology_method: hungaryPilotBoundary?.authoritative_topology_method ?? "待确认",
   authoritative_topology_checked: false,
+  topology_evidence_status: hungaryPilotBoundary?.topology_evidence_status ?? "待接入",
   region_id_final_matched: false,
   visual_qa_passed: true,
   public_display_ready: false,
@@ -319,8 +343,14 @@ const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {
   boundary_source_available: hasText(hungaryPilotBoundary?.boundary_source_name) && hasText(hungaryPilotBoundary?.boundary_source_url),
   boundary_license_checked: false,
   source_available: hasText(hungaryPilotBoundary?.boundary_source_name) && hasText(hungaryPilotBoundary?.boundary_source_url),
+  license_source: hungaryNuts3ReadinessGateSummary.license_source,
+  license_url: hungaryNuts3ReadinessGateSummary.license_url,
+  attribution_required: hungaryNuts3ReadinessGateSummary.attribution_required,
+  attribution_text: hungaryNuts3ReadinessGateSummary.attribution_text,
   license_checked: hungaryNuts3ReadinessGateSummary.license_checked,
+  authoritative_topology_method: hungaryNuts3ReadinessGateSummary.authoritative_topology_method,
   authoritative_topology_checked: hungaryNuts3ReadinessGateSummary.authoritative_topology_checked,
+  topology_evidence_status: hungaryNuts3ReadinessGateSummary.topology_evidence_status,
   region_id_final_matched: hungaryNuts3ReadinessGateSummary.region_id_final_matched,
   visual_qa_passed: hungaryNuts3ReadinessGateSummary.visual_qa_passed,
   file_selected: Boolean(hungaryPilotBoundary?.file_selected),
@@ -357,8 +387,8 @@ const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {
   quality_status: "需复核",
   missing_reason: "许可确认、权威拓扑验收和 region_id / NUTS code 最终核验尚未完成。",
   quality_notes:
-    "v0.14 Hungary boundary readiness gate；视觉 QA 已通过，但许可核验、权威拓扑验收和最终 region_id 匹配尚未完成，public_display_ready 与 is_ready_for_display 必须保持 false。",
-  last_updated: updatedAt,
+    "v0.15 license and authoritative topology evidence record；许可来源与署名要求已记录，但 license_checked=false；权威拓扑方法、最终 region_id 匹配和公开展示资格仍未通过。",
+  last_updated: "2026-07-31",
 };
 
 export const regionQualityCheckRecords: RegionQualityCheckRecord[] = [

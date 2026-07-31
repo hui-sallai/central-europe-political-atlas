@@ -16,6 +16,11 @@ export type RegionBoundaryRecord = {
   boundary_source_url: string;
   boundary_source_type: string;
   boundary_license: string;
+  license_source: string;
+  license_url: string;
+  attribution_required: boolean;
+  attribution_text: string;
+  license_checked: boolean;
   boundary_format: BoundaryFormat;
   geometry_format: string;
   file_selected: boolean;
@@ -26,9 +31,15 @@ export type RegionBoundaryRecord = {
   geometry_available: boolean;
   geometry_simplified: boolean;
   topology_checked: boolean;
+  authoritative_topology_method: string;
+  authoritative_topology_checked: boolean;
+  topology_evidence_status: string;
   coordinate_system: string;
   file_path_or_url: string;
   region_code_match_status: string;
+  region_id_final_matched: boolean;
+  public_display_ready: boolean;
+  is_ready_for_display: boolean;
   source_reliability: "A" | "B" | "C" | "D";
   source_status: BoundarySourceStatus;
   last_checked: string;
@@ -42,6 +53,11 @@ const giscoHungarySandboxSourceUrl =
 const hungarySandboxFileUrl = "/data/boundaries/sandbox/hu_nuts3_gisco_2024.geojson";
 const giscoLicense =
   "非商业使用；必须标注 © EuroGeographics for the administrative boundaries；商业使用需联系 EuroGeographics。";
+const giscoLicenseSource = "European Commission / Eurostat GISCO geodata and NUTS usage conditions";
+const giscoLicenseUrl = "https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units/territorial-units-statistics";
+const giscoAttribution = "Source: European Commission – Eurostat/GISCO; administrative boundaries: © EuroGeographics.";
+const pendingAuthoritativeTopologyMethod =
+  "待确认：拟以 GISCO NUTS 2024 官方几何与元数据为基准，复核要素数、NUTS code、几何有效性、共享边界、重叠与缝隙。";
 
 const v4BoundaryNotes =
   "来源可信度已确认：Eurostat/GISCO NUTS 2024 由欧盟统计地理服务发布，提供 GeoJSON、TopoJSON、PBF、CSV、SHP、SVG 和多坐标系版本。v0.9 尚未接入几何文件；仍需完成 ADM1 与 NUTS/行政代码映射、历史边界变动检查、前端简化比例选择、拓扑检查和 region_id 对齐。";
@@ -55,7 +71,12 @@ const hungaryPilotBoundary: RegionBoundaryRecord = {
   boundary_source_name: "Eurostat GISCO NUTS 2024",
   boundary_source_url: giscoHungarySandboxSourceUrl,
   boundary_source_type: "EU official statistical geodata",
-  boundary_license: "待确认 / 待接受使用条款",
+  boundary_license: "许可来源与署名要求已记录；适用范围、条款接受和公开展示资格仍待最终核验。",
+  license_source: giscoLicenseSource,
+  license_url: giscoLicenseUrl,
+  attribution_required: true,
+  attribution_text: giscoAttribution,
+  license_checked: false,
   boundary_format: "GeoJSON",
   geometry_format: "GeoJSON",
   file_selected: true,
@@ -66,14 +87,20 @@ const hungaryPilotBoundary: RegionBoundaryRecord = {
   geometry_available: true,
   geometry_simplified: false,
   topology_checked: true,
+  authoritative_topology_method: pendingAuthoritativeTopologyMethod,
+  authoritative_topology_checked: false,
+  topology_evidence_status: "sandbox_basic_topology_passed_pending_authoritative_validation",
   coordinate_system: "EPSG:4326",
   file_path_or_url: hungarySandboxFileUrl,
   region_code_match_status: "sandbox_pre_matched_20_of_20_pending_verification",
+  region_id_final_matched: false,
+  public_display_ready: false,
+  is_ready_for_display: false,
   source_reliability: "A",
   source_status: "官方来源",
-  last_checked: lastChecked,
+  last_checked: "2026-07-31",
   notes:
-    "v0.12 sandbox validation and topology QA；20 个要素已完成基础几何与异常穿越检查，但该结果不替代权威拓扑验收。状态继续为 sandbox_downloaded / sandbox_filtered / not_ready_for_display；20 个 NUTS code 仅为预匹配，许可和最终主键验收尚未通过。",
+    "v0.15 license and topology evidence record；20 个要素已完成基础几何与异常穿越检查，但该结果不替代权威拓扑验收。许可证据和署名要求已记录，license_checked=false；最终主键与公开展示资格仍未通过。",
 };
 
 function v4Boundary(region: (typeof regionMetadataRecords)[number]): RegionBoundaryRecord {
@@ -87,6 +114,11 @@ function v4Boundary(region: (typeof regionMetadataRecords)[number]): RegionBound
     boundary_source_url: giscoSourceUrl,
     boundary_source_type: "EU official statistical geodata",
     boundary_license: giscoLicense,
+    license_source: giscoLicenseSource,
+    license_url: giscoLicenseUrl,
+    attribution_required: true,
+    attribution_text: giscoAttribution,
+    license_checked: false,
     boundary_format: "GeoJSON",
     geometry_format: "GeoJSON",
     file_selected: false,
@@ -97,9 +129,15 @@ function v4Boundary(region: (typeof regionMetadataRecords)[number]): RegionBound
     geometry_available: false,
     geometry_simplified: false,
     topology_checked: false,
+    authoritative_topology_method: pendingAuthoritativeTopologyMethod,
+    authoritative_topology_checked: false,
+    topology_evidence_status: "not_started",
     coordinate_system: "EPSG:4326 候选；源数据也提供 EPSG:3035 和 EPSG:3857。",
     file_path_or_url: giscoSourceUrl,
     region_code_match_status: region.country_id === "hungary" ? "pilot_pending_region_code_match" : "pending_region_code_match",
+    region_id_final_matched: false,
+    public_display_ready: false,
+    is_ready_for_display: false,
     source_reliability: "A",
     source_status: "官方来源",
     last_checked: lastChecked,
@@ -118,6 +156,11 @@ function pendingBoundary(region: (typeof regionMetadataRecords)[number]): Region
     boundary_source_url: "",
     boundary_source_type: "Not available",
     boundary_license: "待接入",
+    license_source: "待接入",
+    license_url: "",
+    attribution_required: false,
+    attribution_text: "待接入",
+    license_checked: false,
     boundary_format: "Not available",
     geometry_format: "Not available",
     file_selected: false,
@@ -128,9 +171,15 @@ function pendingBoundary(region: (typeof regionMetadataRecords)[number]): Region
     geometry_available: false,
     geometry_simplified: false,
     topology_checked: false,
+    authoritative_topology_method: "待确认",
+    authoritative_topology_checked: false,
+    topology_evidence_status: "待接入",
     coordinate_system: "待接入",
     file_path_or_url: "",
     region_code_match_status: "待接入",
+    region_id_final_matched: false,
+    public_display_ready: false,
+    is_ready_for_display: false,
     source_reliability: "D",
     source_status: "待接入",
     last_checked: lastChecked,

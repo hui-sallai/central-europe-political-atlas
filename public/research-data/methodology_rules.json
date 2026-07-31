@@ -2,7 +2,7 @@
   "schema_version": "research-data-v0.1",
   "generated_at": "2026-07-27",
   "data_type": "methodology_rules",
-  "record_count": 16,
+  "record_count": 17,
   "model_boundary": "Rules and boundaries only; no model, forecast, or scenario output.",
   "records": [
     {
@@ -461,6 +461,43 @@
       "export_boundary": "随 region_quality_checks、map_layers 和 methodology_rules 导出；不新增第 18 张表。",
       "last_updated": "2026-07-27",
       "notes": "v0.14 Hungary boundary readiness gate；当前 gate_status=not_ready_for_public_display。"
+    },
+    {
+      "rule_id": "hungary_boundary_license_topology_evidence",
+      "rule_category": "区域边界准入规则",
+      "rule_name": "匈牙利 NUTS3 许可与权威拓扑证据规则",
+      "rule_description": "许可记录与权威拓扑证据是正式展示前的必要条件；视觉 QA 通过不能替代许可、权威拓扑或最终主键验收。",
+      "applies_to": "region_sources,region_boundaries,region_quality_checks,map_layers,map_page,hungary_country_page",
+      "required_fields": [
+        "license_source",
+        "license_url",
+        "attribution_required",
+        "attribution_text",
+        "license_checked",
+        "authoritative_topology_method",
+        "authoritative_topology_checked",
+        "topology_evidence_status",
+        "region_id_final_matched",
+        "public_display_ready",
+        "is_ready_for_display"
+      ],
+      "allowed_statuses": [
+        "evidence_recorded_pending_verification",
+        "sandbox_basic_topology_passed_pending_authoritative_validation",
+        "not_ready_for_public_display"
+      ],
+      "excluded_statuses": [
+        "正式地图已启用",
+        "风险图层",
+        "预测图层",
+        "真实党派支持率图层"
+      ],
+      "source_requirement": "许可来源、许可链接与署名文本必须来自可核验官方页面；权威拓扑方法和证据状态必须单独记录。",
+      "quality_requirement": "license_checked 或 authoritative_topology_checked 为 false 时，public_display_ready 与 is_ready_for_display 必须为 false。",
+      "model_boundary": "证据记录不生成风险指数、预测、中国经济暴露指数或区域评分。",
+      "export_boundary": "随既有四个区域表和 methodology_rules 导出；不新增第 18 张表。",
+      "last_updated": "2026-07-31",
+      "notes": "v0.15 Hungary boundary license and topology evidence record；当前真实地图展示未启用。"
     }
   ]
 }

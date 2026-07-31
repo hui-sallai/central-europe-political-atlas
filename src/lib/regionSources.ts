@@ -12,7 +12,11 @@ export type RegionSourceRecord = {
   source_status: "官方来源" | "人工整理" | "待接入" | "结构样例";
   update_frequency: string;
   license_status: string;
+  license_source?: string;
   license_url?: string;
+  attribution_required?: boolean;
+  attribution_text?: string;
+  license_checked?: boolean;
   usage_note?: string;
   can_be_used_for_boundary: boolean;
   can_be_used_for_regional_statistics: boolean;
@@ -107,22 +111,26 @@ export const regionSourceRecords: RegionSourceRecord[] = [
     country_coverage: "匈牙利试点；后续可扩展至 V4 其他国家。",
     admin_level_coverage: "NUTS3 / NUTS2 / NUTS1",
     indicator_coverage: "边界、NUTS 代码、空间关联键。",
-    boundary_coverage: "v0.12 匈牙利 NUTS3 沙盒来源；已锁定 1:1M、EPSG:4326、Level 3 GeoJSON，真实展示前仍需许可、权威拓扑和主键最终验收。",
+    boundary_coverage: "v0.15 匈牙利 NUTS3 许可与拓扑证据核验来源；已锁定 1:1M、EPSG:4326、Level 3 GeoJSON，真实展示前仍需完成许可、权威拓扑和主键最终验收。",
     source_url: "https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2024_4326_LEVL_3.geojson",
     source_reliability: "A",
     source_status: "官方来源",
     update_frequency: "随 NUTS 版本更新。",
-    license_status: "待确认 / 待接受使用条款；上线真实边界前必须确认公开展示、简化、再分发和版权标注要求。",
-    license_url: "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
-    usage_note: "v0.12 允许指定文件进入沙盒验证与基础拓扑 QA；公开展示、再分发和版权标注规则确认前，不启用真实地图展示。",
+    license_status: "许可来源与署名要求已记录；适用范围、条款接受和公开展示资格仍待最终核验。",
+    license_source: "European Commission / Eurostat GISCO geodata and NUTS usage conditions",
+    license_url: "https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units/territorial-units-statistics",
+    attribution_required: true,
+    attribution_text: "Source: European Commission – Eurostat/GISCO; administrative boundaries: © EuroGeographics.",
+    license_checked: false,
+    usage_note: "v0.15 已记录 GISCO 官方来源、NUTS 数据入口和署名文本；公开展示、简化、再分发、商业使用及条款接受完成最终核验前，不启用真实地图展示。",
     can_be_used_for_boundary: true,
     can_be_used_for_regional_statistics: false,
     can_be_used_for_election_data: false,
     can_be_used_for_project_location: false,
     is_supplementary_only: false,
     is_excluded_from_analysis: false,
-    last_checked: checkedAt,
-    notes: "v0.12 sandbox validation and topology QA；已锁定 NUTS_RG_01M_2024_4326_LEVL_3.geojson 并完成基础 QA，不启用真实地图展示。",
+    last_checked: "2026-07-31",
+    notes: "v0.15 license and topology evidence record；许可证据已登记但 license_checked=false，权威拓扑验收与最终主键匹配仍未完成，不启用真实地图展示。",
   },
   {
     region_source_id: "eu_gis_gisco",

@@ -339,19 +339,16 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
 
       {country.slug === "hungary" ? (
         <section className="mt-4 card p-6">
-          <p className="eyebrow">4.4 v0.14 Hungary Boundary Readiness Gate</p>
-          <h2 className="mt-3 text-2xl font-semibold">v0.14 展示准入状态</h2>
+          <p className="eyebrow">4.4 v0.15 Hungary Boundary License And Topology Evidence Record</p>
+          <h2 className="mt-3 text-2xl font-semibold">v0.15 许可与拓扑证据状态</h2>
           <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             {[
-              ["视觉 QA", hungaryNuts3ReadinessGateSummary.visual_qa_passed ? "已通过" : "待完成"],
-              ["许可核验", hungaryNuts3ReadinessGateSummary.license_checked ? "已完成" : "待完成"],
+              ["许可来源", hungaryNuts3ReadinessGateSummary.license_source ? "已记录" : "待核验"],
+              ["署名要求", hungaryNuts3ReadinessGateSummary.attribution_required && hungaryNuts3ReadinessGateSummary.attribution_text ? "已记录" : "待核验"],
+              ["权威拓扑方法", hungaryNuts3ReadinessGateSummary.authoritative_topology_checked ? "已确认" : "待确认"],
               ["权威拓扑验收", hungaryNuts3ReadinessGateSummary.authoritative_topology_checked ? "已完成" : "待完成"],
               ["最终主键匹配", hungaryNuts3ReadinessGateSummary.region_id_final_matched ? "已完成" : "待完成"],
-              ["public_display_ready", String(hungaryNuts3ReadinessGateSummary.public_display_ready)],
-              ["is_ready_for_display", String(hungaryNuts3ReadinessGateSummary.is_ready_for_display)],
-              ["readiness_gate_status", hungaryNuts3ReadinessGateSummary.readiness_gate_status],
               ["是否进入正式地图", hungaryNuts3ReadinessGateSummary.is_ready_for_display ? "是" : "否"],
-              ["备注", "视觉 QA 通过不代表正式展示资格通过"],
             ].map(([label, value]) => (
               <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
                 <p className="text-xs font-semibold text-[var(--muted)]">{label}</p>
@@ -359,6 +356,9 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
               </article>
             ))}
           </div>
+          <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
+            视觉 QA 通过不代表正式展示资格通过；许可核验、权威拓扑验收和最终主键匹配完成前，真实地图展示保持未启用。
+          </p>
         </section>
       ) : null}
 

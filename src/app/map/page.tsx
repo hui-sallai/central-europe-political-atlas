@@ -16,8 +16,8 @@ export default function MapPage() {
         <h2 className="mt-2 text-2xl font-semibold">区域地图数据准备状态</h2>
         <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           {[
-            ["当前阶段", "v0.14 Hungary boundary readiness gate"],
-            ["区域地图数据", "匈牙利 NUTS3 展示准入核验中"],
+            ["当前阶段", "v0.15 Hungary boundary license and topology evidence record"],
+            ["区域地图数据", "匈牙利 NUTS3 许可与拓扑证据核验中"],
             ["V4 ADM1 / NUTS2 边界", "待接入"],
             ["区域统计数据", "待接入"],
             ["对华项目地区定位", "准备中"],
@@ -120,19 +120,23 @@ export default function MapPage() {
       </section>
 
       <section className="mt-6 rounded-3xl border border-[var(--line)] bg-white/65 p-5">
-        <p className="eyebrow">v0.14 Hungary Boundary Readiness Gate</p>
-        <h2 className="mt-2 text-2xl font-semibold">v0.14 边界展示准入闸门</h2>
+        <p className="eyebrow">v0.15 Hungary Boundary License And Topology Evidence Record</p>
+        <h2 className="mt-2 text-2xl font-semibold">v0.15 许可与权威拓扑证据记录</h2>
         <div className="mt-4 overflow-x-auto rounded-2xl border border-[var(--line)] bg-white/70">
           <table className="min-w-full border-collapse text-left text-sm">
             <tbody>
               {[
-                ["license_checked", `${String(hungaryNuts3ReadinessGateSummary.license_checked)} / pending`],
-                ["authoritative_topology_checked", `${String(hungaryNuts3ReadinessGateSummary.authoritative_topology_checked)} / pending`],
-                ["region_id_matched", `${String(hungaryNuts3ReadinessGateSummary.region_id_final_matched)} / pending final verification`],
-                ["visual_qa_passed", String(hungaryNuts3ReadinessGateSummary.visual_qa_passed)],
+                ["license_source", hungaryNuts3ReadinessGateSummary.license_source],
+                ["license_url", hungaryNuts3ReadinessGateSummary.license_url],
+                ["attribution_required", String(hungaryNuts3ReadinessGateSummary.attribution_required)],
+                ["attribution_text", hungaryNuts3ReadinessGateSummary.attribution_text],
+                ["license_checked", String(hungaryNuts3ReadinessGateSummary.license_checked)],
+                ["authoritative_topology_method", hungaryNuts3ReadinessGateSummary.authoritative_topology_method],
+                ["authoritative_topology_checked", String(hungaryNuts3ReadinessGateSummary.authoritative_topology_checked)],
+                ["topology_evidence_status", hungaryNuts3ReadinessGateSummary.topology_evidence_status],
+                ["region_id_final_matched", String(hungaryNuts3ReadinessGateSummary.region_id_final_matched)],
                 ["public_display_ready", String(hungaryNuts3ReadinessGateSummary.public_display_ready)],
                 ["is_ready_for_display", String(hungaryNuts3ReadinessGateSummary.is_ready_for_display)],
-                ["readiness_gate_status", hungaryNuts3ReadinessGateSummary.readiness_gate_status],
               ].map(([field, value]) => (
                 <tr key={field} className="border-b border-[var(--line)] last:border-b-0">
                   <th className="w-72 px-4 py-3 font-mono text-xs font-semibold text-[var(--foreground)]">{field}</th>
@@ -143,7 +147,7 @@ export default function MapPage() {
           </table>
         </div>
         <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-          视觉 QA 通过只是必要条件，不是充分条件。许可、权威拓扑和最终主键匹配全部通过前，正式真实地图展示保持未启用。
+          许可来源和署名要求已经记录，但这不等于许可核验完成。权威拓扑验收与最终主键匹配全部通过前，public_display_ready 和 is_ready_for_display 保持 false。
         </p>
       </section>
 
