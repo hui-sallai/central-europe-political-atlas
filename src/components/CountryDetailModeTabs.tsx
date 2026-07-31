@@ -10,7 +10,11 @@ import { chinaProjectVerificationLabel, verifyChinaProject } from "@/lib/chinaPr
 import { getCountryMetadata } from "@/lib/countryMetadata";
 import type { Country } from "@/lib/data";
 import { getChinaProjectRecords, getNewsEventRecords, getV4ObservationCoverage, getV4TemplateCoverage } from "@/lib/extendedData";
-import { hungaryNuts3ReadinessGateSummary, hungaryNuts3SandboxQaSummary } from "@/lib/regionQualityChecks";
+import {
+  hungaryNuts3ReadinessGateSummary,
+  hungaryNuts3RegionIdMatchSummary,
+  hungaryNuts3SandboxQaSummary,
+} from "@/lib/regionQualityChecks";
 
 type DetailMode = "map" | "reading";
 
@@ -358,6 +362,31 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
           </div>
           <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
             视觉 QA 通过不代表正式展示资格通过；许可核验、权威拓扑验收和最终主键匹配完成前，真实地图展示保持未启用。
+          </p>
+        </section>
+      ) : null}
+
+      {country.slug === "hungary" ? (
+        <section className="mt-4 card p-6">
+          <p className="eyebrow">4.5 v0.16 Hungary Boundary Final Region-ID Matching Record</p>
+          <h2 className="mt-3 text-2xl font-semibold">v0.16 最终主键匹配状态</h2>
+          <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            {[
+              ["NUTS code 数量", String(hungaryNuts3RegionIdMatchSummary.nuts_code_count)],
+              ["region_id candidate 数量", String(hungaryNuts3RegionIdMatchSummary.region_id_candidate_count)],
+              ["缺失匹配", `${hungaryNuts3RegionIdMatchSummary.unmatched_region_count}；待最终复核`],
+              ["重复匹配", `region_id ${hungaryNuts3RegionIdMatchSummary.duplicate_region_id_count} / NUTS code ${hungaryNuts3RegionIdMatchSummary.duplicate_nuts_code_count}；待最终复核`],
+              ["最终主键匹配", "待完成"],
+              ["是否进入正式地图", "否"],
+            ].map(([label, value]) => (
+              <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+                <p className="text-xs font-semibold text-[var(--muted)]">{label}</p>
+                <p className="mt-2 text-sm font-semibold leading-6 text-[var(--foreground)]">{value}</p>
+              </article>
+            ))}
+          </div>
+          <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
+            20 / 20 预匹配不等于最终主键匹配通过；完成代码变体、命名变体和边界属性复核前，region_id_final_matched=false，正式地图展示保持未启用。
           </p>
         </section>
       ) : null}

@@ -37,7 +37,14 @@ export type RegionBoundaryRecord = {
   coordinate_system: string;
   file_path_or_url: string;
   region_code_match_status: string;
+  expected_region_count: number;
+  nuts_code_count: number;
+  region_id_candidate_count: number;
+  unmatched_region_count: number;
+  duplicate_region_id_count: number;
+  duplicate_nuts_code_count: number;
   region_id_final_matched: boolean;
+  region_id_match_evidence_status: string;
   public_display_ready: boolean;
   is_ready_for_display: boolean;
   source_reliability: "A" | "B" | "C" | "D";
@@ -93,14 +100,21 @@ const hungaryPilotBoundary: RegionBoundaryRecord = {
   coordinate_system: "EPSG:4326",
   file_path_or_url: hungarySandboxFileUrl,
   region_code_match_status: "sandbox_pre_matched_20_of_20_pending_verification",
+  expected_region_count: 20,
+  nuts_code_count: 20,
+  region_id_candidate_count: 20,
+  unmatched_region_count: 0,
+  duplicate_region_id_count: 0,
+  duplicate_nuts_code_count: 0,
   region_id_final_matched: false,
+  region_id_match_evidence_status: "precheck_zero_exceptions_pending_final_review",
   public_display_ready: false,
   is_ready_for_display: false,
   source_reliability: "A",
   source_status: "官方来源",
   last_checked: "2026-07-31",
   notes:
-    "v0.15 license and topology evidence record；20 个要素已完成基础几何与异常穿越检查，但该结果不替代权威拓扑验收。许可证据和署名要求已记录，license_checked=false；最终主键与公开展示资格仍未通过。",
+    "v0.16 final region-id matching record；20 个 NUTS code 与 20 个 region_id candidate 已登记，预检查缺失与重复计数为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，公开展示资格未通过。",
 };
 
 function v4Boundary(region: (typeof regionMetadataRecords)[number]): RegionBoundaryRecord {
@@ -135,7 +149,16 @@ function v4Boundary(region: (typeof regionMetadataRecords)[number]): RegionBound
     coordinate_system: "EPSG:4326 候选；源数据也提供 EPSG:3035 和 EPSG:3857。",
     file_path_or_url: giscoSourceUrl,
     region_code_match_status: region.country_id === "hungary" ? "pilot_pending_region_code_match" : "pending_region_code_match",
+    expected_region_count: region.country_id === "hungary" ? 20 : 0,
+    nuts_code_count: region.country_id === "hungary" ? 20 : 0,
+    region_id_candidate_count: region.country_id === "hungary" ? 20 : 0,
+    unmatched_region_count: 0,
+    duplicate_region_id_count: 0,
+    duplicate_nuts_code_count: 0,
     region_id_final_matched: false,
+    region_id_match_evidence_status: region.country_id === "hungary"
+      ? "precheck_zero_exceptions_pending_final_review"
+      : "not_started",
     public_display_ready: false,
     is_ready_for_display: false,
     source_reliability: "A",
@@ -177,7 +200,14 @@ function pendingBoundary(region: (typeof regionMetadataRecords)[number]): Region
     coordinate_system: "待接入",
     file_path_or_url: "",
     region_code_match_status: "待接入",
+    expected_region_count: 0,
+    nuts_code_count: 0,
+    region_id_candidate_count: 0,
+    unmatched_region_count: 0,
+    duplicate_region_id_count: 0,
+    duplicate_nuts_code_count: 0,
     region_id_final_matched: false,
+    region_id_match_evidence_status: "not_applicable",
     public_display_ready: false,
     is_ready_for_display: false,
     source_reliability: "D",

@@ -150,6 +150,15 @@ const boundaryLicenseTopologyEvidenceItems = [
   "v0.15 不新增第 18 张表，不生成风险、预测、真实党派支持率、中国经济暴露指数或区域评分。",
 ];
 
+const boundaryRegionIdMatchItems = [
+  "20 / 20 预匹配只表示候选记录数量与 NUTS code 数量一致，不等于最终主键匹配通过。",
+  "最终核验必须检查缺失匹配、重复 region_id、重复 NUTS code、代码变体、命名变体和边界文件属性字段。",
+  "unmatched_region_count、duplicate_region_id_count 和 duplicate_nuts_code_count 为 0 时，仍需保留 pending final review 状态，不能直接改为通过。",
+  "regions、region_boundaries、region_quality_checks 与 map_layers 必须使用同一组主键匹配字段和证据状态。",
+  "region_id_final_matched 未通过前，public_display_ready 和 is_ready_for_display 必须保持 false。",
+  "v0.16 不新增第 18 张表，不生成风险、预测、真实党派支持率、中国经济暴露指数或区域评分。",
+];
+
 const excludedItems = [
   "结构样例、占位色阶、样例新闻不进入模型。",
   "待接入、缺失、未标来源链接的数据不进入模型。",
@@ -288,7 +297,7 @@ export default function MethodologyPage() {
         <h2 className="mt-3 text-2xl font-semibold">5.2 数据导出与接口准备</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {[
-            "当前阶段：v0.15 Hungary boundary license and topology evidence record；只记录匈牙利 NUTS3 许可与权威拓扑证据，真实地图展示仍未启用。",
+            "当前阶段：v0.16 Hungary boundary final region-id matching record；只记录匈牙利 NUTS3 最终主键匹配核验状态，真实地图展示仍未启用。",
             "当前只做 CSV / JSON 数据结构准备。",
             "不提供预测 API。",
             "不提供模型 API。",
@@ -314,6 +323,7 @@ export default function MethodologyPage() {
             "project_locations 只把对华项目定位到城市、区域或国家层级；缺少可核验位置来源时不进入地图展示。",
             "map_layers 仅注册未来图层，is_ready_for_display=false 的图层不得作为真实图层展示；风险图层、预测图层和真实党派支持率图层均未启用，新闻区仍不做评价。",
             "v0.15 在既有 region_sources、region_boundaries、region_quality_checks 与 map_layers 中记录许可与权威拓扑证据；视觉 QA 结果只作为必要条件，不能单独启用展示。",
+            "v0.16 在既有 regions、region_boundaries、region_quality_checks 与 map_layers 中记录最终主键匹配计数与证据状态；0 个预检查异常不等于最终验收通过。",
           ].map((item) => (
             <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
               {item}
@@ -387,6 +397,18 @@ export default function MethodologyPage() {
         <h2 className="mt-3 text-2xl font-semibold">5.9 v0.15 许可与权威拓扑证据规则</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {boundaryLicenseTopologyEvidenceItems.map((item) => (
+            <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
+              {item}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">Hungary Boundary Final Region-ID Matching</p>
+        <h2 className="mt-3 text-2xl font-semibold">5.10 v0.16 最终主键匹配规则</h2>
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
+          {boundaryRegionIdMatchItems.map((item) => (
             <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
               {item}
             </p>

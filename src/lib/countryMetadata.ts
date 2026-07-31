@@ -328,14 +328,14 @@ export function getCountryMetadata(countryId: string) {
 
 export const researchDataLayerFiles = [
   { id: "countries", label: "countries", description: "十国国家元数据表，作为所有观测值、项目和派生比较的 country_id 关联表。" },
-  { id: "regions", label: "regions", description: "v0.11 区域元数据表；匈牙利 NUTS3 的 20 个 region_id 与 NUTS code 已离线预匹配，最终核验前保持 pilot_pending_region_code_match。" },
-  { id: "region_boundaries", label: "region_boundaries", description: "v0.15 区域边界来源表；hu_nuts3_gisco_2024 已记录许可、署名和权威拓扑证据状态，并继续保持 not_ready_for_display。" },
+  { id: "regions", label: "regions", description: "v0.16 区域元数据表；匈牙利 NUTS3 记录 20 个 region_id candidate、20 个 NUTS code 与待最终复核状态。" },
+  { id: "region_boundaries", label: "region_boundaries", description: "v0.16 区域边界来源表；hu_nuts3_gisco_2024 已记录最终主键匹配计数与证据状态，并继续保持 not_ready_for_display。" },
   { id: "region_indicators", label: "region_indicators", description: "v0.11 继续保留区域指标字典；独立于国家级 indicators，第一批只覆盖 10 个区域指标。" },
   { id: "region_observations", label: "region_observations", description: "v0.11 继续保留区域观测值表；第一批区域指标仍保留待接入观测位置。" },
-  { id: "region_quality_checks", label: "region_quality_checks", description: "v0.15 区域数据质量验收表；记录 Hungary NUTS3 许可与权威拓扑证据，正式展示状态保持 false。" },
+  { id: "region_quality_checks", label: "region_quality_checks", description: "v0.16 区域数据质量验收表；记录 Hungary NUTS3 最终主键匹配预检查与待最终复核状态，正式展示状态保持 false。" },
   { id: "region_sources", label: "region_sources", description: "v0.15 区域来源字典；锁定 GISCO NUTS 2024 Level 3 GeoJSON，并记录官方许可来源与署名要求。" },
   { id: "project_locations", label: "project_locations", description: "v0.11 继续保留对华项目地区定位表；不启用真实项目点位图层。" },
-  { id: "map_layers", label: "map_layers", description: "v0.15 地图图层注册表；hu_nuts3_boundary_pilot 记录许可与权威拓扑证据，is_ready_for_display=false。" },
+  { id: "map_layers", label: "map_layers", description: "v0.16 地图图层注册表；hu_nuts3_boundary_pilot 记录最终主键匹配证据，is_ready_for_display=false。" },
   { id: "indicators", label: "indicators", description: "18 个指标的口径、单位、频率、来源优先级和派生资格。" },
   { id: "sources", label: "sources", description: "来源字典与 A/B/C/D 可靠性等级。" },
   { id: "observations", label: "observations", description: "十国基础宏观观测值和 V4 扩展观测值。" },

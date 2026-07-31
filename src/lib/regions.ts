@@ -17,6 +17,14 @@ export type RegionMetadataRecord = {
   is_statistical_data_available: boolean;
   is_election_data_available: boolean;
   is_china_project_mapped: boolean;
+  expected_region_count: number;
+  nuts_code_count: number;
+  region_id_candidate_count: number;
+  unmatched_region_count: number;
+  duplicate_region_id_count: number;
+  duplicate_nuts_code_count: number;
+  region_id_final_matched: boolean;
+  region_id_match_evidence_status: string;
   data_status: RegionDataStatus;
   source_status: RegionSourceStatus;
   last_updated: string;
@@ -56,6 +64,14 @@ const v4RegionDefaults = {
   is_statistical_data_available: false,
   is_election_data_available: false,
   is_china_project_mapped: false,
+  expected_region_count: 0,
+  nuts_code_count: 0,
+  region_id_candidate_count: 0,
+  unmatched_region_count: 0,
+  duplicate_region_id_count: 0,
+  duplicate_nuts_code_count: 0,
+  region_id_final_matched: false,
+  region_id_match_evidence_status: "not_started",
   data_status: "待核验" as const,
   source_status: "人工整理" as const,
   last_updated: updatedAt,
@@ -76,6 +92,14 @@ const nonV4RegionDefaults = {
   is_statistical_data_available: false,
   is_election_data_available: false,
   is_china_project_mapped: false,
+  expected_region_count: 0,
+  nuts_code_count: 0,
+  region_id_candidate_count: 0,
+  unmatched_region_count: 0,
+  duplicate_region_id_count: 0,
+  duplicate_nuts_code_count: 0,
+  region_id_final_matched: false,
+  region_id_match_evidence_status: "not_applicable",
   data_status: "待接入" as const,
   source_status: "待接入" as const,
   last_updated: updatedAt,
@@ -101,11 +125,21 @@ function v4Region(record: Omit<RegionMetadataRecord, keyof typeof v4RegionDefaul
     is_statistical_data_available: v4RegionDefaults.is_statistical_data_available,
     is_election_data_available: v4RegionDefaults.is_election_data_available,
     is_china_project_mapped: v4RegionDefaults.is_china_project_mapped,
+    expected_region_count: isHungaryPilot ? 20 : v4RegionDefaults.expected_region_count,
+    nuts_code_count: isHungaryPilot ? 20 : v4RegionDefaults.nuts_code_count,
+    region_id_candidate_count: isHungaryPilot ? 20 : v4RegionDefaults.region_id_candidate_count,
+    unmatched_region_count: 0,
+    duplicate_region_id_count: 0,
+    duplicate_nuts_code_count: 0,
+    region_id_final_matched: false,
+    region_id_match_evidence_status: isHungaryPilot
+      ? "precheck_20_of_20_pending_final_review"
+      : v4RegionDefaults.region_id_match_evidence_status,
     data_status: isHungaryPilot ? "pilot_pending_region_code_match" : v4RegionDefaults.data_status,
     source_status: v4RegionDefaults.source_status,
     last_updated: v4RegionDefaults.last_updated,
     notes: isHungaryPilot
-      ? "v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA；20 个 region_id 与 NUTS code 已完成离线预匹配，基础拓扑 QA 已执行，但未通过许可、权威拓扑和最终主键验收前，data_status 继续保持 pilot_pending_region_code_match，真实地图展示仍未启用。"
+      ? "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
       : v4RegionDefaults.notes,
   };
 }
@@ -127,6 +161,14 @@ function nonV4Placeholder(countryId: string): RegionMetadataRecord {
     is_statistical_data_available: nonV4RegionDefaults.is_statistical_data_available,
     is_election_data_available: nonV4RegionDefaults.is_election_data_available,
     is_china_project_mapped: nonV4RegionDefaults.is_china_project_mapped,
+    expected_region_count: nonV4RegionDefaults.expected_region_count,
+    nuts_code_count: nonV4RegionDefaults.nuts_code_count,
+    region_id_candidate_count: nonV4RegionDefaults.region_id_candidate_count,
+    unmatched_region_count: nonV4RegionDefaults.unmatched_region_count,
+    duplicate_region_id_count: nonV4RegionDefaults.duplicate_region_id_count,
+    duplicate_nuts_code_count: nonV4RegionDefaults.duplicate_nuts_code_count,
+    region_id_final_matched: nonV4RegionDefaults.region_id_final_matched,
+    region_id_match_evidence_status: nonV4RegionDefaults.region_id_match_evidence_status,
     data_status: nonV4RegionDefaults.data_status,
     source_status: nonV4RegionDefaults.source_status,
     last_updated: nonV4RegionDefaults.last_updated,

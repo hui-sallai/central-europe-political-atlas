@@ -1,6 +1,10 @@
 import { InteractiveMapExplorer } from "@/components/InteractiveMapExplorer";
 import { HungaryBoundaryVisualQaSandbox } from "@/components/HungaryBoundaryVisualQaSandbox";
-import { hungaryNuts3ReadinessGateSummary, hungaryNuts3SandboxQaSummary } from "@/lib/regionQualityChecks";
+import {
+  hungaryNuts3ReadinessGateSummary,
+  hungaryNuts3RegionIdMatchSummary,
+  hungaryNuts3SandboxQaSummary,
+} from "@/lib/regionQualityChecks";
 
 export default function MapPage() {
   return (
@@ -16,8 +20,8 @@ export default function MapPage() {
         <h2 className="mt-2 text-2xl font-semibold">区域地图数据准备状态</h2>
         <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           {[
-            ["当前阶段", "v0.15 Hungary boundary license and topology evidence record"],
-            ["区域地图数据", "匈牙利 NUTS3 许可与拓扑证据核验中"],
+            ["当前阶段", "v0.16 Hungary boundary final region-id matching record"],
+            ["区域地图数据", "匈牙利 NUTS3 最终主键匹配核验中"],
             ["V4 ADM1 / NUTS2 边界", "待接入"],
             ["区域统计数据", "待接入"],
             ["对华项目地区定位", "准备中"],
@@ -148,6 +152,37 @@ export default function MapPage() {
         </div>
         <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--muted)]">
           许可来源和署名要求已经记录，但这不等于许可核验完成。权威拓扑验收与最终主键匹配全部通过前，public_display_ready 和 is_ready_for_display 保持 false。
+        </p>
+      </section>
+
+      <section className="mt-6 rounded-3xl border border-[var(--line)] bg-white/65 p-5">
+        <p className="eyebrow">v0.16 Hungary Boundary Final Region-ID Matching Record</p>
+        <h2 className="mt-2 text-2xl font-semibold">v0.16 最终主键匹配记录</h2>
+        <div className="mt-4 overflow-x-auto rounded-2xl border border-[var(--line)] bg-white/70">
+          <table className="min-w-full border-collapse text-left text-sm">
+            <tbody>
+              {[
+                ["expected_region_count", String(hungaryNuts3RegionIdMatchSummary.expected_region_count)],
+                ["nuts_code_count", String(hungaryNuts3RegionIdMatchSummary.nuts_code_count)],
+                ["region_id_candidate_count", String(hungaryNuts3RegionIdMatchSummary.region_id_candidate_count)],
+                ["region_id_final_matched", "pending / false"],
+                ["unmatched_region_count", `${hungaryNuts3RegionIdMatchSummary.unmatched_region_count} / pending final review`],
+                ["duplicate_region_id_count", `${hungaryNuts3RegionIdMatchSummary.duplicate_region_id_count} / pending final review`],
+                ["duplicate_nuts_code_count", `${hungaryNuts3RegionIdMatchSummary.duplicate_nuts_code_count} / pending final review`],
+                ["region_id_match_evidence_status", hungaryNuts3RegionIdMatchSummary.region_id_match_evidence_status],
+                ["public_display_ready", String(hungaryNuts3RegionIdMatchSummary.public_display_ready)],
+                ["is_ready_for_display", String(hungaryNuts3RegionIdMatchSummary.is_ready_for_display)],
+              ].map(([field, value]) => (
+                <tr key={field} className="border-b border-[var(--line)] last:border-b-0">
+                  <th className="w-72 px-4 py-3 font-mono text-xs font-semibold text-[var(--foreground)]">{field}</th>
+                  <td className="px-4 py-3 font-semibold text-[var(--muted)]">{value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+          预检查未发现缺失或重复不等于最终主键匹配通过；代码变体、命名变体和边界文件属性字段完成复核前，正式真实地图展示保持未启用。
         </p>
       </section>
 

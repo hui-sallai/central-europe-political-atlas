@@ -19,7 +19,14 @@ export type MapLayerRecord = {
   authoritative_topology_method: string;
   authoritative_topology_checked: boolean;
   topology_evidence_status: string;
+  expected_region_count: number;
+  nuts_code_count: number;
+  region_id_candidate_count: number;
+  unmatched_region_count: number;
+  duplicate_region_id_count: number;
+  duplicate_nuts_code_count: number;
   region_id_final_matched: boolean;
+  region_id_match_evidence_status: string;
   visual_qa_passed: boolean;
   public_display_ready: boolean;
   is_ready_for_display: boolean;
@@ -49,7 +56,7 @@ export type MapLayerRecord = {
 
 const updatedAt = "2026-07-31";
 const v4Adm1Coverage = "V4 四国 ADM1：poland, hungary, czechia, slovakia";
-const noDisplayBoundary = "v0.15 许可与权威拓扑证据核验未通过；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。";
+const noDisplayBoundary = "v0.16 最终主键匹配核验未通过；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。";
 const noModelBoundary = "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。";
 const giscoLicenseSource = "European Commission / Eurostat GISCO geodata and NUTS usage conditions";
 const giscoLicenseUrl = "https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units/territorial-units-statistics";
@@ -79,7 +86,14 @@ function boundaryLayer(): MapLayerRecord {
     authoritative_topology_method: pendingTopologyMethod,
     authoritative_topology_checked: false,
     topology_evidence_status: "not_started",
+    expected_region_count: 0,
+    nuts_code_count: 0,
+    region_id_candidate_count: 0,
+    unmatched_region_count: 0,
+    duplicate_region_id_count: 0,
+    duplicate_nuts_code_count: 0,
     region_id_final_matched: false,
+    region_id_match_evidence_status: "not_started",
     visual_qa_passed: false,
     public_display_ready: false,
     is_ready_for_display: false,
@@ -128,7 +142,14 @@ function hungaryNuts3PilotLayer(): MapLayerRecord {
     authoritative_topology_method: pendingTopologyMethod,
     authoritative_topology_checked: false,
     topology_evidence_status: "sandbox_basic_topology_passed_pending_authoritative_validation",
+    expected_region_count: 20,
+    nuts_code_count: 20,
+    region_id_candidate_count: 20,
+    unmatched_region_count: 0,
+    duplicate_region_id_count: 0,
+    duplicate_nuts_code_count: 0,
     region_id_final_matched: false,
+    region_id_match_evidence_status: "precheck_zero_exceptions_pending_final_review",
     visual_qa_passed: true,
     public_display_ready: false,
     is_ready_for_display: false,
@@ -154,7 +175,7 @@ function hungaryNuts3PilotLayer(): MapLayerRecord {
     model_boundary: noModelBoundary,
     last_updated: updatedAt,
     notes:
-      "v0.15 license and authoritative topology evidence record；许可来源与署名文本已记录，但 license_checked=false；权威拓扑验收和最终主键匹配仍待完成，真实地图展示保持未启用。",
+      "v0.16 final region-id matching record；20 个 NUTS code 与 20 个 region_id candidate 已登记，预检查缺失与重复计数为 0，但最终复核尚未完成。region_id_final_matched=false，真实地图展示保持未启用。",
   };
 }
 
@@ -185,7 +206,14 @@ function choroplethLayer(layer: {
     authoritative_topology_method: pendingTopologyMethod,
     authoritative_topology_checked: false,
     topology_evidence_status: "not_started",
+    expected_region_count: 0,
+    nuts_code_count: 0,
+    region_id_candidate_count: 0,
+    unmatched_region_count: 0,
+    duplicate_region_id_count: 0,
+    duplicate_nuts_code_count: 0,
     region_id_final_matched: false,
+    region_id_match_evidence_status: "not_started",
     visual_qa_passed: false,
     public_display_ready: false,
     is_ready_for_display: false,
@@ -234,7 +262,14 @@ function projectLocationLayer(): MapLayerRecord {
     authoritative_topology_method: pendingTopologyMethod,
     authoritative_topology_checked: false,
     topology_evidence_status: "not_started",
+    expected_region_count: 0,
+    nuts_code_count: 0,
+    region_id_candidate_count: 0,
+    unmatched_region_count: 0,
+    duplicate_region_id_count: 0,
+    duplicate_nuts_code_count: 0,
     region_id_final_matched: false,
+    region_id_match_evidence_status: "not_started",
     visual_qa_passed: false,
     public_display_ready: false,
     is_ready_for_display: false,
