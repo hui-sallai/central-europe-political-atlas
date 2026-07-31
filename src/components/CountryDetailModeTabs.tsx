@@ -10,7 +10,7 @@ import { chinaProjectVerificationLabel, verifyChinaProject } from "@/lib/chinaPr
 import { getCountryMetadata } from "@/lib/countryMetadata";
 import type { Country } from "@/lib/data";
 import { getChinaProjectRecords, getNewsEventRecords, getV4ObservationCoverage, getV4TemplateCoverage } from "@/lib/extendedData";
-import { hungaryNuts3SandboxQaSummary } from "@/lib/regionQualityChecks";
+import { hungaryNuts3ReadinessGateSummary, hungaryNuts3SandboxQaSummary } from "@/lib/regionQualityChecks";
 
 type DetailMode = "map" | "reading";
 
@@ -334,6 +334,28 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
           <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
             v0.13.1 仅记录内部视觉 QA 结果；视觉 QA 通过不等于许可或权威拓扑通过，真实地图展示保持未启用。
           </p>
+        </section>
+      ) : null}
+
+      {country.slug === "hungary" ? (
+        <section className="mt-4 card p-6">
+          <p className="eyebrow">4.4 v0.14 Hungary Boundary Readiness Gate</p>
+          <h2 className="mt-3 text-2xl font-semibold">v0.14 展示准入状态</h2>
+          <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            {[
+              ["视觉 QA", hungaryNuts3ReadinessGateSummary.visual_qa_passed ? "已通过" : "待完成"],
+              ["许可核验", hungaryNuts3ReadinessGateSummary.license_checked ? "已完成" : "待完成"],
+              ["权威拓扑验收", hungaryNuts3ReadinessGateSummary.authoritative_topology_checked ? "已完成" : "待完成"],
+              ["最终主键匹配", hungaryNuts3ReadinessGateSummary.region_id_final_matched ? "已完成" : "待完成"],
+              ["是否进入正式地图", hungaryNuts3ReadinessGateSummary.is_ready_for_display ? "是" : "否"],
+              ["备注", "视觉 QA 通过不代表正式展示资格通过"],
+            ].map(([label, value]) => (
+              <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+                <p className="text-xs font-semibold text-[var(--muted)]">{label}</p>
+                <p className="mt-2 text-sm font-semibold leading-6 text-[var(--foreground)]">{value}</p>
+              </article>
+            ))}
+          </div>
         </section>
       ) : null}
 

@@ -29,7 +29,13 @@ const { regionMetadataRecords } = require("../src/lib/regions.ts");
 const { regionBoundaryRecords } = require("../src/lib/regionBoundaries.ts");
 const { regionIndicatorRecords } = require("../src/lib/regionIndicators.ts");
 const { regionObservationRecords } = require("../src/lib/regionObservations.ts");
-const { hungaryNuts3SandboxQaSummary, hungaryNuts3VisualQaSummary, regionQualityCheckRecords, regionQualitySummary } = require("../src/lib/regionQualityChecks.ts");
+const {
+  hungaryNuts3ReadinessGateSummary,
+  hungaryNuts3SandboxQaSummary,
+  hungaryNuts3VisualQaSummary,
+  regionQualityCheckRecords,
+  regionQualitySummary,
+} = require("../src/lib/regionQualityChecks.ts");
 const { regionSourceRecords } = require("../src/lib/regionSources.ts");
 const { projectLocationRecords } = require("../src/lib/projectLocations.ts");
 const { mapLayerRecords } = require("../src/lib/mapLayers.ts");
@@ -932,6 +938,22 @@ function methodologyRuleRecords() {
       last_updated: generatedAt,
       notes: "当前 17 个逻辑数据层均从导出脚本生成；regions 为 v0.9 区域主键层，region_boundaries 为边界来源登记层，region_indicators 为区域指标字典，region_observations 为区域观测值主表，region_quality_checks 为区域数据质量验收层，region_sources 为区域来源字典，project_locations 为对华项目地区定位表，map_layers 为地图图层注册表。",
     },
+    {
+      rule_id: "hungary_boundary_readiness_gate",
+      rule_category: "区域边界准入规则",
+      rule_name: "匈牙利 NUTS3 展示准入闸门规则",
+      rule_description: "视觉 QA 通过只是必要条件；许可、权威拓扑和最终 region_id 匹配全部通过前，不得启用正式真实地图展示。",
+      applies_to: "region_quality_checks,map_layers,map_page,hungary_country_page",
+      required_fields: ["license_checked", "authoritative_topology_checked", "region_id_final_matched", "visual_qa_passed", "public_display_ready", "is_ready_for_display", "readiness_gate_status"],
+      allowed_statuses: ["not_ready_for_public_display", "ready_for_public_display"],
+      excluded_statuses: ["正式地图已启用", "风险图层", "预测图层", "真实党派支持率图层"],
+      source_requirement: "许可状态、权威拓扑验收和最终主键匹配必须有可核验记录。",
+      quality_requirement: "三项前置条件未全部通过时，public_display_ready 与 is_ready_for_display 必须为 false。",
+      model_boundary: "准入闸门不生成风险指数、预测、中国经济暴露指数或区域评分。",
+      export_boundary: "随 region_quality_checks、map_layers 和 methodology_rules 导出；不新增第 18 张表。",
+      last_updated: generatedAt,
+      notes: "v0.14 Hungary boundary readiness gate；当前 gate_status=not_ready_for_public_display。",
+    },
   ];
 }
 
@@ -1089,11 +1111,12 @@ writeLayer("region_observations", regionObservationRecords, {
   model_boundary: "Observation structure only. Pending rows do not enter map layers, regional comparison, or future model candidate inputs.",
 });
 writeLayer("region_quality_checks", regionQualityCheckRecords, {
-  scope: "v0.13.1 regional data quality checks. Hungary NUTS3 records the internal visual QA result while formal display remains disabled.",
+  scope: "v0.14 regional data quality checks. Hungary NUTS3 records the readiness gate while formal display remains disabled.",
   primary_key: "region_check_id",
   summary: regionQualitySummary,
   sandbox_qa_summary: hungaryNuts3SandboxQaSummary,
   visual_qa_summary: hungaryNuts3VisualQaSummary,
+  readiness_gate_summary: hungaryNuts3ReadinessGateSummary,
   relation_note: "Every check references region_id from regions and region_indicator_id from region_indicators. Boundary readiness is cross-checked through region_boundaries.",
   validation_note: "Basic topology QA does not replace authoritative validation. A 20/20 pre-match does not set region_id_matched=true, and pending rows remain explicit.",
   model_boundary: "Quality checks only. No regional model, risk layer, forecast, election prediction, or live boundary rendering is generated.",
@@ -1113,7 +1136,7 @@ writeLayer("project_locations", projectLocationRecords, {
   model_boundary: "Location bridge only. No China exposure index, regional risk layer, forecast, or live project map layer is generated.",
 });
 writeLayer("map_layers", mapLayerRecords, {
-  scope: "v0.13.1 map layer registry. hu_nuts3_boundary_pilot records internal visual QA results only; is_ready_for_display and public_display_ready remain false.",
+  scope: "v0.14 map layer registry. hu_nuts3_boundary_pilot records the readiness gate; is_ready_for_display and public_display_ready remain false.",
   primary_key: "layer_id",
   relation_note: "Each layer declares its data_source_table, geometry_source_table, indicator_or_variable, tooltip fields, filters, source requirements, and quality requirements.",
   validation_note: "All registered real boundary and analytical layers keep is_ready_for_display=false until boundary, source, observation, project-location, and quality checks pass.",

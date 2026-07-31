@@ -11,14 +11,19 @@ export type MapLayerRecord = {
   country_coverage: string;
   indicator_or_variable: string;
   is_active: boolean;
+  license_checked: boolean;
+  authoritative_topology_checked: boolean;
+  region_id_final_matched: boolean;
+  visual_qa_passed: boolean;
+  public_display_ready: boolean;
   is_ready_for_display: boolean;
+  readiness_gate_status: string;
   visual_qa_started: boolean;
   feature_rendered_count: number;
   fit_bounds_checked: boolean;
   tooltip_checked: boolean;
   visual_overlap_checked: boolean;
   missing_geometry_checked: boolean;
-  public_display_ready: boolean;
   is_structural_sample: boolean;
   is_official_data: boolean;
   is_manual: boolean;
@@ -36,9 +41,9 @@ export type MapLayerRecord = {
   notes: string;
 };
 
-const updatedAt = "2026-07-26";
+const updatedAt = "2026-07-31";
 const v4Adm1Coverage = "V4 四国 ADM1：poland, hungary, czechia, slovakia";
-const noDisplayBoundary = "v0.12 只允许匈牙利边界文件进入沙盒验证与拓扑 QA；is_ready_for_display=false 时不得在地图工作台显示为真实图层。";
+const noDisplayBoundary = "v0.14 展示准入闸门未通过；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。";
 const noModelBoundary = "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。";
 const boundaryQuality = "region_boundaries.geometry_available=true、geometry_simplified=true、topology_checked=true、boundary_license_checked=true，且 region_quality_checks 中对应区域 is_map_ready=true。";
 const choroplethQuality = "需要 region_observations 有正式数值、来源链接、单位、来源等级，并通过 region_quality_checks；当前待接入观测值不得进入地图显示。";
@@ -56,14 +61,19 @@ function boundaryLayer(): MapLayerRecord {
     country_coverage: v4Adm1Coverage,
     indicator_or_variable: "regional_boundary_status",
     is_active: false,
+    license_checked: false,
+    authoritative_topology_checked: false,
+    region_id_final_matched: false,
+    visual_qa_passed: false,
+    public_display_ready: false,
     is_ready_for_display: false,
+    readiness_gate_status: "not_ready_for_public_display",
     visual_qa_started: false,
     feature_rendered_count: 0,
     fit_bounds_checked: false,
     tooltip_checked: false,
     visual_overlap_checked: false,
     missing_geometry_checked: false,
-    public_display_ready: false,
     is_structural_sample: false,
     is_official_data: false,
     is_manual: true,
@@ -94,14 +104,19 @@ function hungaryNuts3PilotLayer(): MapLayerRecord {
     country_coverage: "hungary",
     indicator_or_variable: "hu_nuts3_gisco_2024",
     is_active: false,
+    license_checked: false,
+    authoritative_topology_checked: false,
+    region_id_final_matched: false,
+    visual_qa_passed: true,
+    public_display_ready: false,
     is_ready_for_display: false,
+    readiness_gate_status: "not_ready_for_public_display",
     visual_qa_started: true,
     feature_rendered_count: 20,
     fit_bounds_checked: true,
     tooltip_checked: true,
     visual_overlap_checked: true,
     missing_geometry_checked: true,
-    public_display_ready: false,
     is_structural_sample: false,
     is_official_data: false,
     is_manual: false,
@@ -117,7 +132,7 @@ function hungaryNuts3PilotLayer(): MapLayerRecord {
     model_boundary: noModelBoundary,
     last_updated: updatedAt,
     notes:
-      "v0.12 sandbox validation and topology QA；基础几何与异常穿越检查已执行，但许可、权威拓扑验收和最终主键验收未全部通过，真实地图展示仍未启用。",
+      "v0.14 Hungary boundary readiness gate；视觉 QA 已通过，但许可、权威拓扑验收和最终主键匹配仍待完成，真实地图展示保持未启用。",
   };
 }
 
@@ -140,14 +155,19 @@ function choroplethLayer(layer: {
     country_coverage: v4Adm1Coverage,
     indicator_or_variable: layer.indicator,
     is_active: false,
+    license_checked: false,
+    authoritative_topology_checked: false,
+    region_id_final_matched: false,
+    visual_qa_passed: false,
+    public_display_ready: false,
     is_ready_for_display: false,
+    readiness_gate_status: "not_ready_for_public_display",
     visual_qa_started: false,
     feature_rendered_count: 0,
     fit_bounds_checked: false,
     tooltip_checked: false,
     visual_overlap_checked: false,
     missing_geometry_checked: false,
-    public_display_ready: false,
     is_structural_sample: false,
     is_official_data: false,
     is_manual: false,
@@ -178,14 +198,19 @@ function projectLocationLayer(): MapLayerRecord {
     country_coverage: v4Adm1Coverage,
     indicator_or_variable: "project_locations.location_status",
     is_active: false,
+    license_checked: false,
+    authoritative_topology_checked: false,
+    region_id_final_matched: false,
+    visual_qa_passed: false,
+    public_display_ready: false,
     is_ready_for_display: false,
+    readiness_gate_status: "not_ready_for_public_display",
     visual_qa_started: false,
     feature_rendered_count: 0,
     fit_bounds_checked: false,
     tooltip_checked: false,
     visual_overlap_checked: false,
     missing_geometry_checked: false,
-    public_display_ready: false,
     is_structural_sample: false,
     is_official_data: false,
     is_manual: true,

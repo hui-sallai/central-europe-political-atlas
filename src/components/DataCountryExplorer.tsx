@@ -306,10 +306,10 @@ const dataEntryShortcuts: DataEntryShortcut[] = [
   { id: "region-boundaries-layer-entry", label: "区域边界来源表", mode: "tables", description: "v0.12 region_boundaries 登记匈牙利沙盒过滤、基础拓扑 QA 和不可展示状态。" },
   { id: "region-indicators-layer-entry", label: "区域指标字典", mode: "tables", description: "v0.11 region_indicators 继续保留独立区域指标字典，第一批 10 项。" },
   { id: "region-observations-layer-entry", label: "区域观测值表", mode: "tables", description: "v0.11 region_observations 继续保留区域经济数据主表和待接入观测位置。" },
-  { id: "region-quality-checks-layer-entry", label: "区域质量验收表", mode: "tables", description: "v0.12 region_quality_checks 增加 Hungary NUTS3 sandbox QA 摘要，并继续区分预匹配与最终主键核验。" },
+  { id: "region-quality-checks-layer-entry", label: "区域质量验收表", mode: "tables", description: "v0.14 region_quality_checks 记录 Hungary NUTS3 readiness gate，并继续区分预匹配、视觉 QA 与最终主键核验。" },
   { id: "region-sources-layer-entry", label: "区域来源字典", mode: "tables", description: "v0.11 region_sources 锁定 GISCO Level 3 GeoJSON 并保留待确认许可状态。" },
   { id: "project-locations-layer-entry", label: "项目地区定位表", mode: "tables", description: "v0.11 project_locations 继续保留项目地区定位结构，不启用真实项目点位图层。" },
-  { id: "map-layers-layer-entry", label: "地图图层注册表", mode: "tables", description: "v0.13.1 map_layers 记录视觉 QA 结果，并保持 hu_nuts3_boundary_pilot.is_ready_for_display=false。" },
+  { id: "map-layers-layer-entry", label: "地图图层注册表", mode: "tables", description: "v0.14 map_layers 记录展示准入闸门，并保持 hu_nuts3_boundary_pilot.is_ready_for_display=false。" },
   { id: "indicator-dictionary-entry", label: "指标字典入口", mode: "tables", description: "18 个指标的口径、单位、来源优先级和比较资格。" },
   { id: "source-dictionary-entry", label: "来源字典入口", mode: "tables", description: "16 类来源的链接、可靠性等级和使用边界。" },
   { id: "v4-data-quality-entry", label: "数据质量验收入口", mode: "comparison", description: "V4 四国 240 个观测位置的验收清单。", requiresV4: true },
@@ -374,7 +374,7 @@ const regionalSchemaChecks = [
     table: "region_quality_checks",
     priority: "标准表体",
     why: "区域数据比国家数据更乱，必须提前验收边界、许可、来源和区域代码。",
-    fields: "region_check_id, region_id, country_id, admin_level, region_indicator_id, year, boundary_available, boundary_source_available, boundary_license_checked, source_available, license_checked, file_selected, file_downloaded, hungary_filtered, geometry_filtered, crs_confirmed, topology_checked, region_id_matched, ready_for_display, visual_qa_started, feature_rendered_count, fit_bounds_checked, tooltip_checked, visual_overlap_checked, missing_geometry_checked, public_display_ready, value_present, unit_present, source_name_present, source_url_present, source_reliability_present, region_code_present, is_official_data, is_pending, is_calculated, is_manual, is_structural_sample, is_map_ready, is_region_comparable, is_export_ready, quality_status, missing_reason, quality_notes, last_updated",
+    fields: "region_check_id, region_id, country_id, admin_level, region_indicator_id, year, boundary_available, boundary_source_available, boundary_license_checked, source_available, license_checked, authoritative_topology_checked, region_id_final_matched, visual_qa_passed, file_selected, file_downloaded, hungary_filtered, geometry_filtered, crs_confirmed, topology_checked, region_id_matched, ready_for_display, visual_qa_started, feature_rendered_count, fit_bounds_checked, tooltip_checked, visual_overlap_checked, missing_geometry_checked, public_display_ready, is_ready_for_display, readiness_gate_status, value_present, unit_present, source_name_present, source_url_present, source_reliability_present, region_code_present, is_official_data, is_pending, is_calculated, is_manual, is_structural_sample, is_map_ready, is_region_comparable, is_export_ready, quality_status, missing_reason, quality_notes, last_updated",
     enums: "quality_status: 通过 / 部分通过 / 待接入 / 需复核 / 不进入分析。",
     status: "当前待接入项保留缺失原因；is_map_ready=false 的区域不进入地图图层。",
   },
@@ -390,7 +390,7 @@ const regionalSchemaChecks = [
     table: "map_layers",
     priority: "最高优先级",
     why: "没有 map_layers，地图页无法管理哪些图层只是注册、哪些可以显示。",
-    fields: "layer_id, layer_name_zh, layer_name_en, layer_type, data_source_table, geometry_source_table, admin_level, country_coverage, indicator_or_variable, is_active, is_ready_for_display, visual_qa_started, feature_rendered_count, fit_bounds_checked, tooltip_checked, visual_overlap_checked, missing_geometry_checked, public_display_ready, is_structural_sample, is_official_data, is_manual, is_pending, legend_type, legend_unit, color_scale, interaction_type, tooltip_fields, allowed_filters, source_requirement, quality_requirement, model_boundary, last_updated, notes",
+    fields: "layer_id, layer_name_zh, layer_name_en, layer_type, data_source_table, geometry_source_table, admin_level, country_coverage, indicator_or_variable, is_active, license_checked, authoritative_topology_checked, region_id_final_matched, visual_qa_passed, public_display_ready, is_ready_for_display, readiness_gate_status, visual_qa_started, feature_rendered_count, fit_bounds_checked, tooltip_checked, visual_overlap_checked, missing_geometry_checked, is_structural_sample, is_official_data, is_manual, is_pending, legend_type, legend_unit, color_scale, interaction_type, tooltip_fields, allowed_filters, source_requirement, quality_requirement, model_boundary, last_updated, notes",
     enums: "layer_type: boundary / choropleth / point / symbol / label / table_only / structural_sample；is_ready_for_display=false 的图层不得作为真实图层展示。",
     status: "v0.11 只登记匈牙利边界文件沙盒和既有图层；不启用风险图层、预测图层、真实党派支持率图层或中国经济暴露指数。",
   },
@@ -444,6 +444,11 @@ function regionalFieldMeaning(field: string) {
     data_source_table: "图层读取的数据表。",
     geometry_source_table: "图层读取的几何来源表。",
     is_ready_for_display: "图层是否具备真实展示条件。",
+    authoritative_topology_checked: "是否已经通过权威拓扑验收；基础沙盒 QA 不能替代该字段。",
+    region_id_final_matched: "region_id 与 NUTS / ADM 代码是否完成最终匹配核验。",
+    visual_qa_passed: "内部视觉 QA 是否通过；它只是展示准入的必要条件。",
+    public_display_ready: "边界或图层是否具备公开展示资格。",
+    readiness_gate_status: "真实地图展示准入闸门的综合状态。",
     model_boundary: "模型、预测和指数边界说明。",
   };
 
@@ -469,7 +474,8 @@ function regionalFieldMeaning(field: string) {
 }
 
 function regionalFieldAllowedStatus(table: string, field: string) {
-  if (table === "map_layers" && field === "is_ready_for_display") return "v0.13.1 必须保持 false";
+  if (table === "map_layers" && field === "is_ready_for_display") return "v0.14 必须保持 false";
+  if (field === "readiness_gate_status") return "not_ready_for_public_display / ready_for_public_display";
   if (field === "file_status") return "sandbox_downloaded / not_downloaded / not_applicable";
   if (field === "filter_status") return "sandbox_filtered / not_filtered / not_applicable";
   if (field === "display_status") return "not_ready_for_display";
@@ -2025,6 +2031,9 @@ function RegionQualityCheckTable({ rows }: { rows: RegionQualityCheckRecord[] })
     "boundary_license_checked",
     "source_available",
     "license_checked",
+    "authoritative_topology_checked",
+    "region_id_final_matched",
+    "visual_qa_passed",
     "file_selected",
     "file_downloaded",
     "hungary_filtered",
@@ -2040,6 +2049,8 @@ function RegionQualityCheckTable({ rows }: { rows: RegionQualityCheckRecord[] })
     "visual_overlap_checked",
     "missing_geometry_checked",
     "public_display_ready",
+    "is_ready_for_display",
+    "readiness_gate_status",
     "value_present",
     "unit_present",
     "source_name_present",
@@ -2084,6 +2095,9 @@ function RegionQualityCheckTable({ rows }: { rows: RegionQualityCheckRecord[] })
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.boundary_license_checked} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.source_available} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.license_checked} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.authoritative_topology_checked} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.region_id_final_matched} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.visual_qa_passed} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.file_selected} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.file_downloaded} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.hungary_filtered} /></td>
@@ -2099,6 +2113,8 @@ function RegionQualityCheckTable({ rows }: { rows: RegionQualityCheckRecord[] })
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.visual_overlap_checked} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.missing_geometry_checked} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.public_display_ready} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.is_ready_for_display} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{check.readiness_gate_status}</DictionaryToken></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.value_present} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.unit_present} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.source_name_present} /></td>
@@ -2297,14 +2313,19 @@ function MapLayerRegistryTable({ rows }: { rows: MapLayerRecord[] }) {
     "country_coverage",
     "indicator_or_variable",
     "is_active",
+    "license_checked",
+    "authoritative_topology_checked",
+    "region_id_final_matched",
+    "visual_qa_passed",
+    "public_display_ready",
     "is_ready_for_display",
+    "readiness_gate_status",
     "visual_qa_started",
     "feature_rendered_count",
     "fit_bounds_checked",
     "tooltip_checked",
     "visual_overlap_checked",
     "missing_geometry_checked",
-    "public_display_ready",
     "is_structural_sample",
     "is_official_data",
     "is_manual",
@@ -2345,14 +2366,19 @@ function MapLayerRegistryTable({ rows }: { rows: MapLayerRecord[] }) {
               <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{layer.country_coverage}</td>
               <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{layer.indicator_or_variable}</td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.is_active} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.license_checked} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.authoritative_topology_checked} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.region_id_final_matched} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.visual_qa_passed} /></td>
+              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.public_display_ready} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.is_ready_for_display} /></td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{layer.readiness_gate_status}</DictionaryToken></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.visual_qa_started} /></td>
               <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{layer.feature_rendered_count}</td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.fit_bounds_checked} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.tooltip_checked} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.visual_overlap_checked} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.missing_geometry_checked} /></td>
-              <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.public_display_ready} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.is_structural_sample} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.is_official_data} /></td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.is_manual} /></td>
@@ -2381,7 +2407,7 @@ function ResearchDataExportLinks() {
   const exportStatusCards = [
     { label: "CSV 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .csv 文件。" },
     { label: "JSON 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: "v0.13.1 visual QA result pass", note: "匈牙利 NUTS3 内部视觉 QA 结果已记录；正式真实地图、模型、预测、指数和风险分数仍未启用。" },
+    { label: "当前阶段", value: "v0.14 Hungary boundary readiness gate", note: "匈牙利 NUTS3 展示准入核验中；正式真实地图、模型、预测、指数和风险分数仍未启用。" },
   ];
 
   return (
@@ -3357,10 +3383,10 @@ export function DataCountryExplorer() {
             <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
               <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
                 <div>
-                  <p className="eyebrow">v0.13.1 Visual QA Result Pass</p>
+                  <p className="eyebrow">v0.14 Hungary Boundary Readiness Gate</p>
                   <h4 className="mt-2 text-base font-semibold">区域表字段级验收</h4>
                   <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
-                    八个区域表继续保留完整字段、枚举/状态和用途说明；v0.13.1 只在既有 region_quality_checks 与 map_layers 中记录视觉 QA 结果，不新增第 18 张表。
+                    八个区域表继续保留完整字段、枚举/状态和用途说明；v0.14 只在既有 region_quality_checks 与 map_layers 中记录展示准入闸门，不新增第 18 张表。
                   </p>
                 </div>
                 <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">8 / 8 表体已实化</span>
@@ -3404,7 +3430,7 @@ export function DataCountryExplorer() {
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldSourceRequirement(schema.table, field)}</td>
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldMapDisplayRule(schema.table, field)}</td>
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldModelRule(field)}</td>
-                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">v0.13.1 visual QA result pass 字段口径；不新增模型、预测、风险指数或中国经济暴露指数。</td>
+                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">v0.14 readiness gate 字段口径；不新增模型、预测、风险指数或中国经济暴露指数。</td>
                               </tr>
                             ))}
                           </tbody>
@@ -3450,7 +3476,7 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Research Registry Tables</p>
               <h2 className="mt-3 text-2xl font-semibold">研究数据结构总表</h2>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                以下十七个逻辑数据层常驻在数据页；v0.8 的九个逻辑数据层继续保留，v0.13.1 只在既有区域地图数据结构上记录匈牙利 NUTS3 内部视觉 QA 结果。它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。其中 regions 是区域主键层，region_boundaries 是边界来源、沙盒文件和展示状态登记层，region_indicators 是独立于国家级 indicators 的区域指标字典，region_observations 是区域经济数据主表，region_quality_checks 是区域质量验收层，region_sources 是区域来源字典，project_locations 是对华项目地区定位桥表，map_layers 是地图图层注册表。
+                以下十七个逻辑数据层常驻在数据页；v0.8 的九个逻辑数据层继续保留，v0.14 只在既有区域地图数据结构上增加匈牙利 NUTS3 展示准入闸门。它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。其中 regions 是区域主键层，region_boundaries 是边界来源、沙盒文件和展示状态登记层，region_indicators 是独立于国家级 indicators 的区域指标字典，region_observations 是区域经济数据主表，region_quality_checks 是区域质量验收层，region_sources 是区域来源字典，project_locations 是对华项目地区定位桥表，map_layers 是地图图层注册表。
               </p>
             </div>
             <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">按需展开</span>
@@ -3507,7 +3533,7 @@ export function DataCountryExplorer() {
               <RegionObservationTable rows={regionObservationRecords} />
             </DeferredDetails>
 
-            <DeferredDetails id="region-quality-checks-layer-entry" title="region_quality_checks：v0.12 区域数据质量验收">
+            <DeferredDetails id="region-quality-checks-layer-entry" title="region_quality_checks：v0.14 展示准入质量验收">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
                 region_quality_checks 用于提前验收区域数据是否具备边界、许可、来源、区域代码、数值、单位和地图图层准备条件。v0.12 在同一逻辑层内增加 Hungary NUTS3 sandbox QA 摘要；不展开新的逻辑表。
               </p>
@@ -3531,9 +3557,9 @@ export function DataCountryExplorer() {
               <ProjectLocationTable rows={projectLocationRecords} />
             </DeferredDetails>
 
-            <DeferredDetails id="map-layers-layer-entry" title="map_layers：v0.12 地图图层注册表">
+            <DeferredDetails id="map-layers-layer-entry" title="map_layers：v0.14 展示准入图层注册表">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                map_layers 只注册未来地图工作台的可控图层。v0.13.1 的 hu_nuts3_boundary_pilot 已记录内部视觉 QA 结果，但继续保持 is_ready_for_display=false，直到来源、许可、文件、CRS、几何、权威拓扑、最终主键匹配和质量验收全部通过。
+                map_layers 只注册未来地图工作台的可控图层。v0.14 的 hu_nuts3_boundary_pilot 已通过内部视觉 QA，但 license、authoritative topology 与 final region_id match 尚未完成，因此 public_display_ready=false、is_ready_for_display=false、readiness_gate_status=not_ready_for_public_display。
               </p>
               <MapLayerRegistryTable rows={mapLayerRecords} />
             </DeferredDetails>
@@ -3587,7 +3613,7 @@ export function DataCountryExplorer() {
 
             <DeferredDetails id="data-export-entry" title="数据导出与接口准备">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.13.1 visual QA result pass；既有 17 个逻辑层同步视觉 QA 结果，不提供模型 API。
+                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.14 Hungary boundary readiness gate；既有 17 个逻辑层同步展示准入状态，不提供模型 API。
                 当前导出对象包括 countries、regions、region_boundaries、region_indicators、region_observations、region_quality_checks、region_sources、project_locations、map_layers、indicators、sources、observations、data_quality_checks、derived_comparisons、china_projects、china_exposure_candidates 和 methodology_rules。
               </p>
               <ResearchDataExportLinks />

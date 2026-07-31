@@ -17,6 +17,9 @@ export type RegionQualityCheckRecord = {
   boundary_license_checked: boolean;
   source_available: boolean;
   license_checked: boolean;
+  authoritative_topology_checked: boolean;
+  region_id_final_matched: boolean;
+  visual_qa_passed: boolean;
   file_selected: boolean;
   file_downloaded: boolean;
   hungary_filtered: boolean;
@@ -32,6 +35,8 @@ export type RegionQualityCheckRecord = {
   visual_overlap_checked: boolean;
   missing_geometry_checked: boolean;
   public_display_ready: boolean;
+  is_ready_for_display: boolean;
+  readiness_gate_status: string;
   value_present: boolean;
   unit_present: boolean;
   source_name_present: boolean;
@@ -90,6 +95,16 @@ export type HungaryNuts3VisualQaSummary = {
   missing_geometry_checked: boolean;
   public_display_ready: boolean;
   is_ready_for_display: boolean;
+};
+
+export type HungaryNuts3ReadinessGateSummary = {
+  license_checked: boolean;
+  authoritative_topology_checked: boolean;
+  region_id_final_matched: boolean;
+  visual_qa_passed: boolean;
+  public_display_ready: boolean;
+  is_ready_for_display: boolean;
+  readiness_gate_status: "not_ready_for_public_display";
 };
 
 const updatedAt = "2026-07-27";
@@ -209,6 +224,9 @@ function buildRegionQualityCheck(observation: (typeof regionObservationRecords)[
     boundary_license_checked: boundaryLicenseChecked,
     source_available: boundarySourceAvailable,
     license_checked: boundaryLicenseChecked,
+    authoritative_topology_checked: false,
+    region_id_final_matched: false,
+    visual_qa_passed: false,
     file_selected: fileSelected,
     file_downloaded: fileDownloaded,
     hungary_filtered: hungaryFiltered,
@@ -224,6 +242,8 @@ function buildRegionQualityCheck(observation: (typeof regionObservationRecords)[
     visual_overlap_checked: false,
     missing_geometry_checked: false,
     public_display_ready: false,
+    is_ready_for_display: false,
+    readiness_gate_status: "not_ready_for_public_display",
     value_present: valuePresent,
     unit_present: unitPresent,
     source_name_present: sourceNamePresent,
@@ -278,6 +298,16 @@ export const hungaryNuts3VisualQaSummary: HungaryNuts3VisualQaSummary = {
   is_ready_for_display: false,
 };
 
+export const hungaryNuts3ReadinessGateSummary: HungaryNuts3ReadinessGateSummary = {
+  license_checked: false,
+  authoritative_topology_checked: false,
+  region_id_final_matched: false,
+  visual_qa_passed: true,
+  public_display_ready: false,
+  is_ready_for_display: false,
+  readiness_gate_status: "not_ready_for_public_display",
+};
+
 const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {
   region_check_id: "hungary_nuts3_boundary_pilot_quality_check",
   region_id: "hungary_nuts3_pilot",
@@ -289,7 +319,10 @@ const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {
   boundary_source_available: hasText(hungaryPilotBoundary?.boundary_source_name) && hasText(hungaryPilotBoundary?.boundary_source_url),
   boundary_license_checked: false,
   source_available: hasText(hungaryPilotBoundary?.boundary_source_name) && hasText(hungaryPilotBoundary?.boundary_source_url),
-  license_checked: false,
+  license_checked: hungaryNuts3ReadinessGateSummary.license_checked,
+  authoritative_topology_checked: hungaryNuts3ReadinessGateSummary.authoritative_topology_checked,
+  region_id_final_matched: hungaryNuts3ReadinessGateSummary.region_id_final_matched,
+  visual_qa_passed: hungaryNuts3ReadinessGateSummary.visual_qa_passed,
   file_selected: Boolean(hungaryPilotBoundary?.file_selected),
   file_downloaded: hungaryPilotBoundary?.file_status === "sandbox_downloaded",
   hungary_filtered: hungaryPilotBoundary?.filter_status === "sandbox_filtered",
@@ -304,7 +337,9 @@ const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {
   tooltip_checked: hungaryNuts3VisualQaSummary.tooltip_checked,
   visual_overlap_checked: hungaryNuts3VisualQaSummary.visual_overlap_checked,
   missing_geometry_checked: hungaryNuts3VisualQaSummary.missing_geometry_checked,
-  public_display_ready: hungaryNuts3VisualQaSummary.public_display_ready,
+  public_display_ready: hungaryNuts3ReadinessGateSummary.public_display_ready,
+  is_ready_for_display: hungaryNuts3ReadinessGateSummary.is_ready_for_display,
+  readiness_gate_status: hungaryNuts3ReadinessGateSummary.readiness_gate_status,
   value_present: false,
   unit_present: true,
   source_name_present: hasText(hungaryPilotBoundary?.boundary_source_name),
@@ -322,7 +357,7 @@ const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {
   quality_status: "需复核",
   missing_reason: "许可确认、权威拓扑验收和 region_id / NUTS code 最终核验尚未完成。",
   quality_notes:
-    "v0.12 Hungary NUTS3 sandbox validation and topology QA；20 个要素已完成坐标、环闭合、退化环、自相交和区域间异常穿越基础检查。基础 QA 不替代权威拓扑验收，20 / 20 预匹配不等于 region_id_matched=true。",
+    "v0.14 Hungary boundary readiness gate；视觉 QA 已通过，但许可核验、权威拓扑验收和最终 region_id 匹配尚未完成，public_display_ready 与 is_ready_for_display 必须保持 false。",
   last_updated: updatedAt,
 };
 
