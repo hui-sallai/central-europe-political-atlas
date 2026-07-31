@@ -132,7 +132,7 @@ export default function MapPage() {
                 ["visual_qa_passed", String(hungaryNuts3ReadinessGateSummary.visual_qa_passed)],
                 ["public_display_ready", String(hungaryNuts3ReadinessGateSummary.public_display_ready)],
                 ["is_ready_for_display", String(hungaryNuts3ReadinessGateSummary.is_ready_for_display)],
-                ["gate_status", hungaryNuts3ReadinessGateSummary.readiness_gate_status],
+                ["readiness_gate_status", hungaryNuts3ReadinessGateSummary.readiness_gate_status],
               ].map(([field, value]) => (
                 <tr key={field} className="border-b border-[var(--line)] last:border-b-0">
                   <th className="w-72 px-4 py-3 font-mono text-xs font-semibold text-[var(--foreground)]">{field}</th>

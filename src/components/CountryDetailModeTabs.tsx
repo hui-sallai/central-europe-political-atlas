@@ -347,6 +347,9 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
               ["许可核验", hungaryNuts3ReadinessGateSummary.license_checked ? "已完成" : "待完成"],
               ["权威拓扑验收", hungaryNuts3ReadinessGateSummary.authoritative_topology_checked ? "已完成" : "待完成"],
               ["最终主键匹配", hungaryNuts3ReadinessGateSummary.region_id_final_matched ? "已完成" : "待完成"],
+              ["public_display_ready", String(hungaryNuts3ReadinessGateSummary.public_display_ready)],
+              ["is_ready_for_display", String(hungaryNuts3ReadinessGateSummary.is_ready_for_display)],
+              ["readiness_gate_status", hungaryNuts3ReadinessGateSummary.readiness_gate_status],
               ["是否进入正式地图", hungaryNuts3ReadinessGateSummary.is_ready_for_display ? "是" : "否"],
               ["备注", "视觉 QA 通过不代表正式展示资格通过"],
             ].map(([label, value]) => (
