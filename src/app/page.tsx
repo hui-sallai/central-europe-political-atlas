@@ -1,13 +1,21 @@
 import { DataLayerOverview } from "@/components/DataLayerOverview";
 import { InteractiveMapExplorer } from "@/components/InteractiveMapExplorer";
 
+const HOME_STAGE = "v0.15 Hungary boundary license and topology evidence record";
+const HOME_STATUS = [
+  ["当前阶段", HOME_STAGE],
+  ["区域地图数据", "匈牙利 NUTS3 许可与拓扑证据核验中"],
+  ["真实地图展示", "未启用"],
+  ["模型层", "未启用"],
+] as const;
+
 export default function Home() {
   return (
     <main className="page-shell home-shell">
       <section className="home-first-screen">
         <div className="mb-2 flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <p className="eyebrow">V4 Prototype / Research Atlas / v0.15 Hungary boundary license and topology evidence record</p>
+            <p className="eyebrow">V4 Prototype / Research Atlas / {HOME_STAGE}</p>
             <h1 className="mt-1 max-w-4xl text-3xl font-semibold leading-tight tracking-[-0.04em] text-[var(--foreground)]">
               中欧政治经济地图
             </h1>
@@ -17,12 +25,7 @@ export default function Home() {
           </div>
         </div>
         <div className="mb-3 grid gap-2 text-xs md:grid-cols-4">
-          {[
-            ["当前阶段", "v0.15 Hungary boundary license and topology evidence record"],
-            ["区域地图数据", "匈牙利 NUTS3 许可与拓扑证据核验中"],
-            ["真实地图展示", "未启用"],
-            ["模型层", "未启用"],
-          ].map(([label, value]) => (
+          {HOME_STATUS.map(([label, value]) => (
             <div key={label} className="rounded-2xl border border-[var(--line)] bg-white/70 px-3 py-2">
               <p className="font-semibold text-[var(--muted)]">{label}</p>
               <p className="mt-1 font-semibold text-[var(--foreground)]">{value}</p>
