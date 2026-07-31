@@ -315,11 +315,11 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
           <h2 className="mt-3 text-2xl font-semibold">v0.13 视觉 QA 状态</h2>
           <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             {[
-              ["边界形状", "待人工目视检查"],
+              ["边界形状", "通过（内部视觉 QA）；权威拓扑仍需复核"],
               ["区域数量", "20 / 20"],
-              ["tooltip", "待检查"],
-              ["视图定位", "待检查"],
-              ["错位/破碎边界", "待检查"],
+              ["tooltip", "通过；20 / 20 候选字段完整"],
+              ["视图定位", "通过；fit bounds 四边余量稳定"],
+              ["错位/破碎边界", "未发现明显问题；权威拓扑仍需复核"],
               ["是否进入正式地图", "否"],
             ].map(([label, value]) => (
               <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">

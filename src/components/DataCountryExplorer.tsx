@@ -1993,6 +1993,12 @@ function HungaryVisualQaSummaryCards({ summary }: { summary: HungaryNuts3VisualQ
       <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
         该摘要属于既有 region_quality_checks，不新增第 18 张表。渲染成功不代表拓扑、主键或公开展示资格已通过。
       </p>
+      <p className="mt-3 rounded-xl border border-[var(--line)] bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--foreground)]">
+        <span className="font-mono text-xs font-semibold text-[var(--accent)]">visual QA summary</span>
+        <span className="mt-1 block">
+          fit bounds：通过；tooltip：通过；visual overlap：未发现明显问题；missing geometry：20 / 20 通过；权威拓扑、许可和最终主键仍需复核；public_display_ready=false。
+        </span>
+      </p>
       <dl className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
         {fields.map(([field, value]) => (
           <div key={field} className="rounded-xl bg-[var(--surface-muted)] p-3">

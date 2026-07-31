@@ -269,9 +269,9 @@ export const hungaryNuts3SandboxQaSummary: HungaryNuts3SandboxQaSummary = {
 export const hungaryNuts3VisualQaSummary: HungaryNuts3VisualQaSummary = {
   visual_qa_started: true,
   feature_rendered_count: 20,
-  fit_bounds_checked: false,
-  tooltip_checked: false,
-  visual_overlap_checked: false,
+  fit_bounds_checked: true,
+  tooltip_checked: true,
+  visual_overlap_checked: true,
   missing_geometry_checked: true,
   public_display_ready: false,
 };

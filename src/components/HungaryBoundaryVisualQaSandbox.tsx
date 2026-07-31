@@ -194,7 +194,7 @@ export function HungaryBoundaryVisualQaSandbox() {
             </div>
           </dl>
           <p className="mt-5 rounded-xl bg-[var(--surface-muted)] p-3 text-xs leading-5 text-[var(--muted)]">
-            fit bounds、tooltip、视觉重叠与破碎边界仍需人工确认。能渲染不等于可分析或可公开展示。
+            内部视觉 QA 已完成：fit bounds、tooltip、缺失几何与明显重叠检查通过。权威拓扑、许可和最终主键仍需复核；能渲染不等于可分析或可公开展示。
           </p>
         </aside>
       </div>
