@@ -469,7 +469,7 @@ function regionalFieldMeaning(field: string) {
 }
 
 function regionalFieldAllowedStatus(table: string, field: string) {
-  if (table === "map_layers" && field === "is_ready_for_display") return "v0.12 必须保持 false";
+  if (table === "map_layers" && field === "is_ready_for_display") return "v0.13.1 必须保持 false";
   if (field === "file_status") return "sandbox_downloaded / not_downloaded / not_applicable";
   if (field === "filter_status") return "sandbox_filtered / not_filtered / not_applicable";
   if (field === "display_status") return "not_ready_for_display";

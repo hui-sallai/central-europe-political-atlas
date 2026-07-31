@@ -143,7 +143,7 @@ export function HungaryBoundaryVisualQaSandbox() {
 
       <div className="mt-4 grid gap-4 lg:grid-cols-[minmax(0,1fr)_250px]">
         <div className="flex min-h-[420px] items-center justify-center overflow-hidden rounded-2xl border border-[var(--line)] bg-[#f7f8f4] p-3">
-          {loadState === "loading" ? <p className="text-sm text-[var(--muted)]">正在读取沙盒边界文件…</p> : null}
+          {loadState === "loading" ? <p className="text-sm text-[var(--muted)]">结果见上方 QA 结果区；内部预览仍不属于正式地图。</p> : null}
           {loadState === "error" ? <p className="text-sm text-rose-700">沙盒文件读取失败；不影响正式地图，因为正式展示未启用。</p> : null}
           {loadState === "loaded" ? (
             <svg viewBox={`0 0 ${viewBox.width} ${viewBox.height}`} className="h-full max-h-[500px] w-full" role="img" aria-label="匈牙利 NUTS3 内部视觉 QA 沙盒">
@@ -178,19 +178,19 @@ export function HungaryBoundaryVisualQaSandbox() {
           <dl className="mt-4 grid gap-3 text-sm">
             <div>
               <dt className="text-xs text-[var(--muted)]">NUTS code</dt>
-              <dd className="mt-1 font-mono font-semibold">{activeFeature?.properties.NUTS_ID ?? "待检查"}</dd>
+              <dd className="mt-1 font-mono font-semibold">{activeFeature?.properties.NUTS_ID ?? "结果见上方 QA 结果区"}</dd>
             </div>
             <div>
               <dt className="text-xs text-[var(--muted)]">region name</dt>
-              <dd className="mt-1 font-semibold">{activeFeature?.properties.NAME_LATN ?? activeFeature?.properties.NUTS_NAME ?? "待检查"}</dd>
+              <dd className="mt-1 font-semibold">{activeFeature?.properties.NAME_LATN ?? activeFeature?.properties.NUTS_NAME ?? "结果见上方 QA 结果区"}</dd>
             </div>
             <div>
               <dt className="text-xs text-[var(--muted)]">region_id candidate</dt>
-              <dd className="mt-1 break-all font-mono text-xs font-semibold">{activeFeature?.properties.region_id ?? "待检查"}</dd>
+              <dd className="mt-1 break-all font-mono text-xs font-semibold">{activeFeature?.properties.region_id ?? "结果见上方 QA 结果区"}</dd>
             </div>
             <div>
               <dt className="text-xs text-[var(--muted)]">feature rendered</dt>
-              <dd className="mt-1 font-semibold">{loadState === "loaded" ? `${features.length} / 20` : "待加载"}</dd>
+              <dd className="mt-1 font-semibold">{loadState === "loaded" ? `${features.length} / 20` : "结果见上方 QA 结果区"}</dd>
             </div>
           </dl>
           <p className="mt-5 rounded-xl bg-[var(--surface-muted)] p-3 text-xs leading-5 text-[var(--muted)]">

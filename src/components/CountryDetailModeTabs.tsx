@@ -315,12 +315,15 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
           <h2 className="mt-3 text-2xl font-semibold">v0.13.1 视觉 QA 结果</h2>
           <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             {[
-              ["边界形状", "通过（内部视觉 QA）；权威拓扑仍需复核"],
+              ["边界形状", "通过；未发现明显破碎或错位边界"],
               ["区域数量", "20 / 20"],
-              ["tooltip", "通过；20 / 20 候选字段完整"],
-              ["视图定位", "通过；fit bounds 四边余量稳定"],
-              ["错位/破碎边界", "未发现明显问题；权威拓扑仍需复核"],
+              ["tooltip", "通过；20 / 20 均显示 NUTS code / region name / region_id candidate"],
+              ["视图定位", "通过；fit bounds 正常"],
+              ["错位/破碎边界", "通过；未发现明显问题"],
+              ["feature rendered", "20 / 20"],
               ["是否进入正式地图", "否"],
+              ["ready_for_public_display", "false"],
+              ["is_ready_for_display", "false"],
             ].map(([label, value]) => (
               <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
                 <p className="text-xs font-semibold text-[var(--muted)]">{label}</p>
