@@ -189,7 +189,7 @@ export default function MapPage() {
           </table>
         </div>
         <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-          最终主键匹配判定不等于许可通过，不等于权威拓扑验收通过，也不代表正式地图展示启用。
+          最终主键匹配判定通过不等于许可通过，不等于权威拓扑验收通过，也不代表正式地图展示启用。
         </p>
       </section>
 
