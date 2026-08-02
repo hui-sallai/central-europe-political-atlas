@@ -14,6 +14,55 @@ export type WeeklyNewsItem = {
   dataStatus: "sample" | "verified";
 };
 
+export type EventRecord = {
+  event_id: string;
+  date: string;
+  country_code: string;
+  region_code: string | null;
+  actor: string;
+  event_type: string;
+  direction: string;
+  intensity: number | null;
+  affected_model: string;
+  duration: string;
+  confidence: string;
+  source_status: string;
+  enters_model: boolean;
+};
+
+const countryCodeBySlug: Record<string, string> = {
+  poland: "PL",
+  hungary: "HU",
+  czechia: "CZ",
+  slovakia: "SK",
+  germany: "DE",
+  romania: "RO",
+  slovenia: "SI",
+  serbia: "RS",
+  austria: "AT",
+  croatia: "HR",
+};
+
+export function toEventRecord(item: WeeklyNewsItem): EventRecord {
+  const isVerified = item.dataStatus === "verified";
+
+  return {
+    event_id: item.id,
+    date: item.weekOf,
+    country_code: countryCodeBySlug[item.countrySlug] ?? item.countrySlug,
+    region_code: null,
+    actor: "待编码",
+    event_type: "待编码",
+    direction: "待编码",
+    intensity: null,
+    affected_model: "模型层未启用",
+    duration: "待编码",
+    confidence: isVerified ? "来源已核验；事件编码待完成" : "结构样例",
+    source_status: isVerified ? "官方来源 / 人工摘要" : "结构样例来源",
+    enters_model: false,
+  };
+}
+
 export const weeklyNewsItems: WeeklyNewsItem[] = [
   {
     id: "hu-2026-06-24-v4-summit",

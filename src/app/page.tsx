@@ -1,43 +1,51 @@
-import { DataLayerOverview } from "@/components/DataLayerOverview";
+import Link from "next/link";
 import { InteractiveMapExplorer } from "@/components/InteractiveMapExplorer";
+import { StatusSummary } from "@/components/StatusSummary";
+import { platformStatus, platformStatusItems } from "@/lib/platformStatus";
 
-const HOME_STAGE = "v0.21 Hungary authoritative topology validation decision";
-const HOME_STATUS = [
-  ["当前阶段", HOME_STAGE],
-  ["区域地图数据", "匈牙利 NUTS3 权威拓扑验收判定已记录"],
-  ["真实地图展示", "未启用"],
-  ["模型层", "未启用"],
+const primaryEntries = [
+  { href: "/map", label: "地图工作台", note: "查看国家空间入口与区域数据状态" },
+  { href: "/countries", label: "国家档案", note: "进入十国概览与单国研究页" },
+  { href: "/data", label: "数据工作台", note: "查询宏观、项目、来源与质量记录" },
+  { href: "/news", label: "事件库", note: "查看新闻摘要与事件编码状态" },
+  { href: "/methodology", label: "方法论", note: "了解数据边界、来源等级与模型条件" },
 ] as const;
 
 export default function Home() {
   return (
     <main className="page-shell home-shell">
       <section className="home-first-screen">
-        <div className="mb-2 flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-between">
+        <div className="grid gap-6 xl:grid-cols-[1.25fr_0.75fr] xl:items-end">
           <div>
-            <p className="eyebrow">V4 Prototype / Research Atlas / {HOME_STAGE}</p>
-            <h1 className="mt-1 max-w-4xl text-3xl font-semibold leading-tight tracking-[-0.04em] text-[var(--foreground)]">
-              中欧政治经济地图
+            <p className="eyebrow">Central Europe Political Atlas / {platformStatus.version}</p>
+            <h1 className="mt-3 max-w-4xl text-4xl font-semibold leading-tight tracking-[-0.04em] text-[var(--foreground)]">
+              中欧政治经济地图与研究数据平台
             </h1>
-            <p className="mt-1 max-w-3xl text-xs leading-5 text-[var(--muted)]">
-              点击地图或右侧国家按钮切换；首页只保留地图、当前国家、核心指标和新闻入口。
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
+              平台围绕十个中欧及邻近国家，组织国家档案、宏观数据、对华经贸项目、事件记录与区域地图资料。当前重点是数据来源、字段口径和质量验收，不输出风险指数或预测结论。
             </p>
           </div>
+          <p className="rounded-2xl border border-[var(--line)] bg-white/65 p-4 text-sm leading-6 text-[var(--muted)]">
+            当前版本用于收口前台信息架构。正式数据、待核验数据、待接入内容和结构样例继续明确区分，样例内容不进入模型。
+          </p>
         </div>
-        <div className="mb-3 grid gap-2 text-xs md:grid-cols-4">
-          {HOME_STATUS.map(([label, value]) => (
-            <div key={label} className="rounded-2xl border border-[var(--line)] bg-white/70 px-3 py-2">
-              <p className="font-semibold text-[var(--muted)]">{label}</p>
-              <p className="mt-1 font-semibold text-[var(--foreground)]">{value}</p>
-            </div>
+
+        <div className="mt-5">
+          <StatusSummary items={platformStatusItems} />
+        </div>
+
+        <nav className="mt-5 grid gap-3 md:grid-cols-3 xl:grid-cols-5" aria-label="主要研究入口">
+          {primaryEntries.map((entry) => (
+            <Link key={entry.href} href={entry.href} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4 transition hover:-translate-y-0.5 hover:border-[var(--accent)]">
+              <span className="font-semibold text-[var(--foreground)]">{entry.label}</span>
+              <span className="mt-2 block text-xs leading-5 text-[var(--muted)]">{entry.note}</span>
+            </Link>
           ))}
+        </nav>
+
+        <div className="mt-5">
+          <InteractiveMapExplorer variant="home" />
         </div>
-
-        <InteractiveMapExplorer variant="home" />
-      </section>
-
-      <section className="mt-5">
-        <DataLayerOverview compact title="首页数据层总览" />
       </section>
     </main>
   );

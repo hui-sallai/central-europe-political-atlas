@@ -62,7 +62,7 @@ import { getV4DataQualitySummary, type V4QualityStatus } from "@/lib/v4DataQuali
 import { chinaProjectVerificationLabel, verifyChinaProject, type ChinaProjectVerificationConclusion } from "@/lib/chinaProjectVerification";
 import derivedComparisonsData from "../../public/research-data/derived_comparisons.json";
 
-type DataMode = "economy" | "charts" | "comparison" | "tables";
+type DataMode = "economy" | "extended" | "projects" | "charts" | "comparison" | "tables";
 type ProjectAmountFilter = "all" | "available" | "missing";
 type QualityFilterState = {
   country: string;
@@ -301,10 +301,12 @@ function DeferredDetails({ id, title, children, initiallyOpen = false }: Deferre
 }
 
 const dataModes: { id: DataMode; label: string; description: string }[] = [
-  { id: "economy", label: "经济数据", description: "近五年宏观经济表、官方统计主源与对华经贸样本。" },
+  { id: "economy", label: "宏观经济", description: "默认展示近五年基础宏观表与官方统计主源。" },
+  { id: "extended", label: "扩展指标", description: "按财政、外部、投资、能源和产业板块查看 V4 历史序列。" },
+  { id: "projects", label: "对华项目", description: "查看项目核验状态、金额证据、主体与来源记录。" },
   { id: "charts", label: "图表层", description: "只显示经济数据，可切换 GDP、CPI/通胀、失业率等指标。" },
   { id: "comparison", label: "V4 横向比较", description: "保留 V4 完整度、数据质量与派生事实摘要；具体横向轴已拆入各个数据板块。" },
-  { id: "tables", label: "数据表格", description: "按六张核心表检查当前国家的数据完整性。" },
+  { id: "tables", label: "结构与字典", description: "按需查看研究数据层、区域结构、字段字典、质量验收与导出入口。" },
 ];
 const dataEntryShortcuts: DataEntryShortcut[] = [
   { id: "countries-layer-entry", label: "国家元数据表", mode: "tables", description: "十国 countries 逻辑层，作为 country_id 关联表。" },
@@ -3829,7 +3831,7 @@ export function DataCountryExplorer() {
             ))}
           </div>
 
-          <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/60 p-4">
+          {activeMode === "tables" ? <><div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/60 p-4">
             <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
               <div>
                 <p className="eyebrow">Regional Map Data Structure</p>
@@ -3943,10 +3945,10 @@ export function DataCountryExplorer() {
                 </button>
               ))}
             </div>
-          </div>
+          </div></> : null}
         </section>
 
-        <section className="card overflow-visible p-6">
+        {activeMode === "tables" ? <section className="card overflow-visible p-6">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <p className="eyebrow">Research Registry Tables</p>
@@ -4099,7 +4101,7 @@ export function DataCountryExplorer() {
               <ResearchDataExportLinks />
             </DeferredDetails>
           </div>
-        </section>
+        </section> : null}
 
         {activeMode === "comparison" && isV4SelectedCountry ? (
           <section className="v4-comparison-panel card overflow-visible p-6">
@@ -4611,7 +4613,7 @@ export function DataCountryExplorer() {
               </ObservationTable>
             </section>
 
-            <section className="grid gap-5 xl:grid-cols-[1fr_0.9fr]">
+            <section className="grid gap-5">
               <div className="card p-6">
                 <p className="eyebrow">Economic Source Policy</p>
                 <h2 className="mt-3 text-2xl font-semibold">经济数据主源</h2>
@@ -4640,17 +4642,26 @@ export function DataCountryExplorer() {
                 )}
               </div>
 
-              <div className="card p-6">
-                <p className="eyebrow">China Economic Data</p>
-                <h2 className="mt-3 text-2xl font-semibold">对华经贸项目表</h2>
-                <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{selectedCountry.chinaTradeNote}</p>
-                <div className="mt-5">
-                  <ChinaProjectTable key={selectedCountry.slug} projects={projectRecords} countryName={selectedCountry.nameZh} />
-                </div>
-              </div>
             </section>
 
-            {extendedObservations.length > 0 ? (
+          </>
+        ) : null}
+
+        {activeMode === "projects" ? (
+          <section className="card p-6">
+            <p className="eyebrow">China Economic Projects</p>
+            <h2 className="mt-3 text-2xl font-semibold">对华经贸项目数据</h2>
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">{selectedCountry.chinaTradeNote}</p>
+            <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
+              项目记录用于事实核验与未来候选变量准备；金额、主体、年份或来源不完整时，不进入量化分析。
+            </p>
+            <div className="mt-5">
+              <ChinaProjectTable key={selectedCountry.slug} projects={projectRecords} countryName={selectedCountry.nameZh} />
+            </div>
+          </section>
+        ) : null}
+
+        {activeMode === "extended" && extendedObservations.length > 0 ? (
               <section className="grid gap-5">
                 {extendedCategoryOrder.map((category) => {
                   const rows = extendedObservations.filter((observation) => getExtendedIndicator(observation.indicatorId)?.category === category);
@@ -4690,8 +4701,6 @@ export function DataCountryExplorer() {
                   );
                 })}
               </section>
-            ) : null}
-          </>
         ) : null}
 
         {activeMode === "charts" ? (

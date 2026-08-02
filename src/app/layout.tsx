@@ -5,7 +5,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "中欧政治经济地图",
-  description: "V4 political and economic atlas prototype.",
+  description: "面向中欧政治经济研究的国家、数据、事件与地图平台。",
 };
 
 export default function RootLayout({

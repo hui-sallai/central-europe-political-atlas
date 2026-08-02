@@ -1,280 +1,119 @@
-import { InteractiveMapExplorer } from "@/components/InteractiveMapExplorer";
 import { HungaryBoundaryVisualQaSandbox } from "@/components/HungaryBoundaryVisualQaSandbox";
+import { InteractiveMapExplorer } from "@/components/InteractiveMapExplorer";
+import { StatusSummary } from "@/components/StatusSummary";
+import { mapDisplayBoundary, platformStatus } from "@/lib/platformStatus";
 import {
   hungaryAuthoritativeTopologyValidationDecisionSummary,
   hungaryGiscoLicenseVerificationDecisionSummary,
-  hungaryNuts3ReadinessGateSummary,
-  hungaryNuts3SandboxQaSummary,
   hungaryNuts3ValidationManifestSummary,
 } from "@/lib/regionQualityChecks";
 
+const availableLayers = [
+  { label: "国家边界与国家选择", value: "可用", note: "用于十国导航与国家切换。" },
+  { label: "一级行政区结构", value: "结构样例", note: "真实区域统计与公开展示资格尚未全部接入。" },
+  { label: "匈牙利 NUTS3 证据", value: "已记录", note: "许可、主键和权威拓扑核验记录已保留。" },
+] as const;
+
+const disabledLayers = ["风险图层", "预测图层", "真实党派支持率图层", "区域评分"] as const;
+
 export default function MapPage() {
+  const topology = hungaryAuthoritativeTopologyValidationDecisionSummary;
+  const license = hungaryGiscoLicenseVerificationDecisionSummary;
+  const manifest = hungaryNuts3ValidationManifestSummary;
+
   return (
     <main className="page-shell">
-      <p className="eyebrow">Interactive Map</p>
-      <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">V4 交互地图</h1>
-      <p className="mt-4 max-w-2xl text-[var(--muted)]">
-        正式真实行政边界展示未启用；当前仅保留地图工作台入口、结构样例和内部验收记录。不新增风险图层，不新增预测图层，不新增真实党派支持率图层。
+      <p className="eyebrow">Map Workbench / {platformStatus.version}</p>
+      <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">地图工作台</h1>
+      <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
+        地图页用于国家导航、区域数据状态检查和未来图层承接。{mapDisplayBoundary}
       </p>
 
-      <section className="mt-6 rounded-3xl border border-[var(--line)] bg-white/65 p-5">
-        <p className="eyebrow">Regional Map Data</p>
-        <h2 className="mt-2 text-2xl font-semibold">区域地图数据准备状态</h2>
-        <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">Workbench Status</p>
+        <h2 className="mt-3 text-2xl font-semibold">当前地图状态</h2>
+        <div className="mt-5">
+          <StatusSummary
+            items={[
+              { label: "国家导航", value: "可用", note: "十国国家选择与国家详情入口保持开放。" },
+              { label: "匈牙利 NUTS3 核验", value: "证据已记录", note: "20 个区域的许可、主键与拓扑记录已保留。" },
+              { label: "正式真实地图", value: "未启用", note: "仍需独立完成公开展示准入判定。" },
+              { label: "模型与预测", value: "未启用", note: "不生成风险分数或选举预测。" },
+            ]}
+          />
+        </div>
+      </section>
+
+      <section className="mt-6">
+        <InteractiveMapExplorer variant="full" />
+      </section>
+
+      <section className="mt-6 grid gap-4 lg:grid-cols-2">
+        <article className="card p-6">
+          <p className="eyebrow">Available Layers</p>
+          <h2 className="mt-3 text-2xl font-semibold">可用数据与图层状态</h2>
+          <div className="mt-5 grid gap-3">
+            {availableLayers.map((item) => (
+              <div key={item.label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+                <div className="flex items-center justify-between gap-3">
+                  <p className="font-semibold">{item.label}</p>
+                  <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">{item.value}</span>
+                </div>
+                <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{item.note}</p>
+              </div>
+            ))}
+          </div>
+        </article>
+
+        <article className="card p-6">
+          <p className="eyebrow">Display Gate</p>
+          <h2 className="mt-3 text-2xl font-semibold">真实地图启用条件</h2>
+          <ol className="mt-5 grid list-decimal gap-3 pl-5 text-sm leading-6 text-[var(--muted)]">
+            <li>边界来源、许可与署名要求有可核验记录。</li>
+            <li>区域代码与内部 region_id 完成一对一匹配。</li>
+            <li>几何完整性、坐标系与权威拓扑验收通过。</li>
+            <li>公开展示准入单独判定通过后，才可调整展示状态。</li>
+          </ol>
+          <div className="mt-5 flex flex-wrap gap-2">
+            {disabledLayers.map((layer) => (
+              <span key={layer} className="rounded-full border border-[var(--line)] bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">
+                {layer}：未启用
+              </span>
+            ))}
+          </div>
+        </article>
+      </section>
+
+      <details className="mt-6 card p-6">
+        <summary className="cursor-pointer text-lg font-semibold">技术 QA 与边界证据记录</summary>
+        <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+          此处保留开发与研究复核所需的当前结论。v0.12–v0.20 的过程记录已合并，不再逐版占据地图主体；完整字段仍保留在数据页和导出文件中。
+        </p>
+        <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           {[
-            ["当前阶段", "v0.21 Hungary authoritative topology validation decision"],
-            ["区域地图数据", "匈牙利 NUTS3 权威拓扑验收判定已记录"],
-            ["V4 ADM1 / NUTS2 边界", "待接入"],
-            ["区域统计数据", "待接入"],
-            ["对华项目地区定位", "准备中"],
-            ["地图图层注册表", "已预留"],
-            ["风险图层", "未启用"],
-            ["预测图层", "未启用"],
-            ["真实党派支持率图层", "未启用"],
+            ["边界来源", topology.boundary_source_name],
+            ["边界文件", topology.boundary_file],
+            ["区域与几何", `${topology.feature_count} / ${topology.expected_region_count}`],
+            ["最终主键匹配", manifest.region_id_final_matched ? "通过" : "待核验"],
+            ["许可核验", license.license_checked ? "通过" : "待核验"],
+            ["权威拓扑", topology.authoritative_topology_checked ? "通过" : "待核验"],
+            ["public_display_ready", "false"],
+            ["is_ready_for_display", "false"],
           ].map(([label, value]) => (
-            <article key={label} className="rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] px-4 py-3">
-              <p className="text-xs font-semibold text-[var(--muted)]">{label}</p>
-              <p className="mt-1 font-semibold text-[var(--foreground)]">{value}</p>
-            </article>
+            <div key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+              <p className="font-mono text-xs font-semibold text-[var(--muted)]">{label}</p>
+              <p className="mt-2 break-words text-sm font-semibold">{value}</p>
+            </div>
           ))}
         </div>
-        <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-          地图页暂不显示假地图效果；边界、区域统计和项目定位通过来源与质量验收前，页面继续保持结构样例口径。
-        </p>
-      </section>
-
-      <section className="mt-6 rounded-3xl border border-[var(--line)] bg-white/65 p-5">
-        <p className="eyebrow">v0.12 Sandbox Validation And Topology QA</p>
-        <h2 className="mt-2 text-2xl font-semibold">v0.12 匈牙利 NUTS3 沙盒验收状态</h2>
-        <div className="mt-4 overflow-x-auto rounded-2xl border border-[var(--line)] bg-white/70">
-          <table className="min-w-full border-collapse text-left text-sm">
-            <thead className="bg-[var(--surface-muted)] text-xs text-[var(--muted)]">
-              <tr>
-                <th className="border-b border-[var(--line)] px-4 py-3 font-semibold">字段</th>
-                <th className="border-b border-[var(--line)] px-4 py-3 font-semibold">匈牙利试点值</th>
-              </tr>
-            </thead>
-            <tbody>
-              {[
-                ["试点国家", "匈牙利"],
-                ["试点层级", "NUTS 3 / Megyék"],
-                ["边界来源", "Eurostat GISCO NUTS 2024"],
-                ["候选文件", "NUTS_RG_01M_2024_4326_LEVL_3.geojson"],
-                ["边界格式", "GeoJSON"],
-                ["坐标系", "EPSG:4326"],
-                ["来源等级", "A"],
-                ["许可状态", "待确认 / 待接受使用条款"],
-                ["几何状态", "sandbox_downloaded / sandbox_filtered"],
-                ["要素数量", `${hungaryNuts3SandboxQaSummary.feature_count} / ${hungaryNuts3SandboxQaSummary.expected_feature_count}`],
-                ["NUTS code 数量", String(hungaryNuts3SandboxQaSummary.nuts_code_count)],
-                ["CRS 确认", hungaryNuts3SandboxQaSummary.crs_confirmed ? "EPSG:4326 已确认（沙盒）" : "待确认"],
-                ["几何完整性", `${hungaryNuts3SandboxQaSummary.geometry_present_count} / ${hungaryNuts3SandboxQaSummary.expected_feature_count}`],
-                ["主键状态", "20 / 20 预匹配；待最终核验"],
-                ["拓扑检查", "v0.12 当时状态：基础 QA 已执行；权威拓扑验收待完成"],
-                ["topology_status", hungaryNuts3SandboxQaSummary.topology_status],
-                ["是否进入真实地图展示", "否"],
-                ["is_ready_for_display", "false"],
-              ].map(([field, value]) => (
-                <tr key={field} className="border-b border-[var(--line)] last:border-b-0">
-                  <td className="px-4 py-3 font-semibold text-[var(--foreground)]">{field}</td>
-                  <td className="px-4 py-3 text-[var(--muted)]">{value}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-          v0.12 只做沙盒验证与基础拓扑 QA；过滤完成或 20 / 20 预匹配均不代表正式验收通过。来源、许可、文件、CRS、几何、权威拓扑、最终主键和质量验收全部通过前，真实地图展示仍未启用。
-        </p>
-      </section>
-
-      <section className="mt-6 rounded-3xl border border-[var(--line)] bg-white/65 p-5">
-        <p className="eyebrow">v0.13.1 Hungary Boundary Visual QA Result Pass</p>
-        <h2 className="mt-2 text-2xl font-semibold">v0.13.1 匈牙利边界视觉 QA 结果</h2>
-        <div className="mt-4 overflow-x-auto rounded-2xl border border-[var(--line)] bg-white/70">
-          <table className="min-w-full border-collapse text-left text-sm">
-            <tbody>
-              {[
-                ["沙盒文件", "hu_nuts3_gisco_2024.geojson"],
-                ["要素数量", "20 / 20"],
-                ["坐标系", "EPSG:4326"],
-                ["fit bounds", "通过；20 个要素完整落入视图，四边保留稳定余量"],
-                ["tooltip", "通过；20 / 20 均显示 NUTS code / region name / region_id candidate"],
-                ["visual overlap check", "通过；未发现明显重叠、错位或破碎边界"],
-                ["missing geometry check", "通过；20 / 20 几何存在，缺失 0"],
-                ["feature rendered", "20 / 20"],
-                ["ready_for_public_display", "false"],
-                ["is_ready_for_display", "false"],
-              ].map(([field, value]) => (
-                <tr key={field} className="border-b border-[var(--line)] last:border-b-0">
-                  <th className="w-64 px-4 py-3 font-semibold text-[var(--foreground)]">{field}</th>
-                  <td className="px-4 py-3 text-[var(--muted)]">{value}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <details className="mt-4 rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-4">
-          <summary className="cursor-pointer font-semibold">打开内部边界视觉 QA 预览</summary>
+        <details className="mt-5 rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-4">
+          <summary className="cursor-pointer font-semibold">内部视觉 QA 预览</summary>
           <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
-            此预览仅用于人工检查形状、定位与候选 tooltip。它不接入正式主地图，能渲染也不代表拓扑、主键或公开展示资格通过。
+            该预览只用于检查形状、定位与候选字段，不属于正式地图图层。
           </p>
-          <div className="mt-4">
-            <HungaryBoundaryVisualQaSandbox />
-          </div>
+          <div className="mt-4"><HungaryBoundaryVisualQaSandbox /></div>
         </details>
-      </section>
-
-      <section className="mt-6 rounded-3xl border border-[var(--line)] bg-white/65 p-5">
-        <p className="eyebrow">v0.15 Hungary Boundary License And Topology Evidence Record</p>
-        <h2 className="mt-2 text-2xl font-semibold">v0.15 许可与权威拓扑证据记录</h2>
-        <div className="mt-4 overflow-x-auto rounded-2xl border border-[var(--line)] bg-white/70">
-          <table className="min-w-full border-collapse text-left text-sm">
-            <tbody>
-              {[
-                ["license_source", hungaryNuts3ReadinessGateSummary.license_source],
-                ["license_url", hungaryNuts3ReadinessGateSummary.license_url],
-                ["attribution_required", String(hungaryNuts3ReadinessGateSummary.attribution_required)],
-                ["attribution_text", hungaryNuts3ReadinessGateSummary.attribution_text],
-                ["license_checked", String(hungaryNuts3ReadinessGateSummary.license_checked)],
-                ["authoritative_topology_method", hungaryNuts3ReadinessGateSummary.authoritative_topology_method],
-                ["authoritative_topology_checked", String(hungaryNuts3ReadinessGateSummary.authoritative_topology_checked)],
-                ["topology_evidence_status", hungaryNuts3ReadinessGateSummary.topology_evidence_status],
-                ["region_id_final_matched", String(hungaryNuts3ReadinessGateSummary.region_id_final_matched)],
-                ["public_display_ready", String(hungaryNuts3ReadinessGateSummary.public_display_ready)],
-                ["is_ready_for_display", String(hungaryNuts3ReadinessGateSummary.is_ready_for_display)],
-              ].map(([field, value]) => (
-                <tr key={field} className="border-b border-[var(--line)] last:border-b-0">
-                  <th className="w-72 px-4 py-3 font-mono text-xs font-semibold text-[var(--foreground)]">{field}</th>
-                  <td className="px-4 py-3 font-semibold text-[var(--muted)]">{value}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-          许可来源、署名要求和公开非商业研究展示条件已经核验；权威拓扑判定见 v0.21 区块。public_display_ready 和 is_ready_for_display 继续保持 false。
-        </p>
-      </section>
-
-      <section className="mt-6 rounded-3xl border border-[var(--line)] bg-white/65 p-5">
-        <p className="eyebrow">v0.19 Hungary Final Region-ID Match Decision</p>
-        <h2 className="mt-2 text-2xl font-semibold">v0.19 final region-id match decision</h2>
-        <div className="mt-4 overflow-x-auto rounded-2xl border border-[var(--line)] bg-white/70">
-          <table className="min-w-full border-collapse text-left text-sm">
-            <tbody>
-              {[
-                ["manifest_file", hungaryNuts3ValidationManifestSummary.manifest_file],
-                ["expected_region_count", String(hungaryNuts3ValidationManifestSummary.expected_region_count)],
-                ["feature_count", String(hungaryNuts3ValidationManifestSummary.feature_count)],
-                ["nuts_code_count", String(hungaryNuts3ValidationManifestSummary.nuts_code_count)],
-                ["region_id_candidate_count", String(hungaryNuts3ValidationManifestSummary.region_id_candidate_count)],
-                ["detail_record_count", String(hungaryNuts3ValidationManifestSummary.detail_record_count)],
-                ["matched_region_count", String(hungaryNuts3ValidationManifestSummary.matched_region_count)],
-                ["unmatched_region_count", String(hungaryNuts3ValidationManifestSummary.unmatched_region_count)],
-                ["duplicate_region_id_count", String(hungaryNuts3ValidationManifestSummary.duplicate_region_id_count)],
-                ["duplicate_nuts_code_count", String(hungaryNuts3ValidationManifestSummary.duplicate_nuts_code_count)],
-                ["missing_geometry_count", String(hungaryNuts3ValidationManifestSummary.missing_geometry_count)],
-                ["region_id_final_matched", String(hungaryNuts3ValidationManifestSummary.region_id_final_matched)],
-                ["region_id_match_decision_status", hungaryNuts3ValidationManifestSummary.region_id_match_decision_status],
-                ["license_checked", String(hungaryNuts3ValidationManifestSummary.license_checked)],
-                ["authoritative_topology_checked", String(hungaryNuts3ValidationManifestSummary.authoritative_topology_checked)],
-                ["public_display_ready", String(hungaryNuts3ValidationManifestSummary.public_display_ready)],
-                ["is_ready_for_display", String(hungaryNuts3ValidationManifestSummary.is_ready_for_display)],
-              ].map(([field, value]) => (
-                <tr key={field} className="border-b border-[var(--line)] last:border-b-0">
-                  <th className="w-72 px-4 py-3 font-mono text-xs font-semibold text-[var(--foreground)]">{field}</th>
-                  <td className="px-4 py-3 font-semibold text-[var(--muted)]">{value}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-          最终主键匹配判定、许可核验与权威拓扑验收均已分别记录；这些记录仍不代表正式地图展示启用。
-        </p>
-      </section>
-
-      <section className="mt-6 rounded-3xl border border-[var(--line)] bg-white/65 p-5">
-        <p className="eyebrow">v0.20 Hungary GISCO License Verification Decision</p>
-        <h2 className="mt-2 text-2xl font-semibold">v0.20 GISCO license verification decision</h2>
-        <div className="mt-4 overflow-x-auto rounded-2xl border border-[var(--line)] bg-white/70">
-          <table className="min-w-full border-collapse text-left text-sm">
-            <tbody>
-              {[
-                ["boundary_source_name", hungaryGiscoLicenseVerificationDecisionSummary.boundary_source_name],
-                ["boundary_file", hungaryGiscoLicenseVerificationDecisionSummary.boundary_file],
-                ["original_candidate_file", hungaryGiscoLicenseVerificationDecisionSummary.original_candidate_file],
-                ["license_source", hungaryGiscoLicenseVerificationDecisionSummary.license_source],
-                ["license_url", hungaryGiscoLicenseVerificationDecisionSummary.license_url],
-                ["attribution_required", String(hungaryGiscoLicenseVerificationDecisionSummary.attribution_required)],
-                ["attribution_text", hungaryGiscoLicenseVerificationDecisionSummary.attribution_text],
-                ["license_review_status", hungaryGiscoLicenseVerificationDecisionSummary.license_review_status],
-                ["license_checked", String(hungaryGiscoLicenseVerificationDecisionSummary.license_checked)],
-                ["license_review_date", hungaryGiscoLicenseVerificationDecisionSummary.license_review_date],
-                ["license_decision_note", hungaryGiscoLicenseVerificationDecisionSummary.license_decision_note],
-                ["region_id_final_matched", String(hungaryGiscoLicenseVerificationDecisionSummary.region_id_final_matched)],
-                ["authoritative_topology_checked", String(hungaryGiscoLicenseVerificationDecisionSummary.authoritative_topology_checked)],
-                ["public_display_ready", String(hungaryGiscoLicenseVerificationDecisionSummary.public_display_ready)],
-                ["is_ready_for_display", String(hungaryGiscoLicenseVerificationDecisionSummary.is_ready_for_display)],
-              ].map(([field, value]) => (
-                <tr key={field} className="border-b border-[var(--line)] last:border-b-0">
-                  <th className="w-72 px-4 py-3 font-mono text-xs font-semibold text-[var(--foreground)]">{field}</th>
-                  <td className="break-words px-4 py-3 font-semibold leading-6 text-[var(--muted)]">{value}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-          许可核验通过不自动启用正式地图；权威拓扑验收结果见下方 v0.21 区块，公开展示仍需下一阶段单独评估。
-        </p>
-      </section>
-
-      <section className="mt-6 rounded-3xl border border-[var(--line)] bg-white/65 p-5">
-        <p className="eyebrow">v0.21 Hungary Authoritative Topology Validation Decision</p>
-        <h2 className="mt-2 text-2xl font-semibold">v0.21 authoritative topology validation decision</h2>
-        <div className="mt-4 overflow-x-auto rounded-2xl border border-[var(--line)] bg-white/70">
-          <table className="min-w-full border-collapse text-left text-sm">
-            <tbody>
-              {[
-                ["boundary_source_name", hungaryAuthoritativeTopologyValidationDecisionSummary.boundary_source_name],
-                ["boundary_file", hungaryAuthoritativeTopologyValidationDecisionSummary.boundary_file],
-                ["original_candidate_file", hungaryAuthoritativeTopologyValidationDecisionSummary.original_candidate_file],
-                ["coordinate_system", hungaryAuthoritativeTopologyValidationDecisionSummary.coordinate_system],
-                ["expected_region_count", String(hungaryAuthoritativeTopologyValidationDecisionSummary.expected_region_count)],
-                ["feature_count", String(hungaryAuthoritativeTopologyValidationDecisionSummary.feature_count)],
-                ["nuts_code_count", String(hungaryAuthoritativeTopologyValidationDecisionSummary.nuts_code_count)],
-                ["missing_geometry_count", String(hungaryAuthoritativeTopologyValidationDecisionSummary.missing_geometry_count)],
-                ["geometry_valid_count", String(hungaryAuthoritativeTopologyValidationDecisionSummary.geometry_valid_count)],
-                ["invalid_geometry_count", String(hungaryAuthoritativeTopologyValidationDecisionSummary.invalid_geometry_count)],
-                ["duplicate_geometry_count", String(hungaryAuthoritativeTopologyValidationDecisionSummary.duplicate_geometry_count)],
-                ["topology_validation_method", hungaryAuthoritativeTopologyValidationDecisionSummary.topology_validation_method],
-                ["topology_validation_status", hungaryAuthoritativeTopologyValidationDecisionSummary.topology_validation_status],
-                ["topology_validation_date", hungaryAuthoritativeTopologyValidationDecisionSummary.topology_validation_date],
-                ["topology_decision_note", hungaryAuthoritativeTopologyValidationDecisionSummary.topology_decision_note],
-                ["region_id_final_matched", String(hungaryAuthoritativeTopologyValidationDecisionSummary.region_id_final_matched)],
-                ["license_checked", String(hungaryAuthoritativeTopologyValidationDecisionSummary.license_checked)],
-                ["authoritative_topology_checked", String(hungaryAuthoritativeTopologyValidationDecisionSummary.authoritative_topology_checked)],
-                ["public_display_ready", String(hungaryAuthoritativeTopologyValidationDecisionSummary.public_display_ready)],
-                ["is_ready_for_display", String(hungaryAuthoritativeTopologyValidationDecisionSummary.is_ready_for_display)],
-              ].map(([field, value]) => (
-                <tr key={field} className="border-b border-[var(--line)] last:border-b-0">
-                  <th className="w-72 px-4 py-3 font-mono text-xs font-semibold text-[var(--foreground)]">{field}</th>
-                  <td className="break-words px-4 py-3 font-semibold leading-6 text-[var(--muted)]">{value}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-          权威拓扑验收通过不自动启用正式地图展示；正式地图展示需要下一阶段单独执行 public display readiness gate。当前 public_display_ready=false，is_ready_for_display=false。
-        </p>
-      </section>
-
-      <div className="mt-8">
-        <InteractiveMapExplorer />
-      </div>
+      </details>
     </main>
   );
 }

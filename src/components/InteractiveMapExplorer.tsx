@@ -148,7 +148,7 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
                   : "border-[var(--line)] bg-white text-[var(--muted)] hover:text-[var(--foreground)]"
               }`}
             >
-              新闻周报
+              事件库
             </button>
           </div>
         </div>
@@ -229,7 +229,7 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
             </>
           ) : (
             <>
-              <p className="text-xs font-semibold text-[var(--muted)]">新闻周报</p>
+              <p className="text-xs font-semibold text-[var(--muted)]">事件库</p>
               {selectedNews ? (
                 <article className="mt-2 rounded-xl bg-white/70 p-3">
                   <div className="mb-2 flex flex-wrap gap-2">
@@ -246,7 +246,7 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
               ) : (
                 <div className="mt-3 rounded-xl bg-white/70 p-3">
                   <DataStatusBadge status="pending" />
-                  <p className="mt-2 text-sm text-[var(--muted)]">本周新闻摘要未接入。</p>
+                  <p className="mt-2 text-sm text-[var(--muted)]">事件摘要尚未接入。</p>
                 </div>
               )}
             </>
