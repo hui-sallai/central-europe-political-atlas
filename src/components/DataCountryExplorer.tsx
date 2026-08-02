@@ -2122,38 +2122,73 @@ function HungaryVisualQaSummaryCards({ summary }: { summary: HungaryNuts3VisualQ
 }
 
 function HungaryValidationManifestSummaryCards({ summary }: { summary: HungaryNuts3ValidationManifestSummary }) {
-  const fields = [
-    ["validation_manifest_file", summary.manifest_file],
-    ["manifest_status", summary.manifest_status],
-    ["expected_region_count", String(summary.expected_region_count)],
-    ["feature_count", `${summary.feature_count} / pending validation`],
-    ["nuts_code_count", String(summary.nuts_code_count)],
-    ["region_id_candidate_count", String(summary.region_id_candidate_count)],
-    ["matched_region_count", `${summary.matched_region_count} / pending final validation`],
-    ["unmatched_region_count", `${summary.unmatched_region_count} / pending final validation`],
-    ["duplicate_region_id_count", `${summary.duplicate_region_id_count} / pending final validation`],
-    ["duplicate_nuts_code_count", `${summary.duplicate_nuts_code_count} / pending final validation`],
-    ["missing_geometry_count", `${summary.missing_geometry_count} / pending validation`],
-    ["region_id_final_matched", String(summary.region_id_final_matched)],
-    ["public_display_ready", String(summary.public_display_ready)],
-    ["is_ready_for_display", String(summary.is_ready_for_display)],
+  const recordSummary = [
+    ["区域位置", `${summary.feature_count} / ${summary.expected_region_count}`],
+    ["NUTS code", `${summary.nuts_code_count} / ${summary.expected_region_count}`],
+    ["region_id candidate", `${summary.region_id_candidate_count} / ${summary.expected_region_count}`],
+    ["明细记录", `${summary.detail_record_count} / ${summary.expected_region_count}`],
+    ["缺失 geometry", `${summary.missing_geometry_count}；待最终核验`],
+    ["初步重复", `NUTS code ${summary.duplicate_nuts_code_count}；region_id ${summary.duplicate_region_id_count}`],
+  ] as const;
+  const readinessSummary = [
+    ["region_id_final_matched", `${summary.region_id_final_matched} / pending`, "最终主键核验未完成"],
+    ["license_checked", `${summary.license_checked} / pending`, "公开展示许可未完成核验"],
+    ["authoritative_topology_checked", `${summary.authoritative_topology_checked} / pending`, "权威拓扑验收未完成"],
+    ["public_display_ready", String(summary.public_display_ready), "不具备公开展示资格"],
+    ["is_ready_for_display", String(summary.is_ready_for_display), "真实地图图层未启用"],
   ] as const;
 
   return (
-    <section className="mt-5 rounded-2xl border border-[var(--line)] bg-white/70 p-4">
-      <p className="eyebrow">v0.17 Validation Manifest</p>
-      <h3 className="mt-2 text-lg font-semibold">Hungary NUTS3 validation manifest summary</h3>
-      <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
-        validation manifest 是核验记录，不等于正式地图展示许可；20 条明细均保持 pending_final_validation。
-      </p>
-      <dl className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-        {fields.map(([field, value]) => (
-          <div key={field} className="rounded-xl bg-[var(--surface-muted)] p-3">
-            <dt className="font-mono text-[10px] font-semibold text-[var(--muted)]">{field}</dt>
-            <dd className="mt-2 break-words text-sm font-semibold leading-5 text-[var(--foreground)]">{value}</dd>
+    <section className="mt-5 rounded-3xl border border-[var(--line)] bg-white/75 p-5">
+      <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
+        <div>
+          <p className="eyebrow">v0.17 Validation Manifest</p>
+          <h3 className="mt-2 text-xl font-semibold">Hungary NUTS3 validation manifest summary</h3>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+            真实 validation.json 已建立并记录 20 条 NUTS3 明细。当前只完成可追溯 manifest，不代表许可、权威拓扑、最终主键或公开展示验收通过。
+          </p>
+        </div>
+        <div className="rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] px-4 py-3 lg:max-w-md">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">manifest_status</p>
+          <p className="mt-2 break-words font-mono text-xs font-semibold leading-5 text-[var(--foreground)]">{summary.manifest_status}</p>
+        </div>
+      </div>
+
+      <div className="mt-5 rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-4">
+        <p className="text-xs font-semibold text-[var(--muted)]">Manifest 文件</p>
+        <p className="mt-2 break-all font-mono text-xs font-semibold leading-5 text-[var(--foreground)]">{summary.manifest_file}</p>
+      </div>
+
+      <div className="mt-5 grid gap-5 xl:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <h4 className="text-sm font-semibold">记录完整性摘要</h4>
+          <dl className="mt-3 grid gap-3 sm:grid-cols-2">
+            {recordSummary.map(([label, value]) => (
+              <div key={label} className="rounded-2xl border border-[var(--line)] bg-white/70 p-3">
+                <dt className="text-xs font-semibold text-[var(--muted)]">{label}</dt>
+                <dd className="mt-2 text-sm font-semibold leading-5 text-[var(--foreground)]">{value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <div>
+          <h4 className="text-sm font-semibold">正式展示准入闸门</h4>
+          <div className="mt-3 overflow-hidden rounded-2xl border border-[var(--line)] bg-white/70">
+            {readinessSummary.map(([field, value, explanation]) => (
+              <div key={field} className="grid gap-2 border-b border-[var(--line)] p-3 last:border-b-0 md:grid-cols-[1.1fr_0.55fr_1.35fr] md:items-center">
+                <span className="break-words font-mono text-xs font-semibold text-[var(--foreground)]">{field}</span>
+                <span className="w-fit rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">{value}</span>
+                <span className="text-xs leading-5 text-[var(--muted)]">{explanation}</span>
+              </div>
+            ))}
           </div>
-        ))}
-      </dl>
+        </div>
+      </div>
+
+      <p className="mt-5 rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--muted)]">
+        核验结论：20 条明细均保持 pending_final_validation；public_display_ready=false，is_ready_for_display=false，正式真实地图展示继续未启用。
+      </p>
     </section>
   );
 }
@@ -3714,6 +3749,8 @@ export function DataCountryExplorer() {
             <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">按需展开</span>
           </div>
 
+          <HungaryValidationManifestSummaryCards summary={hungaryNuts3ValidationManifestSummary} />
+
           <div className="mt-5 grid gap-5">
             <DeferredDetails id="countries-layer-entry" title="countries：十国国家元数据表">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
@@ -3771,7 +3808,6 @@ export function DataCountryExplorer() {
               </p>
               <HungarySandboxQaSummaryCards summary={hungaryNuts3SandboxQaSummary} />
               <HungaryVisualQaSummaryCards summary={hungaryNuts3VisualQaSummary} />
-              <HungaryValidationManifestSummaryCards summary={hungaryNuts3ValidationManifestSummary} />
               <RegionQualitySummaryCards summary={regionQualitySummary} />
               <RegionQualityCheckTable rows={regionQualityCheckRecords} />
             </DeferredDetails>

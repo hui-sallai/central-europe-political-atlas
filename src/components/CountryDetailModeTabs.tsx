@@ -373,6 +373,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
           <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             {[
               ["manifest 文件", hungaryNuts3ValidationManifestSummary.manifest_file],
+              ["manifest_status", hungaryNuts3ValidationManifestSummary.manifest_status],
               ["NUTS3 区域数量", String(hungaryNuts3ValidationManifestSummary.expected_region_count)],
               ["NUTS code 数量", `${hungaryNuts3ValidationManifestSummary.nuts_code_count} / pending validation`],
               ["region_id candidate 数量", `${hungaryNuts3ValidationManifestSummary.region_id_candidate_count} / pending validation`],
@@ -380,9 +381,11 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
               ["缺失 geometry", `${hungaryNuts3ValidationManifestSummary.missing_geometry_count} / pending validation`],
               ["重复 NUTS code", `${hungaryNuts3ValidationManifestSummary.duplicate_nuts_code_count} / pending final validation`],
               ["重复 region_id", `${hungaryNuts3ValidationManifestSummary.duplicate_region_id_count} / pending final validation`],
-              ["最终主键匹配", "未完成"],
-              ["许可核验", "待完成"],
-              ["权威拓扑验收", "待完成"],
+              ["region_id_final_matched", `${hungaryNuts3ValidationManifestSummary.region_id_final_matched} / pending`],
+              ["license_checked", `${hungaryNuts3ValidationManifestSummary.license_checked} / pending`],
+              ["authoritative_topology_checked", `${hungaryNuts3ValidationManifestSummary.authoritative_topology_checked} / pending`],
+              ["public_display_ready", String(hungaryNuts3ValidationManifestSummary.public_display_ready)],
+              ["is_ready_for_display", String(hungaryNuts3ValidationManifestSummary.is_ready_for_display)],
               ["是否进入正式地图", "否"],
             ].map(([label, value]) => (
               <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
