@@ -20,8 +20,8 @@ export default function MapPage() {
         <h2 className="mt-2 text-2xl font-semibold">区域地图数据准备状态</h2>
         <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           {[
-            ["当前阶段", "v0.17 Hungary NUTS3 validation manifest"],
-            ["区域地图数据", "匈牙利 NUTS3 validation manifest 已建立"],
+            ["当前阶段", "v0.18 Hungary validation manifest finalization"],
+            ["区域地图数据", "匈牙利 NUTS3 validation manifest 明细核验已记录"],
             ["V4 ADM1 / NUTS2 边界", "待接入"],
             ["区域统计数据", "待接入"],
             ["对华项目地区定位", "准备中"],
@@ -156,22 +156,23 @@ export default function MapPage() {
       </section>
 
       <section className="mt-6 rounded-3xl border border-[var(--line)] bg-white/65 p-5">
-        <p className="eyebrow">v0.17 Hungary NUTS3 Validation Manifest</p>
-        <h2 className="mt-2 text-2xl font-semibold">v0.17 validation manifest 摘要</h2>
+        <p className="eyebrow">v0.18 Hungary Validation Manifest Finalization</p>
+        <h2 className="mt-2 text-2xl font-semibold">v0.18 validation manifest 明细核验结果</h2>
         <div className="mt-4 overflow-x-auto rounded-2xl border border-[var(--line)] bg-white/70">
           <table className="min-w-full border-collapse text-left text-sm">
             <tbody>
               {[
                 ["manifest_file", hungaryNuts3ValidationManifestSummary.manifest_file],
                 ["expected_region_count", String(hungaryNuts3ValidationManifestSummary.expected_region_count)],
-                ["feature_count", `${hungaryNuts3ValidationManifestSummary.feature_count} / pending validation`],
-                ["nuts_code_count", `${hungaryNuts3ValidationManifestSummary.nuts_code_count} / pending validation`],
-                ["region_id_candidate_count", `${hungaryNuts3ValidationManifestSummary.region_id_candidate_count} / pending validation`],
-                ["matched_region_count", `${hungaryNuts3ValidationManifestSummary.matched_region_count} / pending final validation`],
-                ["unmatched_region_count", `${hungaryNuts3ValidationManifestSummary.unmatched_region_count} / pending final validation`],
-                ["duplicate_region_id_count", `${hungaryNuts3ValidationManifestSummary.duplicate_region_id_count} / pending final validation`],
-                ["duplicate_nuts_code_count", `${hungaryNuts3ValidationManifestSummary.duplicate_nuts_code_count} / pending final validation`],
-                ["missing_geometry_count", `${hungaryNuts3ValidationManifestSummary.missing_geometry_count} / pending validation`],
+                ["feature_count", String(hungaryNuts3ValidationManifestSummary.feature_count)],
+                ["nuts_code_count", String(hungaryNuts3ValidationManifestSummary.nuts_code_count)],
+                ["region_id_candidate_count", String(hungaryNuts3ValidationManifestSummary.region_id_candidate_count)],
+                ["detail_record_count", String(hungaryNuts3ValidationManifestSummary.detail_record_count)],
+                ["matched_region_count", String(hungaryNuts3ValidationManifestSummary.matched_region_count)],
+                ["unmatched_region_count", String(hungaryNuts3ValidationManifestSummary.unmatched_region_count)],
+                ["duplicate_region_id_count", String(hungaryNuts3ValidationManifestSummary.duplicate_region_id_count)],
+                ["duplicate_nuts_code_count", String(hungaryNuts3ValidationManifestSummary.duplicate_nuts_code_count)],
+                ["missing_geometry_count", String(hungaryNuts3ValidationManifestSummary.missing_geometry_count)],
                 ["manifest_status", hungaryNuts3ValidationManifestSummary.manifest_status],
                 ["visual_qa_passed", String(hungaryNuts3ValidationManifestSummary.visual_qa_passed)],
                 ["license_checked", `${hungaryNuts3ValidationManifestSummary.license_checked} / pending`],
@@ -189,7 +190,7 @@ export default function MapPage() {
           </table>
         </div>
         <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-          validation manifest 是核验记录，不等于正式地图展示许可；即使 manifest 建立，license、authoritative topology、final region_id matching 未完成前，正式地图展示仍未启用。
+          validation manifest 明细核验通过不等于许可通过，不等于权威拓扑验收通过，不等于最终主键匹配通过，也不代表正式地图展示启用。
         </p>
       </section>
 

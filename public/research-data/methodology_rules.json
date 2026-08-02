@@ -2,7 +2,7 @@
   "schema_version": "research-data-v0.1",
   "generated_at": "2026-07-27",
   "data_type": "methodology_rules",
-  "record_count": 19,
+  "record_count": 20,
   "model_boundary": "Rules and boundaries only; no model, forecast, or scenario output.",
   "records": [
     {
@@ -586,6 +586,49 @@
       "export_boundary": "随既有四个区域数据层和 methodology_rules 导出；不新增第 18 张表。",
       "last_updated": "2026-08-02",
       "notes": "20 条明细的 match_status 均保持 pending_final_validation；不伪造最终核验结论。"
+    },
+    {
+      "rule_id": "hungary_nuts3_validation_manifest_detail_record",
+      "rule_category": "区域边界准入规则",
+      "rule_name": "匈牙利 NUTS3 validation manifest 明细核验规则",
+      "rule_description": "v0.18 逐条核对 20 条 NUTS3 manifest 明细并记录匹配、重复与几何完整性结果；明细核验完成不等于正式展示资格通过。",
+      "applies_to": "regions,region_boundaries,region_quality_checks,map_layers,map_page,hungary_country_page,methodology_page",
+      "required_fields": [
+        "manifest_id",
+        "validation_file",
+        "detail_record_count",
+        "matched_region_count",
+        "unmatched_region_count",
+        "duplicate_region_id_count",
+        "duplicate_nuts_code_count",
+        "missing_geometry_count",
+        "manifest_detail_validation_status",
+        "manifest_status",
+        "license_checked",
+        "authoritative_topology_checked",
+        "region_id_final_matched",
+        "public_display_ready",
+        "is_ready_for_display",
+        "region_records"
+      ],
+      "allowed_statuses": [
+        "manifest_detail_validation_recorded",
+        "detail_validation_recorded_pending_final_region_id_verification"
+      ],
+      "excluded_statuses": [
+        "正式地图已启用",
+        "风险图层",
+        "预测图层",
+        "真实党派支持率图层",
+        "中国经济暴露指数",
+        "区域评分"
+      ],
+      "source_requirement": "manifest 必须关联实际沙盒 GeoJSON；20 条 region_records 必须保留 nuts_code、region_id_candidate、region_name、geometry_present、重复检查、match_status 与 notes。",
+      "quality_requirement": "明细数量、匹配数量、缺失、重复与几何完整性必须由 validation manifest 记录；license_checked、authoritative_topology_checked 或 region_id_final_matched 未通过时，展示闸门保持 false。",
+      "model_boundary": "明细核验只记录边界数据完整性，不生成模型、风险、预测、指数或区域评分。",
+      "export_boundary": "随既有四个区域数据层和 methodology_rules 导出；不新增第 18 张表。",
+      "last_updated": "2026-08-02",
+      "notes": "manifest_status=manifest_detail_validation_recorded；public_display_ready=false；is_ready_for_display=false。"
     }
   ]
 }

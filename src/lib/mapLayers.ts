@@ -27,11 +27,13 @@ export type MapLayerRecord = {
   feature_count: number;
   nuts_code_count: number;
   region_id_candidate_count: number;
+  detail_record_count: number;
   matched_region_count: number;
   unmatched_region_count: number;
   duplicate_region_id_count: number;
   duplicate_nuts_code_count: number;
   missing_geometry_count: number;
+  manifest_detail_validation_status: string;
   region_id_final_matched: boolean;
   region_id_match_evidence_status: string;
   visual_qa_passed: boolean;
@@ -76,8 +78,10 @@ const noValidationManifest = {
   validation_manifest_file: "",
   manifest_status: "not_started",
   feature_count: 0,
+  detail_record_count: 0,
   matched_region_count: 0,
   missing_geometry_count: 0,
+  manifest_detail_validation_status: "not_started",
 };
 
 function boundaryLayer(): MapLayerRecord {
@@ -163,11 +167,13 @@ function hungaryNuts3PilotLayer(): MapLayerRecord {
     feature_count: hungaryBoundaryValidation.feature_count,
     nuts_code_count: hungaryBoundaryValidation.nuts_code_count,
     region_id_candidate_count: hungaryBoundaryValidation.region_id_candidate_count,
+    detail_record_count: hungaryBoundaryValidation.detail_record_count,
     matched_region_count: hungaryBoundaryValidation.matched_region_count,
     unmatched_region_count: hungaryBoundaryValidation.unmatched_region_count,
     duplicate_region_id_count: hungaryBoundaryValidation.duplicate_region_id_count,
     duplicate_nuts_code_count: hungaryBoundaryValidation.duplicate_nuts_code_count,
     missing_geometry_count: hungaryBoundaryValidation.missing_geometry_count,
+    manifest_detail_validation_status: hungaryBoundaryValidation.manifest_detail_validation_status,
     region_id_final_matched: false,
     region_id_match_evidence_status: "precheck_zero_exceptions_pending_final_review",
     visual_qa_passed: true,
@@ -195,7 +201,7 @@ function hungaryNuts3PilotLayer(): MapLayerRecord {
     model_boundary: noModelBoundary,
     last_updated: updatedAt,
     notes:
-      "v0.17 validation manifest 已建立并包含 20 条 pending_final_validation 明细；license、authoritative topology 与 final region_id matching 未全部完成，真实地图展示保持未启用。",
+      "v0.18 validation manifest 明细核验结果已记录；license、authoritative topology 与 final region_id matching 未全部完成，真实地图展示保持未启用。",
   };
 }
 

@@ -25,11 +25,13 @@ export type RegionMetadataRecord = {
   feature_count: number;
   nuts_code_count: number;
   region_id_candidate_count: number;
+  detail_record_count: number;
   matched_region_count: number;
   unmatched_region_count: number;
   duplicate_region_id_count: number;
   duplicate_nuts_code_count: number;
   missing_geometry_count: number;
+  manifest_detail_validation_status: string;
   region_id_final_matched: boolean;
   region_id_match_evidence_status: string;
   public_display_ready: boolean;
@@ -79,11 +81,13 @@ const v4RegionDefaults = {
   feature_count: 0,
   nuts_code_count: 0,
   region_id_candidate_count: 0,
+  detail_record_count: 0,
   matched_region_count: 0,
   unmatched_region_count: 0,
   duplicate_region_id_count: 0,
   duplicate_nuts_code_count: 0,
   missing_geometry_count: 0,
+  manifest_detail_validation_status: "not_started",
   region_id_final_matched: false,
   region_id_match_evidence_status: "not_started",
   public_display_ready: false,
@@ -114,11 +118,13 @@ const nonV4RegionDefaults = {
   feature_count: 0,
   nuts_code_count: 0,
   region_id_candidate_count: 0,
+  detail_record_count: 0,
   matched_region_count: 0,
   unmatched_region_count: 0,
   duplicate_region_id_count: 0,
   duplicate_nuts_code_count: 0,
   missing_geometry_count: 0,
+  manifest_detail_validation_status: "not_applicable",
   region_id_final_matched: false,
   region_id_match_evidence_status: "not_applicable",
   public_display_ready: false,
@@ -154,11 +160,15 @@ function v4Region(record: Omit<RegionMetadataRecord, keyof typeof v4RegionDefaul
     feature_count: isHungaryPilot ? hungaryBoundaryValidation.feature_count : v4RegionDefaults.feature_count,
     nuts_code_count: isHungaryPilot ? hungaryBoundaryValidation.nuts_code_count : v4RegionDefaults.nuts_code_count,
     region_id_candidate_count: isHungaryPilot ? hungaryBoundaryValidation.region_id_candidate_count : v4RegionDefaults.region_id_candidate_count,
+    detail_record_count: isHungaryPilot ? hungaryBoundaryValidation.detail_record_count : v4RegionDefaults.detail_record_count,
     matched_region_count: isHungaryPilot ? hungaryBoundaryValidation.matched_region_count : v4RegionDefaults.matched_region_count,
     unmatched_region_count: 0,
     duplicate_region_id_count: 0,
     duplicate_nuts_code_count: 0,
     missing_geometry_count: isHungaryPilot ? hungaryBoundaryValidation.missing_geometry_count : v4RegionDefaults.missing_geometry_count,
+    manifest_detail_validation_status: isHungaryPilot
+      ? hungaryBoundaryValidation.manifest_detail_validation_status
+      : v4RegionDefaults.manifest_detail_validation_status,
     region_id_final_matched: false,
     region_id_match_evidence_status: isHungaryPilot
       ? "precheck_20_of_20_pending_final_review"
@@ -169,7 +179,7 @@ function v4Region(record: Omit<RegionMetadataRecord, keyof typeof v4RegionDefaul
     source_status: v4RegionDefaults.source_status,
     last_updated: v4RegionDefaults.last_updated,
     notes: isHungaryPilot
-      ? "v0.17 Hungary NUTS3 validation manifest；20 条明细记录用于追踪 NUTS code、region_id candidate、地区名和几何存在性，全部保持 pending_final_validation。真实地图展示未启用。"
+      ? "v0.18 Hungary NUTS3 validation manifest 明细核验结果已记录；20 条明细具备 NUTS code、region_id candidate、地区名和几何存在性，最终主键、许可与权威拓扑仍待核验。真实地图展示未启用。"
       : v4RegionDefaults.notes,
   };
 }
@@ -197,11 +207,13 @@ function nonV4Placeholder(countryId: string): RegionMetadataRecord {
     feature_count: nonV4RegionDefaults.feature_count,
     nuts_code_count: nonV4RegionDefaults.nuts_code_count,
     region_id_candidate_count: nonV4RegionDefaults.region_id_candidate_count,
+    detail_record_count: nonV4RegionDefaults.detail_record_count,
     matched_region_count: nonV4RegionDefaults.matched_region_count,
     unmatched_region_count: nonV4RegionDefaults.unmatched_region_count,
     duplicate_region_id_count: nonV4RegionDefaults.duplicate_region_id_count,
     duplicate_nuts_code_count: nonV4RegionDefaults.duplicate_nuts_code_count,
     missing_geometry_count: nonV4RegionDefaults.missing_geometry_count,
+    manifest_detail_validation_status: nonV4RegionDefaults.manifest_detail_validation_status,
     region_id_final_matched: nonV4RegionDefaults.region_id_final_matched,
     region_id_match_evidence_status: nonV4RegionDefaults.region_id_match_evidence_status,
     public_display_ready: nonV4RegionDefaults.public_display_ready,

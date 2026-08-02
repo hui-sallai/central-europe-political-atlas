@@ -14,7 +14,8 @@ const validationFile = "public/data/boundaries/sandbox/hu_nuts3_gisco_2024.valid
 const expectedFeatureCount = 20;
 const epsilon = 1e-12;
 const manifestId = "hu_nuts3_gisco_2024_validation_manifest";
-const manifestStatus = "manifest_created_pending_final_validation";
+const manifestStatus = "manifest_detail_validation_recorded";
+const manifestDetailValidationStatus = "detail_validation_recorded_pending_final_region_id_verification";
 
 const regionIdByNutsCode = new Map([
   ["HU110", "hungary_budapest"],
@@ -275,9 +276,9 @@ const manifestRecords = filteredFeatures
       geometry_present: hasGeometry(feature),
       duplicate_nuts_code: duplicateNutsCodes.has(nutsCode),
       duplicate_region_id: regionIdCandidate ? duplicateRegionIds.has(regionIdCandidate) : false,
-      match_status: "pending_final_validation",
+      match_status: "detail_validation_recorded_pending_final_region_id_verification",
       notes:
-        "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending.",
+        "NUTS code, region name, region_id candidate, geometry presence, and duplicate checks are recorded from the sandbox file; final identifier validation remains pending.",
     };
   })
   .sort((left, right) => left.nuts_code.localeCompare(right.nuts_code));
@@ -314,6 +315,7 @@ const validation = {
   nuts_code_count: new Set(nutsCodes).size,
   nuts_codes_count: new Set(nutsCodes).size,
   region_id_candidate_count: regionIdCandidates.length,
+  detail_record_count: manifestRecords.length,
   matched_region_count: matchedCodes.length,
   unmatched_region_count: missingExpectedCodes.length + unexpectedCodes.length,
   duplicate_region_id_count: duplicateRegionIds.size,
@@ -335,10 +337,11 @@ const validation = {
   is_ready_for_display: false,
   ready_for_display: false,
   manifest_status: manifestStatus,
+  manifest_detail_validation_status: manifestDetailValidationStatus,
   last_updated: "2026-08-02",
   region_records: manifestRecords,
   notes:
-    "v0.17 validation manifest only. The 20 detail records trace NUTS codes, region_id candidates, names, and geometry presence; they remain pending final validation. The manifest does not establish licence approval, authoritative topology approval, final identifier matching, or public display readiness.",
+    "v0.18 validation manifest detail validation record. All 20 detail records contain NUTS codes, region_id candidates, names, geometry presence, and duplicate-check results. This does not establish licence approval, authoritative topology approval, final identifier matching, or public display readiness.",
 };
 
 if (filteredFeatures.length !== expectedFeatureCount) {

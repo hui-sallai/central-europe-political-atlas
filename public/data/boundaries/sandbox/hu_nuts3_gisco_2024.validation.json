@@ -37,6 +37,7 @@
   "nuts_code_count": 20,
   "nuts_codes_count": 20,
   "region_id_candidate_count": 20,
+  "detail_record_count": 20,
   "matched_region_count": 20,
   "unmatched_region_count": 0,
   "duplicate_region_id_count": 0,
@@ -65,7 +66,8 @@
   "public_display_ready": false,
   "is_ready_for_display": false,
   "ready_for_display": false,
-  "manifest_status": "manifest_created_pending_final_validation",
+  "manifest_status": "manifest_detail_validation_recorded",
+  "manifest_detail_validation_status": "detail_validation_recorded_pending_final_region_id_verification",
   "last_updated": "2026-08-02",
   "region_records": [
     {
@@ -75,8 +77,8 @@
       "geometry_present": true,
       "duplicate_nuts_code": false,
       "duplicate_region_id": false,
-      "match_status": "pending_final_validation",
-      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+      "match_status": "detail_validation_recorded_pending_final_region_id_verification",
+      "notes": "NUTS code, region name, region_id candidate, geometry presence, and duplicate checks are recorded from the sandbox file; final identifier validation remains pending."
     },
     {
       "nuts_code": "HU120",
@@ -85,8 +87,8 @@
       "geometry_present": true,
       "duplicate_nuts_code": false,
       "duplicate_region_id": false,
-      "match_status": "pending_final_validation",
-      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+      "match_status": "detail_validation_recorded_pending_final_region_id_verification",
+      "notes": "NUTS code, region name, region_id candidate, geometry presence, and duplicate checks are recorded from the sandbox file; final identifier validation remains pending."
     },
     {
       "nuts_code": "HU211",
@@ -95,8 +97,8 @@
       "geometry_present": true,
       "duplicate_nuts_code": false,
       "duplicate_region_id": false,
-      "match_status": "pending_final_validation",
-      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+      "match_status": "detail_validation_recorded_pending_final_region_id_verification",
+      "notes": "NUTS code, region name, region_id candidate, geometry presence, and duplicate checks are recorded from the sandbox file; final identifier validation remains pending."
     },
     {
       "nuts_code": "HU212",
@@ -105,8 +107,8 @@
       "geometry_present": true,
       "duplicate_nuts_code": false,
       "duplicate_region_id": false,
-      "match_status": "pending_final_validation",
-      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+      "match_status": "detail_validation_recorded_pending_final_region_id_verification",
+      "notes": "NUTS code, region name, region_id candidate, geometry presence, and duplicate checks are recorded from the sandbox file; final identifier validation remains pending."
     },
     {
       "nuts_code": "HU213",
@@ -115,8 +117,8 @@
       "geometry_present": true,
       "duplicate_nuts_code": false,
       "duplicate_region_id": false,
-      "match_status": "pending_final_validation",
-      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+      "match_status": "detail_validation_recorded_pending_final_region_id_verification",
+      "notes": "NUTS code, region name, region_id candidate, geometry presence, and duplicate checks are recorded from the sandbox file; final identifier validation remains pending."
     },
     {
       "nuts_code": "HU221",
@@ -125,8 +127,8 @@
       "geometry_present": true,
       "duplicate_nuts_code": false,
       "duplicate_region_id": false,
-      "match_status": "pending_final_validation",
-      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+      "match_status": "detail_validation_recorded_pending_final_region_id_verification",
+      "notes": "NUTS code, region name, region_id candidate, geometry presence, and duplicate checks are recorded from the sandbox file; final identifier validation remains pending."
     },
     {
       "nuts_code": "HU222",
@@ -135,8 +137,8 @@
       "geometry_present": true,
       "duplicate_nuts_code": false,
       "duplicate_region_id": false,
-      "match_status": "pending_final_validation",
-      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+      "match_status": "detail_validation_recorded_pending_final_region_id_verification",
+      "notes": "NUTS code, region name, region_id candidate, geometry presence, and duplicate checks are recorded from the sandbox file; final identifier validation remains pending."
     },
     {
       "nuts_code": "HU223",
@@ -145,8 +147,8 @@
       "geometry_present": true,
       "duplicate_nuts_code": false,
       "duplicate_region_id": false,
-      "match_status": "pending_final_validation",
-      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+      "match_status": "detail_validation_recorded_pending_final_region_id_verification",
+      "notes": "NUTS code, region name, region_id candidate, geometry presence, and duplicate checks are recorded from the sandbox file; final identifier validation remains pending."
     },
     {
       "nuts_code": "HU231",
@@ -155,8 +157,8 @@
       "geometry_present": true,
       "duplicate_nuts_code": false,
       "duplicate_region_id": false,
-      "match_status": "pending_final_validation",
-      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+      "match_status": "detail_validation_recorded_pending_final_region_id_verification",
+      "notes": "NUTS code, region name, region_id candidate, geometry presence, and duplicate checks are recorded from the sandbox file; final identifier validation remains pending."
     },
     {
       "nuts_code": "HU232",
@@ -165,8 +167,8 @@
       "geometry_present": true,
       "duplicate_nuts_code": false,
       "duplicate_region_id": false,
-      "match_status": "pending_final_validation",
-      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+      "match_status": "detail_validation_recorded_pending_final_region_id_verification",
+      "notes": "NUTS code, region name, region_id candidate, geometry presence, and duplicate checks are recorded from the sandbox file; final identifier validation remains pending."
     },
     {
       "nuts_code": "HU233",
@@ -175,8 +177,8 @@
       "geometry_present": true,
       "duplicate_nuts_code": false,
       "duplicate_region_id": false,
-      "match_status": "pending_final_validation",
-      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+      "match_status": "detail_validation_recorded_pending_final_region_id_verification",
+      "notes": "NUTS code, region name, region_id candidate, geometry presence, and duplicate checks are recorded from the sandbox file; final identifier validation remains pending."
     },
     {
       "nuts_code": "HU311",
@@ -185,8 +187,8 @@
       "geometry_present": true,
       "duplicate_nuts_code": false,
       "duplicate_region_id": false,
-      "match_status": "pending_final_validation",
-      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+      "match_status": "detail_validation_recorded_pending_final_region_id_verification",
+      "notes": "NUTS code, region name, region_id candidate, geometry presence, and duplicate checks are recorded from the sandbox file; final identifier validation remains pending."
     },
     {
       "nuts_code": "HU312",
@@ -195,8 +197,8 @@
       "geometry_present": true,
       "duplicate_nuts_code": false,
       "duplicate_region_id": false,
-      "match_status": "pending_final_validation",
-      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+      "match_status": "detail_validation_recorded_pending_final_region_id_verification",
+      "notes": "NUTS code, region name, region_id candidate, geometry presence, and duplicate checks are recorded from the sandbox file; final identifier validation remains pending."
     },
     {
       "nuts_code": "HU313",
@@ -205,8 +207,8 @@
       "geometry_present": true,
       "duplicate_nuts_code": false,
       "duplicate_region_id": false,
-      "match_status": "pending_final_validation",
-      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+      "match_status": "detail_validation_recorded_pending_final_region_id_verification",
+      "notes": "NUTS code, region name, region_id candidate, geometry presence, and duplicate checks are recorded from the sandbox file; final identifier validation remains pending."
     },
     {
       "nuts_code": "HU321",
@@ -215,8 +217,8 @@
       "geometry_present": true,
       "duplicate_nuts_code": false,
       "duplicate_region_id": false,
-      "match_status": "pending_final_validation",
-      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+      "match_status": "detail_validation_recorded_pending_final_region_id_verification",
+      "notes": "NUTS code, region name, region_id candidate, geometry presence, and duplicate checks are recorded from the sandbox file; final identifier validation remains pending."
     },
     {
       "nuts_code": "HU322",
@@ -225,8 +227,8 @@
       "geometry_present": true,
       "duplicate_nuts_code": false,
       "duplicate_region_id": false,
-      "match_status": "pending_final_validation",
-      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+      "match_status": "detail_validation_recorded_pending_final_region_id_verification",
+      "notes": "NUTS code, region name, region_id candidate, geometry presence, and duplicate checks are recorded from the sandbox file; final identifier validation remains pending."
     },
     {
       "nuts_code": "HU323",
@@ -235,8 +237,8 @@
       "geometry_present": true,
       "duplicate_nuts_code": false,
       "duplicate_region_id": false,
-      "match_status": "pending_final_validation",
-      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+      "match_status": "detail_validation_recorded_pending_final_region_id_verification",
+      "notes": "NUTS code, region name, region_id candidate, geometry presence, and duplicate checks are recorded from the sandbox file; final identifier validation remains pending."
     },
     {
       "nuts_code": "HU331",
@@ -245,8 +247,8 @@
       "geometry_present": true,
       "duplicate_nuts_code": false,
       "duplicate_region_id": false,
-      "match_status": "pending_final_validation",
-      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+      "match_status": "detail_validation_recorded_pending_final_region_id_verification",
+      "notes": "NUTS code, region name, region_id candidate, geometry presence, and duplicate checks are recorded from the sandbox file; final identifier validation remains pending."
     },
     {
       "nuts_code": "HU332",
@@ -255,8 +257,8 @@
       "geometry_present": true,
       "duplicate_nuts_code": false,
       "duplicate_region_id": false,
-      "match_status": "pending_final_validation",
-      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+      "match_status": "detail_validation_recorded_pending_final_region_id_verification",
+      "notes": "NUTS code, region name, region_id candidate, geometry presence, and duplicate checks are recorded from the sandbox file; final identifier validation remains pending."
     },
     {
       "nuts_code": "HU333",
@@ -265,9 +267,9 @@
       "geometry_present": true,
       "duplicate_nuts_code": false,
       "duplicate_region_id": false,
-      "match_status": "pending_final_validation",
-      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+      "match_status": "detail_validation_recorded_pending_final_region_id_verification",
+      "notes": "NUTS code, region name, region_id candidate, geometry presence, and duplicate checks are recorded from the sandbox file; final identifier validation remains pending."
     }
   ],
-  "notes": "v0.17 validation manifest only. The 20 detail records trace NUTS codes, region_id candidates, names, and geometry presence; they remain pending final validation. The manifest does not establish licence approval, authoritative topology approval, final identifier matching, or public display readiness."
+  "notes": "v0.18 validation manifest detail validation record. All 20 detail records contain NUTS codes, region_id candidates, names, geometry presence, and duplicate-check results. This does not establish licence approval, authoritative topology approval, final identifier matching, or public display readiness."
 }

@@ -44,11 +44,13 @@ export type RegionBoundaryRecord = {
   feature_count: number;
   nuts_code_count: number;
   region_id_candidate_count: number;
+  detail_record_count: number;
   matched_region_count: number;
   unmatched_region_count: number;
   duplicate_region_id_count: number;
   duplicate_nuts_code_count: number;
   missing_geometry_count: number;
+  manifest_detail_validation_status: string;
   region_id_final_matched: boolean;
   region_id_match_evidence_status: string;
   public_display_ready: boolean;
@@ -112,11 +114,13 @@ const hungaryPilotBoundary: RegionBoundaryRecord = {
   feature_count: hungaryBoundaryValidation.feature_count,
   nuts_code_count: hungaryBoundaryValidation.nuts_code_count,
   region_id_candidate_count: hungaryBoundaryValidation.region_id_candidate_count,
+  detail_record_count: hungaryBoundaryValidation.detail_record_count,
   matched_region_count: hungaryBoundaryValidation.matched_region_count,
   unmatched_region_count: hungaryBoundaryValidation.unmatched_region_count,
   duplicate_region_id_count: hungaryBoundaryValidation.duplicate_region_id_count,
   duplicate_nuts_code_count: hungaryBoundaryValidation.duplicate_nuts_code_count,
   missing_geometry_count: hungaryBoundaryValidation.missing_geometry_count,
+  manifest_detail_validation_status: hungaryBoundaryValidation.manifest_detail_validation_status,
   region_id_final_matched: false,
   region_id_match_evidence_status: "precheck_zero_exceptions_pending_final_review",
   public_display_ready: false,
@@ -125,7 +129,7 @@ const hungaryPilotBoundary: RegionBoundaryRecord = {
   source_status: "官方来源",
   last_checked: "2026-08-02",
   notes:
-    "v0.17 validation manifest 已建立并包含 20 条 pending_final_validation 明细；许可、权威拓扑与最终主键匹配仍未完成，公开展示资格未通过。",
+    "v0.18 validation manifest 的 20 条明细核验结果已记录；许可、权威拓扑与最终主键匹配仍未完成，公开展示资格未通过。",
 };
 
 function v4Boundary(region: (typeof regionMetadataRecords)[number]): RegionBoundaryRecord {
@@ -166,11 +170,13 @@ function v4Boundary(region: (typeof regionMetadataRecords)[number]): RegionBound
     feature_count: region.feature_count,
     nuts_code_count: region.nuts_code_count,
     region_id_candidate_count: region.region_id_candidate_count,
+    detail_record_count: region.detail_record_count,
     matched_region_count: region.matched_region_count,
     unmatched_region_count: 0,
     duplicate_region_id_count: 0,
     duplicate_nuts_code_count: 0,
     missing_geometry_count: region.missing_geometry_count,
+    manifest_detail_validation_status: region.manifest_detail_validation_status,
     region_id_final_matched: false,
     region_id_match_evidence_status: region.country_id === "hungary"
       ? "precheck_zero_exceptions_pending_final_review"
@@ -222,11 +228,13 @@ function pendingBoundary(region: (typeof regionMetadataRecords)[number]): Region
     feature_count: 0,
     nuts_code_count: 0,
     region_id_candidate_count: 0,
+    detail_record_count: 0,
     matched_region_count: 0,
     unmatched_region_count: 0,
     duplicate_region_id_count: 0,
     duplicate_nuts_code_count: 0,
     missing_geometry_count: 0,
+    manifest_detail_validation_status: "not_applicable",
     region_id_final_matched: false,
     region_id_match_evidence_status: "not_applicable",
     public_display_ready: false,
