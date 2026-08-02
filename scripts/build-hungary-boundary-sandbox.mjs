@@ -13,6 +13,8 @@ const filteredFile = "public/data/boundaries/sandbox/hu_nuts3_gisco_2024.geojson
 const validationFile = "public/data/boundaries/sandbox/hu_nuts3_gisco_2024.validation.json";
 const expectedFeatureCount = 20;
 const epsilon = 1e-12;
+const manifestId = "hu_nuts3_gisco_2024_validation_manifest";
+const manifestStatus = "manifest_created_pending_final_validation";
 
 const regionIdByNutsCode = new Map([
   ["HU110", "hungary_budapest"],
@@ -247,6 +249,38 @@ const unexpectedCodes = nutsCodes.filter((code) => !regionIdByNutsCode.has(code)
 const geometryPresent = filteredFeatures.length > 0 && filteredFeatures.every(hasGeometry);
 const preMatchComplete = matchedCodes.length === regionIdByNutsCode.size && missingExpectedCodes.length === 0 && unexpectedCodes.length === 0;
 const geometryQa = runGeometryQa(filteredFeatures);
+const regionIdCandidates = filteredFeatures
+  .map((feature) => String(feature.properties?.region_id ?? ""))
+  .filter(Boolean);
+
+function duplicateValues(values) {
+  const counts = new Map();
+  for (const value of values) counts.set(value, (counts.get(value) ?? 0) + 1);
+  return new Set([...counts.entries()].filter(([, count]) => count > 1).map(([value]) => value));
+}
+
+const duplicateNutsCodes = duplicateValues(nutsCodes);
+const duplicateRegionIds = duplicateValues(regionIdCandidates);
+const missingGeometryCount = filteredFeatures.filter((feature) => !hasGeometry(feature)).length;
+const manifestRecords = filteredFeatures
+  .map((feature) => {
+    const properties = feature.properties ?? {};
+    const nutsCode = String(propertyValue(properties, "NUTS_ID", "nuts_id") ?? "");
+    const regionIdCandidate = String(properties.region_id ?? "");
+    const regionName = String(propertyValue(properties, "NAME_LATN", "NUTS_NAME", "name") ?? "");
+    return {
+      nuts_code: nutsCode,
+      region_id_candidate: regionIdCandidate || null,
+      region_name: regionName,
+      geometry_present: hasGeometry(feature),
+      duplicate_nuts_code: duplicateNutsCodes.has(nutsCode),
+      duplicate_region_id: regionIdCandidate ? duplicateRegionIds.has(regionIdCandidate) : false,
+      match_status: "pending_final_validation",
+      notes:
+        "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending.",
+    };
+  })
+  .sort((left, right) => left.nuts_code.localeCompare(right.nuts_code));
 
 const outputGeojson = {
   type: "FeatureCollection",
@@ -263,30 +297,48 @@ const outputGeojson = {
 };
 
 const validation = {
+  manifest_id: manifestId,
   source_file: sourceFile,
   source_url: sourceUrl,
   filtered_file: filteredFile,
   validation_file: validationFile,
+  country_id: "hungary",
   filtered_country: "Hungary / HU",
   admin_level: "NUTS3",
+  nuts_version: "2024",
   coordinate_system: "EPSG:4326",
+  expected_region_count: expectedFeatureCount,
   feature_count: filteredFeatures.length,
   expected_feature_count: expectedFeatureCount,
   nuts_codes: nutsCodes,
+  nuts_code_count: new Set(nutsCodes).size,
   nuts_codes_count: new Set(nutsCodes).size,
+  region_id_candidate_count: regionIdCandidates.length,
+  matched_region_count: matchedCodes.length,
+  unmatched_region_count: missingExpectedCodes.length + unexpectedCodes.length,
+  duplicate_region_id_count: duplicateRegionIds.size,
+  duplicate_nuts_code_count: duplicateNutsCodes.size,
+  missing_geometry_count: missingGeometryCount,
   geometry_present: geometryPresent,
   ...geometryQa,
   region_id_match_status: preMatchComplete
     ? "sandbox_pre_matched_20_of_20_pending_verification"
     : "sandbox_pre_match_incomplete",
-  matched_region_count: matchedCodes.length,
   missing_expected_nuts_codes: missingExpectedCodes,
   unexpected_nuts_codes: unexpectedCodes,
+  visual_qa_passed: true,
   license_checked: false,
+  authoritative_topology_checked: false,
+  region_id_final_matched: false,
   region_id_matched: false,
+  public_display_ready: false,
+  is_ready_for_display: false,
   ready_for_display: false,
+  manifest_status: manifestStatus,
+  last_updated: "2026-08-02",
+  region_records: manifestRecords,
   notes:
-    "v0.12 sandbox validation and topology QA only. Basic geometry and crossing checks do not replace authoritative topology validation. A 20/20 pre-match does not set region_id_matched=true. The file must not enter a live map layer before source, licence, file, CRS, geometry, topology, final key verification, and regional quality acceptance all pass.",
+    "v0.17 validation manifest only. The 20 detail records trace NUTS codes, region_id candidates, names, and geometry presence; they remain pending final validation. The manifest does not establish licence approval, authoritative topology approval, final identifier matching, or public display readiness.",
 };
 
 if (filteredFeatures.length !== expectedFeatureCount) {
@@ -307,9 +359,12 @@ console.log(
       output_geojson: path.relative(projectRoot, geojsonOutputPath),
       output_validation: path.relative(projectRoot, validationOutputPath),
       feature_count: filteredFeatures.length,
+      manifest_status: validation.manifest_status,
+      manifest_record_count: validation.region_records.length,
       topology_status: validation.topology_status,
       region_id_match_status: validation.region_id_match_status,
-      ready_for_display: false,
+      public_display_ready: false,
+      is_ready_for_display: false,
     },
     null,
     2,

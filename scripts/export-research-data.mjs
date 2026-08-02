@@ -33,6 +33,7 @@ const {
   hungaryNuts3ReadinessGateSummary,
   hungaryNuts3RegionIdMatchSummary,
   hungaryNuts3SandboxQaSummary,
+  hungaryNuts3ValidationManifestSummary,
   hungaryNuts3VisualQaSummary,
   regionQualityCheckRecords,
   regionQualitySummary,
@@ -987,6 +988,22 @@ function methodologyRuleRecords() {
       last_updated: "2026-08-02",
       notes: "v0.16.1 Hungary region-id matching readiness summary；当前 20 / 20 候选初步检查通过，最终核验尚未完成。",
     },
+    {
+      rule_id: "hungary_nuts3_validation_manifest",
+      rule_category: "区域边界准入规则",
+      rule_name: "匈牙利 NUTS3 validation manifest 规则",
+      rule_description: "v0.17 只建立可追溯 validation manifest 和 20 条待最终核验明细；manifest 建立不等于许可、权威拓扑、最终主键或正式展示通过。",
+      applies_to: "regions,region_boundaries,region_quality_checks,map_layers,map_page,hungary_country_page,methodology_page",
+      required_fields: ["manifest_id", "source_file", "filtered_file", "country_id", "admin_level", "nuts_version", "coordinate_system", "expected_region_count", "feature_count", "nuts_code_count", "region_id_candidate_count", "matched_region_count", "unmatched_region_count", "duplicate_region_id_count", "duplicate_nuts_code_count", "missing_geometry_count", "visual_qa_passed", "license_checked", "authoritative_topology_checked", "region_id_final_matched", "public_display_ready", "is_ready_for_display", "manifest_status", "last_updated", "notes", "region_records"],
+      allowed_statuses: ["manifest_created_pending_final_validation", "pending_final_validation"],
+      excluded_statuses: ["正式地图已启用", "风险图层", "预测图层", "真实党派支持率图层", "中国经济暴露指数", "区域评分"],
+      source_requirement: "manifest 必须关联实际沙盒 GeoJSON，并为每条 NUTS3 记录保留 nuts_code、region_id_candidate、region_name、geometry_present、重复检查和 match_status。",
+      quality_requirement: "license_checked、authoritative_topology_checked 与 region_id_final_matched 均未通过时，public_display_ready 和 is_ready_for_display 必须保持 false。",
+      model_boundary: "validation manifest 只用于核验记录，不生成模型、风险、预测、指数或区域评分。",
+      export_boundary: "随既有四个区域数据层和 methodology_rules 导出；不新增第 18 张表。",
+      last_updated: "2026-08-02",
+      notes: "20 条明细的 match_status 均保持 pending_final_validation；不伪造最终核验结论。",
+    },
   ];
 }
 
@@ -1117,13 +1134,13 @@ writeLayer("countries", countryRecords, {
   relation_note: "All observations, projects, derived comparisons, and exposure candidates should reference country_id.",
 });
 writeLayer("regions", regionMetadataRecords, {
-  scope: "v0.16.1 regions metadata. Hungary NUTS3 retains 20 NUTS codes, 20 region_id candidates, zero preliminary exceptions, and pending final validation; non-V4 countries keep national-level pending placeholders.",
+  scope: "v0.17 regions metadata. Hungary NUTS3 records the validation manifest path, status, and 20 pending-final-validation candidates; non-V4 countries keep national-level pending placeholders.",
   primary_key: "region_id",
   relation_note: "Every region references country_id from countries. ADM2 is intentionally excluded from the current boundary verification pass.",
   model_boundary: "Region metadata only. No regional risk layer, forecast, election model, or ADM2 analysis is generated.",
 });
 writeLayer("region_boundaries", regionBoundaryRecords, {
-  scope: "v0.16.1 region-id matching readiness registry. hu_nuts3_gisco_2024 retains candidate, preliminary exception, and evidence-status fields while remaining not_ready_for_display.",
+  scope: "v0.17 validation manifest registry. hu_nuts3_gisco_2024 records manifest evidence and counts while remaining not_ready_for_display.",
   primary_key: "boundary_id",
   relation_note: "Every boundary record references region_id from regions and country_id from countries.",
   validation_note: "Records track source credibility, public display licence, simplification readiness, front-end suitability, region_id matching, admin codes, and historical boundary issues before geometry ingestion.",
@@ -1144,13 +1161,14 @@ writeLayer("region_observations", regionObservationRecords, {
   model_boundary: "Observation structure only. Pending rows do not enter map layers, regional comparison, or future model candidate inputs.",
 });
 writeLayer("region_quality_checks", regionQualityCheckRecords, {
-  scope: "v0.16.1 regional data quality checks. Hungary NUTS3 records a preliminary matching readiness summary while final validation and formal display remain disabled.",
+  scope: "v0.17 regional data quality checks. Hungary NUTS3 records a validation manifest summary while final validation and formal display remain disabled.",
   primary_key: "region_check_id",
   summary: regionQualitySummary,
   sandbox_qa_summary: hungaryNuts3SandboxQaSummary,
   visual_qa_summary: hungaryNuts3VisualQaSummary,
   readiness_gate_summary: hungaryNuts3ReadinessGateSummary,
   region_id_match_summary: hungaryNuts3RegionIdMatchSummary,
+  validation_manifest_summary: hungaryNuts3ValidationManifestSummary,
   relation_note: "Every check references region_id from regions and region_indicator_id from region_indicators. Boundary readiness is cross-checked through region_boundaries.",
   validation_note: "Basic topology QA does not replace authoritative validation. A 20/20 pre-match does not set region_id_matched=true, and pending rows remain explicit.",
   model_boundary: "Quality checks only. No regional model, risk layer, forecast, election prediction, or live boundary rendering is generated.",
@@ -1170,7 +1188,7 @@ writeLayer("project_locations", projectLocationRecords, {
   model_boundary: "Location bridge only. No China exposure index, regional risk layer, forecast, or live project map layer is generated.",
 });
 writeLayer("map_layers", mapLayerRecords, {
-  scope: "v0.16.1 map layer registry. hu_nuts3_boundary_pilot retains region-id readiness evidence; is_ready_for_display and public_display_ready remain false.",
+  scope: "v0.17 map layer registry. hu_nuts3_boundary_pilot records validation manifest evidence; is_ready_for_display and public_display_ready remain false.",
   primary_key: "layer_id",
   relation_note: "Each layer declares its data_source_table, geometry_source_table, indicator_or_variable, tooltip fields, filters, source requirements, and quality requirements.",
   validation_note: "All registered real boundary and analytical layers keep is_ready_for_display=false until boundary, source, observation, project-location, and quality checks pass.",

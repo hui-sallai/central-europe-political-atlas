@@ -1,3 +1,5 @@
+import hungaryBoundaryValidation from "../../public/data/boundaries/sandbox/hu_nuts3_gisco_2024.validation.json";
+
 export type MapLayerType = "boundary" | "choropleth" | "point" | "symbol" | "label" | "table_only" | "structural_sample";
 
 export type MapLayerRecord = {
@@ -19,12 +21,17 @@ export type MapLayerRecord = {
   authoritative_topology_method: string;
   authoritative_topology_checked: boolean;
   topology_evidence_status: string;
+  validation_manifest_file: string;
+  manifest_status: string;
   expected_region_count: number;
+  feature_count: number;
   nuts_code_count: number;
   region_id_candidate_count: number;
+  matched_region_count: number;
   unmatched_region_count: number;
   duplicate_region_id_count: number;
   duplicate_nuts_code_count: number;
+  missing_geometry_count: number;
   region_id_final_matched: boolean;
   region_id_match_evidence_status: string;
   visual_qa_passed: boolean;
@@ -54,7 +61,7 @@ export type MapLayerRecord = {
   notes: string;
 };
 
-const updatedAt = "2026-07-31";
+const updatedAt = "2026-08-02";
 const v4Adm1Coverage = "V4 四国 ADM1：poland, hungary, czechia, slovakia";
 const noDisplayBoundary = "v0.16.1 最终主键匹配核验尚未完成；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。";
 const noModelBoundary = "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。";
@@ -65,6 +72,13 @@ const pendingTopologyMethod = "待确认：以 GISCO NUTS 2024 官方几何与�
 const boundaryQuality = "region_boundaries.geometry_available=true、geometry_simplified=true、topology_checked=true、boundary_license_checked=true，且 region_quality_checks 中对应区域 is_map_ready=true。";
 const choroplethQuality = "需要 region_observations 有正式数值、来源链接、单位、来源等级，并通过 region_quality_checks；当前待接入观测值不得进入地图显示。";
 const projectQuality = "需要 project_locations 有可核验位置来源、region_id 映射、经纬度或明确区域级定位，并通过后续项目位置质量验收；当前不进入正式地图图层。";
+const noValidationManifest = {
+  validation_manifest_file: "",
+  manifest_status: "not_started",
+  feature_count: 0,
+  matched_region_count: 0,
+  missing_geometry_count: 0,
+};
 
 function boundaryLayer(): MapLayerRecord {
   return {
@@ -86,6 +100,7 @@ function boundaryLayer(): MapLayerRecord {
     authoritative_topology_method: pendingTopologyMethod,
     authoritative_topology_checked: false,
     topology_evidence_status: "not_started",
+    ...noValidationManifest,
     expected_region_count: 0,
     nuts_code_count: 0,
     region_id_candidate_count: 0,
@@ -142,12 +157,17 @@ function hungaryNuts3PilotLayer(): MapLayerRecord {
     authoritative_topology_method: pendingTopologyMethod,
     authoritative_topology_checked: false,
     topology_evidence_status: "sandbox_basic_topology_passed_pending_authoritative_validation",
-    expected_region_count: 20,
-    nuts_code_count: 20,
-    region_id_candidate_count: 20,
-    unmatched_region_count: 0,
-    duplicate_region_id_count: 0,
-    duplicate_nuts_code_count: 0,
+    validation_manifest_file: hungaryBoundaryValidation.validation_file,
+    manifest_status: hungaryBoundaryValidation.manifest_status,
+    expected_region_count: hungaryBoundaryValidation.expected_region_count,
+    feature_count: hungaryBoundaryValidation.feature_count,
+    nuts_code_count: hungaryBoundaryValidation.nuts_code_count,
+    region_id_candidate_count: hungaryBoundaryValidation.region_id_candidate_count,
+    matched_region_count: hungaryBoundaryValidation.matched_region_count,
+    unmatched_region_count: hungaryBoundaryValidation.unmatched_region_count,
+    duplicate_region_id_count: hungaryBoundaryValidation.duplicate_region_id_count,
+    duplicate_nuts_code_count: hungaryBoundaryValidation.duplicate_nuts_code_count,
+    missing_geometry_count: hungaryBoundaryValidation.missing_geometry_count,
     region_id_final_matched: false,
     region_id_match_evidence_status: "precheck_zero_exceptions_pending_final_review",
     visual_qa_passed: true,
@@ -175,7 +195,7 @@ function hungaryNuts3PilotLayer(): MapLayerRecord {
     model_boundary: noModelBoundary,
     last_updated: updatedAt,
     notes:
-      "v0.16.1 region-id matching readiness summary；20 个 NUTS code 与 20 个 region_id candidate 已登记，初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示保持未启用。",
+      "v0.17 validation manifest 已建立并包含 20 条 pending_final_validation 明细；license、authoritative topology 与 final region_id matching 未全部完成，真实地图展示保持未启用。",
   };
 }
 
@@ -206,6 +226,7 @@ function choroplethLayer(layer: {
     authoritative_topology_method: pendingTopologyMethod,
     authoritative_topology_checked: false,
     topology_evidence_status: "not_started",
+    ...noValidationManifest,
     expected_region_count: 0,
     nuts_code_count: 0,
     region_id_candidate_count: 0,
@@ -262,6 +283,7 @@ function projectLocationLayer(): MapLayerRecord {
     authoritative_topology_method: pendingTopologyMethod,
     authoritative_topology_checked: false,
     topology_evidence_status: "not_started",
+    ...noValidationManifest,
     expected_region_count: 0,
     nuts_code_count: 0,
     region_id_candidate_count: 0,

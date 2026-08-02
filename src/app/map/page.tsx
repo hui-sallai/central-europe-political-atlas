@@ -2,8 +2,8 @@ import { InteractiveMapExplorer } from "@/components/InteractiveMapExplorer";
 import { HungaryBoundaryVisualQaSandbox } from "@/components/HungaryBoundaryVisualQaSandbox";
 import {
   hungaryNuts3ReadinessGateSummary,
-  hungaryNuts3RegionIdMatchSummary,
   hungaryNuts3SandboxQaSummary,
+  hungaryNuts3ValidationManifestSummary,
 } from "@/lib/regionQualityChecks";
 
 export default function MapPage() {
@@ -20,8 +20,8 @@ export default function MapPage() {
         <h2 className="mt-2 text-2xl font-semibold">区域地图数据准备状态</h2>
         <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           {[
-            ["当前阶段", "v0.16.1 Hungary region-id matching readiness summary"],
-            ["区域地图数据", "匈牙利 NUTS3 主键匹配准备摘要已记录"],
+            ["当前阶段", "v0.17 Hungary NUTS3 validation manifest"],
+            ["区域地图数据", "匈牙利 NUTS3 validation manifest 已建立"],
             ["V4 ADM1 / NUTS2 边界", "待接入"],
             ["区域统计数据", "待接入"],
             ["对华项目地区定位", "准备中"],
@@ -156,25 +156,29 @@ export default function MapPage() {
       </section>
 
       <section className="mt-6 rounded-3xl border border-[var(--line)] bg-white/65 p-5">
-        <p className="eyebrow">v0.16.1 Hungary Region-ID Matching Readiness Summary</p>
-        <h2 className="mt-2 text-2xl font-semibold">v0.16.1 主键匹配准备摘要</h2>
+        <p className="eyebrow">v0.17 Hungary NUTS3 Validation Manifest</p>
+        <h2 className="mt-2 text-2xl font-semibold">v0.17 validation manifest 摘要</h2>
         <div className="mt-4 overflow-x-auto rounded-2xl border border-[var(--line)] bg-white/70">
           <table className="min-w-full border-collapse text-left text-sm">
             <tbody>
               {[
-                ["expected_region_count", String(hungaryNuts3RegionIdMatchSummary.expected_region_count)],
-                ["nuts_code_count", String(hungaryNuts3RegionIdMatchSummary.nuts_code_count)],
-                ["region_id_candidate_count", String(hungaryNuts3RegionIdMatchSummary.region_id_candidate_count)],
-                ["preliminary_unmatched_region_count", String(hungaryNuts3RegionIdMatchSummary.preliminary_unmatched_region_count)],
-                ["preliminary_duplicate_region_id_count", String(hungaryNuts3RegionIdMatchSummary.preliminary_duplicate_region_id_count)],
-                ["preliminary_duplicate_nuts_code_count", String(hungaryNuts3RegionIdMatchSummary.preliminary_duplicate_nuts_code_count)],
-                ["region_id_final_matched", String(hungaryNuts3RegionIdMatchSummary.region_id_final_matched)],
-                ["region_id_match_status", hungaryNuts3RegionIdMatchSummary.region_id_match_status],
-                ["visual_qa_passed", String(hungaryNuts3RegionIdMatchSummary.visual_qa_passed)],
-                ["license_checked", `${hungaryNuts3RegionIdMatchSummary.license_checked} / pending`],
-                ["authoritative_topology_checked", `${hungaryNuts3RegionIdMatchSummary.authoritative_topology_checked} / pending`],
-                ["public_display_ready", String(hungaryNuts3RegionIdMatchSummary.public_display_ready)],
-                ["is_ready_for_display", String(hungaryNuts3RegionIdMatchSummary.is_ready_for_display)],
+                ["manifest_file", hungaryNuts3ValidationManifestSummary.manifest_file],
+                ["expected_region_count", String(hungaryNuts3ValidationManifestSummary.expected_region_count)],
+                ["feature_count", `${hungaryNuts3ValidationManifestSummary.feature_count} / pending validation`],
+                ["nuts_code_count", `${hungaryNuts3ValidationManifestSummary.nuts_code_count} / pending validation`],
+                ["region_id_candidate_count", `${hungaryNuts3ValidationManifestSummary.region_id_candidate_count} / pending validation`],
+                ["matched_region_count", `${hungaryNuts3ValidationManifestSummary.matched_region_count} / pending final validation`],
+                ["unmatched_region_count", `${hungaryNuts3ValidationManifestSummary.unmatched_region_count} / pending final validation`],
+                ["duplicate_region_id_count", `${hungaryNuts3ValidationManifestSummary.duplicate_region_id_count} / pending final validation`],
+                ["duplicate_nuts_code_count", `${hungaryNuts3ValidationManifestSummary.duplicate_nuts_code_count} / pending final validation`],
+                ["missing_geometry_count", `${hungaryNuts3ValidationManifestSummary.missing_geometry_count} / pending validation`],
+                ["manifest_status", hungaryNuts3ValidationManifestSummary.manifest_status],
+                ["visual_qa_passed", String(hungaryNuts3ValidationManifestSummary.visual_qa_passed)],
+                ["license_checked", `${hungaryNuts3ValidationManifestSummary.license_checked} / pending`],
+                ["authoritative_topology_checked", `${hungaryNuts3ValidationManifestSummary.authoritative_topology_checked} / pending`],
+                ["region_id_final_matched", `${hungaryNuts3ValidationManifestSummary.region_id_final_matched} / pending`],
+                ["public_display_ready", String(hungaryNuts3ValidationManifestSummary.public_display_ready)],
+                ["is_ready_for_display", String(hungaryNuts3ValidationManifestSummary.is_ready_for_display)],
               ].map(([field, value]) => (
                 <tr key={field} className="border-b border-[var(--line)] last:border-b-0">
                   <th className="w-72 px-4 py-3 font-mono text-xs font-semibold text-[var(--foreground)]">{field}</th>
@@ -185,7 +189,7 @@ export default function MapPage() {
           </table>
         </div>
         <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-          当前只是主键匹配准备摘要，不代表最终主键匹配完成；不代表许可通过；不代表权威拓扑验收通过；不代表正式地图展示启用。
+          validation manifest 是核验记录，不等于正式地图展示许可；即使 manifest 建立，license、authoritative topology、final region_id matching 未完成前，正式地图展示仍未启用。
         </p>
       </section>
 

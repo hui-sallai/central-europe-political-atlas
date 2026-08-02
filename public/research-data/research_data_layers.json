@@ -14,14 +14,14 @@
     {
       "id": "regions",
       "label": "regions",
-      "description": "v0.16.1 区域元数据表；匈牙利 NUTS3 保留 20 个 region_id candidate、20 个 NUTS code 与待最终核验状态。",
+      "description": "v0.17 区域元数据表；匈牙利 NUTS3 同步 validation manifest 与20条待最终核验记录摘要。",
       "json_file": "regions.json",
       "csv_file": "regions.csv"
     },
     {
       "id": "region_boundaries",
       "label": "region_boundaries",
-      "description": "v0.16.1 区域边界来源表；hu_nuts3_gisco_2024 保留主键准备证据，并继续保持 not_ready_for_display。",
+      "description": "v0.17 区域边界来源表；hu_nuts3_gisco_2024 记录 manifest 状态并继续保持 not_ready_for_display。",
       "json_file": "region_boundaries.json",
       "csv_file": "region_boundaries.csv"
     },
@@ -42,7 +42,7 @@
     {
       "id": "region_quality_checks",
       "label": "region_quality_checks",
-      "description": "v0.16.1 区域数据质量验收表；记录 Hungary NUTS3 主键匹配准备摘要，正式展示状态保持 false。",
+      "description": "v0.17 区域数据质量验收表；记录 Hungary NUTS3 validation manifest summary，正式展示状态保持 false。",
       "json_file": "region_quality_checks.json",
       "csv_file": "region_quality_checks.csv"
     },
@@ -63,7 +63,7 @@
     {
       "id": "map_layers",
       "label": "map_layers",
-      "description": "v0.16.1 地图图层注册表；hu_nuts3_boundary_pilot 保留主键准备证据，is_ready_for_display=false。",
+      "description": "v0.17 地图图层注册表；hu_nuts3_boundary_pilot 同步 manifest 状态，is_ready_for_display=false。",
       "json_file": "map_layers.json",
       "csv_file": "map_layers.csv"
     },

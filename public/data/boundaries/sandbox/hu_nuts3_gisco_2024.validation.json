@@ -1,11 +1,15 @@
 {
+  "manifest_id": "hu_nuts3_gisco_2024_validation_manifest",
   "source_file": "NUTS_RG_01M_2024_4326_LEVL_3.geojson",
   "source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2024_4326_LEVL_3.geojson",
   "filtered_file": "public/data/boundaries/sandbox/hu_nuts3_gisco_2024.geojson",
   "validation_file": "public/data/boundaries/sandbox/hu_nuts3_gisco_2024.validation.json",
+  "country_id": "hungary",
   "filtered_country": "Hungary / HU",
   "admin_level": "NUTS3",
+  "nuts_version": "2024",
   "coordinate_system": "EPSG:4326",
+  "expected_region_count": 20,
   "feature_count": 20,
   "expected_feature_count": 20,
   "nuts_codes": [
@@ -30,7 +34,14 @@
     "HU332",
     "HU333"
   ],
+  "nuts_code_count": 20,
   "nuts_codes_count": 20,
+  "region_id_candidate_count": 20,
+  "matched_region_count": 20,
+  "unmatched_region_count": 0,
+  "duplicate_region_id_count": 0,
+  "duplicate_nuts_code_count": 0,
+  "missing_geometry_count": 0,
   "geometry_present": true,
   "geometry_present_count": 20,
   "ring_count": 22,
@@ -44,11 +55,219 @@
   "topology_checked": true,
   "topology_status": "sandbox_basic_topology_passed_pending_authoritative_validation",
   "region_id_match_status": "sandbox_pre_matched_20_of_20_pending_verification",
-  "matched_region_count": 20,
   "missing_expected_nuts_codes": [],
   "unexpected_nuts_codes": [],
+  "visual_qa_passed": true,
   "license_checked": false,
+  "authoritative_topology_checked": false,
+  "region_id_final_matched": false,
   "region_id_matched": false,
+  "public_display_ready": false,
+  "is_ready_for_display": false,
   "ready_for_display": false,
-  "notes": "v0.12 sandbox validation and topology QA only. Basic geometry and crossing checks do not replace authoritative topology validation. A 20/20 pre-match does not set region_id_matched=true. The file must not enter a live map layer before source, licence, file, CRS, geometry, topology, final key verification, and regional quality acceptance all pass."
+  "manifest_status": "manifest_created_pending_final_validation",
+  "last_updated": "2026-08-02",
+  "region_records": [
+    {
+      "nuts_code": "HU110",
+      "region_id_candidate": "hungary_budapest",
+      "region_name": "Budapest",
+      "geometry_present": true,
+      "duplicate_nuts_code": false,
+      "duplicate_region_id": false,
+      "match_status": "pending_final_validation",
+      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+    },
+    {
+      "nuts_code": "HU120",
+      "region_id_candidate": "hungary_pest",
+      "region_name": "Pest",
+      "geometry_present": true,
+      "duplicate_nuts_code": false,
+      "duplicate_region_id": false,
+      "match_status": "pending_final_validation",
+      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+    },
+    {
+      "nuts_code": "HU211",
+      "region_id_candidate": "hungary_fejer",
+      "region_name": "Fejér",
+      "geometry_present": true,
+      "duplicate_nuts_code": false,
+      "duplicate_region_id": false,
+      "match_status": "pending_final_validation",
+      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+    },
+    {
+      "nuts_code": "HU212",
+      "region_id_candidate": "hungary_komarom_esztergom",
+      "region_name": "Komárom-Esztergom",
+      "geometry_present": true,
+      "duplicate_nuts_code": false,
+      "duplicate_region_id": false,
+      "match_status": "pending_final_validation",
+      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+    },
+    {
+      "nuts_code": "HU213",
+      "region_id_candidate": "hungary_veszprem",
+      "region_name": "Veszprém",
+      "geometry_present": true,
+      "duplicate_nuts_code": false,
+      "duplicate_region_id": false,
+      "match_status": "pending_final_validation",
+      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+    },
+    {
+      "nuts_code": "HU221",
+      "region_id_candidate": "hungary_gyor_moson_sopron",
+      "region_name": "Győr-Moson-Sopron",
+      "geometry_present": true,
+      "duplicate_nuts_code": false,
+      "duplicate_region_id": false,
+      "match_status": "pending_final_validation",
+      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+    },
+    {
+      "nuts_code": "HU222",
+      "region_id_candidate": "hungary_vas",
+      "region_name": "Vas",
+      "geometry_present": true,
+      "duplicate_nuts_code": false,
+      "duplicate_region_id": false,
+      "match_status": "pending_final_validation",
+      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+    },
+    {
+      "nuts_code": "HU223",
+      "region_id_candidate": "hungary_zala",
+      "region_name": "Zala",
+      "geometry_present": true,
+      "duplicate_nuts_code": false,
+      "duplicate_region_id": false,
+      "match_status": "pending_final_validation",
+      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+    },
+    {
+      "nuts_code": "HU231",
+      "region_id_candidate": "hungary_baranya",
+      "region_name": "Baranya",
+      "geometry_present": true,
+      "duplicate_nuts_code": false,
+      "duplicate_region_id": false,
+      "match_status": "pending_final_validation",
+      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+    },
+    {
+      "nuts_code": "HU232",
+      "region_id_candidate": "hungary_somogy",
+      "region_name": "Somogy",
+      "geometry_present": true,
+      "duplicate_nuts_code": false,
+      "duplicate_region_id": false,
+      "match_status": "pending_final_validation",
+      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+    },
+    {
+      "nuts_code": "HU233",
+      "region_id_candidate": "hungary_tolna",
+      "region_name": "Tolna",
+      "geometry_present": true,
+      "duplicate_nuts_code": false,
+      "duplicate_region_id": false,
+      "match_status": "pending_final_validation",
+      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+    },
+    {
+      "nuts_code": "HU311",
+      "region_id_candidate": "hungary_borsod_abauj_zemplen",
+      "region_name": "Borsod-Abaúj-Zemplén",
+      "geometry_present": true,
+      "duplicate_nuts_code": false,
+      "duplicate_region_id": false,
+      "match_status": "pending_final_validation",
+      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+    },
+    {
+      "nuts_code": "HU312",
+      "region_id_candidate": "hungary_heves",
+      "region_name": "Heves",
+      "geometry_present": true,
+      "duplicate_nuts_code": false,
+      "duplicate_region_id": false,
+      "match_status": "pending_final_validation",
+      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+    },
+    {
+      "nuts_code": "HU313",
+      "region_id_candidate": "hungary_nograd",
+      "region_name": "Nógrád",
+      "geometry_present": true,
+      "duplicate_nuts_code": false,
+      "duplicate_region_id": false,
+      "match_status": "pending_final_validation",
+      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+    },
+    {
+      "nuts_code": "HU321",
+      "region_id_candidate": "hungary_hajdu_bihar",
+      "region_name": "Hajdú-Bihar",
+      "geometry_present": true,
+      "duplicate_nuts_code": false,
+      "duplicate_region_id": false,
+      "match_status": "pending_final_validation",
+      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+    },
+    {
+      "nuts_code": "HU322",
+      "region_id_candidate": "hungary_jasz_nagykun_szolnok",
+      "region_name": "Jász-Nagykun-Szolnok",
+      "geometry_present": true,
+      "duplicate_nuts_code": false,
+      "duplicate_region_id": false,
+      "match_status": "pending_final_validation",
+      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+    },
+    {
+      "nuts_code": "HU323",
+      "region_id_candidate": "hungary_szabolcs_szatmar_bereg",
+      "region_name": "Szabolcs-Szatmár-Bereg",
+      "geometry_present": true,
+      "duplicate_nuts_code": false,
+      "duplicate_region_id": false,
+      "match_status": "pending_final_validation",
+      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+    },
+    {
+      "nuts_code": "HU331",
+      "region_id_candidate": "hungary_bacs_kiskun",
+      "region_name": "Bács-Kiskun",
+      "geometry_present": true,
+      "duplicate_nuts_code": false,
+      "duplicate_region_id": false,
+      "match_status": "pending_final_validation",
+      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+    },
+    {
+      "nuts_code": "HU332",
+      "region_id_candidate": "hungary_bekes",
+      "region_name": "Békés",
+      "geometry_present": true,
+      "duplicate_nuts_code": false,
+      "duplicate_region_id": false,
+      "match_status": "pending_final_validation",
+      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+    },
+    {
+      "nuts_code": "HU333",
+      "region_id_candidate": "hungary_csongrad_csanad",
+      "region_name": "Csongrád-Csanád",
+      "geometry_present": true,
+      "duplicate_nuts_code": false,
+      "duplicate_region_id": false,
+      "match_status": "pending_final_validation",
+      "notes": "NUTS code, region name, region_id candidate, and geometry presence are recorded from the sandbox file; final identifier validation remains pending."
+    }
+  ],
+  "notes": "v0.17 validation manifest only. The 20 detail records trace NUTS codes, region_id candidates, names, and geometry presence; they remain pending final validation. The manifest does not establish licence approval, authoritative topology approval, final identifier matching, or public display readiness."
 }

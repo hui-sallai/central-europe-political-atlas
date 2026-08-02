@@ -24,12 +24,17 @@ export type RegionQualityCheckRecord = {
   authoritative_topology_method: string;
   authoritative_topology_checked: boolean;
   topology_evidence_status: string;
+  validation_manifest_file: string;
+  manifest_status: string;
   expected_region_count: number;
+  feature_count: number;
   nuts_code_count: number;
   region_id_candidate_count: number;
+  matched_region_count: number;
   unmatched_region_count: number;
   duplicate_region_id_count: number;
   duplicate_nuts_code_count: number;
+  missing_geometry_count: number;
   region_id_final_matched: boolean;
   region_id_match_evidence_status: string;
   visual_qa_passed: boolean;
@@ -147,7 +152,28 @@ export type HungaryNuts3RegionIdMatchSummary = {
   is_ready_for_display: boolean;
 };
 
-const updatedAt = "2026-07-27";
+export type HungaryNuts3ValidationManifestSummary = {
+  manifest_file: string;
+  expected_region_count: number;
+  feature_count: number;
+  nuts_code_count: number;
+  region_id_candidate_count: number;
+  matched_region_count: number;
+  unmatched_region_count: number;
+  duplicate_region_id_count: number;
+  duplicate_nuts_code_count: number;
+  missing_geometry_count: number;
+  detail_record_count: number;
+  manifest_status: string;
+  visual_qa_passed: boolean;
+  license_checked: boolean;
+  authoritative_topology_checked: boolean;
+  region_id_final_matched: boolean;
+  public_display_ready: boolean;
+  is_ready_for_display: boolean;
+};
+
+const updatedAt = "2026-08-02";
 const pendingText = "待接入";
 const noBoundaryText = "区域边界尚未接入几何文件；当前仅完成来源或占位登记。";
 const pendingObservationText = "区域统计观测值尚未接入；保留结构化待接入状态，不填 0，不进入地图图层或区域比较。";
@@ -271,12 +297,17 @@ function buildRegionQualityCheck(observation: (typeof regionObservationRecords)[
     authoritative_topology_method: boundary?.authoritative_topology_method ?? "待确认",
     authoritative_topology_checked: Boolean(boundary?.authoritative_topology_checked),
     topology_evidence_status: boundary?.topology_evidence_status ?? pendingText,
+    validation_manifest_file: boundary?.validation_manifest_file ?? "",
+    manifest_status: boundary?.manifest_status ?? "not_started",
     expected_region_count: boundary?.expected_region_count ?? 0,
+    feature_count: boundary?.feature_count ?? 0,
     nuts_code_count: boundary?.nuts_code_count ?? 0,
     region_id_candidate_count: boundary?.region_id_candidate_count ?? 0,
+    matched_region_count: boundary?.matched_region_count ?? 0,
     unmatched_region_count: boundary?.unmatched_region_count ?? 0,
     duplicate_region_id_count: boundary?.duplicate_region_id_count ?? 0,
     duplicate_nuts_code_count: boundary?.duplicate_nuts_code_count ?? 0,
+    missing_geometry_count: boundary?.missing_geometry_count ?? 0,
     region_id_final_matched: Boolean(boundary?.region_id_final_matched),
     region_id_match_evidence_status: boundary?.region_id_match_evidence_status ?? "not_started",
     visual_qa_passed: false,
@@ -404,6 +435,27 @@ export const hungaryNuts3RegionIdMatchSummary: HungaryNuts3RegionIdMatchSummary 
   is_ready_for_display: false,
 };
 
+export const hungaryNuts3ValidationManifestSummary: HungaryNuts3ValidationManifestSummary = {
+  manifest_file: hungaryBoundaryValidation.validation_file.split("/").at(-1) ?? "hu_nuts3_gisco_2024.validation.json",
+  expected_region_count: hungaryBoundaryValidation.expected_region_count,
+  feature_count: hungaryBoundaryValidation.feature_count,
+  nuts_code_count: hungaryBoundaryValidation.nuts_code_count,
+  region_id_candidate_count: hungaryBoundaryValidation.region_id_candidate_count,
+  matched_region_count: hungaryBoundaryValidation.matched_region_count,
+  unmatched_region_count: hungaryBoundaryValidation.unmatched_region_count,
+  duplicate_region_id_count: hungaryBoundaryValidation.duplicate_region_id_count,
+  duplicate_nuts_code_count: hungaryBoundaryValidation.duplicate_nuts_code_count,
+  missing_geometry_count: hungaryBoundaryValidation.missing_geometry_count,
+  detail_record_count: hungaryBoundaryValidation.region_records.length,
+  manifest_status: hungaryBoundaryValidation.manifest_status,
+  visual_qa_passed: hungaryBoundaryValidation.visual_qa_passed,
+  license_checked: false,
+  authoritative_topology_checked: false,
+  region_id_final_matched: false,
+  public_display_ready: false,
+  is_ready_for_display: false,
+};
+
 const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {
   region_check_id: "hungary_nuts3_boundary_pilot_quality_check",
   region_id: "hungary_nuts3_pilot",
@@ -423,12 +475,17 @@ const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {
   authoritative_topology_method: hungaryNuts3ReadinessGateSummary.authoritative_topology_method,
   authoritative_topology_checked: hungaryNuts3ReadinessGateSummary.authoritative_topology_checked,
   topology_evidence_status: hungaryNuts3ReadinessGateSummary.topology_evidence_status,
+  validation_manifest_file: hungaryBoundaryValidation.validation_file,
+  manifest_status: hungaryBoundaryValidation.manifest_status,
   expected_region_count: hungaryNuts3RegionIdMatchSummary.expected_region_count,
+  feature_count: hungaryBoundaryValidation.feature_count,
   nuts_code_count: hungaryNuts3RegionIdMatchSummary.nuts_code_count,
   region_id_candidate_count: hungaryNuts3RegionIdMatchSummary.region_id_candidate_count,
+  matched_region_count: hungaryBoundaryValidation.matched_region_count,
   unmatched_region_count: hungaryNuts3RegionIdMatchSummary.unmatched_region_count,
   duplicate_region_id_count: hungaryNuts3RegionIdMatchSummary.duplicate_region_id_count,
   duplicate_nuts_code_count: hungaryNuts3RegionIdMatchSummary.duplicate_nuts_code_count,
+  missing_geometry_count: hungaryBoundaryValidation.missing_geometry_count,
   region_id_final_matched: hungaryNuts3ReadinessGateSummary.region_id_final_matched,
   region_id_match_evidence_status: hungaryNuts3RegionIdMatchSummary.region_id_match_evidence_status,
   visual_qa_passed: hungaryNuts3ReadinessGateSummary.visual_qa_passed,
@@ -466,7 +523,7 @@ const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {
   quality_status: "需复核",
   missing_reason: "region_id / NUTS code 的代码变体、命名变体和边界属性字段仍待最终复核；许可确认与权威拓扑验收也尚未完成。",
   quality_notes:
-    "v0.16.1 preliminary readiness summary；20 / 20 候选初步检查未发现缺失或重复，但不等于最终主键匹配通过。region_id_final_matched=false，公开展示资格仍未通过。",
+    "v0.17 Hungary NUTS3 validation manifest summary；20 条明细均为 pending_final_validation。manifest 建立不等于许可、权威拓扑或最终主键核验通过，公开展示资格仍未通过。",
   last_updated: "2026-08-02",
 };
 

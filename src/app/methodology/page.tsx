@@ -160,6 +160,16 @@ const boundaryRegionIdMatchItems = [
   "v0.16.1 不新增第 18 张表，不生成风险、预测、真实党派支持率、中国经济暴露指数或区域评分。",
 ];
 
+const boundaryValidationManifestItems = [
+  "validation manifest 是核验记录，不是正式地图展示。",
+  "20 条明细记录用于追踪 NUTS code、region_id candidate、region name 和 geometry 是否存在；所有明细在最终验收前保持 pending_final_validation。",
+  "manifest 建立不等于 license_checked=true。",
+  "manifest 建立不等于 authoritative_topology_checked=true。",
+  "manifest 建立不等于 region_id_final_matched=true。",
+  "license、authoritative topology、final region_id matching 未全部完成前，public_display_ready 和 is_ready_for_display 必须保持 false。",
+  "v0.17 不启用风险图层、预测图层、真实党派支持率图层、中国经济暴露指数或区域评分。",
+];
+
 const excludedItems = [
   "结构样例、占位色阶、样例新闻不进入模型。",
   "待接入、缺失、未标来源链接的数据不进入模型。",
@@ -298,7 +308,7 @@ export default function MethodologyPage() {
         <h2 className="mt-3 text-2xl font-semibold">5.2 数据导出与接口准备</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {[
-            "当前阶段：v0.16.1 Hungary region-id matching readiness summary；只记录匈牙利 NUTS3 主键匹配准备摘要，真实地图展示仍未启用。",
+            "当前阶段：v0.17 Hungary NUTS3 validation manifest；只建立可追溯核验记录，真实地图展示仍未启用。",
             "当前只做 CSV / JSON 数据结构准备。",
             "不提供预测 API。",
             "不提供模型 API。",
@@ -324,7 +334,7 @@ export default function MethodologyPage() {
             "project_locations 只把对华项目定位到城市、区域或国家层级；缺少可核验位置来源时不进入地图展示。",
             "map_layers 仅注册未来图层，is_ready_for_display=false 的图层不得作为真实图层展示；风险图层、预测图层和真实党派支持率图层均未启用，新闻区仍不做评价。",
             "v0.15 在既有 region_sources、region_boundaries、region_quality_checks 与 map_layers 中记录许可与权威拓扑证据；视觉 QA 结果只作为必要条件，不能单独启用展示。",
-            "v0.16.1 在既有 region_quality_checks 说明区记录主键匹配准备摘要；初步 0 个缺失或重复不等于最终验收通过。",
+            "v0.17 在既有 regions、region_boundaries、region_quality_checks 与 map_layers 中同步 validation manifest 字段；20 条明细记录不等于最终验收通过。",
           ].map((item) => (
             <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
               {item}
@@ -410,6 +420,18 @@ export default function MethodologyPage() {
         <h2 className="mt-3 text-2xl font-semibold">5.10 v0.16.1 主键匹配准备摘要规则</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {boundaryRegionIdMatchItems.map((item) => (
+            <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
+              {item}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">Hungary NUTS3 Validation Manifest</p>
+        <h2 className="mt-3 text-2xl font-semibold">5.11 v0.17 validation manifest 规则</h2>
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
+          {boundaryValidationManifestItems.map((item) => (
             <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
               {item}
             </p>

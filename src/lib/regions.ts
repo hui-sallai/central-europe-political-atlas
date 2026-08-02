@@ -1,3 +1,5 @@
+import hungaryBoundaryValidation from "../../public/data/boundaries/sandbox/hu_nuts3_gisco_2024.validation.json";
+
 export type RegionDataStatus = "正式数据" | "待核验" | "待接入" | "结构样例" | "pilot_pending_region_code_match";
 export type RegionSourceStatus = "官方来源" | "人工整理" | "待接入" | "结构样例";
 
@@ -17,21 +19,28 @@ export type RegionMetadataRecord = {
   is_statistical_data_available: boolean;
   is_election_data_available: boolean;
   is_china_project_mapped: boolean;
+  validation_manifest_file: string;
+  manifest_status: string;
   expected_region_count: number;
+  feature_count: number;
   nuts_code_count: number;
   region_id_candidate_count: number;
+  matched_region_count: number;
   unmatched_region_count: number;
   duplicate_region_id_count: number;
   duplicate_nuts_code_count: number;
+  missing_geometry_count: number;
   region_id_final_matched: boolean;
   region_id_match_evidence_status: string;
+  public_display_ready: boolean;
+  is_ready_for_display: boolean;
   data_status: RegionDataStatus;
   source_status: RegionSourceStatus;
   last_updated: string;
   notes: string;
 };
 
-const updatedAt = "2026-07-26";
+const updatedAt = "2026-08-02";
 
 const hungaryNuts3CandidateCodes = new Map([
   ["hungary_budapest", "HU110"],
@@ -64,14 +73,21 @@ const v4RegionDefaults = {
   is_statistical_data_available: false,
   is_election_data_available: false,
   is_china_project_mapped: false,
+  validation_manifest_file: "",
+  manifest_status: "not_started",
   expected_region_count: 0,
+  feature_count: 0,
   nuts_code_count: 0,
   region_id_candidate_count: 0,
+  matched_region_count: 0,
   unmatched_region_count: 0,
   duplicate_region_id_count: 0,
   duplicate_nuts_code_count: 0,
+  missing_geometry_count: 0,
   region_id_final_matched: false,
   region_id_match_evidence_status: "not_started",
+  public_display_ready: false,
+  is_ready_for_display: false,
   data_status: "待核验" as const,
   source_status: "人工整理" as const,
   last_updated: updatedAt,
@@ -92,14 +108,21 @@ const nonV4RegionDefaults = {
   is_statistical_data_available: false,
   is_election_data_available: false,
   is_china_project_mapped: false,
+  validation_manifest_file: "",
+  manifest_status: "not_applicable",
   expected_region_count: 0,
+  feature_count: 0,
   nuts_code_count: 0,
   region_id_candidate_count: 0,
+  matched_region_count: 0,
   unmatched_region_count: 0,
   duplicate_region_id_count: 0,
   duplicate_nuts_code_count: 0,
+  missing_geometry_count: 0,
   region_id_final_matched: false,
   region_id_match_evidence_status: "not_applicable",
+  public_display_ready: false,
+  is_ready_for_display: false,
   data_status: "待接入" as const,
   source_status: "待接入" as const,
   last_updated: updatedAt,
@@ -125,21 +148,28 @@ function v4Region(record: Omit<RegionMetadataRecord, keyof typeof v4RegionDefaul
     is_statistical_data_available: v4RegionDefaults.is_statistical_data_available,
     is_election_data_available: v4RegionDefaults.is_election_data_available,
     is_china_project_mapped: v4RegionDefaults.is_china_project_mapped,
-    expected_region_count: isHungaryPilot ? 20 : v4RegionDefaults.expected_region_count,
-    nuts_code_count: isHungaryPilot ? 20 : v4RegionDefaults.nuts_code_count,
-    region_id_candidate_count: isHungaryPilot ? 20 : v4RegionDefaults.region_id_candidate_count,
+    validation_manifest_file: isHungaryPilot ? hungaryBoundaryValidation.validation_file : v4RegionDefaults.validation_manifest_file,
+    manifest_status: isHungaryPilot ? hungaryBoundaryValidation.manifest_status : v4RegionDefaults.manifest_status,
+    expected_region_count: isHungaryPilot ? hungaryBoundaryValidation.expected_region_count : v4RegionDefaults.expected_region_count,
+    feature_count: isHungaryPilot ? hungaryBoundaryValidation.feature_count : v4RegionDefaults.feature_count,
+    nuts_code_count: isHungaryPilot ? hungaryBoundaryValidation.nuts_code_count : v4RegionDefaults.nuts_code_count,
+    region_id_candidate_count: isHungaryPilot ? hungaryBoundaryValidation.region_id_candidate_count : v4RegionDefaults.region_id_candidate_count,
+    matched_region_count: isHungaryPilot ? hungaryBoundaryValidation.matched_region_count : v4RegionDefaults.matched_region_count,
     unmatched_region_count: 0,
     duplicate_region_id_count: 0,
     duplicate_nuts_code_count: 0,
+    missing_geometry_count: isHungaryPilot ? hungaryBoundaryValidation.missing_geometry_count : v4RegionDefaults.missing_geometry_count,
     region_id_final_matched: false,
     region_id_match_evidence_status: isHungaryPilot
       ? "precheck_20_of_20_pending_final_review"
       : v4RegionDefaults.region_id_match_evidence_status,
+    public_display_ready: false,
+    is_ready_for_display: false,
     data_status: isHungaryPilot ? "pilot_pending_region_code_match" : v4RegionDefaults.data_status,
     source_status: v4RegionDefaults.source_status,
     last_updated: v4RegionDefaults.last_updated,
     notes: isHungaryPilot
-      ? "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
+      ? "v0.17 Hungary NUTS3 validation manifest；20 条明细记录用于追踪 NUTS code、region_id candidate、地区名和几何存在性，全部保持 pending_final_validation。真实地图展示未启用。"
       : v4RegionDefaults.notes,
   };
 }
@@ -161,14 +191,21 @@ function nonV4Placeholder(countryId: string): RegionMetadataRecord {
     is_statistical_data_available: nonV4RegionDefaults.is_statistical_data_available,
     is_election_data_available: nonV4RegionDefaults.is_election_data_available,
     is_china_project_mapped: nonV4RegionDefaults.is_china_project_mapped,
+    validation_manifest_file: nonV4RegionDefaults.validation_manifest_file,
+    manifest_status: nonV4RegionDefaults.manifest_status,
     expected_region_count: nonV4RegionDefaults.expected_region_count,
+    feature_count: nonV4RegionDefaults.feature_count,
     nuts_code_count: nonV4RegionDefaults.nuts_code_count,
     region_id_candidate_count: nonV4RegionDefaults.region_id_candidate_count,
+    matched_region_count: nonV4RegionDefaults.matched_region_count,
     unmatched_region_count: nonV4RegionDefaults.unmatched_region_count,
     duplicate_region_id_count: nonV4RegionDefaults.duplicate_region_id_count,
     duplicate_nuts_code_count: nonV4RegionDefaults.duplicate_nuts_code_count,
+    missing_geometry_count: nonV4RegionDefaults.missing_geometry_count,
     region_id_final_matched: nonV4RegionDefaults.region_id_final_matched,
     region_id_match_evidence_status: nonV4RegionDefaults.region_id_match_evidence_status,
+    public_display_ready: nonV4RegionDefaults.public_display_ready,
+    is_ready_for_display: nonV4RegionDefaults.is_ready_for_display,
     data_status: nonV4RegionDefaults.data_status,
     source_status: nonV4RegionDefaults.source_status,
     last_updated: nonV4RegionDefaults.last_updated,

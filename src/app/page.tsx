@@ -1,10 +1,10 @@
 import { DataLayerOverview } from "@/components/DataLayerOverview";
 import { InteractiveMapExplorer } from "@/components/InteractiveMapExplorer";
 
-const HOME_STAGE = "v0.16.1 Hungary region-id matching readiness summary";
+const HOME_STAGE = "v0.17 Hungary NUTS3 validation manifest";
 const HOME_STATUS = [
   ["当前阶段", HOME_STAGE],
-  ["区域地图数据", "匈牙利 NUTS3 主键匹配准备摘要已记录"],
+  ["区域地图数据", "匈牙利 NUTS3 validation manifest 已建立"],
   ["真实地图展示", "未启用"],
   ["模型层", "未启用"],
 ] as const;

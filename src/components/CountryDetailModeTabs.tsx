@@ -12,8 +12,8 @@ import type { Country } from "@/lib/data";
 import { getChinaProjectRecords, getNewsEventRecords, getV4ObservationCoverage, getV4TemplateCoverage } from "@/lib/extendedData";
 import {
   hungaryNuts3ReadinessGateSummary,
-  hungaryNuts3RegionIdMatchSummary,
   hungaryNuts3SandboxQaSummary,
+  hungaryNuts3ValidationManifestSummary,
 } from "@/lib/regionQualityChecks";
 
 type DetailMode = "map" | "reading";
@@ -368,23 +368,21 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
 
       {country.slug === "hungary" ? (
         <section className="mt-4 card p-6">
-          <p className="eyebrow">4.5 v0.16.1 Hungary Region-ID Matching Readiness Summary</p>
-          <h2 className="mt-3 text-2xl font-semibold">v0.16.1 主键匹配准备状态</h2>
+          <p className="eyebrow">4.5 v0.17 Hungary NUTS3 Validation Manifest</p>
+          <h2 className="mt-3 text-2xl font-semibold">v0.17 validation manifest 状态</h2>
           <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             {[
-              ["NUTS3 区域数量", String(hungaryNuts3RegionIdMatchSummary.expected_region_count)],
-              ["NUTS code 数量", String(hungaryNuts3RegionIdMatchSummary.nuts_code_count)],
-              ["region_id candidate 数量", String(hungaryNuts3RegionIdMatchSummary.region_id_candidate_count)],
-              ["初步缺失匹配", String(hungaryNuts3RegionIdMatchSummary.preliminary_unmatched_region_count)],
-              ["初步重复 region_id", String(hungaryNuts3RegionIdMatchSummary.preliminary_duplicate_region_id_count)],
-              ["初步重复 NUTS code", String(hungaryNuts3RegionIdMatchSummary.preliminary_duplicate_nuts_code_count)],
-              ["region_id_final_matched", String(hungaryNuts3RegionIdMatchSummary.region_id_final_matched)],
-              ["region_id_match_status", hungaryNuts3RegionIdMatchSummary.region_id_match_status],
-              ["visual_qa_passed", String(hungaryNuts3RegionIdMatchSummary.visual_qa_passed)],
-              ["license_checked", `${hungaryNuts3RegionIdMatchSummary.license_checked} / pending`],
-              ["authoritative_topology_checked", `${hungaryNuts3RegionIdMatchSummary.authoritative_topology_checked} / pending`],
-              ["public_display_ready", String(hungaryNuts3RegionIdMatchSummary.public_display_ready)],
-              ["is_ready_for_display", String(hungaryNuts3RegionIdMatchSummary.is_ready_for_display)],
+              ["manifest 文件", hungaryNuts3ValidationManifestSummary.manifest_file],
+              ["NUTS3 区域数量", String(hungaryNuts3ValidationManifestSummary.expected_region_count)],
+              ["NUTS code 数量", `${hungaryNuts3ValidationManifestSummary.nuts_code_count} / pending validation`],
+              ["region_id candidate 数量", `${hungaryNuts3ValidationManifestSummary.region_id_candidate_count} / pending validation`],
+              ["明细记录数量", `${hungaryNuts3ValidationManifestSummary.detail_record_count} / pending validation`],
+              ["缺失 geometry", `${hungaryNuts3ValidationManifestSummary.missing_geometry_count} / pending validation`],
+              ["重复 NUTS code", `${hungaryNuts3ValidationManifestSummary.duplicate_nuts_code_count} / pending final validation`],
+              ["重复 region_id", `${hungaryNuts3ValidationManifestSummary.duplicate_region_id_count} / pending final validation`],
+              ["最终主键匹配", "未完成"],
+              ["许可核验", "待完成"],
+              ["权威拓扑验收", "待完成"],
               ["是否进入正式地图", "否"],
             ].map(([label, value]) => (
               <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
@@ -394,7 +392,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
             ))}
           </div>
           <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
-            当前只是主键匹配准备摘要，不代表最终主键匹配完成；不代表许可通过；不代表权威拓扑验收通过；不代表正式地图展示启用。
+            v0.17 只建立 validation manifest，不启用正式地图展示。
           </p>
         </section>
       ) : null}
