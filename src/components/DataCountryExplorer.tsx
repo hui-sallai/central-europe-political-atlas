@@ -3645,7 +3645,7 @@ export function DataCountryExplorer() {
                 <p className="eyebrow">Regional Map Data Structure</p>
                 <h3 className="mt-2 text-lg font-semibold">区域地图数据结构</h3>
                 <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
-                  v0.12 匈牙利 NUTS3 沙盒验证与拓扑 QA 状态集中在这里；完整表体仍在下方研究数据结构总表按需展开。v0.8 的九个逻辑数据层继续保留，不删除、不合并。
+                  v0.18 匈牙利 NUTS3 validation manifest 明细核验结果集中在这里；完整表体仍在下方研究数据结构总表按需展开。v0.8 的九个逻辑数据层继续保留，不删除、不合并。
                 </p>
               </div>
               <span className="text-xs text-[var(--muted)]">8 个区域地图数据表</span>

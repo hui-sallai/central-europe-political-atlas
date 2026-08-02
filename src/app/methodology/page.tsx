@@ -171,11 +171,12 @@ const boundaryValidationManifestItems = [
 ];
 
 const boundaryValidationManifestDetailItems = [
-  "validation manifest 明细核验是正式展示前的数据完整性检查，不是正式地图展示。",
-  "20 条明细记录逐条核对 NUTS code、region_id candidate、region name 与 geometry_present；本阶段记录 20 条匹配、0 条缺失匹配、0 条重复代码、0 条缺失几何。",
-  "manifest_status=manifest_detail_validation_recorded 只表示明细核验结果已记录，不等于 license_checked=true。",
-  "manifest 明细核验完成不等于 authoritative_topology_checked=true，也不等于 region_id_final_matched=true。",
-  "license、authoritative topology 与 final region_id matching 未全部通过前，public_display_ready 与 is_ready_for_display 必须保持 false。",
+  "validation manifest 明细核验是正式展示前的数据完整性步骤。",
+  "20 条明细记录用于确认 NUTS code、region_id candidate、region name 和 geometry 是否存在。",
+  "manifest_detail_validation_recorded 不等于 license_checked=true。",
+  "manifest_detail_validation_recorded 不等于 authoritative_topology_checked=true。",
+  "manifest_detail_validation_recorded 不等于 region_id_final_matched=true。",
+  "license、authoritative topology、final region_id matching 未全部完成前，public_display_ready 和 is_ready_for_display 必须保持 false。",
   "v0.18 不新增第 18 张表，不启用风险图层、预测图层、真实党派支持率图层、中国经济暴露指数或区域评分。",
 ];
 
