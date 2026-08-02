@@ -33,7 +33,10 @@ export type RegionMetadataRecord = {
   missing_geometry_count: number;
   manifest_detail_validation_status: string;
   region_id_final_matched: boolean;
+  region_id_match_decision_status: string;
   region_id_match_evidence_status: string;
+  license_checked: boolean;
+  authoritative_topology_checked: boolean;
   public_display_ready: boolean;
   is_ready_for_display: boolean;
   data_status: RegionDataStatus;
@@ -89,7 +92,10 @@ const v4RegionDefaults = {
   missing_geometry_count: 0,
   manifest_detail_validation_status: "not_started",
   region_id_final_matched: false,
+  region_id_match_decision_status: "not_started",
   region_id_match_evidence_status: "not_started",
+  license_checked: false,
+  authoritative_topology_checked: false,
   public_display_ready: false,
   is_ready_for_display: false,
   data_status: "待核验" as const,
@@ -126,7 +132,10 @@ const nonV4RegionDefaults = {
   missing_geometry_count: 0,
   manifest_detail_validation_status: "not_applicable",
   region_id_final_matched: false,
+  region_id_match_decision_status: "not_applicable",
   region_id_match_evidence_status: "not_applicable",
+  license_checked: false,
+  authoritative_topology_checked: false,
   public_display_ready: false,
   is_ready_for_display: false,
   data_status: "待接入" as const,
@@ -169,17 +178,22 @@ function v4Region(record: Omit<RegionMetadataRecord, keyof typeof v4RegionDefaul
     manifest_detail_validation_status: isHungaryPilot
       ? hungaryBoundaryValidation.manifest_detail_validation_status
       : v4RegionDefaults.manifest_detail_validation_status,
-    region_id_final_matched: false,
+    region_id_final_matched: isHungaryPilot ? hungaryBoundaryValidation.region_id_final_matched : false,
+    region_id_match_decision_status: isHungaryPilot
+      ? hungaryBoundaryValidation.region_id_match_decision_status
+      : v4RegionDefaults.region_id_match_decision_status,
     region_id_match_evidence_status: isHungaryPilot
-      ? "precheck_20_of_20_pending_final_review"
+      ? hungaryBoundaryValidation.region_id_match_decision_status
       : v4RegionDefaults.region_id_match_evidence_status,
+    license_checked: false,
+    authoritative_topology_checked: false,
     public_display_ready: false,
     is_ready_for_display: false,
-    data_status: isHungaryPilot ? "pilot_pending_region_code_match" : v4RegionDefaults.data_status,
+    data_status: isHungaryPilot ? "待核验" : v4RegionDefaults.data_status,
     source_status: v4RegionDefaults.source_status,
     last_updated: v4RegionDefaults.last_updated,
     notes: isHungaryPilot
-      ? "v0.18 Hungary NUTS3 validation manifest 明细核验结果已记录；20 条明细具备 NUTS code、region_id candidate、地区名和几何存在性，最终主键、许可与权威拓扑仍待核验。真实地图展示未启用。"
+      ? "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
       : v4RegionDefaults.notes,
   };
 }
@@ -215,7 +229,10 @@ function nonV4Placeholder(countryId: string): RegionMetadataRecord {
     missing_geometry_count: nonV4RegionDefaults.missing_geometry_count,
     manifest_detail_validation_status: nonV4RegionDefaults.manifest_detail_validation_status,
     region_id_final_matched: nonV4RegionDefaults.region_id_final_matched,
+    region_id_match_decision_status: nonV4RegionDefaults.region_id_match_decision_status,
     region_id_match_evidence_status: nonV4RegionDefaults.region_id_match_evidence_status,
+    license_checked: nonV4RegionDefaults.license_checked,
+    authoritative_topology_checked: nonV4RegionDefaults.authoritative_topology_checked,
     public_display_ready: nonV4RegionDefaults.public_display_ready,
     is_ready_for_display: nonV4RegionDefaults.is_ready_for_display,
     data_status: nonV4RegionDefaults.data_status,

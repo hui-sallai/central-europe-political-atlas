@@ -20,8 +20,8 @@ export default function MapPage() {
         <h2 className="mt-2 text-2xl font-semibold">区域地图数据准备状态</h2>
         <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           {[
-            ["当前阶段", "v0.18 Hungary validation manifest finalization"],
-            ["区域地图数据", "匈牙利 NUTS3 validation manifest 明细核验已记录"],
+            ["当前阶段", "v0.19 Hungary final region-id match decision"],
+            ["区域地图数据", "匈牙利 NUTS3 最终主键匹配判定已记录"],
             ["V4 ADM1 / NUTS2 边界", "待接入"],
             ["区域统计数据", "待接入"],
             ["对华项目地区定位", "准备中"],
@@ -156,8 +156,8 @@ export default function MapPage() {
       </section>
 
       <section className="mt-6 rounded-3xl border border-[var(--line)] bg-white/65 p-5">
-        <p className="eyebrow">v0.18 Hungary Validation Manifest Finalization</p>
-        <h2 className="mt-2 text-2xl font-semibold">v0.18 validation manifest 明细核验结果</h2>
+        <p className="eyebrow">v0.19 Hungary Final Region-ID Match Decision</p>
+        <h2 className="mt-2 text-2xl font-semibold">v0.19 final region-id match decision</h2>
         <div className="mt-4 overflow-x-auto rounded-2xl border border-[var(--line)] bg-white/70">
           <table className="min-w-full border-collapse text-left text-sm">
             <tbody>
@@ -173,11 +173,10 @@ export default function MapPage() {
                 ["duplicate_region_id_count", String(hungaryNuts3ValidationManifestSummary.duplicate_region_id_count)],
                 ["duplicate_nuts_code_count", String(hungaryNuts3ValidationManifestSummary.duplicate_nuts_code_count)],
                 ["missing_geometry_count", String(hungaryNuts3ValidationManifestSummary.missing_geometry_count)],
-                ["manifest_status", hungaryNuts3ValidationManifestSummary.manifest_status],
-                ["visual_qa_passed", String(hungaryNuts3ValidationManifestSummary.visual_qa_passed)],
+                ["region_id_final_matched", String(hungaryNuts3ValidationManifestSummary.region_id_final_matched)],
+                ["region_id_match_decision_status", hungaryNuts3ValidationManifestSummary.region_id_match_decision_status],
                 ["license_checked", `${hungaryNuts3ValidationManifestSummary.license_checked} / pending`],
                 ["authoritative_topology_checked", `${hungaryNuts3ValidationManifestSummary.authoritative_topology_checked} / pending`],
-                ["region_id_final_matched", `${hungaryNuts3ValidationManifestSummary.region_id_final_matched} / pending`],
                 ["public_display_ready", String(hungaryNuts3ValidationManifestSummary.public_display_ready)],
                 ["is_ready_for_display", String(hungaryNuts3ValidationManifestSummary.is_ready_for_display)],
               ].map(([field, value]) => (
@@ -190,7 +189,7 @@ export default function MapPage() {
           </table>
         </div>
         <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-          validation manifest 明细核验通过不等于许可通过，不等于权威拓扑验收通过，不等于最终主键匹配通过，也不代表正式地图展示启用。
+          最终主键匹配判定不等于许可通过，不等于权威拓扑验收通过，也不代表正式地图展示启用。
         </p>
       </section>
 

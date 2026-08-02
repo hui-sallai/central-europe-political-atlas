@@ -368,8 +368,8 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
 
       {country.slug === "hungary" ? (
         <section className="mt-4 card p-6">
-          <p className="eyebrow">4.5 v0.18 Hungary Validation Manifest Finalization</p>
-          <h2 className="mt-3 text-2xl font-semibold">v0.18 validation manifest 明细核验状态</h2>
+          <p className="eyebrow">4.5 v0.19 Hungary Final Region-ID Match Decision</p>
+          <h2 className="mt-3 text-2xl font-semibold">v0.19 最终主键匹配判定状态</h2>
           <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             {[
               ["manifest 文件", hungaryNuts3ValidationManifestSummary.manifest_file],
@@ -382,10 +382,12 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
               ["缺失 geometry", String(hungaryNuts3ValidationManifestSummary.missing_geometry_count)],
               ["重复 NUTS code", String(hungaryNuts3ValidationManifestSummary.duplicate_nuts_code_count)],
               ["重复 region_id", String(hungaryNuts3ValidationManifestSummary.duplicate_region_id_count)],
-              ["manifest_status", hungaryNuts3ValidationManifestSummary.manifest_status],
-              ["最终主键匹配", "未完成"],
-              ["许可核验", "待完成"],
-              ["权威拓扑验收", "待完成"],
+              ["最终主键匹配", hungaryNuts3ValidationManifestSummary.region_id_final_matched ? "通过" : "待最终人工复核"],
+              ["region_id_match_decision_status", hungaryNuts3ValidationManifestSummary.region_id_match_decision_status],
+              ["license_checked", `${hungaryNuts3ValidationManifestSummary.license_checked} / pending`],
+              ["authoritative_topology_checked", `${hungaryNuts3ValidationManifestSummary.authoritative_topology_checked} / pending`],
+              ["public_display_ready", String(hungaryNuts3ValidationManifestSummary.public_display_ready)],
+              ["is_ready_for_display", String(hungaryNuts3ValidationManifestSummary.is_ready_for_display)],
               ["是否进入正式地图", "否"],
             ].map(([label, value]) => (
               <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
@@ -395,7 +397,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
             ))}
           </div>
           <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
-            v0.18 只记录 validation manifest 明细核验结果，不启用正式地图展示。
+            最终主键匹配即使通过，也只是正式展示准入条件之一；许可核验和权威拓扑验收未完成前，正式地图仍未启用。
           </p>
         </section>
       ) : null}

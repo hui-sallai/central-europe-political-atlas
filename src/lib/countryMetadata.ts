@@ -328,14 +328,14 @@ export function getCountryMetadata(countryId: string) {
 
 export const researchDataLayerFiles = [
   { id: "countries", label: "countries", description: "十国国家元数据表，作为所有观测值、项目和派生比较的 country_id 关联表。" },
-  { id: "regions", label: "regions", description: "v0.18 区域元数据表；匈牙利 NUTS3 同步 validation manifest 的20条明细核验结果。" },
-  { id: "region_boundaries", label: "region_boundaries", description: "v0.18 区域边界来源表；hu_nuts3_gisco_2024 记录 manifest 明细核验状态并继续保持 not_ready_for_display。" },
+  { id: "regions", label: "regions", description: "v0.19 区域元数据表；匈牙利 NUTS3 同步 final region-id match decision。" },
+  { id: "region_boundaries", label: "region_boundaries", description: "v0.19 区域边界来源表；hu_nuts3_gisco_2024 记录 final_match_recorded 并继续保持 not_ready_for_display。" },
   { id: "region_indicators", label: "region_indicators", description: "v0.11 继续保留区域指标字典；独立于国家级 indicators，第一批只覆盖 10 个区域指标。" },
   { id: "region_observations", label: "region_observations", description: "v0.11 继续保留区域观测值表；第一批区域指标仍保留待接入观测位置。" },
-  { id: "region_quality_checks", label: "region_quality_checks", description: "v0.18 区域数据质量验收表；记录 Hungary NUTS3 validation manifest 明细核验 summary，正式展示状态保持 false。" },
+  { id: "region_quality_checks", label: "region_quality_checks", description: "v0.19 区域数据质量验收表；记录 Hungary NUTS3 final region-id match decision summary，正式展示状态保持 false。" },
   { id: "region_sources", label: "region_sources", description: "v0.15 区域来源字典；锁定 GISCO NUTS 2024 Level 3 GeoJSON，并记录官方许可来源与署名要求。" },
   { id: "project_locations", label: "project_locations", description: "v0.11 继续保留对华项目地区定位表；不启用真实项目点位图层。" },
-  { id: "map_layers", label: "map_layers", description: "v0.18 地图图层注册表；hu_nuts3_boundary_pilot 同步 manifest 明细核验状态，is_ready_for_display=false。" },
+  { id: "map_layers", label: "map_layers", description: "v0.19 地图图层注册表；hu_nuts3_boundary_pilot 同步 final_match_recorded，is_ready_for_display=false。" },
   { id: "indicators", label: "indicators", description: "18 个指标的口径、单位、频率、来源优先级和派生资格。" },
   { id: "sources", label: "sources", description: "来源字典与 A/B/C/D 可靠性等级。" },
   { id: "observations", label: "observations", description: "十国基础宏观观测值和 V4 扩展观测值。" },

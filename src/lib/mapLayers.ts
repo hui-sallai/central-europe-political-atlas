@@ -35,6 +35,7 @@ export type MapLayerRecord = {
   missing_geometry_count: number;
   manifest_detail_validation_status: string;
   region_id_final_matched: boolean;
+  region_id_match_decision_status: string;
   region_id_match_evidence_status: string;
   visual_qa_passed: boolean;
   public_display_ready: boolean;
@@ -112,6 +113,7 @@ function boundaryLayer(): MapLayerRecord {
     duplicate_region_id_count: 0,
     duplicate_nuts_code_count: 0,
     region_id_final_matched: false,
+    region_id_match_decision_status: "not_started",
     region_id_match_evidence_status: "not_started",
     visual_qa_passed: false,
     public_display_ready: false,
@@ -174,8 +176,9 @@ function hungaryNuts3PilotLayer(): MapLayerRecord {
     duplicate_nuts_code_count: hungaryBoundaryValidation.duplicate_nuts_code_count,
     missing_geometry_count: hungaryBoundaryValidation.missing_geometry_count,
     manifest_detail_validation_status: hungaryBoundaryValidation.manifest_detail_validation_status,
-    region_id_final_matched: false,
-    region_id_match_evidence_status: "precheck_zero_exceptions_pending_final_review",
+    region_id_final_matched: hungaryBoundaryValidation.region_id_final_matched,
+    region_id_match_decision_status: hungaryBoundaryValidation.region_id_match_decision_status,
+    region_id_match_evidence_status: hungaryBoundaryValidation.region_id_match_decision_status,
     visual_qa_passed: true,
     public_display_ready: false,
     is_ready_for_display: false,
@@ -201,7 +204,7 @@ function hungaryNuts3PilotLayer(): MapLayerRecord {
     model_boundary: noModelBoundary,
     last_updated: updatedAt,
     notes:
-      "v0.18 validation manifest 明细核验结果已记录；license、authoritative topology 与 final region_id matching 未全部完成，真实地图展示保持未启用。",
+      "v0.19 final region-id match decision 已记录；license 与 authoritative topology 尚未完成，public_display_ready=false、is_ready_for_display=false。",
   };
 }
 
@@ -240,6 +243,7 @@ function choroplethLayer(layer: {
     duplicate_region_id_count: 0,
     duplicate_nuts_code_count: 0,
     region_id_final_matched: false,
+    region_id_match_decision_status: "not_started",
     region_id_match_evidence_status: "not_started",
     visual_qa_passed: false,
     public_display_ready: false,
@@ -297,6 +301,7 @@ function projectLocationLayer(): MapLayerRecord {
     duplicate_region_id_count: 0,
     duplicate_nuts_code_count: 0,
     region_id_final_matched: false,
+    region_id_match_decision_status: "not_started",
     region_id_match_evidence_status: "not_started",
     visual_qa_passed: false,
     public_display_ready: false,

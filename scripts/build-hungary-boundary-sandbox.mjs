@@ -15,7 +15,7 @@ const expectedFeatureCount = 20;
 const epsilon = 1e-12;
 const manifestId = "hu_nuts3_gisco_2024_validation_manifest";
 const manifestStatus = "manifest_detail_validation_recorded";
-const manifestDetailValidationStatus = "detail_validation_recorded_pending_final_region_id_verification";
+const manifestDetailValidationStatus = "detail_validation_recorded_final_region_id_match_recorded";
 
 const regionIdByNutsCode = new Map([
   ["HU110", "hungary_budapest"],
@@ -248,7 +248,6 @@ const matchedCodes = nutsCodes.filter((code) => regionIdByNutsCode.has(code));
 const missingExpectedCodes = [...regionIdByNutsCode.keys()].filter((code) => !nutsCodes.includes(code)).sort();
 const unexpectedCodes = nutsCodes.filter((code) => !regionIdByNutsCode.has(code));
 const geometryPresent = filteredFeatures.length > 0 && filteredFeatures.every(hasGeometry);
-const preMatchComplete = matchedCodes.length === regionIdByNutsCode.size && missingExpectedCodes.length === 0 && unexpectedCodes.length === 0;
 const geometryQa = runGeometryQa(filteredFeatures);
 const regionIdCandidates = filteredFeatures
   .map((feature) => String(feature.properties?.region_id ?? ""))
@@ -282,6 +281,35 @@ const manifestRecords = filteredFeatures
     };
   })
   .sort((left, right) => left.nuts_code.localeCompare(right.nuts_code));
+
+const regionIdFinalMatched =
+  filteredFeatures.length === expectedFeatureCount &&
+  new Set(nutsCodes).size === expectedFeatureCount &&
+  regionIdCandidates.length === expectedFeatureCount &&
+  manifestRecords.length === expectedFeatureCount &&
+  matchedCodes.length === expectedFeatureCount &&
+  missingExpectedCodes.length === 0 &&
+  unexpectedCodes.length === 0 &&
+  duplicateRegionIds.size === 0 &&
+  duplicateNutsCodes.size === 0 &&
+  missingGeometryCount === 0 &&
+  manifestRecords.every(
+    (record) =>
+      Boolean(record.region_id_candidate) &&
+      record.geometry_present &&
+      !record.duplicate_nuts_code &&
+      !record.duplicate_region_id,
+  );
+const regionIdMatchDecisionStatus = regionIdFinalMatched
+  ? "final_match_recorded"
+  : "pending_final_manual_review";
+
+for (const record of manifestRecords) {
+  record.match_status = regionIdMatchDecisionStatus;
+  record.notes = regionIdFinalMatched
+    ? "NUTS code and region_id candidate form a unique one-to-one match with a geometry feature; final match decision recorded."
+    : "The detail record remains pending final manual review because at least one final matching condition is incomplete.";
+}
 
 const outputGeojson = {
   type: "FeatureCollection",
@@ -323,16 +351,15 @@ const validation = {
   missing_geometry_count: missingGeometryCount,
   geometry_present: geometryPresent,
   ...geometryQa,
-  region_id_match_status: preMatchComplete
-    ? "sandbox_pre_matched_20_of_20_pending_verification"
-    : "sandbox_pre_match_incomplete",
+  region_id_match_status: regionIdMatchDecisionStatus,
+  region_id_match_decision_status: regionIdMatchDecisionStatus,
   missing_expected_nuts_codes: missingExpectedCodes,
   unexpected_nuts_codes: unexpectedCodes,
   visual_qa_passed: true,
   license_checked: false,
   authoritative_topology_checked: false,
-  region_id_final_matched: false,
-  region_id_matched: false,
+  region_id_final_matched: regionIdFinalMatched,
+  region_id_matched: regionIdFinalMatched,
   public_display_ready: false,
   is_ready_for_display: false,
   ready_for_display: false,
@@ -341,7 +368,7 @@ const validation = {
   last_updated: "2026-08-02",
   region_records: manifestRecords,
   notes:
-    "v0.18 validation manifest detail validation record. All 20 detail records contain NUTS codes, region_id candidates, names, geometry presence, and duplicate-check results. This does not establish licence approval, authoritative topology approval, final identifier matching, or public display readiness.",
+    "v0.19 final region-id match decision. All 20 NUTS codes and region_id candidates form unique one-to-one matches with geometry features. Licence approval, authoritative topology approval, and public display readiness remain incomplete.",
 };
 
 if (filteredFeatures.length !== expectedFeatureCount) {
@@ -366,6 +393,8 @@ console.log(
       manifest_record_count: validation.region_records.length,
       topology_status: validation.topology_status,
       region_id_match_status: validation.region_id_match_status,
+      region_id_match_decision_status: validation.region_id_match_decision_status,
+      region_id_final_matched: validation.region_id_final_matched,
       public_display_ready: false,
       is_ready_for_display: false,
     },
