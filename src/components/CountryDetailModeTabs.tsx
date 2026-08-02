@@ -368,22 +368,23 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
 
       {country.slug === "hungary" ? (
         <section className="mt-4 card p-6">
-          <p className="eyebrow">4.5 v0.17 Hungary NUTS3 Validation Manifest</p>
+          <p className="eyebrow">4.5 v0.17.1 Hungary Page Validation Manifest Sync</p>
           <h2 className="mt-3 text-2xl font-semibold">v0.17 validation manifest 状态</h2>
           <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             {[
               ["manifest 文件", hungaryNuts3ValidationManifestSummary.manifest_file],
-              ["manifest_status", hungaryNuts3ValidationManifestSummary.manifest_status],
               ["NUTS3 区域数量", String(hungaryNuts3ValidationManifestSummary.expected_region_count)],
               ["NUTS code 数量", `${hungaryNuts3ValidationManifestSummary.nuts_code_count} / pending validation`],
               ["region_id candidate 数量", `${hungaryNuts3ValidationManifestSummary.region_id_candidate_count} / pending validation`],
-              ["明细记录数量", `${hungaryNuts3ValidationManifestSummary.detail_record_count} / pending validation`],
+              ["明细记录数量", `${hungaryNuts3ValidationManifestSummary.detail_record_count} / pending final validation`],
               ["缺失 geometry", `${hungaryNuts3ValidationManifestSummary.missing_geometry_count} / pending validation`],
               ["重复 NUTS code", `${hungaryNuts3ValidationManifestSummary.duplicate_nuts_code_count} / pending final validation`],
               ["重复 region_id", `${hungaryNuts3ValidationManifestSummary.duplicate_region_id_count} / pending final validation`],
-              ["region_id_final_matched", `${hungaryNuts3ValidationManifestSummary.region_id_final_matched} / pending`],
+              ["manifest_status", hungaryNuts3ValidationManifestSummary.manifest_status],
+              ["visual_qa_passed", String(hungaryNuts3ValidationManifestSummary.visual_qa_passed)],
               ["license_checked", `${hungaryNuts3ValidationManifestSummary.license_checked} / pending`],
               ["authoritative_topology_checked", `${hungaryNuts3ValidationManifestSummary.authoritative_topology_checked} / pending`],
+              ["region_id_final_matched", `${hungaryNuts3ValidationManifestSummary.region_id_final_matched} / pending`],
               ["public_display_ready", String(hungaryNuts3ValidationManifestSummary.public_display_ready)],
               ["is_ready_for_display", String(hungaryNuts3ValidationManifestSummary.is_ready_for_display)],
               ["是否进入正式地图", "否"],
@@ -395,7 +396,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
             ))}
           </div>
           <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
-            v0.17 只建立 validation manifest，不启用正式地图展示。
+            v0.17 只建立 validation manifest，不代表许可通过、不代表权威拓扑验收通过、不代表最终主键匹配通过，也不启用正式地图展示。
           </p>
         </section>
       ) : null}
