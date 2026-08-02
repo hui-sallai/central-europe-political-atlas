@@ -139,7 +139,7 @@ function v4Region(record: Omit<RegionMetadataRecord, keyof typeof v4RegionDefaul
     source_status: v4RegionDefaults.source_status,
     last_updated: v4RegionDefaults.last_updated,
     notes: isHungaryPilot
-      ? "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
+      ? "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
       : v4RegionDefaults.notes,
   };
 }

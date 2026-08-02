@@ -114,7 +114,7 @@ const hungaryPilotBoundary: RegionBoundaryRecord = {
   source_status: "官方来源",
   last_checked: "2026-07-31",
   notes:
-    "v0.16 final region-id matching record；20 个 NUTS code 与 20 个 region_id candidate 已登记，预检查缺失与重复计数为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，公开展示资格未通过。",
+    "v0.16.1 region-id matching readiness summary；20 个 NUTS code 与 20 个 region_id candidate 已登记，初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，公开展示资格未通过。",
 };
 
 function v4Boundary(region: (typeof regionMetadataRecords)[number]): RegionBoundaryRecord {

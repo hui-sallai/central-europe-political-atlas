@@ -3,7 +3,7 @@
   "generated_at": "2026-07-27",
   "data_type": "region_boundaries",
   "record_count": 65,
-  "scope": "v0.16 final region-id matching registry. hu_nuts3_gisco_2024 records candidate, unmatched, duplicate, and evidence-status fields while remaining not_ready_for_display.",
+  "scope": "v0.16.1 region-id matching readiness registry. hu_nuts3_gisco_2024 retains candidate, preliminary exception, and evidence-status fields while remaining not_ready_for_display.",
   "primary_key": "boundary_id",
   "relation_note": "Every boundary record references region_id from regions and country_id from countries.",
   "validation_note": "Records track source credibility, public display licence, simplification readiness, front-end suitability, region_id matching, admin codes, and historical boundary issues before geometry ingestion.",
@@ -53,7 +53,7 @@
       "source_reliability": "A",
       "source_status": "官方来源",
       "last_checked": "2026-07-31",
-      "notes": "v0.16 final region-id matching record；20 个 NUTS code 与 20 个 region_id candidate 已登记，预检查缺失与重复计数为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，公开展示资格未通过。"
+      "notes": "v0.16.1 region-id matching readiness summary；20 个 NUTS code 与 20 个 region_id candidate 已登记，初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，公开展示资格未通过。"
     },
     {
       "boundary_id": "poland_lower_silesian_boundary_candidate",

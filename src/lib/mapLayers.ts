@@ -56,7 +56,7 @@ export type MapLayerRecord = {
 
 const updatedAt = "2026-07-31";
 const v4Adm1Coverage = "V4 四国 ADM1：poland, hungary, czechia, slovakia";
-const noDisplayBoundary = "v0.16 最终主键匹配核验未通过；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。";
+const noDisplayBoundary = "v0.16.1 最终主键匹配核验尚未完成；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。";
 const noModelBoundary = "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。";
 const giscoLicenseSource = "European Commission / Eurostat GISCO geodata and NUTS usage conditions";
 const giscoLicenseUrl = "https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units/territorial-units-statistics";
@@ -175,7 +175,7 @@ function hungaryNuts3PilotLayer(): MapLayerRecord {
     model_boundary: noModelBoundary,
     last_updated: updatedAt,
     notes:
-      "v0.16 final region-id matching record；20 个 NUTS code 与 20 个 region_id candidate 已登记，预检查缺失与重复计数为 0，但最终复核尚未完成。region_id_final_matched=false，真实地图展示保持未启用。",
+      "v0.16.1 region-id matching readiness summary；20 个 NUTS code 与 20 个 region_id candidate 已登记，初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示保持未启用。",
   };
 }
 

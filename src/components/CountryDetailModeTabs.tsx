@@ -368,15 +368,17 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
 
       {country.slug === "hungary" ? (
         <section className="mt-4 card p-6">
-          <p className="eyebrow">4.5 v0.16 Hungary Boundary Final Region-ID Matching Record</p>
-          <h2 className="mt-3 text-2xl font-semibold">v0.16 最终主键匹配状态</h2>
+          <p className="eyebrow">4.5 v0.16.1 Hungary Region-ID Matching Readiness Summary</p>
+          <h2 className="mt-3 text-2xl font-semibold">v0.16.1 主键匹配准备状态</h2>
           <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             {[
+              ["NUTS3 区域数量", String(hungaryNuts3RegionIdMatchSummary.expected_region_count)],
               ["NUTS code 数量", String(hungaryNuts3RegionIdMatchSummary.nuts_code_count)],
               ["region_id candidate 数量", String(hungaryNuts3RegionIdMatchSummary.region_id_candidate_count)],
-              ["缺失匹配", `${hungaryNuts3RegionIdMatchSummary.unmatched_region_count}；待最终复核`],
-              ["重复匹配", `region_id ${hungaryNuts3RegionIdMatchSummary.duplicate_region_id_count} / NUTS code ${hungaryNuts3RegionIdMatchSummary.duplicate_nuts_code_count}；待最终复核`],
-              ["最终主键匹配", "待完成"],
+              ["初步缺失匹配", String(hungaryNuts3RegionIdMatchSummary.preliminary_unmatched_region_count)],
+              ["初步重复 region_id", String(hungaryNuts3RegionIdMatchSummary.preliminary_duplicate_region_id_count)],
+              ["初步重复 NUTS code", String(hungaryNuts3RegionIdMatchSummary.preliminary_duplicate_nuts_code_count)],
+              ["最终主键匹配", "未完成"],
               ["是否进入正式地图", "否"],
             ].map(([label, value]) => (
               <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
@@ -386,7 +388,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
             ))}
           </div>
           <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
-            20 / 20 预匹配不等于最终主键匹配通过；完成代码变体、命名变体和边界属性复核前，region_id_final_matched=false，正式地图展示保持未启用。
+            备注：当前为 preliminary readiness summary，不是 final validation record。
           </p>
         </section>
       ) : null}

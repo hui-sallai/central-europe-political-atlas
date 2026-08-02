@@ -974,18 +974,18 @@ function methodologyRuleRecords() {
     {
       rule_id: "hungary_boundary_final_region_id_matching",
       rule_category: "区域边界准入规则",
-      rule_name: "匈牙利 NUTS3 最终主键匹配规则",
-      rule_description: "20 / 20 预匹配不等于最终主键匹配通过；必须复核缺失、重复、代码变体、命名变体和边界文件属性字段。",
+      rule_name: "匈牙利 NUTS3 主键匹配准备摘要规则",
+      rule_description: "v0.16.1 仅记录初步准备摘要；20 / 20 候选且初步无缺失、无重复，不等于最终主键匹配通过。",
       applies_to: "regions,region_boundaries,region_quality_checks,map_layers,map_page,hungary_country_page",
       required_fields: ["expected_region_count", "nuts_code_count", "region_id_candidate_count", "unmatched_region_count", "duplicate_region_id_count", "duplicate_nuts_code_count", "region_id_final_matched", "region_id_match_evidence_status", "public_display_ready", "is_ready_for_display"],
       allowed_statuses: ["precheck_zero_exceptions_pending_final_review", "final_match_verified"],
       excluded_statuses: ["正式地图已启用", "风险图层", "预测图层", "真实党派支持率图层"],
       source_requirement: "主键匹配证据必须同时核对 NUTS code、region_id、名称变体和边界文件属性字段。",
       quality_requirement: "region_id_final_matched=false 时，public_display_ready 与 is_ready_for_display 必须保持 false。",
-      model_boundary: "最终主键匹配记录不生成风险指数、预测、中国经济暴露指数或区域评分。",
+      model_boundary: "主键匹配准备摘要不生成风险指数、预测、中国经济暴露指数或区域评分。",
       export_boundary: "随既有四个区域表和 methodology_rules 导出；不新增第 18 张表。",
-      last_updated: "2026-07-31",
-      notes: "v0.16 Hungary boundary final region-id matching record；当前 20 / 20 候选预检查完整，最终复核尚未完成。",
+      last_updated: "2026-08-02",
+      notes: "v0.16.1 Hungary region-id matching readiness summary；当前 20 / 20 候选初步检查通过，最终核验尚未完成。",
     },
   ];
 }
@@ -1117,13 +1117,13 @@ writeLayer("countries", countryRecords, {
   relation_note: "All observations, projects, derived comparisons, and exposure candidates should reference country_id.",
 });
 writeLayer("regions", regionMetadataRecords, {
-  scope: "v0.16 regions metadata. Hungary NUTS3 records 20 NUTS codes, 20 region_id candidates, zero preliminary exceptions, and pending final review; non-V4 countries keep national-level pending placeholders.",
+  scope: "v0.16.1 regions metadata. Hungary NUTS3 retains 20 NUTS codes, 20 region_id candidates, zero preliminary exceptions, and pending final validation; non-V4 countries keep national-level pending placeholders.",
   primary_key: "region_id",
   relation_note: "Every region references country_id from countries. ADM2 is intentionally excluded from the current boundary verification pass.",
   model_boundary: "Region metadata only. No regional risk layer, forecast, election model, or ADM2 analysis is generated.",
 });
 writeLayer("region_boundaries", regionBoundaryRecords, {
-  scope: "v0.16 final region-id matching registry. hu_nuts3_gisco_2024 records candidate, unmatched, duplicate, and evidence-status fields while remaining not_ready_for_display.",
+  scope: "v0.16.1 region-id matching readiness registry. hu_nuts3_gisco_2024 retains candidate, preliminary exception, and evidence-status fields while remaining not_ready_for_display.",
   primary_key: "boundary_id",
   relation_note: "Every boundary record references region_id from regions and country_id from countries.",
   validation_note: "Records track source credibility, public display licence, simplification readiness, front-end suitability, region_id matching, admin codes, and historical boundary issues before geometry ingestion.",
@@ -1144,7 +1144,7 @@ writeLayer("region_observations", regionObservationRecords, {
   model_boundary: "Observation structure only. Pending rows do not enter map layers, regional comparison, or future model candidate inputs.",
 });
 writeLayer("region_quality_checks", regionQualityCheckRecords, {
-  scope: "v0.16 regional data quality checks. Hungary NUTS3 records final region-id matching counts and pending final review while formal display remains disabled.",
+  scope: "v0.16.1 regional data quality checks. Hungary NUTS3 records a preliminary matching readiness summary while final validation and formal display remain disabled.",
   primary_key: "region_check_id",
   summary: regionQualitySummary,
   sandbox_qa_summary: hungaryNuts3SandboxQaSummary,
@@ -1170,7 +1170,7 @@ writeLayer("project_locations", projectLocationRecords, {
   model_boundary: "Location bridge only. No China exposure index, regional risk layer, forecast, or live project map layer is generated.",
 });
 writeLayer("map_layers", mapLayerRecords, {
-  scope: "v0.16 map layer registry. hu_nuts3_boundary_pilot records final region-id matching evidence; is_ready_for_display and public_display_ready remain false.",
+  scope: "v0.16.1 map layer registry. hu_nuts3_boundary_pilot retains region-id readiness evidence; is_ready_for_display and public_display_ready remain false.",
   primary_key: "layer_id",
   relation_note: "Each layer declares its data_source_table, geometry_source_table, indicator_or_variable, tooltip fields, filters, source requirements, and quality requirements.",
   validation_note: "All registered real boundary and analytical layers keep is_ready_for_display=false until boundary, source, observation, project-location, and quality checks pass.",

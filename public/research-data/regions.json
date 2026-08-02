@@ -3,7 +3,7 @@
   "generated_at": "2026-07-27",
   "data_type": "regions",
   "record_count": 64,
-  "scope": "v0.16 regions metadata. Hungary NUTS3 records 20 NUTS codes, 20 region_id candidates, zero preliminary exceptions, and pending final review; non-V4 countries keep national-level pending placeholders.",
+  "scope": "v0.16.1 regions metadata. Hungary NUTS3 retains 20 NUTS codes, 20 region_id candidates, zero preliminary exceptions, and pending final validation; non-V4 countries keep national-level pending placeholders.",
   "primary_key": "region_id",
   "relation_note": "Every region references country_id from countries. ADM2 is intentionally excluded from the current boundary verification pass.",
   "model_boundary": "Region metadata only. No regional risk layer, forecast, election model, or ADM2 analysis is generated.",
@@ -499,7 +499,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
+      "notes": "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
     },
     {
       "region_id": "hungary_bacs_kiskun",
@@ -528,7 +528,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
+      "notes": "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
     },
     {
       "region_id": "hungary_baranya",
@@ -557,7 +557,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
+      "notes": "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
     },
     {
       "region_id": "hungary_bekes",
@@ -586,7 +586,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
+      "notes": "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
     },
     {
       "region_id": "hungary_borsod_abauj_zemplen",
@@ -615,7 +615,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
+      "notes": "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
     },
     {
       "region_id": "hungary_csongrad_csanad",
@@ -644,7 +644,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
+      "notes": "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
     },
     {
       "region_id": "hungary_fejer",
@@ -673,7 +673,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
+      "notes": "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
     },
     {
       "region_id": "hungary_gyor_moson_sopron",
@@ -702,7 +702,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
+      "notes": "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
     },
     {
       "region_id": "hungary_hajdu_bihar",
@@ -731,7 +731,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
+      "notes": "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
     },
     {
       "region_id": "hungary_heves",
@@ -760,7 +760,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
+      "notes": "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
     },
     {
       "region_id": "hungary_jasz_nagykun_szolnok",
@@ -789,7 +789,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
+      "notes": "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
     },
     {
       "region_id": "hungary_komarom_esztergom",
@@ -818,7 +818,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
+      "notes": "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
     },
     {
       "region_id": "hungary_nograd",
@@ -847,7 +847,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
+      "notes": "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
     },
     {
       "region_id": "hungary_pest",
@@ -876,7 +876,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
+      "notes": "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
     },
     {
       "region_id": "hungary_somogy",
@@ -905,7 +905,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
+      "notes": "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
     },
     {
       "region_id": "hungary_szabolcs_szatmar_bereg",
@@ -934,7 +934,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
+      "notes": "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
     },
     {
       "region_id": "hungary_tolna",
@@ -963,7 +963,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
+      "notes": "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
     },
     {
       "region_id": "hungary_vas",
@@ -992,7 +992,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
+      "notes": "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
     },
     {
       "region_id": "hungary_veszprem",
@@ -1021,7 +1021,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
+      "notes": "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
     },
     {
       "region_id": "hungary_zala",
@@ -1050,7 +1050,7 @@
       "data_status": "pilot_pending_region_code_match",
       "source_status": "人工整理",
       "last_updated": "2026-07-26",
-      "notes": "v0.16 匈牙利 NUTS3 最终主键匹配记录；20 个 NUTS code 与 20 个 region_id candidate 已完成预检查，缺失与重复计数暂为 0，但代码变体、命名变体和边界属性仍待最终复核。region_id_final_matched=false，真实地图展示未启用。"
+      "notes": "v0.16.1 匈牙利 NUTS3 主键匹配准备摘要；20 个 NUTS code 与 20 个 region_id candidate 的初步检查未发现缺失或重复，但最终核验尚未完成。region_id_final_matched=false，真实地图展示未启用。"
     },
     {
       "region_id": "czechia_prague",

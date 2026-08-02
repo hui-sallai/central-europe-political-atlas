@@ -20,8 +20,8 @@ export default function MapPage() {
         <h2 className="mt-2 text-2xl font-semibold">区域地图数据准备状态</h2>
         <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           {[
-            ["当前阶段", "v0.16 Hungary boundary final region-id matching record"],
-            ["区域地图数据", "匈牙利 NUTS3 最终主键匹配核验中"],
+            ["当前阶段", "v0.16.1 Hungary region-id matching readiness summary"],
+            ["区域地图数据", "匈牙利 NUTS3 主键匹配准备摘要已记录"],
             ["V4 ADM1 / NUTS2 边界", "待接入"],
             ["区域统计数据", "待接入"],
             ["对华项目地区定位", "准备中"],
@@ -156,8 +156,8 @@ export default function MapPage() {
       </section>
 
       <section className="mt-6 rounded-3xl border border-[var(--line)] bg-white/65 p-5">
-        <p className="eyebrow">v0.16 Hungary Boundary Final Region-ID Matching Record</p>
-        <h2 className="mt-2 text-2xl font-semibold">v0.16 最终主键匹配记录</h2>
+        <p className="eyebrow">v0.16.1 Hungary Region-ID Matching Readiness Summary</p>
+        <h2 className="mt-2 text-2xl font-semibold">v0.16.1 主键匹配准备摘要</h2>
         <div className="mt-4 overflow-x-auto rounded-2xl border border-[var(--line)] bg-white/70">
           <table className="min-w-full border-collapse text-left text-sm">
             <tbody>
@@ -165,11 +165,14 @@ export default function MapPage() {
                 ["expected_region_count", String(hungaryNuts3RegionIdMatchSummary.expected_region_count)],
                 ["nuts_code_count", String(hungaryNuts3RegionIdMatchSummary.nuts_code_count)],
                 ["region_id_candidate_count", String(hungaryNuts3RegionIdMatchSummary.region_id_candidate_count)],
-                ["region_id_final_matched", "pending / false"],
-                ["unmatched_region_count", `${hungaryNuts3RegionIdMatchSummary.unmatched_region_count} / pending final review`],
-                ["duplicate_region_id_count", `${hungaryNuts3RegionIdMatchSummary.duplicate_region_id_count} / pending final review`],
-                ["duplicate_nuts_code_count", `${hungaryNuts3RegionIdMatchSummary.duplicate_nuts_code_count} / pending final review`],
-                ["region_id_match_evidence_status", hungaryNuts3RegionIdMatchSummary.region_id_match_evidence_status],
+                ["preliminary_unmatched_region_count", String(hungaryNuts3RegionIdMatchSummary.preliminary_unmatched_region_count)],
+                ["preliminary_duplicate_region_id_count", String(hungaryNuts3RegionIdMatchSummary.preliminary_duplicate_region_id_count)],
+                ["preliminary_duplicate_nuts_code_count", String(hungaryNuts3RegionIdMatchSummary.preliminary_duplicate_nuts_code_count)],
+                ["region_id_final_matched", String(hungaryNuts3RegionIdMatchSummary.region_id_final_matched)],
+                ["region_id_match_status", hungaryNuts3RegionIdMatchSummary.region_id_match_status],
+                ["visual_qa_passed", String(hungaryNuts3RegionIdMatchSummary.visual_qa_passed)],
+                ["license_checked", `${hungaryNuts3RegionIdMatchSummary.license_checked} / pending`],
+                ["authoritative_topology_checked", `${hungaryNuts3RegionIdMatchSummary.authoritative_topology_checked} / pending`],
                 ["public_display_ready", String(hungaryNuts3RegionIdMatchSummary.public_display_ready)],
                 ["is_ready_for_display", String(hungaryNuts3RegionIdMatchSummary.is_ready_for_display)],
               ].map(([field, value]) => (
@@ -182,7 +185,7 @@ export default function MapPage() {
           </table>
         </div>
         <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-          预检查未发现缺失或重复不等于最终主键匹配通过；代码变体、命名变体和边界文件属性字段完成复核前，正式真实地图展示保持未启用。
+          当前只是主键匹配准备摘要，不代表最终主键匹配完成；不代表许可通过；不代表权威拓扑验收通过；不代表正式地图展示启用。
         </p>
       </section>
 

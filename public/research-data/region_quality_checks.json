@@ -3,7 +3,7 @@
   "generated_at": "2026-07-27",
   "data_type": "region_quality_checks",
   "record_count": 291,
-  "scope": "v0.16 regional data quality checks. Hungary NUTS3 records final region-id matching counts and pending final review while formal display remains disabled.",
+  "scope": "v0.16.1 regional data quality checks. Hungary NUTS3 records a preliminary matching readiness summary while final validation and formal display remain disabled.",
   "primary_key": "region_check_id",
   "summary": {
     "total_region_count": 64,
@@ -62,10 +62,18 @@
     "nuts_code_count": 20,
     "region_id_candidate_count": 20,
     "unmatched_region_count": 0,
+    "preliminary_unmatched_region_count": 0,
     "duplicate_region_id_count": 0,
+    "preliminary_duplicate_region_id_count": 0,
     "duplicate_nuts_code_count": 0,
+    "preliminary_duplicate_nuts_code_count": 0,
     "region_id_final_matched": false,
+    "region_id_match_status": "preliminary_check_passed_pending_final_validation",
     "region_id_match_evidence_status": "precheck_zero_exceptions_pending_final_review",
+    "preliminary_check_status": "passed",
+    "visual_qa_passed": true,
+    "license_checked": false,
+    "authoritative_topology_checked": false,
     "public_display_ready": false,
     "is_ready_for_display": false
   },
@@ -134,8 +142,8 @@
       "is_export_ready": true,
       "quality_status": "需复核",
       "missing_reason": "region_id / NUTS code 的代码变体、命名变体和边界属性字段仍待最终复核；许可确认与权威拓扑验收也尚未完成。",
-      "quality_notes": "v0.16 final region-id matching record；20 / 20 候选预检查完整，缺失和重复计数暂为 0，但不等于最终主键匹配通过。region_id_final_matched=false，公开展示资格仍未通过。",
-      "last_updated": "2026-07-31"
+      "quality_notes": "v0.16.1 preliminary readiness summary；20 / 20 候选初步检查未发现缺失或重复，但不等于最终主键匹配通过。region_id_final_matched=false，公开展示资格仍未通过。",
+      "last_updated": "2026-08-02"
     },
     {
       "region_check_id": "poland_lower_silesian_regional_population_2025_quality_check",

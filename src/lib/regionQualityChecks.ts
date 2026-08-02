@@ -131,10 +131,18 @@ export type HungaryNuts3RegionIdMatchSummary = {
   nuts_code_count: number;
   region_id_candidate_count: number;
   unmatched_region_count: number;
+  preliminary_unmatched_region_count: number;
   duplicate_region_id_count: number;
+  preliminary_duplicate_region_id_count: number;
   duplicate_nuts_code_count: number;
+  preliminary_duplicate_nuts_code_count: number;
   region_id_final_matched: boolean;
+  region_id_match_status: "preliminary_check_passed_pending_final_validation";
   region_id_match_evidence_status: string;
+  preliminary_check_status: "passed";
+  visual_qa_passed: boolean;
+  license_checked: boolean;
+  authoritative_topology_checked: boolean;
   public_display_ready: boolean;
   is_ready_for_display: boolean;
 };
@@ -369,17 +377,29 @@ function duplicateValueCount(values: string[]) {
   return values.length - new Set(values).size;
 }
 
+const preliminaryUnmatchedRegionCount =
+  hungaryBoundaryValidation.missing_expected_nuts_codes.length +
+  hungaryBoundaryValidation.unexpected_nuts_codes.length;
+const preliminaryDuplicateRegionIdCount = duplicateValueCount(hungaryRegionIds);
+const preliminaryDuplicateNutsCodeCount = duplicateValueCount(hungaryNutsCodes);
+
 export const hungaryNuts3RegionIdMatchSummary: HungaryNuts3RegionIdMatchSummary = {
   expected_region_count: hungaryBoundaryValidation.expected_feature_count,
   nuts_code_count: hungaryBoundaryValidation.nuts_codes_count,
   region_id_candidate_count: hungaryRegionCandidates.length,
-  unmatched_region_count:
-    hungaryBoundaryValidation.missing_expected_nuts_codes.length +
-    hungaryBoundaryValidation.unexpected_nuts_codes.length,
-  duplicate_region_id_count: duplicateValueCount(hungaryRegionIds),
-  duplicate_nuts_code_count: duplicateValueCount(hungaryNutsCodes),
+  unmatched_region_count: preliminaryUnmatchedRegionCount,
+  preliminary_unmatched_region_count: preliminaryUnmatchedRegionCount,
+  duplicate_region_id_count: preliminaryDuplicateRegionIdCount,
+  preliminary_duplicate_region_id_count: preliminaryDuplicateRegionIdCount,
+  duplicate_nuts_code_count: preliminaryDuplicateNutsCodeCount,
+  preliminary_duplicate_nuts_code_count: preliminaryDuplicateNutsCodeCount,
   region_id_final_matched: false,
+  region_id_match_status: "preliminary_check_passed_pending_final_validation",
   region_id_match_evidence_status: "precheck_zero_exceptions_pending_final_review",
+  preliminary_check_status: "passed",
+  visual_qa_passed: hungaryNuts3ReadinessGateSummary.visual_qa_passed,
+  license_checked: hungaryNuts3ReadinessGateSummary.license_checked,
+  authoritative_topology_checked: hungaryNuts3ReadinessGateSummary.authoritative_topology_checked,
   public_display_ready: false,
   is_ready_for_display: false,
 };
@@ -446,8 +466,8 @@ const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {
   quality_status: "需复核",
   missing_reason: "region_id / NUTS code 的代码变体、命名变体和边界属性字段仍待最终复核；许可确认与权威拓扑验收也尚未完成。",
   quality_notes:
-    "v0.16 final region-id matching record；20 / 20 候选预检查完整，缺失和重复计数暂为 0，但不等于最终主键匹配通过。region_id_final_matched=false，公开展示资格仍未通过。",
-  last_updated: "2026-07-31",
+    "v0.16.1 preliminary readiness summary；20 / 20 候选初步检查未发现缺失或重复，但不等于最终主键匹配通过。region_id_final_matched=false，公开展示资格仍未通过。",
+  last_updated: "2026-08-02",
 };
 
 export const regionQualityCheckRecords: RegionQualityCheckRecord[] = [
