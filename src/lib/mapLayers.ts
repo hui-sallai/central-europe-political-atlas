@@ -25,6 +25,13 @@ export type MapLayerRecord = {
   authoritative_topology_method: string;
   authoritative_topology_checked: boolean;
   topology_evidence_status: string;
+  topology_validation_method: string;
+  topology_validation_status: string;
+  topology_validation_date: string;
+  topology_decision_note: string;
+  geometry_valid_count: number;
+  invalid_geometry_count: number;
+  duplicate_geometry_count: number;
   validation_manifest_file: string;
   manifest_status: string;
   expected_region_count: number;
@@ -70,7 +77,7 @@ export type MapLayerRecord = {
 
 const updatedAt = "2026-08-02";
 const v4Adm1Coverage = "V4 四国 ADM1：poland, hungary, czechia, slovakia";
-const noDisplayBoundary = "权威拓扑验收尚未完成；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。";
+const noDisplayBoundary = "正式展示仍需单独通过 public display readiness gate；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。";
 const noModelBoundary = "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。";
 const giscoLicenseSource = giscoLicenseVerificationDecision.license_source;
 const giscoLicenseUrl = giscoLicenseVerificationDecision.license_url;
@@ -112,6 +119,13 @@ function boundaryLayer(): MapLayerRecord {
     authoritative_topology_method: pendingTopologyMethod,
     authoritative_topology_checked: false,
     topology_evidence_status: "not_started",
+    topology_validation_method: "pending_authoritative_topology_review",
+    topology_validation_status: "pending_authoritative_topology_review",
+    topology_validation_date: "pending",
+    topology_decision_note: "V4 其余边界文件尚未进入权威拓扑验收。",
+    geometry_valid_count: 0,
+    invalid_geometry_count: 0,
+    duplicate_geometry_count: 0,
     ...noValidationManifest,
     expected_region_count: 0,
     nuts_code_count: 0,
@@ -170,9 +184,16 @@ function hungaryNuts3PilotLayer(): MapLayerRecord {
     license_review_status: giscoLicenseVerificationDecision.license_review_status,
     license_review_date: giscoLicenseVerificationDecision.license_review_date,
     license_decision_note: giscoLicenseVerificationDecision.license_decision_note,
-    authoritative_topology_method: pendingTopologyMethod,
-    authoritative_topology_checked: false,
-    topology_evidence_status: "sandbox_basic_topology_passed_pending_authoritative_validation",
+    authoritative_topology_method: hungaryBoundaryValidation.topology_validation_method,
+    authoritative_topology_checked: hungaryBoundaryValidation.authoritative_topology_checked,
+    topology_evidence_status: hungaryBoundaryValidation.topology_validation_status,
+    topology_validation_method: hungaryBoundaryValidation.topology_validation_method,
+    topology_validation_status: hungaryBoundaryValidation.topology_validation_status,
+    topology_validation_date: hungaryBoundaryValidation.topology_validation_date,
+    topology_decision_note: hungaryBoundaryValidation.topology_decision_note,
+    geometry_valid_count: hungaryBoundaryValidation.geometry_valid_count,
+    invalid_geometry_count: hungaryBoundaryValidation.invalid_geometry_count,
+    duplicate_geometry_count: hungaryBoundaryValidation.duplicate_geometry_count,
     validation_manifest_file: hungaryBoundaryValidation.validation_file,
     manifest_status: hungaryBoundaryValidation.manifest_status,
     expected_region_count: hungaryBoundaryValidation.expected_region_count,
@@ -214,7 +235,7 @@ function hungaryNuts3PilotLayer(): MapLayerRecord {
     model_boundary: noModelBoundary,
     last_updated: updatedAt,
     notes:
-      "v0.20 GISCO license verification decision 已记录；license_checked=true 仅适用于公开非商业研究展示。authoritative topology 尚未完成，public_display_ready=false、is_ready_for_display=false。",
+      "v0.21 authoritative topology validation decision 已记录；license_checked=true、region_id_final_matched=true、authoritative_topology_checked=true。正式地图仍未启用，public_display_ready=false、is_ready_for_display=false。",
   };
 }
 
@@ -248,6 +269,13 @@ function choroplethLayer(layer: {
     authoritative_topology_method: pendingTopologyMethod,
     authoritative_topology_checked: false,
     topology_evidence_status: "not_started",
+    topology_validation_method: "pending_authoritative_topology_review",
+    topology_validation_status: "pending_authoritative_topology_review",
+    topology_validation_date: "pending",
+    topology_decision_note: "区域统计值和真实边界尚未通过展示前验收。",
+    geometry_valid_count: 0,
+    invalid_geometry_count: 0,
+    duplicate_geometry_count: 0,
     ...noValidationManifest,
     expected_region_count: 0,
     nuts_code_count: 0,
@@ -309,6 +337,13 @@ function projectLocationLayer(): MapLayerRecord {
     authoritative_topology_method: pendingTopologyMethod,
     authoritative_topology_checked: false,
     topology_evidence_status: "not_started",
+    topology_validation_method: "pending_authoritative_topology_review",
+    topology_validation_status: "pending_authoritative_topology_review",
+    topology_validation_date: "pending",
+    topology_decision_note: "项目定位图层尚未进入边界权威拓扑验收。",
+    geometry_valid_count: 0,
+    invalid_geometry_count: 0,
+    duplicate_geometry_count: 0,
     ...noValidationManifest,
     expected_region_count: 0,
     nuts_code_count: 0,

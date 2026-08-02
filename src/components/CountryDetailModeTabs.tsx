@@ -11,6 +11,7 @@ import { getCountryMetadata } from "@/lib/countryMetadata";
 import type { Country } from "@/lib/data";
 import { getChinaProjectRecords, getNewsEventRecords, getV4ObservationCoverage, getV4TemplateCoverage } from "@/lib/extendedData";
 import {
+  hungaryAuthoritativeTopologyValidationDecisionSummary,
   hungaryGiscoLicenseVerificationDecisionSummary,
   hungaryNuts3ReadinessGateSummary,
   hungaryNuts3SandboxQaSummary,
@@ -297,7 +298,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
               ["NUTS code 数量", `${hungaryNuts3SandboxQaSummary.nuts_code_count} / 20；唯一性检查通过`],
               ["CRS", hungaryNuts3SandboxQaSummary.crs_confirmed ? "EPSG:4326 已确认（沙盒）" : "EPSG:4326 待确认"],
               ["几何完整性", `${hungaryNuts3SandboxQaSummary.geometry_present_count} / 20；基础完整性通过`],
-              ["拓扑检查", "基础 QA 已执行；权威拓扑验收待完成"],
+              ["拓扑检查", "v0.12 当时状态：基础 QA 已执行；权威拓扑验收待完成"],
               ["主键匹配", "20 / 20 预匹配；待最终核验"],
               ["region_id_matched", "false"],
               ["真实地图展示", "未启用"],
@@ -362,7 +363,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
             ))}
           </div>
           <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
-            视觉 QA 通过不代表正式展示资格通过；许可核验、权威拓扑验收和最终主键匹配完成前，真实地图展示保持未启用。
+            视觉 QA、许可核验、权威拓扑验收和最终主键匹配均已分别记录；正式展示资格仍需下一阶段单独核验，真实地图保持未启用。
           </p>
         </section>
       ) : null}
@@ -386,7 +387,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
               ["最终主键匹配", hungaryNuts3ValidationManifestSummary.region_id_final_matched ? "通过" : "待最终人工复核"],
               ["region_id_match_decision_status", hungaryNuts3ValidationManifestSummary.region_id_match_decision_status],
               ["license_checked", String(hungaryNuts3ValidationManifestSummary.license_checked)],
-              ["authoritative_topology_checked", `${hungaryNuts3ValidationManifestSummary.authoritative_topology_checked} / pending`],
+              ["authoritative_topology_checked", String(hungaryNuts3ValidationManifestSummary.authoritative_topology_checked)],
               ["public_display_ready", String(hungaryNuts3ValidationManifestSummary.public_display_ready)],
               ["is_ready_for_display", String(hungaryNuts3ValidationManifestSummary.is_ready_for_display)],
               ["是否进入正式地图", "否"],
@@ -398,7 +399,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
             ))}
           </div>
           <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
-            最终主键匹配即使通过，也只是正式展示准入条件之一；许可核验和权威拓扑验收未完成前，正式地图仍未启用。
+            最终主键匹配、许可核验与权威拓扑验收均已分别记录；正式地图仍需下一阶段单独通过 public display readiness gate。
           </p>
         </section>
       ) : null}
@@ -420,7 +421,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
               ["license_checked", String(hungaryGiscoLicenseVerificationDecisionSummary.license_checked)],
               ["license_review_date", hungaryGiscoLicenseVerificationDecisionSummary.license_review_date],
               ["最终主键匹配", hungaryGiscoLicenseVerificationDecisionSummary.region_id_final_matched ? "通过" : "待完成"],
-              ["权威拓扑验收", "待完成"],
+              ["权威拓扑验收", hungaryGiscoLicenseVerificationDecisionSummary.authoritative_topology_checked ? "通过" : "待完成"],
               ["public_display_ready", String(hungaryGiscoLicenseVerificationDecisionSummary.public_display_ready)],
               ["is_ready_for_display", String(hungaryGiscoLicenseVerificationDecisionSummary.is_ready_for_display)],
               ["是否进入正式地图", "否"],
@@ -432,7 +433,44 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
             ))}
           </div>
           <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
-            许可核验即使通过，也只是正式展示准入条件之一；权威拓扑验收未完成前，正式地图仍未启用。商业使用需另行联系 EuroGeographics。
+            许可核验只覆盖公开非商业研究展示条件；权威拓扑验收结果见下方 v0.21 区块。正式地图仍未启用，商业使用需另行联系 EuroGeographics。
+          </p>
+        </section>
+      ) : null}
+
+      {country.slug === "hungary" ? (
+        <section className="mt-4 card p-6">
+          <p className="eyebrow">4.7 v0.21 Hungary Authoritative Topology Validation Decision</p>
+          <h2 className="mt-3 text-2xl font-semibold">v0.21 权威拓扑验收判定状态</h2>
+          <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            {[
+              ["边界来源", hungaryAuthoritativeTopologyValidationDecisionSummary.boundary_source_name],
+              ["边界文件", hungaryAuthoritativeTopologyValidationDecisionSummary.boundary_file],
+              ["坐标系", hungaryAuthoritativeTopologyValidationDecisionSummary.coordinate_system],
+              ["NUTS3 区域数量", String(hungaryAuthoritativeTopologyValidationDecisionSummary.expected_region_count)],
+              ["geometry 数量", String(hungaryAuthoritativeTopologyValidationDecisionSummary.feature_count)],
+              ["缺失 geometry", String(hungaryAuthoritativeTopologyValidationDecisionSummary.missing_geometry_count)],
+              ["有效 geometry", String(hungaryAuthoritativeTopologyValidationDecisionSummary.geometry_valid_count)],
+              ["无效 geometry", String(hungaryAuthoritativeTopologyValidationDecisionSummary.invalid_geometry_count)],
+              ["重复 geometry", String(hungaryAuthoritativeTopologyValidationDecisionSummary.duplicate_geometry_count)],
+              ["拓扑核验方法", hungaryAuthoritativeTopologyValidationDecisionSummary.topology_validation_method],
+              ["拓扑核验状态", hungaryAuthoritativeTopologyValidationDecisionSummary.topology_validation_status],
+              ["核验日期", hungaryAuthoritativeTopologyValidationDecisionSummary.topology_validation_date],
+              ["authoritative_topology_checked", String(hungaryAuthoritativeTopologyValidationDecisionSummary.authoritative_topology_checked)],
+              ["最终主键匹配", hungaryAuthoritativeTopologyValidationDecisionSummary.region_id_final_matched ? "通过" : "待完成"],
+              ["许可核验", hungaryAuthoritativeTopologyValidationDecisionSummary.license_checked ? "通过" : "待完成"],
+              ["public_display_ready", String(hungaryAuthoritativeTopologyValidationDecisionSummary.public_display_ready)],
+              ["is_ready_for_display", String(hungaryAuthoritativeTopologyValidationDecisionSummary.is_ready_for_display)],
+              ["是否进入正式地图", "否"],
+            ].map(([label, value]) => (
+              <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+                <p className="text-xs font-semibold text-[var(--muted)]">{label}</p>
+                <p className="mt-2 break-words text-sm font-semibold leading-6 text-[var(--foreground)]">{value}</p>
+              </article>
+            ))}
+          </div>
+          <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
+            权威拓扑验收通过后，仍需下一阶段单独评估 public_display_ready 和 is_ready_for_display；v0.21 不直接启用正式地图。
           </p>
         </section>
       ) : null}

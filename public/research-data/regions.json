@@ -3,7 +3,7 @@
   "generated_at": "2026-07-27",
   "data_type": "regions",
   "record_count": 64,
-  "scope": "v0.19 regions metadata. Hungary NUTS3 records the final one-to-one region-id match decision while licence, authoritative topology, and public display remain pending; non-V4 countries keep national-level pending placeholders.",
+  "scope": "v0.21 regions metadata. Hungary NUTS3 records final region-id, licence, and authoritative topology decisions while public display remains disabled; non-V4 countries keep national-level pending placeholders.",
   "primary_key": "region_id",
   "relation_note": "Every region references country_id from countries. ADM2 is intentionally excluded from the current boundary verification pass.",
   "model_boundary": "Region metadata only. No regional risk layer, forecast, election model, or ADM2 analysis is generated.",
@@ -703,7 +703,7 @@
       "data_status": "待核验",
       "source_status": "人工整理",
       "last_updated": "2026-08-02",
-      "notes": "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
+      "notes": "v0.21 Hungary NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式地图展示仍未启用。"
     },
     {
       "region_id": "hungary_bacs_kiskun",
@@ -744,7 +744,7 @@
       "data_status": "待核验",
       "source_status": "人工整理",
       "last_updated": "2026-08-02",
-      "notes": "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
+      "notes": "v0.21 Hungary NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式地图展示仍未启用。"
     },
     {
       "region_id": "hungary_baranya",
@@ -785,7 +785,7 @@
       "data_status": "待核验",
       "source_status": "人工整理",
       "last_updated": "2026-08-02",
-      "notes": "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
+      "notes": "v0.21 Hungary NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式地图展示仍未启用。"
     },
     {
       "region_id": "hungary_bekes",
@@ -826,7 +826,7 @@
       "data_status": "待核验",
       "source_status": "人工整理",
       "last_updated": "2026-08-02",
-      "notes": "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
+      "notes": "v0.21 Hungary NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式地图展示仍未启用。"
     },
     {
       "region_id": "hungary_borsod_abauj_zemplen",
@@ -867,7 +867,7 @@
       "data_status": "待核验",
       "source_status": "人工整理",
       "last_updated": "2026-08-02",
-      "notes": "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
+      "notes": "v0.21 Hungary NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式地图展示仍未启用。"
     },
     {
       "region_id": "hungary_csongrad_csanad",
@@ -908,7 +908,7 @@
       "data_status": "待核验",
       "source_status": "人工整理",
       "last_updated": "2026-08-02",
-      "notes": "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
+      "notes": "v0.21 Hungary NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式地图展示仍未启用。"
     },
     {
       "region_id": "hungary_fejer",
@@ -949,7 +949,7 @@
       "data_status": "待核验",
       "source_status": "人工整理",
       "last_updated": "2026-08-02",
-      "notes": "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
+      "notes": "v0.21 Hungary NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式地图展示仍未启用。"
     },
     {
       "region_id": "hungary_gyor_moson_sopron",
@@ -990,7 +990,7 @@
       "data_status": "待核验",
       "source_status": "人工整理",
       "last_updated": "2026-08-02",
-      "notes": "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
+      "notes": "v0.21 Hungary NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式地图展示仍未启用。"
     },
     {
       "region_id": "hungary_hajdu_bihar",
@@ -1031,7 +1031,7 @@
       "data_status": "待核验",
       "source_status": "人工整理",
       "last_updated": "2026-08-02",
-      "notes": "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
+      "notes": "v0.21 Hungary NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式地图展示仍未启用。"
     },
     {
       "region_id": "hungary_heves",
@@ -1072,7 +1072,7 @@
       "data_status": "待核验",
       "source_status": "人工整理",
       "last_updated": "2026-08-02",
-      "notes": "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
+      "notes": "v0.21 Hungary NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式地图展示仍未启用。"
     },
     {
       "region_id": "hungary_jasz_nagykun_szolnok",
@@ -1113,7 +1113,7 @@
       "data_status": "待核验",
       "source_status": "人工整理",
       "last_updated": "2026-08-02",
-      "notes": "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
+      "notes": "v0.21 Hungary NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式地图展示仍未启用。"
     },
     {
       "region_id": "hungary_komarom_esztergom",
@@ -1154,7 +1154,7 @@
       "data_status": "待核验",
       "source_status": "人工整理",
       "last_updated": "2026-08-02",
-      "notes": "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
+      "notes": "v0.21 Hungary NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式地图展示仍未启用。"
     },
     {
       "region_id": "hungary_nograd",
@@ -1195,7 +1195,7 @@
       "data_status": "待核验",
       "source_status": "人工整理",
       "last_updated": "2026-08-02",
-      "notes": "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
+      "notes": "v0.21 Hungary NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式地图展示仍未启用。"
     },
     {
       "region_id": "hungary_pest",
@@ -1236,7 +1236,7 @@
       "data_status": "待核验",
       "source_status": "人工整理",
       "last_updated": "2026-08-02",
-      "notes": "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
+      "notes": "v0.21 Hungary NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式地图展示仍未启用。"
     },
     {
       "region_id": "hungary_somogy",
@@ -1277,7 +1277,7 @@
       "data_status": "待核验",
       "source_status": "人工整理",
       "last_updated": "2026-08-02",
-      "notes": "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
+      "notes": "v0.21 Hungary NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式地图展示仍未启用。"
     },
     {
       "region_id": "hungary_szabolcs_szatmar_bereg",
@@ -1318,7 +1318,7 @@
       "data_status": "待核验",
       "source_status": "人工整理",
       "last_updated": "2026-08-02",
-      "notes": "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
+      "notes": "v0.21 Hungary NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式地图展示仍未启用。"
     },
     {
       "region_id": "hungary_tolna",
@@ -1359,7 +1359,7 @@
       "data_status": "待核验",
       "source_status": "人工整理",
       "last_updated": "2026-08-02",
-      "notes": "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
+      "notes": "v0.21 Hungary NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式地图展示仍未启用。"
     },
     {
       "region_id": "hungary_vas",
@@ -1400,7 +1400,7 @@
       "data_status": "待核验",
       "source_status": "人工整理",
       "last_updated": "2026-08-02",
-      "notes": "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
+      "notes": "v0.21 Hungary NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式地图展示仍未启用。"
     },
     {
       "region_id": "hungary_veszprem",
@@ -1441,7 +1441,7 @@
       "data_status": "待核验",
       "source_status": "人工整理",
       "last_updated": "2026-08-02",
-      "notes": "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
+      "notes": "v0.21 Hungary NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式地图展示仍未启用。"
     },
     {
       "region_id": "hungary_zala",
@@ -1482,7 +1482,7 @@
       "data_status": "待核验",
       "source_status": "人工整理",
       "last_updated": "2026-08-02",
-      "notes": "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
+      "notes": "v0.21 Hungary NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式地图展示仍未启用。"
     },
     {
       "region_id": "czechia_prague",

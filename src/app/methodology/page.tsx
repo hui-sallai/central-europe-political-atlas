@@ -197,8 +197,17 @@ const giscoLicenseVerificationDecisionItems = [
   "商业使用不在本次许可判定范围内，需另行联系 EuroGeographics。",
   "license_checked=true 不等于 authoritative_topology_checked=true。",
   "license_checked=true 不等于 public_display_ready=true，也不等于 is_ready_for_display=true。",
-  "region_id_final_matched=true 且 license_checked=true 后，仍需完成 authoritative topology 才能进入正式展示准入评估。",
+  "region_id_final_matched=true 且 license_checked=true 后，仍需由独立阶段记录 authoritative topology；该结果已在 v0.21 单独核验。",
   "v0.20 不启用正式地图，不启用风险图层、预测图层、真实党派支持率图层、中国经济暴露指数或区域评分。",
+];
+
+const authoritativeTopologyValidationDecisionItems = [
+  "v0.21 只处理匈牙利 NUTS3 边界权威拓扑验收。",
+  "authoritative topology validation 基于 Eurostat GISCO NUTS 2024 Level 3 官方几何、20 条 validation manifest 明细和可复现拓扑核验记录。",
+  "核验范围包括 Polygon / MultiPolygon 类型、空几何、坐标范围、闭环、退化环、自交、明显跨要素相交、重复几何、CRS 和 manifest 数量一致性。",
+  "authoritative_topology_checked=true 不等于 public_display_ready=true，也不等于 is_ready_for_display=true。",
+  "region_id_final_matched=true、license_checked=true、authoritative_topology_checked=true 后，仍需下一阶段单独执行 public display readiness gate。",
+  "v0.21 不启用正式地图，不启用风险图层、预测图层、真实党派支持率图层、中国经济暴露指数或区域评分。",
 ];
 
 const excludedItems = [
@@ -339,7 +348,7 @@ export default function MethodologyPage() {
         <h2 className="mt-3 text-2xl font-semibold">5.2 数据导出与接口准备</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {[
-            "当前阶段：v0.20 Hungary GISCO license verification decision；匈牙利 NUTS3 公开非商业研究展示许可判定已记录，真实地图展示仍未启用。",
+            "当前阶段：v0.21 Hungary authoritative topology validation decision；匈牙利 NUTS3 权威拓扑验收判定已记录，真实地图展示仍未启用。",
             "当前只做 CSV / JSON 数据结构准备。",
             "不提供预测 API。",
             "不提供模型 API。",
@@ -366,6 +375,7 @@ export default function MethodologyPage() {
             "map_layers 仅注册未来图层，is_ready_for_display=false 的图层不得作为真实图层展示；风险图层、预测图层和真实党派支持率图层均未启用，新闻区仍不做评价。",
             "v0.15 在既有 region_sources、region_boundaries、region_quality_checks 与 map_layers 中记录许可与权威拓扑证据；视觉 QA 结果只作为必要条件，不能单独启用展示。",
             "v0.20 在既有 region_sources、region_boundaries、region_quality_checks 与 map_layers 中同步 GISCO 许可判定；许可通过仍不等于权威拓扑或正式展示通过。",
+            "v0.21 在既有 region_boundaries、region_quality_checks 与 map_layers 中记录权威拓扑验收判定；验收通过仍不自动启用正式展示。",
           ].map((item) => (
             <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
               {item}
@@ -499,6 +509,18 @@ export default function MethodologyPage() {
         <h2 className="mt-3 text-2xl font-semibold">5.14 v0.20 GISCO license verification decision rule</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {giscoLicenseVerificationDecisionItems.map((item) => (
+            <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
+              {item}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">Hungary Authoritative Topology Validation Decision</p>
+        <h2 className="mt-3 text-2xl font-semibold">5.15 v0.21 authoritative topology validation decision rule</h2>
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
+          {authoritativeTopologyValidationDecisionItems.map((item) => (
             <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
               {item}
             </p>

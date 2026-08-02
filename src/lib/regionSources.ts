@@ -116,7 +116,7 @@ export const regionSourceRecords: RegionSourceRecord[] = [
     country_coverage: "匈牙利试点；后续可扩展至 V4 其他国家。",
     admin_level_coverage: "NUTS3 / NUTS2 / NUTS1",
     indicator_coverage: "边界、NUTS 代码、空间关联键。",
-    boundary_coverage: "v0.20 匈牙利 NUTS3 许可核验判定来源；已锁定 1:1M、EPSG:4326、Level 3 GeoJSON，真实展示前仍需完成权威拓扑验收。",
+    boundary_coverage: "v0.21 匈牙利 NUTS3 许可与权威拓扑验收来源；已锁定 1:1M、EPSG:4326、Level 3 GeoJSON，正式展示仍需单独通过 public display readiness gate。",
     source_url: "https://gisco-services.ec.europa.eu/distribution/v2/nuts/geojson/NUTS_RG_01M_2024_4326_LEVL_3.geojson",
     source_reliability: "A",
     source_status: "官方来源",
@@ -138,7 +138,7 @@ export const regionSourceRecords: RegionSourceRecord[] = [
     is_supplementary_only: false,
     is_excluded_from_analysis: false,
     last_checked: giscoLicenseVerificationDecision.license_review_date,
-    notes: "v0.20 GISCO license verification decision；license_checked=true 仅适用于公开非商业研究展示。权威拓扑验收仍未完成，public_display_ready=false，is_ready_for_display=false。",
+    notes: "v0.21 authoritative topology validation decision；license_checked=true 仅适用于公开非商业研究展示，authoritative_topology_checked=true。public_display_ready=false，is_ready_for_display=false。",
   },
   {
     region_source_id: "eu_gis_gisco",

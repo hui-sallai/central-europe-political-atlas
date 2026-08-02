@@ -11,12 +11,14 @@ import { regionBoundaryRecords } from "@/lib/regionBoundaries";
 import { regionIndicatorRecords } from "@/lib/regionIndicators";
 import { regionObservationRecords } from "@/lib/regionObservations";
 import {
+  hungaryAuthoritativeTopologyValidationDecisionSummary,
   hungaryGiscoLicenseVerificationDecisionSummary,
   hungaryNuts3SandboxQaSummary,
   hungaryNuts3ValidationManifestSummary,
   hungaryNuts3VisualQaSummary,
   regionQualityCheckRecords,
   regionQualitySummary,
+  type HungaryAuthoritativeTopologyValidationDecisionSummary,
   type HungaryGiscoLicenseVerificationDecisionSummary,
   type HungaryNuts3SandboxQaSummary,
   type HungaryNuts3ValidationManifestSummary,
@@ -307,13 +309,13 @@ const dataModes: { id: DataMode; label: string; description: string }[] = [
 const dataEntryShortcuts: DataEntryShortcut[] = [
   { id: "countries-layer-entry", label: "国家元数据表", mode: "tables", description: "十国 countries 逻辑层，作为 country_id 关联表。" },
   { id: "regions-layer-entry", label: "区域元数据表", mode: "tables", description: "v0.19 regions 同步匈牙利 NUTS3 最终主键匹配判定；非 V4 国家级待接入。" },
-  { id: "region-boundaries-layer-entry", label: "区域边界来源表", mode: "tables", description: "v0.20 region_boundaries 记录 GISCO 公开非商业研究展示许可判定与不可展示状态。" },
+  { id: "region-boundaries-layer-entry", label: "区域边界来源表", mode: "tables", description: "v0.21 region_boundaries 记录 GISCO 权威拓扑验收判定与不可展示状态。" },
   { id: "region-indicators-layer-entry", label: "区域指标字典", mode: "tables", description: "v0.11 region_indicators 继续保留独立区域指标字典，第一批 10 项。" },
   { id: "region-observations-layer-entry", label: "区域观测值表", mode: "tables", description: "v0.11 region_observations 继续保留区域经济数据主表和待接入观测位置。" },
-  { id: "region-quality-checks-layer-entry", label: "区域质量验收表", mode: "tables", description: "v0.20 region_quality_checks 记录 Hungary GISCO license verification decision summary。" },
+  { id: "region-quality-checks-layer-entry", label: "区域质量验收表", mode: "tables", description: "v0.21 region_quality_checks 记录 Hungary authoritative topology validation decision summary。" },
   { id: "region-sources-layer-entry", label: "区域来源字典", mode: "tables", description: "v0.20 region_sources 锁定 GISCO Level 3 GeoJSON，并记录许可来源、署名要求和非商业研究展示判定。" },
   { id: "project-locations-layer-entry", label: "项目地区定位表", mode: "tables", description: "v0.11 project_locations 继续保留项目地区定位结构，不启用真实项目点位图层。" },
-  { id: "map-layers-layer-entry", label: "地图图层注册表", mode: "tables", description: "v0.20 map_layers 同步 GISCO 许可判定，并保持 hu_nuts3_boundary_pilot.is_ready_for_display=false。" },
+  { id: "map-layers-layer-entry", label: "地图图层注册表", mode: "tables", description: "v0.21 map_layers 同步权威拓扑判定，并保持 hu_nuts3_boundary_pilot.is_ready_for_display=false。" },
   { id: "indicator-dictionary-entry", label: "指标字典入口", mode: "tables", description: "18 个指标的口径、单位、来源优先级和比较资格。" },
   { id: "source-dictionary-entry", label: "来源字典入口", mode: "tables", description: "16 类来源的链接、可靠性等级和使用边界。" },
   { id: "v4-data-quality-entry", label: "数据质量验收入口", mode: "comparison", description: "V4 四国 240 个观测位置的验收清单。", requiresV4: true },
@@ -340,15 +342,15 @@ const regionalSchemaChecks = [
     why: "没有 regions，地图没有稳定区域主键。",
     fields: "region_id, country_id, region_name_zh, region_name_en, region_name_local, admin_level, admin_code, parent_region_id, capital_or_main_city, region_type, is_v4_region, is_boundary_available, is_statistical_data_available, is_election_data_available, is_china_project_mapped, validation_manifest_file, manifest_status, expected_region_count, feature_count, nuts_code_count, region_id_candidate_count, detail_record_count, matched_region_count, unmatched_region_count, duplicate_region_id_count, duplicate_nuts_code_count, missing_geometry_count, manifest_detail_validation_status, region_id_final_matched, region_id_match_decision_status, region_id_match_evidence_status, license_checked, authoritative_topology_checked, public_display_ready, is_ready_for_display, data_status, source_status, last_updated, notes",
     enums: "admin_level: ADM1 / ADM2 / NUTS1 / NUTS2 / NUTS3；data_status: 正式数据 / 待核验 / 待接入 / 结构样例 / pilot_pending_region_code_match；source_status: 官方来源 / 人工整理 / 待接入 / 结构样例。",
-    status: "v0.20 匈牙利 NUTS3 最终主键匹配与 GISCO 许可判定已记录；权威拓扑仍待核验。",
+    status: "v0.21 匈牙利 NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式展示仍未启用。",
   },
   {
     table: "region_boundaries",
     priority: "最高优先级",
     why: "没有 region_boundaries，真实边界来源、许可和几何状态无法核验。",
-    fields: "boundary_id, region_id, country_id, admin_level, nuts_version, boundary_source_name, boundary_source_url, boundary_source_type, boundary_license, license_source, license_url, attribution_required, attribution_text, license_checked, license_review_status, license_review_date, license_decision_note, boundary_format, geometry_format, file_selected, file_url, file_status, filter_status, display_status, geometry_available, geometry_simplified, topology_checked, authoritative_topology_method, authoritative_topology_checked, topology_evidence_status, coordinate_system, file_path_or_url, region_code_match_status, validation_manifest_file, manifest_status, expected_region_count, feature_count, nuts_code_count, region_id_candidate_count, detail_record_count, matched_region_count, unmatched_region_count, duplicate_region_id_count, duplicate_nuts_code_count, missing_geometry_count, manifest_detail_validation_status, region_id_final_matched, region_id_match_decision_status, region_id_match_evidence_status, public_display_ready, is_ready_for_display, source_reliability, source_status, last_checked, notes",
+    fields: "boundary_id, region_id, country_id, admin_level, nuts_version, boundary_source_name, boundary_source_url, boundary_source_type, boundary_license, license_source, license_url, attribution_required, attribution_text, license_checked, license_review_status, license_review_date, license_decision_note, boundary_format, geometry_format, file_selected, file_url, file_status, filter_status, display_status, geometry_available, geometry_simplified, topology_checked, authoritative_topology_method, authoritative_topology_checked, topology_evidence_status, topology_validation_method, topology_validation_status, topology_validation_date, topology_decision_note, geometry_valid_count, invalid_geometry_count, duplicate_geometry_count, coordinate_system, file_path_or_url, region_code_match_status, validation_manifest_file, manifest_status, expected_region_count, feature_count, nuts_code_count, region_id_candidate_count, detail_record_count, matched_region_count, unmatched_region_count, duplicate_region_id_count, duplicate_nuts_code_count, missing_geometry_count, manifest_detail_validation_status, region_id_final_matched, region_id_match_decision_status, region_id_match_evidence_status, public_display_ready, is_ready_for_display, source_reliability, source_status, last_checked, notes",
     enums: "boundary_format: GeoJSON / TopoJSON / Shapefile / PMTiles / Vector Tiles / Not available；file_status: sandbox_downloaded / not_downloaded / not_applicable；filter_status: sandbox_filtered / not_filtered / not_applicable；display_status: not_ready_for_display。",
-    status: "v0.20 已记录匈牙利 GISCO 公开非商业研究展示许可判定；权威拓扑与正式展示仍未通过。",
+    status: "v0.21 已记录匈牙利 GISCO 权威拓扑验收判定；public_display_ready 与 is_ready_for_display 仍为 false。",
   },
   {
     table: "region_indicators",
@@ -378,9 +380,9 @@ const regionalSchemaChecks = [
     table: "region_quality_checks",
     priority: "标准表体",
     why: "区域数据比国家数据更乱，必须提前验收边界、许可、来源和区域代码。",
-    fields: "region_check_id, region_id, country_id, admin_level, region_indicator_id, year, boundary_available, boundary_source_available, boundary_license_checked, source_available, license_source, license_url, attribution_required, attribution_text, license_checked, license_review_status, license_review_date, license_decision_note, authoritative_topology_method, authoritative_topology_checked, topology_evidence_status, validation_manifest_file, manifest_status, expected_region_count, feature_count, nuts_code_count, region_id_candidate_count, detail_record_count, matched_region_count, unmatched_region_count, duplicate_region_id_count, duplicate_nuts_code_count, missing_geometry_count, manifest_detail_validation_status, region_id_final_matched, region_id_match_decision_status, region_id_match_evidence_status, visual_qa_passed, file_selected, file_downloaded, hungary_filtered, geometry_filtered, crs_confirmed, topology_checked, region_id_matched, ready_for_display, visual_qa_started, feature_rendered_count, fit_bounds_checked, tooltip_checked, visual_overlap_checked, missing_geometry_checked, public_display_ready, is_ready_for_display, readiness_gate_status, value_present, unit_present, source_name_present, source_url_present, source_reliability_present, region_code_present, is_official_data, is_pending, is_calculated, is_manual, is_structural_sample, is_map_ready, is_region_comparable, is_export_ready, quality_status, missing_reason, quality_notes, last_updated",
+    fields: "region_check_id, region_id, country_id, admin_level, region_indicator_id, year, boundary_available, boundary_source_available, boundary_license_checked, source_available, license_source, license_url, attribution_required, attribution_text, license_checked, license_review_status, license_review_date, license_decision_note, authoritative_topology_method, authoritative_topology_checked, topology_evidence_status, topology_validation_method, topology_validation_status, topology_validation_date, topology_decision_note, geometry_valid_count, invalid_geometry_count, duplicate_geometry_count, validation_manifest_file, manifest_status, expected_region_count, feature_count, nuts_code_count, region_id_candidate_count, detail_record_count, matched_region_count, unmatched_region_count, duplicate_region_id_count, duplicate_nuts_code_count, missing_geometry_count, manifest_detail_validation_status, region_id_final_matched, region_id_match_decision_status, region_id_match_evidence_status, visual_qa_passed, file_selected, file_downloaded, hungary_filtered, geometry_filtered, crs_confirmed, topology_checked, region_id_matched, ready_for_display, visual_qa_started, feature_rendered_count, fit_bounds_checked, tooltip_checked, visual_overlap_checked, missing_geometry_checked, public_display_ready, is_ready_for_display, readiness_gate_status, value_present, unit_present, source_name_present, source_url_present, source_reliability_present, region_code_present, is_official_data, is_pending, is_calculated, is_manual, is_structural_sample, is_map_ready, is_region_comparable, is_export_ready, quality_status, missing_reason, quality_notes, last_updated",
     enums: "quality_status: 通过 / 部分通过 / 待接入 / 需复核 / 不进入分析。",
-    status: "v0.20 Hungary GISCO license verification decision summary 已记录；权威拓扑未通过时 is_map_ready=false。",
+    status: "v0.21 Hungary authoritative topology validation decision summary 已记录；正式展示闸门继续关闭。",
   },
   {
     table: "project_locations",
@@ -394,9 +396,9 @@ const regionalSchemaChecks = [
     table: "map_layers",
     priority: "最高优先级",
     why: "没有 map_layers，地图页无法管理哪些图层只是注册、哪些可以显示。",
-    fields: "layer_id, layer_name_zh, layer_name_en, layer_type, data_source_table, geometry_source_table, admin_level, country_coverage, indicator_or_variable, is_active, license_source, license_url, attribution_required, attribution_text, license_checked, license_review_status, license_review_date, license_decision_note, authoritative_topology_method, authoritative_topology_checked, topology_evidence_status, validation_manifest_file, manifest_status, expected_region_count, feature_count, nuts_code_count, region_id_candidate_count, detail_record_count, matched_region_count, unmatched_region_count, duplicate_region_id_count, duplicate_nuts_code_count, missing_geometry_count, manifest_detail_validation_status, region_id_final_matched, region_id_match_decision_status, region_id_match_evidence_status, visual_qa_passed, public_display_ready, is_ready_for_display, readiness_gate_status, visual_qa_started, feature_rendered_count, fit_bounds_checked, tooltip_checked, visual_overlap_checked, missing_geometry_checked, is_structural_sample, is_official_data, is_manual, is_pending, legend_type, legend_unit, color_scale, interaction_type, tooltip_fields, allowed_filters, source_requirement, quality_requirement, model_boundary, last_updated, notes",
+    fields: "layer_id, layer_name_zh, layer_name_en, layer_type, data_source_table, geometry_source_table, admin_level, country_coverage, indicator_or_variable, is_active, license_source, license_url, attribution_required, attribution_text, license_checked, license_review_status, license_review_date, license_decision_note, authoritative_topology_method, authoritative_topology_checked, topology_evidence_status, topology_validation_method, topology_validation_status, topology_validation_date, topology_decision_note, geometry_valid_count, invalid_geometry_count, duplicate_geometry_count, validation_manifest_file, manifest_status, expected_region_count, feature_count, nuts_code_count, region_id_candidate_count, detail_record_count, matched_region_count, unmatched_region_count, duplicate_region_id_count, duplicate_nuts_code_count, missing_geometry_count, manifest_detail_validation_status, region_id_final_matched, region_id_match_decision_status, region_id_match_evidence_status, visual_qa_passed, public_display_ready, is_ready_for_display, readiness_gate_status, visual_qa_started, feature_rendered_count, fit_bounds_checked, tooltip_checked, visual_overlap_checked, missing_geometry_checked, is_structural_sample, is_official_data, is_manual, is_pending, legend_type, legend_unit, color_scale, interaction_type, tooltip_fields, allowed_filters, source_requirement, quality_requirement, model_boundary, last_updated, notes",
     enums: "layer_type: boundary / choropleth / point / symbol / label / table_only / structural_sample；is_ready_for_display=false 的图层不得作为真实图层展示。",
-    status: "v0.20 登记 GISCO 许可判定并保持 is_ready_for_display=false；不启用风险图层、预测图层、真实党派支持率图层或中国经济暴露指数。",
+    status: "v0.21 登记权威拓扑验收判定并保持 is_ready_for_display=false；不启用风险图层、预测图层、真实党派支持率图层或中国经济暴露指数。",
   },
 ];
 
@@ -432,6 +434,13 @@ function regionalFieldMeaning(field: string) {
     topology_checked: "拓扑关系是否完成检查。",
     authoritative_topology_method: "计划或已经采用的权威拓扑验收方法。",
     topology_evidence_status: "拓扑证据处于基础 QA、待权威核验或已通过等状态。",
+    topology_validation_method: "实际执行并记录的权威拓扑核验方法。",
+    topology_validation_status: "权威拓扑核验判定状态。",
+    topology_validation_date: "权威拓扑核验记录日期。",
+    topology_decision_note: "几何、CRS、重复、自交与 manifest 交叉检查的判定说明。",
+    geometry_valid_count: "通过 Polygon / MultiPolygon、坐标、闭环、退化环和自交检查的几何要素数量。",
+    invalid_geometry_count: "未通过几何有效性检查的要素数量。",
+    duplicate_geometry_count: "检测到的重复几何要素数量。",
     validation_manifest_file: "validation manifest 文件路径；它是核验记录，不是正式地图图层。",
     manifest_status: "validation manifest 的创建与最终核验状态。",
     expected_region_count: "本轮主键匹配预期覆盖的区域总数。",
@@ -503,8 +512,9 @@ function regionalFieldMeaning(field: string) {
 }
 
 function regionalFieldAllowedStatus(table: string, field: string) {
-  if (table === "map_layers" && field === "is_ready_for_display") return "v0.20 必须保持 false";
+  if (table === "map_layers" && field === "is_ready_for_display") return "v0.21 必须保持 false";
   if (field === "license_review_status") return "verified_for_public_research_display / pending_official_terms_review / not_applicable";
+  if (field === "topology_validation_status") return "authoritative_topology_validated / pending_authoritative_topology_review";
   if (field === "readiness_gate_status") return "not_ready_for_public_display / ready_for_public_display";
   if (field === "file_status") return "sandbox_downloaded / not_downloaded / not_applicable";
   if (field === "filter_status") return "sandbox_filtered / not_filtered / not_applicable";
@@ -1772,6 +1782,13 @@ function RegionBoundaryTable({ rows }: { rows: RegionBoundaryRecord[] }) {
     "authoritative_topology_method",
     "authoritative_topology_checked",
     "topology_evidence_status",
+    "topology_validation_method",
+    "topology_validation_status",
+    "topology_validation_date",
+    "topology_decision_note",
+    "geometry_valid_count",
+    "invalid_geometry_count",
+    "duplicate_geometry_count",
     "coordinate_system",
     "region_code_match_status",
     "validation_manifest_file",
@@ -1860,6 +1877,13 @@ function RegionBoundaryTable({ rows }: { rows: RegionBoundaryRecord[] }) {
               <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{boundary.authoritative_topology_method}</td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={boundary.authoritative_topology_checked} /></td>
               <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{boundary.topology_evidence_status}</DictionaryToken></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{boundary.topology_validation_method}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{boundary.topology_validation_status}</DictionaryToken></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{boundary.topology_validation_date}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{boundary.topology_decision_note}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{boundary.geometry_valid_count}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{boundary.invalid_geometry_count}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{boundary.duplicate_geometry_count}</td>
               <td className="border-b border-[var(--line)] px-3 py-3">{boundary.coordinate_system}</td>
               <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{boundary.region_code_match_status}</DictionaryToken></td>
               <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{boundary.validation_manifest_file || "—"}</td>
@@ -2137,7 +2161,7 @@ function HungaryVisualQaSummaryCards({ summary }: { summary: HungaryNuts3VisualQ
       <p className="mt-3 rounded-xl border border-[var(--line)] bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--foreground)]">
         <span className="font-mono text-xs font-semibold text-[var(--accent)]">visual QA summary</span>
         <span className="mt-1 block">
-          visual_qa_started=true；feature_rendered_count=20；fit_bounds_checked=true；tooltip_checked=true；visual_overlap_checked=true；missing_geometry_checked=true；public_display_ready=false；is_ready_for_display=false。权威拓扑、许可和最终主键仍需复核。
+          visual_qa_started=true；feature_rendered_count=20；fit_bounds_checked=true；tooltip_checked=true；visual_overlap_checked=true；missing_geometry_checked=true。许可、最终主键和权威拓扑判定已分别记录；public_display_ready=false；is_ready_for_display=false。
         </span>
       </p>
       <dl className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
@@ -2165,7 +2189,7 @@ function HungaryValidationManifestSummaryCards({ summary }: { summary: HungaryNu
     ["region_id_final_matched", String(summary.region_id_final_matched), "20 条一对一主键匹配判定已记录"],
     ["region_id_match_decision_status", summary.region_id_match_decision_status, "最终主键匹配判定状态"],
     ["license_checked", String(summary.license_checked), "GISCO 许可已核验；仅限公开非商业研究展示"],
-    ["authoritative_topology_checked", `${summary.authoritative_topology_checked} / pending`, "权威拓扑验收未完成"],
+    ["authoritative_topology_checked", String(summary.authoritative_topology_checked), "权威拓扑验收判定已记录"],
     ["public_display_ready", String(summary.public_display_ready), "不具备公开展示资格"],
     ["is_ready_for_display", String(summary.is_ready_for_display), "真实地图图层未启用"],
   ] as const;
@@ -2177,7 +2201,7 @@ function HungaryValidationManifestSummaryCards({ summary }: { summary: HungaryNu
           <p className="eyebrow">v0.19 Final Region-ID Match Decision</p>
           <h3 className="mt-2 text-xl font-semibold">Hungary NUTS3 final region-id match decision summary</h3>
           <p className="mt-2 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-            真实 validation.json 已记录 20 条 NUTS3 一对一主键匹配判定。GISCO 许可已完成限定用途核验；最终主键匹配与许可判定均不代表权威拓扑或公开展示验收通过。
+            真实 validation.json 已记录 20 条 NUTS3 一对一主键匹配判定。GISCO 许可与权威拓扑验收也已分别记录；这些记录仍不代表公开展示验收通过。
           </p>
         </div>
         <div className="rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] px-4 py-3 lg:max-w-md">
@@ -2239,7 +2263,7 @@ function HungaryGiscoLicenseDecisionSummaryCards({ summary }: { summary: Hungary
     ["license_review_date", summary.license_review_date],
     ["license_decision_note", summary.license_decision_note],
     ["region_id_final_matched", String(summary.region_id_final_matched)],
-    ["authoritative_topology_checked", `${summary.authoritative_topology_checked} / pending`],
+    ["authoritative_topology_checked", String(summary.authoritative_topology_checked)],
     ["public_display_ready", String(summary.public_display_ready)],
     ["is_ready_for_display", String(summary.is_ready_for_display)],
   ] as const;
@@ -2268,7 +2292,53 @@ function HungaryGiscoLicenseDecisionSummaryCards({ summary }: { summary: Hungary
         核验官方 GISCO NUTS 页面
       </a>
       <p className="mt-4 rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--muted)]">
-        许可核验通过不等于权威拓扑验收通过，也不代表正式地图展示启用。authoritative_topology_checked=false，public_display_ready=false，is_ready_for_display=false。
+        许可核验不自动启用正式地图。权威拓扑判定已在 v0.21 单独记录；public_display_ready=false，is_ready_for_display=false。
+      </p>
+    </section>
+  );
+}
+
+function HungaryAuthoritativeTopologyDecisionSummaryCards({ summary }: { summary: HungaryAuthoritativeTopologyValidationDecisionSummary }) {
+  const fields = [
+    ["boundary_source_name", summary.boundary_source_name],
+    ["boundary_file", summary.boundary_file],
+    ["original_candidate_file", summary.original_candidate_file],
+    ["coordinate_system", summary.coordinate_system],
+    ["expected_region_count", String(summary.expected_region_count)],
+    ["feature_count", String(summary.feature_count)],
+    ["nuts_code_count", String(summary.nuts_code_count)],
+    ["missing_geometry_count", String(summary.missing_geometry_count)],
+    ["geometry_valid_count", String(summary.geometry_valid_count)],
+    ["invalid_geometry_count", String(summary.invalid_geometry_count)],
+    ["duplicate_geometry_count", String(summary.duplicate_geometry_count)],
+    ["topology_validation_method", summary.topology_validation_method],
+    ["topology_validation_status", summary.topology_validation_status],
+    ["topology_validation_date", summary.topology_validation_date],
+    ["topology_decision_note", summary.topology_decision_note],
+    ["region_id_final_matched", String(summary.region_id_final_matched)],
+    ["license_checked", String(summary.license_checked)],
+    ["authoritative_topology_checked", String(summary.authoritative_topology_checked)],
+    ["public_display_ready", String(summary.public_display_ready)],
+    ["is_ready_for_display", String(summary.is_ready_for_display)],
+  ] as const;
+
+  return (
+    <section className="mt-5 rounded-3xl border border-[var(--line)] bg-white/75 p-5">
+      <p className="eyebrow">v0.21 Authoritative Topology Validation Decision</p>
+      <h3 className="mt-2 text-xl font-semibold">Hungary authoritative topology validation decision summary</h3>
+      <p className="mt-2 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+        官方 GISCO Level 3 几何已与 20 条 manifest 明细交叉核验，并记录几何有效性、重复、自交、跨要素相交和 CRS 检查。该摘要属于既有 region_quality_checks，不新增第 18 张表。
+      </p>
+      <div className="mt-4 overflow-hidden rounded-2xl border border-[var(--line)] bg-white/70">
+        {fields.map(([field, value]) => (
+          <div key={field} className="grid gap-2 border-b border-[var(--line)] p-3 last:border-b-0 md:grid-cols-[1fr_2fr] md:items-start">
+            <span className="break-words font-mono text-xs font-semibold text-[var(--foreground)]">{field}</span>
+            <span className="break-words text-xs font-semibold leading-5 text-[var(--muted)]">{value}</span>
+          </div>
+        ))}
+      </div>
+      <p className="mt-4 rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--muted)]">
+        authoritative_topology_checked=true 仍不等于 public_display_ready=true 或 is_ready_for_display=true；正式地图展示继续未启用。
       </p>
     </section>
   );
@@ -2297,6 +2367,13 @@ function RegionQualityCheckTable({ rows }: { rows: RegionQualityCheckRecord[] })
     "authoritative_topology_method",
     "authoritative_topology_checked",
     "topology_evidence_status",
+    "topology_validation_method",
+    "topology_validation_status",
+    "topology_validation_date",
+    "topology_decision_note",
+    "geometry_valid_count",
+    "invalid_geometry_count",
+    "duplicate_geometry_count",
     "validation_manifest_file",
     "manifest_status",
     "expected_region_count",
@@ -2391,6 +2468,13 @@ function RegionQualityCheckTable({ rows }: { rows: RegionQualityCheckRecord[] })
               <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{check.authoritative_topology_method}</td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={check.authoritative_topology_checked} /></td>
               <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{check.topology_evidence_status}</DictionaryToken></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{check.topology_validation_method}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{check.topology_validation_status}</DictionaryToken></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{check.topology_validation_date}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{check.topology_decision_note}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{check.geometry_valid_count}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{check.invalid_geometry_count}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{check.duplicate_geometry_count}</td>
               <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{check.validation_manifest_file || "—"}</td>
               <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{check.manifest_status}</DictionaryToken></td>
               <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{check.expected_region_count}</td>
@@ -2648,6 +2732,13 @@ function MapLayerRegistryTable({ rows }: { rows: MapLayerRecord[] }) {
     "authoritative_topology_method",
     "authoritative_topology_checked",
     "topology_evidence_status",
+    "topology_validation_method",
+    "topology_validation_status",
+    "topology_validation_date",
+    "topology_decision_note",
+    "geometry_valid_count",
+    "invalid_geometry_count",
+    "duplicate_geometry_count",
     "validation_manifest_file",
     "manifest_status",
     "expected_region_count",
@@ -2731,6 +2822,13 @@ function MapLayerRegistryTable({ rows }: { rows: MapLayerRecord[] }) {
               <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{layer.authoritative_topology_method}</td>
               <td className="boolean-column border-b border-[var(--line)] px-3 py-3"><BooleanCell value={layer.authoritative_topology_checked} /></td>
               <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{layer.topology_evidence_status}</DictionaryToken></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{layer.topology_validation_method}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{layer.topology_validation_status}</DictionaryToken></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{layer.topology_validation_date}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{layer.topology_decision_note}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{layer.geometry_valid_count}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{layer.invalid_geometry_count}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{layer.duplicate_geometry_count}</td>
               <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{layer.validation_manifest_file || "—"}</td>
               <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{layer.manifest_status}</DictionaryToken></td>
               <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{layer.expected_region_count}</td>
@@ -2785,7 +2883,7 @@ function ResearchDataExportLinks() {
   const exportStatusCards = [
     { label: "CSV 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .csv 文件。" },
     { label: "JSON 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: "v0.20 Hungary GISCO license verification decision", note: "匈牙利 NUTS3 公开非商业研究展示许可判定已记录；正式真实地图、模型、预测、指数和风险分数仍未启用。" },
+    { label: "当前阶段", value: "v0.21 Hungary authoritative topology validation decision", note: "匈牙利 NUTS3 权威拓扑验收判定已记录；正式真实地图、模型、预测、指数和风险分数仍未启用。" },
   ];
 
   return (
@@ -3737,7 +3835,7 @@ export function DataCountryExplorer() {
                 <p className="eyebrow">Regional Map Data Structure</p>
                 <h3 className="mt-2 text-lg font-semibold">区域地图数据结构</h3>
                 <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
-                  v0.20 匈牙利 NUTS3 GISCO license verification decision 集中在这里；完整表体仍在下方研究数据结构总表按需展开。v0.8 的九个逻辑数据层继续保留，不删除、不合并。
+                  v0.21 匈牙利 NUTS3 authoritative topology validation decision 集中在这里；完整表体仍在下方研究数据结构总表按需展开。v0.8 的九个逻辑数据层继续保留，不删除、不合并。
                 </p>
               </div>
               <span className="text-xs text-[var(--muted)]">8 个区域地图数据表</span>
@@ -3764,7 +3862,7 @@ export function DataCountryExplorer() {
                   <p className="eyebrow">v0.15 Hungary Boundary License And Topology Evidence Record</p>
                   <h4 className="mt-2 text-base font-semibold">区域表字段级验收</h4>
                   <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
-                    八个区域表继续保留完整字段、枚举/状态和用途说明；v0.20 只在既有 region_sources、region_boundaries、region_quality_checks 与 map_layers 中记录许可判定，不新增第 18 张表。
+                    八个区域表继续保留完整字段、枚举/状态和用途说明；v0.21 只在既有 region_boundaries、region_quality_checks 与 map_layers 中记录权威拓扑判定，不新增第 18 张表。
                   </p>
                 </div>
                 <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">8 / 8 表体已实化</span>
@@ -3808,7 +3906,7 @@ export function DataCountryExplorer() {
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldSourceRequirement(schema.table, field)}</td>
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldMapDisplayRule(schema.table, field)}</td>
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldModelRule(field)}</td>
-                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">v0.15 许可与权威拓扑证据字段口径；不新增模型、预测、风险指数或中国经济暴露指数。</td>
+                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">v0.21 权威拓扑验收字段口径；不新增模型、预测、风险指数或中国经济暴露指数。</td>
                               </tr>
                             ))}
                           </tbody>
@@ -3854,7 +3952,7 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Research Registry Tables</p>
               <h2 className="mt-3 text-2xl font-semibold">研究数据结构总表</h2>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                以下十七个逻辑数据层常驻在数据页；v0.8 的九个逻辑数据层继续保留，v0.20 只在既有 region_sources、region_boundaries、region_quality_checks 与 map_layers 中同步匈牙利 NUTS3 GISCO 许可判定。它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。其中 regions 是区域主键层，region_boundaries 是边界来源、沙盒文件和展示状态登记层，region_indicators 是独立于国家级 indicators 的区域指标字典，region_observations 是区域经济数据主表，region_quality_checks 是区域质量验收层，region_sources 是区域来源字典，project_locations 是对华项目地区定位桥表，map_layers 是地图图层注册表。
+                以下十七个逻辑数据层常驻在数据页；v0.8 的九个逻辑数据层继续保留，v0.21 只在既有 region_boundaries、region_quality_checks 与 map_layers 中同步匈牙利 NUTS3 权威拓扑验收判定。它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。其中 regions 是区域主键层，region_boundaries 是边界来源、沙盒文件和展示状态登记层，region_indicators 是独立于国家级 indicators 的区域指标字典，region_observations 是区域经济数据主表，region_quality_checks 是区域质量验收层，region_sources 是区域来源字典，project_locations 是对华项目地区定位桥表，map_layers 是地图图层注册表。
               </p>
             </div>
             <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">按需展开</span>
@@ -3877,9 +3975,9 @@ export function DataCountryExplorer() {
               <RegionMetadataTable rows={regionMetadataRecords} />
             </DeferredDetails>
 
-            <DeferredDetails id="region-boundaries-layer-entry" title="region_boundaries：v0.20 GISCO license decision">
+            <DeferredDetails id="region-boundaries-layer-entry" title="region_boundaries：v0.21 authoritative topology decision">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                region_boundaries 已将 hu_nuts3_gisco_2024 标记为 sandbox_downloaded / sandbox_filtered / not_ready_for_display。v0.20 记录 verified_for_public_research_display；许可判定只覆盖公开非商业研究展示，权威拓扑仍未通过。
+                region_boundaries 已记录 hu_nuts3_gisco_2024 的 GISCO 许可、最终主键和权威拓扑验收判定；display_status 继续保持 not_ready_for_display。
               </p>
               <div className="mt-4 grid gap-3 rounded-2xl border border-[var(--line)] bg-white/65 p-4 text-xs leading-6 text-[var(--muted)]">
                 <p>
@@ -3892,9 +3990,9 @@ export function DataCountryExplorer() {
                 </p>
                 <p>
                   <span className="font-semibold text-[var(--foreground)]">validation.json 字段：</span>{" "}
-                  manifest_id、source_file、filtered_file、validation_file、country_id、admin_level、nuts_version、coordinate_system、expected_region_count、feature_count、nuts_code_count、region_id_candidate_count、detail_record_count、matched_region_count、unmatched_region_count、duplicate_region_id_count、duplicate_nuts_code_count、missing_geometry_count、manifest_status、manifest_detail_validation_status、region_records、public_display_ready、is_ready_for_display、notes。
+                  manifest_id、source_file、filtered_file、validation_file、country_id、admin_level、nuts_version、coordinate_system、expected_region_count、feature_count、nuts_code_count、geometry_valid_count、invalid_geometry_count、duplicate_geometry_count、topology_validation_method、topology_validation_status、topology_validation_date、topology_decision_note、region_id_candidate_count、detail_record_count、matched_region_count、unmatched_region_count、duplicate_region_id_count、duplicate_nuts_code_count、missing_geometry_count、manifest_status、manifest_detail_validation_status、region_records、public_display_ready、is_ready_for_display、notes。
                 </p>
-                <p>当前边界：基础拓扑 QA 已执行；权威拓扑验收与最终主键核验尚未完成，ready_for_display 必须保持 false。</p>
+                <p>当前边界：权威拓扑验收与最终主键核验已记录；正式展示仍需下一阶段单独执行 public display readiness gate。</p>
               </div>
               <RegionBoundaryTable rows={regionBoundaryRecords} />
             </DeferredDetails>
@@ -3913,11 +4011,12 @@ export function DataCountryExplorer() {
               <RegionObservationTable rows={regionObservationRecords} />
             </DeferredDetails>
 
-            <DeferredDetails id="region-quality-checks-layer-entry" title="region_quality_checks：v0.20 GISCO license decision summary">
+            <DeferredDetails id="region-quality-checks-layer-entry" title="region_quality_checks：v0.21 authoritative topology decision summary">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                region_quality_checks 用于提前验收区域数据是否具备边界、许可、来源、区域代码、数值、单位和地图图层准备条件。v0.20 在同一说明区记录 Hungary GISCO license verification decision；不展开新的逻辑表。
+                region_quality_checks 用于提前验收区域数据是否具备边界、许可、来源、区域代码、数值、单位和地图图层准备条件。v0.21 在同一说明区记录 Hungary authoritative topology validation decision；不展开新的逻辑表。
               </p>
               <HungaryGiscoLicenseDecisionSummaryCards summary={hungaryGiscoLicenseVerificationDecisionSummary} />
+              <HungaryAuthoritativeTopologyDecisionSummaryCards summary={hungaryAuthoritativeTopologyValidationDecisionSummary} />
               <HungarySandboxQaSummaryCards summary={hungaryNuts3SandboxQaSummary} />
               <HungaryVisualQaSummaryCards summary={hungaryNuts3VisualQaSummary} />
               <RegionQualitySummaryCards summary={regionQualitySummary} />
@@ -3938,9 +4037,9 @@ export function DataCountryExplorer() {
               <ProjectLocationTable rows={projectLocationRecords} />
             </DeferredDetails>
 
-            <DeferredDetails id="map-layers-layer-entry" title="map_layers：v0.20 license decision 展示闸门">
+            <DeferredDetails id="map-layers-layer-entry" title="map_layers：v0.21 topology decision 展示闸门">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                map_layers 只注册未来地图工作台的可控图层。v0.20 的 hu_nuts3_boundary_pilot 已同步 GISCO 许可判定，但 authoritative topology 尚未完成，因此 public_display_ready=false、is_ready_for_display=false、readiness_gate_status=not_ready_for_public_display。
+                map_layers 只注册未来地图工作台的可控图层。v0.21 的 hu_nuts3_boundary_pilot 已同步权威拓扑判定；public_display_ready=false、is_ready_for_display=false、readiness_gate_status=not_ready_for_public_display，正式图层仍未启用。
               </p>
               <MapLayerRegistryTable rows={mapLayerRecords} />
             </DeferredDetails>
@@ -3994,7 +4093,7 @@ export function DataCountryExplorer() {
 
             <DeferredDetails id="data-export-entry" title="数据导出与接口准备">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.20 Hungary GISCO license verification decision；既有 17 个逻辑层保持不变，不提供模型 API。
+                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.21 Hungary authoritative topology validation decision；既有 17 个逻辑层保持不变，不提供模型 API。
                 当前导出对象包括 countries、regions、region_boundaries、region_indicators、region_observations、region_quality_checks、region_sources、project_locations、map_layers、indicators、sources、observations、data_quality_checks、derived_comparisons、china_projects、china_exposure_candidates 和 methodology_rules。
               </p>
               <ResearchDataExportLinks />

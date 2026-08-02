@@ -39,6 +39,13 @@ export type RegionBoundaryRecord = {
   authoritative_topology_method: string;
   authoritative_topology_checked: boolean;
   topology_evidence_status: string;
+  topology_validation_method: string;
+  topology_validation_status: string;
+  topology_validation_date: string;
+  topology_decision_note: string;
+  geometry_valid_count: number;
+  invalid_geometry_count: number;
+  duplicate_geometry_count: number;
   coordinate_system: string;
   file_path_or_url: string;
   region_code_match_status: string;
@@ -110,9 +117,16 @@ const hungaryPilotBoundary: RegionBoundaryRecord = {
   geometry_available: true,
   geometry_simplified: false,
   topology_checked: true,
-  authoritative_topology_method: pendingAuthoritativeTopologyMethod,
-  authoritative_topology_checked: false,
-  topology_evidence_status: "sandbox_basic_topology_passed_pending_authoritative_validation",
+  authoritative_topology_method: hungaryBoundaryValidation.topology_validation_method,
+  authoritative_topology_checked: hungaryBoundaryValidation.authoritative_topology_checked,
+  topology_evidence_status: hungaryBoundaryValidation.topology_validation_status,
+  topology_validation_method: hungaryBoundaryValidation.topology_validation_method,
+  topology_validation_status: hungaryBoundaryValidation.topology_validation_status,
+  topology_validation_date: hungaryBoundaryValidation.topology_validation_date,
+  topology_decision_note: hungaryBoundaryValidation.topology_decision_note,
+  geometry_valid_count: hungaryBoundaryValidation.geometry_valid_count,
+  invalid_geometry_count: hungaryBoundaryValidation.invalid_geometry_count,
+  duplicate_geometry_count: hungaryBoundaryValidation.duplicate_geometry_count,
   coordinate_system: "EPSG:4326",
   file_path_or_url: hungarySandboxFileUrl,
   region_code_match_status: hungaryBoundaryValidation.region_id_match_decision_status,
@@ -138,7 +152,7 @@ const hungaryPilotBoundary: RegionBoundaryRecord = {
   source_status: "官方来源",
   last_checked: "2026-08-02",
   notes:
-    "v0.20 GISCO 许可核验判定已记录；20 条代码、候选主键和几何要素一对一匹配。许可仅覆盖公开非商业研究展示，权威拓扑仍待核验，公开展示资格未通过。",
+    "v0.21 GISCO 权威拓扑验收判定已记录；20 条官方 Level 3 几何、manifest 与主键交叉检查通过。正式展示仍需下一阶段单独执行 public display readiness gate。",
 };
 
 function v4Boundary(region: (typeof regionMetadataRecords)[number]): RegionBoundaryRecord {
@@ -173,6 +187,13 @@ function v4Boundary(region: (typeof regionMetadataRecords)[number]): RegionBound
     authoritative_topology_method: pendingAuthoritativeTopologyMethod,
     authoritative_topology_checked: false,
     topology_evidence_status: "not_started",
+    topology_validation_method: "pending_authoritative_topology_review",
+    topology_validation_status: "pending_authoritative_topology_review",
+    topology_validation_date: "pending",
+    topology_decision_note: "尚未选择和核验具体国家边界文件。",
+    geometry_valid_count: 0,
+    invalid_geometry_count: 0,
+    duplicate_geometry_count: 0,
     coordinate_system: "EPSG:4326 候选；源数据也提供 EPSG:3035 和 EPSG:3857。",
     file_path_or_url: giscoSourceUrl,
     region_code_match_status: region.country_id === "hungary" ? "pilot_pending_region_code_match" : "pending_region_code_match",
@@ -235,6 +256,13 @@ function pendingBoundary(region: (typeof regionMetadataRecords)[number]): Region
     authoritative_topology_method: "待确认",
     authoritative_topology_checked: false,
     topology_evidence_status: "待接入",
+    topology_validation_method: "pending_authoritative_topology_review",
+    topology_validation_status: "pending_authoritative_topology_review",
+    topology_validation_date: "pending",
+    topology_decision_note: "边界来源和几何文件尚未接入。",
+    geometry_valid_count: 0,
+    invalid_geometry_count: 0,
+    duplicate_geometry_count: 0,
     coordinate_system: "待接入",
     file_path_or_url: "",
     region_code_match_status: "待接入",

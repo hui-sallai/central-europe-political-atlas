@@ -30,6 +30,7 @@ const { regionBoundaryRecords } = require("../src/lib/regionBoundaries.ts");
 const { regionIndicatorRecords } = require("../src/lib/regionIndicators.ts");
 const { regionObservationRecords } = require("../src/lib/regionObservations.ts");
 const {
+  hungaryAuthoritativeTopologyValidationDecisionSummary,
   hungaryGiscoLicenseVerificationDecisionSummary,
   hungaryNuts3ReadinessGateSummary,
   hungaryNuts3RegionIdMatchSummary,
@@ -1053,6 +1054,22 @@ function methodologyRuleRecords() {
       last_updated: "2026-08-02",
       notes: "license_review_status=verified_for_public_research_display；商业使用需另行联系 EuroGeographics；正式地图展示仍未启用。",
     },
+    {
+      rule_id: "hungary_authoritative_topology_validation_decision",
+      rule_category: "区域边界准入规则",
+      rule_name: "匈牙利 NUTS3 权威拓扑验收判定规则",
+      rule_description: "v0.21 基于 GISCO NUTS 2024 Level 3 官方几何、20 条 validation manifest 明细和可复现几何检查，记录权威拓扑验收判定；验收通过不自动启用正式地图。",
+      applies_to: "region_boundaries,region_quality_checks,map_layers,map_page,hungary_country_page,methodology_page",
+      required_fields: ["topology_validation_method", "topology_validation_status", "topology_validation_date", "topology_decision_note", "geometry_valid_count", "invalid_geometry_count", "duplicate_geometry_count", "coordinate_system", "authoritative_topology_checked", "region_id_final_matched", "license_checked", "public_display_ready", "is_ready_for_display"],
+      allowed_statuses: ["authoritative_topology_validated", "pending_authoritative_topology_review", "not_ready_for_public_display"],
+      excluded_statuses: ["正式地图已启用", "风险图层", "预测图层", "真实党派支持率图层", "中国经济暴露指数", "区域评分"],
+      source_requirement: "权威拓扑判定必须使用 Eurostat GISCO NUTS 2024 Level 3 官方几何，并与 validation manifest 的 20 条记录交叉核对。",
+      quality_requirement: "Polygon/MultiPolygon 类型、空几何、坐标范围、闭环、退化环、自交、明显跨要素相交、重复几何、CRS 和 manifest 数量必须有明确记录。",
+      model_boundary: "权威拓扑验收不生成模型、风险、预测、指数或区域评分。",
+      export_boundary: "随既有 region_boundaries、region_quality_checks、map_layers 和 methodology_rules 导出；不新增第 18 张表。",
+      last_updated: "2026-08-02",
+      notes: "authoritative_topology_checked=true；public_display_ready=false；is_ready_for_display=false；正式展示仍需下一阶段单独准入。",
+    },
   ];
 }
 
@@ -1183,13 +1200,13 @@ writeLayer("countries", countryRecords, {
   relation_note: "All observations, projects, derived comparisons, and exposure candidates should reference country_id.",
 });
 writeLayer("regions", regionMetadataRecords, {
-  scope: "v0.19 regions metadata. Hungary NUTS3 records the final one-to-one region-id match decision while licence, authoritative topology, and public display remain pending; non-V4 countries keep national-level pending placeholders.",
+  scope: "v0.21 regions metadata. Hungary NUTS3 records final region-id, licence, and authoritative topology decisions while public display remains disabled; non-V4 countries keep national-level pending placeholders.",
   primary_key: "region_id",
   relation_note: "Every region references country_id from countries. ADM2 is intentionally excluded from the current boundary verification pass.",
   model_boundary: "Region metadata only. No regional risk layer, forecast, election model, or ADM2 analysis is generated.",
 });
 writeLayer("region_boundaries", regionBoundaryRecords, {
-  scope: "v0.19 final region-id match decision registry. hu_nuts3_gisco_2024 records final_match_recorded while remaining not_ready_for_display.",
+  scope: "v0.21 authoritative topology validation registry. hu_nuts3_gisco_2024 records authoritative_topology_validated while remaining not_ready_for_display.",
   primary_key: "boundary_id",
   relation_note: "Every boundary record references region_id from regions and country_id from countries.",
   validation_note: "Records track source credibility, public display licence, simplification readiness, front-end suitability, region_id matching, admin codes, and historical boundary issues before geometry ingestion.",
@@ -1210,7 +1227,7 @@ writeLayer("region_observations", regionObservationRecords, {
   model_boundary: "Observation structure only. Pending rows do not enter map layers, regional comparison, or future model candidate inputs.",
 });
 writeLayer("region_quality_checks", regionQualityCheckRecords, {
-  scope: "v0.19 regional data quality checks. Hungary NUTS3 records final region-id matching as passed while licence, authoritative topology, and formal display remain pending.",
+  scope: "v0.21 regional data quality checks. Hungary NUTS3 records final region-id matching, GISCO licence, and authoritative topology as passed while formal display remains disabled.",
   primary_key: "region_check_id",
   summary: regionQualitySummary,
   sandbox_qa_summary: hungaryNuts3SandboxQaSummary,
@@ -1219,12 +1236,13 @@ writeLayer("region_quality_checks", regionQualityCheckRecords, {
   region_id_match_summary: hungaryNuts3RegionIdMatchSummary,
   validation_manifest_summary: hungaryNuts3ValidationManifestSummary,
   license_verification_decision_summary: hungaryGiscoLicenseVerificationDecisionSummary,
+  authoritative_topology_validation_decision_summary: hungaryAuthoritativeTopologyValidationDecisionSummary,
   relation_note: "Every check references region_id from regions and region_indicator_id from region_indicators. Boundary readiness is cross-checked through region_boundaries.",
   validation_note: "Basic topology QA does not replace authoritative validation. A 20/20 pre-match does not set region_id_matched=true, and pending rows remain explicit.",
   model_boundary: "Quality checks only. No regional model, risk layer, forecast, election prediction, or live boundary rendering is generated.",
 });
 writeLayer("region_sources", regionSourceRecords, {
-  scope: "v0.15 regional source dictionary. GISCO NUTS 2024 records the official licence source and attribution text while licence verification remains pending for public display.",
+  scope: "v0.21 regional source dictionary. GISCO NUTS 2024 records the verified public non-commercial research display terms and required attribution.",
   primary_key: "region_source_id",
   relation_note: "Future region_observations, region_boundaries, election regional data, and project_locations should reference region_source_id where applicable.",
   validation_note: "Licence status is mandatory because regional maps and boundaries may involve public display, simplification, redistribution, and commercial-use constraints.",
@@ -1238,7 +1256,7 @@ writeLayer("project_locations", projectLocationRecords, {
   model_boundary: "Location bridge only. No China exposure index, regional risk layer, forecast, or live project map layer is generated.",
 });
 writeLayer("map_layers", mapLayerRecords, {
-  scope: "v0.19 map layer registry. hu_nuts3_boundary_pilot records final_match_recorded; is_ready_for_display and public_display_ready remain false.",
+  scope: "v0.21 map layer registry. hu_nuts3_boundary_pilot records authoritative_topology_validated; is_ready_for_display and public_display_ready remain false.",
   primary_key: "layer_id",
   relation_note: "Each layer declares its data_source_table, geometry_source_table, indicator_or_variable, tooltip fields, filters, source requirements, and quality requirements.",
   validation_note: "All registered real boundary and analytical layers keep is_ready_for_display=false until boundary, source, observation, project-location, and quality checks pass.",

@@ -1,10 +1,10 @@
 import { DataLayerOverview } from "@/components/DataLayerOverview";
 import { InteractiveMapExplorer } from "@/components/InteractiveMapExplorer";
 
-const HOME_STAGE = "v0.20 Hungary GISCO license verification decision";
+const HOME_STAGE = "v0.21 Hungary authoritative topology validation decision";
 const HOME_STATUS = [
   ["当前阶段", HOME_STAGE],
-  ["区域地图数据", "匈牙利 NUTS3 边界许可核验判定中"],
+  ["区域地图数据", "匈牙利 NUTS3 权威拓扑验收判定已记录"],
   ["真实地图展示", "未启用"],
   ["模型层", "未启用"],
 ] as const;

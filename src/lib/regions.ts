@@ -193,7 +193,7 @@ function v4Region(record: Omit<RegionMetadataRecord, keyof typeof v4RegionDefaul
     source_status: v4RegionDefaults.source_status,
     last_updated: v4RegionDefaults.last_updated,
     notes: isHungaryPilot
-      ? "v0.19 Hungary NUTS3 final region-id match decision 已记录；20 条 NUTS code 与 region_id candidate 均唯一对应几何要素。许可与权威拓扑仍待核验，真实地图展示未启用。"
+      ? "v0.21 Hungary NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式地图展示仍未启用。"
       : v4RegionDefaults.notes,
   };
 }

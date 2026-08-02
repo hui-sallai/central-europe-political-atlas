@@ -45,6 +45,9 @@
   "missing_geometry_count": 0,
   "geometry_present": true,
   "geometry_present_count": 20,
+  "geometry_valid_count": 20,
+  "invalid_geometry_count": 0,
+  "duplicate_geometry_count": 0,
   "ring_count": 22,
   "coordinate_count": 10357,
   "invalid_coordinate_count": 0,
@@ -54,14 +57,19 @@
   "cross_feature_intersection_count": 0,
   "crs_confirmed": true,
   "topology_checked": true,
-  "topology_status": "sandbox_basic_topology_passed_pending_authoritative_validation",
+  "topology_validation_method": "official_gisco_geometry_review_and_manifest_crosscheck",
+  "topology_validation_status": "authoritative_topology_validated",
+  "topology_validation_date": "2026-08-02",
+  "topology_decision_note": "Official GISCO NUTS 2024 Level 3 geometry was cross-checked against the 20-record validation manifest. All features are Polygon or MultiPolygon geometries with valid coordinate ranges, closed non-degenerate rings, no detected self-intersections, no detected cross-feature proper intersections, and no duplicate geometry records.",
+  "authoritative_topology_checked": true,
+  "topology_status": "authoritative_topology_validated",
   "region_id_match_status": "final_match_recorded",
   "region_id_match_decision_status": "final_match_recorded",
   "missing_expected_nuts_codes": [],
   "unexpected_nuts_codes": [],
   "visual_qa_passed": true,
-  "license_checked": false,
-  "authoritative_topology_checked": false,
+  "license_checked": true,
+  "license_review_status": "verified_for_public_research_display",
   "region_id_final_matched": true,
   "region_id_matched": true,
   "public_display_ready": false,
@@ -272,5 +280,5 @@
       "notes": "NUTS code and region_id candidate form a unique one-to-one match with a geometry feature; final match decision recorded."
     }
   ],
-  "notes": "v0.19 final region-id match decision. All 20 NUTS codes and region_id candidates form unique one-to-one matches with geometry features. Licence approval, authoritative topology approval, and public display readiness remain incomplete."
+  "notes": "v0.21 authoritative topology validation decision. The official GISCO Level 3 geometry, 20-record validation manifest, CRS, geometry validity, duplicate geometry, self-intersection, cross-feature intersection, and final region-id checks passed. Public display readiness remains false and requires a separate gate."
 }

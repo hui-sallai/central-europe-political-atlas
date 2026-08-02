@@ -2,7 +2,7 @@
   "schema_version": "research-data-v0.1",
   "generated_at": "2026-07-27",
   "data_type": "methodology_rules",
-  "record_count": 22,
+  "record_count": 23,
   "model_boundary": "Rules and boundaries only; no model, forecast, or scenario output.",
   "records": [
     {
@@ -713,6 +713,47 @@
       "export_boundary": "随既有四个区域数据层和 methodology_rules 导出；不新增第 18 张表。",
       "last_updated": "2026-08-02",
       "notes": "license_review_status=verified_for_public_research_display；商业使用需另行联系 EuroGeographics；正式地图展示仍未启用。"
+    },
+    {
+      "rule_id": "hungary_authoritative_topology_validation_decision",
+      "rule_category": "区域边界准入规则",
+      "rule_name": "匈牙利 NUTS3 权威拓扑验收判定规则",
+      "rule_description": "v0.21 基于 GISCO NUTS 2024 Level 3 官方几何、20 条 validation manifest 明细和可复现几何检查，记录权威拓扑验收判定；验收通过不自动启用正式地图。",
+      "applies_to": "region_boundaries,region_quality_checks,map_layers,map_page,hungary_country_page,methodology_page",
+      "required_fields": [
+        "topology_validation_method",
+        "topology_validation_status",
+        "topology_validation_date",
+        "topology_decision_note",
+        "geometry_valid_count",
+        "invalid_geometry_count",
+        "duplicate_geometry_count",
+        "coordinate_system",
+        "authoritative_topology_checked",
+        "region_id_final_matched",
+        "license_checked",
+        "public_display_ready",
+        "is_ready_for_display"
+      ],
+      "allowed_statuses": [
+        "authoritative_topology_validated",
+        "pending_authoritative_topology_review",
+        "not_ready_for_public_display"
+      ],
+      "excluded_statuses": [
+        "正式地图已启用",
+        "风险图层",
+        "预测图层",
+        "真实党派支持率图层",
+        "中国经济暴露指数",
+        "区域评分"
+      ],
+      "source_requirement": "权威拓扑判定必须使用 Eurostat GISCO NUTS 2024 Level 3 官方几何，并与 validation manifest 的 20 条记录交叉核对。",
+      "quality_requirement": "Polygon/MultiPolygon 类型、空几何、坐标范围、闭环、退化环、自交、明显跨要素相交、重复几何、CRS 和 manifest 数量必须有明确记录。",
+      "model_boundary": "权威拓扑验收不生成模型、风险、预测、指数或区域评分。",
+      "export_boundary": "随既有 region_boundaries、region_quality_checks、map_layers 和 methodology_rules 导出；不新增第 18 张表。",
+      "last_updated": "2026-08-02",
+      "notes": "authoritative_topology_checked=true；public_display_ready=false；is_ready_for_display=false；正式展示仍需下一阶段单独准入。"
     }
   ]
 }
