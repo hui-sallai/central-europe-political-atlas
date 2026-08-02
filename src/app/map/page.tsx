@@ -1,6 +1,7 @@
 import { InteractiveMapExplorer } from "@/components/InteractiveMapExplorer";
 import { HungaryBoundaryVisualQaSandbox } from "@/components/HungaryBoundaryVisualQaSandbox";
 import {
+  hungaryGiscoLicenseVerificationDecisionSummary,
   hungaryNuts3ReadinessGateSummary,
   hungaryNuts3SandboxQaSummary,
   hungaryNuts3ValidationManifestSummary,
@@ -20,8 +21,8 @@ export default function MapPage() {
         <h2 className="mt-2 text-2xl font-semibold">区域地图数据准备状态</h2>
         <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           {[
-            ["当前阶段", "v0.19 Hungary final region-id match decision"],
-            ["区域地图数据", "匈牙利 NUTS3 最终主键匹配判定已记录"],
+            ["当前阶段", "v0.20 Hungary GISCO license verification decision"],
+            ["区域地图数据", "匈牙利 NUTS3 边界许可核验判定中"],
             ["V4 ADM1 / NUTS2 边界", "待接入"],
             ["区域统计数据", "待接入"],
             ["对华项目地区定位", "准备中"],
@@ -151,7 +152,7 @@ export default function MapPage() {
           </table>
         </div>
         <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-          许可来源和署名要求已经记录，但这不等于许可核验完成。权威拓扑验收与最终主键匹配全部通过前，public_display_ready 和 is_ready_for_display 保持 false。
+          许可来源、署名要求和公开非商业研究展示条件已经核验；权威拓扑验收完成前，public_display_ready 和 is_ready_for_display 保持 false。
         </p>
       </section>
 
@@ -175,7 +176,7 @@ export default function MapPage() {
                 ["missing_geometry_count", String(hungaryNuts3ValidationManifestSummary.missing_geometry_count)],
                 ["region_id_final_matched", String(hungaryNuts3ValidationManifestSummary.region_id_final_matched)],
                 ["region_id_match_decision_status", hungaryNuts3ValidationManifestSummary.region_id_match_decision_status],
-                ["license_checked", `${hungaryNuts3ValidationManifestSummary.license_checked} / pending`],
+                ["license_checked", String(hungaryNuts3ValidationManifestSummary.license_checked)],
                 ["authoritative_topology_checked", `${hungaryNuts3ValidationManifestSummary.authoritative_topology_checked} / pending`],
                 ["public_display_ready", String(hungaryNuts3ValidationManifestSummary.public_display_ready)],
                 ["is_ready_for_display", String(hungaryNuts3ValidationManifestSummary.is_ready_for_display)],
@@ -190,6 +191,42 @@ export default function MapPage() {
         </div>
         <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--muted)]">
           最终主键匹配判定通过不等于许可通过，不等于权威拓扑验收通过，也不代表正式地图展示启用。
+        </p>
+      </section>
+
+      <section className="mt-6 rounded-3xl border border-[var(--line)] bg-white/65 p-5">
+        <p className="eyebrow">v0.20 Hungary GISCO License Verification Decision</p>
+        <h2 className="mt-2 text-2xl font-semibold">v0.20 GISCO license verification decision</h2>
+        <div className="mt-4 overflow-x-auto rounded-2xl border border-[var(--line)] bg-white/70">
+          <table className="min-w-full border-collapse text-left text-sm">
+            <tbody>
+              {[
+                ["boundary_source_name", hungaryGiscoLicenseVerificationDecisionSummary.boundary_source_name],
+                ["boundary_file", hungaryGiscoLicenseVerificationDecisionSummary.boundary_file],
+                ["original_candidate_file", hungaryGiscoLicenseVerificationDecisionSummary.original_candidate_file],
+                ["license_source", hungaryGiscoLicenseVerificationDecisionSummary.license_source],
+                ["license_url", hungaryGiscoLicenseVerificationDecisionSummary.license_url],
+                ["attribution_required", String(hungaryGiscoLicenseVerificationDecisionSummary.attribution_required)],
+                ["attribution_text", hungaryGiscoLicenseVerificationDecisionSummary.attribution_text],
+                ["license_review_status", hungaryGiscoLicenseVerificationDecisionSummary.license_review_status],
+                ["license_checked", String(hungaryGiscoLicenseVerificationDecisionSummary.license_checked)],
+                ["license_review_date", hungaryGiscoLicenseVerificationDecisionSummary.license_review_date],
+                ["license_decision_note", hungaryGiscoLicenseVerificationDecisionSummary.license_decision_note],
+                ["region_id_final_matched", String(hungaryGiscoLicenseVerificationDecisionSummary.region_id_final_matched)],
+                ["authoritative_topology_checked", `${hungaryGiscoLicenseVerificationDecisionSummary.authoritative_topology_checked} / pending`],
+                ["public_display_ready", String(hungaryGiscoLicenseVerificationDecisionSummary.public_display_ready)],
+                ["is_ready_for_display", String(hungaryGiscoLicenseVerificationDecisionSummary.is_ready_for_display)],
+              ].map(([field, value]) => (
+                <tr key={field} className="border-b border-[var(--line)] last:border-b-0">
+                  <th className="w-72 px-4 py-3 font-mono text-xs font-semibold text-[var(--foreground)]">{field}</th>
+                  <td className="break-words px-4 py-3 font-semibold leading-6 text-[var(--muted)]">{value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="mt-4 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+          许可核验通过不等于权威拓扑验收通过，也不代表正式地图展示启用。正式地图展示仍需 authoritative topology 完成后再进入下一阶段。
         </p>
       </section>
 

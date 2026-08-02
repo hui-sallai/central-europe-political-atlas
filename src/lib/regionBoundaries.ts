@@ -1,4 +1,5 @@
 import { regionMetadataRecords } from "./regions";
+import { giscoLicenseVerificationDecision, pendingGiscoLicenseReview } from "./giscoLicenseVerification";
 import hungaryBoundaryValidation from "../../public/data/boundaries/sandbox/hu_nuts3_gisco_2024.validation.json";
 
 export type BoundaryFormat = "GeoJSON" | "TopoJSON" | "Shapefile" | "PMTiles" | "Vector Tiles" | "Not available";
@@ -22,6 +23,9 @@ export type RegionBoundaryRecord = {
   attribution_required: boolean;
   attribution_text: string;
   license_checked: boolean;
+  license_review_status: string;
+  license_review_date: string;
+  license_decision_note: string;
   boundary_format: BoundaryFormat;
   geometry_format: string;
   file_selected: boolean;
@@ -69,9 +73,9 @@ const giscoHungarySandboxSourceUrl =
 const hungarySandboxFileUrl = "/data/boundaries/sandbox/hu_nuts3_gisco_2024.geojson";
 const giscoLicense =
   "非商业使用；必须标注 © EuroGeographics for the administrative boundaries；商业使用需联系 EuroGeographics。";
-const giscoLicenseSource = "European Commission / Eurostat GISCO geodata and NUTS usage conditions";
-const giscoLicenseUrl = "https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units/territorial-units-statistics";
-const giscoAttribution = "Source: European Commission – Eurostat/GISCO; administrative boundaries: © EuroGeographics.";
+const giscoLicenseSource = giscoLicenseVerificationDecision.license_source;
+const giscoLicenseUrl = giscoLicenseVerificationDecision.license_url;
+const giscoAttribution = giscoLicenseVerificationDecision.attribution_text;
 const pendingAuthoritativeTopologyMethod =
   "待确认：拟以 GISCO NUTS 2024 官方几何与元数据为基准，复核要素数、NUTS code、几何有效性、共享边界、重叠与缝隙。";
 
@@ -87,12 +91,15 @@ const hungaryPilotBoundary: RegionBoundaryRecord = {
   boundary_source_name: "Eurostat GISCO NUTS 2024",
   boundary_source_url: giscoHungarySandboxSourceUrl,
   boundary_source_type: "EU official statistical geodata",
-  boundary_license: "许可来源与署名要求已记录；适用范围、条款接受和公开展示资格仍待最终核验。",
+  boundary_license: "公开非商业研究展示许可已核验；必须显示指定署名，商业使用需另行联系 EuroGeographics。",
   license_source: giscoLicenseSource,
   license_url: giscoLicenseUrl,
   attribution_required: true,
   attribution_text: giscoAttribution,
-  license_checked: false,
+  license_checked: giscoLicenseVerificationDecision.license_checked,
+  license_review_status: giscoLicenseVerificationDecision.license_review_status,
+  license_review_date: giscoLicenseVerificationDecision.license_review_date,
+  license_decision_note: giscoLicenseVerificationDecision.license_decision_note,
   boundary_format: "GeoJSON",
   geometry_format: "GeoJSON",
   file_selected: true,
@@ -131,7 +138,7 @@ const hungaryPilotBoundary: RegionBoundaryRecord = {
   source_status: "官方来源",
   last_checked: "2026-08-02",
   notes:
-    "v0.19 最终主键匹配判定已记录；20 条代码、候选主键和几何要素一对一匹配。许可与权威拓扑仍待核验，公开展示资格未通过。",
+    "v0.20 GISCO 许可核验判定已记录；20 条代码、候选主键和几何要素一对一匹配。许可仅覆盖公开非商业研究展示，权威拓扑仍待核验，公开展示资格未通过。",
 };
 
 function v4Boundary(region: (typeof regionMetadataRecords)[number]): RegionBoundaryRecord {
@@ -150,6 +157,9 @@ function v4Boundary(region: (typeof regionMetadataRecords)[number]): RegionBound
     attribution_required: true,
     attribution_text: giscoAttribution,
     license_checked: false,
+    license_review_status: pendingGiscoLicenseReview.license_review_status,
+    license_review_date: pendingGiscoLicenseReview.license_review_date,
+    license_decision_note: pendingGiscoLicenseReview.license_decision_note,
     boundary_format: "GeoJSON",
     geometry_format: "GeoJSON",
     file_selected: false,
@@ -209,6 +219,9 @@ function pendingBoundary(region: (typeof regionMetadataRecords)[number]): Region
     attribution_required: false,
     attribution_text: "待接入",
     license_checked: false,
+    license_review_status: "not_applicable",
+    license_review_date: "",
+    license_decision_note: "未接入具体边界来源，不能作出许可判定。",
     boundary_format: "Not available",
     geometry_format: "Not available",
     file_selected: false,

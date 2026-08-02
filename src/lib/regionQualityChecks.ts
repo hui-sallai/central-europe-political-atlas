@@ -1,6 +1,7 @@
 import { regionBoundaryRecords } from "./regionBoundaries";
 import { regionObservationRecords } from "./regionObservations";
 import { regionMetadataRecords } from "./regions";
+import { giscoLicenseVerificationDecision } from "./giscoLicenseVerification";
 import hungaryBoundaryValidation from "../../public/data/boundaries/sandbox/hu_nuts3_gisco_2024.validation.json";
 
 export type RegionQualityStatus = "通过" | "部分通过" | "待接入" | "需复核" | "不进入分析";
@@ -21,6 +22,9 @@ export type RegionQualityCheckRecord = {
   attribution_required: boolean;
   attribution_text: string;
   license_checked: boolean;
+  license_review_status: string;
+  license_review_date: string;
+  license_decision_note: string;
   authoritative_topology_method: string;
   authoritative_topology_checked: boolean;
   topology_evidence_status: string;
@@ -124,6 +128,9 @@ export type HungaryNuts3ReadinessGateSummary = {
   attribution_required: boolean;
   attribution_text: string;
   license_checked: boolean;
+  license_review_status: string;
+  license_review_date: string;
+  license_decision_note: string;
   authoritative_topology_method: string;
   authoritative_topology_checked: boolean;
   topology_evidence_status: string;
@@ -176,6 +183,24 @@ export type HungaryNuts3ValidationManifestSummary = {
   authoritative_topology_checked: boolean;
   region_id_final_matched: boolean;
   region_id_match_decision_status: string;
+  public_display_ready: boolean;
+  is_ready_for_display: boolean;
+};
+
+export type HungaryGiscoLicenseVerificationDecisionSummary = {
+  boundary_source_name: string;
+  boundary_file: string;
+  original_candidate_file: string;
+  license_source: string;
+  license_url: string;
+  attribution_required: boolean;
+  attribution_text: string;
+  license_review_status: string;
+  license_checked: boolean;
+  license_review_date: string;
+  license_decision_note: string;
+  region_id_final_matched: boolean;
+  authoritative_topology_checked: boolean;
   public_display_ready: boolean;
   is_ready_for_display: boolean;
 };
@@ -301,6 +326,9 @@ function buildRegionQualityCheck(observation: (typeof regionObservationRecords)[
     attribution_required: Boolean(boundary?.attribution_required),
     attribution_text: boundary?.attribution_text ?? pendingText,
     license_checked: boundaryLicenseChecked,
+    license_review_status: boundary?.license_review_status ?? "pending_official_terms_review",
+    license_review_date: boundary?.license_review_date ?? "",
+    license_decision_note: boundary?.license_decision_note ?? "待接入具体边界来源后复核。",
     authoritative_topology_method: boundary?.authoritative_topology_method ?? "待确认",
     authoritative_topology_checked: Boolean(boundary?.authoritative_topology_checked),
     topology_evidence_status: boundary?.topology_evidence_status ?? pendingText,
@@ -397,7 +425,10 @@ export const hungaryNuts3ReadinessGateSummary: HungaryNuts3ReadinessGateSummary 
   license_url: hungaryPilotBoundary?.license_url ?? "",
   attribution_required: Boolean(hungaryPilotBoundary?.attribution_required),
   attribution_text: hungaryPilotBoundary?.attribution_text ?? "待核验",
-  license_checked: false,
+  license_checked: giscoLicenseVerificationDecision.license_checked,
+  license_review_status: giscoLicenseVerificationDecision.license_review_status,
+  license_review_date: giscoLicenseVerificationDecision.license_review_date,
+  license_decision_note: giscoLicenseVerificationDecision.license_decision_note,
   authoritative_topology_method: hungaryPilotBoundary?.authoritative_topology_method ?? "待确认",
   authoritative_topology_checked: false,
   topology_evidence_status: hungaryPilotBoundary?.topology_evidence_status ?? "待接入",
@@ -462,10 +493,18 @@ export const hungaryNuts3ValidationManifestSummary: HungaryNuts3ValidationManife
   manifest_status: hungaryBoundaryValidation.manifest_status,
   manifest_detail_validation_status: hungaryBoundaryValidation.manifest_detail_validation_status,
   visual_qa_passed: hungaryBoundaryValidation.visual_qa_passed,
-  license_checked: false,
+  license_checked: giscoLicenseVerificationDecision.license_checked,
   authoritative_topology_checked: false,
   region_id_final_matched: hungaryBoundaryValidation.region_id_final_matched,
   region_id_match_decision_status: hungaryBoundaryValidation.region_id_match_decision_status,
+  public_display_ready: false,
+  is_ready_for_display: false,
+};
+
+export const hungaryGiscoLicenseVerificationDecisionSummary: HungaryGiscoLicenseVerificationDecisionSummary = {
+  ...giscoLicenseVerificationDecision,
+  region_id_final_matched: hungaryBoundaryValidation.region_id_final_matched,
+  authoritative_topology_checked: false,
   public_display_ready: false,
   is_ready_for_display: false,
 };
@@ -479,13 +518,16 @@ const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {
   year: updatedAt,
   boundary_available: Boolean(hungaryPilotBoundary?.geometry_available),
   boundary_source_available: hasText(hungaryPilotBoundary?.boundary_source_name) && hasText(hungaryPilotBoundary?.boundary_source_url),
-  boundary_license_checked: false,
+  boundary_license_checked: hungaryNuts3ReadinessGateSummary.license_checked,
   source_available: hasText(hungaryPilotBoundary?.boundary_source_name) && hasText(hungaryPilotBoundary?.boundary_source_url),
   license_source: hungaryNuts3ReadinessGateSummary.license_source,
   license_url: hungaryNuts3ReadinessGateSummary.license_url,
   attribution_required: hungaryNuts3ReadinessGateSummary.attribution_required,
   attribution_text: hungaryNuts3ReadinessGateSummary.attribution_text,
   license_checked: hungaryNuts3ReadinessGateSummary.license_checked,
+  license_review_status: hungaryNuts3ReadinessGateSummary.license_review_status,
+  license_review_date: hungaryNuts3ReadinessGateSummary.license_review_date,
+  license_decision_note: hungaryNuts3ReadinessGateSummary.license_decision_note,
   authoritative_topology_method: hungaryNuts3ReadinessGateSummary.authoritative_topology_method,
   authoritative_topology_checked: hungaryNuts3ReadinessGateSummary.authoritative_topology_checked,
   topology_evidence_status: hungaryNuts3ReadinessGateSummary.topology_evidence_status,
@@ -538,9 +580,9 @@ const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {
   is_region_comparable: false,
   is_export_ready: true,
   quality_status: "需复核",
-  missing_reason: "region_id / NUTS code 的代码变体、命名变体和边界属性字段仍待最终复核；许可确认与权威拓扑验收也尚未完成。",
+  missing_reason: "公开非商业研究展示许可已核验；权威拓扑验收尚未完成，因此正式展示闸门继续关闭。",
   quality_notes:
-    "v0.19 Hungary NUTS3 final region-id match decision summary；20 条代码、候选主键和几何要素的一对一匹配判定已记录。许可与权威拓扑仍待核验，公开展示资格未通过。",
+    "v0.20 Hungary GISCO license verification decision summary；license_checked=true 仅适用于公开非商业研究展示。authoritative_topology_checked=false，public_display_ready=false，is_ready_for_display=false。",
   last_updated: "2026-08-02",
 };
 

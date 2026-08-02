@@ -24,7 +24,10 @@
       "license_url": "https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units/territorial-units-statistics",
       "attribution_required": true,
       "attribution_text": "Source: European Commission – Eurostat/GISCO; administrative boundaries: © EuroGeographics.",
-      "license_checked": false,
+      "license_checked": true,
+      "license_review_status": "verified_for_public_research_display",
+      "license_review_date": "2026-08-02",
+      "license_decision_note": "Eurostat GISCO statistical-units terms permit non-commercial use when the source and © EuroGeographics boundary attribution are visible. This decision is limited to public non-commercial research display; commercial use requires separate EuroGeographics clearance. Authoritative topology validation remains pending.",
       "authoritative_topology_method": "待确认：以 GISCO NUTS 2024 官方几何与元数据复核 NUTS code、几何有效性、共享边界、重叠与缝隙。",
       "authoritative_topology_checked": false,
       "topology_evidence_status": "sandbox_basic_topology_passed_pending_authoritative_validation",
@@ -78,7 +81,7 @@
       "quality_requirement": "许可确认、几何下载与过滤、拓扑检查、NUTS / region_id 主键匹配均通过前，is_ready_for_display 必须保持 false。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
       "last_updated": "2026-08-02",
-      "notes": "v0.19 final region-id match decision 已记录；license 与 authoritative topology 尚未完成，public_display_ready=false、is_ready_for_display=false。"
+      "notes": "v0.20 GISCO license verification decision 已记录；license_checked=true 仅适用于公开非商业研究展示。authoritative topology 尚未完成，public_display_ready=false、is_ready_for_display=false。"
     },
     {
       "layer_id": "v4_adm1_boundary",
@@ -96,6 +99,9 @@
       "attribution_required": true,
       "attribution_text": "Source: European Commission – Eurostat/GISCO; administrative boundaries: © EuroGeographics.",
       "license_checked": false,
+      "license_review_status": "pending_official_terms_review",
+      "license_review_date": "",
+      "license_decision_note": "待选定具体文件并确认其适用官方条款后复核。",
       "authoritative_topology_method": "待确认：以 GISCO NUTS 2024 官方几何与元数据复核 NUTS code、几何有效性、共享边界、重叠与缝隙。",
       "authoritative_topology_checked": false,
       "topology_evidence_status": "not_started",
@@ -152,7 +158,7 @@
       "quality_requirement": "region_boundaries.geometry_available=true、geometry_simplified=true、topology_checked=true、boundary_license_checked=true，且 region_quality_checks 中对应区域 is_map_ready=true。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
       "last_updated": "2026-08-02",
-      "notes": "v0.16.1 最终主键匹配核验尚未完成；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
+      "notes": "权威拓扑验收尚未完成；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
     },
     {
       "layer_id": "regional_population_choropleth",
@@ -170,6 +176,9 @@
       "attribution_required": true,
       "attribution_text": "Source: European Commission – Eurostat/GISCO; administrative boundaries: © EuroGeographics.",
       "license_checked": false,
+      "license_review_status": "pending_official_terms_review",
+      "license_review_date": "",
+      "license_decision_note": "待选定具体文件并确认其适用官方条款后复核。",
       "authoritative_topology_method": "待确认：以 GISCO NUTS 2024 官方几何与元数据复核 NUTS code、几何有效性、共享边界、重叠与缝隙。",
       "authoritative_topology_checked": false,
       "topology_evidence_status": "not_started",
@@ -229,7 +238,7 @@
       "quality_requirement": "需要 region_observations 有正式数值、来源链接、单位、来源等级，并通过 region_quality_checks；当前待接入观测值不得进入地图显示。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
       "last_updated": "2026-08-02",
-      "notes": "v0.16.1 最终主键匹配核验尚未完成；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
+      "notes": "权威拓扑验收尚未完成；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
     },
     {
       "layer_id": "regional_gdp_choropleth",
@@ -247,6 +256,9 @@
       "attribution_required": true,
       "attribution_text": "Source: European Commission – Eurostat/GISCO; administrative boundaries: © EuroGeographics.",
       "license_checked": false,
+      "license_review_status": "pending_official_terms_review",
+      "license_review_date": "",
+      "license_decision_note": "待选定具体文件并确认其适用官方条款后复核。",
       "authoritative_topology_method": "待确认：以 GISCO NUTS 2024 官方几何与元数据复核 NUTS code、几何有效性、共享边界、重叠与缝隙。",
       "authoritative_topology_checked": false,
       "topology_evidence_status": "not_started",
@@ -306,7 +318,7 @@
       "quality_requirement": "需要 region_observations 有正式数值、来源链接、单位、来源等级，并通过 region_quality_checks；当前待接入观测值不得进入地图显示。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
       "last_updated": "2026-08-02",
-      "notes": "v0.16.1 最终主键匹配核验尚未完成；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
+      "notes": "权威拓扑验收尚未完成；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
     },
     {
       "layer_id": "regional_gdp_per_capita_choropleth",
@@ -324,6 +336,9 @@
       "attribution_required": true,
       "attribution_text": "Source: European Commission – Eurostat/GISCO; administrative boundaries: © EuroGeographics.",
       "license_checked": false,
+      "license_review_status": "pending_official_terms_review",
+      "license_review_date": "",
+      "license_decision_note": "待选定具体文件并确认其适用官方条款后复核。",
       "authoritative_topology_method": "待确认：以 GISCO NUTS 2024 官方几何与元数据复核 NUTS code、几何有效性、共享边界、重叠与缝隙。",
       "authoritative_topology_checked": false,
       "topology_evidence_status": "not_started",
@@ -383,7 +398,7 @@
       "quality_requirement": "需要 region_observations 有正式数值、来源链接、单位、来源等级，并通过 region_quality_checks；当前待接入观测值不得进入地图显示。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
       "last_updated": "2026-08-02",
-      "notes": "v0.16.1 最终主键匹配核验尚未完成；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
+      "notes": "权威拓扑验收尚未完成；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
     },
     {
       "layer_id": "regional_unemployment_rate_choropleth",
@@ -401,6 +416,9 @@
       "attribution_required": true,
       "attribution_text": "Source: European Commission – Eurostat/GISCO; administrative boundaries: © EuroGeographics.",
       "license_checked": false,
+      "license_review_status": "pending_official_terms_review",
+      "license_review_date": "",
+      "license_decision_note": "待选定具体文件并确认其适用官方条款后复核。",
       "authoritative_topology_method": "待确认：以 GISCO NUTS 2024 官方几何与元数据复核 NUTS code、几何有效性、共享边界、重叠与缝隙。",
       "authoritative_topology_checked": false,
       "topology_evidence_status": "not_started",
@@ -460,7 +478,7 @@
       "quality_requirement": "需要 region_observations 有正式数值、来源链接、单位、来源等级，并通过 region_quality_checks；当前待接入观测值不得进入地图显示。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
       "last_updated": "2026-08-02",
-      "notes": "v0.16.1 最终主键匹配核验尚未完成；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
+      "notes": "权威拓扑验收尚未完成；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
     },
     {
       "layer_id": "regional_manufacturing_share_choropleth",
@@ -478,6 +496,9 @@
       "attribution_required": true,
       "attribution_text": "Source: European Commission – Eurostat/GISCO; administrative boundaries: © EuroGeographics.",
       "license_checked": false,
+      "license_review_status": "pending_official_terms_review",
+      "license_review_date": "",
+      "license_decision_note": "待选定具体文件并确认其适用官方条款后复核。",
       "authoritative_topology_method": "待确认：以 GISCO NUTS 2024 官方几何与元数据复核 NUTS code、几何有效性、共享边界、重叠与缝隙。",
       "authoritative_topology_checked": false,
       "topology_evidence_status": "not_started",
@@ -537,7 +558,7 @@
       "quality_requirement": "需要 region_observations 有正式数值、来源链接、单位、来源等级，并通过 region_quality_checks；当前待接入观测值不得进入地图显示。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
       "last_updated": "2026-08-02",
-      "notes": "v0.16.1 最终主键匹配核验尚未完成；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
+      "notes": "权威拓扑验收尚未完成；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
     },
     {
       "layer_id": "china_project_locations",
@@ -555,6 +576,9 @@
       "attribution_required": true,
       "attribution_text": "Source: European Commission – Eurostat/GISCO; administrative boundaries: © EuroGeographics.",
       "license_checked": false,
+      "license_review_status": "pending_official_terms_review",
+      "license_review_date": "",
+      "license_decision_note": "待选定具体文件并确认其适用官方条款后复核。",
       "authoritative_topology_method": "待确认：以 GISCO NUTS 2024 官方几何与元数据复核 NUTS code、几何有效性、共享边界、重叠与缝隙。",
       "authoritative_topology_checked": false,
       "topology_evidence_status": "not_started",

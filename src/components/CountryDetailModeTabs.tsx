@@ -11,6 +11,7 @@ import { getCountryMetadata } from "@/lib/countryMetadata";
 import type { Country } from "@/lib/data";
 import { getChinaProjectRecords, getNewsEventRecords, getV4ObservationCoverage, getV4TemplateCoverage } from "@/lib/extendedData";
 import {
+  hungaryGiscoLicenseVerificationDecisionSummary,
   hungaryNuts3ReadinessGateSummary,
   hungaryNuts3SandboxQaSummary,
   hungaryNuts3ValidationManifestSummary,
@@ -384,7 +385,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
               ["重复 region_id", String(hungaryNuts3ValidationManifestSummary.duplicate_region_id_count)],
               ["最终主键匹配", hungaryNuts3ValidationManifestSummary.region_id_final_matched ? "通过" : "待最终人工复核"],
               ["region_id_match_decision_status", hungaryNuts3ValidationManifestSummary.region_id_match_decision_status],
-              ["license_checked", `${hungaryNuts3ValidationManifestSummary.license_checked} / pending`],
+              ["license_checked", String(hungaryNuts3ValidationManifestSummary.license_checked)],
               ["authoritative_topology_checked", `${hungaryNuts3ValidationManifestSummary.authoritative_topology_checked} / pending`],
               ["public_display_ready", String(hungaryNuts3ValidationManifestSummary.public_display_ready)],
               ["is_ready_for_display", String(hungaryNuts3ValidationManifestSummary.is_ready_for_display)],
@@ -398,6 +399,40 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
           </div>
           <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
             最终主键匹配即使通过，也只是正式展示准入条件之一；许可核验和权威拓扑验收未完成前，正式地图仍未启用。
+          </p>
+        </section>
+      ) : null}
+
+      {country.slug === "hungary" ? (
+        <section className="mt-4 card p-6">
+          <p className="eyebrow">4.6 v0.20 Hungary GISCO License Verification Decision</p>
+          <h2 className="mt-3 text-2xl font-semibold">v0.20 GISCO 许可核验判定状态</h2>
+          <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+            {[
+              ["边界来源", hungaryGiscoLicenseVerificationDecisionSummary.boundary_source_name],
+              ["边界文件", hungaryGiscoLicenseVerificationDecisionSummary.boundary_file],
+              ["原始候选文件", hungaryGiscoLicenseVerificationDecisionSummary.original_candidate_file],
+              ["许可来源", hungaryGiscoLicenseVerificationDecisionSummary.license_source],
+              ["署名要求", hungaryGiscoLicenseVerificationDecisionSummary.attribution_required ? "需要" : "不需要"],
+              ["署名文本", hungaryGiscoLicenseVerificationDecisionSummary.attribution_text],
+              ["许可核验状态", "通过；仅限公开非商业研究展示"],
+              ["license_review_status", hungaryGiscoLicenseVerificationDecisionSummary.license_review_status],
+              ["license_checked", String(hungaryGiscoLicenseVerificationDecisionSummary.license_checked)],
+              ["license_review_date", hungaryGiscoLicenseVerificationDecisionSummary.license_review_date],
+              ["最终主键匹配", hungaryGiscoLicenseVerificationDecisionSummary.region_id_final_matched ? "通过" : "待完成"],
+              ["权威拓扑验收", "待完成"],
+              ["public_display_ready", String(hungaryGiscoLicenseVerificationDecisionSummary.public_display_ready)],
+              ["is_ready_for_display", String(hungaryGiscoLicenseVerificationDecisionSummary.is_ready_for_display)],
+              ["是否进入正式地图", "否"],
+            ].map(([label, value]) => (
+              <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+                <p className="text-xs font-semibold text-[var(--muted)]">{label}</p>
+                <p className="mt-2 break-words text-sm font-semibold leading-6 text-[var(--foreground)]">{value}</p>
+              </article>
+            ))}
+          </div>
+          <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
+            许可核验即使通过，也只是正式展示准入条件之一；权威拓扑验收未完成前，正式地图仍未启用。商业使用需另行联系 EuroGeographics。
           </p>
         </section>
       ) : null}

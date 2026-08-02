@@ -1,3 +1,4 @@
+import { giscoLicenseVerificationDecision, pendingGiscoLicenseReview } from "./giscoLicenseVerification";
 import hungaryBoundaryValidation from "../../public/data/boundaries/sandbox/hu_nuts3_gisco_2024.validation.json";
 
 export type MapLayerType = "boundary" | "choropleth" | "point" | "symbol" | "label" | "table_only" | "structural_sample";
@@ -18,6 +19,9 @@ export type MapLayerRecord = {
   attribution_required: boolean;
   attribution_text: string;
   license_checked: boolean;
+  license_review_status: string;
+  license_review_date: string;
+  license_decision_note: string;
   authoritative_topology_method: string;
   authoritative_topology_checked: boolean;
   topology_evidence_status: string;
@@ -66,11 +70,11 @@ export type MapLayerRecord = {
 
 const updatedAt = "2026-08-02";
 const v4Adm1Coverage = "V4 四国 ADM1：poland, hungary, czechia, slovakia";
-const noDisplayBoundary = "v0.16.1 最终主键匹配核验尚未完成；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。";
+const noDisplayBoundary = "权威拓扑验收尚未完成；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。";
 const noModelBoundary = "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。";
-const giscoLicenseSource = "European Commission / Eurostat GISCO geodata and NUTS usage conditions";
-const giscoLicenseUrl = "https://ec.europa.eu/eurostat/web/gisco/geodata/statistical-units/territorial-units-statistics";
-const giscoAttribution = "Source: European Commission – Eurostat/GISCO; administrative boundaries: © EuroGeographics.";
+const giscoLicenseSource = giscoLicenseVerificationDecision.license_source;
+const giscoLicenseUrl = giscoLicenseVerificationDecision.license_url;
+const giscoAttribution = giscoLicenseVerificationDecision.attribution_text;
 const pendingTopologyMethod = "待确认：以 GISCO NUTS 2024 官方几何与元数据复核 NUTS code、几何有效性、共享边界、重叠与缝隙。";
 const boundaryQuality = "region_boundaries.geometry_available=true、geometry_simplified=true、topology_checked=true、boundary_license_checked=true，且 region_quality_checks 中对应区域 is_map_ready=true。";
 const choroplethQuality = "需要 region_observations 有正式数值、来源链接、单位、来源等级，并通过 region_quality_checks；当前待接入观测值不得进入地图显示。";
@@ -102,6 +106,9 @@ function boundaryLayer(): MapLayerRecord {
     attribution_required: true,
     attribution_text: giscoAttribution,
     license_checked: false,
+    license_review_status: pendingGiscoLicenseReview.license_review_status,
+    license_review_date: pendingGiscoLicenseReview.license_review_date,
+    license_decision_note: pendingGiscoLicenseReview.license_decision_note,
     authoritative_topology_method: pendingTopologyMethod,
     authoritative_topology_checked: false,
     topology_evidence_status: "not_started",
@@ -159,7 +166,10 @@ function hungaryNuts3PilotLayer(): MapLayerRecord {
     license_url: giscoLicenseUrl,
     attribution_required: true,
     attribution_text: giscoAttribution,
-    license_checked: false,
+    license_checked: giscoLicenseVerificationDecision.license_checked,
+    license_review_status: giscoLicenseVerificationDecision.license_review_status,
+    license_review_date: giscoLicenseVerificationDecision.license_review_date,
+    license_decision_note: giscoLicenseVerificationDecision.license_decision_note,
     authoritative_topology_method: pendingTopologyMethod,
     authoritative_topology_checked: false,
     topology_evidence_status: "sandbox_basic_topology_passed_pending_authoritative_validation",
@@ -204,7 +214,7 @@ function hungaryNuts3PilotLayer(): MapLayerRecord {
     model_boundary: noModelBoundary,
     last_updated: updatedAt,
     notes:
-      "v0.19 final region-id match decision 已记录；license 与 authoritative topology 尚未完成，public_display_ready=false、is_ready_for_display=false。",
+      "v0.20 GISCO license verification decision 已记录；license_checked=true 仅适用于公开非商业研究展示。authoritative topology 尚未完成，public_display_ready=false、is_ready_for_display=false。",
   };
 }
 
@@ -232,6 +242,9 @@ function choroplethLayer(layer: {
     attribution_required: true,
     attribution_text: giscoAttribution,
     license_checked: false,
+    license_review_status: pendingGiscoLicenseReview.license_review_status,
+    license_review_date: pendingGiscoLicenseReview.license_review_date,
+    license_decision_note: pendingGiscoLicenseReview.license_decision_note,
     authoritative_topology_method: pendingTopologyMethod,
     authoritative_topology_checked: false,
     topology_evidence_status: "not_started",
@@ -290,6 +303,9 @@ function projectLocationLayer(): MapLayerRecord {
     attribution_required: true,
     attribution_text: giscoAttribution,
     license_checked: false,
+    license_review_status: pendingGiscoLicenseReview.license_review_status,
+    license_review_date: pendingGiscoLicenseReview.license_review_date,
+    license_decision_note: pendingGiscoLicenseReview.license_decision_note,
     authoritative_topology_method: pendingTopologyMethod,
     authoritative_topology_checked: false,
     topology_evidence_status: "not_started",

@@ -190,6 +190,17 @@ const finalRegionIdMatchDecisionItems = [
   "v0.19 不启用风险图层、预测图层、真实党派支持率图层、中国经济暴露指数或区域评分。",
 ];
 
+const giscoLicenseVerificationDecisionItems = [
+  "v0.20 只处理 Eurostat / GISCO NUTS 2024 边界数据的许可核验。",
+  "license_checked=true 必须基于官方使用条件、署名要求和使用边界记录；本次判定仅覆盖公开非商业研究展示。",
+  "公开展示必须保留：Source: European Commission – Eurostat/GISCO; administrative boundaries: © EuroGeographics.",
+  "商业使用不在本次许可判定范围内，需另行联系 EuroGeographics。",
+  "license_checked=true 不等于 authoritative_topology_checked=true。",
+  "license_checked=true 不等于 public_display_ready=true，也不等于 is_ready_for_display=true。",
+  "region_id_final_matched=true 且 license_checked=true 后，仍需完成 authoritative topology 才能进入正式展示准入评估。",
+  "v0.20 不启用正式地图，不启用风险图层、预测图层、真实党派支持率图层、中国经济暴露指数或区域评分。",
+];
+
 const excludedItems = [
   "结构样例、占位色阶、样例新闻不进入模型。",
   "待接入、缺失、未标来源链接的数据不进入模型。",
@@ -328,7 +339,7 @@ export default function MethodologyPage() {
         <h2 className="mt-3 text-2xl font-semibold">5.2 数据导出与接口准备</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {[
-            "当前阶段：v0.19 Hungary final region-id match decision；匈牙利 NUTS3 最终主键匹配判定已记录，真实地图展示仍未启用。",
+            "当前阶段：v0.20 Hungary GISCO license verification decision；匈牙利 NUTS3 公开非商业研究展示许可判定已记录，真实地图展示仍未启用。",
             "当前只做 CSV / JSON 数据结构准备。",
             "不提供预测 API。",
             "不提供模型 API。",
@@ -354,7 +365,7 @@ export default function MethodologyPage() {
             "project_locations 只把对华项目定位到城市、区域或国家层级；缺少可核验位置来源时不进入地图展示。",
             "map_layers 仅注册未来图层，is_ready_for_display=false 的图层不得作为真实图层展示；风险图层、预测图层和真实党派支持率图层均未启用，新闻区仍不做评价。",
             "v0.15 在既有 region_sources、region_boundaries、region_quality_checks 与 map_layers 中记录许可与权威拓扑证据；视觉 QA 结果只作为必要条件，不能单独启用展示。",
-            "v0.19 在既有 regions、region_boundaries、region_quality_checks 与 map_layers 中同步最终主键匹配判定；主键匹配通过仍不等于许可、权威拓扑或正式展示通过。",
+            "v0.20 在既有 region_sources、region_boundaries、region_quality_checks 与 map_layers 中同步 GISCO 许可判定；许可通过仍不等于权威拓扑或正式展示通过。",
           ].map((item) => (
             <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
               {item}
@@ -476,6 +487,18 @@ export default function MethodologyPage() {
         <h2 className="mt-3 text-2xl font-semibold">5.13 v0.19 final region-id match decision rule</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {finalRegionIdMatchDecisionItems.map((item) => (
+            <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
+              {item}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">Hungary GISCO License Verification Decision</p>
+        <h2 className="mt-3 text-2xl font-semibold">5.14 v0.20 GISCO license verification decision rule</h2>
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
+          {giscoLicenseVerificationDecisionItems.map((item) => (
             <p key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3 text-sm leading-6 text-[var(--muted)]">
               {item}
             </p>

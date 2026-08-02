@@ -30,6 +30,7 @@ const { regionBoundaryRecords } = require("../src/lib/regionBoundaries.ts");
 const { regionIndicatorRecords } = require("../src/lib/regionIndicators.ts");
 const { regionObservationRecords } = require("../src/lib/regionObservations.ts");
 const {
+  hungaryGiscoLicenseVerificationDecisionSummary,
   hungaryNuts3ReadinessGateSummary,
   hungaryNuts3RegionIdMatchSummary,
   hungaryNuts3SandboxQaSummary,
@@ -1036,6 +1037,22 @@ function methodologyRuleRecords() {
       last_updated: "2026-08-02",
       notes: "region_id_final_matched=true；region_id_match_decision_status=final_match_recorded；正式地图展示仍未启用。",
     },
+    {
+      rule_id: "hungary_gisco_license_verification_decision",
+      rule_category: "区域边界准入规则",
+      rule_name: "匈牙利 GISCO 许可核验判定规则",
+      rule_description: "v0.20 核验 Eurostat GISCO NUTS 2024 的公开非商业研究展示条件、署名要求和使用边界；许可通过不等于正式地图展示通过。",
+      applies_to: "region_sources,region_boundaries,region_quality_checks,map_layers,map_page,hungary_country_page,methodology_page",
+      required_fields: ["license_source", "license_url", "attribution_required", "attribution_text", "license_review_status", "license_checked", "license_review_date", "license_decision_note", "region_id_final_matched", "authoritative_topology_checked", "public_display_ready", "is_ready_for_display"],
+      allowed_statuses: ["verified_for_public_research_display", "pending_official_terms_review", "not_ready_for_public_display"],
+      excluded_statuses: ["正式地图已启用", "商业使用已授权", "风险图层", "预测图层", "真实党派支持率图层", "中国经济暴露指数", "区域评分"],
+      source_requirement: "许可判定必须引用 Eurostat/GISCO 官方 NUTS 页面和 statistical-units 使用条件，并记录 © EuroGeographics 边界署名要求。",
+      quality_requirement: "license_checked=true 仅覆盖公开非商业研究展示；authoritative_topology_checked=false 时，public_display_ready 与 is_ready_for_display 必须保持 false。",
+      model_boundary: "许可核验不生成模型、风险、预测、指数或区域评分。",
+      export_boundary: "随既有四个区域数据层和 methodology_rules 导出；不新增第 18 张表。",
+      last_updated: "2026-08-02",
+      notes: "license_review_status=verified_for_public_research_display；商业使用需另行联系 EuroGeographics；正式地图展示仍未启用。",
+    },
   ];
 }
 
@@ -1201,6 +1218,7 @@ writeLayer("region_quality_checks", regionQualityCheckRecords, {
   readiness_gate_summary: hungaryNuts3ReadinessGateSummary,
   region_id_match_summary: hungaryNuts3RegionIdMatchSummary,
   validation_manifest_summary: hungaryNuts3ValidationManifestSummary,
+  license_verification_decision_summary: hungaryGiscoLicenseVerificationDecisionSummary,
   relation_note: "Every check references region_id from regions and region_indicator_id from region_indicators. Boundary readiness is cross-checked through region_boundaries.",
   validation_note: "Basic topology QA does not replace authoritative validation. A 20/20 pre-match does not set region_id_matched=true, and pending rows remain explicit.",
   model_boundary: "Quality checks only. No regional model, risk layer, forecast, election prediction, or live boundary rendering is generated.",
