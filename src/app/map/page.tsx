@@ -44,6 +44,27 @@ export default function MapPage() {
         </div>
       </section>
 
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">Boundary Readiness Summary</p>
+        <h2 className="mt-3 text-2xl font-semibold">当前边界数据状态摘要</h2>
+        <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+          以下字段只说明匈牙利 NUTS3 边界证据与准入状态，不表示正式地图已经启用。
+        </p>
+        <div className="mt-5">
+          <StatusSummary
+            columns="three"
+            items={[
+              { label: "GISCO source", value: "recorded", note: topology.boundary_source_name },
+              { label: "license_checked", value: String(license.license_checked) },
+              { label: "region_id_final_matched", value: String(manifest.region_id_final_matched) },
+              { label: "authoritative_topology_checked", value: String(topology.authoritative_topology_checked) },
+              { label: "public_display_ready", value: String(topology.public_display_ready) },
+              { label: "is_ready_for_display", value: String(topology.is_ready_for_display) },
+            ]}
+          />
+        </div>
+      </section>
+
       <section className="mt-6">
         <InteractiveMapExplorer variant="full" />
       </section>

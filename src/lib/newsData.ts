@@ -28,6 +28,8 @@ export type EventRecord = {
   confidence: string;
   source_status: string;
   enters_model: boolean;
+  coding_status: "pending";
+  model_note: string;
 };
 
 const countryCodeBySlug: Record<string, string> = {
@@ -60,6 +62,8 @@ export function toEventRecord(item: WeeklyNewsItem): EventRecord {
     confidence: isVerified ? "来源已核验；事件编码待完成" : "结构样例",
     source_status: isVerified ? "官方来源 / 人工摘要" : "结构样例来源",
     enters_model: false,
+    coding_status: "pending",
+    model_note: isVerified ? "人工摘要，暂不进入模型" : "结构样例，不进入模型",
   };
 }
 
@@ -122,7 +126,7 @@ export const weeklyNewsItems: WeeklyNewsItem[] = [
     countryZh: "匈牙利",
     title: "新政府与产业投资政策成为本周观察重点",
     topic: "经济",
-    summary: "此处用于展示周报格式。后续将替换为经人工审核的国家级新闻摘要。",
+    summary: "此处用于验证事件库结构。后续将替换为经人工审核并完成编码的事件记录。",
     sourceLabel: "来源未接入",
     language: "hu / en / zh",
     weekOf: "2026-06-01",
@@ -158,7 +162,7 @@ export const weeklyNewsItems: WeeklyNewsItem[] = [
     countryZh: "斯洛伐克",
     title: "政府政策、汽车产业链和区域发展是本周重点",
     topic: "区域",
-    summary: "此处用于验证新闻周报版式。",
+    summary: "此处用于验证事件库版式和编码字段。",
     sourceLabel: "来源未接入",
     language: "sk / en / zh",
     weekOf: "2026-06-01",

@@ -308,6 +308,13 @@ const dataModes: { id: DataMode; label: string; description: string }[] = [
   { id: "comparison", label: "V4 横向比较", description: "保留 V4 完整度、数据质量与派生事实摘要；具体横向轴已拆入各个数据板块。" },
   { id: "tables", label: "结构与字典", description: "按需查看研究数据层、区域结构、字段字典、质量验收与导出入口。" },
 ];
+const dataCredibilityBacklog = [
+  { label: "财政数据", status: "V4 已有序列；十国扩展待补", note: "继续核验财政收支、债务和赤字的年份覆盖与国家官方来源。" },
+  { label: "外部数据", status: "V4 已有序列；十国扩展待补", note: "继续补出口、进口、经常账户和 FDI 的统一口径与来源链接。" },
+  { label: "能源数据", status: "V4 已有序列；区域层待补", note: "继续补能源进口依赖、能源结构和区域可比口径。" },
+  { label: "产业数据", status: "V4 已有序列；十国扩展待补", note: "继续补制造业、汽车产业和产业结构的可核验时间序列。" },
+  { label: "金融数据", status: "指标与来源待定义", note: "先确定指标字典、单位、频率和官方来源，再进入观测值表。" },
+] as const;
 const dataEntryShortcuts: DataEntryShortcut[] = [
   { id: "countries-layer-entry", label: "国家元数据表", mode: "tables", description: "十国 countries 逻辑层，作为 country_id 关联表。" },
   { id: "regions-layer-entry", label: "区域元数据表", mode: "tables", description: "v0.19 regions 同步匈牙利 NUTS3 最终主键匹配判定；非 V4 国家级待接入。" },
@@ -4611,6 +4618,28 @@ export function DataCountryExplorer() {
                   }),
                 )}
               </ObservationTable>
+            </section>
+
+            <section className="card p-6">
+              <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+                <div>
+                  <p className="eyebrow">v0.30 Data Credibility Backlog</p>
+                  <h2 className="mt-3 text-2xl font-semibold">待补数据清单</h2>
+                  <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+                    此处只记录下一阶段的数据补齐方向，不把待接入字段视为正式数据，也不生成模型分数。
+                  </p>
+                </div>
+                <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">v0.30 准备项</span>
+              </div>
+              <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-5">
+                {dataCredibilityBacklog.map((item) => (
+                  <article key={item.label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+                    <h3 className="font-semibold">{item.label}</h3>
+                    <p className="mt-2 text-xs font-semibold text-[var(--accent)]">{item.status}</p>
+                    <p className="mt-3 text-xs leading-5 text-[var(--muted)]">{item.note}</p>
+                  </article>
+                ))}
+              </div>
             </section>
 
             <section className="grid gap-5">

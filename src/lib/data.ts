@@ -308,7 +308,7 @@ export const weeklyNews = [
     country: "匈牙利",
     title: "新政府与产业投资政策成为本周观察重点",
     topic: "政治 / 经济",
-    summary: "此处用于展示周报格式。后续将替换为经人工审核的国家级新闻摘要。",
+    summary: "此处用于验证事件库结构。后续将替换为经人工审核并完成编码的事件记录。",
   },
   {
     country: "波兰",
@@ -326,6 +326,6 @@ export const weeklyNews = [
     country: "斯洛伐克",
     title: "政府政策、汽车产业链和区域发展是本周重点",
     topic: "政治 / 区域",
-    summary: "此处用于验证新闻周报版式。",
+    summary: "此处用于验证事件库版式和编码字段。",
   },
 ];
