@@ -378,7 +378,13 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
               ["初步缺失匹配", String(hungaryNuts3RegionIdMatchSummary.preliminary_unmatched_region_count)],
               ["初步重复 region_id", String(hungaryNuts3RegionIdMatchSummary.preliminary_duplicate_region_id_count)],
               ["初步重复 NUTS code", String(hungaryNuts3RegionIdMatchSummary.preliminary_duplicate_nuts_code_count)],
-              ["最终主键匹配", "未完成"],
+              ["region_id_final_matched", String(hungaryNuts3RegionIdMatchSummary.region_id_final_matched)],
+              ["region_id_match_status", hungaryNuts3RegionIdMatchSummary.region_id_match_status],
+              ["visual_qa_passed", String(hungaryNuts3RegionIdMatchSummary.visual_qa_passed)],
+              ["license_checked", `${hungaryNuts3RegionIdMatchSummary.license_checked} / pending`],
+              ["authoritative_topology_checked", `${hungaryNuts3RegionIdMatchSummary.authoritative_topology_checked} / pending`],
+              ["public_display_ready", String(hungaryNuts3RegionIdMatchSummary.public_display_ready)],
+              ["is_ready_for_display", String(hungaryNuts3RegionIdMatchSummary.is_ready_for_display)],
               ["是否进入正式地图", "否"],
             ].map(([label, value]) => (
               <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
@@ -388,7 +394,7 @@ export function CountryDetailModeTabs({ country }: CountryDetailModeTabsProps) {
             ))}
           </div>
           <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
-            备注：当前为 preliminary readiness summary，不是 final validation record。
+            当前只是主键匹配准备摘要，不代表最终主键匹配完成；不代表许可通过；不代表权威拓扑验收通过；不代表正式地图展示启用。
           </p>
         </section>
       ) : null}
