@@ -1,16 +1,15 @@
 import Link from "next/link";
 import { DataStatusBadge } from "@/components/DataStatusBadge";
-import { countries } from "@/lib/data";
-import { getCountryMetadata } from "@/lib/countryMetadata";
-import { getChinaProjectRecords, getNewsEventRecords } from "@/lib/extendedData";
+import { getCountry } from "@/lib/data";
+import { researchCountries } from "@/lib/researchData";
+import type { DataStatus } from "@/types/researchData";
 
 const v4CountrySlugs = new Set(["poland", "hungary", "czechia", "slovakia"]);
 
-function compactStatus(value: string | undefined, fallback = "待接入") {
-  if (!value) return fallback;
-  if (value.includes("已接入") || value.includes("正式")) return "已接入";
-  if (value.includes("人工整理") || value.includes("待核验")) return "待核验";
-  return fallback;
+function compactStatus(value: DataStatus) {
+  if (value === "official") return "已接入";
+  if (value === "verified") return "待核验";
+  return "待接入";
 }
 
 export default function CountriesPage() {
@@ -37,26 +36,25 @@ export default function CountriesPage() {
       </div>
 
       <div className="mt-8 grid gap-4 md:grid-cols-2">
-        {countries.map((country) => {
-          const metadata = getCountryMetadata(country.slug);
-          const projects = getChinaProjectRecords(country.slug);
-          const events = getNewsEventRecords(country.slug);
-          const isV4 = v4CountrySlugs.has(country.slug);
-          const macroStatus = compactStatus(metadata?.basic_macro_status, "待接入");
-          const projectStatus = projects.length > 0 ? "待核验" : "待接入";
-          const regionalStatus = country.slug === "hungary"
+        {researchCountries.map((countryRecord) => {
+          const country = getCountry(countryRecord.slug);
+          if (!country) return null;
+          const isV4 = v4CountrySlugs.has(countryRecord.slug);
+          const macroStatus = compactStatus(countryRecord.macro_status);
+          const projectStatus = compactStatus(countryRecord.project_status);
+          const regionalStatus = countryRecord.slug === "hungary"
             ? "边界证据已记录，展示未启用"
             : isV4
               ? "准备中"
-              : "待接入";
-          const eventStatus = events.some((event) => event.status !== "sample") ? "人工整理" : "待编码";
+              : compactStatus(countryRecord.region_status);
+          const eventStatus = countryRecord.event_status === "verified" ? "人工整理" : "待编码";
 
           return (
-            <Link key={country.slug} href={`/countries/${country.slug}`} className="card p-6 transition hover:-translate-y-1 hover:shadow-xl">
+            <Link key={countryRecord.slug} href={`/countries/${countryRecord.slug}`} className="card p-6 transition hover:-translate-y-1 hover:shadow-xl">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-sm text-[var(--muted)]">{country.nameEn}</p>
-                  <h2 className="mt-2 text-2xl font-semibold">{country.nameZh}</h2>
+                  <p className="text-sm text-[var(--muted)]">{countryRecord.name}</p>
+                  <h2 className="mt-2 text-2xl font-semibold">{countryRecord.name_zh}</h2>
                 </div>
                 <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">
                   {isV4 ? "V4 深度样本" : "扩展样本"}

@@ -1,6 +1,6 @@
 export const platformStatus = {
-  version: "v0.21 页面收口版",
-  stage: "数据基础与方法论整理",
+  version: "v0.30 Data Foundation / 数据可信版",
+  stage: "统一数据结构与可信输入准备",
   regionalData: "匈牙利 NUTS3 边界证据已记录；正式展示仍未启用",
   mapDisplay: "未启用",
   modelLayer: "未启用",

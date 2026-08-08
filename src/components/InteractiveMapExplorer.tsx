@@ -7,7 +7,7 @@ import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge
 import { getBasicIndicators } from "@/lib/basicIndicators";
 import { getCountryMetadata } from "@/lib/countryMetadata";
 import { countries, getRegion } from "@/lib/data";
-import { getLatestNewsForCountry } from "@/lib/newsData";
+import { getLatestEventForCountry } from "@/lib/researchData";
 
 type SideMode = "profile" | "news";
 
@@ -59,7 +59,7 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
 
   const isHome = variant === "home";
   const selectedPoliticalStatus = politicalSampleStatus(selectedCountry);
-  const selectedNews = getLatestNewsForCountry(selectedCountry.slug);
+  const selectedNews = getLatestEventForCountry(selectedCountry.slug);
   const selectedMetadata = getCountryMetadata(selectedCountry.slug);
   const basicIndicators = getBasicIndicators(selectedCountry.slug);
   const homeEconomicIndicators = basicIndicators.filter((indicator) => indicator.id !== "population").slice(0, 4);
@@ -233,13 +233,13 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
               {selectedNews ? (
                 <article className="mt-2 rounded-xl bg-white/70 p-3">
                   <div className="mb-2 flex flex-wrap gap-2">
-                    <DataStatusBadge status={selectedNews.dataStatus === "sample" ? "sample" : "manual"} />
-                    <SourceStatusBadge status={selectedNews.dataStatus === "sample" ? "sample" : selectedNews.sourceUrl ? "manual" : "pending"} />
+                    <DataStatusBadge status={selectedNews.data_status === "sample" ? "sample" : "manual"} />
+                    <SourceStatusBadge status={selectedNews.data_status === "sample" ? "sample" : selectedNews.source_url ? "manual" : "pending"} />
                   </div>
                   <h3 className={`${isHome ? "text-base leading-6" : "text-lg leading-7"} font-semibold`}>{selectedNews.title}</h3>
                   <p className="mt-2 text-xs font-semibold text-[var(--accent)]">{selectedNews.topic}</p>
                   <p className={`mt-2 text-sm leading-5 text-[var(--muted)] ${isHome ? "compact-clamp-2" : ""}`}>{selectedNews.summary}</p>
-                  {selectedNews.dataStatus === "sample" ? (
+                  {selectedNews.data_status === "sample" ? (
                     <p className="mt-2 text-[10px] font-semibold text-amber-800">结构样例，不进入模型。</p>
                   ) : null}
                 </article>
@@ -266,7 +266,7 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
             <div className="mt-4 space-y-3">
               {countries.map((country) => {
                 const isSelected = country.slug === selectedCountry.slug;
-                const countryNews = getLatestNewsForCountry(country.slug);
+                const countryNews = getLatestEventForCountry(country.slug);
                 const status = politicalSampleStatus(country);
 
                 return (

@@ -1,0 +1,185 @@
+{
+  "schema_version": "data-foundation-v0.30",
+  "generated_at": "2026-08-08",
+  "data_type": "sources",
+  "record_count": 16,
+  "primary_key": "id",
+  "records": [
+    {
+      "id": "eurostat",
+      "name": "Eurostat",
+      "name_zh": "Eurostat",
+      "type": "Eurostat",
+      "url": "https://ec.europa.eu/eurostat/databrowser/",
+      "reliability": "A",
+      "status": "official",
+      "update_frequency": "按数据集更新",
+      "usage_note": "官方统计数据库；可作为宏观数据和正式观测值来源，不作为新闻事件依据。"
+    },
+    {
+      "id": "national_statistics",
+      "name": "National statistical offices",
+      "name_zh": "各国统计局",
+      "type": "各国统计局",
+      "url": "https://hui-sallai.github.io/central-europe-political-atlas/data/",
+      "reliability": "A",
+      "status": "official",
+      "update_frequency": "按国家发布节奏",
+      "usage_note": "国家官方统计机构；用于正式观测值，正式版逐国替换为具体统计局链接。"
+    },
+    {
+      "id": "national_central_banks",
+      "name": "National central banks",
+      "name_zh": "各国央行",
+      "type": "各国央行",
+      "url": "https://www.ecb.europa.eu/",
+      "reliability": "A",
+      "status": "official",
+      "update_frequency": "按指标更新",
+      "usage_note": "用于 FDI、经常账户和金融口径交叉核验；不作为新闻事件依据。"
+    },
+    {
+      "id": "international_organizations",
+      "name": "International organizations",
+      "name_zh": "国际组织",
+      "type": "国际组织",
+      "url": "https://data.oecd.org/",
+      "reliability": "A",
+      "status": "official",
+      "update_frequency": "按机构更新",
+      "usage_note": "OECD、IMF、World Bank、UNCTAD 等可作为正式数据或事件依据。"
+    },
+    {
+      "id": "eu_institutions",
+      "name": "EU institutions",
+      "name_zh": "欧盟机构",
+      "type": "欧盟机构",
+      "url": "https://european-union.europa.eu/",
+      "reliability": "A",
+      "status": "official",
+      "update_frequency": "按公告更新",
+      "usage_note": "欧盟委员会、理事会、议会等官方材料可作为正式数据和事件依据。"
+    },
+    {
+      "id": "official_government",
+      "name": "Official government departments",
+      "name_zh": "官方政府部门",
+      "type": "官方政府部门",
+      "url": "https://hui-sallai.github.io/central-europe-political-atlas/methodology/",
+      "reliability": "A",
+      "status": "official",
+      "update_frequency": "按公告更新",
+      "usage_note": "政府公告、部委材料和正式政策文件可作为正式数据或事件依据。"
+    },
+    {
+      "id": "electoral_commissions",
+      "name": "Electoral commissions",
+      "name_zh": "选举机构",
+      "type": "选举机构",
+      "url": "https://hui-sallai.github.io/central-europe-political-atlas/methodology/",
+      "reliability": "A",
+      "status": "pending",
+      "update_frequency": "按选举周期",
+      "usage_note": "官方选举结果可作为正式数据和事件依据；当前区域选举数据待接入。"
+    },
+    {
+      "id": "mainstream_wire",
+      "name": "Mainstream news agencies",
+      "name_zh": "主流通讯社",
+      "type": "主流通讯社",
+      "url": "https://www.reuters.com/",
+      "reliability": "B",
+      "status": "pending",
+      "update_frequency": "实时 / 日更",
+      "usage_note": "可作为事件依据和补充线索；正式数据仍优先使用 A 级来源。"
+    },
+    {
+      "id": "authoritative_thinktanks",
+      "name": "Authoritative think tanks",
+      "name_zh": "权威智库",
+      "type": "权威智库",
+      "url": "https://www.bruegel.org/",
+      "reliability": "B",
+      "status": "pending",
+      "update_frequency": "按报告更新",
+      "usage_note": "可作为事件依据或补充解释，不能替代官方统计。"
+    },
+    {
+      "id": "official_annual_reports",
+      "name": "Official annual reports",
+      "name_zh": "官方年报",
+      "type": "官方年报",
+      "url": "https://hui-sallai.github.io/central-europe-political-atlas/data/",
+      "reliability": "B",
+      "status": "pending",
+      "update_frequency": "年度",
+      "usage_note": "可作为项目金额、主体、股权和产能核验来源。"
+    },
+    {
+      "id": "company_announcements",
+      "name": "Company announcements",
+      "name_zh": "企业公告",
+      "type": "企业公告",
+      "url": "https://hui-sallai.github.io/central-europe-political-atlas/data/",
+      "reliability": "B",
+      "status": "pending",
+      "update_frequency": "按公告更新",
+      "usage_note": "可作为项目和企业行为依据；关键金额进入分析前需与官方或年报交叉核验。"
+    },
+    {
+      "id": "local_media",
+      "name": "Local media",
+      "name_zh": "地方媒体",
+      "type": "地方媒体",
+      "url": "https://hui-sallai.github.io/central-europe-political-atlas/news/",
+      "reliability": "C",
+      "status": "pending",
+      "update_frequency": "不定期",
+      "usage_note": "可作为事件线索和地方补充，不单独进入正式数据。"
+    },
+    {
+      "id": "industry_sites",
+      "name": "Industry websites",
+      "name_zh": "行业网站",
+      "type": "行业网站",
+      "url": "https://hui-sallai.github.io/central-europe-political-atlas/data/",
+      "reliability": "C",
+      "status": "pending",
+      "update_frequency": "不定期",
+      "usage_note": "可作为行业事件和项目线索，进入正式分析前需更高等级来源复核。"
+    },
+    {
+      "id": "manual_sources",
+      "name": "Manually curated sources",
+      "name_zh": "人工整理来源",
+      "type": "人工整理来源",
+      "url": "https://hui-sallai.github.io/central-europe-political-atlas/methodology/",
+      "reliability": "C",
+      "status": "pending",
+      "update_frequency": "随数据维护",
+      "usage_note": "必须回链到原始来源，不能单独作为正式依据。"
+    },
+    {
+      "id": "pending_sources",
+      "name": "Pending sources",
+      "name_zh": "待接入来源",
+      "type": "待接入来源",
+      "url": "https://hui-sallai.github.io/central-europe-political-atlas/data/",
+      "reliability": "D",
+      "status": "pending",
+      "update_frequency": "待定",
+      "usage_note": "字段预留但来源尚未接入；不进入正式数据、事件库或后续分析。"
+    },
+    {
+      "id": "sample_sources",
+      "name": "Structural sample sources",
+      "name_zh": "结构样例来源",
+      "type": "结构样例来源",
+      "url": "https://hui-sallai.github.io/central-europe-political-atlas/methodology/",
+      "reliability": "D",
+      "status": "sample",
+      "update_frequency": "不更新",
+      "usage_note": "只用于验证结构，不进入正式数据、事件库、模型或分析。"
+    }
+  ]
+}

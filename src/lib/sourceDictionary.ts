@@ -1,4 +1,6 @@
-export type SourceReliabilityLevel = "A" | "B" | "C" | "D";
+import type { SourceReliability } from "@/types/researchData";
+
+export type SourceReliabilityLevel = SourceReliability;
 export type SourceStatus = "official" | "manual" | "pending" | "sample";
 
 export type SourceDictionaryRecord = {

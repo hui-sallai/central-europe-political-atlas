@@ -7,8 +7,11 @@ import ts from "typescript";
 const require = createRequire(import.meta.url);
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outDir = path.join(projectRoot, "public", "research-data");
+const canonicalDataDir = path.join(projectRoot, "data");
 const generatedAt = "2026-07-27";
 const schemaVersion = "research-data-v0.1";
+const canonicalGeneratedAt = "2026-08-08";
+const canonicalSchemaVersion = "data-foundation-v0.30";
 
 require.extensions[".ts"] = (module, filename) => {
   const source = fs.readFileSync(filename, "utf8");
@@ -51,13 +54,10 @@ const {
   getExtendedObservations,
   getLatestExtendedObservation,
 } = require("../src/lib/extendedData.ts");
-const {
-  economicMetricOptions,
-  economicTimeSeriesByCountry,
-  getEconomicMetricSourceLinks,
-} = require("../src/lib/economicTimeSeries.ts");
 const { indicatorDictionaryRecords } = require("../src/lib/indicatorDictionary.ts");
 const { sourceDictionaryRows } = require("../src/lib/sourceDictionary.ts");
+const { weeklyNewsItems, toEventRecord } = require("../src/lib/newsData.ts");
+const { v4PendingModelInputIndicators } = require("../src/lib/v4ModelInputIndicators.ts");
 const { getV4DataQualitySummary, v4QualityCountrySlugs } = require("../src/lib/v4DataQuality.ts");
 const { verifyChinaProject, chinaProjectVerificationLabel } = require("../src/lib/chinaProjectVerification.ts");
 
@@ -69,6 +69,71 @@ const economicIndicatorIdByMetric = {
   inflation: "hicp_inflation",
   unemployment: "unemployment_rate",
 };
+
+const canonicalObservationSeedPath = path.join(canonicalDataDir, "observations", "observations.json");
+const canonicalObservationSeed = fs.existsSync(canonicalObservationSeedPath)
+  ? JSON.parse(fs.readFileSync(canonicalObservationSeedPath, "utf8")).records
+  : [];
+
+const economicMetricOptions = [
+  { id: "gdp", label: "GDP", unit: "百万欧元", note: "名义 GDP，当年价格。" },
+  { id: "gdpPerCapita", label: "人均 GDP", unit: "欧元", note: "按 GDP 与人口换算。" },
+  { id: "growth", label: "GDP 实际增长", unit: "%", note: "链式体量，较上年变化率。" },
+  { id: "inflation", label: "CPI / HICP 通胀率", unit: "%", note: "年均消费者价格变化率；欧盟国家采用 HICP。" },
+  { id: "unemployment", label: "失业率", unit: "%", note: "15-74 岁劳动力口径。" },
+  { id: "population", label: "人口", unit: "百万人", note: "年初人口，百万人。" },
+];
+
+const economicSourceLabelByCountry = {
+  germany: "Eurostat / Destatis",
+  poland: "Eurostat / Statistics Poland",
+  hungary: "Eurostat / Hungarian Central Statistical Office",
+  romania: "Eurostat / INSSE",
+  czechia: "Eurostat / Czech Statistical Office",
+  slovakia: "Eurostat / Statistical Office of the Slovak Republic",
+  slovenia: "Eurostat / SURS",
+  serbia: "Eurostat / Statistical Office of Serbia; CPI pending RZS/NBS import",
+  austria: "Eurostat / Statistics Austria",
+  croatia: "Eurostat / Croatian Bureau of Statistics",
+};
+
+function canonicalSeedObservation(countrySlug, metricId, year) {
+  const indicatorId = economicIndicatorIdByMetric[metricId];
+  return canonicalObservationSeed.find((observation) =>
+    observation.country_slug === countrySlug && observation.indicator === indicatorId && String(observation.year) === String(year));
+}
+
+const economicTimeSeriesByCountry = Object.fromEntries(
+  Array.from(new Set(canonicalObservationSeed.map((observation) => observation.country_slug))).map((countrySlug) => {
+    const years = Array.from(new Set(
+      canonicalObservationSeed
+        .filter((observation) => observation.country_slug === countrySlug && Object.values(economicIndicatorIdByMetric).includes(observation.indicator))
+        .map((observation) => String(observation.year)),
+    )).sort();
+    const rows = years.map((year) => {
+      const value = (metricId) => canonicalSeedObservation(countrySlug, metricId, year)?.value ?? null;
+      const source = economicSourceLabelByCountry[countrySlug] ?? "来源待接入";
+      const population = value("population");
+      return {
+        year,
+        population: population === null ? null : population / 1_000_000,
+        gdp: value("gdp"),
+        gdpPerCapita: value("gdpPerCapita"),
+        growth: value("growth"),
+        inflation: value("inflation"),
+        unemployment: value("unemployment"),
+        source,
+      };
+    });
+    return [countrySlug, rows];
+  }),
+);
+
+function getEconomicMetricSourceLinks(countrySlug, metricId, year) {
+  const observation = canonicalSeedObservation(countrySlug, metricId, year);
+  if (!observation?.source_url) return [];
+  return [{ label: observation.source_name, url: observation.source_url, note: observation.notes }];
+}
 
 const categoryLabels = {
   macro: "基础宏观",
@@ -376,6 +441,20 @@ function writeCsv(fileName, records) {
 function writeLayer(id, records, extra = {}) {
   writeJson(`${id}.json`, envelope(id, records, extra));
   writeCsv(`${id}.csv`, records);
+}
+
+function writeCanonicalCollection(folder, records, extra = {}) {
+  const directory = path.join(canonicalDataDir, folder);
+  fs.mkdirSync(directory, { recursive: true });
+  const payload = {
+    schema_version: canonicalSchemaVersion,
+    generated_at: canonicalGeneratedAt,
+    data_type: folder,
+    record_count: records.length,
+    ...extra,
+    records,
+  };
+  fs.writeFileSync(path.join(directory, `${folder}.json`), `${JSON.stringify(payload, null, 2)}\n`, "utf8");
 }
 
 function economicObservationRecords() {
@@ -1191,6 +1270,139 @@ const chinaExposureCandidateRecords = chinaProjectRecords.map((project) => {
   };
 });
 
+function canonicalStatus(value) {
+  const text = String(value ?? "").toLowerCase();
+  if (text.includes("official") || text.includes("正式")) return "official";
+  if (text.includes("verified") || text.includes("已核验") || text.includes("已接入")) return "verified";
+  if (text.includes("calculated") || text.includes("计算")) return "calculated";
+  if (text.includes("derived") || text.includes("派生")) return "derived";
+  if (text.includes("sample") || text.includes("样例")) return "sample";
+  if (text.includes("placeholder") || text.includes("占位")) return "placeholder";
+  return "pending";
+}
+
+const countryBySlug = new Map(countryRecords.map((country) => [country.country_id, country]));
+const canonicalCountryRecords = countryRecords.map((country) => ({
+  id: country.iso3,
+  slug: country.country_id,
+  iso2: country.iso2,
+  iso3: country.iso3,
+  name: country.name_en,
+  name_zh: country.name_zh,
+  local_name: country.local_name,
+  region: "Central Europe",
+  group: country.regional_group,
+  capital: country.capital,
+  currency: country.currency,
+  status: canonicalStatus(country.country_profile_status),
+  macro_status: canonicalStatus(country.basic_macro_status),
+  project_status: canonicalStatus(country.china_project_status),
+  region_status: canonicalStatus(country.map_region_status),
+  event_status: canonicalStatus(country.news_event_status),
+  last_updated: country.last_updated_at,
+}));
+
+const canonicalIndicatorRecords = [
+  ...indicatorDictionaryRecords.map((indicator) => ({
+    id: indicator.indicatorId,
+    name: indicator.nameEn,
+    name_zh: indicator.nameZh,
+    category: indicator.category,
+    unit: indicator.unit,
+    frequency: indicator.frequency,
+    source_type: indicator.sourcePriority[0] ?? "pending",
+    status: "verified",
+    future_model_candidate: indicator.futureModelEligible,
+    description: indicator.upwardMeaning,
+    last_updated: indicator.updatedAt,
+  })),
+  ...v4PendingModelInputIndicators,
+];
+
+const canonicalObservationRecords = observationRecords.map((observation) => {
+  const country = countryBySlug.get(observation.country_id);
+  return {
+    id: observation.observation_id,
+    country: country?.iso3 ?? observation.country_id.toUpperCase(),
+    country_slug: observation.country_id,
+    indicator: observation.indicator_id,
+    year: Number(observation.year),
+    value: observation.value,
+    unit: observation.unit,
+    status: canonicalStatus(observation.value_status),
+    source: observation.source_id,
+    source_name: observation.source_name,
+    source_url: observation.source_url,
+    source_reliability: observation.source_reliability,
+    updated_at: observation.last_updated,
+    notes: observation.notes,
+  };
+});
+
+const canonicalSourceRecords = sourceRecords.map((source) => ({
+  id: source.source_id,
+  name: source.name_en,
+  name_zh: source.name_zh,
+  type: source.source_type,
+  url: source.url,
+  reliability: source.reliability_level,
+  status: canonicalStatus(source.source_status),
+  update_frequency: source.update_frequency,
+  usage_note: source.note,
+}));
+
+const canonicalEventRecords = weeklyNewsItems.map((item) => {
+  const event = toEventRecord(item);
+  return {
+    id: event.event_id,
+    date: event.date,
+    country: countryBySlug.get(item.countrySlug)?.iso3 ?? item.countrySlug.toUpperCase(),
+    country_slug: item.countrySlug,
+    country_name: item.countryZh,
+    region_code: event.region_code,
+    actor: event.actor,
+    event_type: event.event_type,
+    direction: event.direction,
+    intensity: event.intensity,
+    affected_model: event.affected_model,
+    duration: event.duration,
+    confidence: event.confidence,
+    source_status: event.source_status,
+    enters_model: false,
+    coding_status: event.coding_status,
+    data_status: canonicalStatus(item.dataStatus),
+    model_note: event.model_note,
+    title: item.title,
+    topic: item.topic,
+    summary: item.summary,
+    source_name: item.sourceLabel,
+    source_url: item.sourceUrl ?? null,
+    language: item.language,
+  };
+});
+
+const canonicalProjectRecords = chinaProjectExportRecords.map((project) => ({
+  id: project.project_id,
+  name: project.project_name,
+  country: countryBySlug.get(project.country_id)?.iso3 ?? project.country_id.toUpperCase(),
+  country_slug: project.country_id,
+  city: project.region_or_city,
+  sector: project.sector,
+  company: project.chinese_actor,
+  local_actor: project.local_actor,
+  investment: project.amount_value,
+  currency: project.amount_currency,
+  year: project.year,
+  status: project.project_status,
+  data_status: project.verification_conclusion === "可量化" ? "verified" : "pending",
+  risk_tags: project.tags,
+  source: project.source_id,
+  source_url: project.source_url,
+  source_reliability: project.source_reliability,
+  verified: project.verification_conclusion === "可量化",
+  verification_note: project.verification_reason,
+}));
+
 const dataQualityRecords = dataQualityCheckRecords();
 const derivedComparisonExportRecords = derivedComparisonRecords();
 const methodologyRecords = methodologyRuleRecords();
@@ -1304,4 +1516,28 @@ writeJson("derived_metrics.json", envelope("derived_metrics", derivedMetricRecor
   model_boundary: "Fact-derived comparison layer only. No risk score, forecast, scenario, or model output.",
 }));
 
+writeCanonicalCollection("countries", canonicalCountryRecords, {
+  primary_key: "id",
+  relation_note: "observations.country, events.country, and projects.country reference ISO3 country ids.",
+});
+writeCanonicalCollection("indicators", canonicalIndicatorRecords, {
+  primary_key: "id",
+  pending_v4_indicator_count: v4PendingModelInputIndicators.length,
+  model_boundary: "Pending indicator definitions are input contracts only; they have no fabricated observations.",
+});
+writeCanonicalCollection("observations", canonicalObservationRecords, {
+  primary_key: "id",
+  model_boundary: "All current national factual model inputs must originate here. Pending values remain null.",
+});
+writeCanonicalCollection("sources", canonicalSourceRecords, { primary_key: "id" });
+writeCanonicalCollection("events", canonicalEventRecords, {
+  primary_key: "id",
+  model_boundary: "Uncoded and sample records keep enters_model=false.",
+});
+writeCanonicalCollection("projects", canonicalProjectRecords, {
+  primary_key: "id",
+  model_boundary: "Project records do not generate a China exposure index or risk score.",
+});
+
 console.log(`Exported research data JSON to ${path.relative(projectRoot, outDir)}`);
+console.log(`Exported canonical data foundation to ${path.relative(projectRoot, canonicalDataDir)}`);

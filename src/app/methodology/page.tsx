@@ -103,10 +103,35 @@ export default function MethodologyPage() {
         </p>
       </section>
 
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">Data Pipeline</p>
+        <h2 className="mt-3 text-2xl font-semibold">3. 统一数据管线</h2>
+        <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+          v0.30 将国家、指标、观测值和来源分离。页面基础宏观数据只从 observations 读取；指标定义和来源说明分别通过 indicators 与 sources 关联。
+        </p>
+        <ol className="mt-5 grid gap-3 md:grid-cols-5">
+          {[
+            ["Source", "记录来源、链接与可靠性"],
+            ["Cleaning", "统一国家代码、年份、单位和状态"],
+            ["Observation", "保存数值与可追溯来源"],
+            ["Indicator", "应用指标口径与缺失规则"],
+            ["Model", "仅在准入条件满足后启用"],
+          ].map(([label, note], index) => (
+            <li key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+              <p className="font-mono text-xs font-semibold text-[var(--accent)]">{index + 1}. {label}</p>
+              <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{note}</p>
+            </li>
+          ))}
+        </ol>
+        <p className="mt-4 rounded-2xl bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--muted)]">
+          当前 models 目录只保留类型契约；不生成 ModelOutput、风险分数、预测、情景或国家排名。
+        </p>
+      </section>
+
       <section className="mt-6 grid gap-4 lg:grid-cols-2">
         <article className="card p-6">
           <p className="eyebrow">Boundary Data</p>
-          <h2 className="mt-3 text-2xl font-semibold">3. 地图边界数据</h2>
+          <h2 className="mt-3 text-2xl font-semibold">4. 地图边界数据</h2>
           <dl className="mt-5 grid gap-2 text-sm">
             {[
               ["来源", topology.boundary_source_name],
@@ -127,7 +152,7 @@ export default function MethodologyPage() {
 
         <article className="card p-6">
           <p className="eyebrow">Event Coding</p>
-          <h2 className="mt-3 text-2xl font-semibold">4. 事件编码规则</h2>
+          <h2 className="mt-3 text-2xl font-semibold">5. 事件编码规则</h2>
           <div className="mt-5 flex flex-wrap gap-2">
             {eventFields.map((field) => <span key={field} className="rounded-full bg-[var(--surface-muted)] px-3 py-1 font-mono text-xs text-[var(--muted)]">{field}</span>)}
           </div>
@@ -141,7 +166,7 @@ export default function MethodologyPage() {
 
       <section className="mt-6 card p-6">
         <p className="eyebrow">Model Activation Gate</p>
-        <h2 className="mt-3 text-2xl font-semibold">5. 模型启用条件</h2>
+        <h2 className="mt-3 text-2xl font-semibold">6. 模型启用条件</h2>
         <ol className="mt-5 grid list-decimal gap-3 pl-5 text-sm leading-7 text-[var(--muted)] md:grid-cols-2">
           {modelConditions.map((item) => <li key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3">{item}</li>)}
         </ol>
@@ -153,7 +178,7 @@ export default function MethodologyPage() {
       <section className="mt-6 grid gap-4 lg:grid-cols-2">
         <article className="card p-6">
           <p className="eyebrow">Known Limitations</p>
-          <h2 className="mt-3 text-2xl font-semibold">6. 已知限制</h2>
+          <h2 className="mt-3 text-2xl font-semibold">7. 已知限制</h2>
           <ul className="mt-5 grid gap-3 text-sm leading-6 text-[var(--muted)]">
             {knownLimitations.map((item) => <li key={item} className="rounded-xl bg-[var(--surface-muted)] px-4 py-3">{item}</li>)}
           </ul>
@@ -161,7 +186,7 @@ export default function MethodologyPage() {
 
         <article className="card p-6">
           <p className="eyebrow">Analysis Checklist</p>
-          <h2 className="mt-3 text-2xl font-semibold">7. 进入后续分析的检查清单</h2>
+          <h2 className="mt-3 text-2xl font-semibold">8. 进入后续分析的检查清单</h2>
           <ol className="mt-5 grid list-decimal gap-2 pl-5 text-sm leading-6 text-[var(--muted)]">
             {[
               "有明确国家或地区和时间。", "有数值、单位和数据状态。", "有来源名称、链接与可靠性等级。",
