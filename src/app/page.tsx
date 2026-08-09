@@ -7,7 +7,7 @@ const primaryEntries = [
   { href: "/map", label: "地图工作台", note: "查看国家空间入口与区域数据状态" },
   { href: "/countries", label: "国家档案", note: "进入十国概览与单国研究页" },
   { href: "/data", label: "数据工作台", note: "查询宏观、项目、来源与质量记录" },
-  { href: "/news", label: "事件库", note: "查看新闻摘要与事件编码状态" },
+  { href: "/news", label: "事件库", note: "查看政治经济事件编码与指标关联" },
   { href: "/methodology", label: "方法论", note: "了解数据边界、来源等级与模型条件" },
 ] as const;
 
@@ -26,7 +26,7 @@ export default function Home() {
             </p>
           </div>
           <p className="rounded-2xl border border-[var(--line)] bg-white/65 p-4 text-sm leading-6 text-[var(--muted)]">
-            当前版本用于收口前台信息架构。正式数据、待核验数据、待接入内容和结构样例继续明确区分，样例内容不进入模型。
+            v0.35 在 v0.30 数据底座上建立 V4 政治经济事件库。事件只连接现有指标与未来模型候选，不输出风险指数、预测或选举结论。
           </p>
         </div>
 

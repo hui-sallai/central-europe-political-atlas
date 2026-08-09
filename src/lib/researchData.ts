@@ -54,9 +54,19 @@ export function getLatestObservation(countrySlug: string, indicatorId: string) {
 }
 
 export function getLatestEventForCountry(countrySlug: string) {
+  return getEventsForCountry(countrySlug)[0];
+}
+
+export function getEventsForCountry(countrySlug: string) {
   return researchEvents
     .filter((event) => event.country_slug === countrySlug)
-    .sort((a, b) => b.date.localeCompare(a.date))[0];
+    .sort((a, b) => b.date.localeCompare(a.date));
+}
+
+export function getEventsForIndicator(indicatorId: string, countrySlug?: string) {
+  return researchEvents
+    .filter((event) => event.affected_indicator.includes(indicatorId) && (!countrySlug || event.country_slug === countrySlug))
+    .sort((a, b) => b.date.localeCompare(a.date));
 }
 
 export function getProjectsForCountry(countrySlug: string) {

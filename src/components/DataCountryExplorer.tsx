@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
-import { researchCountries } from "@/lib/researchData";
+import { getEventsForCountry, getResearchIndicator, researchCountries } from "@/lib/researchData";
 import { countryMetadataRecords, researchDataLayerFiles } from "@/lib/countryMetadata";
 import { regionMetadataRecords } from "@/lib/regions";
 import { regionBoundaryRecords } from "@/lib/regionBoundaries";
@@ -30,6 +30,7 @@ import { regionSourceRecords } from "@/lib/regionSources";
 import { projectLocationRecords, type ProjectLocationRecord } from "@/lib/projectLocations";
 import { mapLayerRecords, type MapLayerRecord } from "@/lib/mapLayers";
 import { getEconomicSourcePolicy } from "@/lib/economicSourcePolicy";
+import { platformStatus } from "@/lib/platformStatus";
 import {
   extendedIndicatorLabels,
   extendedIndicators,
@@ -39,7 +40,6 @@ import {
   getExtendedIndicator,
   getExtendedObservations,
   getLatestExtendedObservation,
-  getNewsEventRecords,
   getV4TemplateCoverage,
   v4TemplateIndicatorIds,
   type ChinaProjectRecord,
@@ -703,16 +703,6 @@ function qualityStatusClass(value: V4QualityStatus) {
   }
 
   return "bg-rose-50 text-rose-800";
-}
-
-function analysisBoundaryLabel(value: string) {
-  const labels: Record<string, string> = {
-    excluded: "当前不进入分析计算",
-    explain_only: "仅作事件解释",
-    eligible_after_review: "复核后可进入后续分析",
-  };
-
-  return labels[value] ?? value;
 }
 
 function reliabilityLevelLabel(value: string) {
@@ -2899,7 +2889,7 @@ function ResearchDataExportLinks() {
   const exportStatusCards = [
     { label: "CSV 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .csv 文件。" },
     { label: "JSON 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: "v0.21 Hungary authoritative topology validation decision", note: "匈牙利 NUTS3 权威拓扑验收判定已记录；正式真实地图、模型、预测、指数和风险分数仍未启用。" },
+    { label: "当前阶段", value: platformStatus.version, note: "v0.30 数据底座保持不变；v0.35 新增 V4 事件编码与指标关联，不启用模型、预测、指数或风险分数。" },
   ];
 
   return (
@@ -3545,7 +3535,7 @@ export function DataCountryExplorer() {
   const extendedObservations = getExtendedObservations(selectedCountry.slug);
   const projectRecords = getChinaProjectRecords(selectedCountry.slug);
   const countryTableRecord = getCountryTableRecord(selectedCountry.slug);
-  const newsEventRecords = getNewsEventRecords(selectedCountry.slug);
+  const eventRecords = getEventsForCountry(selectedCountry.slug);
   const completeIndicatorDictionaryRows = completeIndicatorDictionaryIds
     .map((indicatorId) => indicatorDictionaryRecords.find((indicator) => indicator.indicatorId === indicatorId))
     .filter((indicator): indicator is NonNullable<typeof indicator> => Boolean(indicator));
@@ -4109,7 +4099,7 @@ export function DataCountryExplorer() {
 
             <DeferredDetails id="data-export-entry" title="数据导出与接口准备">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：v0.21 Hungary authoritative topology validation decision；既有 17 个逻辑层保持不变，不提供模型 API。
+                CSV 导出结构：已预留。JSON 导出结构：已预留。当前阶段：{platformStatus.version}；既有 17 个逻辑层保持不变，events 通过 canonical JSON 提供结构化事件记录，不提供模型 API。
                 当前导出对象包括 countries、regions、region_boundaries、region_indicators、region_observations、region_quality_checks、region_sources、project_locations、map_layers、indicators、sources、observations、data_quality_checks、derived_comparisons、china_projects、china_exposure_candidates 和 methodology_rules。
               </p>
               <ResearchDataExportLinks />
@@ -4586,6 +4576,40 @@ export function DataCountryExplorer() {
               ) : null}
             </section>
 
+            <section className="card p-6">
+              <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+                <div>
+                  <p className="eyebrow">Related Events</p>
+                  <h2 className="mt-3 text-2xl font-semibold">相关政治经济事件</h2>
+                  <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
+                    事件只与现有指标建立研究关联，不改变观测值，也不生成模型分数。
+                  </p>
+                </div>
+                <Link href="/news" className="text-sm font-semibold text-[var(--accent)] hover:underline">
+                  进入事件库（{eventRecords.length}）
+                </Link>
+              </div>
+              {eventRecords.length > 0 ? (
+                <div className="mt-5 grid gap-3 lg:grid-cols-3">
+                  {eventRecords.slice(0, 3).map((event) => (
+                    <Link key={event.id} href={`/news#${event.id}`} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4 transition hover:border-[var(--accent)]">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <DataStatusBadge status={event.data_status} />
+                        <span className="rounded-full bg-[var(--surface-muted)] px-2.5 py-1 text-[10px] font-semibold text-[var(--muted)]">{event.event_type}</span>
+                      </div>
+                      <h3 className="mt-3 text-sm font-semibold leading-6">{event.title}</h3>
+                      <p className="mt-2 text-xs text-[var(--muted)]">{event.date} / {event.coding_status}</p>
+                      <p className="mt-3 text-xs leading-5 text-[var(--muted)]">
+                        关联指标：{event.affected_indicator.map((indicatorId) => getResearchIndicator(indicatorId)?.name_zh ?? indicatorId).join(" / ") || "待编码"}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <p className="mt-5 rounded-2xl bg-[var(--surface-muted)] px-4 py-3 text-sm text-[var(--muted)]">该国事件记录待接入。</p>
+              )}
+            </section>
+
             <section className="card overflow-visible p-6">
               <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
                 <div>
@@ -4967,29 +4991,27 @@ export function DataCountryExplorer() {
                 </div>
 
                 <div className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
-                  <h3 className="font-semibold">新闻事件表</h3>
+                  <h3 className="font-semibold">政治经济事件表</h3>
                   <div className="mt-3 grid gap-3">
-                    {newsEventRecords.map((event) => {
-                      const source = sourceTableRecords.find((item) => item.sourceId === event.sourceId);
-
-                      return (
-                        <div key={event.eventId} className="rounded-xl bg-[var(--surface-muted)] p-3 text-xs">
+                    {eventRecords.map((event) => (
+                        <div key={event.id} className="rounded-xl bg-[var(--surface-muted)] p-3 text-xs">
                           <div className="flex flex-wrap items-center gap-2">
-                            <DataStatusBadge status={event.status} />
-                            {source ? <span className="rounded-full bg-white px-2.5 py-1 font-semibold text-[var(--muted)]">{reliabilityLevelLabel(source.reliabilityLevel)}</span> : null}
+                            <DataStatusBadge status={event.data_status} />
+                            <SourceStatusBadge status={event.source_status} />
+                            <span className="rounded-full bg-white px-2.5 py-1 font-semibold text-[var(--muted)]">{event.coding_status}</span>
                           </div>
                           <p className="mt-2 font-semibold text-[var(--foreground)]">{event.title}</p>
-                          <p className="mt-1 text-[var(--muted)]">{event.date} / {event.topic} / {event.eventType}</p>
-                          <p className="mt-1 leading-5 text-[var(--muted)]">分析边界：{analysisBoundaryLabel(event.modelImpact)}；涉华：{event.chinaRelated ? "是" : "否"}；强度：{event.intensity ?? "待量化"}</p>
+                          <p className="mt-1 text-[var(--muted)]">{event.date} / {event.topic} / {event.event_type}</p>
+                          <p className="mt-1 leading-5 text-[var(--muted)]">方向：{event.direction}；强度：{event.intensity ?? "待编码"}；进入模型：{String(event.enters_model)}</p>
+                          <p className="mt-1 leading-5 text-[var(--muted)]">关联指标：{event.affected_indicator.map((indicatorId) => getResearchIndicator(indicatorId)?.name_zh ?? indicatorId).join(" / ") || "待编码"}</p>
                           <p className="mt-1 leading-5 text-[var(--muted)]">{event.summary}</p>
-                          {source ? (
-                            <a href={source.url} target="_blank" rel="noreferrer" className="mt-2 inline-block font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
-                              来源：{source.sourceName}
+                          {event.source_url ? (
+                            <a href={event.source_url} target="_blank" rel="noreferrer" className="mt-2 inline-block font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
+                              来源：{event.source_name}
                             </a>
                           ) : null}
                         </div>
-                      );
-                    })}
+                    ))}
                   </div>
                 </div>
               </div>

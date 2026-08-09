@@ -1,5 +1,26 @@
 ﻿export type NewsTopic = "政治" | "经济" | "欧盟" | "能源" | "区域" | "对华经贸";
 
+import type {
+  EventCodingStatus,
+  EventConfidence,
+  EventDirection,
+  EventDuration,
+  EventSourceStatus,
+  EventType,
+} from "../types/Event";
+
+export const eventTypeValues: EventType[] = [
+  "fiscal",
+  "EU_funds",
+  "macro",
+  "energy",
+  "industrial_policy",
+  "FDI",
+  "China",
+  "election",
+  "regional",
+];
+
 export type WeeklyNewsItem = {
   id: string;
   countrySlug: string;
@@ -12,6 +33,17 @@ export type WeeklyNewsItem = {
   language: string;
   weekOf: string;
   dataStatus: "sample" | "verified";
+  actor?: string;
+  eventType?: EventType;
+  direction?: EventDirection;
+  intensity?: number | null;
+  affectedIndicators?: string[];
+  affectedModels?: string[];
+  duration?: EventDuration;
+  confidence?: EventConfidence;
+  sourceStatus?: EventSourceStatus;
+  codingStatus?: EventCodingStatus;
+  entersModel?: false;
 };
 
 export type EventRecord = {
@@ -20,15 +52,16 @@ export type EventRecord = {
   country_code: string;
   region_code: string | null;
   actor: string;
-  event_type: string;
-  direction: string;
+  event_type: EventType;
+  direction: EventDirection;
   intensity: number | null;
-  affected_model: string;
-  duration: string;
-  confidence: string;
-  source_status: string;
+  affected_indicator: string[];
+  affected_model: string[];
+  duration: EventDuration;
+  confidence: EventConfidence;
+  source_status: EventSourceStatus;
   enters_model: boolean;
-  coding_status: "pending";
+  coding_status: EventCodingStatus;
   model_note: string;
 };
 
@@ -45,29 +78,39 @@ const countryCodeBySlug: Record<string, string> = {
   croatia: "HR",
 };
 
-export function toEventRecord(item: WeeklyNewsItem): EventRecord {
-  const isVerified = item.dataStatus === "verified";
+const eventTypeByTopic: Record<NewsTopic, EventType> = {
+  政治: "election",
+  经济: "macro",
+  欧盟: "EU_funds",
+  能源: "energy",
+  区域: "regional",
+  对华经贸: "China",
+};
 
+export function toEventRecord(item: WeeklyNewsItem): EventRecord {
   return {
     event_id: item.id,
     date: item.weekOf,
     country_code: countryCodeBySlug[item.countrySlug] ?? item.countrySlug,
     region_code: null,
-    actor: "待编码",
-    event_type: "待编码",
-    direction: "待编码",
-    intensity: null,
-    affected_model: "模型层未启用",
-    duration: "待编码",
-    confidence: isVerified ? "来源已核验；事件编码待完成" : "结构样例",
-    source_status: isVerified ? "官方来源 / 人工摘要" : "结构样例来源",
-    enters_model: false,
-    coding_status: "pending",
-    model_note: isVerified ? "人工摘要，暂不进入模型" : "结构样例，不进入模型",
+    actor: item.actor ?? "待编码",
+    event_type: item.eventType ?? eventTypeByTopic[item.topic],
+    direction: item.direction ?? "pending",
+    intensity: item.intensity ?? null,
+    affected_indicator: item.affectedIndicators ?? [],
+    affected_model: item.affectedModels ?? [],
+    duration: item.duration ?? "pending",
+    confidence: item.confidence ?? (item.dataStatus === "verified" ? "pending" : "low"),
+    source_status: item.sourceStatus ?? (item.dataStatus === "verified" ? "official" : "sample"),
+    enters_model: item.entersModel ?? false,
+    coding_status: item.codingStatus ?? "pending",
+    model_note: item.dataStatus === "verified"
+      ? "事件编码与未来模型候选关联已记录；当前模型层未启用，事件不进入模型。"
+      : "结构样例，不进入模型。",
   };
 }
 
-export const weeklyNewsItems: WeeklyNewsItem[] = [
+export const eventLibraryItems: WeeklyNewsItem[] = [
   {
     id: "hu-2026-06-24-v4-summit",
     countrySlug: "hungary",
@@ -80,6 +123,17 @@ export const weeklyNewsItems: WeeklyNewsItem[] = [
     language: "hu / zh",
     weekOf: "2026-06-24",
     dataStatus: "verified",
+    actor: "V4 四国政府首脑",
+    eventType: "regional",
+    direction: "positive",
+    intensity: 2,
+    affectedIndicators: ["exports_goods_services", "energy_import_dependency"],
+    affectedModels: ["External Vulnerability", "Industrial Dependency"],
+    duration: "medium_term",
+    confidence: "high",
+    sourceStatus: "official",
+    codingStatus: "coded",
+    entersModel: false,
   },
   {
     id: "pl-2026-06-24-v4-summit",
@@ -93,6 +147,17 @@ export const weeklyNewsItems: WeeklyNewsItem[] = [
     language: "hu / zh",
     weekOf: "2026-06-24",
     dataStatus: "verified",
+    actor: "V4 四国政府首脑",
+    eventType: "EU_funds",
+    direction: "neutral",
+    intensity: 1,
+    affectedIndicators: ["eu_funds_received", "government_expenditure_gdp"],
+    affectedModels: ["Fiscal Pressure"],
+    duration: "medium_term",
+    confidence: "high",
+    sourceStatus: "official",
+    codingStatus: "coded",
+    entersModel: false,
   },
   {
     id: "cz-2026-06-24-v4-summit",
@@ -106,6 +171,17 @@ export const weeklyNewsItems: WeeklyNewsItem[] = [
     language: "hu / zh",
     weekOf: "2026-06-24",
     dataStatus: "verified",
+    actor: "V4 四国政府首脑",
+    eventType: "industrial_policy",
+    direction: "neutral",
+    intensity: 1,
+    affectedIndicators: ["manufacturing_share_gdp", "automotive_export_share"],
+    affectedModels: ["Industrial Dependency"],
+    duration: "medium_term",
+    confidence: "high",
+    sourceStatus: "official",
+    codingStatus: "coded",
+    entersModel: false,
   },
   {
     id: "sk-2026-06-24-v4-presidency",
@@ -119,6 +195,113 @@ export const weeklyNewsItems: WeeklyNewsItem[] = [
     language: "hu / zh",
     weekOf: "2026-06-24",
     dataStatus: "verified",
+    actor: "V4 四国政府首脑",
+    eventType: "regional",
+    direction: "positive",
+    intensity: 2,
+    affectedIndicators: ["exports_goods_services", "energy_import_dependency"],
+    affectedModels: ["External Vulnerability"],
+    duration: "medium_term",
+    confidence: "high",
+    sourceStatus: "official",
+    codingStatus: "coded",
+    entersModel: false,
+  },
+  {
+    id: "hu-2023-01-26-eu-funds-conditionality",
+    countrySlug: "hungary",
+    countryZh: "匈牙利",
+    title: "欧盟预算条件机制措施限制部分匈牙利机构签署新资金承诺",
+    topic: "欧盟",
+    summary: "欧盟委员会说明，理事会 2022 年 12 月 15 日决定所采取的措施，限制与匈牙利公共利益信托及其维持实体签署新的欧盟预算法律承诺。该记录只编码政策事件及其可能关联的财政指标，不推断宏观结果。",
+    sourceLabel: "European Commission",
+    sourceUrl: "https://commission.europa.eu/news-and-media/news/joint-statement-commissioners-hahn-and-gabriel-application-council-implementing-decision-15-december-2023-01-26_en",
+    language: "en / zh",
+    weekOf: "2023-01-26",
+    dataStatus: "verified",
+    actor: "Council of the EU / European Commission",
+    eventType: "EU_funds",
+    direction: "negative",
+    intensity: 3,
+    affectedIndicators: ["eu_funds_received", "government_revenue_gdp", "government_expenditure_gdp"],
+    affectedModels: ["Fiscal Pressure"],
+    duration: "long_term",
+    confidence: "high",
+    sourceStatus: "official",
+    codingStatus: "coded",
+    entersModel: false,
+  },
+  {
+    id: "pl-2024-07-01-amended-recovery-plan",
+    countrySlug: "poland",
+    countryZh: "波兰",
+    title: "欧盟委员会通过波兰修订后的复苏与韧性计划评估",
+    topic: "欧盟",
+    summary: "欧盟委员会文件记录了波兰修订后复苏与韧性计划的正面评估，计划同时涉及非偿还支持、贷款与 REPowerEU 投资。该事件与欧盟资金、财政支出和能源指标建立关联，但不计算政策成效或模型分数。",
+    sourceLabel: "European Commission",
+    sourceUrl: "https://commission.europa.eu/document/download/2ca5f289-d08e-4dda-aade-4d74a6447594_en?filename=COM_2024_284_1_EN_ACT_part1_v4.pdf",
+    language: "en / zh",
+    weekOf: "2024-07-01",
+    dataStatus: "verified",
+    actor: "European Commission / Polish government",
+    eventType: "EU_funds",
+    direction: "positive",
+    intensity: 3,
+    affectedIndicators: ["eu_funds_received", "government_expenditure_gdp", "fiscal_balance_gdp", "energy_import_dependency"],
+    affectedModels: ["Fiscal Pressure", "External Vulnerability"],
+    duration: "long_term",
+    confidence: "high",
+    sourceStatus: "official",
+    codingStatus: "coded",
+    entersModel: false,
+  },
+  {
+    id: "cz-2023-10-16-repowereu-plan",
+    countrySlug: "czechia",
+    countryZh: "捷克",
+    title: "捷克修订复苏计划纳入 REPowerEU 能源改革与投资",
+    topic: "能源",
+    summary: "捷克修订后的复苏与韧性计划纳入 REPowerEU 章节，重点涉及电网接入、可再生能源与能源安全。该记录连接欧盟资金、能源进口依赖和制造业指标，只表达事件与指标的研究关联。",
+    sourceLabel: "European Commission",
+    sourceUrl: "https://commission.europa.eu/business-economy-euro/economic-recovery/recovery-and-resilience-facility/country-pages/czechias-recovery-and-resilience-plan_en",
+    language: "en / zh",
+    weekOf: "2023-10-16",
+    dataStatus: "verified",
+    actor: "Council of the EU / Czech government",
+    eventType: "energy",
+    direction: "positive",
+    intensity: 2,
+    affectedIndicators: ["eu_funds_received", "energy_import_dependency", "manufacturing_share_gdp"],
+    affectedModels: ["External Vulnerability", "Industrial Dependency"],
+    duration: "long_term",
+    confidence: "high",
+    sourceStatus: "official",
+    codingStatus: "coded",
+    entersModel: false,
+  },
+  {
+    id: "sk-2024-10-22-rrf-fourth-instalment",
+    countrySlug: "slovakia",
+    countryZh: "斯洛伐克",
+    title: "欧盟委员会授权向斯洛伐克拨付第四笔复苏基金支持",
+    topic: "欧盟",
+    summary: "欧盟委员会 2024 年 10 月 22 日决定授权斯洛伐克第四笔非偿还支持拨付，文件记录金额为 9.23828 亿欧元。该事件与欧盟资金和财政指标关联，不据此评价政策优劣。",
+    sourceLabel: "European Commission",
+    sourceUrl: "https://commission.europa.eu/document/download/f8d60e98-0929-43ae-af64-fe3bd52fa3c2_en?filename=C_2024_7457_1_EN_ACT_part1_v3.pdf",
+    language: "en / zh",
+    weekOf: "2024-10-22",
+    dataStatus: "verified",
+    actor: "European Commission / Slovak government",
+    eventType: "EU_funds",
+    direction: "positive",
+    intensity: 3,
+    affectedIndicators: ["eu_funds_received", "government_revenue_gdp", "fiscal_balance_gdp"],
+    affectedModels: ["Fiscal Pressure"],
+    duration: "medium_term",
+    confidence: "high",
+    sourceStatus: "official",
+    codingStatus: "coded",
+    entersModel: false,
   },
   {
     id: "hu-2026-w23-policy-investment",
@@ -242,15 +425,7 @@ export const weeklyNewsItems: WeeklyNewsItem[] = [
   },
 ];
 
-export function getLatestNewsForCountry(countrySlug: string) {
-  return weeklyNewsItems.find((item) => item.countrySlug === countrySlug);
-}
-
-export function getNewsByCountry(countrySlug: string) {
-  return weeklyNewsItems.filter((item) => item.countrySlug === countrySlug);
-}
-
-export function getNewsTopics() {
-  return Array.from(new Set(weeklyNewsItems.map((item) => item.topic)));
+export function getEventSourceItemsByCountry(countrySlug: string) {
+  return eventLibraryItems.filter((item) => item.countrySlug === countrySlug);
 }
 

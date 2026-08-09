@@ -81,22 +81,6 @@ export type SourceTableRecord = {
   usageNotes: string;
 };
 
-export type NewsEventRecord = {
-  eventId: string;
-  date: string;
-  countrySlug: string;
-  title: string;
-  sourceId: string;
-  topic: string;
-  eventType: string;
-  direction: "positive" | "negative" | "neutral" | "pending";
-  intensity: number | null;
-  modelImpact: "excluded" | "explain_only" | "eligible_after_review";
-  chinaRelated: boolean;
-  summary: string;
-  status: ObservationStatus;
-};
-
 export const extendedIndicatorLabels: Record<ExtendedCategory, string> = {
   fiscal: "财政数据",
   external: "外部经济数据",
@@ -624,17 +608,6 @@ export const chinaProjectRecords: ChinaProjectRecord[] = [
   },
 ];
 
-export const newsEventRecords: NewsEventRecord[] = [
-  { eventId: "hu-2026-06-24-v4-summit", date: "2026-06-24", countrySlug: "hungary", title: "匈牙利主办格德勒 V4 峰会，四国同意重启定期磋商", sourceId: "hu_gov_v4_summit_2026", topic: "区域", eventType: "government_announcement", direction: "neutral", intensity: null, modelImpact: "explain_only", chinaRelated: false, summary: "官方来源的人工中文摘要；记录 V4 定期协调及交通、能源、竞争力等合作议程，暂不参与模型计算。", status: "manual" },
-  { eventId: "pl-2026-06-24-v4-summit", date: "2026-06-24", countrySlug: "poland", title: "波兰总理参加格德勒 V4 峰会，四国将协调欧盟议程立场", sourceId: "hu_gov_v4_summit_2026", topic: "欧盟", eventType: "government_announcement", direction: "neutral", intensity: null, modelImpact: "explain_only", chinaRelated: false, summary: "官方来源的人工中文摘要；涉及欧盟多年期预算、凝聚政策、农业、扩大与绿色转型协调，暂不参与模型计算。", status: "manual" },
-  { eventId: "cz-2026-06-24-v4-summit", date: "2026-06-24", countrySlug: "czechia", title: "捷克总理参加格德勒 V4 峰会，合作议题覆盖竞争力与汽车产业", sourceId: "hu_gov_v4_summit_2026", topic: "经济", eventType: "government_announcement", direction: "neutral", intensity: null, modelImpact: "explain_only", chinaRelated: false, summary: "官方来源的人工中文摘要；涉及竞争力、排放交易体系、汽车产业和贸易政策协调，暂不参与模型计算。", status: "manual" },
-  { eventId: "sk-2026-06-24-v4-presidency", date: "2026-06-24", countrySlug: "slovakia", title: "斯洛伐克将接任 V4 轮值主席，四国重启高层合作", sourceId: "hu_gov_v4_summit_2026", topic: "区域", eventType: "government_announcement", direction: "neutral", intensity: null, modelImpact: "explain_only", chinaRelated: false, summary: "官方来源的人工中文摘要；记录斯洛伐克下一主席期计划及南北交通、能源基础设施合作，暂不参与模型计算。", status: "manual" },
-  { eventId: "pl-2026-w23-security-eu", date: "2026-06-01", countrySlug: "poland", title: "政府继续强调安全、基础设施和欧盟资金议题", sourceId: "news_pending", topic: "欧盟", eventType: "weekly_sample", direction: "pending", intensity: null, modelImpact: "excluded", chinaRelated: false, summary: "结构样例，不进入模型；正式新闻源待接入。", status: "sample" },
-  { eventId: "hu-2026-w23-policy-investment", date: "2026-06-01", countrySlug: "hungary", title: "新政府与产业投资政策成为本周观察重点", sourceId: "news_pending", topic: "经济", eventType: "weekly_sample", direction: "pending", intensity: null, modelImpact: "excluded", chinaRelated: false, summary: "结构样例，不进入模型；正式新闻源待接入。", status: "sample" },
-  { eventId: "cz-2026-w23-industry-energy", date: "2026-06-01", countrySlug: "czechia", title: "产业竞争力、能源供应与政府经济政策受到关注", sourceId: "news_pending", topic: "能源", eventType: "weekly_sample", direction: "pending", intensity: null, modelImpact: "excluded", chinaRelated: false, summary: "结构样例，不进入模型；正式新闻源待接入。", status: "sample" },
-  { eventId: "sk-2026-w23-auto-regional", date: "2026-06-01", countrySlug: "slovakia", title: "政府政策、汽车产业链和区域发展是本周重点", sourceId: "news_pending", topic: "区域", eventType: "weekly_sample", direction: "pending", intensity: null, modelImpact: "excluded", chinaRelated: false, summary: "结构样例，不进入模型；正式新闻源待接入。", status: "sample" },
-];
-
 export function getExtendedObservations(countrySlug: string, category?: ExtendedCategory) {
   return extendedObservations
     .filter((observation) => {
@@ -657,10 +630,6 @@ export function getChinaProjectRecords(countrySlug: string) {
 
 export function getCountryTableRecord(countrySlug: string) {
   return countryTableRecords.find((country) => country.countrySlug === countrySlug);
-}
-
-export function getNewsEventRecords(countrySlug: string) {
-  return newsEventRecords.filter((event) => event.countrySlug === countrySlug);
 }
 
 function countrySlugToGeo(countrySlug: string) {

@@ -1,10 +1,10 @@
 export const platformStatus = {
-  version: "v0.30 Data Foundation / 数据可信版",
-  stage: "统一数据结构与可信输入准备",
+  version: "v0.35 Event Database / 事件数据库",
+  stage: "V4 政治经济事件编码与指标关联",
   regionalData: "匈牙利 NUTS3 边界证据已记录；正式展示仍未启用",
   mapDisplay: "未启用",
   modelLayer: "未启用",
-  lastUpdated: "2026-08-02",
+  lastUpdated: "2026-08-09",
 } as const;
 
 export const platformStatusItems = [

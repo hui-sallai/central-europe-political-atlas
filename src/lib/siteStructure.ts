@@ -3,7 +3,7 @@ export const frozenNavItems = [
   { href: "/map", label: "地图", role: "地图工作台入口" },
   { href: "/countries", label: "国家", role: "国家档案 + 图层仪表盘" },
   { href: "/data", label: "数据", role: "数据工作台" },
-  { href: "/news", label: "事件库", role: "新闻摘要与事件编码入口" },
+  { href: "/news", label: "事件库", role: "政治经济事件编码与指标关联入口" },
   { href: "/methodology", label: "方法论", role: "数据边界和口径说明" },
 ];
 

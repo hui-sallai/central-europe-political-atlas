@@ -1,6 +1,14 @@
 export type { DataFrequency, DataStatus, SourceReliability } from "@/types/DataStatus";
 export type { Country } from "@/types/Country";
-export type { Event } from "@/types/Event";
+export type {
+  Event,
+  EventCodingStatus,
+  EventConfidence,
+  EventDirection,
+  EventDuration,
+  EventSourceStatus,
+  EventType,
+} from "@/types/Event";
 export type { Indicator } from "@/types/Indicator";
 export type { ModelOutput } from "@/types/ModelOutput";
 export type { Observation } from "@/types/Observation";

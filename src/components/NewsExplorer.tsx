@@ -2,12 +2,38 @@
 
 import { useMemo, useState } from "react";
 import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
-import { countries } from "@/lib/data";
-import { researchEvents } from "@/lib/researchData";
-import type { Event } from "@/types/researchData";
+import { getResearchIndicator, researchCountries, researchEvents } from "@/lib/researchData";
+import type { Event, EventType } from "@/types/researchData";
 
 type CountryFilter = "all" | string;
-type TopicFilter = "all" | string;
+type EventTypeFilter = "all" | EventType;
+
+const eventTypeLabels: Record<EventType, string> = {
+  fiscal: "财政",
+  EU_funds: "欧盟资金",
+  macro: "宏观经济",
+  energy: "能源",
+  industrial_policy: "产业政策",
+  FDI: "外商直接投资",
+  China: "对华关系",
+  election: "选举",
+  regional: "区域合作",
+};
+
+const directionLabels: Record<Event["direction"], string> = {
+  positive: "正向",
+  negative: "负向",
+  mixed: "混合",
+  neutral: "中性",
+  pending: "待编码",
+};
+
+const confidenceLabels: Record<Event["confidence"], string> = {
+  high: "高",
+  medium: "中",
+  low: "低",
+  pending: "待编码",
+};
 
 function EventCard({ item }: { item: Event }) {
   const isSample = item.data_status === "sample";
@@ -20,6 +46,7 @@ function EventCard({ item }: { item: Event }) {
     event_type: item.event_type,
     direction: item.direction,
     intensity: item.intensity,
+    affected_indicator: item.affected_indicator,
     affected_model: item.affected_model,
     duration: item.duration,
     confidence: item.confidence,
@@ -30,28 +57,41 @@ function EventCard({ item }: { item: Event }) {
   };
 
   return (
-    <article className="rounded-2xl border border-[var(--line)] bg-white/65 p-5">
+    <article id={item.id} className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-5">
       <div className="flex flex-wrap items-center gap-2 text-xs text-[var(--muted)]">
         <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{item.date}</span>
         <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{item.country_name}</span>
-        <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{item.topic}</span>
+        <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{eventTypeLabels[item.event_type]}</span>
         <DataStatusBadge status={item.data_status} />
-        <SourceStatusBadge status={isSample ? "sample" : "official"} />
+        <SourceStatusBadge status={item.source_status} />
       </div>
       <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
       <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.summary}</p>
       <div className="mt-4 flex flex-wrap items-center gap-3 text-xs">
         <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 font-semibold text-[var(--muted)]">
-          {isSample ? "结构样例，不进入模型" : "人工摘要，待事件编码"}
+          {isSample ? "结构样例，不进入模型" : item.coding_status === "coded" ? "结构化编码已记录，不进入模型" : "人工摘要，待事件编码"}
         </span>
+        <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 font-semibold text-[var(--muted)]">方向：{directionLabels[item.direction]}</span>
+        <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 font-semibold text-[var(--muted)]">强度：{item.intensity ?? "待编码"}</span>
+        <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 font-semibold text-[var(--muted)]">置信度：{confidenceLabels[item.confidence]}</span>
         {item.source_url ? (
           <a href={item.source_url} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)] underline-offset-4 hover:underline">
             来源：{item.source_name}
           </a>
         ) : <span className="text-[var(--muted)]">来源：{item.source_name}</span>}
       </div>
+      <div className="mt-4 rounded-xl bg-[var(--surface-muted)] p-3">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">Affected Indicators</p>
+        <div className="mt-2 flex flex-wrap gap-2">
+          {item.affected_indicator.length > 0 ? item.affected_indicator.map((indicatorId) => (
+            <span key={indicatorId} className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-[var(--foreground)]" title={indicatorId}>
+              {getResearchIndicator(indicatorId)?.name_zh ?? indicatorId}
+            </span>
+          )) : <span className="text-xs text-[var(--muted)]">待编码</span>}
+        </div>
+      </div>
       <details className="mt-4 rounded-xl border border-[var(--line)] bg-[var(--surface-muted)] p-3">
-        <summary className="cursor-pointer text-sm font-semibold">事件编码字段</summary>
+        <summary className="cursor-pointer text-sm font-semibold">事件编码与未来模型候选关联</summary>
         <dl className="mt-3 grid gap-2 text-xs sm:grid-cols-2 xl:grid-cols-3">
           {Object.entries(codingFields).map(([field, value]) => (
             <div key={field} className="rounded-xl bg-white/75 px-3 py-2">
@@ -60,7 +100,7 @@ function EventCard({ item }: { item: Event }) {
                 {value === null
                   ? "待编码"
                   : Array.isArray(value)
-                    ? value.join(" / ") || "模型层未启用"
+                    ? value.join(" / ") || "未关联"
                     : typeof value === "boolean"
                       ? String(value)
                       : value}
@@ -75,36 +115,51 @@ function EventCard({ item }: { item: Event }) {
 
 export function NewsExplorer() {
   const [countryFilter, setCountryFilter] = useState<CountryFilter>("all");
-  const [topicFilter, setTopicFilter] = useState<TopicFilter>("all");
-  const topics = Array.from(new Set(researchEvents.map((item) => item.topic)));
+  const [eventTypeFilter, setEventTypeFilter] = useState<EventTypeFilter>("all");
+  const eventTypes = Object.keys(eventTypeLabels) as EventType[];
   const filteredItems = useMemo(
-    () => researchEvents.filter((item) => (countryFilter === "all" || item.country_slug === countryFilter) && (topicFilter === "all" || item.topic === topicFilter)),
-    [countryFilter, topicFilter],
+    () => researchEvents.filter((item) => (countryFilter === "all" || item.country_slug === countryFilter) && (eventTypeFilter === "all" || item.event_type === eventTypeFilter)),
+    [countryFilter, eventTypeFilter],
   );
   const verifiedItems = filteredItems.filter((item) => item.data_status === "verified");
   const sampleItems = filteredItems.filter((item) => item.data_status === "sample");
+  const codedCount = researchEvents.filter((item) => item.coding_status === "coded" && item.data_status === "verified").length;
+  const associatedIndicatorCount = new Set(researchEvents.flatMap((item) => item.affected_indicator)).size;
 
   return (
-    <section className="mt-8 grid gap-6 lg:grid-cols-[260px_1fr]">
+    <>
+      <section className="mt-6 grid gap-3 md:grid-cols-3">
+        {[
+          ["V4 已编码事件", `${codedCount} 条`],
+          ["事件分类", `${eventTypes.length} 类`],
+          ["已关联指标", `${associatedIndicatorCount} 项`],
+        ].map(([label, value]) => (
+          <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+            <p className="text-xs font-semibold text-[var(--muted)]">{label}</p>
+            <p className="mt-2 text-xl font-semibold text-[var(--accent)]">{value}</p>
+          </article>
+        ))}
+      </section>
+      <section className="mt-6 grid gap-6 lg:grid-cols-[260px_1fr]">
       <aside className="card h-fit p-5 lg:sticky lg:top-6">
         <p className="eyebrow">Event Filters</p>
         <h2 className="mt-3 text-xl font-semibold">筛选</h2>
-        <p className="mt-2 text-xs leading-5 text-[var(--muted)]">按国家和主题筛选事件摘要；事件编码字段默认折叠。</p>
+        <p className="mt-2 text-xs leading-5 text-[var(--muted)]">按国家和事件类型筛选摘要；详细编码字段默认折叠。</p>
         <div className="mt-5">
           <p className="text-xs font-semibold text-[var(--muted)]">国家</p>
           <div className="mt-3 flex flex-wrap gap-2">
             <button type="button" onClick={() => setCountryFilter("all")} className={`rounded-full border px-3 py-1 text-sm ${countryFilter === "all" ? "border-[var(--accent)] bg-[var(--accent)] text-white" : "border-[var(--line)] bg-white text-[var(--muted)]"}`}>全部</button>
-            {countries.map((country) => (
-              <button key={country.slug} type="button" onClick={() => setCountryFilter(country.slug)} className={`rounded-full border px-3 py-1 text-sm ${countryFilter === country.slug ? "border-[var(--accent)] bg-[var(--accent)] text-white" : "border-[var(--line)] bg-white text-[var(--muted)]"}`}>{country.nameZh}</button>
+            {researchCountries.map((country) => (
+              <button key={country.slug} type="button" onClick={() => setCountryFilter(country.slug)} className={`rounded-full border px-3 py-1 text-sm ${countryFilter === country.slug ? "border-[var(--accent)] bg-[var(--accent)] text-white" : "border-[var(--line)] bg-white text-[var(--muted)]"}`}>{country.name_zh}</button>
             ))}
           </div>
         </div>
         <div className="mt-6">
-          <p className="text-xs font-semibold text-[var(--muted)]">主题</p>
+          <p className="text-xs font-semibold text-[var(--muted)]">事件类型</p>
           <div className="mt-3 flex flex-wrap gap-2">
-            <button type="button" onClick={() => setTopicFilter("all")} className={`rounded-full border px-3 py-1 text-sm ${topicFilter === "all" ? "border-[var(--accent)] bg-[var(--accent)] text-white" : "border-[var(--line)] bg-white text-[var(--muted)]"}`}>全部</button>
-            {topics.map((topic) => (
-              <button key={topic} type="button" onClick={() => setTopicFilter(topic)} className={`rounded-full border px-3 py-1 text-sm ${topicFilter === topic ? "border-[var(--accent)] bg-[var(--accent)] text-white" : "border-[var(--line)] bg-white text-[var(--muted)]"}`}>{topic}</button>
+            <button type="button" onClick={() => setEventTypeFilter("all")} className={`rounded-full border px-3 py-1 text-sm ${eventTypeFilter === "all" ? "border-[var(--accent)] bg-[var(--accent)] text-white" : "border-[var(--line)] bg-white text-[var(--muted)]"}`}>全部</button>
+            {eventTypes.map((eventType) => (
+              <button key={eventType} type="button" onClick={() => setEventTypeFilter(eventType)} className={`rounded-full border px-3 py-1 text-sm ${eventTypeFilter === eventType ? "border-[var(--accent)] bg-[var(--accent)] text-white" : "border-[var(--line)] bg-white text-[var(--muted)]"}`}>{eventTypeLabels[eventType]}</button>
             ))}
           </div>
         </div>
@@ -112,15 +167,17 @@ export function NewsExplorer() {
 
       <div className="grid gap-5">
         <section className="card p-6">
-          <p className="eyebrow">Verified Sources / Pending Coding</p>
+          <p className="eyebrow">Political Economy Event Library</p>
           <div className="mt-2 flex flex-wrap items-end justify-between gap-3">
             <div>
-              <h2 className="text-2xl font-semibold">来源已核验，待事件编码</h2>
-              <p className="mt-2 text-sm leading-6 text-[var(--muted)]">已核验来源的人工摘要仍不会自动进入模型；actor、direction、intensity 等字段需按规则完成编码。</p>
+              <h2 className="text-2xl font-semibold">V4 正式事件样本</h2>
+              <p className="mt-2 text-sm leading-6 text-[var(--muted)]">事件可关联 indicators 与未来模型候选，但 v0.35 不计算分数；所有记录保持 enters_model=false。</p>
             </div>
             <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">{verifiedItems.length} 条</span>
           </div>
-          <div className="mt-5 grid gap-4">{verifiedItems.map((item) => <EventCard key={item.id} item={item} />)}</div>
+          <div className="mt-5 grid gap-4">
+            {verifiedItems.length > 0 ? verifiedItems.map((item) => <EventCard key={item.id} item={item} />) : <p className="rounded-xl bg-[var(--surface-muted)] p-4 text-sm text-[var(--muted)]">当前筛选条件下没有正式事件。</p>}
+          </div>
         </section>
         <details className="card p-6">
           <summary className="cursor-pointer text-xl font-semibold">结构样例区（{sampleItems.length} 条，不进入模型）</summary>
@@ -128,6 +185,7 @@ export function NewsExplorer() {
           <div className="mt-5 grid gap-4">{sampleItems.map((item) => <EventCard key={item.id} item={item} />)}</div>
         </details>
       </div>
-    </section>
+      </section>
+    </>
   );
 }

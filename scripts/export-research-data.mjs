@@ -57,7 +57,7 @@ const {
 } = require("../src/lib/extendedData.ts");
 const { indicatorDictionaryRecords } = require("../src/lib/indicatorDictionary.ts");
 const { sourceDictionaryRows } = require("../src/lib/sourceDictionary.ts");
-const { weeklyNewsItems, toEventRecord } = require("../src/lib/newsData.ts");
+const { eventLibraryItems, eventTypeValues, toEventRecord } = require("../src/lib/newsData.ts");
 const { v4PendingModelInputIndicators } = require("../src/lib/v4ModelInputIndicators.ts");
 const { getV4DataQualitySummary, v4QualityCountrySlugs } = require("../src/lib/v4DataQuality.ts");
 const { verifyChinaProject, chinaProjectVerificationLabel } = require("../src/lib/chinaProjectVerification.ts");
@@ -975,20 +975,20 @@ function methodologyRuleRecords() {
       notes: "地图真实行政边界待接入时，只保留工作台入口和结构样例说明。",
     },
     {
-      rule_id: "news_current_phase_exclusion",
-      rule_category: "不进入模型规则",
-      rule_name: "新闻区暂不进入当前阶段规则",
-      rule_description: "新闻区当前只作为事件库预留和少量正式事件展示，不进入当前数据比较、模型、预测或指数计算。",
-      applies_to: "news_page,news_events",
-      required_fields: ["event_id", "date", "country_id", "title", "source_id", "status"],
-      allowed_statuses: ["已接入", "暂不评价", "结构样例"],
-      excluded_statuses: ["模型输入", "风险分数"],
-      source_requirement: "新闻事件至少需要来源名称、来源链接和来源等级；结构样例明确标注不进入模型。",
-      quality_requirement: "正式新闻事件和结构样例必须分区展示。",
-      model_boundary: "新闻区暂不进入模型阶段。",
-      export_boundary: "未来可导出 news_events；当前不作为模型输入。",
-      last_updated: generatedAt,
-      notes: "每周新闻更新仅限国家级新闻，不自动更新民调等数据。",
+      rule_id: "event_database_v035_gate",
+      rule_category: "事件编码规则",
+      rule_name: "v0.35 事件数据库准入规则",
+      rule_description: "事件从可追溯来源和中文摘要开始，完成 actor、event_type、direction、intensity、affected_indicator、duration、confidence 等字段后，才具备未来模型候选资格。",
+      applies_to: "news_page,events,indicators,observations",
+      required_fields: ["event_id", "date", "country_code", "actor", "event_type", "direction", "intensity", "affected_indicator", "affected_model", "duration", "confidence", "source_status", "enters_model"],
+      allowed_statuses: ["coded", "partial", "pending"],
+      excluded_statuses: ["结构样例进入模型", "低置信度事件进入模型", "风险分数"],
+      source_requirement: "正式事件必须有来源名称、来源链接和来源状态；结构样例与缺少来源的记录明确保持 enters_model=false。",
+      quality_requirement: "事件类型限于 v0.35 九类枚举；affected_indicator 必须引用 indicators 中存在的 indicator_id。",
+      model_boundary: "事件编码不是事实预测。低置信度、部分编码、结构样例和来源不完整事件不得进入模型；v0.35 全部记录保持 enters_model=false。",
+      export_boundary: "events 可导出供未来 Python/R/Stata 读取，但当前不作为已启用模型输入。",
+      last_updated: "2026-08-09",
+      notes: "新闻更新仅限国家级事件来源；不自动更新民调等数据。",
     },
     {
       rule_id: "no_model_pages_current_phase",
@@ -1356,10 +1356,11 @@ const canonicalSourceRecords = sourceRecords.map((source) => ({
   usage_note: source.note,
 }));
 
-const canonicalEventRecords = weeklyNewsItems.map((item) => {
+const canonicalEventRecords = eventLibraryItems.map((item) => {
   const event = toEventRecord(item);
   return {
     id: event.event_id,
+    event_id: event.event_id,
     date: event.date,
     country: countryBySlug.get(item.countrySlug)?.iso3 ?? item.countrySlug.toUpperCase(),
     country_slug: item.countrySlug,
@@ -1369,11 +1370,12 @@ const canonicalEventRecords = weeklyNewsItems.map((item) => {
     event_type: event.event_type,
     direction: event.direction,
     intensity: event.intensity,
-    affected_model: [],
+    affected_indicator: event.affected_indicator,
+    affected_model: event.affected_model,
     duration: event.duration,
     confidence: event.confidence,
     source_status: event.source_status,
-    enters_model: false,
+    enters_model: event.enters_model,
     coding_status: event.coding_status,
     data_status: canonicalStatus(item.dataStatus),
     model_note: event.model_note,
@@ -1536,8 +1538,11 @@ writeCanonicalCollection("observations", canonicalObservationRecords, {
 });
 writeCanonicalCollection("sources", canonicalSourceRecords, { primary_key: "id" });
 writeCanonicalCollection("events", canonicalEventRecords, {
+  schema_version: "event-database-v0.35",
+  generated_at: "2026-08-09",
   primary_key: "id",
-  model_boundary: "Uncoded and sample records keep enters_model=false.",
+  event_types: eventTypeValues,
+  model_boundary: "Coded events only record indicator and future-model associations. All current records keep enters_model=false and generate no scores or forecasts.",
 });
 writeCanonicalCollection("projects", canonicalProjectRecords, {
   primary_key: "id",

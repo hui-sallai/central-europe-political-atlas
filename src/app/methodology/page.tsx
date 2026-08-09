@@ -1,4 +1,5 @@
 import { platformStatus } from "@/lib/platformStatus";
+import { researchEvents } from "@/lib/researchData";
 import { researchDataLayerFiles } from "@/lib/countryMetadata";
 import {
   hungaryAuthoritativeTopologyValidationDecisionSummary,
@@ -24,8 +25,18 @@ const reliabilityLevels = [
 ] as const;
 
 const eventFields = [
-  "event_id", "date", "country_code", "region_code", "actor", "event_type", "direction",
-  "intensity", "affected_model", "duration", "confidence", "source_status", "enters_model",
+  "event_id", "date", "country", "region_code", "actor", "event_type", "direction",
+  "intensity", "affected_indicator", "affected_model", "duration", "confidence", "source_status", "enters_model",
+] as const;
+
+const eventTypes = ["fiscal", "EU_funds", "macro", "energy", "industrial_policy", "FDI", "China", "election", "regional"] as const;
+
+const eventCodingFlow = [
+  ["Source", "核验来源与链接"],
+  ["Event", "提取可识别政策或经济事件"],
+  ["Coding", "记录主体、类型、方向、强度与置信度"],
+  ["Affected Indicator", "关联现有 indicator_id"],
+  ["Future Model Input", "只登记候选关系，不生成分数"],
 ] as const;
 
 const modelConditions = [
@@ -42,7 +53,7 @@ const knownLimitations = [
   "非 V4 六国暂未进入第一批区域边界和区域统计准备。",
   "匈牙利 NUTS3 已完成许可、主键和权威拓扑记录，但公开展示准入仍未启用。",
   "对华项目仍以核验表为主，金额、主体和状态时间线并非全部可量化。",
-  "事件库已有少量来源核验摘要，大部分 actor、direction、intensity 等字段仍待编码。",
+  "事件库优先完成 V4 样本；非 V4 事件、低置信度记录和结构样例仍待接入或待编码。",
   "政治样本与党派色阶不是正式民调，不进入模型。",
 ] as const;
 
@@ -58,6 +69,7 @@ export default function MethodologyPage() {
   const topology = hungaryAuthoritativeTopologyValidationDecisionSummary;
   const license = hungaryGiscoLicenseVerificationDecisionSummary;
   const manifest = hungaryNuts3ValidationManifestSummary;
+  const codedEventCount = researchEvents.filter((event) => event.coding_status === "coded" && event.data_status === "verified").length;
 
   return (
     <main className="page-shell">
@@ -155,14 +167,27 @@ export default function MethodologyPage() {
 
         <article className="card p-6">
           <p className="eyebrow">Event Coding</p>
-          <h2 className="mt-3 text-2xl font-semibold">5. 事件编码规则</h2>
+          <h2 className="mt-3 text-2xl font-semibold">5. Event Coding Methodology</h2>
+          <ol className="mt-5 grid gap-2 sm:grid-cols-2 xl:grid-cols-5">
+            {eventCodingFlow.map(([label, note], index) => (
+              <li key={label} className="rounded-xl border border-[var(--line)] bg-white/65 p-3">
+                <p className="font-mono text-[10px] font-semibold text-[var(--accent)]">{index + 1}. {label}</p>
+                <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{note}</p>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-4 text-sm leading-6 text-[var(--muted)]">当前已完成 {codedEventCount} 条 V4 正式事件编码；全部保持 enters_model=false。</p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            {eventTypes.map((eventType) => <span key={eventType} className="rounded-full border border-[var(--line)] bg-white px-3 py-1 font-mono text-xs text-[var(--muted)]">{eventType}</span>)}
+          </div>
           <div className="mt-5 flex flex-wrap gap-2">
             {eventFields.map((field) => <span key={field} className="rounded-full bg-[var(--surface-muted)] px-3 py-1 font-mono text-xs text-[var(--muted)]">{field}</span>)}
           </div>
           <ul className="mt-5 grid gap-2 text-sm leading-6 text-[var(--muted)]">
             <li>新闻摘要先保留来源与状态，再进行 actor、event_type、direction、intensity 等编码。</li>
             <li>来源已核验不等于事件编码完成；未编码记录的 enters_model 必须为 false。</li>
-            <li>结构样例、来源缺失或 D 级来源不进入正式事件库和模型。</li>
+            <li>direction 与 intensity 是结构化研究变量，不是事实预测或政策评价。</li>
+            <li>结构样例、低置信度、来源缺失或 D 级来源不进入正式事件库和模型。</li>
           </ul>
         </article>
       </section>

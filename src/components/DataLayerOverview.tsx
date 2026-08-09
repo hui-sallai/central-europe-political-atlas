@@ -1,11 +1,10 @@
 import Link from "next/link";
 import { DataStatusBadge } from "@/components/DataStatusBadge";
 import { getBasicIndicators } from "@/lib/basicIndicators";
-import { researchCountries } from "@/lib/researchData";
+import { getEventsForCountry, researchCountries } from "@/lib/researchData";
 import {
   getChinaProjectRecords,
   getExtendedObservations,
-  getNewsEventRecords,
   getV4ObservationCoverage,
   getV4TemplateCoverage,
   v4TemplateIndicatorIds,
@@ -86,8 +85,8 @@ export function DataLayerOverview({ countrySlug, compact = false, title = "数�
     },
     { quantifiable: 0, partially_quantifiable: 0, background_only: 0, excluded: 0 },
   );
-  const newsEvents = country ? getNewsEventRecords(country.slug) : v4CountrySlugs.flatMap((slug) => getNewsEventRecords(slug));
-  const formalNewsCount = newsEvents.filter((event) => event.status !== "sample").length;
+  const events = country ? getEventsForCountry(country.slug) : v4CountrySlugs.flatMap((slug) => getEventsForCountry(slug));
+  const codedEventCount = events.filter((event) => event.coding_status === "coded" && event.data_status === "verified").length;
   const extendedObservationCount = country ? getExtendedObservations(country.slug).length : 0;
   const regionCount = country?.admin1_count ?? countries.reduce((sum, item) => sum + item.admin1_count, 0);
   const dataHref = "/data";
@@ -131,10 +130,10 @@ export function DataLayerOverview({ countrySlug, compact = false, title = "数�
       href: dataHref,
     },
     {
-      title: "新闻事件",
-      value: country ? `${formalNewsCount}/${newsEvents.length} 正式` : `${formalNewsCount}/${newsEvents.length} 正式`,
-      status: formalNewsCount > 0 ? "manual" as const : "pending" as const,
-      description: "新闻区只保存标题、来源链接、主题和中文摘要；样例新闻不进入模型。",
+      title: "政治经济事件",
+      value: `${codedEventCount}/${events.length} 已编码`,
+      status: codedEventCount > 0 ? "manual" as const : "pending" as const,
+      description: "事件库保存来源、中文摘要、编码状态和指标关联；当前全部记录均不进入模型。",
       href: "/news",
     },
     {
