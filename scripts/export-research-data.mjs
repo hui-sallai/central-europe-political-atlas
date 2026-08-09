@@ -28,6 +28,7 @@ require.extensions[".ts"] = (module, filename) => {
 };
 
 const { countryMetadataRecords, researchDataLayerFiles } = require("../src/lib/countryMetadata.ts");
+const { countries: countryUiRecords } = require("../src/lib/data.ts");
 const { regionMetadataRecords } = require("../src/lib/regions.ts");
 const { regionBoundaryRecords } = require("../src/lib/regionBoundaries.ts");
 const { regionIndicatorRecords } = require("../src/lib/regionIndicators.ts");
@@ -1282,6 +1283,7 @@ function canonicalStatus(value) {
 }
 
 const countryBySlug = new Map(countryRecords.map((country) => [country.country_id, country]));
+const countryUiBySlug = new Map(countryUiRecords.map((country) => [country.slug, country]));
 const canonicalCountryRecords = countryRecords.map((country) => ({
   id: country.iso3,
   slug: country.country_id,
@@ -1299,6 +1301,9 @@ const canonicalCountryRecords = countryRecords.map((country) => ({
   project_status: canonicalStatus(country.china_project_status),
   region_status: canonicalStatus(country.map_region_status),
   event_status: canonicalStatus(country.news_event_status),
+  summary_zh: countryUiBySlug.get(country.country_id)?.summaryZh ?? country.notes,
+  china_trade_note: countryUiBySlug.get(country.country_id)?.chinaTradeNote ?? "对华经贸项目数据待接入。",
+  admin1_count: countryUiBySlug.get(country.country_id)?.regions.length ?? 0,
   last_updated: country.last_updated_at,
 }));
 
@@ -1364,7 +1369,7 @@ const canonicalEventRecords = weeklyNewsItems.map((item) => {
     event_type: event.event_type,
     direction: event.direction,
     intensity: event.intensity,
-    affected_model: event.affected_model,
+    affected_model: [],
     duration: event.duration,
     confidence: event.confidence,
     source_status: event.source_status,

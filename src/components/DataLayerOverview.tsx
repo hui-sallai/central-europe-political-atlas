@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { DataStatusBadge } from "@/components/DataStatusBadge";
 import { getBasicIndicators } from "@/lib/basicIndicators";
-import { countries } from "@/lib/data";
+import { researchCountries } from "@/lib/researchData";
 import {
   getChinaProjectRecords,
   getExtendedObservations,
@@ -19,6 +19,10 @@ type DataLayerOverviewProps = {
 };
 
 const v4CountrySlugs = ["poland", "hungary", "czechia", "slovakia"];
+const countries = researchCountries.map((country) => ({
+  ...country,
+  nameZh: country.name_zh,
+}));
 
 function layerStatusClass(status: "official" | "manual" | "pending" | "sample") {
   const classes = {
@@ -70,7 +74,7 @@ export function DataLayerOverview({ countrySlug, compact = false, title = "数�
   const v4Coverage = country ? getV4TemplateCoverage(country.slug) : null;
   const v4ObservationCoverage = country ? getV4ObservationCoverage(country.slug) : null;
   const isV4Country = country ? v4CountrySlugs.includes(country.slug) : false;
-  const countryProfilePending = Boolean(country?.headOfGovernmentZh.includes("待核验") || country?.headOfStateZh.includes("待核验"));
+  const countryProfilePending = country?.status !== "official";
   const countryProjects = country ? getChinaProjectRecords(country.slug) : [];
   const allProjects = v4CountrySlugs.flatMap((slug) => getChinaProjectRecords(slug));
   const projectScope = country ? countryProjects : allProjects;
@@ -85,7 +89,7 @@ export function DataLayerOverview({ countrySlug, compact = false, title = "数�
   const newsEvents = country ? getNewsEventRecords(country.slug) : v4CountrySlugs.flatMap((slug) => getNewsEventRecords(slug));
   const formalNewsCount = newsEvents.filter((event) => event.status !== "sample").length;
   const extendedObservationCount = country ? getExtendedObservations(country.slug).length : 0;
-  const regionCount = country?.regions.length ?? countries.reduce((sum, item) => sum + item.regions.length, 0);
+  const regionCount = country?.admin1_count ?? countries.reduce((sum, item) => sum + item.admin1_count, 0);
   const dataHref = "/data";
   const countryHref = country ? `/countries/${country.slug}` : "/countries";
 

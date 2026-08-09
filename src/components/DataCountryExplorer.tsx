@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
-import { countries } from "@/lib/data";
+import { researchCountries } from "@/lib/researchData";
 import { countryMetadataRecords, researchDataLayerFiles } from "@/lib/countryMetadata";
 import { regionMetadataRecords } from "@/lib/regions";
 import { regionBoundaryRecords } from "@/lib/regionBoundaries";
@@ -61,6 +61,13 @@ import { sourceDictionaryRows, type SourceDictionaryRecord } from "@/lib/sourceD
 import { getV4DataQualitySummary, type V4QualityStatus } from "@/lib/v4DataQuality";
 import { chinaProjectVerificationLabel, verifyChinaProject, type ChinaProjectVerificationConclusion } from "@/lib/chinaProjectVerification";
 import derivedComparisonsData from "../../public/research-data/derived_comparisons.json";
+
+const countries = researchCountries.map((country) => ({
+  ...country,
+  nameEn: country.name,
+  nameZh: country.name_zh,
+  chinaTradeNote: country.china_trade_note,
+}));
 
 type DataMode = "economy" | "extended" | "projects" | "charts" | "comparison" | "tables";
 type ProjectAmountFilter = "all" | "available" | "missing";

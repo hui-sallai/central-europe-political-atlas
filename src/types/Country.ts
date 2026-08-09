@@ -17,5 +17,8 @@ export interface Country {
   project_status: DataStatus;
   region_status: DataStatus;
   event_status: DataStatus;
+  summary_zh: string;
+  china_trade_note: string;
+  admin1_count: number;
   last_updated: string;
 }

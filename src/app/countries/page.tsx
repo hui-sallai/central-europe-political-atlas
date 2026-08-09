@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { DataStatusBadge } from "@/components/DataStatusBadge";
-import { getCountry } from "@/lib/data";
 import { researchCountries } from "@/lib/researchData";
 import type { DataStatus } from "@/types/researchData";
 
@@ -37,8 +36,6 @@ export default function CountriesPage() {
 
       <div className="mt-8 grid gap-4 md:grid-cols-2">
         {researchCountries.map((countryRecord) => {
-          const country = getCountry(countryRecord.slug);
-          if (!country) return null;
           const isV4 = v4CountrySlugs.has(countryRecord.slug);
           const macroStatus = compactStatus(countryRecord.macro_status);
           const projectStatus = compactStatus(countryRecord.project_status);
@@ -60,7 +57,7 @@ export default function CountriesPage() {
                   {isV4 ? "V4 深度样本" : "扩展样本"}
                 </span>
               </div>
-              <p className="mt-4 line-clamp-2 text-sm leading-6 text-[var(--muted)]">{country.summaryZh}</p>
+              <p className="mt-4 line-clamp-2 text-sm leading-6 text-[var(--muted)]">{countryRecord.summary_zh}</p>
               <dl className="mt-5 grid gap-2 sm:grid-cols-2">
                 {[
                   ["基础宏观数据", macroStatus],
@@ -76,7 +73,7 @@ export default function CountriesPage() {
               </dl>
               <div className="mt-4 flex flex-wrap items-center gap-2">
                 <DataStatusBadge status={isV4 ? "manual" : "pending"} />
-                <span className="text-xs text-[var(--muted)]">一级行政区：{country.regions.length}</span>
+                <span className="text-xs text-[var(--muted)]">一级行政区：{countryRecord.admin1_count}</span>
                 <span className="ml-auto text-sm font-semibold text-[var(--accent)]">进入国家页</span>
               </div>
             </Link>

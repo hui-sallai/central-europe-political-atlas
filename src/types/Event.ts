@@ -11,7 +11,7 @@ export interface Event {
   event_type: string;
   direction: string;
   intensity: number | null;
-  affected_model: string;
+  affected_model: string[];
   duration: string;
   confidence: string;
   source_status: string;

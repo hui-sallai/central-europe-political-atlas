@@ -56,7 +56,15 @@ function EventCard({ item }: { item: Event }) {
           {Object.entries(codingFields).map(([field, value]) => (
             <div key={field} className="rounded-xl bg-white/75 px-3 py-2">
               <dt className="font-mono text-[10px] font-semibold text-[var(--muted)]">{field}</dt>
-              <dd className="mt-1 break-words font-semibold">{value === null ? "待编码" : typeof value === "boolean" ? String(value) : value}</dd>
+              <dd className="mt-1 break-words font-semibold">
+                {value === null
+                  ? "待编码"
+                  : Array.isArray(value)
+                    ? value.join(" / ") || "模型层未启用"
+                    : typeof value === "boolean"
+                      ? String(value)
+                      : value}
+              </dd>
             </div>
           ))}
         </dl>
