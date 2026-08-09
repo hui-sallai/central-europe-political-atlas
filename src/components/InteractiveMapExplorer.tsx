@@ -27,7 +27,7 @@ function politicalSampleStatus(country: (typeof countries)[number]) {
   }
 
   return {
-    badge: "manual" as const,
+    badge: "pending" as const,
     access: "人工整理",
   };
 }
@@ -199,7 +199,7 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
                     <div key={indicator.id} className="rounded-xl bg-white/70 p-2">
                       <div className="flex items-center justify-between gap-1">
                         <p className="text-xs text-[var(--muted)]">{indicator.label}</p>
-                        <DataStatusBadge status={indicator.status === "official" ? "official" : "manual"} />
+                        <DataStatusBadge status={indicator.status} />
                       </div>
                       <p className="mt-0.5 text-sm font-semibold">{indicator.value}</p>
                       <p className="mt-0.5 text-[10px] leading-3 text-[var(--muted)]">{indicator.year}</p>
@@ -233,7 +233,7 @@ export function InteractiveMapExplorer({ variant = "full" }: InteractiveMapExplo
               {selectedNews ? (
                 <article className="mt-2 rounded-xl bg-white/70 p-3">
                   <div className="mb-2 flex flex-wrap gap-2">
-                    <DataStatusBadge status={selectedNews.data_status === "sample" ? "sample" : "manual"} />
+                    <DataStatusBadge status={selectedNews.data_status} />
                     <SourceStatusBadge status={selectedNews.data_status === "sample" ? "sample" : selectedNews.source_url ? "manual" : "pending"} />
                   </div>
                   <h3 className={`${isHome ? "text-base leading-6" : "text-lg leading-7"} font-semibold`}>{selectedNews.title}</h3>

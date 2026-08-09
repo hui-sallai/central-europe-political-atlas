@@ -1,13 +1,20 @@
-export type DataStatusKind = "official" | "manual" | "sample" | "pending" | "missing";
+import type { DataStatus } from "@/types/DataStatus";
 
-export const dataStatusMeta: Record<DataStatusKind, { label: string; description: string }> = {
+export type DataStatusKind = DataStatus;
+export type DisplayDataStatus = DataStatus | "manual" | "missing";
+
+export const dataStatusMeta: Record<DisplayDataStatus, { label: string; description: string }> = {
   official: {
     label: "正式数据",
     description: "已作为页面当前正式显示数据使用；仍需保留来源和更新时间。",
   },
+  verified: {
+    label: "已核验",
+    description: "来源或记录已经复核，但仍需满足具体分析或模型的准入条件。",
+  },
   manual: {
     label: "待核验",
-    description: "已人工整理或预填，但尚未完成来源复核，不作为最终事实口径。",
+    description: "兼容既有人工整理记录；进入统一数据层前必须转换为 verified 或 pending。",
   },
   sample: {
     label: "结构样例，不进入模型",
@@ -17,9 +24,21 @@ export const dataStatusMeta: Record<DataStatusKind, { label: string; description
     label: "待接入",
     description: "已预留字段或页面位置，尚未接入可信来源。",
   },
+  placeholder: {
+    label: "占位内容",
+    description: "仅说明未来承接位置，不表达事实数值，也不进入分析。",
+  },
+  calculated: {
+    label: "计算值",
+    description: "由可追溯原始值按记录的方法计算，必须保留计算说明。",
+  },
+  derived: {
+    label: "派生值",
+    description: "用于事实比较或变化描述，不代表风险判断或预测。",
+  },
   missing: {
     label: "待接入",
-    description: "当前口径下未取得可用数据，后续接入来源后再显示。",
+    description: "兼容既有空值展示；统一观测值层使用 pending 和 null 表示。",
   },
 };
 

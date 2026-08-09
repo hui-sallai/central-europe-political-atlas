@@ -1,4 +1,5 @@
 import { getLatestObservation, getResearchIndicator } from "@/lib/researchData";
+import type { DataStatus } from "@/types/DataStatus";
 
 export type BasicIndicator = {
   id: "population" | "gdp" | "gdpPerCapita" | "growth" | "inflation" | "unemployment";
@@ -6,7 +7,7 @@ export type BasicIndicator = {
   value: string;
   year: string;
   source: string;
-  status: "official" | "manual" | "pending";
+  status: DataStatus;
   note?: string;
 };
 
@@ -31,7 +32,7 @@ export function getBasicIndicators(countrySlug: string): BasicIndicator[] {
   return indicatorIds.map(({ id, indicatorId }) => {
     const observation = getLatestObservation(countrySlug, indicatorId);
     const indicator = getResearchIndicator(indicatorId);
-    const status = observation?.status === "official" ? "official" : observation?.status === "pending" ? "pending" : "manual";
+    const status = observation?.status ?? "pending";
 
     return {
       id,

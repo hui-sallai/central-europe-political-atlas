@@ -121,7 +121,7 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
               <div key={indicator.id} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
                 <div className="flex items-center justify-between gap-2">
                   <p className="text-xs text-[var(--muted)]">{indicator.label}</p>
-                  <DataStatusBadge status={indicator.status === "official" ? "official" : "manual"} />
+                  <DataStatusBadge status={indicator.status} />
                 </div>
                 <p className="mt-2 font-semibold">{indicator.value}</p>
                 <p className="mt-1 text-[10px] text-[var(--muted)]">{indicator.year} / {indicator.source}</p>
@@ -156,7 +156,7 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
             <p className="eyebrow">Regional And Map Status</p>
             <h2 className="mt-3 text-2xl font-semibold">区域数据与地图状态</h2>
           </div>
-          <DataStatusBadge status={isHungary ? "manual" : "pending"} />
+          <DataStatusBadge status="pending" />
         </div>
         <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
           {regionalItems.map((item) => (

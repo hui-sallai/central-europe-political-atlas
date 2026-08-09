@@ -1,15 +1,19 @@
-import { dataStatusMeta, sourceStatusMeta, type DataStatusKind, type SourceStatusKind } from "@/lib/dataStatusLabels";
+import { dataStatusMeta, sourceStatusMeta, type DisplayDataStatus, type SourceStatusKind } from "@/lib/dataStatusLabels";
 
 type DataStatusBadgeProps = {
-  status: DataStatusKind;
+  status: DisplayDataStatus;
   className?: string;
 };
 
-const statusClassName: Record<DataStatusKind, string> = {
+const statusClassName: Record<DisplayDataStatus, string> = {
   official: "border-emerald-200 bg-emerald-50 text-emerald-800",
+  verified: "border-sky-200 bg-sky-50 text-sky-800",
   manual: "border-sky-200 bg-sky-50 text-sky-800",
   sample: "border-amber-200 bg-amber-50 text-amber-800",
   pending: "border-slate-200 bg-slate-50 text-slate-700",
+  placeholder: "border-slate-200 bg-slate-50 text-slate-700",
+  calculated: "border-violet-200 bg-violet-50 text-violet-800",
+  derived: "border-indigo-200 bg-indigo-50 text-indigo-800",
   missing: "border-slate-200 bg-slate-50 text-slate-700",
 };
 

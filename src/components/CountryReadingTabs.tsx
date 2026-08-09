@@ -165,7 +165,7 @@ export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
                     <div key={indicator.id} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
                       <div className="flex items-center justify-between gap-2">
                         <p className="text-xs text-[var(--muted)]">{indicator.label}</p>
-                        <DataStatusBadge status={indicator.status === "official" ? "official" : "manual"} />
+                        <DataStatusBadge status={indicator.status} />
                       </div>
                       <p className="mt-2 font-semibold">{indicator.value}</p>
                       <p className="mt-1 text-[10px] text-[var(--muted)]">{indicator.year} / {indicator.source}</p>
@@ -199,7 +199,7 @@ export function CountryReadingTabs({ country }: CountryReadingTabsProps) {
                   <span className="h-3 w-3 rounded-full" style={{ background: party.color }} />
                   <p className="font-semibold">{party.shortName}</p>
                   <span className="text-xs text-[var(--muted)]">{party.role === "governing" ? "执政" : party.role === "support" ? "支持" : "在野"}</span>
-                  <DataStatusBadge status={party.shortName === "TBD" ? "pending" : "manual"} />
+                  <DataStatusBadge status="pending" />
                 </div>
                 <div className="mt-2">
                   <SourceStatusBadge status={party.shortName === "TBD" ? "pending" : "manual"} />

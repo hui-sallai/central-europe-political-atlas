@@ -7,7 +7,7 @@ import ts from "typescript";
 const require = createRequire(import.meta.url);
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outDir = path.join(projectRoot, "public", "research-data");
-const canonicalDataDir = path.join(projectRoot, "data");
+const canonicalDataDir = path.join(projectRoot, "src", "data");
 const generatedAt = "2026-07-27";
 const schemaVersion = "research-data-v0.1";
 const canonicalGeneratedAt = "2026-08-08";

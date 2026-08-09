@@ -9,7 +9,6 @@ import {
 const dataStatuses = [
   ["official", "正式数据", "已取得可核验来源、年份、数值、单位和更新时间，可进入事实数据表。"],
   ["verified", "已核验", "来源或事实已复核，但不表示已完成事件编码或模型资格检查。"],
-  ["pending_review", "待核验", "已有线索或人工整理记录，尚不能作为正式数据。"],
   ["pending", "待接入", "字段已预留，数值或来源尚未接入。"],
   ["sample", "结构样例", "只用于验证页面、字段或交互，不进入分析。"],
   ["placeholder", "占位内容", "仅说明未来承接位置，不表达事实数值。"],
@@ -82,6 +81,9 @@ export default function MethodologyPage() {
             </article>
           ))}
         </div>
+        <p className="mt-4 rounded-2xl bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--muted)]">
+          “待核验”是人工整理内容的页面工作流标签，不是独立的 DataStatus；进入统一数据层时必须明确归入 verified 或 pending。
+        </p>
       </section>
 
       <section className="mt-6 card p-6">
@@ -109,13 +111,14 @@ export default function MethodologyPage() {
         <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
           v0.30 将国家、指标、观测值和来源分离。页面基础宏观数据只从 observations 读取；指标定义和来源说明分别通过 indicators 与 sources 关联。
         </p>
-        <ol className="mt-5 grid gap-3 md:grid-cols-5">
+        <ol className="mt-5 grid gap-3 md:grid-cols-3 xl:grid-cols-6">
           {[
             ["Source", "记录来源、链接与可靠性"],
             ["Cleaning", "统一国家代码、年份、单位和状态"],
             ["Observation", "保存数值与可追溯来源"],
             ["Indicator", "应用指标口径与缺失规则"],
             ["Model", "仅在准入条件满足后启用"],
+            ["Visualization", "只展示可追溯输入与明确边界"],
           ].map(([label, note], index) => (
             <li key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
               <p className="font-mono text-xs font-semibold text-[var(--accent)]">{index + 1}. {label}</p>

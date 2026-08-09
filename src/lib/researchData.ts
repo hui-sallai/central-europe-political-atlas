@@ -1,9 +1,9 @@
-import countriesJson from "../../data/countries/countries.json";
-import eventsJson from "../../data/events/events.json";
-import indicatorsJson from "../../data/indicators/indicators.json";
-import observationsJson from "../../data/observations/observations.json";
-import projectsJson from "../../data/projects/projects.json";
-import sourcesJson from "../../data/sources/sources.json";
+import countriesJson from "@/data/countries/countries.json";
+import eventsJson from "@/data/events/events.json";
+import indicatorsJson from "@/data/indicators/indicators.json";
+import observationsJson from "@/data/observations/observations.json";
+import projectsJson from "@/data/projects/projects.json";
+import sourcesJson from "@/data/sources/sources.json";
 import type {
   Country,
   DataEnvelope,

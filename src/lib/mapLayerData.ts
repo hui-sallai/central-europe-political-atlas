@@ -1,5 +1,5 @@
 import type { Country, Region } from "@/lib/data";
-import type { DataStatusKind } from "@/lib/dataStatusLabels";
+import type { DisplayDataStatus } from "@/lib/dataStatusLabels";
 
 export type MapLayer = "party" | "economy" | "baseline";
 
@@ -9,7 +9,7 @@ export type LayerOption = {
   description: string;
   legend: string;
   dataStatus: string;
-  statusKind: DataStatusKind;
+  statusKind: DisplayDataStatus;
   statusNote: string;
 };
 

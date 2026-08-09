@@ -154,7 +154,7 @@ export function DataLayerOverview({ countrySlug, compact = false, title = "数�
             按页面层级展示当前已有数据、待接入数据和结构样例；先看这里，再进入具体表格。
           </p>
         </div>
-        <DataStatusBadge status="manual" />
+        <DataStatusBadge status="pending" />
       </div>
       <div className={`mt-4 grid gap-3 ${compact ? "md:grid-cols-2 xl:grid-cols-3" : "md:grid-cols-2 xl:grid-cols-3"}`}>
         {layers.map((layer) => (

@@ -35,7 +35,7 @@ function EventCard({ item }: { item: Event }) {
         <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{item.date}</span>
         <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{item.country_name}</span>
         <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{item.topic}</span>
-        <DataStatusBadge status={isSample ? "sample" : "manual"} />
+        <DataStatusBadge status={item.data_status} />
         <SourceStatusBadge status={isSample ? "sample" : "official"} />
       </div>
       <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
