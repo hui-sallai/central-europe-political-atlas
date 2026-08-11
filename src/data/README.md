@@ -8,7 +8,7 @@ This directory is the canonical, version-controlled application data layer. Page
 - `sources/`: normalized source registry
 - `events/`: event-library records; uncoded records keep `enters_model=false`
 - `projects/`: verified or pending China-related project records
-- `models/`: schema contract only; v0.30 creates no model output
+- `models/`: v0.50 transparent model documentation; generated Model Cards and outputs are mirrored to `public/research-data`
 
 Existing indicator ids preserve the established platform vocabulary and avoid duplicate definitions:
 
@@ -17,6 +17,6 @@ Existing indicator ids preserve the established platform vocabulary and avoid du
 - Energy: `energy_import_dependency`, `gas_import_dependency`, `household_electricity_price`, `energy_inflation`
 - Industry: `manufacturing_share_gdp`, `automotive_export_share`, `battery_investment`, `fdi_inflow`, `industrial_electricity_price`
 
-New V4 input contracts stay `pending` until sourced observations exist. Existing factual indicator definitions keep their established ids and observations.
+New V4 input contracts stay `pending` until sourced observations exist. Existing factual indicator definitions keep their established ids and observations. Pending model inputs never receive fabricated values or implicit zeroes.
 
 Use an auditable import or cleaning step when changing factual values. Do not change values through page components. Run `pnpm run export:research-data` after updating a canonical collection.

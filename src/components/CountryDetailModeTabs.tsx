@@ -12,6 +12,7 @@ import { getCountryMetadata } from "@/lib/countryMetadata";
 import type { Country } from "@/lib/data";
 import { getChinaProjectRecords, getV4ObservationCoverage } from "@/lib/extendedData";
 import { getEventsForCountry } from "@/lib/researchData";
+import { getModelCard, getModelOutputsForCountry } from "@/lib/modelFramework";
 import {
   hungaryAuthoritativeTopologyValidationDecisionSummary,
   hungaryGiscoLicenseVerificationDecisionSummary,
@@ -43,6 +44,7 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
   const basicIndicators = getBasicIndicators(country.slug);
   const projectRecords = getChinaProjectRecords(country.slug);
   const eventRecords = getEventsForCountry(country.slug);
+  const modelOutputs = getModelOutputsForCountry(country.slug);
   const codedEventCount = eventRecords.filter((event) => event.coding_status === "coded" && event.data_status === "verified").length;
   const projectLinkedEventCount = eventRecords.filter((event) => event.related_project_ids.length > 0).length;
   const coverage = getV4ObservationCoverage(country.slug);
@@ -152,6 +154,36 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
             <CoverageStat label="区域与项目" value="待接入" note="当前只保留结构与后续入口。" />
           </div>
         )}
+      </section>
+
+      <section className="mt-4 card p-6">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="eyebrow">Transparent Models</p>
+            <h2 className="mt-3 text-2xl font-semibold">透明模型摘要</h2>
+          </div>
+          <Link href="/models" className="text-sm font-semibold text-[var(--accent)] hover:underline">查看输入、权重与 Model Card</Link>
+        </div>
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
+          {modelOutputs.map((output) => {
+            const card = getModelCard(output.model_id);
+            return (
+              <article key={output.model_id} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <p className="font-semibold">{card?.name_zh ?? output.model_id}</p>
+                    <p className="mt-1 text-xs text-[var(--muted)]">数据完整度 {output.data_completeness}% / 置信度 {output.confidence}</p>
+                  </div>
+                  <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">
+                    {output.availability === "sufficient" ? "可计算" : "不可计算"}
+                  </span>
+                </div>
+                <p className="mt-4 text-3xl font-semibold text-[var(--accent)]">{output.score === null ? "不输出分数" : output.score.toFixed(1)}</p>
+                <p className="mt-3 text-xs leading-5 text-[var(--muted)]">分数不进入地图图层，不代表预测或客观风险真值。</p>
+              </article>
+            );
+          })}
+        </div>
       </section>
 
       <section className="mt-4 card p-6">

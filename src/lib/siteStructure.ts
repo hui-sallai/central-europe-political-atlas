@@ -4,11 +4,12 @@ export const frozenNavItems = [
   { href: "/countries", label: "国家", role: "国家档案 + 图层仪表盘" },
   { href: "/data", label: "数据", role: "数据工作台" },
   { href: "/news", label: "事件库", role: "政治经济事件编码与指标关联入口" },
+  { href: "/models", label: "模型", role: "透明模型、输入追踪与 Model Card" },
   { href: "/methodology", label: "方法论", role: "数据边界和口径说明" },
 ];
 
 export const frozenScopeNotes = [
-  "短期内不新增 /models、/forecast、/scenario 页面。",
-  "短期内不输出预测，不做风险指数。",
-  "当前只冻结首页、地图页、国家页、数据页、事件库和方法论页六个公开结构。",
+  "v0.50 只启用统一 /models 页面；不新增 /forecast 或 /scenario 页面。",
+  "透明压力分数不等于预测、风险真值或政策评价。",
+  "模型先在 Models 与 Country 页面验证，不进入地图风险图层。",
 ];

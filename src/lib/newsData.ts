@@ -108,7 +108,7 @@ export function toEventRecord(item: WeeklyNewsItem): EventRecord {
     enters_model: item.entersModel ?? false,
     coding_status: item.codingStatus ?? "pending",
     model_note: item.dataStatus === "verified"
-      ? "事件编码与未来模型候选关联已记录；当前模型层未启用，事件不进入模型。"
+      ? "事件编码与模型候选关联已记录；事件不进入 v0.50 基础分数，只用于辅助解释。"
       : "结构样例，不进入模型。",
   };
 }

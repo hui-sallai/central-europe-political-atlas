@@ -1,6 +1,7 @@
 import { platformStatus } from "@/lib/platformStatus";
 import { researchEvents, researchProjects } from "@/lib/researchData";
 import { researchDataLayerFiles } from "@/lib/countryMetadata";
+import { modelAvailabilitySummary, modelCards } from "@/lib/modelFramework";
 import {
   hungaryAuthoritativeTopologyValidationDecisionSummary,
   hungaryGiscoLicenseVerificationDecisionSummary,
@@ -62,6 +63,16 @@ const knownLimitations = [
   "对华项目仍以核验表为主，金额、主体和状态时间线并非全部可量化。",
   "事件库优先完成 V4 样本；非 V4 事件、低置信度记录和结构样例仍待接入或待编码。",
   "政治样本与党派色阶不是正式民调，不进入模型。",
+  "居民经济压力模型暂未纳入实际工资与居民能源成本；财政压力模型暂未纳入融资成本与欧盟资金。",
+] as const;
+
+const transparentModelFlow = [
+  ["Observation", "只读取状态合格且可追溯的观测值"],
+  ["Standardization", "按 Model Card 固定边界转换到 0–100"],
+  ["Weighting", "应用集中维护的公开权重"],
+  ["Model Score", "完整输入满足门槛时才输出"],
+  ["Drivers", "按加权贡献解释主要驱动"],
+  ["Confidence", "结合数据完整度与模型范围说明置信度"],
 ] as const;
 
 const boundaryHistory = [
@@ -146,7 +157,7 @@ export default function MethodologyPage() {
           ))}
         </ol>
         <p className="mt-4 rounded-2xl bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--muted)]">
-          当前 models 目录只保留类型契约；不生成 ModelOutput、风险分数、预测、情景或国家排名。
+          v0.50 已启用两个透明规则模型；每个输出均保留 observation_id、来源、标准化值、权重和贡献。平台仍不生成预测、情景、选举结论或地图风险图层。
         </p>
       </section>
 
@@ -219,13 +230,33 @@ export default function MethodologyPage() {
       </section>
 
       <section className="mt-6 card p-6">
-        <p className="eyebrow">Model Activation Gate</p>
-        <h2 className="mt-3 text-2xl font-semibold">7. 模型启用条件</h2>
+        <p className="eyebrow">Transparent Model Methodology</p>
+        <h2 className="mt-3 text-2xl font-semibold">7. 透明模型方法与启用条件</h2>
+        <ol className="mt-5 grid gap-3 md:grid-cols-3 xl:grid-cols-6">
+          {transparentModelFlow.map(([label, note], index) => (
+            <li key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+              <p className="font-mono text-xs font-semibold text-[var(--accent)]">{index + 1}. {label}</p>
+              <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{note}</p>
+            </li>
+          ))}
+        </ol>
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
+          {modelCards.map((card) => {
+            const availability = modelAvailabilitySummary.find((item) => item.model_id === card.model_id);
+            return (
+              <article key={card.model_id} className="rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-4">
+                <h3 className="font-semibold">{card.name_zh}</h3>
+                <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{card.weight_note}</p>
+                <p className="mt-3 text-xs text-[var(--muted)]">可计算 {availability?.sufficient ?? 0} 国；不可计算 {availability?.insufficient ?? 0} 国。</p>
+              </article>
+            );
+          })}
+        </div>
         <ol className="mt-5 grid list-decimal gap-3 pl-5 text-sm leading-7 text-[var(--muted)] md:grid-cols-2">
           {modelConditions.map((item) => <li key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3">{item}</li>)}
         </ol>
         <p className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-semibold leading-6 text-amber-900">
-          当前没有 /models、/forecast 或 /scenario 页面，也不输出风险指数、中国经济暴露指数或选举预测。
+          /models 只展示可追溯的规则分数和 Model Card。分数是比较与分析工具，不是客观风险真值；/forecast 与 /scenario 仍不存在，也不输出 China Exposure Index 或选举预测。
         </p>
       </section>
 

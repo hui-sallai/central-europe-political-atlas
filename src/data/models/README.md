@@ -1,3 +1,8 @@
-# Model contracts only
+# Transparent model layer
 
-The `ModelOutput` TypeScript interface is reserved for future work. v0.30 does not generate scores, forecasts, scenarios, rankings, or model output records.
+v0.50 enables two deterministic, rule-based model outputs:
+
+- Household Economic Pressure Index
+- Fiscal Pressure Index
+
+Weights, normalization bounds, completeness rules, limitations, and observation traces are maintained in `src/lib/modelFramework.ts`. The layer does not use machine learning and does not generate election forecasts, scenarios, map risk layers, or a China Exposure Index.

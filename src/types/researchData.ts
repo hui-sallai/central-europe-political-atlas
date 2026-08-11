@@ -10,7 +10,16 @@ export type {
   EventType,
 } from "@/types/Event";
 export type { Indicator } from "@/types/Indicator";
-export type { ModelOutput } from "@/types/ModelOutput";
+export type {
+  ModelAvailability,
+  ModelCard,
+  ModelConfidence,
+  ModelId,
+  ModelInputDefinition,
+  ModelInputTrace,
+  ModelOutput,
+  ModelTrend,
+} from "@/types/ModelOutput";
 export type { Observation } from "@/types/Observation";
 export type { Project } from "@/types/Project";
 export type { Source } from "@/types/Source";
