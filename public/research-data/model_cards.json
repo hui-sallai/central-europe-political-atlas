@@ -8,6 +8,7 @@
   "records": [
     {
       "model_id": "household_economic_pressure",
+      "model_version": "v0.50.0",
       "name": "Household Economic Pressure Index",
       "name_zh": "居民经济压力指数",
       "purpose": "用已经通过质量验收的价格与就业数据，形成可追溯的居民经济压力比较值。",
@@ -43,17 +44,25 @@
       "calculation_logic": "各输入按固定上下界线性标准化到 0–100，再乘以集中维护的权重求和。",
       "weight_note": "v0.50 中通胀和失业率各占 50%；工资和居民能源成本因缺少合格观测值暂不计权。",
       "output_meaning": "分数越高，表示当前价格和就业两个维度的观测组合对应更高的居民经济压力。",
-      "completeness_rule": "两个启用输入均存在正式或已核验观测值时输出分数；否则不输出精确分数。",
+      "completeness_rule": "启用权重覆盖 100% 时为 sufficient；达到 75% 可标记 partial 并按可用权重重标，低于 75% 为 insufficient 且不输出精确分数。当前两个输入各占 50%，缺少任一项即低于 partial 门槛。",
       "limitations": [
         "尚未纳入实际工资、住房成本、居民能源账单和收入分布。",
         "固定标准化边界是公开的分析设定，不是自然阈值。",
         "不用于预测家庭行为、选举结果或个体生活状况。"
       ],
       "event_policy": "事件只用于解释近期方向，不进入 v0.50 基础分数。",
+      "weight_history": [
+        {
+          "version": "v0.50.0",
+          "effective_date": "2026-08-11",
+          "note": "首版：通胀率 50%，失业率 50%。"
+        }
+      ],
       "calculation_date": "2026-08-11"
     },
     {
       "model_id": "fiscal_pressure",
+      "model_version": "v0.50.0",
       "name": "Fiscal Pressure Index",
       "name_zh": "财政压力指数",
       "purpose": "用财政余额和政府债务的可核验观测，形成第一版财政结构压力比较值。",
@@ -90,13 +99,20 @@
       "calculation_logic": "财政余额和债务率按固定边界标准化到 0–100，各占 50% 后求和。",
       "weight_note": "v0.50 只启用赤字和债务两个 A 级来源输入；融资成本和欧盟资金尚未接入，不参与计算。",
       "output_meaning": "分数越高，表示当前赤字和债务两个维度的观测组合对应更高的财政压力。",
-      "completeness_rule": "两个启用输入均存在正式或已核验观测值时输出分数；否则不输出精确分数。",
+      "completeness_rule": "启用权重覆盖 100% 时为 sufficient；达到 75% 可标记 partial 并按可用权重重标，低于 75% 为 insufficient 且不输出精确分数。当前两个输入各占 50%，缺少任一项即低于 partial 门槛。",
       "limitations": [
         "尚未纳入利息支出、债券收益率、债务期限结构和欧盟资金实际支付。",
         "不衡量政府偿债违约概率，也不构成主权信用评级。",
         "当前只有 V4 四国具备完整的启用输入。"
       ],
       "event_policy": "财政和欧盟资金事件作为解释记录展示，不改变 v0.50 基础分数。",
+      "weight_history": [
+        {
+          "version": "v0.50.0",
+          "effective_date": "2026-08-11",
+          "note": "首版：财政赤字/GDP 50%，政府债务/GDP 50%。"
+        }
+      ],
       "calculation_date": "2026-08-11"
     }
   ]

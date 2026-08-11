@@ -8,6 +8,7 @@
   "records": [
     {
       "model_id": "household_economic_pressure",
+      "model_version": "v0.50.0",
       "country": "波兰",
       "country_slug": "poland",
       "score": 22,
@@ -26,6 +27,7 @@
         "macro:poland:hicp_inflation:2025",
         "macro:poland:unemployment_rate:2025"
       ],
+      "missing_indicator_ids": [],
       "inputs": [
         {
           "indicator_id": "hicp_inflation",
@@ -61,6 +63,7 @@
     },
     {
       "model_id": "fiscal_pressure",
+      "model_version": "v0.50.0",
       "country": "波兰",
       "country_slug": "poland",
       "score": 61.3,
@@ -79,6 +82,7 @@
         "v4:poland:fiscal_balance_gdp:2025",
         "v4:poland:government_debt_gdp:2025"
       ],
+      "missing_indicator_ids": [],
       "inputs": [
         {
           "indicator_id": "fiscal_balance_gdp",
@@ -117,6 +121,7 @@
     },
     {
       "model_id": "household_economic_pressure",
+      "model_version": "v0.50.0",
       "country": "匈牙利",
       "country_slug": "hungary",
       "score": 34,
@@ -135,6 +140,7 @@
         "macro:hungary:hicp_inflation:2025",
         "macro:hungary:unemployment_rate:2025"
       ],
+      "missing_indicator_ids": [],
       "inputs": [
         {
           "indicator_id": "hicp_inflation",
@@ -170,6 +176,7 @@
     },
     {
       "model_id": "fiscal_pressure",
+      "model_version": "v0.50.0",
       "country": "匈牙利",
       "country_slug": "hungary",
       "score": 57.6,
@@ -188,6 +195,7 @@
         "v4:hungary:fiscal_balance_gdp:2025",
         "v4:hungary:government_debt_gdp:2025"
       ],
+      "missing_indicator_ids": [],
       "inputs": [
         {
           "indicator_id": "fiscal_balance_gdp",
@@ -225,6 +233,7 @@
     },
     {
       "model_id": "household_economic_pressure",
+      "model_version": "v0.50.0",
       "country": "捷克",
       "country_slug": "czechia",
       "score": 15.5,
@@ -243,6 +252,7 @@
         "macro:czechia:hicp_inflation:2025",
         "macro:czechia:unemployment_rate:2025"
       ],
+      "missing_indicator_ids": [],
       "inputs": [
         {
           "indicator_id": "hicp_inflation",
@@ -278,6 +288,7 @@
     },
     {
       "model_id": "fiscal_pressure",
+      "model_version": "v0.50.0",
       "country": "捷克",
       "country_slug": "czechia",
       "score": 25.7,
@@ -296,6 +307,7 @@
         "v4:czechia:fiscal_balance_gdp:2025",
         "v4:czechia:government_debt_gdp:2025"
       ],
+      "missing_indicator_ids": [],
       "inputs": [
         {
           "indicator_id": "fiscal_balance_gdp",
@@ -331,6 +343,7 @@
     },
     {
       "model_id": "household_economic_pressure",
+      "model_version": "v0.50.0",
       "country": "斯洛伐克",
       "country_slug": "slovakia",
       "score": 38,
@@ -349,6 +362,7 @@
         "macro:slovakia:hicp_inflation:2025",
         "macro:slovakia:unemployment_rate:2025"
       ],
+      "missing_indicator_ids": [],
       "inputs": [
         {
           "indicator_id": "hicp_inflation",
@@ -384,6 +398,7 @@
     },
     {
       "model_id": "fiscal_pressure",
+      "model_version": "v0.50.0",
       "country": "斯洛伐克",
       "country_slug": "slovakia",
       "score": 48.4,
@@ -402,6 +417,7 @@
         "v4:slovakia:fiscal_balance_gdp:2025",
         "v4:slovakia:government_debt_gdp:2025"
       ],
+      "missing_indicator_ids": [],
       "inputs": [
         {
           "indicator_id": "fiscal_balance_gdp",
@@ -439,6 +455,7 @@
     },
     {
       "model_id": "household_economic_pressure",
+      "model_version": "v0.50.0",
       "country": "德国",
       "country_slug": "germany",
       "score": 20.5,
@@ -457,6 +474,7 @@
         "macro:germany:hicp_inflation:2025",
         "macro:germany:unemployment_rate:2025"
       ],
+      "missing_indicator_ids": [],
       "inputs": [
         {
           "indicator_id": "hicp_inflation",
@@ -492,6 +510,7 @@
     },
     {
       "model_id": "fiscal_pressure",
+      "model_version": "v0.50.0",
       "country": "德国",
       "country_slug": "germany",
       "score": null,
@@ -504,12 +523,17 @@
       "calculation_date": "2026-08-11",
       "input_year": null,
       "input_observation_ids": [],
+      "missing_indicator_ids": [
+        "fiscal_balance_gdp",
+        "government_debt_gdp"
+      ],
       "inputs": [],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
     {
       "model_id": "household_economic_pressure",
+      "model_version": "v0.50.0",
       "country": "罗马尼亚",
       "country_slug": "romania",
       "score": 54.5,
@@ -528,6 +552,7 @@
         "macro:romania:hicp_inflation:2025",
         "macro:romania:unemployment_rate:2025"
       ],
+      "missing_indicator_ids": [],
       "inputs": [
         {
           "indicator_id": "hicp_inflation",
@@ -563,6 +588,7 @@
     },
     {
       "model_id": "fiscal_pressure",
+      "model_version": "v0.50.0",
       "country": "罗马尼亚",
       "country_slug": "romania",
       "score": null,
@@ -575,12 +601,17 @@
       "calculation_date": "2026-08-11",
       "input_year": null,
       "input_observation_ids": [],
+      "missing_indicator_ids": [
+        "fiscal_balance_gdp",
+        "government_debt_gdp"
+      ],
       "inputs": [],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
     {
       "model_id": "household_economic_pressure",
+      "model_version": "v0.50.0",
       "country": "斯洛文尼亚",
       "country_slug": "slovenia",
       "score": 22,
@@ -599,6 +630,7 @@
         "macro:slovenia:hicp_inflation:2025",
         "macro:slovenia:unemployment_rate:2025"
       ],
+      "missing_indicator_ids": [],
       "inputs": [
         {
           "indicator_id": "hicp_inflation",
@@ -634,6 +666,7 @@
     },
     {
       "model_id": "fiscal_pressure",
+      "model_version": "v0.50.0",
       "country": "斯洛文尼亚",
       "country_slug": "slovenia",
       "score": null,
@@ -646,30 +679,58 @@
       "calculation_date": "2026-08-11",
       "input_year": null,
       "input_observation_ids": [],
+      "missing_indicator_ids": [
+        "fiscal_balance_gdp",
+        "government_debt_gdp"
+      ],
       "inputs": [],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
     {
       "model_id": "household_economic_pressure",
+      "model_version": "v0.50.0",
       "country": "塞尔维亚",
       "country_slug": "serbia",
       "score": null,
       "direction": "not_available",
       "trend_change": null,
-      "main_drivers": [],
-      "data_completeness": 0,
+      "main_drivers": [
+        "失业率：贡献 33.5 分"
+      ],
+      "data_completeness": 50,
       "availability": "insufficient",
       "confidence": "not_available",
       "calculation_date": "2026-08-11",
-      "input_year": null,
-      "input_observation_ids": [],
-      "inputs": [],
+      "input_year": 2025,
+      "input_observation_ids": [
+        "macro:serbia:unemployment_rate:2025"
+      ],
+      "missing_indicator_ids": [
+        "hicp_inflation"
+      ],
+      "inputs": [
+        {
+          "indicator_id": "unemployment_rate",
+          "indicator_name": "失业率",
+          "observation_id": "macro:serbia:unemployment_rate:2025",
+          "year": 2025,
+          "raw_value": 8.7,
+          "unit": "%",
+          "normalized_score": 67,
+          "weight": 0.5,
+          "weighted_contribution": 33.5,
+          "source_name": "Eurostat une_rt_a / Statistical Office of Serbia Data",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/une_rt_a?time=2025&geo=RS&sex=T&age=Y15-74&unit=PC_ACT",
+          "source_reliability": "A"
+        }
+      ],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
     {
       "model_id": "fiscal_pressure",
+      "model_version": "v0.50.0",
       "country": "塞尔维亚",
       "country_slug": "serbia",
       "score": null,
@@ -682,12 +743,17 @@
       "calculation_date": "2026-08-11",
       "input_year": null,
       "input_observation_ids": [],
+      "missing_indicator_ids": [
+        "fiscal_balance_gdp",
+        "government_debt_gdp"
+      ],
       "inputs": [],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
     {
       "model_id": "household_economic_pressure",
+      "model_version": "v0.50.0",
       "country": "奥地利",
       "country_slug": "austria",
       "score": 36.5,
@@ -706,6 +772,7 @@
         "macro:austria:hicp_inflation:2025",
         "macro:austria:unemployment_rate:2025"
       ],
+      "missing_indicator_ids": [],
       "inputs": [
         {
           "indicator_id": "hicp_inflation",
@@ -741,6 +808,7 @@
     },
     {
       "model_id": "fiscal_pressure",
+      "model_version": "v0.50.0",
       "country": "奥地利",
       "country_slug": "austria",
       "score": null,
@@ -753,12 +821,17 @@
       "calculation_date": "2026-08-11",
       "input_year": null,
       "input_observation_ids": [],
+      "missing_indicator_ids": [
+        "fiscal_balance_gdp",
+        "government_debt_gdp"
+      ],
       "inputs": [],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
     {
       "model_id": "household_economic_pressure",
+      "model_version": "v0.50.0",
       "country": "克罗地亚",
       "country_slug": "croatia",
       "score": 36.5,
@@ -777,6 +850,7 @@
         "macro:croatia:hicp_inflation:2025",
         "macro:croatia:unemployment_rate:2025"
       ],
+      "missing_indicator_ids": [],
       "inputs": [
         {
           "indicator_id": "hicp_inflation",
@@ -812,6 +886,7 @@
     },
     {
       "model_id": "fiscal_pressure",
+      "model_version": "v0.50.0",
       "country": "克罗地亚",
       "country_slug": "croatia",
       "score": null,
@@ -824,6 +899,10 @@
       "calculation_date": "2026-08-11",
       "input_year": null,
       "input_observation_ids": [],
+      "missing_indicator_ids": [
+        "fiscal_balance_gdp",
+        "government_debt_gdp"
+      ],
       "inputs": [],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"

@@ -258,6 +258,7 @@ export default function MethodologyPage() {
         <p className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-semibold leading-6 text-amber-900">
           /models 只展示可追溯的规则分数和 Model Card。分数是比较与分析工具，不是客观风险真值；/forecast 与 /scenario 仍不存在，也不输出 China Exposure Index 或选举预测。
         </p>
+        <p className="mt-3 text-sm leading-6 text-[var(--muted)]">每张 Model Card 必须记录 model_version、effective_date 和权重变更说明；任何权重或标准化边界变化都需要生成新版本，不能静默覆盖历史口径。</p>
       </section>
 
       <section className="mt-6 grid gap-4 lg:grid-cols-2">

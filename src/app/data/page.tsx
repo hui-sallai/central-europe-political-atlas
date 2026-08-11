@@ -1,4 +1,6 @@
+import { Suspense } from "react";
 import { DataCountryExplorer } from "@/components/DataCountryExplorer";
+import { ModelObservationUsage } from "@/components/ModelObservationUsage";
 import { StatusSummary } from "@/components/StatusSummary";
 import { platformStatus } from "@/lib/platformStatus";
 
@@ -16,10 +18,13 @@ export default function DataOverviewPage() {
           items={[
             { label: "默认视图", value: "国家选择 + 宏观经济数据" },
             { label: "研究数据层", value: "17 个逻辑层保留，按需展开" },
-            { label: "模型与预测", value: "未启用，不输出风险分数" },
+            { label: "透明模型", value: "2 个规则模型已启用；预测层未启用" },
           ]}
         />
       </div>
+      <Suspense fallback={<div className="mt-5 card p-6 text-sm text-[var(--muted)]">正在读取模型输入追踪…</div>}>
+        <ModelObservationUsage />
+      </Suspense>
       <DataCountryExplorer />
     </main>
   );

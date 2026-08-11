@@ -175,7 +175,7 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
                     <p className="mt-1 text-xs text-[var(--muted)]">数据完整度 {output.data_completeness}% / 置信度 {output.confidence}</p>
                   </div>
                   <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">
-                    {output.availability === "sufficient" ? "可计算" : "不可计算"}
+                    {output.availability === "sufficient" ? "可计算" : output.availability === "partial" ? "部分可计算" : "不可计算"}
                   </span>
                 </div>
                 <p className="mt-4 text-3xl font-semibold text-[var(--accent)]">{output.score === null ? "不输出分数" : output.score.toFixed(1)}</p>

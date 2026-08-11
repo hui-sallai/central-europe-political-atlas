@@ -12,13 +12,17 @@ export default function ModelsPage() {
         v0.50 首批启用居民经济压力与财政压力两个规则模型。所有分数都由可追溯 observation、固定标准化边界和公开权重计算；不使用机器学习，不预测选举，也不把事件直接计入分数。
       </p>
 
-      <section className="mt-6 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+      <section className="mt-6 grid gap-3 md:grid-cols-3 xl:grid-cols-6">
         {modelAvailabilitySummary.flatMap((summary) => {
           const card = modelCards.find((item) => item.model_id === summary.model_id);
           return [
             <article key={`${summary.model_id}-sufficient`} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
               <p className="text-xs text-[var(--muted)]">{card?.name_zh} / 可计算</p>
               <p className="mt-2 text-2xl font-semibold text-[var(--accent)]">{summary.sufficient} 国</p>
+            </article>,
+            <article key={`${summary.model_id}-partial`} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+              <p className="text-xs text-[var(--muted)]">{card?.name_zh} / 部分可计算</p>
+              <p className="mt-2 text-2xl font-semibold">{summary.partial} 国</p>
             </article>,
             <article key={`${summary.model_id}-insufficient`} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
               <p className="text-xs text-[var(--muted)]">{card?.name_zh} / 不可计算</p>

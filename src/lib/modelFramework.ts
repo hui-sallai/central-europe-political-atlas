@@ -5,6 +5,7 @@ import observationsJson from "../data/observations/observations.json";
 import type { Country, DataEnvelope, Event, Indicator, Observation } from "../types/researchData";
 import type {
   ModelCard,
+  ModelAvailability,
   ModelId,
   ModelInputDefinition,
   ModelInputTrace,
@@ -13,6 +14,8 @@ import type {
 } from "../types/ModelOutput";
 
 const CALCULATION_DATE = "2026-08-11";
+const MODEL_VERSION = "v0.50.0";
+const PARTIAL_SCORE_THRESHOLD = 0.75;
 const SCORE_BOUNDARY = "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。";
 
 function records<T>(value: unknown) {
@@ -27,6 +30,7 @@ const events = records<Event>(eventsJson);
 export const modelCards: ModelCard[] = [
   {
     model_id: "household_economic_pressure",
+    model_version: MODEL_VERSION,
     name: "Household Economic Pressure Index",
     name_zh: "居民经济压力指数",
     purpose: "用已经通过质量验收的价格与就业数据，形成可追溯的居民经济压力比较值。",
@@ -50,17 +54,19 @@ export const modelCards: ModelCard[] = [
     calculation_logic: "各输入按固定上下界线性标准化到 0–100，再乘以集中维护的权重求和。",
     weight_note: "v0.50 中通胀和失业率各占 50%；工资和居民能源成本因缺少合格观测值暂不计权。",
     output_meaning: "分数越高，表示当前价格和就业两个维度的观测组合对应更高的居民经济压力。",
-    completeness_rule: "两个启用输入均存在正式或已核验观测值时输出分数；否则不输出精确分数。",
+    completeness_rule: "启用权重覆盖 100% 时为 sufficient；达到 75% 可标记 partial 并按可用权重重标，低于 75% 为 insufficient 且不输出精确分数。当前两个输入各占 50%，缺少任一项即低于 partial 门槛。",
     limitations: [
       "尚未纳入实际工资、住房成本、居民能源账单和收入分布。",
       "固定标准化边界是公开的分析设定，不是自然阈值。",
       "不用于预测家庭行为、选举结果或个体生活状况。",
     ],
     event_policy: "事件只用于解释近期方向，不进入 v0.50 基础分数。",
+    weight_history: [{ version: MODEL_VERSION, effective_date: CALCULATION_DATE, note: "首版：通胀率 50%，失业率 50%。" }],
     calculation_date: CALCULATION_DATE,
   },
   {
     model_id: "fiscal_pressure",
+    model_version: MODEL_VERSION,
     name: "Fiscal Pressure Index",
     name_zh: "财政压力指数",
     purpose: "用财政余额和政府债务的可核验观测，形成第一版财政结构压力比较值。",
@@ -84,13 +90,14 @@ export const modelCards: ModelCard[] = [
     calculation_logic: "财政余额和债务率按固定边界标准化到 0–100，各占 50% 后求和。",
     weight_note: "v0.50 只启用赤字和债务两个 A 级来源输入；融资成本和欧盟资金尚未接入，不参与计算。",
     output_meaning: "分数越高，表示当前赤字和债务两个维度的观测组合对应更高的财政压力。",
-    completeness_rule: "两个启用输入均存在正式或已核验观测值时输出分数；否则不输出精确分数。",
+    completeness_rule: "启用权重覆盖 100% 时为 sufficient；达到 75% 可标记 partial 并按可用权重重标，低于 75% 为 insufficient 且不输出精确分数。当前两个输入各占 50%，缺少任一项即低于 partial 门槛。",
     limitations: [
       "尚未纳入利息支出、债券收益率、债务期限结构和欧盟资金实际支付。",
       "不衡量政府偿债违约概率，也不构成主权信用评级。",
       "当前只有 V4 四国具备完整的启用输入。",
     ],
     event_policy: "财政和欧盟资金事件作为解释记录展示，不改变 v0.50 基础分数。",
+    weight_history: [{ version: MODEL_VERSION, effective_date: CALCULATION_DATE, note: "首版：财政赤字/GDP 50%，政府债务/GDP 50%。" }],
     calculation_date: CALCULATION_DATE,
   },
 ];
@@ -115,14 +122,12 @@ function eligibleObservation(observation: Observation | undefined) {
   );
 }
 
-function latestCommonYear(countrySlug: string, inputs: ModelInputDefinition[]) {
-  const yearSets = inputs.map((input) => new Set(
-    observations
-      .filter((observation) => observation.country_slug === countrySlug && observation.indicator === input.indicator_id && eligibleObservation(observation))
-      .map((observation) => observation.year),
-  ));
-  const commonYears = [...(yearSets[0] ?? new Set<number>())].filter((year) => yearSets.every((set) => set.has(year)));
-  return commonYears.sort((a, b) => b - a)[0] ?? null;
+function latestCandidateYear(countrySlug: string, inputs: ModelInputDefinition[]) {
+  const inputIds = new Set(inputs.map((input) => input.indicator_id));
+  return observations
+    .filter((observation) => observation.country_slug === countrySlug && inputIds.has(observation.indicator) && eligibleObservation(observation))
+    .map((observation) => observation.year)
+    .sort((a, b) => b - a)[0] ?? null;
 }
 
 function inputTrace(countrySlug: string, year: number, input: ModelInputDefinition): ModelInputTrace | null {
@@ -150,8 +155,9 @@ function inputTrace(countrySlug: string, year: number, input: ModelInputDefiniti
 function scoreForYear(countrySlug: string, card: ModelCard, year: number | null) {
   if (year === null) return null;
   const traces = card.inputs.map((input) => inputTrace(countrySlug, year, input)).filter((trace): trace is ModelInputTrace => trace !== null);
-  if (traces.length !== card.inputs.length) return null;
-  return Number(traces.reduce((total, trace) => total + trace.weighted_contribution, 0).toFixed(1));
+  const availableWeight = traces.reduce((total, trace) => total + trace.weight, 0);
+  if (availableWeight < PARTIAL_SCORE_THRESHOLD) return null;
+  return Number((traces.reduce((total, trace) => total + trace.weighted_contribution, 0) / availableWeight).toFixed(1));
 }
 
 function trend(current: number | null, previous: number | null): { direction: ModelTrend; change: number | null } {
@@ -173,12 +179,16 @@ function relatedEventIds(countrySlug: string, card: ModelCard) {
 }
 
 function calculate(country: Country, card: ModelCard): ModelOutput {
-  const year = latestCommonYear(country.slug, card.inputs);
+  const year = latestCandidateYear(country.slug, card.inputs);
   const traces = year === null
     ? []
     : card.inputs.map((input) => inputTrace(country.slug, year, input)).filter((trace): trace is ModelInputTrace => trace !== null);
-  const completeness = Math.round((traces.length / card.inputs.length) * 100);
-  const score = traces.length === card.inputs.length ? Number(traces.reduce((total, trace) => total + trace.weighted_contribution, 0).toFixed(1)) : null;
+  const availableWeight = traces.reduce((total, trace) => total + trace.weight, 0);
+  const completeness = Math.round(availableWeight * 100);
+  const score = availableWeight >= PARTIAL_SCORE_THRESHOLD
+    ? Number((traces.reduce((total, trace) => total + trace.weighted_contribution, 0) / availableWeight).toFixed(1))
+    : null;
+  const availability: ModelAvailability = availableWeight === 1 ? "sufficient" : availableWeight >= PARTIAL_SCORE_THRESHOLD ? "partial" : "insufficient";
   const previousScore = year === null ? null : scoreForYear(country.slug, card, year - 1);
   const scoreTrend = trend(score, previousScore);
   const drivers = [...traces]
@@ -188,6 +198,7 @@ function calculate(country: Country, card: ModelCard): ModelOutput {
 
   return {
     model_id: card.model_id,
+    model_version: card.model_version,
     country: country.name_zh,
     country_slug: country.slug,
     score,
@@ -195,11 +206,12 @@ function calculate(country: Country, card: ModelCard): ModelOutput {
     trend_change: scoreTrend.change,
     main_drivers: drivers,
     data_completeness: completeness,
-    availability: score === null ? "insufficient" : "sufficient",
-    confidence: score === null ? "not_available" : "medium",
+    availability,
+    confidence: availability === "sufficient" ? "medium" : availability === "partial" ? "low" : "not_available",
     calculation_date: CALCULATION_DATE,
     input_year: year,
     input_observation_ids: traces.map((trace) => trace.observation_id),
+    missing_indicator_ids: card.inputs.filter((input) => !traces.some((trace) => trace.indicator_id === input.indicator_id)).map((input) => input.indicator_id),
     inputs: traces,
     related_event_ids: relatedEventIds(country.slug, card),
     interpretation_boundary: SCORE_BOUNDARY,

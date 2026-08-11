@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { Country } from "@/types/Country";
 import type { ModelCard, ModelOutput } from "@/types/ModelOutput";
@@ -25,6 +26,7 @@ function ScorePanel({ output }: { output: ModelOutput }) {
         <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
           当前只有 {output.data_completeness}% 的启用输入满足来源、数值和状态要求。缺失值不会被零值或推测值替代。
         </p>
+        {output.missing_indicator_ids.length > 0 ? <p className="mt-3 font-mono text-xs text-[var(--muted)]">缺失：{output.missing_indicator_ids.join(" / ")}</p> : null}
       </div>
     );
   }
@@ -90,11 +92,14 @@ export function ModelExplorer({ countries, cards, outputs }: { countries: Countr
             <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">{availabilityLabels[output.availability]}</span>
           </div>
           <div className="mt-5"><ScorePanel output={output} /></div>
+          {output.score !== null && output.missing_indicator_ids.length > 0 ? (
+            <p className="mt-3 rounded-xl bg-[var(--surface-muted)] px-3 py-2 font-mono text-xs text-[var(--muted)]">partial 缺失输入：{output.missing_indicator_ids.join(" / ")}</p>
+          ) : null}
           <dl className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
             {[
               ["数据完整度", `${output.data_completeness}%`],
               ["置信度", output.confidence],
-              ["计算日期", output.calculation_date],
+              ["模型版本 / 计算日期", `${output.model_version} / ${output.calculation_date}`],
               ["解释事件", `${output.related_event_ids.length} 条，不参与加减分`],
             ].map(([label, value]) => (
               <div key={label} className="rounded-xl bg-[var(--surface-muted)] px-3 py-3">
@@ -135,6 +140,7 @@ export function ModelExplorer({ countries, cards, outputs }: { countries: Countr
                     <td className="min-w-64 px-3 py-3 text-xs leading-5 text-[var(--muted)]">
                       <span className="block font-mono">{input.observation_id}</span>
                       <a href={input.source_url} target="_blank" rel="noreferrer" className="mt-1 block font-semibold text-[var(--accent)] hover:underline">{input.source_name} / {input.source_reliability} 级</a>
+                      <Link href={`/data?modelObservation=${encodeURIComponent(input.observation_id)}#model-observation-usage`} className="mt-1 block font-semibold text-[var(--accent)] hover:underline">返回数据页查看该 observation</Link>
                     </td>
                   </tr>
                 ))}
@@ -146,7 +152,7 @@ export function ModelExplorer({ countries, cards, outputs }: { countries: Countr
       </section>
 
       <details className="card p-6" open>
-        <summary className="cursor-pointer text-lg font-semibold">Model Card：{card.name_zh}</summary>
+        <summary className="cursor-pointer text-lg font-semibold">Model Card：{card.name_zh} / {card.model_version}</summary>
         <div className="mt-5 grid gap-4 lg:grid-cols-2">
           <div className="grid gap-3 text-sm leading-6 text-[var(--muted)]">
             <p><strong className="text-[var(--foreground)]">目的：</strong>{card.purpose}</p>
@@ -155,6 +161,10 @@ export function ModelExplorer({ countries, cards, outputs }: { countries: Countr
             <p><strong className="text-[var(--foreground)]">输出含义：</strong>{card.output_meaning}</p>
             <p><strong className="text-[var(--foreground)]">完整度规则：</strong>{card.completeness_rule}</p>
             <p><strong className="text-[var(--foreground)]">事件规则：</strong>{card.event_policy}</p>
+            <div>
+              <strong className="text-[var(--foreground)]">权重版本记录：</strong>
+              {card.weight_history.map((record) => <p key={record.version} className="mt-1 font-mono text-xs">{record.version} / {record.effective_date} / {record.note}</p>)}
+            </div>
           </div>
           <div>
             <h3 className="text-sm font-semibold">启用输入</h3>

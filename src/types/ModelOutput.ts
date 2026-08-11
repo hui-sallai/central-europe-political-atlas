@@ -19,6 +19,7 @@ export interface ModelInputDefinition {
 
 export interface ModelCard {
   model_id: ModelId;
+  model_version: string;
   name: string;
   name_zh: string;
   purpose: string;
@@ -30,6 +31,11 @@ export interface ModelCard {
   completeness_rule: string;
   limitations: string[];
   event_policy: string;
+  weight_history: Array<{
+    version: string;
+    effective_date: string;
+    note: string;
+  }>;
   calculation_date: string;
 }
 
@@ -50,6 +56,7 @@ export interface ModelInputTrace {
 
 export interface ModelOutput {
   model_id: ModelId;
+  model_version: string;
   country: string;
   country_slug: string;
   score: number | null;
@@ -62,6 +69,7 @@ export interface ModelOutput {
   calculation_date: string;
   input_year: number | null;
   input_observation_ids: string[];
+  missing_indicator_ids: string[];
   inputs: ModelInputTrace[];
   related_event_ids: string[];
   interpretation_boundary: string;
