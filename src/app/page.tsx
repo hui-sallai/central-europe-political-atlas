@@ -27,7 +27,7 @@ export default function Home() {
             </p>
           </div>
           <p className="rounded-2xl border border-[var(--line)] bg-white/65 p-4 text-sm leading-6 text-[var(--muted)]">
-            v0.50 在既有 observation 上启用居民经济压力与财政压力两个透明模型。标准化边界、权重、输入观测和限制全部公开；不使用机器学习，不生成选举预测。
+            v0.50 在既有 observation 上启用居民经济压力、财政压力与外部脆弱性三个透明模型。标准化边界、权重、输入观测和限制全部公开；不使用机器学习，不生成选举预测。
           </p>
         </div>
 

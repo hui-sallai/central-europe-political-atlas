@@ -100,6 +100,42 @@ export const modelCards: ModelCard[] = [
     weight_history: [{ version: MODEL_VERSION, effective_date: CALCULATION_DATE, note: "首版：财政赤字/GDP 50%，政府债务/GDP 50%。" }],
     calculation_date: CALCULATION_DATE,
   },
+  {
+    model_id: "external_vulnerability",
+    model_version: MODEL_VERSION,
+    name: "External Vulnerability Index",
+    name_zh: "外部脆弱性指数",
+    purpose: "用经常账户与能源进口依赖的可核验观测，形成第一版外部收支和能源依赖比较值。",
+    inputs: [
+      {
+        indicator_id: "current_account_gdp",
+        label: "经常账户/GDP",
+        weight: 0.5,
+        normalization: { method: "linear_clamp", lower: -10, upper: 5, invert: true },
+        rationale: "经常账户 5% GDP 及以上映射为 0，-10% GDP 及以下映射为 100，中间线性换算。",
+      },
+      {
+        indicator_id: "energy_import_dependency",
+        label: "能源进口依赖",
+        weight: 0.5,
+        normalization: { method: "linear_clamp", lower: 20, upper: 80 },
+        rationale: "能源进口依赖 20% 及以下映射为 0，80% 及以上映射为 100，中间线性换算。",
+      },
+    ],
+    reserved_inputs: ["external_debt_gdp", "exports_gdp", "imports_gdp", "exchange_rate_eur_lcu", "germany_export_dependence"],
+    calculation_logic: "经常账户和能源进口依赖按固定边界标准化到 0–100，各占 50% 后求和；使用满足完整度门槛的最新共同年份。",
+    weight_note: "v0.50 只启用经常账户/GDP 和能源进口依赖两个 A 级来源输入，各占 50%；名义贸易额不直接跨国评分。",
+    output_meaning: "分数越高，表示当前外部收支与能源进口依赖两个维度的观测组合对应更高的外部脆弱性。",
+    completeness_rule: "启用权重覆盖 100% 时为 sufficient；达到 75% 可标记 partial 并按可用权重重标，低于 75% 为 insufficient 且不输出精确分数。2025 年能源依赖待接入，因此当前 V4 使用最新完整可比年 2024。",
+    limitations: [
+      "尚未纳入外债、短期融资、汇率波动、国际储备和贸易伙伴集中度。",
+      "名义出口、进口和贸易差额未按 GDP 标准化，不直接进入当前跨国分数。",
+      "当前只有 V4 四国具备完整的启用输入，不构成危机概率或主权风险预测。",
+    ],
+    event_policy: "外部、能源和 FDI 事件只用于解释近期方向，不改变 v0.50 基础分数。",
+    weight_history: [{ version: MODEL_VERSION, effective_date: CALCULATION_DATE, note: "首版：经常账户/GDP 50%，能源进口依赖 50%。" }],
+    calculation_date: CALCULATION_DATE,
+  },
 ];
 
 function clamp(value: number, minimum = 0, maximum = 100) {
@@ -113,21 +149,35 @@ function normalize(value: number, input: ModelInputDefinition) {
 }
 
 function eligibleObservation(observation: Observation | undefined) {
+  const indicator = observation ? indicators.find((candidate) => candidate.id === observation.indicator) : undefined;
   return Boolean(
     observation
     && observation.value !== null
+    && Number.isFinite(observation.value)
+    && Number.isInteger(observation.year)
+    && observation.unit
+    && indicator?.status === "verified"
+    && observation.unit === indicator.unit
     && (observation.status === "official" || observation.status === "verified")
     && (observation.source_reliability === "A" || observation.source_reliability === "B")
-    && observation.source_url,
+    && observation.source_name
+    && observation.source_url
+    && observation.updated_at,
   );
 }
 
 function latestCandidateYear(countrySlug: string, inputs: ModelInputDefinition[]) {
   const inputIds = new Set(inputs.map((input) => input.indicator_id));
-  return observations
+  const candidateYears = observations
     .filter((observation) => observation.country_slug === countrySlug && inputIds.has(observation.indicator) && eligibleObservation(observation))
     .map((observation) => observation.year)
-    .sort((a, b) => b - a)[0] ?? null;
+    .filter((year, index, years) => years.indexOf(year) === index)
+    .sort((a, b) => b - a);
+
+  return candidateYears.find((year) => {
+    const availableWeight = inputs.reduce((total, input) => total + (inputTrace(countrySlug, year, input)?.weight ?? 0), 0);
+    return availableWeight >= PARTIAL_SCORE_THRESHOLD;
+  }) ?? candidateYears[0] ?? null;
 }
 
 function inputTrace(countrySlug: string, year: number, input: ModelInputDefinition): ModelInputTrace | null {
@@ -170,7 +220,12 @@ function trend(current: number | null, previous: number | null): { direction: Mo
 
 function relatedEventIds(countrySlug: string, card: ModelCard) {
   const inputIds = new Set(card.inputs.map((input) => input.indicator_id));
-  const modelLabel = card.model_id === "fiscal_pressure" ? "Fiscal Pressure" : "Household Economic Pressure";
+  const modelLabelById: Record<ModelId, string> = {
+    household_economic_pressure: "Household Economic Pressure",
+    fiscal_pressure: "Fiscal Pressure",
+    external_vulnerability: "External Vulnerability",
+  };
+  const modelLabel = modelLabelById[card.model_id];
   return events
     .filter((event) => event.country_slug === countrySlug && event.data_status === "verified" && (
       event.affected_model.includes(modelLabel) || event.affected_indicator.some((indicatorId) => inputIds.has(indicatorId))

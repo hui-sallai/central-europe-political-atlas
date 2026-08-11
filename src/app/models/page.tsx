@@ -9,10 +9,10 @@ export default function ModelsPage() {
       <p className="eyebrow">Transparent Models / {platformStatus.version}</p>
       <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">透明模型工作台</h1>
       <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-        v0.50 首批启用居民经济压力与财政压力两个规则模型。所有分数都由可追溯 observation、固定标准化边界和公开权重计算；不使用机器学习，不预测选举，也不把事件直接计入分数。
+        v0.50 启用居民经济压力、财政压力与外部脆弱性三个规则模型。所有分数都由可追溯 observation、固定标准化边界和公开权重计算；不使用机器学习，不预测选举，也不把事件直接计入分数。
       </p>
 
-      <section className="mt-6 grid gap-3 md:grid-cols-3 xl:grid-cols-6">
+      <section className="mt-6 grid gap-3 md:grid-cols-3">
         {modelAvailabilitySummary.flatMap((summary) => {
           const card = modelCards.find((item) => item.model_id === summary.model_id);
           return [
@@ -37,9 +37,8 @@ export default function ModelsPage() {
       <section className="mt-6 card p-6">
         <p className="eyebrow">Reserved Interfaces</p>
         <h2 className="mt-3 text-2xl font-semibold">后续模型接口</h2>
-        <div className="mt-5 grid gap-3 md:grid-cols-3">
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
           {[
-            ["External Vulnerability Index", "等待外部融资、经常账户、贸易与能源输入进一步验收。"],
             ["Industrial Dependency Index", "等待产业集中度、供应链和区域产业数据补齐。"],
             ["China Exposure Index", "项目候选变量已建立，但当前不生成指数、排名或风险结论。"],
           ].map(([name, note]) => (

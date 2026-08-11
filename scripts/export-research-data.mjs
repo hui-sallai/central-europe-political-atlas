@@ -996,7 +996,7 @@ function methodologyRuleRecords() {
       rule_id: "transparent_models_v050_scope",
       rule_category: "模型透明度规则",
       rule_name: "v0.50 透明模型范围规则",
-      rule_description: "仅启用统一 /models 页面中的居民经济压力和财政压力规则模型；不新增 /forecast 或 /scenario，不启用地图风险图层。",
+      rule_description: "仅启用统一 /models 页面中的居民经济压力、财政压力和外部脆弱性规则模型；不新增 /forecast 或 /scenario，不启用地图风险图层。",
       applies_to: "models_page,country_pages,methodology,model_cards,model_outputs",
       required_fields: ["model_id", "country", "score", "direction", "main_drivers", "data_completeness", "confidence", "calculation_date", "input_observation_ids"],
       allowed_statuses: ["sufficient", "partial", "insufficient"],
@@ -1006,7 +1006,7 @@ function methodologyRuleRecords() {
       model_boundary: "分数是比较与分析工具，不是客观风险真值、预测、评级或政策评价。",
       export_boundary: "model_cards 与 model_outputs 可导出；缺少完整启用输入的国家 score 保持 null。",
       last_updated: "2026-08-11",
-      notes: "External Vulnerability、Industrial Dependency 和 China Exposure 仅保留后续接口。",
+      notes: "External Vulnerability 已使用 V4 经常账户/GDP 与能源进口依赖启用；Industrial Dependency 和 China Exposure 仅保留后续接口。",
     },
     {
       rule_id: "research_data_export_boundary",

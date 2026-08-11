@@ -2,7 +2,7 @@
   "schema_version": "transparent-model-v0.50",
   "generated_at": "2026-07-27",
   "data_type": "model_outputs",
-  "record_count": 20,
+  "record_count": 30,
   "relation_note": "Every published score retains input_observation_ids and complete input traces.",
   "model_boundary": "Scores are comparative analytical tools, not objective risk truths, predictions, or policy ratings.",
   "records": [
@@ -120,6 +120,63 @@
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
     {
+      "model_id": "external_vulnerability",
+      "model_version": "v0.50.0",
+      "country": "波兰",
+      "country_slug": "poland",
+      "score": 37.1,
+      "direction": "rising",
+      "trend_change": 2.5,
+      "main_drivers": [
+        "能源进口依赖：贡献 21.4 分",
+        "经常账户/GDP：贡献 15.7 分"
+      ],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2024,
+      "input_observation_ids": [
+        "v4:poland:current_account_gdp:2024",
+        "v4:poland:energy_import_dependency:2024"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "current_account_gdp",
+          "indicator_name": "经常账户/GDP",
+          "observation_id": "v4:poland:current_account_gdp:2024",
+          "year": 2024,
+          "raw_value": 0.3,
+          "unit": "% GDP",
+          "normalized_score": 31.3,
+          "weight": 0.5,
+          "weighted_contribution": 15.7,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tipsbp20?unit=PC_GDP&geo=PL&time=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "energy_import_dependency",
+          "indicator_name": "能源进口依赖",
+          "observation_id": "v4:poland:energy_import_dependency:2024",
+          "year": 2024,
+          "raw_value": 45.669,
+          "unit": "%",
+          "normalized_score": 42.8,
+          "weight": 0.5,
+          "weighted_contribution": 21.4,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?unit=PC&siec=TOTAL&geo=PL&time=2024",
+          "source_reliability": "A"
+        }
+      ],
+      "related_event_ids": [
+        "pl-2024-07-01-amended-recovery-plan"
+      ],
+      "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
+    },
+    {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
       "country": "匈牙利",
@@ -232,6 +289,63 @@
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
     {
+      "model_id": "external_vulnerability",
+      "model_version": "v0.50.0",
+      "country": "匈牙利",
+      "country_slug": "hungary",
+      "score": 34.8,
+      "direction": "falling",
+      "trend_change": -17,
+      "main_drivers": [
+        "能源进口依赖：贡献 24.1 分",
+        "经常账户/GDP：贡献 10.7 分"
+      ],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2024,
+      "input_observation_ids": [
+        "v4:hungary:current_account_gdp:2024",
+        "v4:hungary:energy_import_dependency:2024"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "current_account_gdp",
+          "indicator_name": "经常账户/GDP",
+          "observation_id": "v4:hungary:current_account_gdp:2024",
+          "year": 2024,
+          "raw_value": 1.8,
+          "unit": "% GDP",
+          "normalized_score": 21.3,
+          "weight": 0.5,
+          "weighted_contribution": 10.7,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tipsbp20?unit=PC_GDP&geo=HU&time=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "energy_import_dependency",
+          "indicator_name": "能源进口依赖",
+          "observation_id": "v4:hungary:energy_import_dependency:2024",
+          "year": 2024,
+          "raw_value": 48.943,
+          "unit": "%",
+          "normalized_score": 48.2,
+          "weight": 0.5,
+          "weighted_contribution": 24.1,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?unit=PC&siec=TOTAL&geo=HU&time=2024",
+          "source_reliability": "A"
+        }
+      ],
+      "related_event_ids": [
+        "hu-2026-06-24-v4-summit"
+      ],
+      "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
+    },
+    {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
       "country": "捷克",
@@ -339,6 +453,63 @@
         }
       ],
       "related_event_ids": [],
+      "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
+    },
+    {
+      "model_id": "external_vulnerability",
+      "model_version": "v0.50.0",
+      "country": "捷克",
+      "country_slug": "czechia",
+      "score": 27.1,
+      "direction": "falling",
+      "trend_change": -8,
+      "main_drivers": [
+        "能源进口依赖：贡献 16.1 分",
+        "经常账户/GDP：贡献 11.0 分"
+      ],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2024,
+      "input_observation_ids": [
+        "v4:czechia:current_account_gdp:2024",
+        "v4:czechia:energy_import_dependency:2024"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "current_account_gdp",
+          "indicator_name": "经常账户/GDP",
+          "observation_id": "v4:czechia:current_account_gdp:2024",
+          "year": 2024,
+          "raw_value": 1.7,
+          "unit": "% GDP",
+          "normalized_score": 22,
+          "weight": 0.5,
+          "weighted_contribution": 11,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tipsbp20?unit=PC_GDP&geo=CZ&time=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "energy_import_dependency",
+          "indicator_name": "能源进口依赖",
+          "observation_id": "v4:czechia:energy_import_dependency:2024",
+          "year": 2024,
+          "raw_value": 39.32,
+          "unit": "%",
+          "normalized_score": 32.2,
+          "weight": 0.5,
+          "weighted_contribution": 16.1,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?unit=PC&siec=TOTAL&geo=CZ&time=2024",
+          "source_reliability": "A"
+        }
+      ],
+      "related_event_ids": [
+        "cz-2023-10-16-repowereu-plan"
+      ],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
     {
@@ -454,6 +625,63 @@
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
     {
+      "model_id": "external_vulnerability",
+      "model_version": "v0.50.0",
+      "country": "斯洛伐克",
+      "country_slug": "slovakia",
+      "score": 59.9,
+      "direction": "stable",
+      "trend_change": 1.2,
+      "main_drivers": [
+        "经常账户/GDP：贡献 32.0 分",
+        "能源进口依赖：贡献 27.9 分"
+      ],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2024,
+      "input_observation_ids": [
+        "v4:slovakia:current_account_gdp:2024",
+        "v4:slovakia:energy_import_dependency:2024"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "current_account_gdp",
+          "indicator_name": "经常账户/GDP",
+          "observation_id": "v4:slovakia:current_account_gdp:2024",
+          "year": 2024,
+          "raw_value": -4.6,
+          "unit": "% GDP",
+          "normalized_score": 64,
+          "weight": 0.5,
+          "weighted_contribution": 32,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tipsbp20?unit=PC_GDP&geo=SK&time=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "energy_import_dependency",
+          "indicator_name": "能源进口依赖",
+          "observation_id": "v4:slovakia:energy_import_dependency:2024",
+          "year": 2024,
+          "raw_value": 53.501,
+          "unit": "%",
+          "normalized_score": 55.8,
+          "weight": 0.5,
+          "weighted_contribution": 27.9,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?unit=PC&siec=TOTAL&geo=SK&time=2024",
+          "source_reliability": "A"
+        }
+      ],
+      "related_event_ids": [
+        "sk-2026-06-24-v4-presidency"
+      ],
+      "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
+    },
+    {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
       "country": "德国",
@@ -526,6 +754,29 @@
       "missing_indicator_ids": [
         "fiscal_balance_gdp",
         "government_debt_gdp"
+      ],
+      "inputs": [],
+      "related_event_ids": [],
+      "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
+    },
+    {
+      "model_id": "external_vulnerability",
+      "model_version": "v0.50.0",
+      "country": "德国",
+      "country_slug": "germany",
+      "score": null,
+      "direction": "not_available",
+      "trend_change": null,
+      "main_drivers": [],
+      "data_completeness": 0,
+      "availability": "insufficient",
+      "confidence": "not_available",
+      "calculation_date": "2026-08-11",
+      "input_year": null,
+      "input_observation_ids": [],
+      "missing_indicator_ids": [
+        "current_account_gdp",
+        "energy_import_dependency"
       ],
       "inputs": [],
       "related_event_ids": [],
@@ -610,6 +861,29 @@
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
     {
+      "model_id": "external_vulnerability",
+      "model_version": "v0.50.0",
+      "country": "罗马尼亚",
+      "country_slug": "romania",
+      "score": null,
+      "direction": "not_available",
+      "trend_change": null,
+      "main_drivers": [],
+      "data_completeness": 0,
+      "availability": "insufficient",
+      "confidence": "not_available",
+      "calculation_date": "2026-08-11",
+      "input_year": null,
+      "input_observation_ids": [],
+      "missing_indicator_ids": [
+        "current_account_gdp",
+        "energy_import_dependency"
+      ],
+      "inputs": [],
+      "related_event_ids": [],
+      "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
+    },
+    {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
       "country": "斯洛文尼亚",
@@ -688,6 +962,29 @@
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
     {
+      "model_id": "external_vulnerability",
+      "model_version": "v0.50.0",
+      "country": "斯洛文尼亚",
+      "country_slug": "slovenia",
+      "score": null,
+      "direction": "not_available",
+      "trend_change": null,
+      "main_drivers": [],
+      "data_completeness": 0,
+      "availability": "insufficient",
+      "confidence": "not_available",
+      "calculation_date": "2026-08-11",
+      "input_year": null,
+      "input_observation_ids": [],
+      "missing_indicator_ids": [
+        "current_account_gdp",
+        "energy_import_dependency"
+      ],
+      "inputs": [],
+      "related_event_ids": [],
+      "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
+    },
+    {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
       "country": "塞尔维亚",
@@ -746,6 +1043,29 @@
       "missing_indicator_ids": [
         "fiscal_balance_gdp",
         "government_debt_gdp"
+      ],
+      "inputs": [],
+      "related_event_ids": [],
+      "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
+    },
+    {
+      "model_id": "external_vulnerability",
+      "model_version": "v0.50.0",
+      "country": "塞尔维亚",
+      "country_slug": "serbia",
+      "score": null,
+      "direction": "not_available",
+      "trend_change": null,
+      "main_drivers": [],
+      "data_completeness": 0,
+      "availability": "insufficient",
+      "confidence": "not_available",
+      "calculation_date": "2026-08-11",
+      "input_year": null,
+      "input_observation_ids": [],
+      "missing_indicator_ids": [
+        "current_account_gdp",
+        "energy_import_dependency"
       ],
       "inputs": [],
       "related_event_ids": [],
@@ -830,6 +1150,29 @@
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
     {
+      "model_id": "external_vulnerability",
+      "model_version": "v0.50.0",
+      "country": "奥地利",
+      "country_slug": "austria",
+      "score": null,
+      "direction": "not_available",
+      "trend_change": null,
+      "main_drivers": [],
+      "data_completeness": 0,
+      "availability": "insufficient",
+      "confidence": "not_available",
+      "calculation_date": "2026-08-11",
+      "input_year": null,
+      "input_observation_ids": [],
+      "missing_indicator_ids": [
+        "current_account_gdp",
+        "energy_import_dependency"
+      ],
+      "inputs": [],
+      "related_event_ids": [],
+      "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
+    },
+    {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
       "country": "克罗地亚",
@@ -902,6 +1245,29 @@
       "missing_indicator_ids": [
         "fiscal_balance_gdp",
         "government_debt_gdp"
+      ],
+      "inputs": [],
+      "related_event_ids": [],
+      "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
+    },
+    {
+      "model_id": "external_vulnerability",
+      "model_version": "v0.50.0",
+      "country": "克罗地亚",
+      "country_slug": "croatia",
+      "score": null,
+      "direction": "not_available",
+      "trend_change": null,
+      "main_drivers": [],
+      "data_completeness": 0,
+      "availability": "insufficient",
+      "confidence": "not_available",
+      "calculation_date": "2026-08-11",
+      "input_year": null,
+      "input_observation_ids": [],
+      "missing_indicator_ids": [
+        "current_account_gdp",
+        "energy_import_dependency"
       ],
       "inputs": [],
       "related_event_ids": [],

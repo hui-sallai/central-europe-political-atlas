@@ -1,9 +1,9 @@
 export const platformStatus = {
   version: "v0.50 Transparent Models / 透明模型",
-  stage: "居民经济压力与财政压力透明模型首版",
+  stage: "三项透明政治经济模型验证版",
   regionalData: "匈牙利 NUTS3 边界证据已记录；正式展示仍未启用",
   mapDisplay: "未启用",
-  modelLayer: "透明规则模型已启用；预测层未启用",
+  modelLayer: "居民、财政、外部三项规则模型已启用；预测层未启用",
   lastUpdated: "2026-08-11",
 } as const;
 

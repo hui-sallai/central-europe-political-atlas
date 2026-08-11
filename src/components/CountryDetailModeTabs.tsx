@@ -164,7 +164,7 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
           </div>
           <Link href="/models" className="text-sm font-semibold text-[var(--accent)] hover:underline">查看输入、权重与 Model Card</Link>
         </div>
-        <div className="mt-5 grid gap-3 md:grid-cols-2">
+        <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
           {modelOutputs.map((output) => {
             const card = getModelCard(output.model_id);
             return (

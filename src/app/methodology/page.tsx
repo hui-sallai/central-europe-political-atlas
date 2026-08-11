@@ -240,14 +240,14 @@ export default function MethodologyPage() {
             </li>
           ))}
         </ol>
-        <div className="mt-5 grid gap-3 md:grid-cols-2">
+        <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
           {modelCards.map((card) => {
             const availability = modelAvailabilitySummary.find((item) => item.model_id === card.model_id);
             return (
               <article key={card.model_id} className="rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-4">
                 <h3 className="font-semibold">{card.name_zh}</h3>
                 <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{card.weight_note}</p>
-                <p className="mt-3 text-xs text-[var(--muted)]">可计算 {availability?.sufficient ?? 0} 国；不可计算 {availability?.insufficient ?? 0} 国。</p>
+                <p className="mt-3 text-xs text-[var(--muted)]">可计算 {availability?.sufficient ?? 0} 国；部分可计算 {availability?.partial ?? 0} 国；不可计算 {availability?.insufficient ?? 0} 国。</p>
               </article>
             );
           })}
