@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ModelExplorer } from "@/components/ModelExplorer";
 import { modelAvailabilitySummary, modelCards, modelOutputs } from "@/lib/modelFramework";
 import { platformStatus } from "@/lib/platformStatus";
@@ -11,6 +12,9 @@ export default function ModelsPage() {
       <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
         v0.50 启用居民经济压力、财政压力与外部脆弱性三个规则模型。所有分数都由可追溯 observation、固定标准化边界和公开权重计算；不使用机器学习，不预测选举，也不把事件直接计入分数。
       </p>
+      <Link href="/scenarios" className="mt-4 inline-flex rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)] hover:bg-[var(--accent)] hover:text-white">
+        进入 v0.60 情景模拟
+      </Link>
 
       <section className="mt-6 grid gap-3 md:grid-cols-3">
         {modelAvailabilitySummary.flatMap((summary) => {
@@ -37,9 +41,10 @@ export default function ModelsPage() {
       <section className="mt-6 card p-6">
         <p className="eyebrow">Reserved Interfaces</p>
         <h2 className="mt-3 text-2xl font-semibold">后续模型接口</h2>
-        <div className="mt-5 grid gap-3 md:grid-cols-2">
+        <div className="mt-5 grid gap-3 md:grid-cols-3">
           {[
-            ["Industrial Dependency Index", "等待产业集中度、供应链和区域产业数据补齐。"],
+            ["Scenario Simulation", "已在独立情景层启用；不改变 v0.50 基线模型或原始观测值。"],
+            ["Industrial Dependency Index", "准入检查未通过，等待供应链集中度、贸易伙伴暴露和计算值规则补齐。"],
             ["China Exposure Index", "项目候选变量已建立，但当前不生成指数、排名或风险结论。"],
           ].map(([name, note]) => (
             <article key={name} className="rounded-2xl border border-dashed border-[var(--line)] bg-[var(--surface-muted)] p-4">

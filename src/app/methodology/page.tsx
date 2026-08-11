@@ -2,6 +2,7 @@ import { platformStatus } from "@/lib/platformStatus";
 import { researchEvents, researchProjects } from "@/lib/researchData";
 import { researchDataLayerFiles } from "@/lib/countryMetadata";
 import { modelAvailabilitySummary, modelCards } from "@/lib/modelFramework";
+import { industrialDependencyReadiness, scenarioDefinitions } from "@/lib/scenarioFramework";
 import {
   hungaryAuthoritativeTopologyValidationDecisionSummary,
   hungaryGiscoLicenseVerificationDecisionSummary,
@@ -73,6 +74,15 @@ const transparentModelFlow = [
   ["Model Score", "完整输入满足门槛时才输出"],
   ["Drivers", "按加权贡献解释主要驱动"],
   ["Confidence", "结合数据完整度与模型范围说明置信度"],
+] as const;
+
+const scenarioFlow = [
+  ["Baseline", "读取既有模型输出与合格 observation"],
+  ["Shock Assumption", "记录用户设定的条件式冲击"],
+  ["Adjusted Variable", "只调整明确对应的模型输入"],
+  ["Model Recalculation", "沿用 v0.50 标准化边界与权重"],
+  ["Scenario Difference", "同时显示基线、情景与差值"],
+  ["Interpretation", "说明传导链、置信度与不能说明什么"],
 ] as const;
 
 const boundaryHistory = [
@@ -157,7 +167,7 @@ export default function MethodologyPage() {
           ))}
         </ol>
         <p className="mt-4 rounded-2xl bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--muted)]">
-          v0.50 已启用两个透明规则模型；每个输出均保留 observation_id、来源、标准化值、权重和贡献。平台仍不生成预测、情景、选举结论或地图风险图层。
+          v0.50 已启用三个透明规则模型；每个输出均保留 observation_id、来源、标准化值、权重和贡献。v0.60 在其上增加独立情景层，但仍不生成预测、选举结论或地图风险图层。
         </p>
       </section>
 
@@ -256,15 +266,60 @@ export default function MethodologyPage() {
           {modelConditions.map((item) => <li key={item} className="rounded-2xl border border-[var(--line)] bg-white/65 px-4 py-3">{item}</li>)}
         </ol>
         <p className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-semibold leading-6 text-amber-900">
-          /models 只展示可追溯的规则分数和 Model Card。分数是比较与分析工具，不是客观风险真值；/forecast 与 /scenario 仍不存在，也不输出 China Exposure Index 或选举预测。
+          /models 只展示可追溯的规则分数和 Model Card；/scenarios 只展示条件式冲击比较。二者都不是客观风险真值或预测；/forecast 仍不存在，也不输出 China Exposure Index 或选举预测。
         </p>
         <p className="mt-3 text-sm leading-6 text-[var(--muted)]">每张 Model Card 必须记录 model_version、effective_date 和权重变更说明；任何权重或标准化边界变化都需要生成新版本，不能静默覆盖历史口径。</p>
+      </section>
+
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">Scenario Methodology</p>
+        <h2 className="mt-3 text-2xl font-semibold">8. 情景模拟方法与边界</h2>
+        <ol className="mt-5 grid gap-3 md:grid-cols-3 xl:grid-cols-6">
+          {scenarioFlow.map(([label, note], index) => (
+            <li key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+              <p className="font-mono text-xs font-semibold text-[var(--accent)]">{index + 1}. {label}</p>
+              <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{note}</p>
+            </li>
+          ))}
+        </ol>
+
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
+          {scenarioDefinitions.map((scenario) => (
+            <article key={scenario.scenario_id} className="rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-4">
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <div>
+                  <h3 className="font-semibold">{scenario.name_zh}</h3>
+                  <p className="mt-1 font-mono text-xs text-[var(--muted)]">{scenario.scenario_id}</p>
+                </div>
+                <span className={`rounded-full px-3 py-1 text-xs font-semibold ${scenario.calculation_status === "available" ? "bg-emerald-50 text-emerald-800" : "bg-amber-50 text-amber-900"}`}>
+                  {scenario.calculation_status === "available" ? "可直接重算" : "当前不可计算"}
+                </span>
+              </div>
+              <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{scenario.description}</p>
+              <p className="mt-3 font-mono text-xs leading-5 text-[var(--muted)]">关联：{scenario.affected_indicators.join(" / ")}</p>
+              {scenario.unavailable_reason ? <p className="mt-3 text-xs font-semibold leading-5 text-amber-900">{scenario.unavailable_reason}</p> : null}
+            </article>
+          ))}
+        </div>
+
+        <ul className="mt-5 grid gap-2 text-sm leading-6 text-[var(--muted)] md:grid-cols-2">
+          <li className="rounded-xl bg-[var(--surface-muted)] px-4 py-3">Scenario 是“如果……那么……”条件分析，不表示发生概率、未来年份或事实预测。</li>
+          <li className="rounded-xl bg-[var(--surface-muted)] px-4 py-3">冲击参数不写回 observations；每个结果必须保留基线 observation_id、模型权重和计算规则。</li>
+          <li className="rounded-xl bg-[var(--surface-muted)] px-4 py-3">没有直接模型输入时返回 unavailable，不以相关但不同口径的指标代替。</li>
+          <li className="rounded-xl bg-[var(--surface-muted)] px-4 py-3">已核验事件只作历史背景，intensity 不进入情景加减分。</li>
+        </ul>
+
+        <div className="mt-5 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
+          <p className="font-semibold">Industrial Dependency Index：未启用</p>
+          <p className="mt-2">{industrialDependencyReadiness.decision}</p>
+          <p className="mt-2 text-xs">主要缺口：{industrialDependencyReadiness.blockers.join("；")}</p>
+        </div>
       </section>
 
       <section className="mt-6 grid gap-4 lg:grid-cols-2">
         <article className="card p-6">
           <p className="eyebrow">Known Limitations</p>
-          <h2 className="mt-3 text-2xl font-semibold">8. 已知限制</h2>
+          <h2 className="mt-3 text-2xl font-semibold">9. 已知限制</h2>
           <ul className="mt-5 grid gap-3 text-sm leading-6 text-[var(--muted)]">
             {knownLimitations.map((item) => <li key={item} className="rounded-xl bg-[var(--surface-muted)] px-4 py-3">{item}</li>)}
           </ul>
@@ -272,7 +327,7 @@ export default function MethodologyPage() {
 
         <article className="card p-6">
           <p className="eyebrow">Analysis Checklist</p>
-          <h2 className="mt-3 text-2xl font-semibold">9. 进入后续分析的检查清单</h2>
+          <h2 className="mt-3 text-2xl font-semibold">10. 进入后续分析的检查清单</h2>
           <ol className="mt-5 grid list-decimal gap-2 pl-5 text-sm leading-6 text-[var(--muted)]">
             {[
               "有明确国家或地区和时间。", "有数值、单位和数据状态。", "有来源名称、链接与可靠性等级。",

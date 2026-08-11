@@ -162,7 +162,10 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
             <p className="eyebrow">Transparent Models</p>
             <h2 className="mt-3 text-2xl font-semibold">透明模型摘要</h2>
           </div>
-          <Link href="/models" className="text-sm font-semibold text-[var(--accent)] hover:underline">查看输入、权重与 Model Card</Link>
+          <div className="flex flex-wrap gap-4 text-sm font-semibold text-[var(--accent)]">
+            <Link href="/models" className="hover:underline">查看输入、权重与 Model Card</Link>
+            <Link href="/scenarios" className="hover:underline">进入条件式情景模拟</Link>
+          </div>
         </div>
         <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
           {modelOutputs.map((output) => {

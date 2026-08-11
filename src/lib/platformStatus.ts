@@ -1,9 +1,9 @@
 export const platformStatus = {
-  version: "v0.50 Transparent Models / 透明模型",
-  stage: "三项透明政治经济模型验证版",
+  version: "v0.60 Scenario Simulation / 情景模拟",
+  stage: "透明模型上的可解释情景模拟",
   regionalData: "匈牙利 NUTS3 边界证据已记录；正式展示仍未启用",
   mapDisplay: "未启用",
-  modelLayer: "居民、财政、外部三项规则模型已启用；预测层未启用",
+  modelLayer: "v0.50 三项基础模型保持不变；v0.60 情景层启用，预测未启用",
   lastUpdated: "2026-08-11",
 } as const;
 
@@ -15,4 +15,4 @@ export const platformStatusItems = [
 ] as const;
 
 export const mapDisplayBoundary =
-  "真实区域边界尚未进入公开地图；模型分数仅在 Models 与 Country 页面验证，风险图层、预测图层和真实党派支持率图层均未启用。";
+  "真实区域边界尚未进入公开地图；模型与情景仅在 Models、Scenarios 与 Country 页面验证，风险图层、情景图层、预测图层和真实党派支持率图层均未启用。";

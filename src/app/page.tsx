@@ -9,6 +9,7 @@ const primaryEntries = [
   { href: "/data", label: "数据工作台", note: "查询宏观、项目、来源与质量记录" },
   { href: "/news", label: "事件库", note: "查看政治经济事件编码与指标关联" },
   { href: "/models", label: "透明模型", note: "查看分数、输入追踪、权重与限制" },
+  { href: "/scenarios", label: "情景模拟", note: "比较基线、冲击假设与模型变化" },
   { href: "/methodology", label: "方法论", note: "了解数据边界、来源等级与模型条件" },
 ] as const;
 
@@ -23,11 +24,11 @@ export default function Home() {
               中欧政治经济地图与研究数据平台
             </h1>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-              平台围绕十个中欧及邻近国家，组织国家档案、宏观数据、对华经贸项目、事件记录与区域地图资料。v0.50 首次提供可追溯的规则模型；分数用于比较和解释，不是风险真值或预测结论。
+              平台围绕十个中欧及邻近国家，组织国家档案、宏观数据、对华经贸项目、事件记录与区域地图资料。v0.60 在可追溯规则模型上加入条件式情景比较；结果用于解释假设传导，不是预测结论。
             </p>
           </div>
           <p className="rounded-2xl border border-[var(--line)] bg-white/65 p-4 text-sm leading-6 text-[var(--muted)]">
-            v0.50 在既有 observation 上启用居民经济压力、财政压力与外部脆弱性三个透明模型。标准化边界、权重、输入观测和限制全部公开；不使用机器学习，不生成选举预测。
+            v0.50 的居民、财政与外部三个基础模型保持不变。v0.60 只增加 Baseline → Shock → Adjusted Input → Scenario Difference 计算层；不使用机器学习，不生成选举预测。
           </p>
         </div>
 
@@ -35,7 +36,7 @@ export default function Home() {
           <StatusSummary items={platformStatusItems} />
         </div>
 
-        <nav className="mt-5 grid gap-3 md:grid-cols-3 xl:grid-cols-6" aria-label="主要研究入口">
+        <nav className="mt-5 grid gap-3 md:grid-cols-3 xl:grid-cols-7" aria-label="主要研究入口">
           {primaryEntries.map((entry) => (
             <Link key={entry.href} href={entry.href} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4 transition hover:-translate-y-0.5 hover:border-[var(--accent)]">
               <span className="font-semibold text-[var(--foreground)]">{entry.label}</span>
