@@ -12,6 +12,7 @@ const generatedAt = "2026-07-27";
 const schemaVersion = "research-data-v0.1";
 const canonicalGeneratedAt = "2026-08-08";
 const canonicalSchemaVersion = "data-foundation-v0.30";
+const chinaExposureDatabaseUpdatedAt = "2026-08-11";
 
 require.extensions[".ts"] = (module, filename) => {
   const source = fs.readFileSync(filename, "utf8");
@@ -1236,9 +1237,12 @@ const chinaProjectExportRecords = chinaProjectRecords.map((project) => {
     source_reliability: project.sourceReliabilityLevel,
     is_quantifiable: verification.conclusion === "quantifiable",
     exposure_variable_fit: exposureVariableFitForProject(project),
+    exposure_dimensions: project.exposureDimensions,
+    related_indicator_ids: project.relatedIndicatorIds,
+    related_event_ids: project.relatedEventIds,
     tags: project.riskTags,
     notes: `${project.note} ${project.exposureVariableNote}`,
-    last_updated: generatedAt,
+    last_updated: chinaExposureDatabaseUpdatedAt,
   };
 });
 
@@ -1265,6 +1269,8 @@ const chinaExposureCandidateRecords = chinaProjectRecords.map((project) => {
     time_coverage: project.year,
     spatial_coverage: project.regionName,
     model_readiness: modelReadiness,
+    related_indicator_ids: project.relatedIndicatorIds,
+    related_event_ids: project.relatedEventIds,
     not_index_score: true,
     interpretation_boundary: "暴露变量候选库不生成中国经济暴露指数；不输出国家排名；不输出风险分数；不输出政策判断。",
     notes: `${project.exposureVariableNote} ${verification.reason}`,
@@ -1372,6 +1378,7 @@ const canonicalEventRecords = eventLibraryItems.map((item) => {
     intensity: event.intensity,
     affected_indicator: event.affected_indicator,
     affected_model: event.affected_model,
+    related_project_ids: event.related_project_ids,
     duration: event.duration,
     confidence: event.confidence,
     source_status: event.source_status,
@@ -1404,10 +1411,27 @@ const canonicalProjectRecords = chinaProjectExportRecords.map((project) => ({
   data_status: project.verification_conclusion === "可量化" ? "verified" : "pending",
   risk_tags: project.tags,
   source: project.source_id,
+  source_name: project.source_name,
   source_url: project.source_url,
   source_reliability: project.source_reliability,
   verified: project.verification_conclusion === "可量化",
+  verification_status: project.verification_conclusion,
   verification_note: project.verification_reason,
+  quantification_status: project.verification_conclusion === "可量化"
+    ? "可量化"
+    : project.verification_conclusion === "部分可量化"
+      ? "部分可量化"
+      : project.verification_conclusion === "仅作背景"
+        ? "暂不可量化"
+        : "不适合量化",
+  amount_status: project.amount_status,
+  amount_evidence: project.amount_evidence_or_missing_reason,
+  actor_verification: project.actor_verification,
+  status_timeline: project.status_timeline,
+  related_indicator_ids: project.related_indicator_ids,
+  related_event_ids: project.related_event_ids,
+  exposure_dimensions: project.exposure_dimensions,
+  model_boundary: "项目只建立 Event → Project → Indicator 关系；当前不生成中国经济暴露指数、风险分数或预测。",
 }));
 
 const dataQualityRecords = dataQualityCheckRecords();
@@ -1505,7 +1529,9 @@ writeLayer("derived_comparisons", derivedComparisonExportRecords, {
   model_boundary: "Fact-derived comparison layer only. No risk score, forecast, scenario, or model output.",
 });
 writeLayer("china_projects", chinaProjectExportRecords, {
-  model_boundary: "Project verification data only. No China exposure index is computed.",
+  stage: "v0.40 China Exposure Database",
+  relation_note: "Project records may reference event ids and indicator ids. These links are research relationships, not model outputs.",
+  model_boundary: "Project verification data only. No China exposure index, risk score, or prediction is computed.",
 });
 writeLayer("china_exposure_candidates", chinaExposureCandidateRecords, {
   model_boundary: "Candidate variable layer only. It is not a China exposure index.",
@@ -1539,14 +1565,17 @@ writeCanonicalCollection("observations", canonicalObservationRecords, {
 writeCanonicalCollection("sources", canonicalSourceRecords, { primary_key: "id" });
 writeCanonicalCollection("events", canonicalEventRecords, {
   schema_version: "event-database-v0.35",
-  generated_at: "2026-08-09",
+  generated_at: chinaExposureDatabaseUpdatedAt,
   primary_key: "id",
   event_types: eventTypeValues,
   model_boundary: "Coded events only record indicator and future-model associations. All current records keep enters_model=false and generate no scores or forecasts.",
 });
 writeCanonicalCollection("projects", canonicalProjectRecords, {
+  schema_version: "china-exposure-database-v0.40",
+  generated_at: chinaExposureDatabaseUpdatedAt,
   primary_key: "id",
-  model_boundary: "Project records do not generate a China exposure index or risk score.",
+  relation_note: "related_event_ids and related_indicator_ids establish Event → Project → Indicator research links.",
+  model_boundary: "Project records do not generate a China exposure index, risk score, or prediction.",
 });
 
 console.log(`Exported research data JSON to ${path.relative(projectRoot, outDir)}`);

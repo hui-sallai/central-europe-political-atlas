@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
-import { getResearchIndicator, researchCountries, researchEvents } from "@/lib/researchData";
+import { getResearchIndicator, getResearchProject, researchCountries, researchEvents } from "@/lib/researchData";
 import type { Event, EventType } from "@/types/researchData";
 
 type CountryFilter = "all" | string;
@@ -48,6 +48,7 @@ function EventCard({ item }: { item: Event }) {
     intensity: item.intensity,
     affected_indicator: item.affected_indicator,
     affected_model: item.affected_model,
+    related_project_ids: item.related_project_ids,
     duration: item.duration,
     confidence: item.confidence,
     source_status: item.source_status,
@@ -59,6 +60,7 @@ function EventCard({ item }: { item: Event }) {
   return (
     <article id={item.id} className="scroll-mt-6 rounded-2xl border border-[var(--line)] bg-white/65 p-5">
       <div className="flex flex-wrap items-center gap-2 text-xs text-[var(--muted)]">
+        <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 font-mono">{item.event_id}</span>
         <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{item.date}</span>
         <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{item.country_name}</span>
         <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1">{eventTypeLabels[item.event_type]}</span>
@@ -67,6 +69,19 @@ function EventCard({ item }: { item: Event }) {
       </div>
       <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
       <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.summary}</p>
+      <dl className="mt-4 grid gap-2 text-xs sm:grid-cols-2 xl:grid-cols-4">
+        {[
+          ["actor", item.actor],
+          ["affected_model", item.affected_model.join(" / ") || "未关联"],
+          ["confidence", confidenceLabels[item.confidence]],
+          ["enters_model", String(item.enters_model)],
+        ].map(([label, value]) => (
+          <div key={label} className="rounded-xl bg-[var(--surface-muted)] px-3 py-2">
+            <dt className="font-mono text-[10px] font-semibold text-[var(--muted)]">{label}</dt>
+            <dd className="mt-1 break-words font-semibold">{value}</dd>
+          </div>
+        ))}
+      </dl>
       <div className="mt-4 flex flex-wrap items-center gap-3 text-xs">
         <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 font-semibold text-[var(--muted)]">
           {isSample ? "结构样例，不进入模型" : item.coding_status === "coded" ? "结构化编码已记录，不进入模型" : "人工摘要，待事件编码"}
@@ -90,6 +105,19 @@ function EventCard({ item }: { item: Event }) {
           )) : <span className="text-xs text-[var(--muted)]">待编码</span>}
         </div>
       </div>
+      {item.related_project_ids.length > 0 ? (
+        <div className="mt-3 rounded-xl border border-[var(--line)] bg-white/70 p-3">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">Related Projects</p>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {item.related_project_ids.map((projectId) => (
+              <span key={projectId} className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold" title={projectId}>
+                {getResearchProject(projectId)?.name ?? projectId}
+              </span>
+            ))}
+          </div>
+          <p className="mt-2 text-xs text-[var(--muted)]">Event → Project → Indicator 仅记录研究关联，不生成风险判断或模型分数。</p>
+        </div>
+      ) : null}
       <details className="mt-4 rounded-xl border border-[var(--line)] bg-[var(--surface-muted)] p-3">
         <summary className="cursor-pointer text-sm font-semibold">事件编码与未来模型候选关联</summary>
         <dl className="mt-3 grid gap-2 text-xs sm:grid-cols-2 xl:grid-cols-3">
@@ -171,7 +199,7 @@ export function NewsExplorer() {
           <div className="mt-2 flex flex-wrap items-end justify-between gap-3">
             <div>
               <h2 className="text-2xl font-semibold">V4 正式事件样本</h2>
-              <p className="mt-2 text-sm leading-6 text-[var(--muted)]">事件可关联 indicators 与未来模型候选，但 v0.35 不计算分数；所有记录保持 enters_model=false。</p>
+              <p className="mt-2 text-sm leading-6 text-[var(--muted)]">事件可关联 projects、indicators 与未来模型候选，但当前不计算分数；所有记录保持 enters_model=false。</p>
             </div>
             <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">{verifiedItems.length} 条</span>
           </div>

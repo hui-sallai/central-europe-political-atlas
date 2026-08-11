@@ -21,6 +21,12 @@
       "time_coverage": "持续运营",
       "spatial_coverage": "马拉舍维切 / 布列斯特边境通道",
       "model_readiness": "需补数据后再评估",
+      "related_indicator_ids": [
+        "exports_goods_services",
+        "imports_goods_services",
+        "trade_balance"
+      ],
+      "related_event_ids": [],
       "not_index_score": true,
       "interpretation_boundary": "暴露变量候选库不生成中国经济暴露指数；不输出国家排名；不输出风险分数；不输出政策判断。",
       "notes": "适合作为物流通道暴露变量候选，但必须先补年度 TEU、货值、口岸吞吐和运营主体字段；现阶段不直接进入量化指数。 事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。"
@@ -41,6 +47,12 @@
       "time_coverage": "2024",
       "spatial_coverage": "蒂黑",
       "model_readiness": "需补数据后再评估",
+      "related_indicator_ids": [
+        "fdi_inflow",
+        "manufacturing_share_gdp",
+        "automotive_export_share"
+      ],
+      "related_event_ids": [],
       "not_index_score": true,
       "interpretation_boundary": "暴露变量候选库不生成中国经济暴露指数；不输出国家排名；不输出风险分数；不输出政策判断。",
       "notes": "适合作为中国 EV 企业进入欧盟制造网络的事件型变量；金额和产量缺失前只能作解释变量，不进入量化暴露指数。 事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。"
@@ -61,6 +73,13 @@
       "time_coverage": "2018",
       "spatial_coverage": "Kobylka / 华沙周边",
       "model_readiness": "仅作背景解释",
+      "related_indicator_ids": [
+        "fdi_inflow",
+        "manufacturing_share_gdp"
+      ],
+      "related_event_ids": [
+        "pl-2024-04-23-nuctech-fsr-inspection"
+      ],
       "not_index_score": true,
       "interpretation_boundary": "暴露变量候选库不生成中国经济暴露指数；不输出国家排名；不输出风险分数；不输出政策判断。",
       "notes": "更适合作为公共采购和监管事件样本；金额、合同和客户结构缺失前，不适合作为经济暴露变量主项。 当前记录主要提供项目线索或背景信息，缺少可稳定量化的金额、主体链条或事件口径。"
@@ -81,6 +100,15 @@
       "time_coverage": "2022",
       "spatial_coverage": "德布勒森",
       "model_readiness": "可作为未来模型候选",
+      "related_indicator_ids": [
+        "fdi_inflow",
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "battery_investment"
+      ],
+      "related_event_ids": [
+        "hu-2022-08-12-catl-debrecen"
+      ],
       "not_index_score": true,
       "interpretation_boundary": "暴露变量候选库不生成中国经济暴露指数；不输出国家排名；不输出风险分数；不输出政策判断。",
       "notes": "金额、地点、行业和主体较清楚，适合作为后续中国制造业投资暴露变量的高优先级候选；量化前需补产能和补贴字段。 已具备金额、主体、年份和可点击来源，可作为项目级量化候选；进入正式分析前仍需复核金额口径。"
@@ -101,6 +129,12 @@
       "time_coverage": "2023",
       "spatial_coverage": "塞格德",
       "model_readiness": "需补数据后再评估",
+      "related_indicator_ids": [
+        "fdi_inflow",
+        "manufacturing_share_gdp",
+        "automotive_export_share"
+      ],
+      "related_event_ids": [],
       "not_index_score": true,
       "interpretation_boundary": "暴露变量候选库不生成中国经济暴露指数；不输出国家排名；不输出风险分数；不输出政策判断。",
       "notes": "适合作为整车制造进入欧盟市场的项目变量候选；金额和产能未接入前，不进入金额型暴露计算。 事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。"
@@ -121,6 +155,13 @@
       "time_coverage": "2021",
       "spatial_coverage": "布达佩斯-凯莱比奥",
       "model_readiness": "可作为未来模型候选",
+      "related_indicator_ids": [
+        "fdi_inflow",
+        "exports_goods_services",
+        "imports_goods_services",
+        "trade_balance"
+      ],
+      "related_event_ids": [],
       "not_index_score": true,
       "interpretation_boundary": "暴露变量候选库不生成中国经济暴露指数；不输出国家排名；不输出风险分数；不输出政策判断。",
       "notes": "金额和基础设施属性明确，适合作为中国融资/承包暴露变量候选；进入量化前需拆分贷款结构、承包商份额和项目阶段。 已具备金额、主体、年份和可点击来源，可作为项目级量化候选；进入正式分析前仍需复核金额口径。"
@@ -141,6 +182,11 @@
       "time_coverage": "2007",
       "spatial_coverage": "Nymburk",
       "model_readiness": "可作为未来模型候选",
+      "related_indicator_ids": [
+        "fdi_inflow",
+        "manufacturing_share_gdp"
+      ],
+      "related_event_ids": [],
       "not_index_score": true,
       "interpretation_boundary": "暴露变量候选库不生成中国经济暴露指数；不输出国家排名；不输出风险分数；不输出政策判断。",
       "notes": "可作为早期制造业进入样本；金额年代较早且当前产能/雇佣缺失，暂不适合作为当前中国经济暴露核心变量。 已具备金额、主体、年份和可点击来源，可作为项目级量化候选；进入正式分析前仍需复核金额口径。"
@@ -161,6 +207,10 @@
       "time_coverage": "2015-2018",
       "spatial_coverage": "布拉格",
       "model_readiness": "需补数据后再评估",
+      "related_indicator_ids": [
+        "fdi_inflow"
+      ],
+      "related_event_ids": [],
       "not_index_score": true,
       "interpretation_boundary": "暴露变量候选库不生成中国经济暴露指数；不输出国家排名；不输出风险分数；不输出政策判断。",
       "notes": "适合作为资产收购和政治经济关系样本；在资产范围和所有权链条未拆分前，不进入经济暴露量化。 事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。"
@@ -181,6 +231,10 @@
       "time_coverage": "2015-至今待核验",
       "spatial_coverage": "布拉格 / 捷克-斯洛伐克金融网络",
       "model_readiness": "需补数据后再评估",
+      "related_indicator_ids": [
+        "fdi_inflow"
+      ],
+      "related_event_ids": [],
       "not_index_score": true,
       "interpretation_boundary": "暴露变量候选库不生成中国经济暴露指数；不输出国家排名；不输出风险分数；不输出政策判断。",
       "notes": "金融网络暴露相关性较强，但金额、股比和治理权缺失；补齐后可作为金融权益暴露变量候选。 事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。"
@@ -201,6 +255,15 @@
       "time_coverage": "2023",
       "spatial_coverage": "Surany",
       "model_readiness": "可作为未来模型候选",
+      "related_indicator_ids": [
+        "fdi_inflow",
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "battery_investment"
+      ],
+      "related_event_ids": [
+        "sk-2023-11-22-gotion-inobat-surany"
+      ],
       "not_index_score": true,
       "interpretation_boundary": "暴露变量候选库不生成中国经济暴露指数；不输出国家排名；不输出风险分数；不输出政策判断。",
       "notes": "金额、行业和地点较明确，适合作为电池供应链暴露变量候选；进入量化前需补股权、补贴、产能和建设进度。 已具备金额、主体、年份和可点击来源，可作为项目级量化候选；进入正式分析前仍需复核金额口径。"
@@ -221,6 +284,13 @@
       "time_coverage": "2023",
       "spatial_coverage": "Bratislava / Voderady / Surany 相关网络",
       "model_readiness": "需补数据后再评估",
+      "related_indicator_ids": [
+        "fdi_inflow",
+        "battery_investment"
+      ],
+      "related_event_ids": [
+        "sk-2023-11-22-gotion-inobat-surany"
+      ],
       "not_index_score": true,
       "interpretation_boundary": "暴露变量候选库不生成中国经济暴露指数；不输出国家排名；不输出风险分数；不输出政策判断。",
       "notes": "适合作为供应链控制关系或技术合作变量候选；金额、股比和治理权缺失前不进入金额型暴露计算。 事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。"

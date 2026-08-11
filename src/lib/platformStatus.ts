@@ -1,10 +1,10 @@
 export const platformStatus = {
-  version: "v0.35 Event Database / 事件数据库",
-  stage: "V4 政治经济事件编码与指标关联",
+  version: "v0.40 China Exposure Database / 对华项目数据库",
+  stage: "11 项对华项目核验与 Event → Project → Indicator 关联",
   regionalData: "匈牙利 NUTS3 边界证据已记录；正式展示仍未启用",
   mapDisplay: "未启用",
   modelLayer: "未启用",
-  lastUpdated: "2026-08-09",
+  lastUpdated: "2026-08-11",
 } as const;
 
 export const platformStatusItems = [

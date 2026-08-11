@@ -71,6 +71,9 @@ const countries = researchCountries.map((country) => ({
 
 type DataMode = "economy" | "extended" | "projects" | "charts" | "comparison" | "tables";
 type ProjectAmountFilter = "all" | "available" | "missing";
+type ProjectQuantificationFilter = "all" | ChinaProjectRecord["quantificationStatus"];
+type ProjectReliabilityFilter = "all" | ChinaProjectRecord["sourceReliabilityLevel"];
+type ProjectVerificationFilter = "all" | ChinaProjectVerificationConclusion;
 type QualityFilterState = {
   country: string;
   indicator: string;
@@ -2889,7 +2892,7 @@ function ResearchDataExportLinks() {
   const exportStatusCards = [
     { label: "CSV 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .csv 文件。" },
     { label: "JSON 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: platformStatus.version, note: "v0.30 数据底座保持不变；v0.35 新增 V4 事件编码与指标关联，不启用模型、预测、指数或风险分数。" },
+    { label: "当前阶段", value: platformStatus.version, note: "v0.30 数据底座与 v0.35 事件层保持不变；v0.40 增加项目核验和 Event → Project → Indicator 关系，不启用模型、预测、指数或风险分数。" },
   ];
 
   return (
@@ -3287,15 +3290,21 @@ function V4QualityDetailTable({ countryNameBySlug }: { v4Quality: V4DataQualityS
 function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRecord[]; countryName: string }) {
   const [amountFilter, setAmountFilter] = useState<ProjectAmountFilter>("all");
   const [sectorFilter, setSectorFilter] = useState("all");
+  const [quantificationFilter, setQuantificationFilter] = useState<ProjectQuantificationFilter>("all");
+  const [reliabilityFilter, setReliabilityFilter] = useState<ProjectReliabilityFilter>("all");
+  const [verificationFilter, setVerificationFilter] = useState<ProjectVerificationFilter>("all");
   const sectors = useMemo(() => Array.from(new Set(projects.map((project) => project.sector).filter(Boolean))).sort(), [projects]);
   const filteredProjects = useMemo(
     () =>
       projects.filter((project) => {
         const matchesAmount = amountFilter === "all" || (amountFilter === "available" ? project.amount !== null : project.amount === null);
         const matchesSector = sectorFilter === "all" || project.sector === sectorFilter;
-        return matchesAmount && matchesSector;
+        const matchesQuantification = quantificationFilter === "all" || project.quantificationStatus === quantificationFilter;
+        const matchesReliability = reliabilityFilter === "all" || project.sourceReliabilityLevel === reliabilityFilter;
+        const matchesVerification = verificationFilter === "all" || verifyChinaProject(project).conclusion === verificationFilter;
+        return matchesAmount && matchesSector && matchesQuantification && matchesReliability && matchesVerification;
       }),
-    [amountFilter, projects, sectorFilter],
+    [amountFilter, projects, quantificationFilter, reliabilityFilter, sectorFilter, verificationFilter],
   );
   const availableAmountCount = projects.filter((project) => project.amount !== null).length;
   const verificationResults = projects.map((project) => verifyChinaProject(project));
@@ -3318,7 +3327,7 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
 
   return (
     <div>
-      <div className="mb-4 flex flex-col gap-3 rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-3 lg:flex-row lg:items-center lg:justify-between">
+      <div className="mb-4 grid gap-3 rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-3 xl:grid-cols-[1fr_auto] xl:items-end">
         <div>
           <div className="flex flex-wrap gap-2">
             {([
@@ -3348,19 +3357,32 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
             <span className="rounded-full bg-rose-50 px-2.5 py-1 text-rose-800">不进入分析 {verificationCounts.excluded}</span>
           </div>
         </div>
-        <label className="flex items-center gap-2 text-xs font-semibold text-[var(--muted)]">
-          行业
-          <select
-            value={sectorFilter}
-            onChange={(event) => setSectorFilter(event.target.value)}
-            className="max-w-[240px] rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs text-[var(--foreground)]"
-          >
-            <option value="all">全部行业</option>
-            {sectors.map((sector) => (
-              <option key={sector} value={sector}>{sector}</option>
-            ))}
-          </select>
-        </label>
+        <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-4">
+          <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">行业
+            <select value={sectorFilter} onChange={(event) => setSectorFilter(event.target.value)} className="max-w-[240px] rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs text-[var(--foreground)]">
+              <option value="all">全部行业</option>
+              {sectors.map((sector) => <option key={sector} value={sector}>{sector}</option>)}
+            </select>
+          </label>
+          <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">量化状态
+            <select value={quantificationFilter} onChange={(event) => setQuantificationFilter(event.target.value as ProjectQuantificationFilter)} className="rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs text-[var(--foreground)]">
+              <option value="all">全部状态</option>
+              {(["amount_available", "amount_missing", "partially_quantifiable", "not_quantifiable"] as const).map((value) => <option key={value} value={value}>{quantificationStatusLabel(value)}</option>)}
+            </select>
+          </label>
+          <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">来源等级
+            <select value={reliabilityFilter} onChange={(event) => setReliabilityFilter(event.target.value as ProjectReliabilityFilter)} className="rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs text-[var(--foreground)]">
+              <option value="all">全部等级</option>
+              {(["A", "B", "C", "D"] as const).map((value) => <option key={value} value={value}>{value} 级</option>)}
+            </select>
+          </label>
+          <label className="grid gap-1 text-xs font-semibold text-[var(--muted)]">核验结论
+            <select value={verificationFilter} onChange={(event) => setVerificationFilter(event.target.value as ProjectVerificationFilter)} className="rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs text-[var(--foreground)]">
+              <option value="all">全部结论</option>
+              {(["quantifiable", "partially_quantifiable", "background_only", "excluded"] as const).map((value) => <option key={value} value={value}>{chinaProjectVerificationLabel(value)}</option>)}
+            </select>
+          </label>
+        </div>
       </div>
 
       {filteredProjects.length > 0 ? (
@@ -3369,13 +3391,13 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
           <div className="wide-table-scroll max-w-full">
           <table className="research-data-table china-project-table border-separate border-spacing-0 text-left text-sm">
             <colgroup>
-              {[220, 90, 170, 160, 280, 280, 140, 100, 130, 360, 260, 130, 380, 380, 110, 240, 320, 140, 280, 160, 380, 240, 380].map((width, index) => (
+              {[220, 90, 170, 160, 280, 280, 140, 100, 130, 360, 260, 130, 380, 380, 110, 240, 320, 140, 280, 160, 380, 240, 280, 300, 220, 380].map((width, index) => (
                 <col key={index} style={{ width }} />
               ))}
             </colgroup>
             <thead>
               <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
-                {["项目名称", "国家", "地区/城市", "行业", "中国主体", "当地主体", "金额", "币种", "核验结论", "核验理由", "核验规则", "金额状态", "金额证据/缺失原因", "主体核验", "年份", "项目状态", "项目状态时间线", "来源", "来源等级", "是否可量化", "暴露变量适配", "标签", "备注"].map((header) => (
+                {["项目名称", "国家", "地区/城市", "行业", "中国主体", "当地主体", "金额", "币种", "核验结论", "核验理由", "核验规则", "金额状态", "金额证据/缺失原因", "主体核验", "年份", "项目状态", "项目状态时间线", "来源", "来源等级", "是否可量化", "暴露变量适配", "暴露维度", "关联指标", "相关事件", "标签", "备注"].map((header) => (
                   <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
                 ))}
               </tr>
@@ -3445,6 +3467,15 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
                       {exposureVariableFitLabel(project.exposureVariableFit)}
                     </span>
                     <p className="text-cell mt-1 text-[10px] text-[var(--muted)]">{project.exposureVariableNote}</p>
+                  </td>
+                  <td className="text-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">{project.exposureDimensions.join(" / ")}</td>
+                  <td className="text-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">
+                    {project.relatedIndicatorIds.map((indicatorId) => getResearchIndicator(indicatorId)?.name_zh ?? indicatorId).join(" / ")}
+                  </td>
+                  <td className="text-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">
+                    {project.relatedEventIds.length > 0
+                      ? project.relatedEventIds.map((eventId) => <Link key={eventId} href={`/news#${eventId}`} className="mr-2 inline-flex font-semibold text-[var(--accent)] hover:underline">{eventId}</Link>)
+                      : "尚无已编码关联事件"}
                   </td>
                   <td className="text-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">{project.riskTags.length > 0 ? project.riskTags.join(" / ") : "待接入"}</td>
                   <td className="text-cell border-b border-[var(--line)] px-3 py-3 text-xs text-[var(--muted)]">{project.note || "—"}</td>
@@ -3536,6 +3567,7 @@ export function DataCountryExplorer() {
   const projectRecords = getChinaProjectRecords(selectedCountry.slug);
   const countryTableRecord = getCountryTableRecord(selectedCountry.slug);
   const eventRecords = getEventsForCountry(selectedCountry.slug);
+  const formalEventRecords = eventRecords.filter((event) => event.data_status === "verified");
   const completeIndicatorDictionaryRows = completeIndicatorDictionaryIds
     .map((indicatorId) => indicatorDictionaryRecords.find((indicator) => indicator.indicatorId === indicatorId))
     .filter((indicator): indicator is NonNullable<typeof indicator> => Boolean(indicator));
@@ -4586,12 +4618,12 @@ export function DataCountryExplorer() {
                   </p>
                 </div>
                 <Link href="/news" className="text-sm font-semibold text-[var(--accent)] hover:underline">
-                  进入事件库（{eventRecords.length}）
+                  进入事件库（正式事件 {formalEventRecords.length}）
                 </Link>
               </div>
-              {eventRecords.length > 0 ? (
+              {formalEventRecords.length > 0 ? (
                 <div className="mt-5 grid gap-3 lg:grid-cols-3">
-                  {eventRecords.slice(0, 3).map((event) => (
+                  {formalEventRecords.slice(0, 3).map((event) => (
                     <Link key={event.id} href={`/news#${event.id}`} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4 transition hover:border-[var(--accent)]">
                       <div className="flex flex-wrap items-center gap-2">
                         <DataStatusBadge status={event.data_status} />
@@ -4709,11 +4741,11 @@ export function DataCountryExplorer() {
 
         {activeMode === "projects" ? (
           <section className="card p-6">
-            <p className="eyebrow">China Economic Projects</p>
-            <h2 className="mt-3 text-2xl font-semibold">对华经贸项目数据</h2>
+            <p className="eyebrow">China Project Database / v0.40</p>
+            <h2 className="mt-3 text-2xl font-semibold">对华项目核验与关联数据</h2>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">{selectedCountry.chinaTradeNote}</p>
             <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
-              项目记录用于事实核验与未来候选变量准备；金额、主体、年份或来源不完整时，不进入量化分析。
+              当前国家由页面主选择器控制；项目模块可继续按行业、量化状态、来源等级和核验结论筛选。Event → Project → Indicator 只建立可追溯关系；金额、主体、年份或来源不完整时，不进入量化分析。
             </p>
             <div className="mt-5">
               <ChinaProjectTable key={selectedCountry.slug} projects={projectRecords} countryName={selectedCountry.nameZh} />

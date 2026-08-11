@@ -26,7 +26,7 @@ export default function Home() {
             </p>
           </div>
           <p className="rounded-2xl border border-[var(--line)] bg-white/65 p-4 text-sm leading-6 text-[var(--muted)]">
-            v0.35 在 v0.30 数据底座上建立 V4 政治经济事件库。事件只连接现有指标与未来模型候选，不输出风险指数、预测或选举结论。
+            v0.40 在 v0.30 数据底座和 v0.35 事件库上整理 11 项对华项目，并建立 Event → Project → Indicator 关系。当前不生成中国经济暴露指数、风险分数或预测。
           </p>
         </div>
 

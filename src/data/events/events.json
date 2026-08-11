@@ -1,8 +1,8 @@
 {
   "schema_version": "event-database-v0.35",
-  "generated_at": "2026-08-09",
+  "generated_at": "2026-08-11",
   "data_type": "events",
-  "record_count": 18,
+  "record_count": 21,
   "primary_key": "id",
   "event_types": [
     "fiscal",
@@ -37,6 +37,7 @@
         "External Vulnerability",
         "Industrial Dependency"
       ],
+      "related_project_ids": [],
       "duration": "medium_term",
       "confidence": "high",
       "source_status": "official",
@@ -70,6 +71,7 @@
       "affected_model": [
         "Fiscal Pressure"
       ],
+      "related_project_ids": [],
       "duration": "medium_term",
       "confidence": "high",
       "source_status": "official",
@@ -103,6 +105,7 @@
       "affected_model": [
         "Industrial Dependency"
       ],
+      "related_project_ids": [],
       "duration": "medium_term",
       "confidence": "high",
       "source_status": "official",
@@ -136,6 +139,7 @@
       "affected_model": [
         "External Vulnerability"
       ],
+      "related_project_ids": [],
       "duration": "medium_term",
       "confidence": "high",
       "source_status": "official",
@@ -170,6 +174,7 @@
       "affected_model": [
         "Fiscal Pressure"
       ],
+      "related_project_ids": [],
       "duration": "long_term",
       "confidence": "high",
       "source_status": "official",
@@ -206,6 +211,7 @@
         "Fiscal Pressure",
         "External Vulnerability"
       ],
+      "related_project_ids": [],
       "duration": "long_term",
       "confidence": "high",
       "source_status": "official",
@@ -241,6 +247,7 @@
         "External Vulnerability",
         "Industrial Dependency"
       ],
+      "related_project_ids": [],
       "duration": "long_term",
       "confidence": "high",
       "source_status": "official",
@@ -275,6 +282,7 @@
       "affected_model": [
         "Fiscal Pressure"
       ],
+      "related_project_ids": [],
       "duration": "medium_term",
       "confidence": "high",
       "source_status": "official",
@@ -287,6 +295,119 @@
       "summary": "欧盟委员会 2024 年 10 月 22 日决定授权斯洛伐克第四笔非偿还支持拨付，文件记录金额为 9.23828 亿欧元。该事件与欧盟资金和财政指标关联，不据此评价政策优劣。",
       "source_name": "European Commission",
       "source_url": "https://commission.europa.eu/document/download/f8d60e98-0929-43ae-af64-fe3bd52fa3c2_en?filename=C_2024_7457_1_EN_ACT_part1_v3.pdf",
+      "language": "en / zh"
+    },
+    {
+      "id": "hu-2022-08-12-catl-debrecen",
+      "event_id": "hu-2022-08-12-catl-debrecen",
+      "date": "2022-08-12",
+      "country": "HUN",
+      "country_slug": "hungary",
+      "country_name": "匈牙利",
+      "region_code": null,
+      "actor": "CATL / Hungarian government / Debrecen",
+      "event_type": "FDI",
+      "direction": "neutral",
+      "intensity": 3,
+      "affected_indicator": [
+        "fdi_inflow",
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "battery_investment"
+      ],
+      "affected_model": [
+        "Future China Exposure Index"
+      ],
+      "related_project_ids": [
+        "hu-catl-debrecen"
+      ],
+      "duration": "long_term",
+      "confidence": "high",
+      "source_status": "official",
+      "enters_model": false,
+      "coding_status": "coded",
+      "data_status": "verified",
+      "model_note": "事件编码与未来模型候选关联已记录；当前模型层未启用，事件不进入模型。",
+      "title": "CATL 公布德布勒森电池工厂投资计划",
+      "topic": "对华经贸",
+      "summary": "CATL 公告披露将在德布勒森建设电池工厂，并给出投资额、规划产能和地点。该记录只建立项目、FDI 与制造业指标之间的可追溯关系，不据此生成中国经济暴露指数或风险判断。",
+      "source_name": "CATL",
+      "source_url": "https://www.catl.com/en/news/983.html",
+      "language": "en / zh"
+    },
+    {
+      "id": "pl-2024-04-23-nuctech-fsr-inspection",
+      "event_id": "pl-2024-04-23-nuctech-fsr-inspection",
+      "date": "2024-04-23",
+      "country": "POL",
+      "country_slug": "poland",
+      "country_name": "波兰",
+      "region_code": null,
+      "actor": "European Commission / Nuctech",
+      "event_type": "China",
+      "direction": "neutral",
+      "intensity": 2,
+      "affected_indicator": [
+        "fdi_inflow",
+        "manufacturing_share_gdp"
+      ],
+      "affected_model": [
+        "Future China Exposure Index"
+      ],
+      "related_project_ids": [
+        "pl-nuctech-kobylka"
+      ],
+      "duration": "medium_term",
+      "confidence": "high",
+      "source_status": "official",
+      "enters_model": false,
+      "coding_status": "coded",
+      "data_status": "verified",
+      "model_note": "事件编码与未来模型候选关联已记录；当前模型层未启用，事件不进入模型。",
+      "title": "欧盟委员会依外资补贴条例检查 Nuctech 在波兰的场所",
+      "topic": "对华经贸",
+      "summary": "欧盟委员会公告记录了针对安检设备企业 Nuctech 在波兰和荷兰场所的检查。该事件与波兰项目记录及制造业、FDI 指标建立关系，但项目金额和合同结构仍缺失，因此不进入模型。",
+      "source_name": "European Commission",
+      "source_url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_24_1803",
+      "language": "en / zh"
+    },
+    {
+      "id": "sk-2023-11-22-gotion-inobat-surany",
+      "event_id": "sk-2023-11-22-gotion-inobat-surany",
+      "date": "2023-11-22",
+      "country": "SVK",
+      "country_slug": "slovakia",
+      "country_name": "斯洛伐克",
+      "region_code": null,
+      "actor": "Gotion InoBat Batteries / Slovak government",
+      "event_type": "FDI",
+      "direction": "neutral",
+      "intensity": 3,
+      "affected_indicator": [
+        "fdi_inflow",
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "battery_investment"
+      ],
+      "affected_model": [
+        "Future China Exposure Index"
+      ],
+      "related_project_ids": [
+        "sk-gotion-inobat-surany",
+        "sk-gotion-inobat-equity"
+      ],
+      "duration": "long_term",
+      "confidence": "high",
+      "source_status": "official",
+      "enters_model": false,
+      "coding_status": "coded",
+      "data_status": "verified",
+      "model_note": "事件编码与未来模型候选关联已记录；当前模型层未启用，事件不进入模型。",
+      "title": "Gotion InoBat Batteries 与斯洛伐克政府签署苏拉尼工厂谅解备忘录",
+      "topic": "对华经贸",
+      "summary": "InoBat 公告记录了 Gotion InoBat Batteries 与斯洛伐克政府围绕苏拉尼电池工厂签署谅解备忘录。该记录连接项目、FDI、电池与制造业指标；补贴、股权和实际建设进度仍需继续核验。",
+      "source_name": "InoBat",
+      "source_url": "https://www.inobat.eu/newsroom/gotion-inobat-batteries-gib-has-signed-a-memorandum-of-understanding-with-the-government-of-the-slovak-republic-to-support-the-construction-of-a-battery-gigafactory/",
       "language": "en / zh"
     },
     {
@@ -303,6 +424,7 @@
       "intensity": null,
       "affected_indicator": [],
       "affected_model": [],
+      "related_project_ids": [],
       "duration": "pending",
       "confidence": "low",
       "source_status": "sample",
@@ -331,6 +453,7 @@
       "intensity": null,
       "affected_indicator": [],
       "affected_model": [],
+      "related_project_ids": [],
       "duration": "pending",
       "confidence": "low",
       "source_status": "sample",
@@ -359,6 +482,7 @@
       "intensity": null,
       "affected_indicator": [],
       "affected_model": [],
+      "related_project_ids": [],
       "duration": "pending",
       "confidence": "low",
       "source_status": "sample",
@@ -387,6 +511,7 @@
       "intensity": null,
       "affected_indicator": [],
       "affected_model": [],
+      "related_project_ids": [],
       "duration": "pending",
       "confidence": "low",
       "source_status": "sample",
@@ -415,6 +540,7 @@
       "intensity": null,
       "affected_indicator": [],
       "affected_model": [],
+      "related_project_ids": [],
       "duration": "pending",
       "confidence": "low",
       "source_status": "sample",
@@ -443,6 +569,7 @@
       "intensity": null,
       "affected_indicator": [],
       "affected_model": [],
+      "related_project_ids": [],
       "duration": "pending",
       "confidence": "low",
       "source_status": "sample",
@@ -471,6 +598,7 @@
       "intensity": null,
       "affected_indicator": [],
       "affected_model": [],
+      "related_project_ids": [],
       "duration": "pending",
       "confidence": "low",
       "source_status": "sample",
@@ -499,6 +627,7 @@
       "intensity": null,
       "affected_indicator": [],
       "affected_model": [],
+      "related_project_ids": [],
       "duration": "pending",
       "confidence": "low",
       "source_status": "sample",
@@ -527,6 +656,7 @@
       "intensity": null,
       "affected_indicator": [],
       "affected_model": [],
+      "related_project_ids": [],
       "duration": "pending",
       "confidence": "low",
       "source_status": "sample",
@@ -555,6 +685,7 @@
       "intensity": null,
       "affected_indicator": [],
       "affected_model": [],
+      "related_project_ids": [],
       "duration": "pending",
       "confidence": "low",
       "source_status": "sample",

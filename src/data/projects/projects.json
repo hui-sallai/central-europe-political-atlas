@@ -1,10 +1,11 @@
 {
-  "schema_version": "data-foundation-v0.30",
-  "generated_at": "2026-08-08",
+  "schema_version": "china-exposure-database-v0.40",
+  "generated_at": "2026-08-11",
   "data_type": "projects",
   "record_count": 11,
   "primary_key": "id",
-  "model_boundary": "Project records do not generate a China exposure index or risk score.",
+  "relation_note": "related_event_ids and related_indicator_ids establish Event → Project → Indicator research links.",
+  "model_boundary": "Project records do not generate a China exposure index, risk score, or prediction.",
   "records": [
     {
       "id": "pl-china-europe-rail-malaszewicze",
@@ -26,10 +27,31 @@
         "边境转运"
       ],
       "source": "company_announcements",
+      "source_name": "企业公告",
       "source_url": "https://www.crexpress.cn/",
       "source_reliability": "C",
       "verified": false,
-      "verification_note": "事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。"
+      "verification_status": "部分可量化",
+      "verification_note": "事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。",
+      "quantification_status": "部分可量化",
+      "amount_status": "金额缺失",
+      "amount_evidence": "金额缺失：当前来源只能证明通道和运营网络存在，未给出项目投资额、年度货值或 TEU 口径；后续需接入口岸统计、铁路运营商或海关数据。",
+      "actor_verification": "中国主体暂按中欧班列运营网络记录；当地主体需拆分 PKP Cargo、边境口岸、场站和海关相关实体，当前为人工整理。",
+      "status_timeline": [
+        "持续运营",
+        "年度 TEU、贸易额、口岸主体待接入"
+      ],
+      "related_indicator_ids": [
+        "exports_goods_services",
+        "imports_goods_services",
+        "trade_balance"
+      ],
+      "related_event_ids": [],
+      "exposure_dimensions": [
+        "物流暴露",
+        "贸易暴露"
+      ],
+      "model_boundary": "项目只建立 Event → Project → Indicator 关系；当前不生成中国经济暴露指数、风险分数或预测。"
     },
     {
       "id": "pl-leapmotor-tychy-assembly",
@@ -51,10 +73,32 @@
         "产能转移"
       ],
       "source": "mainstream_wire",
+      "source_name": "主流通讯社",
       "source_url": "https://www.reuters.com/business/autos-transportation/stellantis-stops-making-leapmotor-ev-poland-eyes-other-options-2025-04-08/",
       "source_reliability": "B",
       "verified": false,
-      "verification_note": "事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。"
+      "verification_status": "部分可量化",
+      "verification_note": "事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。",
+      "quantification_status": "部分可量化",
+      "amount_status": "金额缺失",
+      "amount_evidence": "金额缺失：Reuters 来源可核验生产调整和地点，但未披露投资额；需补 Stellantis/Leapmotor 公告、工厂产量或地方投资资料。",
+      "actor_verification": "中国主体为 Leapmotor / Leapmotor International；当地主体为 Stellantis Poland，仍需用企业公告或当地登记资料核验具体生产实体。",
+      "status_timeline": [
+        "2024 启动组装",
+        "2025 Reuters 报道生产调整",
+        "投资额和产量待接入"
+      ],
+      "related_indicator_ids": [
+        "fdi_inflow",
+        "manufacturing_share_gdp",
+        "automotive_export_share"
+      ],
+      "related_event_ids": [],
+      "exposure_dimensions": [
+        "投资暴露",
+        "供应链暴露"
+      ],
+      "model_boundary": "项目只建立 Event → Project → Indicator 关系；当前不生成中国经济暴露指数、风险分数或预测。"
     },
     {
       "id": "pl-nuctech-kobylka",
@@ -76,10 +120,33 @@
         "外资补贴"
       ],
       "source": "eu_institutions",
+      "source_name": "欧盟机构",
       "source_url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_24_1803",
       "source_reliability": "A",
       "verified": false,
-      "verification_note": "当前记录主要提供项目线索或背景信息，缺少可稳定量化的金额、主体链条或事件口径。"
+      "verification_status": "仅作背景",
+      "verification_note": "当前记录主要提供项目线索或背景信息，缺少可稳定量化的金额、主体链条或事件口径。",
+      "quantification_status": "暂不可量化",
+      "amount_status": "金额缺失",
+      "amount_evidence": "金额缺失：欧盟委员会来源可核验外资补贴调查事件，但不提供波兰基地投资额；需补企业登记、采购合同或厂区投资资料。",
+      "actor_verification": "中国主体为 Nuctech；当地主体暂记 Nuctech Warsaw Company，需以波兰商业登记或企业年报核验。",
+      "status_timeline": [
+        "2018 基地信息待核验",
+        "2024 欧盟外资补贴调查",
+        "金额和当地实体待接入"
+      ],
+      "related_indicator_ids": [
+        "fdi_inflow",
+        "manufacturing_share_gdp"
+      ],
+      "related_event_ids": [
+        "pl-2024-04-23-nuctech-fsr-inspection"
+      ],
+      "exposure_dimensions": [
+        "企业存在",
+        "政策争议"
+      ],
+      "model_boundary": "项目只建立 Event → Project → Indicator 关系；当前不生成中国经济暴露指数、风险分数或预测。"
     },
     {
       "id": "hu-catl-debrecen",
@@ -101,10 +168,35 @@
         "环境与用水"
       ],
       "source": "company_announcements",
+      "source_name": "企业公告",
       "source_url": "https://www.catl.com/en/news/958.html",
       "source_reliability": "C",
       "verified": true,
-      "verification_note": "已具备金额、主体、年份和可点击来源，可作为项目级量化候选；进入正式分析前仍需复核金额口径。"
+      "verification_status": "可量化",
+      "verification_note": "已具备金额、主体、年份和可点击来源，可作为项目级量化候选；进入正式分析前仍需复核金额口径。",
+      "quantification_status": "可量化",
+      "amount_status": "金额部分核验",
+      "amount_evidence": "金额已接入：CATL 企业公告披露 73.4 亿欧元投资额；仍需补政府补贴、产能、就业和实际支出进度。",
+      "actor_verification": "中国主体为 CATL；当地主体暂记匈牙利政府与 Debrecen 地方主体，需补项目公司、土地/许可主体和补贴签署方。",
+      "status_timeline": [
+        "2022 企业公告投资",
+        "建设和量产进度待跟踪",
+        "补贴、产能、雇佣字段待接入"
+      ],
+      "related_indicator_ids": [
+        "fdi_inflow",
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "battery_investment"
+      ],
+      "related_event_ids": [
+        "hu-2022-08-12-catl-debrecen"
+      ],
+      "exposure_dimensions": [
+        "投资暴露",
+        "供应链暴露"
+      ],
+      "model_boundary": "项目只建立 Event → Project → Indicator 关系；当前不生成中国经济暴露指数、风险分数或预测。"
     },
     {
       "id": "hu-byd-szeged",
@@ -126,10 +218,31 @@
         "地方就业"
       ],
       "source": "mainstream_wire",
+      "source_name": "主流通讯社",
       "source_url": "https://apnews.com/article/4c4754f43703d061e1dc02516be0c14a",
       "source_reliability": "B",
       "verified": false,
-      "verification_note": "事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。"
+      "verification_status": "部分可量化",
+      "verification_note": "事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。",
+      "quantification_status": "部分可量化",
+      "amount_status": "金额缺失",
+      "amount_evidence": "金额缺失：AP 来源可核验项目宣布和地点，但未给出明确投资额；需补 BYD、匈牙利政府或地方政府披露的金额、产能和补贴信息。",
+      "actor_verification": "中国主体为 BYD；当地主体暂记匈牙利政府 / Szeged 地方主体，项目公司和许可主体待核验。",
+      "status_timeline": [
+        "2023 项目宣布",
+        "投资额、产能、补贴条件待接入"
+      ],
+      "related_indicator_ids": [
+        "fdi_inflow",
+        "manufacturing_share_gdp",
+        "automotive_export_share"
+      ],
+      "related_event_ids": [],
+      "exposure_dimensions": [
+        "投资暴露",
+        "供应链暴露"
+      ],
+      "model_boundary": "项目只建立 Event → Project → Indicator 关系；当前不生成中国经济暴露指数、风险分数或预测。"
     },
     {
       "id": "hu-budapest-belgrade-rail",
@@ -151,10 +264,34 @@
         "一带一路"
       ],
       "source": "official_government",
+      "source_name": "官方政府部门",
       "source_url": "https://bbrailway.hu/",
       "source_reliability": "A",
       "verified": true,
-      "verification_note": "已具备金额、主体、年份和可点击来源，可作为项目级量化候选；进入正式分析前仍需复核金额口径。"
+      "verification_status": "可量化",
+      "verification_note": "已具备金额、主体、年份和可点击来源，可作为项目级量化候选；进入正式分析前仍需复核金额口径。",
+      "quantification_status": "可量化",
+      "amount_status": "金额已核验",
+      "amount_evidence": "金额已接入：项目官网/项目口径保留 9490 亿福林合同金额；需进一步拆分贷款、承包比例、匈牙利段实际支出和现金流。",
+      "actor_verification": "中国主体暂记 China Railway International / China Railway Engineering partners；当地主体为 MAV 及 Kínai-Magyar Vasúti Nonprofit Zrt.，仍需合同文件交叉核验。",
+      "status_timeline": [
+        "2021 合同金额口径",
+        "建设推进",
+        "测试和投运进度待核验"
+      ],
+      "related_indicator_ids": [
+        "fdi_inflow",
+        "exports_goods_services",
+        "imports_goods_services",
+        "trade_balance"
+      ],
+      "related_event_ids": [],
+      "exposure_dimensions": [
+        "投资暴露",
+        "物流暴露",
+        "金融暴露"
+      ],
+      "model_boundary": "项目只建立 Event → Project → Indicator 关系；当前不生成中国经济暴露指数、风险分数或预测。"
     },
     {
       "id": "cz-changhong-nymburk",
@@ -176,10 +313,31 @@
         "早期投资"
       ],
       "source": "company_announcements",
+      "source_name": "企业公告",
       "source_url": "https://www.changhong.com/",
       "source_reliability": "C",
       "verified": true,
-      "verification_note": "已具备金额、主体、年份和可点击来源，可作为项目级量化候选；进入正式分析前仍需复核金额口径。"
+      "verification_status": "可量化",
+      "verification_note": "已具备金额、主体、年份和可点击来源，可作为项目级量化候选；进入正式分析前仍需复核金额口径。",
+      "quantification_status": "可量化",
+      "amount_status": "金额部分核验",
+      "amount_evidence": "金额已接入但为历史公开口径：2007 年约 2000 万美元；需用捷克商业登记、企业年报或地方投资资料核验是否仍适合作为当前暴露值。",
+      "actor_verification": "中国主体为 Sichuan Changhong / Changhong Europe Electric；当地主体为 Changhong Europe Electric s.r.o.，需以捷克登记资料确认存续和控制关系。",
+      "status_timeline": [
+        "2007 历史投资规模",
+        "运营状态待以当地登记或年报核验",
+        "最新产能与雇佣待接入"
+      ],
+      "related_indicator_ids": [
+        "fdi_inflow",
+        "manufacturing_share_gdp"
+      ],
+      "related_event_ids": [],
+      "exposure_dimensions": [
+        "投资暴露",
+        "企业存在"
+      ],
+      "model_boundary": "项目只建立 Event → Project → Indicator 关系；当前不生成中国经济暴露指数、风险分数或预测。"
     },
     {
       "id": "cz-cefc-citic-slavia",
@@ -201,10 +359,30 @@
         "所有权变更"
       ],
       "source": "mainstream_wire",
+      "source_name": "主流通讯社",
       "source_url": "https://www.reuters.com/article/czech-china-cefc-idUSL5N11B07B/",
       "source_reliability": "B",
       "verified": false,
-      "verification_note": "事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。"
+      "verification_status": "部分可量化",
+      "verification_note": "事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。",
+      "quantification_status": "部分可量化",
+      "amount_status": "金额缺失",
+      "amount_evidence": "金额缺失：Reuters 来源可核验 CEFC 在捷克资产收购活动，但 Slavia、Eden Arena、地产和相关资产金额需拆分，不能作为单一项目金额。",
+      "actor_verification": "中国主体涉及 CEFC / CITIC / Sinobo 等连续变化；当地主体涉及 SK Slavia Praha 与 Eden Arena 相关实体，所有权链条需逐项核验。",
+      "status_timeline": [
+        "2015-2018 投资与资产关系形成",
+        "后续所有权变更待拆分",
+        "金额、主体和资产范围待核验"
+      ],
+      "related_indicator_ids": [
+        "fdi_inflow"
+      ],
+      "related_event_ids": [],
+      "exposure_dimensions": [
+        "投资暴露",
+        "企业存在"
+      ],
+      "model_boundary": "项目只建立 Event → Project → Indicator 关系；当前不生成中国经济暴露指数、风险分数或预测。"
     },
     {
       "id": "cz-cefc-jt-finance",
@@ -226,10 +404,29 @@
         "跨境资本"
       ],
       "source": "company_announcements",
+      "source_name": "企业公告",
       "source_url": "https://www.jtfg.com/",
       "source_reliability": "C",
       "verified": false,
-      "verification_note": "事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。"
+      "verification_status": "部分可量化",
+      "verification_note": "事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。",
+      "quantification_status": "部分可量化",
+      "amount_status": "金额缺失",
+      "amount_evidence": "金额缺失：当前来源主要指向集团层面信息，未形成可直接引用的交易金额、股比和治理权字段；需补 J&T 年报、监管披露或交易公告。",
+      "actor_verification": "中国主体暂记 CEFC / CITIC-linked Rainbow Wisdom；当地主体为 J&T Finance Group，需用年报和监管资料核验最终受益人、股比和权利结构。",
+      "status_timeline": [
+        "2015 起股权关系形成",
+        "少数股权和监管状态待核验",
+        "金额、股比和治理权待接入"
+      ],
+      "related_indicator_ids": [
+        "fdi_inflow"
+      ],
+      "related_event_ids": [],
+      "exposure_dimensions": [
+        "金融暴露"
+      ],
+      "model_boundary": "项目只建立 Event → Project → Indicator 关系；当前不生成中国经济暴露指数、风险分数或预测。"
     },
     {
       "id": "sk-gotion-inobat-surany",
@@ -251,10 +448,35 @@
         "汽车供应链"
       ],
       "source": "company_announcements",
+      "source_name": "企业公告",
       "source_url": "https://www.inobat.eu/",
       "source_reliability": "C",
       "verified": true,
-      "verification_note": "已具备金额、主体、年份和可点击来源，可作为项目级量化候选；进入正式分析前仍需复核金额口径。"
+      "verification_status": "可量化",
+      "verification_note": "已具备金额、主体、年份和可点击来源，可作为项目级量化候选；进入正式分析前仍需复核金额口径。",
+      "quantification_status": "可量化",
+      "amount_status": "金额部分核验",
+      "amount_evidence": "金额已接入：公开资料口径约 12 亿欧元；需补政府补贴、股权结构、产能、投产年份和实际建设进度。",
+      "actor_verification": "中国主体为 Gotion High-Tech；当地主体为 InoBat 及斯洛伐克政府/地方主体，项目公司和审批主体需进一步核验。",
+      "status_timeline": [
+        "2023 项目宣布",
+        "规划与政府支持阶段",
+        "补贴、产能、投产年份待接入"
+      ],
+      "related_indicator_ids": [
+        "fdi_inflow",
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "battery_investment"
+      ],
+      "related_event_ids": [
+        "sk-2023-11-22-gotion-inobat-surany"
+      ],
+      "exposure_dimensions": [
+        "投资暴露",
+        "供应链暴露"
+      ],
+      "model_boundary": "项目只建立 Event → Project → Indicator 关系；当前不生成中国经济暴露指数、风险分数或预测。"
     },
     {
       "id": "sk-gotion-inobat-equity",
@@ -276,10 +498,33 @@
         "供应链依赖"
       ],
       "source": "company_announcements",
+      "source_name": "企业公告",
       "source_url": "https://www.inobat.eu/",
       "source_reliability": "C",
       "verified": false,
-      "verification_note": "事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。"
+      "verification_status": "部分可量化",
+      "verification_note": "事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。",
+      "quantification_status": "部分可量化",
+      "amount_status": "金额缺失",
+      "amount_evidence": "金额缺失：当前来源可证明股权/技术合作关系，但未给出可直接使用的交易金额、股比和权利结构。",
+      "actor_verification": "中国主体为 Gotion High-Tech；当地主体为 InoBat。该记录与 Surany 工厂相关但应作为股权/技术合作单独核验。",
+      "status_timeline": [
+        "2023 股权与技术合作",
+        "金额、股比和权利结构待核验"
+      ],
+      "related_indicator_ids": [
+        "fdi_inflow",
+        "battery_investment"
+      ],
+      "related_event_ids": [
+        "sk-2023-11-22-gotion-inobat-surany"
+      ],
+      "exposure_dimensions": [
+        "供应链暴露",
+        "技术/设备暴露",
+        "金融暴露"
+      ],
+      "model_boundary": "项目只建立 Event → Project → Indicator 关系；当前不生成中国经济暴露指数、风险分数或预测。"
     }
   ]
 }

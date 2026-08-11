@@ -12,6 +12,7 @@ const availableLayers = [
   { label: "国家边界与国家选择", value: "可用", note: "用于十国导航与国家切换。" },
   { label: "一级行政区结构", value: "结构样例", note: "真实区域统计与公开展示资格尚未全部接入。" },
   { label: "匈牙利 NUTS3 证据", value: "已记录", note: "许可、主键和权威拓扑核验记录已保留。" },
+  { label: "对华项目地区定位接口", value: "已预留", note: "可靠 region / city 记录可进入 future project-location layer；正式项目地图未启用。" },
 ] as const;
 
 const disabledLayers = ["风险图层", "预测图层", "真实党派支持率图层", "区域评分"] as const;

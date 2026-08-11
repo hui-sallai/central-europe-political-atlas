@@ -69,6 +69,22 @@ export function getEventsForIndicator(indicatorId: string, countrySlug?: string)
     .sort((a, b) => b.date.localeCompare(a.date));
 }
 
+export function getEventsForProject(projectId: string) {
+  return researchEvents
+    .filter((event) => event.related_project_ids.includes(projectId))
+    .sort((a, b) => b.date.localeCompare(a.date));
+}
+
+export function getResearchProject(projectId: string) {
+  return researchProjects.find((project) => project.id === projectId);
+}
+
+export function getProjectsForIndicator(indicatorId: string, countrySlug?: string) {
+  return researchProjects.filter(
+    (project) => project.related_indicator_ids.includes(indicatorId) && (!countrySlug || project.country_slug === countrySlug),
+  );
+}
+
 export function getProjectsForCountry(countrySlug: string) {
   return researchProjects.filter((project) => project.country_slug === countrySlug);
 }

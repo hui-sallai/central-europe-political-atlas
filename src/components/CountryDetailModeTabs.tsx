@@ -44,6 +44,7 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
   const projectRecords = getChinaProjectRecords(country.slug);
   const eventRecords = getEventsForCountry(country.slug);
   const codedEventCount = eventRecords.filter((event) => event.coding_status === "coded" && event.data_status === "verified").length;
+  const projectLinkedEventCount = eventRecords.filter((event) => event.related_project_ids.length > 0).length;
   const coverage = getV4ObservationCoverage(country.slug);
   const metadata = getCountryMetadata(country.slug);
   const isV4 = v4CountrySlugs.has(country.slug);
@@ -199,7 +200,7 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
 
       <section className="mt-4 grid gap-3 lg:grid-cols-3">
         {[
-          { label: "对华经贸项目", status: projectRecords.length > 0 ? "待核验" : "待接入", note: projectRecords.length > 0 ? `${projectRecords.length} 项；${projectSummary}。` : "项目表入口已预留。", href: null },
+          { label: "对华经贸项目", status: projectRecords.length > 0 ? "核验中" : "待接入", note: projectRecords.length > 0 ? `${projectRecords.length} 项；${projectSummary}；已关联事件 ${projectLinkedEventCount} 条。` : "项目表入口已预留。", href: "/data" },
           { label: "党派 / 政治样本", status: "待核验", note: `${hasManualPolitics ? "人工整理" : "待接入"}；不进入模型。`, href: null },
           { label: "政治经济事件", status: eventRecords.length > 0 ? `${codedEventCount} 条已编码` : "待接入", note: `${eventRecords.length} 条记录；事件与指标关联在事件库统一管理，当前均不进入模型。`, href: eventRecords[0] ? `/news#${eventRecords[0].id}` : "/news" },
         ].map((item) => (
@@ -207,7 +208,7 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
             <p className="text-xs font-semibold text-[var(--muted)]">{item.label}</p>
             <p className="mt-2 font-semibold">{item.status}</p>
             <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{item.note}</p>
-            {item.href ? <Link href={item.href} className="mt-3 inline-flex text-xs font-semibold text-[var(--accent)] hover:underline">查看相关事件</Link> : null}
+            {item.href ? <Link href={item.href} className="mt-3 inline-flex text-xs font-semibold text-[var(--accent)] hover:underline">{item.label === "对华经贸项目" ? "进入项目数据" : "查看相关事件"}</Link> : null}
           </article>
         ))}
       </section>

@@ -116,6 +116,8 @@ export const dataTableSchemas: DataTableSchema[] = [
       { key: "verification_reason", labelZh: "核验理由", labelEn: "Verification reason", required: true, note: "按统一规则说明金额、主体、年份、来源和事件口径是否满足要求。" },
       { key: "exposure_variable_fit", labelZh: "中国经济暴露变量适配性", labelEn: "China exposure variable fit", required: true },
       { key: "exposure_variable_note", labelZh: "暴露变量说明", labelEn: "Exposure variable note", required: true },
+      { key: "related_indicator_ids", labelZh: "关联指标", labelEn: "Related indicator IDs", required: true, note: "只记录研究关系，不代表模型已启用。" },
+      { key: "related_event_ids", labelZh: "相关事件", labelEn: "Related event IDs", required: true, note: "引用事件库 event_id；不自动生成风险判断。" },
     ],
   },
   {
@@ -137,6 +139,7 @@ export const dataTableSchemas: DataTableSchema[] = [
       { key: "intensity", labelZh: "强度", labelEn: "Intensity", required: false, note: "只有完成量化规则后才填写。" },
       { key: "affected_indicator", labelZh: "关联指标", labelEn: "Affected indicator", required: true, note: "必须引用 indicators 中存在的 indicator_id。" },
       { key: "affected_model", labelZh: "未来模型候选", labelEn: "Affected model", required: true, note: "只记录候选关联，不表示模型已启用。" },
+      { key: "related_project_ids", labelZh: "相关项目", labelEn: "Related project IDs", required: true, note: "引用对华项目库 project_id。" },
       { key: "duration", labelZh: "持续时间", labelEn: "Duration", required: true },
       { key: "confidence", labelZh: "编码置信度", labelEn: "Confidence", required: true },
       { key: "source_status", labelZh: "来源状态", labelEn: "Source status", required: true },

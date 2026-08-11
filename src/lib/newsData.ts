@@ -39,6 +39,7 @@ export type WeeklyNewsItem = {
   intensity?: number | null;
   affectedIndicators?: string[];
   affectedModels?: string[];
+  relatedProjectIds?: string[];
   duration?: EventDuration;
   confidence?: EventConfidence;
   sourceStatus?: EventSourceStatus;
@@ -57,6 +58,7 @@ export type EventRecord = {
   intensity: number | null;
   affected_indicator: string[];
   affected_model: string[];
+  related_project_ids: string[];
   duration: EventDuration;
   confidence: EventConfidence;
   source_status: EventSourceStatus;
@@ -99,6 +101,7 @@ export function toEventRecord(item: WeeklyNewsItem): EventRecord {
     intensity: item.intensity ?? null,
     affected_indicator: item.affectedIndicators ?? [],
     affected_model: item.affectedModels ?? [],
+    related_project_ids: item.relatedProjectIds ?? [],
     duration: item.duration ?? "pending",
     confidence: item.confidence ?? (item.dataStatus === "verified" ? "pending" : "low"),
     source_status: item.sourceStatus ?? (item.dataStatus === "verified" ? "official" : "sample"),
@@ -298,6 +301,81 @@ export const eventLibraryItems: WeeklyNewsItem[] = [
     affectedIndicators: ["eu_funds_received", "government_revenue_gdp", "fiscal_balance_gdp"],
     affectedModels: ["Fiscal Pressure"],
     duration: "medium_term",
+    confidence: "high",
+    sourceStatus: "official",
+    codingStatus: "coded",
+    entersModel: false,
+  },
+  {
+    id: "hu-2022-08-12-catl-debrecen",
+    countrySlug: "hungary",
+    countryZh: "匈牙利",
+    title: "CATL 公布德布勒森电池工厂投资计划",
+    topic: "对华经贸",
+    summary: "CATL 公告披露将在德布勒森建设电池工厂，并给出投资额、规划产能和地点。该记录只建立项目、FDI 与制造业指标之间的可追溯关系，不据此生成中国经济暴露指数或风险判断。",
+    sourceLabel: "CATL",
+    sourceUrl: "https://www.catl.com/en/news/983.html",
+    language: "en / zh",
+    weekOf: "2022-08-12",
+    dataStatus: "verified",
+    actor: "CATL / Hungarian government / Debrecen",
+    eventType: "FDI",
+    direction: "neutral",
+    intensity: 3,
+    affectedIndicators: ["fdi_inflow", "manufacturing_share_gdp", "automotive_export_share", "battery_investment"],
+    affectedModels: ["Future China Exposure Index"],
+    relatedProjectIds: ["hu-catl-debrecen"],
+    duration: "long_term",
+    confidence: "high",
+    sourceStatus: "official",
+    codingStatus: "coded",
+    entersModel: false,
+  },
+  {
+    id: "pl-2024-04-23-nuctech-fsr-inspection",
+    countrySlug: "poland",
+    countryZh: "波兰",
+    title: "欧盟委员会依外资补贴条例检查 Nuctech 在波兰的场所",
+    topic: "对华经贸",
+    summary: "欧盟委员会公告记录了针对安检设备企业 Nuctech 在波兰和荷兰场所的检查。该事件与波兰项目记录及制造业、FDI 指标建立关系，但项目金额和合同结构仍缺失，因此不进入模型。",
+    sourceLabel: "European Commission",
+    sourceUrl: "https://ec.europa.eu/commission/presscorner/detail/en/ip_24_1803",
+    language: "en / zh",
+    weekOf: "2024-04-23",
+    dataStatus: "verified",
+    actor: "European Commission / Nuctech",
+    eventType: "China",
+    direction: "neutral",
+    intensity: 2,
+    affectedIndicators: ["fdi_inflow", "manufacturing_share_gdp"],
+    affectedModels: ["Future China Exposure Index"],
+    relatedProjectIds: ["pl-nuctech-kobylka"],
+    duration: "medium_term",
+    confidence: "high",
+    sourceStatus: "official",
+    codingStatus: "coded",
+    entersModel: false,
+  },
+  {
+    id: "sk-2023-11-22-gotion-inobat-surany",
+    countrySlug: "slovakia",
+    countryZh: "斯洛伐克",
+    title: "Gotion InoBat Batteries 与斯洛伐克政府签署苏拉尼工厂谅解备忘录",
+    topic: "对华经贸",
+    summary: "InoBat 公告记录了 Gotion InoBat Batteries 与斯洛伐克政府围绕苏拉尼电池工厂签署谅解备忘录。该记录连接项目、FDI、电池与制造业指标；补贴、股权和实际建设进度仍需继续核验。",
+    sourceLabel: "InoBat",
+    sourceUrl: "https://www.inobat.eu/newsroom/gotion-inobat-batteries-gib-has-signed-a-memorandum-of-understanding-with-the-government-of-the-slovak-republic-to-support-the-construction-of-a-battery-gigafactory/",
+    language: "en / zh",
+    weekOf: "2023-11-22",
+    dataStatus: "verified",
+    actor: "Gotion InoBat Batteries / Slovak government",
+    eventType: "FDI",
+    direction: "neutral",
+    intensity: 3,
+    affectedIndicators: ["fdi_inflow", "manufacturing_share_gdp", "automotive_export_share", "battery_investment"],
+    affectedModels: ["Future China Exposure Index"],
+    relatedProjectIds: ["sk-gotion-inobat-surany", "sk-gotion-inobat-equity"],
+    duration: "long_term",
     confidence: "high",
     sourceStatus: "official",
     codingStatus: "coded",

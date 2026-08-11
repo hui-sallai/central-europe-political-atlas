@@ -31,6 +31,7 @@ export interface Event {
   intensity: number | null;
   affected_indicator: string[];
   affected_model: string[];
+  related_project_ids: string[];
   duration: EventDuration;
   confidence: EventConfidence;
   source_status: EventSourceStatus;
