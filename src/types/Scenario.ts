@@ -7,6 +7,7 @@ export type ScenarioId =
   | "germany_demand_slowdown";
 
 export type ScenarioStatus = "available" | "unavailable";
+export type ScenarioShockOperation = "additive" | "proportional" | "adverse_proportional";
 
 export interface ScenarioDefinition {
   scenario_id: ScenarioId;
@@ -25,6 +26,7 @@ export interface ScenarioDefinition {
   shock_step: number;
   default_shock_value: number;
   shock_multiplier: 1 | -1;
+  shock_operation: ScenarioShockOperation;
   transmission_chain: string[];
   confidence: ModelConfidence;
   calculation_status: ScenarioStatus;

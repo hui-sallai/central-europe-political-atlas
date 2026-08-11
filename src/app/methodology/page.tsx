@@ -167,7 +167,7 @@ export default function MethodologyPage() {
           ))}
         </ol>
         <p className="mt-4 rounded-2xl bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--muted)]">
-          v0.50 已启用三个透明规则模型；每个输出均保留 observation_id、来源、标准化值、权重和贡献。v0.60 在其上增加独立情景层，但仍不生成预测、选举结论或地图风险图层。
+          v0.50 的三个基础模型保持原口径；v0.70 新增 V4 产业依赖指数，并为能源价格与德国需求情景补入直接传导数据。每个输出仍保留 observation_id、来源、标准化值、权重和贡献。
         </p>
       </section>
 
@@ -284,6 +284,21 @@ export default function MethodologyPage() {
         </ol>
 
         <div className="mt-5 grid gap-3 md:grid-cols-2">
+          <article className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+            <h3 className="font-semibold">Germany demand transmission</h3>
+            <p className="mt-2 text-sm leading-6 text-[var(--muted)]">对德国出口依赖 = 对德国货物出口 / 对世界货物出口。德国需求降幅按公开的 adverse proportional 规则形成压力暴露增量，再重算产业依赖模型；不以总出口规模替代，也不估计 GDP 损失。</p>
+          </article>
+          <article className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+            <h3 className="font-semibold">Energy price transmission</h3>
+            <p className="mt-2 text-sm leading-6 text-[var(--muted)]">工业电价使用 Eurostat 非居民 IC 档含税价格，两半年值简单平均。冲击参数按比例调整工业电价后重算产业模型；能源进口依赖不被当作能源价格。</p>
+          </article>
+          <article className="rounded-2xl border border-[var(--line)] bg-white/65 p-4 md:col-span-2">
+            <h3 className="font-semibold">v0.70 数据与标准化口径</h3>
+            <p className="mt-2 text-sm leading-6 text-[var(--muted)]">UN Comtrade 与 Eurostat 为 A 级来源。汽车出口占比、对德出口依赖和年度电价属于有公开公式的计算值；模型仅接纳白名单计算值。FDI 流量因年度波动、负值和企业重组含义复杂，当前只作解释性输入，正式权重为 0。</p>
+          </article>
+        </div>
+
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
           {scenarioDefinitions.map((scenario) => (
             <article key={scenario.scenario_id} className="rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-4">
               <div className="flex flex-wrap items-start justify-between gap-3">
@@ -309,10 +324,10 @@ export default function MethodologyPage() {
           <li className="rounded-xl bg-[var(--surface-muted)] px-4 py-3">已核验事件只作历史背景，intensity 不进入情景加减分。</li>
         </ul>
 
-        <div className="mt-5 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
-          <p className="font-semibold">Industrial Dependency Index：未启用</p>
+        <div className="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm leading-6 text-emerald-950">
+          <p className="font-semibold">Industrial Dependency Index：V4 第一版已启用</p>
           <p className="mt-2">{industrialDependencyReadiness.decision}</p>
-          <p className="mt-2 text-xs">主要缺口：{industrialDependencyReadiness.blockers.join("；")}</p>
+          <p className="mt-2 text-xs">保留限制：{industrialDependencyReadiness.blockers.join("；")}</p>
         </div>
       </section>
 

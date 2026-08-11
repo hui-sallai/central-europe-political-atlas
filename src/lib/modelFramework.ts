@@ -12,19 +12,34 @@ import type {
   ModelOutput,
   ModelTrend,
 } from "../types/ModelOutput";
+import { transmissionIndicators, transmissionObservations } from "./transmissionData";
 
 const CALCULATION_DATE = "2026-08-11";
 const MODEL_VERSION = "v0.50.0";
+const INDUSTRIAL_MODEL_VERSION = "v0.70.0";
 const PARTIAL_SCORE_THRESHOLD = 0.75;
 const SCORE_BOUNDARY = "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。";
+const CALCULATED_MODEL_INPUTS = new Set([
+  "automotive_export_share",
+  "germany_export_dependence",
+  "industrial_electricity_price",
+]);
 
 function records<T>(value: unknown) {
   return (value as DataEnvelope<T>).records;
 }
 
 const countries = records<Country>(countriesJson);
-const indicators = records<Indicator>(indicatorsJson);
-const observations = records<Observation>(observationsJson);
+const transmissionIndicatorIds = new Set(transmissionIndicators.map((indicator) => indicator.id));
+const transmissionObservationIds = new Set(transmissionObservations.map((observation) => observation.id));
+const indicators = [
+  ...records<Indicator>(indicatorsJson).filter((indicator) => !transmissionIndicatorIds.has(indicator.id)),
+  ...transmissionIndicators,
+];
+const observations = [
+  ...records<Observation>(observationsJson).filter((observation) => !transmissionObservationIds.has(observation.id)),
+  ...transmissionObservations,
+];
 const events = records<Event>(eventsJson);
 
 export const modelCards: ModelCard[] = [
@@ -136,6 +151,56 @@ export const modelCards: ModelCard[] = [
     weight_history: [{ version: MODEL_VERSION, effective_date: CALCULATION_DATE, note: "首版：经常账户/GDP 50%，能源进口依赖 50%。" }],
     calculation_date: CALCULATION_DATE,
   },
+  {
+    model_id: "industrial_dependency",
+    model_version: INDUSTRIAL_MODEL_VERSION,
+    name: "Industrial Dependency Index",
+    name_zh: "产业依赖指数",
+    purpose: "用制造业体量、汽车出口集中、对德国出口依赖和统一口径工业电价，形成 V4 第一版可追溯产业结构暴露比较值。",
+    inputs: [
+      {
+        indicator_id: "manufacturing_share_gdp",
+        label: "制造业占 GDP 比重",
+        weight: 0.25,
+        normalization: { method: "linear_clamp", lower: 10, upper: 25 },
+        rationale: "10% 映射为 0，25% 及以上映射为 100；表示经济活动对制造业的结构集中程度。",
+      },
+      {
+        indicator_id: "automotive_export_share",
+        label: "汽车产业出口占比",
+        weight: 0.3,
+        normalization: { method: "linear_clamp", lower: 5, upper: 45 },
+        rationale: "5% 映射为 0，45% 及以上映射为 100；仅接纳有明确 Eurostat 计算口径的计算值。",
+      },
+      {
+        indicator_id: "germany_export_dependence",
+        label: "对德国出口依赖",
+        weight: 0.3,
+        normalization: { method: "linear_clamp", lower: 10, upper: 40 },
+        rationale: "10% 映射为 0，40% 及以上映射为 100；使用对德国货物出口占对世界货物出口比重，不用总出口规模替代。",
+      },
+      {
+        indicator_id: "industrial_electricity_price",
+        label: "工业电价",
+        weight: 0.15,
+        normalization: { method: "linear_clamp", lower: 0.1, upper: 0.4 },
+        rationale: "0.10 欧元/kWh 映射为 0，0.40 欧元/kWh 及以上映射为 100；统一采用 Eurostat 非居民 IC 档含税口径。",
+      },
+    ],
+    reserved_inputs: ["fdi_inflow", "manufacturing_concentration", "supply_chain_concentration_proxy"],
+    calculation_logic: "四项输入按公开边界标准化到 0–100，再按 25% / 30% / 30% / 15% 加权。FDI 年流量不计正式权重。",
+    weight_note: "制造业占比 25%，汽车出口占比 30%，对德国出口依赖 30%，工业电价 15%；权重集中维护于 Model Card。",
+    output_meaning: "分数越高，表示已纳入维度中的制造业、汽车出口、德国市场与工业能源成本暴露组合更集中；不代表产业政策优劣或危机概率。",
+    completeness_rule: "启用权重覆盖 100% 为 sufficient；达到 75% 为 partial 并按可用权重重标；低于 75% 不输出精确分数。当前第一版仅对 V4 接入统一输入。",
+    limitations: [
+      "指数不是完整供应链网络模型，尚未纳入企业级投入产出关系和关键零部件来源集中度。",
+      "工业电价反映成本环境，不等同于能源依赖；对德国出口依赖只覆盖货物贸易。",
+      "FDI 流量因负值、重组和年度波动难以解释为依赖方向，本版只作背景，不计权。",
+    ],
+    event_policy: "产业、FDI、能源和区域事件只用于解释方向，不进入 v0.70 基础分数。",
+    weight_history: [{ version: INDUSTRIAL_MODEL_VERSION, effective_date: CALCULATION_DATE, note: "首版：制造业 25%，汽车出口 30%，对德出口依赖 30%，工业电价 15%；FDI 权重为 0。" }],
+    calculation_date: CALCULATION_DATE,
+  },
 ];
 
 function clamp(value: number, minimum = 0, maximum = 100) {
@@ -150,6 +215,9 @@ function normalize(value: number, input: ModelInputDefinition) {
 
 function eligibleObservation(observation: Observation | undefined) {
   const indicator = observation ? indicators.find((candidate) => candidate.id === observation.indicator) : undefined;
+  const statusEligible = observation?.status === "official"
+    || observation?.status === "verified"
+    || (observation?.status === "calculated" && CALCULATED_MODEL_INPUTS.has(observation.indicator));
   return Boolean(
     observation
     && observation.value !== null
@@ -158,7 +226,7 @@ function eligibleObservation(observation: Observation | undefined) {
     && observation.unit
     && indicator?.status === "verified"
     && observation.unit === indicator.unit
-    && (observation.status === "official" || observation.status === "verified")
+    && statusEligible
     && (observation.source_reliability === "A" || observation.source_reliability === "B")
     && observation.source_name
     && observation.source_url
@@ -224,6 +292,7 @@ function relatedEventIds(countrySlug: string, card: ModelCard) {
     household_economic_pressure: "Household Economic Pressure",
     fiscal_pressure: "Fiscal Pressure",
     external_vulnerability: "External Vulnerability",
+    industrial_dependency: "Industrial Dependency",
   };
   const modelLabel = modelLabelById[card.model_id];
   return events

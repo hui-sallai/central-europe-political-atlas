@@ -167,7 +167,7 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
             <Link href="/scenarios" className="hover:underline">进入条件式情景模拟</Link>
           </div>
         </div>
-        <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           {modelOutputs.map((output) => {
             const card = getModelCard(output.model_id);
             return (

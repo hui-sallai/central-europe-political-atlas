@@ -382,6 +382,42 @@ function projectLocationLayer(): MapLayerRecord {
   };
 }
 
+function futureAnalysisInterfaceLayer({
+  layerId,
+  nameZh,
+  nameEn,
+  dataSourceTable,
+  variable,
+}: {
+  layerId: string;
+  nameZh: string;
+  nameEn: string;
+  dataSourceTable: string;
+  variable: string;
+}): MapLayerRecord {
+  return {
+    ...projectLocationLayer(),
+    layer_id: layerId,
+    layer_name_zh: nameZh,
+    layer_name_en: nameEn,
+    layer_type: "table_only",
+    data_source_table: dataSourceTable,
+    indicator_or_variable: variable,
+    is_manual: false,
+    legend_type: "not_enabled",
+    legend_unit: "not_applicable",
+    color_scale: "not assigned; no risk colors",
+    interaction_type: "disabled_interface_only",
+    tooltip_fields: [],
+    allowed_filters: ["country_slug", "model_id", "scenario_id", "calculation_date"],
+    source_requirement: "只允许引用可追溯 model_outputs 或 scenario result；当前没有区域级输入，不得渲染国家或区域色阶。",
+    quality_requirement: "模型和情景先在 Models、Scenarios 与 Country 页面验证；地图展示需另行通过区域数据与解释边界验收。",
+    model_boundary: "接口预留不等于图层启用；不显示风险色阶、预测结果、党派支持率或中国经济暴露指数。",
+    last_updated: "2026-08-11",
+    notes: "v0.70 仅注册后续接口；is_ready_for_display=false，public_display_ready=false。",
+  };
+}
+
 export const mapLayerRecords: MapLayerRecord[] = [
   hungaryNuts3PilotLayer(),
   boundaryLayer(),
@@ -426,4 +462,18 @@ export const mapLayerRecords: MapLayerRecord[] = [
     color_scale: "sequential indigo-gray",
   }),
   projectLocationLayer(),
+  futureAnalysisInterfaceLayer({
+    layerId: "industrial_dependency_future_layer",
+    nameZh: "产业依赖后续图层接口",
+    nameEn: "Future industrial dependency layer interface",
+    dataSourceTable: "model_outputs",
+    variable: "industrial_dependency",
+  }),
+  futureAnalysisInterfaceLayer({
+    layerId: "scenario_future_layer",
+    nameZh: "情景结果后续图层接口",
+    nameEn: "Future scenario result layer interface",
+    dataSourceTable: "scenario_results",
+    variable: "scenario_score_change",
+  }),
 ];

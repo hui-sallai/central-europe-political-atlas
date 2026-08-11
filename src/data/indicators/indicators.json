@@ -4,7 +4,7 @@
   "data_type": "indicators",
   "record_count": 31,
   "primary_key": "id",
-  "pending_v4_indicator_count": 13,
+  "pending_v4_indicator_count": 9,
   "model_boundary": "Pending indicator definitions are input contracts only; they have no fabricated observations.",
   "records": [
     {
@@ -242,6 +242,58 @@
       "last_updated": "2026-07-17"
     },
     {
+      "id": "germany_export_dependence",
+      "name": "Germany export dependence",
+      "name_zh": "对德国出口依赖",
+      "category": "external",
+      "unit": "% exports",
+      "frequency": "annual",
+      "source_type": "UN Comtrade",
+      "status": "verified",
+      "future_model_candidate": true,
+      "description": "对德国货物出口额占本国对世界货物出口额的比重；不以总出口规模替代双边暴露。",
+      "last_updated": "2026-08-11"
+    },
+    {
+      "id": "industrial_electricity_price",
+      "name": "Industrial electricity price",
+      "name_zh": "工业电价",
+      "category": "industry",
+      "unit": "欧元/kWh",
+      "frequency": "annual",
+      "source_type": "Eurostat nrg_pc_205",
+      "status": "verified",
+      "future_model_candidate": true,
+      "description": "非居民 IC 档（500–1,999 MWh）含税电价；年度值为两个半年官方价格的简单平均。",
+      "last_updated": "2026-08-11"
+    },
+    {
+      "id": "household_electricity_price",
+      "name": "Household electricity price",
+      "name_zh": "居民电价",
+      "category": "energy",
+      "unit": "欧元/kWh",
+      "frequency": "annual",
+      "source_type": "Eurostat nrg_pc_204",
+      "status": "verified",
+      "future_model_candidate": true,
+      "description": "居民 DC 档（2,500–4,999 kWh）含税电价；年度值为两个半年官方价格的简单平均。",
+      "last_updated": "2026-08-11"
+    },
+    {
+      "id": "energy_inflation",
+      "name": "Energy inflation",
+      "name_zh": "能源通胀",
+      "category": "energy",
+      "unit": "%",
+      "frequency": "annual",
+      "source_type": "Eurostat prc_hicp_aind",
+      "status": "verified",
+      "future_model_candidate": true,
+      "description": "HICP CP045 电力、燃气及其他燃料分项的年度平均变化率。",
+      "last_updated": "2026-08-11"
+    },
+    {
       "id": "interest_expenditure_gdp",
       "name": "Interest expenditure",
       "name_zh": "利息支出",
@@ -333,19 +385,6 @@
       "last_updated": "2026-08-08"
     },
     {
-      "id": "germany_export_dependence",
-      "name": "Germany export dependence",
-      "name_zh": "对德国出口依赖",
-      "category": "external",
-      "unit": "% exports",
-      "frequency": "annual",
-      "source_type": "Eurostat Comext / national statistics",
-      "status": "pending",
-      "future_model_candidate": true,
-      "description": "对德国出口占本国出口比重；货物与服务口径待定义。",
-      "last_updated": "2026-08-08"
-    },
-    {
       "id": "gas_import_dependency",
       "name": "Gas import dependency",
       "name_zh": "天然气进口依赖",
@@ -359,32 +398,6 @@
       "last_updated": "2026-08-08"
     },
     {
-      "id": "household_electricity_price",
-      "name": "Household electricity price",
-      "name_zh": "居民电价",
-      "category": "energy",
-      "unit": "欧元/kWh",
-      "frequency": "annual",
-      "source_type": "Eurostat energy prices",
-      "status": "pending",
-      "future_model_candidate": true,
-      "description": "居民终端电价；消费档位和税费口径待定义。",
-      "last_updated": "2026-08-08"
-    },
-    {
-      "id": "energy_inflation",
-      "name": "Energy inflation",
-      "name_zh": "能源通胀",
-      "category": "energy",
-      "unit": "%",
-      "frequency": "annual",
-      "source_type": "Eurostat HICP",
-      "status": "pending",
-      "future_model_candidate": true,
-      "description": "HICP 能源分项年均变化率；待接入。",
-      "last_updated": "2026-08-08"
-    },
-    {
       "id": "battery_investment",
       "name": "Battery investment",
       "name_zh": "电池产业投资",
@@ -395,19 +408,6 @@
       "status": "pending",
       "future_model_candidate": true,
       "description": "电池产业项目投资额；只接入可核验金额与年份。",
-      "last_updated": "2026-08-08"
-    },
-    {
-      "id": "industrial_electricity_price",
-      "name": "Industrial electricity price",
-      "name_zh": "工业电价",
-      "category": "industry",
-      "unit": "欧元/kWh",
-      "frequency": "annual",
-      "source_type": "Eurostat energy prices",
-      "status": "pending",
-      "future_model_candidate": true,
-      "description": "非居民终端电价；消费档位和税费口径待定义。",
       "last_updated": "2026-08-08"
     }
   ]

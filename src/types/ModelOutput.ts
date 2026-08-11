@@ -1,4 +1,8 @@
-export type ModelId = "household_economic_pressure" | "fiscal_pressure" | "external_vulnerability";
+export type ModelId =
+  | "household_economic_pressure"
+  | "fiscal_pressure"
+  | "external_vulnerability"
+  | "industrial_dependency";
 
 export type ModelAvailability = "sufficient" | "partial" | "insufficient";
 export type ModelConfidence = "high" | "medium" | "low" | "not_available";

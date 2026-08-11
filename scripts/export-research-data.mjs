@@ -60,6 +60,7 @@ const { indicatorDictionaryRecords } = require("../src/lib/indicatorDictionary.t
 const { sourceDictionaryRows } = require("../src/lib/sourceDictionary.ts");
 const { eventLibraryItems, eventTypeValues, toEventRecord } = require("../src/lib/newsData.ts");
 const { v4PendingModelInputIndicators } = require("../src/lib/v4ModelInputIndicators.ts");
+const { transmissionIndicators, transmissionObservations } = require("../src/lib/transmissionData.ts");
 const { getV4DataQualitySummary, v4QualityCountrySlugs } = require("../src/lib/v4DataQuality.ts");
 const { verifyChinaProject, chinaProjectVerificationLabel } = require("../src/lib/chinaProjectVerification.ts");
 const { modelCards, modelOutputs } = require("../src/lib/modelFramework.ts");
@@ -996,7 +997,7 @@ function methodologyRuleRecords() {
       rule_id: "transparent_models_v050_scope",
       rule_category: "模型透明度规则",
       rule_name: "v0.50 透明模型范围规则",
-      rule_description: "仅启用统一 /models 页面中的居民经济压力、财政压力和外部脆弱性规则模型；不新增 /forecast 或 /scenario，不启用地图风险图层。",
+      rule_description: "统一 /models 页面保留 v0.50 三项基础模型，并在 v0.70 对 V4 启用产业依赖规则模型；/scenarios 只提供条件式比较，/forecast 不存在，地图风险图层不启用。",
       applies_to: "models_page,country_pages,methodology,model_cards,model_outputs",
       required_fields: ["model_id", "country", "score", "direction", "main_drivers", "data_completeness", "confidence", "calculation_date", "input_observation_ids"],
       allowed_statuses: ["sufficient", "partial", "insufficient"],
@@ -1006,7 +1007,23 @@ function methodologyRuleRecords() {
       model_boundary: "分数是比较与分析工具，不是客观风险真值、预测、评级或政策评价。",
       export_boundary: "model_cards 与 model_outputs 可导出；缺少完整启用输入的国家 score 保持 null。",
       last_updated: "2026-08-11",
-      notes: "External Vulnerability 已使用 V4 经常账户/GDP 与能源进口依赖启用；Industrial Dependency 和 China Exposure 仅保留后续接口。",
+      notes: "Industrial Dependency v0.70 使用制造业占比、汽车出口占比、对德国出口依赖和工业电价；FDI 权重为 0，China Exposure 仍只保留后续接口。",
+    },
+    {
+      rule_id: "industrial_dependency_transmission_v070",
+      rule_category: "透明模型规则",
+      rule_name: "v0.70 产业依赖与冲击传导规则",
+      rule_description: "V4 产业依赖模型只接纳通过来源、单位、状态和计算口径验收的制造业、汽车出口、双边出口与工业电价观测。",
+      applies_to: "indicators,observations,model_cards,model_outputs,scenarios_page,country_pages",
+      required_fields: ["observation_id", "indicator_id", "value", "unit", "source_url", "source_reliability", "calculation_method"],
+      allowed_statuses: ["正式数据", "白名单计算值"],
+      excluded_statuses: ["待接入", "结构样例", "人工推测", "无来源数值"],
+      source_requirement: "优先使用 Eurostat 与 UN Comtrade A 级来源；对德依赖必须使用双边货物出口比重，能源价格必须使用直接价格观测。",
+      quality_requirement: "计算值必须保留分子、分母或半年值口径；FDI 年流量不直接映射依赖方向，当前正式权重为 0。",
+      model_boundary: "不预测选举，不生成供应链黑箱分数；情景冲击是用户假设，不是未来事实。",
+      export_boundary: "model_cards、model_outputs、indicators 与 observations 保留完整追踪；地图图层接口保持未启用。",
+      last_updated: "2026-08-11",
+      notes: "Energy Price Shock 与 Germany Demand Slowdown 仅在有合格 V4 基线输入时可计算；不使用能源进口依赖或总出口作替代。",
     },
     {
       rule_id: "research_data_export_boundary",
@@ -1156,7 +1173,7 @@ function methodologyRuleRecords() {
 }
 
 const countryRecords = countryMetadataRecords;
-const indicatorRecords = indicatorDictionaryRecords.map((indicator) => {
+const baseIndicatorRecords = indicatorDictionaryRecords.map((indicator) => {
   const isComputed = computedIndicatorIds.has(indicator.indicatorId);
   const entersV4Comparisons = indicator.includedInDerivedComparison;
 
@@ -1188,7 +1205,65 @@ const indicatorRecords = indicatorDictionaryRecords.map((indicator) => {
     note: `转换方式：${indicator.transform}；当前仅作为研究数据结构字段，不代表模型已启用。`,
   };
 });
-const observationRecords = [...economicObservationRecords(), ...extendedObservationRecords()];
+const transmissionIndicatorRecords = transmissionIndicators.map((indicator) => ({
+  indicator_id: indicator.id,
+  name_zh: indicator.name_zh,
+  name_en: indicator.name,
+  indicator_category: indicator.category,
+  section: categoryLabels[indicator.category] ?? indicator.category,
+  unit: indicator.unit,
+  frequency: indicator.frequency,
+  country_coverage: "V4 四国",
+  year_coverage: "2023-2024",
+  primary_source: indicator.source_type,
+  backup_source: "各国统计局 / 国家能源监管机构",
+  source_reliability_level: "A",
+  is_raw_value: indicator.id === "energy_inflation",
+  is_computed_value: indicator.id !== "energy_inflation",
+  is_derived_value: false,
+  included_in_cross_country_comparison: true,
+  included_in_five_year_change: false,
+  included_in_mean_gap: false,
+  included_in_rank_change: false,
+  future_model_candidate: indicator.future_model_candidate,
+  upward_meaning: indicator.description,
+  missing_value_treatment: "缺失保持 null，不插值、不以相关但不同口径的变量替代。",
+  pending_value_treatment: "待接入记录不进入模型或情景重算。",
+  updated_at: indicator.last_updated,
+  note: "v0.70 transmission data；计算值必须保留原始查询和计算口径。",
+}));
+const indicatorRecords = [...baseIndicatorRecords, ...transmissionIndicatorRecords];
+
+const transmissionObservationRecords = transmissionObservations.map((observation) => ({
+  observation_id: observation.id,
+  country_id: observation.country_slug,
+  indicator_id: observation.indicator,
+  year: observation.year,
+  period_type: "annual",
+  period: observation.year,
+  value: observation.value,
+  unit: observation.unit,
+  value_status: observation.status === "calculated" ? "计算值" : "正式数据",
+  source_id: observation.source,
+  source_name: observation.source_name,
+  source_url: observation.source_url,
+  source_reliability: observation.source_reliability,
+  source_status: "官方",
+  last_updated: observation.updated_at,
+  is_official_data: observation.status === "official",
+  is_pending: false,
+  is_calculated: observation.status === "calculated",
+  is_manual: false,
+  is_structural_sample: false,
+  is_in_cross_country_comparison: true,
+  is_in_five_year_change: false,
+  is_in_mean_gap: false,
+  is_in_ranking_change: false,
+  missing_reason: "无",
+  calculation_method: observation.status === "calculated" ? observation.notes : "无",
+  notes: observation.notes,
+}));
+const observationRecords = [...economicObservationRecords(), ...extendedObservationRecords(), ...transmissionObservationRecords];
 const sourceRecords = sourceDictionaryRows.map((source) => ({
   source_id: source.sourceId,
   name_zh: source.nameZh,
@@ -1328,6 +1403,7 @@ const canonicalIndicatorRecords = [
     description: indicator.upwardMeaning,
     last_updated: indicator.updatedAt,
   })),
+  ...transmissionIndicators,
   ...v4PendingModelInputIndicators,
 ];
 
@@ -1519,7 +1595,7 @@ writeLayer("sources", sourceRecords, {
   },
 });
 writeLayer("observations", observationRecords, {
-  scope: "10 countries x 6 macro indicators x 2021-2025 plus 4 V4 countries x 12 extended indicators x 2021-2025 = 540 annual observations.",
+  scope: "540 个 v0.30 年度观测位置，加上 V4 四项 v0.70 transmission indicators 的 2023-2024 合格观测。",
   primary_key: "observation_id",
   relation_note: "Every observation references country_id, indicator_id, and source_id.",
 });
@@ -1541,12 +1617,12 @@ writeLayer("methodology_rules", methodologyRecords, {
   model_boundary: "Rules and boundaries only; no model, forecast, or scenario output.",
 });
 writeLayer("model_cards", modelCards, {
-  schema_version: "transparent-model-v0.50",
+  schema_version: "transparent-model-v0.70",
   primary_key: "model_id",
   model_boundary: "Public formulas and limitations only. No machine learning, election forecast, or map risk layer.",
 });
 writeLayer("model_outputs", modelOutputs, {
-  schema_version: "transparent-model-v0.50",
+  schema_version: "transparent-model-v0.70",
   relation_note: "Every published score retains input_observation_ids and complete input traces.",
   model_boundary: "Scores are comparative analytical tools, not objective risk truths, predictions, or policy ratings.",
 });

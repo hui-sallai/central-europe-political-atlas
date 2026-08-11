@@ -26,6 +26,7 @@ export const scenarioDefinitions: ScenarioDefinition[] = [
     shock_step: 0.5,
     default_shock_value: 2,
     shock_multiplier: 1,
+    shock_operation: "additive",
     transmission_chain: ["基线 HICP", "通胀冲击假设", "调整后 HICP", "居民经济压力模型重算", "情景差值"],
     confidence: "medium",
     calculation_status: "available",
@@ -52,6 +53,7 @@ export const scenarioDefinitions: ScenarioDefinition[] = [
     shock_step: 0.25,
     default_shock_value: 1,
     shock_multiplier: -1,
+    shock_operation: "additive",
     transmission_chain: ["基线财政余额/GDP", "欧盟资金延迟假设", "财政余额恶化幅度", "财政压力模型重算", "情景差值"],
     confidence: "low",
     calculation_status: "available",
@@ -65,12 +67,12 @@ export const scenarioDefinitions: ScenarioDefinition[] = [
     scenario_id: "energy_price_shock",
     name: "Energy Price Shock",
     name_zh: "能源价格冲击",
-    description: "登记能源价格上涨假设，但当前模型只有能源进口依赖，没有居民或工业能源价格这一直接输入。",
-    affected_country_slugs: "all",
+    description: "按用户设定的工业电价涨幅调整合格基线输入，并重算产业依赖指数；不以能源进口依赖替代价格。",
+    affected_country_slugs: V4_COUNTRIES,
     affected_indicators: ["energy_inflation", "household_electricity_price", "industrial_electricity_price"],
-    affected_models: ["Household Economic Pressure Index", "External Vulnerability Index"],
-    reference_model_id: "external_vulnerability",
-    adjusted_indicator_id: null,
+    affected_models: ["Industrial Dependency Index"],
+    reference_model_id: "industrial_dependency",
+    adjusted_indicator_id: "industrial_electricity_price",
     shock_label: "能源价格上涨幅度",
     shock_unit: "%",
     shock_min: 0,
@@ -78,22 +80,26 @@ export const scenarioDefinitions: ScenarioDefinition[] = [
     shock_step: 5,
     default_shock_value: 20,
     shock_multiplier: 1,
-    transmission_chain: ["能源价格冲击假设", "直接能源价格输入缺失", "暂不调整现有模型", "等待合格观测值"],
-    confidence: "not_available",
-    calculation_status: "unavailable",
-    unavailable_reason: "当前模型缺少能源通胀、居民电价或工业电价的合格直接输入，暂不计算该传导。",
-    limitations: ["能源进口依赖是结构指标，不能被能源价格上涨幅度直接替代。"],
+    shock_operation: "proportional",
+    transmission_chain: ["工业电价基线", "能源价格涨幅假设", "调整后工业电价", "产业依赖模型重算", "情景差值"],
+    confidence: "low",
+    calculation_status: "available",
+    unavailable_reason: null,
+    limitations: [
+      "能源进口依赖是结构指标，未被当作能源价格输入。",
+      "该情景只调整工业电价，不估计企业对冲、补贴、合同期限或向终端价格的传导。",
+    ],
   },
   {
     scenario_id: "germany_demand_slowdown",
     name: "Germany Demand Slowdown",
     name_zh: "德国需求放缓",
-    description: "登记德国需求下降假设，但当前数据层尚无对德国出口依赖或德国需求弹性这一直接输入。",
+    description: "以对德国货物出口依赖为暴露基线，把用户设定的德国需求降幅转换为压力暴露增量，再重算产业依赖指数。",
     affected_country_slugs: V4_COUNTRIES,
     affected_indicators: ["germany_export_dependence", "automotive_export_share", "manufacturing_share_gdp"],
-    affected_models: ["External Vulnerability Index", "Future Industrial Dependency Index"],
-    reference_model_id: "external_vulnerability",
-    adjusted_indicator_id: null,
+    affected_models: ["Industrial Dependency Index"],
+    reference_model_id: "industrial_dependency",
+    adjusted_indicator_id: "germany_export_dependence",
     shock_label: "德国进口需求变化",
     shock_unit: "%",
     shock_min: -15,
@@ -101,25 +107,28 @@ export const scenarioDefinitions: ScenarioDefinition[] = [
     shock_step: 1,
     default_shock_value: -5,
     shock_multiplier: 1,
-    transmission_chain: ["德国需求放缓假设", "双边出口依赖输入缺失", "暂不调整外部或产业模型", "等待贸易伙伴暴露数据"],
-    confidence: "not_available",
-    calculation_status: "unavailable",
-    unavailable_reason: "当前模型缺少对德国出口依赖和需求弹性，不能用总出口或制造业占比代替该传导。",
-    limitations: ["名义出口规模不能直接表示对德国市场的依赖程度。"],
+    shock_operation: "adverse_proportional",
+    transmission_chain: ["对德国出口依赖基线", "德国需求降幅假设", "压力调整后德国暴露", "产业依赖模型重算", "情景差值"],
+    confidence: "low",
+    calculation_status: "available",
+    unavailable_reason: null,
+    limitations: [
+      "对德国出口依赖来自双边货物出口占比，不以总出口规模替代。",
+      "压力暴露增量是公开的算术假设，不是估计的贸易弹性、产出损失或 GDP 预测。",
+    ],
   },
 ];
 
 export const industrialDependencyReadiness = {
-  status: "not_ready" as const,
+  status: "ready" as const,
   eligible_countries: V4_COUNTRIES,
-  available_inputs: ["manufacturing_share_gdp", "automotive_export_share", "fdi_inflow"],
+  available_inputs: ["manufacturing_share_gdp", "automotive_export_share", "germany_export_dependence", "industrial_electricity_price"],
   blockers: [
-    "汽车产业出口占比 2025 仍待接入，当前最新共同年份为 2024。",
-    "汽车产业出口占比属于计算值，需要在 Model Card 中单独定义计算值准入规则。",
-    "FDI 流入波动和负值不能直接解释为产业依赖，需要先定义方向与归一化边界。",
-    "供应链集中度、对德国出口依赖和工业能源成本尚未接入。",
+    "当前最新共同可比年份为 2024，不能将 2025 的待接入值当作零值。",
+    "供应链集中度仍缺少统一可靠口径，未进入正式分数。",
+    "FDI 流入波动和负值不能直接解释为产业依赖，本版权重为 0。",
   ],
-  decision: "v0.60 不启用 Industrial Dependency Index，只保留后续模型接口。",
+  decision: "v0.70 已对 V4 启用第一版 Industrial Dependency Index；非 V4 因输入不足不输出精确分数。",
 };
 
 function clamp(value: number, minimum = 0, maximum = 100) {
@@ -200,7 +209,12 @@ export function calculateScenario({ definition, countrySlug, shockValue, cards, 
   }
 
   const boundedShock = Math.min(definition.shock_max, Math.max(definition.shock_min, shockValue));
-  const adjustedValue = Number((baselineInput.raw_value + boundedShock * definition.shock_multiplier).toFixed(3));
+  const signedShock = boundedShock * definition.shock_multiplier;
+  const adjustedValue = Number((definition.shock_operation === "proportional"
+    ? baselineInput.raw_value * (1 + signedShock / 100)
+    : definition.shock_operation === "adverse_proportional"
+      ? baselineInput.raw_value * (1 + Math.abs(signedShock) / 100)
+      : baselineInput.raw_value + signedShock).toFixed(3));
   const adjustedNormalized = normalize(adjustedValue, inputDefinition);
   const availableWeight = baseline.inputs.reduce((total, input) => total + input.weight, 0);
   const adjustedContribution = adjustedNormalized * inputDefinition.weight;
@@ -221,7 +235,7 @@ export function calculateScenario({ definition, countrySlug, shockValue, cards, 
       observation_id: baselineInput.observation_id,
       year: baselineInput.year,
       baseline_value: baselineInput.raw_value,
-      shock_value: boundedShock * definition.shock_multiplier,
+      shock_value: signedShock,
       adjusted_value: adjustedValue,
       unit: baselineInput.unit,
       normalized_baseline: baselineInput.normalized_score,

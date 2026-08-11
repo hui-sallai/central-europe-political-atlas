@@ -1,9 +1,9 @@
 export const platformStatus = {
-  version: "v0.60 Scenario Simulation / 情景模拟",
-  stage: "透明模型上的可解释情景模拟",
+  version: "v0.70 Industrial Dependency & Transmission Data",
+  stage: "产业依赖模型与外部冲击传导数据",
   regionalData: "匈牙利 NUTS3 边界证据已记录；正式展示仍未启用",
   mapDisplay: "未启用",
-  modelLayer: "v0.50 三项基础模型保持不变；v0.60 情景层启用，预测未启用",
+  modelLayer: "v0.50 三项基础模型保持不变；v0.70 产业依赖模型启用，预测未启用",
   lastUpdated: "2026-08-11",
 } as const;
 

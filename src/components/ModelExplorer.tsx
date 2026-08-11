@@ -35,7 +35,7 @@ function ScorePanel({ output }: { output: ModelOutput }) {
     <div className="rounded-2xl border border-[var(--line)] bg-white/75 p-5">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="text-xs font-semibold text-[var(--muted)]">透明压力分数</p>
+          <p className="text-xs font-semibold text-[var(--muted)]">透明模型分数</p>
           <p className="mt-2 text-4xl font-semibold tracking-[-0.04em] text-[var(--accent)]">{output.score.toFixed(1)}</p>
           <p className="mt-1 text-xs text-[var(--muted)]">0–100 / 输入年份 {output.input_year}</p>
         </div>

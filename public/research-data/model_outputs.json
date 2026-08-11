@@ -1,8 +1,8 @@
 {
-  "schema_version": "transparent-model-v0.50",
+  "schema_version": "transparent-model-v0.70",
   "generated_at": "2026-07-27",
   "data_type": "model_outputs",
-  "record_count": 30,
+  "record_count": 40,
   "relation_note": "Every published score retains input_observation_ids and complete input traces.",
   "model_boundary": "Scores are comparative analytical tools, not objective risk truths, predictions, or policy ratings.",
   "records": [
@@ -177,6 +177,93 @@
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
     {
+      "model_id": "industrial_dependency",
+      "model_version": "v0.70.0",
+      "country": "波兰",
+      "country_slug": "poland",
+      "score": 41.5,
+      "direction": "falling",
+      "trend_change": -4.6,
+      "main_drivers": [
+        "对德国出口依赖：贡献 17.1 分",
+        "制造业占 GDP 比重：贡献 9.0 分"
+      ],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2024,
+      "input_observation_ids": [
+        "v4:poland:manufacturing_share_gdp:2024",
+        "v4:poland:automotive_export_share:2024",
+        "transmission:poland:germany_export_dependence:2024",
+        "transmission:poland:industrial_electricity_price:2024"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "indicator_name": "制造业占 GDP 比重",
+          "observation_id": "v4:poland:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "raw_value": 15.4,
+          "unit": "%",
+          "normalized_score": 36,
+          "weight": 0.25,
+          "weighted_contribution": 9,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=PL&time=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "indicator_name": "汽车产业出口占比",
+          "observation_id": "v4:poland:automotive_export_share:2024",
+          "year": 2024,
+          "raw_value": 15,
+          "unit": "%",
+          "normalized_score": 25,
+          "weight": 0.3,
+          "weighted_contribution": 7.5,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=PL&time=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "indicator_name": "对德国出口依赖",
+          "observation_id": "transmission:poland:germany_export_dependence:2024",
+          "year": 2024,
+          "raw_value": 27.063,
+          "unit": "% exports",
+          "normalized_score": 56.9,
+          "weight": 0.3,
+          "weighted_contribution": 17.1,
+          "source_name": "UN Comtrade",
+          "source_url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=616&cmdCode=TOTAL&flowCode=X&partnerCode=276&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "indicator_name": "工业电价",
+          "observation_id": "transmission:poland:industrial_electricity_price:2024",
+          "year": 2024,
+          "raw_value": 0.2573,
+          "unit": "欧元/kWh",
+          "normalized_score": 52.4,
+          "weight": 0.15,
+          "weighted_contribution": 7.9,
+          "source_name": "Eurostat nrg_pc_205",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=en&geo=PL&nrg_cons=MWH500-1999&unit=KWH&tax=I_TAX&currency=EUR&sinceTimePeriod=2024-S1&untilTimePeriod=2024-S2",
+          "source_reliability": "A"
+        }
+      ],
+      "related_event_ids": [
+        "pl-2024-04-23-nuctech-fsr-inspection"
+      ],
+      "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
+    },
+    {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
       "country": "匈牙利",
@@ -346,6 +433,94 @@
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
     {
+      "model_id": "industrial_dependency",
+      "model_version": "v0.70.0",
+      "country": "匈牙利",
+      "country_slug": "hungary",
+      "score": 46.3,
+      "direction": "falling",
+      "trend_change": -8.4,
+      "main_drivers": [
+        "对德国出口依赖：贡献 14.6 分",
+        "汽车产业出口占比：贡献 12.7 分"
+      ],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2024,
+      "input_observation_ids": [
+        "v4:hungary:manufacturing_share_gdp:2024",
+        "v4:hungary:automotive_export_share:2024",
+        "transmission:hungary:germany_export_dependence:2024",
+        "transmission:hungary:industrial_electricity_price:2024"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "indicator_name": "制造业占 GDP 比重",
+          "observation_id": "v4:hungary:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "raw_value": 15.9,
+          "unit": "%",
+          "normalized_score": 39.3,
+          "weight": 0.25,
+          "weighted_contribution": 9.8,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=HU&time=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "indicator_name": "汽车产业出口占比",
+          "observation_id": "v4:hungary:automotive_export_share:2024",
+          "year": 2024,
+          "raw_value": 21.9,
+          "unit": "%",
+          "normalized_score": 42.3,
+          "weight": 0.3,
+          "weighted_contribution": 12.7,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=HU&time=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "indicator_name": "对德国出口依赖",
+          "observation_id": "transmission:hungary:germany_export_dependence:2024",
+          "year": 2024,
+          "raw_value": 24.6,
+          "unit": "% exports",
+          "normalized_score": 48.7,
+          "weight": 0.3,
+          "weighted_contribution": 14.6,
+          "source_name": "UN Comtrade",
+          "source_url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=348&cmdCode=TOTAL&flowCode=X&partnerCode=276&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "indicator_name": "工业电价",
+          "observation_id": "transmission:hungary:industrial_electricity_price:2024",
+          "year": 2024,
+          "raw_value": 0.28495,
+          "unit": "欧元/kWh",
+          "normalized_score": 61.6,
+          "weight": 0.15,
+          "weighted_contribution": 9.2,
+          "source_name": "Eurostat nrg_pc_205",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=en&geo=HU&nrg_cons=MWH500-1999&unit=KWH&tax=I_TAX&currency=EUR&sinceTimePeriod=2024-S1&untilTimePeriod=2024-S2",
+          "source_reliability": "A"
+        }
+      ],
+      "related_event_ids": [
+        "hu-2026-06-24-v4-summit",
+        "hu-2022-08-12-catl-debrecen"
+      ],
+      "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
+    },
+    {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
       "country": "捷克",
@@ -508,6 +683,94 @@
         }
       ],
       "related_event_ids": [
+        "cz-2023-10-16-repowereu-plan"
+      ],
+      "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
+    },
+    {
+      "model_id": "industrial_dependency",
+      "model_version": "v0.70.0",
+      "country": "捷克",
+      "country_slug": "czechia",
+      "score": 65.8,
+      "direction": "stable",
+      "trend_change": -1,
+      "main_drivers": [
+        "对德国出口依赖：贡献 22.2 分",
+        "汽车产业出口占比：贡献 20.6 分"
+      ],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2024,
+      "input_observation_ids": [
+        "v4:czechia:manufacturing_share_gdp:2024",
+        "v4:czechia:automotive_export_share:2024",
+        "transmission:czechia:germany_export_dependence:2024",
+        "transmission:czechia:industrial_electricity_price:2024"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "indicator_name": "制造业占 GDP 比重",
+          "observation_id": "v4:czechia:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "raw_value": 19.9,
+          "unit": "%",
+          "normalized_score": 66,
+          "weight": 0.25,
+          "weighted_contribution": 16.5,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=CZ&time=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "indicator_name": "汽车产业出口占比",
+          "observation_id": "v4:czechia:automotive_export_share:2024",
+          "year": 2024,
+          "raw_value": 32.4,
+          "unit": "%",
+          "normalized_score": 68.5,
+          "weight": 0.3,
+          "weighted_contribution": 20.6,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=CZ&time=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "indicator_name": "对德国出口依赖",
+          "observation_id": "transmission:czechia:germany_export_dependence:2024",
+          "year": 2024,
+          "raw_value": 32.211,
+          "unit": "% exports",
+          "normalized_score": 74,
+          "weight": 0.3,
+          "weighted_contribution": 22.2,
+          "source_name": "UN Comtrade",
+          "source_url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=203&cmdCode=TOTAL&flowCode=X&partnerCode=276&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "indicator_name": "工业电价",
+          "observation_id": "transmission:czechia:industrial_electricity_price:2024",
+          "year": 2024,
+          "raw_value": 0.2293,
+          "unit": "欧元/kWh",
+          "normalized_score": 43.1,
+          "weight": 0.15,
+          "weighted_contribution": 6.5,
+          "source_name": "Eurostat nrg_pc_205",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=en&geo=CZ&nrg_cons=MWH500-1999&unit=KWH&tax=I_TAX&currency=EUR&sinceTimePeriod=2024-S1&untilTimePeriod=2024-S2",
+          "source_reliability": "A"
+        }
+      ],
+      "related_event_ids": [
+        "cz-2026-06-24-v4-summit",
         "cz-2023-10-16-repowereu-plan"
       ],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
@@ -682,6 +945,93 @@
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
     {
+      "model_id": "industrial_dependency",
+      "model_version": "v0.70.0",
+      "country": "斯洛伐克",
+      "country_slug": "slovakia",
+      "score": 55.3,
+      "direction": "stable",
+      "trend_change": 1.3,
+      "main_drivers": [
+        "汽车产业出口占比：贡献 26.6 分",
+        "对德国出口依赖：贡献 11.4 分"
+      ],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2024,
+      "input_observation_ids": [
+        "v4:slovakia:manufacturing_share_gdp:2024",
+        "v4:slovakia:automotive_export_share:2024",
+        "transmission:slovakia:germany_export_dependence:2024",
+        "transmission:slovakia:industrial_electricity_price:2024"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "indicator_name": "制造业占 GDP 比重",
+          "observation_id": "v4:slovakia:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "raw_value": 16.3,
+          "unit": "%",
+          "normalized_score": 42,
+          "weight": 0.25,
+          "weighted_contribution": 10.5,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?unit=PC_GDP&na_item=B1G&nace_r2=C&geo=SK&time=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "indicator_name": "汽车产业出口占比",
+          "observation_id": "v4:slovakia:automotive_export_share:2024",
+          "year": 2024,
+          "raw_value": 40.4,
+          "unit": "%",
+          "normalized_score": 88.5,
+          "weight": 0.3,
+          "weighted_contribution": 26.6,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&nace_r2=TOTAL&geo=SK&time=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "indicator_name": "对德国出口依赖",
+          "observation_id": "transmission:slovakia:germany_export_dependence:2024",
+          "year": 2024,
+          "raw_value": 21.398,
+          "unit": "% exports",
+          "normalized_score": 38,
+          "weight": 0.3,
+          "weighted_contribution": 11.4,
+          "source_name": "UN Comtrade",
+          "source_url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=703&cmdCode=TOTAL&flowCode=X&partnerCode=276&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "indicator_name": "工业电价",
+          "observation_id": "transmission:slovakia:industrial_electricity_price:2024",
+          "year": 2024,
+          "raw_value": 0.23665,
+          "unit": "欧元/kWh",
+          "normalized_score": 45.5,
+          "weight": 0.15,
+          "weighted_contribution": 6.8,
+          "source_name": "Eurostat nrg_pc_205",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=en&geo=SK&nrg_cons=MWH500-1999&unit=KWH&tax=I_TAX&currency=EUR&sinceTimePeriod=2024-S1&untilTimePeriod=2024-S2",
+          "source_reliability": "A"
+        }
+      ],
+      "related_event_ids": [
+        "sk-2023-11-22-gotion-inobat-surany"
+      ],
+      "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
+    },
+    {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
       "country": "德国",
@@ -777,6 +1127,31 @@
       "missing_indicator_ids": [
         "current_account_gdp",
         "energy_import_dependency"
+      ],
+      "inputs": [],
+      "related_event_ids": [],
+      "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
+    },
+    {
+      "model_id": "industrial_dependency",
+      "model_version": "v0.70.0",
+      "country": "德国",
+      "country_slug": "germany",
+      "score": null,
+      "direction": "not_available",
+      "trend_change": null,
+      "main_drivers": [],
+      "data_completeness": 0,
+      "availability": "insufficient",
+      "confidence": "not_available",
+      "calculation_date": "2026-08-11",
+      "input_year": null,
+      "input_observation_ids": [],
+      "missing_indicator_ids": [
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "germany_export_dependence",
+        "industrial_electricity_price"
       ],
       "inputs": [],
       "related_event_ids": [],
@@ -884,6 +1259,31 @@
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
     {
+      "model_id": "industrial_dependency",
+      "model_version": "v0.70.0",
+      "country": "罗马尼亚",
+      "country_slug": "romania",
+      "score": null,
+      "direction": "not_available",
+      "trend_change": null,
+      "main_drivers": [],
+      "data_completeness": 0,
+      "availability": "insufficient",
+      "confidence": "not_available",
+      "calculation_date": "2026-08-11",
+      "input_year": null,
+      "input_observation_ids": [],
+      "missing_indicator_ids": [
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "germany_export_dependence",
+        "industrial_electricity_price"
+      ],
+      "inputs": [],
+      "related_event_ids": [],
+      "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
+    },
+    {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
       "country": "斯洛文尼亚",
@@ -985,6 +1385,31 @@
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
     {
+      "model_id": "industrial_dependency",
+      "model_version": "v0.70.0",
+      "country": "斯洛文尼亚",
+      "country_slug": "slovenia",
+      "score": null,
+      "direction": "not_available",
+      "trend_change": null,
+      "main_drivers": [],
+      "data_completeness": 0,
+      "availability": "insufficient",
+      "confidence": "not_available",
+      "calculation_date": "2026-08-11",
+      "input_year": null,
+      "input_observation_ids": [],
+      "missing_indicator_ids": [
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "germany_export_dependence",
+        "industrial_electricity_price"
+      ],
+      "inputs": [],
+      "related_event_ids": [],
+      "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
+    },
+    {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
       "country": "塞尔维亚",
@@ -1066,6 +1491,31 @@
       "missing_indicator_ids": [
         "current_account_gdp",
         "energy_import_dependency"
+      ],
+      "inputs": [],
+      "related_event_ids": [],
+      "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
+    },
+    {
+      "model_id": "industrial_dependency",
+      "model_version": "v0.70.0",
+      "country": "塞尔维亚",
+      "country_slug": "serbia",
+      "score": null,
+      "direction": "not_available",
+      "trend_change": null,
+      "main_drivers": [],
+      "data_completeness": 0,
+      "availability": "insufficient",
+      "confidence": "not_available",
+      "calculation_date": "2026-08-11",
+      "input_year": null,
+      "input_observation_ids": [],
+      "missing_indicator_ids": [
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "germany_export_dependence",
+        "industrial_electricity_price"
       ],
       "inputs": [],
       "related_event_ids": [],
@@ -1173,6 +1623,31 @@
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
     {
+      "model_id": "industrial_dependency",
+      "model_version": "v0.70.0",
+      "country": "奥地利",
+      "country_slug": "austria",
+      "score": null,
+      "direction": "not_available",
+      "trend_change": null,
+      "main_drivers": [],
+      "data_completeness": 0,
+      "availability": "insufficient",
+      "confidence": "not_available",
+      "calculation_date": "2026-08-11",
+      "input_year": null,
+      "input_observation_ids": [],
+      "missing_indicator_ids": [
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "germany_export_dependence",
+        "industrial_electricity_price"
+      ],
+      "inputs": [],
+      "related_event_ids": [],
+      "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
+    },
+    {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
       "country": "克罗地亚",
@@ -1268,6 +1743,31 @@
       "missing_indicator_ids": [
         "current_account_gdp",
         "energy_import_dependency"
+      ],
+      "inputs": [],
+      "related_event_ids": [],
+      "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
+    },
+    {
+      "model_id": "industrial_dependency",
+      "model_version": "v0.70.0",
+      "country": "克罗地亚",
+      "country_slug": "croatia",
+      "score": null,
+      "direction": "not_available",
+      "trend_change": null,
+      "main_drivers": [],
+      "data_completeness": 0,
+      "availability": "insufficient",
+      "confidence": "not_available",
+      "calculation_date": "2026-08-11",
+      "input_year": null,
+      "input_observation_ids": [],
+      "missing_indicator_ids": [
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "germany_export_dependence",
+        "industrial_electricity_price"
       ],
       "inputs": [],
       "related_event_ids": [],

@@ -13,6 +13,7 @@ const availableLayers = [
   { label: "一级行政区结构", value: "结构样例", note: "真实区域统计与公开展示资格尚未全部接入。" },
   { label: "匈牙利 NUTS3 证据", value: "已记录", note: "许可、主键和权威拓扑核验记录已保留。" },
   { label: "对华项目地区定位接口", value: "已预留", note: "可靠 region / city 记录可进入 future project-location layer；正式项目地图未启用。" },
+  { label: "产业依赖与情景图层接口", value: "已预留", note: "模型先在 Models / Scenarios / Country 页面验证；地图色阶与风险图层未启用。" },
 ] as const;
 
 const disabledLayers = ["风险图层", "预测图层", "真实党派支持率图层", "区域评分"] as const;
@@ -39,7 +40,7 @@ export default function MapPage() {
               { label: "国家导航", value: "可用", note: "十国国家选择与国家详情入口保持开放。" },
               { label: "匈牙利 NUTS3 核验", value: "证据已记录", note: "20 个区域的许可、主键与拓扑记录已保留。" },
               { label: "正式真实地图", value: "未启用", note: "仍需独立完成公开展示准入判定。" },
-              { label: "模型与预测", value: "未启用", note: "不生成风险分数或选举预测。" },
+              { label: "模型地图与预测", value: "未启用", note: "模型仅在研究页面验证，不生成地图风险分数或选举预测。" },
             ]}
           />
         </div>

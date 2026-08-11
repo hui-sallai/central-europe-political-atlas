@@ -12,7 +12,7 @@ export default function ScenariosPage() {
       <p className="eyebrow">Scenario Simulation / {platformStatus.version}</p>
       <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">政治经济情景模拟</h1>
       <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-        v0.60 在 v0.50 透明模型之上建立独立情景层。用户设定冲击后，平台只调整对应模型输入并显示基线与情景差值；情景不是预测，不改写原始数据，也不表示未来事实。
+        v0.60 的独立情景框架保持不变。v0.70 接入直接能源价格和对德国出口依赖后，四项情景均可在有合格基线输入的国家重算；情景不是预测，不改写原始数据，也不表示未来事实。
       </p>
 
       <section className="mt-6 grid gap-3 md:grid-cols-4">
@@ -41,9 +41,9 @@ export default function ScenariosPage() {
         <p className="eyebrow">Industrial Dependency Readiness</p>
         <h2 className="mt-3 text-2xl font-semibold">产业依赖模型准入检查</h2>
         <div className="mt-5 grid gap-4 lg:grid-cols-[0.7fr_1.3fr]">
-          <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-amber-950">
-            <p className="text-xs font-semibold uppercase tracking-[0.12em]">Not Ready</p>
-            <p className="mt-2 text-lg font-semibold">本轮不启用模型分数</p>
+          <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5 text-emerald-950">
+            <p className="text-xs font-semibold uppercase tracking-[0.12em]">V0.70 Ready</p>
+            <p className="mt-2 text-lg font-semibold">V4 第一版已启用</p>
             <p className="mt-3 text-sm leading-6">{industrialDependencyReadiness.decision}</p>
           </div>
           <div>

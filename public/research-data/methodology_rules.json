@@ -2,7 +2,7 @@
   "schema_version": "research-data-v0.1",
   "generated_at": "2026-07-27",
   "data_type": "methodology_rules",
-  "record_count": 23,
+  "record_count": 24,
   "model_boundary": "Rules and boundaries only; no model, forecast, or scenario output.",
   "records": [
     {
@@ -387,7 +387,7 @@
       "rule_id": "transparent_models_v050_scope",
       "rule_category": "模型透明度规则",
       "rule_name": "v0.50 透明模型范围规则",
-      "rule_description": "仅启用统一 /models 页面中的居民经济压力、财政压力和外部脆弱性规则模型；不新增 /forecast 或 /scenario，不启用地图风险图层。",
+      "rule_description": "统一 /models 页面保留 v0.50 三项基础模型，并在 v0.70 对 V4 启用产业依赖规则模型；/scenarios 只提供条件式比较，/forecast 不存在，地图风险图层不启用。",
       "applies_to": "models_page,country_pages,methodology,model_cards,model_outputs",
       "required_fields": [
         "model_id",
@@ -416,7 +416,39 @@
       "model_boundary": "分数是比较与分析工具，不是客观风险真值、预测、评级或政策评价。",
       "export_boundary": "model_cards 与 model_outputs 可导出；缺少完整启用输入的国家 score 保持 null。",
       "last_updated": "2026-08-11",
-      "notes": "External Vulnerability 已使用 V4 经常账户/GDP 与能源进口依赖启用；Industrial Dependency 和 China Exposure 仅保留后续接口。"
+      "notes": "Industrial Dependency v0.70 使用制造业占比、汽车出口占比、对德国出口依赖和工业电价；FDI 权重为 0，China Exposure 仍只保留后续接口。"
+    },
+    {
+      "rule_id": "industrial_dependency_transmission_v070",
+      "rule_category": "透明模型规则",
+      "rule_name": "v0.70 产业依赖与冲击传导规则",
+      "rule_description": "V4 产业依赖模型只接纳通过来源、单位、状态和计算口径验收的制造业、汽车出口、双边出口与工业电价观测。",
+      "applies_to": "indicators,observations,model_cards,model_outputs,scenarios_page,country_pages",
+      "required_fields": [
+        "observation_id",
+        "indicator_id",
+        "value",
+        "unit",
+        "source_url",
+        "source_reliability",
+        "calculation_method"
+      ],
+      "allowed_statuses": [
+        "正式数据",
+        "白名单计算值"
+      ],
+      "excluded_statuses": [
+        "待接入",
+        "结构样例",
+        "人工推测",
+        "无来源数值"
+      ],
+      "source_requirement": "优先使用 Eurostat 与 UN Comtrade A 级来源；对德依赖必须使用双边货物出口比重，能源价格必须使用直接价格观测。",
+      "quality_requirement": "计算值必须保留分子、分母或半年值口径；FDI 年流量不直接映射依赖方向，当前正式权重为 0。",
+      "model_boundary": "不预测选举，不生成供应链黑箱分数；情景冲击是用户假设，不是未来事实。",
+      "export_boundary": "model_cards、model_outputs、indicators 与 observations 保留完整追踪；地图图层接口保持未启用。",
+      "last_updated": "2026-08-11",
+      "notes": "Energy Price Shock 与 Germany Demand Slowdown 仅在有合格 V4 基线输入时可计算；不使用能源进口依赖或总出口作替代。"
     },
     {
       "rule_id": "research_data_export_boundary",
