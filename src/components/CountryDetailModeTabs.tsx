@@ -14,6 +14,7 @@ import { getChinaProjectRecords, getExtendedObservationCoverage } from "@/lib/ex
 import { getEventsForCountry } from "@/lib/researchData";
 import { getModelCard, getModelOutputsForCountry } from "@/lib/modelFramework";
 import { getTransmissionObservations } from "@/lib/transmissionData";
+import { getCountryParitySummary, coverageMatrix } from "@/lib/dataParityQa";
 import {
   hungaryAuthoritativeTopologyValidationDecisionSummary,
   hungaryGiscoLicenseVerificationDecisionSummary,
@@ -50,6 +51,17 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
   const projectLinkedEventCount = eventRecords.filter((event) => event.related_project_ids.length > 0).length;
   const coverage = getExtendedObservationCoverage(country.slug);
   const transmissionCoverage = getTransmissionObservations(country.slug);
+  const paritySummary = getCountryParitySummary(country.slug);
+  const countryCommonYears = coverageMatrix
+    .filter((row) => row.countrySlug === country.slug && row.latestCommonYear !== null)
+    .map((row) => row.latestCommonYear as number);
+  const latestCommonYear = countryCommonYears.length > 0 ? Math.min(...countryCommonYears) : null;
+  const latestCommonYearMax = countryCommonYears.length > 0 ? Math.max(...countryCommonYears) : null;
+  const latestCommonYearLabel = latestCommonYear === null
+    ? "待确认"
+    : latestCommonYear === latestCommonYearMax
+      ? String(latestCommonYear)
+      : `${latestCommonYear}–${latestCommonYearMax}`;
   const metadata = getCountryMetadata(country.slug);
   const isV4 = v4CountrySlugs.has(country.slug);
   const isHungary = country.slug === "hungary";
@@ -144,9 +156,15 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
         <h2 className="mt-3 text-2xl font-semibold">核心扩展数据完整度</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           <CoverageStat label="指标覆盖" value="12 / 12" note="十国统一使用财政、外部、投资、能源与产业指标模板。" />
-          <CoverageStat label="观测值覆盖" value={`${coverage.present} / ${coverage.expected}`} note={`2021–2025 共 ${coverage.expected} 个位置；待接入 ${coverage.pending}。`} />
-          <CoverageStat label="正式与计算数据" value={`${coverage.official} / ${coverage.expected}`} note={`其中计算口径 ${coverage.computed}；缺失值不插补。`} />
-          <CoverageStat label="Transmission Data" value={`${transmissionCoverage.filter((item) => item.value !== null).length} / 8`} note="2023–2024 四项传导指标；不适用或未发布值保留为空。" />
+          <CoverageStat label="Latest common year" value={latestCommonYearLabel} note="不同指标的最新共同年份范围；比较仍逐指标锁定同一年。" />
+          <CoverageStat label="待接入 / Model Ready" value={`${paritySummary?.pending ?? coverage.pending} / ${paritySummary?.modelReady ?? 0}`} note="前者为待接入位置；后者为扩展与传导指标中达到现有模型准入的数量。" />
+          <CoverageStat label="Transmission Data" value={`${transmissionCoverage.filter((item) => item.value !== null).length} / 8`} note="德国自身对德出口依赖为不适用，不记作 0 或缺失。" />
+        </div>
+        <div className="mt-4 rounded-2xl border border-[var(--line)] bg-white/60 p-4">
+          <p className="text-xs font-semibold text-[var(--muted)]">主要数据缺口</p>
+          <p className="mt-2 text-sm leading-6">
+            {paritySummary?.priorityGaps.length ? paritySummary.priorityGaps.join("；") : "当前没有高优先级缺口。"}
+          </p>
         </div>
       </section>
 

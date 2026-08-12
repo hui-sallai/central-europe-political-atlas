@@ -10,7 +10,7 @@ export function TransmissionDataSummary() {
 
   return (
     <details className="mt-5 card p-6">
-      <summary className="cursor-pointer text-lg font-semibold">v0.75 十国产业与冲击传导输入</summary>
+      <summary className="cursor-pointer text-lg font-semibold">v0.76 十国产业与冲击传导 QA</summary>
       <p className="mt-3 max-w-4xl text-sm leading-6 text-[var(--muted)]">
         十国统一预留 {transmissionDataSummary.observation_count} 个 2023–2024 观测位置。对德依赖使用双边货物出口比重；工业与居民电价使用统一 Eurostat 消费档位；缺失、不适用或尚未发布的值保持待接入，不用于补分。
       </p>
@@ -27,9 +27,9 @@ export function TransmissionDataSummary() {
                 <td className="px-3 py-3 font-semibold">{researchCountries.find((country) => country.slug === observation.country_slug)?.name_zh ?? observation.country_slug}</td>
                 <td className="px-3 py-3">{transmissionIndicators.find((indicator) => indicator.id === observation.indicator)?.name_zh ?? observation.indicator}</td>
                 <td className="px-3 py-3">{observation.year}</td>
-                <td className="whitespace-nowrap px-3 py-3">{observation.value === null ? "待接入" : `${observation.value} ${observation.unit}`}</td>
+                <td className="whitespace-nowrap px-3 py-3">{observation.applicability_status === "not_applicable" ? "不适用" : observation.value === null ? "待接入" : `${observation.value} ${observation.unit}`}</td>
                 <td className="whitespace-nowrap px-3 py-3">
-                  {observation.value === null ? "待接入" : observation.status === "calculated" ? "A 级来源计算值" : "正式数据"}
+                  {observation.applicability_status === "not_applicable" ? "不适用" : observation.value === null ? "待接入" : observation.status === "calculated" ? "A 级来源计算值" : "正式数据"}
                 </td>
                 <td className="min-w-56 px-3 py-3 text-xs leading-5">
                   <a href={observation.source_url} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)] hover:underline">{observation.source_name}</a>

@@ -3,6 +3,10 @@ import type { Observation } from "../types/Observation";
 import type { DataStatus, SourceReliability } from "../types/DataStatus";
 
 export const crossCountryParityCountrySlugs = [
+  "poland",
+  "hungary",
+  "czechia",
+  "slovakia",
   "germany",
   "austria",
   "romania",
@@ -47,7 +51,53 @@ type ParityRecord = {
   source_reliability: SourceReliability;
   updated_at: string;
   notes: string;
+  applicability_status?: Observation["applicability_status"];
+  comparability_status?: Observation["comparability_status"];
+  source_dataset?: string;
+  source_query_url?: string;
+  numerator?: number | null;
+  denominator?: number | null;
+  numerator_source_url?: string;
+  denominator_source_url?: string;
+  calculation_formula?: string;
+  calculation_year?: number;
 };
+
+function parityMetadata(record: ParityRecord): Pick<Observation,
+  | "applicability_status"
+  | "comparability_status"
+  | "source_dataset"
+  | "source_query_url"
+  | "numerator"
+  | "denominator"
+  | "numerator_source_url"
+  | "denominator_source_url"
+  | "calculation_formula"
+  | "calculation_year"
+> {
+  const germanyBaseline = record.country_slug === "germany" && record.indicator_id === "germany_export_dependence";
+  const serbiaDefinitionMismatch = record.country_slug === "serbia" && [
+    "fiscal_balance_gdp",
+    "government_debt_gdp",
+    "government_revenue_gdp",
+    "government_expenditure_gdp",
+    "current_account_gdp",
+  ].includes(record.indicator_id);
+
+  return {
+    applicability_status: record.applicability_status ?? (germanyBaseline ? "not_applicable" : "applicable"),
+    comparability_status: record.comparability_status
+      ?? (germanyBaseline ? "not_applicable" : serbiaDefinitionMismatch ? "definition_mismatch" : record.value === null ? "pending" : "comparable"),
+    source_dataset: record.source_dataset,
+    source_query_url: record.source_query_url ?? record.source_url,
+    numerator: record.numerator,
+    denominator: record.denominator,
+    numerator_source_url: record.numerator_source_url,
+    denominator_source_url: record.denominator_source_url,
+    calculation_formula: record.calculation_formula,
+    calculation_year: record.calculation_year,
+  };
+}
 
 export type CrossCountryExtendedObservation = {
   countrySlug: string;
@@ -60,6 +110,16 @@ export type CrossCountryExtendedObservation = {
   status: "official" | "pending";
   updatedAt: string;
   note: string;
+  applicabilityStatus?: Observation["applicability_status"];
+  comparabilityStatus?: Observation["comparability_status"];
+  sourceDataset?: string;
+  sourceQueryUrl?: string;
+  numerator?: number | null;
+  denominator?: number | null;
+  numeratorSourceUrl?: string;
+  denominatorSourceUrl?: string;
+  calculationFormula?: string;
+  calculationYear?: number;
 };
 
 const records = parityJson.records as ParityRecord[];
@@ -79,6 +139,16 @@ export const crossCountryExtendedObservations: CrossCountryExtendedObservation[]
     status: record.value === null ? "pending" : "official",
     updatedAt: record.updated_at,
     note: record.notes,
+    applicabilityStatus: parityMetadata(record).applicability_status,
+    comparabilityStatus: parityMetadata(record).comparability_status,
+    sourceDataset: record.source_dataset,
+    sourceQueryUrl: record.source_query_url ?? record.source_url,
+    numerator: record.numerator,
+    denominator: record.denominator,
+    numeratorSourceUrl: record.numerator_source_url,
+    denominatorSourceUrl: record.denominator_source_url,
+    calculationFormula: record.calculation_formula,
+    calculationYear: record.calculation_year,
   }));
 
 export const crossCountryTransmissionObservations: Observation[] = records
@@ -98,6 +168,7 @@ export const crossCountryTransmissionObservations: Observation[] = records
     source_reliability: record.source_reliability,
     updated_at: record.updated_at,
     notes: record.notes,
+    ...parityMetadata(record),
   }));
 
 const calculatedExtendedIds = new Set(["trade_balance", "automotive_export_share"]);
@@ -116,9 +187,10 @@ export const crossCountryExtendedCanonicalObservations: Observation[] = records
     source: record.source_id,
     source_name: record.source_name,
     source_url: record.source_url,
-    source_reliability: record.value === null ? "D" : "A",
+    source_reliability: record.source_reliability,
     updated_at: record.updated_at,
     notes: record.notes,
+    ...parityMetadata(record),
   }));
 
 export const crossCountryParitySummary = {

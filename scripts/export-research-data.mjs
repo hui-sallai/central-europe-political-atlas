@@ -8,10 +8,10 @@ const require = createRequire(import.meta.url);
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outDir = path.join(projectRoot, "public", "research-data");
 const canonicalDataDir = path.join(projectRoot, "src", "data");
-const generatedAt = "2026-08-11";
+const generatedAt = "2026-08-12";
 const schemaVersion = "research-data-v0.1";
-const canonicalGeneratedAt = "2026-08-11";
-const canonicalSchemaVersion = "data-foundation-v0.75";
+const canonicalGeneratedAt = "2026-08-12";
+const canonicalSchemaVersion = "data-foundation-v0.76";
 const chinaExposureDatabaseUpdatedAt = "2026-08-11";
 
 require.extensions[".ts"] = (module, filename) => {
@@ -361,6 +361,16 @@ function standardObservationRecord({
   lastUpdated,
   notes,
   dataset,
+  applicabilityStatus,
+  comparabilityStatus,
+  sourceDataset,
+  sourceQueryUrl,
+  numerator,
+  denominator,
+  numeratorSourceUrl,
+  denominatorSourceUrl,
+  calculationFormula,
+  calculationYear,
 }) {
   const indicator = indicatorDictionaryRecords.find((item) => item.indicatorId === indicatorId);
   const source = sourceRecordForId(sourceId);
@@ -369,7 +379,15 @@ function standardObservationRecord({
   const isPending = valueStatus === "待接入";
   const isStructuralSample = valueStatus === "结构样例";
   const isCoreExtended = dataset === "v4_extended" || dataset === "parity_extended";
-  const comparisonEligible = Boolean(value !== null && value !== undefined && !isStructuralSample);
+  const normalizedApplicability = applicabilityStatus ?? "applicable";
+  const normalizedComparability = comparabilityStatus ?? (isPending ? "pending" : "comparable");
+  const comparisonEligible = Boolean(
+    value !== null
+    && value !== undefined
+    && !isStructuralSample
+    && normalizedApplicability === "applicable"
+    && normalizedComparability === "comparable",
+  );
   const derivedEligible = Boolean(isCoreExtended && comparisonEligible && indicator?.includedInDerivedComparison);
   const noteText = notes?.trim() || "无";
 
@@ -400,6 +418,16 @@ function standardObservationRecord({
     is_in_ranking_change: derivedEligible,
     missing_reason: isPending ? noteText || "数值待接入" : "无",
     calculation_method: valueStatus === "计算值" ? calculationMethodForIndicator(indicatorId) : "无",
+    applicability_status: normalizedApplicability,
+    comparability_status: normalizedComparability,
+    source_dataset: sourceDataset || sourceName || source?.nameEn || "待接入",
+    source_query_url: sourceQueryUrl || sourceUrl || source?.url || "",
+    numerator: numerator ?? null,
+    denominator: denominator ?? null,
+    numerator_source_url: numeratorSourceUrl || "",
+    denominator_source_url: denominatorSourceUrl || "",
+    calculation_formula: calculationFormula || (valueStatus === "计算值" ? calculationMethodForIndicator(indicatorId) : "无"),
+    calculation_year: calculationYear ?? (valueStatus === "计算值" ? Number(year) : null),
     notes: noteText,
   };
 }
@@ -510,6 +538,16 @@ function extendedObservationRecords() {
       lastUpdated: observation.updatedAt,
       notes: observation.note ?? "",
       dataset: isV4Country ? "v4_extended" : "parity_extended",
+      applicabilityStatus: observation.applicabilityStatus,
+      comparabilityStatus: observation.comparabilityStatus,
+      sourceDataset: observation.sourceDataset,
+      sourceQueryUrl: observation.sourceQueryUrl,
+      numerator: observation.numerator,
+      denominator: observation.denominator,
+      numeratorSourceUrl: observation.numeratorSourceUrl,
+      denominatorSourceUrl: observation.denominatorSourceUrl,
+      calculationFormula: observation.calculationFormula,
+      calculationYear: observation.calculationYear,
     });
   });
 }
@@ -623,12 +661,21 @@ function derivedMetricRecords() {
 
 function dataQualityCheckRecords() {
   const parityCountrySlugs = countryMetadataRecords.map((country) => country.country_id);
+  const transmissionIndicatorIds = transmissionIndicators.map((indicator) => indicator.id);
+  const qaIndicatorIds = [...v4TemplateIndicatorIds, ...transmissionIndicatorIds];
   return parityCountrySlugs.flatMap((countryId) =>
-    v4TemplateIndicatorIds.flatMap((indicatorId) =>
-      ["2021", "2022", "2023", "2024", "2025"].map((year) => {
-        const observationId = `${v4QualityCountrySlugs.includes(countryId) ? "v4" : "parity"}:${countryId}:${indicatorId}:${year}`;
+    qaIndicatorIds.flatMap((indicatorId) => {
+      const isTransmission = transmissionIndicatorIds.includes(indicatorId);
+      const years = isTransmission ? ["2023", "2024"] : ["2021", "2022", "2023", "2024", "2025"];
+      return years.map((year) => {
+        const observationId = isTransmission
+          ? `transmission:${countryId}:${indicatorId}:${year}`
+          : `${v4QualityCountrySlugs.includes(countryId) ? "v4" : "parity"}:${countryId}:${indicatorId}:${year}`;
         const observation = observationRecords.find((item) => item.observation_id === observationId);
-        const indicator = indicatorDictionaryRecords.find((item) => item.indicatorId === indicatorId);
+        const indicator = indicatorDictionaryRecords.find((item) => item.indicatorId === indicatorId)
+          ?? transmissionIndicators.find((item) => item.id === indicatorId);
+        const indicatorUnit = indicator?.unit;
+        const indicatorModelEligible = indicator?.futureModelEligible ?? indicator?.future_model_candidate ?? false;
         const valuePresent = observation?.value !== null && observation?.value !== undefined;
         const unitPresent = Boolean(observation?.unit);
         const sourceNamePresent = Boolean(observation?.source_name);
@@ -637,13 +684,20 @@ function dataQualityCheckRecords() {
         const statusPresent = Boolean(observation?.value_status);
         const lastUpdatedPresent = Boolean(observation?.last_updated);
         const sourceReliability = observation?.source_reliability ?? "D";
+        const applicabilityStatus = observation?.applicability_status ?? "applicable";
+        const comparabilityStatus = observation?.comparability_status ?? (observation?.is_pending ? "pending" : "comparable");
+        const calculationTraceComplete = !observation?.is_calculated || Boolean(
+          observation.calculation_formula && observation.calculation_year && observation.source_dataset && observation.source_query_url,
+        );
         const methodologicallyConsistent = Boolean(
           observation &&
           indicator &&
-          observation.unit === indicator.unit &&
+          observation.unit === indicatorUnit &&
           sourceReliabilityPresent &&
-          (observation.is_calculated ? observation.calculation_method !== "无" : true) &&
-          !observation.is_structural_sample,
+          calculationTraceComplete &&
+          !observation.is_structural_sample &&
+          applicabilityStatus === "applicable" &&
+          comparabilityStatus === "comparable",
         );
         const readyForExport = Boolean(
           observation &&
@@ -653,12 +707,25 @@ function dataQualityCheckRecords() {
           sourceReliabilityPresent &&
           statusPresent &&
           lastUpdatedPresent &&
-          (valuePresent || observation.is_pending),
+          (valuePresent || observation.is_pending || applicabilityStatus === "not_applicable"),
         );
-        const readyForDerivedComparison = Boolean(observation?.is_in_mean_gap && observation?.is_in_ranking_change && methodologicallyConsistent);
+        const duplicateCount = observation ? observationRecords.filter((item) => item.country_id === countryId && item.indicator_id === indicatorId && String(item.year) === year).length : 0;
+        const series = observationRecords
+          .filter((item) => item.country_id === countryId && item.indicator_id === indicatorId && item.value !== null)
+          .sort((a, b) => Number(a.year) - Number(b.year));
+        const currentIndex = observation ? series.findIndex((item) => item.observation_id === observation.observation_id) : -1;
+        const previous = currentIndex > 0 ? series[currentIndex - 1] : undefined;
+        const percentageUnit = observation?.unit === "%" || observation?.unit === "% GDP" || observation?.unit === "% exports";
+        const reviewReasons = [
+          duplicateCount > 1 ? "duplicate_observation" : "",
+          percentageUnit && valuePresent && (observation.value < -100 || observation.value > 300) ? "impossible_percentage" : "",
+          previous && previous.value !== 0 && observation?.value !== 0 && Math.sign(previous.value) !== Math.sign(observation.value) ? "sign_reversal" : "",
+          previous && Math.abs(observation.value - previous.value) / Math.max(Math.abs(previous.value), 1) > 1.5 ? "abnormal_yoy_jump" : "",
+        ].filter(Boolean);
+        const readyForDerivedComparison = Boolean(observation?.is_in_cross_country_comparison && methodologicallyConsistent && reviewReasons.length === 0);
         const readyForFutureModelCandidate = Boolean(
           observation &&
-          indicator?.futureModelEligible &&
+          indicatorModelEligible &&
           !observation.is_pending &&
           !observation.is_structural_sample &&
           (sourceReliability === "A" || sourceReliability === "B") &&
@@ -666,23 +733,29 @@ function dataQualityCheckRecords() {
         );
         const qualityIssues = [
           observation ? "" : "观测记录缺失",
-          valuePresent || observation?.is_pending ? "" : "数值缺失但未标记待接入",
+          valuePresent || observation?.is_pending || applicabilityStatus === "not_applicable" ? "" : "数值缺失但未标记待接入",
           unitPresent ? "" : "单位缺失",
           sourceNamePresent ? "" : "来源名称缺失",
           sourceUrlPresent ? "" : "来源链接缺失",
           sourceReliabilityPresent ? "" : "来源等级缺失",
           statusPresent ? "" : "数据状态缺失",
           lastUpdatedPresent ? "" : "更新时间缺失",
-          methodologicallyConsistent ? "" : "方法或单位需复核",
+          methodologicallyConsistent || applicabilityStatus === "not_applicable" || comparabilityStatus === "definition_mismatch" ? "" : "方法、单位或可比性需复核",
+          calculationTraceComplete ? "" : "计算值追溯字段不完整",
+          reviewReasons.length > 0 ? `异常值复核：${reviewReasons.join(",")}` : "",
         ].filter(Boolean);
         const qualityStatus =
-          observation?.is_structural_sample || sourceReliability === "D"
+          applicabilityStatus === "not_applicable"
+            ? "不适用"
+            : comparabilityStatus === "definition_mismatch"
+              ? "定义不一致"
+              : observation?.is_structural_sample || sourceReliability === "D"
             ? "不进入分析"
             : observation?.is_pending
               ? "待接入"
               : qualityIssues.length > 0
                 ? "需复核"
-                : observation?.is_calculated || observation?.is_manual
+                : observation?.is_manual
                   ? "部分通过"
                   : "通过";
 
@@ -709,82 +782,143 @@ function dataQualityCheckRecords() {
           is_ready_for_export: readyForExport,
           is_ready_for_derived_comparison: readyForDerivedComparison,
           is_ready_for_future_model_candidate: readyForFutureModelCandidate,
-          missing_reason: observation?.is_pending ? observation.missing_reason || "数值待接入" : "无",
+          applicability_status: applicabilityStatus,
+          comparability_status: comparabilityStatus,
+          definition_mismatch: comparabilityStatus === "definition_mismatch",
+          source_reliability: sourceReliability,
+          calculation_trace_complete: calculationTraceComplete,
+          review_required: reviewReasons.length > 0,
+          review_reasons: reviewReasons,
+          missing_reason: applicabilityStatus === "not_applicable" ? "不适用" : observation?.is_pending ? observation.missing_reason || "数值待接入" : "无",
           quality_status: qualityStatus,
           quality_notes: qualityIssues.length > 0 ? qualityIssues.join("；") : qualityStatus === "部分通过" ? "计算值或人工整理字段完整，但需保留计算/复核说明。" : "字段完整，可用于导出与事实对照。",
         };
-      }),
-    ),
+      });
+    }),
   );
 }
 
 function derivedComparisonRecords() {
-  return derivedMetricRecords()
-    .filter((record) => record.indicator_id)
-    .map((record) => {
-      const valueFor = (countryId) => record.latest_values.find((item) => item.country_slug === countryId)?.value ?? null;
-      const gapFor = (countryId) => record.mean_comparison.find((item) => item.country_slug === countryId)?.gap_to_v4_mean ?? null;
-      const changeFor = (countryId) => record.five_year_change.find((item) => item.country_slug === countryId)?.change ?? null;
-      const rankFor = (countryId) => record.rank_change.find((item) => item.country_slug === countryId)?.latest_rank ?? null;
-      const biggestGap = record.mean_comparison
-        .filter((item) => item.gap_to_v4_mean !== null)
-        .sort((a, b) => Math.abs(b.gap_to_v4_mean) - Math.abs(a.gap_to_v4_mean))[0];
-      const biggestChange = record.five_year_change
-        .filter((item) => item.change !== null)
-        .sort((a, b) => Math.abs(b.change) - Math.abs(a.change))[0];
-      const qualityCells = dataQualityCheckRecords().filter((cell) => cell.indicator_id === record.indicator_id && v4QualityCountrySlugs.includes(cell.country_id));
-      const latestValueCount = record.latest_values.filter((item) => item.value !== null).length;
-      const missingObservationCount = qualityCells.filter((cell) => cell.is_pending).length;
-      const comparisonStatus =
-        qualityCells.some((cell) => cell.quality_status === "不进入分析")
-          ? "不进入分析"
-          : latestValueCount === 0
-            ? "待接入"
-            : latestValueCount < 4
-              ? "数据不足"
-              : missingObservationCount > 0
-                ? "部分可比较"
-                : "可比较";
+  const countries = countryMetadataRecords.map((country) => country.country_id);
+  const quality = dataQualityCheckRecords();
 
-      return {
-        comparison_id: record.derived_metric_id.replace("v4_latest_comparison:", "v4_derived_comparison:"),
-        section: categoryLabels[record.category] ?? record.category,
-        indicator_id: record.indicator_id,
-        indicator_name: record.indicator_name_zh,
-        latest_comparable_year: record.latest_values.map((item) => item.date).filter(Boolean).sort().at(-1) ?? "",
-        poland_value: valueFor("poland"),
-        hungary_value: valueFor("hungary"),
-        czechia_value: valueFor("czechia"),
-        slovakia_value: valueFor("slovakia"),
-        unit: record.unit,
-        highest_value: record.highest_value,
-        highest_country: record.highest_countries.join(" / ") || "",
-        lowest_value: record.lowest_value,
-        lowest_country: record.lowest_countries.join(" / ") || "",
-        v4_average: record.v4_mean,
-        poland_gap_from_v4_average: gapFor("poland"),
-        hungary_gap_from_v4_average: gapFor("hungary"),
-        czechia_gap_from_v4_average: gapFor("czechia"),
-        slovakia_gap_from_v4_average: gapFor("slovakia"),
-        largest_gap_country: biggestGap?.country_slug ?? "",
-        largest_gap_value: biggestGap?.gap_to_v4_mean ?? null,
-        poland_five_year_change: changeFor("poland"),
-        hungary_five_year_change: changeFor("hungary"),
-        czechia_five_year_change: changeFor("czechia"),
-        slovakia_five_year_change: changeFor("slovakia"),
-        largest_five_year_change_country: biggestChange?.country_slug ?? "",
-        largest_five_year_change_value: biggestChange?.change ?? null,
-        poland_rank: rankFor("poland"),
-        hungary_rank: rankFor("hungary"),
-        czechia_rank: rankFor("czechia"),
-        slovakia_rank: rankFor("slovakia"),
-        missing_observation_count: missingObservationCount,
-        calculated_value_count: qualityCells.filter((cell) => cell.is_calculated).length,
-        comparison_status: comparisonStatus,
-        interpretation_boundary: "仅表示事实位置，不代表风险、预测或政策优劣。",
-        notes: "派生自 V4 2021-2025 扩展观测值；待接入值不参与最高、最低、均值、差距、变化和排名计算。",
-      };
+  return v4TemplateIndicatorIds.map((indicatorId) => {
+    const indicator = indicatorDictionaryRecords.find((item) => item.indicatorId === indicatorId);
+    const excludedCountries = countries.filter((countryId) => quality.some(
+      (cell) => cell.country_id === countryId && cell.indicator_id === indicatorId && cell.comparability_status === "definition_mismatch",
+    ));
+    const eligibleCountries = countries.filter((countryId) => !excludedCountries.includes(countryId));
+    const commonYear = [2025, 2024, 2023, 2022, 2021].find((year) => eligibleCountries.every((countryId) => quality.some(
+      (cell) => cell.country_id === countryId && cell.indicator_id === indicatorId && Number(cell.year) === year && cell.is_ready_for_derived_comparison,
+    ))) ?? null;
+    const values = countries.map((countryId) => {
+      const observation = commonYear === null ? undefined : observationRecords.find(
+        (item) => item.country_id === countryId && item.indicator_id === indicatorId && Number(item.year) === commonYear,
+      );
+      const ready = Boolean(observation && quality.some((cell) => cell.observation_id === observation.observation_id && cell.is_ready_for_derived_comparison));
+      return { country_id: countryId, value: ready ? observation.value : null };
     });
+    const numericValues = values.filter((item) => item.value !== null);
+    const average = numericValues.length ? numericValues.reduce((sum, item) => sum + item.value, 0) / numericValues.length : null;
+    const ranked = [...numericValues].sort((a, b) => b.value - a.value);
+    const highest = ranked[0] ?? null;
+    const lowest = ranked.at(-1) ?? null;
+    const gaps = values.map((item) => ({ ...item, gap: item.value !== null && average !== null ? item.value - average : null }));
+    const largestGap = gaps.filter((item) => item.gap !== null).sort((a, b) => Math.abs(b.gap) - Math.abs(a.gap))[0];
+    const valueFor = (countryId) => values.find((item) => item.country_id === countryId)?.value ?? null;
+    const gapFor = (countryId) => gaps.find((item) => item.country_id === countryId)?.gap ?? null;
+    const rankFor = (countryId) => {
+      const index = ranked.findIndex((item) => item.country_id === countryId);
+      return index < 0 ? null : index + 1;
+    };
+
+    return {
+      comparison_id: `ten_country_derived_comparison:${indicatorId}`,
+      comparison_scope: "ten_country_comparable_subset",
+      section: categoryLabels[indicator?.category] ?? indicator?.category ?? "unknown",
+      indicator_id: indicatorId,
+      indicator_name: indicator?.nameZh ?? indicatorId,
+      latest_comparable_year: commonYear,
+      country_values: values,
+      eligible_countries: eligibleCountries,
+      excluded_countries: excludedCountries,
+      poland_value: valueFor("poland"),
+      hungary_value: valueFor("hungary"),
+      czechia_value: valueFor("czechia"),
+      slovakia_value: valueFor("slovakia"),
+      unit: indicator?.unit ?? "",
+      highest_value: highest?.value ?? null,
+      highest_country: highest?.country_id ?? "",
+      lowest_value: lowest?.value ?? null,
+      lowest_country: lowest?.country_id ?? "",
+      v4_average: average,
+      ten_country_comparable_average: average,
+      poland_gap_from_v4_average: gapFor("poland"),
+      hungary_gap_from_v4_average: gapFor("hungary"),
+      czechia_gap_from_v4_average: gapFor("czechia"),
+      slovakia_gap_from_v4_average: gapFor("slovakia"),
+      largest_gap_country: largestGap?.country_id ?? "",
+      largest_gap_value: largestGap?.gap ?? null,
+      poland_five_year_change: null,
+      hungary_five_year_change: null,
+      czechia_five_year_change: null,
+      slovakia_five_year_change: null,
+      largest_five_year_change_country: "",
+      largest_five_year_change_value: null,
+      poland_rank: rankFor("poland"),
+      hungary_rank: rankFor("hungary"),
+      czechia_rank: rankFor("czechia"),
+      slovakia_rank: rankFor("slovakia"),
+      missing_observation_count: quality.filter((cell) => cell.indicator_id === indicatorId && (cell.is_pending || cell.comparability_status === "definition_mismatch")).length,
+      calculated_value_count: quality.filter((cell) => cell.indicator_id === indicatorId && cell.is_calculated).length,
+      comparison_status: commonYear === null ? "数据不足" : excludedCountries.length ? "部分可比较" : "可比较",
+      interpretation_boundary: "仅表示同年、同定义、质量通过记录的事实位置，不代表风险、预测或政策优劣。",
+      notes: "v0.76 使用最新共同年份；定义不一致、待接入、不适用或质量未通过记录不进入排名和均值。旧 V4 字段仅为展示兼容。",
+    };
+  });
+}
+
+function coverageMatrixRecords() {
+  const countries = countryMetadataRecords.map((country) => country.country_id);
+  const indicatorIds = [...v4TemplateIndicatorIds, ...transmissionIndicators.map((indicator) => indicator.id)];
+  const quality = dataQualityCheckRecords();
+  const commonYearByIndicator = new Map(derivedComparisonRecords().map((record) => [record.indicator_id, record.latest_comparable_year]));
+
+  return countries.flatMap((countryId) => indicatorIds.map((indicatorId) => {
+    const expectedYears = transmissionIndicators.some((indicator) => indicator.id === indicatorId)
+      ? [2023, 2024]
+      : [2021, 2022, 2023, 2024, 2025];
+    const cells = quality.filter((cell) => cell.country_id === countryId && cell.indicator_id === indicatorId);
+    const availableYears = cells.filter((cell) => cell.value_present && cell.comparability_status === "comparable").map((cell) => Number(cell.year));
+    const pendingYears = cells.filter((cell) => cell.is_pending && cell.comparability_status === "pending").map((cell) => Number(cell.year));
+    const missingYears = expectedYears.filter((year) => !cells.some((cell) => Number(cell.year) === year));
+    const notApplicableYears = cells.filter((cell) => cell.applicability_status === "not_applicable").map((cell) => Number(cell.year));
+    const definitionMismatchYears = cells.filter((cell) => cell.comparability_status === "definition_mismatch").map((cell) => Number(cell.year));
+    const applicableCount = expectedYears.length - notApplicableYears.length;
+    const sourceReliability = [...new Set(cells.map((cell) => cell.source_reliability))].sort().join("/") || "D";
+    const qualityStatuses = [...new Set(cells.map((cell) => cell.quality_status))];
+    const modelEligible = cells.some((cell) => cell.is_ready_for_future_model_candidate);
+
+    return {
+      coverage_id: `coverage:${countryId}:${indicatorId}`,
+      country_id: countryId,
+      indicator_id: indicatorId,
+      expected_years: expectedYears,
+      available_years: availableYears,
+      pending_years: pendingYears,
+      missing_years: missingYears,
+      not_applicable_years: notApplicableYears,
+      definition_mismatch_years: definitionMismatchYears,
+      source_reliability: sourceReliability,
+      quality_status: qualityStatuses,
+      model_eligibility: modelEligible,
+      latest_available_year: availableYears.at(-1) ?? null,
+      latest_common_year: commonYearByIndicator.get(indicatorId) ?? null,
+      coverage_ratio: applicableCount === 0 ? 1 : availableYears.length / applicableCount,
+      review_required_count: cells.filter((cell) => cell.review_required).length,
+      comparison_note: "latest_common_year 只基于同定义、同单位、质量通过的记录；传导指标的共同年份由 QA 层按同规则消费。",
+    };
+  }));
 }
 
 function methodologyRuleRecords() {
@@ -1173,6 +1307,22 @@ function methodologyRuleRecords() {
       last_updated: "2026-08-02",
       notes: "authoritative_topology_checked=true；public_display_ready=false；is_ready_for_display=false；正式展示仍需下一阶段单独准入。",
     },
+    {
+      rule_id: "cross_country_data_parity_qa_v076",
+      rule_category: "观测值规则",
+      rule_name: "十国数据可比性与缺口收口规则",
+      rule_description: "v0.76 从 canonical observations 自动计算覆盖率、最新可得年份、最新共同年份、可比性、来源等级、质量状态与模型准入；不以填满表格为目标。",
+      applies_to: "observations,data_quality_checks,derived_comparisons,model_outputs,scenario_results,data_page,country_pages",
+      required_fields: ["country_id", "indicator_id", "year", "value", "unit", "value_status", "source_name", "source_url", "source_reliability", "comparability_status", "applicability_status", "last_updated"],
+      allowed_statuses: ["comparable", "partial_comparability", "definition_mismatch", "pending", "not_applicable", "review_required"],
+      excluded_statuses: ["结构样例", "无来源观测", "定义不一致排名", "跨年份排名", "自动插值"],
+      source_requirement: "优先使用 Eurostat、UN Comtrade、IMF、OECD、国家统计局、央行和部委等 A/B 级来源；无法保持同定义时继续 pending 或 definition_mismatch。",
+      quality_requirement: "跨国排名、均值差距和模型输入必须同年、同单位、同定义、A/B 级来源且质量通过；计算值还须保留分子、分母、源数据集、查询链接、公式与年份。",
+      model_boundary: "v0.76 不修改模型公式、权重或阈值；只按新增合格 observation 重算 availability。异常值仅标记 review_required，不自动修改。",
+      export_boundary: "复用 observations、data_quality_checks 和 derived_comparisons；不新增逻辑层。",
+      last_updated: "2026-08-12",
+      notes: "德国 germany_export_dependence=not_applicable；塞尔维亚财政与经常账户当前为 definition_mismatch，不进入十国排名。",
+    },
   ];
 }
 
@@ -1247,7 +1397,7 @@ const transmissionObservationRecords = transmissionObservations.map((observation
   period: observation.year,
   value: observation.value,
   unit: observation.unit,
-  value_status: observation.status === "calculated" ? "计算值" : "正式数据",
+  value_status: observation.applicability_status === "not_applicable" ? "不适用" : observation.value === null ? "待接入" : observation.status === "calculated" ? "计算值" : "正式数据",
   source_id: observation.source,
   source_name: observation.source_name,
   source_url: observation.source_url,
@@ -1255,16 +1405,26 @@ const transmissionObservationRecords = transmissionObservations.map((observation
   source_status: "官方",
   last_updated: observation.updated_at,
   is_official_data: observation.status === "official",
-  is_pending: false,
+  is_pending: observation.value === null && observation.applicability_status !== "not_applicable",
   is_calculated: observation.status === "calculated",
   is_manual: false,
   is_structural_sample: false,
-  is_in_cross_country_comparison: true,
+  is_in_cross_country_comparison: observation.value !== null && observation.comparability_status !== "definition_mismatch" && observation.applicability_status !== "not_applicable",
   is_in_five_year_change: false,
   is_in_mean_gap: false,
   is_in_ranking_change: false,
-  missing_reason: "无",
+  missing_reason: observation.applicability_status === "not_applicable" ? "不适用" : observation.value === null ? observation.notes : "无",
   calculation_method: observation.status === "calculated" ? observation.notes : "无",
+  applicability_status: observation.applicability_status ?? "applicable",
+  comparability_status: observation.comparability_status ?? (observation.value === null ? "pending" : "comparable"),
+  source_dataset: observation.source_dataset ?? observation.source_name,
+  source_query_url: observation.source_query_url ?? observation.source_url,
+  numerator: observation.numerator ?? null,
+  denominator: observation.denominator ?? null,
+  numerator_source_url: observation.numerator_source_url ?? "",
+  denominator_source_url: observation.denominator_source_url ?? "",
+  calculation_formula: observation.calculation_formula ?? (observation.status === "calculated" ? observation.notes : "无"),
+  calculation_year: observation.calculation_year ?? (observation.status === "calculated" ? observation.year : null),
   notes: observation.notes,
 }));
 const observationRecords = [...economicObservationRecords(), ...extendedObservationRecords(), ...transmissionObservationRecords];
@@ -1427,6 +1587,16 @@ const canonicalObservationRecords = observationRecords.map((observation) => {
     source_url: observation.source_url,
     source_reliability: observation.source_reliability,
     updated_at: observation.last_updated,
+    applicability_status: observation.applicability_status,
+    comparability_status: observation.comparability_status,
+    source_dataset: observation.source_dataset,
+    source_query_url: observation.source_query_url,
+    numerator: observation.numerator,
+    denominator: observation.denominator,
+    numerator_source_url: observation.numerator_source_url,
+    denominator_source_url: observation.denominator_source_url,
+    calculation_formula: observation.calculation_formula,
+    calculation_year: observation.calculation_year,
     notes: observation.notes,
   };
 });
@@ -1516,6 +1686,7 @@ const canonicalProjectRecords = chinaProjectExportRecords.map((project) => ({
 }));
 
 const dataQualityRecords = dataQualityCheckRecords();
+const coverageMatrixExportRecords = coverageMatrixRecords();
 const derivedComparisonExportRecords = derivedComparisonRecords();
 const methodologyRecords = methodologyRuleRecords();
 
@@ -1604,7 +1775,17 @@ writeLayer("observations", observationRecords, {
   relation_note: "Every observation references country_id, indicator_id, and source_id.",
 });
 writeLayer("data_quality_checks", dataQualityRecords, {
-  scope: "10 countries x 12 core extended indicators x 2021-2025 = 600 observation positions.",
+  scope: "10 countries x 12 core extended indicators x 2021-2025 plus 4 transmission indicators x 2023-2024 = 680 QA positions.",
+  summary: {
+    total_positions: dataQualityRecords.length,
+    passed: dataQualityRecords.filter((item) => item.quality_status === "通过").length,
+    partially_passed: dataQualityRecords.filter((item) => item.quality_status === "部分通过").length,
+    pending: dataQualityRecords.filter((item) => item.quality_status === "待接入").length,
+    review_required: dataQualityRecords.filter((item) => item.quality_status === "需复核").length,
+    not_applicable: dataQualityRecords.filter((item) => item.quality_status === "不适用").length,
+    definition_mismatch: dataQualityRecords.filter((item) => item.quality_status === "定义不一致").length,
+  },
+  coverage_matrix: coverageMatrixExportRecords,
 });
 writeLayer("derived_comparisons", derivedComparisonExportRecords, {
   model_boundary: "Fact-derived comparison layer only. No risk score, forecast, scenario, or model output.",

@@ -184,12 +184,12 @@ const v4TransmissionObservations: Observation[] = (Object.keys(countryMeta) as V
 });
 
 export const transmissionObservations: Observation[] = [
-  ...v4TransmissionObservations,
+  ...v4TransmissionObservations.filter((item) => !crossCountryTransmissionObservations.some((candidate) => candidate.id === item.id)),
   ...crossCountryTransmissionObservations,
 ];
 
 export const transmissionDataSummary = {
-  countries: [...(Object.keys(countryMeta) as V4Slug[]), ...crossCountryParityCountrySlugs],
+  countries: [...new Set([...(Object.keys(countryMeta) as V4Slug[]), ...crossCountryParityCountrySlugs])],
   indicators: transmissionIndicators.map((indicator) => indicator.id),
   years: [2023, 2024],
   observation_count: transmissionObservations.length,

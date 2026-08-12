@@ -1,6 +1,6 @@
 {
   "schema_version": "transparent-model-v0.70",
-  "generated_at": "2026-08-11",
+  "generated_at": "2026-08-12",
   "data_type": "model_cards",
   "record_count": 4,
   "primary_key": "model_id",
@@ -54,11 +54,11 @@
       "weight_history": [
         {
           "version": "v0.50.0",
-          "effective_date": "2026-08-11",
+          "effective_date": "2026-08-12",
           "note": "首版：通胀率 50%，失业率 50%。"
         }
       ],
-      "calculation_date": "2026-08-11"
+      "calculation_date": "2026-08-12"
     },
     {
       "model_id": "fiscal_pressure",
@@ -109,11 +109,11 @@
       "weight_history": [
         {
           "version": "v0.50.0",
-          "effective_date": "2026-08-11",
+          "effective_date": "2026-08-12",
           "note": "首版：财政赤字/GDP 50%，政府债务/GDP 50%。"
         }
       ],
-      "calculation_date": "2026-08-11"
+      "calculation_date": "2026-08-12"
     },
     {
       "model_id": "external_vulnerability",
@@ -166,11 +166,11 @@
       "weight_history": [
         {
           "version": "v0.50.0",
-          "effective_date": "2026-08-11",
+          "effective_date": "2026-08-12",
           "note": "首版：经常账户/GDP 50%，能源进口依赖 50%。"
         }
       ],
-      "calculation_date": "2026-08-11"
+      "calculation_date": "2026-08-12"
     },
     {
       "model_id": "industrial_dependency",
@@ -242,11 +242,11 @@
       "weight_history": [
         {
           "version": "v0.70.0",
-          "effective_date": "2026-08-11",
+          "effective_date": "2026-08-12",
           "note": "首版：制造业 25%，汽车出口 30%，对德出口依赖 30%，工业电价 15%；FDI 权重为 0。"
         }
       ],
-      "calculation_date": "2026-08-11"
+      "calculation_date": "2026-08-12"
     }
   ]
 }

@@ -15,7 +15,7 @@ import type {
 import { transmissionIndicators, transmissionObservations } from "./transmissionData";
 import { crossCountryExtendedCanonicalObservations } from "./crossCountryParityData";
 
-const CALCULATION_DATE = "2026-08-11";
+const CALCULATION_DATE = "2026-08-12";
 const MODEL_VERSION = "v0.50.0";
 const INDUSTRIAL_MODEL_VERSION = "v0.70.0";
 const PARTIAL_SCORE_THRESHOLD = 0.75;
@@ -233,7 +233,9 @@ function eligibleObservation(observation: Observation | undefined) {
     && (observation.source_reliability === "A" || observation.source_reliability === "B")
     && observation.source_name
     && observation.source_url
-    && observation.updated_at,
+    && observation.updated_at
+    && observation.applicability_status !== "not_applicable"
+    && observation.comparability_status !== "definition_mismatch"
   );
 }
 

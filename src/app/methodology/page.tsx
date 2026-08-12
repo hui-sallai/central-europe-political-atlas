@@ -167,19 +167,19 @@ export default function MethodologyPage() {
           ))}
         </ol>
         <p className="mt-4 rounded-2xl bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--muted)]">
-          v0.50 的三个基础模型和 v0.70 产业依赖规则保持原口径；v0.75 只将合格输入与准入记录扩展到十国。每个输出仍保留 observation_id、来源、标准化值、权重和贡献。
+          v0.50 的三个基础模型和 v0.70 产业依赖规则保持原口径；v0.76 只按质量、同年可比与模型准入结果重算可用性。每个输出仍保留 observation_id、来源、标准化值、权重和贡献。
         </p>
       </section>
 
       <section className="mt-6 card p-6">
-        <p className="eyebrow">v0.75 Cross-Country Data Parity</p>
-        <h2 className="mt-3 text-2xl font-semibold">十国数据深度统一规则</h2>
+        <p className="eyebrow">v0.76 Data Parity QA &amp; Gap Closure</p>
+        <h2 className="mt-3 text-2xl font-semibold">十国数据质量与可比性规则</h2>
         <div className="mt-5 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
           {[
             ["核心扩展结构", "十国 × 12 指标 × 2021–2025，共 600 个观测位置"],
             ["Transmission 结构", "十国 × 4 指标 × 2023–2024，共 80 个观测位置"],
             ["来源原则", "Eurostat 与 UN Comtrade 等 A 级来源优先"],
-            ["缺失规则", "未发布、不适用或无法核验的值保持 pending，不插值"],
+            ["缺失规则", "未发布保持 pending；不适用和定义不一致单独记录，不写成 0"],
           ].map(([label, note]) => (
             <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
               <h3 className="font-semibold">{label}</h3>
@@ -188,7 +188,10 @@ export default function MethodologyPage() {
           ))}
         </div>
         <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
-          指标进入跨国比较或既有模型仍须逐条通过单位、口径、来源链接、状态和更新时间验收。v0.75 只统一数据深度与准入记录，不修改模型权重、情景公式或地图展示状态；德国自身的“对德国出口依赖”按不适用处理，不以零值替代。
+          指标进入跨国比较或既有模型须逐条通过单位、定义、来源链接、等级、状态、更新时间和计算追溯验收。排名与均值只使用 latest_common_year；定义不一致、待接入、不适用和 review_required 记录均排除。v0.76 不修改模型权重、情景公式或地图展示状态；德国自身的“对德国出口依赖”按不适用处理，不以零值替代。
+        </p>
+        <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
+          计算值必须保存 numerator、denominator、source_dataset、source_query_url、calculation_formula 与 calculation_year。同比异常、符号反转、重复记录、单位冲突和不可能百分比只触发 review_required，不自动改写原始 observation。
         </p>
       </section>
 

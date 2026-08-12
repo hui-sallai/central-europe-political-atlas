@@ -1,12 +1,16 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const UPDATED_AT = "2026-08-11";
+const UPDATED_AT = "2026-08-12";
 const OUTPUT_PATH = path.join(process.cwd(), "src", "data", "observations", "v075-cross-country-parity.json");
 const YEARS = [2021, 2022, 2023, 2024, 2025];
 const TRANSMISSION_YEARS = [2023, 2024];
 
 const countries = {
+  poland: { iso3: "POL", geo: "PL", comtrade: 616 },
+  hungary: { iso3: "HUN", geo: "HU", comtrade: 348 },
+  czechia: { iso3: "CZE", geo: "CZ", comtrade: 203 },
+  slovakia: { iso3: "SVK", geo: "SK", comtrade: 703 },
   germany: { iso3: "DEU", geo: "DE", comtrade: 276 },
   austria: { iso3: "AUT", geo: "AT", comtrade: 40 },
   romania: { iso3: "ROU", geo: "RO", comtrade: 642 },
@@ -99,8 +103,16 @@ function exactEurostatUrl(dataset, filters, geo, period) {
   return buildEurostatUrl(dataset, filters, [geo], period, period);
 }
 
-function extendedRecord(countrySlug, indicatorId, year, value, unit, dataset, filters, note = "") {
+function extendedRecord(countrySlug, indicatorId, year, value, unit, dataset, filters, note = "", trace = {}) {
   const country = countries[countrySlug];
+  const sourceUrl = exactEurostatUrl(dataset, filters, country.geo, year);
+  const serbiaDefinitionMismatch = countrySlug === "serbia" && [
+    "fiscal_balance_gdp",
+    "government_debt_gdp",
+    "government_revenue_gdp",
+    "government_expenditure_gdp",
+    "current_account_gdp",
+  ].includes(indicatorId);
   return {
     country_slug: countrySlug,
     country_iso3: country.iso3,
@@ -111,15 +123,24 @@ function extendedRecord(countrySlug, indicatorId, year, value, unit, dataset, fi
     status: value === null ? "pending" : "official",
     source_id: "eurostat",
     source_name: "Eurostat",
-    source_url: exactEurostatUrl(dataset, filters, country.geo, year),
+    source_url: sourceUrl,
     source_reliability: "A",
     updated_at: UPDATED_AT,
-    notes: value === null ? `Eurostat 当前未返回 ${year} 年可用值；保留为空，不插值。${note}` : note,
+    applicability_status: "applicable",
+    comparability_status: serbiaDefinitionMismatch ? "definition_mismatch" : value === null ? "pending" : "comparable",
+    source_dataset: `Eurostat ${dataset}`,
+    source_query_url: sourceUrl,
+    calculation_year: trace.calculation_formula ? year : undefined,
+    ...trace,
+    notes: value === null
+      ? `${serbiaDefinitionMismatch ? "该 Eurostat 同口径模板当前不覆盖塞尔维亚；其他官方口径仅作替代证据，暂不进入十国比较。" : `Eurostat 当前未返回 ${year} 年可用值；保留为空，不插值。`}${note}`
+      : note,
   };
 }
 
-function transmissionRecord(countrySlug, indicatorId, year, value, unit, status, sourceId, sourceName, sourceUrl, notes) {
+function transmissionRecord(countrySlug, indicatorId, year, value, unit, status, sourceId, sourceName, sourceUrl, notes, trace = {}) {
   const country = countries[countrySlug];
+  const notApplicable = countrySlug === "germany" && indicatorId === "germany_export_dependence";
   return {
     country_slug: countrySlug,
     country_iso3: country.iso3,
@@ -131,8 +152,14 @@ function transmissionRecord(countrySlug, indicatorId, year, value, unit, status,
     source_id: sourceId,
     source_name: sourceName,
     source_url: sourceUrl,
-    source_reliability: value === null ? "D" : "A",
+    source_reliability: "A",
     updated_at: UPDATED_AT,
+    applicability_status: notApplicable ? "not_applicable" : "applicable",
+    comparability_status: notApplicable ? "not_applicable" : value === null ? "pending" : "comparable",
+    source_dataset: sourceName,
+    source_query_url: sourceUrl,
+    calculation_year: status === "calculated" ? year : undefined,
+    ...trace,
     notes,
   };
 }
@@ -204,6 +231,13 @@ async function main() {
         "nama_10_gdp",
         { freq: "A", unit: "CP_MEUR", na_item: "P6" },
         "由同年 Eurostat P6 出口减 P7 进口计算。",
+        {
+          numerator: exports,
+          denominator: imports,
+          numerator_source_url: exactEurostatUrl("nama_10_gdp", { freq: "A", unit: "CP_MEUR", na_item: "P6" }, countries[countrySlug].geo, year),
+          denominator_source_url: exactEurostatUrl("nama_10_gdp", { freq: "A", unit: "CP_MEUR", na_item: "P7" }, countries[countrySlug].geo, year),
+          calculation_formula: "exports_goods_services - imports_goods_services",
+        },
       ));
 
       const c29 = automotiveC29.values[countrySlug][year];
@@ -217,6 +251,13 @@ async function main() {
         "ext_tec09",
         { freq: "A", unit: "THS_EUR", stk_flow: "EXP", partner: "WORLD", nace_r2: "C29" },
         "由 Eurostat ext_tec09 计算：NACE C29 出口 / 全部 NACE 出口。",
+        {
+          numerator: c29,
+          denominator: total,
+          numerator_source_url: exactEurostatUrl("ext_tec09", { freq: "A", unit: "THS_EUR", stk_flow: "EXP", partner: "WORLD", nace_r2: "C29" }, countries[countrySlug].geo, year),
+          denominator_source_url: exactEurostatUrl("ext_tec09", { freq: "A", unit: "THS_EUR", stk_flow: "EXP", partner: "WORLD", nace_r2: "TOTAL" }, countries[countrySlug].geo, year),
+          calculation_formula: "NACE_C29_exports / total_NACE_exports * 100",
+        },
       ));
     }
   }
@@ -241,6 +282,7 @@ async function main() {
           "UN Comtrade",
           "https://comtradeplus.un.org/",
           "德国作为目的国基准不适用“对德国出口依赖”指标；保留空值，不以国内贸易或总出口替代。",
+          { calculation_formula: "not_applicable_for_reference_country" },
         ));
       } else {
         const germanyExports = await comtradeValue(country.comtrade, year, 276);
@@ -261,6 +303,13 @@ async function main() {
           "UN Comtrade",
           germanyExports.url,
           `对德国货物出口 / 对世界货物出口 × 100；分母查询：${worldExports.url}`,
+          {
+            numerator: germanyExports.value,
+            denominator: worldExports.value,
+            numerator_source_url: germanyExports.url,
+            denominator_source_url: worldExports.url,
+            calculation_formula: "exports_to_Germany / exports_to_world * 100",
+          },
         ));
       }
 
@@ -284,6 +333,17 @@ async function main() {
             ? { freq: "S", currency: "EUR", nrg_cons: "MWH500-1999", unit: "KWH", tax: "I_TAX" }
             : { freq: "S", currency: "EUR", nrg_cons: "KWH2500-4999", unit: "KWH", tax: "I_TAX" }, country.geo, `${year}-S1`),
           notes,
+          {
+            numerator: first,
+            denominator: second,
+            numerator_source_url: exactEurostatUrl(dataset, dataset === "nrg_pc_205"
+              ? { freq: "S", currency: "EUR", nrg_cons: "MWH500-1999", unit: "KWH", tax: "I_TAX" }
+              : { freq: "S", currency: "EUR", nrg_cons: "KWH2500-4999", unit: "KWH", tax: "I_TAX" }, country.geo, `${year}-S1`),
+            denominator_source_url: exactEurostatUrl(dataset, dataset === "nrg_pc_205"
+              ? { freq: "S", currency: "EUR", nrg_cons: "MWH500-1999", unit: "KWH", tax: "I_TAX" }
+              : { freq: "S", currency: "EUR", nrg_cons: "KWH2500-4999", unit: "KWH", tax: "I_TAX" }, country.geo, `${year}-S2`),
+            calculation_formula: "(semester_1 + semester_2) / 2",
+          },
         ));
       }
 
@@ -303,7 +363,7 @@ async function main() {
   }
 
   const payload = {
-    schema_version: "cross-country-parity-v0.75",
+    schema_version: "cross-country-parity-v0.76",
     generated_at: UPDATED_AT,
     data_type: "v075_cross_country_parity",
     countries: Object.keys(countries),
@@ -312,7 +372,7 @@ async function main() {
     transmission_indicator_count: 4,
     transmission_year_coverage: "2023-2024",
     record_count: extended.length + transmission.length,
-    source_policy: "Eurostat and UN Comtrade A-level official sources; unavailable values remain null/pending.",
+    source_policy: "Eurostat and UN Comtrade A-level official sources; unavailable values remain null/pending; definition mismatches and not-applicable cells remain excluded from comparison.",
     records: [...extended, ...transmission],
   };
 

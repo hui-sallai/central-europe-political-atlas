@@ -33,6 +33,16 @@ export type ExtendedObservation = {
   status: ObservationStatus;
   updatedAt: string;
   note?: string;
+  applicabilityStatus?: "applicable" | "not_applicable";
+  comparabilityStatus?: "comparable" | "partial_comparability" | "definition_mismatch" | "not_applicable" | "pending";
+  sourceDataset?: string;
+  sourceQueryUrl?: string;
+  numerator?: number | null;
+  denominator?: number | null;
+  numeratorSourceUrl?: string;
+  denominatorSourceUrl?: string;
+  calculationFormula?: string;
+  calculationYear?: number;
 };
 
 export type ChinaProjectRecord = {
@@ -200,6 +210,16 @@ function obs(
     status: value === null ? "pending" : "official",
     updatedAt,
     note: finalNote,
+    applicabilityStatus: "applicable",
+    comparabilityStatus: value === null ? "pending" : "comparable",
+    sourceDataset: "Eurostat",
+    sourceQueryUrl: sourceUrl,
+    calculationFormula: indicatorId === "trade_balance"
+      ? "exports_goods_services - imports_goods_services"
+      : indicatorId === "automotive_export_share"
+        ? "NACE_C29_exports / total_NACE_exports * 100"
+        : undefined,
+    calculationYear: indicatorId === "trade_balance" || indicatorId === "automotive_export_share" ? Number(date) : undefined,
   };
 }
 
@@ -276,7 +296,7 @@ function historicalRowToObservations([countrySlug, date, deficit, debt, revenue,
 
 const historicalExtendedObservations = historicalV4Rows.flatMap(historicalRowToObservations);
 
-export const extendedObservations: ExtendedObservation[] = [
+const legacyExtendedObservations: ExtendedObservation[] = [
   ...([
     ["poland", -6.4, 54.8, 42.8, 49.2, 442878.2, 409202.0, 33676.2, 0.3, 19004.2, 45.669, 15.4, 15.0],
     ["hungary", -5.1, 73.5, 42.2, 47.3, 157086.7, 147873.3, 9213.4, 1.8, -57492.7, 48.943, 15.9, 21.9],
@@ -297,6 +317,13 @@ export const extendedObservations: ExtendedObservation[] = [
     obs(countrySlug, "automotive_export_share", automotiveShare, `${sourceUrls.automotiveExports}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedTradeByActivity, "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"),
   ]),
   ...historicalExtendedObservations,
+  ...crossCountryExtendedObservations,
+];
+
+const parityObservationKeys = new Set(crossCountryExtendedObservations.map((item) => `${item.countrySlug}:${item.indicatorId}:${item.date}`));
+
+export const extendedObservations: ExtendedObservation[] = [
+  ...legacyExtendedObservations.filter((item) => !parityObservationKeys.has(`${item.countrySlug}:${item.indicatorId}:${item.date}`)),
   ...crossCountryExtendedObservations,
 ];
 

@@ -5,8 +5,8 @@ import type {
   ScenarioResult,
 } from "@/types/Scenario";
 
-const SCENARIO_CALCULATION_DATE = "2026-08-11";
-const V4_COUNTRIES = ["poland", "hungary", "czechia", "slovakia"];
+const SCENARIO_CALCULATION_DATE = "2026-08-12";
+const EU_COUNTRIES = ["poland", "hungary", "czechia", "slovakia", "germany", "austria", "romania", "slovenia", "croatia"];
 
 export const scenarioDefinitions: ScenarioDefinition[] = [
   {
@@ -41,7 +41,7 @@ export const scenarioDefinitions: ScenarioDefinition[] = [
     name: "EU Funds Delay / Suspension",
     name_zh: "欧盟资金延迟或暂停",
     description: "把用户设定的财政余额恶化幅度作为明确假设，作用于财政余额/GDP，再按现有财政压力模型重算。",
-    affected_country_slugs: V4_COUNTRIES,
+    affected_country_slugs: EU_COUNTRIES,
     affected_indicators: ["fiscal_balance_gdp", "eu_funds_received"],
     affected_models: ["Fiscal Pressure Index"],
     reference_model_id: "fiscal_pressure",
@@ -68,7 +68,7 @@ export const scenarioDefinitions: ScenarioDefinition[] = [
     name: "Energy Price Shock",
     name_zh: "能源价格冲击",
     description: "按用户设定的工业电价涨幅调整合格基线输入，并重算产业依赖指数；不以能源进口依赖替代价格。",
-    affected_country_slugs: V4_COUNTRIES,
+    affected_country_slugs: "all",
     affected_indicators: ["energy_inflation", "household_electricity_price", "industrial_electricity_price"],
     affected_models: ["Industrial Dependency Index"],
     reference_model_id: "industrial_dependency",
@@ -95,7 +95,7 @@ export const scenarioDefinitions: ScenarioDefinition[] = [
     name: "Germany Demand Slowdown",
     name_zh: "德国需求放缓",
     description: "以对德国货物出口依赖为暴露基线，把用户设定的德国需求降幅转换为压力暴露增量，再重算产业依赖指数。",
-    affected_country_slugs: V4_COUNTRIES,
+    affected_country_slugs: "all",
     affected_indicators: ["germany_export_dependence", "automotive_export_share", "manufacturing_share_gdp"],
     affected_models: ["Industrial Dependency Index"],
     reference_model_id: "industrial_dependency",
@@ -121,7 +121,7 @@ export const scenarioDefinitions: ScenarioDefinition[] = [
 
 export const industrialDependencyReadiness = {
   status: "ready" as const,
-  eligible_countries: V4_COUNTRIES,
+  eligible_countries: ["poland", "hungary", "czechia", "slovakia", "austria", "romania", "slovenia", "croatia", "serbia"],
   available_inputs: ["manufacturing_share_gdp", "automotive_export_share", "germany_export_dependence", "industrial_electricity_price"],
   blockers: [
     "当前最新共同可比年份为 2024，不能将 2025 的待接入值当作零值。",

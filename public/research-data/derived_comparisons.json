@@ -1,465 +1,1154 @@
 {
   "schema_version": "research-data-v0.1",
-  "generated_at": "2026-08-11",
+  "generated_at": "2026-08-12",
   "data_type": "derived_comparisons",
   "record_count": 12,
   "model_boundary": "Fact-derived comparison layer only. No risk score, forecast, scenario, or model output.",
   "records": [
     {
-      "comparison_id": "v4_derived_comparison:fiscal_balance_gdp",
+      "comparison_id": "ten_country_derived_comparison:fiscal_balance_gdp",
+      "comparison_scope": "ten_country_comparable_subset",
       "section": "财政",
       "indicator_id": "fiscal_balance_gdp",
       "indicator_name": "财政赤字/GDP",
-      "latest_comparable_year": "2025",
-      "poland_value": -7.3,
-      "hungary_value": -4.7,
-      "czechia_value": -2.1,
-      "slovakia_value": -4.5,
+      "latest_comparable_year": 2024,
+      "country_values": [
+        {
+          "country_id": "poland",
+          "value": -6.4
+        },
+        {
+          "country_id": "hungary",
+          "value": -5.1
+        },
+        {
+          "country_id": "czechia",
+          "value": -2
+        },
+        {
+          "country_id": "slovakia",
+          "value": -5.3
+        },
+        {
+          "country_id": "germany",
+          "value": -2.7
+        },
+        {
+          "country_id": "romania",
+          "value": -9.3
+        },
+        {
+          "country_id": "slovenia",
+          "value": -0.9
+        },
+        {
+          "country_id": "serbia",
+          "value": null
+        },
+        {
+          "country_id": "austria",
+          "value": -4.6
+        },
+        {
+          "country_id": "croatia",
+          "value": -2.3
+        }
+      ],
+      "eligible_countries": [
+        "poland",
+        "hungary",
+        "czechia",
+        "slovakia",
+        "germany",
+        "romania",
+        "slovenia",
+        "austria",
+        "croatia"
+      ],
+      "excluded_countries": [
+        "serbia"
+      ],
+      "poland_value": -6.4,
+      "hungary_value": -5.1,
+      "czechia_value": -2,
+      "slovakia_value": -5.3,
       "unit": "% GDP",
-      "highest_value": -2.1,
-      "highest_country": "czechia",
-      "lowest_value": -7.3,
-      "lowest_country": "poland",
-      "v4_average": -4.65,
-      "poland_gap_from_v4_average": -2.6499999999999995,
-      "hungary_gap_from_v4_average": -0.04999999999999982,
-      "czechia_gap_from_v4_average": 2.5500000000000003,
-      "slovakia_gap_from_v4_average": 0.15000000000000036,
-      "largest_gap_country": "poland",
-      "largest_gap_value": -2.6499999999999995,
-      "poland_five_year_change": -5.6,
-      "hungary_five_year_change": 2.3999999999999995,
-      "czechia_five_year_change": 2.9,
-      "slovakia_five_year_change": 0.5999999999999996,
-      "largest_five_year_change_country": "poland",
-      "largest_five_year_change_value": -5.6,
-      "poland_rank": 4,
-      "hungary_rank": 3,
-      "czechia_rank": 1,
-      "slovakia_rank": 2,
-      "missing_observation_count": 0,
+      "highest_value": -0.9,
+      "highest_country": "slovenia",
+      "lowest_value": -9.3,
+      "lowest_country": "romania",
+      "v4_average": -4.288888888888888,
+      "ten_country_comparable_average": -4.288888888888888,
+      "poland_gap_from_v4_average": -2.1111111111111125,
+      "hungary_gap_from_v4_average": -0.8111111111111118,
+      "czechia_gap_from_v4_average": 2.288888888888888,
+      "slovakia_gap_from_v4_average": -1.011111111111112,
+      "largest_gap_country": "romania",
+      "largest_gap_value": -5.011111111111113,
+      "poland_five_year_change": null,
+      "hungary_five_year_change": null,
+      "czechia_five_year_change": null,
+      "slovakia_five_year_change": null,
+      "largest_five_year_change_country": "",
+      "largest_five_year_change_value": null,
+      "poland_rank": 8,
+      "hungary_rank": 6,
+      "czechia_rank": 2,
+      "slovakia_rank": 7,
+      "missing_observation_count": 5,
       "calculated_value_count": 0,
-      "comparison_status": "可比较",
-      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
-      "notes": "派生自 V4 2021-2025 扩展观测值；待接入值不参与最高、最低、均值、差距、变化和排名计算。"
+      "comparison_status": "部分可比较",
+      "interpretation_boundary": "仅表示同年、同定义、质量通过记录的事实位置，不代表风险、预测或政策优劣。",
+      "notes": "v0.76 使用最新共同年份；定义不一致、待接入、不适用或质量未通过记录不进入排名和均值。旧 V4 字段仅为展示兼容。"
     },
     {
-      "comparison_id": "v4_derived_comparison:government_debt_gdp",
+      "comparison_id": "ten_country_derived_comparison:government_debt_gdp",
+      "comparison_scope": "ten_country_comparable_subset",
       "section": "财政",
       "indicator_id": "government_debt_gdp",
       "indicator_name": "政府债务/GDP",
-      "latest_comparable_year": "2025",
+      "latest_comparable_year": 2025,
+      "country_values": [
+        {
+          "country_id": "poland",
+          "value": 59.7
+        },
+        {
+          "country_id": "hungary",
+          "value": 74.6
+        },
+        {
+          "country_id": "czechia",
+          "value": 44.3
+        },
+        {
+          "country_id": "slovakia",
+          "value": 61.4
+        },
+        {
+          "country_id": "germany",
+          "value": 63.5
+        },
+        {
+          "country_id": "romania",
+          "value": 59.3
+        },
+        {
+          "country_id": "slovenia",
+          "value": 65.7
+        },
+        {
+          "country_id": "serbia",
+          "value": null
+        },
+        {
+          "country_id": "austria",
+          "value": 81.5
+        },
+        {
+          "country_id": "croatia",
+          "value": 56.3
+        }
+      ],
+      "eligible_countries": [
+        "poland",
+        "hungary",
+        "czechia",
+        "slovakia",
+        "germany",
+        "romania",
+        "slovenia",
+        "austria",
+        "croatia"
+      ],
+      "excluded_countries": [
+        "serbia"
+      ],
       "poland_value": 59.7,
       "hungary_value": 74.6,
       "czechia_value": 44.3,
       "slovakia_value": 61.4,
       "unit": "% GDP",
-      "highest_value": 74.6,
-      "highest_country": "hungary",
+      "highest_value": 81.5,
+      "highest_country": "austria",
       "lowest_value": 44.3,
       "lowest_country": "czechia",
-      "v4_average": 60.00000000000001,
-      "poland_gap_from_v4_average": -0.30000000000000426,
-      "hungary_gap_from_v4_average": 14.599999999999987,
-      "czechia_gap_from_v4_average": -15.70000000000001,
-      "slovakia_gap_from_v4_average": 1.3999999999999915,
+      "v4_average": 62.92222222222222,
+      "ten_country_comparable_average": 62.92222222222222,
+      "poland_gap_from_v4_average": -3.2222222222222143,
+      "hungary_gap_from_v4_average": 11.677777777777777,
+      "czechia_gap_from_v4_average": -18.62222222222222,
+      "slovakia_gap_from_v4_average": -1.5222222222222186,
       "largest_gap_country": "czechia",
-      "largest_gap_value": -15.70000000000001,
-      "poland_five_year_change": 6.700000000000003,
-      "hungary_five_year_change": -1.6000000000000085,
-      "czechia_five_year_change": 3.5999999999999943,
-      "slovakia_five_year_change": 1.1999999999999957,
-      "largest_five_year_change_country": "poland",
-      "largest_five_year_change_value": 6.700000000000003,
-      "poland_rank": 3,
-      "hungary_rank": 1,
-      "czechia_rank": 4,
-      "slovakia_rank": 2,
-      "missing_observation_count": 0,
+      "largest_gap_value": -18.62222222222222,
+      "poland_five_year_change": null,
+      "hungary_five_year_change": null,
+      "czechia_five_year_change": null,
+      "slovakia_five_year_change": null,
+      "largest_five_year_change_country": "",
+      "largest_five_year_change_value": null,
+      "poland_rank": 6,
+      "hungary_rank": 2,
+      "czechia_rank": 9,
+      "slovakia_rank": 5,
+      "missing_observation_count": 5,
       "calculated_value_count": 0,
-      "comparison_status": "可比较",
-      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
-      "notes": "派生自 V4 2021-2025 扩展观测值；待接入值不参与最高、最低、均值、差距、变化和排名计算。"
+      "comparison_status": "部分可比较",
+      "interpretation_boundary": "仅表示同年、同定义、质量通过记录的事实位置，不代表风险、预测或政策优劣。",
+      "notes": "v0.76 使用最新共同年份；定义不一致、待接入、不适用或质量未通过记录不进入排名和均值。旧 V4 字段仅为展示兼容。"
     },
     {
-      "comparison_id": "v4_derived_comparison:government_revenue_gdp",
+      "comparison_id": "ten_country_derived_comparison:government_revenue_gdp",
+      "comparison_scope": "ten_country_comparable_subset",
       "section": "财政",
       "indicator_id": "government_revenue_gdp",
       "indicator_name": "财政收入/GDP",
-      "latest_comparable_year": "2025",
+      "latest_comparable_year": 2025,
+      "country_values": [
+        {
+          "country_id": "poland",
+          "value": 43.6
+        },
+        {
+          "country_id": "hungary",
+          "value": 42.6
+        },
+        {
+          "country_id": "czechia",
+          "value": 41
+        },
+        {
+          "country_id": "slovakia",
+          "value": 43.5
+        },
+        {
+          "country_id": "germany",
+          "value": 47.9
+        },
+        {
+          "country_id": "romania",
+          "value": 35.4
+        },
+        {
+          "country_id": "slovenia",
+          "value": 47.1
+        },
+        {
+          "country_id": "serbia",
+          "value": null
+        },
+        {
+          "country_id": "austria",
+          "value": 51
+        },
+        {
+          "country_id": "croatia",
+          "value": 47.1
+        }
+      ],
+      "eligible_countries": [
+        "poland",
+        "hungary",
+        "czechia",
+        "slovakia",
+        "germany",
+        "romania",
+        "slovenia",
+        "austria",
+        "croatia"
+      ],
+      "excluded_countries": [
+        "serbia"
+      ],
       "poland_value": 43.6,
       "hungary_value": 42.6,
       "czechia_value": 41,
       "slovakia_value": 43.5,
       "unit": "% GDP",
-      "highest_value": 43.6,
-      "highest_country": "poland",
-      "lowest_value": 41,
-      "lowest_country": "czechia",
-      "v4_average": 42.675,
-      "poland_gap_from_v4_average": 0.9250000000000043,
-      "hungary_gap_from_v4_average": -0.07499999999999574,
-      "czechia_gap_from_v4_average": -1.6749999999999972,
-      "slovakia_gap_from_v4_average": 0.8250000000000028,
-      "largest_gap_country": "czechia",
-      "largest_gap_value": -1.6749999999999972,
-      "poland_five_year_change": 1.7000000000000028,
-      "hungary_five_year_change": 1.6000000000000014,
-      "czechia_five_year_change": 0.8999999999999986,
-      "slovakia_five_year_change": 3.700000000000003,
-      "largest_five_year_change_country": "slovakia",
-      "largest_five_year_change_value": 3.700000000000003,
-      "poland_rank": 1,
-      "hungary_rank": 3,
-      "czechia_rank": 4,
-      "slovakia_rank": 2,
-      "missing_observation_count": 0,
+      "highest_value": 51,
+      "highest_country": "austria",
+      "lowest_value": 35.4,
+      "lowest_country": "romania",
+      "v4_average": 44.35555555555556,
+      "ten_country_comparable_average": 44.35555555555556,
+      "poland_gap_from_v4_average": -0.75555555555556,
+      "hungary_gap_from_v4_average": -1.75555555555556,
+      "czechia_gap_from_v4_average": -3.3555555555555614,
+      "slovakia_gap_from_v4_average": -0.8555555555555614,
+      "largest_gap_country": "romania",
+      "largest_gap_value": -8.955555555555563,
+      "poland_five_year_change": null,
+      "hungary_five_year_change": null,
+      "czechia_five_year_change": null,
+      "slovakia_five_year_change": null,
+      "largest_five_year_change_country": "",
+      "largest_five_year_change_value": null,
+      "poland_rank": 5,
+      "hungary_rank": 7,
+      "czechia_rank": 8,
+      "slovakia_rank": 6,
+      "missing_observation_count": 5,
       "calculated_value_count": 0,
-      "comparison_status": "可比较",
-      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
-      "notes": "派生自 V4 2021-2025 扩展观测值；待接入值不参与最高、最低、均值、差距、变化和排名计算。"
+      "comparison_status": "部分可比较",
+      "interpretation_boundary": "仅表示同年、同定义、质量通过记录的事实位置，不代表风险、预测或政策优劣。",
+      "notes": "v0.76 使用最新共同年份；定义不一致、待接入、不适用或质量未通过记录不进入排名和均值。旧 V4 字段仅为展示兼容。"
     },
     {
-      "comparison_id": "v4_derived_comparison:government_expenditure_gdp",
+      "comparison_id": "ten_country_derived_comparison:government_expenditure_gdp",
+      "comparison_scope": "ten_country_comparable_subset",
       "section": "财政",
       "indicator_id": "government_expenditure_gdp",
       "indicator_name": "财政支出/GDP",
-      "latest_comparable_year": "2025",
+      "latest_comparable_year": 2025,
+      "country_values": [
+        {
+          "country_id": "poland",
+          "value": 50.9
+        },
+        {
+          "country_id": "hungary",
+          "value": 47.3
+        },
+        {
+          "country_id": "czechia",
+          "value": 43.2
+        },
+        {
+          "country_id": "slovakia",
+          "value": 47.9
+        },
+        {
+          "country_id": "germany",
+          "value": 50.5
+        },
+        {
+          "country_id": "romania",
+          "value": 43.3
+        },
+        {
+          "country_id": "slovenia",
+          "value": 49.6
+        },
+        {
+          "country_id": "serbia",
+          "value": null
+        },
+        {
+          "country_id": "austria",
+          "value": 55.2
+        },
+        {
+          "country_id": "croatia",
+          "value": 50.1
+        }
+      ],
+      "eligible_countries": [
+        "poland",
+        "hungary",
+        "czechia",
+        "slovakia",
+        "germany",
+        "romania",
+        "slovenia",
+        "austria",
+        "croatia"
+      ],
+      "excluded_countries": [
+        "serbia"
+      ],
       "poland_value": 50.9,
       "hungary_value": 47.3,
       "czechia_value": 43.2,
       "slovakia_value": 47.9,
       "unit": "% GDP",
-      "highest_value": 50.9,
-      "highest_country": "poland",
+      "highest_value": 55.2,
+      "highest_country": "austria",
       "lowest_value": 43.2,
       "lowest_country": "czechia",
-      "v4_average": 47.324999999999996,
-      "poland_gap_from_v4_average": 3.575000000000003,
-      "hungary_gap_from_v4_average": -0.02499999999999858,
-      "czechia_gap_from_v4_average": -4.124999999999993,
-      "slovakia_gap_from_v4_average": 0.5750000000000028,
-      "largest_gap_country": "czechia",
-      "largest_gap_value": -4.124999999999993,
-      "poland_five_year_change": 7.299999999999997,
-      "hungary_five_year_change": -0.8000000000000043,
-      "czechia_five_year_change": -1.7999999999999972,
-      "slovakia_five_year_change": 3.1000000000000014,
-      "largest_five_year_change_country": "poland",
-      "largest_five_year_change_value": 7.299999999999997,
-      "poland_rank": 1,
-      "hungary_rank": 3,
-      "czechia_rank": 4,
-      "slovakia_rank": 2,
-      "missing_observation_count": 0,
-      "calculated_value_count": 0,
-      "comparison_status": "可比较",
-      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
-      "notes": "派生自 V4 2021-2025 扩展观测值；待接入值不参与最高、最低、均值、差距、变化和排名计算。"
-    },
-    {
-      "comparison_id": "v4_derived_comparison:exports_goods_services",
-      "section": "外部经济",
-      "indicator_id": "exports_goods_services",
-      "indicator_name": "出口",
-      "latest_comparable_year": "2025",
-      "poland_value": 461553.9,
-      "hungary_value": 158940,
-      "czechia_value": 232020.6,
-      "slovakia_value": 116370.6,
-      "unit": "百万欧元",
-      "highest_value": 461553.9,
-      "highest_country": "poland",
-      "lowest_value": 116370.6,
-      "lowest_country": "slovakia",
-      "v4_average": 242221.275,
-      "poland_gap_from_v4_average": 219332.62500000003,
-      "hungary_gap_from_v4_average": -83281.275,
-      "czechia_gap_from_v4_average": -10200.674999999988,
-      "slovakia_gap_from_v4_average": -125850.67499999999,
-      "largest_gap_country": "poland",
-      "largest_gap_value": 219332.62500000003,
-      "poland_five_year_change": 129021.70000000001,
-      "hungary_five_year_change": 35874.7,
-      "czechia_five_year_change": 58458.80000000002,
-      "slovakia_five_year_change": 23891.90000000001,
-      "largest_five_year_change_country": "poland",
-      "largest_five_year_change_value": 129021.70000000001,
-      "poland_rank": 1,
-      "hungary_rank": 3,
-      "czechia_rank": 2,
-      "slovakia_rank": 4,
-      "missing_observation_count": 0,
-      "calculated_value_count": 0,
-      "comparison_status": "可比较",
-      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
-      "notes": "派生自 V4 2021-2025 扩展观测值；待接入值不参与最高、最低、均值、差距、变化和排名计算。"
-    },
-    {
-      "comparison_id": "v4_derived_comparison:imports_goods_services",
-      "section": "外部经济",
-      "indicator_id": "imports_goods_services",
-      "indicator_name": "进口",
-      "latest_comparable_year": "2025",
-      "poland_value": 435690.7,
-      "hungary_value": 149132.8,
-      "czechia_value": 211742.9,
-      "slovakia_value": 116580.1,
-      "unit": "百万欧元",
-      "highest_value": 435690.7,
-      "highest_country": "poland",
-      "lowest_value": 116580.1,
-      "lowest_country": "slovakia",
-      "v4_average": 228286.625,
-      "poland_gap_from_v4_average": 207404.075,
-      "hungary_gap_from_v4_average": -79153.82500000001,
-      "czechia_gap_from_v4_average": -16543.725000000006,
-      "slovakia_gap_from_v4_average": -111706.525,
-      "largest_gap_country": "poland",
-      "largest_gap_value": 207404.075,
-      "poland_five_year_change": 121824.29999999999,
-      "hungary_five_year_change": 25502.399999999994,
-      "czechia_five_year_change": 47337.600000000006,
-      "slovakia_five_year_change": 23637,
-      "largest_five_year_change_country": "poland",
-      "largest_five_year_change_value": 121824.29999999999,
-      "poland_rank": 1,
-      "hungary_rank": 3,
-      "czechia_rank": 2,
-      "slovakia_rank": 4,
-      "missing_observation_count": 0,
-      "calculated_value_count": 0,
-      "comparison_status": "可比较",
-      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
-      "notes": "派生自 V4 2021-2025 扩展观测值；待接入值不参与最高、最低、均值、差距、变化和排名计算。"
-    },
-    {
-      "comparison_id": "v4_derived_comparison:trade_balance",
-      "section": "外部经济",
-      "indicator_id": "trade_balance",
-      "indicator_name": "贸易差额",
-      "latest_comparable_year": "2025",
-      "poland_value": 25863.2,
-      "hungary_value": 9807.2,
-      "czechia_value": 20277.7,
-      "slovakia_value": -209.5,
-      "unit": "百万欧元",
-      "highest_value": 25863.2,
-      "highest_country": "poland",
-      "lowest_value": -209.5,
-      "lowest_country": "slovakia",
-      "v4_average": 13934.650000000001,
-      "poland_gap_from_v4_average": 11928.55,
-      "hungary_gap_from_v4_average": -4127.450000000001,
-      "czechia_gap_from_v4_average": 6343.049999999999,
-      "slovakia_gap_from_v4_average": -14144.150000000001,
-      "largest_gap_country": "slovakia",
-      "largest_gap_value": -14144.150000000001,
-      "poland_five_year_change": 7197.4000000000015,
-      "hungary_five_year_change": 10372.300000000001,
-      "czechia_five_year_change": 11121.2,
-      "slovakia_five_year_change": 254.89999999999998,
-      "largest_five_year_change_country": "czechia",
-      "largest_five_year_change_value": 11121.2,
-      "poland_rank": 1,
-      "hungary_rank": 3,
-      "czechia_rank": 2,
-      "slovakia_rank": 4,
-      "missing_observation_count": 0,
-      "calculated_value_count": 20,
-      "comparison_status": "可比较",
-      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
-      "notes": "派生自 V4 2021-2025 扩展观测值；待接入值不参与最高、最低、均值、差距、变化和排名计算。"
-    },
-    {
-      "comparison_id": "v4_derived_comparison:current_account_gdp",
-      "section": "外部经济",
-      "indicator_id": "current_account_gdp",
-      "indicator_name": "经常账户/GDP",
-      "latest_comparable_year": "2025",
-      "poland_value": -0.9,
-      "hungary_value": 1.8,
-      "czechia_value": 0.7,
-      "slovakia_value": -3.6,
-      "unit": "% GDP",
-      "highest_value": 1.8,
-      "highest_country": "hungary",
-      "lowest_value": -3.6,
-      "lowest_country": "slovakia",
-      "v4_average": -0.5,
-      "poland_gap_from_v4_average": -0.4,
-      "hungary_gap_from_v4_average": 2.3,
-      "czechia_gap_from_v4_average": 1.2,
-      "slovakia_gap_from_v4_average": -3.1,
-      "largest_gap_country": "slovakia",
-      "largest_gap_value": -3.1,
-      "poland_five_year_change": 0.4,
-      "hungary_five_year_change": 6.2,
-      "czechia_five_year_change": 2.8,
-      "slovakia_five_year_change": 1.1999999999999997,
-      "largest_five_year_change_country": "hungary",
-      "largest_five_year_change_value": 6.2,
-      "poland_rank": 3,
-      "hungary_rank": 1,
-      "czechia_rank": 2,
-      "slovakia_rank": 4,
-      "missing_observation_count": 0,
-      "calculated_value_count": 0,
-      "comparison_status": "可比较",
-      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
-      "notes": "派生自 V4 2021-2025 扩展观测值；待接入值不参与最高、最低、均值、差距、变化和排名计算。"
-    },
-    {
-      "comparison_id": "v4_derived_comparison:fdi_inflow",
-      "section": "投资",
-      "indicator_id": "fdi_inflow",
-      "indicator_name": "FDI 流入",
-      "latest_comparable_year": "2024",
-      "poland_value": 19004.2,
-      "hungary_value": -57492.7,
-      "czechia_value": 12311.3,
-      "slovakia_value": 4600.1,
-      "unit": "百万欧元",
-      "highest_value": 19004.2,
-      "highest_country": "poland",
-      "lowest_value": -57492.7,
-      "lowest_country": "hungary",
-      "v4_average": -5394.275,
-      "poland_gap_from_v4_average": 24398.475,
-      "hungary_gap_from_v4_average": -52098.424999999996,
-      "czechia_gap_from_v4_average": 17705.574999999997,
-      "slovakia_gap_from_v4_average": 9994.375,
-      "largest_gap_country": "hungary",
-      "largest_gap_value": -52098.424999999996,
-      "poland_five_year_change": -11809.099999999999,
-      "hungary_five_year_change": -86242.6,
-      "czechia_five_year_change": 1228.5,
-      "slovakia_five_year_change": 2273.1000000000004,
-      "largest_five_year_change_country": "hungary",
-      "largest_five_year_change_value": -86242.6,
-      "poland_rank": 1,
-      "hungary_rank": 4,
-      "czechia_rank": 2,
-      "slovakia_rank": 3,
+      "v4_average": 48.666666666666664,
+      "ten_country_comparable_average": 48.666666666666664,
+      "poland_gap_from_v4_average": 2.2333333333333343,
+      "hungary_gap_from_v4_average": -1.3666666666666671,
+      "czechia_gap_from_v4_average": -5.4666666666666615,
+      "slovakia_gap_from_v4_average": -0.7666666666666657,
+      "largest_gap_country": "austria",
+      "largest_gap_value": 6.5333333333333385,
+      "poland_five_year_change": null,
+      "hungary_five_year_change": null,
+      "czechia_five_year_change": null,
+      "slovakia_five_year_change": null,
+      "largest_five_year_change_country": "",
+      "largest_five_year_change_value": null,
+      "poland_rank": 2,
+      "hungary_rank": 7,
+      "czechia_rank": 9,
+      "slovakia_rank": 6,
       "missing_observation_count": 5,
       "calculated_value_count": 0,
       "comparison_status": "部分可比较",
-      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
-      "notes": "派生自 V4 2021-2025 扩展观测值；待接入值不参与最高、最低、均值、差距、变化和排名计算。"
+      "interpretation_boundary": "仅表示同年、同定义、质量通过记录的事实位置，不代表风险、预测或政策优劣。",
+      "notes": "v0.76 使用最新共同年份；定义不一致、待接入、不适用或质量未通过记录不进入排名和均值。旧 V4 字段仅为展示兼容。"
     },
     {
-      "comparison_id": "v4_derived_comparison:energy_import_dependency",
+      "comparison_id": "ten_country_derived_comparison:exports_goods_services",
+      "comparison_scope": "ten_country_comparable_subset",
+      "section": "外部经济",
+      "indicator_id": "exports_goods_services",
+      "indicator_name": "出口",
+      "latest_comparable_year": 2025,
+      "country_values": [
+        {
+          "country_id": "poland",
+          "value": 461553.9
+        },
+        {
+          "country_id": "hungary",
+          "value": 158940
+        },
+        {
+          "country_id": "czechia",
+          "value": 232043
+        },
+        {
+          "country_id": "slovakia",
+          "value": 116370.6
+        },
+        {
+          "country_id": "germany",
+          "value": 1800049
+        },
+        {
+          "country_id": "romania",
+          "value": 134861
+        },
+        {
+          "country_id": "slovenia",
+          "value": 55430
+        },
+        {
+          "country_id": "serbia",
+          "value": 48161
+        },
+        {
+          "country_id": "austria",
+          "value": 282784.7
+        },
+        {
+          "country_id": "croatia",
+          "value": 44602.2
+        }
+      ],
+      "eligible_countries": [
+        "poland",
+        "hungary",
+        "czechia",
+        "slovakia",
+        "germany",
+        "romania",
+        "slovenia",
+        "serbia",
+        "austria",
+        "croatia"
+      ],
+      "excluded_countries": [],
+      "poland_value": 461553.9,
+      "hungary_value": 158940,
+      "czechia_value": 232043,
+      "slovakia_value": 116370.6,
+      "unit": "百万欧元",
+      "highest_value": 1800049,
+      "highest_country": "germany",
+      "lowest_value": 44602.2,
+      "lowest_country": "croatia",
+      "v4_average": 333479.54000000004,
+      "ten_country_comparable_average": 333479.54000000004,
+      "poland_gap_from_v4_average": 128074.35999999999,
+      "hungary_gap_from_v4_average": -174539.54000000004,
+      "czechia_gap_from_v4_average": -101436.54000000004,
+      "slovakia_gap_from_v4_average": -217108.94000000003,
+      "largest_gap_country": "germany",
+      "largest_gap_value": 1466569.46,
+      "poland_five_year_change": null,
+      "hungary_five_year_change": null,
+      "czechia_five_year_change": null,
+      "slovakia_five_year_change": null,
+      "largest_five_year_change_country": "",
+      "largest_five_year_change_value": null,
+      "poland_rank": 2,
+      "hungary_rank": 5,
+      "czechia_rank": 4,
+      "slovakia_rank": 7,
+      "missing_observation_count": 0,
+      "calculated_value_count": 0,
+      "comparison_status": "可比较",
+      "interpretation_boundary": "仅表示同年、同定义、质量通过记录的事实位置，不代表风险、预测或政策优劣。",
+      "notes": "v0.76 使用最新共同年份；定义不一致、待接入、不适用或质量未通过记录不进入排名和均值。旧 V4 字段仅为展示兼容。"
+    },
+    {
+      "comparison_id": "ten_country_derived_comparison:imports_goods_services",
+      "comparison_scope": "ten_country_comparable_subset",
+      "section": "外部经济",
+      "indicator_id": "imports_goods_services",
+      "indicator_name": "进口",
+      "latest_comparable_year": 2025,
+      "country_values": [
+        {
+          "country_id": "poland",
+          "value": 435690.7
+        },
+        {
+          "country_id": "hungary",
+          "value": 149132.8
+        },
+        {
+          "country_id": "czechia",
+          "value": 211882.8
+        },
+        {
+          "country_id": "slovakia",
+          "value": 116580.1
+        },
+        {
+          "country_id": "germany",
+          "value": 1693449
+        },
+        {
+          "country_id": "romania",
+          "value": 154799.5
+        },
+        {
+          "country_id": "slovenia",
+          "value": 51649.4
+        },
+        {
+          "country_id": "serbia",
+          "value": 51971.5
+        },
+        {
+          "country_id": "austria",
+          "value": 271047.2
+        },
+        {
+          "country_id": "croatia",
+          "value": 49290.1
+        }
+      ],
+      "eligible_countries": [
+        "poland",
+        "hungary",
+        "czechia",
+        "slovakia",
+        "germany",
+        "romania",
+        "slovenia",
+        "serbia",
+        "austria",
+        "croatia"
+      ],
+      "excluded_countries": [],
+      "poland_value": 435690.7,
+      "hungary_value": 149132.8,
+      "czechia_value": 211882.8,
+      "slovakia_value": 116580.1,
+      "unit": "百万欧元",
+      "highest_value": 1693449,
+      "highest_country": "germany",
+      "lowest_value": 49290.1,
+      "lowest_country": "croatia",
+      "v4_average": 318549.31,
+      "ten_country_comparable_average": 318549.31,
+      "poland_gap_from_v4_average": 117141.39000000001,
+      "hungary_gap_from_v4_average": -169416.51,
+      "czechia_gap_from_v4_average": -106666.51000000001,
+      "slovakia_gap_from_v4_average": -201969.21,
+      "largest_gap_country": "germany",
+      "largest_gap_value": 1374899.69,
+      "poland_five_year_change": null,
+      "hungary_five_year_change": null,
+      "czechia_five_year_change": null,
+      "slovakia_five_year_change": null,
+      "largest_five_year_change_country": "",
+      "largest_five_year_change_value": null,
+      "poland_rank": 2,
+      "hungary_rank": 6,
+      "czechia_rank": 4,
+      "slovakia_rank": 7,
+      "missing_observation_count": 0,
+      "calculated_value_count": 0,
+      "comparison_status": "可比较",
+      "interpretation_boundary": "仅表示同年、同定义、质量通过记录的事实位置，不代表风险、预测或政策优劣。",
+      "notes": "v0.76 使用最新共同年份；定义不一致、待接入、不适用或质量未通过记录不进入排名和均值。旧 V4 字段仅为展示兼容。"
+    },
+    {
+      "comparison_id": "ten_country_derived_comparison:trade_balance",
+      "comparison_scope": "ten_country_comparable_subset",
+      "section": "外部经济",
+      "indicator_id": "trade_balance",
+      "indicator_name": "贸易差额",
+      "latest_comparable_year": 2025,
+      "country_values": [
+        {
+          "country_id": "poland",
+          "value": 25863.2
+        },
+        {
+          "country_id": "hungary",
+          "value": 9807.2
+        },
+        {
+          "country_id": "czechia",
+          "value": 20160.2
+        },
+        {
+          "country_id": "slovakia",
+          "value": -209.5
+        },
+        {
+          "country_id": "germany",
+          "value": 106600
+        },
+        {
+          "country_id": "romania",
+          "value": -19938.5
+        },
+        {
+          "country_id": "slovenia",
+          "value": 3780.6
+        },
+        {
+          "country_id": "serbia",
+          "value": -3810.5
+        },
+        {
+          "country_id": "austria",
+          "value": 11737.5
+        },
+        {
+          "country_id": "croatia",
+          "value": -4687.9
+        }
+      ],
+      "eligible_countries": [
+        "poland",
+        "hungary",
+        "czechia",
+        "slovakia",
+        "germany",
+        "romania",
+        "slovenia",
+        "serbia",
+        "austria",
+        "croatia"
+      ],
+      "excluded_countries": [],
+      "poland_value": 25863.2,
+      "hungary_value": 9807.2,
+      "czechia_value": 20160.2,
+      "slovakia_value": -209.5,
+      "unit": "百万欧元",
+      "highest_value": 106600,
+      "highest_country": "germany",
+      "lowest_value": -19938.5,
+      "lowest_country": "romania",
+      "v4_average": 14930.230000000001,
+      "ten_country_comparable_average": 14930.230000000001,
+      "poland_gap_from_v4_average": 10932.97,
+      "hungary_gap_from_v4_average": -5123.030000000001,
+      "czechia_gap_from_v4_average": 5229.969999999999,
+      "slovakia_gap_from_v4_average": -15139.730000000001,
+      "largest_gap_country": "germany",
+      "largest_gap_value": 91669.77,
+      "poland_five_year_change": null,
+      "hungary_five_year_change": null,
+      "czechia_five_year_change": null,
+      "slovakia_five_year_change": null,
+      "largest_five_year_change_country": "",
+      "largest_five_year_change_value": null,
+      "poland_rank": 2,
+      "hungary_rank": 5,
+      "czechia_rank": 3,
+      "slovakia_rank": 7,
+      "missing_observation_count": 0,
+      "calculated_value_count": 50,
+      "comparison_status": "可比较",
+      "interpretation_boundary": "仅表示同年、同定义、质量通过记录的事实位置，不代表风险、预测或政策优劣。",
+      "notes": "v0.76 使用最新共同年份；定义不一致、待接入、不适用或质量未通过记录不进入排名和均值。旧 V4 字段仅为展示兼容。"
+    },
+    {
+      "comparison_id": "ten_country_derived_comparison:current_account_gdp",
+      "comparison_scope": "ten_country_comparable_subset",
+      "section": "外部经济",
+      "indicator_id": "current_account_gdp",
+      "indicator_name": "经常账户/GDP",
+      "latest_comparable_year": 2021,
+      "country_values": [
+        {
+          "country_id": "poland",
+          "value": -1.3
+        },
+        {
+          "country_id": "hungary",
+          "value": -4.4
+        },
+        {
+          "country_id": "czechia",
+          "value": -2.1
+        },
+        {
+          "country_id": "slovakia",
+          "value": -4.8
+        },
+        {
+          "country_id": "germany",
+          "value": 6.9
+        },
+        {
+          "country_id": "romania",
+          "value": -7.2
+        },
+        {
+          "country_id": "slovenia",
+          "value": 3.5
+        },
+        {
+          "country_id": "serbia",
+          "value": null
+        },
+        {
+          "country_id": "austria",
+          "value": 1.7
+        },
+        {
+          "country_id": "croatia",
+          "value": 0.3
+        }
+      ],
+      "eligible_countries": [
+        "poland",
+        "hungary",
+        "czechia",
+        "slovakia",
+        "germany",
+        "romania",
+        "slovenia",
+        "austria",
+        "croatia"
+      ],
+      "excluded_countries": [
+        "serbia"
+      ],
+      "poland_value": -1.3,
+      "hungary_value": -4.4,
+      "czechia_value": -2.1,
+      "slovakia_value": -4.8,
+      "unit": "% GDP",
+      "highest_value": 6.9,
+      "highest_country": "germany",
+      "lowest_value": -7.2,
+      "lowest_country": "romania",
+      "v4_average": -0.8222222222222224,
+      "ten_country_comparable_average": -0.8222222222222224,
+      "poland_gap_from_v4_average": -0.47777777777777763,
+      "hungary_gap_from_v4_average": -3.577777777777778,
+      "czechia_gap_from_v4_average": -1.2777777777777777,
+      "slovakia_gap_from_v4_average": -3.9777777777777774,
+      "largest_gap_country": "germany",
+      "largest_gap_value": 7.722222222222223,
+      "poland_five_year_change": null,
+      "hungary_five_year_change": null,
+      "czechia_five_year_change": null,
+      "slovakia_five_year_change": null,
+      "largest_five_year_change_country": "",
+      "largest_five_year_change_value": null,
+      "poland_rank": 5,
+      "hungary_rank": 7,
+      "czechia_rank": 6,
+      "slovakia_rank": 8,
+      "missing_observation_count": 5,
+      "calculated_value_count": 0,
+      "comparison_status": "部分可比较",
+      "interpretation_boundary": "仅表示同年、同定义、质量通过记录的事实位置，不代表风险、预测或政策优劣。",
+      "notes": "v0.76 使用最新共同年份；定义不一致、待接入、不适用或质量未通过记录不进入排名和均值。旧 V4 字段仅为展示兼容。"
+    },
+    {
+      "comparison_id": "ten_country_derived_comparison:fdi_inflow",
+      "comparison_scope": "ten_country_comparable_subset",
+      "section": "投资",
+      "indicator_id": "fdi_inflow",
+      "indicator_name": "FDI 流入",
+      "latest_comparable_year": null,
+      "country_values": [
+        {
+          "country_id": "poland",
+          "value": null
+        },
+        {
+          "country_id": "hungary",
+          "value": null
+        },
+        {
+          "country_id": "czechia",
+          "value": null
+        },
+        {
+          "country_id": "slovakia",
+          "value": null
+        },
+        {
+          "country_id": "germany",
+          "value": null
+        },
+        {
+          "country_id": "romania",
+          "value": null
+        },
+        {
+          "country_id": "slovenia",
+          "value": null
+        },
+        {
+          "country_id": "serbia",
+          "value": null
+        },
+        {
+          "country_id": "austria",
+          "value": null
+        },
+        {
+          "country_id": "croatia",
+          "value": null
+        }
+      ],
+      "eligible_countries": [
+        "poland",
+        "hungary",
+        "czechia",
+        "slovakia",
+        "germany",
+        "romania",
+        "slovenia",
+        "serbia",
+        "austria",
+        "croatia"
+      ],
+      "excluded_countries": [],
+      "poland_value": null,
+      "hungary_value": null,
+      "czechia_value": null,
+      "slovakia_value": null,
+      "unit": "百万欧元",
+      "highest_value": null,
+      "highest_country": "",
+      "lowest_value": null,
+      "lowest_country": "",
+      "v4_average": null,
+      "ten_country_comparable_average": null,
+      "poland_gap_from_v4_average": null,
+      "hungary_gap_from_v4_average": null,
+      "czechia_gap_from_v4_average": null,
+      "slovakia_gap_from_v4_average": null,
+      "largest_gap_country": "",
+      "largest_gap_value": null,
+      "poland_five_year_change": null,
+      "hungary_five_year_change": null,
+      "czechia_five_year_change": null,
+      "slovakia_five_year_change": null,
+      "largest_five_year_change_country": "",
+      "largest_five_year_change_value": null,
+      "poland_rank": null,
+      "hungary_rank": null,
+      "czechia_rank": null,
+      "slovakia_rank": null,
+      "missing_observation_count": 13,
+      "calculated_value_count": 0,
+      "comparison_status": "数据不足",
+      "interpretation_boundary": "仅表示同年、同定义、质量通过记录的事实位置，不代表风险、预测或政策优劣。",
+      "notes": "v0.76 使用最新共同年份；定义不一致、待接入、不适用或质量未通过记录不进入排名和均值。旧 V4 字段仅为展示兼容。"
+    },
+    {
+      "comparison_id": "ten_country_derived_comparison:energy_import_dependency",
+      "comparison_scope": "ten_country_comparable_subset",
       "section": "能源",
       "indicator_id": "energy_import_dependency",
       "indicator_name": "能源进口依赖",
-      "latest_comparable_year": "2024",
+      "latest_comparable_year": 2024,
+      "country_values": [
+        {
+          "country_id": "poland",
+          "value": 45.669
+        },
+        {
+          "country_id": "hungary",
+          "value": 48.943
+        },
+        {
+          "country_id": "czechia",
+          "value": 39.32
+        },
+        {
+          "country_id": "slovakia",
+          "value": 53.501
+        },
+        {
+          "country_id": "germany",
+          "value": 66.812
+        },
+        {
+          "country_id": "romania",
+          "value": 30.356
+        },
+        {
+          "country_id": "slovenia",
+          "value": 46.382
+        },
+        {
+          "country_id": "serbia",
+          "value": 40.793
+        },
+        {
+          "country_id": "austria",
+          "value": 53.325
+        },
+        {
+          "country_id": "croatia",
+          "value": 59.929
+        }
+      ],
+      "eligible_countries": [
+        "poland",
+        "hungary",
+        "czechia",
+        "slovakia",
+        "germany",
+        "romania",
+        "slovenia",
+        "serbia",
+        "austria",
+        "croatia"
+      ],
+      "excluded_countries": [],
       "poland_value": 45.669,
       "hungary_value": 48.943,
       "czechia_value": 39.32,
       "slovakia_value": 53.501,
       "unit": "%",
-      "highest_value": 53.501,
-      "highest_country": "slovakia",
-      "lowest_value": 39.32,
-      "lowest_country": "czechia",
-      "v4_average": 46.85825,
-      "poland_gap_from_v4_average": -1.1892500000000013,
-      "hungary_gap_from_v4_average": 2.0847499999999997,
-      "czechia_gap_from_v4_average": -7.538249999999998,
-      "slovakia_gap_from_v4_average": 6.6427499999999995,
-      "largest_gap_country": "czechia",
-      "largest_gap_value": -7.538249999999998,
-      "poland_five_year_change": 5.204999999999998,
-      "hungary_five_year_change": -5.178000000000004,
-      "czechia_five_year_change": -0.6379999999999981,
-      "slovakia_five_year_change": 0.9169999999999945,
-      "largest_five_year_change_country": "poland",
-      "largest_five_year_change_value": 5.204999999999998,
-      "poland_rank": 3,
-      "hungary_rank": 2,
-      "czechia_rank": 4,
-      "slovakia_rank": 1,
-      "missing_observation_count": 4,
+      "highest_value": 66.812,
+      "highest_country": "germany",
+      "lowest_value": 30.356,
+      "lowest_country": "romania",
+      "v4_average": 48.503,
+      "ten_country_comparable_average": 48.503,
+      "poland_gap_from_v4_average": -2.834000000000003,
+      "hungary_gap_from_v4_average": 0.4399999999999977,
+      "czechia_gap_from_v4_average": -9.183,
+      "slovakia_gap_from_v4_average": 4.9979999999999976,
+      "largest_gap_country": "germany",
+      "largest_gap_value": 18.308999999999997,
+      "poland_five_year_change": null,
+      "hungary_five_year_change": null,
+      "czechia_five_year_change": null,
+      "slovakia_five_year_change": null,
+      "largest_five_year_change_country": "",
+      "largest_five_year_change_value": null,
+      "poland_rank": 7,
+      "hungary_rank": 5,
+      "czechia_rank": 9,
+      "slovakia_rank": 3,
+      "missing_observation_count": 10,
       "calculated_value_count": 0,
-      "comparison_status": "部分可比较",
-      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
-      "notes": "派生自 V4 2021-2025 扩展观测值；待接入值不参与最高、最低、均值、差距、变化和排名计算。"
+      "comparison_status": "可比较",
+      "interpretation_boundary": "仅表示同年、同定义、质量通过记录的事实位置，不代表风险、预测或政策优劣。",
+      "notes": "v0.76 使用最新共同年份；定义不一致、待接入、不适用或质量未通过记录不进入排名和均值。旧 V4 字段仅为展示兼容。"
     },
     {
-      "comparison_id": "v4_derived_comparison:manufacturing_share_gdp",
+      "comparison_id": "ten_country_derived_comparison:manufacturing_share_gdp",
+      "comparison_scope": "ten_country_comparable_subset",
       "section": "产业",
       "indicator_id": "manufacturing_share_gdp",
       "indicator_name": "制造业占 GDP 比重",
-      "latest_comparable_year": "2025",
+      "latest_comparable_year": 2025,
+      "country_values": [
+        {
+          "country_id": "poland",
+          "value": 14.4
+        },
+        {
+          "country_id": "hungary",
+          "value": 15.1
+        },
+        {
+          "country_id": "czechia",
+          "value": 19
+        },
+        {
+          "country_id": "slovakia",
+          "value": 16.2
+        },
+        {
+          "country_id": "germany",
+          "value": 17.7
+        },
+        {
+          "country_id": "romania",
+          "value": 11.8
+        },
+        {
+          "country_id": "slovenia",
+          "value": 18.6
+        },
+        {
+          "country_id": "serbia",
+          "value": 12.5
+        },
+        {
+          "country_id": "austria",
+          "value": 15.3
+        },
+        {
+          "country_id": "croatia",
+          "value": 10.1
+        }
+      ],
+      "eligible_countries": [
+        "poland",
+        "hungary",
+        "czechia",
+        "slovakia",
+        "germany",
+        "romania",
+        "slovenia",
+        "serbia",
+        "austria",
+        "croatia"
+      ],
+      "excluded_countries": [],
       "poland_value": 14.4,
       "hungary_value": 15.1,
-      "czechia_value": 19.4,
+      "czechia_value": 19,
       "slovakia_value": 16.2,
       "unit": "%",
-      "highest_value": 19.4,
+      "highest_value": 19,
       "highest_country": "czechia",
-      "lowest_value": 14.4,
-      "lowest_country": "poland",
-      "v4_average": 16.275,
-      "poland_gap_from_v4_average": -1.8749999999999982,
-      "hungary_gap_from_v4_average": -1.174999999999999,
-      "czechia_gap_from_v4_average": 3.125,
-      "slovakia_gap_from_v4_average": -0.07499999999999929,
-      "largest_gap_country": "czechia",
-      "largest_gap_value": 3.125,
-      "poland_five_year_change": -2.9000000000000004,
-      "hungary_five_year_change": -1.4000000000000004,
-      "czechia_five_year_change": -0.20000000000000284,
-      "slovakia_five_year_change": -0.40000000000000213,
-      "largest_five_year_change_country": "poland",
-      "largest_five_year_change_value": -2.9000000000000004,
-      "poland_rank": 4,
-      "hungary_rank": 3,
+      "lowest_value": 10.1,
+      "lowest_country": "croatia",
+      "v4_average": 15.070000000000002,
+      "ten_country_comparable_average": 15.070000000000002,
+      "poland_gap_from_v4_average": -0.6700000000000017,
+      "hungary_gap_from_v4_average": 0.029999999999997584,
+      "czechia_gap_from_v4_average": 3.929999999999998,
+      "slovakia_gap_from_v4_average": 1.1299999999999972,
+      "largest_gap_country": "croatia",
+      "largest_gap_value": -4.970000000000002,
+      "poland_five_year_change": null,
+      "hungary_five_year_change": null,
+      "czechia_five_year_change": null,
+      "slovakia_five_year_change": null,
+      "largest_five_year_change_country": "",
+      "largest_five_year_change_value": null,
+      "poland_rank": 7,
+      "hungary_rank": 6,
       "czechia_rank": 1,
-      "slovakia_rank": 2,
+      "slovakia_rank": 4,
       "missing_observation_count": 0,
       "calculated_value_count": 0,
       "comparison_status": "可比较",
-      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
-      "notes": "派生自 V4 2021-2025 扩展观测值；待接入值不参与最高、最低、均值、差距、变化和排名计算。"
+      "interpretation_boundary": "仅表示同年、同定义、质量通过记录的事实位置，不代表风险、预测或政策优劣。",
+      "notes": "v0.76 使用最新共同年份；定义不一致、待接入、不适用或质量未通过记录不进入排名和均值。旧 V4 字段仅为展示兼容。"
     },
     {
-      "comparison_id": "v4_derived_comparison:automotive_export_share",
+      "comparison_id": "ten_country_derived_comparison:automotive_export_share",
+      "comparison_scope": "ten_country_comparable_subset",
       "section": "产业",
       "indicator_id": "automotive_export_share",
       "indicator_name": "汽车产业出口占比",
-      "latest_comparable_year": "2024",
-      "poland_value": 15,
-      "hungary_value": 21.9,
-      "czechia_value": 32.4,
-      "slovakia_value": 40.4,
+      "latest_comparable_year": 2023,
+      "country_values": [
+        {
+          "country_id": "poland",
+          "value": 15.101
+        },
+        {
+          "country_id": "hungary",
+          "value": 22.709
+        },
+        {
+          "country_id": "czechia",
+          "value": 31.996
+        },
+        {
+          "country_id": "slovakia",
+          "value": 33.865
+        },
+        {
+          "country_id": "germany",
+          "value": 20.597
+        },
+        {
+          "country_id": "romania",
+          "value": 22.124
+        },
+        {
+          "country_id": "slovenia",
+          "value": 6.634
+        },
+        {
+          "country_id": "serbia",
+          "value": 16.322
+        },
+        {
+          "country_id": "austria",
+          "value": 6.736
+        },
+        {
+          "country_id": "croatia",
+          "value": 0.961
+        }
+      ],
+      "eligible_countries": [
+        "poland",
+        "hungary",
+        "czechia",
+        "slovakia",
+        "germany",
+        "romania",
+        "slovenia",
+        "serbia",
+        "austria",
+        "croatia"
+      ],
+      "excluded_countries": [],
+      "poland_value": 15.101,
+      "hungary_value": 22.709,
+      "czechia_value": 31.996,
+      "slovakia_value": 33.865,
       "unit": "%",
-      "highest_value": 40.4,
+      "highest_value": 33.865,
       "highest_country": "slovakia",
-      "lowest_value": 15,
-      "lowest_country": "poland",
-      "v4_average": 27.424999999999997,
-      "poland_gap_from_v4_average": -12.424999999999997,
-      "hungary_gap_from_v4_average": -5.524999999999999,
-      "czechia_gap_from_v4_average": 4.975000000000001,
-      "slovakia_gap_from_v4_average": 12.975000000000001,
-      "largest_gap_country": "slovakia",
-      "largest_gap_value": 12.975000000000001,
-      "poland_five_year_change": 1.9000000000000004,
-      "hungary_five_year_change": 0,
-      "czechia_five_year_change": 4.5,
-      "slovakia_five_year_change": 9.399999999999999,
-      "largest_five_year_change_country": "slovakia",
-      "largest_five_year_change_value": 9.399999999999999,
-      "poland_rank": 4,
+      "lowest_value": 0.961,
+      "lowest_country": "croatia",
+      "v4_average": 17.704500000000003,
+      "ten_country_comparable_average": 17.704500000000003,
+      "poland_gap_from_v4_average": -2.603500000000002,
+      "hungary_gap_from_v4_average": 5.004499999999997,
+      "czechia_gap_from_v4_average": 14.291499999999996,
+      "slovakia_gap_from_v4_average": 16.1605,
+      "largest_gap_country": "croatia",
+      "largest_gap_value": -16.743500000000004,
+      "poland_five_year_change": null,
+      "hungary_five_year_change": null,
+      "czechia_five_year_change": null,
+      "slovakia_five_year_change": null,
+      "largest_five_year_change_country": "",
+      "largest_five_year_change_value": null,
+      "poland_rank": 7,
       "hungary_rank": 3,
       "czechia_rank": 2,
       "slovakia_rank": 1,
-      "missing_observation_count": 4,
-      "calculated_value_count": 16,
-      "comparison_status": "部分可比较",
-      "interpretation_boundary": "仅表示事实位置，不代表风险、预测或政策优劣。",
-      "notes": "派生自 V4 2021-2025 扩展观测值；待接入值不参与最高、最低、均值、差距、变化和排名计算。"
+      "missing_observation_count": 12,
+      "calculated_value_count": 38,
+      "comparison_status": "可比较",
+      "interpretation_boundary": "仅表示同年、同定义、质量通过记录的事实位置，不代表风险、预测或政策优劣。",
+      "notes": "v0.76 使用最新共同年份；定义不一致、待接入、不适用或质量未通过记录不进入排名和均值。旧 V4 字段仅为展示兼容。"
     }
   ]
 }
