@@ -1,5 +1,5 @@
 {
-  "schema_version": "china-project-coverage-audit-v0.81",
+  "schema_version": "china-project-coverage-audit-v0.82",
   "generated_at": "2026-08-12",
   "data_type": "china_project_coverage_audit",
   "record_count": 10,
@@ -10,7 +10,7 @@
     {
       "country": "波兰",
       "country_slug": "poland",
-      "project_database_coverage": "representative_coverage",
+      "project_database_coverage": "partial",
       "recorded_project_count": 3,
       "reliable_source_project_count": 2,
       "eligible_project_count": 0,
@@ -32,10 +32,10 @@
     {
       "country": "匈牙利",
       "country_slug": "hungary",
-      "project_database_coverage": "representative_coverage",
+      "project_database_coverage": "representative",
       "recorded_project_count": 3,
-      "reliable_source_project_count": 2,
-      "eligible_project_count": 1,
+      "reliable_source_project_count": 3,
+      "eligible_project_count": 2,
       "active_project_count": 2,
       "cancelled_or_suspended_count": 0,
       "completed_or_transferred_count": 0,
@@ -54,7 +54,7 @@
     {
       "country": "捷克",
       "country_slug": "czechia",
-      "project_database_coverage": "representative_coverage",
+      "project_database_coverage": "partial",
       "recorded_project_count": 3,
       "reliable_source_project_count": 1,
       "eligible_project_count": 0,
@@ -76,10 +76,10 @@
     {
       "country": "斯洛伐克",
       "country_slug": "slovakia",
-      "project_database_coverage": "insufficient_project_coverage",
+      "project_database_coverage": "partial",
       "recorded_project_count": 2,
-      "reliable_source_project_count": 0,
-      "eligible_project_count": 0,
+      "reliable_source_project_count": 2,
+      "eligible_project_count": 1,
       "active_project_count": 2,
       "cancelled_or_suspended_count": 0,
       "completed_or_transferred_count": 0,
@@ -100,9 +100,9 @@
     {
       "country": "德国",
       "country_slug": "germany",
-      "project_database_coverage": "representative_coverage",
+      "project_database_coverage": "partial",
       "recorded_project_count": 2,
-      "reliable_source_project_count": 1,
+      "reliable_source_project_count": 2,
       "eligible_project_count": 0,
       "active_project_count": 2,
       "cancelled_or_suspended_count": 0,
@@ -122,7 +122,7 @@
     {
       "country": "罗马尼亚",
       "country_slug": "romania",
-      "project_database_coverage": "insufficient_project_coverage",
+      "project_database_coverage": "sparse",
       "recorded_project_count": 1,
       "reliable_source_project_count": 1,
       "eligible_project_count": 0,
@@ -144,7 +144,7 @@
     {
       "country": "斯洛文尼亚",
       "country_slug": "slovenia",
-      "project_database_coverage": "insufficient_project_coverage",
+      "project_database_coverage": "sparse",
       "recorded_project_count": 1,
       "reliable_source_project_count": 1,
       "eligible_project_count": 0,
@@ -166,7 +166,7 @@
     {
       "country": "塞尔维亚",
       "country_slug": "serbia",
-      "project_database_coverage": "representative_coverage",
+      "project_database_coverage": "partial",
       "recorded_project_count": 2,
       "reliable_source_project_count": 2,
       "eligible_project_count": 2,
@@ -194,7 +194,7 @@
     {
       "country": "奥地利",
       "country_slug": "austria",
-      "project_database_coverage": "insufficient_project_coverage",
+      "project_database_coverage": "sparse",
       "recorded_project_count": 1,
       "reliable_source_project_count": 1,
       "eligible_project_count": 0,
@@ -216,7 +216,7 @@
     {
       "country": "克罗地亚",
       "country_slug": "croatia",
-      "project_database_coverage": "insufficient_project_coverage",
+      "project_database_coverage": "sparse",
       "recorded_project_count": 1,
       "reliable_source_project_count": 1,
       "eligible_project_count": 0,

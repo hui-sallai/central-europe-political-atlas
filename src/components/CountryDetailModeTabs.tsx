@@ -157,8 +157,8 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
         <section className="mt-4 card p-6">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="eyebrow">China Exposure Data Readiness / v0.81</p>
-              <h2 className="mt-3 text-2xl font-semibold">中国经济暴露数据准备度</h2>
+              <p className="eyebrow">China Exposure Evidence / v0.82</p>
+              <h2 className="mt-3 text-2xl font-semibold">中国经济暴露数据准备度 · v0.82</h2>
             </div>
             <Link href="/models" className="text-sm font-semibold text-[var(--accent)] hover:underline">查看变量与 Model Card</Link>
           </div>
@@ -173,6 +173,7 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
           </div>
           <p className="mt-4 text-xs leading-5 text-[var(--muted)]">总体输出：{chinaExposure.overall_decision}。暴露不等于政治影响力、地缘政治风险或投资质量；相关事件 {chinaExposure.related_event_ids.length} 条只作解释。</p>
           <p className="mt-2 text-xs leading-5 text-[var(--muted)]">项目库覆盖：{chinaExposure.project_database_coverage}；主要缺口：{chinaExposure.priority_gaps.join(" / ") || "无"}。</p>
+          <p className="mt-2 text-xs leading-5 text-[var(--muted)]">China FDI：{chinaExposure.china_fdi_availability}；贸易最新年份：{chinaExposure.trade_latest_year ?? "待接入"}；当前充分维度：{chinaExposure.sufficient_dimension_count}。项目未记录不解释为零暴露。</p>
         </section>
       ) : null}
 

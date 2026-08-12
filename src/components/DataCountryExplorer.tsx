@@ -2893,7 +2893,7 @@ function ResearchDataExportLinks() {
   const exportStatusCards = [
     { label: "CSV 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .csv 文件。" },
     { label: "JSON 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: platformStatus.version, note: "v0.81 补充十国四维覆盖审计、项目证据和 China-origin FDI 来源记录；v0.80 的门槛、权重及既有数据结构保持不变。" },
+    { label: "当前阶段", value: platformStatus.version, note: "v0.82 统一十国四维证据覆盖、贸易历史与投资来源层级；v0.80 的门槛、权重及既有数据结构保持不变。" },
   ];
 
   return (
@@ -4758,7 +4758,7 @@ export function DataCountryExplorer() {
             if (!exposure) return null;
             return (
               <div className="card p-6">
-                <p className="eyebrow">China Exposure Variable Trace / v0.81</p>
+                <p className="eyebrow">China Exposure Variable Trace / v0.82</p>
                 <h2 className="mt-3 text-2xl font-semibold">项目、贸易、投资与产业变量追踪</h2>
                 <p className="mt-3 text-sm leading-6 text-[var(--muted)]">当前展示该国四维变量及来源回链；总分规则为：{chinaExposureModelCard.overall_rule}</p>
                 <p className="mt-2 text-xs leading-5 text-[var(--muted)]">项目库覆盖：{exposure.project_database_coverage}；优先缺口：{exposure.priority_gaps.join(" / ") || "无"}。项目记录不足不解释为零暴露。</p>

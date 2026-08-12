@@ -1,9 +1,9 @@
 export const platformStatus = {
-  version: "v0.81 China Exposure Data Completion",
-  stage: "中国专项数据覆盖审计与证据补强",
+  version: "v0.82 China Exposure Evidence Parity",
+  stage: "十国中国专项证据可比性与覆盖闸门",
   regionalData: "匈牙利 NUTS3 边界证据已记录；正式展示仍未启用",
   mapDisplay: "未启用",
-  modelLayer: "v0.80 门槛冻结；只以新增证据改善分维度 readiness",
+  modelLayer: "v0.80 门槛冻结；v0.82 不生成新总分或不完整排名",
   lastUpdated: "2026-08-12",
 } as const;
 

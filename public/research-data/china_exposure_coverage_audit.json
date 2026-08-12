@@ -1,5 +1,5 @@
 {
-  "schema_version": "china-exposure-coverage-audit-v0.81",
+  "schema_version": "china-exposure-coverage-audit-v0.82",
   "generated_at": "2026-08-12",
   "data_type": "china_exposure_coverage_audit",
   "record_count": 40,
@@ -21,12 +21,14 @@
         "active_project_share",
         "project_sector_concentration"
       ],
+      "related_project_ids": [],
+      "source_urls": [],
       "source_reliability": [
         "D"
       ],
       "definition_comparable": true,
       "source_trace_available": false,
-      "project_database_coverage": "representative_coverage",
+      "project_database_coverage": "partial",
       "qa_status": "partial",
       "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
     },
@@ -42,6 +44,11 @@
         "china_trade_share"
       ],
       "missing_variables": [],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=616&cmdCode=TOTAL&flowCode=X&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=616&cmdCode=TOTAL&flowCode=M&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500"
+      ],
       "source_reliability": [
         "A"
       ],
@@ -62,6 +69,10 @@
       ],
       "missing_variables": [
         "china_fdi_stock_share"
+      ],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions"
       ],
       "source_reliability": [
         "A"
@@ -88,6 +99,13 @@
       "missing_variables": [
         "china_linked_industrial_project_presence"
       ],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?lang=en&freq=A&unit=PC_GDP&na_item=B1G&nace_r2=C&geo=PL&sinceTimePeriod=2025&untilTimePeriod=2025",
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?lang=en&freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&geo=PL&sinceTimePeriod=2024&untilTimePeriod=2024",
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=616&cmdCode=TOTAL&flowCode=X&partnerCode=276&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=en&freq=S&currency=EUR&nrg_cons=MWH500-1999&unit=KWH&tax=I_TAX&geo=PL&sinceTimePeriod=2024-S1&untilTimePeriod=2024-S1"
+      ],
       "source_reliability": [
         "A"
       ],
@@ -100,6 +118,231 @@
     {
       "country": "匈牙利",
       "country_slug": "hungary",
+      "dimension": "project",
+      "status": "partial",
+      "data_completeness": 100,
+      "available_variables": [
+        "eligible_project_count",
+        "active_project_share",
+        "project_sector_concentration"
+      ],
+      "missing_variables": [],
+      "related_project_ids": [
+        "hu-catl-debrecen",
+        "hu-budapest-belgrade-rail"
+      ],
+      "source_urls": [
+        "https://www.catl.com/en/news/983.html"
+      ],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": "representative",
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "匈牙利",
+      "country_slug": "hungary",
+      "dimension": "trade",
+      "status": "sufficient",
+      "data_completeness": 100,
+      "available_variables": [
+        "china_export_share",
+        "china_import_share",
+        "china_trade_share"
+      ],
+      "missing_variables": [],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=348&cmdCode=TOTAL&flowCode=X&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=348&cmdCode=TOTAL&flowCode=M&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500"
+      ],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "passed",
+      "coverage_note": "货物贸易维度可比较，但不覆盖服务贸易。"
+    },
+    {
+      "country": "匈牙利",
+      "country_slug": "hungary",
+      "dimension": "investment",
+      "status": "partial",
+      "data_completeness": 100,
+      "available_variables": [
+        "china_fdi_stock_share"
+      ],
+      "missing_variables": [
+        "china_fdi_stock_share"
+      ],
+      "related_project_ids": [
+        "hu-catl-debrecen",
+        "hu-budapest-belgrade-rail"
+      ],
+      "source_urls": [
+        "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions"
+      ],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "partial",
+      "coverage_note": "Immediate-counterpart BMD4 position is available for China and World."
+    },
+    {
+      "country": "匈牙利",
+      "country_slug": "hungary",
+      "dimension": "industrial",
+      "status": "partial",
+      "data_completeness": 100,
+      "available_variables": [
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "germany_export_dependence",
+        "industrial_electricity_price",
+        "industrial_dependency_score",
+        "china_linked_industrial_project_presence"
+      ],
+      "missing_variables": [],
+      "related_project_ids": [
+        "hu-catl-debrecen"
+      ],
+      "source_urls": [
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?lang=en&freq=A&unit=PC_GDP&na_item=B1G&nace_r2=C&geo=HU&sinceTimePeriod=2025&untilTimePeriod=2025",
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?lang=en&freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&geo=HU&sinceTimePeriod=2024&untilTimePeriod=2024",
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=348&cmdCode=TOTAL&flowCode=X&partnerCode=276&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=en&freq=S&currency=EUR&nrg_cons=MWH500-1999&unit=KWH&tax=I_TAX&geo=HU&sinceTimePeriod=2024-S1&untilTimePeriod=2024-S1",
+        "https://www.catl.com/en/news/983.html"
+      ],
+      "source_reliability": [
+        "A",
+        "B"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": false,
+      "project_database_coverage": null,
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "捷克",
+      "country_slug": "czechia",
+      "dimension": "project",
+      "status": "insufficient",
+      "data_completeness": 0,
+      "available_variables": [
+        "eligible_project_count"
+      ],
+      "missing_variables": [
+        "eligible_project_count",
+        "active_project_share",
+        "project_sector_concentration"
+      ],
+      "related_project_ids": [],
+      "source_urls": [],
+      "source_reliability": [
+        "D"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": false,
+      "project_database_coverage": "partial",
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "捷克",
+      "country_slug": "czechia",
+      "dimension": "trade",
+      "status": "sufficient",
+      "data_completeness": 100,
+      "available_variables": [
+        "china_export_share",
+        "china_import_share",
+        "china_trade_share"
+      ],
+      "missing_variables": [],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=203&cmdCode=TOTAL&flowCode=X&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=203&cmdCode=TOTAL&flowCode=M&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500"
+      ],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "passed",
+      "coverage_note": "货物贸易维度可比较，但不覆盖服务贸易。"
+    },
+    {
+      "country": "捷克",
+      "country_slug": "czechia",
+      "dimension": "investment",
+      "status": "partial",
+      "data_completeness": 100,
+      "available_variables": [
+        "china_fdi_stock_share"
+      ],
+      "missing_variables": [
+        "china_fdi_stock_share"
+      ],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions"
+      ],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "partial",
+      "coverage_note": "Immediate-counterpart BMD4 position is available for China and World."
+    },
+    {
+      "country": "捷克",
+      "country_slug": "czechia",
+      "dimension": "industrial",
+      "status": "insufficient",
+      "data_completeness": 83,
+      "available_variables": [
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "germany_export_dependence",
+        "industrial_electricity_price",
+        "industrial_dependency_score"
+      ],
+      "missing_variables": [
+        "china_linked_industrial_project_presence"
+      ],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?lang=en&freq=A&unit=PC_GDP&na_item=B1G&nace_r2=C&geo=CZ&sinceTimePeriod=2025&untilTimePeriod=2025",
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?lang=en&freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&geo=CZ&sinceTimePeriod=2024&untilTimePeriod=2024",
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=203&cmdCode=TOTAL&flowCode=X&partnerCode=276&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=en&freq=S&currency=EUR&nrg_cons=MWH500-1999&unit=KWH&tax=I_TAX&geo=CZ&sinceTimePeriod=2024-S1&untilTimePeriod=2024-S1"
+      ],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": false,
+      "project_database_coverage": null,
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "斯洛伐克",
+      "country_slug": "slovakia",
       "dimension": "project",
       "status": "insufficient",
       "data_completeness": 17,
@@ -111,192 +354,18 @@
         "active_project_share",
         "project_sector_concentration"
       ],
-      "source_reliability": [
-        "A"
+      "related_project_ids": [
+        "sk-gotion-inobat-surany"
       ],
-      "definition_comparable": true,
-      "source_trace_available": true,
-      "project_database_coverage": "representative_coverage",
-      "qa_status": "partial",
-      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
-    },
-    {
-      "country": "匈牙利",
-      "country_slug": "hungary",
-      "dimension": "trade",
-      "status": "sufficient",
-      "data_completeness": 100,
-      "available_variables": [
-        "china_export_share",
-        "china_import_share",
-        "china_trade_share"
-      ],
-      "missing_variables": [],
-      "source_reliability": [
-        "A"
-      ],
-      "definition_comparable": true,
-      "source_trace_available": true,
-      "project_database_coverage": null,
-      "qa_status": "passed",
-      "coverage_note": "货物贸易维度可比较，但不覆盖服务贸易。"
-    },
-    {
-      "country": "匈牙利",
-      "country_slug": "hungary",
-      "dimension": "investment",
-      "status": "partial",
-      "data_completeness": 100,
-      "available_variables": [
-        "china_fdi_stock_share"
-      ],
-      "missing_variables": [
-        "china_fdi_stock_share"
+      "source_urls": [
+        "https://www.economy.gov.sk/en/press/the-second-highest-investment-in-the-history-of-country-is-coming-to-slovakia-it-is-worth-eur-12-billion-and-it-focuses-on-battery-production"
       ],
       "source_reliability": [
         "A"
       ],
       "definition_comparable": true,
       "source_trace_available": true,
-      "project_database_coverage": null,
-      "qa_status": "partial",
-      "coverage_note": "Immediate-counterpart BMD4 position is available for China and World."
-    },
-    {
-      "country": "匈牙利",
-      "country_slug": "hungary",
-      "dimension": "industrial",
-      "status": "insufficient",
-      "data_completeness": 83,
-      "available_variables": [
-        "manufacturing_share_gdp",
-        "automotive_export_share",
-        "germany_export_dependence",
-        "industrial_electricity_price",
-        "industrial_dependency_score"
-      ],
-      "missing_variables": [
-        "china_linked_industrial_project_presence"
-      ],
-      "source_reliability": [
-        "A"
-      ],
-      "definition_comparable": true,
-      "source_trace_available": false,
-      "project_database_coverage": null,
-      "qa_status": "partial",
-      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
-    },
-    {
-      "country": "捷克",
-      "country_slug": "czechia",
-      "dimension": "project",
-      "status": "insufficient",
-      "data_completeness": 0,
-      "available_variables": [
-        "eligible_project_count"
-      ],
-      "missing_variables": [
-        "eligible_project_count",
-        "active_project_share",
-        "project_sector_concentration"
-      ],
-      "source_reliability": [
-        "D"
-      ],
-      "definition_comparable": true,
-      "source_trace_available": false,
-      "project_database_coverage": "representative_coverage",
-      "qa_status": "partial",
-      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
-    },
-    {
-      "country": "捷克",
-      "country_slug": "czechia",
-      "dimension": "trade",
-      "status": "sufficient",
-      "data_completeness": 100,
-      "available_variables": [
-        "china_export_share",
-        "china_import_share",
-        "china_trade_share"
-      ],
-      "missing_variables": [],
-      "source_reliability": [
-        "A"
-      ],
-      "definition_comparable": true,
-      "source_trace_available": true,
-      "project_database_coverage": null,
-      "qa_status": "passed",
-      "coverage_note": "货物贸易维度可比较，但不覆盖服务贸易。"
-    },
-    {
-      "country": "捷克",
-      "country_slug": "czechia",
-      "dimension": "investment",
-      "status": "partial",
-      "data_completeness": 100,
-      "available_variables": [
-        "china_fdi_stock_share"
-      ],
-      "missing_variables": [
-        "china_fdi_stock_share"
-      ],
-      "source_reliability": [
-        "A"
-      ],
-      "definition_comparable": true,
-      "source_trace_available": true,
-      "project_database_coverage": null,
-      "qa_status": "partial",
-      "coverage_note": "Immediate-counterpart BMD4 position is available for China and World."
-    },
-    {
-      "country": "捷克",
-      "country_slug": "czechia",
-      "dimension": "industrial",
-      "status": "insufficient",
-      "data_completeness": 83,
-      "available_variables": [
-        "manufacturing_share_gdp",
-        "automotive_export_share",
-        "germany_export_dependence",
-        "industrial_electricity_price",
-        "industrial_dependency_score"
-      ],
-      "missing_variables": [
-        "china_linked_industrial_project_presence"
-      ],
-      "source_reliability": [
-        "A"
-      ],
-      "definition_comparable": true,
-      "source_trace_available": false,
-      "project_database_coverage": null,
-      "qa_status": "partial",
-      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
-    },
-    {
-      "country": "斯洛伐克",
-      "country_slug": "slovakia",
-      "dimension": "project",
-      "status": "insufficient",
-      "data_completeness": 0,
-      "available_variables": [
-        "eligible_project_count"
-      ],
-      "missing_variables": [
-        "eligible_project_count",
-        "active_project_share",
-        "project_sector_concentration"
-      ],
-      "source_reliability": [
-        "D"
-      ],
-      "definition_comparable": true,
-      "source_trace_available": false,
-      "project_database_coverage": "insufficient_project_coverage",
+      "project_database_coverage": "partial",
       "qa_status": "partial",
       "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
     },
@@ -312,6 +381,11 @@
         "china_trade_share"
       ],
       "missing_variables": [],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=703&cmdCode=TOTAL&flowCode=X&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=703&cmdCode=TOTAL&flowCode=M&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500"
+      ],
       "source_reliability": [
         "A"
       ],
@@ -333,6 +407,12 @@
       "missing_variables": [
         "china_fdi_stock_share"
       ],
+      "related_project_ids": [
+        "sk-gotion-inobat-surany"
+      ],
+      "source_urls": [
+        "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions"
+      ],
       "source_reliability": [
         "A"
       ],
@@ -346,17 +426,26 @@
       "country": "斯洛伐克",
       "country_slug": "slovakia",
       "dimension": "industrial",
-      "status": "insufficient",
-      "data_completeness": 83,
+      "status": "partial",
+      "data_completeness": 100,
       "available_variables": [
         "manufacturing_share_gdp",
         "automotive_export_share",
         "germany_export_dependence",
         "industrial_electricity_price",
-        "industrial_dependency_score"
-      ],
-      "missing_variables": [
+        "industrial_dependency_score",
         "china_linked_industrial_project_presence"
+      ],
+      "missing_variables": [],
+      "related_project_ids": [
+        "sk-gotion-inobat-surany"
+      ],
+      "source_urls": [
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?lang=en&freq=A&unit=PC_GDP&na_item=B1G&nace_r2=C&geo=SK&sinceTimePeriod=2025&untilTimePeriod=2025",
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?lang=en&freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&geo=SK&sinceTimePeriod=2024&untilTimePeriod=2024",
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=703&cmdCode=TOTAL&flowCode=X&partnerCode=276&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=en&freq=S&currency=EUR&nrg_cons=MWH500-1999&unit=KWH&tax=I_TAX&geo=SK&sinceTimePeriod=2024-S1&untilTimePeriod=2024-S1",
+        "https://www.economy.gov.sk/en/press/the-second-highest-investment-in-the-history-of-country-is-coming-to-slovakia-it-is-worth-eur-12-billion-and-it-focuses-on-battery-production"
       ],
       "source_reliability": [
         "A"
@@ -381,12 +470,14 @@
         "active_project_share",
         "project_sector_concentration"
       ],
+      "related_project_ids": [],
+      "source_urls": [],
       "source_reliability": [
         "D"
       ],
       "definition_comparable": true,
       "source_trace_available": false,
-      "project_database_coverage": "representative_coverage",
+      "project_database_coverage": "partial",
       "qa_status": "partial",
       "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
     },
@@ -402,6 +493,11 @@
         "china_trade_share"
       ],
       "missing_variables": [],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=276&cmdCode=TOTAL&flowCode=X&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=276&cmdCode=TOTAL&flowCode=M&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500"
+      ],
       "source_reliability": [
         "A"
       ],
@@ -422,6 +518,10 @@
       ],
       "missing_variables": [
         "china_fdi_stock_share"
+      ],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions"
       ],
       "source_reliability": [
         "A"
@@ -448,6 +548,12 @@
         "industrial_dependency_score",
         "china_linked_industrial_project_presence"
       ],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?lang=en&freq=A&unit=PC_GDP&na_item=B1G&nace_r2=C&geo=DE&sinceTimePeriod=2025&untilTimePeriod=2025",
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?lang=en&freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&geo=DE&sinceTimePeriod=2024&untilTimePeriod=2024",
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=en&freq=S&currency=EUR&nrg_cons=MWH500-1999&unit=KWH&tax=I_TAX&geo=DE&sinceTimePeriod=2024-S1&untilTimePeriod=2024-S1"
+      ],
       "source_reliability": [
         "A"
       ],
@@ -471,12 +577,14 @@
         "active_project_share",
         "project_sector_concentration"
       ],
+      "related_project_ids": [],
+      "source_urls": [],
       "source_reliability": [
         "D"
       ],
       "definition_comparable": true,
       "source_trace_available": false,
-      "project_database_coverage": "insufficient_project_coverage",
+      "project_database_coverage": "sparse",
       "qa_status": "partial",
       "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
     },
@@ -492,6 +600,11 @@
         "china_trade_share"
       ],
       "missing_variables": [],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=642&cmdCode=TOTAL&flowCode=X&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=642&cmdCode=TOTAL&flowCode=M&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500"
+      ],
       "source_reliability": [
         "A"
       ],
@@ -505,17 +618,23 @@
       "country": "罗马尼亚",
       "country_slug": "romania",
       "dimension": "investment",
-      "status": "unavailable",
+      "status": "partial",
       "data_completeness": 0,
       "available_variables": [],
       "missing_variables": [
         "china_fdi_stock_share"
       ],
-      "source_reliability": [],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://www.bnr.ro/files/d/Pubs_en/FDI/FDI_2023.pdf"
+      ],
+      "source_reliability": [
+        "A"
+      ],
       "definition_comparable": true,
       "source_trace_available": true,
       "project_database_coverage": null,
-      "qa_status": "unavailable",
+      "qa_status": "partial",
       "coverage_note": "缺少同口径 China-origin FDI position。"
     },
     {
@@ -533,6 +652,13 @@
       ],
       "missing_variables": [
         "china_linked_industrial_project_presence"
+      ],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?lang=en&freq=A&unit=PC_GDP&na_item=B1G&nace_r2=C&geo=RO&sinceTimePeriod=2025&untilTimePeriod=2025",
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?lang=en&freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&geo=RO&sinceTimePeriod=2024&untilTimePeriod=2024",
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=642&cmdCode=TOTAL&flowCode=X&partnerCode=276&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=en&freq=S&currency=EUR&nrg_cons=MWH500-1999&unit=KWH&tax=I_TAX&geo=RO&sinceTimePeriod=2024-S1&untilTimePeriod=2024-S1"
       ],
       "source_reliability": [
         "A"
@@ -557,12 +683,14 @@
         "active_project_share",
         "project_sector_concentration"
       ],
+      "related_project_ids": [],
+      "source_urls": [],
       "source_reliability": [
         "D"
       ],
       "definition_comparable": true,
       "source_trace_available": false,
-      "project_database_coverage": "insufficient_project_coverage",
+      "project_database_coverage": "sparse",
       "qa_status": "partial",
       "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
     },
@@ -578,6 +706,11 @@
         "china_trade_share"
       ],
       "missing_variables": [],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=705&cmdCode=TOTAL&flowCode=X&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=705&cmdCode=TOTAL&flowCode=M&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500"
+      ],
       "source_reliability": [
         "A"
       ],
@@ -591,17 +724,23 @@
       "country": "斯洛文尼亚",
       "country_slug": "slovenia",
       "dimension": "investment",
-      "status": "unavailable",
+      "status": "partial",
       "data_completeness": 0,
       "available_variables": [],
       "missing_variables": [
         "china_fdi_stock_share"
       ],
-      "source_reliability": [],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://www.bsi.si/en/publications/p/direct-investment-2024"
+      ],
+      "source_reliability": [
+        "A"
+      ],
       "definition_comparable": true,
       "source_trace_available": true,
       "project_database_coverage": null,
-      "qa_status": "unavailable",
+      "qa_status": "partial",
       "coverage_note": "缺少同口径 China-origin FDI position。"
     },
     {
@@ -619,6 +758,13 @@
       ],
       "missing_variables": [
         "china_linked_industrial_project_presence"
+      ],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?lang=en&freq=A&unit=PC_GDP&na_item=B1G&nace_r2=C&geo=SI&sinceTimePeriod=2025&untilTimePeriod=2025",
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?lang=en&freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&geo=SI&sinceTimePeriod=2024&untilTimePeriod=2024",
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=705&cmdCode=TOTAL&flowCode=X&partnerCode=276&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=en&freq=S&currency=EUR&nrg_cons=MWH500-1999&unit=KWH&tax=I_TAX&geo=SI&sinceTimePeriod=2024-S1&untilTimePeriod=2024-S1"
       ],
       "source_reliability": [
         "A"
@@ -641,12 +787,19 @@
         "project_sector_concentration"
       ],
       "missing_variables": [],
+      "related_project_ids": [
+        "rs-linglong-zrenjanin-tire",
+        "rs-zijin-rtb-bor"
+      ],
+      "source_urls": [
+        "https://www.srbija.gov.rs/vest/en/230956/serial-production-of-tyres-begins-at-linglong-factory-in-zrenjanin.php"
+      ],
       "source_reliability": [
         "A"
       ],
       "definition_comparable": true,
       "source_trace_available": true,
-      "project_database_coverage": "representative_coverage",
+      "project_database_coverage": "partial",
       "qa_status": "partial",
       "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
     },
@@ -662,6 +815,11 @@
         "china_trade_share"
       ],
       "missing_variables": [],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=688&cmdCode=TOTAL&flowCode=X&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=688&cmdCode=TOTAL&flowCode=M&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500"
+      ],
       "source_reliability": [
         "A"
       ],
@@ -675,17 +833,26 @@
       "country": "塞尔维亚",
       "country_slug": "serbia",
       "dimension": "investment",
-      "status": "unavailable",
+      "status": "partial",
       "data_completeness": 0,
       "available_variables": [],
       "missing_variables": [
         "china_fdi_stock_share"
       ],
-      "source_reliability": [],
+      "related_project_ids": [
+        "rs-linglong-zrenjanin-tire",
+        "rs-zijin-rtb-bor"
+      ],
+      "source_urls": [
+        "https://www.nbs.rs/en/drugi-nivo-navigacije/statistika/platni_bilans/index.html"
+      ],
+      "source_reliability": [
+        "A"
+      ],
       "definition_comparable": true,
       "source_trace_available": true,
       "project_database_coverage": null,
-      "qa_status": "unavailable",
+      "qa_status": "partial",
       "coverage_note": "缺少同口径 China-origin FDI position。"
     },
     {
@@ -703,6 +870,16 @@
         "china_linked_industrial_project_presence"
       ],
       "missing_variables": [],
+      "related_project_ids": [
+        "rs-linglong-zrenjanin-tire"
+      ],
+      "source_urls": [
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?lang=en&freq=A&unit=PC_GDP&na_item=B1G&nace_r2=C&geo=RS&sinceTimePeriod=2025&untilTimePeriod=2025",
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?lang=en&freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&geo=RS&sinceTimePeriod=2024&untilTimePeriod=2024",
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=688&cmdCode=TOTAL&flowCode=X&partnerCode=276&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=en&freq=S&currency=EUR&nrg_cons=MWH500-1999&unit=KWH&tax=I_TAX&geo=RS&sinceTimePeriod=2024-S1&untilTimePeriod=2024-S1",
+        "https://www.srbija.gov.rs/vest/en/230956/serial-production-of-tyres-begins-at-linglong-factory-in-zrenjanin.php"
+      ],
       "source_reliability": [
         "A"
       ],
@@ -726,12 +903,14 @@
         "active_project_share",
         "project_sector_concentration"
       ],
+      "related_project_ids": [],
+      "source_urls": [],
       "source_reliability": [
         "D"
       ],
       "definition_comparable": true,
       "source_trace_available": false,
-      "project_database_coverage": "insufficient_project_coverage",
+      "project_database_coverage": "sparse",
       "qa_status": "partial",
       "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
     },
@@ -747,6 +926,11 @@
         "china_trade_share"
       ],
       "missing_variables": [],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=40&cmdCode=TOTAL&flowCode=X&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=40&cmdCode=TOTAL&flowCode=M&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500"
+      ],
       "source_reliability": [
         "A"
       ],
@@ -760,17 +944,23 @@
       "country": "奥地利",
       "country_slug": "austria",
       "dimension": "investment",
-      "status": "unavailable",
+      "status": "partial",
       "data_completeness": 0,
       "available_variables": [],
       "missing_variables": [
         "china_fdi_stock_share"
       ],
-      "source_reliability": [],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://www.oenb.at/en/Statistics/Standardized-Tables/external-sector/foreign-direct-investment/inward-direct-investment.html"
+      ],
+      "source_reliability": [
+        "A"
+      ],
       "definition_comparable": true,
       "source_trace_available": true,
       "project_database_coverage": null,
-      "qa_status": "unavailable",
+      "qa_status": "partial",
       "coverage_note": "缺少同口径 China-origin FDI position。"
     },
     {
@@ -788,6 +978,13 @@
       ],
       "missing_variables": [
         "china_linked_industrial_project_presence"
+      ],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?lang=en&freq=A&unit=PC_GDP&na_item=B1G&nace_r2=C&geo=AT&sinceTimePeriod=2025&untilTimePeriod=2025",
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?lang=en&freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&geo=AT&sinceTimePeriod=2024&untilTimePeriod=2024",
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=40&cmdCode=TOTAL&flowCode=X&partnerCode=276&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=en&freq=S&currency=EUR&nrg_cons=MWH500-1999&unit=KWH&tax=I_TAX&geo=AT&sinceTimePeriod=2024-S1&untilTimePeriod=2024-S1"
       ],
       "source_reliability": [
         "A"
@@ -812,12 +1009,14 @@
         "active_project_share",
         "project_sector_concentration"
       ],
+      "related_project_ids": [],
+      "source_urls": [],
       "source_reliability": [
         "D"
       ],
       "definition_comparable": true,
       "source_trace_available": false,
-      "project_database_coverage": "insufficient_project_coverage",
+      "project_database_coverage": "sparse",
       "qa_status": "partial",
       "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
     },
@@ -833,6 +1032,11 @@
         "china_trade_share"
       ],
       "missing_variables": [],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=191&cmdCode=TOTAL&flowCode=X&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=191&cmdCode=TOTAL&flowCode=M&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500"
+      ],
       "source_reliability": [
         "A"
       ],
@@ -846,17 +1050,23 @@
       "country": "克罗地亚",
       "country_slug": "croatia",
       "dimension": "investment",
-      "status": "unavailable",
+      "status": "partial",
       "data_completeness": 0,
       "available_variables": [],
       "missing_variables": [
         "china_fdi_stock_share"
       ],
-      "source_reliability": [],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://www.hnb.hr/en/statistics/statistical-data/rest-of-the-world"
+      ],
+      "source_reliability": [
+        "A"
+      ],
       "definition_comparable": true,
       "source_trace_available": true,
       "project_database_coverage": null,
-      "qa_status": "unavailable",
+      "qa_status": "partial",
       "coverage_note": "缺少同口径 China-origin FDI position。"
     },
     {
@@ -874,6 +1084,13 @@
       ],
       "missing_variables": [
         "china_linked_industrial_project_presence"
+      ],
+      "related_project_ids": [],
+      "source_urls": [
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?lang=en&freq=A&unit=PC_GDP&na_item=B1G&nace_r2=C&geo=HR&sinceTimePeriod=2025&untilTimePeriod=2025",
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?lang=en&freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&geo=HR&sinceTimePeriod=2023&untilTimePeriod=2023",
+        "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=191&cmdCode=TOTAL&flowCode=X&partnerCode=276&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=en&freq=S&currency=EUR&nrg_cons=MWH500-1999&unit=KWH&tax=I_TAX&geo=HR&sinceTimePeriod=2024-S1&untilTimePeriod=2024-S1"
       ],
       "source_reliability": [
         "A"

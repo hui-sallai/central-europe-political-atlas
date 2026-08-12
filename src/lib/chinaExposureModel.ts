@@ -9,16 +9,20 @@ import { modelOutputs } from "./modelFramework";
 import type { Country, DataEnvelope, Event, Observation } from "../types/researchData";
 import type {
   ChinaExposureCoverageAuditRecord,
+  ChinaExposureCoverageStatus,
+  ChinaEvidenceCoverageMatrixRecord,
   ChinaExposureDimension,
   ChinaExposureDimensionOutput,
   ChinaExposureModelCard,
   ChinaExposureOutput,
   ChinaTradeQaRecord,
+  ChinaTradeHistoricalRecord,
+  ChinaSectorLinkageRecord,
   ProjectDatabaseCoverage,
   ChinaExposureVariable,
 } from "../types/ChinaExposure";
 
-const MODEL_VERSION = "v0.81.0";
+const MODEL_VERSION = "v0.82.0";
 const CALCULATION_DATE = "2026-08-12";
 const BOUNDARY = "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。";
 
@@ -70,7 +74,9 @@ function variable(base: Omit<ChinaExposureVariable, "normalized_score" | "weight
 }
 
 function tradeVariables(countrySlug: string, countryName: string): ChinaExposureVariable[] {
-  const input = (tradeInputsJson.records as TradeInput[]).find((record) => record.country === countrySlug);
+  const input = (tradeInputsJson.records as TradeInput[])
+    .filter((record) => record.country === countrySlug)
+    .sort((a, b) => b.year - a.year)[0];
   const values = input?.values;
   const formulas = {
     china_export_share: [values?.exports_to_china, values?.exports_to_world, input?.source_urls.exports_to_china, input?.source_urls.exports_to_world, "exports_to_China / exports_to_world * 100"],
@@ -103,7 +109,7 @@ function tradeVariables(countrySlug: string, countryName: string): ChinaExposure
       calculation_method: formula,
       data_completeness: rawValue === null ? 0 : 100,
       model_eligible: rawValue !== null,
-      limitation_note: "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+      limitation_note: "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
       calculation_trace: {
         numerator: typeof numerator === "number" ? numerator : null,
         denominator: typeof denominator === "number" ? denominator : null,
@@ -158,6 +164,9 @@ function investmentVariables(countrySlug: string, countryName: string): ChinaExp
   const projects = eligibleProjects(countrySlug).filter((project) => project.amount !== null);
   const input = (fdiInputsJson.records as FdiInput[]).find((record) => record.country === countrySlug);
   const rawValue = input?.china_fdi_stock_share ?? null;
+  const candidateSourceName = input && "candidate_source_name" in input ? input.candidate_source_name : null;
+  const candidateSourceUrl = input && "candidate_source_url" in input ? input.candidate_source_url : null;
+  const denominatorDefinition = input && "denominator_definition" in input ? input.denominator_definition : null;
   return [variable({
     variable_id: "china_fdi_stock_share",
     country: countryName,
@@ -166,10 +175,10 @@ function investmentVariables(countrySlug: string, countryName: string): ChinaExp
     raw_value: rawValue,
     unit: "% total inward FDI stock",
     year: input?.year ?? null,
-    source: fdiInputsJson.source_name,
-    source_url: fdiInputsJson.source_url,
+    source: rawValue !== null ? fdiInputsJson.source_name : candidateSourceName ?? fdiInputsJson.source_name,
+    source_url: rawValue !== null ? fdiInputsJson.source_url : candidateSourceUrl ?? fdiInputsJson.source_url,
     source_reliability: "A",
-    calculation_method: "China inward FDI position / World inward FDI position * 100; immediate counterpart; OECD BMD4",
+    calculation_method: rawValue !== null ? "China inward FDI position / World inward FDI position * 100; immediate counterpart; OECD BMD4" : denominatorDefinition ?? "Official candidate source pending comparable numerator and denominator",
     data_completeness: rawValue === null ? 0 : 100,
     model_eligible: false,
     limitation_note: `已保留同口径官方存量证据，但十国仅五国完整，投资维度继续 unavailable。普通 FDI、项目金额、合同额和承诺额不作替代也不相加；${projects.length} 项项目金额仅保留在项目库。`,
@@ -183,7 +192,10 @@ function investmentVariables(countrySlug: string, countryName: string): ChinaExp
     related_observation_ids: [],
     related_project_ids: projects.map((project) => project.projectId),
     definition_comparable: input?.definition_comparable ?? false,
-    source_method: fdiInputsJson.source_method,
+    source_method: rawValue !== null ? fdiInputsJson.source_method : denominatorDefinition ?? fdiInputsJson.source_method,
+    source_tier: fdiSourceTier(countrySlug),
+    comparison_status: input?.definition_comparable ? "comparable" : candidateSourceUrl ? "partial" : "unavailable",
+    denominator_definition: denominatorDefinition,
     coverage_note: input?.coverage_note ?? "未形成同口径 OECD 记录。",
     qa_status: rawValue === null ? "unavailable" : "partial",
   }, null, 1)];
@@ -249,8 +261,22 @@ function dimensionOutput(dimension: ChinaExposureDimension, variables: ChinaExpo
 function projectDatabaseCoverage(countrySlug: string): ProjectDatabaseCoverage {
   const records = researchProjects.filter((project) => project.countrySlug === countrySlug);
   const reliable = records.filter((project) => project.sourceReliabilityLevel === "A" || project.sourceReliabilityLevel === "B");
-  if (records.length >= 2 && reliable.length >= 1) return "representative_coverage";
-  return "insufficient_project_coverage";
+  const eligible = eligibleProjects(countrySlug);
+  if (records.length >= 3 && reliable.length >= 2 && eligible.length >= 2) return "representative";
+  if (records.length >= 2 && reliable.length >= 1) return "partial";
+  if (records.length >= 1) return "sparse";
+  return "insufficient";
+}
+
+function latestTradeYear(countrySlug: string) {
+  return (tradeInputsJson.records as TradeInput[])
+    .filter((record) => record.country === countrySlug && record.data_status === "official_complete")
+    .sort((a, b) => b.year - a.year)[0]?.year ?? null;
+}
+
+function fdiSourceTier(countrySlug: string): 1 | 2 | 3 | null {
+  const input = (fdiInputsJson.records as FdiInput[]).find((record) => record.country === countrySlug);
+  return (input?.source_tier as 1 | 2 | 3 | null | undefined) ?? null;
 }
 
 function relatedEventIds(countrySlug: string) {
@@ -270,7 +296,7 @@ export const chinaExposureModelCard: ChinaExposureModelCard = {
   ],
   overall_rule: "只有至少三个核心维度达到 sufficient 且可比时才计算总分；partial 维度不能凑足门槛。当前十国均不满足，因此总分 unavailable。",
   event_policy: "事件只解释项目和政策背景，不直接改变维度或总分。",
-  limitations: [BOUNDARY, "项目库是代表性核验库，不是中国企业活动总体普查。", "OECD 同口径 China-origin FDI 存量仅覆盖五国，投资维度继续 unavailable，普通 FDI 不作替代。", "贸易维度只使用 2024 年货物贸易。"],
+  limitations: [BOUNDARY, "项目库是代表性核验库，不是中国企业活动总体普查。", "项目事实可同时支撑项目与产业解释，但同一金额不得在总分中重复加权。", "OECD 同口径 China-origin FDI 存量仅覆盖五国，Tier 2/3 候选来源在定义不同或缺少分母时不进入排名。", "贸易分数仍使用 2024 年货物贸易；2021–2024 序列只作趋势背景。"],
   calculation_date: CALCULATION_DATE,
 };
 
@@ -290,19 +316,53 @@ export const chinaExposureOutputs: ChinaExposureOutput[] = researchCountries.map
     sufficient_dimension_count: sufficient.length, calculation_date: CALCULATION_DATE, related_event_ids: relatedEventIds(country.slug),
     related_project_ids: researchProjects.filter((project) => project.countrySlug === country.slug).map((project) => project.projectId), interpretation_boundary: BOUNDARY,
     project_database_coverage: projectDatabaseCoverage(country.slug),
+    china_fdi_availability: dimensions.find((dimension) => dimension.dimension === "investment")?.variables.some((item) => item.raw_value !== null) ? "partial" : "unavailable",
+    trade_latest_year: latestTradeYear(country.slug),
+    evidence_confidence_factors: {
+      dimension_completeness: Math.round(dimensions.reduce((sum, dimension) => sum + dimension.data_completeness, 0) / dimensions.length),
+      source_reliability: dimensions.flatMap((dimension) => dimension.variables).every((item) => item.raw_value === null || item.source_reliability === "A" || item.source_reliability === "B") ? "A/B evidence where available" : "mixed evidence",
+      year_alignment: latestTradeYear(country.slug) === 2024 ? "trade aligned to 2024; other dimensions may differ" : "review required",
+      project_database_coverage: projectDatabaseCoverage(country.slug),
+      definition_comparability: dimensions.find((dimension) => dimension.dimension === "investment")?.variables.some((item) => item.definition_comparable) ? "partial ten-country comparability" : "not comparable",
+    },
     priority_gaps: dimensions.flatMap((dimension) => dimension.missing_variables.map((variableId) => `${dimension.dimension}:${variableId}`)).slice(0, 5),
   };
 });
 
 export const chinaExposureVariables = chinaExposureOutputs.flatMap((output) => output.dimensions.flatMap((dimension) => dimension.variables));
 
+export const chinaTradeHistoricalSeries: ChinaTradeHistoricalRecord[] = (tradeInputsJson.records as TradeInput[]).map((input) => {
+  const values = input.values;
+  const exportShare = values.exports_to_world > 0 ? values.exports_to_china / values.exports_to_world * 100 : null;
+  const importShare = values.imports_from_world > 0 ? values.imports_from_china / values.imports_from_world * 100 : null;
+  const tradeDenominator = values.exports_to_world + values.imports_from_world;
+  const tradeShare = tradeDenominator > 0 ? (values.exports_to_china + values.imports_from_china) / tradeDenominator * 100 : null;
+  const complete = exportShare !== null && importShare !== null && tradeShare !== null;
+  return {
+    country: input.country_name,
+    country_slug: input.country,
+    year: input.year,
+    china_export_share: exportShare === null ? null : Number(exportShare.toFixed(3)),
+    china_import_share: importShare === null ? null : Number(importShare.toFixed(3)),
+    china_trade_share: tradeShare === null ? null : Number(tradeShare.toFixed(3)),
+    source: input.source_name,
+    source_url: input.source_urls.exports_to_china,
+    source_reliability: "A",
+    qa_status: complete ? "passed" : "review_required",
+    use: "trend_context_only",
+  };
+});
+
 export const chinaExposureCoverageAudit: ChinaExposureCoverageAuditRecord[] = chinaExposureOutputs.flatMap((output) =>
   output.dimensions.map((dimension) => {
     const available = dimension.variables.filter((item) => item.raw_value !== null);
+    const investmentCandidateAvailable = dimension.dimension === "investment"
+      && dimension.variables.some((item) => Boolean(item.source_url) && item.source_tier !== null && item.source_tier !== undefined);
     const coverageStatus = dimension.dimension === "investment"
-      ? (available.length ? "partial" : "unavailable")
+      ? (available.length || investmentCandidateAvailable ? "partial" : "unavailable")
       : dimension.availability;
-    const reliability = [...new Set(available.map((item) => item.source_reliability))];
+    const evidencedVariables = dimension.variables.filter((item) => item.raw_value !== null || (investmentCandidateAvailable && Boolean(item.source_url)));
+    const reliability = [...new Set(evidencedVariables.map((item) => item.source_reliability))];
     return {
       country: output.country,
       country_slug: output.country_slug,
@@ -311,9 +371,11 @@ export const chinaExposureCoverageAudit: ChinaExposureCoverageAuditRecord[] = ch
       data_completeness: dimension.data_completeness,
       available_variables: available.map((item) => item.variable_id),
       missing_variables: dimension.missing_variables,
+      related_project_ids: [...new Set(dimension.variables.flatMap((item) => item.related_project_ids))],
+      source_urls: [...new Set(dimension.variables.map((item) => item.source_url).filter((url): url is string => Boolean(url)))],
       source_reliability: reliability,
       definition_comparable: dimension.dimension !== "investment" || available.every((item) => item.definition_comparable === true),
-      source_trace_available: available.every((item) => Boolean(item.source_url)),
+      source_trace_available: evidencedVariables.length > 0 && evidencedVariables.every((item) => Boolean(item.source_url)),
       project_database_coverage: dimension.dimension === "project" ? output.project_database_coverage : null,
       qa_status: coverageStatus === "sufficient" ? "passed" : coverageStatus === "unavailable" ? "unavailable" : "partial",
       coverage_note: dimension.dimension === "investment"
@@ -328,14 +390,14 @@ const expectedReporterCodes: Record<string, number> = {
   austria: 40, romania: 642, slovenia: 705, croatia: 191, serbia: 688,
 };
 
-export const chinaTradeQa: ChinaTradeQaRecord[] = researchCountries.map((country) => {
-  const matching = (tradeInputsJson.records as TradeInput[]).filter((record) => record.country === country.slug);
+export const chinaTradeQa: ChinaTradeQaRecord[] = researchCountries.flatMap((country) => [2021, 2022, 2023, 2024].map((year) => {
+  const matching = (tradeInputsJson.records as TradeInput[]).filter((record) => record.country === country.slug && record.year === year);
   const input = matching[0];
   const values = input?.values;
   const numeratorComplete = Boolean(values && values.exports_to_china >= 0 && values.imports_from_china >= 0);
   const denominatorComplete = Boolean(values && values.exports_to_world > 0 && values.imports_from_world > 0);
   const codesValid = input?.reporter_code === expectedReporterCodes[country.slug] && input?.partner_code === 156;
-  const yearValid = input?.year === 2024;
+  const yearValid = input?.year === year;
   const duplicateRecordCount = Math.max(0, matching.length - 1);
   const passed = numeratorComplete && denominatorComplete && codesValid && yearValid && duplicateRecordCount === 0;
   return {
@@ -349,10 +411,10 @@ export const chinaTradeQa: ChinaTradeQaRecord[] = researchCountries.map((country
     denominator_valid: denominatorComplete,
     qa_status: passed ? "passed" : "review_required",
     notes: passed
-      ? "2024 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+      ? `${year} HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA.`
       : "Trade input requires review; no automatic correction was applied.",
   };
-});
+}));
 
 export const chinaProjectCoverageAudit = researchCountries.map((country) => {
   const records = researchProjects.filter((project) => project.countrySlug === country.slug);
@@ -408,6 +470,88 @@ export const chinaProjectCoverageAudit = researchCountries.map((country) => {
       : "仅有单项代表性记录，仍属项目覆盖不足；未记录项目不能解释为零暴露。",
   };
 });
+
+const sectorDefinitions: Array<{ id: ChinaSectorLinkageRecord["sector"]; pattern: RegExp }> = [
+  { id: "battery", pattern: /电池/ },
+  { id: "automotive", pattern: /汽车|轮胎|整车/ },
+  { id: "electronics", pattern: /电子|家电|电器/ },
+  { id: "logistics", pattern: /物流|港口|铁路|码头/ },
+  { id: "infrastructure", pattern: /基础设施|桥|铁路|建设施工/ },
+  { id: "energy", pattern: /能源|核能|电力/ },
+];
+
+export const chinaSectorLinkageMatrix: ChinaSectorLinkageRecord[] = researchCountries.flatMap((country) => {
+  const countryProjects = researchProjects.filter((project) => project.countrySlug === country.slug);
+  const coverage = projectDatabaseCoverage(country.slug);
+  return sectorDefinitions.map((sector) => {
+    const projects = countryProjects.filter((project) => sector.pattern.test(`${project.sector} ${project.riskTags.join(" ")}`));
+    const current = projects.filter((project) => ["committed", "under_construction", "operational"].includes(project.projectStatusCode));
+    const historical = projects.filter((project) => ["completed", "transferred"].includes(project.projectStatusCode));
+    const cancelled = projects.filter((project) => ["cancelled", "suspended"].includes(project.projectStatusCode));
+    const announced = projects.filter((project) => project.projectStatusCode === "announced");
+    const reliableCurrent = current.filter((project) => project.sourceReliabilityLevel === "A" || project.sourceReliabilityLevel === "B");
+    let status: ChinaSectorLinkageRecord["status"] = "no_verified_evidence";
+    if (coverage === "insufficient" || coverage === "sparse") status = "insufficient_coverage";
+    if (cancelled.length) status = "cancelled";
+    if (announced.length) status = "announced";
+    if (historical.length) status = "verified_historical";
+    if (reliableCurrent.length) status = "verified_active";
+    return {
+      country: country.name_zh,
+      country_slug: country.slug,
+      sector: sector.id,
+      status,
+      project_ids: projects.map((project) => project.projectId),
+      current_project_count: current.length,
+      historical_project_count: historical.length + cancelled.length,
+      source_reliability: [...new Set(projects.map((project) => project.sourceReliabilityLevel))],
+      model_eligible: reliableCurrent.length > 0,
+      double_counting_rule: "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score.",
+    };
+  });
+});
+
+export const chinaEvidenceCoverageMatrix: ChinaEvidenceCoverageMatrixRecord[] = chinaExposureOutputs.map((output) => {
+  const dimensions = Object.fromEntries(output.dimensions.map((dimension) => {
+    const available = dimension.variables.some((item) => item.raw_value !== null);
+    const fdiInput = (fdiInputsJson.records as FdiInput[]).find((record) => record.country === output.country_slug);
+    const hasInvestmentCandidate = Boolean(fdiInput && "candidate_source_url" in fdiInput && fdiInput.candidate_source_url);
+    const status = dimension.dimension === "investment"
+      ? (available || hasInvestmentCandidate ? "partial" : "unavailable")
+      : dimension.availability;
+    return [dimension.dimension, status];
+  })) as Record<ChinaExposureDimension, ChinaExposureCoverageStatus>;
+  const projectAudit = chinaProjectCoverageAudit.find((item) => item.country_slug === output.country_slug);
+  const statuses = Object.values(dimensions);
+  const fdiInput = (fdiInputsJson.records as FdiInput[]).find((record) => record.country === output.country_slug);
+  return {
+    country: output.country,
+    country_slug: output.country_slug,
+    project: dimensions.project,
+    trade: dimensions.trade,
+    investment: dimensions.investment,
+    industrial: dimensions.industrial,
+    sufficient_dimensions: statuses.filter((status) => status === "sufficient").length,
+    partial_dimensions: statuses.filter((status) => status === "partial").length,
+    unavailable_dimensions: statuses.filter((status) => status === "unavailable" || status === "insufficient").length,
+    project_database_coverage: output.project_database_coverage,
+    recorded_project_count: projectAudit?.recorded_project_count ?? 0,
+    reliable_project_count: projectAudit?.reliable_source_project_count ?? 0,
+    trade_latest_year: output.trade_latest_year,
+    china_fdi_source_tier: fdiSourceTier(output.country_slug),
+    china_fdi_comparison_status: fdiInput?.definition_comparable ? "comparable" : fdiInput && "candidate_source_url" in fdiInput ? "partial" : "unavailable",
+    overall_gate_status: output.overall_decision,
+    priority_gaps: output.priority_gaps,
+  };
+});
+
+export const chinaExposureRankingGate = {
+  required_comparable_country_count: 7,
+  available_overall_country_count: chinaExposureOutputs.filter((output) => output.overall_decision === "available").length,
+  ranking_enabled: chinaExposureOutputs.filter((output) => output.overall_decision === "available").length >= 7,
+  status: chinaExposureOutputs.filter((output) => output.overall_decision === "available").length >= 7 ? "ranking_available" : "ranking_unavailable",
+  rule: "Cross-country China Exposure ranking requires at least 7 of 10 countries with comparable overall scores; country-level evidence may still be shown without ranking.",
+};
 
 export function getChinaExposureOutput(countrySlug: string) {
   return chinaExposureOutputs.find((output) => output.country_slug === countrySlug);

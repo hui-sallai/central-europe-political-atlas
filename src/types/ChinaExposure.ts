@@ -1,8 +1,9 @@
 import type { ModelAvailability, ModelConfidence } from "@/types/ModelOutput";
 
 export type ChinaExposureDimension = "project" | "trade" | "investment" | "industrial";
-export type ChinaExposureCoverageStatus = "sufficient" | "partial" | "insufficient" | "unavailable";
-export type ProjectDatabaseCoverage = "confirmed_low_exposure" | "insufficient_project_coverage" | "representative_coverage";
+export type ChinaExposureCoverageStatus = "sufficient" | "partial" | "insufficient" | "unavailable" | "not_applicable";
+export type ProjectDatabaseCoverage = "representative" | "partial" | "sparse" | "insufficient";
+export type ChinaSectorLinkageStatus = "verified_active" | "verified_historical" | "announced" | "cancelled" | "no_verified_evidence" | "insufficient_coverage";
 
 export interface ChinaExposureCalculationTrace {
   numerator: number | null;
@@ -34,6 +35,9 @@ export interface ChinaExposureVariable {
   related_project_ids: string[];
   definition_comparable?: boolean;
   source_method?: string;
+  source_tier?: 1 | 2 | 3 | null;
+  comparison_status?: "comparable" | "partial" | "unavailable";
+  denominator_definition?: string | null;
   coverage_note?: string;
   qa_status?: "passed" | "partial" | "review_required" | "unavailable";
 }
@@ -66,7 +70,63 @@ export interface ChinaExposureOutput {
   related_project_ids: string[];
   interpretation_boundary: string;
   project_database_coverage: ProjectDatabaseCoverage;
+  china_fdi_availability: ChinaExposureCoverageStatus;
+  trade_latest_year: number | null;
+  evidence_confidence_factors: {
+    dimension_completeness: number;
+    source_reliability: string;
+    year_alignment: string;
+    project_database_coverage: ProjectDatabaseCoverage;
+    definition_comparability: string;
+  };
   priority_gaps: string[];
+}
+
+export interface ChinaEvidenceCoverageMatrixRecord {
+  country: string;
+  country_slug: string;
+  project: ChinaExposureCoverageStatus;
+  trade: ChinaExposureCoverageStatus;
+  investment: ChinaExposureCoverageStatus;
+  industrial: ChinaExposureCoverageStatus;
+  sufficient_dimensions: number;
+  partial_dimensions: number;
+  unavailable_dimensions: number;
+  project_database_coverage: ProjectDatabaseCoverage;
+  recorded_project_count: number;
+  reliable_project_count: number;
+  trade_latest_year: number | null;
+  china_fdi_source_tier: 1 | 2 | 3 | null;
+  china_fdi_comparison_status: "comparable" | "partial" | "unavailable";
+  overall_gate_status: "available" | "unavailable";
+  priority_gaps: string[];
+}
+
+export interface ChinaTradeHistoricalRecord {
+  country: string;
+  country_slug: string;
+  year: number;
+  china_export_share: number | null;
+  china_import_share: number | null;
+  china_trade_share: number | null;
+  source: string;
+  source_url: string | null;
+  source_reliability: "A";
+  qa_status: "passed" | "review_required";
+  use: "trend_context_only";
+}
+
+export interface ChinaSectorLinkageRecord {
+  country: string;
+  country_slug: string;
+  sector: "battery" | "automotive" | "electronics" | "logistics" | "infrastructure" | "energy";
+  status: ChinaSectorLinkageStatus;
+  project_ids: string[];
+  current_project_count: number;
+  historical_project_count: number;
+  source_reliability: Array<"A" | "B" | "C" | "D">;
+  model_eligible: boolean;
+  double_counting_rule: string;
 }
 
 export interface ChinaExposureCoverageAuditRecord {
@@ -77,6 +137,8 @@ export interface ChinaExposureCoverageAuditRecord {
   data_completeness: number;
   available_variables: string[];
   missing_variables: string[];
+  related_project_ids: string[];
+  source_urls: string[];
   source_reliability: Array<"A" | "B" | "C" | "D">;
   definition_comparable: boolean;
   source_trace_available: boolean;

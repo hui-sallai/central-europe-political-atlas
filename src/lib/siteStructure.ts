@@ -10,7 +10,7 @@ export const frozenNavItems = [
 ];
 
 export const frozenScopeNotes = [
-  "v0.81 审计十国中国经济暴露四维数据并补充可核验证据；缺失维度保持不可计算，/forecast 仍不存在。",
+  "v0.82 统一审计十国中国经济暴露四维证据并设置独立排名闸门；缺失维度保持不可计算，/forecast 仍不存在。",
   "透明压力分数不等于预测、风险真值或政策评价。",
   "产业依赖、对华暴露与四项情景先在 Models、Scenarios 与 Country 页面验证，不进入地图风险图层。",
 ];

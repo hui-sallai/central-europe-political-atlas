@@ -69,7 +69,11 @@ const {
   chinaExposureOutputs,
   chinaExposureVariables,
   chinaExposureCoverageAudit,
+  chinaEvidenceCoverageMatrix,
   chinaProjectCoverageAudit,
+  chinaExposureRankingGate,
+  chinaSectorLinkageMatrix,
+  chinaTradeHistoricalSeries,
   chinaTradeQa,
 } = require("../src/lib/chinaExposureModel.ts");
 
@@ -1498,6 +1502,12 @@ const chinaProjectExportRecords = chinaProjectRecords.map((project) => {
     exchange_rate_source: project.exchangeRateSource ?? null,
     exchange_rate_date: project.exchangeRateDate ?? null,
     amount_calculation_trace: project.amountCalculationTrace ?? null,
+    exposure_temporal_status: project.exposureTemporalStatus ?? (["cancelled", "completed", "transferred"].includes(project.projectStatusCode) ? "historical" : "current"),
+    project_economic_type: project.projectEconomicType ?? (project.projectStatusCode === "cancelled" ? "historical_or_cancelled" : /合同|施工/.test(`${project.projectName} ${project.sector}`) ? "construction_contract" : /股权|收购/.test(`${project.projectName} ${project.sector}`) ? "equity_investment" : /物流|铁路/.test(project.sector) ? "operational_network" : "greenfield_investment"),
+    capacity_evidence: project.capacityEvidence ?? null,
+    employment_evidence: project.employmentEvidence ?? null,
+    source_upgrade_note: project.sourceUpgradeNote ?? null,
+    fdi_treatment: /合同|施工/.test(`${project.projectName} ${project.sector}`) ? "construction_contract_not_fdi" : "project_evidence_separate_from_national_fdi_stock",
     notes: `${project.note} ${project.exposureVariableNote}`,
     last_updated: chinaExposureDatabaseUpdatedAt,
   };
@@ -1829,35 +1839,53 @@ writeLayer("model_outputs", modelOutputs, {
   model_boundary: "Scores are comparative analytical tools, not objective risk truths, predictions, or policy ratings.",
 });
 writeLayer("china_exposure_variables", chinaExposureVariables, {
-  schema_version: "china-economic-exposure-v0.81",
+  schema_version: "china-economic-exposure-v0.82",
   primary_key: "variable_id + country_slug",
   relation_note: "Each calculated variable retains source URLs, method, completeness, eligibility, limitations, and numerator/denominator trace where applicable.",
   model_boundary: "Dimension input layer only. Missing China-origin FDI remains unavailable; project samples and events are not converted into political-risk scores.",
 });
 writeLayer("china_exposure_outputs", chinaExposureOutputs, {
-  schema_version: "china-economic-exposure-v0.81",
+  schema_version: "china-economic-exposure-v0.82",
   primary_key: "model_id + country_slug",
   model_card: chinaExposureModelCard,
   relation_note: "Dimension-first outputs link back to china_exposure_variables, projects, events, and canonical observations.",
   model_boundary: "Economic exposure is not political influence, geopolitical risk, investment quality, policy merit, or a forecast. Overall output remains unavailable unless at least three core dimensions are sufficient and comparable.",
 });
 writeLayer("china_exposure_coverage_audit", chinaExposureCoverageAudit, {
-  schema_version: "china-exposure-coverage-audit-v0.81",
+  schema_version: "china-exposure-coverage-audit-v0.82",
   primary_key: "country_slug + dimension",
   relation_note: "Country by dimension readiness audit. It distinguishes partial evidence from unavailable data and lists missing variables.",
   model_boundary: "Coverage readiness is not a country ranking, exposure score, political influence score, or risk score.",
 });
 writeLayer("china_trade_qa", chinaTradeQa, {
-  schema_version: "china-trade-qa-v0.81",
+  schema_version: "china-trade-qa-v0.82",
   primary_key: "country_slug + year",
-  relation_note: "Structural QA for 2024 UN Comtrade HS TOTAL bilateral numerators and world denominators.",
+  relation_note: "Structural QA for 2021-2024 UN Comtrade HS TOTAL bilateral numerators and world denominators.",
   model_boundary: "QA records do not alter the v0.80 trade normalization or weights.",
 });
 writeLayer("china_project_coverage_audit", chinaProjectCoverageAudit, {
-  schema_version: "china-project-coverage-audit-v0.81",
+  schema_version: "china-project-coverage-audit-v0.82",
   primary_key: "country_slug",
   relation_note: "Representative project-database coverage audit. Missing records are never interpreted as zero exposure.",
   model_boundary: "Project coverage is not a census and does not generate a risk or influence score.",
+});
+writeLayer("china_evidence_coverage_matrix", chinaEvidenceCoverageMatrix, {
+  schema_version: "china-evidence-coverage-matrix-v0.82",
+  primary_key: "country_slug",
+  ranking_gate: chinaExposureRankingGate,
+  model_boundary: "Evidence coverage is not exposure intensity. Insufficient evidence is never interpreted as low exposure.",
+});
+writeLayer("china_trade_historical_series", chinaTradeHistoricalSeries, {
+  schema_version: "china-trade-historical-series-v0.82",
+  primary_key: "country_slug + year",
+  relation_note: "2021-2024 historical context. The current v0.80 trade score formula continues to use the latest 2024 record.",
+  model_boundary: "Historical series describes trend and stability; it does not change current weights or create a forecast.",
+});
+writeLayer("china_sector_linkage_matrix", chinaSectorLinkageMatrix, {
+  schema_version: "china-sector-linkage-matrix-v0.82",
+  primary_key: "country_slug + sector",
+  relation_note: "Country by sector evidence states distinguish active, historical, announced, cancelled, absent evidence, and insufficient coverage.",
+  model_boundary: "Sector linkage does not imply political influence. The same project amount is not double-counted across project and industrial dimensions.",
 });
 writeJson("research_data_layers.json", envelope("research_data_layers", researchDataLayerFiles.map((layer) => ({
   ...layer,

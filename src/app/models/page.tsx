@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ModelExplorer } from "@/components/ModelExplorer";
 import { ChinaExposureExplorer } from "@/components/ChinaExposureExplorer";
-import { chinaExposureModelCard, chinaExposureOutputs } from "@/lib/chinaExposureModel";
+import { chinaExposureModelCard, chinaExposureOutputs, chinaExposureRankingGate } from "@/lib/chinaExposureModel";
 import { modelAvailabilitySummary, modelCards, modelOutputs } from "@/lib/modelFramework";
 import { platformStatus } from "@/lib/platformStatus";
 import { researchCountries } from "@/lib/researchData";
@@ -12,7 +12,7 @@ export default function ModelsPage() {
       <p className="eyebrow">Transparent Models / {platformStatus.version}</p>
       <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">透明模型工作台</h1>
       <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-        v0.50 的居民经济压力、财政压力与外部脆弱性及 v0.70 产业依赖规则均保持不变。v0.81 只补充中国专项数据、覆盖审计与来源追踪；v0.80 的四维模型、权重和总体门槛不变。
+        v0.50 的居民经济压力、财政压力与外部脆弱性及 v0.70 产业依赖规则均保持不变。v0.82 只补充中国专项证据可比性、历史贸易与覆盖闸门；v0.80 的四维模型、权重和总体门槛不变。
       </p>
       <Link href="/scenarios" className="mt-4 inline-flex rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)] hover:bg-[var(--accent)] hover:text-white">
         进入情景模拟
@@ -43,7 +43,7 @@ export default function ModelsPage() {
 
       <ModelExplorer countries={researchCountries} cards={modelCards} outputs={modelOutputs} />
 
-      <ChinaExposureExplorer countries={researchCountries} card={chinaExposureModelCard} outputs={chinaExposureOutputs} />
+      <ChinaExposureExplorer countries={researchCountries} card={chinaExposureModelCard} outputs={chinaExposureOutputs} rankingGate={chinaExposureRankingGate} />
 
       <section className="mt-6 card p-6">
         <p className="eyebrow">Reserved Interfaces</p>
@@ -52,7 +52,7 @@ export default function ModelsPage() {
           {[
             ["Scenario Simulation", "已在独立情景层启用；不改变 v0.50 基线模型或原始观测值。"],
             ["Industrial Dependency Index", "v0.75 已统一十国输入结构；FDI 和供应链集中度仍不计正式权重。"],
-            ["China Economic Exposure", "v0.81 已补十国项目覆盖与五国 OECD FDI 存量证据；总体门槛未降低，不满足三维充分时仍不输出总体指数或排名。"],
+            ["China Economic Exposure", "v0.82 已建立十国四维证据矩阵、2021–2024 贸易序列和独立排名闸门；总体门槛未降低，不满足三维充分时仍不输出总体指数。"],
           ].map(([name, note]) => (
             <article key={name} className="rounded-2xl border border-dashed border-[var(--line)] bg-[var(--surface-muted)] p-4">
               <h3 className="font-semibold">{name}</h3>

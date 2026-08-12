@@ -1,12 +1,12 @@
 {
-  "schema_version": "china-economic-exposure-v0.81",
+  "schema_version": "china-economic-exposure-v0.82",
   "generated_at": "2026-08-12",
   "data_type": "china_exposure_outputs",
   "record_count": 10,
   "primary_key": "model_id + country_slug",
   "model_card": {
     "model_id": "china_economic_exposure",
-    "model_version": "v0.81.0",
+    "model_version": "v0.82.0",
     "name": "China Economic Exposure Model",
     "name_zh": "中国经济暴露模型",
     "purpose": "分维度衡量十国与中国之间可观测的项目、货物贸易、投资和产业连接。",
@@ -167,8 +167,9 @@
     "limitations": [
       "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
       "项目库是代表性核验库，不是中国企业活动总体普查。",
-      "OECD 同口径 China-origin FDI 存量仅覆盖五国，投资维度继续 unavailable，普通 FDI 不作替代。",
-      "贸易维度只使用 2024 年货物贸易。"
+      "项目事实可同时支撑项目与产业解释，但同一金额不得在总分中重复加权。",
+      "OECD 同口径 China-origin FDI 存量仅覆盖五国，Tier 2/3 候选来源在定义不同或缺少分母时不进入排名。",
+      "贸易分数仍使用 2024 年货物贸易；2021–2024 序列只作趋势背景。"
     ],
     "calculation_date": "2026-08-12"
   },
@@ -177,7 +178,7 @@
   "records": [
     {
       "model_id": "china_economic_exposure",
-      "model_version": "v0.81.0",
+      "model_version": "v0.82.0",
       "country": "波兰",
       "country_slug": "poland",
       "dimensions": [
@@ -288,7 +289,7 @@
               "calculation_method": "exports_to_China / exports_to_world * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 3584888550,
                 "denominator": 380333187161,
@@ -315,7 +316,7 @@
               "calculation_method": "imports_from_China / imports_from_world * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 55071604745,
                 "denominator": 379496069834,
@@ -342,7 +343,7 @@
               "calculation_method": "(exports_to_China + imports_from_China) / (exports_to_world + imports_from_world) * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 58656493295,
                 "denominator": 759829256995,
@@ -396,6 +397,9 @@
               "related_project_ids": [],
               "definition_comparable": true,
               "source_method": "Inward direct investment position; net FDI; all entities; total economy; immediate counterpart; USD millions; China divided by World.",
+              "source_tier": 1,
+              "comparison_status": "comparable",
+              "denominator_definition": "World inward FDI position, immediate counterpart, OECD BMD4",
               "coverage_note": "Immediate-counterpart BMD4 position is available for China and World.",
               "qa_status": "partial",
               "normalized_score": null,
@@ -594,7 +598,16 @@
         "pl-nuctech-kobylka"
       ],
       "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
-      "project_database_coverage": "representative_coverage",
+      "project_database_coverage": "partial",
+      "china_fdi_availability": "partial",
+      "trade_latest_year": 2024,
+      "evidence_confidence_factors": {
+        "dimension_completeness": 71,
+        "source_reliability": "mixed evidence",
+        "year_alignment": "trade aligned to 2024; other dimensions may differ",
+        "project_database_coverage": "partial",
+        "definition_comparability": "partial ten-country comparability"
+      },
       "priority_gaps": [
         "project:eligible_project_count",
         "project:active_project_share",
@@ -605,23 +618,22 @@
     },
     {
       "model_id": "china_economic_exposure",
-      "model_version": "v0.81.0",
+      "model_version": "v0.82.0",
       "country": "匈牙利",
       "country_slug": "hungary",
       "dimensions": [
         {
           "dimension": "project",
           "name_zh": "项目暴露",
-          "score": null,
-          "availability": "insufficient",
-          "confidence": "not_available",
-          "data_completeness": 17,
-          "main_drivers": [],
-          "missing_variables": [
-            "eligible_project_count",
-            "active_project_share",
-            "project_sector_concentration"
+          "score": 65,
+          "availability": "partial",
+          "confidence": "low",
+          "data_completeness": 100,
+          "main_drivers": [
+            "active_project_share: 100 % eligible projects",
+            "eligible_project_count: 2 projects"
           ],
+          "missing_variables": [],
           "variables": [
             {
               "country": "匈牙利",
@@ -629,21 +641,22 @@
               "dimension": "project",
               "year": null,
               "source": "China Project Database",
-              "source_url": "https://bbrailway.hu/",
+              "source_url": "https://www.catl.com/en/news/983.html",
               "source_reliability": "A",
               "related_observation_ids": [],
               "related_project_ids": [
+                "hu-catl-debrecen",
                 "hu-budapest-belgrade-rail"
               ],
               "variable_id": "eligible_project_count",
-              "raw_value": 1,
+              "raw_value": 2,
               "unit": "projects",
               "calculation_method": "count verified, quantifiable A/B-source projects",
-              "data_completeness": 50,
-              "model_eligible": false,
+              "data_completeness": 100,
+              "model_eligible": true,
               "limitation_note": "只接纳已核验、可量化且为 A/B 级来源的项目；项目库不是企业总体普查，少于两项时不形成可比项目分数。",
               "calculation_trace": null,
-              "normalized_score": 25,
+              "normalized_score": 50,
               "weight": 0.45
             },
             {
@@ -652,21 +665,28 @@
               "dimension": "project",
               "year": null,
               "source": "China Project Database",
-              "source_url": "https://bbrailway.hu/",
+              "source_url": "https://www.catl.com/en/news/983.html",
               "source_reliability": "A",
               "related_observation_ids": [],
               "related_project_ids": [
+                "hu-catl-debrecen",
                 "hu-budapest-belgrade-rail"
               ],
               "variable_id": "active_project_share",
-              "raw_value": null,
+              "raw_value": 100,
               "unit": "% eligible projects",
               "calculation_method": "active eligible projects / eligible projects * 100",
-              "data_completeness": 0,
-              "model_eligible": false,
+              "data_completeness": 100,
+              "model_eligible": true,
               "limitation_note": "项目状态来自核验记录，不能替代官方投资存量。",
-              "calculation_trace": null,
-              "normalized_score": null,
+              "calculation_trace": {
+                "numerator": 2,
+                "denominator": 2,
+                "numerator_source_url": "https://www.catl.com/en/news/983.html",
+                "denominator_source_url": "https://www.catl.com/en/news/983.html",
+                "formula": "active_eligible_projects / eligible_projects * 100"
+              },
+              "normalized_score": 100,
               "weight": 0.3
             },
             {
@@ -675,21 +695,28 @@
               "dimension": "project",
               "year": null,
               "source": "China Project Database",
-              "source_url": "https://bbrailway.hu/",
+              "source_url": "https://www.catl.com/en/news/983.html",
               "source_reliability": "A",
               "related_observation_ids": [],
               "related_project_ids": [
+                "hu-catl-debrecen",
                 "hu-budapest-belgrade-rail"
               ],
               "variable_id": "project_sector_concentration",
-              "raw_value": null,
+              "raw_value": 50,
               "unit": "% eligible projects",
               "calculation_method": "largest eligible project sector count / eligible projects * 100",
-              "data_completeness": 0,
-              "model_eligible": false,
+              "data_completeness": 100,
+              "model_eligible": true,
               "limitation_note": "小样本集中度容易受单个项目影响，只作为项目维度内部描述。",
-              "calculation_trace": null,
-              "normalized_score": null,
+              "calculation_trace": {
+                "numerator": 1,
+                "denominator": 2,
+                "numerator_source_url": "https://www.catl.com/en/news/983.html",
+                "denominator_source_url": "https://www.catl.com/en/news/983.html",
+                "formula": "largest_sector_count / eligible_projects * 100"
+              },
+              "normalized_score": 50,
               "weight": 0.25
             }
           ],
@@ -722,7 +749,7 @@
               "calculation_method": "exports_to_China / exports_to_world * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 1933892411.176,
                 "denominator": 154545713825.039,
@@ -749,7 +776,7 @@
               "calculation_method": "imports_from_China / imports_from_world * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 9747209470.688,
                 "denominator": 143669146379.315,
@@ -776,7 +803,7 @@
               "calculation_method": "(exports_to_China + imports_from_China) / (exports_to_world + imports_from_world) * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 11681101881.864,
                 "denominator": 298214860204.354,
@@ -818,7 +845,7 @@
               "calculation_method": "China inward FDI position / World inward FDI position * 100; immediate counterpart; OECD BMD4",
               "data_completeness": 100,
               "model_eligible": false,
-              "limitation_note": "已保留同口径官方存量证据，但十国仅五国完整，投资维度继续 unavailable。普通 FDI、项目金额、合同额和承诺额不作替代也不相加；1 项项目金额仅保留在项目库。",
+              "limitation_note": "已保留同口径官方存量证据，但十国仅五国完整，投资维度继续 unavailable。普通 FDI、项目金额、合同额和承诺额不作替代也不相加；2 项项目金额仅保留在项目库。",
               "calculation_trace": {
                 "numerator": 1999.5568089431,
                 "denominator": 249151.17886179,
@@ -828,10 +855,14 @@
               },
               "related_observation_ids": [],
               "related_project_ids": [
+                "hu-catl-debrecen",
                 "hu-budapest-belgrade-rail"
               ],
               "definition_comparable": true,
               "source_method": "Inward direct investment position; net FDI; all entities; total economy; immediate counterpart; USD millions; China divided by World.",
+              "source_tier": 1,
+              "comparison_status": "comparable",
+              "denominator_definition": "World inward FDI position, immediate counterpart, OECD BMD4",
               "coverage_note": "Immediate-counterpart BMD4 position is available for China and World.",
               "qa_status": "partial",
               "normalized_score": null,
@@ -843,17 +874,15 @@
         {
           "dimension": "industrial",
           "name_zh": "产业暴露",
-          "score": null,
-          "availability": "insufficient",
-          "confidence": "not_available",
-          "data_completeness": 83,
+          "score": 52.8,
+          "availability": "partial",
+          "confidence": "low",
+          "data_completeness": 100,
           "main_drivers": [
-            "automotive_export_share: 21.91 %",
-            "germany_export_dependence: 24.6 % exports"
+            "china_linked_industrial_project_presence: 1 binary verified presence",
+            "automotive_export_share: 21.91 %"
           ],
-          "missing_variables": [
-            "china_linked_industrial_project_presence"
-          ],
+          "missing_variables": [],
           "variables": [
             {
               "variable_id": "manufacturing_share_gdp",
@@ -874,7 +903,9 @@
               "related_observation_ids": [
                 "v4:hungary:manufacturing_share_gdp:2025"
               ],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "hu-catl-debrecen"
+              ],
               "normalized_score": 34,
               "weight": 0.2
             },
@@ -903,7 +934,9 @@
               "related_observation_ids": [
                 "v4:hungary:automotive_export_share:2024"
               ],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "hu-catl-debrecen"
+              ],
               "normalized_score": 42.3,
               "weight": 0.25
             },
@@ -932,7 +965,9 @@
               "related_observation_ids": [
                 "transmission:hungary:germany_export_dependence:2024"
               ],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "hu-catl-debrecen"
+              ],
               "normalized_score": 48.7,
               "weight": 0.15
             },
@@ -961,7 +996,9 @@
               "related_observation_ids": [
                 "transmission:hungary:industrial_electricity_price:2024"
               ],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "hu-catl-debrecen"
+              ],
               "normalized_score": 61.6,
               "weight": 0.1
             },
@@ -987,7 +1024,9 @@
                 "transmission:hungary:germany_export_dependence:2024",
                 "transmission:hungary:industrial_electricity_price:2024"
               ],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "hu-catl-debrecen"
+              ],
               "normalized_score": 46.3,
               "weight": 0.15
             },
@@ -996,20 +1035,22 @@
               "country": "匈牙利",
               "country_slug": "hungary",
               "dimension": "industrial",
-              "raw_value": null,
+              "raw_value": 1,
               "unit": "binary verified presence",
               "year": null,
-              "source": "待接入",
-              "source_url": null,
-              "source_reliability": "D",
+              "source": "China Project Database",
+              "source_url": "https://www.catl.com/en/news/983.html",
+              "source_reliability": "B",
               "calculation_method": "1 only when an A/B-source industrial project exists; missing coverage remains null",
-              "data_completeness": 0,
-              "model_eligible": false,
+              "data_completeness": 100,
+              "model_eligible": true,
               "limitation_note": "存在变量不表示投资规模、产能或供应链控制程度。",
               "calculation_trace": null,
               "related_observation_ids": [],
-              "related_project_ids": [],
-              "normalized_score": null,
+              "related_project_ids": [
+                "hu-catl-debrecen"
+              ],
+              "normalized_score": 100,
               "weight": 0.15
             }
           ],
@@ -1030,18 +1071,23 @@
         "hu-budapest-belgrade-rail"
       ],
       "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
-      "project_database_coverage": "representative_coverage",
+      "project_database_coverage": "representative",
+      "china_fdi_availability": "partial",
+      "trade_latest_year": 2024,
+      "evidence_confidence_factors": {
+        "dimension_completeness": 100,
+        "source_reliability": "A/B evidence where available",
+        "year_alignment": "trade aligned to 2024; other dimensions may differ",
+        "project_database_coverage": "representative",
+        "definition_comparability": "partial ten-country comparability"
+      },
       "priority_gaps": [
-        "project:eligible_project_count",
-        "project:active_project_share",
-        "project:project_sector_concentration",
-        "investment:china_fdi_stock_share",
-        "industrial:china_linked_industrial_project_presence"
+        "investment:china_fdi_stock_share"
       ]
     },
     {
       "model_id": "china_economic_exposure",
-      "model_version": "v0.81.0",
+      "model_version": "v0.82.0",
       "country": "捷克",
       "country_slug": "czechia",
       "dimensions": [
@@ -1152,7 +1198,7 @@
               "calculation_method": "exports_to_China / exports_to_world * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 3283463797,
                 "denominator": 259292432445,
@@ -1179,7 +1225,7 @@
               "calculation_method": "imports_from_China / imports_from_world * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 39210201223,
                 "denominator": 229396961967,
@@ -1206,7 +1252,7 @@
               "calculation_method": "(exports_to_China + imports_from_China) / (exports_to_world + imports_from_world) * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 42493665020,
                 "denominator": 488689394412,
@@ -1260,6 +1306,9 @@
               "related_project_ids": [],
               "definition_comparable": true,
               "source_method": "Inward direct investment position; net FDI; all entities; total economy; immediate counterpart; USD millions; China divided by World.",
+              "source_tier": 1,
+              "comparison_status": "comparable",
+              "denominator_definition": "World inward FDI position, immediate counterpart, OECD BMD4",
               "coverage_note": "Immediate-counterpart BMD4 position is available for China and World.",
               "qa_status": "partial",
               "normalized_score": null,
@@ -1456,7 +1505,16 @@
         "cz-cefc-jt-finance"
       ],
       "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
-      "project_database_coverage": "representative_coverage",
+      "project_database_coverage": "partial",
+      "china_fdi_availability": "partial",
+      "trade_latest_year": 2024,
+      "evidence_confidence_factors": {
+        "dimension_completeness": 71,
+        "source_reliability": "mixed evidence",
+        "year_alignment": "trade aligned to 2024; other dimensions may differ",
+        "project_database_coverage": "partial",
+        "definition_comparability": "partial ten-country comparability"
+      },
       "priority_gaps": [
         "project:eligible_project_count",
         "project:active_project_share",
@@ -1467,7 +1525,7 @@
     },
     {
       "model_id": "china_economic_exposure",
-      "model_version": "v0.81.0",
+      "model_version": "v0.82.0",
       "country": "斯洛伐克",
       "country_slug": "slovakia",
       "dimensions": [
@@ -1477,7 +1535,7 @@
           "score": null,
           "availability": "insufficient",
           "confidence": "not_available",
-          "data_completeness": 0,
+          "data_completeness": 17,
           "main_drivers": [],
           "missing_variables": [
             "eligible_project_count",
@@ -1490,20 +1548,22 @@
               "country_slug": "slovakia",
               "dimension": "project",
               "year": null,
-              "source": "待接入",
-              "source_url": null,
-              "source_reliability": "D",
+              "source": "China Project Database",
+              "source_url": "https://www.economy.gov.sk/en/press/the-second-highest-investment-in-the-history-of-country-is-coming-to-slovakia-it-is-worth-eur-12-billion-and-it-focuses-on-battery-production",
+              "source_reliability": "A",
               "related_observation_ids": [],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "sk-gotion-inobat-surany"
+              ],
               "variable_id": "eligible_project_count",
-              "raw_value": 0,
+              "raw_value": 1,
               "unit": "projects",
               "calculation_method": "count verified, quantifiable A/B-source projects",
-              "data_completeness": 0,
+              "data_completeness": 50,
               "model_eligible": false,
               "limitation_note": "只接纳已核验、可量化且为 A/B 级来源的项目；项目库不是企业总体普查，少于两项时不形成可比项目分数。",
               "calculation_trace": null,
-              "normalized_score": 0,
+              "normalized_score": 25,
               "weight": 0.45
             },
             {
@@ -1511,11 +1571,13 @@
               "country_slug": "slovakia",
               "dimension": "project",
               "year": null,
-              "source": "待接入",
-              "source_url": null,
-              "source_reliability": "D",
+              "source": "China Project Database",
+              "source_url": "https://www.economy.gov.sk/en/press/the-second-highest-investment-in-the-history-of-country-is-coming-to-slovakia-it-is-worth-eur-12-billion-and-it-focuses-on-battery-production",
+              "source_reliability": "A",
               "related_observation_ids": [],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "sk-gotion-inobat-surany"
+              ],
               "variable_id": "active_project_share",
               "raw_value": null,
               "unit": "% eligible projects",
@@ -1532,11 +1594,13 @@
               "country_slug": "slovakia",
               "dimension": "project",
               "year": null,
-              "source": "待接入",
-              "source_url": null,
-              "source_reliability": "D",
+              "source": "China Project Database",
+              "source_url": "https://www.economy.gov.sk/en/press/the-second-highest-investment-in-the-history-of-country-is-coming-to-slovakia-it-is-worth-eur-12-billion-and-it-focuses-on-battery-production",
+              "source_reliability": "A",
               "related_observation_ids": [],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "sk-gotion-inobat-surany"
+              ],
               "variable_id": "project_sector_concentration",
               "raw_value": null,
               "unit": "% eligible projects",
@@ -1578,7 +1642,7 @@
               "calculation_method": "exports_to_China / exports_to_world * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 2768213204.784,
                 "denominator": 115575455095.801,
@@ -1605,7 +1669,7 @@
               "calculation_method": "imports_from_China / imports_from_world * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 8495738441.388,
                 "denominator": 115675104865.238,
@@ -1632,7 +1696,7 @@
               "calculation_method": "(exports_to_China + imports_from_China) / (exports_to_world + imports_from_world) * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 11263951646.171999,
                 "denominator": 231250559961.039,
@@ -1674,7 +1738,7 @@
               "calculation_method": "China inward FDI position / World inward FDI position * 100; immediate counterpart; OECD BMD4",
               "data_completeness": 100,
               "model_eligible": false,
-              "limitation_note": "已保留同口径官方存量证据，但十国仅五国完整，投资维度继续 unavailable。普通 FDI、项目金额、合同额和承诺额不作替代也不相加；0 项项目金额仅保留在项目库。",
+              "limitation_note": "已保留同口径官方存量证据，但十国仅五国完整，投资维度继续 unavailable。普通 FDI、项目金额、合同额和承诺额不作替代也不相加；1 项项目金额仅保留在项目库。",
               "calculation_trace": {
                 "numerator": 135.51320382298,
                 "denominator": 65427.71556202,
@@ -1683,9 +1747,14 @@
                 "formula": "china_inward_fdi_stock_usd_million / total_inward_fdi_stock_usd_million * 100"
               },
               "related_observation_ids": [],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "sk-gotion-inobat-surany"
+              ],
               "definition_comparable": true,
               "source_method": "Inward direct investment position; net FDI; all entities; total economy; immediate counterpart; USD millions; China divided by World.",
+              "source_tier": 1,
+              "comparison_status": "comparable",
+              "denominator_definition": "World inward FDI position, immediate counterpart, OECD BMD4",
               "coverage_note": "Immediate-counterpart BMD4 position is available for China and World.",
               "qa_status": "partial",
               "normalized_score": null,
@@ -1697,17 +1766,15 @@
         {
           "dimension": "industrial",
           "name_zh": "产业暴露",
-          "score": null,
-          "availability": "insufficient",
-          "confidence": "not_available",
-          "data_completeness": 83,
+          "score": 63.9,
+          "availability": "partial",
+          "confidence": "low",
+          "data_completeness": 100,
           "main_drivers": [
             "automotive_export_share: 40.357 %",
-            "industrial_dependency_score: 55.2 0-100 comparative score"
+            "china_linked_industrial_project_presence: 1 binary verified presence"
           ],
-          "missing_variables": [
-            "china_linked_industrial_project_presence"
-          ],
+          "missing_variables": [],
           "variables": [
             {
               "variable_id": "manufacturing_share_gdp",
@@ -1728,7 +1795,9 @@
               "related_observation_ids": [
                 "v4:slovakia:manufacturing_share_gdp:2025"
               ],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "sk-gotion-inobat-surany"
+              ],
               "normalized_score": 41.3,
               "weight": 0.2
             },
@@ -1757,7 +1826,9 @@
               "related_observation_ids": [
                 "v4:slovakia:automotive_export_share:2024"
               ],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "sk-gotion-inobat-surany"
+              ],
               "normalized_score": 88.4,
               "weight": 0.25
             },
@@ -1786,7 +1857,9 @@
               "related_observation_ids": [
                 "transmission:slovakia:germany_export_dependence:2024"
               ],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "sk-gotion-inobat-surany"
+              ],
               "normalized_score": 38,
               "weight": 0.15
             },
@@ -1815,7 +1888,9 @@
               "related_observation_ids": [
                 "transmission:slovakia:industrial_electricity_price:2024"
               ],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "sk-gotion-inobat-surany"
+              ],
               "normalized_score": 45.5,
               "weight": 0.1
             },
@@ -1841,7 +1916,9 @@
                 "transmission:slovakia:germany_export_dependence:2024",
                 "transmission:slovakia:industrial_electricity_price:2024"
               ],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "sk-gotion-inobat-surany"
+              ],
               "normalized_score": 55.2,
               "weight": 0.15
             },
@@ -1850,20 +1927,22 @@
               "country": "斯洛伐克",
               "country_slug": "slovakia",
               "dimension": "industrial",
-              "raw_value": null,
+              "raw_value": 1,
               "unit": "binary verified presence",
               "year": null,
-              "source": "待接入",
-              "source_url": null,
-              "source_reliability": "D",
+              "source": "China Project Database",
+              "source_url": "https://www.economy.gov.sk/en/press/the-second-highest-investment-in-the-history-of-country-is-coming-to-slovakia-it-is-worth-eur-12-billion-and-it-focuses-on-battery-production",
+              "source_reliability": "A",
               "calculation_method": "1 only when an A/B-source industrial project exists; missing coverage remains null",
-              "data_completeness": 0,
-              "model_eligible": false,
+              "data_completeness": 100,
+              "model_eligible": true,
               "limitation_note": "存在变量不表示投资规模、产能或供应链控制程度。",
               "calculation_trace": null,
               "related_observation_ids": [],
-              "related_project_ids": [],
-              "normalized_score": null,
+              "related_project_ids": [
+                "sk-gotion-inobat-surany"
+              ],
+              "normalized_score": 100,
               "weight": 0.15
             }
           ],
@@ -1883,18 +1962,26 @@
         "sk-gotion-inobat-equity"
       ],
       "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
-      "project_database_coverage": "insufficient_project_coverage",
+      "project_database_coverage": "partial",
+      "china_fdi_availability": "partial",
+      "trade_latest_year": 2024,
+      "evidence_confidence_factors": {
+        "dimension_completeness": 79,
+        "source_reliability": "A/B evidence where available",
+        "year_alignment": "trade aligned to 2024; other dimensions may differ",
+        "project_database_coverage": "partial",
+        "definition_comparability": "partial ten-country comparability"
+      },
       "priority_gaps": [
         "project:eligible_project_count",
         "project:active_project_share",
         "project:project_sector_concentration",
-        "investment:china_fdi_stock_share",
-        "industrial:china_linked_industrial_project_presence"
+        "investment:china_fdi_stock_share"
       ]
     },
     {
       "model_id": "china_economic_exposure",
-      "model_version": "v0.81.0",
+      "model_version": "v0.82.0",
       "country": "德国",
       "country_slug": "germany",
       "dimensions": [
@@ -2005,7 +2092,7 @@
               "calculation_method": "exports_to_China / exports_to_world * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 94621854899.106,
                 "denominator": 1630712507952.936,
@@ -2032,7 +2119,7 @@
               "calculation_method": "imports_from_China / imports_from_world * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 169531634225.435,
                 "denominator": 1376916344521.952,
@@ -2059,7 +2146,7 @@
               "calculation_method": "(exports_to_China + imports_from_China) / (exports_to_world + imports_from_world) * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 264153489124.54102,
                 "denominator": 3007628852474.8877,
@@ -2113,6 +2200,9 @@
               "related_project_ids": [],
               "definition_comparable": true,
               "source_method": "Inward direct investment position; net FDI; all entities; total economy; immediate counterpart; USD millions; China divided by World.",
+              "source_tier": 1,
+              "comparison_status": "comparable",
+              "denominator_definition": "World inward FDI position, immediate counterpart, OECD BMD4",
               "coverage_note": "Immediate-counterpart BMD4 position is available for China and World.",
               "qa_status": "partial",
               "normalized_score": null,
@@ -2299,7 +2389,16 @@
         "de-cosco-hhla-tollerort"
       ],
       "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
-      "project_database_coverage": "representative_coverage",
+      "project_database_coverage": "partial",
+      "china_fdi_availability": "partial",
+      "trade_latest_year": 2024,
+      "evidence_confidence_factors": {
+        "dimension_completeness": 64,
+        "source_reliability": "mixed evidence",
+        "year_alignment": "trade aligned to 2024; other dimensions may differ",
+        "project_database_coverage": "partial",
+        "definition_comparability": "partial ten-country comparability"
+      },
       "priority_gaps": [
         "project:eligible_project_count",
         "project:active_project_share",
@@ -2310,7 +2409,7 @@
     },
     {
       "model_id": "china_economic_exposure",
-      "model_version": "v0.81.0",
+      "model_version": "v0.82.0",
       "country": "罗马尼亚",
       "country_slug": "romania",
       "dimensions": [
@@ -2421,7 +2520,7 @@
               "calculation_method": "exports_to_China / exports_to_world * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 779681882.29,
                 "denominator": 100370881686.1,
@@ -2448,7 +2547,7 @@
               "calculation_method": "imports_from_China / imports_from_world * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 8508648019.15,
                 "denominator": 136519363524.29,
@@ -2475,7 +2574,7 @@
               "calculation_method": "(exports_to_China + imports_from_China) / (exports_to_world + imports_from_world) * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 9288329901.439999,
                 "denominator": 236890245210.39,
@@ -2511,10 +2610,10 @@
               "raw_value": null,
               "unit": "% total inward FDI stock",
               "year": 2024,
-              "source": "OECD FDI positions by counterpart area, BMD4",
-              "source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+              "source": "National Bank of Romania Foreign Direct Investment survey",
+              "source_url": "https://www.bnr.ro/files/d/Pubs_en/FDI/FDI_2023.pdf",
               "source_reliability": "A",
-              "calculation_method": "China inward FDI position / World inward FDI position * 100; immediate counterpart; OECD BMD4",
+              "calculation_method": "Immediate-investor national FDI survey; China row and matching 2024 denominator pending",
               "data_completeness": 0,
               "model_eligible": false,
               "limitation_note": "已保留同口径官方存量证据，但十国仅五国完整，投资维度继续 unavailable。普通 FDI、项目金额、合同额和承诺额不作替代也不相加；0 项项目金额仅保留在项目库。",
@@ -2522,8 +2621,11 @@
               "related_observation_ids": [],
               "related_project_ids": [],
               "definition_comparable": false,
-              "source_method": "Inward direct investment position; net FDI; all entities; total economy; immediate counterpart; USD millions; China divided by World.",
-              "coverage_note": "No usable record under the fixed OECD immediate-counterpart query.",
+              "source_method": "Immediate-investor national FDI survey; China row and matching 2024 denominator pending",
+              "source_tier": 2,
+              "comparison_status": "partial",
+              "denominator_definition": "Immediate-investor national FDI survey; China row and matching 2024 denominator pending",
+              "coverage_note": "BNR official methodology is registered as Tier 2, but no comparable China/World 2024 position pair has been inserted.",
               "qa_status": "unavailable",
               "normalized_score": null,
               "weight": 1
@@ -2717,7 +2819,16 @@
         "ro-cgn-cernavoda-terminated"
       ],
       "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
-      "project_database_coverage": "insufficient_project_coverage",
+      "project_database_coverage": "sparse",
+      "china_fdi_availability": "unavailable",
+      "trade_latest_year": 2024,
+      "evidence_confidence_factors": {
+        "dimension_completeness": 46,
+        "source_reliability": "mixed evidence",
+        "year_alignment": "trade aligned to 2024; other dimensions may differ",
+        "project_database_coverage": "sparse",
+        "definition_comparability": "not comparable"
+      },
       "priority_gaps": [
         "project:eligible_project_count",
         "project:active_project_share",
@@ -2728,7 +2839,7 @@
     },
     {
       "model_id": "china_economic_exposure",
-      "model_version": "v0.81.0",
+      "model_version": "v0.82.0",
       "country": "斯洛文尼亚",
       "country_slug": "slovenia",
       "dimensions": [
@@ -2839,7 +2950,7 @@
               "calculation_method": "exports_to_China / exports_to_world * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 295319909.365,
                 "denominator": 66635685553.501,
@@ -2866,7 +2977,7 @@
               "calculation_method": "imports_from_China / imports_from_world * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 9169187028.26,
                 "denominator": 75069201938.715,
@@ -2893,7 +3004,7 @@
               "calculation_method": "(exports_to_China + imports_from_China) / (exports_to_world + imports_from_world) * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 9464506937.625,
                 "denominator": 141704887492.216,
@@ -2929,10 +3040,10 @@
               "raw_value": null,
               "unit": "% total inward FDI stock",
               "year": 2024,
-              "source": "OECD FDI positions by counterpart area, BMD4",
-              "source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+              "source": "Banka Slovenije Direct Investment 2024",
+              "source_url": "https://www.bsi.si/en/publications/p/direct-investment-2024",
               "source_reliability": "A",
-              "calculation_method": "China inward FDI position / World inward FDI position * 100; immediate counterpart; OECD BMD4",
+              "calculation_method": "Immediate-investor directional-principle inward FDI position; China numerator pending",
               "data_completeness": 0,
               "model_eligible": false,
               "limitation_note": "已保留同口径官方存量证据，但十国仅五国完整，投资维度继续 unavailable。普通 FDI、项目金额、合同额和承诺额不作替代也不相加；0 项项目金额仅保留在项目库。",
@@ -2940,8 +3051,11 @@
               "related_observation_ids": [],
               "related_project_ids": [],
               "definition_comparable": false,
-              "source_method": "Inward direct investment position; net FDI; all entities; total economy; immediate counterpart; USD millions; China divided by World.",
-              "coverage_note": "World total is available but China immediate-counterpart value is not reported; ultimate-investor data is not mixed into this series.",
+              "source_method": "Immediate-investor directional-principle inward FDI position; China numerator pending",
+              "source_tier": 2,
+              "comparison_status": "partial",
+              "denominator_definition": "Immediate-investor directional-principle inward FDI position; China numerator pending",
+              "coverage_note": "World total is available; Banka Slovenije confirms immediate-investor methodology, but the China numerator is not inserted and ultimate-investor data is not mixed into this series.",
               "qa_status": "unavailable",
               "normalized_score": null,
               "weight": 1
@@ -3135,7 +3249,16 @@
         "si-hisense-gorenje-acquisition"
       ],
       "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
-      "project_database_coverage": "insufficient_project_coverage",
+      "project_database_coverage": "sparse",
+      "china_fdi_availability": "unavailable",
+      "trade_latest_year": 2024,
+      "evidence_confidence_factors": {
+        "dimension_completeness": 46,
+        "source_reliability": "mixed evidence",
+        "year_alignment": "trade aligned to 2024; other dimensions may differ",
+        "project_database_coverage": "sparse",
+        "definition_comparability": "not comparable"
+      },
       "priority_gaps": [
         "project:eligible_project_count",
         "project:active_project_share",
@@ -3146,7 +3269,7 @@
     },
     {
       "model_id": "china_economic_exposure",
-      "model_version": "v0.81.0",
+      "model_version": "v0.82.0",
       "country": "塞尔维亚",
       "country_slug": "serbia",
       "dimensions": [
@@ -3277,7 +3400,7 @@
               "calculation_method": "exports_to_China / exports_to_world * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 1945317499,
                 "denominator": 33038147712,
@@ -3304,7 +3427,7 @@
               "calculation_method": "imports_from_China / imports_from_world * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 5552820794,
                 "denominator": 42246657862,
@@ -3331,7 +3454,7 @@
               "calculation_method": "(exports_to_China + imports_from_China) / (exports_to_world + imports_from_world) * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 7498138293,
                 "denominator": 75284805574,
@@ -3367,10 +3490,10 @@
               "raw_value": null,
               "unit": "% total inward FDI stock",
               "year": 2024,
-              "source": "OECD FDI positions by counterpart area, BMD4",
-              "source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+              "source": "National Bank of Serbia FDI flows by country",
+              "source_url": "https://www.nbs.rs/en/drugi-nivo-navigacije/statistika/platni_bilans/index.html",
               "source_reliability": "A",
-              "calculation_method": "China inward FDI position / World inward FDI position * 100; immediate counterpart; OECD BMD4",
+              "calculation_method": "BPM6 China-origin FDI flow, including Hong Kong, Taiwan and Macao; not a stock denominator",
               "data_completeness": 0,
               "model_eligible": false,
               "limitation_note": "已保留同口径官方存量证据，但十国仅五国完整，投资维度继续 unavailable。普通 FDI、项目金额、合同额和承诺额不作替代也不相加；2 项项目金额仅保留在项目库。",
@@ -3381,8 +3504,11 @@
                 "rs-zijin-rtb-bor"
               ],
               "definition_comparable": false,
-              "source_method": "Inward direct investment position; net FDI; all entities; total economy; immediate counterpart; USD millions; China divided by World.",
-              "coverage_note": "Serbia requires a separate official source and comparability review; no substitute is inserted.",
+              "source_method": "BPM6 China-origin FDI flow, including Hong Kong, Taiwan and Macao; not a stock denominator",
+              "source_tier": 2,
+              "comparison_status": "partial",
+              "denominator_definition": "BPM6 China-origin FDI flow, including Hong Kong, Taiwan and Macao; not a stock denominator",
+              "coverage_note": "NBS official country-flow evidence is retained as context only. Flow is not mixed with stock and does not enter the investment score.",
               "qa_status": "unavailable",
               "normalized_score": null,
               "weight": 1
@@ -3589,14 +3715,23 @@
         "rs-zijin-rtb-bor"
       ],
       "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
-      "project_database_coverage": "representative_coverage",
+      "project_database_coverage": "partial",
+      "china_fdi_availability": "unavailable",
+      "trade_latest_year": 2024,
+      "evidence_confidence_factors": {
+        "dimension_completeness": 75,
+        "source_reliability": "A/B evidence where available",
+        "year_alignment": "trade aligned to 2024; other dimensions may differ",
+        "project_database_coverage": "partial",
+        "definition_comparability": "not comparable"
+      },
       "priority_gaps": [
         "investment:china_fdi_stock_share"
       ]
     },
     {
       "model_id": "china_economic_exposure",
-      "model_version": "v0.81.0",
+      "model_version": "v0.82.0",
       "country": "奥地利",
       "country_slug": "austria",
       "dimensions": [
@@ -3707,7 +3842,7 @@
               "calculation_method": "exports_to_China / exports_to_world * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 5747534735.497,
                 "denominator": 206422770548.377,
@@ -3734,7 +3869,7 @@
               "calculation_method": "imports_from_China / imports_from_world * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 16739651695.341,
                 "denominator": 204403454311.108,
@@ -3761,7 +3896,7 @@
               "calculation_method": "(exports_to_China + imports_from_China) / (exports_to_world + imports_from_world) * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 22487186430.837997,
                 "denominator": 410826224859.485,
@@ -3797,10 +3932,10 @@
               "raw_value": null,
               "unit": "% total inward FDI stock",
               "year": 2024,
-              "source": "OECD FDI positions by counterpart area, BMD4",
-              "source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+              "source": "Oesterreichische Nationalbank inward direct investment statistics",
+              "source_url": "https://www.oenb.at/en/Statistics/Standardized-Tables/external-sector/foreign-direct-investment/inward-direct-investment.html",
               "source_reliability": "A",
-              "calculation_method": "China inward FDI position / World inward FDI position * 100; immediate counterpart; OECD BMD4",
+              "calculation_method": "National inward direct investment position; China numerator and matching denominator not yet extracted",
               "data_completeness": 0,
               "model_eligible": false,
               "limitation_note": "已保留同口径官方存量证据，但十国仅五国完整，投资维度继续 unavailable。普通 FDI、项目金额、合同额和承诺额不作替代也不相加；0 项项目金额仅保留在项目库。",
@@ -3808,8 +3943,11 @@
               "related_observation_ids": [],
               "related_project_ids": [],
               "definition_comparable": false,
-              "source_method": "Inward direct investment position; net FDI; all entities; total economy; immediate counterpart; USD millions; China divided by World.",
-              "coverage_note": "OECD observations are confidential; blank values are not interpreted as zero.",
+              "source_method": "National inward direct investment position; China numerator and matching denominator not yet extracted",
+              "source_tier": 2,
+              "comparison_status": "partial",
+              "denominator_definition": "National inward direct investment position; China numerator and matching denominator not yet extracted",
+              "coverage_note": "OECD observations are confidential; OeNB is registered as a Tier 2 candidate and blank values are not interpreted as zero.",
               "qa_status": "unavailable",
               "normalized_score": null,
               "weight": 1
@@ -4003,7 +4141,16 @@
         "at-avic-facc-majority-stake"
       ],
       "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
-      "project_database_coverage": "insufficient_project_coverage",
+      "project_database_coverage": "sparse",
+      "china_fdi_availability": "unavailable",
+      "trade_latest_year": 2024,
+      "evidence_confidence_factors": {
+        "dimension_completeness": 46,
+        "source_reliability": "mixed evidence",
+        "year_alignment": "trade aligned to 2024; other dimensions may differ",
+        "project_database_coverage": "sparse",
+        "definition_comparability": "not comparable"
+      },
       "priority_gaps": [
         "project:eligible_project_count",
         "project:active_project_share",
@@ -4014,7 +4161,7 @@
     },
     {
       "model_id": "china_economic_exposure",
-      "model_version": "v0.81.0",
+      "model_version": "v0.82.0",
       "country": "克罗地亚",
       "country_slug": "croatia",
       "dimensions": [
@@ -4125,7 +4272,7 @@
               "calculation_method": "exports_to_China / exports_to_world * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 121761401,
                 "denominator": 26062784883,
@@ -4152,7 +4299,7 @@
               "calculation_method": "imports_from_China / imports_from_world * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 1565828616,
                 "denominator": 45486868189,
@@ -4179,7 +4326,7 @@
               "calculation_method": "(exports_to_China + imports_from_China) / (exports_to_world + imports_from_world) * 100",
               "data_completeness": 100,
               "model_eligible": true,
-              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；2024 年横截面不说明长期依赖趋势。",
+              "limitation_note": "只覆盖货物贸易，不覆盖服务贸易；当前分数仍使用 2024 年，2021–2024 历史序列只用于趋势与稳定性说明。",
               "calculation_trace": {
                 "numerator": 1687590017,
                 "denominator": 71549653072,
@@ -4215,10 +4362,10 @@
               "raw_value": null,
               "unit": "% total inward FDI stock",
               "year": 2024,
-              "source": "OECD FDI positions by counterpart area, BMD4",
-              "source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+              "source": "Croatian National Bank direct investment statistics",
+              "source_url": "https://www.hnb.hr/en/statistics/statistical-data/rest-of-the-world",
               "source_reliability": "A",
-              "calculation_method": "China inward FDI position / World inward FDI position * 100; immediate counterpart; OECD BMD4",
+              "calculation_method": "National external-sector direct investment position; China numerator and matching denominator pending",
               "data_completeness": 0,
               "model_eligible": false,
               "limitation_note": "已保留同口径官方存量证据，但十国仅五国完整，投资维度继续 unavailable。普通 FDI、项目金额、合同额和承诺额不作替代也不相加；0 项项目金额仅保留在项目库。",
@@ -4226,8 +4373,11 @@
               "related_observation_ids": [],
               "related_project_ids": [],
               "definition_comparable": false,
-              "source_method": "Inward direct investment position; net FDI; all entities; total economy; immediate counterpart; USD millions; China divided by World.",
-              "coverage_note": "No usable record under the fixed OECD immediate-counterpart query.",
+              "source_method": "National external-sector direct investment position; China numerator and matching denominator pending",
+              "source_tier": 2,
+              "comparison_status": "partial",
+              "denominator_definition": "National external-sector direct investment position; China numerator and matching denominator pending",
+              "coverage_note": "HNB is registered as a Tier 2 candidate; no comparable China/World position pair is inserted.",
               "qa_status": "unavailable",
               "normalized_score": null,
               "weight": 1
@@ -4421,7 +4571,16 @@
         "hr-peljesac-bridge-crbc"
       ],
       "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
-      "project_database_coverage": "insufficient_project_coverage",
+      "project_database_coverage": "sparse",
+      "china_fdi_availability": "unavailable",
+      "trade_latest_year": 2024,
+      "evidence_confidence_factors": {
+        "dimension_completeness": 46,
+        "source_reliability": "mixed evidence",
+        "year_alignment": "trade aligned to 2024; other dimensions may differ",
+        "project_database_coverage": "sparse",
+        "definition_comparability": "not comparable"
+      },
       "priority_gaps": [
         "project:eligible_project_count",
         "project:active_project_share",

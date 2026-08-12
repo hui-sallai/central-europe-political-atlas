@@ -1,0 +1,809 @@
+{
+  "schema_version": "china-sector-linkage-matrix-v0.82",
+  "generated_at": "2026-08-12",
+  "data_type": "china_sector_linkage_matrix",
+  "record_count": 60,
+  "primary_key": "country_slug + sector",
+  "relation_note": "Country by sector evidence states distinguish active, historical, announced, cancelled, absent evidence, and insufficient coverage.",
+  "model_boundary": "Sector linkage does not imply political influence. The same project amount is not double-counted across project and industrial dimensions.",
+  "records": [
+    {
+      "country": "波兰",
+      "country_slug": "poland",
+      "sector": "battery",
+      "status": "no_verified_evidence",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "波兰",
+      "country_slug": "poland",
+      "sector": "automotive",
+      "status": "cancelled",
+      "project_ids": [
+        "pl-leapmotor-tychy-assembly"
+      ],
+      "current_project_count": 0,
+      "historical_project_count": 1,
+      "source_reliability": [
+        "B"
+      ],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "波兰",
+      "country_slug": "poland",
+      "sector": "electronics",
+      "status": "no_verified_evidence",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "波兰",
+      "country_slug": "poland",
+      "sector": "logistics",
+      "status": "no_verified_evidence",
+      "project_ids": [
+        "pl-china-europe-rail-malaszewicze"
+      ],
+      "current_project_count": 1,
+      "historical_project_count": 0,
+      "source_reliability": [
+        "C"
+      ],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "波兰",
+      "country_slug": "poland",
+      "sector": "infrastructure",
+      "status": "no_verified_evidence",
+      "project_ids": [
+        "pl-china-europe-rail-malaszewicze"
+      ],
+      "current_project_count": 1,
+      "historical_project_count": 0,
+      "source_reliability": [
+        "C"
+      ],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "波兰",
+      "country_slug": "poland",
+      "sector": "energy",
+      "status": "cancelled",
+      "project_ids": [
+        "pl-leapmotor-tychy-assembly"
+      ],
+      "current_project_count": 0,
+      "historical_project_count": 1,
+      "source_reliability": [
+        "B"
+      ],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "匈牙利",
+      "country_slug": "hungary",
+      "sector": "battery",
+      "status": "verified_active",
+      "project_ids": [
+        "hu-catl-debrecen"
+      ],
+      "current_project_count": 1,
+      "historical_project_count": 0,
+      "source_reliability": [
+        "B"
+      ],
+      "model_eligible": true,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "匈牙利",
+      "country_slug": "hungary",
+      "sector": "automotive",
+      "status": "announced",
+      "project_ids": [
+        "hu-byd-szeged"
+      ],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [
+        "B"
+      ],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "匈牙利",
+      "country_slug": "hungary",
+      "sector": "electronics",
+      "status": "no_verified_evidence",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "匈牙利",
+      "country_slug": "hungary",
+      "sector": "logistics",
+      "status": "verified_active",
+      "project_ids": [
+        "hu-budapest-belgrade-rail"
+      ],
+      "current_project_count": 1,
+      "historical_project_count": 0,
+      "source_reliability": [
+        "A"
+      ],
+      "model_eligible": true,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "匈牙利",
+      "country_slug": "hungary",
+      "sector": "infrastructure",
+      "status": "verified_active",
+      "project_ids": [
+        "hu-budapest-belgrade-rail"
+      ],
+      "current_project_count": 1,
+      "historical_project_count": 0,
+      "source_reliability": [
+        "A"
+      ],
+      "model_eligible": true,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "匈牙利",
+      "country_slug": "hungary",
+      "sector": "energy",
+      "status": "announced",
+      "project_ids": [
+        "hu-byd-szeged"
+      ],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [
+        "B"
+      ],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "捷克",
+      "country_slug": "czechia",
+      "sector": "battery",
+      "status": "no_verified_evidence",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "捷克",
+      "country_slug": "czechia",
+      "sector": "automotive",
+      "status": "no_verified_evidence",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "捷克",
+      "country_slug": "czechia",
+      "sector": "electronics",
+      "status": "no_verified_evidence",
+      "project_ids": [
+        "cz-changhong-nymburk"
+      ],
+      "current_project_count": 1,
+      "historical_project_count": 0,
+      "source_reliability": [
+        "C"
+      ],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "捷克",
+      "country_slug": "czechia",
+      "sector": "logistics",
+      "status": "no_verified_evidence",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "捷克",
+      "country_slug": "czechia",
+      "sector": "infrastructure",
+      "status": "no_verified_evidence",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "捷克",
+      "country_slug": "czechia",
+      "sector": "energy",
+      "status": "no_verified_evidence",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "斯洛伐克",
+      "country_slug": "slovakia",
+      "sector": "battery",
+      "status": "verified_active",
+      "project_ids": [
+        "sk-gotion-inobat-surany",
+        "sk-gotion-inobat-equity"
+      ],
+      "current_project_count": 2,
+      "historical_project_count": 0,
+      "source_reliability": [
+        "A",
+        "B"
+      ],
+      "model_eligible": true,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "斯洛伐克",
+      "country_slug": "slovakia",
+      "sector": "automotive",
+      "status": "verified_active",
+      "project_ids": [
+        "sk-gotion-inobat-surany"
+      ],
+      "current_project_count": 1,
+      "historical_project_count": 0,
+      "source_reliability": [
+        "A"
+      ],
+      "model_eligible": true,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "斯洛伐克",
+      "country_slug": "slovakia",
+      "sector": "electronics",
+      "status": "no_verified_evidence",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "斯洛伐克",
+      "country_slug": "slovakia",
+      "sector": "logistics",
+      "status": "no_verified_evidence",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "斯洛伐克",
+      "country_slug": "slovakia",
+      "sector": "infrastructure",
+      "status": "no_verified_evidence",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "斯洛伐克",
+      "country_slug": "slovakia",
+      "sector": "energy",
+      "status": "no_verified_evidence",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "德国",
+      "country_slug": "germany",
+      "sector": "battery",
+      "status": "verified_active",
+      "project_ids": [
+        "de-catl-thuringia-battery"
+      ],
+      "current_project_count": 1,
+      "historical_project_count": 0,
+      "source_reliability": [
+        "B"
+      ],
+      "model_eligible": true,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "德国",
+      "country_slug": "germany",
+      "sector": "automotive",
+      "status": "verified_active",
+      "project_ids": [
+        "de-catl-thuringia-battery"
+      ],
+      "current_project_count": 1,
+      "historical_project_count": 0,
+      "source_reliability": [
+        "B"
+      ],
+      "model_eligible": true,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "德国",
+      "country_slug": "germany",
+      "sector": "electronics",
+      "status": "no_verified_evidence",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "德国",
+      "country_slug": "germany",
+      "sector": "logistics",
+      "status": "verified_active",
+      "project_ids": [
+        "de-cosco-hhla-tollerort"
+      ],
+      "current_project_count": 1,
+      "historical_project_count": 0,
+      "source_reliability": [
+        "B"
+      ],
+      "model_eligible": true,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "德国",
+      "country_slug": "germany",
+      "sector": "infrastructure",
+      "status": "no_verified_evidence",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "德国",
+      "country_slug": "germany",
+      "sector": "energy",
+      "status": "no_verified_evidence",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "罗马尼亚",
+      "country_slug": "romania",
+      "sector": "battery",
+      "status": "insufficient_coverage",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "罗马尼亚",
+      "country_slug": "romania",
+      "sector": "automotive",
+      "status": "insufficient_coverage",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "罗马尼亚",
+      "country_slug": "romania",
+      "sector": "electronics",
+      "status": "insufficient_coverage",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "罗马尼亚",
+      "country_slug": "romania",
+      "sector": "logistics",
+      "status": "insufficient_coverage",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "罗马尼亚",
+      "country_slug": "romania",
+      "sector": "infrastructure",
+      "status": "insufficient_coverage",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "罗马尼亚",
+      "country_slug": "romania",
+      "sector": "energy",
+      "status": "cancelled",
+      "project_ids": [
+        "ro-cgn-cernavoda-terminated"
+      ],
+      "current_project_count": 0,
+      "historical_project_count": 1,
+      "source_reliability": [
+        "A"
+      ],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "斯洛文尼亚",
+      "country_slug": "slovenia",
+      "sector": "battery",
+      "status": "insufficient_coverage",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "斯洛文尼亚",
+      "country_slug": "slovenia",
+      "sector": "automotive",
+      "status": "insufficient_coverage",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "斯洛文尼亚",
+      "country_slug": "slovenia",
+      "sector": "electronics",
+      "status": "verified_active",
+      "project_ids": [
+        "si-hisense-gorenje-acquisition"
+      ],
+      "current_project_count": 1,
+      "historical_project_count": 0,
+      "source_reliability": [
+        "B"
+      ],
+      "model_eligible": true,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "斯洛文尼亚",
+      "country_slug": "slovenia",
+      "sector": "logistics",
+      "status": "insufficient_coverage",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "斯洛文尼亚",
+      "country_slug": "slovenia",
+      "sector": "infrastructure",
+      "status": "insufficient_coverage",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "斯洛文尼亚",
+      "country_slug": "slovenia",
+      "sector": "energy",
+      "status": "insufficient_coverage",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "塞尔维亚",
+      "country_slug": "serbia",
+      "sector": "battery",
+      "status": "no_verified_evidence",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "塞尔维亚",
+      "country_slug": "serbia",
+      "sector": "automotive",
+      "status": "verified_active",
+      "project_ids": [
+        "rs-linglong-zrenjanin-tire"
+      ],
+      "current_project_count": 1,
+      "historical_project_count": 0,
+      "source_reliability": [
+        "A"
+      ],
+      "model_eligible": true,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "塞尔维亚",
+      "country_slug": "serbia",
+      "sector": "electronics",
+      "status": "no_verified_evidence",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "塞尔维亚",
+      "country_slug": "serbia",
+      "sector": "logistics",
+      "status": "no_verified_evidence",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "塞尔维亚",
+      "country_slug": "serbia",
+      "sector": "infrastructure",
+      "status": "no_verified_evidence",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "塞尔维亚",
+      "country_slug": "serbia",
+      "sector": "energy",
+      "status": "no_verified_evidence",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "奥地利",
+      "country_slug": "austria",
+      "sector": "battery",
+      "status": "insufficient_coverage",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "奥地利",
+      "country_slug": "austria",
+      "sector": "automotive",
+      "status": "insufficient_coverage",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "奥地利",
+      "country_slug": "austria",
+      "sector": "electronics",
+      "status": "insufficient_coverage",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "奥地利",
+      "country_slug": "austria",
+      "sector": "logistics",
+      "status": "insufficient_coverage",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "奥地利",
+      "country_slug": "austria",
+      "sector": "infrastructure",
+      "status": "insufficient_coverage",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "奥地利",
+      "country_slug": "austria",
+      "sector": "energy",
+      "status": "insufficient_coverage",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "克罗地亚",
+      "country_slug": "croatia",
+      "sector": "battery",
+      "status": "insufficient_coverage",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "克罗地亚",
+      "country_slug": "croatia",
+      "sector": "automotive",
+      "status": "insufficient_coverage",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "克罗地亚",
+      "country_slug": "croatia",
+      "sector": "electronics",
+      "status": "insufficient_coverage",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "克罗地亚",
+      "country_slug": "croatia",
+      "sector": "logistics",
+      "status": "insufficient_coverage",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "克罗地亚",
+      "country_slug": "croatia",
+      "sector": "infrastructure",
+      "status": "verified_historical",
+      "project_ids": [
+        "hr-peljesac-bridge-crbc"
+      ],
+      "current_project_count": 0,
+      "historical_project_count": 1,
+      "source_reliability": [
+        "A"
+      ],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    },
+    {
+      "country": "克罗地亚",
+      "country_slug": "croatia",
+      "sector": "energy",
+      "status": "insufficient_coverage",
+      "project_ids": [],
+      "current_project_count": 0,
+      "historical_project_count": 0,
+      "source_reliability": [],
+      "model_eligible": false,
+      "double_counting_rule": "Project and industrial dimensions may cite the same fact for different meanings; a project amount is never added twice to an overall score."
+    }
+  ]
+}

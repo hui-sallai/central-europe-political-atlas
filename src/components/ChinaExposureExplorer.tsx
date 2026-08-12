@@ -7,7 +7,7 @@ import type { ChinaExposureModelCard, ChinaExposureOutput } from "@/types/ChinaE
 
 const availabilityLabels = { sufficient: "可计算", partial: "部分可计算", insufficient: "不可计算" } as const;
 
-export function ChinaExposureExplorer({ countries, outputs, card }: { countries: Country[]; outputs: ChinaExposureOutput[]; card: ChinaExposureModelCard }) {
+export function ChinaExposureExplorer({ countries, outputs, card, rankingGate }: { countries: Country[]; outputs: ChinaExposureOutput[]; card: ChinaExposureModelCard; rankingGate: { available_overall_country_count: number; required_comparable_country_count: number; ranking_enabled: boolean } }) {
   const [countrySlug, setCountrySlug] = useState("hungary");
   const output = useMemo(() => outputs.find((item) => item.country_slug === countrySlug) ?? outputs[0], [countrySlug, outputs]);
 
@@ -15,7 +15,7 @@ export function ChinaExposureExplorer({ countries, outputs, card }: { countries:
     <section className="mt-6 card p-6">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <p className="eyebrow">China Economic Exposure / v0.81 data completion</p>
+          <p className="eyebrow">China Economic Exposure / v0.82 evidence parity</p>
           <h2 className="mt-3 text-2xl font-semibold">中国经济暴露模型</h2>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">先展示项目、贸易、投资和产业四个维度。只有至少三个核心维度达到充分且可比时才生成总分；当前总分不会被强行计算。</p>
         </div>
@@ -31,7 +31,20 @@ export function ChinaExposureExplorer({ countries, outputs, card }: { countries:
         <strong>总体判定：{output.overall_decision === "available" ? output.overall_score : "unavailable"}</strong>
         <span className="ml-2">充分维度 {output.sufficient_dimension_count} / 3；暴露不等于政治影响力、地缘政治风险或投资质量。</span>
         <p className="mt-2 text-xs">项目库覆盖：{output.project_database_coverage}；主要缺口：{output.priority_gaps.join(" / ") || "无"}</p>
+        <p className="mt-1 text-xs">Evidence Coverage：充分维度 {output.sufficient_dimension_count}；China FDI {output.china_fdi_availability}；Trade latest year {output.trade_latest_year ?? "unavailable"}。</p>
+        <p className="mt-1 text-xs">Overall Gate：{output.overall_decision}；Ranking Gate：{rankingGate.ranking_enabled ? "available" : `unavailable (${rankingGate.available_overall_country_count}/${rankingGate.required_comparable_country_count})`}。</p>
       </div>
+
+      <details className="mt-5 rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-4">
+        <summary className="cursor-pointer font-semibold">Evidence confidence factors</summary>
+        <dl className="mt-3 grid gap-3 text-xs leading-5 md:grid-cols-2 lg:grid-cols-5">
+          <div><dt className="font-semibold">维度完整度</dt><dd className="text-[var(--muted)]">{output.evidence_confidence_factors.dimension_completeness}%</dd></div>
+          <div><dt className="font-semibold">来源</dt><dd className="text-[var(--muted)]">{output.evidence_confidence_factors.source_reliability}</dd></div>
+          <div><dt className="font-semibold">年份</dt><dd className="text-[var(--muted)]">{output.evidence_confidence_factors.year_alignment}</dd></div>
+          <div><dt className="font-semibold">项目覆盖</dt><dd className="text-[var(--muted)]">{output.evidence_confidence_factors.project_database_coverage}</dd></div>
+          <div><dt className="font-semibold">定义可比性</dt><dd className="text-[var(--muted)]">{output.evidence_confidence_factors.definition_comparability}</dd></div>
+        </dl>
+      </details>
 
       <div className="mt-5 grid gap-4 lg:grid-cols-2">
         {output.dimensions.map((dimension) => (

@@ -80,6 +80,11 @@ export type ChinaProjectRecord = {
   exchangeRateSource?: string | null;
   exchangeRateDate?: string | null;
   amountCalculationTrace?: string | null;
+  exposureTemporalStatus?: "current" | "historical";
+  projectEconomicType?: "equity_investment" | "greenfield_investment" | "construction_contract" | "operational_network" | "technology_partnership" | "historical_or_cancelled";
+  capacityEvidence?: string | null;
+  employmentEvidence?: string | null;
+  sourceUpgradeNote?: string | null;
 };
 
 export type CountryTableRecord = {
@@ -494,8 +499,8 @@ export const chinaProjectRecords: ChinaProjectRecord[] = [
     statusTimeline: ["2022 企业公告投资", "建设和量产进度待跟踪", "补贴、产能、雇佣字段待接入"],
     amountEvidence: "金额已接入：CATL 企业公告披露 73.4 亿欧元投资额；仍需补政府补贴、产能、就业和实际支出进度。",
     actorEvidence: "中国主体为 CATL；当地主体暂记匈牙利政府与 Debrecen 地方主体，需补项目公司、土地/许可主体和补贴签署方。",
-    sourceUrl: "https://www.catl.com/en/news/958.html",
-    sourceReliabilityLevel: "C",
+    sourceUrl: "https://www.catl.com/en/news/983.html",
+    sourceReliabilityLevel: "B",
     riskTags: ["电池产业", "制造业集中", "环境与用水"],
     quantificationStatus: "partially_quantifiable",
     exposureVariableFit: "strong_candidate",
@@ -504,7 +509,12 @@ export const chinaProjectRecords: ChinaProjectRecord[] = [
     exposureDimensions: ["投资暴露", "供应链暴露"],
     relatedEventIds: ["hu-2022-08-12-catl-debrecen"],
     status: "manual",
-    note: "金额和地点来自企业公告；后续量化前仍需补贴、产能、雇佣和供应链依赖字段。",
+    note: "金额、地点和计划产能来自企业公告；项目金额不与国家 FDI 存量相加。",
+    exposureTemporalStatus: "current",
+    projectEconomicType: "greenfield_investment",
+    capacityEvidence: "CATL 公告计划产能 100 GWh。",
+    employmentEvidence: null,
+    sourceUpgradeNote: "v0.82：由 C 升为 B；CATL 一手公告明确金额、地点与计划产能。",
   },
   {
     projectId: "hu-byd-szeged",
@@ -662,8 +672,8 @@ export const chinaProjectRecords: ChinaProjectRecord[] = [
     statusTimeline: ["2023 项目宣布", "规划与政府支持阶段", "补贴、产能、投产年份待接入"],
     amountEvidence: "金额已接入：公开资料口径约 12 亿欧元；需补政府补贴、股权结构、产能、投产年份和实际建设进度。",
     actorEvidence: "中国主体为 Gotion High-Tech；当地主体为 InoBat 及斯洛伐克政府/地方主体，项目公司和审批主体需进一步核验。",
-    sourceUrl: "https://www.inobat.eu/",
-    sourceReliabilityLevel: "C",
+    sourceUrl: "https://www.economy.gov.sk/en/press/the-second-highest-investment-in-the-history-of-country-is-coming-to-slovakia-it-is-worth-eur-12-billion-and-it-focuses-on-battery-production",
+    sourceReliabilityLevel: "A",
     riskTags: ["电池产业", "政府补贴", "汽车供应链"],
     quantificationStatus: "partially_quantifiable",
     exposureVariableFit: "strong_candidate",
@@ -672,7 +682,12 @@ export const chinaProjectRecords: ChinaProjectRecord[] = [
     exposureDimensions: ["投资暴露", "供应链暴露"],
     relatedEventIds: ["sk-2023-11-22-gotion-inobat-surany"],
     status: "manual",
-    note: "斯洛伐克最重要的中国电池链条项目入口；后续量化前需补股权、补贴、产能、投产年份和地方审批状态。",
+    note: "斯洛伐克经济部核验投资额、岗位和政府支持；股权结构及实际支出仍与国家 FDI 存量分开。",
+    exposureTemporalStatus: "current",
+    projectEconomicType: "greenfield_investment",
+    capacityEvidence: "政府资料记录一期 20 GWh、潜在 40 GWh。",
+    employmentEvidence: "斯洛伐克经济部记录预计新增 1,311 个岗位。",
+    sourceUpgradeNote: "v0.82：由 C 升为 A；改用斯洛伐克经济部项目公告。",
   },
   {
     projectId: "sk-gotion-inobat-equity",
@@ -690,8 +705,8 @@ export const chinaProjectRecords: ChinaProjectRecord[] = [
     statusTimeline: ["2023 股权与技术合作", "金额、股比和权利结构待核验"],
     amountEvidence: "金额缺失：当前来源可证明股权/技术合作关系，但未给出可直接使用的交易金额、股比和权利结构。",
     actorEvidence: "中国主体为 Gotion High-Tech；当地主体为 InoBat。该记录与 Surany 工厂相关但应作为股权/技术合作单独核验。",
-    sourceUrl: "https://www.inobat.eu/",
-    sourceReliabilityLevel: "C",
+    sourceUrl: "https://www.inobat.eu/newsroom/inobat-and-gotion-sign-mou-to-develop-joint-venture-ev-battery-cells-and-packs-in-cee/",
+    sourceReliabilityLevel: "B",
     riskTags: ["股权投资", "技术合作", "供应链依赖"],
     quantificationStatus: "amount_missing",
     exposureVariableFit: "partial_candidate",
@@ -700,15 +715,20 @@ export const chinaProjectRecords: ChinaProjectRecord[] = [
     exposureDimensions: ["供应链暴露", "技术/设备暴露", "金融暴露"],
     relatedEventIds: ["sk-2023-11-22-gotion-inobat-surany"],
     status: "manual",
-    note: "与苏拉尼工厂相关但应单独作为股权/技术合作记录；金额和治理权需从公司材料或登记资料核验。",
+    note: "与苏拉尼工厂相关但作为技术合作记录独立核验；同一项目金额不在项目和产业维度重复加权。",
+    exposureTemporalStatus: "current",
+    projectEconomicType: "technology_partnership",
+    capacityEvidence: "公司公告记录合作设想最高 40 GWh；不等于已建成产能。",
+    employmentEvidence: null,
+    sourceUpgradeNote: "v0.82：由 C 升为 B；改用 InoBat 一手合作公告。",
   },
   {
     projectId: "de-catl-thuringia-battery", projectName: "CATL 图林根电池工厂", countrySlug: "germany", regionName: "Arnstadt / Erfurt, Thuringia", sector: "动力电池 / 制造业",
     chineseActor: "CATL / Contemporary Amperex Technology Thuringia GmbH", localActor: "Thuringia State Government / local operating entity", amount: null, currency: null, year: "2018-2022",
     projectStatus: "运营 / 当前产能与累计投资待统一核验", projectStatusCode: "operational", statusTimeline: ["2018 签署投资协议并开工", "2022 首批电芯投产", "当前产能、累计投资和雇佣待统一官方口径"],
     amountEvidence: "金额缺失：CATL 官方页面核验工厂、地点和建设节点，但本记录不引用未在该来源中明确披露的投资额。", actorEvidence: "中国主体为 CATL 及其图林根项目公司；当地合作方按图林根州政府与当地运营实体记录。",
-    sourceUrl: "https://www.catl.com/en/enterpriseinfoEnglish/", sourceReliabilityLevel: "C", riskTags: ["电池产业", "德国汽车供应链", "在欧制造"], quantificationStatus: "amount_missing", exposureVariableFit: "partial_candidate",
-    exposureVariableNote: "可证明中国电池制造在德国存在，但金额与当前产能缺少统一 A/B 级数据，不进入金额型暴露。", relatedIndicatorIds: ["fdi_inflow", "manufacturing_share_gdp", "automotive_export_share"], exposureDimensions: ["供应链暴露", "企业存在"], relatedEventIds: [], status: "manual", note: "官方企业材料用于项目存在和时间线；不把一般产业背景直接转换为中国暴露分数。",
+    sourceUrl: "https://www.catl.com/en/enterpriseinfoEnglish/", sourceReliabilityLevel: "B", riskTags: ["电池产业", "德国汽车供应链", "在欧制造"], quantificationStatus: "amount_missing", exposureVariableFit: "partial_candidate",
+    exposureVariableNote: "可证明中国电池制造在德国存在，但金额与当前产能缺少统一 A/B 级数据，不进入金额型暴露。", relatedIndicatorIds: ["fdi_inflow", "manufacturing_share_gdp", "automotive_export_share"], exposureDimensions: ["供应链暴露", "企业存在"], relatedEventIds: [], status: "manual", note: "企业一手材料用于项目存在和时间线；不把一般产业背景直接转换为中国暴露分数。", exposureTemporalStatus: "current", projectEconomicType: "greenfield_investment", capacityEvidence: "企业资料确认德国制造基地存在；统一当前产能口径待接入。", employmentEvidence: null, sourceUpgradeNote: "v0.82：由 C 升为 B；CATL 企业一手资料用于项目存在与时间线。",
   },
   {
     projectId: "de-cosco-hhla-tollerort", projectName: "COSCO SHIPPING Ports 对 HHLA Tollerort 码头少数股权", countrySlug: "germany", regionName: "Hamburg", sector: "港口物流 / 少数股权",

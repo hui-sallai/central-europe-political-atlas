@@ -1,12 +1,48 @@
 {
-  "schema_version": "china-trade-qa-v0.81",
+  "schema_version": "china-trade-qa-v0.82",
   "generated_at": "2026-08-12",
   "data_type": "china_trade_qa",
-  "record_count": 10,
+  "record_count": 40,
   "primary_key": "country_slug + year",
-  "relation_note": "Structural QA for 2024 UN Comtrade HS TOTAL bilateral numerators and world denominators.",
+  "relation_note": "Structural QA for 2021-2024 UN Comtrade HS TOTAL bilateral numerators and world denominators.",
   "model_boundary": "QA records do not alter the v0.80 trade normalization or weights.",
   "records": [
+    {
+      "country_slug": "poland",
+      "year": 2021,
+      "reporter_code": 616,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2021 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "poland",
+      "year": 2022,
+      "reporter_code": 616,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2022 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "poland",
+      "year": 2023,
+      "reporter_code": 616,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2023 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
     {
       "country_slug": "poland",
       "year": 2024,
@@ -18,6 +54,42 @@
       "denominator_valid": true,
       "qa_status": "passed",
       "notes": "2024 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "hungary",
+      "year": 2021,
+      "reporter_code": 348,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2021 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "hungary",
+      "year": 2022,
+      "reporter_code": 348,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2022 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "hungary",
+      "year": 2023,
+      "reporter_code": 348,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2023 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
     },
     {
       "country_slug": "hungary",
@@ -33,6 +105,42 @@
     },
     {
       "country_slug": "czechia",
+      "year": 2021,
+      "reporter_code": 203,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2021 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "czechia",
+      "year": 2022,
+      "reporter_code": 203,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2022 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "czechia",
+      "year": 2023,
+      "reporter_code": 203,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2023 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "czechia",
       "year": 2024,
       "reporter_code": 203,
       "partner_code": 156,
@@ -42,6 +150,42 @@
       "denominator_valid": true,
       "qa_status": "passed",
       "notes": "2024 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "slovakia",
+      "year": 2021,
+      "reporter_code": 703,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2021 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "slovakia",
+      "year": 2022,
+      "reporter_code": 703,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2022 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "slovakia",
+      "year": 2023,
+      "reporter_code": 703,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2023 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
     },
     {
       "country_slug": "slovakia",
@@ -57,6 +201,42 @@
     },
     {
       "country_slug": "germany",
+      "year": 2021,
+      "reporter_code": 276,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2021 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "germany",
+      "year": 2022,
+      "reporter_code": 276,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2022 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "germany",
+      "year": 2023,
+      "reporter_code": 276,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2023 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "germany",
       "year": 2024,
       "reporter_code": 276,
       "partner_code": 156,
@@ -66,6 +246,42 @@
       "denominator_valid": true,
       "qa_status": "passed",
       "notes": "2024 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "romania",
+      "year": 2021,
+      "reporter_code": 642,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2021 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "romania",
+      "year": 2022,
+      "reporter_code": 642,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2022 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "romania",
+      "year": 2023,
+      "reporter_code": 642,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2023 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
     },
     {
       "country_slug": "romania",
@@ -81,6 +297,42 @@
     },
     {
       "country_slug": "slovenia",
+      "year": 2021,
+      "reporter_code": 705,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2021 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "slovenia",
+      "year": 2022,
+      "reporter_code": 705,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2022 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "slovenia",
+      "year": 2023,
+      "reporter_code": 705,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2023 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "slovenia",
       "year": 2024,
       "reporter_code": 705,
       "partner_code": 156,
@@ -90,6 +342,42 @@
       "denominator_valid": true,
       "qa_status": "passed",
       "notes": "2024 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "serbia",
+      "year": 2021,
+      "reporter_code": 688,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2021 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "serbia",
+      "year": 2022,
+      "reporter_code": 688,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2022 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "serbia",
+      "year": 2023,
+      "reporter_code": 688,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2023 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
     },
     {
       "country_slug": "serbia",
@@ -105,6 +393,42 @@
     },
     {
       "country_slug": "austria",
+      "year": 2021,
+      "reporter_code": 40,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2021 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "austria",
+      "year": 2022,
+      "reporter_code": 40,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2022 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "austria",
+      "year": 2023,
+      "reporter_code": 40,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2023 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "austria",
       "year": 2024,
       "reporter_code": 40,
       "partner_code": 156,
@@ -114,6 +438,42 @@
       "denominator_valid": true,
       "qa_status": "passed",
       "notes": "2024 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "croatia",
+      "year": 2021,
+      "reporter_code": 191,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2021 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "croatia",
+      "year": 2022,
+      "reporter_code": 191,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2022 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+    },
+    {
+      "country_slug": "croatia",
+      "year": 2023,
+      "reporter_code": 191,
+      "partner_code": 156,
+      "numerator_complete": true,
+      "denominator_complete": true,
+      "duplicate_record_count": 0,
+      "denominator_valid": true,
+      "qa_status": "passed",
+      "notes": "2023 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
     },
     {
       "country_slug": "croatia",
