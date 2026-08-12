@@ -64,6 +64,7 @@ const { transmissionIndicators, transmissionObservations } = require("../src/lib
 const { getV4DataQualitySummary, v4QualityCountrySlugs } = require("../src/lib/v4DataQuality.ts");
 const { verifyChinaProject, chinaProjectVerificationLabel } = require("../src/lib/chinaProjectVerification.ts");
 const { modelCards, modelOutputs } = require("../src/lib/modelFramework.ts");
+const { chinaExposureModelCard, chinaExposureOutputs, chinaExposureVariables } = require("../src/lib/chinaExposureModel.ts");
 
 const economicIndicatorIdByMetric = {
   population: "population",
@@ -1810,6 +1811,19 @@ writeLayer("model_outputs", modelOutputs, {
   schema_version: "transparent-model-v0.70",
   relation_note: "Every published score retains input_observation_ids and complete input traces.",
   model_boundary: "Scores are comparative analytical tools, not objective risk truths, predictions, or policy ratings.",
+});
+writeLayer("china_exposure_variables", chinaExposureVariables, {
+  schema_version: "china-economic-exposure-v0.80",
+  primary_key: "variable_id + country_slug",
+  relation_note: "Each calculated variable retains source URLs, method, completeness, eligibility, limitations, and numerator/denominator trace where applicable.",
+  model_boundary: "Dimension input layer only. Missing China-origin FDI remains unavailable; project samples and events are not converted into political-risk scores.",
+});
+writeLayer("china_exposure_outputs", chinaExposureOutputs, {
+  schema_version: "china-economic-exposure-v0.80",
+  primary_key: "model_id + country_slug",
+  model_card: chinaExposureModelCard,
+  relation_note: "Dimension-first outputs link back to china_exposure_variables, projects, events, and canonical observations.",
+  model_boundary: "Economic exposure is not political influence, geopolitical risk, investment quality, policy merit, or a forecast. Overall output remains unavailable unless at least three core dimensions are sufficient and comparable.",
 });
 writeJson("research_data_layers.json", envelope("research_data_layers", researchDataLayerFiles.map((layer) => ({
   ...layer,

@@ -13,6 +13,7 @@ import type { Country } from "@/lib/data";
 import { getChinaProjectRecords, getExtendedObservationCoverage } from "@/lib/extendedData";
 import { getEventsForCountry } from "@/lib/researchData";
 import { getModelCard, getModelOutputsForCountry } from "@/lib/modelFramework";
+import { getChinaExposureOutput } from "@/lib/chinaExposureModel";
 import { getTransmissionObservations } from "@/lib/transmissionData";
 import { getCountryParitySummary, coverageMatrix } from "@/lib/dataParityQa";
 import {
@@ -47,6 +48,7 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
   const projectRecords = getChinaProjectRecords(country.slug);
   const eventRecords = getEventsForCountry(country.slug);
   const modelOutputs = getModelOutputsForCountry(country.slug);
+  const chinaExposure = getChinaExposureOutput(country.slug);
   const codedEventCount = eventRecords.filter((event) => event.coding_status === "coded" && event.data_status === "verified").length;
   const projectLinkedEventCount = eventRecords.filter((event) => event.related_project_ids.length > 0).length;
   const coverage = getExtendedObservationCoverage(country.slug);
@@ -150,6 +152,28 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
           </div>
         </article>
       </section>
+
+      {chinaExposure ? (
+        <section className="mt-4 card p-6">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="eyebrow">China Economic Exposure / v0.80</p>
+              <h2 className="mt-3 text-2xl font-semibold">对华经济暴露摘要</h2>
+            </div>
+            <Link href="/models" className="text-sm font-semibold text-[var(--accent)] hover:underline">查看变量与 Model Card</Link>
+          </div>
+          <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            {chinaExposure.dimensions.map((dimension) => (
+              <article key={dimension.dimension} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+                <p className="font-semibold">{dimension.name_zh}</p>
+                <p className="mt-2 text-2xl font-semibold text-[var(--accent)]">{dimension.score === null ? "不输出分数" : dimension.score.toFixed(1)}</p>
+                <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{dimension.availability} / 完整度 {dimension.data_completeness}%</p>
+              </article>
+            ))}
+          </div>
+          <p className="mt-4 text-xs leading-5 text-[var(--muted)]">总体输出：{chinaExposure.overall_decision}。暴露不等于政治影响力、地缘政治风险或投资质量；相关事件 {chinaExposure.related_event_ids.length} 条只作解释。</p>
+        </section>
+      ) : null}
 
       <section className="mt-4 card p-6">
         <p className="eyebrow">Data Coverage</p>

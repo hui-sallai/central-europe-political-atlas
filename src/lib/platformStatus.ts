@@ -1,9 +1,9 @@
 export const platformStatus = {
-  version: "v0.76 Data Parity QA & Gap Closure",
-  stage: "十国数据质量、年份与模型准入收口",
+  version: "v0.80 China Economic Exposure Model",
+  stage: "中国经济暴露四维数据与透明模型",
   regionalData: "匈牙利 NUTS3 边界证据已记录；正式展示仍未启用",
   mapDisplay: "未启用",
-  modelLayer: "公式与权重冻结；仅按 QA 结果重算可用性",
+  modelLayer: "既有四模型冻结；新增对华暴露分维度输出",
   lastUpdated: "2026-08-12",
 } as const;
 

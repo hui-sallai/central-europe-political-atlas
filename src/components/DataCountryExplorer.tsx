@@ -61,6 +61,7 @@ import { sourceDictionaryRows, type SourceDictionaryRecord } from "@/lib/sourceD
 import { getV4DataQualitySummary, type V4QualityStatus } from "@/lib/v4DataQuality";
 import { chinaProjectVerificationLabel, verifyChinaProject, type ChinaProjectVerificationConclusion } from "@/lib/chinaProjectVerification";
 import derivedComparisonsData from "../../public/research-data/derived_comparisons.json";
+import { chinaExposureModelCard, getChinaExposureOutput } from "@/lib/chinaExposureModel";
 
 const countries = researchCountries.map((country) => ({
   ...country,
@@ -2892,7 +2893,7 @@ function ResearchDataExportLinks() {
   const exportStatusCards = [
     { label: "CSV 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .csv 文件。" },
     { label: "JSON 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: platformStatus.version, note: "v0.30 数据底座与 v0.35 事件层保持不变；v0.40 增加项目核验和 Event → Project → Indicator 关系，不启用模型、预测、指数或风险分数。" },
+    { label: "当前阶段", value: platformStatus.version, note: "v0.80 新增 china_exposure_variables 与分维度输出导出；既有 observations、项目库、事件库和四个透明模型保持原结构。" },
   ];
 
   return (
@@ -4739,7 +4740,8 @@ export function DataCountryExplorer() {
         ) : null}
 
         {activeMode === "projects" ? (
-          <section className="card p-6">
+          <section className="grid gap-5">
+          <div className="card p-6">
             <p className="eyebrow">China Project Database / v0.40</p>
             <h2 className="mt-3 text-2xl font-semibold">对华项目核验与关联数据</h2>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">{selectedCountry.chinaTradeNote}</p>
@@ -4749,6 +4751,36 @@ export function DataCountryExplorer() {
             <div className="mt-5">
               <ChinaProjectTable key={selectedCountry.slug} projects={projectRecords} countryName={selectedCountry.nameZh} />
             </div>
+          </div>
+          {(() => {
+            const exposure = getChinaExposureOutput(selectedCountry.slug);
+            if (!exposure) return null;
+            return (
+              <div className="card p-6">
+                <p className="eyebrow">China Exposure Variable Trace / v0.80</p>
+                <h2 className="mt-3 text-2xl font-semibold">项目、贸易、投资与产业变量追踪</h2>
+                <p className="mt-3 text-sm leading-6 text-[var(--muted)]">当前展示该国四维变量及来源回链；总分规则为：{chinaExposureModelCard.overall_rule}</p>
+                <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+                  {exposure.dimensions.map((dimension) => (
+                    <details key={dimension.dimension} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+                      <summary className="cursor-pointer font-semibold">{dimension.name_zh} / {dimension.availability}</summary>
+                      <p className="mt-2 text-xs text-[var(--muted)]">分数：{dimension.score ?? "不输出"}；完整度：{dimension.data_completeness}%</p>
+                      <div className="mt-3 grid gap-2">
+                        {dimension.variables.map((item) => (
+                          <div key={item.variable_id} className="rounded-xl bg-[var(--surface-muted)] p-3 text-xs leading-5">
+                            <strong>{item.variable_id}</strong>
+                            <p className="mt-1">{item.raw_value === null ? "缺失" : `${item.raw_value} ${item.unit}`} / {item.year ?? "无统一年份"}</p>
+                            <p className="text-[var(--muted)]">{item.source} / {item.source_reliability} 级 / eligible={String(item.model_eligible)}</p>
+                            {item.source_url ? <a href={item.source_url} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)] hover:underline">来源</a> : null}
+                          </div>
+                        ))}
+                      </div>
+                    </details>
+                  ))}
+                </div>
+              </div>
+            );
+          })()}
           </section>
         ) : null}
 

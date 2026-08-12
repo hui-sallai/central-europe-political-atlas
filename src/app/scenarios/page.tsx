@@ -38,6 +38,12 @@ export default function ScenariosPage() {
       />
 
       <section className="mt-6 card p-6">
+        <p className="eyebrow">Reserved Interface / v0.80</p>
+        <h2 className="mt-3 text-2xl font-semibold">China-linked Project Disruption</h2>
+        <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">仅预留 Event → Project → Indicator 传导接口。当前项目时间序列、产能、年度流量和统一金额不足，因此情景状态为 unavailable，不生成冲击分数，也不修改原始 observation。</p>
+      </section>
+
+      <section className="mt-6 card p-6">
         <p className="eyebrow">Industrial Dependency Readiness</p>
         <h2 className="mt-3 text-2xl font-semibold">产业依赖模型准入检查</h2>
         <div className="mt-5 grid gap-4 lg:grid-cols-[0.7fr_1.3fr]">

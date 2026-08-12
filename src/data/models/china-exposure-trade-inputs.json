@@ -1,0 +1,248 @@
+{
+  "schema_version": "china-exposure-trade-inputs-v0.80",
+  "generated_at": "2026-08-12T14:05:50.628Z",
+  "reference_year": 2024,
+  "source_policy": "UN Comtrade A-level official goods-trade source; missing responses remain null and are never replaced with zero.",
+  "records": [
+    {
+      "country": "poland",
+      "country_name": "Poland",
+      "year": 2024,
+      "reporter_code": 616,
+      "partner_code": 156,
+      "unit": "current USD",
+      "source_name": "UN Comtrade",
+      "source_reliability": "A",
+      "values": {
+        "exports_to_china": 3584888550,
+        "exports_to_world": 380333187161,
+        "imports_from_china": 55071604745,
+        "imports_from_world": 379496069834
+      },
+      "source_urls": {
+        "exports_to_china": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=616&cmdCode=TOTAL&flowCode=X&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "exports_to_world": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=616&cmdCode=TOTAL&flowCode=X&partnerCode=0&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "imports_from_china": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=616&cmdCode=TOTAL&flowCode=M&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "imports_from_world": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=616&cmdCode=TOTAL&flowCode=M&partnerCode=0&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500"
+      },
+      "data_status": "official_complete",
+      "notes": "Goods trade, HS TOTAL. Ratios are calculated from the recorded bilateral and world totals; services are not included."
+    },
+    {
+      "country": "hungary",
+      "country_name": "Hungary",
+      "year": 2024,
+      "reporter_code": 348,
+      "partner_code": 156,
+      "unit": "current USD",
+      "source_name": "UN Comtrade",
+      "source_reliability": "A",
+      "values": {
+        "exports_to_china": 1933892411.176,
+        "exports_to_world": 154545713825.039,
+        "imports_from_china": 9747209470.688,
+        "imports_from_world": 143669146379.315
+      },
+      "source_urls": {
+        "exports_to_china": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=348&cmdCode=TOTAL&flowCode=X&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "exports_to_world": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=348&cmdCode=TOTAL&flowCode=X&partnerCode=0&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "imports_from_china": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=348&cmdCode=TOTAL&flowCode=M&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "imports_from_world": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=348&cmdCode=TOTAL&flowCode=M&partnerCode=0&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500"
+      },
+      "data_status": "official_complete",
+      "notes": "Goods trade, HS TOTAL. Ratios are calculated from the recorded bilateral and world totals; services are not included."
+    },
+    {
+      "country": "czechia",
+      "country_name": "Czechia",
+      "year": 2024,
+      "reporter_code": 203,
+      "partner_code": 156,
+      "unit": "current USD",
+      "source_name": "UN Comtrade",
+      "source_reliability": "A",
+      "values": {
+        "exports_to_china": 3283463797,
+        "exports_to_world": 259292432445,
+        "imports_from_china": 39210201223,
+        "imports_from_world": 229396961967
+      },
+      "source_urls": {
+        "exports_to_china": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=203&cmdCode=TOTAL&flowCode=X&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "exports_to_world": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=203&cmdCode=TOTAL&flowCode=X&partnerCode=0&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "imports_from_china": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=203&cmdCode=TOTAL&flowCode=M&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "imports_from_world": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=203&cmdCode=TOTAL&flowCode=M&partnerCode=0&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500"
+      },
+      "data_status": "official_complete",
+      "notes": "Goods trade, HS TOTAL. Ratios are calculated from the recorded bilateral and world totals; services are not included."
+    },
+    {
+      "country": "slovakia",
+      "country_name": "Slovakia",
+      "year": 2024,
+      "reporter_code": 703,
+      "partner_code": 156,
+      "unit": "current USD",
+      "source_name": "UN Comtrade",
+      "source_reliability": "A",
+      "values": {
+        "exports_to_china": 2768213204.784,
+        "exports_to_world": 115575455095.801,
+        "imports_from_china": 8495738441.388,
+        "imports_from_world": 115675104865.238
+      },
+      "source_urls": {
+        "exports_to_china": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=703&cmdCode=TOTAL&flowCode=X&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "exports_to_world": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=703&cmdCode=TOTAL&flowCode=X&partnerCode=0&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "imports_from_china": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=703&cmdCode=TOTAL&flowCode=M&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "imports_from_world": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=703&cmdCode=TOTAL&flowCode=M&partnerCode=0&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500"
+      },
+      "data_status": "official_complete",
+      "notes": "Goods trade, HS TOTAL. Ratios are calculated from the recorded bilateral and world totals; services are not included."
+    },
+    {
+      "country": "germany",
+      "country_name": "Germany",
+      "year": 2024,
+      "reporter_code": 276,
+      "partner_code": 156,
+      "unit": "current USD",
+      "source_name": "UN Comtrade",
+      "source_reliability": "A",
+      "values": {
+        "exports_to_china": 94621854899.106,
+        "exports_to_world": 1630712507952.936,
+        "imports_from_china": 169531634225.435,
+        "imports_from_world": 1376916344521.952
+      },
+      "source_urls": {
+        "exports_to_china": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=276&cmdCode=TOTAL&flowCode=X&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "exports_to_world": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=276&cmdCode=TOTAL&flowCode=X&partnerCode=0&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "imports_from_china": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=276&cmdCode=TOTAL&flowCode=M&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "imports_from_world": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=276&cmdCode=TOTAL&flowCode=M&partnerCode=0&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500"
+      },
+      "data_status": "official_complete",
+      "notes": "Goods trade, HS TOTAL. Ratios are calculated from the recorded bilateral and world totals; services are not included."
+    },
+    {
+      "country": "austria",
+      "country_name": "Austria",
+      "year": 2024,
+      "reporter_code": 40,
+      "partner_code": 156,
+      "unit": "current USD",
+      "source_name": "UN Comtrade",
+      "source_reliability": "A",
+      "values": {
+        "exports_to_china": 5747534735.497,
+        "exports_to_world": 206422770548.377,
+        "imports_from_china": 16739651695.341,
+        "imports_from_world": 204403454311.108
+      },
+      "source_urls": {
+        "exports_to_china": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=40&cmdCode=TOTAL&flowCode=X&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "exports_to_world": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=40&cmdCode=TOTAL&flowCode=X&partnerCode=0&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "imports_from_china": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=40&cmdCode=TOTAL&flowCode=M&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "imports_from_world": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=40&cmdCode=TOTAL&flowCode=M&partnerCode=0&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500"
+      },
+      "data_status": "official_complete",
+      "notes": "Goods trade, HS TOTAL. Ratios are calculated from the recorded bilateral and world totals; services are not included."
+    },
+    {
+      "country": "romania",
+      "country_name": "Romania",
+      "year": 2024,
+      "reporter_code": 642,
+      "partner_code": 156,
+      "unit": "current USD",
+      "source_name": "UN Comtrade",
+      "source_reliability": "A",
+      "values": {
+        "exports_to_china": 779681882.29,
+        "exports_to_world": 100370881686.1,
+        "imports_from_china": 8508648019.15,
+        "imports_from_world": 136519363524.29
+      },
+      "source_urls": {
+        "exports_to_china": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=642&cmdCode=TOTAL&flowCode=X&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "exports_to_world": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=642&cmdCode=TOTAL&flowCode=X&partnerCode=0&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "imports_from_china": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=642&cmdCode=TOTAL&flowCode=M&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "imports_from_world": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=642&cmdCode=TOTAL&flowCode=M&partnerCode=0&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500"
+      },
+      "data_status": "official_complete",
+      "notes": "Goods trade, HS TOTAL. Ratios are calculated from the recorded bilateral and world totals; services are not included."
+    },
+    {
+      "country": "slovenia",
+      "country_name": "Slovenia",
+      "year": 2024,
+      "reporter_code": 705,
+      "partner_code": 156,
+      "unit": "current USD",
+      "source_name": "UN Comtrade",
+      "source_reliability": "A",
+      "values": {
+        "exports_to_china": 295319909.365,
+        "exports_to_world": 66635685553.501,
+        "imports_from_china": 9169187028.26,
+        "imports_from_world": 75069201938.715
+      },
+      "source_urls": {
+        "exports_to_china": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=705&cmdCode=TOTAL&flowCode=X&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "exports_to_world": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=705&cmdCode=TOTAL&flowCode=X&partnerCode=0&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "imports_from_china": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=705&cmdCode=TOTAL&flowCode=M&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "imports_from_world": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=705&cmdCode=TOTAL&flowCode=M&partnerCode=0&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500"
+      },
+      "data_status": "official_complete",
+      "notes": "Goods trade, HS TOTAL. Ratios are calculated from the recorded bilateral and world totals; services are not included."
+    },
+    {
+      "country": "croatia",
+      "country_name": "Croatia",
+      "year": 2024,
+      "reporter_code": 191,
+      "partner_code": 156,
+      "unit": "current USD",
+      "source_name": "UN Comtrade",
+      "source_reliability": "A",
+      "values": {
+        "exports_to_china": 121761401,
+        "exports_to_world": 26062784883,
+        "imports_from_china": 1565828616,
+        "imports_from_world": 45486868189
+      },
+      "source_urls": {
+        "exports_to_china": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=191&cmdCode=TOTAL&flowCode=X&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "exports_to_world": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=191&cmdCode=TOTAL&flowCode=X&partnerCode=0&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "imports_from_china": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=191&cmdCode=TOTAL&flowCode=M&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "imports_from_world": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=191&cmdCode=TOTAL&flowCode=M&partnerCode=0&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500"
+      },
+      "data_status": "official_complete",
+      "notes": "Goods trade, HS TOTAL. Ratios are calculated from the recorded bilateral and world totals; services are not included."
+    },
+    {
+      "country": "serbia",
+      "country_name": "Serbia",
+      "year": 2024,
+      "reporter_code": 688,
+      "partner_code": 156,
+      "unit": "current USD",
+      "source_name": "UN Comtrade",
+      "source_reliability": "A",
+      "values": {
+        "exports_to_china": 1945317499,
+        "exports_to_world": 33038147712,
+        "imports_from_china": 5552820794,
+        "imports_from_world": 42246657862
+      },
+      "source_urls": {
+        "exports_to_china": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=688&cmdCode=TOTAL&flowCode=X&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "exports_to_world": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=688&cmdCode=TOTAL&flowCode=X&partnerCode=0&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "imports_from_china": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=688&cmdCode=TOTAL&flowCode=M&partnerCode=156&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+        "imports_from_world": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=688&cmdCode=TOTAL&flowCode=M&partnerCode=0&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500"
+      },
+      "data_status": "official_complete",
+      "notes": "Goods trade, HS TOTAL. Ratios are calculated from the recorded bilateral and world totals; services are not included."
+    }
+  ]
+}

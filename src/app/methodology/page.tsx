@@ -2,6 +2,7 @@ import { platformStatus } from "@/lib/platformStatus";
 import { researchEvents, researchProjects } from "@/lib/researchData";
 import { researchDataLayerFiles } from "@/lib/countryMetadata";
 import { modelAvailabilitySummary, modelCards } from "@/lib/modelFramework";
+import { chinaExposureModelCard } from "@/lib/chinaExposureModel";
 import { industrialDependencyReadiness, scenarioDefinitions } from "@/lib/scenarioFramework";
 import {
   hungaryAuthoritativeTopologyValidationDecisionSummary,
@@ -124,6 +125,28 @@ export default function MethodologyPage() {
         <p className="mt-4 rounded-2xl bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--muted)]">
           “待核验”是人工整理内容的页面工作流标签，不是独立的 DataStatus；进入统一数据层时必须明确归入 verified 或 pending。
         </p>
+      </section>
+
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">China Economic Exposure Model Card / v0.80</p>
+        <h2 className="mt-3 text-2xl font-semibold">中国经济暴露模型的方法与边界</h2>
+        <p className="mt-3 max-w-4xl text-sm leading-7 text-[var(--muted)]">{chinaExposureModelCard.purpose}</p>
+        <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+          {chinaExposureModelCard.dimensions.map((dimension) => (
+            <article key={dimension.id} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+              <h3 className="font-semibold">{dimension.name_zh}</h3>
+              <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{dimension.variables.map((item) => `${item.variable_id}：${Math.round(item.weight * 100)}%${item.use === "context" ? "（背景）" : ""}`).join("；")}</p>
+            </article>
+          ))}
+        </div>
+        <div className="mt-5 grid gap-3 md:grid-cols-2">
+          <p className="rounded-2xl bg-[var(--surface-muted)] p-4 text-sm leading-6"><strong>总分门槛：</strong>{chinaExposureModelCard.overall_rule}</p>
+          <p className="rounded-2xl bg-[var(--surface-muted)] p-4 text-sm leading-6"><strong>事件规则：</strong>{chinaExposureModelCard.event_policy}</p>
+        </div>
+        <ul className="mt-5 grid gap-2 text-sm leading-6 text-[var(--muted)] md:grid-cols-2">
+          {chinaExposureModelCard.limitations.map((item) => <li key={item} className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-amber-950">{item}</li>)}
+        </ul>
+        <p className="mt-4 text-sm font-semibold leading-6">Project Database → Exposure Variables → Dimension Outputs → Overall decision。普通 FDI 不替代中国来源 FDI，背景项目不进入量化，事件 intensity 不直接加减分。</p>
       </section>
 
       <section className="mt-6 card p-6">

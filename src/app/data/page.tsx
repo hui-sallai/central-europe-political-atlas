@@ -20,7 +20,7 @@ export default function DataOverviewPage() {
           items={[
             { label: "默认视图", value: "国家选择 + 宏观经济数据" },
             { label: "研究数据层", value: "17 个逻辑层保留，按需展开" },
-            { label: "透明模型", value: "4 个规则模型已启用；预测层未启用" },
+            { label: "透明模型", value: "4 个既有规则模型 + 对华暴露四维输出；预测层未启用" },
           ]}
         />
       </div>
