@@ -10,7 +10,7 @@ export const frozenNavItems = [
 ];
 
 export const frozenScopeNotes = [
-  "v0.70 为 V4 补入产业与冲击传导数据；/forecast 仍不存在。",
+  "v0.75 将核心扩展与传导数据结构统一到十国；缺失值保持待接入，/forecast 仍不存在。",
   "透明压力分数不等于预测、风险真值或政策评价。",
   "产业依赖模型与四项情景先在 Models、Scenarios 与 Country 页面验证，不进入地图风险图层。",
 ];

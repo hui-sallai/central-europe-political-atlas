@@ -1,4 +1,5 @@
 import type { Indicator, Observation } from "../types/researchData";
+import { crossCountryParityCountrySlugs, crossCountryTransmissionObservations } from "./crossCountryParityData";
 
 const UPDATED_AT = "2026-08-11";
 
@@ -128,7 +129,7 @@ function observation(
   };
 }
 
-export const transmissionObservations: Observation[] = (Object.keys(countryMeta) as V4Slug[]).flatMap((countrySlug) => {
+const v4TransmissionObservations: Observation[] = (Object.keys(countryMeta) as V4Slug[]).flatMap((countrySlug) => {
   const meta = countryMeta[countrySlug];
   return [2023, 2024].flatMap((year) => [
     observation(
@@ -182,8 +183,13 @@ export const transmissionObservations: Observation[] = (Object.keys(countryMeta)
   ]);
 });
 
+export const transmissionObservations: Observation[] = [
+  ...v4TransmissionObservations,
+  ...crossCountryTransmissionObservations,
+];
+
 export const transmissionDataSummary = {
-  countries: Object.keys(countryMeta) as V4Slug[],
+  countries: [...(Object.keys(countryMeta) as V4Slug[]), ...crossCountryParityCountrySlugs],
   indicators: transmissionIndicators.map((indicator) => indicator.id),
   years: [2023, 2024],
   observation_count: transmissionObservations.length,

@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { DataCountryExplorer } from "@/components/DataCountryExplorer";
+import { CrossCountryParitySummary } from "@/components/CrossCountryParitySummary";
 import { ModelObservationUsage } from "@/components/ModelObservationUsage";
 import { StatusSummary } from "@/components/StatusSummary";
 import { TransmissionDataSummary } from "@/components/TransmissionDataSummary";
@@ -11,7 +12,7 @@ export default function DataOverviewPage() {
       <p className="eyebrow">Data Workspace / {platformStatus.version}</p>
       <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">数据工作台</h1>
       <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-        先选择国家，再查看基础宏观数据、V4 扩展指标、对华经贸项目与来源。区域结构、字典、质量验收和导出记录保留在“结构与字典”中，默认不展开。
+        先选择国家，再查看基础宏观数据、十国统一扩展指标、对华经贸项目与来源。区域结构、字典、质量验收和导出记录保留在“结构与字典”中，默认不展开。
       </p>
       <div className="mt-5">
         <StatusSummary
@@ -27,6 +28,7 @@ export default function DataOverviewPage() {
         <ModelObservationUsage />
       </Suspense>
       <TransmissionDataSummary />
+      <CrossCountryParitySummary />
       <DataCountryExplorer />
     </main>
   );

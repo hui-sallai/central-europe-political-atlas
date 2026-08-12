@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { DataStatusBadge } from "@/components/DataStatusBadge";
+import { getExtendedObservationCoverage } from "@/lib/extendedData";
 import { researchCountries } from "@/lib/researchData";
 import type { DataStatus } from "@/types/researchData";
 
@@ -17,14 +18,14 @@ export default function CountriesPage() {
       <p className="eyebrow">Country Research Directory</p>
       <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">国家档案</h1>
       <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-        十国国家入口按研究深度分为 V4 深度样本与六个扩展样本。国家卡片只显示数据覆盖状态；完整观测值、字段字典与 QA 记录集中在数据工作台。
+        十国均使用同一套基础宏观与核心扩展指标结构。国家卡片只显示数据覆盖状态；完整观测值、来源和 QA 记录集中在数据工作台。
       </p>
 
       <div className="mt-6 grid gap-3 md:grid-cols-3">
         {[
-          ["V4 深度样本", "4 国", "接入扩展经济序列、项目核验与区域准备记录。"],
-          ["扩展样本", "6 国", "保留基础宏观数据与后续接入入口。"],
-          ["模型输出", "未启用", "样例与待核验内容不进入模型。"],
+          ["统一核心指标", "10 国", "基础宏观与 12 项扩展指标采用同一字典和观测值结构。"],
+          ["扩展观测位置", "600 个", "十国 × 12 指标 × 2021–2025；缺失值明确保留待接入。"],
+          ["地图层", "本轮冻结", "v0.75 不新增边界、风险或预测图层。"],
         ].map(([label, value, note]) => (
           <div key={label} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
             <p className="text-xs font-semibold text-[var(--muted)]">{label}</p>
@@ -37,6 +38,7 @@ export default function CountriesPage() {
       <div className="mt-8 grid gap-4 md:grid-cols-2">
         {researchCountries.map((countryRecord) => {
           const isV4 = v4CountrySlugs.has(countryRecord.slug);
+          const extendedCoverage = getExtendedObservationCoverage(countryRecord.slug);
           const macroStatus = compactStatus(countryRecord.macro_status);
           const projectStatus = compactStatus(countryRecord.project_status);
           const regionalStatus = countryRecord.slug === "hungary"
@@ -54,13 +56,14 @@ export default function CountriesPage() {
                   <h2 className="mt-2 text-2xl font-semibold">{countryRecord.name_zh}</h2>
                 </div>
                 <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">
-                  {isV4 ? "V4 深度样本" : "扩展样本"}
+                  {isV4 ? "V4 / 十国统一样本" : "十国统一样本"}
                 </span>
               </div>
               <p className="mt-4 line-clamp-2 text-sm leading-6 text-[var(--muted)]">{countryRecord.summary_zh}</p>
               <dl className="mt-5 grid gap-2 sm:grid-cols-2">
                 {[
                   ["基础宏观数据", macroStatus],
+                  ["核心扩展数据", `${extendedCoverage.present}/${extendedCoverage.expected} 已接入`],
                   ["对华项目", projectStatus],
                   ["区域数据", regionalStatus],
                   ["事件数据", eventStatus],
@@ -72,7 +75,11 @@ export default function CountriesPage() {
                 ))}
               </dl>
               <div className="mt-4 flex flex-wrap items-center gap-2">
-                <DataStatusBadge status={isV4 ? "manual" : "pending"} />
+                {extendedCoverage.pending === 0 ? (
+                  <DataStatusBadge status="official" />
+                ) : (
+                  <span className="rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-900">部分接入</span>
+                )}
                 <span className="text-xs text-[var(--muted)]">一级行政区：{countryRecord.admin1_count}</span>
                 <span className="ml-auto text-sm font-semibold text-[var(--accent)]">进入国家页</span>
               </div>

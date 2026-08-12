@@ -10,10 +10,10 @@ export default function ModelsPage() {
       <p className="eyebrow">Transparent Models / {platformStatus.version}</p>
       <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">透明模型工作台</h1>
       <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-        v0.50 的居民经济压力、财政压力与外部脆弱性保持不变；v0.70 新增 V4 产业依赖指数。所有分数都由可追溯 observation、固定标准化边界和公开权重计算；不使用机器学习，不预测选举，也不把事件直接计入分数。
+        v0.50 的居民经济压力、财政压力与外部脆弱性及 v0.70 产业依赖规则均保持不变。v0.75 只扩展十国合格输入和准入记录；所有分数仍由可追溯 observation、固定标准化边界和公开权重计算。
       </p>
       <Link href="/scenarios" className="mt-4 inline-flex rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)] hover:bg-[var(--accent)] hover:text-white">
-        进入 v0.70 情景模拟
+        进入情景模拟
       </Link>
 
       <section className="mt-6 grid gap-3 md:grid-cols-3 xl:grid-cols-4">
@@ -47,7 +47,7 @@ export default function ModelsPage() {
         <div className="mt-5 grid gap-3 md:grid-cols-2">
           {[
             ["Scenario Simulation", "已在独立情景层启用；不改变 v0.50 基线模型或原始观测值。"],
-            ["Industrial Dependency Index", "v0.70 已对 V4 启用；FDI 和供应链集中度仍不计正式权重。"],
+            ["Industrial Dependency Index", "v0.75 已统一十国输入结构；FDI 和供应链集中度仍不计正式权重。"],
             ["China Exposure Index", "项目候选变量已建立，但当前不生成指数、排名或风险结论。"],
           ].map(([name, note]) => (
             <article key={name} className="rounded-2xl border border-dashed border-[var(--line)] bg-[var(--surface-muted)] p-4">

@@ -1,6 +1,6 @@
 {
   "schema_version": "research-data-v0.1",
-  "generated_at": "2026-07-27",
+  "generated_at": "2026-08-11",
   "data_type": "research_data_layers",
   "record_count": 17,
   "records": [
@@ -70,7 +70,7 @@
     {
       "id": "indicators",
       "label": "indicators",
-      "description": "18 个指标的口径、单位、频率、来源优先级和派生资格。",
+      "description": "18 个核心指标与 4 个 transmission 指标的口径、单位、频率、来源优先级和派生资格。",
       "json_file": "indicators.json",
       "csv_file": "indicators.csv"
     },
@@ -84,14 +84,14 @@
     {
       "id": "observations",
       "label": "observations",
-      "description": "十国基础宏观观测值和 V4 扩展观测值。",
+      "description": "十国基础宏观、核心扩展与 transmission 观测值。",
       "json_file": "observations.json",
       "csv_file": "observations.csv"
     },
     {
       "id": "data_quality_checks",
       "label": "data_quality_checks",
-      "description": "V4 四国 240 个观测位置的质量验收表。",
+      "description": "十国 600 个核心扩展观测位置的质量验收表。",
       "json_file": "data_quality_checks.json",
       "csv_file": "data_quality_checks.csv"
     },

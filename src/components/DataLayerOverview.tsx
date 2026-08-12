@@ -5,8 +5,8 @@ import { getEventsForCountry, researchCountries } from "@/lib/researchData";
 import {
   getChinaProjectRecords,
   getExtendedObservations,
-  getV4ObservationCoverage,
-  getV4TemplateCoverage,
+  getExtendedObservationCoverage,
+  getExtendedTemplateCoverage,
   v4TemplateIndicatorIds,
 } from "@/lib/extendedData";
 import { verifyChinaProject } from "@/lib/chinaProjectVerification";
@@ -70,9 +70,8 @@ export function DataLayerOverview({ countrySlug, compact = false, title = "数�
   const country = countrySlug ? countries.find((item) => item.slug === countrySlug) : undefined;
   const isCountryMode = Boolean(country);
   const basicIndicators = country ? getBasicIndicators(country.slug) : [];
-  const v4Coverage = country ? getV4TemplateCoverage(country.slug) : null;
-  const v4ObservationCoverage = country ? getV4ObservationCoverage(country.slug) : null;
-  const isV4Country = country ? v4CountrySlugs.includes(country.slug) : false;
+  const extendedCoverage = country ? getExtendedTemplateCoverage(country.slug) : null;
+  const extendedObservationCoverage = country ? getExtendedObservationCoverage(country.slug) : null;
   const countryProfilePending = country?.status !== "official";
   const countryProjects = country ? getChinaProjectRecords(country.slug) : [];
   const allProjects = v4CountrySlugs.flatMap((slug) => getChinaProjectRecords(slug));
@@ -92,12 +91,12 @@ export function DataLayerOverview({ countrySlug, compact = false, title = "数�
   const dataHref = "/data";
   const countryHref = country ? `/countries/${country.slug}` : "/countries";
 
-  const extendedLayer = isV4Country
+  const extendedLayer = country
     ? [{
-        title: "V4 扩展数据覆盖",
-        value: `${v4ObservationCoverage?.official ?? 0}/${v4ObservationCoverage?.expected ?? 60} 正式值`,
-        status: v4ObservationCoverage && v4ObservationCoverage.pending === 0 ? "official" as const : "pending" as const,
-        description: `指标覆盖 ${v4Coverage?.present.length ?? 0}/${v4Coverage?.total ?? v4TemplateIndicatorIds.length}；2021-2025 观测位置已接入 ${v4ObservationCoverage?.present ?? 0}/${v4ObservationCoverage?.expected ?? 60}，待接入 ${v4ObservationCoverage?.pending ?? 0}；原始记录共 ${extendedObservationCount} 条。`,
+        title: "核心扩展数据覆盖",
+        value: `${extendedObservationCoverage?.present ?? 0}/${extendedObservationCoverage?.expected ?? 60} 已接入`,
+        status: extendedObservationCoverage && extendedObservationCoverage.pending === 0 ? "official" as const : "pending" as const,
+        description: `十国统一使用 12 项财政、外部、投资、能源与产业指标；指标覆盖 ${extendedCoverage?.present.length ?? 0}/${extendedCoverage?.total ?? v4TemplateIndicatorIds.length}，2021-2025 待接入 ${extendedObservationCoverage?.pending ?? 0}，原始记录 ${extendedObservationCount} 条。`,
         href: "/data",
       }]
     : [];

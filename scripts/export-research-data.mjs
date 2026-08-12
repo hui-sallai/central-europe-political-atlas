@@ -8,10 +8,10 @@ const require = createRequire(import.meta.url);
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outDir = path.join(projectRoot, "public", "research-data");
 const canonicalDataDir = path.join(projectRoot, "src", "data");
-const generatedAt = "2026-07-27";
+const generatedAt = "2026-08-11";
 const schemaVersion = "research-data-v0.1";
-const canonicalGeneratedAt = "2026-08-08";
-const canonicalSchemaVersion = "data-foundation-v0.30";
+const canonicalGeneratedAt = "2026-08-11";
+const canonicalSchemaVersion = "data-foundation-v0.75";
 const chinaExposureDatabaseUpdatedAt = "2026-08-11";
 
 require.extensions[".ts"] = (module, filename) => {
@@ -156,11 +156,11 @@ function sourceReliabilityLevel(indicator) {
 }
 
 function countryCoverage(indicator) {
-  return v4ExtendedIndicatorIds.has(indicator.indicatorId) ? "V4 四国" : "十国";
+  return "十国";
 }
 
 function yearCoverage(indicator) {
-  return v4ExtendedIndicatorIds.has(indicator.indicatorId) ? "2021-2025" : "2021-2025";
+  return "2021-2025";
 }
 
 function sourceIdFromText(value) {
@@ -368,9 +368,9 @@ function standardObservationRecord({
   const valueStatus = valueStatusLabel(status, value, isCalculated);
   const isPending = valueStatus === "待接入";
   const isStructuralSample = valueStatus === "结构样例";
-  const isV4Extended = dataset === "v4_extended";
+  const isCoreExtended = dataset === "v4_extended" || dataset === "parity_extended";
   const comparisonEligible = Boolean(value !== null && value !== undefined && !isStructuralSample);
-  const v4DerivedEligible = Boolean(isV4Extended && comparisonEligible && indicator?.includedInDerivedComparison);
+  const derivedEligible = Boolean(isCoreExtended && comparisonEligible && indicator?.includedInDerivedComparison);
   const noteText = notes?.trim() || "无";
 
   return {
@@ -396,8 +396,8 @@ function standardObservationRecord({
     is_structural_sample: isStructuralSample,
     is_in_cross_country_comparison: comparisonEligible && (dataset === "macro_time_series" || Boolean(indicator?.includedInDerivedComparison)),
     is_in_five_year_change: comparisonEligible && (dataset === "macro_time_series" || Boolean(indicator?.includedInDerivedComparison)),
-    is_in_mean_gap: v4DerivedEligible,
-    is_in_ranking_change: v4DerivedEligible,
+    is_in_mean_gap: derivedEligible,
+    is_in_ranking_change: derivedEligible,
     missing_reason: isPending ? noteText || "数值待接入" : "无",
     calculation_method: valueStatus === "计算值" ? calculationMethodForIndicator(indicatorId) : "无",
     notes: noteText,
@@ -494,21 +494,24 @@ function economicObservationRecords() {
 }
 
 function extendedObservationRecords() {
-  return extendedObservations.map((observation) => standardObservationRecord({
-    observationId: `v4:${observation.countrySlug}:${observation.indicatorId}:${observation.date}`,
-    countryId: observation.countrySlug,
-    indicatorId: observation.indicatorId,
-    year: observation.date,
-    value: observation.value,
-    unit: observation.unit,
-    sourceId: sourceIdFromText(`${observation.sourceName} ${observation.sourceUrl}`),
-    sourceName: observation.sourceName,
-    sourceUrl: observation.sourceUrl,
-    status: observation.status,
-    lastUpdated: observation.updatedAt,
-    notes: observation.note ?? "",
-    dataset: "v4_extended",
-  }));
+  return extendedObservations.map((observation) => {
+    const isV4Country = v4QualityCountrySlugs.includes(observation.countrySlug);
+    return standardObservationRecord({
+      observationId: `${isV4Country ? "v4" : "parity"}:${observation.countrySlug}:${observation.indicatorId}:${observation.date}`,
+      countryId: observation.countrySlug,
+      indicatorId: observation.indicatorId,
+      year: observation.date,
+      value: observation.value,
+      unit: observation.unit,
+      sourceId: sourceIdFromText(`${observation.sourceName} ${observation.sourceUrl}`),
+      sourceName: observation.sourceName,
+      sourceUrl: observation.sourceUrl,
+      status: observation.status,
+      lastUpdated: observation.updatedAt,
+      notes: observation.note ?? "",
+      dataset: isV4Country ? "v4_extended" : "parity_extended",
+    });
+  });
 }
 
 function rankMap(values) {
@@ -619,10 +622,11 @@ function derivedMetricRecords() {
 }
 
 function dataQualityCheckRecords() {
-  return v4QualityCountrySlugs.flatMap((countryId) =>
+  const parityCountrySlugs = countryMetadataRecords.map((country) => country.country_id);
+  return parityCountrySlugs.flatMap((countryId) =>
     v4TemplateIndicatorIds.flatMap((indicatorId) =>
       ["2021", "2022", "2023", "2024", "2025"].map((year) => {
-        const observationId = `v4:${countryId}:${indicatorId}:${year}`;
+        const observationId = `${v4QualityCountrySlugs.includes(countryId) ? "v4" : "parity"}:${countryId}:${indicatorId}:${year}`;
         const observation = observationRecords.find((item) => item.observation_id === observationId);
         const indicator = indicatorDictionaryRecords.find((item) => item.indicatorId === indicatorId);
         const valuePresent = observation?.value !== null && observation?.value !== undefined;
@@ -683,7 +687,7 @@ function dataQualityCheckRecords() {
                   : "通过";
 
         return {
-          check_id: `v4_quality:${countryId}:${indicatorId}:${year}`,
+          check_id: `parity_quality:${countryId}:${indicatorId}:${year}`,
           observation_id: observationId,
           country_id: countryId,
           indicator_id: indicatorId,
@@ -728,7 +732,7 @@ function derivedComparisonRecords() {
       const biggestChange = record.five_year_change
         .filter((item) => item.change !== null)
         .sort((a, b) => Math.abs(b.change) - Math.abs(a.change))[0];
-      const qualityCells = dataQualityCheckRecords().filter((cell) => cell.indicator_id === record.indicator_id);
+      const qualityCells = dataQualityCheckRecords().filter((cell) => cell.indicator_id === record.indicator_id && v4QualityCountrySlugs.includes(cell.country_id));
       const latestValueCount = record.latest_values.filter((item) => item.value !== null).length;
       const missingObservationCount = qualityCells.filter((cell) => cell.is_pending).length;
       const comparisonStatus =
@@ -1213,7 +1217,7 @@ const transmissionIndicatorRecords = transmissionIndicators.map((indicator) => (
   section: categoryLabels[indicator.category] ?? indicator.category,
   unit: indicator.unit,
   frequency: indicator.frequency,
-  country_coverage: "V4 四国",
+  country_coverage: indicator.id === "germany_export_dependence" ? "十国；德国自身不适用" : "十国",
   year_coverage: "2023-2024",
   primary_source: indicator.source_type,
   backup_source: "各国统计局 / 国家能源监管机构",
@@ -1595,12 +1599,12 @@ writeLayer("sources", sourceRecords, {
   },
 });
 writeLayer("observations", observationRecords, {
-  scope: "540 个 v0.30 年度观测位置，加上 V4 四项 v0.70 transmission indicators 的 2023-2024 合格观测。",
+  scope: "十国 300 个基础宏观观测、600 个核心扩展观测位置和 80 个 transmission 观测位置；缺失值保持 pending。",
   primary_key: "observation_id",
   relation_note: "Every observation references country_id, indicator_id, and source_id.",
 });
 writeLayer("data_quality_checks", dataQualityRecords, {
-  scope: "V4 countries x 12 V4 indicators x 2021-2025 = 240 observation positions.",
+  scope: "10 countries x 12 core extended indicators x 2021-2025 = 600 observation positions.",
 });
 writeLayer("derived_comparisons", derivedComparisonExportRecords, {
   model_boundary: "Fact-derived comparison layer only. No risk score, forecast, scenario, or model output.",

@@ -58,7 +58,7 @@ const modelConditions = [
 ] as const;
 
 const knownLimitations = [
-  "十国基础宏观覆盖较完整，但 V4 扩展指标仍存在待接入年份。",
+  "十国已使用同一核心扩展与 transmission 数据结构；塞尔维亚财政、经常账户等位置及各国少量未发布年份仍明确标记为待接入。",
   "非 V4 六国暂未进入第一批区域边界和区域统计准备。",
   "匈牙利 NUTS3 已完成许可、主键和权威拓扑记录，但公开展示准入仍未启用。",
   "对华项目仍以核验表为主，金额、主体和状态时间线并非全部可量化。",
@@ -167,7 +167,28 @@ export default function MethodologyPage() {
           ))}
         </ol>
         <p className="mt-4 rounded-2xl bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--muted)]">
-          v0.50 的三个基础模型保持原口径；v0.70 新增 V4 产业依赖指数，并为能源价格与德国需求情景补入直接传导数据。每个输出仍保留 observation_id、来源、标准化值、权重和贡献。
+          v0.50 的三个基础模型和 v0.70 产业依赖规则保持原口径；v0.75 只将合格输入与准入记录扩展到十国。每个输出仍保留 observation_id、来源、标准化值、权重和贡献。
+        </p>
+      </section>
+
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">v0.75 Cross-Country Data Parity</p>
+        <h2 className="mt-3 text-2xl font-semibold">十国数据深度统一规则</h2>
+        <div className="mt-5 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+          {[
+            ["核心扩展结构", "十国 × 12 指标 × 2021–2025，共 600 个观测位置"],
+            ["Transmission 结构", "十国 × 4 指标 × 2023–2024，共 80 个观测位置"],
+            ["来源原则", "Eurostat 与 UN Comtrade 等 A 级来源优先"],
+            ["缺失规则", "未发布、不适用或无法核验的值保持 pending，不插值"],
+          ].map(([label, note]) => (
+            <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+              <h3 className="font-semibold">{label}</h3>
+              <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{note}</p>
+            </article>
+          ))}
+        </div>
+        <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
+          指标进入跨国比较或既有模型仍须逐条通过单位、口径、来源链接、状态和更新时间验收。v0.75 只统一数据深度与准入记录，不修改模型权重、情景公式或地图展示状态；德国自身的“对德国出口依赖”按不适用处理，不以零值替代。
         </p>
       </section>
 
@@ -325,7 +346,7 @@ export default function MethodologyPage() {
         </ul>
 
         <div className="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm leading-6 text-emerald-950">
-          <p className="font-semibold">Industrial Dependency Index：V4 第一版已启用</p>
+          <p className="font-semibold">Industrial Dependency Index：十国输入结构已统一</p>
           <p className="mt-2">{industrialDependencyReadiness.decision}</p>
           <p className="mt-2 text-xs">保留限制：{industrialDependencyReadiness.blockers.join("；")}</p>
         </div>

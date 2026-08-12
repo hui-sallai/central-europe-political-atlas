@@ -1,6 +1,6 @@
 {
   "schema_version": "research-data-v0.1",
-  "generated_at": "2026-07-27",
+  "generated_at": "2026-08-11",
   "data_type": "countries",
   "record_count": 10,
   "primary_key": "country_id",
@@ -150,7 +150,7 @@
       "regional_group": "Adjacent EU",
       "country_profile_status": "待核验",
       "basic_macro_status": "正式数据",
-      "v4_extended_status": "非 V4 待接入",
+      "v4_extended_status": "已接入",
       "china_project_status": "待接入",
       "news_event_status": "待接入",
       "map_region_status": "边界待接入",
@@ -164,7 +164,7 @@
       "included_in_china_project_verification": false,
       "future_model_candidate": true,
       "last_updated_at": "2026-07-17",
-      "notes": "非 V4 国家；当前只进入基础宏观十国比较，扩展指标和对华项目核验后续接入。"
+      "notes": "v0.75 已接入同口径财政、外部、投资、能源、产业与 transmission 数据；对德出口依赖对德国自身不适用，保留空值。"
     },
     {
       "country_id": "romania",
@@ -182,7 +182,7 @@
       "regional_group": "Central Europe",
       "country_profile_status": "待核验",
       "basic_macro_status": "正式数据",
-      "v4_extended_status": "非 V4 待接入",
+      "v4_extended_status": "已接入",
       "china_project_status": "待接入",
       "news_event_status": "待接入",
       "map_region_status": "边界待接入",
@@ -196,7 +196,7 @@
       "included_in_china_project_verification": false,
       "future_model_candidate": true,
       "last_updated_at": "2026-07-17",
-      "notes": "非 V4 国家；当前只进入基础宏观十国比较，扩展指标和对华项目核验后续接入。"
+      "notes": "v0.75 已接入同口径扩展与 transmission 数据；Eurostat 未发布的 FDI 年份保留待接入。"
     },
     {
       "country_id": "slovenia",
@@ -214,7 +214,7 @@
       "regional_group": "Central Europe",
       "country_profile_status": "待核验",
       "basic_macro_status": "正式数据",
-      "v4_extended_status": "非 V4 待接入",
+      "v4_extended_status": "已接入",
       "china_project_status": "待接入",
       "news_event_status": "待接入",
       "map_region_status": "边界待接入",
@@ -228,7 +228,7 @@
       "included_in_china_project_verification": false,
       "future_model_candidate": true,
       "last_updated_at": "2026-07-17",
-      "notes": "非 V4 国家；当前只进入基础宏观十国比较，扩展指标和对华项目核验后续接入。"
+      "notes": "v0.75 已接入同口径财政、外部、投资、能源、产业与 transmission 数据。"
     },
     {
       "country_id": "serbia",
@@ -246,7 +246,7 @@
       "regional_group": "Western Balkans",
       "country_profile_status": "待核验",
       "basic_macro_status": "正式数据",
-      "v4_extended_status": "非 V4 待接入",
+      "v4_extended_status": "已接入",
       "china_project_status": "待接入",
       "news_event_status": "待接入",
       "map_region_status": "边界待接入",
@@ -260,7 +260,7 @@
       "included_in_china_project_verification": false,
       "future_model_candidate": true,
       "last_updated_at": "2026-07-17",
-      "notes": "非 EU、非 V4 国家；当前只进入基础宏观十国比较，扩展指标和对华项目核验后续接入。"
+      "notes": "v0.75 已接入 Eurostat/UN Comtrade 可得扩展与 transmission 数据；同口径财政和经常账户序列缺失，明确保留待接入。"
     },
     {
       "country_id": "austria",
@@ -278,7 +278,7 @@
       "regional_group": "Adjacent EU",
       "country_profile_status": "待核验",
       "basic_macro_status": "正式数据",
-      "v4_extended_status": "非 V4 待接入",
+      "v4_extended_status": "已接入",
       "china_project_status": "待接入",
       "news_event_status": "待接入",
       "map_region_status": "边界待接入",
@@ -292,7 +292,7 @@
       "included_in_china_project_verification": false,
       "future_model_candidate": true,
       "last_updated_at": "2026-07-17",
-      "notes": "非 V4 国家；当前只进入基础宏观十国比较，扩展指标和对华项目核验后续接入。"
+      "notes": "v0.75 已接入同口径扩展与 transmission 数据；未发布年份继续保留待接入。"
     },
     {
       "country_id": "croatia",
@@ -310,7 +310,7 @@
       "regional_group": "Central Europe",
       "country_profile_status": "待核验",
       "basic_macro_status": "正式数据",
-      "v4_extended_status": "非 V4 待接入",
+      "v4_extended_status": "已接入",
       "china_project_status": "待接入",
       "news_event_status": "待接入",
       "map_region_status": "边界待接入",
@@ -324,7 +324,7 @@
       "included_in_china_project_verification": false,
       "future_model_candidate": true,
       "last_updated_at": "2026-07-17",
-      "notes": "非 V4 国家；当前只进入基础宏观十国比较，扩展指标和对华项目核验后续接入。"
+      "notes": "v0.75 已接入同口径扩展与 transmission 数据；汽车出口占比缺失年份保持待接入。"
     }
   ]
 }

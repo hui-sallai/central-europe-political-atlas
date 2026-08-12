@@ -10,9 +10,10 @@ import { getBasicIndicators } from "@/lib/basicIndicators";
 import { chinaProjectVerificationLabel, verifyChinaProject } from "@/lib/chinaProjectVerification";
 import { getCountryMetadata } from "@/lib/countryMetadata";
 import type { Country } from "@/lib/data";
-import { getChinaProjectRecords, getV4ObservationCoverage } from "@/lib/extendedData";
+import { getChinaProjectRecords, getExtendedObservationCoverage } from "@/lib/extendedData";
 import { getEventsForCountry } from "@/lib/researchData";
 import { getModelCard, getModelOutputsForCountry } from "@/lib/modelFramework";
+import { getTransmissionObservations } from "@/lib/transmissionData";
 import {
   hungaryAuthoritativeTopologyValidationDecisionSummary,
   hungaryGiscoLicenseVerificationDecisionSummary,
@@ -47,7 +48,8 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
   const modelOutputs = getModelOutputsForCountry(country.slug);
   const codedEventCount = eventRecords.filter((event) => event.coding_status === "coded" && event.data_status === "verified").length;
   const projectLinkedEventCount = eventRecords.filter((event) => event.related_project_ids.length > 0).length;
-  const coverage = getV4ObservationCoverage(country.slug);
+  const coverage = getExtendedObservationCoverage(country.slug);
+  const transmissionCoverage = getTransmissionObservations(country.slug);
   const metadata = getCountryMetadata(country.slug);
   const isV4 = v4CountrySlugs.has(country.slug);
   const isHungary = country.slug === "hungary";
@@ -139,21 +141,13 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
 
       <section className="mt-4 card p-6">
         <p className="eyebrow">Data Coverage</p>
-        <h2 className="mt-3 text-2xl font-semibold">{isV4 ? "V4 扩展数据完整度" : "扩展数据状态"}</h2>
-        {isV4 ? (
-          <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-            <CoverageStat label="指标覆盖" value="12 / 12" note="财政、外部、投资、能源与产业指标采用同一模板。" />
-            <CoverageStat label="观测值覆盖" value={`${coverage.present} / ${coverage.expected}`} note={`2021–2025 共 ${coverage.expected} 个位置；待接入 ${coverage.pending}。`} />
-            <CoverageStat label="正式数据" value={`${coverage.official} / ${coverage.expected}`} note={`计算值 ${coverage.computed}；人工整理 ${coverage.manual}。`} />
-            <CoverageStat label="导出与质量记录" value="已覆盖" note="完整观测值、字典和 QA 表保留在数据工作台。" />
-          </div>
-        ) : (
-          <div className="mt-5 grid gap-3 md:grid-cols-3">
-            <CoverageStat label="基础宏观" value="已进入 observations" note="六项基础宏观指标保留标准观测值。" />
-            <CoverageStat label="V4 扩展指标" value="待接入" note="不在非 V4 国家页做模板验收。" />
-            <CoverageStat label="区域与项目" value="待接入" note="当前只保留结构与后续入口。" />
-          </div>
-        )}
+        <h2 className="mt-3 text-2xl font-semibold">核心扩展数据完整度</h2>
+        <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+          <CoverageStat label="指标覆盖" value="12 / 12" note="十国统一使用财政、外部、投资、能源与产业指标模板。" />
+          <CoverageStat label="观测值覆盖" value={`${coverage.present} / ${coverage.expected}`} note={`2021–2025 共 ${coverage.expected} 个位置；待接入 ${coverage.pending}。`} />
+          <CoverageStat label="正式与计算数据" value={`${coverage.official} / ${coverage.expected}`} note={`其中计算口径 ${coverage.computed}；缺失值不插补。`} />
+          <CoverageStat label="Transmission Data" value={`${transmissionCoverage.filter((item) => item.value !== null).length} / 8`} note="2023–2024 四项传导指标；不适用或未发布值保留为空。" />
+        </div>
       </section>
 
       <section className="mt-4 card p-6">

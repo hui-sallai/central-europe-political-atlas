@@ -13,6 +13,7 @@ import type {
   ModelTrend,
 } from "../types/ModelOutput";
 import { transmissionIndicators, transmissionObservations } from "./transmissionData";
+import { crossCountryExtendedCanonicalObservations } from "./crossCountryParityData";
 
 const CALCULATION_DATE = "2026-08-11";
 const MODEL_VERSION = "v0.50.0";
@@ -32,12 +33,14 @@ function records<T>(value: unknown) {
 const countries = records<Country>(countriesJson);
 const transmissionIndicatorIds = new Set(transmissionIndicators.map((indicator) => indicator.id));
 const transmissionObservationIds = new Set(transmissionObservations.map((observation) => observation.id));
+const parityObservationIds = new Set(crossCountryExtendedCanonicalObservations.map((observation) => observation.id));
 const indicators = [
   ...records<Indicator>(indicatorsJson).filter((indicator) => !transmissionIndicatorIds.has(indicator.id)),
   ...transmissionIndicators,
 ];
 const observations = [
-  ...records<Observation>(observationsJson).filter((observation) => !transmissionObservationIds.has(observation.id)),
+  ...records<Observation>(observationsJson).filter((observation) => !transmissionObservationIds.has(observation.id) && !parityObservationIds.has(observation.id)),
+  ...crossCountryExtendedCanonicalObservations,
   ...transmissionObservations,
 ];
 const events = records<Event>(eventsJson);
@@ -109,7 +112,7 @@ export const modelCards: ModelCard[] = [
     limitations: [
       "尚未纳入利息支出、债券收益率、债务期限结构和欧盟资金实际支付。",
       "不衡量政府偿债违约概率，也不构成主权信用评级。",
-      "当前只有 V4 四国具备完整的启用输入。",
+      "v0.75 已将同口径输入扩展到十国；塞尔维亚财政输入仍不足，不输出精确分数。",
     ],
     event_policy: "财政和欧盟资金事件作为解释记录展示，不改变 v0.50 基础分数。",
     weight_history: [{ version: MODEL_VERSION, effective_date: CALCULATION_DATE, note: "首版：财政赤字/GDP 50%，政府债务/GDP 50%。" }],
@@ -141,11 +144,11 @@ export const modelCards: ModelCard[] = [
     calculation_logic: "经常账户和能源进口依赖按固定边界标准化到 0–100，各占 50% 后求和；使用满足完整度门槛的最新共同年份。",
     weight_note: "v0.50 只启用经常账户/GDP 和能源进口依赖两个 A 级来源输入，各占 50%；名义贸易额不直接跨国评分。",
     output_meaning: "分数越高，表示当前外部收支与能源进口依赖两个维度的观测组合对应更高的外部脆弱性。",
-    completeness_rule: "启用权重覆盖 100% 时为 sufficient；达到 75% 可标记 partial 并按可用权重重标，低于 75% 为 insufficient 且不输出精确分数。2025 年能源依赖待接入，因此当前 V4 使用最新完整可比年 2024。",
+    completeness_rule: "启用权重覆盖 100% 时为 sufficient；达到 75% 可标记 partial 并按可用权重重标，低于 75% 为 insufficient 且不输出精确分数。能源依赖的 2025 年值尚未统一发布，因此使用各国最新完整共同年份。",
     limitations: [
       "尚未纳入外债、短期融资、汇率波动、国际储备和贸易伙伴集中度。",
       "名义出口、进口和贸易差额未按 GDP 标准化，不直接进入当前跨国分数。",
-      "当前只有 V4 四国具备完整的启用输入，不构成危机概率或主权风险预测。",
+      "v0.75 已将同口径输入扩展到十国；塞尔维亚外部输入仍不足。该指数不构成危机概率或主权风险预测。",
     ],
     event_policy: "外部、能源和 FDI 事件只用于解释近期方向，不改变 v0.50 基础分数。",
     weight_history: [{ version: MODEL_VERSION, effective_date: CALCULATION_DATE, note: "首版：经常账户/GDP 50%，能源进口依赖 50%。" }],
@@ -156,7 +159,7 @@ export const modelCards: ModelCard[] = [
     model_version: INDUSTRIAL_MODEL_VERSION,
     name: "Industrial Dependency Index",
     name_zh: "产业依赖指数",
-    purpose: "用制造业体量、汽车出口集中、对德国出口依赖和统一口径工业电价，形成 V4 第一版可追溯产业结构暴露比较值。",
+    purpose: "用制造业体量、汽车出口集中、对德国出口依赖和统一口径工业电价，形成可追溯产业结构暴露比较值。",
     inputs: [
       {
         indicator_id: "manufacturing_share_gdp",
@@ -191,7 +194,7 @@ export const modelCards: ModelCard[] = [
     calculation_logic: "四项输入按公开边界标准化到 0–100，再按 25% / 30% / 30% / 15% 加权。FDI 年流量不计正式权重。",
     weight_note: "制造业占比 25%，汽车出口占比 30%，对德国出口依赖 30%，工业电价 15%；权重集中维护于 Model Card。",
     output_meaning: "分数越高，表示已纳入维度中的制造业、汽车出口、德国市场与工业能源成本暴露组合更集中；不代表产业政策优劣或危机概率。",
-    completeness_rule: "启用权重覆盖 100% 为 sufficient；达到 75% 为 partial 并按可用权重重标；低于 75% 不输出精确分数。当前第一版仅对 V4 接入统一输入。",
+    completeness_rule: "启用权重覆盖 100% 为 sufficient；达到 75% 为 partial 并按可用权重重标；低于 75% 不输出精确分数。v0.75 已统一十国输入结构；德国自身的对德出口依赖按不适用处理，因此不输出精确分数。",
     limitations: [
       "指数不是完整供应链网络模型，尚未纳入企业级投入产出关系和关键零部件来源集中度。",
       "工业电价反映成本环境，不等同于能源依赖；对德国出口依赖只覆盖货物贸易。",

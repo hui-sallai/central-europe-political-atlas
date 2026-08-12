@@ -40,7 +40,7 @@ import {
   getExtendedIndicator,
   getExtendedObservations,
   getLatestExtendedObservation,
-  getV4TemplateCoverage,
+  getExtendedTemplateCoverage,
   v4TemplateIndicatorIds,
   type ChinaProjectRecord,
   type ExtendedCategory,
@@ -312,17 +312,17 @@ function DeferredDetails({ id, title, children, initiallyOpen = false }: Deferre
 
 const dataModes: { id: DataMode; label: string; description: string }[] = [
   { id: "economy", label: "宏观经济", description: "默认展示近五年基础宏观表与官方统计主源。" },
-  { id: "extended", label: "扩展指标", description: "按财政、外部、投资、能源和产业板块查看 V4 历史序列。" },
+  { id: "extended", label: "扩展指标", description: "按财政、外部、投资、能源和产业板块查看十国同口径历史序列。" },
   { id: "projects", label: "对华项目", description: "查看项目核验状态、金额证据、主体与来源记录。" },
   { id: "charts", label: "图表层", description: "只显示经济数据，可切换 GDP、CPI/通胀、失业率等指标。" },
   { id: "comparison", label: "V4 横向比较", description: "保留 V4 完整度、数据质量与派生事实摘要；具体横向轴已拆入各个数据板块。" },
   { id: "tables", label: "结构与字典", description: "按需查看研究数据层、区域结构、字段字典、质量验收与导出入口。" },
 ];
 const dataCredibilityBacklog = [
-  { label: "财政数据", status: "V4 已有序列；十国扩展待补", note: "继续核验财政收支、债务和赤字的年份覆盖与国家官方来源。" },
-  { label: "外部数据", status: "V4 已有序列；十国扩展待补", note: "继续补出口、进口、经常账户和 FDI 的统一口径与来源链接。" },
-  { label: "能源数据", status: "V4 已有序列；区域层待补", note: "继续补能源进口依赖、能源结构和区域可比口径。" },
-  { label: "产业数据", status: "V4 已有序列；十国扩展待补", note: "继续补制造业、汽车产业和产业结构的可核验时间序列。" },
+  { label: "财政数据", status: "十国模板已统一", note: "欧盟九国使用 Eurostat 同口径；塞尔维亚缺失财政位置保持待接入。" },
+  { label: "外部数据", status: "十国模板已统一", note: "出口、进口、贸易差额、经常账户和 FDI 均保留来源与缺失状态。" },
+  { label: "能源数据", status: "国家层已统一；区域层待补", note: "能源进口依赖与直接价格观测分开管理，不互相替代。" },
+  { label: "产业数据", status: "十国模板已统一", note: "制造业、汽车出口和 transmission 数据使用统一单位与计算口径。" },
   { label: "金融数据", status: "指标与来源待定义", note: "先确定指标字典、单位、频率和官方来源，再进入观测值表。" },
 ] as const;
 const dataEntryShortcuts: DataEntryShortcut[] = [
@@ -337,7 +337,7 @@ const dataEntryShortcuts: DataEntryShortcut[] = [
   { id: "map-layers-layer-entry", label: "地图图层注册表", mode: "tables", description: "v0.21 map_layers 同步权威拓扑判定，并保持 hu_nuts3_boundary_pilot.is_ready_for_display=false。" },
   { id: "indicator-dictionary-entry", label: "指标字典入口", mode: "tables", description: "18 个指标的口径、单位、来源优先级和比较资格。" },
   { id: "source-dictionary-entry", label: "来源字典入口", mode: "tables", description: "16 类来源的链接、可靠性等级和使用边界。" },
-  { id: "v4-data-quality-entry", label: "数据质量验收入口", mode: "comparison", description: "V4 四国 240 个观测位置的验收清单。", requiresV4: true },
+  { id: "v4-data-quality-entry", label: "数据质量验收入口", mode: "tables", description: "十国 600 个核心扩展观测位置的验收清单。" },
   { id: "v4-derived-comparison-entry", label: "派生比较表入口", mode: "comparison", description: "最高值、最低值、V4 均值和事实派生比较。", requiresV4: true },
   { id: "data-export-entry", label: "数据导出与接口准备", mode: "tables", description: "17 个逻辑数据层的 CSV / JSON 结构预留；当前不提供模型 API。" },
 ];
@@ -2949,7 +2949,6 @@ function IndicatorDictionaryTable({ rows }: { rows: IndicatorDictionaryRecord[] 
         <tbody>
           {rows.map((indicator) => {
             const isComputed = computedIndicatorIds.has(indicator.indicatorId) || indicator.transform.includes("-");
-            const isV4Indicator = v4TemplateIndicatorIds.includes(indicator.indicatorId as typeof v4TemplateIndicatorIds[number]);
             const sourceLevel = indicator.sourcePriority.some((source) => /Eurostat|统计|央行|IMF|OECD|UNCTAD|World Bank/i.test(source)) ? "A" : "B";
 
             return (
@@ -2961,7 +2960,7 @@ function IndicatorDictionaryTable({ rows }: { rows: IndicatorDictionaryRecord[] 
                 <td className="dictionary-section-cell border-b border-[var(--line)] px-3 py-3"><SemanticField label="所属板块"><DictionaryToken>{indicatorCategoryLabel(indicator.category)}</DictionaryToken></SemanticField></td>
                 <td className="dictionary-unit-cell border-b border-[var(--line)] px-3 py-3"><SemanticField label="单位"><DictionaryToken>{indicator.unit}</DictionaryToken></SemanticField></td>
                 <td className="dictionary-frequency-cell border-b border-[var(--line)] px-3 py-3"><SemanticField label="频率"><DictionaryToken>{indicator.frequency}</DictionaryToken></SemanticField></td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{isV4Indicator ? "V4 四国" : "十国"}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">十国</td>
                 <td className="border-b border-[var(--line)] px-3 py-3">2021-2025</td>
                 <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.sourcePriority[0] ?? "待接入"}</td>
                 <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{indicator.sourcePriority.slice(1).join(" / ") || "待接入"}</td>
@@ -3148,7 +3147,7 @@ function V4QualityDetailTable({ countryNameBySlug }: { v4Quality: V4DataQualityS
           <div>
             <h4 className="text-base font-semibold">数据质量验收汇总</h4>
             <p className="mt-1 text-xs leading-5 text-[var(--muted)]">
-              汇总 240 个 V4 扩展观测位置的正式数据、待接入、计算值、人工整理和 A/B/C/D 来源数量。
+              汇总 600 个十国核心扩展观测位置的正式数据、待接入、计算值、人工整理和 A/B/C/D 来源数量。
             </p>
             <p className="mt-1 text-xs leading-5 text-[var(--muted)]">
               汇总字段：总观测位置、正式数据数量、待接入数量、计算值数量、人工整理数量、通过数量、部分通过数量、需复核数量、不进入分析数量、A 级来源数量、B 级来源数量、C 级来源数量、D 级来源数量。
@@ -3571,7 +3570,7 @@ export function DataCountryExplorer() {
   const completeIndicatorDictionaryRows = completeIndicatorDictionaryIds
     .map((indicatorId) => indicatorDictionaryRecords.find((indicator) => indicator.indicatorId === indicatorId))
     .filter((indicator): indicator is NonNullable<typeof indicator> => Boolean(indicator));
-  const v4TemplateCoverage = getV4TemplateCoverage(selectedCountry.slug);
+  const v4TemplateCoverage = getExtendedTemplateCoverage(selectedCountry.slug);
   const v4Countries = v4CountrySlugs
     .map((slug) => countries.find((country) => country.slug === slug))
     .filter((country): country is NonNullable<typeof country> => Boolean(country));
@@ -3583,7 +3582,7 @@ export function DataCountryExplorer() {
   );
   const v4SeriesMaps = new Map(v4Countries.map((country) => [country.slug, getExtendedObservations(country.slug)]));
   const v4CoverageItems = v4Countries.map((country) => {
-    const coverage = getV4TemplateCoverage(country.slug);
+    const coverage = getExtendedTemplateCoverage(country.slug);
 
     return {
       country,
@@ -4084,7 +4083,7 @@ export function DataCountryExplorer() {
 
             <DeferredDetails id="indicator-dictionary-entry" title="指标字典入口：18 个指标完整表体">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                覆盖 6 个基础宏观指标和 12 个 V4 扩展指标；每个指标均展开为完整字段。
+                覆盖 6 个基础宏观指标和 12 个十国核心扩展指标；每个指标均展开为完整字段。
               </p>
               <IndicatorDictionaryTable rows={completeIndicatorDictionaryRows} />
             </DeferredDetails>
@@ -4096,9 +4095,9 @@ export function DataCountryExplorer() {
               <SourceDictionaryTable rows={sourceDictionaryRows} />
             </DeferredDetails>
 
-            <DeferredDetails id="v4-data-quality-entry" title="数据质量验收入口：240 个 V4 观测位置验收结构">
+            <DeferredDetails id="v4-data-quality-entry" title="数据质量验收入口：600 个十国观测位置验收结构">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                验收范围为 V4 四国 × 12 个扩展指标 × 2021-2025 年，共 240 个观测位置；每行均分列数值、单位、状态、来源、来源等级、更新时间和派生资格。
+                验收范围为十国 × 12 个扩展指标 × 2021-2025 年，共 600 个观测位置；每行均分列数值、单位、状态、来源、来源等级、更新时间和派生资格。V4 派生比较仍在独立比较区保留原口径。
               </p>
               <V4QualityDetailTable v4Quality={v4Quality} countryNameBySlug={countryNameBySlug} />
             </DeferredDetails>
@@ -4769,11 +4768,11 @@ export function DataCountryExplorer() {
                     <div key={category} className="card overflow-visible p-6">
                       <div className="flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
                         <div>
-                          <p className="eyebrow">V4 Data Extension</p>
+                          <p className="eyebrow">Ten-Country Data Parity</p>
                           <h2 className="mt-3 text-2xl font-semibold">{extendedIndicatorLabels[category]}</h2>
                           <p className="mt-2 text-sm leading-6 text-[var(--muted)]">2021-2025 历史序列已接入；Eurostat 尚未发布的年份保留为待接入，最新正式值用于横向比较。</p>
                         </div>
-                        <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">V4 first</span>
+                        <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">10-country schema</span>
                       </div>
 
                       {isV4SelectedCountry ? (
@@ -4884,14 +4883,13 @@ export function DataCountryExplorer() {
 
         {activeMode === "tables" ? (
           <section className="grid gap-5">
-            {isV4SelectedCountry ? (
             <div className="card p-6">
               <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
                 <div>
-                  <p className="eyebrow">V4 Template Coverage</p>
-                  <h2 className="mt-3 text-2xl font-semibold">V4 模板覆盖</h2>
+                  <p className="eyebrow">Cross-Country Template Coverage</p>
+                  <h2 className="mt-3 text-2xl font-semibold">十国核心扩展模板覆盖</h2>
                   <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                    以波兰扩展数据作为 V4 第一批横向比较模板，当前只检查四国是否拥有同一组财政、外部、投资、能源和产业指标；不在此处继续给波兰新增指标。
+                    十国均使用同一组财政、外部、投资、能源和产业指标。这里显示当前国家的指标与观测格覆盖；缺失值保持待接入，不以估算或邻国数据填补。
                   </p>
                 </div>
                 <div className="rounded-2xl border border-[var(--line)] bg-white/70 px-5 py-4 text-right">
@@ -4923,7 +4921,6 @@ export function DataCountryExplorer() {
                 })}
               </div>
             </div>
-            ) : null}
 
             <div id="indicator-dictionary-panel" className="card p-6 scroll-mt-6">
               <p className="eyebrow">Country Table</p>
@@ -4959,7 +4956,7 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Indicator Dictionary</p>
               <h2 className="mt-3 text-2xl font-semibold">指标字典入口</h2>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                覆盖 18 个指标：6 个基础宏观指标和 12 个 V4 扩展指标。每个指标均明确来源、覆盖范围、计算属性、派生比较资格和待接入处理规则。
+                覆盖 18 个指标：6 个基础宏观指标和 12 个十国核心扩展指标。每个指标均明确来源、覆盖范围、计算属性、派生比较资格和待接入处理规则。
               </p>
               <IndicatorDictionaryTable rows={completeIndicatorDictionaryRows} />
             </div>
@@ -4968,7 +4965,7 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Observation Table</p>
               <h2 className="mt-3 text-2xl font-semibold">观测值表</h2>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                标准 observations 表覆盖 10 国 × 6 个基础宏观指标 × 2021–2025，以及 V4 四国 × 12 个扩展指标 × 2021–2025，共 540 条年度观测值。完整表体按需从导出文件加载。
+                标准 observations 表覆盖十国 300 个基础宏观观测位置、600 个核心扩展观测位置和 80 个 transmission 观测位置，共 980 条记录。完整表体按需从导出文件加载；待接入位置保留为空，不插值。
               </p>
               <StandardObservationTableLoader />
             </div>

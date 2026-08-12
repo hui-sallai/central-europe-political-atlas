@@ -1,6 +1,6 @@
 {
   "schema_version": "research-data-v0.1",
-  "generated_at": "2026-07-27",
+  "generated_at": "2026-08-11",
   "data_type": "methodology_rules",
   "record_count": 24,
   "model_boundary": "Rules and boundaries only; no model, forecast, or scenario output.",
@@ -36,7 +36,7 @@
       "quality_requirement": "必须通过 data_quality_checks 中的字段完整性、来源完整性和方法一致性检查。",
       "model_boundary": "可作为未来模型候选输入，但不代表模型已启用。",
       "export_boundary": "可导出至 observations.json/csv。",
-      "last_updated": "2026-07-27",
+      "last_updated": "2026-08-11",
       "notes": "待核验政治样本和结构样例不得伪装为正式观测值。"
     },
     {
@@ -60,7 +60,7 @@
       "quality_requirement": "必须标注 is_pending=true，并在缺失原因中说明尚未接入的字段。",
       "model_boundary": "不进入模型候选输入。",
       "export_boundary": "可导出，但只能作为数据缺口记录。",
-      "last_updated": "2026-07-27",
+      "last_updated": "2026-08-11",
       "notes": "待接入不得显示为 0、百分比或事实数值。"
     },
     {
@@ -85,7 +85,7 @@
       "quality_requirement": "计算方法不得为“无”；单位必须与指标字典一致。",
       "model_boundary": "可作为未来模型候选，但必须在解释层说明为计算值。",
       "export_boundary": "可导出，并必须保留 calculation_method。",
-      "last_updated": "2026-07-27",
+      "last_updated": "2026-08-11",
       "notes": "计算值不是模型输出，只是事实型转换或派生口径。"
     },
     {
@@ -116,7 +116,7 @@
       "quality_requirement": "解释边界必须固定为：仅表示事实位置，不代表风险、预测或政策优劣。",
       "model_boundary": "不生成风险指数、不生成预测、不生成政策优劣判断。",
       "export_boundary": "可导出至 derived_comparisons.json/csv。",
-      "last_updated": "2026-07-27",
+      "last_updated": "2026-08-11",
       "notes": "派生比较表是研究解释材料，不是模型页。"
     },
     {
@@ -141,7 +141,7 @@
       "quality_requirement": "每个正式数据点必须有来源等级；缺失来源等级不得通过质量验收。",
       "model_boundary": "D 级来源不得进入未来模型候选。",
       "export_boundary": "必须在 sources.json/csv 和相关记录中保留 source_reliability。",
-      "last_updated": "2026-07-27",
+      "last_updated": "2026-08-11",
       "notes": "来源等级不等于政治立场判断，只表示可核验程度。"
     },
     {
@@ -170,7 +170,7 @@
       "quality_requirement": "每条正式记录必须同时有来源状态和可靠性等级。",
       "model_boundary": "待接入和结构样例来源不进入未来模型候选。",
       "export_boundary": "来源状态必须随 sources.json/csv 和相关数据层导出。",
-      "last_updated": "2026-07-27",
+      "last_updated": "2026-08-11",
       "notes": "来源状态解决“来源是否已经接入”的问题，可靠性等级解决“来源可核验程度”的问题。"
     },
     {
@@ -196,7 +196,7 @@
       "quality_requirement": "缺少来源链接或来源等级的记录不得进入正式分析。",
       "model_boundary": "来源字典只提供准入边界，不生成模型判断。",
       "export_boundary": "可导出至 sources.json/csv。",
-      "last_updated": "2026-07-27",
+      "last_updated": "2026-08-11",
       "notes": "人工整理来源必须回链原始资料，不能单独作为正式依据。"
     },
     {
@@ -224,7 +224,7 @@
       "quality_requirement": "观测值单位必须与指标字典一致。",
       "model_boundary": "是否可作为未来模型候选变量只表示资格，不代表模型已启用。",
       "export_boundary": "可导出至 indicators.json/csv。",
-      "last_updated": "2026-07-27",
+      "last_updated": "2026-08-11",
       "notes": "当前指标字典覆盖 18 个指标。"
     },
     {
@@ -254,7 +254,7 @@
       "quality_requirement": "必须写明金额证据/缺失原因、主体核验、状态时间线和来源等级。",
       "model_boundary": "对华项目核验表不生成中国经济暴露指数。",
       "export_boundary": "可导出至 china_projects.json/csv。",
-      "last_updated": "2026-07-27",
+      "last_updated": "2026-08-11",
       "notes": "现阶段优先 V4 项目；非 V4 项目继续待接入。"
     },
     {
@@ -288,7 +288,7 @@
       "quality_requirement": "必须列明 required_data、available_data、missing_data 和 model_readiness。",
       "model_boundary": "不生成中国经济暴露指数；不输出国家排名；不输出风险分数；不输出政策判断。",
       "export_boundary": "可导出至 china_exposure_candidates.json/csv。",
-      "last_updated": "2026-07-27",
+      "last_updated": "2026-08-11",
       "notes": "not_index_score 必须为 true。"
     },
     {
@@ -318,7 +318,7 @@
       "quality_requirement": "未核验前显示待核验；政治样本标注人工整理/不进入模型。",
       "model_boundary": "政治人物和政党样本暂不进入当前分析和模型。",
       "export_boundary": "可作为 countries 元数据导出，但必须带来源状态。",
-      "last_updated": "2026-07-27",
+      "last_updated": "2026-08-11",
       "notes": "首页和地图页不得裸露 KO/TD/NL 等未解释缩写。"
     },
     {
@@ -342,7 +342,7 @@
       "quality_requirement": "必须明确标注结构样例，不得显示为 0、95%、84% 等事实数值。",
       "model_boundary": "不进入任何模型、预测、指数或风险判断。",
       "export_boundary": "可导出为结构说明，但不得进入正式观测值比较。",
-      "last_updated": "2026-07-27",
+      "last_updated": "2026-08-11",
       "notes": "地图真实行政边界待接入时，只保留工作台入口和结构样例说明。"
     },
     {
@@ -476,7 +476,7 @@
       "quality_requirement": "导出前必须通过字段结构检查和枚举检查。",
       "model_boundary": "导出文件不代表模型已启用。",
       "export_boundary": "JSON/CSV 均可公开读取，但需保留数据边界说明。",
-      "last_updated": "2026-07-27",
+      "last_updated": "2026-08-11",
       "notes": "当前 17 个逻辑数据层均从导出脚本生成；regions 为 v0.9 区域主键层，region_boundaries 为边界来源登记层，region_indicators 为区域指标字典，region_observations 为区域观测值主表，region_quality_checks 为区域数据质量验收层，region_sources 为区域来源字典，project_locations 为对华项目地区定位表，map_layers 为地图图层注册表。"
     },
     {
@@ -508,7 +508,7 @@
       "quality_requirement": "三项前置条件未全部通过时，public_display_ready 与 is_ready_for_display 必须为 false。",
       "model_boundary": "准入闸门不生成风险指数、预测、中国经济暴露指数或区域评分。",
       "export_boundary": "随 region_quality_checks、map_layers 和 methodology_rules 导出；不新增第 18 张表。",
-      "last_updated": "2026-07-27",
+      "last_updated": "2026-08-11",
       "notes": "v0.14 Hungary boundary readiness gate；当前 gate_status=not_ready_for_public_display。"
     },
     {

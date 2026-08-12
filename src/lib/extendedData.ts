@@ -1,4 +1,5 @@
 import { indicatorDictionaryRecords, type IndicatorCategory, type IndicatorFrequency, type IndicatorModelUse, type IndicatorDirection } from "./indicatorDictionary";
+import { crossCountryExtendedObservations } from "./crossCountryParityData";
 
 export type ExtendedCategory = "fiscal" | "external" | "investment" | "energy" | "industry";
 export type ObservationStatus = "official" | "manual" | "pending" | "sample";
@@ -136,12 +137,20 @@ export const v4TemplateIndicatorIds = [
 ] as const;
 
 export const v4TemplateYears = ["2021", "2022", "2023", "2024", "2025"] as const;
+export const coreExtendedIndicatorIds = v4TemplateIndicatorIds;
+export const coreExtendedYears = v4TemplateYears;
 
 export const countryTableRecords: CountryTableRecord[] = [
   { countryCode: "PL", countrySlug: "poland", nameZh: "波兰", nameEn: "Poland", euMember: true, eurozoneMember: false, regionalGroup: "V4", priority: 1, notes: "V4 最大经济体；财政、外部、能源和对华物流数据优先补。" },
   { countryCode: "HU", countrySlug: "hungary", nameZh: "匈牙利", nameEn: "Hungary", euMember: true, eurozoneMember: false, regionalGroup: "V4", priority: 2, notes: "对华制造业、汽车和电池供应链项目优先补。" },
   { countryCode: "CZ", countrySlug: "czechia", nameZh: "捷克", nameEn: "Czechia", euMember: true, eurozoneMember: false, regionalGroup: "V4", priority: 3, notes: "工业、汽车、能源和贸易结构优先补。" },
   { countryCode: "SK", countrySlug: "slovakia", nameZh: "斯洛伐克", nameEn: "Slovakia", euMember: true, eurozoneMember: true, regionalGroup: "V4", priority: 4, notes: "欧元区身份、汽车产业链和区域外部风险优先补。" },
+  { countryCode: "DE", countrySlug: "germany", nameZh: "德国", nameEn: "Germany", euMember: true, eurozoneMember: true, regionalGroup: "Adjacent EU", priority: 5, notes: "v0.75 接入与 V4 同口径的财政、外部、能源、产业和 transmission 数据；对德出口依赖对德国自身不适用。" },
+  { countryCode: "AT", countrySlug: "austria", nameZh: "奥地利", nameEn: "Austria", euMember: true, eurozoneMember: true, regionalGroup: "Adjacent EU", priority: 6, notes: "v0.75 接入统一扩展序列；Eurostat 未发布的年份继续保留待接入。" },
+  { countryCode: "RO", countrySlug: "romania", nameZh: "罗马尼亚", nameEn: "Romania", euMember: true, eurozoneMember: false, regionalGroup: "Central Europe", priority: 7, notes: "v0.75 接入统一扩展序列；FDI 缺口保持待接入，不做插值。" },
+  { countryCode: "SI", countrySlug: "slovenia", nameZh: "斯洛文尼亚", nameEn: "Slovenia", euMember: true, eurozoneMember: true, regionalGroup: "Central Europe", priority: 8, notes: "v0.75 接入统一扩展序列和 transmission 数据。" },
+  { countryCode: "HR", countrySlug: "croatia", nameZh: "克罗地亚", nameEn: "Croatia", euMember: true, eurozoneMember: true, regionalGroup: "Central Europe", priority: 9, notes: "v0.75 接入统一扩展序列；汽车出口占比缺失年份保持待接入。" },
+  { countryCode: "RS", countrySlug: "serbia", nameZh: "塞尔维亚", nameEn: "Serbia", euMember: false, eurozoneMember: false, regionalGroup: "Western Balkans", priority: 10, notes: "v0.75 接入 Eurostat/UN Comtrade 可得序列；同口径财政与经常账户缺失，明确保留待接入。" },
 ];
 
 export const sourceTableRecords: SourceTableRecord[] = [
@@ -288,9 +297,10 @@ export const extendedObservations: ExtendedObservation[] = [
     obs(countrySlug, "automotive_export_share", automotiveShare, `${sourceUrls.automotiveExports}&geo=${countrySlugToGeo(countrySlug)}`, eurostatUpdatedTradeByActivity, "由 Eurostat ext_tec09 计算：NACE C29 机动车、挂车和半挂车制造业出口 / 全部 NACE 出口。"),
   ]),
   ...historicalExtendedObservations,
+  ...crossCountryExtendedObservations,
 ];
 
-export function getV4TemplateCoverage(countrySlug: string) {
+export function getExtendedTemplateCoverage(countrySlug: string) {
   const existingIndicatorIds = new Set(
     extendedObservations
       .filter((observation) => observation.countrySlug === countrySlug)
@@ -307,7 +317,7 @@ export function getV4TemplateCoverage(countrySlug: string) {
   };
 }
 
-export function getV4ObservationCoverage(countrySlug: string) {
+export function getExtendedObservationCoverage(countrySlug: string) {
   const observations = getExtendedObservations(countrySlug);
   const cells = v4TemplateIndicatorIds.flatMap((indicatorId) =>
     v4TemplateYears.map((year) => observations.find((observation) => observation.indicatorId === indicatorId && observation.date === year)),
@@ -335,6 +345,9 @@ export function getV4ObservationCoverage(countrySlug: string) {
     years: v4TemplateYears,
   };
 }
+
+export const getV4TemplateCoverage = getExtendedTemplateCoverage;
+export const getV4ObservationCoverage = getExtendedObservationCoverage;
 
 export function getLatestExtendedObservation(countrySlug: string, indicatorId: string) {
   const observations = extendedObservations
@@ -674,6 +687,12 @@ function countrySlugToGeo(countrySlug: string) {
     hungary: "HU",
     czechia: "CZ",
     slovakia: "SK",
+    germany: "DE",
+    austria: "AT",
+    romania: "RO",
+    slovenia: "SI",
+    croatia: "HR",
+    serbia: "RS",
   };
 
   return geoBySlug[countrySlug] ?? countrySlug.toUpperCase();

@@ -1,9 +1,9 @@
 export const platformStatus = {
-  version: "v0.70 Industrial Dependency & Transmission Data",
-  stage: "产业依赖模型与外部冲击传导数据",
+  version: "v0.75 Cross-Country Data Parity",
+  stage: "十国核心数据深度统一",
   regionalData: "匈牙利 NUTS3 边界证据已记录；正式展示仍未启用",
   mapDisplay: "未启用",
-  modelLayer: "v0.50 三项基础模型保持不变；v0.70 产业依赖模型启用，预测未启用",
+  modelLayer: "本轮冻结模型与情景逻辑；只扩展合格输入和准入记录",
   lastUpdated: "2026-08-11",
 } as const;
 

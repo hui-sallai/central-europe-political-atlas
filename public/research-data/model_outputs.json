@@ -1,6 +1,6 @@
 {
   "schema_version": "transparent-model-v0.70",
-  "generated_at": "2026-07-27",
+  "generated_at": "2026-08-11",
   "data_type": "model_outputs",
   "record_count": 40,
   "relation_note": "Every published score retains input_observation_ids and complete input traces.",
@@ -1091,21 +1091,53 @@
       "model_version": "v0.50.0",
       "country": "德国",
       "country_slug": "germany",
-      "score": null,
-      "direction": "not_available",
-      "trend_change": null,
-      "main_drivers": [],
-      "data_completeness": 0,
-      "availability": "insufficient",
-      "confidence": "not_available",
-      "calculation_date": "2026-08-11",
-      "input_year": null,
-      "input_observation_ids": [],
-      "missing_indicator_ids": [
-        "fiscal_balance_gdp",
-        "government_debt_gdp"
+      "score": 40.7,
+      "direction": "stable",
+      "trend_change": 0.8,
+      "main_drivers": [
+        "政府债务/GDP：贡献 27.2 分",
+        "财政赤字/GDP：贡献 13.5 分"
       ],
-      "inputs": [],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2025,
+      "input_observation_ids": [
+        "parity:germany:fiscal_balance_gdp:2025",
+        "parity:germany:government_debt_gdp:2025"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "fiscal_balance_gdp",
+          "indicator_name": "财政赤字/GDP",
+          "observation_id": "parity:germany:fiscal_balance_gdp:2025",
+          "year": 2025,
+          "raw_value": -2.7,
+          "unit": "% GDP",
+          "normalized_score": 27,
+          "weight": 0.5,
+          "weighted_contribution": 13.5,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?lang=en&freq=A&unit=PC_GDP&sector=S13&na_item=B9&geo=DE&sinceTimePeriod=2025&untilTimePeriod=2025",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "government_debt_gdp",
+          "indicator_name": "政府债务/GDP",
+          "observation_id": "parity:germany:government_debt_gdp:2025",
+          "year": 2025,
+          "raw_value": 63.5,
+          "unit": "% GDP",
+          "normalized_score": 54.4,
+          "weight": 0.5,
+          "weighted_contribution": 27.2,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?lang=en&freq=A&unit=PC_GDP&sector=S13&na_item=GD&geo=DE&sinceTimePeriod=2025&untilTimePeriod=2025",
+          "source_reliability": "A"
+        }
+      ],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
@@ -1114,21 +1146,53 @@
       "model_version": "v0.50.0",
       "country": "德国",
       "country_slug": "germany",
-      "score": null,
-      "direction": "not_available",
-      "trend_change": null,
-      "main_drivers": [],
-      "data_completeness": 0,
-      "availability": "insufficient",
-      "confidence": "not_available",
-      "calculation_date": "2026-08-11",
-      "input_year": null,
-      "input_observation_ids": [],
-      "missing_indicator_ids": [
-        "current_account_gdp",
-        "energy_import_dependency"
+      "score": 39,
+      "direction": "stable",
+      "trend_change": 0,
+      "main_drivers": [
+        "能源进口依赖：贡献 39.0 分",
+        "经常账户/GDP：贡献 0.0 分"
       ],
-      "inputs": [],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2024,
+      "input_observation_ids": [
+        "parity:germany:current_account_gdp:2024",
+        "parity:germany:energy_import_dependency:2024"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "current_account_gdp",
+          "indicator_name": "经常账户/GDP",
+          "observation_id": "parity:germany:current_account_gdp:2024",
+          "year": 2024,
+          "raw_value": 5.9,
+          "unit": "% GDP",
+          "normalized_score": 0,
+          "weight": 0.5,
+          "weighted_contribution": 0,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tipsbp20?lang=en&freq=A&unit=PC_GDP&partner=WRL_REST&geo=DE&sinceTimePeriod=2024&untilTimePeriod=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "energy_import_dependency",
+          "indicator_name": "能源进口依赖",
+          "observation_id": "parity:germany:energy_import_dependency:2024",
+          "year": 2024,
+          "raw_value": 66.812,
+          "unit": "%",
+          "normalized_score": 78,
+          "weight": 0.5,
+          "weighted_contribution": 39,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?lang=en&freq=A&unit=PC&siec=TOTAL&geo=DE&sinceTimePeriod=2024&untilTimePeriod=2024",
+          "source_reliability": "A"
+        }
+      ],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
@@ -1140,20 +1204,38 @@
       "score": null,
       "direction": "not_available",
       "trend_change": null,
-      "main_drivers": [],
-      "data_completeness": 0,
+      "main_drivers": [
+        "制造业占 GDP 比重：贡献 12.8 分"
+      ],
+      "data_completeness": 25,
       "availability": "insufficient",
       "confidence": "not_available",
       "calculation_date": "2026-08-11",
-      "input_year": null,
-      "input_observation_ids": [],
+      "input_year": 2025,
+      "input_observation_ids": [
+        "parity:germany:manufacturing_share_gdp:2025"
+      ],
       "missing_indicator_ids": [
-        "manufacturing_share_gdp",
         "automotive_export_share",
         "germany_export_dependence",
         "industrial_electricity_price"
       ],
-      "inputs": [],
+      "inputs": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "indicator_name": "制造业占 GDP 比重",
+          "observation_id": "parity:germany:manufacturing_share_gdp:2025",
+          "year": 2025,
+          "raw_value": 17.7,
+          "unit": "%",
+          "normalized_score": 51.3,
+          "weight": 0.25,
+          "weighted_contribution": 12.8,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?lang=en&freq=A&unit=PC_GDP&na_item=B1G&nace_r2=C&geo=DE&sinceTimePeriod=2025&untilTimePeriod=2025",
+          "source_reliability": "A"
+        }
+      ],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
@@ -1217,21 +1299,53 @@
       "model_version": "v0.50.0",
       "country": "罗马尼亚",
       "country_slug": "romania",
-      "score": null,
-      "direction": "not_available",
-      "trend_change": null,
-      "main_drivers": [],
-      "data_completeness": 0,
-      "availability": "insufficient",
-      "confidence": "not_available",
-      "calculation_date": "2026-08-11",
-      "input_year": null,
-      "input_observation_ids": [],
-      "missing_indicator_ids": [
-        "fiscal_balance_gdp",
-        "government_debt_gdp"
+      "score": 64.1,
+      "direction": "falling",
+      "trend_change": -4.1,
+      "main_drivers": [
+        "财政赤字/GDP：贡献 39.5 分",
+        "政府债务/GDP：贡献 24.6 分"
       ],
-      "inputs": [],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2025,
+      "input_observation_ids": [
+        "parity:romania:fiscal_balance_gdp:2025",
+        "parity:romania:government_debt_gdp:2025"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "fiscal_balance_gdp",
+          "indicator_name": "财政赤字/GDP",
+          "observation_id": "parity:romania:fiscal_balance_gdp:2025",
+          "year": 2025,
+          "raw_value": -7.9,
+          "unit": "% GDP",
+          "normalized_score": 79,
+          "weight": 0.5,
+          "weighted_contribution": 39.5,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?lang=en&freq=A&unit=PC_GDP&sector=S13&na_item=B9&geo=RO&sinceTimePeriod=2025&untilTimePeriod=2025",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "government_debt_gdp",
+          "indicator_name": "政府债务/GDP",
+          "observation_id": "parity:romania:government_debt_gdp:2025",
+          "year": 2025,
+          "raw_value": 59.3,
+          "unit": "% GDP",
+          "normalized_score": 49.1,
+          "weight": 0.5,
+          "weighted_contribution": 24.6,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?lang=en&freq=A&unit=PC_GDP&sector=S13&na_item=GD&geo=RO&sinceTimePeriod=2025&untilTimePeriod=2025",
+          "source_reliability": "A"
+        }
+      ],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
@@ -1240,21 +1354,53 @@
       "model_version": "v0.50.0",
       "country": "罗马尼亚",
       "country_slug": "romania",
-      "score": null,
-      "direction": "not_available",
-      "trend_change": null,
-      "main_drivers": [],
-      "data_completeness": 0,
-      "availability": "insufficient",
-      "confidence": "not_available",
-      "calculation_date": "2026-08-11",
-      "input_year": null,
-      "input_observation_ids": [],
-      "missing_indicator_ids": [
-        "current_account_gdp",
-        "energy_import_dependency"
+      "score": 52.6,
+      "direction": "rising",
+      "trend_change": 7,
+      "main_drivers": [
+        "经常账户/GDP：贡献 44.0 分",
+        "能源进口依赖：贡献 8.6 分"
       ],
-      "inputs": [],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2024,
+      "input_observation_ids": [
+        "parity:romania:current_account_gdp:2024",
+        "parity:romania:energy_import_dependency:2024"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "current_account_gdp",
+          "indicator_name": "经常账户/GDP",
+          "observation_id": "parity:romania:current_account_gdp:2024",
+          "year": 2024,
+          "raw_value": -8.2,
+          "unit": "% GDP",
+          "normalized_score": 88,
+          "weight": 0.5,
+          "weighted_contribution": 44,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tipsbp20?lang=en&freq=A&unit=PC_GDP&partner=WRL_REST&geo=RO&sinceTimePeriod=2024&untilTimePeriod=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "energy_import_dependency",
+          "indicator_name": "能源进口依赖",
+          "observation_id": "parity:romania:energy_import_dependency:2024",
+          "year": 2024,
+          "raw_value": 30.356,
+          "unit": "%",
+          "normalized_score": 17.3,
+          "weight": 0.5,
+          "weighted_contribution": 8.6,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?lang=en&freq=A&unit=PC&siec=TOTAL&geo=RO&sinceTimePeriod=2024&untilTimePeriod=2024",
+          "source_reliability": "A"
+        }
+      ],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
@@ -1263,23 +1409,83 @@
       "model_version": "v0.70.0",
       "country": "罗马尼亚",
       "country_slug": "romania",
-      "score": null,
-      "direction": "not_available",
-      "trend_change": null,
-      "main_drivers": [],
-      "data_completeness": 0,
-      "availability": "insufficient",
-      "confidence": "not_available",
-      "calculation_date": "2026-08-11",
-      "input_year": null,
-      "input_observation_ids": [],
-      "missing_indicator_ids": [
-        "manufacturing_share_gdp",
-        "automotive_export_share",
-        "germany_export_dependence",
-        "industrial_electricity_price"
+      "score": 31.7,
+      "direction": "falling",
+      "trend_change": -3.8,
+      "main_drivers": [
+        "汽车产业出口占比：贡献 11.2 分",
+        "对德国出口依赖：贡献 10.5 分"
       ],
-      "inputs": [],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2024,
+      "input_observation_ids": [
+        "parity:romania:manufacturing_share_gdp:2024",
+        "parity:romania:automotive_export_share:2024",
+        "transmission:romania:germany_export_dependence:2024",
+        "transmission:romania:industrial_electricity_price:2024"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "indicator_name": "制造业占 GDP 比重",
+          "observation_id": "parity:romania:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "raw_value": 13.2,
+          "unit": "%",
+          "normalized_score": 21.3,
+          "weight": 0.25,
+          "weighted_contribution": 5.3,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?lang=en&freq=A&unit=PC_GDP&na_item=B1G&nace_r2=C&geo=RO&sinceTimePeriod=2024&untilTimePeriod=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "indicator_name": "汽车产业出口占比",
+          "observation_id": "parity:romania:automotive_export_share:2024",
+          "year": 2024,
+          "raw_value": 19.949,
+          "unit": "%",
+          "normalized_score": 37.4,
+          "weight": 0.3,
+          "weighted_contribution": 11.2,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?lang=en&freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&geo=RO&sinceTimePeriod=2024&untilTimePeriod=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "indicator_name": "对德国出口依赖",
+          "observation_id": "transmission:romania:germany_export_dependence:2024",
+          "year": 2024,
+          "raw_value": 20.542,
+          "unit": "% exports",
+          "normalized_score": 35.1,
+          "weight": 0.3,
+          "weighted_contribution": 10.5,
+          "source_name": "UN Comtrade",
+          "source_url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=642&cmdCode=TOTAL&flowCode=X&partnerCode=276&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "indicator_name": "工业电价",
+          "observation_id": "transmission:romania:industrial_electricity_price:2024",
+          "year": 2024,
+          "raw_value": 0.19445,
+          "unit": "欧元/kWh",
+          "normalized_score": 31.5,
+          "weight": 0.15,
+          "weighted_contribution": 4.7,
+          "source_name": "Eurostat nrg_pc_205",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=en&freq=S&currency=EUR&nrg_cons=MWH500-1999&unit=KWH&tax=I_TAX&geo=RO&sinceTimePeriod=2024-S1&untilTimePeriod=2024-S1",
+          "source_reliability": "A"
+        }
+      ],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
@@ -1343,21 +1549,53 @@
       "model_version": "v0.50.0",
       "country": "斯洛文尼亚",
       "country_slug": "slovenia",
-      "score": null,
-      "direction": "not_available",
-      "trend_change": null,
-      "main_drivers": [],
-      "data_completeness": 0,
-      "availability": "insufficient",
-      "confidence": "not_available",
-      "calculation_date": "2026-08-11",
-      "input_year": null,
-      "input_observation_ids": [],
-      "missing_indicator_ids": [
-        "fiscal_balance_gdp",
-        "government_debt_gdp"
+      "score": 41.1,
+      "direction": "rising",
+      "trend_change": 7.6,
+      "main_drivers": [
+        "政府债务/GDP：贡献 28.6 分",
+        "财政赤字/GDP：贡献 12.5 分"
       ],
-      "inputs": [],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2025,
+      "input_observation_ids": [
+        "parity:slovenia:fiscal_balance_gdp:2025",
+        "parity:slovenia:government_debt_gdp:2025"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "fiscal_balance_gdp",
+          "indicator_name": "财政赤字/GDP",
+          "observation_id": "parity:slovenia:fiscal_balance_gdp:2025",
+          "year": 2025,
+          "raw_value": -2.5,
+          "unit": "% GDP",
+          "normalized_score": 25,
+          "weight": 0.5,
+          "weighted_contribution": 12.5,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?lang=en&freq=A&unit=PC_GDP&sector=S13&na_item=B9&geo=SI&sinceTimePeriod=2025&untilTimePeriod=2025",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "government_debt_gdp",
+          "indicator_name": "政府债务/GDP",
+          "observation_id": "parity:slovenia:government_debt_gdp:2025",
+          "year": 2025,
+          "raw_value": 65.7,
+          "unit": "% GDP",
+          "normalized_score": 57.1,
+          "weight": 0.5,
+          "weighted_contribution": 28.6,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?lang=en&freq=A&unit=PC_GDP&sector=S13&na_item=GD&geo=SI&sinceTimePeriod=2025&untilTimePeriod=2025",
+          "source_reliability": "A"
+        }
+      ],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
@@ -1366,21 +1604,53 @@
       "model_version": "v0.50.0",
       "country": "斯洛文尼亚",
       "country_slug": "slovenia",
-      "score": null,
-      "direction": "not_available",
-      "trend_change": null,
-      "main_drivers": [],
-      "data_completeness": 0,
-      "availability": "insufficient",
-      "confidence": "not_available",
-      "calculation_date": "2026-08-11",
-      "input_year": null,
-      "input_observation_ids": [],
-      "missing_indicator_ids": [
-        "current_account_gdp",
-        "energy_import_dependency"
+      "score": 23.7,
+      "direction": "stable",
+      "trend_change": -1.4,
+      "main_drivers": [
+        "能源进口依赖：贡献 22.0 分",
+        "经常账户/GDP：贡献 1.7 分"
       ],
-      "inputs": [],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2024,
+      "input_observation_ids": [
+        "parity:slovenia:current_account_gdp:2024",
+        "parity:slovenia:energy_import_dependency:2024"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "current_account_gdp",
+          "indicator_name": "经常账户/GDP",
+          "observation_id": "parity:slovenia:current_account_gdp:2024",
+          "year": 2024,
+          "raw_value": 4.5,
+          "unit": "% GDP",
+          "normalized_score": 3.3,
+          "weight": 0.5,
+          "weighted_contribution": 1.7,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tipsbp20?lang=en&freq=A&unit=PC_GDP&partner=WRL_REST&geo=SI&sinceTimePeriod=2024&untilTimePeriod=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "energy_import_dependency",
+          "indicator_name": "能源进口依赖",
+          "observation_id": "parity:slovenia:energy_import_dependency:2024",
+          "year": 2024,
+          "raw_value": 46.382,
+          "unit": "%",
+          "normalized_score": 44,
+          "weight": 0.5,
+          "weighted_contribution": 22,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?lang=en&freq=A&unit=PC&siec=TOTAL&geo=SI&sinceTimePeriod=2024&untilTimePeriod=2024",
+          "source_reliability": "A"
+        }
+      ],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
@@ -1389,23 +1659,83 @@
       "model_version": "v0.70.0",
       "country": "斯洛文尼亚",
       "country_slug": "slovenia",
-      "score": null,
-      "direction": "not_available",
-      "trend_change": null,
-      "main_drivers": [],
-      "data_completeness": 0,
-      "availability": "insufficient",
-      "confidence": "not_available",
-      "calculation_date": "2026-08-11",
-      "input_year": null,
-      "input_observation_ids": [],
-      "missing_indicator_ids": [
-        "manufacturing_share_gdp",
-        "automotive_export_share",
-        "germany_export_dependence",
-        "industrial_electricity_price"
+      "score": 24.1,
+      "direction": "falling",
+      "trend_change": -3.8,
+      "main_drivers": [
+        "制造业占 GDP 比重：贡献 15.7 分",
+        "工业电价：贡献 5.8 分"
       ],
-      "inputs": [],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2024,
+      "input_observation_ids": [
+        "parity:slovenia:manufacturing_share_gdp:2024",
+        "parity:slovenia:automotive_export_share:2024",
+        "transmission:slovenia:germany_export_dependence:2024",
+        "transmission:slovenia:industrial_electricity_price:2024"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "indicator_name": "制造业占 GDP 比重",
+          "observation_id": "parity:slovenia:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "raw_value": 19.4,
+          "unit": "%",
+          "normalized_score": 62.7,
+          "weight": 0.25,
+          "weighted_contribution": 15.7,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?lang=en&freq=A&unit=PC_GDP&na_item=B1G&nace_r2=C&geo=SI&sinceTimePeriod=2024&untilTimePeriod=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "indicator_name": "汽车产业出口占比",
+          "observation_id": "parity:slovenia:automotive_export_share:2024",
+          "year": 2024,
+          "raw_value": 5.96,
+          "unit": "%",
+          "normalized_score": 2.4,
+          "weight": 0.3,
+          "weighted_contribution": 0.7,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?lang=en&freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&geo=SI&sinceTimePeriod=2024&untilTimePeriod=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "indicator_name": "对德国出口依赖",
+          "observation_id": "transmission:slovenia:germany_export_dependence:2024",
+          "year": 2024,
+          "raw_value": 11.876,
+          "unit": "% exports",
+          "normalized_score": 6.3,
+          "weight": 0.3,
+          "weighted_contribution": 1.9,
+          "source_name": "UN Comtrade",
+          "source_url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=705&cmdCode=TOTAL&flowCode=X&partnerCode=276&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "indicator_name": "工业电价",
+          "observation_id": "transmission:slovenia:industrial_electricity_price:2024",
+          "year": 2024,
+          "raw_value": 0.2152,
+          "unit": "欧元/kWh",
+          "normalized_score": 38.4,
+          "weight": 0.15,
+          "weighted_contribution": 5.8,
+          "source_name": "Eurostat nrg_pc_205",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=en&freq=S&currency=EUR&nrg_cons=MWH500-1999&unit=KWH&tax=I_TAX&geo=SI&sinceTimePeriod=2024-S1&untilTimePeriod=2024-S1",
+          "source_reliability": "A"
+        }
+      ],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
@@ -1481,18 +1811,36 @@
       "score": null,
       "direction": "not_available",
       "trend_change": null,
-      "main_drivers": [],
-      "data_completeness": 0,
+      "main_drivers": [
+        "能源进口依赖：贡献 17.3 分"
+      ],
+      "data_completeness": 50,
       "availability": "insufficient",
       "confidence": "not_available",
       "calculation_date": "2026-08-11",
-      "input_year": null,
-      "input_observation_ids": [],
-      "missing_indicator_ids": [
-        "current_account_gdp",
-        "energy_import_dependency"
+      "input_year": 2024,
+      "input_observation_ids": [
+        "parity:serbia:energy_import_dependency:2024"
       ],
-      "inputs": [],
+      "missing_indicator_ids": [
+        "current_account_gdp"
+      ],
+      "inputs": [
+        {
+          "indicator_id": "energy_import_dependency",
+          "indicator_name": "能源进口依赖",
+          "observation_id": "parity:serbia:energy_import_dependency:2024",
+          "year": 2024,
+          "raw_value": 40.793,
+          "unit": "%",
+          "normalized_score": 34.7,
+          "weight": 0.5,
+          "weighted_contribution": 17.3,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?lang=en&freq=A&unit=PC&siec=TOTAL&geo=RS&sinceTimePeriod=2024&untilTimePeriod=2024",
+          "source_reliability": "A"
+        }
+      ],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
@@ -1501,23 +1849,83 @@
       "model_version": "v0.70.0",
       "country": "塞尔维亚",
       "country_slug": "serbia",
-      "score": null,
-      "direction": "not_available",
-      "trend_change": null,
-      "main_drivers": [],
-      "data_completeness": 0,
-      "availability": "insufficient",
-      "confidence": "not_available",
-      "calculation_date": "2026-08-11",
-      "input_year": null,
-      "input_observation_ids": [],
-      "missing_indicator_ids": [
-        "manufacturing_share_gdp",
-        "automotive_export_share",
-        "germany_export_dependence",
-        "industrial_electricity_price"
+      "score": 22.5,
+      "direction": "stable",
+      "trend_change": -0.2,
+      "main_drivers": [
+        "汽车产业出口占比：贡献 8.9 分",
+        "对德国出口依赖：贡献 5.5 分"
       ],
-      "inputs": [],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2024,
+      "input_observation_ids": [
+        "parity:serbia:manufacturing_share_gdp:2024",
+        "parity:serbia:automotive_export_share:2024",
+        "transmission:serbia:germany_export_dependence:2024",
+        "transmission:serbia:industrial_electricity_price:2024"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "indicator_name": "制造业占 GDP 比重",
+          "observation_id": "parity:serbia:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "raw_value": 12.7,
+          "unit": "%",
+          "normalized_score": 18,
+          "weight": 0.25,
+          "weighted_contribution": 4.5,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?lang=en&freq=A&unit=PC_GDP&na_item=B1G&nace_r2=C&geo=RS&sinceTimePeriod=2024&untilTimePeriod=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "indicator_name": "汽车产业出口占比",
+          "observation_id": "parity:serbia:automotive_export_share:2024",
+          "year": 2024,
+          "raw_value": 16.901,
+          "unit": "%",
+          "normalized_score": 29.8,
+          "weight": 0.3,
+          "weighted_contribution": 8.9,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?lang=en&freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&geo=RS&sinceTimePeriod=2024&untilTimePeriod=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "indicator_name": "对德国出口依赖",
+          "observation_id": "transmission:serbia:germany_export_dependence:2024",
+          "year": 2024,
+          "raw_value": 15.483,
+          "unit": "% exports",
+          "normalized_score": 18.3,
+          "weight": 0.3,
+          "weighted_contribution": 5.5,
+          "source_name": "UN Comtrade",
+          "source_url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=688&cmdCode=TOTAL&flowCode=X&partnerCode=276&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "indicator_name": "工业电价",
+          "observation_id": "transmission:serbia:industrial_electricity_price:2024",
+          "year": 2024,
+          "raw_value": 0.1714,
+          "unit": "欧元/kWh",
+          "normalized_score": 23.8,
+          "weight": 0.15,
+          "weighted_contribution": 3.6,
+          "source_name": "Eurostat nrg_pc_205",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=en&freq=S&currency=EUR&nrg_cons=MWH500-1999&unit=KWH&tax=I_TAX&geo=RS&sinceTimePeriod=2024-S1&untilTimePeriod=2024-S1",
+          "source_reliability": "A"
+        }
+      ],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
@@ -1581,21 +1989,53 @@
       "model_version": "v0.50.0",
       "country": "奥地利",
       "country_slug": "austria",
-      "score": null,
-      "direction": "not_available",
-      "trend_change": null,
-      "main_drivers": [],
-      "data_completeness": 0,
-      "availability": "insufficient",
-      "confidence": "not_available",
-      "calculation_date": "2026-08-11",
-      "input_year": null,
-      "input_observation_ids": [],
-      "missing_indicator_ids": [
-        "fiscal_balance_gdp",
-        "government_debt_gdp"
+      "score": 59.4,
+      "direction": "stable",
+      "trend_change": -1.1,
+      "main_drivers": [
+        "政府债务/GDP：贡献 38.4 分",
+        "财政赤字/GDP：贡献 21.0 分"
       ],
-      "inputs": [],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2025,
+      "input_observation_ids": [
+        "parity:austria:fiscal_balance_gdp:2025",
+        "parity:austria:government_debt_gdp:2025"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "fiscal_balance_gdp",
+          "indicator_name": "财政赤字/GDP",
+          "observation_id": "parity:austria:fiscal_balance_gdp:2025",
+          "year": 2025,
+          "raw_value": -4.2,
+          "unit": "% GDP",
+          "normalized_score": 42,
+          "weight": 0.5,
+          "weighted_contribution": 21,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?lang=en&freq=A&unit=PC_GDP&sector=S13&na_item=B9&geo=AT&sinceTimePeriod=2025&untilTimePeriod=2025",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "government_debt_gdp",
+          "indicator_name": "政府债务/GDP",
+          "observation_id": "parity:austria:government_debt_gdp:2025",
+          "year": 2025,
+          "raw_value": 81.5,
+          "unit": "% GDP",
+          "normalized_score": 76.9,
+          "weight": 0.5,
+          "weighted_contribution": 38.4,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?lang=en&freq=A&unit=PC_GDP&sector=S13&na_item=GD&geo=AT&sinceTimePeriod=2025&untilTimePeriod=2025",
+          "source_reliability": "A"
+        }
+      ],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
@@ -1604,21 +2044,53 @@
       "model_version": "v0.50.0",
       "country": "奥地利",
       "country_slug": "austria",
-      "score": null,
-      "direction": "not_available",
-      "trend_change": null,
-      "main_drivers": [],
-      "data_completeness": 0,
-      "availability": "insufficient",
-      "confidence": "not_available",
-      "calculation_date": "2026-08-11",
-      "input_year": null,
-      "input_observation_ids": [],
-      "missing_indicator_ids": [
-        "current_account_gdp",
-        "energy_import_dependency"
+      "score": 39.5,
+      "direction": "falling",
+      "trend_change": -5.4,
+      "main_drivers": [
+        "能源进口依赖：贡献 27.8 分",
+        "经常账户/GDP：贡献 11.7 分"
       ],
-      "inputs": [],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2024,
+      "input_observation_ids": [
+        "parity:austria:current_account_gdp:2024",
+        "parity:austria:energy_import_dependency:2024"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "current_account_gdp",
+          "indicator_name": "经常账户/GDP",
+          "observation_id": "parity:austria:current_account_gdp:2024",
+          "year": 2024,
+          "raw_value": 1.5,
+          "unit": "% GDP",
+          "normalized_score": 23.3,
+          "weight": 0.5,
+          "weighted_contribution": 11.7,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tipsbp20?lang=en&freq=A&unit=PC_GDP&partner=WRL_REST&geo=AT&sinceTimePeriod=2024&untilTimePeriod=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "energy_import_dependency",
+          "indicator_name": "能源进口依赖",
+          "observation_id": "parity:austria:energy_import_dependency:2024",
+          "year": 2024,
+          "raw_value": 53.325,
+          "unit": "%",
+          "normalized_score": 55.5,
+          "weight": 0.5,
+          "weighted_contribution": 27.8,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?lang=en&freq=A&unit=PC&siec=TOTAL&geo=AT&sinceTimePeriod=2024&untilTimePeriod=2024",
+          "source_reliability": "A"
+        }
+      ],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
@@ -1627,23 +2099,83 @@
       "model_version": "v0.70.0",
       "country": "奥地利",
       "country_slug": "austria",
-      "score": null,
-      "direction": "not_available",
-      "trend_change": null,
-      "main_drivers": [],
-      "data_completeness": 0,
-      "availability": "insufficient",
-      "confidence": "not_available",
-      "calculation_date": "2026-08-11",
-      "input_year": null,
-      "input_observation_ids": [],
-      "missing_indicator_ids": [
-        "manufacturing_share_gdp",
-        "automotive_export_share",
-        "germany_export_dependence",
-        "industrial_electricity_price"
+      "score": 36.2,
+      "direction": "falling",
+      "trend_change": -4.1,
+      "main_drivers": [
+        "对德国出口依赖：贡献 19.7 分",
+        "制造业占 GDP 比重：贡献 8.5 分"
       ],
-      "inputs": [],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2024,
+      "input_observation_ids": [
+        "parity:austria:manufacturing_share_gdp:2024",
+        "parity:austria:automotive_export_share:2024",
+        "transmission:austria:germany_export_dependence:2024",
+        "transmission:austria:industrial_electricity_price:2024"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "indicator_name": "制造业占 GDP 比重",
+          "observation_id": "parity:austria:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "raw_value": 15.1,
+          "unit": "%",
+          "normalized_score": 34,
+          "weight": 0.25,
+          "weighted_contribution": 8.5,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?lang=en&freq=A&unit=PC_GDP&na_item=B1G&nace_r2=C&geo=AT&sinceTimePeriod=2024&untilTimePeriod=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "indicator_name": "汽车产业出口占比",
+          "observation_id": "parity:austria:automotive_export_share:2024",
+          "year": 2024,
+          "raw_value": 6.333,
+          "unit": "%",
+          "normalized_score": 3.3,
+          "weight": 0.3,
+          "weighted_contribution": 1,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?lang=en&freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&geo=AT&sinceTimePeriod=2024&untilTimePeriod=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "indicator_name": "对德国出口依赖",
+          "observation_id": "transmission:austria:germany_export_dependence:2024",
+          "year": 2024,
+          "raw_value": 29.653,
+          "unit": "% exports",
+          "normalized_score": 65.5,
+          "weight": 0.3,
+          "weighted_contribution": 19.7,
+          "source_name": "UN Comtrade",
+          "source_url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2024&reporterCode=40&cmdCode=TOTAL&flowCode=X&partnerCode=276&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "indicator_name": "工业电价",
+          "observation_id": "transmission:austria:industrial_electricity_price:2024",
+          "year": 2024,
+          "raw_value": 0.23955,
+          "unit": "欧元/kWh",
+          "normalized_score": 46.5,
+          "weight": 0.15,
+          "weighted_contribution": 7,
+          "source_name": "Eurostat nrg_pc_205",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=en&freq=S&currency=EUR&nrg_cons=MWH500-1999&unit=KWH&tax=I_TAX&geo=AT&sinceTimePeriod=2024-S1&untilTimePeriod=2024-S1",
+          "source_reliability": "A"
+        }
+      ],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
@@ -1707,21 +2239,53 @@
       "model_version": "v0.50.0",
       "country": "克罗地亚",
       "country_slug": "croatia",
-      "score": null,
-      "direction": "not_available",
-      "trend_change": null,
-      "main_drivers": [],
-      "data_completeness": 0,
-      "availability": "insufficient",
-      "confidence": "not_available",
-      "calculation_date": "2026-08-11",
-      "input_year": null,
-      "input_observation_ids": [],
-      "missing_indicator_ids": [
-        "fiscal_balance_gdp",
-        "government_debt_gdp"
+      "score": 37.7,
+      "direction": "rising",
+      "trend_change": 2.8,
+      "main_drivers": [
+        "政府债务/GDP：贡献 22.7 分",
+        "财政赤字/GDP：贡献 15.0 分"
       ],
-      "inputs": [],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2025,
+      "input_observation_ids": [
+        "parity:croatia:fiscal_balance_gdp:2025",
+        "parity:croatia:government_debt_gdp:2025"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "fiscal_balance_gdp",
+          "indicator_name": "财政赤字/GDP",
+          "observation_id": "parity:croatia:fiscal_balance_gdp:2025",
+          "year": 2025,
+          "raw_value": -3,
+          "unit": "% GDP",
+          "normalized_score": 30,
+          "weight": 0.5,
+          "weighted_contribution": 15,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?lang=en&freq=A&unit=PC_GDP&sector=S13&na_item=B9&geo=HR&sinceTimePeriod=2025&untilTimePeriod=2025",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "government_debt_gdp",
+          "indicator_name": "政府债务/GDP",
+          "observation_id": "parity:croatia:government_debt_gdp:2025",
+          "year": 2025,
+          "raw_value": 56.3,
+          "unit": "% GDP",
+          "normalized_score": 45.4,
+          "weight": 0.5,
+          "weighted_contribution": 22.7,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?lang=en&freq=A&unit=PC_GDP&sector=S13&na_item=GD&geo=HR&sinceTimePeriod=2025&untilTimePeriod=2025",
+          "source_reliability": "A"
+        }
+      ],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
@@ -1730,21 +2294,53 @@
       "model_version": "v0.50.0",
       "country": "克罗地亚",
       "country_slug": "croatia",
-      "score": null,
-      "direction": "not_available",
-      "trend_change": null,
-      "main_drivers": [],
-      "data_completeness": 0,
-      "availability": "insufficient",
-      "confidence": "not_available",
-      "calculation_date": "2026-08-11",
-      "input_year": null,
-      "input_observation_ids": [],
-      "missing_indicator_ids": [
-        "current_account_gdp",
-        "energy_import_dependency"
+      "score": 57.3,
+      "direction": "rising",
+      "trend_change": 11.2,
+      "main_drivers": [
+        "能源进口依赖：贡献 33.3 分",
+        "经常账户/GDP：贡献 24.0 分"
       ],
-      "inputs": [],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2024,
+      "input_observation_ids": [
+        "parity:croatia:current_account_gdp:2024",
+        "parity:croatia:energy_import_dependency:2024"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "current_account_gdp",
+          "indicator_name": "经常账户/GDP",
+          "observation_id": "parity:croatia:current_account_gdp:2024",
+          "year": 2024,
+          "raw_value": -2.2,
+          "unit": "% GDP",
+          "normalized_score": 48,
+          "weight": 0.5,
+          "weighted_contribution": 24,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/tipsbp20?lang=en&freq=A&unit=PC_GDP&partner=WRL_REST&geo=HR&sinceTimePeriod=2024&untilTimePeriod=2024",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "energy_import_dependency",
+          "indicator_name": "能源进口依赖",
+          "observation_id": "parity:croatia:energy_import_dependency:2024",
+          "year": 2024,
+          "raw_value": 59.929,
+          "unit": "%",
+          "normalized_score": 66.5,
+          "weight": 0.5,
+          "weighted_contribution": 33.3,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_ind_id?lang=en&freq=A&unit=PC&siec=TOTAL&geo=HR&sinceTimePeriod=2024&untilTimePeriod=2024",
+          "source_reliability": "A"
+        }
+      ],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     },
@@ -1753,23 +2349,83 @@
       "model_version": "v0.70.0",
       "country": "克罗地亚",
       "country_slug": "croatia",
-      "score": null,
+      "score": 15.8,
       "direction": "not_available",
       "trend_change": null,
-      "main_drivers": [],
-      "data_completeness": 0,
-      "availability": "insufficient",
-      "confidence": "not_available",
-      "calculation_date": "2026-08-11",
-      "input_year": null,
-      "input_observation_ids": [],
-      "missing_indicator_ids": [
-        "manufacturing_share_gdp",
-        "automotive_export_share",
-        "germany_export_dependence",
-        "industrial_electricity_price"
+      "main_drivers": [
+        "工业电价：贡献 9.9 分",
+        "制造业占 GDP 比重：贡献 3.7 分"
       ],
-      "inputs": [],
+      "data_completeness": 100,
+      "availability": "sufficient",
+      "confidence": "medium",
+      "calculation_date": "2026-08-11",
+      "input_year": 2023,
+      "input_observation_ids": [
+        "parity:croatia:manufacturing_share_gdp:2023",
+        "parity:croatia:automotive_export_share:2023",
+        "transmission:croatia:germany_export_dependence:2023",
+        "transmission:croatia:industrial_electricity_price:2023"
+      ],
+      "missing_indicator_ids": [],
+      "inputs": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "indicator_name": "制造业占 GDP 比重",
+          "observation_id": "parity:croatia:manufacturing_share_gdp:2023",
+          "year": 2023,
+          "raw_value": 12.2,
+          "unit": "%",
+          "normalized_score": 14.7,
+          "weight": 0.25,
+          "weighted_contribution": 3.7,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?lang=en&freq=A&unit=PC_GDP&na_item=B1G&nace_r2=C&geo=HR&sinceTimePeriod=2023&untilTimePeriod=2023",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "indicator_name": "汽车产业出口占比",
+          "observation_id": "parity:croatia:automotive_export_share:2023",
+          "year": 2023,
+          "raw_value": 0.961,
+          "unit": "%",
+          "normalized_score": 0,
+          "weight": 0.3,
+          "weighted_contribution": 0,
+          "source_name": "Eurostat",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/ext_tec09?lang=en&freq=A&unit=THS_EUR&stk_flow=EXP&partner=WORLD&nace_r2=C29&geo=HR&sinceTimePeriod=2023&untilTimePeriod=2023",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "indicator_name": "对德国出口依赖",
+          "observation_id": "transmission:croatia:germany_export_dependence:2023",
+          "year": 2023,
+          "raw_value": 12.212,
+          "unit": "% exports",
+          "normalized_score": 7.4,
+          "weight": 0.3,
+          "weighted_contribution": 2.2,
+          "source_name": "UN Comtrade",
+          "source_url": "https://comtradeapi.un.org/public/v1/preview/C/A/HS?period=2023&reporterCode=191&cmdCode=TOTAL&flowCode=X&partnerCode=276&partner2Code=0&customsCode=C00&motCode=0&maxRecords=500",
+          "source_reliability": "A"
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "indicator_name": "工业电价",
+          "observation_id": "transmission:croatia:industrial_electricity_price:2023",
+          "year": 2023,
+          "raw_value": 0.2975,
+          "unit": "欧元/kWh",
+          "normalized_score": 65.8,
+          "weight": 0.15,
+          "weighted_contribution": 9.9,
+          "source_name": "Eurostat nrg_pc_205",
+          "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_pc_205?lang=en&freq=S&currency=EUR&nrg_cons=MWH500-1999&unit=KWH&tax=I_TAX&geo=HR&sinceTimePeriod=2023-S1&untilTimePeriod=2023-S1",
+          "source_reliability": "A"
+        }
+      ],
       "related_event_ids": [],
       "interpretation_boundary": "分数是基于公开输入和固定规则的比较工具，不是客观风险真值、预测或政策评价。"
     }
