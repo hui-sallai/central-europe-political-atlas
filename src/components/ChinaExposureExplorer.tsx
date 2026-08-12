@@ -15,7 +15,7 @@ export function ChinaExposureExplorer({ countries, outputs, card }: { countries:
     <section className="mt-6 card p-6">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <p className="eyebrow">China Economic Exposure / v0.80</p>
+          <p className="eyebrow">China Economic Exposure / v0.81 data completion</p>
           <h2 className="mt-3 text-2xl font-semibold">中国经济暴露模型</h2>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">先展示项目、贸易、投资和产业四个维度。只有至少三个核心维度达到充分且可比时才生成总分；当前总分不会被强行计算。</p>
         </div>
@@ -30,6 +30,7 @@ export function ChinaExposureExplorer({ countries, outputs, card }: { countries:
       <div className="mt-5 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950">
         <strong>总体判定：{output.overall_decision === "available" ? output.overall_score : "unavailable"}</strong>
         <span className="ml-2">充分维度 {output.sufficient_dimension_count} / 3；暴露不等于政治影响力、地缘政治风险或投资质量。</span>
+        <p className="mt-2 text-xs">项目库覆盖：{output.project_database_coverage}；主要缺口：{output.priority_gaps.join(" / ") || "无"}</p>
       </div>
 
       <div className="mt-5 grid gap-4 lg:grid-cols-2">

@@ -57,6 +57,7 @@ export type ChinaProjectRecord = {
   currency: string | null;
   year: string;
   projectStatus: string;
+  projectStatusCode: "announced" | "committed" | "under_construction" | "operational" | "suspended" | "cancelled" | "completed" | "transferred";
   statusTimeline: string[];
   amountEvidence: string;
   actorEvidence: string;
@@ -71,6 +72,14 @@ export type ChinaProjectRecord = {
   relatedEventIds: string[];
   status: ObservationStatus;
   note: string;
+  announcedAmount?: number | null;
+  verifiedAmount?: number | null;
+  amountEur?: number | null;
+  amountAsPctGdp?: number | null;
+  amountAsPctFdiStockOrInflow?: number | null;
+  exchangeRateSource?: string | null;
+  exchangeRateDate?: string | null;
+  amountCalculationTrace?: string | null;
 };
 
 export type CountryTableRecord = {
@@ -397,6 +406,7 @@ export const chinaProjectRecords: ChinaProjectRecord[] = [
     currency: null,
     year: "持续运营",
     projectStatus: "运营 / 贸易额与货运量待量化",
+    projectStatusCode: "operational",
     statusTimeline: ["持续运营", "年度 TEU、贸易额、口岸主体待接入"],
     amountEvidence: "金额缺失：当前来源只能证明通道和运营网络存在，未给出项目投资额、年度货值或 TEU 口径；后续需接入口岸统计、铁路运营商或海关数据。",
     actorEvidence: "中国主体暂按中欧班列运营网络记录；当地主体需拆分 PKP Cargo、边境口岸、场站和海关相关实体，当前为人工整理。",
@@ -424,6 +434,7 @@ export const chinaProjectRecords: ChinaProjectRecord[] = [
     currency: null,
     year: "2024",
     projectStatus: "已启动后出现调整 / 状态待持续核验",
+    projectStatusCode: "suspended",
     statusTimeline: ["2024 启动组装", "2025 Reuters 报道生产调整", "投资额和产量待接入"],
     amountEvidence: "金额缺失：Reuters 来源可核验生产调整和地点，但未披露投资额；需补 Stellantis/Leapmotor 公告、工厂产量或地方投资资料。",
     actorEvidence: "中国主体为 Leapmotor / Leapmotor International；当地主体为 Stellantis Poland，仍需用企业公告或当地登记资料核验具体生产实体。",
@@ -451,6 +462,7 @@ export const chinaProjectRecords: ChinaProjectRecord[] = [
     currency: null,
     year: "2018",
     projectStatus: "运营 / 欧盟外资补贴调查相关风险待跟踪",
+    projectStatusCode: "operational",
     statusTimeline: ["2018 基地信息待核验", "2024 欧盟外资补贴调查", "金额和当地实体待接入"],
     amountEvidence: "金额缺失：欧盟委员会来源可核验外资补贴调查事件，但不提供波兰基地投资额；需补企业登记、采购合同或厂区投资资料。",
     actorEvidence: "中国主体为 Nuctech；当地主体暂记 Nuctech Warsaw Company，需以波兰商业登记或企业年报核验。",
@@ -478,6 +490,7 @@ export const chinaProjectRecords: ChinaProjectRecord[] = [
     currency: "十亿欧元",
     year: "2022",
     projectStatus: "在建 / 量产进度待跟踪",
+    projectStatusCode: "under_construction",
     statusTimeline: ["2022 企业公告投资", "建设和量产进度待跟踪", "补贴、产能、雇佣字段待接入"],
     amountEvidence: "金额已接入：CATL 企业公告披露 73.4 亿欧元投资额；仍需补政府补贴、产能、就业和实际支出进度。",
     actorEvidence: "中国主体为 CATL；当地主体暂记匈牙利政府与 Debrecen 地方主体，需补项目公司、土地/许可主体和补贴签署方。",
@@ -505,6 +518,7 @@ export const chinaProjectRecords: ChinaProjectRecord[] = [
     currency: null,
     year: "2023",
     projectStatus: "已宣布 / 投资额待接入",
+    projectStatusCode: "announced",
     statusTimeline: ["2023 项目宣布", "投资额、产能、补贴条件待接入"],
     amountEvidence: "金额缺失：AP 来源可核验项目宣布和地点，但未给出明确投资额；需补 BYD、匈牙利政府或地方政府披露的金额、产能和补贴信息。",
     actorEvidence: "中国主体为 BYD；当地主体暂记匈牙利政府 / Szeged 地方主体，项目公司和许可主体待核验。",
@@ -532,6 +546,7 @@ export const chinaProjectRecords: ChinaProjectRecord[] = [
     currency: "十亿福林",
     year: "2021",
     projectStatus: "建设 / 测试和投运进度待核验",
+    projectStatusCode: "under_construction",
     sourceUrl: "https://bbrailway.hu/",
     statusTimeline: ["2021 合同金额口径", "建设推进", "测试和投运进度待核验"],
     amountEvidence: "金额已接入：项目官网/项目口径保留 9490 亿福林合同金额；需进一步拆分贷款、承包比例、匈牙利段实际支出和现金流。",
@@ -559,6 +574,7 @@ export const chinaProjectRecords: ChinaProjectRecord[] = [
     currency: "百万美元",
     year: "2007",
     projectStatus: "运营 / 最新产能与雇佣待核验",
+    projectStatusCode: "operational",
     statusTimeline: ["2007 历史投资规模", "运营状态待以当地登记或年报核验", "最新产能与雇佣待接入"],
     amountEvidence: "金额已接入但为历史公开口径：2007 年约 2000 万美元；需用捷克商业登记、企业年报或地方投资资料核验是否仍适合作为当前暴露值。",
     actorEvidence: "中国主体为 Sichuan Changhong / Changhong Europe Electric；当地主体为 Changhong Europe Electric s.r.o.，需以捷克登记资料确认存续和控制关系。",
@@ -586,6 +602,7 @@ export const chinaProjectRecords: ChinaProjectRecord[] = [
     currency: null,
     year: "2015-2018",
     projectStatus: "存续结构复杂 / 所有权与金额待拆分",
+    projectStatusCode: "operational",
     statusTimeline: ["2015-2018 投资与资产关系形成", "后续所有权变更待拆分", "金额、主体和资产范围待核验"],
     amountEvidence: "金额缺失：Reuters 来源可核验 CEFC 在捷克资产收购活动，但 Slavia、Eden Arena、地产和相关资产金额需拆分，不能作为单一项目金额。",
     actorEvidence: "中国主体涉及 CEFC / CITIC / Sinobo 等连续变化；当地主体涉及 SK Slavia Praha 与 Eden Arena 相关实体，所有权链条需逐项核验。",
@@ -613,6 +630,7 @@ export const chinaProjectRecords: ChinaProjectRecord[] = [
     currency: null,
     year: "2015-至今待核验",
     projectStatus: "少数股权 / 监管与所有权状态待核验",
+    projectStatusCode: "operational",
     statusTimeline: ["2015 起股权关系形成", "少数股权和监管状态待核验", "金额、股比和治理权待接入"],
     amountEvidence: "金额缺失：当前来源主要指向集团层面信息，未形成可直接引用的交易金额、股比和治理权字段；需补 J&T 年报、监管披露或交易公告。",
     actorEvidence: "中国主体暂记 CEFC / CITIC-linked Rainbow Wisdom；当地主体为 J&T Finance Group，需用年报和监管资料核验最终受益人、股比和权利结构。",
@@ -640,6 +658,7 @@ export const chinaProjectRecords: ChinaProjectRecord[] = [
     currency: "十亿欧元",
     year: "2023",
     projectStatus: "规划 / 政府支持和建设进度待跟踪",
+    projectStatusCode: "committed",
     statusTimeline: ["2023 项目宣布", "规划与政府支持阶段", "补贴、产能、投产年份待接入"],
     amountEvidence: "金额已接入：公开资料口径约 12 亿欧元；需补政府补贴、股权结构、产能、投产年份和实际建设进度。",
     actorEvidence: "中国主体为 Gotion High-Tech；当地主体为 InoBat 及斯洛伐克政府/地方主体，项目公司和审批主体需进一步核验。",
@@ -667,6 +686,7 @@ export const chinaProjectRecords: ChinaProjectRecord[] = [
     currency: null,
     year: "2023",
     projectStatus: "股权合作 / 具体金额与权利结构待核验",
+    projectStatusCode: "committed",
     statusTimeline: ["2023 股权与技术合作", "金额、股比和权利结构待核验"],
     amountEvidence: "金额缺失：当前来源可证明股权/技术合作关系，但未给出可直接使用的交易金额、股比和权利结构。",
     actorEvidence: "中国主体为 Gotion High-Tech；当地主体为 InoBat。该记录与 Surany 工厂相关但应作为股权/技术合作单独核验。",
@@ -681,6 +701,58 @@ export const chinaProjectRecords: ChinaProjectRecord[] = [
     relatedEventIds: ["sk-2023-11-22-gotion-inobat-surany"],
     status: "manual",
     note: "与苏拉尼工厂相关但应单独作为股权/技术合作记录；金额和治理权需从公司材料或登记资料核验。",
+  },
+  {
+    projectId: "de-catl-thuringia-battery", projectName: "CATL 图林根电池工厂", countrySlug: "germany", regionName: "Arnstadt / Erfurt, Thuringia", sector: "动力电池 / 制造业",
+    chineseActor: "CATL / Contemporary Amperex Technology Thuringia GmbH", localActor: "Thuringia State Government / local operating entity", amount: null, currency: null, year: "2018-2022",
+    projectStatus: "运营 / 当前产能与累计投资待统一核验", projectStatusCode: "operational", statusTimeline: ["2018 签署投资协议并开工", "2022 首批电芯投产", "当前产能、累计投资和雇佣待统一官方口径"],
+    amountEvidence: "金额缺失：CATL 官方页面核验工厂、地点和建设节点，但本记录不引用未在该来源中明确披露的投资额。", actorEvidence: "中国主体为 CATL 及其图林根项目公司；当地合作方按图林根州政府与当地运营实体记录。",
+    sourceUrl: "https://www.catl.com/en/enterpriseinfoEnglish/", sourceReliabilityLevel: "C", riskTags: ["电池产业", "德国汽车供应链", "在欧制造"], quantificationStatus: "amount_missing", exposureVariableFit: "partial_candidate",
+    exposureVariableNote: "可证明中国电池制造在德国存在，但金额与当前产能缺少统一 A/B 级数据，不进入金额型暴露。", relatedIndicatorIds: ["fdi_inflow", "manufacturing_share_gdp", "automotive_export_share"], exposureDimensions: ["供应链暴露", "企业存在"], relatedEventIds: [], status: "manual", note: "官方企业材料用于项目存在和时间线；不把一般产业背景直接转换为中国暴露分数。",
+  },
+  {
+    projectId: "de-cosco-hhla-tollerort", projectName: "COSCO SHIPPING Ports 对 HHLA Tollerort 码头少数股权", countrySlug: "germany", regionName: "Hamburg", sector: "港口物流 / 少数股权",
+    chineseActor: "COSCO SHIPPING Ports / Grand Dragon Investment Enterprise", localActor: "HHLA Container Terminal Tollerort GmbH", amount: null, currency: null, year: "2023", projectStatus: "运营 / 24.9% 少数股权", projectStatusCode: "operational",
+    statusTimeline: ["2023 完成投资审查", "2023 签署并执行 24.9% 少数股权交易", "交易金额未在当前来源披露"], amountEvidence: "金额缺失：HHLA 年报核验 24.9% 股权与交易完成，不推算未公开交易金额。", actorEvidence: "中国主体和当地运营公司均由 HHLA 官方年报核验。",
+    sourceUrl: "https://bericht.hhla.de/geschaeftsbericht-2023/lagebericht/grundlagen-des-konzerns/geschaeftspartner-und-kunden.html", sourceReliabilityLevel: "B", riskTags: ["港口物流", "少数股权", "供应链"], quantificationStatus: "partially_quantifiable", exposureVariableFit: "partial_candidate",
+    exposureVariableNote: "股比和运营状态可量化，交易金额缺失；适合作为物流和企业存在变量，不与 FDI 存量相加。", relatedIndicatorIds: ["exports_goods_services", "imports_goods_services", "trade_balance"], exposureDimensions: ["物流暴露", "企业存在"], relatedEventIds: [], status: "manual", note: "少数股权不等于码头控制权，也不等于德国港口体系总体暴露。",
+  },
+  {
+    projectId: "at-avic-facc-majority-stake", projectName: "AVIC Cabin Systems 对 FACC 控股", countrySlug: "austria", regionName: "Ried im Innkreis", sector: "航空零部件 / 控股股权",
+    chineseActor: "AVIC Cabin Systems Co. Limited", localActor: "FACC AG", amount: null, currency: null, year: "2025", projectStatus: "运营 / 55.5% 股权", projectStatusCode: "operational",
+    statusTimeline: ["历史收购形成控股关系", "2025 年末 AVIC 持有 55.5% 股份", "原始收购金额与当前存量不可混用"], amountEvidence: "金额不适用：本记录以 FACC 2025 年报核验当前 55.5% 股权，不以历史收购价作为当前投资存量。", actorEvidence: "AVIC Cabin Systems 与 FACC 的股权关系由 FACC 官方年报核验。",
+    sourceUrl: "https://www.facc.com/en/wp-content/uploads/sites/2/2026/03/annualreport-facc-2025-en.pdf", sourceReliabilityLevel: "B", riskTags: ["航空制造", "控股股权", "企业存在"], quantificationStatus: "partially_quantifiable", exposureVariableFit: "partial_candidate",
+    exposureVariableNote: "可作为控股存在变量，不能替代 China-origin FDI stock，也不能与项目金额相加。", relatedIndicatorIds: ["fdi_inflow", "manufacturing_share_gdp"], exposureDimensions: ["企业存在", "供应链暴露"], relatedEventIds: [], status: "manual", note: "当前股比明确，但缺少与十国统一 FDI 存量口径可直接对应的公司级金额。",
+  },
+  {
+    projectId: "ro-cgn-cernavoda-terminated", projectName: "CGN 参与 Cernavoda 3/4 号机组谈判", countrySlug: "romania", regionName: "Cernavoda", sector: "核能 / 项目谈判",
+    chineseActor: "China General Nuclear Power Corporation", localActor: "Nuclearelectrica S.A.", amount: null, currency: null, year: "2015-2020", projectStatus: "谈判终止", projectStatusCode: "cancelled",
+    statusTimeline: ["2015 签署谅解备忘录", "2019 签署初步投资者协议", "2020 Nuclearelectrica 股东大会批准终止谈判"], amountEvidence: "金额不适用：项目未进入可核验的完成投资阶段，不把估算建设成本记作中国投资。", actorEvidence: "双方主体与终止时间线由 Nuclearelectrica 官方历史记录核验。",
+    sourceUrl: "https://nuclearelectrica.ro/snn/en/about-us/history/", sourceReliabilityLevel: "A", riskTags: ["核能", "项目取消", "监管政策"], quantificationStatus: "not_quantifiable", exposureVariableFit: "context_only", exposureVariableNote: "只作为取消项目和政策事件背景，不进入当前项目或投资暴露分数。", relatedIndicatorIds: ["energy_import_dependency", "fdi_inflow"], exposureDimensions: ["政策争议", "仅背景"], relatedEventIds: [], status: "manual", note: "取消项目明确排除在 active/eligible project 之外。",
+  },
+  {
+    projectId: "si-hisense-gorenje-acquisition", projectName: "Hisense 收购 Gorenje", countrySlug: "slovenia", regionName: "Velenje", sector: "家电制造 / 全资收购",
+    chineseActor: "Hisense Group", localActor: "Gorenje d.o.o.", amount: null, currency: null, year: "2018", projectStatus: "运营 / 100% 所有权", projectStatusCode: "operational",
+    statusTimeline: ["2018 完成收购", "2018 年报确认 Hisense 成为 100% 所有者", "当前产能与公司级投资流待接入"], amountEvidence: "金额缺失：官方年报核验 100% 所有权，不在缺少统一交易金额证据时填入收购价。", actorEvidence: "Hisense 与 Gorenje 的所有权关系由 Gorenje 年报和卢布尔雅那证券交易所公告核验。",
+    sourceUrl: "https://seonet.ljse.si/default_en.aspx?doc=LATEST_PUBLIC_ANNOUNCEMENTS&doc_id=67459&language=en", sourceReliabilityLevel: "B", riskTags: ["家电制造", "全资收购", "企业存在"], quantificationStatus: "partially_quantifiable", exposureVariableFit: "partial_candidate", exposureVariableNote: "所有权比例明确，交易金额与当前经营规模仍需接入；不与 FDI 存量重复计算。", relatedIndicatorIds: ["fdi_inflow", "manufacturing_share_gdp"], exposureDimensions: ["企业存在", "供应链暴露"], relatedEventIds: [], status: "manual", note: "代表性制造业收购案例，不等于斯洛文尼亚全部中国投资。",
+  },
+  {
+    projectId: "hr-peljesac-bridge-crbc", projectName: "CRBC Peljesac 大桥建设合同", countrySlug: "croatia", regionName: "Dubrovnik-Neretva County", sector: "基础设施 / 建设施工合同",
+    chineseActor: "China Road and Bridge Corporation", localActor: "Hrvatske Ceste", amount: 2.08, currency: "十亿克罗地亚库纳（不含 VAT）", year: "2018-2022", projectStatus: "完工 / 已移交", projectStatusCode: "transferred",
+    statusTimeline: ["2018 签署建设合同", "2021 桥梁合龙", "2022 投入使用"], amountEvidence: "合同额已核验：克罗地亚交通部门记录大桥建设合同为 20.8 亿库纳（不含 VAT）；这是施工合同额，不是中国 FDI。", actorEvidence: "承包商 CRBC 与业主 Hrvatske Ceste 由克罗地亚政府和交通部门来源核验。",
+    sourceUrl: "https://mmpi.gov.hr/news-6989/minister-says-work-on-peljesac-bridge-proceeding-as-planned/22439", sourceReliabilityLevel: "A", riskTags: ["基础设施", "施工合同", "EU 资金"], quantificationStatus: "partially_quantifiable", exposureVariableFit: "partial_candidate", exposureVariableNote: "可作为中国承包商存在和已完成合同变量；明确不是股权投资或 FDI，不与投资存量相加。", relatedIndicatorIds: ["government_expenditure_gdp", "imports_goods_services"], exposureDimensions: ["物流暴露", "企业存在"], relatedEventIds: [], status: "manual", announcedAmount: 2.08, verifiedAmount: 2.08, amountEur: null, exchangeRateSource: null, exchangeRateDate: null, amountCalculationTrace: "保留原合同币种；未接入合格汇率证据前不转换欧元。", note: "EU 融资项目由中国承包商建设；承包关系不等于中国融资或资产所有权。",
+  },
+  {
+    projectId: "rs-linglong-zrenjanin-tire", projectName: "Linglong Zrenjanin 轮胎工厂", countrySlug: "serbia", regionName: "Zrenjanin, Vojvodina", sector: "轮胎 / 汽车供应链制造",
+    chineseActor: "Shandong Linglong Tire", localActor: "Serbian Government / Zrenjanin local authorities", amount: 1, currency: "十亿美元（第一阶段估计）", year: "2019-2024", projectStatus: "运营 / 2024 启动批量生产", projectStatusCode: "operational",
+    statusTimeline: ["2019 奠基", "2020 主要建设启动", "2024 批量生产启动"], amountEvidence: "金额已接入：塞尔维亚政府将第一阶段估计为 10 亿美元；后续 6.45 亿欧元计划应作为第二阶段单独记录，不能相加为已完成投资。", actorEvidence: "中国主体、地点、建设与投产节点由塞尔维亚政府来源核验。",
+    sourceUrl: "https://www.srbija.gov.rs/vest/en/230956/serial-production-of-tyres-begins-at-linglong-factory-in-zrenjanin.php", sourceReliabilityLevel: "A", riskTags: ["轮胎制造", "汽车供应链", "绿地投资"], quantificationStatus: "partially_quantifiable", exposureVariableFit: "strong_candidate", exposureVariableNote: "项目金额、行业、地点和运营状态较清楚；金额为政府估计，仍与官方 FDI 统计分开。", relatedIndicatorIds: ["fdi_inflow", "manufacturing_share_gdp", "automotive_export_share"], exposureDimensions: ["投资暴露", "供应链暴露"], relatedEventIds: [], status: "manual", announcedAmount: 1, verifiedAmount: null, amountEur: null, exchangeRateSource: null, exchangeRateDate: null, amountCalculationTrace: "保留官方来源的美元估计；不在无汇率证据时转换。", note: "项目级金额不与 OECD/国家 FDI 存量相加。",
+  },
+  {
+    projectId: "rs-zijin-rtb-bor", projectName: "Zijin 对 RTB Bor 战略投资", countrySlug: "serbia", regionName: "Bor / Majdanpek", sector: "铜矿与冶炼 / 控股股权",
+    chineseActor: "Zijin Mining Group", localActor: "RTB Bor / Republic of Serbia", amount: 350, currency: "百万美元（已支付增资）", year: "2018", projectStatus: "运营 / 63% 控股", projectStatusCode: "operational",
+    statusTimeline: ["2018 签署战略伙伴协议", "2018 支付 3.5 亿美元增资并取得 63% 股权", "后续 12.6 亿美元投资承诺单独跟踪"], amountEvidence: "已核验金额为 2018 年支付的 3.5 亿美元增资；12.6 亿美元属于六年投资承诺，不能与已支付金额混合。", actorEvidence: "Zijin、RTB Bor、塞尔维亚政府及 63% 股权由塞尔维亚经济部/政府来源核验。",
+    sourceUrl: "https://privreda.gov.rs/lat/aktuelno/vesti-i-saopstenja/potpisan-zapisnik-kinezi-preuzeli-upravljanje-rtb-om-bor", sourceReliabilityLevel: "A", riskTags: ["矿业", "铜供应链", "控股股权"], quantificationStatus: "amount_available", exposureVariableFit: "strong_candidate", exposureVariableNote: "股权、已支付增资与承诺投资已分开，适合作为项目和产业连接证据；不替代国家 FDI 存量。", relatedIndicatorIds: ["fdi_inflow", "manufacturing_share_gdp", "exports_goods_services"], exposureDimensions: ["投资暴露", "供应链暴露", "企业存在"], relatedEventIds: [], status: "manual", announcedAmount: 1260, verifiedAmount: 350, amountEur: null, exchangeRateSource: null, exchangeRateDate: null, amountCalculationTrace: "verified amount=paid recapitalisation; announced amount=six-year commitment; never summed as one realised amount.", note: "明确拆分已支付增资与未来承诺，避免 announced vs actual 混淆。",
   },
 ];
 

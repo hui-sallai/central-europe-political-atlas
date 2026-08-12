@@ -1,12 +1,12 @@
 {
-  "schema_version": "china-economic-exposure-v0.80",
+  "schema_version": "china-economic-exposure-v0.81",
   "generated_at": "2026-08-12",
   "data_type": "china_exposure_outputs",
   "record_count": 10,
   "primary_key": "model_id + country_slug",
   "model_card": {
     "model_id": "china_economic_exposure",
-    "model_version": "v0.80.0",
+    "model_version": "v0.81.0",
     "name": "China Economic Exposure Model",
     "name_zh": "中国经济暴露模型",
     "purpose": "分维度衡量十国与中国之间可观测的项目、货物贸易、投资和产业连接。",
@@ -88,7 +88,7 @@
         "name_zh": "投资暴露",
         "variables": [
           {
-            "variable_id": "china_origin_fdi_stock_or_flow",
+            "variable_id": "china_fdi_stock_share",
             "weight": 1,
             "normalization": null,
             "use": "context"
@@ -166,8 +166,8 @@
     "event_policy": "事件只解释项目和政策背景，不直接改变维度或总分。",
     "limitations": [
       "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
-      "项目库只覆盖已核验样本，不代表中国企业活动总体。",
-      "投资维度缺少统一中国来源 FDI，普通 FDI 不作替代。",
+      "项目库是代表性核验库，不是中国企业活动总体普查。",
+      "OECD 同口径 China-origin FDI 存量仅覆盖五国，投资维度继续 unavailable，普通 FDI 不作替代。",
       "贸易维度只使用 2024 年货物贸易。"
     ],
     "calculation_date": "2026-08-12"
@@ -177,7 +177,7 @@
   "records": [
     {
       "model_id": "china_economic_exposure",
-      "model_version": "v0.80.0",
+      "model_version": "v0.81.0",
       "country": "波兰",
       "country_slug": "poland",
       "dimensions": [
@@ -364,30 +364,40 @@
           "score": null,
           "availability": "insufficient",
           "confidence": "not_available",
-          "data_completeness": 0,
+          "data_completeness": 100,
           "main_drivers": [],
           "missing_variables": [
-            "china_origin_fdi_stock_or_flow"
+            "china_fdi_stock_share"
           ],
           "variables": [
             {
-              "variable_id": "china_origin_fdi_stock_or_flow",
+              "variable_id": "china_fdi_stock_share",
               "country": "波兰",
               "country_slug": "poland",
               "dimension": "investment",
-              "raw_value": null,
-              "unit": "million EUR",
-              "year": null,
-              "source": "待接入统一 China-origin FDI source",
-              "source_url": null,
-              "source_reliability": "D",
-              "calculation_method": "not calculated",
-              "data_completeness": 0,
+              "raw_value": 0.473414904,
+              "unit": "% total inward FDI stock",
+              "year": 2024,
+              "source": "OECD FDI positions by counterpart area, BMD4",
+              "source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+              "source_reliability": "A",
+              "calculation_method": "China inward FDI position / World inward FDI position * 100; immediate counterpart; OECD BMD4",
+              "data_completeness": 100,
               "model_eligible": false,
-              "limitation_note": "普通 FDI 流量不等于中国来源 FDI；0 项项目金额记录因币种、状态与概念不同，仅保留在项目库，不合并。",
-              "calculation_trace": null,
+              "limitation_note": "已保留同口径官方存量证据，但十国仅五国完整，投资维度继续 unavailable。普通 FDI、项目金额、合同额和承诺额不作替代也不相加；0 项项目金额仅保留在项目库。",
+              "calculation_trace": {
+                "numerator": 1618.0141909685,
+                "denominator": 341775.1146006,
+                "numerator_source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+                "denominator_source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+                "formula": "china_inward_fdi_stock_usd_million / total_inward_fdi_stock_usd_million * 100"
+              },
               "related_observation_ids": [],
               "related_project_ids": [],
+              "definition_comparable": true,
+              "source_method": "Inward direct investment position; net FDI; all entities; total economy; immediate counterpart; USD millions; China divided by World.",
+              "coverage_note": "Immediate-counterpart BMD4 position is available for China and World.",
+              "qa_status": "partial",
               "normalized_score": null,
               "weight": 1
             }
@@ -583,11 +593,19 @@
         "pl-leapmotor-tychy-assembly",
         "pl-nuctech-kobylka"
       ],
-      "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。"
+      "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
+      "project_database_coverage": "representative_coverage",
+      "priority_gaps": [
+        "project:eligible_project_count",
+        "project:active_project_share",
+        "project:project_sector_concentration",
+        "investment:china_fdi_stock_share",
+        "industrial:china_linked_industrial_project_presence"
+      ]
     },
     {
       "model_id": "china_economic_exposure",
-      "model_version": "v0.80.0",
+      "model_version": "v0.81.0",
       "country": "匈牙利",
       "country_slug": "hungary",
       "dimensions": [
@@ -780,32 +798,42 @@
           "score": null,
           "availability": "insufficient",
           "confidence": "not_available",
-          "data_completeness": 0,
+          "data_completeness": 100,
           "main_drivers": [],
           "missing_variables": [
-            "china_origin_fdi_stock_or_flow"
+            "china_fdi_stock_share"
           ],
           "variables": [
             {
-              "variable_id": "china_origin_fdi_stock_or_flow",
+              "variable_id": "china_fdi_stock_share",
               "country": "匈牙利",
               "country_slug": "hungary",
               "dimension": "investment",
-              "raw_value": null,
-              "unit": "million EUR",
-              "year": null,
-              "source": "待接入统一 China-origin FDI source",
-              "source_url": null,
-              "source_reliability": "D",
-              "calculation_method": "not calculated",
-              "data_completeness": 0,
+              "raw_value": 0.802543547,
+              "unit": "% total inward FDI stock",
+              "year": 2024,
+              "source": "OECD FDI positions by counterpart area, BMD4",
+              "source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+              "source_reliability": "A",
+              "calculation_method": "China inward FDI position / World inward FDI position * 100; immediate counterpart; OECD BMD4",
+              "data_completeness": 100,
               "model_eligible": false,
-              "limitation_note": "普通 FDI 流量不等于中国来源 FDI；1 项项目金额记录因币种、状态与概念不同，仅保留在项目库，不合并。",
-              "calculation_trace": null,
+              "limitation_note": "已保留同口径官方存量证据，但十国仅五国完整，投资维度继续 unavailable。普通 FDI、项目金额、合同额和承诺额不作替代也不相加；1 项项目金额仅保留在项目库。",
+              "calculation_trace": {
+                "numerator": 1999.5568089431,
+                "denominator": 249151.17886179,
+                "numerator_source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+                "denominator_source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+                "formula": "china_inward_fdi_stock_usd_million / total_inward_fdi_stock_usd_million * 100"
+              },
               "related_observation_ids": [],
               "related_project_ids": [
                 "hu-budapest-belgrade-rail"
               ],
+              "definition_comparable": true,
+              "source_method": "Inward direct investment position; net FDI; all entities; total economy; immediate counterpart; USD millions; China divided by World.",
+              "coverage_note": "Immediate-counterpart BMD4 position is available for China and World.",
+              "qa_status": "partial",
               "normalized_score": null,
               "weight": 1
             }
@@ -1001,11 +1029,19 @@
         "hu-byd-szeged",
         "hu-budapest-belgrade-rail"
       ],
-      "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。"
+      "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
+      "project_database_coverage": "representative_coverage",
+      "priority_gaps": [
+        "project:eligible_project_count",
+        "project:active_project_share",
+        "project:project_sector_concentration",
+        "investment:china_fdi_stock_share",
+        "industrial:china_linked_industrial_project_presence"
+      ]
     },
     {
       "model_id": "china_economic_exposure",
-      "model_version": "v0.80.0",
+      "model_version": "v0.81.0",
       "country": "捷克",
       "country_slug": "czechia",
       "dimensions": [
@@ -1192,30 +1228,40 @@
           "score": null,
           "availability": "insufficient",
           "confidence": "not_available",
-          "data_completeness": 0,
+          "data_completeness": 100,
           "main_drivers": [],
           "missing_variables": [
-            "china_origin_fdi_stock_or_flow"
+            "china_fdi_stock_share"
           ],
           "variables": [
             {
-              "variable_id": "china_origin_fdi_stock_or_flow",
+              "variable_id": "china_fdi_stock_share",
               "country": "捷克",
               "country_slug": "czechia",
               "dimension": "investment",
-              "raw_value": null,
-              "unit": "million EUR",
-              "year": null,
-              "source": "待接入统一 China-origin FDI source",
-              "source_url": null,
-              "source_reliability": "D",
-              "calculation_method": "not calculated",
-              "data_completeness": 0,
+              "raw_value": 0.306847735,
+              "unit": "% total inward FDI stock",
+              "year": 2024,
+              "source": "OECD FDI positions by counterpart area, BMD4",
+              "source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+              "source_reliability": "A",
+              "calculation_method": "China inward FDI position / World inward FDI position * 100; immediate counterpart; OECD BMD4",
+              "data_completeness": 100,
               "model_eligible": false,
-              "limitation_note": "普通 FDI 流量不等于中国来源 FDI；0 项项目金额记录因币种、状态与概念不同，仅保留在项目库，不合并。",
-              "calculation_trace": null,
+              "limitation_note": "已保留同口径官方存量证据，但十国仅五国完整，投资维度继续 unavailable。普通 FDI、项目金额、合同额和承诺额不作替代也不相加；0 项项目金额仅保留在项目库。",
+              "calculation_trace": {
+                "numerator": 660.95878202748,
+                "denominator": 215402.85513884,
+                "numerator_source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+                "denominator_source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+                "formula": "china_inward_fdi_stock_usd_million / total_inward_fdi_stock_usd_million * 100"
+              },
               "related_observation_ids": [],
               "related_project_ids": [],
+              "definition_comparable": true,
+              "source_method": "Inward direct investment position; net FDI; all entities; total economy; immediate counterpart; USD millions; China divided by World.",
+              "coverage_note": "Immediate-counterpart BMD4 position is available for China and World.",
+              "qa_status": "partial",
               "normalized_score": null,
               "weight": 1
             }
@@ -1409,11 +1455,19 @@
         "cz-cefc-citic-slavia",
         "cz-cefc-jt-finance"
       ],
-      "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。"
+      "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
+      "project_database_coverage": "representative_coverage",
+      "priority_gaps": [
+        "project:eligible_project_count",
+        "project:active_project_share",
+        "project:project_sector_concentration",
+        "investment:china_fdi_stock_share",
+        "industrial:china_linked_industrial_project_presence"
+      ]
     },
     {
       "model_id": "china_economic_exposure",
-      "model_version": "v0.80.0",
+      "model_version": "v0.81.0",
       "country": "斯洛伐克",
       "country_slug": "slovakia",
       "dimensions": [
@@ -1600,30 +1654,40 @@
           "score": null,
           "availability": "insufficient",
           "confidence": "not_available",
-          "data_completeness": 0,
+          "data_completeness": 100,
           "main_drivers": [],
           "missing_variables": [
-            "china_origin_fdi_stock_or_flow"
+            "china_fdi_stock_share"
           ],
           "variables": [
             {
-              "variable_id": "china_origin_fdi_stock_or_flow",
+              "variable_id": "china_fdi_stock_share",
               "country": "斯洛伐克",
               "country_slug": "slovakia",
               "dimension": "investment",
-              "raw_value": null,
-              "unit": "million EUR",
-              "year": null,
-              "source": "待接入统一 China-origin FDI source",
-              "source_url": null,
-              "source_reliability": "D",
-              "calculation_method": "not calculated",
-              "data_completeness": 0,
+              "raw_value": 0.207120461,
+              "unit": "% total inward FDI stock",
+              "year": 2024,
+              "source": "OECD FDI positions by counterpart area, BMD4",
+              "source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+              "source_reliability": "A",
+              "calculation_method": "China inward FDI position / World inward FDI position * 100; immediate counterpart; OECD BMD4",
+              "data_completeness": 100,
               "model_eligible": false,
-              "limitation_note": "普通 FDI 流量不等于中国来源 FDI；0 项项目金额记录因币种、状态与概念不同，仅保留在项目库，不合并。",
-              "calculation_trace": null,
+              "limitation_note": "已保留同口径官方存量证据，但十国仅五国完整，投资维度继续 unavailable。普通 FDI、项目金额、合同额和承诺额不作替代也不相加；0 项项目金额仅保留在项目库。",
+              "calculation_trace": {
+                "numerator": 135.51320382298,
+                "denominator": 65427.71556202,
+                "numerator_source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+                "denominator_source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+                "formula": "china_inward_fdi_stock_usd_million / total_inward_fdi_stock_usd_million * 100"
+              },
               "related_observation_ids": [],
               "related_project_ids": [],
+              "definition_comparable": true,
+              "source_method": "Inward direct investment position; net FDI; all entities; total economy; immediate counterpart; USD millions; China divided by World.",
+              "coverage_note": "Immediate-counterpart BMD4 position is available for China and World.",
+              "qa_status": "partial",
               "normalized_score": null,
               "weight": 1
             }
@@ -1818,11 +1882,19 @@
         "sk-gotion-inobat-surany",
         "sk-gotion-inobat-equity"
       ],
-      "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。"
+      "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
+      "project_database_coverage": "insufficient_project_coverage",
+      "priority_gaps": [
+        "project:eligible_project_count",
+        "project:active_project_share",
+        "project:project_sector_concentration",
+        "investment:china_fdi_stock_share",
+        "industrial:china_linked_industrial_project_presence"
+      ]
     },
     {
       "model_id": "china_economic_exposure",
-      "model_version": "v0.80.0",
+      "model_version": "v0.81.0",
       "country": "德国",
       "country_slug": "germany",
       "dimensions": [
@@ -1851,14 +1923,14 @@
               "related_observation_ids": [],
               "related_project_ids": [],
               "variable_id": "eligible_project_count",
-              "raw_value": null,
+              "raw_value": 0,
               "unit": "projects",
               "calculation_method": "count verified, quantifiable A/B-source projects",
               "data_completeness": 0,
               "model_eligible": false,
-              "limitation_note": "该国项目记录尚未系统接入；空值不表示不存在项目。",
+              "limitation_note": "只接纳已核验、可量化且为 A/B 级来源的项目；项目库不是企业总体普查，少于两项时不形成可比项目分数。",
               "calculation_trace": null,
-              "normalized_score": null,
+              "normalized_score": 0,
               "weight": 0.45
             },
             {
@@ -2009,30 +2081,40 @@
           "score": null,
           "availability": "insufficient",
           "confidence": "not_available",
-          "data_completeness": 0,
+          "data_completeness": 100,
           "main_drivers": [],
           "missing_variables": [
-            "china_origin_fdi_stock_or_flow"
+            "china_fdi_stock_share"
           ],
           "variables": [
             {
-              "variable_id": "china_origin_fdi_stock_or_flow",
+              "variable_id": "china_fdi_stock_share",
               "country": "德国",
               "country_slug": "germany",
               "dimension": "investment",
-              "raw_value": null,
-              "unit": "million EUR",
-              "year": null,
-              "source": "待接入统一 China-origin FDI source",
-              "source_url": null,
-              "source_reliability": "D",
-              "calculation_method": "not calculated",
-              "data_completeness": 0,
+              "raw_value": 0.580644879,
+              "unit": "% total inward FDI stock",
+              "year": 2024,
+              "source": "OECD FDI positions by counterpart area, BMD4",
+              "source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+              "source_reliability": "A",
+              "calculation_method": "China inward FDI position / World inward FDI position * 100; immediate counterpart; OECD BMD4",
+              "data_completeness": 100,
               "model_eligible": false,
-              "limitation_note": "普通 FDI 流量不等于中国来源 FDI；0 项项目金额记录因币种、状态与概念不同，仅保留在项目库，不合并。",
-              "calculation_trace": null,
+              "limitation_note": "已保留同口径官方存量证据，但十国仅五国完整，投资维度继续 unavailable。普通 FDI、项目金额、合同额和承诺额不作替代也不相加；0 项项目金额仅保留在项目库。",
+              "calculation_trace": {
+                "numerator": 7201.3297319759,
+                "denominator": 1240229.5865365,
+                "numerator_source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+                "denominator_source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+                "formula": "china_inward_fdi_stock_usd_million / total_inward_fdi_stock_usd_million * 100"
+              },
               "related_observation_ids": [],
               "related_project_ids": [],
+              "definition_comparable": true,
+              "source_method": "Inward direct investment position; net FDI; all entities; total economy; immediate counterpart; USD millions; China divided by World.",
+              "coverage_note": "Immediate-counterpart BMD4 position is available for China and World.",
+              "qa_status": "partial",
               "normalized_score": null,
               "weight": 1
             }
@@ -2212,12 +2294,23 @@
       "sufficient_dimension_count": 1,
       "calculation_date": "2026-08-12",
       "related_event_ids": [],
-      "related_project_ids": [],
-      "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。"
+      "related_project_ids": [
+        "de-catl-thuringia-battery",
+        "de-cosco-hhla-tollerort"
+      ],
+      "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
+      "project_database_coverage": "representative_coverage",
+      "priority_gaps": [
+        "project:eligible_project_count",
+        "project:active_project_share",
+        "project:project_sector_concentration",
+        "investment:china_fdi_stock_share",
+        "industrial:germany_export_dependence"
+      ]
     },
     {
       "model_id": "china_economic_exposure",
-      "model_version": "v0.80.0",
+      "model_version": "v0.81.0",
       "country": "罗马尼亚",
       "country_slug": "romania",
       "dimensions": [
@@ -2246,14 +2339,14 @@
               "related_observation_ids": [],
               "related_project_ids": [],
               "variable_id": "eligible_project_count",
-              "raw_value": null,
+              "raw_value": 0,
               "unit": "projects",
               "calculation_method": "count verified, quantifiable A/B-source projects",
               "data_completeness": 0,
               "model_eligible": false,
-              "limitation_note": "该国项目记录尚未系统接入；空值不表示不存在项目。",
+              "limitation_note": "只接纳已核验、可量化且为 A/B 级来源的项目；项目库不是企业总体普查，少于两项时不形成可比项目分数。",
               "calculation_trace": null,
-              "normalized_score": null,
+              "normalized_score": 0,
               "weight": 0.45
             },
             {
@@ -2407,27 +2500,31 @@
           "data_completeness": 0,
           "main_drivers": [],
           "missing_variables": [
-            "china_origin_fdi_stock_or_flow"
+            "china_fdi_stock_share"
           ],
           "variables": [
             {
-              "variable_id": "china_origin_fdi_stock_or_flow",
+              "variable_id": "china_fdi_stock_share",
               "country": "罗马尼亚",
               "country_slug": "romania",
               "dimension": "investment",
               "raw_value": null,
-              "unit": "million EUR",
-              "year": null,
-              "source": "待接入统一 China-origin FDI source",
-              "source_url": null,
-              "source_reliability": "D",
-              "calculation_method": "not calculated",
+              "unit": "% total inward FDI stock",
+              "year": 2024,
+              "source": "OECD FDI positions by counterpart area, BMD4",
+              "source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+              "source_reliability": "A",
+              "calculation_method": "China inward FDI position / World inward FDI position * 100; immediate counterpart; OECD BMD4",
               "data_completeness": 0,
               "model_eligible": false,
-              "limitation_note": "普通 FDI 流量不等于中国来源 FDI；0 项项目金额记录因币种、状态与概念不同，仅保留在项目库，不合并。",
+              "limitation_note": "已保留同口径官方存量证据，但十国仅五国完整，投资维度继续 unavailable。普通 FDI、项目金额、合同额和承诺额不作替代也不相加；0 项项目金额仅保留在项目库。",
               "calculation_trace": null,
               "related_observation_ids": [],
               "related_project_ids": [],
+              "definition_comparable": false,
+              "source_method": "Inward direct investment position; net FDI; all entities; total economy; immediate counterpart; USD millions; China divided by World.",
+              "coverage_note": "No usable record under the fixed OECD immediate-counterpart query.",
+              "qa_status": "unavailable",
               "normalized_score": null,
               "weight": 1
             }
@@ -2616,12 +2713,22 @@
       "sufficient_dimension_count": 1,
       "calculation_date": "2026-08-12",
       "related_event_ids": [],
-      "related_project_ids": [],
-      "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。"
+      "related_project_ids": [
+        "ro-cgn-cernavoda-terminated"
+      ],
+      "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
+      "project_database_coverage": "insufficient_project_coverage",
+      "priority_gaps": [
+        "project:eligible_project_count",
+        "project:active_project_share",
+        "project:project_sector_concentration",
+        "investment:china_fdi_stock_share",
+        "industrial:china_linked_industrial_project_presence"
+      ]
     },
     {
       "model_id": "china_economic_exposure",
-      "model_version": "v0.80.0",
+      "model_version": "v0.81.0",
       "country": "斯洛文尼亚",
       "country_slug": "slovenia",
       "dimensions": [
@@ -2650,14 +2757,14 @@
               "related_observation_ids": [],
               "related_project_ids": [],
               "variable_id": "eligible_project_count",
-              "raw_value": null,
+              "raw_value": 0,
               "unit": "projects",
               "calculation_method": "count verified, quantifiable A/B-source projects",
               "data_completeness": 0,
               "model_eligible": false,
-              "limitation_note": "该国项目记录尚未系统接入；空值不表示不存在项目。",
+              "limitation_note": "只接纳已核验、可量化且为 A/B 级来源的项目；项目库不是企业总体普查，少于两项时不形成可比项目分数。",
               "calculation_trace": null,
-              "normalized_score": null,
+              "normalized_score": 0,
               "weight": 0.45
             },
             {
@@ -2811,27 +2918,31 @@
           "data_completeness": 0,
           "main_drivers": [],
           "missing_variables": [
-            "china_origin_fdi_stock_or_flow"
+            "china_fdi_stock_share"
           ],
           "variables": [
             {
-              "variable_id": "china_origin_fdi_stock_or_flow",
+              "variable_id": "china_fdi_stock_share",
               "country": "斯洛文尼亚",
               "country_slug": "slovenia",
               "dimension": "investment",
               "raw_value": null,
-              "unit": "million EUR",
-              "year": null,
-              "source": "待接入统一 China-origin FDI source",
-              "source_url": null,
-              "source_reliability": "D",
-              "calculation_method": "not calculated",
+              "unit": "% total inward FDI stock",
+              "year": 2024,
+              "source": "OECD FDI positions by counterpart area, BMD4",
+              "source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+              "source_reliability": "A",
+              "calculation_method": "China inward FDI position / World inward FDI position * 100; immediate counterpart; OECD BMD4",
               "data_completeness": 0,
               "model_eligible": false,
-              "limitation_note": "普通 FDI 流量不等于中国来源 FDI；0 项项目金额记录因币种、状态与概念不同，仅保留在项目库，不合并。",
+              "limitation_note": "已保留同口径官方存量证据，但十国仅五国完整，投资维度继续 unavailable。普通 FDI、项目金额、合同额和承诺额不作替代也不相加；0 项项目金额仅保留在项目库。",
               "calculation_trace": null,
               "related_observation_ids": [],
               "related_project_ids": [],
+              "definition_comparable": false,
+              "source_method": "Inward direct investment position; net FDI; all entities; total economy; immediate counterpart; USD millions; China divided by World.",
+              "coverage_note": "World total is available but China immediate-counterpart value is not reported; ultimate-investor data is not mixed into this series.",
+              "qa_status": "unavailable",
               "normalized_score": null,
               "weight": 1
             }
@@ -3020,48 +3131,60 @@
       "sufficient_dimension_count": 1,
       "calculation_date": "2026-08-12",
       "related_event_ids": [],
-      "related_project_ids": [],
-      "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。"
+      "related_project_ids": [
+        "si-hisense-gorenje-acquisition"
+      ],
+      "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
+      "project_database_coverage": "insufficient_project_coverage",
+      "priority_gaps": [
+        "project:eligible_project_count",
+        "project:active_project_share",
+        "project:project_sector_concentration",
+        "investment:china_fdi_stock_share",
+        "industrial:china_linked_industrial_project_presence"
+      ]
     },
     {
       "model_id": "china_economic_exposure",
-      "model_version": "v0.80.0",
+      "model_version": "v0.81.0",
       "country": "塞尔维亚",
       "country_slug": "serbia",
       "dimensions": [
         {
           "dimension": "project",
           "name_zh": "项目暴露",
-          "score": null,
-          "availability": "insufficient",
-          "confidence": "not_available",
-          "data_completeness": 0,
-          "main_drivers": [],
-          "missing_variables": [
-            "eligible_project_count",
-            "active_project_share",
-            "project_sector_concentration"
+          "score": 65,
+          "availability": "partial",
+          "confidence": "low",
+          "data_completeness": 100,
+          "main_drivers": [
+            "active_project_share: 100 % eligible projects",
+            "eligible_project_count: 2 projects"
           ],
+          "missing_variables": [],
           "variables": [
             {
               "country": "塞尔维亚",
               "country_slug": "serbia",
               "dimension": "project",
               "year": null,
-              "source": "待接入",
-              "source_url": null,
-              "source_reliability": "D",
+              "source": "China Project Database",
+              "source_url": "https://www.srbija.gov.rs/vest/en/230956/serial-production-of-tyres-begins-at-linglong-factory-in-zrenjanin.php",
+              "source_reliability": "A",
               "related_observation_ids": [],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "rs-linglong-zrenjanin-tire",
+                "rs-zijin-rtb-bor"
+              ],
               "variable_id": "eligible_project_count",
-              "raw_value": null,
+              "raw_value": 2,
               "unit": "projects",
               "calculation_method": "count verified, quantifiable A/B-source projects",
-              "data_completeness": 0,
-              "model_eligible": false,
-              "limitation_note": "该国项目记录尚未系统接入；空值不表示不存在项目。",
+              "data_completeness": 100,
+              "model_eligible": true,
+              "limitation_note": "只接纳已核验、可量化且为 A/B 级来源的项目；项目库不是企业总体普查，少于两项时不形成可比项目分数。",
               "calculation_trace": null,
-              "normalized_score": null,
+              "normalized_score": 50,
               "weight": 0.45
             },
             {
@@ -3069,20 +3192,29 @@
               "country_slug": "serbia",
               "dimension": "project",
               "year": null,
-              "source": "待接入",
-              "source_url": null,
-              "source_reliability": "D",
+              "source": "China Project Database",
+              "source_url": "https://www.srbija.gov.rs/vest/en/230956/serial-production-of-tyres-begins-at-linglong-factory-in-zrenjanin.php",
+              "source_reliability": "A",
               "related_observation_ids": [],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "rs-linglong-zrenjanin-tire",
+                "rs-zijin-rtb-bor"
+              ],
               "variable_id": "active_project_share",
-              "raw_value": null,
+              "raw_value": 100,
               "unit": "% eligible projects",
               "calculation_method": "active eligible projects / eligible projects * 100",
-              "data_completeness": 0,
-              "model_eligible": false,
+              "data_completeness": 100,
+              "model_eligible": true,
               "limitation_note": "项目状态来自核验记录，不能替代官方投资存量。",
-              "calculation_trace": null,
-              "normalized_score": null,
+              "calculation_trace": {
+                "numerator": 2,
+                "denominator": 2,
+                "numerator_source_url": "https://www.srbija.gov.rs/vest/en/230956/serial-production-of-tyres-begins-at-linglong-factory-in-zrenjanin.php",
+                "denominator_source_url": "https://www.srbija.gov.rs/vest/en/230956/serial-production-of-tyres-begins-at-linglong-factory-in-zrenjanin.php",
+                "formula": "active_eligible_projects / eligible_projects * 100"
+              },
+              "normalized_score": 100,
               "weight": 0.3
             },
             {
@@ -3090,20 +3222,29 @@
               "country_slug": "serbia",
               "dimension": "project",
               "year": null,
-              "source": "待接入",
-              "source_url": null,
-              "source_reliability": "D",
+              "source": "China Project Database",
+              "source_url": "https://www.srbija.gov.rs/vest/en/230956/serial-production-of-tyres-begins-at-linglong-factory-in-zrenjanin.php",
+              "source_reliability": "A",
               "related_observation_ids": [],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "rs-linglong-zrenjanin-tire",
+                "rs-zijin-rtb-bor"
+              ],
               "variable_id": "project_sector_concentration",
-              "raw_value": null,
+              "raw_value": 50,
               "unit": "% eligible projects",
               "calculation_method": "largest eligible project sector count / eligible projects * 100",
-              "data_completeness": 0,
-              "model_eligible": false,
+              "data_completeness": 100,
+              "model_eligible": true,
               "limitation_note": "小样本集中度容易受单个项目影响，只作为项目维度内部描述。",
-              "calculation_trace": null,
-              "normalized_score": null,
+              "calculation_trace": {
+                "numerator": 1,
+                "denominator": 2,
+                "numerator_source_url": "https://www.srbija.gov.rs/vest/en/230956/serial-production-of-tyres-begins-at-linglong-factory-in-zrenjanin.php",
+                "denominator_source_url": "https://www.srbija.gov.rs/vest/en/230956/serial-production-of-tyres-begins-at-linglong-factory-in-zrenjanin.php",
+                "formula": "largest_sector_count / eligible_projects * 100"
+              },
+              "normalized_score": 50,
               "weight": 0.25
             }
           ],
@@ -3215,27 +3356,34 @@
           "data_completeness": 0,
           "main_drivers": [],
           "missing_variables": [
-            "china_origin_fdi_stock_or_flow"
+            "china_fdi_stock_share"
           ],
           "variables": [
             {
-              "variable_id": "china_origin_fdi_stock_or_flow",
+              "variable_id": "china_fdi_stock_share",
               "country": "塞尔维亚",
               "country_slug": "serbia",
               "dimension": "investment",
               "raw_value": null,
-              "unit": "million EUR",
-              "year": null,
-              "source": "待接入统一 China-origin FDI source",
-              "source_url": null,
-              "source_reliability": "D",
-              "calculation_method": "not calculated",
+              "unit": "% total inward FDI stock",
+              "year": 2024,
+              "source": "OECD FDI positions by counterpart area, BMD4",
+              "source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+              "source_reliability": "A",
+              "calculation_method": "China inward FDI position / World inward FDI position * 100; immediate counterpart; OECD BMD4",
               "data_completeness": 0,
               "model_eligible": false,
-              "limitation_note": "普通 FDI 流量不等于中国来源 FDI；0 项项目金额记录因币种、状态与概念不同，仅保留在项目库，不合并。",
+              "limitation_note": "已保留同口径官方存量证据，但十国仅五国完整，投资维度继续 unavailable。普通 FDI、项目金额、合同额和承诺额不作替代也不相加；2 项项目金额仅保留在项目库。",
               "calculation_trace": null,
               "related_observation_ids": [],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "rs-linglong-zrenjanin-tire",
+                "rs-zijin-rtb-bor"
+              ],
+              "definition_comparable": false,
+              "source_method": "Inward direct investment position; net FDI; all entities; total economy; immediate counterpart; USD millions; China divided by World.",
+              "coverage_note": "Serbia requires a separate official source and comparability review; no substitute is inserted.",
+              "qa_status": "unavailable",
               "normalized_score": null,
               "weight": 1
             }
@@ -3245,17 +3393,15 @@
         {
           "dimension": "industrial",
           "name_zh": "产业暴露",
-          "score": null,
-          "availability": "insufficient",
-          "confidence": "not_available",
-          "data_completeness": 83,
+          "score": 34.3,
+          "availability": "partial",
+          "confidence": "low",
+          "data_completeness": 100,
           "main_drivers": [
-            "automotive_export_share: 16.901 %",
-            "industrial_dependency_score: 22.5 0-100 comparative score"
+            "china_linked_industrial_project_presence: 1 binary verified presence",
+            "automotive_export_share: 16.901 %"
           ],
-          "missing_variables": [
-            "china_linked_industrial_project_presence"
-          ],
+          "missing_variables": [],
           "variables": [
             {
               "variable_id": "manufacturing_share_gdp",
@@ -3276,7 +3422,9 @@
               "related_observation_ids": [
                 "parity:serbia:manufacturing_share_gdp:2025"
               ],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "rs-linglong-zrenjanin-tire"
+              ],
               "normalized_score": 16.7,
               "weight": 0.2
             },
@@ -3305,7 +3453,9 @@
               "related_observation_ids": [
                 "parity:serbia:automotive_export_share:2024"
               ],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "rs-linglong-zrenjanin-tire"
+              ],
               "normalized_score": 29.8,
               "weight": 0.25
             },
@@ -3334,7 +3484,9 @@
               "related_observation_ids": [
                 "transmission:serbia:germany_export_dependence:2024"
               ],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "rs-linglong-zrenjanin-tire"
+              ],
               "normalized_score": 18.3,
               "weight": 0.15
             },
@@ -3363,7 +3515,9 @@
               "related_observation_ids": [
                 "transmission:serbia:industrial_electricity_price:2024"
               ],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "rs-linglong-zrenjanin-tire"
+              ],
               "normalized_score": 23.8,
               "weight": 0.1
             },
@@ -3389,7 +3543,9 @@
                 "transmission:serbia:germany_export_dependence:2024",
                 "transmission:serbia:industrial_electricity_price:2024"
               ],
-              "related_project_ids": [],
+              "related_project_ids": [
+                "rs-linglong-zrenjanin-tire"
+              ],
               "normalized_score": 22.5,
               "weight": 0.15
             },
@@ -3398,20 +3554,22 @@
               "country": "塞尔维亚",
               "country_slug": "serbia",
               "dimension": "industrial",
-              "raw_value": null,
+              "raw_value": 1,
               "unit": "binary verified presence",
               "year": null,
-              "source": "待接入",
-              "source_url": null,
-              "source_reliability": "D",
+              "source": "China Project Database",
+              "source_url": "https://www.srbija.gov.rs/vest/en/230956/serial-production-of-tyres-begins-at-linglong-factory-in-zrenjanin.php",
+              "source_reliability": "A",
               "calculation_method": "1 only when an A/B-source industrial project exists; missing coverage remains null",
-              "data_completeness": 0,
-              "model_eligible": false,
+              "data_completeness": 100,
+              "model_eligible": true,
               "limitation_note": "存在变量不表示投资规模、产能或供应链控制程度。",
               "calculation_trace": null,
               "related_observation_ids": [],
-              "related_project_ids": [],
-              "normalized_score": null,
+              "related_project_ids": [
+                "rs-linglong-zrenjanin-tire"
+              ],
+              "normalized_score": 100,
               "weight": 0.15
             }
           ],
@@ -3426,12 +3584,19 @@
       "related_event_ids": [
         "rs-2026-w23-infrastructure-china"
       ],
-      "related_project_ids": [],
-      "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。"
+      "related_project_ids": [
+        "rs-linglong-zrenjanin-tire",
+        "rs-zijin-rtb-bor"
+      ],
+      "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
+      "project_database_coverage": "representative_coverage",
+      "priority_gaps": [
+        "investment:china_fdi_stock_share"
+      ]
     },
     {
       "model_id": "china_economic_exposure",
-      "model_version": "v0.80.0",
+      "model_version": "v0.81.0",
       "country": "奥地利",
       "country_slug": "austria",
       "dimensions": [
@@ -3460,14 +3625,14 @@
               "related_observation_ids": [],
               "related_project_ids": [],
               "variable_id": "eligible_project_count",
-              "raw_value": null,
+              "raw_value": 0,
               "unit": "projects",
               "calculation_method": "count verified, quantifiable A/B-source projects",
               "data_completeness": 0,
               "model_eligible": false,
-              "limitation_note": "该国项目记录尚未系统接入；空值不表示不存在项目。",
+              "limitation_note": "只接纳已核验、可量化且为 A/B 级来源的项目；项目库不是企业总体普查，少于两项时不形成可比项目分数。",
               "calculation_trace": null,
-              "normalized_score": null,
+              "normalized_score": 0,
               "weight": 0.45
             },
             {
@@ -3621,27 +3786,31 @@
           "data_completeness": 0,
           "main_drivers": [],
           "missing_variables": [
-            "china_origin_fdi_stock_or_flow"
+            "china_fdi_stock_share"
           ],
           "variables": [
             {
-              "variable_id": "china_origin_fdi_stock_or_flow",
+              "variable_id": "china_fdi_stock_share",
               "country": "奥地利",
               "country_slug": "austria",
               "dimension": "investment",
               "raw_value": null,
-              "unit": "million EUR",
-              "year": null,
-              "source": "待接入统一 China-origin FDI source",
-              "source_url": null,
-              "source_reliability": "D",
-              "calculation_method": "not calculated",
+              "unit": "% total inward FDI stock",
+              "year": 2024,
+              "source": "OECD FDI positions by counterpart area, BMD4",
+              "source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+              "source_reliability": "A",
+              "calculation_method": "China inward FDI position / World inward FDI position * 100; immediate counterpart; OECD BMD4",
               "data_completeness": 0,
               "model_eligible": false,
-              "limitation_note": "普通 FDI 流量不等于中国来源 FDI；0 项项目金额记录因币种、状态与概念不同，仅保留在项目库，不合并。",
+              "limitation_note": "已保留同口径官方存量证据，但十国仅五国完整，投资维度继续 unavailable。普通 FDI、项目金额、合同额和承诺额不作替代也不相加；0 项项目金额仅保留在项目库。",
               "calculation_trace": null,
               "related_observation_ids": [],
               "related_project_ids": [],
+              "definition_comparable": false,
+              "source_method": "Inward direct investment position; net FDI; all entities; total economy; immediate counterpart; USD millions; China divided by World.",
+              "coverage_note": "OECD observations are confidential; blank values are not interpreted as zero.",
+              "qa_status": "unavailable",
               "normalized_score": null,
               "weight": 1
             }
@@ -3830,12 +3999,22 @@
       "sufficient_dimension_count": 1,
       "calculation_date": "2026-08-12",
       "related_event_ids": [],
-      "related_project_ids": [],
-      "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。"
+      "related_project_ids": [
+        "at-avic-facc-majority-stake"
+      ],
+      "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
+      "project_database_coverage": "insufficient_project_coverage",
+      "priority_gaps": [
+        "project:eligible_project_count",
+        "project:active_project_share",
+        "project:project_sector_concentration",
+        "investment:china_fdi_stock_share",
+        "industrial:china_linked_industrial_project_presence"
+      ]
     },
     {
       "model_id": "china_economic_exposure",
-      "model_version": "v0.80.0",
+      "model_version": "v0.81.0",
       "country": "克罗地亚",
       "country_slug": "croatia",
       "dimensions": [
@@ -3864,14 +4043,14 @@
               "related_observation_ids": [],
               "related_project_ids": [],
               "variable_id": "eligible_project_count",
-              "raw_value": null,
+              "raw_value": 0,
               "unit": "projects",
               "calculation_method": "count verified, quantifiable A/B-source projects",
               "data_completeness": 0,
               "model_eligible": false,
-              "limitation_note": "该国项目记录尚未系统接入；空值不表示不存在项目。",
+              "limitation_note": "只接纳已核验、可量化且为 A/B 级来源的项目；项目库不是企业总体普查，少于两项时不形成可比项目分数。",
               "calculation_trace": null,
-              "normalized_score": null,
+              "normalized_score": 0,
               "weight": 0.45
             },
             {
@@ -4025,27 +4204,31 @@
           "data_completeness": 0,
           "main_drivers": [],
           "missing_variables": [
-            "china_origin_fdi_stock_or_flow"
+            "china_fdi_stock_share"
           ],
           "variables": [
             {
-              "variable_id": "china_origin_fdi_stock_or_flow",
+              "variable_id": "china_fdi_stock_share",
               "country": "克罗地亚",
               "country_slug": "croatia",
               "dimension": "investment",
               "raw_value": null,
-              "unit": "million EUR",
-              "year": null,
-              "source": "待接入统一 China-origin FDI source",
-              "source_url": null,
-              "source_reliability": "D",
-              "calculation_method": "not calculated",
+              "unit": "% total inward FDI stock",
+              "year": 2024,
+              "source": "OECD FDI positions by counterpart area, BMD4",
+              "source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+              "source_reliability": "A",
+              "calculation_method": "China inward FDI position / World inward FDI position * 100; immediate counterpart; OECD BMD4",
               "data_completeness": 0,
               "model_eligible": false,
-              "limitation_note": "普通 FDI 流量不等于中国来源 FDI；0 项项目金额记录因币种、状态与概念不同，仅保留在项目库，不合并。",
+              "limitation_note": "已保留同口径官方存量证据，但十国仅五国完整，投资维度继续 unavailable。普通 FDI、项目金额、合同额和承诺额不作替代也不相加；0 项项目金额仅保留在项目库。",
               "calculation_trace": null,
               "related_observation_ids": [],
               "related_project_ids": [],
+              "definition_comparable": false,
+              "source_method": "Inward direct investment position; net FDI; all entities; total economy; immediate counterpart; USD millions; China divided by World.",
+              "coverage_note": "No usable record under the fixed OECD immediate-counterpart query.",
+              "qa_status": "unavailable",
               "normalized_score": null,
               "weight": 1
             }
@@ -4234,8 +4417,18 @@
       "sufficient_dimension_count": 1,
       "calculation_date": "2026-08-12",
       "related_event_ids": [],
-      "related_project_ids": [],
-      "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。"
+      "related_project_ids": [
+        "hr-peljesac-bridge-crbc"
+      ],
+      "interpretation_boundary": "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。",
+      "project_database_coverage": "insufficient_project_coverage",
+      "priority_gaps": [
+        "project:eligible_project_count",
+        "project:active_project_share",
+        "project:project_sector_concentration",
+        "investment:china_fdi_stock_share",
+        "industrial:china_linked_industrial_project_presence"
+      ]
     }
   ]
 }

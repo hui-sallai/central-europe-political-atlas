@@ -2893,7 +2893,7 @@ function ResearchDataExportLinks() {
   const exportStatusCards = [
     { label: "CSV 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .csv 文件。" },
     { label: "JSON 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: platformStatus.version, note: "v0.80 新增 china_exposure_variables 与分维度输出导出；既有 observations、项目库、事件库和四个透明模型保持原结构。" },
+    { label: "当前阶段", value: platformStatus.version, note: "v0.81 补充十国四维覆盖审计、项目证据和 China-origin FDI 来源记录；v0.80 的门槛、权重及既有数据结构保持不变。" },
   ];
 
   return (
@@ -3436,6 +3436,7 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
                   <td className="data-status-cell border-b border-[var(--line)] px-3 py-3">
                     <div className="flex flex-col gap-2">
                       <DataStatusBadge status={project.status} />
+                      <span className="font-mono text-[10px] text-[var(--muted)]">{project.projectStatusCode}</span>
                       <span className="text-xs text-[var(--muted)]">{project.projectStatus}</span>
                     </div>
                   </td>
@@ -4757,9 +4758,10 @@ export function DataCountryExplorer() {
             if (!exposure) return null;
             return (
               <div className="card p-6">
-                <p className="eyebrow">China Exposure Variable Trace / v0.80</p>
+                <p className="eyebrow">China Exposure Variable Trace / v0.81</p>
                 <h2 className="mt-3 text-2xl font-semibold">项目、贸易、投资与产业变量追踪</h2>
                 <p className="mt-3 text-sm leading-6 text-[var(--muted)]">当前展示该国四维变量及来源回链；总分规则为：{chinaExposureModelCard.overall_rule}</p>
+                <p className="mt-2 text-xs leading-5 text-[var(--muted)]">项目库覆盖：{exposure.project_database_coverage}；优先缺口：{exposure.priority_gaps.join(" / ") || "无"}。项目记录不足不解释为零暴露。</p>
                 <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
                   {exposure.dimensions.map((dimension) => (
                     <details key={dimension.dimension} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">

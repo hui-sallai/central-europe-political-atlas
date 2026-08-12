@@ -1,10 +1,12 @@
 import { Suspense } from "react";
 import { DataCountryExplorer } from "@/components/DataCountryExplorer";
 import { CrossCountryParitySummary } from "@/components/CrossCountryParitySummary";
+import { ChinaExposureCoverageMatrix } from "@/components/ChinaExposureCoverageMatrix";
 import { ModelObservationUsage } from "@/components/ModelObservationUsage";
 import { StatusSummary } from "@/components/StatusSummary";
 import { TransmissionDataSummary } from "@/components/TransmissionDataSummary";
 import { platformStatus } from "@/lib/platformStatus";
+import { chinaExposureCoverageAudit } from "@/lib/chinaExposureModel";
 
 export default function DataOverviewPage() {
   return (
@@ -20,7 +22,7 @@ export default function DataOverviewPage() {
           items={[
             { label: "默认视图", value: "国家选择 + 宏观经济数据" },
             { label: "研究数据层", value: "17 个逻辑层保留，按需展开" },
-            { label: "透明模型", value: "4 个既有规则模型 + 对华暴露四维输出；预测层未启用" },
+            { label: "透明模型", value: "v0.80 门槛冻结；v0.81 只补充证据与覆盖审计" },
           ]}
         />
       </div>
@@ -29,6 +31,7 @@ export default function DataOverviewPage() {
       </Suspense>
       <TransmissionDataSummary />
       <CrossCountryParitySummary />
+      <ChinaExposureCoverageMatrix records={chinaExposureCoverageAudit} />
       <DataCountryExplorer />
     </main>
   );

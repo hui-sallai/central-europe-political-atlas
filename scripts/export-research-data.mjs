@@ -64,7 +64,14 @@ const { transmissionIndicators, transmissionObservations } = require("../src/lib
 const { getV4DataQualitySummary, v4QualityCountrySlugs } = require("../src/lib/v4DataQuality.ts");
 const { verifyChinaProject, chinaProjectVerificationLabel } = require("../src/lib/chinaProjectVerification.ts");
 const { modelCards, modelOutputs } = require("../src/lib/modelFramework.ts");
-const { chinaExposureModelCard, chinaExposureOutputs, chinaExposureVariables } = require("../src/lib/chinaExposureModel.ts");
+const {
+  chinaExposureModelCard,
+  chinaExposureOutputs,
+  chinaExposureVariables,
+  chinaExposureCoverageAudit,
+  chinaProjectCoverageAudit,
+  chinaTradeQa,
+} = require("../src/lib/chinaExposureModel.ts");
 
 const economicIndicatorIdByMetric = {
   population: "population",
@@ -1471,6 +1478,7 @@ const chinaProjectExportRecords = chinaProjectRecords.map((project) => {
     actor_verification: project.actorEvidence,
     year: project.year,
     project_status: project.projectStatus,
+    project_status_code: project.projectStatusCode,
     status_timeline: project.statusTimeline,
     source_id: sourceId,
     source_name: sourceRecord?.nameZh ?? sourceId,
@@ -1482,6 +1490,14 @@ const chinaProjectExportRecords = chinaProjectRecords.map((project) => {
     related_indicator_ids: project.relatedIndicatorIds,
     related_event_ids: project.relatedEventIds,
     tags: project.riskTags,
+    announced_amount: project.announcedAmount ?? null,
+    verified_amount: project.verifiedAmount ?? null,
+    amount_eur: project.amountEur ?? null,
+    amount_as_pct_gdp: project.amountAsPctGdp ?? null,
+    amount_as_pct_fdi_stock_or_inflow: project.amountAsPctFdiStockOrInflow ?? null,
+    exchange_rate_source: project.exchangeRateSource ?? null,
+    exchange_rate_date: project.exchangeRateDate ?? null,
+    amount_calculation_trace: project.amountCalculationTrace ?? null,
     notes: `${project.note} ${project.exposureVariableNote}`,
     last_updated: chinaExposureDatabaseUpdatedAt,
   };
@@ -1813,17 +1829,35 @@ writeLayer("model_outputs", modelOutputs, {
   model_boundary: "Scores are comparative analytical tools, not objective risk truths, predictions, or policy ratings.",
 });
 writeLayer("china_exposure_variables", chinaExposureVariables, {
-  schema_version: "china-economic-exposure-v0.80",
+  schema_version: "china-economic-exposure-v0.81",
   primary_key: "variable_id + country_slug",
   relation_note: "Each calculated variable retains source URLs, method, completeness, eligibility, limitations, and numerator/denominator trace where applicable.",
   model_boundary: "Dimension input layer only. Missing China-origin FDI remains unavailable; project samples and events are not converted into political-risk scores.",
 });
 writeLayer("china_exposure_outputs", chinaExposureOutputs, {
-  schema_version: "china-economic-exposure-v0.80",
+  schema_version: "china-economic-exposure-v0.81",
   primary_key: "model_id + country_slug",
   model_card: chinaExposureModelCard,
   relation_note: "Dimension-first outputs link back to china_exposure_variables, projects, events, and canonical observations.",
   model_boundary: "Economic exposure is not political influence, geopolitical risk, investment quality, policy merit, or a forecast. Overall output remains unavailable unless at least three core dimensions are sufficient and comparable.",
+});
+writeLayer("china_exposure_coverage_audit", chinaExposureCoverageAudit, {
+  schema_version: "china-exposure-coverage-audit-v0.81",
+  primary_key: "country_slug + dimension",
+  relation_note: "Country by dimension readiness audit. It distinguishes partial evidence from unavailable data and lists missing variables.",
+  model_boundary: "Coverage readiness is not a country ranking, exposure score, political influence score, or risk score.",
+});
+writeLayer("china_trade_qa", chinaTradeQa, {
+  schema_version: "china-trade-qa-v0.81",
+  primary_key: "country_slug + year",
+  relation_note: "Structural QA for 2024 UN Comtrade HS TOTAL bilateral numerators and world denominators.",
+  model_boundary: "QA records do not alter the v0.80 trade normalization or weights.",
+});
+writeLayer("china_project_coverage_audit", chinaProjectCoverageAudit, {
+  schema_version: "china-project-coverage-audit-v0.81",
+  primary_key: "country_slug",
+  relation_note: "Representative project-database coverage audit. Missing records are never interpreted as zero exposure.",
+  model_boundary: "Project coverage is not a census and does not generate a risk or influence score.",
 });
 writeJson("research_data_layers.json", envelope("research_data_layers", researchDataLayerFiles.map((layer) => ({
   ...layer,

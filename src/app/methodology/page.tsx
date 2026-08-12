@@ -128,7 +128,7 @@ export default function MethodologyPage() {
       </section>
 
       <section className="mt-6 card p-6">
-        <p className="eyebrow">China Economic Exposure Model Card / v0.80</p>
+        <p className="eyebrow">China Economic Exposure Model Card / v0.81 data completion</p>
         <h2 className="mt-3 text-2xl font-semibold">中国经济暴露模型的方法与边界</h2>
         <p className="mt-3 max-w-4xl text-sm leading-7 text-[var(--muted)]">{chinaExposureModelCard.purpose}</p>
         <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
@@ -147,6 +147,28 @@ export default function MethodologyPage() {
           {chinaExposureModelCard.limitations.map((item) => <li key={item} className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-amber-950">{item}</li>)}
         </ul>
         <p className="mt-4 text-sm font-semibold leading-6">Project Database → Exposure Variables → Dimension Outputs → Overall decision。普通 FDI 不替代中国来源 FDI，背景项目不进入量化，事件 intensity 不直接加减分。</p>
+      </section>
+
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">v0.81 China Exposure Data Completion</p>
+        <h2 className="mt-3 text-2xl font-semibold">中国经济暴露数据补全规则</h2>
+        <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+          {[
+            ["贸易维度", "使用 2024 年 UN Comtrade 中国进口、对华出口及商品贸易总额；保留 reporter、partner、分子、分母、查询与重复检查。"],
+            ["投资维度", "优先使用 China-origin inward FDI stock/position。v0.81 仅记录五国 OECD 即时投资者口径证据，十国不可比时不评分、不排名。"],
+            ["项目覆盖", "项目库区分 sufficient、partial、insufficient 与 unavailable。没有合格项目记录不等于确认零暴露。"],
+            ["项目状态", "项目状态统一为 announced、committed、under_construction、operational、suspended、cancelled、completed 或 transferred。"],
+            ["金额边界", "承诺金额、已核验金额、实际流量与股权存量分开记录；没有汇率日期和来源时不生成欧元标准化值。"],
+            ["产业维度", "必须同时具备国内产业结构和明确的中国专项关联；普通制造业或汽车业占比不能单独代表中国暴露。"],
+            ["事件边界", "事件只提供项目与指标的解释链，不直接改变暴露分数；未完成编码或低置信事件保持 enters_model=false。"],
+            ["模型门槛", "v0.81 不修改 v0.80 权重、标准化或总体准入门槛。缺失维度保持不可计算，不以零值替代。"],
+          ].map(([label, note]) => (
+            <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+              <h3 className="font-semibold">{label}</h3>
+              <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{note}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="mt-6 card p-6">

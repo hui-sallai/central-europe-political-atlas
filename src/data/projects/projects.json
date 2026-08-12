@@ -2,7 +2,7 @@
   "schema_version": "china-exposure-database-v0.40",
   "generated_at": "2026-08-11",
   "data_type": "projects",
-  "record_count": 11,
+  "record_count": 19,
   "primary_key": "id",
   "relation_note": "related_event_ids and related_indicator_ids establish Event → Project → Indicator research links.",
   "model_boundary": "Project records do not generate a China exposure index, risk score, or prediction.",
@@ -523,6 +523,379 @@
         "供应链暴露",
         "技术/设备暴露",
         "金融暴露"
+      ],
+      "model_boundary": "项目只建立 Event → Project → Indicator 关系；当前不生成中国经济暴露指数、风险分数或预测。"
+    },
+    {
+      "id": "de-catl-thuringia-battery",
+      "name": "CATL 图林根电池工厂",
+      "country": "DEU",
+      "country_slug": "germany",
+      "city": "Arnstadt / Erfurt, Thuringia",
+      "sector": "动力电池 / 制造业",
+      "company": "CATL / Contemporary Amperex Technology Thuringia GmbH",
+      "local_actor": "Thuringia State Government / local operating entity",
+      "investment": null,
+      "currency": null,
+      "year": "2018-2022",
+      "status": "运营 / 当前产能与累计投资待统一核验",
+      "data_status": "pending",
+      "risk_tags": [
+        "电池产业",
+        "德国汽车供应链",
+        "在欧制造"
+      ],
+      "source": "company_announcements",
+      "source_name": "企业公告",
+      "source_url": "https://www.catl.com/en/enterpriseinfoEnglish/",
+      "source_reliability": "C",
+      "verified": false,
+      "verification_status": "部分可量化",
+      "verification_note": "事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。",
+      "quantification_status": "部分可量化",
+      "amount_status": "金额缺失",
+      "amount_evidence": "金额缺失：CATL 官方页面核验工厂、地点和建设节点，但本记录不引用未在该来源中明确披露的投资额。",
+      "actor_verification": "中国主体为 CATL 及其图林根项目公司；当地合作方按图林根州政府与当地运营实体记录。",
+      "status_timeline": [
+        "2018 签署投资协议并开工",
+        "2022 首批电芯投产",
+        "当前产能、累计投资和雇佣待统一官方口径"
+      ],
+      "related_indicator_ids": [
+        "fdi_inflow",
+        "manufacturing_share_gdp",
+        "automotive_export_share"
+      ],
+      "related_event_ids": [],
+      "exposure_dimensions": [
+        "供应链暴露",
+        "企业存在"
+      ],
+      "model_boundary": "项目只建立 Event → Project → Indicator 关系；当前不生成中国经济暴露指数、风险分数或预测。"
+    },
+    {
+      "id": "de-cosco-hhla-tollerort",
+      "name": "COSCO SHIPPING Ports 对 HHLA Tollerort 码头少数股权",
+      "country": "DEU",
+      "country_slug": "germany",
+      "city": "Hamburg",
+      "sector": "港口物流 / 少数股权",
+      "company": "COSCO SHIPPING Ports / Grand Dragon Investment Enterprise",
+      "local_actor": "HHLA Container Terminal Tollerort GmbH",
+      "investment": null,
+      "currency": null,
+      "year": "2023",
+      "status": "运营 / 24.9% 少数股权",
+      "data_status": "pending",
+      "risk_tags": [
+        "港口物流",
+        "少数股权",
+        "供应链"
+      ],
+      "source": "mainstream_wire",
+      "source_name": "主流通讯社",
+      "source_url": "https://bericht.hhla.de/geschaeftsbericht-2023/lagebericht/grundlagen-des-konzerns/geschaeftspartner-und-kunden.html",
+      "source_reliability": "B",
+      "verified": false,
+      "verification_status": "部分可量化",
+      "verification_note": "事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。",
+      "quantification_status": "部分可量化",
+      "amount_status": "金额缺失",
+      "amount_evidence": "金额缺失：HHLA 年报核验 24.9% 股权与交易完成，不推算未公开交易金额。",
+      "actor_verification": "中国主体和当地运营公司均由 HHLA 官方年报核验。",
+      "status_timeline": [
+        "2023 完成投资审查",
+        "2023 签署并执行 24.9% 少数股权交易",
+        "交易金额未在当前来源披露"
+      ],
+      "related_indicator_ids": [
+        "exports_goods_services",
+        "imports_goods_services",
+        "trade_balance"
+      ],
+      "related_event_ids": [],
+      "exposure_dimensions": [
+        "物流暴露",
+        "企业存在"
+      ],
+      "model_boundary": "项目只建立 Event → Project → Indicator 关系；当前不生成中国经济暴露指数、风险分数或预测。"
+    },
+    {
+      "id": "at-avic-facc-majority-stake",
+      "name": "AVIC Cabin Systems 对 FACC 控股",
+      "country": "AUT",
+      "country_slug": "austria",
+      "city": "Ried im Innkreis",
+      "sector": "航空零部件 / 控股股权",
+      "company": "AVIC Cabin Systems Co. Limited",
+      "local_actor": "FACC AG",
+      "investment": null,
+      "currency": null,
+      "year": "2025",
+      "status": "运营 / 55.5% 股权",
+      "data_status": "pending",
+      "risk_tags": [
+        "航空制造",
+        "控股股权",
+        "企业存在"
+      ],
+      "source": "mainstream_wire",
+      "source_name": "主流通讯社",
+      "source_url": "https://www.facc.com/en/wp-content/uploads/sites/2/2026/03/annualreport-facc-2025-en.pdf",
+      "source_reliability": "B",
+      "verified": false,
+      "verification_status": "部分可量化",
+      "verification_note": "事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。",
+      "quantification_status": "部分可量化",
+      "amount_status": "金额缺失",
+      "amount_evidence": "金额不适用：本记录以 FACC 2025 年报核验当前 55.5% 股权，不以历史收购价作为当前投资存量。",
+      "actor_verification": "AVIC Cabin Systems 与 FACC 的股权关系由 FACC 官方年报核验。",
+      "status_timeline": [
+        "历史收购形成控股关系",
+        "2025 年末 AVIC 持有 55.5% 股份",
+        "原始收购金额与当前存量不可混用"
+      ],
+      "related_indicator_ids": [
+        "fdi_inflow",
+        "manufacturing_share_gdp"
+      ],
+      "related_event_ids": [],
+      "exposure_dimensions": [
+        "企业存在",
+        "供应链暴露"
+      ],
+      "model_boundary": "项目只建立 Event → Project → Indicator 关系；当前不生成中国经济暴露指数、风险分数或预测。"
+    },
+    {
+      "id": "ro-cgn-cernavoda-terminated",
+      "name": "CGN 参与 Cernavoda 3/4 号机组谈判",
+      "country": "ROU",
+      "country_slug": "romania",
+      "city": "Cernavoda",
+      "sector": "核能 / 项目谈判",
+      "company": "China General Nuclear Power Corporation",
+      "local_actor": "Nuclearelectrica S.A.",
+      "investment": null,
+      "currency": null,
+      "year": "2015-2020",
+      "status": "谈判终止",
+      "data_status": "pending",
+      "risk_tags": [
+        "核能",
+        "项目取消",
+        "监管政策"
+      ],
+      "source": "official_government",
+      "source_name": "官方政府部门",
+      "source_url": "https://nuclearelectrica.ro/snn/en/about-us/history/",
+      "source_reliability": "A",
+      "verified": false,
+      "verification_status": "部分可量化",
+      "verification_note": "事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。",
+      "quantification_status": "部分可量化",
+      "amount_status": "金额缺失",
+      "amount_evidence": "金额不适用：项目未进入可核验的完成投资阶段，不把估算建设成本记作中国投资。",
+      "actor_verification": "双方主体与终止时间线由 Nuclearelectrica 官方历史记录核验。",
+      "status_timeline": [
+        "2015 签署谅解备忘录",
+        "2019 签署初步投资者协议",
+        "2020 Nuclearelectrica 股东大会批准终止谈判"
+      ],
+      "related_indicator_ids": [
+        "energy_import_dependency",
+        "fdi_inflow"
+      ],
+      "related_event_ids": [],
+      "exposure_dimensions": [
+        "政策争议",
+        "仅背景"
+      ],
+      "model_boundary": "项目只建立 Event → Project → Indicator 关系；当前不生成中国经济暴露指数、风险分数或预测。"
+    },
+    {
+      "id": "si-hisense-gorenje-acquisition",
+      "name": "Hisense 收购 Gorenje",
+      "country": "SVN",
+      "country_slug": "slovenia",
+      "city": "Velenje",
+      "sector": "家电制造 / 全资收购",
+      "company": "Hisense Group",
+      "local_actor": "Gorenje d.o.o.",
+      "investment": null,
+      "currency": null,
+      "year": "2018",
+      "status": "运营 / 100% 所有权",
+      "data_status": "pending",
+      "risk_tags": [
+        "家电制造",
+        "全资收购",
+        "企业存在"
+      ],
+      "source": "mainstream_wire",
+      "source_name": "主流通讯社",
+      "source_url": "https://seonet.ljse.si/default_en.aspx?doc=LATEST_PUBLIC_ANNOUNCEMENTS&doc_id=67459&language=en",
+      "source_reliability": "B",
+      "verified": false,
+      "verification_status": "部分可量化",
+      "verification_note": "事件、主体、年份或来源基本明确，但金额、股比、产能、TEU 或合同口径尚未补齐，只能做事件型或结构型变量候选。",
+      "quantification_status": "部分可量化",
+      "amount_status": "金额缺失",
+      "amount_evidence": "金额缺失：官方年报核验 100% 所有权，不在缺少统一交易金额证据时填入收购价。",
+      "actor_verification": "Hisense 与 Gorenje 的所有权关系由 Gorenje 年报和卢布尔雅那证券交易所公告核验。",
+      "status_timeline": [
+        "2018 完成收购",
+        "2018 年报确认 Hisense 成为 100% 所有者",
+        "当前产能与公司级投资流待接入"
+      ],
+      "related_indicator_ids": [
+        "fdi_inflow",
+        "manufacturing_share_gdp"
+      ],
+      "related_event_ids": [],
+      "exposure_dimensions": [
+        "企业存在",
+        "供应链暴露"
+      ],
+      "model_boundary": "项目只建立 Event → Project → Indicator 关系；当前不生成中国经济暴露指数、风险分数或预测。"
+    },
+    {
+      "id": "hr-peljesac-bridge-crbc",
+      "name": "CRBC Peljesac 大桥建设合同",
+      "country": "HRV",
+      "country_slug": "croatia",
+      "city": "Dubrovnik-Neretva County",
+      "sector": "基础设施 / 建设施工合同",
+      "company": "China Road and Bridge Corporation",
+      "local_actor": "Hrvatske Ceste",
+      "investment": 2.08,
+      "currency": "十亿克罗地亚库纳（不含 VAT）",
+      "year": "2018-2022",
+      "status": "完工 / 已移交",
+      "data_status": "verified",
+      "risk_tags": [
+        "基础设施",
+        "施工合同",
+        "EU 资金"
+      ],
+      "source": "official_government",
+      "source_name": "官方政府部门",
+      "source_url": "https://mmpi.gov.hr/news-6989/minister-says-work-on-peljesac-bridge-proceeding-as-planned/22439",
+      "source_reliability": "A",
+      "verified": true,
+      "verification_status": "可量化",
+      "verification_note": "已具备金额、主体、年份和可点击来源，可作为项目级量化候选；进入正式分析前仍需复核金额口径。",
+      "quantification_status": "可量化",
+      "amount_status": "金额已核验",
+      "amount_evidence": "合同额已核验：克罗地亚交通部门记录大桥建设合同为 20.8 亿库纳（不含 VAT）；这是施工合同额，不是中国 FDI。",
+      "actor_verification": "承包商 CRBC 与业主 Hrvatske Ceste 由克罗地亚政府和交通部门来源核验。",
+      "status_timeline": [
+        "2018 签署建设合同",
+        "2021 桥梁合龙",
+        "2022 投入使用"
+      ],
+      "related_indicator_ids": [
+        "government_expenditure_gdp",
+        "imports_goods_services"
+      ],
+      "related_event_ids": [],
+      "exposure_dimensions": [
+        "物流暴露",
+        "企业存在"
+      ],
+      "model_boundary": "项目只建立 Event → Project → Indicator 关系；当前不生成中国经济暴露指数、风险分数或预测。"
+    },
+    {
+      "id": "rs-linglong-zrenjanin-tire",
+      "name": "Linglong Zrenjanin 轮胎工厂",
+      "country": "SRB",
+      "country_slug": "serbia",
+      "city": "Zrenjanin, Vojvodina",
+      "sector": "轮胎 / 汽车供应链制造",
+      "company": "Shandong Linglong Tire",
+      "local_actor": "Serbian Government / Zrenjanin local authorities",
+      "investment": 1,
+      "currency": "十亿美元（第一阶段估计）",
+      "year": "2019-2024",
+      "status": "运营 / 2024 启动批量生产",
+      "data_status": "verified",
+      "risk_tags": [
+        "轮胎制造",
+        "汽车供应链",
+        "绿地投资"
+      ],
+      "source": "official_government",
+      "source_name": "官方政府部门",
+      "source_url": "https://www.srbija.gov.rs/vest/en/230956/serial-production-of-tyres-begins-at-linglong-factory-in-zrenjanin.php",
+      "source_reliability": "A",
+      "verified": true,
+      "verification_status": "可量化",
+      "verification_note": "已具备金额、主体、年份和可点击来源，可作为项目级量化候选；进入正式分析前仍需复核金额口径。",
+      "quantification_status": "可量化",
+      "amount_status": "金额已核验",
+      "amount_evidence": "金额已接入：塞尔维亚政府将第一阶段估计为 10 亿美元；后续 6.45 亿欧元计划应作为第二阶段单独记录，不能相加为已完成投资。",
+      "actor_verification": "中国主体、地点、建设与投产节点由塞尔维亚政府来源核验。",
+      "status_timeline": [
+        "2019 奠基",
+        "2020 主要建设启动",
+        "2024 批量生产启动"
+      ],
+      "related_indicator_ids": [
+        "fdi_inflow",
+        "manufacturing_share_gdp",
+        "automotive_export_share"
+      ],
+      "related_event_ids": [],
+      "exposure_dimensions": [
+        "投资暴露",
+        "供应链暴露"
+      ],
+      "model_boundary": "项目只建立 Event → Project → Indicator 关系；当前不生成中国经济暴露指数、风险分数或预测。"
+    },
+    {
+      "id": "rs-zijin-rtb-bor",
+      "name": "Zijin 对 RTB Bor 战略投资",
+      "country": "SRB",
+      "country_slug": "serbia",
+      "city": "Bor / Majdanpek",
+      "sector": "铜矿与冶炼 / 控股股权",
+      "company": "Zijin Mining Group",
+      "local_actor": "RTB Bor / Republic of Serbia",
+      "investment": 350,
+      "currency": "百万美元（已支付增资）",
+      "year": "2018",
+      "status": "运营 / 63% 控股",
+      "data_status": "verified",
+      "risk_tags": [
+        "矿业",
+        "铜供应链",
+        "控股股权"
+      ],
+      "source": "official_government",
+      "source_name": "官方政府部门",
+      "source_url": "https://privreda.gov.rs/lat/aktuelno/vesti-i-saopstenja/potpisan-zapisnik-kinezi-preuzeli-upravljanje-rtb-om-bor",
+      "source_reliability": "A",
+      "verified": true,
+      "verification_status": "可量化",
+      "verification_note": "已具备金额、主体、年份和可点击来源，可作为项目级量化候选；进入正式分析前仍需复核金额口径。",
+      "quantification_status": "可量化",
+      "amount_status": "金额已核验",
+      "amount_evidence": "已核验金额为 2018 年支付的 3.5 亿美元增资；12.6 亿美元属于六年投资承诺，不能与已支付金额混合。",
+      "actor_verification": "Zijin、RTB Bor、塞尔维亚政府及 63% 股权由塞尔维亚经济部/政府来源核验。",
+      "status_timeline": [
+        "2018 签署战略伙伴协议",
+        "2018 支付 3.5 亿美元增资并取得 63% 股权",
+        "后续 12.6 亿美元投资承诺单独跟踪"
+      ],
+      "related_indicator_ids": [
+        "fdi_inflow",
+        "manufacturing_share_gdp",
+        "exports_goods_services"
+      ],
+      "related_event_ids": [],
+      "exposure_dimensions": [
+        "投资暴露",
+        "供应链暴露",
+        "企业存在"
       ],
       "model_boundary": "项目只建立 Event → Project → Indicator 关系；当前不生成中国经济暴露指数、风险分数或预测。"
     }

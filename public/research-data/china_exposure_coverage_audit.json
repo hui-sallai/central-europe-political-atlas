@@ -1,0 +1,888 @@
+{
+  "schema_version": "china-exposure-coverage-audit-v0.81",
+  "generated_at": "2026-08-12",
+  "data_type": "china_exposure_coverage_audit",
+  "record_count": 40,
+  "primary_key": "country_slug + dimension",
+  "relation_note": "Country by dimension readiness audit. It distinguishes partial evidence from unavailable data and lists missing variables.",
+  "model_boundary": "Coverage readiness is not a country ranking, exposure score, political influence score, or risk score.",
+  "records": [
+    {
+      "country": "波兰",
+      "country_slug": "poland",
+      "dimension": "project",
+      "status": "insufficient",
+      "data_completeness": 0,
+      "available_variables": [
+        "eligible_project_count"
+      ],
+      "missing_variables": [
+        "eligible_project_count",
+        "active_project_share",
+        "project_sector_concentration"
+      ],
+      "source_reliability": [
+        "D"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": false,
+      "project_database_coverage": "representative_coverage",
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "波兰",
+      "country_slug": "poland",
+      "dimension": "trade",
+      "status": "sufficient",
+      "data_completeness": 100,
+      "available_variables": [
+        "china_export_share",
+        "china_import_share",
+        "china_trade_share"
+      ],
+      "missing_variables": [],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "passed",
+      "coverage_note": "货物贸易维度可比较，但不覆盖服务贸易。"
+    },
+    {
+      "country": "波兰",
+      "country_slug": "poland",
+      "dimension": "investment",
+      "status": "partial",
+      "data_completeness": 100,
+      "available_variables": [
+        "china_fdi_stock_share"
+      ],
+      "missing_variables": [
+        "china_fdi_stock_share"
+      ],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "partial",
+      "coverage_note": "Immediate-counterpart BMD4 position is available for China and World."
+    },
+    {
+      "country": "波兰",
+      "country_slug": "poland",
+      "dimension": "industrial",
+      "status": "insufficient",
+      "data_completeness": 83,
+      "available_variables": [
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "germany_export_dependence",
+        "industrial_electricity_price",
+        "industrial_dependency_score"
+      ],
+      "missing_variables": [
+        "china_linked_industrial_project_presence"
+      ],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": false,
+      "project_database_coverage": null,
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "匈牙利",
+      "country_slug": "hungary",
+      "dimension": "project",
+      "status": "insufficient",
+      "data_completeness": 17,
+      "available_variables": [
+        "eligible_project_count"
+      ],
+      "missing_variables": [
+        "eligible_project_count",
+        "active_project_share",
+        "project_sector_concentration"
+      ],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": "representative_coverage",
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "匈牙利",
+      "country_slug": "hungary",
+      "dimension": "trade",
+      "status": "sufficient",
+      "data_completeness": 100,
+      "available_variables": [
+        "china_export_share",
+        "china_import_share",
+        "china_trade_share"
+      ],
+      "missing_variables": [],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "passed",
+      "coverage_note": "货物贸易维度可比较，但不覆盖服务贸易。"
+    },
+    {
+      "country": "匈牙利",
+      "country_slug": "hungary",
+      "dimension": "investment",
+      "status": "partial",
+      "data_completeness": 100,
+      "available_variables": [
+        "china_fdi_stock_share"
+      ],
+      "missing_variables": [
+        "china_fdi_stock_share"
+      ],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "partial",
+      "coverage_note": "Immediate-counterpart BMD4 position is available for China and World."
+    },
+    {
+      "country": "匈牙利",
+      "country_slug": "hungary",
+      "dimension": "industrial",
+      "status": "insufficient",
+      "data_completeness": 83,
+      "available_variables": [
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "germany_export_dependence",
+        "industrial_electricity_price",
+        "industrial_dependency_score"
+      ],
+      "missing_variables": [
+        "china_linked_industrial_project_presence"
+      ],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": false,
+      "project_database_coverage": null,
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "捷克",
+      "country_slug": "czechia",
+      "dimension": "project",
+      "status": "insufficient",
+      "data_completeness": 0,
+      "available_variables": [
+        "eligible_project_count"
+      ],
+      "missing_variables": [
+        "eligible_project_count",
+        "active_project_share",
+        "project_sector_concentration"
+      ],
+      "source_reliability": [
+        "D"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": false,
+      "project_database_coverage": "representative_coverage",
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "捷克",
+      "country_slug": "czechia",
+      "dimension": "trade",
+      "status": "sufficient",
+      "data_completeness": 100,
+      "available_variables": [
+        "china_export_share",
+        "china_import_share",
+        "china_trade_share"
+      ],
+      "missing_variables": [],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "passed",
+      "coverage_note": "货物贸易维度可比较，但不覆盖服务贸易。"
+    },
+    {
+      "country": "捷克",
+      "country_slug": "czechia",
+      "dimension": "investment",
+      "status": "partial",
+      "data_completeness": 100,
+      "available_variables": [
+        "china_fdi_stock_share"
+      ],
+      "missing_variables": [
+        "china_fdi_stock_share"
+      ],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "partial",
+      "coverage_note": "Immediate-counterpart BMD4 position is available for China and World."
+    },
+    {
+      "country": "捷克",
+      "country_slug": "czechia",
+      "dimension": "industrial",
+      "status": "insufficient",
+      "data_completeness": 83,
+      "available_variables": [
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "germany_export_dependence",
+        "industrial_electricity_price",
+        "industrial_dependency_score"
+      ],
+      "missing_variables": [
+        "china_linked_industrial_project_presence"
+      ],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": false,
+      "project_database_coverage": null,
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "斯洛伐克",
+      "country_slug": "slovakia",
+      "dimension": "project",
+      "status": "insufficient",
+      "data_completeness": 0,
+      "available_variables": [
+        "eligible_project_count"
+      ],
+      "missing_variables": [
+        "eligible_project_count",
+        "active_project_share",
+        "project_sector_concentration"
+      ],
+      "source_reliability": [
+        "D"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": false,
+      "project_database_coverage": "insufficient_project_coverage",
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "斯洛伐克",
+      "country_slug": "slovakia",
+      "dimension": "trade",
+      "status": "sufficient",
+      "data_completeness": 100,
+      "available_variables": [
+        "china_export_share",
+        "china_import_share",
+        "china_trade_share"
+      ],
+      "missing_variables": [],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "passed",
+      "coverage_note": "货物贸易维度可比较，但不覆盖服务贸易。"
+    },
+    {
+      "country": "斯洛伐克",
+      "country_slug": "slovakia",
+      "dimension": "investment",
+      "status": "partial",
+      "data_completeness": 100,
+      "available_variables": [
+        "china_fdi_stock_share"
+      ],
+      "missing_variables": [
+        "china_fdi_stock_share"
+      ],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "partial",
+      "coverage_note": "Immediate-counterpart BMD4 position is available for China and World."
+    },
+    {
+      "country": "斯洛伐克",
+      "country_slug": "slovakia",
+      "dimension": "industrial",
+      "status": "insufficient",
+      "data_completeness": 83,
+      "available_variables": [
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "germany_export_dependence",
+        "industrial_electricity_price",
+        "industrial_dependency_score"
+      ],
+      "missing_variables": [
+        "china_linked_industrial_project_presence"
+      ],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": false,
+      "project_database_coverage": null,
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "德国",
+      "country_slug": "germany",
+      "dimension": "project",
+      "status": "insufficient",
+      "data_completeness": 0,
+      "available_variables": [
+        "eligible_project_count"
+      ],
+      "missing_variables": [
+        "eligible_project_count",
+        "active_project_share",
+        "project_sector_concentration"
+      ],
+      "source_reliability": [
+        "D"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": false,
+      "project_database_coverage": "representative_coverage",
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "德国",
+      "country_slug": "germany",
+      "dimension": "trade",
+      "status": "sufficient",
+      "data_completeness": 100,
+      "available_variables": [
+        "china_export_share",
+        "china_import_share",
+        "china_trade_share"
+      ],
+      "missing_variables": [],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "passed",
+      "coverage_note": "货物贸易维度可比较，但不覆盖服务贸易。"
+    },
+    {
+      "country": "德国",
+      "country_slug": "germany",
+      "dimension": "investment",
+      "status": "partial",
+      "data_completeness": 100,
+      "available_variables": [
+        "china_fdi_stock_share"
+      ],
+      "missing_variables": [
+        "china_fdi_stock_share"
+      ],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "partial",
+      "coverage_note": "Immediate-counterpart BMD4 position is available for China and World."
+    },
+    {
+      "country": "德国",
+      "country_slug": "germany",
+      "dimension": "industrial",
+      "status": "insufficient",
+      "data_completeness": 54,
+      "available_variables": [
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "industrial_electricity_price"
+      ],
+      "missing_variables": [
+        "germany_export_dependence",
+        "industrial_dependency_score",
+        "china_linked_industrial_project_presence"
+      ],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "罗马尼亚",
+      "country_slug": "romania",
+      "dimension": "project",
+      "status": "insufficient",
+      "data_completeness": 0,
+      "available_variables": [
+        "eligible_project_count"
+      ],
+      "missing_variables": [
+        "eligible_project_count",
+        "active_project_share",
+        "project_sector_concentration"
+      ],
+      "source_reliability": [
+        "D"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": false,
+      "project_database_coverage": "insufficient_project_coverage",
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "罗马尼亚",
+      "country_slug": "romania",
+      "dimension": "trade",
+      "status": "sufficient",
+      "data_completeness": 100,
+      "available_variables": [
+        "china_export_share",
+        "china_import_share",
+        "china_trade_share"
+      ],
+      "missing_variables": [],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "passed",
+      "coverage_note": "货物贸易维度可比较，但不覆盖服务贸易。"
+    },
+    {
+      "country": "罗马尼亚",
+      "country_slug": "romania",
+      "dimension": "investment",
+      "status": "unavailable",
+      "data_completeness": 0,
+      "available_variables": [],
+      "missing_variables": [
+        "china_fdi_stock_share"
+      ],
+      "source_reliability": [],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "unavailable",
+      "coverage_note": "缺少同口径 China-origin FDI position。"
+    },
+    {
+      "country": "罗马尼亚",
+      "country_slug": "romania",
+      "dimension": "industrial",
+      "status": "insufficient",
+      "data_completeness": 83,
+      "available_variables": [
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "germany_export_dependence",
+        "industrial_electricity_price",
+        "industrial_dependency_score"
+      ],
+      "missing_variables": [
+        "china_linked_industrial_project_presence"
+      ],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": false,
+      "project_database_coverage": null,
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "斯洛文尼亚",
+      "country_slug": "slovenia",
+      "dimension": "project",
+      "status": "insufficient",
+      "data_completeness": 0,
+      "available_variables": [
+        "eligible_project_count"
+      ],
+      "missing_variables": [
+        "eligible_project_count",
+        "active_project_share",
+        "project_sector_concentration"
+      ],
+      "source_reliability": [
+        "D"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": false,
+      "project_database_coverage": "insufficient_project_coverage",
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "斯洛文尼亚",
+      "country_slug": "slovenia",
+      "dimension": "trade",
+      "status": "sufficient",
+      "data_completeness": 100,
+      "available_variables": [
+        "china_export_share",
+        "china_import_share",
+        "china_trade_share"
+      ],
+      "missing_variables": [],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "passed",
+      "coverage_note": "货物贸易维度可比较，但不覆盖服务贸易。"
+    },
+    {
+      "country": "斯洛文尼亚",
+      "country_slug": "slovenia",
+      "dimension": "investment",
+      "status": "unavailable",
+      "data_completeness": 0,
+      "available_variables": [],
+      "missing_variables": [
+        "china_fdi_stock_share"
+      ],
+      "source_reliability": [],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "unavailable",
+      "coverage_note": "缺少同口径 China-origin FDI position。"
+    },
+    {
+      "country": "斯洛文尼亚",
+      "country_slug": "slovenia",
+      "dimension": "industrial",
+      "status": "insufficient",
+      "data_completeness": 83,
+      "available_variables": [
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "germany_export_dependence",
+        "industrial_electricity_price",
+        "industrial_dependency_score"
+      ],
+      "missing_variables": [
+        "china_linked_industrial_project_presence"
+      ],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": false,
+      "project_database_coverage": null,
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "塞尔维亚",
+      "country_slug": "serbia",
+      "dimension": "project",
+      "status": "partial",
+      "data_completeness": 100,
+      "available_variables": [
+        "eligible_project_count",
+        "active_project_share",
+        "project_sector_concentration"
+      ],
+      "missing_variables": [],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": "representative_coverage",
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "塞尔维亚",
+      "country_slug": "serbia",
+      "dimension": "trade",
+      "status": "sufficient",
+      "data_completeness": 100,
+      "available_variables": [
+        "china_export_share",
+        "china_import_share",
+        "china_trade_share"
+      ],
+      "missing_variables": [],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "passed",
+      "coverage_note": "货物贸易维度可比较，但不覆盖服务贸易。"
+    },
+    {
+      "country": "塞尔维亚",
+      "country_slug": "serbia",
+      "dimension": "investment",
+      "status": "unavailable",
+      "data_completeness": 0,
+      "available_variables": [],
+      "missing_variables": [
+        "china_fdi_stock_share"
+      ],
+      "source_reliability": [],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "unavailable",
+      "coverage_note": "缺少同口径 China-origin FDI position。"
+    },
+    {
+      "country": "塞尔维亚",
+      "country_slug": "serbia",
+      "dimension": "industrial",
+      "status": "partial",
+      "data_completeness": 100,
+      "available_variables": [
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "germany_export_dependence",
+        "industrial_electricity_price",
+        "industrial_dependency_score",
+        "china_linked_industrial_project_presence"
+      ],
+      "missing_variables": [],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": false,
+      "project_database_coverage": null,
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "奥地利",
+      "country_slug": "austria",
+      "dimension": "project",
+      "status": "insufficient",
+      "data_completeness": 0,
+      "available_variables": [
+        "eligible_project_count"
+      ],
+      "missing_variables": [
+        "eligible_project_count",
+        "active_project_share",
+        "project_sector_concentration"
+      ],
+      "source_reliability": [
+        "D"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": false,
+      "project_database_coverage": "insufficient_project_coverage",
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "奥地利",
+      "country_slug": "austria",
+      "dimension": "trade",
+      "status": "sufficient",
+      "data_completeness": 100,
+      "available_variables": [
+        "china_export_share",
+        "china_import_share",
+        "china_trade_share"
+      ],
+      "missing_variables": [],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "passed",
+      "coverage_note": "货物贸易维度可比较，但不覆盖服务贸易。"
+    },
+    {
+      "country": "奥地利",
+      "country_slug": "austria",
+      "dimension": "investment",
+      "status": "unavailable",
+      "data_completeness": 0,
+      "available_variables": [],
+      "missing_variables": [
+        "china_fdi_stock_share"
+      ],
+      "source_reliability": [],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "unavailable",
+      "coverage_note": "缺少同口径 China-origin FDI position。"
+    },
+    {
+      "country": "奥地利",
+      "country_slug": "austria",
+      "dimension": "industrial",
+      "status": "insufficient",
+      "data_completeness": 83,
+      "available_variables": [
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "germany_export_dependence",
+        "industrial_electricity_price",
+        "industrial_dependency_score"
+      ],
+      "missing_variables": [
+        "china_linked_industrial_project_presence"
+      ],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": false,
+      "project_database_coverage": null,
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "克罗地亚",
+      "country_slug": "croatia",
+      "dimension": "project",
+      "status": "insufficient",
+      "data_completeness": 0,
+      "available_variables": [
+        "eligible_project_count"
+      ],
+      "missing_variables": [
+        "eligible_project_count",
+        "active_project_share",
+        "project_sector_concentration"
+      ],
+      "source_reliability": [
+        "D"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": false,
+      "project_database_coverage": "insufficient_project_coverage",
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    },
+    {
+      "country": "克罗地亚",
+      "country_slug": "croatia",
+      "dimension": "trade",
+      "status": "sufficient",
+      "data_completeness": 100,
+      "available_variables": [
+        "china_export_share",
+        "china_import_share",
+        "china_trade_share"
+      ],
+      "missing_variables": [],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "passed",
+      "coverage_note": "货物贸易维度可比较，但不覆盖服务贸易。"
+    },
+    {
+      "country": "克罗地亚",
+      "country_slug": "croatia",
+      "dimension": "investment",
+      "status": "unavailable",
+      "data_completeness": 0,
+      "available_variables": [],
+      "missing_variables": [
+        "china_fdi_stock_share"
+      ],
+      "source_reliability": [],
+      "definition_comparable": true,
+      "source_trace_available": true,
+      "project_database_coverage": null,
+      "qa_status": "unavailable",
+      "coverage_note": "缺少同口径 China-origin FDI position。"
+    },
+    {
+      "country": "克罗地亚",
+      "country_slug": "croatia",
+      "dimension": "industrial",
+      "status": "insufficient",
+      "data_completeness": 83,
+      "available_variables": [
+        "manufacturing_share_gdp",
+        "automotive_export_share",
+        "germany_export_dependence",
+        "industrial_electricity_price",
+        "industrial_dependency_score"
+      ],
+      "missing_variables": [
+        "china_linked_industrial_project_presence"
+      ],
+      "source_reliability": [
+        "A"
+      ],
+      "definition_comparable": true,
+      "source_trace_available": false,
+      "project_database_coverage": null,
+      "qa_status": "partial",
+      "coverage_note": "项目库尚非完整普查，因此只允许部分结果，不进入国家总分。"
+    }
+  ]
+}

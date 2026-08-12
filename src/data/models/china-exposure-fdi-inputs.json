@@ -1,0 +1,22 @@
+{
+  "schema_version": "china-exposure-fdi-inputs-v0.81",
+  "generated_at": "2026-08-12T00:00:00.000Z",
+  "reference_year": 2024,
+  "source_name": "OECD FDI positions by counterpart area, BMD4",
+  "source_reliability": "A",
+  "source_method": "Inward direct investment position; net FDI; all entities; total economy; immediate counterpart; USD millions; China divided by World.",
+  "source_url": "https://sdmx.oecd.org/public/rest/data/OECD.DAF.INV,DSD_FDI@DF_FDI_POS_CTRY,/.LE_FA_F.USD_EXC.DI.NET_FDI.ALL.D.S1.CHN+W.IMC._T.A.CTRY_IND?startPeriod=2023&endPeriod=2024&dimensionAtObservation=AllDimensions",
+  "model_policy": "The five available country shares are retained as evidence variables. Investment Exposure remains unavailable because the same definition does not cover all ten countries.",
+  "records": [
+    { "country": "poland", "year": 2024, "china_inward_fdi_stock_usd_million": 1618.0141909685, "total_inward_fdi_stock_usd_million": 341775.1146006, "china_fdi_stock_share": 0.473414904, "data_status": "official_complete", "definition_comparable": true, "coverage_note": "Immediate-counterpart BMD4 position is available for China and World." },
+    { "country": "hungary", "year": 2024, "china_inward_fdi_stock_usd_million": 1999.5568089431, "total_inward_fdi_stock_usd_million": 249151.17886179, "china_fdi_stock_share": 0.802543547, "data_status": "official_complete", "definition_comparable": true, "coverage_note": "Immediate-counterpart BMD4 position is available for China and World." },
+    { "country": "czechia", "year": 2024, "china_inward_fdi_stock_usd_million": 660.95878202748, "total_inward_fdi_stock_usd_million": 215402.85513884, "china_fdi_stock_share": 0.306847735, "data_status": "official_complete", "definition_comparable": true, "coverage_note": "Immediate-counterpart BMD4 position is available for China and World." },
+    { "country": "slovakia", "year": 2024, "china_inward_fdi_stock_usd_million": 135.51320382298, "total_inward_fdi_stock_usd_million": 65427.71556202, "china_fdi_stock_share": 0.207120461, "data_status": "official_complete", "definition_comparable": true, "coverage_note": "Immediate-counterpart BMD4 position is available for China and World." },
+    { "country": "germany", "year": 2024, "china_inward_fdi_stock_usd_million": 7201.3297319759, "total_inward_fdi_stock_usd_million": 1240229.5865365, "china_fdi_stock_share": 0.580644879, "data_status": "official_complete", "definition_comparable": true, "coverage_note": "Immediate-counterpart BMD4 position is available for China and World." },
+    { "country": "austria", "year": 2024, "china_inward_fdi_stock_usd_million": null, "total_inward_fdi_stock_usd_million": null, "china_fdi_stock_share": null, "data_status": "confidential", "definition_comparable": false, "coverage_note": "OECD observations are confidential; blank values are not interpreted as zero." },
+    { "country": "romania", "year": 2024, "china_inward_fdi_stock_usd_million": null, "total_inward_fdi_stock_usd_million": null, "china_fdi_stock_share": null, "data_status": "unavailable", "definition_comparable": false, "coverage_note": "No usable record under the fixed OECD immediate-counterpart query." },
+    { "country": "slovenia", "year": 2024, "china_inward_fdi_stock_usd_million": null, "total_inward_fdi_stock_usd_million": 23934.202160814, "china_fdi_stock_share": null, "data_status": "partner_missing", "definition_comparable": false, "coverage_note": "World total is available but China immediate-counterpart value is not reported; ultimate-investor data is not mixed into this series." },
+    { "country": "croatia", "year": 2024, "china_inward_fdi_stock_usd_million": null, "total_inward_fdi_stock_usd_million": null, "china_fdi_stock_share": null, "data_status": "unavailable", "definition_comparable": false, "coverage_note": "No usable record under the fixed OECD immediate-counterpart query." },
+    { "country": "serbia", "year": 2024, "china_inward_fdi_stock_usd_million": null, "total_inward_fdi_stock_usd_million": null, "china_fdi_stock_share": null, "data_status": "unavailable", "definition_comparable": false, "coverage_note": "Serbia requires a separate official source and comparability review; no substitute is inserted." }
+  ]
+}

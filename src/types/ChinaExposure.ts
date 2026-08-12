@@ -1,6 +1,8 @@
 import type { ModelAvailability, ModelConfidence } from "@/types/ModelOutput";
 
 export type ChinaExposureDimension = "project" | "trade" | "investment" | "industrial";
+export type ChinaExposureCoverageStatus = "sufficient" | "partial" | "insufficient" | "unavailable";
+export type ProjectDatabaseCoverage = "confirmed_low_exposure" | "insufficient_project_coverage" | "representative_coverage";
 
 export interface ChinaExposureCalculationTrace {
   numerator: number | null;
@@ -30,6 +32,10 @@ export interface ChinaExposureVariable {
   calculation_trace: ChinaExposureCalculationTrace | null;
   related_observation_ids: string[];
   related_project_ids: string[];
+  definition_comparable?: boolean;
+  source_method?: string;
+  coverage_note?: string;
+  qa_status?: "passed" | "partial" | "review_required" | "unavailable";
 }
 
 export interface ChinaExposureDimensionOutput {
@@ -59,6 +65,37 @@ export interface ChinaExposureOutput {
   related_event_ids: string[];
   related_project_ids: string[];
   interpretation_boundary: string;
+  project_database_coverage: ProjectDatabaseCoverage;
+  priority_gaps: string[];
+}
+
+export interface ChinaExposureCoverageAuditRecord {
+  country: string;
+  country_slug: string;
+  dimension: ChinaExposureDimension;
+  status: ChinaExposureCoverageStatus;
+  data_completeness: number;
+  available_variables: string[];
+  missing_variables: string[];
+  source_reliability: Array<"A" | "B" | "C" | "D">;
+  definition_comparable: boolean;
+  source_trace_available: boolean;
+  project_database_coverage: ProjectDatabaseCoverage | null;
+  qa_status: "passed" | "partial" | "review_required" | "unavailable";
+  coverage_note: string;
+}
+
+export interface ChinaTradeQaRecord {
+  country_slug: string;
+  year: number | null;
+  reporter_code: number | null;
+  partner_code: number | null;
+  numerator_complete: boolean;
+  denominator_complete: boolean;
+  duplicate_record_count: number;
+  denominator_valid: boolean;
+  qa_status: "passed" | "review_required";
+  notes: string;
 }
 
 export interface ChinaExposureModelCard {

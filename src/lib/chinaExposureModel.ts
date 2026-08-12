@@ -1,28 +1,34 @@
 import tradeInputsJson from "../data/models/china-exposure-trade-inputs.json";
+import fdiInputsJson from "../data/models/china-exposure-fdi-inputs.json";
 import countriesJson from "../data/countries/countries.json";
 import eventsJson from "../data/events/events.json";
 import observationsJson from "../data/observations/observations.json";
-import projectsJson from "../data/projects/projects.json";
+import { chinaProjectRecords, type ChinaProjectRecord } from "./extendedData";
+import { verifyChinaProject } from "./chinaProjectVerification";
 import { modelOutputs } from "./modelFramework";
-import type { Country, DataEnvelope, Event, Observation, Project } from "../types/researchData";
+import type { Country, DataEnvelope, Event, Observation } from "../types/researchData";
 import type {
+  ChinaExposureCoverageAuditRecord,
   ChinaExposureDimension,
   ChinaExposureDimensionOutput,
   ChinaExposureModelCard,
   ChinaExposureOutput,
+  ChinaTradeQaRecord,
+  ProjectDatabaseCoverage,
   ChinaExposureVariable,
 } from "../types/ChinaExposure";
 
-const MODEL_VERSION = "v0.80.0";
+const MODEL_VERSION = "v0.81.0";
 const CALCULATION_DATE = "2026-08-12";
 const BOUNDARY = "该模型衡量可观测的经贸、项目与产业连接，不等于政治影响力、地缘政治风险、投资质量或政策优劣。";
 
 const researchCountries = (countriesJson as DataEnvelope<Country>).records;
 const researchEvents = (eventsJson as DataEnvelope<Event>).records;
 const researchObservations = (observationsJson as DataEnvelope<Observation>).records;
-const researchProjects = (projectsJson as DataEnvelope<Project>).records;
+const researchProjects = chinaProjectRecords;
 
 type TradeInput = (typeof tradeInputsJson.records)[number];
+type FdiInput = (typeof fdiInputsJson.records)[number];
 
 const tradeConfig = [
   { id: "china_export_share", label: "对华出口占比", weight: 0.35, lower: 0, upper: 10 },
@@ -112,19 +118,18 @@ function tradeVariables(countrySlug: string, countryName: string): ChinaExposure
 }
 
 function eligibleProjects(countrySlug: string) {
-  return researchProjects.filter((project) => project.country_slug === countrySlug
-    && project.verified
-    && project.verification_status === "可量化"
-    && project.quantification_status === "可量化"
-    && (project.source_reliability === "A" || project.source_reliability === "B"));
+  return researchProjects.filter((project) => project.countrySlug === countrySlug
+    && !["cancelled", "suspended", "completed", "transferred"].includes(project.projectStatusCode)
+    && verifyChinaProject(project).conclusion === "quantifiable"
+    && (project.sourceReliabilityLevel === "A" || project.sourceReliabilityLevel === "B"));
 }
 
 function projectVariables(countrySlug: string, countryName: string): ChinaExposureVariable[] {
-  const allProjects = researchProjects.filter((project) => project.country_slug === countrySlug);
+  const allProjects = researchProjects.filter((project) => project.countrySlug === countrySlug);
   const projects = eligibleProjects(countrySlug);
-  const sourceReliability = projects.some((project) => project.source_reliability === "A") ? "A" : projects.length ? "B" : "D";
-  const projectIds = projects.map((project) => project.id);
-  const active = projects.filter((project) => /运营|在建|建设|股权|启动/.test(project.status));
+  const sourceReliability = projects.some((project) => project.sourceReliabilityLevel === "A") ? "A" : projects.length ? "B" : "D";
+  const projectIds = projects.map((project) => project.projectId);
+  const active = projects.filter((project) => ["committed", "under_construction", "operational"].includes(project.projectStatusCode));
   const sectorCounts = new Map<string, number>();
   projects.forEach((project) => sectorCounts.set(project.sector, (sectorCounts.get(project.sector) ?? 0) + 1));
   const sectorConcentration = projects.length >= 2 ? Math.max(...sectorCounts.values()) / projects.length * 100 : null;
@@ -136,7 +141,7 @@ function projectVariables(countrySlug: string, countryName: string): ChinaExposu
     dimension: "project" as const,
     year: null,
     source: projects.length ? "China Project Database" : "待接入",
-    source_url: projects[0]?.source_url ?? null,
+    source_url: projects[0]?.sourceUrl ?? null,
     source_reliability: sourceReliability as "A" | "B" | "D",
     related_observation_ids: [] as string[],
     related_project_ids: projectIds,
@@ -144,31 +149,43 @@ function projectVariables(countrySlug: string, countryName: string): ChinaExposu
 
   return [
     variable({ ...common, variable_id: "eligible_project_count", raw_value: countValue, unit: "projects", calculation_method: "count verified, quantifiable A/B-source projects", data_completeness: projects.length >= 2 ? 100 : projects.length ? 50 : 0, model_eligible: projects.length >= 2, limitation_note: allProjects.length ? "只接纳已核验、可量化且为 A/B 级来源的项目；项目库不是企业总体普查，少于两项时不形成可比项目分数。" : "该国项目记录尚未系统接入；空值不表示不存在项目。", calculation_trace: null }, countValue === null ? null : normalize(countValue, 0, 4), 0.45),
-    variable({ ...common, variable_id: "active_project_share", raw_value: activeShare, unit: "% eligible projects", calculation_method: "active eligible projects / eligible projects * 100", data_completeness: activeShare === null ? 0 : 100, model_eligible: activeShare !== null, limitation_note: "项目状态来自核验记录，不能替代官方投资存量。", calculation_trace: activeShare === null ? null : { numerator: active.length, denominator: projects.length, numerator_source_url: projects[0]?.source_url ?? null, denominator_source_url: projects[0]?.source_url ?? null, formula: "active_eligible_projects / eligible_projects * 100" } }, activeShare, 0.3),
-    variable({ ...common, variable_id: "project_sector_concentration", raw_value: sectorConcentration, unit: "% eligible projects", calculation_method: "largest eligible project sector count / eligible projects * 100", data_completeness: sectorConcentration === null ? 0 : 100, model_eligible: sectorConcentration !== null, limitation_note: "小样本集中度容易受单个项目影响，只作为项目维度内部描述。", calculation_trace: sectorConcentration === null ? null : { numerator: Math.max(...sectorCounts.values()), denominator: projects.length, numerator_source_url: projects[0]?.source_url ?? null, denominator_source_url: projects[0]?.source_url ?? null, formula: "largest_sector_count / eligible_projects * 100" } }, sectorConcentration, 0.25),
+    variable({ ...common, variable_id: "active_project_share", raw_value: activeShare, unit: "% eligible projects", calculation_method: "active eligible projects / eligible projects * 100", data_completeness: activeShare === null ? 0 : 100, model_eligible: activeShare !== null, limitation_note: "项目状态来自核验记录，不能替代官方投资存量。", calculation_trace: activeShare === null ? null : { numerator: active.length, denominator: projects.length, numerator_source_url: projects[0]?.sourceUrl ?? null, denominator_source_url: projects[0]?.sourceUrl ?? null, formula: "active_eligible_projects / eligible_projects * 100" } }, activeShare, 0.3),
+    variable({ ...common, variable_id: "project_sector_concentration", raw_value: sectorConcentration, unit: "% eligible projects", calculation_method: "largest eligible project sector count / eligible projects * 100", data_completeness: sectorConcentration === null ? 0 : 100, model_eligible: sectorConcentration !== null, limitation_note: "小样本集中度容易受单个项目影响，只作为项目维度内部描述。", calculation_trace: sectorConcentration === null ? null : { numerator: Math.max(...sectorCounts.values()), denominator: projects.length, numerator_source_url: projects[0]?.sourceUrl ?? null, denominator_source_url: projects[0]?.sourceUrl ?? null, formula: "largest_sector_count / eligible_projects * 100" } }, sectorConcentration, 0.25),
   ];
 }
 
 function investmentVariables(countrySlug: string, countryName: string): ChinaExposureVariable[] {
-  const projects = eligibleProjects(countrySlug).filter((project) => project.investment !== null);
+  const projects = eligibleProjects(countrySlug).filter((project) => project.amount !== null);
+  const input = (fdiInputsJson.records as FdiInput[]).find((record) => record.country === countrySlug);
+  const rawValue = input?.china_fdi_stock_share ?? null;
   return [variable({
-    variable_id: "china_origin_fdi_stock_or_flow",
+    variable_id: "china_fdi_stock_share",
     country: countryName,
     country_slug: countrySlug,
     dimension: "investment",
-    raw_value: null,
-    unit: "million EUR",
-    year: null,
-    source: "待接入统一 China-origin FDI source",
-    source_url: null,
-    source_reliability: "D",
-    calculation_method: "not calculated",
-    data_completeness: 0,
+    raw_value: rawValue,
+    unit: "% total inward FDI stock",
+    year: input?.year ?? null,
+    source: fdiInputsJson.source_name,
+    source_url: fdiInputsJson.source_url,
+    source_reliability: "A",
+    calculation_method: "China inward FDI position / World inward FDI position * 100; immediate counterpart; OECD BMD4",
+    data_completeness: rawValue === null ? 0 : 100,
     model_eligible: false,
-    limitation_note: `普通 FDI 流量不等于中国来源 FDI；${projects.length} 项项目金额记录因币种、状态与概念不同，仅保留在项目库，不合并。`,
-    calculation_trace: null,
+    limitation_note: `已保留同口径官方存量证据，但十国仅五国完整，投资维度继续 unavailable。普通 FDI、项目金额、合同额和承诺额不作替代也不相加；${projects.length} 项项目金额仅保留在项目库。`,
+    calculation_trace: rawValue === null ? null : {
+      numerator: input?.china_inward_fdi_stock_usd_million ?? null,
+      denominator: input?.total_inward_fdi_stock_usd_million ?? null,
+      numerator_source_url: fdiInputsJson.source_url,
+      denominator_source_url: fdiInputsJson.source_url,
+      formula: "china_inward_fdi_stock_usd_million / total_inward_fdi_stock_usd_million * 100",
+    },
     related_observation_ids: [],
-    related_project_ids: projects.map((project) => project.id),
+    related_project_ids: projects.map((project) => project.projectId),
+    definition_comparable: input?.definition_comparable ?? false,
+    source_method: fdiInputsJson.source_method,
+    coverage_note: input?.coverage_note ?? "未形成同口径 OECD 记录。",
+    qa_status: rawValue === null ? "unavailable" : "partial",
   }, null, 1)];
 }
 
@@ -181,10 +198,10 @@ function industrialVariables(countrySlug: string, countryName: string): ChinaExp
       const rawValue = industrialProjects.length ? 1 : null;
       return variable({
         variable_id: config.id, country: countryName, country_slug: countrySlug, dimension: "industrial", raw_value: rawValue, unit: "binary verified presence", year: null,
-        source: industrialProjects.length ? "China Project Database" : "待接入", source_url: industrialProjects[0]?.source_url ?? null,
-        source_reliability: industrialProjects[0]?.source_reliability ?? "D", calculation_method: "1 only when an A/B-source industrial project exists; missing coverage remains null",
+        source: industrialProjects.length ? "China Project Database" : "待接入", source_url: industrialProjects[0]?.sourceUrl ?? null,
+        source_reliability: industrialProjects[0]?.sourceReliabilityLevel ?? "D", calculation_method: "1 only when an A/B-source industrial project exists; missing coverage remains null",
         data_completeness: rawValue === null ? 0 : 100, model_eligible: rawValue !== null, limitation_note: "存在变量不表示投资规模、产能或供应链控制程度。", calculation_trace: null,
-        related_observation_ids: [], related_project_ids: industrialProjects.map((project) => project.id),
+        related_observation_ids: [], related_project_ids: industrialProjects.map((project) => project.projectId),
       }, rawValue === null ? null : 100, config.weight);
     }
     if (config.id === "industrial_dependency_score") {
@@ -193,7 +210,7 @@ function industrialVariables(countrySlug: string, countryName: string): ChinaExp
         variable_id: config.id, country: countryName, country_slug: countrySlug, dimension: "industrial", raw_value: rawValue, unit: "0-100 comparative score", year: existingOutput?.input_year ?? null,
         source: "Transparent Models / Industrial Dependency", source_url: null, source_reliability: "A", calculation_method: "reuse published v0.70 transparent output without changing its formula",
         data_completeness: existingOutput?.data_completeness ?? 0, model_eligible: rawValue !== null, limitation_note: "该输入描述一般产业结构，只在存在可核验涉华产业项目时用于对华产业维度。", calculation_trace: null,
-        related_observation_ids: existingOutput?.input_observation_ids ?? [], related_project_ids: industrialProjects.map((project) => project.id),
+        related_observation_ids: existingOutput?.input_observation_ids ?? [], related_project_ids: industrialProjects.map((project) => project.projectId),
       }, rawValue, config.weight);
     }
     const observation = latestEligibleObservation(countrySlug, config.id);
@@ -204,7 +221,7 @@ function industrialVariables(countrySlug: string, countryName: string): ChinaExp
       calculation_method: observation?.calculation_formula ?? "official observation", data_completeness: rawValue === null ? 0 : 100,
       model_eligible: rawValue !== null, limitation_note: "一般产业结构变量不单独证明对华暴露，必须与可核验涉华产业项目共同解释。",
       calculation_trace: observation?.numerator != null || observation?.denominator != null ? { numerator: observation.numerator ?? null, denominator: observation.denominator ?? null, numerator_source_url: observation.numerator_source_url ?? null, denominator_source_url: observation.denominator_source_url ?? null, formula: observation.calculation_formula ?? "official observation" } : null,
-      related_observation_ids: observation ? [observation.id] : [], related_project_ids: industrialProjects.map((project) => project.id),
+      related_observation_ids: observation ? [observation.id] : [], related_project_ids: industrialProjects.map((project) => project.projectId),
     }, rawValue === null ? null : normalize(rawValue, config.lower, config.upper), config.weight);
   });
 }
@@ -229,8 +246,15 @@ function dimensionOutput(dimension: ChinaExposureDimension, variables: ChinaExpo
   };
 }
 
+function projectDatabaseCoverage(countrySlug: string): ProjectDatabaseCoverage {
+  const records = researchProjects.filter((project) => project.countrySlug === countrySlug);
+  const reliable = records.filter((project) => project.sourceReliabilityLevel === "A" || project.sourceReliabilityLevel === "B");
+  if (records.length >= 2 && reliable.length >= 1) return "representative_coverage";
+  return "insufficient_project_coverage";
+}
+
 function relatedEventIds(countrySlug: string) {
-  const projectIds = new Set(researchProjects.filter((project) => project.country_slug === countrySlug).map((project) => project.id));
+  const projectIds = new Set(researchProjects.filter((project) => project.countrySlug === countrySlug).map((project) => project.projectId));
   return researchEvents.filter((event) => event.country_slug === countrySlug && (event.event_type === "China" || event.related_project_ids.some((id) => projectIds.has(id)))).map((event) => event.event_id);
 }
 
@@ -241,12 +265,12 @@ export const chinaExposureModelCard: ChinaExposureModelCard = {
   dimensions: [
     { id: "project", name_zh: "项目暴露", variables: [{ variable_id: "eligible_project_count", weight: 0.45, normalization: { method: "linear_clamp", lower: 0, upper: 4 }, use: "score" }, { variable_id: "active_project_share", weight: 0.3, normalization: { method: "linear_clamp", lower: 0, upper: 100 }, use: "score" }, { variable_id: "project_sector_concentration", weight: 0.25, normalization: { method: "linear_clamp", lower: 0, upper: 100 }, use: "score" }] },
     { id: "trade", name_zh: "贸易暴露", variables: tradeConfig.map((item) => ({ variable_id: item.id, weight: item.weight, normalization: { method: "linear_clamp" as const, lower: item.lower, upper: item.upper }, use: "score" as const })) },
-    { id: "investment", name_zh: "投资暴露", variables: [{ variable_id: "china_origin_fdi_stock_or_flow", weight: 1, normalization: null, use: "context" }] },
+    { id: "investment", name_zh: "投资暴露", variables: [{ variable_id: "china_fdi_stock_share", weight: 1, normalization: null, use: "context" }] },
     { id: "industrial", name_zh: "产业暴露", variables: industrialConfig.map((item) => ({ variable_id: item.id, weight: item.weight, normalization: { method: "linear_clamp" as const, lower: item.lower, upper: item.upper }, use: "score" as const })) },
   ],
   overall_rule: "只有至少三个核心维度达到 sufficient 且可比时才计算总分；partial 维度不能凑足门槛。当前十国均不满足，因此总分 unavailable。",
   event_policy: "事件只解释项目和政策背景，不直接改变维度或总分。",
-  limitations: [BOUNDARY, "项目库只覆盖已核验样本，不代表中国企业活动总体。", "投资维度缺少统一中国来源 FDI，普通 FDI 不作替代。", "贸易维度只使用 2024 年货物贸易。"],
+  limitations: [BOUNDARY, "项目库是代表性核验库，不是中国企业活动总体普查。", "OECD 同口径 China-origin FDI 存量仅覆盖五国，投资维度继续 unavailable，普通 FDI 不作替代。", "贸易维度只使用 2024 年货物贸易。"],
   calculation_date: CALCULATION_DATE,
 };
 
@@ -264,11 +288,126 @@ export const chinaExposureOutputs: ChinaExposureOutput[] = researchCountries.map
     dimensions, overall_score: overallAvailable ? Number((sufficient.reduce((sum, item) => sum + (item.score ?? 0), 0) / sufficient.length).toFixed(1)) : null,
     overall_availability: overallAvailable ? "sufficient" : "insufficient", overall_decision: overallAvailable ? "available" : "unavailable",
     sufficient_dimension_count: sufficient.length, calculation_date: CALCULATION_DATE, related_event_ids: relatedEventIds(country.slug),
-    related_project_ids: researchProjects.filter((project) => project.country_slug === country.slug).map((project) => project.id), interpretation_boundary: BOUNDARY,
+    related_project_ids: researchProjects.filter((project) => project.countrySlug === country.slug).map((project) => project.projectId), interpretation_boundary: BOUNDARY,
+    project_database_coverage: projectDatabaseCoverage(country.slug),
+    priority_gaps: dimensions.flatMap((dimension) => dimension.missing_variables.map((variableId) => `${dimension.dimension}:${variableId}`)).slice(0, 5),
   };
 });
 
 export const chinaExposureVariables = chinaExposureOutputs.flatMap((output) => output.dimensions.flatMap((dimension) => dimension.variables));
+
+export const chinaExposureCoverageAudit: ChinaExposureCoverageAuditRecord[] = chinaExposureOutputs.flatMap((output) =>
+  output.dimensions.map((dimension) => {
+    const available = dimension.variables.filter((item) => item.raw_value !== null);
+    const coverageStatus = dimension.dimension === "investment"
+      ? (available.length ? "partial" : "unavailable")
+      : dimension.availability;
+    const reliability = [...new Set(available.map((item) => item.source_reliability))];
+    return {
+      country: output.country,
+      country_slug: output.country_slug,
+      dimension: dimension.dimension,
+      status: coverageStatus,
+      data_completeness: dimension.data_completeness,
+      available_variables: available.map((item) => item.variable_id),
+      missing_variables: dimension.missing_variables,
+      source_reliability: reliability,
+      definition_comparable: dimension.dimension !== "investment" || available.every((item) => item.definition_comparable === true),
+      source_trace_available: available.every((item) => Boolean(item.source_url)),
+      project_database_coverage: dimension.dimension === "project" ? output.project_database_coverage : null,
+      qa_status: coverageStatus === "sufficient" ? "passed" : coverageStatus === "unavailable" ? "unavailable" : "partial",
+      coverage_note: dimension.dimension === "investment"
+        ? (available[0]?.coverage_note ?? "缺少同口径 China-origin FDI position。")
+        : dimension.limitation_note,
+    };
+  }),
+);
+
+const expectedReporterCodes: Record<string, number> = {
+  poland: 616, hungary: 348, czechia: 203, slovakia: 703, germany: 276,
+  austria: 40, romania: 642, slovenia: 705, croatia: 191, serbia: 688,
+};
+
+export const chinaTradeQa: ChinaTradeQaRecord[] = researchCountries.map((country) => {
+  const matching = (tradeInputsJson.records as TradeInput[]).filter((record) => record.country === country.slug);
+  const input = matching[0];
+  const values = input?.values;
+  const numeratorComplete = Boolean(values && values.exports_to_china >= 0 && values.imports_from_china >= 0);
+  const denominatorComplete = Boolean(values && values.exports_to_world > 0 && values.imports_from_world > 0);
+  const codesValid = input?.reporter_code === expectedReporterCodes[country.slug] && input?.partner_code === 156;
+  const yearValid = input?.year === 2024;
+  const duplicateRecordCount = Math.max(0, matching.length - 1);
+  const passed = numeratorComplete && denominatorComplete && codesValid && yearValid && duplicateRecordCount === 0;
+  return {
+    country_slug: country.slug,
+    year: input?.year ?? null,
+    reporter_code: input?.reporter_code ?? null,
+    partner_code: input?.partner_code ?? null,
+    numerator_complete: numeratorComplete,
+    denominator_complete: denominatorComplete,
+    duplicate_record_count: duplicateRecordCount,
+    denominator_valid: denominatorComplete,
+    qa_status: passed ? "passed" : "review_required",
+    notes: passed
+      ? "2024 HS TOTAL goods trade; reporter/China partner codes, bilateral numerators and world denominators passed structural QA."
+      : "Trade input requires review; no automatic correction was applied.",
+  };
+});
+
+export const chinaProjectCoverageAudit = researchCountries.map((country) => {
+  const records = researchProjects.filter((project) => project.countrySlug === country.slug);
+  const eligible = eligibleProjects(country.slug);
+  const normalizedActors = records.map((project) => project.chineseActor.trim().toLocaleLowerCase());
+  const duplicateProjectIds = records
+    .filter((project, index) => records.findIndex((candidate) => candidate.projectId === project.projectId) !== index)
+    .map((project) => project.projectId);
+  const currencyMismatchIds = records
+    .filter((project) => project.amount !== null && !project.currency)
+    .map((project) => project.projectId);
+  const amountConceptReviewIds = records
+    .filter((project) => project.announcedAmount !== undefined && project.announcedAmount !== project.verifiedAmount)
+    .map((project) => project.projectId);
+  const duplicateCompanyNameReview = [...new Set(normalizedActors.filter((actor, index) => actor && normalizedActors.indexOf(actor) !== index))];
+  const countryAssignmentReviewIds = records
+    .filter((project) => !researchCountries.some((candidate) => candidate.slug === project.countrySlug))
+    .map((project) => project.projectId);
+  const sectorClassificationReviewIds = records
+    .filter((project) => !project.sector.trim())
+    .map((project) => project.projectId);
+  const inconsistentYearReviewIds = records
+    .filter((project) => !project.year.trim())
+    .map((project) => project.projectId);
+  const reviewRequired = records.filter((project) => {
+    const verification = verifyChinaProject(project);
+    return project.sourceReliabilityLevel === "D"
+      || (project.amount !== null && !project.currency)
+      || verification.conclusion === "excluded";
+  });
+  return {
+    country: country.name_zh,
+    country_slug: country.slug,
+    project_database_coverage: projectDatabaseCoverage(country.slug),
+    recorded_project_count: records.length,
+    reliable_source_project_count: records.filter((project) => project.sourceReliabilityLevel === "A" || project.sourceReliabilityLevel === "B").length,
+    eligible_project_count: eligible.length,
+    active_project_count: records.filter((project) => ["committed", "under_construction", "operational"].includes(project.projectStatusCode)).length,
+    cancelled_or_suspended_count: records.filter((project) => ["cancelled", "suspended"].includes(project.projectStatusCode)).length,
+    completed_or_transferred_count: records.filter((project) => ["completed", "transferred"].includes(project.projectStatusCode)).length,
+    duplicate_project_ids: duplicateProjectIds,
+    duplicate_company_names_for_review: duplicateCompanyNameReview,
+    currency_mismatch_project_ids: currencyMismatchIds,
+    announced_vs_verified_amount_review_ids: amountConceptReviewIds,
+    inconsistent_year_project_ids: inconsistentYearReviewIds,
+    country_assignment_review_ids: countryAssignmentReviewIds,
+    sector_classification_review_ids: sectorClassificationReviewIds,
+    fdi_stock_flow_separated: true,
+    project_value_fdi_double_count_prevented: true,
+    review_required_project_ids: [...new Set([...reviewRequired.map((project) => project.projectId), ...duplicateProjectIds, ...currencyMismatchIds, ...amountConceptReviewIds])],
+    coverage_note: records.length >= 2
+      ? "代表性项目记录已接入，但项目库不是企业总体普查；未记录项目不能解释为零暴露。"
+      : "仅有单项代表性记录，仍属项目覆盖不足；未记录项目不能解释为零暴露。",
+  };
+});
 
 export function getChinaExposureOutput(countrySlug: string) {
   return chinaExposureOutputs.find((output) => output.country_slug === countrySlug);

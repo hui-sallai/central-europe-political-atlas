@@ -12,7 +12,7 @@ export default function ModelsPage() {
       <p className="eyebrow">Transparent Models / {platformStatus.version}</p>
       <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">透明模型工作台</h1>
       <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-        v0.50 的居民经济压力、财政压力与外部脆弱性及 v0.70 产业依赖规则均保持不变。v0.80 新增分维度的中国经济暴露模型；项目、贸易、投资和产业证据分别验收，不为缺失维度补值。
+        v0.50 的居民经济压力、财政压力与外部脆弱性及 v0.70 产业依赖规则均保持不变。v0.81 只补充中国专项数据、覆盖审计与来源追踪；v0.80 的四维模型、权重和总体门槛不变。
       </p>
       <Link href="/scenarios" className="mt-4 inline-flex rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)] hover:bg-[var(--accent)] hover:text-white">
         进入情景模拟
@@ -52,7 +52,7 @@ export default function ModelsPage() {
           {[
             ["Scenario Simulation", "已在独立情景层启用；不改变 v0.50 基线模型或原始观测值。"],
             ["Industrial Dependency Index", "v0.75 已统一十国输入结构；FDI 和供应链集中度仍不计正式权重。"],
-            ["China Economic Exposure", "v0.80 已启用分维度结果；十国尚不满足三维充分门槛，因此不输出总体指数或排名。"],
+            ["China Economic Exposure", "v0.81 已补十国项目覆盖与五国 OECD FDI 存量证据；总体门槛未降低，不满足三维充分时仍不输出总体指数或排名。"],
           ].map(([name, note]) => (
             <article key={name} className="rounded-2xl border border-dashed border-[var(--line)] bg-[var(--surface-muted)] p-4">
               <h3 className="font-semibold">{name}</h3>
