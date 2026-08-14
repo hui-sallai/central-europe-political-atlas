@@ -1,5 +1,6 @@
 import { HungaryBoundaryVisualQaSandbox } from "@/components/HungaryBoundaryVisualQaSandbox";
 import { InteractiveMapExplorer } from "@/components/InteractiveMapExplorer";
+import { SpatialResearchWorkbench } from "@/components/SpatialResearchWorkbench";
 import { StatusSummary } from "@/components/StatusSummary";
 import { mapDisplayBoundary, platformStatus } from "@/lib/platformStatus";
 import {
@@ -7,6 +8,7 @@ import {
   hungaryGiscoLicenseVerificationDecisionSummary,
   hungaryNuts3ValidationManifestSummary,
 } from "@/lib/regionQualityChecks";
+import { factualMapLayerRecords, regionalCoverageMatrix } from "@/lib/spatialFoundation";
 
 const availableLayers = [
   { label: "国家边界与国家选择", value: "可用", note: "用于十国导航与国家切换。" },
@@ -67,7 +69,13 @@ export default function MapPage() {
         </div>
       </section>
 
+      <SpatialResearchWorkbench
+        matrix={regionalCoverageMatrix}
+        layers={factualMapLayerRecords.map(({ layer_id, layer_name_zh, is_ready_for_display }) => ({ layer_id, layer_name_zh, is_ready_for_display }))}
+      />
+
       <section className="mt-6">
+        <p className="mb-3 text-xs leading-5 text-[var(--muted)]">以下地图仅保留国家导航与结构入口；不代表十国真实区域边界已通过公开展示闸门。</p>
         <InteractiveMapExplorer variant="full" />
       </section>
 

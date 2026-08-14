@@ -1,4 +1,5 @@
 import hungaryBoundaryValidation from "../../public/data/boundaries/sandbox/hu_nuts3_gisco_2024.validation.json";
+import { additionalCountries } from "./additionalCountries";
 
 export type RegionDataStatus = "正式数据" | "待核验" | "待接入" | "结构样例" | "pilot_pending_region_code_match";
 export type RegionSourceStatus = "官方来源" | "人工整理" | "待接入" | "结构样例";
@@ -43,6 +44,17 @@ export type RegionMetadataRecord = {
   source_status: RegionSourceStatus;
   last_updated: string;
   notes: string;
+  region_code?: string;
+  region_name?: string;
+  local_name?: string;
+  level?: string;
+  nuts_adm_classification?: string;
+  geometry_source?: string;
+  geometry_version?: string;
+  geometry_source_url?: string;
+  geometry_license?: string;
+  topology_status?: string;
+  spatial_comparability?: string;
 };
 
 const updatedAt = "2026-08-02";
@@ -198,51 +210,39 @@ function v4Region(record: Omit<RegionMetadataRecord, keyof typeof v4RegionDefaul
   };
 }
 
-function nonV4Placeholder(countryId: string): RegionMetadataRecord {
+const nonV4LevelPolicy: Record<string, { adminLevel: RegionMetadataRecord["admin_level"]; classification: string }> = {
+  germany: { adminLevel: "ADM1", classification: "ADM1 Land; NUTS1 correspondence candidate" },
+  austria: { adminLevel: "ADM1", classification: "ADM1 Land; NUTS2 correspondence candidate" },
+  romania: { adminLevel: "ADM1", classification: "ADM1 county; NUTS3 correspondence candidate" },
+  slovenia: { adminLevel: "NUTS2", classification: "NUTS2 cohesion region; statistical region" },
+  croatia: { adminLevel: "ADM1", classification: "ADM1 county; NUTS3 correspondence candidate" },
+  serbia: { adminLevel: "ADM1", classification: "Administrative district; NSTJ3 correspondence pending official review" },
+};
+
+function nonV4Region(
+  countryId: string,
+  region: (typeof additionalCountries)[number]["regions"][number],
+): RegionMetadataRecord {
+  const policy = nonV4LevelPolicy[countryId] ?? { adminLevel: "ADM1" as const, classification: "ADM classification pending" };
+
   return {
-    region_id: `${countryId}_national_pending`,
+    ...nonV4RegionDefaults,
+    region_id: `${countryId}_${region.slug.replace(/-/g, "_")}`,
     country_id: countryId,
-    region_name_zh: nonV4RegionDefaults.region_name_zh,
-    region_name_en: nonV4RegionDefaults.region_name_en,
-    region_name_local: nonV4RegionDefaults.region_name_local,
-    admin_level: nonV4RegionDefaults.admin_level,
-    admin_code: nonV4RegionDefaults.admin_code,
-    parent_region_id: nonV4RegionDefaults.parent_region_id,
-    capital_or_main_city: nonV4RegionDefaults.capital_or_main_city,
-    region_type: nonV4RegionDefaults.region_type,
-    is_v4_region: nonV4RegionDefaults.is_v4_region,
-    is_boundary_available: nonV4RegionDefaults.is_boundary_available,
-    is_statistical_data_available: nonV4RegionDefaults.is_statistical_data_available,
-    is_election_data_available: nonV4RegionDefaults.is_election_data_available,
-    is_china_project_mapped: nonV4RegionDefaults.is_china_project_mapped,
-    validation_manifest_file: nonV4RegionDefaults.validation_manifest_file,
-    manifest_status: nonV4RegionDefaults.manifest_status,
-    expected_region_count: nonV4RegionDefaults.expected_region_count,
-    feature_count: nonV4RegionDefaults.feature_count,
-    nuts_code_count: nonV4RegionDefaults.nuts_code_count,
-    region_id_candidate_count: nonV4RegionDefaults.region_id_candidate_count,
-    detail_record_count: nonV4RegionDefaults.detail_record_count,
-    matched_region_count: nonV4RegionDefaults.matched_region_count,
-    unmatched_region_count: nonV4RegionDefaults.unmatched_region_count,
-    duplicate_region_id_count: nonV4RegionDefaults.duplicate_region_id_count,
-    duplicate_nuts_code_count: nonV4RegionDefaults.duplicate_nuts_code_count,
-    missing_geometry_count: nonV4RegionDefaults.missing_geometry_count,
-    manifest_detail_validation_status: nonV4RegionDefaults.manifest_detail_validation_status,
-    region_id_final_matched: nonV4RegionDefaults.region_id_final_matched,
-    region_id_match_decision_status: nonV4RegionDefaults.region_id_match_decision_status,
-    region_id_match_evidence_status: nonV4RegionDefaults.region_id_match_evidence_status,
-    license_checked: nonV4RegionDefaults.license_checked,
-    authoritative_topology_checked: nonV4RegionDefaults.authoritative_topology_checked,
-    public_display_ready: nonV4RegionDefaults.public_display_ready,
-    is_ready_for_display: nonV4RegionDefaults.is_ready_for_display,
-    data_status: nonV4RegionDefaults.data_status,
-    source_status: nonV4RegionDefaults.source_status,
-    last_updated: nonV4RegionDefaults.last_updated,
-    notes: nonV4RegionDefaults.notes,
+    region_name_zh: region.nameZh,
+    region_name_en: region.nameEn,
+    region_name_local: region.nameEn,
+    admin_level: policy.adminLevel,
+    admin_code: "PENDING_OFFICIAL_CODE",
+    capital_or_main_city: region.capitalZh ?? "待核验",
+    region_type: region.typeZh,
+    data_status: "待核验",
+    source_status: "人工整理",
+    notes: `v0.85 将既有国家页区域入口迁入统一 regions 主键层；${policy.classification}。官方区域代码、NUTS/ADM 对应关系与边界属性仍需逐条核验。`,
   };
 }
 
-export const regionMetadataRecords: RegionMetadataRecord[] = [
+const baseRegionMetadataRecords: RegionMetadataRecord[] = [
   v4Region({ region_id: "poland_lower_silesian", country_id: "poland", region_name_zh: "下西里西亚省", region_name_en: "Lower Silesian Voivodeship", region_name_local: "Wojewodztwo dolnoslaskie", admin_code: "PL-02", capital_or_main_city: "Wroclaw", region_type: "voivodeship" }),
   v4Region({ region_id: "poland_kuyavian_pomeranian", country_id: "poland", region_name_zh: "库亚维-滨海省", region_name_en: "Kuyavian-Pomeranian Voivodeship", region_name_local: "Wojewodztwo kujawsko-pomorskie", admin_code: "PL-04", capital_or_main_city: "Bydgoszcz / Torun", region_type: "voivodeship" }),
   v4Region({ region_id: "poland_lublin", country_id: "poland", region_name_zh: "卢布林省", region_name_en: "Lublin Voivodeship", region_name_local: "Wojewodztwo lubelskie", admin_code: "PL-06", capital_or_main_city: "Lublin", region_type: "voivodeship" }),
@@ -305,10 +305,40 @@ export const regionMetadataRecords: RegionMetadataRecord[] = [
   v4Region({ region_id: "slovakia_presov", country_id: "slovakia", region_name_zh: "普雷绍夫州", region_name_en: "Presov Region", region_name_local: "Presovsky kraj", admin_code: "SK-PV", capital_or_main_city: "Presov", region_type: "region" }),
   v4Region({ region_id: "slovakia_kosice", country_id: "slovakia", region_name_zh: "科希策州", region_name_en: "Kosice Region", region_name_local: "Kosicky kraj", admin_code: "SK-KI", capital_or_main_city: "Kosice", region_type: "region" }),
 
-  nonV4Placeholder("germany"),
-  nonV4Placeholder("romania"),
-  nonV4Placeholder("slovenia"),
-  nonV4Placeholder("serbia"),
-  nonV4Placeholder("austria"),
-  nonV4Placeholder("croatia"),
+  ...additionalCountries.flatMap((country) => country.regions.map((region) => nonV4Region(country.slug, region))),
 ];
+
+const giscoSourceUrl = "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html";
+const giscoLicense = "Non-commercial research display candidate; attribution required; public display remains gated.";
+const serbiaSourceUrl = "https://www.stat.gov.rs/sr-Latn/oblasti/registar-prostornih-jedinica-i-gis";
+
+function spatialClassification(region: RegionMetadataRecord) {
+  if (region.nuts_adm_classification) return region.nuts_adm_classification;
+  if (region.country_id === "hungary") return "NUTS3 / county-equivalent";
+  if (region.country_id === "poland") return "ADM1 voivodeship; NUTS correspondence pending";
+  if (region.country_id === "czechia") return "ADM1 region; NUTS3 correspondence pending";
+  if (region.country_id === "slovakia") return "ADM1 region; NUTS3 correspondence pending";
+  return nonV4LevelPolicy[region.country_id]?.classification ?? "ADM/NUTS classification pending";
+}
+
+export const regionMetadataRecords: RegionMetadataRecord[] = baseRegionMetadataRecords.map((region) => {
+  const isSerbia = region.country_id === "serbia";
+  const isHungary = region.country_id === "hungary";
+
+  return {
+    ...region,
+    region_code: region.admin_code,
+    region_name: region.region_name_en,
+    local_name: region.region_name_local,
+    level: region.admin_level,
+    nuts_adm_classification: spatialClassification(region),
+    geometry_source: isSerbia ? "Statistical Office of the Republic of Serbia spatial unit register candidate" : "Eurostat GISCO NUTS 2024 candidate",
+    geometry_version: isSerbia ? "Current RPJ/NSTJ register; file version pending" : "NUTS 2024",
+    geometry_source_url: isSerbia ? serbiaSourceUrl : giscoSourceUrl,
+    geometry_license: isSerbia ? "Public register confirmed; geometry reuse licence pending review" : giscoLicense,
+    topology_status: isHungary && region.authoritative_topology_checked ? "authoritative_topology_recorded" : "not_checked",
+    spatial_comparability: isSerbia
+      ? "partial_comparability: Serbian administrative districts/NSTJ3 are not labelled as EU NUTS; correspondence must be documented before cross-country regional comparison."
+      : "pending_level_and_definition_alignment",
+  };
+});

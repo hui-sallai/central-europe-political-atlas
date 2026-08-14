@@ -28,6 +28,9 @@ export type RegionObservationRecord = {
   calculation_method: string;
   last_updated: string;
   notes: string;
+  source: string;
+  status: string;
+  updated_at: string;
 };
 
 const targetYear = "2025";
@@ -85,6 +88,9 @@ function buildPendingObservation(
     calculation_method: isCalculated ? "待接入原始分子和分母后再计算；当前不生成计算结果。" : "不适用。",
     last_updated: updatedAt,
     notes: "第一批区域观测位置；不得填 0，不进入地图图层、区域比较或未来模型候选输入。",
+    source: indicator.primary_source,
+    status: "待接入",
+    updated_at: updatedAt,
   };
 }
 

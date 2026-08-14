@@ -16,11 +16,7 @@ import { getModelCard, getModelOutputsForCountry } from "@/lib/modelFramework";
 import { getChinaExposureOutput } from "@/lib/chinaExposureModel";
 import { getTransmissionObservations } from "@/lib/transmissionData";
 import { getCountryParitySummary, coverageMatrix } from "@/lib/dataParityQa";
-import {
-  hungaryAuthoritativeTopologyValidationDecisionSummary,
-  hungaryGiscoLicenseVerificationDecisionSummary,
-  hungaryNuts3ValidationManifestSummary,
-} from "@/lib/regionQualityChecks";
+import type { RegionalCoverageRecord } from "@/lib/spatialFoundation";
 
 type DetailMode = "map" | "reading";
 
@@ -28,8 +24,6 @@ const detailModes: { id: DetailMode; label: string; description: string }[] = [
   { id: "map", label: "地图层级", description: "国家空间入口、图层状态与二级行政区接入位置。" },
   { id: "reading", label: "文字资料", description: "政治、党派、对华经贸、来源与数据状态的阅读层。" },
 ];
-
-const v4CountrySlugs = new Set(["poland", "hungary", "czechia", "slovakia"]);
 
 function CoverageStat({ label, value, note }: { label: string; value: string; note: string }) {
   return (
@@ -41,7 +35,7 @@ function CoverageStat({ label, value, note }: { label: string; value: string; no
   );
 }
 
-export function CountryDetailModeTabs({ country }: { country: Country }) {
+export function CountryDetailModeTabs({ country, regionalCoverage }: { country: Country; regionalCoverage?: RegionalCoverageRecord }) {
   const [activeMode, setActiveMode] = useState<DetailMode>("map");
   const activeModeInfo = detailModes.find((mode) => mode.id === activeMode) ?? detailModes[0];
   const basicIndicators = getBasicIndicators(country.slug);
@@ -65,8 +59,6 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
       ? String(latestCommonYear)
       : `${latestCommonYear}–${latestCommonYearMax}`;
   const metadata = getCountryMetadata(country.slug);
-  const isV4 = v4CountrySlugs.has(country.slug);
-  const isHungary = country.slug === "hungary";
   const hasManualPolitics = country.parties.some((party) => party.shortName !== "TBD");
   const projectSummary = projectRecords.length > 0
     ? Object.entries(projectRecords.reduce(
@@ -81,32 +73,16 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
         .join("；")
     : "待接入";
 
-  const regionalItems = isHungary
+  const regionalItems = regionalCoverage
     ? [
-        { label: "边界层级", value: "NUTS3 / 20 区" },
-        { label: "许可核验", value: hungaryGiscoLicenseVerificationDecisionSummary.license_checked ? "已记录" : "待核验" },
-        { label: "主键匹配", value: hungaryNuts3ValidationManifestSummary.region_id_final_matched ? "已记录" : "待核验" },
-        { label: "权威拓扑", value: hungaryAuthoritativeTopologyValidationDecisionSummary.authoritative_topology_checked ? "已记录" : "待核验" },
-        { label: "区域统计", value: "待接入" },
-        { label: "正式地图展示", value: "未启用" },
+        { label: "区域主键", value: `${regionalCoverage.region_count} 个` },
+        { label: "分析层级", value: regionalCoverage.preferred_level },
+        { label: "边界几何", value: `${regionalCoverage.geometry_ready_count} / ${regionalCoverage.region_count}` },
+        { label: "区域指标", value: `${regionalCoverage.regional_indicator_count} / ${regionalCoverage.regional_indicator_expected}` },
+        { label: "项目区域映射", value: `${regionalCoverage.mapped_project_count} 条候选 / ${regionalCoverage.verified_mapped_project_count} 条可上图` },
+        { label: "正式地图展示", value: regionalCoverage.public_display_ready ? "可用" : "未启用" },
       ]
-    : isV4
-      ? [
-          { label: "区域主键", value: "已预留" },
-          { label: "边界来源", value: "待接入" },
-          { label: "区域统计", value: "待接入" },
-          { label: "项目定位", value: "准备中" },
-          { label: "地图图层", value: "已注册，未启用" },
-          { label: "正式地图展示", value: "未启用" },
-        ]
-      : [
-          { label: "区域层", value: "暂不进入第一批" },
-          { label: "区域主键", value: "国家级待接入" },
-          { label: "边界来源", value: "待接入" },
-          { label: "区域统计", value: "待接入" },
-          { label: "项目定位", value: "待接入" },
-          { label: "正式地图展示", value: "未启用" },
-        ];
+    : [];
 
   return (
     <section className="mt-8">
@@ -244,11 +220,9 @@ export function CountryDetailModeTabs({ country }: { country: Country }) {
           ))}
         </div>
         <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
-          {isHungary
-            ? "许可、最终主键和权威拓扑记录已保留；公开展示准入仍未启用。完整技术证据位于数据页与方法论技术说明。"
-            : isV4
-              ? "该国进入 V4 区域数据准备范围，但真实边界与区域统计尚未接入。"
-              : "该国暂不进入第一批区域地图数据准备；当前保留国家级宏观数据和后续接入入口。"}
+          {regionalCoverage
+            ? `Regional Profile 已接入统一空间主键。主要缺口：${regionalCoverage.priority_gaps.join("；")}。未通过 public display gate 前不显示真实区域图层。`
+            : "区域空间资料待接入。"}
         </p>
       </section>
 

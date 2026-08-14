@@ -6,17 +6,17 @@
   "scope": "v0.21 regional data quality checks. Hungary NUTS3 records final region-id matching, GISCO licence, and authoritative topology as passed while formal display remains disabled.",
   "primary_key": "region_check_id",
   "summary": {
-    "total_region_count": 64,
+    "total_region_count": 173,
     "boundary_available_region_count": 1,
-    "boundary_pending_region_count": 63,
+    "boundary_pending_region_count": 172,
     "regional_statistical_data_available_count": 0,
     "regional_statistical_data_pending_count": 59,
     "map_layer_ready_region_count": 0,
-    "map_layer_not_ready_region_count": 64,
-    "source_a_count": 59,
+    "map_layer_not_ready_region_count": 173,
+    "source_a_count": 174,
     "source_b_count": 0,
     "source_c_count": 0,
-    "source_d_count": 296
+    "source_d_count": 290
   },
   "sandbox_qa_summary": {
     "source_file": "NUTS_RG_01M_2024_4326_LEVL_3.geojson",

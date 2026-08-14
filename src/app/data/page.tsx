@@ -3,6 +3,7 @@ import { DataCountryExplorer } from "@/components/DataCountryExplorer";
 import { CrossCountryParitySummary } from "@/components/CrossCountryParitySummary";
 import { ChinaExposureCoverageMatrix } from "@/components/ChinaExposureCoverageMatrix";
 import { ModelObservationUsage } from "@/components/ModelObservationUsage";
+import { RegionalCoverageMatrix } from "@/components/RegionalCoverageMatrix";
 import { StatusSummary } from "@/components/StatusSummary";
 import { TransmissionDataSummary } from "@/components/TransmissionDataSummary";
 import { platformStatus } from "@/lib/platformStatus";
@@ -22,7 +23,7 @@ export default function DataOverviewPage() {
           items={[
             { label: "默认视图", value: "国家选择 + 宏观经济数据" },
             { label: "研究数据层", value: "17 个逻辑层保留，按需展开" },
-            { label: "透明模型", value: "v0.80 门槛冻结；v0.82 只改善证据可比性" },
+            { label: "模型与情景", value: "保持国家级；v0.85 不生成区域模型分数" },
           ]}
         />
       </div>
@@ -32,6 +33,7 @@ export default function DataOverviewPage() {
       <TransmissionDataSummary />
       <CrossCountryParitySummary />
       <ChinaExposureCoverageMatrix matrix={chinaEvidenceCoverageMatrix} audit={chinaExposureCoverageAudit} history={chinaTradeHistoricalSeries} sectors={chinaSectorLinkageMatrix} rankingGate={chinaExposureRankingGate} />
+      <RegionalCoverageMatrix />
       <DataCountryExplorer />
     </main>
   );

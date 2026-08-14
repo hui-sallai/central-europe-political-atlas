@@ -28,6 +28,8 @@ export type ProjectLocationRecord = {
   missing_location_reason: string;
   last_updated: string;
   notes: string;
+  location_source?: string;
+  region_match_status?: "region_matched_candidate" | "country_only" | "uncertain";
 };
 
 type ProjectLocationMapping = {
@@ -158,4 +160,18 @@ function buildProjectLocation(project: (typeof chinaProjectRecords)[number]): Pr
   };
 }
 
-export const projectLocationRecords: ProjectLocationRecord[] = chinaProjectRecords.map(buildProjectLocation);
+export const projectLocationRecords: ProjectLocationRecord[] = chinaProjectRecords.map(buildProjectLocation).map((record) => ({
+  ...record,
+  location_source: record.location_source_name,
+  region_match_status: record.is_mapped_to_region
+    ? "region_matched_candidate"
+    : record.is_country_level_only
+      ? "country_only"
+      : "uncertain",
+  is_ready_for_map_layer:
+    record.is_mapped_to_region &&
+    record.location_status === "已定位" &&
+    record.location_source_reliability !== "D" &&
+    Boolean(record.location_source_url) &&
+    (record.location_precision === "exact_site" || record.location_precision === "city_level" || record.location_precision === "region_level"),
+}));

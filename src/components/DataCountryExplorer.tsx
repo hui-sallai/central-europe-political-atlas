@@ -308,12 +308,12 @@ const dataCredibilityBacklog = [
 ] as const;
 const dataEntryShortcuts: DataEntryShortcut[] = [
   { id: "countries-layer-entry", label: "国家元数据表", mode: "tables", description: "十国 countries 逻辑层，作为 country_id 关联表。" },
-  { id: "regions-layer-entry", label: "区域元数据表", mode: "tables", description: "v0.19 regions 同步匈牙利 NUTS3 最终主键匹配判定；非 V4 国家级待接入。" },
-  { id: "region-boundaries-layer-entry", label: "区域边界来源表", mode: "tables", description: "v0.21 region_boundaries 记录 GISCO 权威拓扑验收判定与不可展示状态。" },
-  { id: "region-indicators-layer-entry", label: "区域指标字典", mode: "tables", description: "v0.11 region_indicators 继续保留独立区域指标字典，第一批 10 项。" },
-  { id: "region-observations-layer-entry", label: "区域观测值表", mode: "tables", description: "v0.11 region_observations 继续保留区域经济数据主表和待接入观测位置。" },
+  { id: "regions-layer-entry", label: "区域元数据表", mode: "tables", description: "v0.85 regions 统一十国 173 个区域主键，并保留匈牙利 NUTS3 既有核验记录。" },
+  { id: "region-boundaries-layer-entry", label: "区域边界来源表", mode: "tables", description: "v0.85 region_boundaries 登记九国 GISCO 与塞尔维亚官方候选来源；未过 gate 均不可展示。" },
+  { id: "region-indicators-layer-entry", label: "区域指标字典", mode: "tables", description: "独立于国家级指标；第一批只保留人口、GDP、人均 GDP、失业率和制造业等稀疏事实项。" },
+  { id: "region-observations-layer-entry", label: "区域观测值表", mode: "tables", description: "区域经济数据主表；无官方区域值时保留 pending，不用国家值代填。" },
   { id: "region-quality-checks-layer-entry", label: "区域质量验收表", mode: "tables", description: "v0.21 region_quality_checks 记录 Hungary authoritative topology validation decision summary。" },
-  { id: "region-sources-layer-entry", label: "区域来源字典", mode: "tables", description: "v0.20 region_sources 锁定 GISCO Level 3 GeoJSON，并记录许可来源、署名要求和非商业研究展示判定。" },
+  { id: "region-sources-layer-entry", label: "区域来源字典", mode: "tables", description: "登记 GISCO NUTS 2024、各国统计局和塞尔维亚空间单位登记；许可逐数据集复核。" },
   { id: "project-locations-layer-entry", label: "项目地区定位表", mode: "tables", description: "v0.11 project_locations 继续保留项目地区定位结构，不启用真实项目点位图层。" },
   { id: "map-layers-layer-entry", label: "地图图层注册表", mode: "tables", description: "v0.21 map_layers 同步权威拓扑判定，并保持 hu_nuts3_boundary_pilot.is_ready_for_display=false。" },
   { id: "indicator-dictionary-entry", label: "指标字典入口", mode: "tables", description: "18 个指标的口径、单位、来源优先级和比较资格。" },
@@ -340,7 +340,7 @@ const regionalSchemaChecks = [
     table: "regions",
     priority: "最高优先级",
     why: "没有 regions，地图没有稳定区域主键。",
-    fields: "region_id, country_id, region_name_zh, region_name_en, region_name_local, admin_level, admin_code, parent_region_id, capital_or_main_city, region_type, is_v4_region, is_boundary_available, is_statistical_data_available, is_election_data_available, is_china_project_mapped, validation_manifest_file, manifest_status, expected_region_count, feature_count, nuts_code_count, region_id_candidate_count, detail_record_count, matched_region_count, unmatched_region_count, duplicate_region_id_count, duplicate_nuts_code_count, missing_geometry_count, manifest_detail_validation_status, region_id_final_matched, region_id_match_decision_status, region_id_match_evidence_status, license_checked, authoritative_topology_checked, public_display_ready, is_ready_for_display, data_status, source_status, last_updated, notes",
+    fields: "region_id, country_id, region_code, region_name, local_name, level, nuts_adm_classification, geometry_source, geometry_version, geometry_source_url, geometry_license, topology_status, public_display_ready, parent_region_id, region_name_zh, region_name_en, region_name_local, admin_level, admin_code, capital_or_main_city, region_type, spatial_comparability, is_boundary_available, is_statistical_data_available, is_china_project_mapped, validation_manifest_file, manifest_status, region_id_final_matched, license_checked, authoritative_topology_checked, is_ready_for_display, data_status, source_status, last_updated, notes",
     enums: "admin_level: ADM1 / ADM2 / NUTS1 / NUTS2 / NUTS3；data_status: 正式数据 / 待核验 / 待接入 / 结构样例 / pilot_pending_region_code_match；source_status: 官方来源 / 人工整理 / 待接入 / 结构样例。",
     status: "v0.21 匈牙利 NUTS3 最终主键、GISCO 许可与权威拓扑验收判定均已记录；正式展示仍未启用。",
   },
@@ -1633,6 +1633,17 @@ function RegionMetadataTable({ rows }: { rows: RegionMetadataRecord[] }) {
   const headers = [
     "region_id",
     "country_id",
+    "region_code",
+    "region_name",
+    "local_name",
+    "level",
+    "nuts_adm_classification",
+    "geometry_source",
+    "geometry_version",
+    "geometry_source_url",
+    "geometry_license",
+    "topology_status",
+    "spatial_comparability",
     "region_name_zh",
     "region_name_en",
     "region_name_local",
@@ -1674,7 +1685,7 @@ function RegionMetadataTable({ rows }: { rows: RegionMetadataRecord[] }) {
 
   return (
     <div className="mt-5 wide-table-scroll max-w-full">
-      <table className="research-data-table region-metadata-table w-full min-w-[4500px] border-separate border-spacing-0 text-left text-sm">
+      <table className="research-data-table region-metadata-table w-full min-w-[6500px] border-separate border-spacing-0 text-left text-sm">
         <thead>
           <tr className="text-xs uppercase tracking-[0.16em] text-[var(--muted)]">
             {headers.map((header) => (
@@ -1687,6 +1698,19 @@ function RegionMetadataTable({ rows }: { rows: RegionMetadataRecord[] }) {
             <tr key={region.region_id} className="align-top">
               <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-mono text-xs">{region.region_id}</td>
               <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{region.country_id}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{region.region_code}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{region.region_name}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">{region.local_name}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{region.level}</DictionaryToken></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5">{region.nuts_adm_classification}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5">{region.geometry_source}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3 font-mono text-xs">{region.geometry_version}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3">
+                {region.geometry_source_url ? <a href={region.geometry_source_url} target="_blank" rel="noreferrer" className="text-xs font-semibold text-[var(--accent)]">source</a> : "—"}
+              </td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5">{region.geometry_license}</td>
+              <td className="border-b border-[var(--line)] px-3 py-3"><DictionaryToken>{region.topology_status}</DictionaryToken></td>
+              <td className="border-b border-[var(--line)] px-3 py-3 text-xs leading-5 text-[var(--muted)]">{region.spatial_comparability}</td>
               <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{region.region_name_zh}</td>
               <td className="border-b border-[var(--line)] px-3 py-3">{region.region_name_en}</td>
               <td className="border-b border-[var(--line)] px-3 py-3">{region.region_name_local}</td>
@@ -2865,7 +2889,7 @@ function ResearchDataExportLinks() {
   const exportStatusCards = [
     { label: "CSV 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .csv 文件。" },
     { label: "JSON 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: platformStatus.version, note: "v0.82 统一十国四维证据覆盖、贸易历史与投资来源层级；v0.80 的门槛、权重及既有数据结构保持不变。" },
+    { label: "当前阶段", value: platformStatus.version, note: "v0.85 建立十国区域主键、边界审计、项目定位追踪和公开展示闸门；国家级模型与既有门槛保持不变。" },
   ];
 
   return (
@@ -3808,7 +3832,7 @@ export function DataCountryExplorer() {
                 <p className="eyebrow">Regional Map Data Structure</p>
                 <h3 className="mt-2 text-lg font-semibold">区域地图数据结构</h3>
                 <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
-                  v0.21 匈牙利 NUTS3 authoritative topology validation decision 集中在这里；完整表体仍在下方研究数据结构总表按需展开。v0.8 的九个逻辑数据层继续保留，不删除、不合并。
+                  v0.85 的十国区域主键、边界候选来源、项目定位追踪与公开展示状态集中在这里；匈牙利既有 NUTS3 证据继续保留，不重新建设第二套结构。
                 </p>
               </div>
               <span className="text-xs text-[var(--muted)]">8 个区域地图数据表</span>
@@ -3835,7 +3859,7 @@ export function DataCountryExplorer() {
                   <p className="eyebrow">v0.15 Hungary Boundary License And Topology Evidence Record</p>
                   <h4 className="mt-2 text-base font-semibold">区域表字段级验收</h4>
                   <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
-                    八个区域表继续保留完整字段、枚举/状态和用途说明；v0.21 只在既有 region_boundaries、region_quality_checks 与 map_layers 中记录权威拓扑判定，不新增第 18 张表。
+                    八个区域表继续保留完整字段、枚举/状态和用途说明；v0.85 只扩展现有 regions、region_boundaries、region_sources、project_locations 与展示派生，不新增平行地图结构。
                   </p>
                 </div>
                 <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">8 / 8 表体已实化</span>
@@ -3879,7 +3903,7 @@ export function DataCountryExplorer() {
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldSourceRequirement(schema.table, field)}</td>
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldMapDisplayRule(schema.table, field)}</td>
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldModelRule(field)}</td>
-                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">v0.21 权威拓扑验收字段口径；不新增模型、预测、风险指数或中国经济暴露指数。</td>
+                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">v0.85 空间事实字段口径；不新增区域模型、预测、风险指数或中国经济暴露地图。</td>
                               </tr>
                             ))}
                           </tbody>
@@ -3925,7 +3949,7 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Research Registry Tables</p>
               <h2 className="mt-3 text-2xl font-semibold">研究数据结构总表</h2>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                以下十七个逻辑数据层常驻在数据页；v0.8 的九个逻辑数据层继续保留，v0.21 只在既有 region_boundaries、region_quality_checks 与 map_layers 中同步匈牙利 NUTS3 权威拓扑验收判定。它们用于页面检索、复制、抓取、质量验收和后续 CSV / JSON 导出。其中 regions 是区域主键层，region_boundaries 是边界来源、沙盒文件和展示状态登记层，region_indicators 是独立于国家级 indicators 的区域指标字典，region_observations 是区域经济数据主表，region_quality_checks 是区域质量验收层，region_sources 是区域来源字典，project_locations 是对华项目地区定位桥表，map_layers 是地图图层注册表。
+                以下十七个逻辑数据层继续常驻数据页。v0.85 不新增平行表，而是在既有八个区域表上统一十国 region_id、边界来源与许可、几何 QA、项目定位和展示闸门。regions 是稳定主键层；region_boundaries 保存来源、许可与几何状态；region_observations 不与国家 observations 混写；project_locations 只允许已核验定位进入未来事实点位图层。
               </p>
             </div>
             <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">按需展开</span>
@@ -3941,16 +3965,16 @@ export function DataCountryExplorer() {
               <CountryMetadataTable />
             </DeferredDetails>
 
-            <DeferredDetails id="regions-layer-entry" title="regions：v0.19 final region-id match decision">
+            <DeferredDetails id="regions-layer-entry" title="regions：v0.85 ten-country region schema">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                regions 是地图层的稳定区域主键表。v0.19 同步匈牙利 20 条一对一主键匹配判定；非 V4 六国继续保留国家级待接入占位。
+                regions 是地图层的稳定区域主键表。v0.85 覆盖十国 173 个区域入口；匈牙利 20 条既有匹配记录保留，其余国家官方代码与层级对应仍明确待核验。
               </p>
               <RegionMetadataTable rows={regionMetadataRecords} />
             </DeferredDetails>
 
-            <DeferredDetails id="region-boundaries-layer-entry" title="region_boundaries：v0.21 authoritative topology decision">
+            <DeferredDetails id="region-boundaries-layer-entry" title="region_boundaries：v0.85 boundary source audit">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                region_boundaries 已记录 hu_nuts3_gisco_2024 的 GISCO 许可、最终主键和权威拓扑验收判定；display_status 继续保持 not_ready_for_display。
+                region_boundaries 保留匈牙利 hu_nuts3_gisco_2024 证据，并为其余欧盟国家登记 GISCO NUTS 2024 候选来源、为塞尔维亚登记官方空间单位来源。未完成逐国文件、许可、主键和拓扑复核前保持 not_ready_for_display。
               </p>
               <div className="mt-4 grid gap-3 rounded-2xl border border-[var(--line)] bg-white/65 p-4 text-xs leading-6 text-[var(--muted)]">
                 <p>
@@ -4010,9 +4034,9 @@ export function DataCountryExplorer() {
               <ProjectLocationTable rows={projectLocationRecords} />
             </DeferredDetails>
 
-            <DeferredDetails id="map-layers-layer-entry" title="map_layers：v0.21 topology decision 展示闸门">
+            <DeferredDetails id="map-layers-layer-entry" title="map_layers：v0.85 factual display gate">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                map_layers 只注册未来地图工作台的可控图层。v0.21 的 hu_nuts3_boundary_pilot 已同步权威拓扑判定；public_display_ready=false、is_ready_for_display=false、readiness_gate_status=not_ready_for_public_display，正式图层仍未启用。
+                map_layers 只注册行政边界、人口、区域 GDP、人均 GDP、失业率和已核验项目位置等事实型候选图层。当前所有正式展示字段仍为 false；风险、预测、党派支持率、情景分数和 China Exposure 色阶均未启用。
               </p>
               <MapLayerRegistryTable rows={mapLayerRecords} />
             </DeferredDetails>

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { DataStatusBadge } from "@/components/DataStatusBadge";
 import { getExtendedObservationCoverage } from "@/lib/extendedData";
 import { researchCountries } from "@/lib/researchData";
+import { getCountryRegionalCoverage, regionalFoundationSummary } from "@/lib/spatialFoundation";
 import type { DataStatus } from "@/types/researchData";
 
 const v4CountrySlugs = new Set(["poland", "hungary", "czechia", "slovakia"]);
@@ -25,7 +26,7 @@ export default function CountriesPage() {
         {[
           ["统一核心指标", "10 国", "基础宏观与 12 项扩展指标采用同一字典和观测值结构。"],
           ["扩展观测位置", "600 个", "十国 × 12 指标 × 2021–2025；缺失值明确保留待接入。"],
-          ["地图层", "本轮冻结", "v0.75 不新增边界、风险或预测图层。"],
+          ["区域空间主键", `${regionalFoundationSummary.region_count} 个`, "十国使用同一 regions 关联结构；真实展示仍按国家通过闸门。"],
         ].map(([label, value, note]) => (
           <div key={label} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
             <p className="text-xs font-semibold text-[var(--muted)]">{label}</p>
@@ -41,11 +42,10 @@ export default function CountriesPage() {
           const extendedCoverage = getExtendedObservationCoverage(countryRecord.slug);
           const macroStatus = compactStatus(countryRecord.macro_status);
           const projectStatus = compactStatus(countryRecord.project_status);
-          const regionalStatus = countryRecord.slug === "hungary"
-            ? "边界证据已记录，展示未启用"
-            : isV4
-              ? "准备中"
-              : compactStatus(countryRecord.region_status);
+          const regionalCoverage = getCountryRegionalCoverage(countryRecord.slug);
+          const regionalStatus = regionalCoverage
+            ? `${regionalCoverage.region_count} 区域 / ${regionalCoverage.geometry_ready_count} geometry ready / 展示${regionalCoverage.public_display_ready ? "可用" : "未启用"}`
+            : compactStatus(countryRecord.region_status);
           const eventStatus = countryRecord.event_status === "verified" ? "人工整理" : "待编码";
 
           return (

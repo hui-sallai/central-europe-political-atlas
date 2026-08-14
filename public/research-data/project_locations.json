@@ -32,7 +32,9 @@
       "location_status": "部分定位",
       "missing_location_reason": "尚未接入可核验地理编码来源；v0.9 不填充未经核验的经纬度。",
       "last_updated": "2026-07-26",
-      "notes": "跨境物流通道只映射到波兰卢布林省；具体口岸、场站和跨境节点需后续拆分。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。"
+      "notes": "跨境物流通道只映射到波兰卢布林省；具体口岸、场站和跨境节点需后续拆分。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。",
+      "location_source": "china_projects 人工整理地区字段 + regions 区域元数据",
+      "region_match_status": "region_matched_candidate"
     },
     {
       "project_location_id": "pl-leapmotor-tychy-assembly_location",
@@ -57,7 +59,9 @@
       "location_status": "部分定位",
       "missing_location_reason": "尚未接入可核验地理编码来源；v0.9 不填充未经核验的经纬度。",
       "last_updated": "2026-07-26",
-      "notes": "城市级定位明确，但尚未接入工厂精确坐标和生产实体地址。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。"
+      "notes": "城市级定位明确，但尚未接入工厂精确坐标和生产实体地址。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。",
+      "location_source": "china_projects 人工整理地区字段 + regions 区域元数据",
+      "region_match_status": "region_matched_candidate"
     },
     {
       "project_location_id": "pl-nuctech-kobylka_location",
@@ -82,7 +86,9 @@
       "location_status": "部分定位",
       "missing_location_reason": "尚未接入可核验地理编码来源；v0.9 不填充未经核验的经纬度。",
       "last_updated": "2026-07-26",
-      "notes": "城市/华沙周边定位明确；具体厂区地址和企业登记地址待核验。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。"
+      "notes": "城市/华沙周边定位明确；具体厂区地址和企业登记地址待核验。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。",
+      "location_source": "china_projects 人工整理地区字段 + regions 区域元数据",
+      "region_match_status": "region_matched_candidate"
     },
     {
       "project_location_id": "hu-catl-debrecen_location",
@@ -107,7 +113,9 @@
       "location_status": "部分定位",
       "missing_location_reason": "尚未接入可核验地理编码来源；v0.9 不填充未经核验的经纬度。",
       "last_updated": "2026-07-26",
-      "notes": "城市级定位明确；精确厂区坐标、土地许可和项目公司地址待接入。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。"
+      "notes": "城市级定位明确；精确厂区坐标、土地许可和项目公司地址待接入。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。",
+      "location_source": "china_projects 人工整理地区字段 + regions 区域元数据",
+      "region_match_status": "region_matched_candidate"
     },
     {
       "project_location_id": "hu-byd-szeged_location",
@@ -132,7 +140,9 @@
       "location_status": "部分定位",
       "missing_location_reason": "尚未接入可核验地理编码来源；v0.9 不填充未经核验的经纬度。",
       "last_updated": "2026-07-26",
-      "notes": "城市级定位明确；精确厂区坐标、许可主体和产能位置待核验。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。"
+      "notes": "城市级定位明确；精确厂区坐标、许可主体和产能位置待核验。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。",
+      "location_source": "china_projects 人工整理地区字段 + regions 区域元数据",
+      "region_match_status": "region_matched_candidate"
     },
     {
       "project_location_id": "hu-budapest-belgrade-rail_location",
@@ -157,7 +167,9 @@
       "location_status": "部分定位",
       "missing_location_reason": "尚未接入可核验地理编码来源；v0.9 不填充未经核验的经纬度。",
       "last_updated": "2026-07-26",
-      "notes": "铁路为多区域线性项目，当前只映射起点/核心节点；后续需要 project_locations 拆成多个区段或节点。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。"
+      "notes": "铁路为多区域线性项目，当前只映射起点/核心节点；后续需要 project_locations 拆成多个区段或节点。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。",
+      "location_source": "china_projects 人工整理地区字段 + regions 区域元数据",
+      "region_match_status": "region_matched_candidate"
     },
     {
       "project_location_id": "cz-changhong-nymburk_location",
@@ -182,7 +194,9 @@
       "location_status": "部分定位",
       "missing_location_reason": "尚未接入可核验地理编码来源；v0.9 不填充未经核验的经纬度。",
       "last_updated": "2026-07-26",
-      "notes": "城市级定位明确；工厂地址、企业登记和当前运营状态待核验。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。"
+      "notes": "城市级定位明确；工厂地址、企业登记和当前运营状态待核验。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。",
+      "location_source": "china_projects 人工整理地区字段 + regions 区域元数据",
+      "region_match_status": "region_matched_candidate"
     },
     {
       "project_location_id": "cz-cefc-citic-slavia_location",
@@ -207,7 +221,9 @@
       "location_status": "部分定位",
       "missing_location_reason": "尚未接入可核验地理编码来源；v0.9 不填充未经核验的经纬度。",
       "last_updated": "2026-07-26",
-      "notes": "资产关系位于布拉格，但足球俱乐部、场馆和相关地产需拆分为多条位置记录。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。"
+      "notes": "资产关系位于布拉格，但足球俱乐部、场馆和相关地产需拆分为多条位置记录。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。",
+      "location_source": "china_projects 人工整理地区字段 + regions 区域元数据",
+      "region_match_status": "region_matched_candidate"
     },
     {
       "project_location_id": "cz-cefc-jt-finance_location",
@@ -232,7 +248,9 @@
       "location_status": "待核验",
       "missing_location_reason": "尚未接入可核验地理编码来源；v0.9 不填充未经核验的经纬度。",
       "last_updated": "2026-07-26",
-      "notes": "金融股权网络不能等同于单一地点；当前只保留布拉格关联入口，需核验集团注册地址和跨境主体。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。"
+      "notes": "金融股权网络不能等同于单一地点；当前只保留布拉格关联入口，需核验集团注册地址和跨境主体。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。",
+      "location_source": "china_projects 人工整理地区字段 + regions 区域元数据",
+      "region_match_status": "region_matched_candidate"
     },
     {
       "project_location_id": "sk-gotion-inobat-surany_location",
@@ -257,7 +275,9 @@
       "location_status": "部分定位",
       "missing_location_reason": "尚未接入可核验地理编码来源；v0.9 不填充未经核验的经纬度。",
       "last_updated": "2026-07-26",
-      "notes": "城市级定位明确；精确厂区坐标、项目公司地址、许可和补贴位置待核验。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。"
+      "notes": "城市级定位明确；精确厂区坐标、项目公司地址、许可和补贴位置待核验。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。",
+      "location_source": "china_projects 人工整理地区字段 + regions 区域元数据",
+      "region_match_status": "region_matched_candidate"
     },
     {
       "project_location_id": "sk-gotion-inobat-equity_location",
@@ -282,7 +302,9 @@
       "location_status": "待核验",
       "missing_location_reason": "尚未接入可核验地理编码来源；v0.9 不填充未经核验的经纬度。",
       "last_updated": "2026-07-26",
-      "notes": "股权与技术合作涉及多地网络，当前只保留布拉迪斯拉发关联入口；Voderady 和 Šurany 后续应拆成多位置记录。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。"
+      "notes": "股权与技术合作涉及多地网络，当前只保留布拉迪斯拉发关联入口；Voderady 和 Šurany 后续应拆成多位置记录。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。",
+      "location_source": "china_projects 人工整理地区字段 + regions 区域元数据",
+      "region_match_status": "region_matched_candidate"
     },
     {
       "project_location_id": "de-catl-thuringia-battery_location",
@@ -307,7 +329,9 @@
       "location_status": "待接入",
       "missing_location_reason": "尚未接入可核验地理编码来源；v0.9 不填充未经核验的经纬度。",
       "last_updated": "2026-07-26",
-      "notes": "尚未建立项目到区域的映射。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。"
+      "notes": "尚未建立项目到区域的映射。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。",
+      "location_source": "待接入来源",
+      "region_match_status": "uncertain"
     },
     {
       "project_location_id": "de-cosco-hhla-tollerort_location",
@@ -332,7 +356,9 @@
       "location_status": "待接入",
       "missing_location_reason": "尚未接入可核验地理编码来源；v0.9 不填充未经核验的经纬度。",
       "last_updated": "2026-07-26",
-      "notes": "尚未建立项目到区域的映射。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。"
+      "notes": "尚未建立项目到区域的映射。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。",
+      "location_source": "待接入来源",
+      "region_match_status": "uncertain"
     },
     {
       "project_location_id": "at-avic-facc-majority-stake_location",
@@ -357,7 +383,9 @@
       "location_status": "待接入",
       "missing_location_reason": "尚未接入可核验地理编码来源；v0.9 不填充未经核验的经纬度。",
       "last_updated": "2026-07-26",
-      "notes": "尚未建立项目到区域的映射。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。"
+      "notes": "尚未建立项目到区域的映射。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。",
+      "location_source": "待接入来源",
+      "region_match_status": "uncertain"
     },
     {
       "project_location_id": "ro-cgn-cernavoda-terminated_location",
@@ -382,7 +410,9 @@
       "location_status": "待接入",
       "missing_location_reason": "尚未接入可核验地理编码来源；v0.9 不填充未经核验的经纬度。",
       "last_updated": "2026-07-26",
-      "notes": "尚未建立项目到区域的映射。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。"
+      "notes": "尚未建立项目到区域的映射。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。",
+      "location_source": "待接入来源",
+      "region_match_status": "uncertain"
     },
     {
       "project_location_id": "si-hisense-gorenje-acquisition_location",
@@ -407,7 +437,9 @@
       "location_status": "待接入",
       "missing_location_reason": "尚未接入可核验地理编码来源；v0.9 不填充未经核验的经纬度。",
       "last_updated": "2026-07-26",
-      "notes": "尚未建立项目到区域的映射。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。"
+      "notes": "尚未建立项目到区域的映射。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。",
+      "location_source": "待接入来源",
+      "region_match_status": "uncertain"
     },
     {
       "project_location_id": "hr-peljesac-bridge-crbc_location",
@@ -432,7 +464,9 @@
       "location_status": "待接入",
       "missing_location_reason": "尚未接入可核验地理编码来源；v0.9 不填充未经核验的经纬度。",
       "last_updated": "2026-07-26",
-      "notes": "尚未建立项目到区域的映射。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。"
+      "notes": "尚未建立项目到区域的映射。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。",
+      "location_source": "待接入来源",
+      "region_match_status": "uncertain"
     },
     {
       "project_location_id": "rs-linglong-zrenjanin-tire_location",
@@ -457,7 +491,9 @@
       "location_status": "待接入",
       "missing_location_reason": "尚未接入可核验地理编码来源；v0.9 不填充未经核验的经纬度。",
       "last_updated": "2026-07-26",
-      "notes": "尚未建立项目到区域的映射。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。"
+      "notes": "尚未建立项目到区域的映射。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。",
+      "location_source": "待接入来源",
+      "region_match_status": "uncertain"
     },
     {
       "project_location_id": "rs-zijin-rtb-bor_location",
@@ -482,7 +518,9 @@
       "location_status": "待接入",
       "missing_location_reason": "尚未接入可核验地理编码来源；v0.9 不填充未经核验的经纬度。",
       "last_updated": "2026-07-26",
-      "notes": "尚未建立项目到区域的映射。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。"
+      "notes": "尚未建立项目到区域的映射。 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。",
+      "location_source": "待接入来源",
+      "region_match_status": "uncertain"
     }
   ]
 }

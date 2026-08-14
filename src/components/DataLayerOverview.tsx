@@ -137,10 +137,10 @@ export function DataLayerOverview({ countrySlug, compact = false, title = "数�
     {
       title: "地图与区域层",
       value: `${regionCount} 个一级区域`,
-      status: "sample" as const,
+      status: "pending" as const,
       description: country
-        ? "区域层结构样例和后续接入入口已保留；完整边界说明见国家页地图图层仪表盘。"
-        : "区域层结构样例和后续接入入口已保留；完整边界说明见地图页。",
+        ? "区域主键已进入统一空间结构；真实边界、区域统计和项目点位仍按公开展示闸门核验。"
+        : "十国区域主键与边界来源审计已建立；完整覆盖矩阵和展示条件见地图页。",
       href: country ? `/countries/${country.slug}` : "/map",
     },
   ];

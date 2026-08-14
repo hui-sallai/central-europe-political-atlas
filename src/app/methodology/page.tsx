@@ -9,6 +9,7 @@ import {
   hungaryGiscoLicenseVerificationDecisionSummary,
   hungaryNuts3ValidationManifestSummary,
 } from "@/lib/regionQualityChecks";
+import { publicDisplayGate, regionalFoundationSummary, serbiaSpatialComparabilityPolicy } from "@/lib/spatialFoundation";
 
 const dataStatuses = [
   ["official", "正式数据", "已取得可核验来源、年份、数值、单位和更新时间，可进入事实数据表。"],
@@ -60,7 +61,7 @@ const modelConditions = [
 
 const knownLimitations = [
   "十国已使用同一核心扩展与 transmission 数据结构；塞尔维亚财政、经常账户等位置及各国少量未发布年份仍明确标记为待接入。",
-  "非 V4 六国暂未进入第一批区域边界和区域统计准备。",
+  "十国已进入统一区域主键与边界来源审计；除匈牙利既有 NUTS3 证据外，其余国家的具体几何、区域代码和区域统计仍待核验。",
   "匈牙利 NUTS3 已完成许可、主键和权威拓扑记录，但公开展示准入仍未启用。",
   "对华项目仍以核验表为主，金额、主体和状态时间线并非全部可量化。",
   "事件库优先完成 V4 样本；非 V4 事件、低置信度记录和结构样例仍待接入或待编码。",
@@ -404,10 +405,49 @@ export default function MethodologyPage() {
         </div>
       </section>
 
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">Spatial Data Methodology / v0.85</p>
+        <h2 className="mt-3 text-2xl font-semibold">9. 区域空间数据方法</h2>
+        <p className="mt-3 max-w-4xl text-sm leading-7 text-[var(--muted)]">
+          区域事实层使用 Country → Region → Geometry → Regional Observation → Project Location 的关联链。当前 {regionalFoundationSummary.country_count} 国共有 {regionalFoundationSummary.region_count} 个稳定区域主键；区域指标与国家级 observations 分表管理，缺失区域值不会由国家值代填。
+        </p>
+        <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+          {[
+            ["Region hierarchy", "按国家选择有分析意义且可读的 ADM/NUTS 层级，不机械统一为同一 NUTS level。"],
+            ["Boundary source", "九个欧盟国家优先登记 GISCO NUTS 2024；每个国家仍需选择具体文件和代码对应。"],
+            ["Geometry QA", "检查要素数、重复与缺失代码、无效几何、CRS、MultiPolygon、重叠、缝隙和国界包含关系。"],
+            ["Region matching", "region_id 必须与官方区域代码和单一 geometry feature 一对一对应。"],
+            ["Project geolocation", "保留定位精度、来源和匹配状态；未核验坐标不进入项目点位图层。"],
+            ["Regional observation", "只接入有年份、单位、来源链接、可靠性和状态的真实区域值。"],
+            ["Spatial comparability", "比较必须使用可对应层级和一致定义；层级差异需显式记录。"],
+            ["Model boundary", "本轮不生成区域风险、选举、党派、情景或 China Exposure 色阶。"],
+          ].map(([label, note]) => (
+            <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+              <h3 className="font-mono text-xs font-semibold text-[var(--accent)]">{label}</h3>
+              <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{note}</p>
+            </article>
+          ))}
+        </div>
+        <div className="mt-5 grid gap-4 lg:grid-cols-2">
+          <article className="rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-4">
+            <h3 className="font-semibold">Public Display Gate</h3>
+            <p className="mt-2 text-xs leading-5 text-[var(--muted)]">六项必须同时通过，页面不得手动跳过。</p>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {publicDisplayGate.map((item) => <code key={item} className="rounded-full bg-white px-3 py-1 text-xs">{item}</code>)}
+            </div>
+          </article>
+          <article className="rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-4">
+            <h3 className="font-semibold">Serbia spatial comparability policy</h3>
+            <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{serbiaSpatialComparabilityPolicy.correspondence_to_eu_scale}</p>
+            <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{serbiaSpatialComparabilityPolicy.comparability_limitation}</p>
+          </article>
+        </div>
+      </section>
+
       <section className="mt-6 grid gap-4 lg:grid-cols-2">
         <article className="card p-6">
           <p className="eyebrow">Known Limitations</p>
-          <h2 className="mt-3 text-2xl font-semibold">9. 已知限制</h2>
+          <h2 className="mt-3 text-2xl font-semibold">10. 已知限制</h2>
           <ul className="mt-5 grid gap-3 text-sm leading-6 text-[var(--muted)]">
             {knownLimitations.map((item) => <li key={item} className="rounded-xl bg-[var(--surface-muted)] px-4 py-3">{item}</li>)}
           </ul>
@@ -415,7 +455,7 @@ export default function MethodologyPage() {
 
         <article className="card p-6">
           <p className="eyebrow">Analysis Checklist</p>
-          <h2 className="mt-3 text-2xl font-semibold">10. 进入后续分析的检查清单</h2>
+          <h2 className="mt-3 text-2xl font-semibold">11. 进入后续分析的检查清单</h2>
           <ol className="mt-5 grid list-decimal gap-2 pl-5 text-sm leading-6 text-[var(--muted)]">
             {[
               "有明确国家或地区和时间。", "有数值、单位和数据状态。", "有来源名称、链接与可靠性等级。",

@@ -71,6 +71,19 @@ export type RegionBoundaryRecord = {
   source_status: BoundarySourceStatus;
   last_checked: string;
   notes: string;
+  provider?: string;
+  dataset?: string;
+  geometry_version?: string;
+  attribution_prepared?: boolean;
+  expected_feature_count?: number;
+  actual_feature_count?: number;
+  duplicate_region_code_count?: number;
+  missing_region_count?: number;
+  multipolygon_handling?: string;
+  geometry_overlap_status?: string;
+  gap_status?: string;
+  country_boundary_containment_status?: string;
+  region_id_one_to_one_match?: boolean;
 };
 
 const lastChecked = "2026-07-27";
@@ -225,37 +238,46 @@ function v4Boundary(region: (typeof regionMetadataRecords)[number]): RegionBound
 }
 
 function pendingBoundary(region: (typeof regionMetadataRecords)[number]): RegionBoundaryRecord {
+  const isSerbia = region.country_id === "serbia";
+  const isEuCandidate = !isSerbia;
+  const sourceName = isSerbia
+    ? "Statistical Office of the Republic of Serbia spatial unit register and GIS"
+    : "Eurostat GISCO NUTS 2024";
+  const sourceUrl = isSerbia
+    ? "https://www.stat.gov.rs/sr-Latn/oblasti/registar-prostornih-jedinica-i-gis"
+    : giscoSourceUrl;
+
   return {
     boundary_id: `${region.region_id}_boundary_pending`,
     region_id: region.region_id,
     country_id: region.country_id,
     admin_level: region.admin_level,
-    nuts_version: "Not available",
-    boundary_source_name: "待接入",
-    boundary_source_url: "",
-    boundary_source_type: "Not available",
-    boundary_license: "待接入",
-    license_source: "待接入",
-    license_url: "",
-    attribution_required: false,
-    attribution_text: "待接入",
+    nuts_version: isSerbia ? "Serbia RPJ/NSTJ current register; geometry version pending" : "NUTS 2024",
+    boundary_source_name: sourceName,
+    boundary_source_url: sourceUrl,
+    boundary_source_type: isSerbia ? "Official national spatial unit register" : "EU official statistical geodata",
+    boundary_license: isSerbia ? "Geometry reuse licence pending review" : giscoLicense,
+    license_source: isSerbia ? "Statistical Office of the Republic of Serbia / source dataset terms pending" : giscoLicenseSource,
+    license_url: isSerbia ? sourceUrl : giscoLicenseUrl,
+    attribution_required: isEuCandidate,
+    attribution_text: isEuCandidate ? giscoAttribution : "待具体几何数据集许可确认",
     license_checked: false,
-    license_review_status: "not_applicable",
-    license_review_date: "",
-    license_decision_note: "未接入具体边界来源，不能作出许可判定。",
-    boundary_format: "Not available",
-    geometry_format: "Not available",
+    license_review_status: "pending_dataset_specific_review",
+    license_review_date: "2026-08-14",
+    license_decision_note: "已登记官方候选来源；尚未选择并核验具体国家文件，不能作出公开展示许可判定。",
+    boundary_format: isEuCandidate ? "GeoJSON" : "Not available",
+    geometry_format: isEuCandidate ? "GeoJSON candidate" : "Not available",
     file_selected: false,
     file_url: "",
-    file_status: "not_applicable",
-    filter_status: "not_applicable",
+    file_status: "not_downloaded",
+    filter_status: "not_filtered",
     display_status: "not_ready_for_display",
     geometry_available: false,
     geometry_simplified: false,
     topology_checked: false,
-    authoritative_topology_method: "待确认",
+    authoritative_topology_method: "逐国检查要素数、重复/缺失代码、几何有效性、重叠、缝隙、国界包含关系和 region_id 一对一匹配。",
     authoritative_topology_checked: false,
-    topology_evidence_status: "待接入",
+    topology_evidence_status: "not_started",
     topology_validation_method: "pending_authoritative_topology_review",
     topology_validation_status: "pending_authoritative_topology_review",
     topology_validation_date: "pending",
@@ -263,9 +285,9 @@ function pendingBoundary(region: (typeof regionMetadataRecords)[number]): Region
     geometry_valid_count: 0,
     invalid_geometry_count: 0,
     duplicate_geometry_count: 0,
-    coordinate_system: "待接入",
-    file_path_or_url: "",
-    region_code_match_status: "待接入",
+    coordinate_system: isEuCandidate ? "EPSG:4326 candidate" : "待具体文件确认",
+    file_path_or_url: sourceUrl,
+    region_code_match_status: "pending_official_region_code_match",
     validation_manifest_file: "",
     manifest_status: "not_applicable",
     expected_region_count: 0,
@@ -284,14 +306,35 @@ function pendingBoundary(region: (typeof regionMetadataRecords)[number]): Region
     region_id_match_evidence_status: "not_applicable",
     public_display_ready: false,
     is_ready_for_display: false,
-    source_reliability: "D",
-    source_status: "待接入",
-    last_checked: lastChecked,
-    notes: "非 V4 国家在 v0.9 第一版只保留国家级待接入占位；尚未选择边界来源，不进入真实地图渲染。",
+    source_reliability: "A",
+    source_status: "官方来源",
+    last_checked: "2026-08-14",
+    notes: isSerbia
+      ? "v0.85 已登记塞尔维亚官方空间单位登记候选来源；不使用伪造 NUTS code。具体几何文件、许可、尺度对应和拓扑未核验，公开展示保持关闭。"
+      : "v0.85 已登记 GISCO NUTS 2024 候选来源；具体层级、国家文件、官方代码、许可适用和拓扑未逐国核验，公开展示保持关闭。",
   };
 }
 
-export const regionBoundaryRecords: RegionBoundaryRecord[] = [
+const baseRegionBoundaryRecords: RegionBoundaryRecord[] = [
   hungaryPilotBoundary,
   ...regionMetadataRecords.map((region) => (region.is_v4_region ? v4Boundary(region) : pendingBoundary(region))),
 ];
+
+export const regionBoundaryRecords: RegionBoundaryRecord[] = baseRegionBoundaryRecords.map((boundary) => ({
+  ...boundary,
+  provider: boundary.boundary_source_name,
+  dataset: boundary.boundary_source_type,
+  geometry_version: boundary.nuts_version,
+  attribution_prepared: boundary.license_checked && Boolean(boundary.attribution_text),
+  expected_feature_count: boundary.expected_region_count || 1,
+  actual_feature_count: boundary.feature_count,
+  duplicate_region_code_count: boundary.duplicate_nuts_code_count,
+  missing_region_count: boundary.unmatched_region_count,
+  multipolygon_handling: boundary.geometry_available ? "source geometry retained; multipart handling recorded" : "pending geometry file",
+  geometry_overlap_status: boundary.authoritative_topology_checked ? "checked" : "not_checked",
+  gap_status: boundary.authoritative_topology_checked ? "checked" : "not_checked",
+  country_boundary_containment_status: boundary.authoritative_topology_checked ? "checked" : "not_checked",
+  region_id_one_to_one_match: boundary.region_id_final_matched,
+  public_display_ready: false,
+  is_ready_for_display: false,
+}));
