@@ -33,7 +33,6 @@ import { getEconomicSourcePolicy } from "@/lib/economicSourcePolicy";
 import { platformStatus } from "@/lib/platformStatus";
 import {
   extendedIndicatorLabels,
-  extendedIndicators,
   sourceTableRecords,
   getChinaProjectRecords,
   getCountryTableRecord,
@@ -50,7 +49,6 @@ import {
   economicMetricOptions,
   getEconomicFiveYearRows,
   getEconomicMetricSourceLinks,
-  getEconomicRowSourceLinks,
   getLatestEconomicRow,
   type EconomicMetricId,
   type EconomicSourceLink,
@@ -147,22 +145,6 @@ type V4ResearchSummary = {
   basis: string;
 };
 
-type V4DerivedTableRow = {
-  category: ExtendedCategory;
-  categoryLabel: string;
-  row: V4DerivedRow;
-  latestComparableYear: string;
-  valuesByCountry: Record<string, number | null>;
-  highestCountry: string;
-  lowestCountry: string;
-  biggestMeanGapCountry: string;
-  biggestMeanGapValue: number | null;
-  biggestChangeCountry: string;
-  biggestChangeValue: number | null;
-  pendingObservationCount: number;
-  computedObservationCount: number;
-};
-
 type CategoryResearchSummary = {
   highLow: string;
   change: string;
@@ -246,8 +228,6 @@ function useResearchDataRecords<T>(fileName: string) {
     let cancelled = false;
     const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
-    setRecords(null);
-    setError(null);
     fetch(`${basePath}/research-data/${fileName}`)
       .then((response) => {
         if (!response.ok) {
@@ -965,14 +945,6 @@ function compactResearchValue(row: V4DerivedRow, value: number | null) {
   }
 
   return `${formatMatrixValue(row.indicatorId, value)} ${row.unit}`;
-}
-
-function compactSignedResearchValue(row: V4DerivedRow, value: number | null) {
-  if (value === null) {
-    return "待比较";
-  }
-
-  return `${formatSignedMatrixValue(row.indicatorId, value)} ${row.unit}`;
 }
 
 function signedResearchValue(row: V4DerivedRow, value: number | null) {
@@ -3045,8 +3017,8 @@ function SourceDictionaryTable({ rows }: { rows: SourceDictionaryRecord[] }) {
 function V4QualityDetailTable({ countryNameBySlug }: { v4Quality: V4DataQualitySummary; countryNameBySlug: Map<string, string> }) {
   const qualityQuery = useResearchDataRecords<DataQualityCheckRecord>("data_quality_checks.json");
   const observationQuery = useResearchDataRecords<StandardObservationRecord>("observations.json");
-  const records = qualityQuery.records ?? [];
-  const observationRecords = observationQuery.records ?? [];
+  const records = useMemo(() => qualityQuery.records ?? [], [qualityQuery.records]);
+  const observationRecords = useMemo(() => observationQuery.records ?? [], [observationQuery.records]);
   const observationById = useMemo(() => new Map(observationRecords.map((observation) => [observation.observation_id, observation])), [observationRecords]);
   const [filters, setFilters] = useState<QualityFilterState>({
     country: "all",
@@ -3547,12 +3519,6 @@ export function DataCountryExplorer() {
   const isV4SelectedCountry = selectedCountry ? v4CountrySlugs.includes(selectedCountry.slug) : false;
   const visibleDataModes = dataModes.filter((mode) => mode.id !== "comparison" || isV4SelectedCountry);
 
-  useEffect(() => {
-    if (!isV4SelectedCountry && activeMode === "comparison") {
-      setActiveMode("economy");
-    }
-  }, [activeMode, isV4SelectedCountry]);
-
   if (!selectedCountry) {
     return null;
   }
@@ -3669,38 +3635,6 @@ export function DataCountryExplorer() {
       equalMeanCountries: availableObservations.filter((item) => matrixMeanBucket(item.observation.value, mean) === "equal").map((item) => item.country.nameZh),
       countryComparisons,
       rankChanges,
-    };
-  });
-  const v4DerivedTableRows: V4DerivedTableRow[] = v4DerivedRows.map((row) => {
-    const category = getExtendedIndicator(row.indicatorId)?.category ?? "external";
-    const valueComparisons = row.countryComparisons.filter((item) => item.latestValue !== null);
-    const comparableYears = valueComparisons
-      .map((item) => item.latestYear)
-      .filter((year): year is string => Boolean(year))
-      .sort();
-    const latestComparableYear = comparableYears[comparableYears.length - 1] ?? "待接入";
-    const biggestGap = row.countryComparisons
-      .filter((item): item is V4CountryDerivedComparison & { gapToMean: number } => item.gapToMean !== null)
-      .sort((a, b) => Math.abs(b.gapToMean) - Math.abs(a.gapToMean))[0];
-    const biggestChange = row.countryComparisons
-      .filter((item): item is V4CountryDerivedComparison & { change: number } => item.change !== null)
-      .sort((a, b) => Math.abs(b.change) - Math.abs(a.change))[0];
-    const relatedQualityCells = v4Quality.cells.filter((cell) => cell.indicatorId === row.indicatorId);
-
-    return {
-      category,
-      categoryLabel: extendedIndicatorLabels[category],
-      row,
-      latestComparableYear,
-      valuesByCountry: Object.fromEntries(row.countryComparisons.map((item) => [item.countrySlug, item.latestValue])) as Record<string, number | null>,
-      highestCountry: row.highestCountries.join(" / ") || "待接入",
-      lowestCountry: row.lowestCountries.join(" / ") || "待接入",
-      biggestMeanGapCountry: biggestGap?.countryName ?? "待比较",
-      biggestMeanGapValue: biggestGap?.gapToMean ?? null,
-      biggestChangeCountry: biggestChange?.countryName ?? "待比较",
-      biggestChangeValue: biggestChange?.change ?? null,
-      pendingObservationCount: relatedQualityCells.filter((cell) => cell.isPending).length,
-      computedObservationCount: relatedQualityCells.filter((cell) => cell.isComputed).length,
     };
   });
   const v4ComparisonSummary = v4Countries.map((country) => ({

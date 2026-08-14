@@ -26,11 +26,9 @@ export type CoverageMatrixRow = {
 };
 
 const extendedIds = new Set<string>(coreExtendedIndicatorIds);
-const transmissionIds = new Set<string>(coreTransmissionIndicatorIds);
 const parityIndicatorIds = [...coreExtendedIndicatorIds, ...coreTransmissionIndicatorIds];
 const modelInputIds = new Set(modelCards.flatMap((card) => card.inputs.map((input) => input.indicator_id)));
 const labels = new Map(researchIndicators.map((indicator) => [indicator.id, indicator.name_zh]));
-const countryNames = new Map(researchCountries.map((country) => [country.slug, country.name_zh]));
 
 function expectedYears(indicatorId: string) {
   return extendedIds.has(indicatorId) ? [2021, 2022, 2023, 2024, 2025] : [2023, 2024];

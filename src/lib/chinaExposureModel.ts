@@ -3,7 +3,7 @@ import fdiInputsJson from "../data/models/china-exposure-fdi-inputs.json";
 import countriesJson from "../data/countries/countries.json";
 import eventsJson from "../data/events/events.json";
 import observationsJson from "../data/observations/observations.json";
-import { chinaProjectRecords, type ChinaProjectRecord } from "./extendedData";
+import { chinaProjectRecords } from "./extendedData";
 import { verifyChinaProject } from "./chinaProjectVerification";
 import { modelOutputs } from "./modelFramework";
 import type { Country, DataEnvelope, Event, Observation } from "../types/researchData";

@@ -68,7 +68,6 @@ function DataLayerCard({
 
 export function DataLayerOverview({ countrySlug, compact = false, title = "数据层总览" }: DataLayerOverviewProps) {
   const country = countrySlug ? countries.find((item) => item.slug === countrySlug) : undefined;
-  const isCountryMode = Boolean(country);
   const basicIndicators = country ? getBasicIndicators(country.slug) : [];
   const extendedCoverage = country ? getExtendedTemplateCoverage(country.slug) : null;
   const extendedObservationCoverage = country ? getExtendedObservationCoverage(country.slug) : null;

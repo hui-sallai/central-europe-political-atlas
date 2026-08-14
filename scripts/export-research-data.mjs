@@ -62,7 +62,7 @@ const { eventLibraryItems, eventTypeValues, toEventRecord } = require("../src/li
 const { v4PendingModelInputIndicators } = require("../src/lib/v4ModelInputIndicators.ts");
 const { transmissionIndicators, transmissionObservations } = require("../src/lib/transmissionData.ts");
 const { getV4DataQualitySummary, v4QualityCountrySlugs } = require("../src/lib/v4DataQuality.ts");
-const { verifyChinaProject, chinaProjectVerificationLabel } = require("../src/lib/chinaProjectVerification.ts");
+const { verifyChinaProject } = require("../src/lib/chinaProjectVerification.ts");
 const { modelCards, modelOutputs } = require("../src/lib/modelFramework.ts");
 const {
   chinaExposureModelCard,
@@ -161,17 +161,15 @@ const categoryLabels = {
 };
 
 const computedIndicatorIds = new Set(["trade_balance", "automotive_export_share"]);
-const v4ExtendedIndicatorIds = new Set(v4TemplateIndicatorIds);
-
 function sourceReliabilityLevel(indicator) {
   return indicator.sourcePriority.some((source) => /Eurostat|统计|央行|IMF|OECD|UNCTAD|World Bank|欧盟/i.test(source)) ? "A" : "B";
 }
 
-function countryCoverage(indicator) {
+function countryCoverage() {
   return "十国";
 }
 
-function yearCoverage(indicator) {
+function yearCoverage() {
   return "2021-2025";
 }
 
