@@ -6,6 +6,7 @@ import { ModelObservationUsage } from "@/components/ModelObservationUsage";
 import { RegionalCoverageMatrix } from "@/components/RegionalCoverageMatrix";
 import { StatusSummary } from "@/components/StatusSummary";
 import { TransmissionDataSummary } from "@/components/TransmissionDataSummary";
+import { ScenarioTransmissionInputs } from "@/components/ScenarioTransmissionInputs";
 import { platformStatus } from "@/lib/platformStatus";
 import { chinaEvidenceCoverageMatrix, chinaExposureCoverageAudit, chinaExposureRankingGate, chinaSectorLinkageMatrix, chinaTradeHistoricalSeries } from "@/lib/chinaExposureModel";
 
@@ -31,6 +32,7 @@ export default function DataOverviewPage() {
         <ModelObservationUsage />
       </Suspense>
       <TransmissionDataSummary />
+      <ScenarioTransmissionInputs />
       <CrossCountryParitySummary />
       <ChinaExposureCoverageMatrix matrix={chinaEvidenceCoverageMatrix} audit={chinaExposureCoverageAudit} history={chinaTradeHistoricalSeries} sectors={chinaSectorLinkageMatrix} rankingGate={chinaExposureRankingGate} />
       <RegionalCoverageMatrix />

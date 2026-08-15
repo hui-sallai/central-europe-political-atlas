@@ -1,0 +1,360 @@
+{
+  "schema_version": "transmission-scenario-analysis-v0.90",
+  "generated_at": "2026-08-15",
+  "data_type": "transmission_channels",
+  "record_count": 21,
+  "relation_note": "Scenario values remain separate from canonical observations and preserve baseline, shock, model, formula, evidence, and limitation records.",
+  "model_boundary": "Deterministic conditional analysis only. No probability, forecast, causal claim, combined future-risk score, or regional scenario score.",
+  "records": [
+    {
+      "transmission_id": "inflation_resurgence_hicp_inflation_direct",
+      "scenario_id": "inflation_resurgence",
+      "shock_variable": "HICP 上升幅度",
+      "affected_indicator": "hicp_inflation",
+      "affected_model": "household_economic_pressure",
+      "direction": "increase",
+      "transmission_channel": "模型公式内直接重算",
+      "direct_or_indirect": "direct",
+      "regional_context_indicator": [
+        "regional_unemployment_rate",
+        "regional_employment_rate",
+        "regional_gdp_per_capita"
+      ],
+      "project_context": false,
+      "event_context": true,
+      "confidence": "medium",
+      "limitations": "只改变该输入，其他基线变量保持不变。"
+    },
+    {
+      "transmission_id": "inflation_resurgence_unemployment_rate_context",
+      "scenario_id": "inflation_resurgence",
+      "shock_variable": "HICP 上升幅度",
+      "affected_indicator": "unemployment_rate",
+      "affected_model": "household_economic_pressure",
+      "direction": "conditional",
+      "transmission_channel": "事实结构背景，不进入本轮情景分数",
+      "direct_or_indirect": "contextual",
+      "regional_context_indicator": [],
+      "project_context": false,
+      "event_context": true,
+      "confidence": "low",
+      "limitations": "相关结构指标不等于直接冲击输入，也不证明因果影响。"
+    },
+    {
+      "transmission_id": "inflation_resurgence_regional_unemployment_rate_context",
+      "scenario_id": "inflation_resurgence",
+      "shock_variable": "HICP 上升幅度",
+      "affected_indicator": "regional_unemployment_rate",
+      "affected_model": "household_economic_pressure",
+      "direction": "conditional",
+      "transmission_channel": "事实结构背景，不进入本轮情景分数",
+      "direct_or_indirect": "contextual",
+      "regional_context_indicator": [
+        "regional_unemployment_rate"
+      ],
+      "project_context": false,
+      "event_context": true,
+      "confidence": "low",
+      "limitations": "相关结构指标不等于直接冲击输入，也不证明因果影响。"
+    },
+    {
+      "transmission_id": "inflation_resurgence_regional_employment_rate_context",
+      "scenario_id": "inflation_resurgence",
+      "shock_variable": "HICP 上升幅度",
+      "affected_indicator": "regional_employment_rate",
+      "affected_model": "household_economic_pressure",
+      "direction": "conditional",
+      "transmission_channel": "事实结构背景，不进入本轮情景分数",
+      "direct_or_indirect": "contextual",
+      "regional_context_indicator": [
+        "regional_employment_rate"
+      ],
+      "project_context": false,
+      "event_context": true,
+      "confidence": "low",
+      "limitations": "相关结构指标不等于直接冲击输入，也不证明因果影响。"
+    },
+    {
+      "transmission_id": "inflation_resurgence_regional_gdp_per_capita_context",
+      "scenario_id": "inflation_resurgence",
+      "shock_variable": "HICP 上升幅度",
+      "affected_indicator": "regional_gdp_per_capita",
+      "affected_model": "household_economic_pressure",
+      "direction": "conditional",
+      "transmission_channel": "事实结构背景，不进入本轮情景分数",
+      "direct_or_indirect": "contextual",
+      "regional_context_indicator": [
+        "regional_gdp_per_capita"
+      ],
+      "project_context": false,
+      "event_context": true,
+      "confidence": "low",
+      "limitations": "相关结构指标不等于直接冲击输入，也不证明因果影响。"
+    },
+    {
+      "transmission_id": "eu_funds_delay_fiscal_balance_gdp_direct",
+      "scenario_id": "eu_funds_delay",
+      "shock_variable": "财政余额恶化幅度",
+      "affected_indicator": "fiscal_balance_gdp",
+      "affected_model": "fiscal_pressure",
+      "direction": "decrease",
+      "transmission_channel": "模型公式内直接重算",
+      "direct_or_indirect": "direct",
+      "regional_context_indicator": [
+        "regional_gdp_per_capita",
+        "regional_population"
+      ],
+      "project_context": false,
+      "event_context": true,
+      "confidence": "low",
+      "limitations": "只改变该输入，其他基线变量保持不变。"
+    },
+    {
+      "transmission_id": "eu_funds_delay_government_expenditure_gdp_context",
+      "scenario_id": "eu_funds_delay",
+      "shock_variable": "财政余额恶化幅度",
+      "affected_indicator": "government_expenditure_gdp",
+      "affected_model": "fiscal_pressure",
+      "direction": "conditional",
+      "transmission_channel": "事实结构背景，不进入本轮情景分数",
+      "direct_or_indirect": "contextual",
+      "regional_context_indicator": [],
+      "project_context": false,
+      "event_context": true,
+      "confidence": "low",
+      "limitations": "相关结构指标不等于直接冲击输入，也不证明因果影响。"
+    },
+    {
+      "transmission_id": "eu_funds_delay_regional_gdp_per_capita_context",
+      "scenario_id": "eu_funds_delay",
+      "shock_variable": "财政余额恶化幅度",
+      "affected_indicator": "regional_gdp_per_capita",
+      "affected_model": "fiscal_pressure",
+      "direction": "conditional",
+      "transmission_channel": "事实结构背景，不进入本轮情景分数",
+      "direct_or_indirect": "contextual",
+      "regional_context_indicator": [
+        "regional_gdp_per_capita"
+      ],
+      "project_context": false,
+      "event_context": true,
+      "confidence": "low",
+      "limitations": "相关结构指标不等于直接冲击输入，也不证明因果影响。"
+    },
+    {
+      "transmission_id": "eu_funds_delay_regional_population_context",
+      "scenario_id": "eu_funds_delay",
+      "shock_variable": "财政余额恶化幅度",
+      "affected_indicator": "regional_population",
+      "affected_model": "fiscal_pressure",
+      "direction": "conditional",
+      "transmission_channel": "事实结构背景，不进入本轮情景分数",
+      "direct_or_indirect": "contextual",
+      "regional_context_indicator": [
+        "regional_population"
+      ],
+      "project_context": false,
+      "event_context": true,
+      "confidence": "low",
+      "limitations": "相关结构指标不等于直接冲击输入，也不证明因果影响。"
+    },
+    {
+      "transmission_id": "energy_price_shock_industrial_electricity_price_direct",
+      "scenario_id": "energy_price_shock",
+      "shock_variable": "能源价格上涨幅度",
+      "affected_indicator": "industrial_electricity_price",
+      "affected_model": "industrial_dependency",
+      "direction": "increase",
+      "transmission_channel": "模型公式内直接重算",
+      "direct_or_indirect": "direct",
+      "regional_context_indicator": [
+        "regional_manufacturing_share"
+      ],
+      "project_context": false,
+      "event_context": true,
+      "confidence": "low",
+      "limitations": "只改变该输入，其他基线变量保持不变。"
+    },
+    {
+      "transmission_id": "energy_price_shock_household_electricity_price_direct",
+      "scenario_id": "energy_price_shock",
+      "shock_variable": "能源价格上涨幅度",
+      "affected_indicator": "household_electricity_price",
+      "affected_model": "industrial_dependency",
+      "direction": "increase",
+      "transmission_channel": "直接变量已登记，但当前模型没有对应合法输入时不重算",
+      "direct_or_indirect": "direct",
+      "regional_context_indicator": [
+        "regional_manufacturing_share"
+      ],
+      "project_context": false,
+      "event_context": true,
+      "confidence": "low",
+      "limitations": "当前缺少可直接重算的模型输入，不生成数值影响。"
+    },
+    {
+      "transmission_id": "energy_price_shock_energy_inflation_direct",
+      "scenario_id": "energy_price_shock",
+      "shock_variable": "能源价格上涨幅度",
+      "affected_indicator": "energy_inflation",
+      "affected_model": "industrial_dependency",
+      "direction": "increase",
+      "transmission_channel": "直接变量已登记，但当前模型没有对应合法输入时不重算",
+      "direct_or_indirect": "direct",
+      "regional_context_indicator": [
+        "regional_manufacturing_share"
+      ],
+      "project_context": false,
+      "event_context": true,
+      "confidence": "low",
+      "limitations": "当前缺少可直接重算的模型输入，不生成数值影响。"
+    },
+    {
+      "transmission_id": "energy_price_shock_energy_import_dependency_context",
+      "scenario_id": "energy_price_shock",
+      "shock_variable": "能源价格上涨幅度",
+      "affected_indicator": "energy_import_dependency",
+      "affected_model": "industrial_dependency",
+      "direction": "conditional",
+      "transmission_channel": "事实结构背景，不进入本轮情景分数",
+      "direct_or_indirect": "contextual",
+      "regional_context_indicator": [],
+      "project_context": true,
+      "event_context": true,
+      "confidence": "low",
+      "limitations": "相关结构指标不等于直接冲击输入，也不证明因果影响。"
+    },
+    {
+      "transmission_id": "energy_price_shock_manufacturing_share_gdp_context",
+      "scenario_id": "energy_price_shock",
+      "shock_variable": "能源价格上涨幅度",
+      "affected_indicator": "manufacturing_share_gdp",
+      "affected_model": "industrial_dependency",
+      "direction": "conditional",
+      "transmission_channel": "事实结构背景，不进入本轮情景分数",
+      "direct_or_indirect": "contextual",
+      "regional_context_indicator": [],
+      "project_context": true,
+      "event_context": true,
+      "confidence": "low",
+      "limitations": "相关结构指标不等于直接冲击输入，也不证明因果影响。"
+    },
+    {
+      "transmission_id": "energy_price_shock_regional_manufacturing_share_context",
+      "scenario_id": "energy_price_shock",
+      "shock_variable": "能源价格上涨幅度",
+      "affected_indicator": "regional_manufacturing_share",
+      "affected_model": "industrial_dependency",
+      "direction": "conditional",
+      "transmission_channel": "事实结构背景，不进入本轮情景分数",
+      "direct_or_indirect": "contextual",
+      "regional_context_indicator": [
+        "regional_manufacturing_share"
+      ],
+      "project_context": true,
+      "event_context": true,
+      "confidence": "low",
+      "limitations": "相关结构指标不等于直接冲击输入，也不证明因果影响。"
+    },
+    {
+      "transmission_id": "germany_demand_slowdown_germany_export_dependence_direct",
+      "scenario_id": "germany_demand_slowdown",
+      "shock_variable": "德国进口需求变化",
+      "affected_indicator": "germany_export_dependence",
+      "affected_model": "industrial_dependency",
+      "direction": "decrease",
+      "transmission_channel": "模型公式内直接重算",
+      "direct_or_indirect": "direct",
+      "regional_context_indicator": [
+        "regional_manufacturing_share",
+        "regional_employment_rate",
+        "regional_unemployment_rate"
+      ],
+      "project_context": false,
+      "event_context": true,
+      "confidence": "low",
+      "limitations": "只改变该输入，其他基线变量保持不变。"
+    },
+    {
+      "transmission_id": "germany_demand_slowdown_automotive_export_share_context",
+      "scenario_id": "germany_demand_slowdown",
+      "shock_variable": "德国进口需求变化",
+      "affected_indicator": "automotive_export_share",
+      "affected_model": "industrial_dependency",
+      "direction": "conditional",
+      "transmission_channel": "事实结构背景，不进入本轮情景分数",
+      "direct_or_indirect": "contextual",
+      "regional_context_indicator": [],
+      "project_context": true,
+      "event_context": true,
+      "confidence": "low",
+      "limitations": "相关结构指标不等于直接冲击输入，也不证明因果影响。"
+    },
+    {
+      "transmission_id": "germany_demand_slowdown_manufacturing_share_gdp_context",
+      "scenario_id": "germany_demand_slowdown",
+      "shock_variable": "德国进口需求变化",
+      "affected_indicator": "manufacturing_share_gdp",
+      "affected_model": "industrial_dependency",
+      "direction": "conditional",
+      "transmission_channel": "事实结构背景，不进入本轮情景分数",
+      "direct_or_indirect": "contextual",
+      "regional_context_indicator": [],
+      "project_context": true,
+      "event_context": true,
+      "confidence": "low",
+      "limitations": "相关结构指标不等于直接冲击输入，也不证明因果影响。"
+    },
+    {
+      "transmission_id": "germany_demand_slowdown_regional_manufacturing_share_context",
+      "scenario_id": "germany_demand_slowdown",
+      "shock_variable": "德国进口需求变化",
+      "affected_indicator": "regional_manufacturing_share",
+      "affected_model": "industrial_dependency",
+      "direction": "conditional",
+      "transmission_channel": "事实结构背景，不进入本轮情景分数",
+      "direct_or_indirect": "contextual",
+      "regional_context_indicator": [
+        "regional_manufacturing_share"
+      ],
+      "project_context": true,
+      "event_context": true,
+      "confidence": "low",
+      "limitations": "相关结构指标不等于直接冲击输入，也不证明因果影响。"
+    },
+    {
+      "transmission_id": "germany_demand_slowdown_regional_employment_rate_context",
+      "scenario_id": "germany_demand_slowdown",
+      "shock_variable": "德国进口需求变化",
+      "affected_indicator": "regional_employment_rate",
+      "affected_model": "industrial_dependency",
+      "direction": "conditional",
+      "transmission_channel": "事实结构背景，不进入本轮情景分数",
+      "direct_or_indirect": "contextual",
+      "regional_context_indicator": [
+        "regional_employment_rate"
+      ],
+      "project_context": true,
+      "event_context": true,
+      "confidence": "low",
+      "limitations": "相关结构指标不等于直接冲击输入，也不证明因果影响。"
+    },
+    {
+      "transmission_id": "germany_demand_slowdown_regional_unemployment_rate_context",
+      "scenario_id": "germany_demand_slowdown",
+      "shock_variable": "德国进口需求变化",
+      "affected_indicator": "regional_unemployment_rate",
+      "affected_model": "industrial_dependency",
+      "direction": "conditional",
+      "transmission_channel": "事实结构背景，不进入本轮情景分数",
+      "direct_or_indirect": "contextual",
+      "regional_context_indicator": [
+        "regional_unemployment_rate"
+      ],
+      "project_context": true,
+      "event_context": true,
+      "confidence": "low",
+      "limitations": "相关结构指标不等于直接冲击输入，也不证明因果影响。"
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
 import { getEventsForCountry, getResearchIndicator, researchCountries } from "@/lib/researchData";
-import { countryMetadataRecords, researchDataLayerFiles, spatialAuditExportFiles } from "@/lib/countryMetadata";
+import { countryMetadataRecords, researchDataLayerFiles, scenarioExportFiles, spatialAuditExportFiles } from "@/lib/countryMetadata";
 import { regionMetadataRecords } from "@/lib/regions";
 import { regionBoundaryRecords } from "@/lib/regionBoundaries";
 import { regionIndicatorRecords } from "@/lib/regionIndicators";
@@ -2889,7 +2889,7 @@ function ResearchDataExportLinks() {
   const exportStatusCards = [
     { label: "CSV 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .csv 文件。" },
     { label: "JSON 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: platformStatus.version, note: "v0.87 完成十国 Display Gate Audit，并按国家、按图层开放通过验收的多国事实地图；国家级模型保持不变。" },
+    { label: "当前阶段", value: platformStatus.version, note: "v0.90 新增情景传导、结果、证据、敏感性和回测准备导出；17 个核心逻辑数据层保持不变。" },
   ];
 
   return (
@@ -2918,6 +2918,20 @@ function ResearchDataExportLinks() {
             </div>
           </article>
         ))}
+      </div>
+      <div className="mt-6 border-t border-[var(--line)] pt-5">
+        <p className="eyebrow">Scenario Export Views</p>
+        <h3 className="mt-2 text-xl font-semibold">v0.90 情景与传导导出</h3>
+        <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">这些文件是现有模型、情景、区域与证据层的可复现分析视图，不构成第 18 个核心逻辑数据层。</p>
+        <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+          {scenarioExportFiles.map((layer) => (
+            <article key={layer.id} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+              <p className="font-mono text-xs font-semibold text-[var(--accent)]">{layer.label}</p>
+              <p className="mt-2 min-h-[3rem] text-xs leading-5 text-[var(--muted)]">{layer.description}</p>
+              <div className="mt-3 flex flex-wrap gap-2"><a href={`${basePath}/research-data/${layer.id}.json`} className="rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs font-semibold text-[var(--accent)]">JSON</a><a href={`${basePath}/research-data/${layer.id}.csv`} className="rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs font-semibold text-[var(--accent)]">CSV</a></div>
+            </article>
+          ))}
+        </div>
       </div>
       <div className="mt-6 border-t border-[var(--line)] pt-5">
         <p className="eyebrow">Spatial Audit Export Views</p>

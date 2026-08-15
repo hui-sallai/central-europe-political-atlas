@@ -1,11 +1,16 @@
 import type { ModelInputDefinition } from "@/types/ModelOutput";
 import type {
   ScenarioCalculationContext,
+  ScenarioBacktestRecord,
+  ScenarioConfidenceDecomposition,
   ScenarioDefinition,
   ScenarioResult,
+  TransmissionChannel,
 } from "@/types/Scenario";
 
-const SCENARIO_CALCULATION_DATE = "2026-08-12";
+const SCENARIO_CALCULATION_DATE = "2026-08-15";
+const SCENARIO_CALCULATION_TIMESTAMP = "2026-08-15T00:00:00Z";
+const SCENARIO_FORMULA_VERSION = "v0.90.0";
 const EU_COUNTRIES = ["poland", "hungary", "czechia", "slovakia", "germany", "austria", "romania", "slovenia", "croatia"];
 
 export const scenarioDefinitions: ScenarioDefinition[] = [
@@ -27,6 +32,10 @@ export const scenarioDefinitions: ScenarioDefinition[] = [
     default_shock_value: 2,
     shock_multiplier: 1,
     shock_operation: "additive",
+    purpose: "检验给定 HICP 增量在既有居民经济压力模型中的确定性响应。",
+    direct_variables: ["hicp_inflation"],
+    contextual_variables: ["unemployment_rate", "regional_unemployment_rate", "regional_employment_rate", "regional_gdp_per_capita"],
+    assumptions: ["冲击以百分点加到 HICP 基线。", "失业率与其他模型输入保持不变。", "区域指标只作结构背景。"],
     transmission_chain: ["基线 HICP", "通胀冲击假设", "调整后 HICP", "居民经济压力模型重算", "情景差值"],
     confidence: "medium",
     calculation_status: "available",
@@ -54,6 +63,10 @@ export const scenarioDefinitions: ScenarioDefinition[] = [
     default_shock_value: 1,
     shock_multiplier: -1,
     shock_operation: "additive",
+    purpose: "检验用户给定财政余额恶化幅度对既有财政压力模型的条件式影响。",
+    direct_variables: ["fiscal_balance_gdp"],
+    contextual_variables: ["government_expenditure_gdp", "regional_gdp_per_capita", "regional_population"],
+    assumptions: ["财政恶化幅度由用户直接设定，不估计欧盟拨款弹性。", "债务率和融资成本保持不变。", "没有统一地区凝聚资金数据时不推算区域财政影响。"],
     transmission_chain: ["基线财政余额/GDP", "欧盟资金延迟假设", "财政余额恶化幅度", "财政压力模型重算", "情景差值"],
     confidence: "low",
     calculation_status: "available",
@@ -81,6 +94,10 @@ export const scenarioDefinitions: ScenarioDefinition[] = [
     default_shock_value: 20,
     shock_multiplier: 1,
     shock_operation: "proportional",
+    purpose: "区分直接能源价格输入与制造业、进口依赖等结构背景，并仅在合法模型输入上重算。",
+    direct_variables: ["industrial_electricity_price", "household_electricity_price", "energy_inflation"],
+    contextual_variables: ["energy_import_dependency", "manufacturing_share_gdp", "regional_manufacturing_share"],
+    assumptions: ["当前只重算产业模型中的工业电价输入。", "居民电价和能源通胀只在有对应模型输入时才能重算。", "能源进口依赖不等同于能源价格。"],
     transmission_chain: ["工业电价基线", "能源价格涨幅假设", "调整后工业电价", "产业依赖模型重算", "情景差值"],
     confidence: "low",
     calculation_status: "available",
@@ -102,12 +119,16 @@ export const scenarioDefinitions: ScenarioDefinition[] = [
     adjusted_indicator_id: "germany_export_dependence",
     shock_label: "德国进口需求变化",
     shock_unit: "%",
-    shock_min: -15,
+    shock_min: -20,
     shock_max: 0,
     shock_step: 1,
     default_shock_value: -5,
     shock_multiplier: 1,
     shock_operation: "adverse_proportional",
+    purpose: "检验对德国出口依赖这一直接暴露输入在给定需求降幅下的确定性模型响应。",
+    direct_variables: ["germany_export_dependence"],
+    contextual_variables: ["automotive_export_share", "manufacturing_share_gdp", "regional_manufacturing_share", "regional_employment_rate", "regional_unemployment_rate"],
+    assumptions: ["需求降幅只转换为对德出口暴露的算术压力增量。", "不估计贸易弹性、替代市场或 GDP 损失。", "区域制造业排序只表示结构集中度。"],
     transmission_chain: ["对德国出口依赖基线", "德国需求降幅假设", "压力调整后德国暴露", "产业依赖模型重算", "情景差值"],
     confidence: "low",
     calculation_status: "available",
@@ -116,6 +137,62 @@ export const scenarioDefinitions: ScenarioDefinition[] = [
       "对德国出口依赖来自双边货物出口占比，不以总出口规模替代。",
       "压力暴露增量是公开的算术假设，不是估计的贸易弹性、产出损失或 GDP 预测。",
     ],
+  },
+];
+
+export const transmissionChannels: TransmissionChannel[] = scenarioDefinitions.flatMap((scenario) => [
+  ...scenario.direct_variables.map((indicator) => ({
+    transmission_id: `${scenario.scenario_id}_${indicator}_direct`,
+    scenario_id: scenario.scenario_id,
+    shock_variable: scenario.shock_label,
+    affected_indicator: indicator,
+    affected_model: scenario.reference_model_id,
+    direction: scenario.scenario_id === "germany_demand_slowdown" || scenario.scenario_id === "eu_funds_delay" ? "decrease" as const : "increase" as const,
+    transmission_channel: indicator === scenario.adjusted_indicator_id ? "模型公式内直接重算" : "直接变量已登记，但当前模型没有对应合法输入时不重算",
+    direct_or_indirect: "direct" as const,
+    regional_context_indicator: scenario.contextual_variables.filter((item) => item.startsWith("regional_")),
+    project_context: false,
+    event_context: true,
+    confidence: indicator === scenario.adjusted_indicator_id ? scenario.confidence : "low" as const,
+    limitations: indicator === scenario.adjusted_indicator_id ? "只改变该输入，其他基线变量保持不变。" : "当前缺少可直接重算的模型输入，不生成数值影响。",
+  })),
+  ...scenario.contextual_variables.map((indicator) => ({
+    transmission_id: `${scenario.scenario_id}_${indicator}_context`,
+    scenario_id: scenario.scenario_id,
+    shock_variable: scenario.shock_label,
+    affected_indicator: indicator,
+    affected_model: scenario.reference_model_id,
+    direction: "conditional" as const,
+    transmission_channel: "事实结构背景，不进入本轮情景分数",
+    direct_or_indirect: "contextual" as const,
+    regional_context_indicator: indicator.startsWith("regional_") ? [indicator] : [],
+    project_context: scenario.scenario_id === "energy_price_shock" || scenario.scenario_id === "germany_demand_slowdown",
+    event_context: true,
+    confidence: "low" as const,
+    limitations: "相关结构指标不等于直接冲击输入，也不证明因果影响。",
+  })),
+]);
+
+export const scenarioBacktestRegistry: ScenarioBacktestRecord[] = [
+  {
+    scenario_id: "inflation_resurgence",
+    historical_period: "2021–2024",
+    baseline_date: "待选择",
+    shock_definition: "历史 HICP 增量与后续居民压力输入的方向比较",
+    observed_outcome: "待建立可比历史模型输出",
+    comparable_indicator: "hicp_inflation / unemployment_rate",
+    evaluation_status: "structure_only",
+    notes: "现有国家观测可用于准备，但缺少按当时可得信息重建的历史模型输出，暂不报告准确率。",
+  },
+  {
+    scenario_id: "energy_price_shock",
+    historical_period: "2023–2024",
+    baseline_date: "待选择",
+    shock_definition: "工业电价变化与产业模型方向响应的探索性比较",
+    observed_outcome: "待建立可比历史模型输出",
+    comparable_indicator: "industrial_electricity_price",
+    evaluation_status: "structure_only",
+    notes: "两年电价输入不足以支持稳健回测，本轮只登记结构。",
   },
 ];
 
@@ -141,7 +218,42 @@ function normalize(value: number, input: ModelInputDefinition) {
   return clamp(invert ? 100 - linear : linear);
 }
 
-export function calculateScenario({ definition, countrySlug, shockValue, cards, outputs }: ScenarioCalculationContext): ScenarioResult {
+function confidenceLabel(value: number): ScenarioConfidenceDecomposition["label"] {
+  if (value >= 85) return "high";
+  if (value >= 60) return "medium";
+  if (value > 0) return "low";
+  return "not_available";
+}
+
+function confidenceDecomposition(
+  definition: ScenarioDefinition,
+  baseline: ScenarioCalculationContext["outputs"][number] | undefined,
+  regionalContextCoverage = 0,
+  evidenceQuality = 0,
+): ScenarioConfidenceDecomposition {
+  const directAvailable = baseline?.inputs.filter((input) => definition.direct_variables.includes(input.indicator_id)).length ?? 0;
+  const directCoverage = definition.direct_variables.length ? Math.round((directAvailable / definition.direct_variables.length) * 100) : 0;
+  const modelEligibility = baseline?.availability === "sufficient" ? 100 : baseline?.availability === "partial" ? 75 : 0;
+  const baselineCompleteness = baseline?.data_completeness ?? 0;
+  const aggregate = Math.round(
+    baselineCompleteness * 0.35
+    + modelEligibility * 0.25
+    + directCoverage * 0.2
+    + regionalContextCoverage * 0.1
+    + evidenceQuality * 0.1,
+  );
+  return {
+    baseline_data_completeness: baselineCompleteness,
+    model_eligibility: modelEligibility,
+    direct_transmission_coverage: directCoverage,
+    regional_context_coverage: regionalContextCoverage,
+    project_event_evidence_quality: evidenceQuality,
+    aggregate,
+    label: confidenceLabel(aggregate),
+  };
+}
+
+export function calculateScenario({ definition, countrySlug, shockValue, cards, outputs, regionalContextCoverage = 0, evidenceQuality = 0 }: ScenarioCalculationContext): ScenarioResult {
   const card = cards.find((candidate) => candidate.model_id === definition.reference_model_id);
   const baseline = outputs.find((candidate) => candidate.country_slug === countrySlug && candidate.model_id === definition.reference_model_id);
   const common = {
@@ -149,8 +261,14 @@ export function calculateScenario({ definition, countrySlug, shockValue, cards, 
     country_slug: countrySlug,
     model_id: definition.reference_model_id,
     model_name: card?.name_zh ?? definition.reference_model_id,
+    shock_value: Math.min(definition.shock_max, Math.max(definition.shock_min, shockValue)),
     baseline_score: baseline?.score ?? null,
+    confidence_decomposition: confidenceDecomposition(definition, baseline, regionalContextCoverage, evidenceQuality),
+    baseline_date: baseline?.input_year ? String(baseline.input_year) : null,
+    model_version: baseline?.model_version ?? null,
+    formula_version: SCENARIO_FORMULA_VERSION,
     calculation_date: SCENARIO_CALCULATION_DATE,
+    calculation_timestamp: SCENARIO_CALCULATION_TIMESTAMP,
     input_observation_ids: baseline?.input_observation_ids ?? [],
     transmission_chain: definition.transmission_chain,
     limitations: definition.limitations,
@@ -247,4 +365,11 @@ export function calculateScenario({ definition, countrySlug, shockValue, cards, 
     },
     unavailable_reason: null,
   };
+}
+
+export function getSensitivityShockValues(definition: ScenarioDefinition) {
+  if (definition.scenario_id === "inflation_resurgence") return [1, 2, 3, 4, 5];
+  if (definition.scenario_id === "energy_price_shock") return [10, 20, 30, 40, 50];
+  if (definition.scenario_id === "germany_demand_slowdown") return [-2, -5, -10, -15, -20];
+  return [0.5, 1, 1.5, 2, 3];
 }

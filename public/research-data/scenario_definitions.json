@@ -1,0 +1,234 @@
+{
+  "schema_version": "transmission-scenario-analysis-v0.90",
+  "generated_at": "2026-08-15",
+  "data_type": "scenario_definitions",
+  "record_count": 4,
+  "relation_note": "Scenario values remain separate from canonical observations and preserve baseline, shock, model, formula, evidence, and limitation records.",
+  "model_boundary": "Deterministic conditional analysis only. No probability, forecast, causal claim, combined future-risk score, or regional scenario score.",
+  "records": [
+    {
+      "scenario_id": "inflation_resurgence",
+      "name": "Inflation Resurgence",
+      "name_zh": "通胀回升",
+      "description": "在不改写原始 HICP 观测值的前提下，假设通胀率上升若干个百分点，并按居民经济压力模型既有权重重算。",
+      "affected_country_slugs": "all",
+      "affected_indicators": [
+        "hicp_inflation"
+      ],
+      "affected_models": [
+        "Household Economic Pressure Index"
+      ],
+      "reference_model_id": "household_economic_pressure",
+      "adjusted_indicator_id": "hicp_inflation",
+      "shock_label": "HICP 上升幅度",
+      "shock_unit": "个百分点",
+      "shock_min": 0,
+      "shock_max": 5,
+      "shock_step": 0.5,
+      "default_shock_value": 2,
+      "shock_multiplier": 1,
+      "shock_operation": "additive",
+      "purpose": "检验给定 HICP 增量在既有居民经济压力模型中的确定性响应。",
+      "direct_variables": [
+        "hicp_inflation"
+      ],
+      "contextual_variables": [
+        "unemployment_rate",
+        "regional_unemployment_rate",
+        "regional_employment_rate",
+        "regional_gdp_per_capita"
+      ],
+      "assumptions": [
+        "冲击以百分点加到 HICP 基线。",
+        "失业率与其他模型输入保持不变。",
+        "区域指标只作结构背景。"
+      ],
+      "transmission_chain": [
+        "基线 HICP",
+        "通胀冲击假设",
+        "调整后 HICP",
+        "居民经济压力模型重算",
+        "情景差值"
+      ],
+      "confidence": "medium",
+      "calculation_status": "available",
+      "unavailable_reason": null,
+      "limitations": [
+        "冲击幅度由用户设定，不是平台对未来通胀的预测。",
+        "模型暂未纳入实际工资、住房成本和居民能源账单。"
+      ]
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "name": "EU Funds Delay / Suspension",
+      "name_zh": "欧盟资金延迟或暂停",
+      "description": "把用户设定的财政余额恶化幅度作为明确假设，作用于财政余额/GDP，再按现有财政压力模型重算。",
+      "affected_country_slugs": [
+        "poland",
+        "hungary",
+        "czechia",
+        "slovakia",
+        "germany",
+        "austria",
+        "romania",
+        "slovenia",
+        "croatia"
+      ],
+      "affected_indicators": [
+        "fiscal_balance_gdp",
+        "eu_funds_received"
+      ],
+      "affected_models": [
+        "Fiscal Pressure Index"
+      ],
+      "reference_model_id": "fiscal_pressure",
+      "adjusted_indicator_id": "fiscal_balance_gdp",
+      "shock_label": "财政余额恶化幅度",
+      "shock_unit": "% GDP",
+      "shock_min": 0,
+      "shock_max": 3,
+      "shock_step": 0.25,
+      "default_shock_value": 1,
+      "shock_multiplier": -1,
+      "shock_operation": "additive",
+      "purpose": "检验用户给定财政余额恶化幅度对既有财政压力模型的条件式影响。",
+      "direct_variables": [
+        "fiscal_balance_gdp"
+      ],
+      "contextual_variables": [
+        "government_expenditure_gdp",
+        "regional_gdp_per_capita",
+        "regional_population"
+      ],
+      "assumptions": [
+        "财政恶化幅度由用户直接设定，不估计欧盟拨款弹性。",
+        "债务率和融资成本保持不变。",
+        "没有统一地区凝聚资金数据时不推算区域财政影响。"
+      ],
+      "transmission_chain": [
+        "基线财政余额/GDP",
+        "欧盟资金延迟假设",
+        "财政余额恶化幅度",
+        "财政压力模型重算",
+        "情景差值"
+      ],
+      "confidence": "low",
+      "calculation_status": "available",
+      "unavailable_reason": null,
+      "limitations": [
+        "平台没有估计欧盟资金延迟与财政余额之间的经验系数；财政余额变化完全由用户设定。",
+        "该情景不改变债务、融资成本或实际拨款观测值。"
+      ]
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "name": "Energy Price Shock",
+      "name_zh": "能源价格冲击",
+      "description": "按用户设定的工业电价涨幅调整合格基线输入，并重算产业依赖指数；不以能源进口依赖替代价格。",
+      "affected_country_slugs": "all",
+      "affected_indicators": [
+        "energy_inflation",
+        "household_electricity_price",
+        "industrial_electricity_price"
+      ],
+      "affected_models": [
+        "Industrial Dependency Index"
+      ],
+      "reference_model_id": "industrial_dependency",
+      "adjusted_indicator_id": "industrial_electricity_price",
+      "shock_label": "能源价格上涨幅度",
+      "shock_unit": "%",
+      "shock_min": 0,
+      "shock_max": 50,
+      "shock_step": 5,
+      "default_shock_value": 20,
+      "shock_multiplier": 1,
+      "shock_operation": "proportional",
+      "purpose": "区分直接能源价格输入与制造业、进口依赖等结构背景，并仅在合法模型输入上重算。",
+      "direct_variables": [
+        "industrial_electricity_price",
+        "household_electricity_price",
+        "energy_inflation"
+      ],
+      "contextual_variables": [
+        "energy_import_dependency",
+        "manufacturing_share_gdp",
+        "regional_manufacturing_share"
+      ],
+      "assumptions": [
+        "当前只重算产业模型中的工业电价输入。",
+        "居民电价和能源通胀只在有对应模型输入时才能重算。",
+        "能源进口依赖不等同于能源价格。"
+      ],
+      "transmission_chain": [
+        "工业电价基线",
+        "能源价格涨幅假设",
+        "调整后工业电价",
+        "产业依赖模型重算",
+        "情景差值"
+      ],
+      "confidence": "low",
+      "calculation_status": "available",
+      "unavailable_reason": null,
+      "limitations": [
+        "能源进口依赖是结构指标，未被当作能源价格输入。",
+        "该情景只调整工业电价，不估计企业对冲、补贴、合同期限或向终端价格的传导。"
+      ]
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "name": "Germany Demand Slowdown",
+      "name_zh": "德国需求放缓",
+      "description": "以对德国货物出口依赖为暴露基线，把用户设定的德国需求降幅转换为压力暴露增量，再重算产业依赖指数。",
+      "affected_country_slugs": "all",
+      "affected_indicators": [
+        "germany_export_dependence",
+        "automotive_export_share",
+        "manufacturing_share_gdp"
+      ],
+      "affected_models": [
+        "Industrial Dependency Index"
+      ],
+      "reference_model_id": "industrial_dependency",
+      "adjusted_indicator_id": "germany_export_dependence",
+      "shock_label": "德国进口需求变化",
+      "shock_unit": "%",
+      "shock_min": -20,
+      "shock_max": 0,
+      "shock_step": 1,
+      "default_shock_value": -5,
+      "shock_multiplier": 1,
+      "shock_operation": "adverse_proportional",
+      "purpose": "检验对德国出口依赖这一直接暴露输入在给定需求降幅下的确定性模型响应。",
+      "direct_variables": [
+        "germany_export_dependence"
+      ],
+      "contextual_variables": [
+        "automotive_export_share",
+        "manufacturing_share_gdp",
+        "regional_manufacturing_share",
+        "regional_employment_rate",
+        "regional_unemployment_rate"
+      ],
+      "assumptions": [
+        "需求降幅只转换为对德出口暴露的算术压力增量。",
+        "不估计贸易弹性、替代市场或 GDP 损失。",
+        "区域制造业排序只表示结构集中度。"
+      ],
+      "transmission_chain": [
+        "对德国出口依赖基线",
+        "德国需求降幅假设",
+        "压力调整后德国暴露",
+        "产业依赖模型重算",
+        "情景差值"
+      ],
+      "confidence": "low",
+      "calculation_status": "available",
+      "unavailable_reason": null,
+      "limitations": [
+        "对德国出口依赖来自双边货物出口占比，不以总出口规模替代。",
+        "压力暴露增量是公开的算术假设，不是估计的贸易弹性、产出损失或 GDP 预测。"
+      ]
+    }
+  ]
+}

@@ -360,3 +360,12 @@ export const spatialAuditExportFiles = [
   { id: "regional_boundary_continuity", label: "regional_boundary_continuity", description: "历史观测到当前区域代码的连续性记录及其限制。" },
   { id: "comparison_eligibility", label: "comparison_eligibility", description: "逐国逐指标的年份、单位、层级和跨国比较资格。" },
 ];
+
+export const scenarioExportFiles = [
+  { id: "scenario_definitions", label: "scenario_definitions", description: "情景参数、范围、直接变量、背景变量、假设与限制。" },
+  { id: "transmission_channels", label: "transmission_channels", description: "Shock → Variable → Model → Context 的透明传导记录，不是新分数。" },
+  { id: "scenario_results", label: "scenario_results", description: "默认参数下可复现的十国基线、情景与差值。" },
+  { id: "scenario_evidence_links", label: "scenario_evidence_links", description: "情景到已核验事件和项目的证据关系；不进入分数。" },
+  { id: "scenario_sensitivity", label: "scenario_sensitivity", description: "固定公式下的参数响应表，不是预测概率。" },
+  { id: "backtest_registry", label: "backtest_registry", description: "历史回测准备结构；证据不足时保持 structure_only。" },
+];

@@ -12,7 +12,8 @@ import { getCountryMetadata } from "@/lib/countryMetadata";
 import type { Country } from "@/lib/data";
 import { getChinaProjectRecords, getExtendedObservationCoverage } from "@/lib/extendedData";
 import { getEventsForCountry } from "@/lib/researchData";
-import { getModelCard, getModelOutputsForCountry } from "@/lib/modelFramework";
+import { getModelCard, getModelOutputsForCountry, modelCards } from "@/lib/modelFramework";
+import { calculateScenario, scenarioDefinitions } from "@/lib/scenarioFramework";
 import { getChinaExposureOutput } from "@/lib/chinaExposureModel";
 import { getTransmissionObservations } from "@/lib/transmissionData";
 import { getCountryParitySummary, coverageMatrix } from "@/lib/dataParityQa";
@@ -44,6 +45,16 @@ export function CountryDetailModeTabs({ country, regionalCoverage }: { country: 
   const projectRecords = getChinaProjectRecords(country.slug);
   const eventRecords = getEventsForCountry(country.slug);
   const modelOutputs = getModelOutputsForCountry(country.slug);
+  const scenarioSensitivity = scenarioDefinitions.map((definition) => ({
+    definition,
+    result: calculateScenario({
+      definition,
+      countrySlug: country.slug,
+      shockValue: definition.default_shock_value,
+      cards: modelCards,
+      outputs: modelOutputs,
+    }),
+  }));
   const chinaExposure = getChinaExposureOutput(country.slug);
   const codedEventCount = eventRecords.filter((event) => event.coding_status === "coded" && event.data_status === "verified").length;
   const projectLinkedEventCount = eventRecords.filter((event) => event.related_project_ids.length > 0).length;
@@ -173,6 +184,23 @@ export function CountryDetailModeTabs({ country, regionalCoverage }: { country: 
             {paritySummary?.priorityGaps.length ? paritySummary.priorityGaps.join("；") : "当前没有高优先级缺口。"}
           </p>
         </div>
+      </section>
+
+      <section className="mt-4 card p-6">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div><p className="eyebrow">Scenario Sensitivity</p><h2 className="mt-3 text-2xl font-semibold">该国可运行的条件式情景</h2></div>
+          <Link href={`/scenarios?country=${country.slug}`} className="text-sm font-semibold text-[var(--accent)] hover:underline">进入完整 Scenario Workspace</Link>
+        </div>
+        <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+          {scenarioSensitivity.map(({ definition, result }) => (
+            <Link key={definition.scenario_id} href={`/scenarios?scenario=${definition.scenario_id}&country=${country.slug}&shock=${definition.default_shock_value}`} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4 hover:border-[var(--accent)]">
+              <p className="font-semibold">{definition.name_zh}</p>
+              <p className="mt-2 text-xs text-[var(--muted)]">default {definition.default_shock_value} {definition.shock_unit}</p>
+              <p className="mt-3 text-sm font-semibold text-[var(--accent)]">{result.status === "available" ? `Change ${result.score_change !== null && result.score_change > 0 ? "+" : ""}${result.score_change?.toFixed(1)}` : "unavailable"}</p>
+            </Link>
+          ))}
+        </div>
+        <p className="mt-4 text-xs leading-5 text-[var(--muted)]">只显示国家级模型是否可重算。区域资料缺失只隐藏 structural context，不绕过模型准入，也不生成区域情景分数。</p>
       </section>
 
       <section className="mt-4 card p-6">

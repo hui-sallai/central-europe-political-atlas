@@ -95,6 +95,7 @@ const { transmissionIndicators, transmissionObservations } = require("../src/lib
 const { getV4DataQualitySummary, v4QualityCountrySlugs } = require("../src/lib/v4DataQuality.ts");
 const { verifyChinaProject } = require("../src/lib/chinaProjectVerification.ts");
 const { modelCards, modelOutputs } = require("../src/lib/modelFramework.ts");
+const { scenarioExportLayers } = require("../src/lib/scenarioResearch.ts");
 const {
   chinaExposureModelCard,
   chinaExposureOutputs,
@@ -1966,6 +1967,14 @@ writeLayer("model_outputs", modelOutputs, {
   relation_note: "Every published score retains input_observation_ids and complete input traces.",
   model_boundary: "Scores are comparative analytical tools, not objective risk truths, predictions, or policy ratings.",
 });
+for (const [layerId, records] of Object.entries(scenarioExportLayers)) {
+  writeLayer(layerId, records, {
+    generated_at: "2026-08-15",
+    schema_version: "transmission-scenario-analysis-v0.90",
+    relation_note: "Scenario values remain separate from canonical observations and preserve baseline, shock, model, formula, evidence, and limitation records.",
+    model_boundary: "Deterministic conditional analysis only. No probability, forecast, causal claim, combined future-risk score, or regional scenario score.",
+  });
+}
 writeLayer("china_exposure_variables", chinaExposureVariables, {
   schema_version: "china-economic-exposure-v0.82",
   primary_key: "variable_id + country_slug",

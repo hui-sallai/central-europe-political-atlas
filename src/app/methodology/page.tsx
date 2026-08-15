@@ -3,7 +3,8 @@ import { researchEvents, researchProjects } from "@/lib/researchData";
 import { researchDataLayerFiles } from "@/lib/countryMetadata";
 import { modelAvailabilitySummary, modelCards } from "@/lib/modelFramework";
 import { chinaExposureModelCard } from "@/lib/chinaExposureModel";
-import { industrialDependencyReadiness, scenarioDefinitions } from "@/lib/scenarioFramework";
+import { industrialDependencyReadiness, scenarioBacktestRegistry, scenarioDefinitions, transmissionChannels } from "@/lib/scenarioFramework";
+import { chinaProjectDisruptionDecision } from "@/lib/scenarioResearch";
 import {
   hungaryAuthoritativeTopologyValidationDecisionSummary,
   hungaryGiscoLicenseVerificationDecisionSummary,
@@ -83,10 +84,10 @@ const transparentModelFlow = [
 const scenarioFlow = [
   ["Baseline", "读取既有模型输出与合格 observation"],
   ["Shock Assumption", "记录用户设定的条件式冲击"],
-  ["Adjusted Variable", "只调整明确对应的模型输入"],
+  ["Direct Variable", "只调整明确对应的合法模型输入"],
   ["Model Recalculation", "沿用 v0.50 标准化边界与权重"],
-  ["Scenario Difference", "同时显示基线、情景与差值"],
-  ["Interpretation", "说明传导链、置信度与不能说明什么"],
+  ["Regional Context", "区域事实只作结构背景，不生成分数"],
+  ["Evidence", "事件和项目解释相关性，但不进入分数"],
 ] as const;
 
 const boundaryHistory = [
@@ -348,8 +349,8 @@ export default function MethodologyPage() {
       </section>
 
       <section className="mt-6 card p-6">
-        <p className="eyebrow">Scenario Methodology</p>
-        <h2 className="mt-3 text-2xl font-semibold">8. 情景模拟方法与边界</h2>
+        <p className="eyebrow">Scenario &amp; Transmission Methodology / v0.90</p>
+        <h2 className="mt-3 text-2xl font-semibold">8. 情景与冲击传导方法</h2>
         <ol className="mt-5 grid gap-3 md:grid-cols-3 xl:grid-cols-6">
           {scenarioFlow.map(([label, note], index) => (
             <li key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
@@ -398,7 +399,21 @@ export default function MethodologyPage() {
           <li className="rounded-xl bg-[var(--surface-muted)] px-4 py-3">冲击参数不写回 observations；每个结果必须保留基线 observation_id、模型权重和计算规则。</li>
           <li className="rounded-xl bg-[var(--surface-muted)] px-4 py-3">没有直接模型输入时返回 unavailable，不以相关但不同口径的指标代替。</li>
           <li className="rounded-xl bg-[var(--surface-muted)] px-4 py-3">已核验事件只作历史背景，intensity 不进入情景加减分。</li>
+          <li className="rounded-xl bg-[var(--surface-muted)] px-4 py-3">Direct shock 只改变原模型已有合法输入；contextual exposure 只描述结构背景。</li>
+          <li className="rounded-xl bg-[var(--surface-muted)] px-4 py-3">跨国比较只比较同一情景、同一参数和同一模型定义下的 score change。</li>
+          <li className="rounded-xl bg-[var(--surface-muted)] px-4 py-3">情景不输出发生概率、因果效应、综合未来风险或区域情景分数。</li>
         </ul>
+
+        <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+          {[
+            ["Transmission schema", `${transmissionChannels.length} 条 direct/context channel；每条记录方向、模型、区域背景、证据和限制。`],
+            ["Confidence decomposition", "结合基线完整度、模型准入、直接传导覆盖、区域背景覆盖和项目/事件证据质量；不是概率。"],
+            ["China project disruption", `${chinaProjectDisruptionDecision.eligible_project_ids.length} 项可作中断背景，但缺少统一弹性与年度流量，score_enabled=false。`],
+            ["Backtest registry", `${scenarioBacktestRegistry.length} 条结构记录；缺少按当时信息重建的历史模型输出时不报告准确率。`],
+          ].map(([label, note]) => <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4"><h3 className="font-semibold">{label}</h3><p className="mt-2 text-sm leading-6 text-[var(--muted)]">{note}</p></article>)}
+        </div>
+
+        <p className="mt-5 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-semibold leading-6 text-amber-900">情景 ≠ 预测；暴露 ≠ 风险；相关 ≠ 因果；结构背景 ≠ 精确影响量。结果必须保留 baseline date、input values、shock parameter、model version、formula version 和 calculation timestamp。</p>
 
         <div className="mt-5 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm leading-6 text-emerald-950">
           <p className="font-semibold">Industrial Dependency Index：十国输入结构已统一</p>

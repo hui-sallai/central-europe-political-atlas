@@ -1,0 +1,30 @@
+{
+  "schema_version": "transmission-scenario-analysis-v0.90",
+  "generated_at": "2026-08-15",
+  "data_type": "backtest_registry",
+  "record_count": 2,
+  "relation_note": "Scenario values remain separate from canonical observations and preserve baseline, shock, model, formula, evidence, and limitation records.",
+  "model_boundary": "Deterministic conditional analysis only. No probability, forecast, causal claim, combined future-risk score, or regional scenario score.",
+  "records": [
+    {
+      "scenario_id": "inflation_resurgence",
+      "historical_period": "2021–2024",
+      "baseline_date": "待选择",
+      "shock_definition": "历史 HICP 增量与后续居民压力输入的方向比较",
+      "observed_outcome": "待建立可比历史模型输出",
+      "comparable_indicator": "hicp_inflation / unemployment_rate",
+      "evaluation_status": "structure_only",
+      "notes": "现有国家观测可用于准备，但缺少按当时可得信息重建的历史模型输出，暂不报告准确率。"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "historical_period": "2023–2024",
+      "baseline_date": "待选择",
+      "shock_definition": "工业电价变化与产业模型方向响应的探索性比较",
+      "observed_outcome": "待建立可比历史模型输出",
+      "comparable_indicator": "industrial_electricity_price",
+      "evaluation_status": "structure_only",
+      "notes": "两年电价输入不足以支持稳健回测，本轮只登记结构。"
+    }
+  ]
+}

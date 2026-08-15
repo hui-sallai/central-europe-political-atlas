@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ComparativeSpatialWorkbench } from "@/components/ComparativeSpatialWorkbench";
 import { mapDisplayBoundary, platformStatus } from "@/lib/platformStatus";
 import { regionalGeometryQa, sharedSpatialLicenseRecords, spatialDisplayGateAudit } from "@/lib/spatialDataV087";
@@ -50,6 +51,18 @@ export default function MapPage() {
           <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{serbia?.public_display_blocker || "官方边界对应与同层级区域统计可比性尚未通过。"}</p>
           <p className="mt-3 text-xs leading-5 text-[var(--muted)]">不使用国家值下推，不把待接入值显示为 0，也不为追求十国齐全而降低展示闸门。</p>
         </article>
+      </section>
+
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">Scenario Structural Context</p>
+        <h2 className="mt-3 text-xl font-semibold">从情景进入事实背景图层</h2>
+        <p className="mt-3 max-w-4xl text-sm leading-6 text-[var(--muted)]">这些入口只显示结构背景，不显示情景影响、概率或区域分数。国家级情景计算仍在 Scenario Workspace 完成。</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          <Link href="/scenarios?scenario=inflation_resurgence&country=poland&shock=2" className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold text-[var(--accent)]">Inflation → labour context</Link>
+          <Link href="/scenarios?scenario=energy_price_shock&country=hungary&shock=20" className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold text-[var(--accent)]">Energy → manufacturing context</Link>
+          <Link href="/scenarios?scenario=germany_demand_slowdown&country=czechia&shock=-5" className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold text-[var(--accent)]">Germany demand → manufacturing context</Link>
+        </div>
+        <p className="mt-4 text-xs font-semibold text-[var(--muted)]">Context map, not scenario impact map.</p>
       </section>
 
       <details className="mt-6 card p-6">

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import type { Country } from "@/types/Country";
 import type { ModelCard, ModelOutput } from "@/types/ModelOutput";
+import { scenarioDefinitions } from "@/lib/scenarioFramework";
 
 const trendLabels = {
   rising: "上升",
@@ -59,6 +60,7 @@ export function ModelExplorer({ countries, cards, outputs }: { countries: Countr
     () => outputs.find((candidate) => candidate.country_slug === countrySlug && candidate.model_id === modelId),
     [countrySlug, modelId, outputs],
   );
+  const usedByScenarios = scenarioDefinitions.filter((scenario) => scenario.reference_model_id === modelId);
 
   if (!card || !output) return null;
 
@@ -161,6 +163,7 @@ export function ModelExplorer({ countries, cards, outputs }: { countries: Countr
             <p><strong className="text-[var(--foreground)]">输出含义：</strong>{card.output_meaning}</p>
             <p><strong className="text-[var(--foreground)]">完整度规则：</strong>{card.completeness_rule}</p>
             <p><strong className="text-[var(--foreground)]">事件规则：</strong>{card.event_policy}</p>
+            <p><strong className="text-[var(--foreground)]">Used by scenarios：</strong>{usedByScenarios.length ? usedByScenarios.map((scenario) => scenario.name_zh).join(" / ") : "当前无"}</p>
             <div>
               <strong className="text-[var(--foreground)]">权重版本记录：</strong>
               {card.weight_history.map((record) => <p key={record.version} className="mt-1 font-mono text-xs">{record.version} / {record.effective_date} / {record.note}</p>)}

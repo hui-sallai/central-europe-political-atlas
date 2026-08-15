@@ -1,9 +1,9 @@
 export const platformStatus = {
-  version: "v0.89 Regional Economic Depth & Harmonization",
-  stage: "区域经济深度与口径统一",
-  regionalData: "九个欧盟国家已接入 2021–2024 区域经济与制造业事实；劳动力指标按可直接匹配层级开放，塞尔维亚继续等待可比性验收",
-  mapDisplay: "支持经济、劳动力、产业、历史变化与项目上下文；不同层级不混合排名，风险与预测图层未启用",
-  modelLayer: "国家级模型保持冻结；不生成区域风险分数或预测",
+  version: "v0.90 Transmission & Scenario Analysis",
+  stage: "政治经济冲击传导与高级情景分析",
+  regionalData: "九国区域事实用于结构背景；塞尔维亚区域比较继续待接入，不阻断合格国家级情景",
+  mapDisplay: "事实地图仅承接 structural context；情景影响、风险与预测色阶未启用",
+  modelLayer: "四项既有模型公式保持不变；四个独立情景支持透明重算、敏感性与证据追踪",
   lastUpdated: "2026-08-15",
 } as const;
 

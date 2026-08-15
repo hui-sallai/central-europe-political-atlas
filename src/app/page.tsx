@@ -24,11 +24,11 @@ export default function Home() {
               中欧政治经济地图与研究数据平台
             </h1>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-              平台围绕十个中欧及邻近国家，组织国家档案、宏观数据、对华经贸项目、事件记录与区域地图资料。v0.89 在九国事实地图上增加可比劳动力、制造业与 2021–2024 历史变化指标；未通过层级与质量闸门的图层继续明确说明原因。
+              平台围绕十个中欧及邻近国家，组织国家档案、宏观数据、对华经贸项目、事件记录与区域地图资料。v0.90 把既有模型、情景、区域结构和证据连接为可追溯传导链，展示假设冲击如何改变合法模型输入；情景不是预测。
             </p>
           </div>
           <p className="rounded-2xl border border-[var(--line)] bg-white/65 p-4 text-sm leading-6 text-[var(--muted)]">
-            Spatial coverage：9 / 10 countries factual map ready。既有国家级模型与情景保持不变；区域风险、预测和真实党派支持率图层仍未启用。
+            Scenario coverage：四个独立情景按原模型公式重算。区域只显示 structural context；不生成综合未来风险、区域情景分数、预测或真实党派支持率图层。
           </p>
         </div>
 

@@ -1,0 +1,1810 @@
+{
+  "schema_version": "transmission-scenario-analysis-v0.90",
+  "generated_at": "2026-08-15",
+  "data_type": "scenario_sensitivity",
+  "record_count": 200,
+  "relation_note": "Scenario values remain separate from canonical observations and preserve baseline, shock, model, formula, evidence, and limitation records.",
+  "model_boundary": "Deterministic conditional analysis only. No probability, forecast, causal claim, combined future-risk score, or regional scenario score.",
+  "records": [
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "poland",
+      "shock_value": 1,
+      "baseline_score": 22,
+      "scenario_score": 27,
+      "score_change": 5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "poland",
+      "shock_value": 2,
+      "baseline_score": 22,
+      "scenario_score": 32,
+      "score_change": 10,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "poland",
+      "shock_value": 3,
+      "baseline_score": 22,
+      "scenario_score": 37,
+      "score_change": 15,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "poland",
+      "shock_value": 4,
+      "baseline_score": 22,
+      "scenario_score": 42,
+      "score_change": 20,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "poland",
+      "shock_value": 5,
+      "baseline_score": 22,
+      "scenario_score": 47,
+      "score_change": 25,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "poland",
+      "shock_value": 0.5,
+      "baseline_score": 61.3,
+      "scenario_score": 63.8,
+      "score_change": 2.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "poland",
+      "shock_value": 1,
+      "baseline_score": 61.3,
+      "scenario_score": 66.3,
+      "score_change": 5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "poland",
+      "shock_value": 1.5,
+      "baseline_score": 61.3,
+      "scenario_score": 68.8,
+      "score_change": 7.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "poland",
+      "shock_value": 2,
+      "baseline_score": 61.3,
+      "scenario_score": 71.3,
+      "score_change": 10,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "poland",
+      "shock_value": 3,
+      "baseline_score": 61.3,
+      "scenario_score": 74.8,
+      "score_change": 13.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "poland",
+      "shock_value": 10,
+      "baseline_score": 41.5,
+      "scenario_score": 42.8,
+      "score_change": 1.3,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "poland",
+      "shock_value": 20,
+      "baseline_score": 41.5,
+      "scenario_score": 44,
+      "score_change": 2.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "poland",
+      "shock_value": 30,
+      "baseline_score": 41.5,
+      "scenario_score": 45.3,
+      "score_change": 3.8,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "poland",
+      "shock_value": 40,
+      "baseline_score": 41.5,
+      "scenario_score": 46.6,
+      "score_change": 5.1,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "poland",
+      "shock_value": 50,
+      "baseline_score": 41.5,
+      "scenario_score": 47.9,
+      "score_change": 6.4,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "poland",
+      "shock_value": -2,
+      "baseline_score": 41.5,
+      "scenario_score": 42,
+      "score_change": 0.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "poland",
+      "shock_value": -5,
+      "baseline_score": 41.5,
+      "scenario_score": 42.8,
+      "score_change": 1.3,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "poland",
+      "shock_value": -10,
+      "baseline_score": 41.5,
+      "scenario_score": 44.2,
+      "score_change": 2.7,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "poland",
+      "shock_value": -15,
+      "baseline_score": 41.5,
+      "scenario_score": 45.5,
+      "score_change": 4,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "poland",
+      "shock_value": -20,
+      "baseline_score": 41.5,
+      "scenario_score": 46.9,
+      "score_change": 5.4,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "hungary",
+      "shock_value": 1,
+      "baseline_score": 34,
+      "scenario_score": 39,
+      "score_change": 5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "hungary",
+      "shock_value": 2,
+      "baseline_score": 34,
+      "scenario_score": 44,
+      "score_change": 10,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "hungary",
+      "shock_value": 3,
+      "baseline_score": 34,
+      "scenario_score": 49,
+      "score_change": 15,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "hungary",
+      "shock_value": 4,
+      "baseline_score": 34,
+      "scenario_score": 54,
+      "score_change": 20,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "hungary",
+      "shock_value": 5,
+      "baseline_score": 34,
+      "scenario_score": 59,
+      "score_change": 25,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "hungary",
+      "shock_value": 0.5,
+      "baseline_score": 57.6,
+      "scenario_score": 60.1,
+      "score_change": 2.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "hungary",
+      "shock_value": 1,
+      "baseline_score": 57.6,
+      "scenario_score": 62.6,
+      "score_change": 5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "hungary",
+      "shock_value": 1.5,
+      "baseline_score": 57.6,
+      "scenario_score": 65.1,
+      "score_change": 7.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "hungary",
+      "shock_value": 2,
+      "baseline_score": 57.6,
+      "scenario_score": 67.6,
+      "score_change": 10,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "hungary",
+      "shock_value": 3,
+      "baseline_score": 57.6,
+      "scenario_score": 72.6,
+      "score_change": 15,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "hungary",
+      "shock_value": 10,
+      "baseline_score": 46.3,
+      "scenario_score": 47.8,
+      "score_change": 1.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "hungary",
+      "shock_value": 20,
+      "baseline_score": 46.3,
+      "scenario_score": 49.2,
+      "score_change": 2.9,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "hungary",
+      "shock_value": 30,
+      "baseline_score": 46.3,
+      "scenario_score": 50.6,
+      "score_change": 4.3,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "hungary",
+      "shock_value": 40,
+      "baseline_score": 46.3,
+      "scenario_score": 52,
+      "score_change": 5.7,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "hungary",
+      "shock_value": 50,
+      "baseline_score": 46.3,
+      "scenario_score": 52.1,
+      "score_change": 5.8,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "hungary",
+      "shock_value": -2,
+      "baseline_score": 46.3,
+      "scenario_score": 46.8,
+      "score_change": 0.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "hungary",
+      "shock_value": -5,
+      "baseline_score": 46.3,
+      "scenario_score": 47.5,
+      "score_change": 1.2,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "hungary",
+      "shock_value": -10,
+      "baseline_score": 46.3,
+      "scenario_score": 48.8,
+      "score_change": 2.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "hungary",
+      "shock_value": -15,
+      "baseline_score": 46.3,
+      "scenario_score": 50,
+      "score_change": 3.7,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "hungary",
+      "shock_value": -20,
+      "baseline_score": 46.3,
+      "scenario_score": 51.2,
+      "score_change": 4.9,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "czechia",
+      "shock_value": 1,
+      "baseline_score": 15.5,
+      "scenario_score": 20.5,
+      "score_change": 5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "czechia",
+      "shock_value": 2,
+      "baseline_score": 15.5,
+      "scenario_score": 25.5,
+      "score_change": 10,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "czechia",
+      "shock_value": 3,
+      "baseline_score": 15.5,
+      "scenario_score": 30.5,
+      "score_change": 15,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "czechia",
+      "shock_value": 4,
+      "baseline_score": 15.5,
+      "scenario_score": 35.5,
+      "score_change": 20,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "czechia",
+      "shock_value": 5,
+      "baseline_score": 15.5,
+      "scenario_score": 40.5,
+      "score_change": 25,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "czechia",
+      "shock_value": 0.5,
+      "baseline_score": 25.7,
+      "scenario_score": 28.2,
+      "score_change": 2.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "czechia",
+      "shock_value": 1,
+      "baseline_score": 25.7,
+      "scenario_score": 30.7,
+      "score_change": 5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "czechia",
+      "shock_value": 1.5,
+      "baseline_score": 25.7,
+      "scenario_score": 33.2,
+      "score_change": 7.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "czechia",
+      "shock_value": 2,
+      "baseline_score": 25.7,
+      "scenario_score": 35.7,
+      "score_change": 10,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "czechia",
+      "shock_value": 3,
+      "baseline_score": 25.7,
+      "scenario_score": 40.7,
+      "score_change": 15,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "czechia",
+      "shock_value": 10,
+      "baseline_score": 66.2,
+      "scenario_score": 67.3,
+      "score_change": 1.1,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "czechia",
+      "shock_value": 20,
+      "baseline_score": 66.2,
+      "scenario_score": 68.5,
+      "score_change": 2.3,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "czechia",
+      "shock_value": 30,
+      "baseline_score": 66.2,
+      "scenario_score": 69.6,
+      "score_change": 3.4,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "czechia",
+      "shock_value": 40,
+      "baseline_score": 66.2,
+      "scenario_score": 70.8,
+      "score_change": 4.6,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "czechia",
+      "shock_value": 50,
+      "baseline_score": 66.2,
+      "scenario_score": 71.9,
+      "score_change": 5.7,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "czechia",
+      "shock_value": -2,
+      "baseline_score": 66.2,
+      "scenario_score": 66.9,
+      "score_change": 0.7,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "czechia",
+      "shock_value": -5,
+      "baseline_score": 66.2,
+      "scenario_score": 67.8,
+      "score_change": 1.6,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "czechia",
+      "shock_value": -10,
+      "baseline_score": 66.2,
+      "scenario_score": 69.4,
+      "score_change": 3.2,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "czechia",
+      "shock_value": -15,
+      "baseline_score": 66.2,
+      "scenario_score": 71,
+      "score_change": 4.8,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "czechia",
+      "shock_value": -20,
+      "baseline_score": 66.2,
+      "scenario_score": 72.7,
+      "score_change": 6.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "slovakia",
+      "shock_value": 1,
+      "baseline_score": 38,
+      "scenario_score": 43,
+      "score_change": 5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "slovakia",
+      "shock_value": 2,
+      "baseline_score": 38,
+      "scenario_score": 48,
+      "score_change": 10,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "slovakia",
+      "shock_value": 3,
+      "baseline_score": 38,
+      "scenario_score": 53,
+      "score_change": 15,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "slovakia",
+      "shock_value": 4,
+      "baseline_score": 38,
+      "scenario_score": 58,
+      "score_change": 20,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "slovakia",
+      "shock_value": 5,
+      "baseline_score": 38,
+      "scenario_score": 63,
+      "score_change": 25,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "slovakia",
+      "shock_value": 0.5,
+      "baseline_score": 48.4,
+      "scenario_score": 50.9,
+      "score_change": 2.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "slovakia",
+      "shock_value": 1,
+      "baseline_score": 48.4,
+      "scenario_score": 53.4,
+      "score_change": 5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "slovakia",
+      "shock_value": 1.5,
+      "baseline_score": 48.4,
+      "scenario_score": 55.9,
+      "score_change": 7.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "slovakia",
+      "shock_value": 2,
+      "baseline_score": 48.4,
+      "scenario_score": 58.4,
+      "score_change": 10,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "slovakia",
+      "shock_value": 3,
+      "baseline_score": 48.4,
+      "scenario_score": 63.4,
+      "score_change": 15,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "slovakia",
+      "shock_value": 10,
+      "baseline_score": 55.2,
+      "scenario_score": 56.4,
+      "score_change": 1.2,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "slovakia",
+      "shock_value": 20,
+      "baseline_score": 55.2,
+      "scenario_score": 57.6,
+      "score_change": 2.4,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "slovakia",
+      "shock_value": 30,
+      "baseline_score": 55.2,
+      "scenario_score": 58.8,
+      "score_change": 3.6,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "slovakia",
+      "shock_value": 40,
+      "baseline_score": 55.2,
+      "scenario_score": 59.9,
+      "score_change": 4.7,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "slovakia",
+      "shock_value": 50,
+      "baseline_score": 55.2,
+      "scenario_score": 61.1,
+      "score_change": 5.9,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "slovakia",
+      "shock_value": -2,
+      "baseline_score": 55.2,
+      "scenario_score": 55.6,
+      "score_change": 0.4,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "slovakia",
+      "shock_value": -5,
+      "baseline_score": 55.2,
+      "scenario_score": 56.3,
+      "score_change": 1.1,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "slovakia",
+      "shock_value": -10,
+      "baseline_score": 55.2,
+      "scenario_score": 57.3,
+      "score_change": 2.1,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "slovakia",
+      "shock_value": -15,
+      "baseline_score": 55.2,
+      "scenario_score": 58.4,
+      "score_change": 3.2,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "slovakia",
+      "shock_value": -20,
+      "baseline_score": 55.2,
+      "scenario_score": 59.5,
+      "score_change": 4.3,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "germany",
+      "shock_value": 1,
+      "baseline_score": 20.5,
+      "scenario_score": 25.5,
+      "score_change": 5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "germany",
+      "shock_value": 2,
+      "baseline_score": 20.5,
+      "scenario_score": 30.5,
+      "score_change": 10,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "germany",
+      "shock_value": 3,
+      "baseline_score": 20.5,
+      "scenario_score": 35.5,
+      "score_change": 15,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "germany",
+      "shock_value": 4,
+      "baseline_score": 20.5,
+      "scenario_score": 40.5,
+      "score_change": 20,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "germany",
+      "shock_value": 5,
+      "baseline_score": 20.5,
+      "scenario_score": 45.5,
+      "score_change": 25,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "germany",
+      "shock_value": 0.5,
+      "baseline_score": 40.7,
+      "scenario_score": 43.2,
+      "score_change": 2.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "germany",
+      "shock_value": 1,
+      "baseline_score": 40.7,
+      "scenario_score": 45.7,
+      "score_change": 5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "germany",
+      "shock_value": 1.5,
+      "baseline_score": 40.7,
+      "scenario_score": 48.2,
+      "score_change": 7.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "germany",
+      "shock_value": 2,
+      "baseline_score": 40.7,
+      "scenario_score": 50.7,
+      "score_change": 10,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "germany",
+      "shock_value": 3,
+      "baseline_score": 40.7,
+      "scenario_score": 55.7,
+      "score_change": 15,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "germany",
+      "shock_value": 10,
+      "baseline_score": null,
+      "scenario_score": null,
+      "score_change": null,
+      "status": "unavailable"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "germany",
+      "shock_value": 20,
+      "baseline_score": null,
+      "scenario_score": null,
+      "score_change": null,
+      "status": "unavailable"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "germany",
+      "shock_value": 30,
+      "baseline_score": null,
+      "scenario_score": null,
+      "score_change": null,
+      "status": "unavailable"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "germany",
+      "shock_value": 40,
+      "baseline_score": null,
+      "scenario_score": null,
+      "score_change": null,
+      "status": "unavailable"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "germany",
+      "shock_value": 50,
+      "baseline_score": null,
+      "scenario_score": null,
+      "score_change": null,
+      "status": "unavailable"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "germany",
+      "shock_value": -2,
+      "baseline_score": null,
+      "scenario_score": null,
+      "score_change": null,
+      "status": "unavailable"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "germany",
+      "shock_value": -5,
+      "baseline_score": null,
+      "scenario_score": null,
+      "score_change": null,
+      "status": "unavailable"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "germany",
+      "shock_value": -10,
+      "baseline_score": null,
+      "scenario_score": null,
+      "score_change": null,
+      "status": "unavailable"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "germany",
+      "shock_value": -15,
+      "baseline_score": null,
+      "scenario_score": null,
+      "score_change": null,
+      "status": "unavailable"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "germany",
+      "shock_value": -20,
+      "baseline_score": null,
+      "scenario_score": null,
+      "score_change": null,
+      "status": "unavailable"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "romania",
+      "shock_value": 1,
+      "baseline_score": 54.5,
+      "scenario_score": 59.5,
+      "score_change": 5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "romania",
+      "shock_value": 2,
+      "baseline_score": 54.5,
+      "scenario_score": 64.5,
+      "score_change": 10,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "romania",
+      "shock_value": 3,
+      "baseline_score": 54.5,
+      "scenario_score": 69.5,
+      "score_change": 15,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "romania",
+      "shock_value": 4,
+      "baseline_score": 54.5,
+      "scenario_score": 70.5,
+      "score_change": 16,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "romania",
+      "shock_value": 5,
+      "baseline_score": 54.5,
+      "scenario_score": 70.5,
+      "score_change": 16,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "romania",
+      "shock_value": 0.5,
+      "baseline_score": 64.1,
+      "scenario_score": 66.6,
+      "score_change": 2.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "romania",
+      "shock_value": 1,
+      "baseline_score": 64.1,
+      "scenario_score": 69.1,
+      "score_change": 5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "romania",
+      "shock_value": 1.5,
+      "baseline_score": 64.1,
+      "scenario_score": 71.6,
+      "score_change": 7.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "romania",
+      "shock_value": 2,
+      "baseline_score": 64.1,
+      "scenario_score": 74.1,
+      "score_change": 10,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "romania",
+      "shock_value": 3,
+      "baseline_score": 64.1,
+      "scenario_score": 74.6,
+      "score_change": 10.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "romania",
+      "shock_value": 10,
+      "baseline_score": 31.7,
+      "scenario_score": 32.7,
+      "score_change": 1,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "romania",
+      "shock_value": 20,
+      "baseline_score": 31.7,
+      "scenario_score": 33.6,
+      "score_change": 1.9,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "romania",
+      "shock_value": 30,
+      "baseline_score": 31.7,
+      "scenario_score": 34.6,
+      "score_change": 2.9,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "romania",
+      "shock_value": 40,
+      "baseline_score": 31.7,
+      "scenario_score": 35.6,
+      "score_change": 3.9,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "romania",
+      "shock_value": 50,
+      "baseline_score": 31.7,
+      "scenario_score": 36.6,
+      "score_change": 4.9,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "romania",
+      "shock_value": -2,
+      "baseline_score": 31.7,
+      "scenario_score": 32.2,
+      "score_change": 0.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "romania",
+      "shock_value": -5,
+      "baseline_score": 31.7,
+      "scenario_score": 32.8,
+      "score_change": 1.1,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "romania",
+      "shock_value": -10,
+      "baseline_score": 31.7,
+      "scenario_score": 33.8,
+      "score_change": 2.1,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "romania",
+      "shock_value": -15,
+      "baseline_score": 31.7,
+      "scenario_score": 34.8,
+      "score_change": 3.1,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "romania",
+      "shock_value": -20,
+      "baseline_score": 31.7,
+      "scenario_score": 35.8,
+      "score_change": 4.1,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "slovenia",
+      "shock_value": 1,
+      "baseline_score": 22,
+      "scenario_score": 27,
+      "score_change": 5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "slovenia",
+      "shock_value": 2,
+      "baseline_score": 22,
+      "scenario_score": 32,
+      "score_change": 10,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "slovenia",
+      "shock_value": 3,
+      "baseline_score": 22,
+      "scenario_score": 37,
+      "score_change": 15,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "slovenia",
+      "shock_value": 4,
+      "baseline_score": 22,
+      "scenario_score": 42,
+      "score_change": 20,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "slovenia",
+      "shock_value": 5,
+      "baseline_score": 22,
+      "scenario_score": 47,
+      "score_change": 25,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "slovenia",
+      "shock_value": 0.5,
+      "baseline_score": 41.1,
+      "scenario_score": 43.6,
+      "score_change": 2.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "slovenia",
+      "shock_value": 1,
+      "baseline_score": 41.1,
+      "scenario_score": 46.1,
+      "score_change": 5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "slovenia",
+      "shock_value": 1.5,
+      "baseline_score": 41.1,
+      "scenario_score": 48.6,
+      "score_change": 7.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "slovenia",
+      "shock_value": 2,
+      "baseline_score": 41.1,
+      "scenario_score": 51.1,
+      "score_change": 10,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "slovenia",
+      "shock_value": 3,
+      "baseline_score": 41.1,
+      "scenario_score": 56.1,
+      "score_change": 15,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "slovenia",
+      "shock_value": 10,
+      "baseline_score": 24.1,
+      "scenario_score": 25.1,
+      "score_change": 1,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "slovenia",
+      "shock_value": 20,
+      "baseline_score": 24.1,
+      "scenario_score": 26.2,
+      "score_change": 2.1,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "slovenia",
+      "shock_value": 30,
+      "baseline_score": 24.1,
+      "scenario_score": 27.3,
+      "score_change": 3.2,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "slovenia",
+      "shock_value": 40,
+      "baseline_score": 24.1,
+      "scenario_score": 28.3,
+      "score_change": 4.2,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "slovenia",
+      "shock_value": 50,
+      "baseline_score": 24.1,
+      "scenario_score": 29.4,
+      "score_change": 5.3,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "slovenia",
+      "shock_value": -2,
+      "baseline_score": 24.1,
+      "scenario_score": 24.3,
+      "score_change": 0.2,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "slovenia",
+      "shock_value": -5,
+      "baseline_score": 24.1,
+      "scenario_score": 24.7,
+      "score_change": 0.6,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "slovenia",
+      "shock_value": -10,
+      "baseline_score": 24.1,
+      "scenario_score": 25.3,
+      "score_change": 1.2,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "slovenia",
+      "shock_value": -15,
+      "baseline_score": 24.1,
+      "scenario_score": 25.9,
+      "score_change": 1.8,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "slovenia",
+      "shock_value": -20,
+      "baseline_score": 24.1,
+      "scenario_score": 26.5,
+      "score_change": 2.4,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "serbia",
+      "shock_value": 1,
+      "baseline_score": null,
+      "scenario_score": null,
+      "score_change": null,
+      "status": "unavailable"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "serbia",
+      "shock_value": 2,
+      "baseline_score": null,
+      "scenario_score": null,
+      "score_change": null,
+      "status": "unavailable"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "serbia",
+      "shock_value": 3,
+      "baseline_score": null,
+      "scenario_score": null,
+      "score_change": null,
+      "status": "unavailable"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "serbia",
+      "shock_value": 4,
+      "baseline_score": null,
+      "scenario_score": null,
+      "score_change": null,
+      "status": "unavailable"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "serbia",
+      "shock_value": 5,
+      "baseline_score": null,
+      "scenario_score": null,
+      "score_change": null,
+      "status": "unavailable"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "serbia",
+      "shock_value": 0.5,
+      "baseline_score": null,
+      "scenario_score": null,
+      "score_change": null,
+      "status": "unavailable"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "serbia",
+      "shock_value": 1,
+      "baseline_score": null,
+      "scenario_score": null,
+      "score_change": null,
+      "status": "unavailable"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "serbia",
+      "shock_value": 1.5,
+      "baseline_score": null,
+      "scenario_score": null,
+      "score_change": null,
+      "status": "unavailable"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "serbia",
+      "shock_value": 2,
+      "baseline_score": null,
+      "scenario_score": null,
+      "score_change": null,
+      "status": "unavailable"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "serbia",
+      "shock_value": 3,
+      "baseline_score": null,
+      "scenario_score": null,
+      "score_change": null,
+      "status": "unavailable"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "serbia",
+      "shock_value": 10,
+      "baseline_score": 22.5,
+      "scenario_score": 23.3,
+      "score_change": 0.8,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "serbia",
+      "shock_value": 20,
+      "baseline_score": 22.5,
+      "scenario_score": 24.2,
+      "score_change": 1.7,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "serbia",
+      "shock_value": 30,
+      "baseline_score": 22.5,
+      "scenario_score": 25,
+      "score_change": 2.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "serbia",
+      "shock_value": 40,
+      "baseline_score": 22.5,
+      "scenario_score": 25.9,
+      "score_change": 3.4,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "serbia",
+      "shock_value": 50,
+      "baseline_score": 22.5,
+      "scenario_score": 26.7,
+      "score_change": 4.2,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "serbia",
+      "shock_value": -2,
+      "baseline_score": 22.5,
+      "scenario_score": 22.8,
+      "score_change": 0.3,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "serbia",
+      "shock_value": -5,
+      "baseline_score": 22.5,
+      "scenario_score": 23.3,
+      "score_change": 0.8,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "serbia",
+      "shock_value": -10,
+      "baseline_score": 22.5,
+      "scenario_score": 24,
+      "score_change": 1.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "serbia",
+      "shock_value": -15,
+      "baseline_score": 22.5,
+      "scenario_score": 24.8,
+      "score_change": 2.3,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "serbia",
+      "shock_value": -20,
+      "baseline_score": 22.5,
+      "scenario_score": 25.6,
+      "score_change": 3.1,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "austria",
+      "shock_value": 1,
+      "baseline_score": 36.5,
+      "scenario_score": 41.5,
+      "score_change": 5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "austria",
+      "shock_value": 2,
+      "baseline_score": 36.5,
+      "scenario_score": 46.5,
+      "score_change": 10,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "austria",
+      "shock_value": 3,
+      "baseline_score": 36.5,
+      "scenario_score": 51.5,
+      "score_change": 15,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "austria",
+      "shock_value": 4,
+      "baseline_score": 36.5,
+      "scenario_score": 56.5,
+      "score_change": 20,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "austria",
+      "shock_value": 5,
+      "baseline_score": 36.5,
+      "scenario_score": 61.5,
+      "score_change": 25,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "austria",
+      "shock_value": 0.5,
+      "baseline_score": 59.4,
+      "scenario_score": 61.9,
+      "score_change": 2.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "austria",
+      "shock_value": 1,
+      "baseline_score": 59.4,
+      "scenario_score": 64.4,
+      "score_change": 5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "austria",
+      "shock_value": 1.5,
+      "baseline_score": 59.4,
+      "scenario_score": 66.9,
+      "score_change": 7.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "austria",
+      "shock_value": 2,
+      "baseline_score": 59.4,
+      "scenario_score": 69.4,
+      "score_change": 10,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "austria",
+      "shock_value": 3,
+      "baseline_score": 59.4,
+      "scenario_score": 74.4,
+      "score_change": 15,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "austria",
+      "shock_value": 10,
+      "baseline_score": 36.2,
+      "scenario_score": 37.4,
+      "score_change": 1.2,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "austria",
+      "shock_value": 20,
+      "baseline_score": 36.2,
+      "scenario_score": 38.5,
+      "score_change": 2.3,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "austria",
+      "shock_value": 30,
+      "baseline_score": 36.2,
+      "scenario_score": 39.8,
+      "score_change": 3.6,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "austria",
+      "shock_value": 40,
+      "baseline_score": 36.2,
+      "scenario_score": 40.9,
+      "score_change": 4.7,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "austria",
+      "shock_value": 50,
+      "baseline_score": 36.2,
+      "scenario_score": 42.1,
+      "score_change": 5.9,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "austria",
+      "shock_value": -2,
+      "baseline_score": 36.2,
+      "scenario_score": 36.7,
+      "score_change": 0.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "austria",
+      "shock_value": -5,
+      "baseline_score": 36.2,
+      "scenario_score": 37.6,
+      "score_change": 1.4,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "austria",
+      "shock_value": -10,
+      "baseline_score": 36.2,
+      "scenario_score": 39.1,
+      "score_change": 2.9,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "austria",
+      "shock_value": -15,
+      "baseline_score": 36.2,
+      "scenario_score": 40.6,
+      "score_change": 4.4,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "austria",
+      "shock_value": -20,
+      "baseline_score": 36.2,
+      "scenario_score": 42.1,
+      "score_change": 5.9,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "croatia",
+      "shock_value": 1,
+      "baseline_score": 36.5,
+      "scenario_score": 41.5,
+      "score_change": 5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "croatia",
+      "shock_value": 2,
+      "baseline_score": 36.5,
+      "scenario_score": 46.5,
+      "score_change": 10,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "croatia",
+      "shock_value": 3,
+      "baseline_score": 36.5,
+      "scenario_score": 51.5,
+      "score_change": 15,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "croatia",
+      "shock_value": 4,
+      "baseline_score": 36.5,
+      "scenario_score": 56.5,
+      "score_change": 20,
+      "status": "available"
+    },
+    {
+      "scenario_id": "inflation_resurgence",
+      "country_slug": "croatia",
+      "shock_value": 5,
+      "baseline_score": 36.5,
+      "scenario_score": 61.5,
+      "score_change": 25,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "croatia",
+      "shock_value": 0.5,
+      "baseline_score": 37.7,
+      "scenario_score": 40.2,
+      "score_change": 2.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "croatia",
+      "shock_value": 1,
+      "baseline_score": 37.7,
+      "scenario_score": 42.7,
+      "score_change": 5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "croatia",
+      "shock_value": 1.5,
+      "baseline_score": 37.7,
+      "scenario_score": 45.2,
+      "score_change": 7.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "croatia",
+      "shock_value": 2,
+      "baseline_score": 37.7,
+      "scenario_score": 47.7,
+      "score_change": 10,
+      "status": "available"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "country_slug": "croatia",
+      "shock_value": 3,
+      "baseline_score": 37.7,
+      "scenario_score": 52.7,
+      "score_change": 15,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "croatia",
+      "shock_value": 10,
+      "baseline_score": 15.8,
+      "scenario_score": 17.3,
+      "score_change": 1.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "croatia",
+      "shock_value": 20,
+      "baseline_score": 15.8,
+      "scenario_score": 18.8,
+      "score_change": 3,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "croatia",
+      "shock_value": 30,
+      "baseline_score": 15.8,
+      "scenario_score": 20.3,
+      "score_change": 4.5,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "croatia",
+      "shock_value": 40,
+      "baseline_score": 15.8,
+      "scenario_score": 20.9,
+      "score_change": 5.1,
+      "status": "available"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "country_slug": "croatia",
+      "shock_value": 50,
+      "baseline_score": 15.8,
+      "scenario_score": 20.9,
+      "score_change": 5.1,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "croatia",
+      "shock_value": -2,
+      "baseline_score": 15.8,
+      "scenario_score": 16.1,
+      "score_change": 0.3,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "croatia",
+      "shock_value": -5,
+      "baseline_score": 15.8,
+      "scenario_score": 16.4,
+      "score_change": 0.6,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "croatia",
+      "shock_value": -10,
+      "baseline_score": 15.8,
+      "scenario_score": 17,
+      "score_change": 1.2,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "croatia",
+      "shock_value": -15,
+      "baseline_score": 15.8,
+      "scenario_score": 17.6,
+      "score_change": 1.8,
+      "status": "available"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "country_slug": "croatia",
+      "shock_value": -20,
+      "baseline_score": 15.8,
+      "scenario_score": 18.3,
+      "score_change": 2.5,
+      "status": "available"
+    }
+  ]
+}
