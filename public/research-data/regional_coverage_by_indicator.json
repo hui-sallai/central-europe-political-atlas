@@ -1,0 +1,198 @@
+{
+  "schema_version": "regional-coverage-by-indicator-v0.89",
+  "generated_at": "2026-08-15",
+  "data_type": "regional_coverage_by_indicator",
+  "record_count": 14,
+  "records": [
+    {
+      "indicator_id": "regional_population",
+      "indicator_name_zh": "区域人口",
+      "country_count": 9,
+      "region_count": 148,
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_year": "2024",
+      "comparison_eligible_country_count": 9,
+      "unit": "人",
+      "source_requirement": "Eurostat regional statistics / 各国统计局区域统计"
+    },
+    {
+      "indicator_id": "regional_gdp",
+      "indicator_name_zh": "区域 GDP",
+      "country_count": 9,
+      "region_count": 148,
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_year": "2024",
+      "comparison_eligible_country_count": 9,
+      "unit": "百万欧元",
+      "source_requirement": "Eurostat regional statistics / 各国统计局区域统计"
+    },
+    {
+      "indicator_id": "regional_gdp_per_capita",
+      "indicator_name_zh": "区域人均 GDP",
+      "country_count": 9,
+      "region_count": 148,
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_year": "2024",
+      "comparison_eligible_country_count": 9,
+      "unit": "欧元",
+      "source_requirement": "Eurostat regional statistics / 各国统计局区域统计"
+    },
+    {
+      "indicator_id": "regional_unemployment_rate",
+      "indicator_name_zh": "区域失业率",
+      "country_count": 4,
+      "region_count": 42,
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_year": "2024",
+      "comparison_eligible_country_count": 3,
+      "unit": "%",
+      "source_requirement": "Eurostat regional statistics / 各国统计局区域统计"
+    },
+    {
+      "indicator_id": "regional_employment_rate",
+      "indicator_name_zh": "区域就业率",
+      "country_count": 4,
+      "region_count": 43,
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_year": "2024",
+      "comparison_eligible_country_count": 4,
+      "unit": "%",
+      "source_requirement": "Eurostat regional labour market statistics / lfst_r_lfe2emprt"
+    },
+    {
+      "indicator_id": "regional_industry_structure",
+      "indicator_name_zh": "区域产业结构",
+      "country_count": 0,
+      "region_count": 0,
+      "available_years": [],
+      "latest_year": "unavailable",
+      "comparison_eligible_country_count": 0,
+      "unit": "分类 / 占比",
+      "source_requirement": "Eurostat regional statistics / 各国统计局区域统计"
+    },
+    {
+      "indicator_id": "regional_manufacturing_share",
+      "indicator_name_zh": "区域制造业 GVA 比重",
+      "country_count": 9,
+      "region_count": 148,
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_year": "2024",
+      "comparison_eligible_country_count": 9,
+      "unit": "%",
+      "source_requirement": "Eurostat regional statistics / 各国统计局区域统计"
+    },
+    {
+      "indicator_id": "regional_population_change_pct",
+      "indicator_name_zh": "区域人口变化",
+      "country_count": 9,
+      "region_count": 148,
+      "available_years": [
+        "2024"
+      ],
+      "latest_year": "2024",
+      "comparison_eligible_country_count": 9,
+      "unit": "%",
+      "source_requirement": "region_observations / regional_population"
+    },
+    {
+      "indicator_id": "regional_gdp_per_capita_change_pct",
+      "indicator_name_zh": "区域人均 GDP 变化",
+      "country_count": 9,
+      "region_count": 148,
+      "available_years": [
+        "2024"
+      ],
+      "latest_year": "2024",
+      "comparison_eligible_country_count": 9,
+      "unit": "%",
+      "source_requirement": "region_observations / regional_gdp_per_capita"
+    },
+    {
+      "indicator_id": "regional_unemployment_change_pp",
+      "indicator_name_zh": "区域失业率变化",
+      "country_count": 4,
+      "region_count": 42,
+      "available_years": [
+        "2024"
+      ],
+      "latest_year": "2024",
+      "comparison_eligible_country_count": 3,
+      "unit": "百分点",
+      "source_requirement": "region_observations / regional_unemployment_rate"
+    },
+    {
+      "indicator_id": "regional_main_city",
+      "indicator_name_zh": "区域首府/主要城市",
+      "country_count": 0,
+      "region_count": 0,
+      "available_years": [],
+      "latest_year": "unavailable",
+      "comparison_eligible_country_count": 0,
+      "unit": "文本",
+      "source_requirement": "regions"
+    },
+    {
+      "indicator_id": "regional_china_project_count",
+      "indicator_name_zh": "区域对华项目数量",
+      "country_count": 0,
+      "region_count": 0,
+      "available_years": [],
+      "latest_year": "unavailable",
+      "comparison_eligible_country_count": 0,
+      "unit": "项",
+      "source_requirement": "china_projects / project_locations 待接入后汇总"
+    },
+    {
+      "indicator_id": "regional_china_project_status",
+      "indicator_name_zh": "区域对华项目状态",
+      "country_count": 0,
+      "region_count": 0,
+      "available_years": [],
+      "latest_year": "unavailable",
+      "comparison_eligible_country_count": 0,
+      "unit": "分类",
+      "source_requirement": "china_projects / project_locations 待接入后汇总"
+    },
+    {
+      "indicator_id": "regional_boundary_status",
+      "indicator_name_zh": "区域边界状态",
+      "country_count": 0,
+      "region_count": 0,
+      "available_years": [],
+      "latest_year": "unavailable",
+      "comparison_eligible_country_count": 0,
+      "unit": "分类",
+      "source_requirement": "regions / region_boundaries"
+    }
+  ]
+}

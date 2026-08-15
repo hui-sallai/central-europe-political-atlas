@@ -1,4 +1,5 @@
 import v086RegionalObservations from "../data/regional/v086-observations.json";
+import v089RegionalObservations from "../data/regional/v089-observations.json";
 import { regionMetadataRecords } from "./regions";
 import { regionIndicatorRecords } from "./regionIndicators";
 
@@ -41,11 +42,18 @@ const firstBatchIndicatorIds = [
   "regional_gdp",
   "regional_gdp_per_capita",
   "regional_unemployment_rate",
+  "regional_employment_rate",
   "regional_manufacturing_share",
 ] as const;
 
 const indicatorById = new Map(regionIndicatorRecords.map((indicator) => [indicator.region_indicator_id, indicator]));
-const factualRecords = v086RegionalObservations.records as RegionObservationRecord[];
+const v089Records = v089RegionalObservations.records as RegionObservationRecord[];
+const derivedIndicatorIds = new Set([
+  "regional_population_change_pct",
+  "regional_gdp_per_capita_change_pct",
+  "regional_unemployment_change_pp",
+]);
+const factualRecords = [...v086RegionalObservations.records, ...v089Records] as RegionObservationRecord[];
 const factualById = new Map(factualRecords.map((record) => [record.region_observation_id, record]));
 
 function pendingObservation(region: (typeof regionMetadataRecords)[number], indicatorId: string, year: string): RegionObservationRecord {
@@ -54,7 +62,7 @@ function pendingObservation(region: (typeof regionMetadataRecords)[number], indi
   const id = `${region.region_id}_${indicatorId}_${year}`;
   const mismatchReason = region.country_id === "serbia"
     ? "塞尔维亚同层级官方区域序列与欧盟 NUTS 口径尚未完成可比性验收。"
-    : indicatorId === "regional_unemployment_rate"
+    : indicatorId === "regional_unemployment_rate" || indicatorId === "regional_employment_rate"
       ? "Eurostat 区域失业率的可用层级与当前国家展示层级不完全一致；不做向下分摊。"
       : "官方区域制造业增加值与总增加值的统一分子、分母序列尚未完成接入。";
 
@@ -93,12 +101,17 @@ function pendingObservation(region: (typeof regionMetadataRecords)[number], indi
   };
 }
 
-export const regionObservationRecords: RegionObservationRecord[] = regionMetadataRecords.flatMap((region) =>
+const baseObservationRecords = regionMetadataRecords.flatMap((region) =>
   years.flatMap((year) => firstBatchIndicatorIds.map((indicatorId) => {
     const id = `${region.region_id}_${indicatorId}_${year}`;
     return factualById.get(id) ?? pendingObservation(region, indicatorId, year);
   })),
 );
+
+export const regionObservationRecords: RegionObservationRecord[] = [
+  ...baseObservationRecords,
+  ...v089Records.filter((record) => derivedIndicatorIds.has(record.region_indicator_id)),
+];
 
 export const regionalObservationYears = years;
 export const regionalFactualObservationCount = factualRecords.length;

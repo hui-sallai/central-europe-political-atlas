@@ -17,6 +17,7 @@ import { getChinaExposureOutput } from "@/lib/chinaExposureModel";
 import { getTransmissionObservations } from "@/lib/transmissionData";
 import { getCountryParitySummary, coverageMatrix } from "@/lib/dataParityQa";
 import type { RegionalCoverageV087Record } from "@/lib/spatialDataV087";
+import { regionalIndicatorGapAuditV089 } from "@/lib/spatialResearchV089";
 
 type DetailMode = "map" | "reading";
 
@@ -36,6 +37,7 @@ function CoverageStat({ label, value, note }: { label: string; value: string; no
 }
 
 export function CountryDetailModeTabs({ country, regionalCoverage }: { country: Country; regionalCoverage?: RegionalCoverageV087Record }) {
+  const regionalGapAudit = regionalIndicatorGapAuditV089.find((record) => record.country_id === country.slug);
   const [activeMode, setActiveMode] = useState<DetailMode>("map");
   const activeModeInfo = detailModes.find((mode) => mode.id === activeMode) ?? detailModes[0];
   const basicIndicators = getBasicIndicators(country.slug);
@@ -79,9 +81,9 @@ export function CountryDetailModeTabs({ country, regionalCoverage }: { country: 
         { label: "分析层级", value: `${regionalCoverage.classification_system} / ${regionalCoverage.admin_level}` },
         { label: "边界几何", value: `${regionalCoverage.geometry_count} / ${regionalCoverage.region_count}` },
         { label: "区域事实", value: `${regionalCoverage.factual_observation_count} 条 / 最新 ${regionalCoverage.latest_year}` },
-        { label: "P0 / P1 指标", value: `${regionalCoverage.p0_indicator_count} / 3；${regionalCoverage.p1_indicator_count} / 2` },
+        { label: "P0 / P1 指标", value: `${regionalCoverage.p0_indicator_count} / 3；${regionalCoverage.p1_indicator_count} / 3` },
         { label: "公开事实图层", value: `${regionalCoverage.public_layer_count} 个` },
-        { label: "区域指标", value: `${regionalCoverage.p0_indicator_count + regionalCoverage.p1_indicator_count} / 5` },
+        { label: "区域指标", value: `${regionalCoverage.p0_indicator_count + regionalCoverage.p1_indicator_count} / 6` },
         { label: "项目区域映射", value: `${regionalCoverage.project_mapped_count} 条 / ${regionalCoverage.project_display_eligible_count} 条可作为城市参考` },
         { label: "事实边界展示", value: regionalCoverage.boundary_ready ? "可用" : "未启用" },
       ]
@@ -224,7 +226,7 @@ export function CountryDetailModeTabs({ country, regionalCoverage }: { country: 
         </div>
         <p className="mt-4 text-sm leading-6 text-[var(--muted)]">
           {regionalCoverage
-            ? `Regional Profile 已接入统一空间主键。主要缺口：${regionalCoverage.priority_gaps.join("；")}。未通过 public display gate 前不显示真实区域图层。`
+            ? `Regional Profile 已接入统一空间主键。主要缺口：${regionalGapAudit?.priority_gaps.join("；") || regionalCoverage.priority_gaps.join("；") || "当前优先指标无新增缺口"}。劳动力指标只在统计层级直接对应时开放，未通过 public display gate 的图层不显示。`
             : "区域空间资料待接入。"}
         </p>
         {regionalCoverage?.public_layer_count ? (

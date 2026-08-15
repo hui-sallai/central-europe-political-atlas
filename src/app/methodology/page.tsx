@@ -408,7 +408,7 @@ export default function MethodologyPage() {
       </section>
 
       <section className="mt-6 card p-6">
-        <p className="eyebrow">Comparative Spatial Analysis / v0.88</p>
+        <p className="eyebrow">Regional Economic Depth &amp; Harmonization / v0.89</p>
         <h2 className="mt-3 text-2xl font-semibold">9. 区域空间数据方法</h2>
         <p className="mt-3 max-w-4xl text-sm leading-7 text-[var(--muted)]">
           区域事实层使用 Country → Region → Geometry → Regional Observation → Layer Gate → Public Display 的关联链。当前 {spatialV087Summary.country_count} 国共有 {spatialV087Summary.region_count} 个稳定区域主键和 {spatialV087Summary.factual_observation_count} 条区域事实；区域指标与国家级 observations 分表管理，缺失区域值不会由国家值代填。
@@ -421,7 +421,7 @@ export default function MethodologyPage() {
             ["Region matching", "region_id 必须与官方区域代码和单一 geometry feature 一对一对应。"],
             ["Shared GISCO licence", "同一 GISCO NUTS 2024 数据集只维护一条许可与署名记录，各国引用共享记录；逐国几何和图层 QA 仍独立。"],
             ["Country display decision", "每国记录 boundary、license、topology、region_id、attribution、approved layers、rejected layers、blockers 和 review date。"],
-            ["Layer-level gate", "边界通过不表示所有统计层通过；人口、GDP、人均 GDP、失业率和项目参考分别验收。"],
+            ["Layer-level gate", "边界通过不表示所有统计层通过；人口、GDP、人均 GDP、就业率、失业率、制造业 GVA 比重和项目参考分别验收。"],
             ["Choropleth classification", "单国事实色阶使用国家内分位数或有文档的数值区间，不使用 low/medium/high risk。"],
             ["Latest common year", "跨国比较自动取全部所选国家都有同口径观测的最新年份；不得把不同年份放入同一排名。"],
             ["Comparable unit requirement", "跨国模式只允许相同区域层级、指标定义、单位和年份；不自动转换或下推不可比数据。"],
@@ -429,9 +429,9 @@ export default function MethodologyPage() {
             ["Factual ranking", "排名只描述同指标事实位置，不表示风险、预测、政策质量或因果效果。"],
             ["Missing data", "缺失值使用中性 no-data 状态，不以 0 或最低色阶代替。"],
             ["Project geolocation", "无精确坐标时只能使用 marker_type=regional_reference，并明示 location precision；公开工作台只显示 high / medium confidence。"],
-            ["Project and regional context", "项目可与所在区域人口、GDP、人均 GDP 和失业率并列展示，但这种连接只是上下文，不构成项目影响的因果解释。"],
+            ["Project and regional context", "项目可与所在区域人口、GDP、人均 GDP、劳动力和制造业指标并列展示，但这种连接只是上下文，不构成项目影响的因果解释。"],
             ["Multi-location project", "一个 project_id 可以关联多个 project_location，并用 origin、destination、facility、corridor_node 或 administrative_reference 区分角色。"],
-            ["Regional observation", "P0 为人口、GDP、人均 GDP；P1 为失业率、制造业比重。只接入有年份、单位、来源链接、可靠性和状态的真实区域值。"],
+            ["Regional observation", "P0 为人口、GDP、人均 GDP；P1 为失业率、就业率、制造业 GVA 比重。只接入有年份、单位、来源链接、可靠性和状态的真实区域值。"],
             ["Spatial comparability", "比较必须使用可对应层级和一致定义；层级差异需显式记录。"],
             ["Model boundary", "本轮不生成区域风险、选举、党派、情景或 China Exposure 色阶。"],
           ].map(([label, note]) => (
@@ -442,10 +442,14 @@ export default function MethodologyPage() {
           ))}
         </div>
         <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/65 p-4 text-sm leading-6 text-[var(--muted)]">
-          <p className="font-semibold text-[var(--foreground)]">v0.88 Comparative Spatial Analysis Boundary</p>
+          <p className="font-semibold text-[var(--foreground)]">v0.89 Regional Economic Data Harmonization</p>
           <p className="mt-2">区域观测值按 region_id、indicator、year 唯一；检查重复、国家错配、异常值、单位与来源。当前事实值 {regionalObservationQa.factual_observation_count} 条，明确待接入 {regionalObservationQa.pending_observation_count} 个位置。异常只标记 review_required，不自动修正。</p>
           <p className="mt-2">跨国比较必须锁定同一区域层级、指标定义、单位和 latest common year；区域值不得由国家值下推，计算值必须保留分子、分母、来源代码和公式。</p>
           <p className="mt-2">当前共有 {spatialV087Summary.public_boundary_country_count} 国通过事实边界准入、{spatialV087Summary.public_layer_count} 个国家-图层通过独立展示闸门。通过只表示事实地图资格，不代表模型、风险或政策判断。</p>
+          <p className="mt-2">区域失业率采用 Eurostat LFS 年度总人口口径（15–74 岁，%）；就业率采用 20–64 岁总人口口径（%）。两者只在当前展示层级可直接匹配时接入，不把 NUTS2 值复制到 NUTS3。</p>
+          <p className="mt-2">制造业指标固定为同区域、同年份 NACE C 制造业 GVA / TOTAL GVA × 100，不与制造业就业占比混用。人口与人均 GDP 变化使用 (2024 / 2021 - 1) × 100，失业率变化使用 2024 值 - 2021 值（百分点）。</p>
+          <p className="mt-2">正式排名要求同层级、同定义、同单位和同一比较年；国家内均值及同层级样本均值仅作描述性基准。不同 NUTS / ADM 层级不进入同一正式排名。</p>
+          <p className="mt-2">边界连续性记录表示 2021–2024 观测映射到当前 NUTS 2024 / 现行 ADM 区域代码，并不等于已完成历史边界变更的权威证明。塞尔维亚继续使用 national_admin 待核验状态，不虚构 NUTS 分类。</p>
         </div>
         <div className="mt-5 grid gap-4 lg:grid-cols-2">
           <article className="rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-4">

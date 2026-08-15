@@ -24,7 +24,7 @@ export default function Home() {
               中欧政治经济地图与研究数据平台
             </h1>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-              平台围绕十个中欧及邻近国家，组织国家档案、宏观数据、对华经贸项目、事件记录与区域地图资料。v0.88 将九国已通过闸门的事实地图整理为可选择年份、比较区域并追溯来源的研究工作台；未通过的图层继续明确说明原因。
+              平台围绕十个中欧及邻近国家，组织国家档案、宏观数据、对华经贸项目、事件记录与区域地图资料。v0.89 在九国事实地图上增加可比劳动力、制造业与 2021–2024 历史变化指标；未通过层级与质量闸门的图层继续明确说明原因。
             </p>
           </div>
           <p className="rounded-2xl border border-[var(--line)] bg-white/65 p-4 text-sm leading-6 text-[var(--muted)]">

@@ -69,10 +69,16 @@ const {
   spatialV087Summary,
 } = require("../src/lib/spatialDataV087.ts");
 const {
-  regionalRankingsV088,
-  spatialComparisonEligibilityV088,
-  spatialV088Summary,
-} = require("../src/lib/spatialResearchV088.ts");
+  regionalBoundaryContinuityV089,
+  regionalCoverageByIndicatorV089,
+  regionalDerivedComparisonsV089,
+  regionalIndicatorGapAuditV089,
+  regionalProjectCountsV089,
+  regionalRankingsV089,
+  spatialComparisonEligibilityV089,
+  spatialResearchObservationsV089,
+  spatialV089Summary,
+} = require("../src/lib/spatialResearchV089.ts");
 const {
   chinaProjectRecords,
   extendedObservations,
@@ -1740,6 +1746,19 @@ const coverageMatrixExportRecords = coverageMatrixRecords();
 const derivedComparisonExportRecords = derivedComparisonRecords();
 const methodologyRecords = methodologyRuleRecords();
 
+const regionalMapObservationDir = path.join(projectRoot, "public", "data", "regional", "v089", "map-observations");
+fs.mkdirSync(regionalMapObservationDir, { recursive: true });
+for (const country of countryUiRecords) {
+  const records = spatialResearchObservationsV089.filter((record) => record.country_id === country.slug);
+  fs.writeFileSync(path.join(regionalMapObservationDir, `${country.slug}.json`), JSON.stringify({
+    schema_version: "regional-map-observations-v0.89",
+    generated_at: "2026-08-15",
+    country_id: country.slug,
+    record_count: records.length,
+    records,
+  }, null, 2));
+}
+
 writeLayer("countries", countryRecords, {
   primary_key: "country_id",
   relation_note: "All observations, projects, derived comparisons, and exposure candidates should reference country_id.",
@@ -1844,15 +1863,54 @@ writeLayer("project_location_readiness", projectLocationReadiness, {
   schema_version: "project-location-readiness-v0.87",
   marker_policy: "Regional centroids may only be used as marker_type=regional_reference and must never be represented as exact project coordinates.",
 });
-writeLayer("regional_rankings", regionalRankingsV088, {
-  schema_version: "regional-rankings-v0.88",
-  summary: spatialV088Summary,
+writeLayer("regional_rankings", regionalRankingsV089, {
+  schema_version: "regional-rankings-v0.89",
+  summary: spatialV089Summary,
   ranking_policy: "Facts only: same country, indicator, unit and year. No risk, policy or prediction interpretation.",
 });
-writeLayer("comparison_eligibility", spatialComparisonEligibilityV088, {
-  schema_version: "comparison-eligibility-v0.88",
+writeLayer("comparison_eligibility", spatialComparisonEligibilityV089, {
+  schema_version: "comparison-eligibility-v0.89",
   comparison_policy: "Cross-country views require the same administrative level, indicator definition, unit and latest common year.",
   missing_value_policy: "Pending or unavailable values are not converted, downscaled or displayed as zero.",
+});
+writeLayer("regional_comparison_eligibility", spatialComparisonEligibilityV089, {
+  generated_at: "2026-08-15",
+  schema_version: "regional-comparison-eligibility-v0.89",
+  comparison_policy: "Only the same administrative level, definition, unit and year may enter formal regional comparison.",
+});
+writeLayer("regional_observation_qa", [regionalObservationQa], {
+  generated_at: "2026-08-15",
+  schema_version: "regional-observation-qa-v0.89",
+  validation_note: "Anomalies are flagged for review and never changed automatically.",
+});
+writeLayer("regional_indicator_dictionary", regionIndicatorRecords, {
+  generated_at: "2026-08-15",
+  schema_version: "regional-indicator-dictionary-v0.89",
+  definition_policy: "Labour definitions and manufacturing GVA share are fixed; national values are never downscaled to regions.",
+});
+writeLayer("regional_indicator_gap_audit", regionalIndicatorGapAuditV089, {
+  generated_at: "2026-08-15",
+  schema_version: "regional-indicator-gap-audit-v0.89",
+  model_boundary: "Coverage and comparability audit only; no regional score or prediction.",
+});
+writeLayer("regional_coverage_by_indicator", regionalCoverageByIndicatorV089, {
+  generated_at: "2026-08-15",
+  schema_version: "regional-coverage-by-indicator-v0.89",
+});
+writeLayer("regional_derived_comparisons", regionalDerivedComparisonsV089, {
+  generated_at: "2026-08-15",
+  schema_version: "regional-derived-comparisons-v0.89",
+  formula_policy: "Population and GDP per capita use (2024/2021-1)*100; unemployment uses 2024 minus 2021 percentage points.",
+});
+writeLayer("regional_project_counts", regionalProjectCountsV089, {
+  generated_at: "2026-08-15",
+  schema_version: "regional-project-counts-v0.89",
+  interpretation_boundary: "Counts cover verified mapped records in the current database and do not measure regional influence or absence of activity.",
+});
+writeLayer("regional_boundary_continuity", regionalBoundaryContinuityV089, {
+  generated_at: "2026-08-15",
+  schema_version: "regional-boundary-continuity-v0.89",
+  validation_note: "A stable current-code mapping is not an authoritative historical boundary-change certification.",
 });
 writeLayer("indicators", indicatorRecords, {
   primary_key: "indicator_id",

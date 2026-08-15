@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { regionalObservationQa } from "@/lib/spatialDataV086";
 import { mapLayerReadinessV087, projectLocationReadiness, regionalCoverageMatrixV087, regionalGeometryQa, spatialV087Summary } from "@/lib/spatialDataV087";
+import { regionalCoverageByIndicatorV089, regionalIndicatorGapAuditV089 } from "@/lib/spatialResearchV089";
 
 function displayBoolean(value: boolean) {
   return value ? "是" : "否";
@@ -39,7 +40,7 @@ export function RegionalCoverageMatrix() {
                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5">{record.classification_system} / {record.admin_level}</td>
                 <td className="border-b border-[var(--line)] px-3 py-3">{record.geometry_count} / {record.region_count}</td>
                 <td className="border-b border-[var(--line)] px-3 py-3">{record.p0_indicator_count} / 3</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{record.p1_indicator_count} / 2</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{record.p1_indicator_count} / 3</td>
                 <td className="border-b border-[var(--line)] px-3 py-3">{record.factual_observation_count}</td>
                 <td className="border-b border-[var(--line)] px-3 py-3">{record.pending_observation_count}</td>
                 <td className="border-b border-[var(--line)] px-3 py-3">{record.latest_year}</td>
@@ -55,6 +56,18 @@ export function RegionalCoverageMatrix() {
             ))}
           </tbody>
         </table>
+      </div>
+
+      <div className="mt-5 grid gap-4 lg:grid-cols-[1.25fr_0.75fr]">
+        <article className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+          <h3 className="font-semibold">Regional Indicator Coverage</h3>
+          <p className="mt-2 text-xs leading-5 text-[var(--muted)]">按指标自动汇总国家、区域、年份与比较资格。就业和失业只统计直接匹配层级，未做空间下推。</p>
+          <div className="wide-table-scroll mt-4 max-w-full"><table className="research-data-table w-full min-w-[900px] text-left text-xs"><thead><tr className="text-[var(--muted)]">{["指标", "国家", "区域", "年份", "Latest", "比较合格国家", "单位"].map((header) => <th key={header} className="border-b border-[var(--line)] px-3 pb-3 first:pl-0">{header}</th>)}</tr></thead><tbody>{regionalCoverageByIndicatorV089.map((record) => <tr key={record.indicator_id}><td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{record.indicator_name_zh}</td><td className="border-b border-[var(--line)] px-3 py-3">{record.country_count}</td><td className="border-b border-[var(--line)] px-3 py-3">{record.region_count}</td><td className="border-b border-[var(--line)] px-3 py-3">{record.available_years.join(" / ") || "待接入"}</td><td className="border-b border-[var(--line)] px-3 py-3">{record.latest_year}</td><td className="border-b border-[var(--line)] px-3 py-3">{record.comparison_eligible_country_count}</td><td className="border-b border-[var(--line)] px-3 py-3">{record.unit}</td></tr>)}</tbody></table></div>
+        </article>
+        <article className="rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-4">
+          <h3 className="font-semibold">Regional Indicator Gap Audit</h3>
+          <div className="mt-3 space-y-3">{regionalIndicatorGapAuditV089.map((record) => <div key={record.country_id} className="rounded-xl bg-white/75 p-3 text-xs"><p className="font-semibold">{record.country_name_zh}</p><p className="mt-1 leading-5 text-[var(--muted)]">{record.priority_gaps.join("；") || "当前优先指标无新增缺口"}</p></div>)}</div>
+        </article>
       </div>
 
       <details className="mt-5 rounded-2xl border border-[var(--line)] bg-white/65 p-4">

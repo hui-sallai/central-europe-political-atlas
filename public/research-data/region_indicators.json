@@ -2,7 +2,7 @@
   "schema_version": "research-data-v0.1",
   "generated_at": "2026-08-12",
   "data_type": "region_indicators",
-  "record_count": 10,
+  "record_count": 14,
   "scope": "v0.9 regional indicator dictionary. It is intentionally separate from national indicators.",
   "primary_key": "region_indicator_id",
   "relation_note": "Future region_observations should reference region_indicator_id and region_id. National observations continue to use indicator_id from indicators.",
@@ -30,7 +30,7 @@
       "is_future_model_candidate": true,
       "missing_value_rule": "不得填 0；保留空值并标记待接入或待核验。",
       "pending_value_rule": "显示为待接入，不参与地图图层、区域比较或未来模型候选输入。",
-      "last_updated": "2026-08-14",
+      "last_updated": "2026-08-15",
       "notes": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。"
     },
     {
@@ -54,7 +54,7 @@
       "is_future_model_candidate": true,
       "missing_value_rule": "不得填 0；保留空值并标记待接入或待核验。",
       "pending_value_rule": "显示为待接入，不参与地图图层、区域比较或未来模型候选输入。",
-      "last_updated": "2026-08-14",
+      "last_updated": "2026-08-15",
       "notes": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。"
     },
     {
@@ -78,7 +78,7 @@
       "is_future_model_candidate": true,
       "missing_value_rule": "区域 GDP 或区域人口任一缺失时不得计算；保留待接入。",
       "pending_value_rule": "显示为待接入，不参与地图图层、区域比较或未来模型候选输入。",
-      "last_updated": "2026-08-14",
+      "last_updated": "2026-08-15",
       "notes": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。"
     },
     {
@@ -102,8 +102,32 @@
       "is_future_model_candidate": true,
       "missing_value_rule": "不得填 0；保留空值并标记待接入或待核验。",
       "pending_value_rule": "显示为待接入，不参与地图图层、区域比较或未来模型候选输入。",
-      "last_updated": "2026-08-14",
-      "notes": "区域劳动力指标，后续需统一年龄口径和统计频率。"
+      "last_updated": "2026-08-15",
+      "notes": "Eurostat 年度 LFS 失业率：sex=T、age=Y15-74、isced11=TOTAL、unit=PC。只在当前地图层级可直接对应时使用，不复制上级区域值。"
+    },
+    {
+      "region_indicator_id": "regional_employment_rate",
+      "name_zh": "区域就业率",
+      "name_en": "Regional employment rate",
+      "indicator_category": "劳动力",
+      "section": "区域劳动力",
+      "unit": "%",
+      "frequency": "annual",
+      "applicable_countries": "十国：poland, hungary, czechia, slovakia, germany, austria, romania, slovenia, croatia, serbia；按已核验 ADM1/NUTS 对应层级使用。",
+      "applicable_admin_levels": "ADM1 / NUTS1 / NUTS2 / NUTS3；跨国比较必须显式记录层级差异。",
+      "primary_source": "Eurostat regional labour market statistics / lfst_r_lfe2emprt",
+      "fallback_source": "各国统计局、Eurostat、官方区域统计年鉴",
+      "source_reliability": "A",
+      "is_official_regional_data": true,
+      "is_manual": false,
+      "is_calculated": false,
+      "is_in_map_layer": true,
+      "is_in_regional_comparison": true,
+      "is_future_model_candidate": false,
+      "missing_value_rule": "不得填 0；保留空值并标记待接入或待核验。",
+      "pending_value_rule": "显示为待接入，不参与地图图层、区域比较或未来模型候选输入。",
+      "last_updated": "2026-08-15",
+      "notes": "Eurostat 年度 LFS 就业率：sex=T、age=Y20-64、unit=PC。v0.89 只采用这一项就业指标，避免与就业人数或登记就业混用。"
     },
     {
       "region_indicator_id": "regional_industry_structure",
@@ -126,13 +150,13 @@
       "is_future_model_candidate": true,
       "missing_value_rule": "不得填 0；保留空值并标记待接入或待核验。",
       "pending_value_rule": "显示为待接入，不参与地图图层、区域比较或未来模型候选输入。",
-      "last_updated": "2026-08-14",
+      "last_updated": "2026-08-15",
       "notes": "可用于区域产业结构图层；必须先统一行业分类口径。"
     },
     {
       "region_indicator_id": "regional_manufacturing_share",
-      "name_zh": "区域制造业比重",
-      "name_en": "Regional manufacturing share",
+      "name_zh": "区域制造业 GVA 比重",
+      "name_en": "Regional manufacturing GVA share",
       "indicator_category": "产业",
       "section": "区域产业",
       "unit": "%",
@@ -150,8 +174,80 @@
       "is_future_model_candidate": true,
       "missing_value_rule": "制造业 GVA 或区域总 GVA 缺失时不得计算；保留待接入。",
       "pending_value_rule": "显示为待接入，不参与地图图层、区域比较或未来模型候选输入。",
-      "last_updated": "2026-08-14",
-      "notes": "由区域制造业增加值 / 区域总增加值计算；不直接复用国家级制造业占 GDP 比重。"
+      "last_updated": "2026-08-15",
+      "notes": "由同年同区制造业 GVA（NACE C，CP_MEUR）/ 区域总 GVA（NACE TOTAL，CP_MEUR）计算；不是制造业就业比重，不复用国家值。"
+    },
+    {
+      "region_indicator_id": "regional_population_change_pct",
+      "name_zh": "区域人口变化",
+      "name_en": "Regional population change",
+      "indicator_category": "人口",
+      "section": "区域历史变化",
+      "unit": "%",
+      "frequency": "2021-2024 change",
+      "applicable_countries": "十国：poland, hungary, czechia, slovakia, germany, austria, romania, slovenia, croatia, serbia；按已核验 ADM1/NUTS 对应层级使用。",
+      "applicable_admin_levels": "ADM1 / NUTS1 / NUTS2 / NUTS3；跨国比较必须显式记录层级差异。",
+      "primary_source": "region_observations / regional_population",
+      "fallback_source": "不适用",
+      "source_reliability": "A",
+      "is_official_regional_data": false,
+      "is_manual": false,
+      "is_calculated": true,
+      "is_in_map_layer": true,
+      "is_in_regional_comparison": true,
+      "is_future_model_candidate": false,
+      "missing_value_rule": "2021 或 2024 任一真实观测缺失时不计算。",
+      "pending_value_rule": "显示为待接入，不参与地图图层、区域比较或未来模型候选输入。",
+      "last_updated": "2026-08-15",
+      "notes": "历史事实变化：(value_2024 / value_2021 - 1) × 100；不是预测或绩效评分。"
+    },
+    {
+      "region_indicator_id": "regional_gdp_per_capita_change_pct",
+      "name_zh": "区域人均 GDP 变化",
+      "name_en": "Regional GDP per capita change",
+      "indicator_category": "经济",
+      "section": "区域历史变化",
+      "unit": "%",
+      "frequency": "2021-2024 change",
+      "applicable_countries": "十国：poland, hungary, czechia, slovakia, germany, austria, romania, slovenia, croatia, serbia；按已核验 ADM1/NUTS 对应层级使用。",
+      "applicable_admin_levels": "ADM1 / NUTS1 / NUTS2 / NUTS3；跨国比较必须显式记录层级差异。",
+      "primary_source": "region_observations / regional_gdp_per_capita",
+      "fallback_source": "不适用",
+      "source_reliability": "A",
+      "is_official_regional_data": false,
+      "is_manual": false,
+      "is_calculated": true,
+      "is_in_map_layer": true,
+      "is_in_regional_comparison": true,
+      "is_future_model_candidate": false,
+      "missing_value_rule": "2021 或 2024 任一真实观测缺失时不计算。",
+      "pending_value_rule": "显示为待接入，不参与地图图层、区域比较或未来模型候选输入。",
+      "last_updated": "2026-08-15",
+      "notes": "名义人均 GDP 历史变化：(value_2024 / value_2021 - 1) × 100；不等于实际增长或生活水平评分。"
+    },
+    {
+      "region_indicator_id": "regional_unemployment_change_pp",
+      "name_zh": "区域失业率变化",
+      "name_en": "Regional unemployment-rate change",
+      "indicator_category": "劳动力",
+      "section": "区域历史变化",
+      "unit": "百分点",
+      "frequency": "2021-2024 change",
+      "applicable_countries": "十国：poland, hungary, czechia, slovakia, germany, austria, romania, slovenia, croatia, serbia；按已核验 ADM1/NUTS 对应层级使用。",
+      "applicable_admin_levels": "ADM1 / NUTS1 / NUTS2 / NUTS3；跨国比较必须显式记录层级差异。",
+      "primary_source": "region_observations / regional_unemployment_rate",
+      "fallback_source": "不适用",
+      "source_reliability": "A",
+      "is_official_regional_data": false,
+      "is_manual": false,
+      "is_calculated": true,
+      "is_in_map_layer": true,
+      "is_in_regional_comparison": true,
+      "is_future_model_candidate": false,
+      "missing_value_rule": "2021 或 2024 任一同口径失业率观测缺失时不计算。",
+      "pending_value_rule": "显示为待接入，不参与地图图层、区域比较或未来模型候选输入。",
+      "last_updated": "2026-08-15",
+      "notes": "历史事实变化：unemployment_2024 - unemployment_2021；不是预测或区域压力指数。"
     },
     {
       "region_indicator_id": "regional_main_city",
@@ -174,7 +270,7 @@
       "is_future_model_candidate": false,
       "missing_value_rule": "缺失时显示待核验，不填入推测城市。",
       "pending_value_rule": "显示为待接入或待核验，不参与区域比较。",
-      "last_updated": "2026-08-14",
+      "last_updated": "2026-08-15",
       "notes": "来自 regions 元数据表；作为地图标签候选，不作为数值型指标。"
     },
     {
@@ -198,7 +294,7 @@
       "is_future_model_candidate": true,
       "missing_value_rule": "project_locations 未接入前不得显示为 0；显示待接入。",
       "pending_value_rule": "项目坐标和 region_id 映射完成前不进入地图图层或区域比较。",
-      "last_updated": "2026-08-14",
+      "last_updated": "2026-08-15",
       "notes": "由项目表按 region_id 聚合；当前不是中国经济暴露指数。"
     },
     {
@@ -222,7 +318,7 @@
       "is_future_model_candidate": true,
       "missing_value_rule": "缺少项目状态时间线时显示待核验，不推断项目状态。",
       "pending_value_rule": "显示为待接入或待核验，不参与区域比较。",
-      "last_updated": "2026-08-14",
+      "last_updated": "2026-08-15",
       "notes": "用于项目状态图层候选；不生成风险判断或政策评价。"
     },
     {
@@ -246,7 +342,7 @@
       "is_future_model_candidate": false,
       "missing_value_rule": "无边界来源时显示待接入；不得显示为真实边界已上线。",
       "pending_value_rule": "geometry_available=false 时只作为地图工作台准备状态，不渲染真实边界。",
-      "last_updated": "2026-08-14",
+      "last_updated": "2026-08-15",
       "notes": "由 region_boundaries 读取边界来源、许可、格式、几何接入和拓扑检查状态。"
     }
   ]

@@ -8,9 +8,9 @@
     "region_count": 173,
     "geometry_qa_passed_country_count": 10,
     "public_boundary_country_count": 9,
-    "public_layer_count": 43,
+    "public_layer_count": 80,
     "project_reference_count": 23,
-    "factual_observation_count": 1776,
+    "factual_observation_count": 2972,
     "reviewed_at": "2026-08-15"
   },
   "boundary_manifest": [
@@ -276,32 +276,36 @@
       "geometry_count": 16,
       "geometry_match_status": "one_to_one_matched",
       "p0_indicator_count": 3,
-      "p1_indicator_count": 0,
-      "factual_observation_count": 192,
-      "pending_observation_count": 128,
+      "p1_indicator_count": 3,
+      "factual_observation_count": 411,
+      "pending_observation_count": 20,
       "latest_year": "2024",
       "project_mapped_count": 3,
       "project_display_eligible_count": 2,
       "boundary_ready": true,
       "regional_data_ready": true,
       "project_ready": true,
-      "public_layer_count": 5,
+      "public_layer_count": 9,
       "priority_gaps": [
         "区域失业率",
-        "区域制造业比重"
+        "区域失业率变化（2021–2024）"
       ],
       "approved_layers": [
         "regional_boundary",
         "regional_population",
         "regional_gdp",
         "regional_gdp_per_capita",
+        "regional_employment_rate",
+        "regional_manufacturing_share",
+        "regional_population_change_pct",
+        "regional_gdp_per_capita_change_pct",
         "china_project_locations"
       ],
       "rejected_layers": [
         "regional_unemployment_rate",
-        "regional_manufacturing_share"
+        "regional_unemployment_change_pp"
       ],
-      "blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable",
+      "blocker": "区域失业率: complete_regional_observations_unavailable；区域失业率变化（2021–2024）: complete_regional_observations_unavailable",
       "latest_common_year": "2024"
     },
     {
@@ -313,8 +317,8 @@
       "geometry_count": 20,
       "geometry_match_status": "one_to_one_matched",
       "p0_indicator_count": 3,
-      "p1_indicator_count": 0,
-      "factual_observation_count": 240,
+      "p1_indicator_count": 1,
+      "factual_observation_count": 360,
       "pending_observation_count": 160,
       "latest_year": "2024",
       "project_mapped_count": 5,
@@ -322,23 +326,28 @@
       "boundary_ready": true,
       "regional_data_ready": true,
       "project_ready": true,
-      "public_layer_count": 5,
+      "public_layer_count": 8,
       "priority_gaps": [
         "区域失业率",
-        "区域制造业比重"
+        "区域就业率",
+        "区域失业率变化（2021–2024）"
       ],
       "approved_layers": [
         "regional_boundary",
         "regional_population",
         "regional_gdp",
         "regional_gdp_per_capita",
+        "regional_manufacturing_share",
+        "regional_population_change_pct",
+        "regional_gdp_per_capita_change_pct",
         "china_project_locations"
       ],
       "rejected_layers": [
         "regional_unemployment_rate",
-        "regional_manufacturing_share"
+        "regional_employment_rate",
+        "regional_unemployment_change_pp"
       ],
-      "blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable",
+      "blocker": "区域失业率: complete_regional_observations_unavailable；区域就业率: complete_regional_observations_unavailable；区域失业率变化（2021–2024）: complete_regional_observations_unavailable",
       "latest_common_year": "2024"
     },
     {
@@ -350,8 +359,8 @@
       "geometry_count": 14,
       "geometry_match_status": "one_to_one_matched",
       "p0_indicator_count": 3,
-      "p1_indicator_count": 0,
-      "factual_observation_count": 168,
+      "p1_indicator_count": 1,
+      "factual_observation_count": 252,
       "pending_observation_count": 112,
       "latest_year": "2024",
       "project_mapped_count": 3,
@@ -359,23 +368,28 @@
       "boundary_ready": true,
       "regional_data_ready": true,
       "project_ready": true,
-      "public_layer_count": 5,
+      "public_layer_count": 8,
       "priority_gaps": [
         "区域失业率",
-        "区域制造业比重"
+        "区域就业率",
+        "区域失业率变化（2021–2024）"
       ],
       "approved_layers": [
         "regional_boundary",
         "regional_population",
         "regional_gdp",
         "regional_gdp_per_capita",
+        "regional_manufacturing_share",
+        "regional_population_change_pct",
+        "regional_gdp_per_capita_change_pct",
         "china_project_locations"
       ],
       "rejected_layers": [
         "regional_unemployment_rate",
-        "regional_manufacturing_share"
+        "regional_employment_rate",
+        "regional_unemployment_change_pp"
       ],
-      "blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable",
+      "blocker": "区域失业率: complete_regional_observations_unavailable；区域就业率: complete_regional_observations_unavailable；区域失业率变化（2021–2024）: complete_regional_observations_unavailable",
       "latest_common_year": "2024"
     },
     {
@@ -387,8 +401,8 @@
       "geometry_count": 8,
       "geometry_match_status": "one_to_one_matched",
       "p0_indicator_count": 3,
-      "p1_indicator_count": 0,
-      "factual_observation_count": 96,
+      "p1_indicator_count": 1,
+      "factual_observation_count": 144,
       "pending_observation_count": 64,
       "latest_year": "2024",
       "project_mapped_count": 4,
@@ -396,23 +410,28 @@
       "boundary_ready": true,
       "regional_data_ready": true,
       "project_ready": true,
-      "public_layer_count": 5,
+      "public_layer_count": 8,
       "priority_gaps": [
         "区域失业率",
-        "区域制造业比重"
+        "区域就业率",
+        "区域失业率变化（2021–2024）"
       ],
       "approved_layers": [
         "regional_boundary",
         "regional_population",
         "regional_gdp",
         "regional_gdp_per_capita",
+        "regional_manufacturing_share",
+        "regional_population_change_pct",
+        "regional_gdp_per_capita_change_pct",
         "china_project_locations"
       ],
       "rejected_layers": [
         "regional_unemployment_rate",
-        "regional_manufacturing_share"
+        "regional_employment_rate",
+        "regional_unemployment_change_pp"
       ],
-      "blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable",
+      "blocker": "区域失业率: complete_regional_observations_unavailable；区域就业率: complete_regional_observations_unavailable；区域失业率变化（2021–2024）: complete_regional_observations_unavailable",
       "latest_common_year": "2024"
     },
     {
@@ -424,32 +443,32 @@
       "geometry_count": 16,
       "geometry_match_status": "one_to_one_matched",
       "p0_indicator_count": 3,
-      "p1_indicator_count": 0,
-      "factual_observation_count": 192,
-      "pending_observation_count": 128,
+      "p1_indicator_count": 3,
+      "factual_observation_count": 416,
+      "pending_observation_count": 16,
       "latest_year": "2024",
       "project_mapped_count": 2,
       "project_display_eligible_count": 1,
       "boundary_ready": true,
       "regional_data_ready": true,
       "project_ready": true,
-      "public_layer_count": 5,
-      "priority_gaps": [
-        "区域失业率",
-        "区域制造业比重"
-      ],
+      "public_layer_count": 11,
+      "priority_gaps": [],
       "approved_layers": [
         "regional_boundary",
         "regional_population",
         "regional_gdp",
         "regional_gdp_per_capita",
+        "regional_unemployment_rate",
+        "regional_employment_rate",
+        "regional_manufacturing_share",
+        "regional_population_change_pct",
+        "regional_gdp_per_capita_change_pct",
+        "regional_unemployment_change_pp",
         "china_project_locations"
       ],
-      "rejected_layers": [
-        "regional_unemployment_rate",
-        "regional_manufacturing_share"
-      ],
-      "blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable",
+      "rejected_layers": [],
+      "blocker": "",
       "latest_common_year": "2024"
     },
     {
@@ -461,32 +480,37 @@
       "geometry_count": 42,
       "geometry_match_status": "one_to_one_matched",
       "p0_indicator_count": 3,
-      "p1_indicator_count": 0,
-      "factual_observation_count": 504,
-      "pending_observation_count": 336,
+      "p1_indicator_count": 1,
+      "factual_observation_count": 714,
+      "pending_observation_count": 378,
       "latest_year": "2024",
       "project_mapped_count": 1,
       "project_display_eligible_count": 1,
       "boundary_ready": true,
       "regional_data_ready": true,
       "project_ready": true,
-      "public_layer_count": 5,
+      "public_layer_count": 8,
       "priority_gaps": [
         "区域失业率",
-        "区域制造业比重"
+        "区域就业率",
+        "区域失业率变化（2021–2024）"
       ],
       "approved_layers": [
         "regional_boundary",
         "regional_population",
         "regional_gdp",
         "regional_gdp_per_capita",
+        "regional_manufacturing_share",
+        "regional_population_change_pct",
+        "regional_gdp_per_capita_change_pct",
         "china_project_locations"
       ],
       "rejected_layers": [
         "regional_unemployment_rate",
-        "regional_manufacturing_share"
+        "regional_employment_rate",
+        "regional_unemployment_change_pp"
       ],
-      "blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable",
+      "blocker": "区域失业率: complete_regional_observations_unavailable；区域就业率: complete_regional_observations_unavailable；区域失业率变化（2021–2024）: complete_regional_observations_unavailable",
       "latest_common_year": "2024"
     },
     {
@@ -498,32 +522,32 @@
       "geometry_count": 2,
       "geometry_match_status": "one_to_one_matched",
       "p0_indicator_count": 3,
-      "p1_indicator_count": 0,
-      "factual_observation_count": 24,
-      "pending_observation_count": 16,
+      "p1_indicator_count": 3,
+      "factual_observation_count": 54,
+      "pending_observation_count": 0,
       "latest_year": "2024",
       "project_mapped_count": 1,
       "project_display_eligible_count": 1,
       "boundary_ready": true,
       "regional_data_ready": true,
       "project_ready": true,
-      "public_layer_count": 5,
-      "priority_gaps": [
-        "区域失业率",
-        "区域制造业比重"
-      ],
+      "public_layer_count": 11,
+      "priority_gaps": [],
       "approved_layers": [
         "regional_boundary",
         "regional_population",
         "regional_gdp",
         "regional_gdp_per_capita",
+        "regional_unemployment_rate",
+        "regional_employment_rate",
+        "regional_manufacturing_share",
+        "regional_population_change_pct",
+        "regional_gdp_per_capita_change_pct",
+        "regional_unemployment_change_pp",
         "china_project_locations"
       ],
-      "rejected_layers": [
-        "regional_unemployment_rate",
-        "regional_manufacturing_share"
-      ],
-      "blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable",
+      "rejected_layers": [],
+      "blocker": "",
       "latest_common_year": "2024"
     },
     {
@@ -537,7 +561,7 @@
       "p0_indicator_count": 0,
       "p1_indicator_count": 0,
       "factual_observation_count": 0,
-      "pending_observation_count": 500,
+      "pending_observation_count": 600,
       "latest_year": "unavailable",
       "project_mapped_count": 2,
       "project_display_eligible_count": 2,
@@ -551,7 +575,11 @@
         "区域 GDP",
         "区域人均 GDP",
         "区域失业率",
-        "区域制造业比重",
+        "区域就业率",
+        "区域制造业 GVA 比重",
+        "区域人口变化（2021–2024）",
+        "区域人均 GDP 变化（2021–2024）",
+        "区域失业率变化（2021–2024）",
         "对华项目区域参考"
       ],
       "approved_layers": [],
@@ -561,10 +589,14 @@
         "regional_gdp",
         "regional_gdp_per_capita",
         "regional_unemployment_rate",
+        "regional_employment_rate",
         "regional_manufacturing_share",
+        "regional_population_change_pct",
+        "regional_gdp_per_capita_change_pct",
+        "regional_unemployment_change_pp",
         "china_project_locations"
       ],
-      "blocker": "行政边界: official_boundary_correspondence_and_regional_comparability_pending；区域人口: official_boundary_correspondence_and_regional_comparability_pending；区域 GDP: official_boundary_correspondence_and_regional_comparability_pending；区域人均 GDP: official_boundary_correspondence_and_regional_comparability_pending；区域失业率: official_boundary_correspondence_and_regional_comparability_pending；区域制造业比重: official_boundary_correspondence_and_regional_comparability_pending；对华项目区域参考: official_boundary_correspondence_and_regional_comparability_pending",
+      "blocker": "行政边界: official_boundary_correspondence_and_regional_comparability_pending；区域人口: official_boundary_correspondence_and_regional_comparability_pending；区域 GDP: official_boundary_correspondence_and_regional_comparability_pending；区域人均 GDP: official_boundary_correspondence_and_regional_comparability_pending；区域失业率: official_boundary_correspondence_and_regional_comparability_pending；区域就业率: official_boundary_correspondence_and_regional_comparability_pending；区域制造业 GVA 比重: official_boundary_correspondence_and_regional_comparability_pending；区域人口变化（2021–2024）: official_boundary_correspondence_and_regional_comparability_pending；区域人均 GDP 变化（2021–2024）: official_boundary_correspondence_and_regional_comparability_pending；区域失业率变化（2021–2024）: official_boundary_correspondence_and_regional_comparability_pending；对华项目区域参考: official_boundary_correspondence_and_regional_comparability_pending",
       "latest_common_year": "unavailable"
     },
     {
@@ -576,33 +608,35 @@
       "geometry_count": 9,
       "geometry_match_status": "one_to_one_matched",
       "p0_indicator_count": 3,
-      "p1_indicator_count": 0,
-      "factual_observation_count": 108,
-      "pending_observation_count": 72,
+      "p1_indicator_count": 3,
+      "factual_observation_count": 243,
+      "pending_observation_count": 0,
       "latest_year": "2024",
       "project_mapped_count": 1,
       "project_display_eligible_count": 0,
       "boundary_ready": true,
       "regional_data_ready": true,
       "project_ready": false,
-      "public_layer_count": 4,
+      "public_layer_count": 10,
       "priority_gaps": [
-        "区域失业率",
-        "区域制造业比重",
         "对华项目区域参考"
       ],
       "approved_layers": [
         "regional_boundary",
         "regional_population",
         "regional_gdp",
-        "regional_gdp_per_capita"
+        "regional_gdp_per_capita",
+        "regional_unemployment_rate",
+        "regional_employment_rate",
+        "regional_manufacturing_share",
+        "regional_population_change_pct",
+        "regional_gdp_per_capita_change_pct",
+        "regional_unemployment_change_pp"
       ],
       "rejected_layers": [
-        "regional_unemployment_rate",
-        "regional_manufacturing_share",
         "china_project_locations"
       ],
-      "blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable；对华项目区域参考: no_high_or_medium_confidence_project_reference",
+      "blocker": "对华项目区域参考: no_high_or_medium_confidence_project_reference",
       "latest_common_year": "2024"
     },
     {
@@ -614,8 +648,8 @@
       "geometry_count": 21,
       "geometry_match_status": "one_to_one_matched",
       "p0_indicator_count": 3,
-      "p1_indicator_count": 0,
-      "factual_observation_count": 252,
+      "p1_indicator_count": 1,
+      "factual_observation_count": 378,
       "pending_observation_count": 168,
       "latest_year": "2024",
       "project_mapped_count": 1,
@@ -623,24 +657,29 @@
       "boundary_ready": true,
       "regional_data_ready": true,
       "project_ready": false,
-      "public_layer_count": 4,
+      "public_layer_count": 7,
       "priority_gaps": [
         "区域失业率",
-        "区域制造业比重",
+        "区域就业率",
+        "区域失业率变化（2021–2024）",
         "对华项目区域参考"
       ],
       "approved_layers": [
         "regional_boundary",
         "regional_population",
         "regional_gdp",
-        "regional_gdp_per_capita"
+        "regional_gdp_per_capita",
+        "regional_manufacturing_share",
+        "regional_population_change_pct",
+        "regional_gdp_per_capita_change_pct"
       ],
       "rejected_layers": [
         "regional_unemployment_rate",
-        "regional_manufacturing_share",
+        "regional_employment_rate",
+        "regional_unemployment_change_pp",
         "china_project_locations"
       ],
-      "blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable；对华项目区域参考: no_high_or_medium_confidence_project_reference",
+      "blocker": "区域失业率: complete_regional_observations_unavailable；区域就业率: complete_regional_observations_unavailable；区域失业率变化（2021–2024）: complete_regional_observations_unavailable；对华项目区域参考: no_high_or_medium_confidence_project_reference",
       "latest_common_year": "2024"
     }
   ]

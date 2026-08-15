@@ -1,8 +1,8 @@
 export const platformStatus = {
-  version: "v0.88 Comparative Spatial Research UX",
-  stage: "区域比较研究工作台",
-  regionalData: "九个欧盟国家已接入 2021–2024 P0 区域事实序列、项目位置参考与可追溯来源；塞尔维亚继续等待可比性验收",
-  mapDisplay: "支持单国、同层级跨国比较、动态年份、区域档案、事实排名和项目筛选；风险与预测图层未启用",
+  version: "v0.89 Regional Economic Depth & Harmonization",
+  stage: "区域经济深度与口径统一",
+  regionalData: "九个欧盟国家已接入 2021–2024 区域经济与制造业事实；劳动力指标按可直接匹配层级开放，塞尔维亚继续等待可比性验收",
+  mapDisplay: "支持经济、劳动力、产业、历史变化与项目上下文；不同层级不混合排名，风险与预测图层未启用",
   modelLayer: "国家级模型保持冻结；不生成区域风险分数或预测",
   lastUpdated: "2026-08-15",
 } as const;

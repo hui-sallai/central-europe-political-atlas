@@ -23,7 +23,7 @@ export default function DataOverviewPage() {
           items={[
             { label: "默认视图", value: "国家选择 + 宏观经济数据" },
             { label: "研究数据层", value: "17 个逻辑层保留，按需展开" },
-            { label: "空间研究", value: "v0.88 支持年份、同层级比较、事实排名与 Data → Map" },
+            { label: "空间研究", value: "v0.89 增加劳动力、制造业与 2021–2024 事实变化" },
           ]}
         />
       </div>

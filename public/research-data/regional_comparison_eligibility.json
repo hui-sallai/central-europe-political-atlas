@@ -1,0 +1,1480 @@
+{
+  "schema_version": "regional-comparison-eligibility-v0.89",
+  "generated_at": "2026-08-15",
+  "data_type": "regional_comparison_eligibility",
+  "record_count": 110,
+  "comparison_policy": "Only the same administrative level, definition, unit and year may enter formal regional comparison.",
+  "records": [
+    {
+      "country_id": "poland",
+      "layer_id": "regional_boundary",
+      "admin_level": "ADM1",
+      "definition": "已核验行政边界。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "层级、覆盖或质量条件尚未满足。"
+    },
+    {
+      "country_id": "poland",
+      "layer_id": "regional_population",
+      "admin_level": "ADM1",
+      "definition": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。",
+      "unit": "人",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "poland",
+      "layer_id": "regional_gdp",
+      "admin_level": "ADM1",
+      "definition": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。",
+      "unit": "百万欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "poland",
+      "layer_id": "regional_gdp_per_capita",
+      "admin_level": "ADM1",
+      "definition": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。",
+      "unit": "欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "poland",
+      "layer_id": "regional_unemployment_rate",
+      "admin_level": "ADM1",
+      "definition": "Eurostat 年度 LFS 失业率：sex=T、age=Y15-74、isced11=TOTAL、unit=PC。只在当前地图层级可直接对应时使用，不复制上级区域值。",
+      "unit": "%",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "poland",
+      "layer_id": "regional_employment_rate",
+      "admin_level": "ADM1",
+      "definition": "Eurostat 年度 LFS 就业率：sex=T、age=Y20-64、unit=PC。v0.89 只采用这一项就业指标，避免与就业人数或登记就业混用。",
+      "unit": "%",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "poland",
+      "layer_id": "regional_manufacturing_share",
+      "admin_level": "ADM1",
+      "definition": "由同年同区制造业 GVA（NACE C，CP_MEUR）/ 区域总 GVA（NACE TOTAL，CP_MEUR）计算；不是制造业就业比重，不复用国家值。",
+      "unit": "%",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023"
+      ],
+      "latest_available_year": "2023",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "poland",
+      "layer_id": "regional_population_change_pct",
+      "admin_level": "ADM1",
+      "definition": "历史事实变化：(value_2024 / value_2021 - 1) × 100；不是预测或绩效评分。",
+      "unit": "%",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "poland",
+      "layer_id": "regional_gdp_per_capita_change_pct",
+      "admin_level": "ADM1",
+      "definition": "名义人均 GDP 历史变化：(value_2024 / value_2021 - 1) × 100；不等于实际增长或生活水平评分。",
+      "unit": "%",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "poland",
+      "layer_id": "regional_unemployment_change_pp",
+      "admin_level": "ADM1",
+      "definition": "历史事实变化：unemployment_2024 - unemployment_2021；不是预测或区域压力指数。",
+      "unit": "百分点",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "poland",
+      "layer_id": "china_project_locations",
+      "admin_level": "ADM1",
+      "definition": "已核验项目的城市或区域参考位置；不代表项目经济影响。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "层级、覆盖或质量条件尚未满足。"
+    },
+    {
+      "country_id": "hungary",
+      "layer_id": "regional_boundary",
+      "admin_level": "NUTS3",
+      "definition": "已核验行政边界。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "层级、覆盖或质量条件尚未满足。"
+    },
+    {
+      "country_id": "hungary",
+      "layer_id": "regional_population",
+      "admin_level": "NUTS3",
+      "definition": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。",
+      "unit": "人",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "hungary",
+      "layer_id": "regional_gdp",
+      "admin_level": "NUTS3",
+      "definition": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。",
+      "unit": "百万欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "hungary",
+      "layer_id": "regional_gdp_per_capita",
+      "admin_level": "NUTS3",
+      "definition": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。",
+      "unit": "欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "hungary",
+      "layer_id": "regional_unemployment_rate",
+      "admin_level": "NUTS3",
+      "definition": "Eurostat 年度 LFS 失业率：sex=T、age=Y15-74、isced11=TOTAL、unit=PC。只在当前地图层级可直接对应时使用，不复制上级区域值。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "hungary",
+      "layer_id": "regional_employment_rate",
+      "admin_level": "NUTS3",
+      "definition": "Eurostat 年度 LFS 就业率：sex=T、age=Y20-64、unit=PC。v0.89 只采用这一项就业指标，避免与就业人数或登记就业混用。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "hungary",
+      "layer_id": "regional_manufacturing_share",
+      "admin_level": "NUTS3",
+      "definition": "由同年同区制造业 GVA（NACE C，CP_MEUR）/ 区域总 GVA（NACE TOTAL，CP_MEUR）计算；不是制造业就业比重，不复用国家值。",
+      "unit": "%",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "hungary",
+      "layer_id": "regional_population_change_pct",
+      "admin_level": "NUTS3",
+      "definition": "历史事实变化：(value_2024 / value_2021 - 1) × 100；不是预测或绩效评分。",
+      "unit": "%",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "hungary",
+      "layer_id": "regional_gdp_per_capita_change_pct",
+      "admin_level": "NUTS3",
+      "definition": "名义人均 GDP 历史变化：(value_2024 / value_2021 - 1) × 100；不等于实际增长或生活水平评分。",
+      "unit": "%",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "hungary",
+      "layer_id": "regional_unemployment_change_pp",
+      "admin_level": "NUTS3",
+      "definition": "历史事实变化：unemployment_2024 - unemployment_2021；不是预测或区域压力指数。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "hungary",
+      "layer_id": "china_project_locations",
+      "admin_level": "NUTS3",
+      "definition": "已核验项目的城市或区域参考位置；不代表项目经济影响。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "层级、覆盖或质量条件尚未满足。"
+    },
+    {
+      "country_id": "czechia",
+      "layer_id": "regional_boundary",
+      "admin_level": "NUTS3",
+      "definition": "已核验行政边界。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "层级、覆盖或质量条件尚未满足。"
+    },
+    {
+      "country_id": "czechia",
+      "layer_id": "regional_population",
+      "admin_level": "NUTS3",
+      "definition": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。",
+      "unit": "人",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "czechia",
+      "layer_id": "regional_gdp",
+      "admin_level": "NUTS3",
+      "definition": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。",
+      "unit": "百万欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "czechia",
+      "layer_id": "regional_gdp_per_capita",
+      "admin_level": "NUTS3",
+      "definition": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。",
+      "unit": "欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "czechia",
+      "layer_id": "regional_unemployment_rate",
+      "admin_level": "NUTS3",
+      "definition": "Eurostat 年度 LFS 失业率：sex=T、age=Y15-74、isced11=TOTAL、unit=PC。只在当前地图层级可直接对应时使用，不复制上级区域值。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "czechia",
+      "layer_id": "regional_employment_rate",
+      "admin_level": "NUTS3",
+      "definition": "Eurostat 年度 LFS 就业率：sex=T、age=Y20-64、unit=PC。v0.89 只采用这一项就业指标，避免与就业人数或登记就业混用。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "czechia",
+      "layer_id": "regional_manufacturing_share",
+      "admin_level": "NUTS3",
+      "definition": "由同年同区制造业 GVA（NACE C，CP_MEUR）/ 区域总 GVA（NACE TOTAL，CP_MEUR）计算；不是制造业就业比重，不复用国家值。",
+      "unit": "%",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "czechia",
+      "layer_id": "regional_population_change_pct",
+      "admin_level": "NUTS3",
+      "definition": "历史事实变化：(value_2024 / value_2021 - 1) × 100；不是预测或绩效评分。",
+      "unit": "%",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "czechia",
+      "layer_id": "regional_gdp_per_capita_change_pct",
+      "admin_level": "NUTS3",
+      "definition": "名义人均 GDP 历史变化：(value_2024 / value_2021 - 1) × 100；不等于实际增长或生活水平评分。",
+      "unit": "%",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "czechia",
+      "layer_id": "regional_unemployment_change_pp",
+      "admin_level": "NUTS3",
+      "definition": "历史事实变化：unemployment_2024 - unemployment_2021；不是预测或区域压力指数。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "czechia",
+      "layer_id": "china_project_locations",
+      "admin_level": "NUTS3",
+      "definition": "已核验项目的城市或区域参考位置；不代表项目经济影响。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "层级、覆盖或质量条件尚未满足。"
+    },
+    {
+      "country_id": "slovakia",
+      "layer_id": "regional_boundary",
+      "admin_level": "NUTS3",
+      "definition": "已核验行政边界。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "层级、覆盖或质量条件尚未满足。"
+    },
+    {
+      "country_id": "slovakia",
+      "layer_id": "regional_population",
+      "admin_level": "NUTS3",
+      "definition": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。",
+      "unit": "人",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "slovakia",
+      "layer_id": "regional_gdp",
+      "admin_level": "NUTS3",
+      "definition": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。",
+      "unit": "百万欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "slovakia",
+      "layer_id": "regional_gdp_per_capita",
+      "admin_level": "NUTS3",
+      "definition": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。",
+      "unit": "欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "slovakia",
+      "layer_id": "regional_unemployment_rate",
+      "admin_level": "NUTS3",
+      "definition": "Eurostat 年度 LFS 失业率：sex=T、age=Y15-74、isced11=TOTAL、unit=PC。只在当前地图层级可直接对应时使用，不复制上级区域值。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "slovakia",
+      "layer_id": "regional_employment_rate",
+      "admin_level": "NUTS3",
+      "definition": "Eurostat 年度 LFS 就业率：sex=T、age=Y20-64、unit=PC。v0.89 只采用这一项就业指标，避免与就业人数或登记就业混用。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "slovakia",
+      "layer_id": "regional_manufacturing_share",
+      "admin_level": "NUTS3",
+      "definition": "由同年同区制造业 GVA（NACE C，CP_MEUR）/ 区域总 GVA（NACE TOTAL，CP_MEUR）计算；不是制造业就业比重，不复用国家值。",
+      "unit": "%",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "slovakia",
+      "layer_id": "regional_population_change_pct",
+      "admin_level": "NUTS3",
+      "definition": "历史事实变化：(value_2024 / value_2021 - 1) × 100；不是预测或绩效评分。",
+      "unit": "%",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "slovakia",
+      "layer_id": "regional_gdp_per_capita_change_pct",
+      "admin_level": "NUTS3",
+      "definition": "名义人均 GDP 历史变化：(value_2024 / value_2021 - 1) × 100；不等于实际增长或生活水平评分。",
+      "unit": "%",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "slovakia",
+      "layer_id": "regional_unemployment_change_pp",
+      "admin_level": "NUTS3",
+      "definition": "历史事实变化：unemployment_2024 - unemployment_2021；不是预测或区域压力指数。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "slovakia",
+      "layer_id": "china_project_locations",
+      "admin_level": "NUTS3",
+      "definition": "已核验项目的城市或区域参考位置；不代表项目经济影响。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "层级、覆盖或质量条件尚未满足。"
+    },
+    {
+      "country_id": "germany",
+      "layer_id": "regional_boundary",
+      "admin_level": "NUTS1",
+      "definition": "已核验行政边界。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "层级、覆盖或质量条件尚未满足。"
+    },
+    {
+      "country_id": "germany",
+      "layer_id": "regional_population",
+      "admin_level": "NUTS1",
+      "definition": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。",
+      "unit": "人",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "germany",
+      "layer_id": "regional_gdp",
+      "admin_level": "NUTS1",
+      "definition": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。",
+      "unit": "百万欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "germany",
+      "layer_id": "regional_gdp_per_capita",
+      "admin_level": "NUTS1",
+      "definition": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。",
+      "unit": "欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "germany",
+      "layer_id": "regional_unemployment_rate",
+      "admin_level": "NUTS1",
+      "definition": "Eurostat 年度 LFS 失业率：sex=T、age=Y15-74、isced11=TOTAL、unit=PC。只在当前地图层级可直接对应时使用，不复制上级区域值。",
+      "unit": "%",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "germany",
+      "layer_id": "regional_employment_rate",
+      "admin_level": "NUTS1",
+      "definition": "Eurostat 年度 LFS 就业率：sex=T、age=Y20-64、unit=PC。v0.89 只采用这一项就业指标，避免与就业人数或登记就业混用。",
+      "unit": "%",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "germany",
+      "layer_id": "regional_manufacturing_share",
+      "admin_level": "NUTS1",
+      "definition": "由同年同区制造业 GVA（NACE C，CP_MEUR）/ 区域总 GVA（NACE TOTAL，CP_MEUR）计算；不是制造业就业比重，不复用国家值。",
+      "unit": "%",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023"
+      ],
+      "latest_available_year": "2023",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "germany",
+      "layer_id": "regional_population_change_pct",
+      "admin_level": "NUTS1",
+      "definition": "历史事实变化：(value_2024 / value_2021 - 1) × 100；不是预测或绩效评分。",
+      "unit": "%",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "germany",
+      "layer_id": "regional_gdp_per_capita_change_pct",
+      "admin_level": "NUTS1",
+      "definition": "名义人均 GDP 历史变化：(value_2024 / value_2021 - 1) × 100；不等于实际增长或生活水平评分。",
+      "unit": "%",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "germany",
+      "layer_id": "regional_unemployment_change_pp",
+      "admin_level": "NUTS1",
+      "definition": "历史事实变化：unemployment_2024 - unemployment_2021；不是预测或区域压力指数。",
+      "unit": "百分点",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "germany",
+      "layer_id": "china_project_locations",
+      "admin_level": "NUTS1",
+      "definition": "已核验项目的城市或区域参考位置；不代表项目经济影响。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "层级、覆盖或质量条件尚未满足。"
+    },
+    {
+      "country_id": "romania",
+      "layer_id": "regional_boundary",
+      "admin_level": "NUTS3",
+      "definition": "已核验行政边界。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "层级、覆盖或质量条件尚未满足。"
+    },
+    {
+      "country_id": "romania",
+      "layer_id": "regional_population",
+      "admin_level": "NUTS3",
+      "definition": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。",
+      "unit": "人",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "romania",
+      "layer_id": "regional_gdp",
+      "admin_level": "NUTS3",
+      "definition": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。",
+      "unit": "百万欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "romania",
+      "layer_id": "regional_gdp_per_capita",
+      "admin_level": "NUTS3",
+      "definition": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。",
+      "unit": "欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "romania",
+      "layer_id": "regional_unemployment_rate",
+      "admin_level": "NUTS3",
+      "definition": "Eurostat 年度 LFS 失业率：sex=T、age=Y15-74、isced11=TOTAL、unit=PC。只在当前地图层级可直接对应时使用，不复制上级区域值。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "romania",
+      "layer_id": "regional_employment_rate",
+      "admin_level": "NUTS3",
+      "definition": "Eurostat 年度 LFS 就业率：sex=T、age=Y20-64、unit=PC。v0.89 只采用这一项就业指标，避免与就业人数或登记就业混用。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "romania",
+      "layer_id": "regional_manufacturing_share",
+      "admin_level": "NUTS3",
+      "definition": "由同年同区制造业 GVA（NACE C，CP_MEUR）/ 区域总 GVA（NACE TOTAL，CP_MEUR）计算；不是制造业就业比重，不复用国家值。",
+      "unit": "%",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023"
+      ],
+      "latest_available_year": "2023",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "romania",
+      "layer_id": "regional_population_change_pct",
+      "admin_level": "NUTS3",
+      "definition": "历史事实变化：(value_2024 / value_2021 - 1) × 100；不是预测或绩效评分。",
+      "unit": "%",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "romania",
+      "layer_id": "regional_gdp_per_capita_change_pct",
+      "admin_level": "NUTS3",
+      "definition": "名义人均 GDP 历史变化：(value_2024 / value_2021 - 1) × 100；不等于实际增长或生活水平评分。",
+      "unit": "%",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "romania",
+      "layer_id": "regional_unemployment_change_pp",
+      "admin_level": "NUTS3",
+      "definition": "历史事实变化：unemployment_2024 - unemployment_2021；不是预测或区域压力指数。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "romania",
+      "layer_id": "china_project_locations",
+      "admin_level": "NUTS3",
+      "definition": "已核验项目的城市或区域参考位置；不代表项目经济影响。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "层级、覆盖或质量条件尚未满足。"
+    },
+    {
+      "country_id": "slovenia",
+      "layer_id": "regional_boundary",
+      "admin_level": "NUTS2",
+      "definition": "已核验行政边界。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "层级、覆盖或质量条件尚未满足。"
+    },
+    {
+      "country_id": "slovenia",
+      "layer_id": "regional_population",
+      "admin_level": "NUTS2",
+      "definition": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。",
+      "unit": "人",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "slovenia",
+      "layer_id": "regional_gdp",
+      "admin_level": "NUTS2",
+      "definition": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。",
+      "unit": "百万欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "slovenia",
+      "layer_id": "regional_gdp_per_capita",
+      "admin_level": "NUTS2",
+      "definition": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。",
+      "unit": "欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "slovenia",
+      "layer_id": "regional_unemployment_rate",
+      "admin_level": "NUTS2",
+      "definition": "Eurostat 年度 LFS 失业率：sex=T、age=Y15-74、isced11=TOTAL、unit=PC。只在当前地图层级可直接对应时使用，不复制上级区域值。",
+      "unit": "%",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "slovenia",
+      "layer_id": "regional_employment_rate",
+      "admin_level": "NUTS2",
+      "definition": "Eurostat 年度 LFS 就业率：sex=T、age=Y20-64、unit=PC。v0.89 只采用这一项就业指标，避免与就业人数或登记就业混用。",
+      "unit": "%",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "slovenia",
+      "layer_id": "regional_manufacturing_share",
+      "admin_level": "NUTS2",
+      "definition": "由同年同区制造业 GVA（NACE C，CP_MEUR）/ 区域总 GVA（NACE TOTAL，CP_MEUR）计算；不是制造业就业比重，不复用国家值。",
+      "unit": "%",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "slovenia",
+      "layer_id": "regional_population_change_pct",
+      "admin_level": "NUTS2",
+      "definition": "历史事实变化：(value_2024 / value_2021 - 1) × 100；不是预测或绩效评分。",
+      "unit": "%",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "slovenia",
+      "layer_id": "regional_gdp_per_capita_change_pct",
+      "admin_level": "NUTS2",
+      "definition": "名义人均 GDP 历史变化：(value_2024 / value_2021 - 1) × 100；不等于实际增长或生活水平评分。",
+      "unit": "%",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "slovenia",
+      "layer_id": "regional_unemployment_change_pp",
+      "admin_level": "NUTS2",
+      "definition": "历史事实变化：unemployment_2024 - unemployment_2021；不是预测或区域压力指数。",
+      "unit": "百分点",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "slovenia",
+      "layer_id": "china_project_locations",
+      "admin_level": "NUTS2",
+      "definition": "已核验项目的城市或区域参考位置；不代表项目经济影响。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "层级、覆盖或质量条件尚未满足。"
+    },
+    {
+      "country_id": "serbia",
+      "layer_id": "regional_boundary",
+      "admin_level": "ADM1",
+      "definition": "已核验行政边界。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+    },
+    {
+      "country_id": "serbia",
+      "layer_id": "regional_population",
+      "admin_level": "ADM1",
+      "definition": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+    },
+    {
+      "country_id": "serbia",
+      "layer_id": "regional_gdp",
+      "admin_level": "ADM1",
+      "definition": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+    },
+    {
+      "country_id": "serbia",
+      "layer_id": "regional_gdp_per_capita",
+      "admin_level": "ADM1",
+      "definition": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+    },
+    {
+      "country_id": "serbia",
+      "layer_id": "regional_unemployment_rate",
+      "admin_level": "ADM1",
+      "definition": "Eurostat 年度 LFS 失业率：sex=T、age=Y15-74、isced11=TOTAL、unit=PC。只在当前地图层级可直接对应时使用，不复制上级区域值。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+    },
+    {
+      "country_id": "serbia",
+      "layer_id": "regional_employment_rate",
+      "admin_level": "ADM1",
+      "definition": "Eurostat 年度 LFS 就业率：sex=T、age=Y20-64、unit=PC。v0.89 只采用这一项就业指标，避免与就业人数或登记就业混用。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+    },
+    {
+      "country_id": "serbia",
+      "layer_id": "regional_manufacturing_share",
+      "admin_level": "ADM1",
+      "definition": "由同年同区制造业 GVA（NACE C，CP_MEUR）/ 区域总 GVA（NACE TOTAL，CP_MEUR）计算；不是制造业就业比重，不复用国家值。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+    },
+    {
+      "country_id": "serbia",
+      "layer_id": "regional_population_change_pct",
+      "admin_level": "ADM1",
+      "definition": "历史事实变化：(value_2024 / value_2021 - 1) × 100；不是预测或绩效评分。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+    },
+    {
+      "country_id": "serbia",
+      "layer_id": "regional_gdp_per_capita_change_pct",
+      "admin_level": "ADM1",
+      "definition": "名义人均 GDP 历史变化：(value_2024 / value_2021 - 1) × 100；不等于实际增长或生活水平评分。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+    },
+    {
+      "country_id": "serbia",
+      "layer_id": "regional_unemployment_change_pp",
+      "admin_level": "ADM1",
+      "definition": "历史事实变化：unemployment_2024 - unemployment_2021；不是预测或区域压力指数。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+    },
+    {
+      "country_id": "serbia",
+      "layer_id": "china_project_locations",
+      "admin_level": "ADM1",
+      "definition": "已核验项目的城市或区域参考位置；不代表项目经济影响。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+    },
+    {
+      "country_id": "austria",
+      "layer_id": "regional_boundary",
+      "admin_level": "NUTS2",
+      "definition": "已核验行政边界。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "层级、覆盖或质量条件尚未满足。"
+    },
+    {
+      "country_id": "austria",
+      "layer_id": "regional_population",
+      "admin_level": "NUTS2",
+      "definition": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。",
+      "unit": "人",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "austria",
+      "layer_id": "regional_gdp",
+      "admin_level": "NUTS2",
+      "definition": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。",
+      "unit": "百万欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "austria",
+      "layer_id": "regional_gdp_per_capita",
+      "admin_level": "NUTS2",
+      "definition": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。",
+      "unit": "欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "austria",
+      "layer_id": "regional_unemployment_rate",
+      "admin_level": "NUTS2",
+      "definition": "Eurostat 年度 LFS 失业率：sex=T、age=Y15-74、isced11=TOTAL、unit=PC。只在当前地图层级可直接对应时使用，不复制上级区域值。",
+      "unit": "%",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "austria",
+      "layer_id": "regional_employment_rate",
+      "admin_level": "NUTS2",
+      "definition": "Eurostat 年度 LFS 就业率：sex=T、age=Y20-64、unit=PC。v0.89 只采用这一项就业指标，避免与就业人数或登记就业混用。",
+      "unit": "%",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "austria",
+      "layer_id": "regional_manufacturing_share",
+      "admin_level": "NUTS2",
+      "definition": "由同年同区制造业 GVA（NACE C，CP_MEUR）/ 区域总 GVA（NACE TOTAL，CP_MEUR）计算；不是制造业就业比重，不复用国家值。",
+      "unit": "%",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "austria",
+      "layer_id": "regional_population_change_pct",
+      "admin_level": "NUTS2",
+      "definition": "历史事实变化：(value_2024 / value_2021 - 1) × 100；不是预测或绩效评分。",
+      "unit": "%",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "austria",
+      "layer_id": "regional_gdp_per_capita_change_pct",
+      "admin_level": "NUTS2",
+      "definition": "名义人均 GDP 历史变化：(value_2024 / value_2021 - 1) × 100；不等于实际增长或生活水平评分。",
+      "unit": "%",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "austria",
+      "layer_id": "regional_unemployment_change_pp",
+      "admin_level": "NUTS2",
+      "definition": "历史事实变化：unemployment_2024 - unemployment_2021；不是预测或区域压力指数。",
+      "unit": "百分点",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "austria",
+      "layer_id": "china_project_locations",
+      "admin_level": "NUTS2",
+      "definition": "已核验项目的城市或区域参考位置；不代表项目经济影响。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "no_high_or_medium_confidence_project_reference"
+    },
+    {
+      "country_id": "croatia",
+      "layer_id": "regional_boundary",
+      "admin_level": "NUTS3",
+      "definition": "已核验行政边界。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "层级、覆盖或质量条件尚未满足。"
+    },
+    {
+      "country_id": "croatia",
+      "layer_id": "regional_population",
+      "admin_level": "NUTS3",
+      "definition": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。",
+      "unit": "人",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "croatia",
+      "layer_id": "regional_gdp",
+      "admin_level": "NUTS3",
+      "definition": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。",
+      "unit": "百万欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "croatia",
+      "layer_id": "regional_gdp_per_capita",
+      "admin_level": "NUTS3",
+      "definition": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。",
+      "unit": "欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "croatia",
+      "layer_id": "regional_unemployment_rate",
+      "admin_level": "NUTS3",
+      "definition": "Eurostat 年度 LFS 失业率：sex=T、age=Y15-74、isced11=TOTAL、unit=PC。只在当前地图层级可直接对应时使用，不复制上级区域值。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "croatia",
+      "layer_id": "regional_employment_rate",
+      "admin_level": "NUTS3",
+      "definition": "Eurostat 年度 LFS 就业率：sex=T、age=Y20-64、unit=PC。v0.89 只采用这一项就业指标，避免与就业人数或登记就业混用。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "croatia",
+      "layer_id": "regional_manufacturing_share",
+      "admin_level": "NUTS3",
+      "definition": "由同年同区制造业 GVA（NACE C，CP_MEUR）/ 区域总 GVA（NACE TOTAL，CP_MEUR）计算；不是制造业就业比重，不复用国家值。",
+      "unit": "%",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "croatia",
+      "layer_id": "regional_population_change_pct",
+      "admin_level": "NUTS3",
+      "definition": "历史事实变化：(value_2024 / value_2021 - 1) × 100；不是预测或绩效评分。",
+      "unit": "%",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "croatia",
+      "layer_id": "regional_gdp_per_capita_change_pct",
+      "admin_level": "NUTS3",
+      "definition": "名义人均 GDP 历史变化：(value_2024 / value_2021 - 1) × 100；不等于实际增长或生活水平评分。",
+      "unit": "%",
+      "available_years": [
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "croatia",
+      "layer_id": "regional_unemployment_change_pp",
+      "admin_level": "NUTS3",
+      "definition": "历史事实变化：unemployment_2024 - unemployment_2021；不是预测或区域压力指数。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "croatia",
+      "layer_id": "china_project_locations",
+      "admin_level": "NUTS3",
+      "definition": "已核验项目的城市或区域参考位置；不代表项目经济影响。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "no_high_or_medium_confidence_project_reference"
+    }
+  ]
+}

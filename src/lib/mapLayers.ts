@@ -77,7 +77,7 @@ export type MapLayerRecord = {
 
 const updatedAt = "2026-08-15";
 const v4Adm1Coverage = "V4 四国 ADM1：poland, hungary, czechia, slovakia";
-const multiCountryFactualCoverage = "逐国资格由 map_layer_readiness 决定；v0.87 已批准欧盟九国，塞尔维亚待核验";
+const multiCountryFactualCoverage = "逐国资格由 map_layer_readiness 决定；v0.89 已批准欧盟九国事实边界，统计图层按指标覆盖独立验收，塞尔维亚待核验";
 const noDisplayBoundary = "正式展示仍需单独通过 public display readiness gate；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。";
 const noModelBoundary = "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。";
 const giscoLicenseSource = giscoLicenseVerificationDecision.license_source;
@@ -458,12 +458,44 @@ export const mapLayerRecords: MapLayerRecord[] = [
     color_scale: "sequential amber-gray",
   }),
   choroplethLayer({
+    layer_id: "regional_employment_rate_choropleth",
+    layer_name_zh: "区域就业率图层",
+    layer_name_en: "Regional employment rate choropleth",
+    indicator: "regional_employment_rate",
+    legend_unit: "%",
+    color_scale: "sequential blue-gray",
+  }),
+  choroplethLayer({
     layer_id: "regional_manufacturing_share_choropleth",
-    layer_name_zh: "区域制造业比重图层",
-    layer_name_en: "Regional manufacturing share choropleth",
+    layer_name_zh: "区域制造业 GVA 比重图层",
+    layer_name_en: "Regional manufacturing GVA share choropleth",
     indicator: "regional_manufacturing_share",
     legend_unit: "%",
     color_scale: "sequential indigo-gray",
+  }),
+  choroplethLayer({
+    layer_id: "regional_population_change_choropleth",
+    layer_name_zh: "区域人口变化图层",
+    layer_name_en: "Regional population change choropleth",
+    indicator: "regional_population_change_pct",
+    legend_unit: "%",
+    color_scale: "diverging muted blue-brown",
+  }),
+  choroplethLayer({
+    layer_id: "regional_gdp_per_capita_change_choropleth",
+    layer_name_zh: "区域人均 GDP 变化图层",
+    layer_name_en: "Regional GDP per capita change choropleth",
+    indicator: "regional_gdp_per_capita_change_pct",
+    legend_unit: "%",
+    color_scale: "diverging muted teal-brown",
+  }),
+  choroplethLayer({
+    layer_id: "regional_unemployment_change_choropleth",
+    layer_name_zh: "区域失业率变化图层",
+    layer_name_en: "Regional unemployment change choropleth",
+    indicator: "regional_unemployment_change_pp",
+    legend_unit: "百分点",
+    color_scale: "diverging muted green-amber",
   }),
   projectLocationLayer(),
   futureAnalysisInterfaceLayer({

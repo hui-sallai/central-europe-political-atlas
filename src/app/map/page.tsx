@@ -2,14 +2,13 @@ import { ComparativeSpatialWorkbench } from "@/components/ComparativeSpatialWork
 import { mapDisplayBoundary, platformStatus } from "@/lib/platformStatus";
 import { regionalGeometryQa, sharedSpatialLicenseRecords, spatialDisplayGateAudit } from "@/lib/spatialDataV087";
 import {
-  spatialComparisonEligibilityV088,
-  spatialResearchCountriesV088,
-  spatialResearchLayersV088,
-  spatialResearchObservationsV088,
-  spatialResearchProjectsV088,
-  spatialResearchRegionsV088,
-  spatialV088Summary,
-} from "@/lib/spatialResearchV088";
+  spatialComparisonEligibilityV089,
+  spatialResearchCountriesV089,
+  spatialResearchLayersV089,
+  spatialResearchProjectsV089,
+  spatialResearchRegionsV089,
+  spatialV089Summary,
+} from "@/lib/spatialResearchV089";
 
 export default function MapPage() {
   const serbia = spatialDisplayGateAudit.find((record) => record.country_id === "serbia");
@@ -21,28 +20,28 @@ export default function MapPage() {
         <div>
           <h1 className="text-4xl font-semibold tracking-[-0.03em]">区域比较研究工作台</h1>
           <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-            九个欧盟国家已开放通过验收的事实边界与 P0 区域指标。选择国家、指标和年份后，可以比较区域、查看项目与追溯来源；塞尔维亚继续保持空间比较待接入。
+            九个欧盟国家已开放通过验收的事实边界，并按层级接入经济、劳动力、产业与历史变化指标。选择国家、指标和年份后可比较区域、查看项目与追溯来源；塞尔维亚继续保持空间比较待接入。
           </p>
         </div>
         <div className="grid grid-cols-2 gap-2 text-xs sm:grid-cols-4 lg:max-w-xl">
-          {[["地图就绪", `${spatialV088Summary.public_country_count} / 10`], ["事实观测", String(spatialV088Summary.observation_count)], ["项目位置", String(spatialV088Summary.project_location_count)], ["区域模型", "未启用"]].map(([label, value]) => <div key={label} className="rounded-xl border border-[var(--line)] bg-white/70 px-3 py-2"><p className="text-[var(--muted)]">{label}</p><p className="mt-1 font-semibold">{value}</p></div>)}
+          {[["地图就绪", `${spatialV089Summary.public_country_count} / 10`], ["事实观测", String(spatialV089Summary.observation_count)], ["历史变化", String(spatialV089Summary.derived_observation_count)], ["区域模型", "未启用"]].map(([label, value]) => <div key={label} className="rounded-xl border border-[var(--line)] bg-white/70 px-3 py-2"><p className="text-[var(--muted)]">{label}</p><p className="mt-1 font-semibold">{value}</p></div>)}
         </div>
       </div>
 
       <ComparativeSpatialWorkbench
-        countries={spatialResearchCountriesV088}
-        regions={spatialResearchRegionsV088}
-        observations={spatialResearchObservationsV088}
-        projects={spatialResearchProjectsV088}
-        layers={spatialResearchLayersV088}
-        eligibility={spatialComparisonEligibilityV088}
+        countries={spatialResearchCountriesV089}
+        regions={spatialResearchRegionsV089}
+        observations={[]}
+        projects={spatialResearchProjectsV089}
+        layers={spatialResearchLayersV089}
+        eligibility={spatialComparisonEligibilityV089}
       />
 
       <section className="mt-6 grid gap-4 lg:grid-cols-2">
         <article className="card p-6">
           <p className="eyebrow">Layer Boundary</p>
           <h2 className="mt-3 text-xl font-semibold">可用层与未启用层</h2>
-          <p className="mt-3 text-sm leading-6 text-[var(--muted)]">当前只开放行政边界、区域人口、GDP、人均 GDP 与通过位置核验的项目参考。区域失业率因 Eurostat NUTS 2 与当前多国展示层级不完全一致而继续受控待接入；制造业层等待统一官方区域数据。</p>
+          <p className="mt-3 text-sm leading-6 text-[var(--muted)]">当前开放行政边界、经济、人口变化、制造业 GVA 比重与通过位置核验的项目参考。失业率和就业率只在当前地图层级与 Eurostat LFS 发布层级直接对应时开放；不把 NUTS2 值复制到 NUTS3。</p>
           <p className="mt-3 text-xs leading-5 text-[var(--muted)]">{mapDisplayBoundary}</p>
         </article>
         <article className="card p-6">

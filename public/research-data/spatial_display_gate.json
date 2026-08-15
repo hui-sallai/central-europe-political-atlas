@@ -17,16 +17,16 @@
         "regional_population",
         "regional_gdp",
         "regional_gdp_per_capita",
+        "regional_unemployment_rate",
+        "regional_employment_rate",
+        "regional_manufacturing_share",
+        "regional_population_change_pct",
+        "regional_gdp_per_capita_change_pct",
+        "regional_unemployment_change_pp",
         "china_project_locations"
       ],
-      "rejected_layers": [
-        "regional_unemployment_rate",
-        "regional_manufacturing_share"
-      ],
-      "blockers": [
-        "regional_unemployment_rate:complete_regional_observations_unavailable",
-        "regional_manufacturing_share:complete_regional_observations_unavailable"
-      ],
+      "rejected_layers": [],
+      "blockers": [],
       "public_display_decision": "approved_for_factual_display",
       "reviewed_at": "2026-08-15"
     },
@@ -42,16 +42,18 @@
         "regional_boundary",
         "regional_population",
         "regional_gdp",
-        "regional_gdp_per_capita"
+        "regional_gdp_per_capita",
+        "regional_unemployment_rate",
+        "regional_employment_rate",
+        "regional_manufacturing_share",
+        "regional_population_change_pct",
+        "regional_gdp_per_capita_change_pct",
+        "regional_unemployment_change_pp"
       ],
       "rejected_layers": [
-        "regional_unemployment_rate",
-        "regional_manufacturing_share",
         "china_project_locations"
       ],
       "blockers": [
-        "regional_unemployment_rate:complete_regional_observations_unavailable",
-        "regional_manufacturing_share:complete_regional_observations_unavailable",
         "china_project_locations:no_high_or_medium_confidence_project_reference"
       ],
       "public_display_decision": "approved_for_factual_display",
@@ -70,16 +72,16 @@
         "regional_population",
         "regional_gdp",
         "regional_gdp_per_capita",
+        "regional_unemployment_rate",
+        "regional_employment_rate",
+        "regional_manufacturing_share",
+        "regional_population_change_pct",
+        "regional_gdp_per_capita_change_pct",
+        "regional_unemployment_change_pp",
         "china_project_locations"
       ],
-      "rejected_layers": [
-        "regional_unemployment_rate",
-        "regional_manufacturing_share"
-      ],
-      "blockers": [
-        "regional_unemployment_rate:complete_regional_observations_unavailable",
-        "regional_manufacturing_share:complete_regional_observations_unavailable"
-      ],
+      "rejected_layers": [],
+      "blockers": [],
       "public_display_decision": "approved_for_factual_display",
       "reviewed_at": "2026-08-15"
     },
@@ -96,15 +98,20 @@
         "regional_population",
         "regional_gdp",
         "regional_gdp_per_capita",
+        "regional_manufacturing_share",
+        "regional_population_change_pct",
+        "regional_gdp_per_capita_change_pct",
         "china_project_locations"
       ],
       "rejected_layers": [
         "regional_unemployment_rate",
-        "regional_manufacturing_share"
+        "regional_employment_rate",
+        "regional_unemployment_change_pp"
       ],
       "blockers": [
         "regional_unemployment_rate:complete_regional_observations_unavailable",
-        "regional_manufacturing_share:complete_regional_observations_unavailable"
+        "regional_employment_rate:complete_regional_observations_unavailable",
+        "regional_unemployment_change_pp:complete_regional_observations_unavailable"
       ],
       "public_display_decision": "approved_for_factual_display",
       "reviewed_at": "2026-08-15"
@@ -122,15 +129,20 @@
         "regional_population",
         "regional_gdp",
         "regional_gdp_per_capita",
+        "regional_manufacturing_share",
+        "regional_population_change_pct",
+        "regional_gdp_per_capita_change_pct",
         "china_project_locations"
       ],
       "rejected_layers": [
         "regional_unemployment_rate",
-        "regional_manufacturing_share"
+        "regional_employment_rate",
+        "regional_unemployment_change_pp"
       ],
       "blockers": [
         "regional_unemployment_rate:complete_regional_observations_unavailable",
-        "regional_manufacturing_share:complete_regional_observations_unavailable"
+        "regional_employment_rate:complete_regional_observations_unavailable",
+        "regional_unemployment_change_pp:complete_regional_observations_unavailable"
       ],
       "public_display_decision": "approved_for_factual_display",
       "reviewed_at": "2026-08-15"
@@ -148,15 +160,20 @@
         "regional_population",
         "regional_gdp",
         "regional_gdp_per_capita",
+        "regional_manufacturing_share",
+        "regional_population_change_pct",
+        "regional_gdp_per_capita_change_pct",
         "china_project_locations"
       ],
       "rejected_layers": [
         "regional_unemployment_rate",
-        "regional_manufacturing_share"
+        "regional_employment_rate",
+        "regional_unemployment_change_pp"
       ],
       "blockers": [
         "regional_unemployment_rate:complete_regional_observations_unavailable",
-        "regional_manufacturing_share:complete_regional_observations_unavailable"
+        "regional_employment_rate:complete_regional_observations_unavailable",
+        "regional_unemployment_change_pp:complete_regional_observations_unavailable"
       ],
       "public_display_decision": "approved_for_factual_display",
       "reviewed_at": "2026-08-15"
@@ -174,15 +191,20 @@
         "regional_population",
         "regional_gdp",
         "regional_gdp_per_capita",
+        "regional_manufacturing_share",
+        "regional_population_change_pct",
+        "regional_gdp_per_capita_change_pct",
         "china_project_locations"
       ],
       "rejected_layers": [
         "regional_unemployment_rate",
-        "regional_manufacturing_share"
+        "regional_employment_rate",
+        "regional_unemployment_change_pp"
       ],
       "blockers": [
         "regional_unemployment_rate:complete_regional_observations_unavailable",
-        "regional_manufacturing_share:complete_regional_observations_unavailable"
+        "regional_employment_rate:complete_regional_observations_unavailable",
+        "regional_unemployment_change_pp:complete_regional_observations_unavailable"
       ],
       "public_display_decision": "approved_for_factual_display",
       "reviewed_at": "2026-08-15"
@@ -199,16 +221,21 @@
         "regional_boundary",
         "regional_population",
         "regional_gdp",
-        "regional_gdp_per_capita"
+        "regional_gdp_per_capita",
+        "regional_manufacturing_share",
+        "regional_population_change_pct",
+        "regional_gdp_per_capita_change_pct"
       ],
       "rejected_layers": [
         "regional_unemployment_rate",
-        "regional_manufacturing_share",
+        "regional_employment_rate",
+        "regional_unemployment_change_pp",
         "china_project_locations"
       ],
       "blockers": [
         "regional_unemployment_rate:complete_regional_observations_unavailable",
-        "regional_manufacturing_share:complete_regional_observations_unavailable",
+        "regional_employment_rate:complete_regional_observations_unavailable",
+        "regional_unemployment_change_pp:complete_regional_observations_unavailable",
         "china_project_locations:no_high_or_medium_confidence_project_reference"
       ],
       "public_display_decision": "approved_for_factual_display",
@@ -227,15 +254,19 @@
         "regional_population",
         "regional_gdp",
         "regional_gdp_per_capita",
+        "regional_employment_rate",
+        "regional_manufacturing_share",
+        "regional_population_change_pct",
+        "regional_gdp_per_capita_change_pct",
         "china_project_locations"
       ],
       "rejected_layers": [
         "regional_unemployment_rate",
-        "regional_manufacturing_share"
+        "regional_unemployment_change_pp"
       ],
       "blockers": [
         "regional_unemployment_rate:complete_regional_observations_unavailable",
-        "regional_manufacturing_share:complete_regional_observations_unavailable"
+        "regional_unemployment_change_pp:complete_regional_observations_unavailable"
       ],
       "public_display_decision": "approved_for_factual_display",
       "reviewed_at": "2026-08-15"
@@ -255,7 +286,11 @@
         "regional_gdp",
         "regional_gdp_per_capita",
         "regional_unemployment_rate",
+        "regional_employment_rate",
         "regional_manufacturing_share",
+        "regional_population_change_pct",
+        "regional_gdp_per_capita_change_pct",
+        "regional_unemployment_change_pp",
         "china_project_locations"
       ],
       "blockers": [
@@ -265,7 +300,11 @@
         "regional_gdp:official_boundary_correspondence_and_regional_comparability_pending",
         "regional_gdp_per_capita:official_boundary_correspondence_and_regional_comparability_pending",
         "regional_unemployment_rate:official_boundary_correspondence_and_regional_comparability_pending",
+        "regional_employment_rate:official_boundary_correspondence_and_regional_comparability_pending",
         "regional_manufacturing_share:official_boundary_correspondence_and_regional_comparability_pending",
+        "regional_population_change_pct:official_boundary_correspondence_and_regional_comparability_pending",
+        "regional_gdp_per_capita_change_pct:official_boundary_correspondence_and_regional_comparability_pending",
+        "regional_unemployment_change_pp:official_boundary_correspondence_and_regional_comparability_pending",
         "china_project_locations:official_boundary_correspondence_and_regional_comparability_pending"
       ],
       "public_display_decision": "not_ready_for_public_display",
@@ -330,9 +369,14 @@
       "gdp_layer_ready": true,
       "gdp_per_capita_layer_ready": true,
       "unemployment_layer_ready": false,
+      "employment_layer_ready": true,
+      "manufacturing_layer_ready": true,
+      "population_change_layer_ready": true,
+      "gdp_per_capita_change_layer_ready": true,
+      "unemployment_change_layer_ready": false,
       "project_layer_ready": true,
-      "approved_layer_count": 5,
-      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable"
+      "approved_layer_count": 9,
+      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域失业率变化（2021–2024）: complete_regional_observations_unavailable"
     },
     {
       "country_id": "hungary",
@@ -348,9 +392,14 @@
       "gdp_layer_ready": true,
       "gdp_per_capita_layer_ready": true,
       "unemployment_layer_ready": false,
+      "employment_layer_ready": false,
+      "manufacturing_layer_ready": true,
+      "population_change_layer_ready": true,
+      "gdp_per_capita_change_layer_ready": true,
+      "unemployment_change_layer_ready": false,
       "project_layer_ready": true,
-      "approved_layer_count": 5,
-      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable"
+      "approved_layer_count": 8,
+      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域就业率: complete_regional_observations_unavailable；区域失业率变化（2021–2024）: complete_regional_observations_unavailable"
     },
     {
       "country_id": "czechia",
@@ -366,9 +415,14 @@
       "gdp_layer_ready": true,
       "gdp_per_capita_layer_ready": true,
       "unemployment_layer_ready": false,
+      "employment_layer_ready": false,
+      "manufacturing_layer_ready": true,
+      "population_change_layer_ready": true,
+      "gdp_per_capita_change_layer_ready": true,
+      "unemployment_change_layer_ready": false,
       "project_layer_ready": true,
-      "approved_layer_count": 5,
-      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable"
+      "approved_layer_count": 8,
+      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域就业率: complete_regional_observations_unavailable；区域失业率变化（2021–2024）: complete_regional_observations_unavailable"
     },
     {
       "country_id": "slovakia",
@@ -384,9 +438,14 @@
       "gdp_layer_ready": true,
       "gdp_per_capita_layer_ready": true,
       "unemployment_layer_ready": false,
+      "employment_layer_ready": false,
+      "manufacturing_layer_ready": true,
+      "population_change_layer_ready": true,
+      "gdp_per_capita_change_layer_ready": true,
+      "unemployment_change_layer_ready": false,
       "project_layer_ready": true,
-      "approved_layer_count": 5,
-      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable"
+      "approved_layer_count": 8,
+      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域就业率: complete_regional_observations_unavailable；区域失业率变化（2021–2024）: complete_regional_observations_unavailable"
     },
     {
       "country_id": "germany",
@@ -401,10 +460,15 @@
       "population_layer_ready": true,
       "gdp_layer_ready": true,
       "gdp_per_capita_layer_ready": true,
-      "unemployment_layer_ready": false,
+      "unemployment_layer_ready": true,
+      "employment_layer_ready": true,
+      "manufacturing_layer_ready": true,
+      "population_change_layer_ready": true,
+      "gdp_per_capita_change_layer_ready": true,
+      "unemployment_change_layer_ready": true,
       "project_layer_ready": true,
-      "approved_layer_count": 5,
-      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable"
+      "approved_layer_count": 11,
+      "public_display_blocker": ""
     },
     {
       "country_id": "romania",
@@ -420,9 +484,14 @@
       "gdp_layer_ready": true,
       "gdp_per_capita_layer_ready": true,
       "unemployment_layer_ready": false,
+      "employment_layer_ready": false,
+      "manufacturing_layer_ready": true,
+      "population_change_layer_ready": true,
+      "gdp_per_capita_change_layer_ready": true,
+      "unemployment_change_layer_ready": false,
       "project_layer_ready": true,
-      "approved_layer_count": 5,
-      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable"
+      "approved_layer_count": 8,
+      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域就业率: complete_regional_observations_unavailable；区域失业率变化（2021–2024）: complete_regional_observations_unavailable"
     },
     {
       "country_id": "slovenia",
@@ -437,10 +506,15 @@
       "population_layer_ready": true,
       "gdp_layer_ready": true,
       "gdp_per_capita_layer_ready": true,
-      "unemployment_layer_ready": false,
+      "unemployment_layer_ready": true,
+      "employment_layer_ready": true,
+      "manufacturing_layer_ready": true,
+      "population_change_layer_ready": true,
+      "gdp_per_capita_change_layer_ready": true,
+      "unemployment_change_layer_ready": true,
       "project_layer_ready": true,
-      "approved_layer_count": 5,
-      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable"
+      "approved_layer_count": 11,
+      "public_display_blocker": ""
     },
     {
       "country_id": "serbia",
@@ -456,9 +530,14 @@
       "gdp_layer_ready": false,
       "gdp_per_capita_layer_ready": false,
       "unemployment_layer_ready": false,
+      "employment_layer_ready": false,
+      "manufacturing_layer_ready": false,
+      "population_change_layer_ready": false,
+      "gdp_per_capita_change_layer_ready": false,
+      "unemployment_change_layer_ready": false,
       "project_layer_ready": false,
       "approved_layer_count": 0,
-      "public_display_blocker": "official_boundary_correspondence_and_regional_comparability_pending；regional_boundary:official_boundary_correspondence_and_regional_comparability_pending；regional_population:official_boundary_correspondence_and_regional_comparability_pending；regional_gdp:official_boundary_correspondence_and_regional_comparability_pending；regional_gdp_per_capita:official_boundary_correspondence_and_regional_comparability_pending；regional_unemployment_rate:official_boundary_correspondence_and_regional_comparability_pending；regional_manufacturing_share:official_boundary_correspondence_and_regional_comparability_pending；china_project_locations:official_boundary_correspondence_and_regional_comparability_pending"
+      "public_display_blocker": "official_boundary_correspondence_and_regional_comparability_pending；regional_boundary:official_boundary_correspondence_and_regional_comparability_pending；regional_population:official_boundary_correspondence_and_regional_comparability_pending；regional_gdp:official_boundary_correspondence_and_regional_comparability_pending；regional_gdp_per_capita:official_boundary_correspondence_and_regional_comparability_pending；regional_unemployment_rate:official_boundary_correspondence_and_regional_comparability_pending；regional_employment_rate:official_boundary_correspondence_and_regional_comparability_pending；regional_manufacturing_share:official_boundary_correspondence_and_regional_comparability_pending；regional_population_change_pct:official_boundary_correspondence_and_regional_comparability_pending；regional_gdp_per_capita_change_pct:official_boundary_correspondence_and_regional_comparability_pending；regional_unemployment_change_pp:official_boundary_correspondence_and_regional_comparability_pending；china_project_locations:official_boundary_correspondence_and_regional_comparability_pending"
     },
     {
       "country_id": "austria",
@@ -473,10 +552,15 @@
       "population_layer_ready": true,
       "gdp_layer_ready": true,
       "gdp_per_capita_layer_ready": true,
-      "unemployment_layer_ready": false,
+      "unemployment_layer_ready": true,
+      "employment_layer_ready": true,
+      "manufacturing_layer_ready": true,
+      "population_change_layer_ready": true,
+      "gdp_per_capita_change_layer_ready": true,
+      "unemployment_change_layer_ready": true,
       "project_layer_ready": false,
-      "approved_layer_count": 4,
-      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable；对华项目区域参考: no_high_or_medium_confidence_project_reference"
+      "approved_layer_count": 10,
+      "public_display_blocker": "对华项目区域参考: no_high_or_medium_confidence_project_reference"
     },
     {
       "country_id": "croatia",
@@ -492,9 +576,14 @@
       "gdp_layer_ready": true,
       "gdp_per_capita_layer_ready": true,
       "unemployment_layer_ready": false,
+      "employment_layer_ready": false,
+      "manufacturing_layer_ready": true,
+      "population_change_layer_ready": true,
+      "gdp_per_capita_change_layer_ready": true,
+      "unemployment_change_layer_ready": false,
       "project_layer_ready": false,
-      "approved_layer_count": 4,
-      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable；对华项目区域参考: no_high_or_medium_confidence_project_reference"
+      "approved_layer_count": 7,
+      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域就业率: complete_regional_observations_unavailable；区域失业率变化（2021–2024）: complete_regional_observations_unavailable；对华项目区域参考: no_high_or_medium_confidence_project_reference"
     }
   ]
 }

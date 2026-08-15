@@ -1,0 +1,820 @@
+{
+  "schema_version": "regional-gap-audit-v0.89",
+  "generated_at": "2026-08-15",
+  "records": [
+    {
+      "country_id": "poland",
+      "country_name_zh": "波兰",
+      "region_level": "ADM1",
+      "region_count": 16,
+      "population": {
+        "available": true,
+        "covered_regions": 16,
+        "region_count": 16,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "gdp": {
+        "available": true,
+        "covered_regions": 16,
+        "region_count": 16,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "gdp_per_capita": {
+        "available": true,
+        "covered_regions": 16,
+        "region_count": 16,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "unemployment": {
+        "available": true,
+        "covered_regions": 15,
+        "region_count": 16,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "unavailable"
+      },
+      "employment": {
+        "available": true,
+        "covered_regions": 16,
+        "region_count": 16,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "manufacturing": {
+        "available": true,
+        "covered_regions": 16,
+        "region_count": 16,
+        "years": [
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "complete_latest_year": "2023"
+      },
+      "industry_definition": "manufacturing_gva_share",
+      "verified_project_records": 3,
+      "historical_coverage": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "comparison_eligible_indicator_count": 5,
+      "priority_gaps": [
+        "LFS 失业率仅覆盖 15 / 16 个当前区域"
+      ]
+    },
+    {
+      "country_id": "hungary",
+      "country_name_zh": "匈牙利",
+      "region_level": "NUTS3",
+      "region_count": 20,
+      "population": {
+        "available": true,
+        "covered_regions": 20,
+        "region_count": 20,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "gdp": {
+        "available": true,
+        "covered_regions": 20,
+        "region_count": 20,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "gdp_per_capita": {
+        "available": true,
+        "covered_regions": 20,
+        "region_count": 20,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "unemployment": {
+        "available": false,
+        "covered_regions": 0,
+        "region_count": 20,
+        "years": [],
+        "complete_latest_year": "unavailable"
+      },
+      "employment": {
+        "available": false,
+        "covered_regions": 0,
+        "region_count": 20,
+        "years": [],
+        "complete_latest_year": "unavailable"
+      },
+      "manufacturing": {
+        "available": true,
+        "covered_regions": 20,
+        "region_count": 20,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "industry_definition": "manufacturing_gva_share",
+      "verified_project_records": 5,
+      "historical_coverage": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "comparison_eligible_indicator_count": 4,
+      "priority_gaps": [
+        "当前地图层级缺少可直接对应的 LFS 失业率",
+        "当前地图层级缺少可直接对应的 LFS 就业率"
+      ]
+    },
+    {
+      "country_id": "czechia",
+      "country_name_zh": "捷克",
+      "region_level": "NUTS3",
+      "region_count": 14,
+      "population": {
+        "available": true,
+        "covered_regions": 14,
+        "region_count": 14,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "gdp": {
+        "available": true,
+        "covered_regions": 14,
+        "region_count": 14,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "gdp_per_capita": {
+        "available": true,
+        "covered_regions": 14,
+        "region_count": 14,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "unemployment": {
+        "available": false,
+        "covered_regions": 0,
+        "region_count": 14,
+        "years": [],
+        "complete_latest_year": "unavailable"
+      },
+      "employment": {
+        "available": false,
+        "covered_regions": 0,
+        "region_count": 14,
+        "years": [],
+        "complete_latest_year": "unavailable"
+      },
+      "manufacturing": {
+        "available": true,
+        "covered_regions": 14,
+        "region_count": 14,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "industry_definition": "manufacturing_gva_share",
+      "verified_project_records": 3,
+      "historical_coverage": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "comparison_eligible_indicator_count": 4,
+      "priority_gaps": [
+        "当前地图层级缺少可直接对应的 LFS 失业率",
+        "当前地图层级缺少可直接对应的 LFS 就业率"
+      ]
+    },
+    {
+      "country_id": "slovakia",
+      "country_name_zh": "斯洛伐克",
+      "region_level": "NUTS3",
+      "region_count": 8,
+      "population": {
+        "available": true,
+        "covered_regions": 8,
+        "region_count": 8,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "gdp": {
+        "available": true,
+        "covered_regions": 8,
+        "region_count": 8,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "gdp_per_capita": {
+        "available": true,
+        "covered_regions": 8,
+        "region_count": 8,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "unemployment": {
+        "available": false,
+        "covered_regions": 0,
+        "region_count": 8,
+        "years": [],
+        "complete_latest_year": "unavailable"
+      },
+      "employment": {
+        "available": false,
+        "covered_regions": 0,
+        "region_count": 8,
+        "years": [],
+        "complete_latest_year": "unavailable"
+      },
+      "manufacturing": {
+        "available": true,
+        "covered_regions": 8,
+        "region_count": 8,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "industry_definition": "manufacturing_gva_share",
+      "verified_project_records": 4,
+      "historical_coverage": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "comparison_eligible_indicator_count": 4,
+      "priority_gaps": [
+        "当前地图层级缺少可直接对应的 LFS 失业率",
+        "当前地图层级缺少可直接对应的 LFS 就业率"
+      ]
+    },
+    {
+      "country_id": "germany",
+      "country_name_zh": "德国",
+      "region_level": "NUTS1",
+      "region_count": 16,
+      "population": {
+        "available": true,
+        "covered_regions": 16,
+        "region_count": 16,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "gdp": {
+        "available": true,
+        "covered_regions": 16,
+        "region_count": 16,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "gdp_per_capita": {
+        "available": true,
+        "covered_regions": 16,
+        "region_count": 16,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "unemployment": {
+        "available": true,
+        "covered_regions": 16,
+        "region_count": 16,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "employment": {
+        "available": true,
+        "covered_regions": 16,
+        "region_count": 16,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "manufacturing": {
+        "available": true,
+        "covered_regions": 16,
+        "region_count": 16,
+        "years": [
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "complete_latest_year": "2023"
+      },
+      "industry_definition": "manufacturing_gva_share",
+      "verified_project_records": 2,
+      "historical_coverage": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "comparison_eligible_indicator_count": 6,
+      "priority_gaps": []
+    },
+    {
+      "country_id": "romania",
+      "country_name_zh": "罗马尼亚",
+      "region_level": "NUTS3",
+      "region_count": 42,
+      "population": {
+        "available": true,
+        "covered_regions": 42,
+        "region_count": 42,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "gdp": {
+        "available": true,
+        "covered_regions": 42,
+        "region_count": 42,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "gdp_per_capita": {
+        "available": true,
+        "covered_regions": 42,
+        "region_count": 42,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "unemployment": {
+        "available": false,
+        "covered_regions": 0,
+        "region_count": 42,
+        "years": [],
+        "complete_latest_year": "unavailable"
+      },
+      "employment": {
+        "available": false,
+        "covered_regions": 0,
+        "region_count": 42,
+        "years": [],
+        "complete_latest_year": "unavailable"
+      },
+      "manufacturing": {
+        "available": true,
+        "covered_regions": 42,
+        "region_count": 42,
+        "years": [
+          "2021",
+          "2022",
+          "2023"
+        ],
+        "complete_latest_year": "2023"
+      },
+      "industry_definition": "manufacturing_gva_share",
+      "verified_project_records": 1,
+      "historical_coverage": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "comparison_eligible_indicator_count": 4,
+      "priority_gaps": [
+        "当前地图层级缺少可直接对应的 LFS 失业率",
+        "当前地图层级缺少可直接对应的 LFS 就业率"
+      ]
+    },
+    {
+      "country_id": "slovenia",
+      "country_name_zh": "斯洛文尼亚",
+      "region_level": "NUTS2",
+      "region_count": 2,
+      "population": {
+        "available": true,
+        "covered_regions": 2,
+        "region_count": 2,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "gdp": {
+        "available": true,
+        "covered_regions": 2,
+        "region_count": 2,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "gdp_per_capita": {
+        "available": true,
+        "covered_regions": 2,
+        "region_count": 2,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "unemployment": {
+        "available": true,
+        "covered_regions": 2,
+        "region_count": 2,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "employment": {
+        "available": true,
+        "covered_regions": 2,
+        "region_count": 2,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "manufacturing": {
+        "available": true,
+        "covered_regions": 2,
+        "region_count": 2,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "industry_definition": "manufacturing_gva_share",
+      "verified_project_records": 1,
+      "historical_coverage": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "comparison_eligible_indicator_count": 6,
+      "priority_gaps": []
+    },
+    {
+      "country_id": "serbia",
+      "country_name_zh": "塞尔维亚",
+      "region_level": "ADM1",
+      "region_count": 25,
+      "population": {
+        "available": false,
+        "covered_regions": 0,
+        "region_count": 25,
+        "years": [],
+        "complete_latest_year": "unavailable"
+      },
+      "gdp": {
+        "available": false,
+        "covered_regions": 0,
+        "region_count": 25,
+        "years": [],
+        "complete_latest_year": "unavailable"
+      },
+      "gdp_per_capita": {
+        "available": false,
+        "covered_regions": 0,
+        "region_count": 25,
+        "years": [],
+        "complete_latest_year": "unavailable"
+      },
+      "unemployment": {
+        "available": false,
+        "covered_regions": 0,
+        "region_count": 25,
+        "years": [],
+        "complete_latest_year": "unavailable"
+      },
+      "employment": {
+        "available": false,
+        "covered_regions": 0,
+        "region_count": 25,
+        "years": [],
+        "complete_latest_year": "unavailable"
+      },
+      "manufacturing": {
+        "available": false,
+        "covered_regions": 0,
+        "region_count": 25,
+        "years": [],
+        "complete_latest_year": "unavailable"
+      },
+      "industry_definition": "unavailable",
+      "verified_project_records": 2,
+      "historical_coverage": [],
+      "comparison_eligible_indicator_count": 0,
+      "priority_gaps": [
+        "官方区域失业率与空间分类待接入",
+        "当前地图层级缺少可直接对应的 LFS 就业率",
+        "制造业 GVA 比重待接入",
+        "national_admin 不进入 EU NUTS 正式排名"
+      ]
+    },
+    {
+      "country_id": "austria",
+      "country_name_zh": "奥地利",
+      "region_level": "NUTS2",
+      "region_count": 9,
+      "population": {
+        "available": true,
+        "covered_regions": 9,
+        "region_count": 9,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "gdp": {
+        "available": true,
+        "covered_regions": 9,
+        "region_count": 9,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "gdp_per_capita": {
+        "available": true,
+        "covered_regions": 9,
+        "region_count": 9,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "unemployment": {
+        "available": true,
+        "covered_regions": 9,
+        "region_count": 9,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "employment": {
+        "available": true,
+        "covered_regions": 9,
+        "region_count": 9,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "manufacturing": {
+        "available": true,
+        "covered_regions": 9,
+        "region_count": 9,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "industry_definition": "manufacturing_gva_share",
+      "verified_project_records": 1,
+      "historical_coverage": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "comparison_eligible_indicator_count": 6,
+      "priority_gaps": []
+    },
+    {
+      "country_id": "croatia",
+      "country_name_zh": "克罗地亚",
+      "region_level": "NUTS3",
+      "region_count": 21,
+      "population": {
+        "available": true,
+        "covered_regions": 21,
+        "region_count": 21,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "gdp": {
+        "available": true,
+        "covered_regions": 21,
+        "region_count": 21,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "gdp_per_capita": {
+        "available": true,
+        "covered_regions": 21,
+        "region_count": 21,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "unemployment": {
+        "available": false,
+        "covered_regions": 0,
+        "region_count": 21,
+        "years": [],
+        "complete_latest_year": "unavailable"
+      },
+      "employment": {
+        "available": false,
+        "covered_regions": 0,
+        "region_count": 21,
+        "years": [],
+        "complete_latest_year": "unavailable"
+      },
+      "manufacturing": {
+        "available": true,
+        "covered_regions": 21,
+        "region_count": 21,
+        "years": [
+          "2021",
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "complete_latest_year": "2024"
+      },
+      "industry_definition": "manufacturing_gva_share",
+      "verified_project_records": 1,
+      "historical_coverage": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "comparison_eligible_indicator_count": 4,
+      "priority_gaps": [
+        "当前地图层级缺少可直接对应的 LFS 失业率",
+        "当前地图层级缺少可直接对应的 LFS 就业率"
+      ]
+    }
+  ]
+}

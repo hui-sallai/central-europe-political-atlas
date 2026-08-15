@@ -2,7 +2,7 @@
   "schema_version": "research-data-v0.1",
   "generated_at": "2026-08-12",
   "data_type": "region_sources",
-  "record_count": 12,
+  "record_count": 15,
   "scope": "v0.21 regional source dictionary. GISCO NUTS 2024 records the verified public non-commercial research display terms and required attribution.",
   "primary_key": "region_source_id",
   "relation_note": "Future region_observations, region_boundaries, election regional data, and project_locations should reference region_source_id where applicable.",
@@ -10,13 +10,85 @@
   "model_boundary": "Source dictionary only. No regional model, risk layer, forecast, election prediction, or live boundary rendering is generated.",
   "records": [
     {
+      "region_source_id": "eurostat_regional_lfs_unemployment",
+      "source_name_zh": "Eurostat 区域 LFS 失业率",
+      "source_name_en": "Eurostat regional LFS unemployment rate",
+      "source_type": "Eurostat regional statistics",
+      "country_coverage": "九个 EU 样本国；只在平台当前层级可直接对应时进入地图。",
+      "admin_level_coverage": "NUTS1 / NUTS2；NUTS3 不向下复制。",
+      "indicator_coverage": "regional_unemployment_rate / regional_unemployment_change_pp",
+      "boundary_coverage": "不提供边界；通过 NUTS code 与 GISCO 对应。",
+      "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/lfst_r_lfu3rt?sex=T&age=Y15-74&isced11=TOTAL&unit=PC",
+      "source_reliability": "A",
+      "source_status": "官方来源",
+      "update_frequency": "annual",
+      "license_status": "不用于边界渲染；按具体统计表或页面版权说明复核。",
+      "usage_note": "统一使用 sex=T、age=Y15-74、isced11=TOTAL、unit=PC；不得与登记失业率混用。",
+      "can_be_used_for_boundary": false,
+      "can_be_used_for_regional_statistics": true,
+      "can_be_used_for_election_data": false,
+      "can_be_used_for_project_location": false,
+      "is_supplementary_only": false,
+      "is_excluded_from_analysis": false,
+      "last_checked": "2026-08-15",
+      "notes": "v0.89 劳动力主源；当前地图层级不匹配时保留 unavailable。"
+    },
+    {
+      "region_source_id": "eurostat_regional_lfs_employment",
+      "source_name_zh": "Eurostat 区域 LFS 就业率",
+      "source_name_en": "Eurostat regional LFS employment rate",
+      "source_type": "Eurostat regional statistics",
+      "country_coverage": "九个 EU 样本国；只在平台当前层级可直接对应时进入地图。",
+      "admin_level_coverage": "NUTS1 / NUTS2；NUTS3 不向下复制。",
+      "indicator_coverage": "regional_employment_rate",
+      "boundary_coverage": "不提供边界；通过 NUTS code 与 GISCO 对应。",
+      "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/lfst_r_lfe2emprt?sex=T&age=Y20-64&unit=PC",
+      "source_reliability": "A",
+      "source_status": "官方来源",
+      "update_frequency": "annual",
+      "license_status": "不用于边界渲染；按具体统计表或页面版权说明复核。",
+      "usage_note": "统一使用 sex=T、age=Y20-64、unit=PC；不与就业人数或登记就业混用。",
+      "can_be_used_for_boundary": false,
+      "can_be_used_for_regional_statistics": true,
+      "can_be_used_for_election_data": false,
+      "can_be_used_for_project_location": false,
+      "is_supplementary_only": false,
+      "is_excluded_from_analysis": false,
+      "last_checked": "2026-08-15",
+      "notes": "v0.89 只接入这一项就业指标。"
+    },
+    {
+      "region_source_id": "eurostat_regional_gva",
+      "source_name_zh": "Eurostat 区域经济账户 GVA",
+      "source_name_en": "Eurostat regional economic accounts GVA",
+      "source_type": "Eurostat regional statistics",
+      "country_coverage": "九个 EU 样本国。",
+      "admin_level_coverage": "NUTS1 / NUTS2 / NUTS3；绝对 GVA 可按明确代码加总后计算比重。",
+      "indicator_coverage": "regional_manufacturing_share",
+      "boundary_coverage": "不提供边界；通过 NUTS code 与 GISCO 对应。",
+      "source_url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10r_3gva",
+      "source_reliability": "A",
+      "source_status": "官方来源",
+      "update_frequency": "annual",
+      "license_status": "不用于边界渲染；按具体统计表或页面版权说明复核。",
+      "usage_note": "制造业比重由 NACE C / NACE TOTAL 的同年同区 CP_MEUR 计算；不能替换为就业比重或国家值。",
+      "can_be_used_for_boundary": false,
+      "can_be_used_for_regional_statistics": true,
+      "can_be_used_for_election_data": false,
+      "can_be_used_for_project_location": false,
+      "is_supplementary_only": false,
+      "is_excluded_from_analysis": false,
+      "last_checked": "2026-08-15",
+      "notes": "计算值保留分子、分母、NACE 和区域代码。"
+    },
+    {
       "region_source_id": "eurostat_regional_statistics",
       "source_name_zh": "Eurostat 区域统计",
       "source_name_en": "Eurostat regional statistics",
       "source_type": "Eurostat regional statistics",
       "country_coverage": "欧盟成员国优先；V4 四国均可作为候选来源。",
       "admin_level_coverage": "NUTS1 / NUTS2 / NUTS3",
-      "indicator_coverage": "区域人口、区域 GDP、区域人均 GDP、区域失业率、区域产业结构、区域制造业比重候选。",
+      "indicator_coverage": "区域人口、区域 GDP、区域人均 GDP、区域失业率、区域就业率、区域产业结构、区域制造业 GVA 比重候选。",
       "boundary_coverage": "不直接作为边界文件来源；与 GISCO 边界层通过 NUTS 代码关联。",
       "source_url": "https://ec.europa.eu/eurostat/web/regions/database",
       "source_reliability": "A",
@@ -29,7 +101,7 @@
       "can_be_used_for_project_location": false,
       "is_supplementary_only": false,
       "is_excluded_from_analysis": false,
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-08-15",
       "notes": "区域统计优先来源；真实观测值进入 region_observations 前必须保留具体数据集链接和 NUTS/ADM 映射说明。"
     },
     {
@@ -39,7 +111,7 @@
       "source_type": "各国统计局区域数据",
       "country_coverage": "十国；V4 优先接入。",
       "admin_level_coverage": "ADM1 / NUTS2 / NUTS3，视各国统计体系而定。",
-      "indicator_coverage": "区域人口、区域 GDP、劳动力、产业结构和制造业比重候选。",
+      "indicator_coverage": "区域人口、区域 GDP、劳动力、产业结构和制造业 GVA 比重候选。",
       "boundary_coverage": "通常不作为边界文件来源；可用于行政区代码和区域名称核验。",
       "source_url": "",
       "source_reliability": "A",
@@ -52,7 +124,7 @@
       "can_be_used_for_project_location": false,
       "is_supplementary_only": false,
       "is_excluded_from_analysis": false,
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-08-15",
       "notes": "用于补充 Eurostat 之外的官方区域口径；必须逐国保留具体表页或 API 链接。"
     },
     {
@@ -75,7 +147,7 @@
       "can_be_used_for_project_location": false,
       "is_supplementary_only": false,
       "is_excluded_from_analysis": false,
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-08-15",
       "notes": "主要服务 regions 与 region_boundaries 的行政区代码、名称和历史边界复核。"
     },
     {
@@ -154,7 +226,7 @@
       "can_be_used_for_project_location": false,
       "is_supplementary_only": false,
       "is_excluded_from_analysis": false,
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-08-15",
       "notes": "v0.9 仅登记来源与许可；geometry_available=false 时不渲染真实边界。"
     },
     {
@@ -177,7 +249,7 @@
       "can_be_used_for_project_location": true,
       "is_supplementary_only": false,
       "is_excluded_from_analysis": false,
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-08-15",
       "notes": "许可状态是该类来源的核心字段；不得用门户名称替代具体数据集许可证。"
     },
     {
@@ -200,7 +272,7 @@
       "can_be_used_for_project_location": true,
       "is_supplementary_only": true,
       "is_excluded_from_analysis": false,
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-08-15",
       "notes": "更适合项目位置和背景核验，不单独作为区域统计主源。"
     },
     {
@@ -223,7 +295,7 @@
       "can_be_used_for_project_location": false,
       "is_supplementary_only": false,
       "is_excluded_from_analysis": false,
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-08-15",
       "notes": "v0.9 只做来源字典，不接入真实区域选举数据，不做预测。"
     },
     {
@@ -246,7 +318,7 @@
       "can_be_used_for_project_location": true,
       "is_supplementary_only": true,
       "is_excluded_from_analysis": false,
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-08-15",
       "notes": "只作过渡和补充线索；正式使用前必须绑定原始来源链接。"
     },
     {
@@ -269,7 +341,7 @@
       "can_be_used_for_project_location": false,
       "is_supplementary_only": false,
       "is_excluded_from_analysis": true,
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-08-15",
       "notes": "用于 region_observations 等待接入行；不进入地图图层、区域比较或模型候选。"
     },
     {
@@ -292,7 +364,7 @@
       "can_be_used_for_project_location": false,
       "is_supplementary_only": false,
       "is_excluded_from_analysis": true,
-      "last_checked": "2026-07-26",
+      "last_checked": "2026-08-15",
       "notes": "只用于页面结构测试；不进入正式数据、导出分析或模型候选。"
     }
   ]

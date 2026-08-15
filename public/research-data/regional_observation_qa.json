@@ -1,0 +1,20 @@
+{
+  "schema_version": "regional-observation-qa-v0.89",
+  "generated_at": "2026-08-15",
+  "data_type": "regional_observation_qa",
+  "record_count": 1,
+  "validation_note": "Anomalies are flagged for review and never changed automatically.",
+  "records": [
+    {
+      "observation_count": 4490,
+      "factual_observation_count": 2972,
+      "pending_observation_count": 1518,
+      "duplicate_observation_count": 0,
+      "country_mismatch_count": 0,
+      "impossible_value_count": 0,
+      "missing_source_count": 0,
+      "review_required": false,
+      "notes": "QA 只标记异常，不自动修改数值。国家值不会下推到区域层。"
+    }
+  ]
+}

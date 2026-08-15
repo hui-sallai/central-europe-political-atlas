@@ -17,7 +17,11 @@ export const factualLayerDefinitions = [
   { layer_id: "regional_gdp", label_zh: "区域 GDP", layer_type: "choropleth", indicator_id: "regional_gdp" },
   { layer_id: "regional_gdp_per_capita", label_zh: "区域人均 GDP", layer_type: "choropleth", indicator_id: "regional_gdp_per_capita" },
   { layer_id: "regional_unemployment_rate", label_zh: "区域失业率", layer_type: "choropleth", indicator_id: "regional_unemployment_rate" },
-  { layer_id: "regional_manufacturing_share", label_zh: "区域制造业比重", layer_type: "choropleth", indicator_id: "regional_manufacturing_share" },
+  { layer_id: "regional_employment_rate", label_zh: "区域就业率", layer_type: "choropleth", indicator_id: "regional_employment_rate" },
+  { layer_id: "regional_manufacturing_share", label_zh: "区域制造业 GVA 比重", layer_type: "choropleth", indicator_id: "regional_manufacturing_share" },
+  { layer_id: "regional_population_change_pct", label_zh: "区域人口变化（2021–2024）", layer_type: "choropleth", indicator_id: "regional_population_change_pct" },
+  { layer_id: "regional_gdp_per_capita_change_pct", label_zh: "区域人均 GDP 变化（2021–2024）", layer_type: "choropleth", indicator_id: "regional_gdp_per_capita_change_pct" },
+  { layer_id: "regional_unemployment_change_pp", label_zh: "区域失业率变化（2021–2024）", layer_type: "choropleth", indicator_id: "regional_unemployment_change_pp" },
   { layer_id: "china_project_locations", label_zh: "对华项目区域参考", layer_type: "project_reference", indicator_id: null },
 ] as const;
 
@@ -196,6 +200,11 @@ export const spatialDisplayGateAudit = countries.map((country) => {
     gdp_layer_ready: layerReady("regional_gdp"),
     gdp_per_capita_layer_ready: layerReady("regional_gdp_per_capita"),
     unemployment_layer_ready: layerReady("regional_unemployment_rate"),
+    employment_layer_ready: layerReady("regional_employment_rate"),
+    manufacturing_layer_ready: layerReady("regional_manufacturing_share"),
+    population_change_layer_ready: layerReady("regional_population_change_pct"),
+    gdp_per_capita_change_layer_ready: layerReady("regional_gdp_per_capita_change_pct"),
+    unemployment_change_layer_ready: layerReady("regional_unemployment_change_pp"),
     project_layer_ready: layerReady("china_project_locations"),
     approved_layer_count: layers.filter((record) => record.is_ready_for_display).length,
     public_display_blocker: decision?.boundary_ready

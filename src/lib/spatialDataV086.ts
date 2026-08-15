@@ -7,7 +7,7 @@ import { regionObservationRecords } from "./regionObservations";
 export type SpatialBoundaryManifestRecord = (typeof boundaryManifest.records)[number];
 
 const p0Indicators = ["regional_population", "regional_gdp", "regional_gdp_per_capita"];
-const p1Indicators = ["regional_unemployment_rate", "regional_manufacturing_share"];
+const p1Indicators = ["regional_unemployment_rate", "regional_employment_rate", "regional_manufacturing_share"];
 const factualObservations = regionObservationRecords.filter((record) => record.value !== null && !record.is_pending);
 
 export const spatialBoundaryManifestRecords = boundaryManifest.records;
@@ -24,7 +24,9 @@ export const regionalObservationQa = (() => {
     ids.add(observation.region_observation_id);
     const region = regionMetadataRecords.find((item) => item.region_id === observation.region_id);
     if (!region || region.country_id !== observation.country_id) countryMismatchCount += 1;
-    if (typeof observation.value === "number" && observation.value <= 0) impossibleValueCount += 1;
+    const rateIndicator = ["regional_unemployment_rate", "regional_employment_rate", "regional_manufacturing_share"].includes(observation.region_indicator_id);
+    const positiveIndicator = ["regional_population", "regional_gdp", "regional_gdp_per_capita"].includes(observation.region_indicator_id);
+    if (typeof observation.value === "number" && ((rateIndicator && (observation.value < 0 || observation.value > 100)) || (positiveIndicator && observation.value <= 0))) impossibleValueCount += 1;
     if (!observation.source_name || !observation.source_url) missingSourceCount += 1;
   }
 
@@ -97,7 +99,11 @@ export const mapLayerReadiness: MapLayerReadinessRecord[] = countries.flatMap((c
     layer("regional_gdp", "choropleth", "regional_gdp"),
     layer("regional_gdp_per_capita", "choropleth", "regional_gdp_per_capita"),
     layer("regional_unemployment_rate", "choropleth", "regional_unemployment_rate"),
+    layer("regional_employment_rate", "choropleth", "regional_employment_rate"),
     layer("regional_manufacturing_share", "choropleth", "regional_manufacturing_share"),
+    layer("regional_population_change_pct", "choropleth", "regional_population_change_pct"),
+    layer("regional_gdp_per_capita_change_pct", "choropleth", "regional_gdp_per_capita_change_pct"),
+    layer("regional_unemployment_change_pp", "choropleth", "regional_unemployment_change_pp"),
     layer("china_project_locations", "project_reference"),
   ];
 });
@@ -157,7 +163,7 @@ export const regionalCoverageMatrixV086: RegionalCoverageV086Record[] = countrie
     priority_gaps: [
       !boundaryReady ? "公开边界闸门" : null,
       p0.size < 3 ? "P0 区域统计" : null,
-      p1.size < 2 ? "失业率与制造业比重" : null,
+      p1.size < 3 ? "失业率、就业率与制造业 GVA 比重" : null,
       !projectReady ? "可显示项目定位" : null,
       country.slug === "serbia" ? "国家行政区与 EU NUTS 可比性" : null,
     ].filter((item): item is string => Boolean(item)),
