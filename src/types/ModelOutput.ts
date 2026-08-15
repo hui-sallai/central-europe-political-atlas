@@ -24,6 +24,8 @@ export interface ModelInputDefinition {
 export interface ModelCard {
   model_id: ModelId;
   model_version: string;
+  formula_version: string;
+  weight_version: string;
   name: string;
   name_zh: string;
   purpose: string;
@@ -61,6 +63,8 @@ export interface ModelInputTrace {
 export interface ModelOutput {
   model_id: ModelId;
   model_version: string;
+  formula_version: string;
+  weight_version: string;
   country: string;
   country_slug: string;
   score: number | null;
@@ -72,6 +76,7 @@ export interface ModelOutput {
   confidence: ModelConfidence;
   calculation_date: string;
   input_year: number | null;
+  year_alignment_status: "aligned_common_year" | "insufficient_inputs";
   input_observation_ids: string[];
   missing_indicator_ids: string[];
   inputs: ModelInputTrace[];

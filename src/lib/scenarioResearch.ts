@@ -50,6 +50,7 @@ const regionalIndicatorNames: Record<string, string> = {
 };
 
 const regionNameById = new Map(spatialResearchRegionsV089.map((region) => [region.region_id, region.region_name_zh]));
+const regionLevelById = new Map(spatialResearchRegionsV089.map((region) => [region.region_id, region.admin_level]));
 
 function latestRegionalFacts(countrySlug: string, indicatorId: string) {
   const records = spatialResearchObservationsV089.filter((record) => (
@@ -64,6 +65,7 @@ function latestRegionalFacts(countrySlug: string, indicatorId: string) {
     .map((record) => ({
       region_id: record.region_id,
       region_name: regionNameById.get(record.region_id) ?? record.region_id,
+      admin_level: regionLevelById.get(record.region_id) ?? "unknown",
       indicator_id: indicatorId,
       indicator_name: regionalIndicatorNames[indicatorId] ?? indicatorId,
       year: record.year,

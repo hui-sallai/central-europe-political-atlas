@@ -49,6 +49,8 @@ export const modelCards: ModelCard[] = [
   {
     model_id: "household_economic_pressure",
     model_version: MODEL_VERSION,
+    formula_version: "household_pressure_v1",
+    weight_version: "household_pressure_weights_v1",
     name: "Household Economic Pressure Index",
     name_zh: "居民经济压力指数",
     purpose: "用已经通过质量验收的价格与就业数据，形成可追溯的居民经济压力比较值。",
@@ -85,6 +87,8 @@ export const modelCards: ModelCard[] = [
   {
     model_id: "fiscal_pressure",
     model_version: MODEL_VERSION,
+    formula_version: "fiscal_pressure_v1",
+    weight_version: "fiscal_pressure_weights_v1",
     name: "Fiscal Pressure Index",
     name_zh: "财政压力指数",
     purpose: "用财政余额和政府债务的可核验观测，形成第一版财政结构压力比较值。",
@@ -121,6 +125,8 @@ export const modelCards: ModelCard[] = [
   {
     model_id: "external_vulnerability",
     model_version: MODEL_VERSION,
+    formula_version: "external_vulnerability_v1",
+    weight_version: "external_vulnerability_weights_v1",
     name: "External Vulnerability Index",
     name_zh: "外部脆弱性指数",
     purpose: "用经常账户与能源进口依赖的可核验观测，形成第一版外部收支和能源依赖比较值。",
@@ -157,6 +163,8 @@ export const modelCards: ModelCard[] = [
   {
     model_id: "industrial_dependency",
     model_version: INDUSTRIAL_MODEL_VERSION,
+    formula_version: "industrial_dependency_v1",
+    weight_version: "industrial_dependency_weights_v1",
     name: "Industrial Dependency Index",
     name_zh: "产业依赖指数",
     purpose: "用制造业体量、汽车出口集中、对德国出口依赖和统一口径工业电价，形成可追溯产业结构暴露比较值。",
@@ -210,10 +218,17 @@ function clamp(value: number, minimum = 0, maximum = 100) {
   return Math.min(maximum, Math.max(minimum, value));
 }
 
-function normalize(value: number, input: ModelInputDefinition) {
+export function normalizeModelInput(value: number | null | undefined, input: ModelInputDefinition) {
+  if (!Number.isFinite(value)) return null;
   const { lower, upper, invert } = input.normalization;
-  const linear = ((value - lower) / (upper - lower)) * 100;
+  const linear = (((value as number) - lower) / (upper - lower)) * 100;
   return clamp(invert ? 100 - linear : linear);
+}
+
+export function classifyModelAvailability(availableWeight: number): ModelAvailability {
+  if (availableWeight >= 1) return "sufficient";
+  if (availableWeight >= PARTIAL_SCORE_THRESHOLD) return "partial";
+  return "insufficient";
 }
 
 function eligibleObservation(observation: Observation | undefined) {
@@ -258,7 +273,8 @@ function inputTrace(countrySlug: string, year: number, input: ModelInputDefiniti
     (candidate) => candidate.country_slug === countrySlug && candidate.indicator === input.indicator_id && candidate.year === year,
   );
   if (!eligibleObservation(observation) || observation?.value === null || observation?.value === undefined) return null;
-  const normalizedScore = normalize(observation.value, input);
+  const normalizedScore = normalizeModelInput(observation.value, input);
+  if (normalizedScore === null) return null;
   return {
     indicator_id: input.indicator_id,
     indicator_name: indicators.find((indicator) => indicator.id === input.indicator_id)?.name_zh ?? input.label,
@@ -307,7 +323,7 @@ function relatedEventIds(countrySlug: string, card: ModelCard) {
     .map((event) => event.event_id);
 }
 
-function calculate(country: Country, card: ModelCard): ModelOutput {
+export function calculateModelOutput(country: Country, card: ModelCard): ModelOutput {
   const year = latestCandidateYear(country.slug, card.inputs);
   const traces = year === null
     ? []
@@ -317,17 +333,19 @@ function calculate(country: Country, card: ModelCard): ModelOutput {
   const score = availableWeight >= PARTIAL_SCORE_THRESHOLD
     ? Number((traces.reduce((total, trace) => total + trace.weighted_contribution, 0) / availableWeight).toFixed(1))
     : null;
-  const availability: ModelAvailability = availableWeight === 1 ? "sufficient" : availableWeight >= PARTIAL_SCORE_THRESHOLD ? "partial" : "insufficient";
+  const availability = classifyModelAvailability(availableWeight);
   const previousScore = year === null ? null : scoreForYear(country.slug, card, year - 1);
   const scoreTrend = trend(score, previousScore);
   const drivers = [...traces]
-    .sort((a, b) => b.weighted_contribution - a.weighted_contribution)
+    .sort((a, b) => b.weighted_contribution - a.weighted_contribution || a.indicator_id.localeCompare(b.indicator_id))
     .slice(0, 2)
     .map((trace) => `${trace.indicator_name}：贡献 ${trace.weighted_contribution.toFixed(1)} 分`);
 
   return {
     model_id: card.model_id,
     model_version: card.model_version,
+    formula_version: card.formula_version,
+    weight_version: card.weight_version,
     country: country.name_zh,
     country_slug: country.slug,
     score,
@@ -339,6 +357,7 @@ function calculate(country: Country, card: ModelCard): ModelOutput {
     confidence: availability === "sufficient" ? "medium" : availability === "partial" ? "low" : "not_available",
     calculation_date: CALCULATION_DATE,
     input_year: year,
+    year_alignment_status: traces.length > 0 && traces.every((trace) => trace.year === year) ? "aligned_common_year" : "insufficient_inputs",
     input_observation_ids: traces.map((trace) => trace.observation_id),
     missing_indicator_ids: card.inputs.filter((input) => !traces.some((trace) => trace.indicator_id === input.indicator_id)).map((input) => input.indicator_id),
     inputs: traces,
@@ -347,7 +366,11 @@ function calculate(country: Country, card: ModelCard): ModelOutput {
   };
 }
 
-export const modelOutputs: ModelOutput[] = countries.flatMap((country) => modelCards.map((card) => calculate(country, card)));
+export function recalculateModelOutputs() {
+  return countries.flatMap((country) => modelCards.map((card) => calculateModelOutput(country, card)));
+}
+
+export const modelOutputs: ModelOutput[] = recalculateModelOutputs();
 
 export function getModelCard(modelId: ModelId) {
   return modelCards.find((card) => card.model_id === modelId);

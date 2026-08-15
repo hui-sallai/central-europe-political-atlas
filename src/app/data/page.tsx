@@ -7,6 +7,7 @@ import { RegionalCoverageMatrix } from "@/components/RegionalCoverageMatrix";
 import { StatusSummary } from "@/components/StatusSummary";
 import { TransmissionDataSummary } from "@/components/TransmissionDataSummary";
 import { ScenarioTransmissionInputs } from "@/components/ScenarioTransmissionInputs";
+import { ModelValidationStatus } from "@/components/ModelValidationStatus";
 import { platformStatus } from "@/lib/platformStatus";
 import { chinaEvidenceCoverageMatrix, chinaExposureCoverageAudit, chinaExposureRankingGate, chinaSectorLinkageMatrix, chinaTradeHistoricalSeries } from "@/lib/chinaExposureModel";
 
@@ -24,7 +25,7 @@ export default function DataOverviewPage() {
           items={[
             { label: "默认视图", value: "国家选择 + 宏观经济数据" },
             { label: "研究数据层", value: "17 个逻辑层保留，按需展开" },
-            { label: "空间研究", value: "v0.89 增加劳动力、制造业与 2021–2024 事实变化" },
+            { label: "验证阶段", value: "v0.91 可执行 QA、黄金案例与复现记录" },
           ]}
         />
       </div>
@@ -33,6 +34,7 @@ export default function DataOverviewPage() {
       </Suspense>
       <TransmissionDataSummary />
       <ScenarioTransmissionInputs />
+      <ModelValidationStatus />
       <CrossCountryParitySummary />
       <ChinaExposureCoverageMatrix matrix={chinaEvidenceCoverageMatrix} audit={chinaExposureCoverageAudit} history={chinaTradeHistoricalSeries} sectors={chinaSectorLinkageMatrix} rankingGate={chinaExposureRankingGate} />
       <RegionalCoverageMatrix />

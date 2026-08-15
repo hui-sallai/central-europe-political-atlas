@@ -8,9 +8,9 @@ import type {
   TransmissionChannel,
 } from "@/types/Scenario";
 
-const SCENARIO_CALCULATION_DATE = "2026-08-15";
-const SCENARIO_CALCULATION_TIMESTAMP = "2026-08-15T00:00:00Z";
-const SCENARIO_FORMULA_VERSION = "v0.90.0";
+export const SCENARIO_CALCULATION_DATE = "2026-08-15";
+export const SCENARIO_CALCULATION_TIMESTAMP = "2026-08-15T00:00:00Z";
+export const SCENARIO_FORMULA_VERSION = "scenario_transmission_v090";
 const EU_COUNTRIES = ["poland", "hungary", "czechia", "slovakia", "germany", "austria", "romania", "slovenia", "croatia"];
 
 export const scenarioDefinitions: ScenarioDefinition[] = [
@@ -111,7 +111,7 @@ export const scenarioDefinitions: ScenarioDefinition[] = [
     scenario_id: "germany_demand_slowdown",
     name: "Germany Demand Slowdown",
     name_zh: "德国需求放缓",
-    description: "以对德国货物出口依赖为暴露基线，把用户设定的德国需求降幅转换为压力暴露增量，再重算产业依赖指数。",
+    description: "以对德国货物出口依赖为暴露基线，把用户设定的德国需求降幅转换为 synthetic pressure adjustment，再重算产业依赖指数。该调整不是实际出口损失预测。",
     affected_country_slugs: "all",
     affected_indicators: ["germany_export_dependence", "automotive_export_share", "manufacturing_share_gdp"],
     affected_models: ["Industrial Dependency Index"],
@@ -212,10 +212,17 @@ function clamp(value: number, minimum = 0, maximum = 100) {
   return Math.min(maximum, Math.max(minimum, value));
 }
 
-function normalize(value: number, input: ModelInputDefinition) {
+function normalize(value: number | null | undefined, input: ModelInputDefinition) {
+  if (!Number.isFinite(value)) return null;
   const { lower, upper, invert } = input.normalization;
-  const linear = ((value - lower) / (upper - lower)) * 100;
+  const linear = (((value as number) - lower) / (upper - lower)) * 100;
   return clamp(invert ? 100 - linear : linear);
+}
+
+function shockBoundaryStatus(definition: ScenarioDefinition, requested: number) {
+  if (requested < definition.shock_min) return "clamped_to_min" as const;
+  if (requested > definition.shock_max) return "clamped_to_max" as const;
+  return "within_range" as const;
 }
 
 function confidenceLabel(value: number): ScenarioConfidenceDecomposition["label"] {
@@ -256,22 +263,39 @@ function confidenceDecomposition(
 export function calculateScenario({ definition, countrySlug, shockValue, cards, outputs, regionalContextCoverage = 0, evidenceQuality = 0 }: ScenarioCalculationContext): ScenarioResult {
   const card = cards.find((candidate) => candidate.model_id === definition.reference_model_id);
   const baseline = outputs.find((candidate) => candidate.country_slug === countrySlug && candidate.model_id === definition.reference_model_id);
+  const boundedShock = Math.min(definition.shock_max, Math.max(definition.shock_min, shockValue));
+  const boundaryStatus = shockBoundaryStatus(definition, shockValue);
+  const boundaryNote = boundaryStatus === "within_range"
+    ? null
+    : `请求值 ${shockValue} 超出公开范围，已明确截断为 ${boundedShock}；未按越界值计算。`;
   const common = {
     scenario_id: definition.scenario_id,
     country_slug: countrySlug,
     model_id: definition.reference_model_id,
     model_name: card?.name_zh ?? definition.reference_model_id,
-    shock_value: Math.min(definition.shock_max, Math.max(definition.shock_min, shockValue)),
+    requested_shock_value: shockValue,
+    shock_value: boundedShock,
+    shock_boundary_status: boundaryStatus,
     baseline_score: baseline?.score ?? null,
     confidence_decomposition: confidenceDecomposition(definition, baseline, regionalContextCoverage, evidenceQuality),
     baseline_date: baseline?.input_year ? String(baseline.input_year) : null,
     model_version: baseline?.model_version ?? null,
     formula_version: SCENARIO_FORMULA_VERSION,
+    weight_version: card?.weight_version ?? null,
     calculation_date: SCENARIO_CALCULATION_DATE,
     calculation_timestamp: SCENARIO_CALCULATION_TIMESTAMP,
     input_observation_ids: baseline?.input_observation_ids ?? [],
+    baseline_input_values: baseline?.inputs.map((input) => ({
+      indicator_id: input.indicator_id,
+      observation_id: input.observation_id,
+      year: input.year,
+      value: input.raw_value,
+      unit: input.unit,
+      weight: input.weight,
+    })) ?? [],
     transmission_chain: definition.transmission_chain,
-    limitations: definition.limitations,
+    limitations: boundaryNote ? [...definition.limitations, boundaryNote] : definition.limitations,
+    saturation_status: "not_applicable" as const,
     interpretation_boundary: "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
   };
 
@@ -326,7 +350,6 @@ export function calculateScenario({ definition, countrySlug, shockValue, cards, 
     };
   }
 
-  const boundedShock = Math.min(definition.shock_max, Math.max(definition.shock_min, shockValue));
   const signedShock = boundedShock * definition.shock_multiplier;
   const adjustedValue = Number((definition.shock_operation === "proportional"
     ? baselineInput.raw_value * (1 + signedShock / 100)
@@ -334,6 +357,17 @@ export function calculateScenario({ definition, countrySlug, shockValue, cards, 
       ? baselineInput.raw_value * (1 + Math.abs(signedShock) / 100)
       : baselineInput.raw_value + signedShock).toFixed(3));
   const adjustedNormalized = normalize(adjustedValue, inputDefinition);
+  if (adjustedNormalized === null) {
+    return {
+      ...common,
+      status: "unavailable",
+      scenario_score: null,
+      score_change: null,
+      confidence: "not_available",
+      adjusted_input: null,
+      unavailable_reason: "调整后的直接输入不是有限数值，拒绝输出情景分数。",
+    };
+  }
   const availableWeight = baseline.inputs.reduce((total, input) => total + input.weight, 0);
   const adjustedContribution = adjustedNormalized * inputDefinition.weight;
   const unchangedContribution = baseline.inputs
@@ -346,7 +380,7 @@ export function calculateScenario({ definition, countrySlug, shockValue, cards, 
     status: "available",
     scenario_score: scenarioScore,
     score_change: Number((scenarioScore - baseline.score).toFixed(1)),
-    confidence: definition.confidence,
+    confidence: common.confidence_decomposition.label,
     adjusted_input: {
       indicator_id: baselineInput.indicator_id,
       indicator_name: baselineInput.indicator_name,
@@ -364,6 +398,7 @@ export function calculateScenario({ definition, countrySlug, shockValue, cards, 
       source_reliability: baselineInput.source_reliability,
     },
     unavailable_reason: null,
+    saturation_status: adjustedNormalized === 0 || adjustedNormalized === 100 ? "normalization_boundary_reached" : "not_saturated",
   };
 }
 

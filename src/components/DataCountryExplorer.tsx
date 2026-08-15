@@ -2889,7 +2889,7 @@ function ResearchDataExportLinks() {
   const exportStatusCards = [
     { label: "CSV 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .csv 文件。" },
     { label: "JSON 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: platformStatus.version, note: "v0.90 新增情景传导、结果、证据、敏感性和回测准备导出；17 个核心逻辑数据层保持不变。" },
+    { label: "当前阶段", value: platformStatus.version, note: "v0.91 新增 validation registry、黄金案例和可执行复现检查；17 个核心逻辑数据层保持不变。" },
   ];
 
   return (

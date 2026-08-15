@@ -179,7 +179,7 @@
       "scenario_id": "germany_demand_slowdown",
       "name": "Germany Demand Slowdown",
       "name_zh": "德国需求放缓",
-      "description": "以对德国货物出口依赖为暴露基线，把用户设定的德国需求降幅转换为压力暴露增量，再重算产业依赖指数。",
+      "description": "以对德国货物出口依赖为暴露基线，把用户设定的德国需求降幅转换为 synthetic pressure adjustment，再重算产业依赖指数。该调整不是实际出口损失预测。",
       "affected_country_slugs": "all",
       "affected_indicators": [
         "germany_export_dependence",

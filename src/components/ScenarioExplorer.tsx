@@ -67,9 +67,7 @@ export function ScenarioExplorer({
       if (requestedCountry && countries.some((item) => item.slug === requestedCountry)) setCountrySlug(requestedCountry);
       if (nextDefinition) {
         setScenarioId(nextDefinition.scenario_id);
-        const nextShock = Number.isFinite(requestedShock)
-          ? Math.min(nextDefinition.shock_max, Math.max(nextDefinition.shock_min, requestedShock))
-          : nextDefinition.default_shock_value;
+        const nextShock = Number.isFinite(requestedShock) ? requestedShock : nextDefinition.default_shock_value;
         setShockValue(nextShock);
         setComparisonShock(secondShock(nextDefinition));
       }
@@ -148,7 +146,7 @@ export function ScenarioExplorer({
                 <div><p className="font-semibold">{control.label}</p><p className="mt-1 text-xs text-[var(--muted)]">{definition.shock_label}</p></div>
                 <label htmlFor={`${control.id}-number`} className="text-xs font-semibold text-[var(--muted)]">假设值
                   <span className="mt-1 flex items-center gap-2">
-                    <input id={`${control.id}-number`} type="number" min={definition.shock_min} max={definition.shock_max} step={definition.shock_step} value={control.value} onChange={(event) => control.setter(Math.min(definition.shock_max, Math.max(definition.shock_min, Number(event.target.value))))} className="w-24 rounded-lg border border-[var(--line)] bg-white px-3 py-2 text-right text-sm text-[var(--foreground)]" />
+                    <input id={`${control.id}-number`} type="number" min={definition.shock_min} max={definition.shock_max} step={definition.shock_step} value={control.value} onChange={(event) => { const value = Number(event.target.value); if (Number.isFinite(value)) control.setter(value); }} className="w-24 rounded-lg border border-[var(--line)] bg-white px-3 py-2 text-right text-sm text-[var(--foreground)]" />
                     <span>{definition.shock_unit}</span>
                   </span>
                 </label>
@@ -158,6 +156,7 @@ export function ScenarioExplorer({
             </div>
           ))}
         </div>
+        {resultA.shock_boundary_status !== "within_range" ? <p className="mt-4 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-semibold text-amber-950">Scenario A 请求值 {resultA.requested_shock_value} 已明确截断为 {resultA.shock_value} {definition.shock_unit}；未按越界值计算。</p> : null}
         <p className="mt-4 text-xs leading-5 text-[var(--muted)]">参数被限制在 Scenario Card 公开范围内；URL 保存 scenario、country 和 Scenario A shock，便于分享。任何输入都不会写回原始 observation。</p>
       </section>
 
@@ -169,7 +168,7 @@ export function ScenarioExplorer({
         <div className="wide-table-scroll mt-5">
           <table className="research-data-table w-full min-w-[760px] text-left text-sm">
             <thead><tr>{["结果", "冲击假设", "Baseline", "Scenario", "Change", "模型", "状态"].map((label) => <th key={label} className="px-3 py-3">{label}</th>)}</tr></thead>
-            <tbody>{adjustmentRows.map(({ label, result }) => <tr key={label}><td className="px-3 py-3 font-semibold">{label}</td><td className="px-3 py-3">{result.shock_value} {definition.shock_unit}</td><td className="px-3 py-3">{result.baseline_score?.toFixed(1) ?? "不可用"}</td><td className="px-3 py-3">{result.scenario_score?.toFixed(1) ?? "不输出"}</td><td className="px-3 py-3 font-semibold">{signed(result.score_change)}</td><td className="px-3 py-3">{result.model_name}</td><td className="px-3 py-3">{result.status === "available" ? "可计算" : result.unavailable_reason}</td></tr>)}</tbody>
+            <tbody>{adjustmentRows.map(({ label, result }) => <tr key={label}><td className="px-3 py-3 font-semibold">{label}</td><td className="px-3 py-3">{result.requested_shock_value !== result.shock_value ? `${result.requested_shock_value} → ` : ""}{result.shock_value} {definition.shock_unit}</td><td className="px-3 py-3">{result.baseline_score?.toFixed(1) ?? "不可用"}</td><td className="px-3 py-3">{result.scenario_score?.toFixed(1) ?? "不输出"}</td><td className="px-3 py-3 font-semibold">{signed(result.score_change)}</td><td className="px-3 py-3">{result.model_name}</td><td className="px-3 py-3">{result.status === "available" ? result.saturation_status === "normalization_boundary_reached" ? "可计算；已到标准化边界" : "可计算" : result.unavailable_reason}</td></tr>)}</tbody>
           </table>
         </div>
         <p className="mt-4 text-xs leading-5 text-[var(--muted)]">Scenario A 与 B 是两个独立假设，不合成为综合未来预测。{resultA.interpretation_boundary}</p>
@@ -206,7 +205,7 @@ export function ScenarioExplorer({
       <section className="grid gap-5 lg:grid-cols-2">
         <article className="card p-6">
           <p className="eyebrow">Regional Context</p><h2 className="mt-3 text-2xl font-semibold">结构背景事实排序</h2>
-          {regionalContext?.status === "available" ? <><div className="mt-4 grid gap-2">{regionalContext.values.map((item) => <div key={`${item.indicator_id}-${item.region_id}`} className="grid grid-cols-[1fr_auto] gap-4 rounded-xl bg-[var(--surface-muted)] px-4 py-3 text-sm"><div><p className="font-semibold">{item.region_name}</p><p className="mt-1 text-xs text-[var(--muted)]">{item.indicator_name} / {item.year}</p></div><p className="font-semibold">{item.value.toLocaleString()} {item.unit}</p></div>)}</div>{regionalContext.map_layer_id ? <Link href={`/map?country=${countrySlug}&layer=${regionalContext.map_layer_id}`} className="mt-4 inline-flex rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)]">View structural context map</Link> : null}</> : <p className="mt-4 rounded-xl bg-[var(--surface-muted)] p-4 text-sm leading-6 text-[var(--muted)]">{regionalContext?.unavailable_reason ?? "Regional context unavailable。"}</p>}
+          {regionalContext?.status === "available" ? <><div className="mt-4 grid gap-2">{regionalContext.values.map((item) => <div key={`${item.indicator_id}-${item.region_id}`} className="grid grid-cols-[1fr_auto] gap-4 rounded-xl bg-[var(--surface-muted)] px-4 py-3 text-sm"><div><p className="font-semibold">{item.region_name}</p><p className="mt-1 text-xs text-[var(--muted)]">{item.indicator_name} / {item.year} / {item.admin_level}</p></div><p className="font-semibold">{item.value.toLocaleString()} {item.unit}</p></div>)}</div>{regionalContext.map_layer_id ? <Link href={`/map?country=${countrySlug}&layer=${regionalContext.map_layer_id}`} className="mt-4 inline-flex rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)]">View structural context map</Link> : null}</> : <p className="mt-4 rounded-xl bg-[var(--surface-muted)] p-4 text-sm leading-6 text-[var(--muted)]">{regionalContext?.unavailable_reason ?? "Regional context unavailable。"}</p>}
           <p className="mt-4 text-xs leading-5 text-[var(--muted)]">{regionalContext?.interpretation_boundary}</p>
         </article>
         <article className="card p-6">
@@ -223,11 +222,11 @@ export function ScenarioExplorer({
       <details className="card p-6" open>
         <summary className="cursor-pointer text-lg font-semibold">Scenario Card：{definition.name_zh}</summary>
         <div className="mt-5 grid gap-4 lg:grid-cols-2 text-sm leading-6 text-[var(--muted)]">
-          <div><p><strong className="text-[var(--foreground)]">目的：</strong>{definition.purpose}</p><p className="mt-3"><strong className="text-[var(--foreground)]">允许范围：</strong>{definition.shock_min} 至 {definition.shock_max} {definition.shock_unit}；step {definition.shock_step}；default {definition.default_shock_value}</p><p className="mt-3"><strong className="text-[var(--foreground)]">受影响模型：</strong>{definition.affected_models.join(" / ")}</p><p className="mt-3"><strong className="text-[var(--foreground)]">预设传导置信度：</strong>{confidenceLabels[definition.confidence]}</p><p className="mt-3"><strong className="text-[var(--foreground)]">传导逻辑：</strong>{definition.transmission_chain.join(" → ")}</p></div>
+          <div><p><strong className="text-[var(--foreground)]">定义：</strong>{definition.description}</p><p className="mt-3"><strong className="text-[var(--foreground)]">目的：</strong>{definition.purpose}</p><p className="mt-3"><strong className="text-[var(--foreground)]">允许范围：</strong>{definition.shock_min} 至 {definition.shock_max} {definition.shock_unit}；step {definition.shock_step}；default {definition.default_shock_value}</p><p className="mt-3"><strong className="text-[var(--foreground)]">受影响模型：</strong>{definition.affected_models.join(" / ")}</p><p className="mt-3"><strong className="text-[var(--foreground)]">预设传导置信度：</strong>{confidenceLabels[definition.confidence]}</p><p className="mt-3"><strong className="text-[var(--foreground)]">传导逻辑：</strong>{definition.transmission_chain.join(" → ")}</p></div>
           <div><p><strong className="text-[var(--foreground)]">假设：</strong></p><ul className="mt-2 grid gap-2">{definition.assumptions.map((item) => <li key={item} className="rounded-xl bg-[var(--surface-muted)] px-3 py-2">{item}</li>)}</ul></div>
         </div>
         <ul className="mt-5 grid gap-2 text-sm leading-6 text-[var(--muted)] md:grid-cols-2">{definition.limitations.map((item) => <li key={item} className="rounded-xl bg-[var(--surface-muted)] px-4 py-3">{item}</li>)}<li className="rounded-xl bg-[var(--surface-muted)] px-4 py-3">情景 ≠ 预测；暴露 ≠ 风险；相关 ≠ 因果；结构背景 ≠ 精确影响量。</li></ul>
-        <p className="mt-4 font-mono text-xs text-[var(--muted)]">baseline={resultA.baseline_date ?? "unavailable"} / model={resultA.model_version ?? "unavailable"} / formula={resultA.formula_version} / calculation={resultA.calculation_timestamp}</p>
+        <p className="mt-4 font-mono text-xs text-[var(--muted)]">baseline={resultA.baseline_date ?? "unavailable"} / model={resultA.model_version ?? "unavailable"} / formula={resultA.formula_version} / weights={resultA.weight_version ?? "unavailable"} / boundary={resultA.shock_boundary_status} / calculation={resultA.calculation_timestamp}</p>
       </details>
     </div>
   );

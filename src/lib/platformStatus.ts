@@ -1,9 +1,9 @@
 export const platformStatus = {
-  version: "v0.90 Transmission & Scenario Analysis",
-  stage: "政治经济冲击传导与高级情景分析",
+  version: "v0.91 Model & Scenario Validation",
+  stage: "模型与情景验证、稳定性与可复现性验收",
   regionalData: "九国区域事实用于结构背景；塞尔维亚区域比较继续待接入，不阻断合格国家级情景",
   mapDisplay: "事实地图仅承接 structural context；情景影响、风险与预测色阶未启用",
-  modelLayer: "四项既有模型公式保持不变；四个独立情景支持透明重算、敏感性与证据追踪",
+  modelLayer: "四项既有模型与四个情景公式保持不变；新增确定性、边界、缺失值、方向、隔离和黄金案例 QA",
   lastUpdated: "2026-08-15",
 } as const;
 

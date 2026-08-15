@@ -9,6 +9,8 @@
     {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "household_pressure_v1",
+      "weight_version": "household_pressure_weights_v1",
       "name": "Household Economic Pressure Index",
       "name_zh": "居民经济压力指数",
       "purpose": "用已经通过质量验收的价格与就业数据，形成可追溯的居民经济压力比较值。",
@@ -63,6 +65,8 @@
     {
       "model_id": "fiscal_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "fiscal_pressure_v1",
+      "weight_version": "fiscal_pressure_weights_v1",
       "name": "Fiscal Pressure Index",
       "name_zh": "财政压力指数",
       "purpose": "用财政余额和政府债务的可核验观测，形成第一版财政结构压力比较值。",
@@ -118,6 +122,8 @@
     {
       "model_id": "external_vulnerability",
       "model_version": "v0.50.0",
+      "formula_version": "external_vulnerability_v1",
+      "weight_version": "external_vulnerability_weights_v1",
       "name": "External Vulnerability Index",
       "name_zh": "外部脆弱性指数",
       "purpose": "用经常账户与能源进口依赖的可核验观测，形成第一版外部收支和能源依赖比较值。",
@@ -175,6 +181,8 @@
     {
       "model_id": "industrial_dependency",
       "model_version": "v0.70.0",
+      "formula_version": "industrial_dependency_v1",
+      "weight_version": "industrial_dependency_weights_v1",
       "name": "Industrial Dependency Index",
       "name_zh": "产业依赖指数",
       "purpose": "用制造业体量、汽车出口集中、对德国出口依赖和统一口径工业电价，形成可追溯产业结构暴露比较值。",

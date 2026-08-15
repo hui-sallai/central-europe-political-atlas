@@ -9,6 +9,8 @@
     {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "household_pressure_v1",
+      "weight_version": "household_pressure_weights_v1",
       "country": "波兰",
       "country_slug": "poland",
       "score": 22,
@@ -23,6 +25,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2025,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "macro:poland:hicp_inflation:2025",
         "macro:poland:unemployment_rate:2025"
@@ -64,6 +67,8 @@
     {
       "model_id": "fiscal_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "fiscal_pressure_v1",
+      "weight_version": "fiscal_pressure_weights_v1",
       "country": "波兰",
       "country_slug": "poland",
       "score": 61.3,
@@ -78,6 +83,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2025,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "v4:poland:fiscal_balance_gdp:2025",
         "v4:poland:government_debt_gdp:2025"
@@ -122,6 +128,8 @@
     {
       "model_id": "external_vulnerability",
       "model_version": "v0.50.0",
+      "formula_version": "external_vulnerability_v1",
+      "weight_version": "external_vulnerability_weights_v1",
       "country": "波兰",
       "country_slug": "poland",
       "score": 37.1,
@@ -136,6 +144,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2024,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "v4:poland:current_account_gdp:2024",
         "v4:poland:energy_import_dependency:2024"
@@ -179,6 +188,8 @@
     {
       "model_id": "industrial_dependency",
       "model_version": "v0.70.0",
+      "formula_version": "industrial_dependency_v1",
+      "weight_version": "industrial_dependency_weights_v1",
       "country": "波兰",
       "country_slug": "poland",
       "score": 41.5,
@@ -193,6 +204,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2024,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "v4:poland:manufacturing_share_gdp:2024",
         "v4:poland:automotive_export_share:2024",
@@ -266,6 +278,8 @@
     {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "household_pressure_v1",
+      "weight_version": "household_pressure_weights_v1",
       "country": "匈牙利",
       "country_slug": "hungary",
       "score": 34,
@@ -280,6 +294,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2025,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "macro:hungary:hicp_inflation:2025",
         "macro:hungary:unemployment_rate:2025"
@@ -321,6 +336,8 @@
     {
       "model_id": "fiscal_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "fiscal_pressure_v1",
+      "weight_version": "fiscal_pressure_weights_v1",
       "country": "匈牙利",
       "country_slug": "hungary",
       "score": 57.6,
@@ -335,6 +352,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2025,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "v4:hungary:fiscal_balance_gdp:2025",
         "v4:hungary:government_debt_gdp:2025"
@@ -378,6 +396,8 @@
     {
       "model_id": "external_vulnerability",
       "model_version": "v0.50.0",
+      "formula_version": "external_vulnerability_v1",
+      "weight_version": "external_vulnerability_weights_v1",
       "country": "匈牙利",
       "country_slug": "hungary",
       "score": 34.8,
@@ -392,6 +412,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2024,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "v4:hungary:current_account_gdp:2024",
         "v4:hungary:energy_import_dependency:2024"
@@ -435,6 +456,8 @@
     {
       "model_id": "industrial_dependency",
       "model_version": "v0.70.0",
+      "formula_version": "industrial_dependency_v1",
+      "weight_version": "industrial_dependency_weights_v1",
       "country": "匈牙利",
       "country_slug": "hungary",
       "score": 46.3,
@@ -449,6 +472,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2024,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "v4:hungary:manufacturing_share_gdp:2024",
         "v4:hungary:automotive_export_share:2024",
@@ -523,6 +547,8 @@
     {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "household_pressure_v1",
+      "weight_version": "household_pressure_weights_v1",
       "country": "捷克",
       "country_slug": "czechia",
       "score": 15.5,
@@ -537,6 +563,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2025,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "macro:czechia:hicp_inflation:2025",
         "macro:czechia:unemployment_rate:2025"
@@ -578,6 +605,8 @@
     {
       "model_id": "fiscal_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "fiscal_pressure_v1",
+      "weight_version": "fiscal_pressure_weights_v1",
       "country": "捷克",
       "country_slug": "czechia",
       "score": 25.7,
@@ -592,6 +621,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2025,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "v4:czechia:fiscal_balance_gdp:2025",
         "v4:czechia:government_debt_gdp:2025"
@@ -633,6 +663,8 @@
     {
       "model_id": "external_vulnerability",
       "model_version": "v0.50.0",
+      "formula_version": "external_vulnerability_v1",
+      "weight_version": "external_vulnerability_weights_v1",
       "country": "捷克",
       "country_slug": "czechia",
       "score": 27.1,
@@ -647,6 +679,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2024,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "v4:czechia:current_account_gdp:2024",
         "v4:czechia:energy_import_dependency:2024"
@@ -690,6 +723,8 @@
     {
       "model_id": "industrial_dependency",
       "model_version": "v0.70.0",
+      "formula_version": "industrial_dependency_v1",
+      "weight_version": "industrial_dependency_weights_v1",
       "country": "捷克",
       "country_slug": "czechia",
       "score": 66.2,
@@ -704,6 +739,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2024,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "v4:czechia:manufacturing_share_gdp:2024",
         "v4:czechia:automotive_export_share:2024",
@@ -778,6 +814,8 @@
     {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "household_pressure_v1",
+      "weight_version": "household_pressure_weights_v1",
       "country": "斯洛伐克",
       "country_slug": "slovakia",
       "score": 38,
@@ -792,6 +830,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2025,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "macro:slovakia:hicp_inflation:2025",
         "macro:slovakia:unemployment_rate:2025"
@@ -833,6 +872,8 @@
     {
       "model_id": "fiscal_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "fiscal_pressure_v1",
+      "weight_version": "fiscal_pressure_weights_v1",
       "country": "斯洛伐克",
       "country_slug": "slovakia",
       "score": 48.4,
@@ -847,6 +888,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2025,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "v4:slovakia:fiscal_balance_gdp:2025",
         "v4:slovakia:government_debt_gdp:2025"
@@ -890,6 +932,8 @@
     {
       "model_id": "external_vulnerability",
       "model_version": "v0.50.0",
+      "formula_version": "external_vulnerability_v1",
+      "weight_version": "external_vulnerability_weights_v1",
       "country": "斯洛伐克",
       "country_slug": "slovakia",
       "score": 59.9,
@@ -904,6 +948,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2024,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "v4:slovakia:current_account_gdp:2024",
         "v4:slovakia:energy_import_dependency:2024"
@@ -947,6 +992,8 @@
     {
       "model_id": "industrial_dependency",
       "model_version": "v0.70.0",
+      "formula_version": "industrial_dependency_v1",
+      "weight_version": "industrial_dependency_weights_v1",
       "country": "斯洛伐克",
       "country_slug": "slovakia",
       "score": 55.2,
@@ -961,6 +1008,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2024,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "v4:slovakia:manufacturing_share_gdp:2024",
         "v4:slovakia:automotive_export_share:2024",
@@ -1034,6 +1082,8 @@
     {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "household_pressure_v1",
+      "weight_version": "household_pressure_weights_v1",
       "country": "德国",
       "country_slug": "germany",
       "score": 20.5,
@@ -1048,6 +1098,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2025,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "macro:germany:hicp_inflation:2025",
         "macro:germany:unemployment_rate:2025"
@@ -1089,6 +1140,8 @@
     {
       "model_id": "fiscal_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "fiscal_pressure_v1",
+      "weight_version": "fiscal_pressure_weights_v1",
       "country": "德国",
       "country_slug": "germany",
       "score": 40.7,
@@ -1103,6 +1156,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2025,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "parity:germany:fiscal_balance_gdp:2025",
         "parity:germany:government_debt_gdp:2025"
@@ -1144,6 +1198,8 @@
     {
       "model_id": "external_vulnerability",
       "model_version": "v0.50.0",
+      "formula_version": "external_vulnerability_v1",
+      "weight_version": "external_vulnerability_weights_v1",
       "country": "德国",
       "country_slug": "germany",
       "score": 39,
@@ -1158,6 +1214,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2024,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "parity:germany:current_account_gdp:2024",
         "parity:germany:energy_import_dependency:2024"
@@ -1199,6 +1256,8 @@
     {
       "model_id": "industrial_dependency",
       "model_version": "v0.70.0",
+      "formula_version": "industrial_dependency_v1",
+      "weight_version": "industrial_dependency_weights_v1",
       "country": "德国",
       "country_slug": "germany",
       "score": null,
@@ -1212,6 +1271,7 @@
       "confidence": "not_available",
       "calculation_date": "2026-08-12",
       "input_year": 2025,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "parity:germany:manufacturing_share_gdp:2025"
       ],
@@ -1242,6 +1302,8 @@
     {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "household_pressure_v1",
+      "weight_version": "household_pressure_weights_v1",
       "country": "罗马尼亚",
       "country_slug": "romania",
       "score": 54.5,
@@ -1256,6 +1318,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2025,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "macro:romania:hicp_inflation:2025",
         "macro:romania:unemployment_rate:2025"
@@ -1297,6 +1360,8 @@
     {
       "model_id": "fiscal_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "fiscal_pressure_v1",
+      "weight_version": "fiscal_pressure_weights_v1",
       "country": "罗马尼亚",
       "country_slug": "romania",
       "score": 64.1,
@@ -1311,6 +1376,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2025,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "parity:romania:fiscal_balance_gdp:2025",
         "parity:romania:government_debt_gdp:2025"
@@ -1352,6 +1418,8 @@
     {
       "model_id": "external_vulnerability",
       "model_version": "v0.50.0",
+      "formula_version": "external_vulnerability_v1",
+      "weight_version": "external_vulnerability_weights_v1",
       "country": "罗马尼亚",
       "country_slug": "romania",
       "score": 52.6,
@@ -1366,6 +1434,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2024,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "parity:romania:current_account_gdp:2024",
         "parity:romania:energy_import_dependency:2024"
@@ -1407,6 +1476,8 @@
     {
       "model_id": "industrial_dependency",
       "model_version": "v0.70.0",
+      "formula_version": "industrial_dependency_v1",
+      "weight_version": "industrial_dependency_weights_v1",
       "country": "罗马尼亚",
       "country_slug": "romania",
       "score": 31.7,
@@ -1421,6 +1492,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2024,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "parity:romania:manufacturing_share_gdp:2024",
         "parity:romania:automotive_export_share:2024",
@@ -1492,6 +1564,8 @@
     {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "household_pressure_v1",
+      "weight_version": "household_pressure_weights_v1",
       "country": "斯洛文尼亚",
       "country_slug": "slovenia",
       "score": 22,
@@ -1506,6 +1580,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2025,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "macro:slovenia:hicp_inflation:2025",
         "macro:slovenia:unemployment_rate:2025"
@@ -1547,6 +1622,8 @@
     {
       "model_id": "fiscal_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "fiscal_pressure_v1",
+      "weight_version": "fiscal_pressure_weights_v1",
       "country": "斯洛文尼亚",
       "country_slug": "slovenia",
       "score": 41.1,
@@ -1561,6 +1638,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2025,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "parity:slovenia:fiscal_balance_gdp:2025",
         "parity:slovenia:government_debt_gdp:2025"
@@ -1602,6 +1680,8 @@
     {
       "model_id": "external_vulnerability",
       "model_version": "v0.50.0",
+      "formula_version": "external_vulnerability_v1",
+      "weight_version": "external_vulnerability_weights_v1",
       "country": "斯洛文尼亚",
       "country_slug": "slovenia",
       "score": 23.7,
@@ -1616,6 +1696,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2024,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "parity:slovenia:current_account_gdp:2024",
         "parity:slovenia:energy_import_dependency:2024"
@@ -1657,6 +1738,8 @@
     {
       "model_id": "industrial_dependency",
       "model_version": "v0.70.0",
+      "formula_version": "industrial_dependency_v1",
+      "weight_version": "industrial_dependency_weights_v1",
       "country": "斯洛文尼亚",
       "country_slug": "slovenia",
       "score": 24.1,
@@ -1671,6 +1754,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2024,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "parity:slovenia:manufacturing_share_gdp:2024",
         "parity:slovenia:automotive_export_share:2024",
@@ -1742,6 +1826,8 @@
     {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "household_pressure_v1",
+      "weight_version": "household_pressure_weights_v1",
       "country": "塞尔维亚",
       "country_slug": "serbia",
       "score": null,
@@ -1755,6 +1841,7 @@
       "confidence": "not_available",
       "calculation_date": "2026-08-12",
       "input_year": 2025,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "macro:serbia:unemployment_rate:2025"
       ],
@@ -1783,6 +1870,8 @@
     {
       "model_id": "fiscal_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "fiscal_pressure_v1",
+      "weight_version": "fiscal_pressure_weights_v1",
       "country": "塞尔维亚",
       "country_slug": "serbia",
       "score": null,
@@ -1794,6 +1883,7 @@
       "confidence": "not_available",
       "calculation_date": "2026-08-12",
       "input_year": null,
+      "year_alignment_status": "insufficient_inputs",
       "input_observation_ids": [],
       "missing_indicator_ids": [
         "fiscal_balance_gdp",
@@ -1806,6 +1896,8 @@
     {
       "model_id": "external_vulnerability",
       "model_version": "v0.50.0",
+      "formula_version": "external_vulnerability_v1",
+      "weight_version": "external_vulnerability_weights_v1",
       "country": "塞尔维亚",
       "country_slug": "serbia",
       "score": null,
@@ -1819,6 +1911,7 @@
       "confidence": "not_available",
       "calculation_date": "2026-08-12",
       "input_year": 2024,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "parity:serbia:energy_import_dependency:2024"
       ],
@@ -1847,6 +1940,8 @@
     {
       "model_id": "industrial_dependency",
       "model_version": "v0.70.0",
+      "formula_version": "industrial_dependency_v1",
+      "weight_version": "industrial_dependency_weights_v1",
       "country": "塞尔维亚",
       "country_slug": "serbia",
       "score": 22.5,
@@ -1861,6 +1956,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2024,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "parity:serbia:manufacturing_share_gdp:2024",
         "parity:serbia:automotive_export_share:2024",
@@ -1932,6 +2028,8 @@
     {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "household_pressure_v1",
+      "weight_version": "household_pressure_weights_v1",
       "country": "奥地利",
       "country_slug": "austria",
       "score": 36.5,
@@ -1946,6 +2044,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2025,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "macro:austria:hicp_inflation:2025",
         "macro:austria:unemployment_rate:2025"
@@ -1987,6 +2086,8 @@
     {
       "model_id": "fiscal_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "fiscal_pressure_v1",
+      "weight_version": "fiscal_pressure_weights_v1",
       "country": "奥地利",
       "country_slug": "austria",
       "score": 59.4,
@@ -2001,6 +2102,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2025,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "parity:austria:fiscal_balance_gdp:2025",
         "parity:austria:government_debt_gdp:2025"
@@ -2042,6 +2144,8 @@
     {
       "model_id": "external_vulnerability",
       "model_version": "v0.50.0",
+      "formula_version": "external_vulnerability_v1",
+      "weight_version": "external_vulnerability_weights_v1",
       "country": "奥地利",
       "country_slug": "austria",
       "score": 39.5,
@@ -2056,6 +2160,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2024,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "parity:austria:current_account_gdp:2024",
         "parity:austria:energy_import_dependency:2024"
@@ -2097,6 +2202,8 @@
     {
       "model_id": "industrial_dependency",
       "model_version": "v0.70.0",
+      "formula_version": "industrial_dependency_v1",
+      "weight_version": "industrial_dependency_weights_v1",
       "country": "奥地利",
       "country_slug": "austria",
       "score": 36.2,
@@ -2111,6 +2218,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2024,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "parity:austria:manufacturing_share_gdp:2024",
         "parity:austria:automotive_export_share:2024",
@@ -2182,6 +2290,8 @@
     {
       "model_id": "household_economic_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "household_pressure_v1",
+      "weight_version": "household_pressure_weights_v1",
       "country": "克罗地亚",
       "country_slug": "croatia",
       "score": 36.5,
@@ -2196,6 +2306,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2025,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "macro:croatia:hicp_inflation:2025",
         "macro:croatia:unemployment_rate:2025"
@@ -2237,6 +2348,8 @@
     {
       "model_id": "fiscal_pressure",
       "model_version": "v0.50.0",
+      "formula_version": "fiscal_pressure_v1",
+      "weight_version": "fiscal_pressure_weights_v1",
       "country": "克罗地亚",
       "country_slug": "croatia",
       "score": 37.7,
@@ -2251,6 +2364,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2025,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "parity:croatia:fiscal_balance_gdp:2025",
         "parity:croatia:government_debt_gdp:2025"
@@ -2292,6 +2406,8 @@
     {
       "model_id": "external_vulnerability",
       "model_version": "v0.50.0",
+      "formula_version": "external_vulnerability_v1",
+      "weight_version": "external_vulnerability_weights_v1",
       "country": "克罗地亚",
       "country_slug": "croatia",
       "score": 57.3,
@@ -2306,6 +2422,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2024,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "parity:croatia:current_account_gdp:2024",
         "parity:croatia:energy_import_dependency:2024"
@@ -2347,6 +2464,8 @@
     {
       "model_id": "industrial_dependency",
       "model_version": "v0.70.0",
+      "formula_version": "industrial_dependency_v1",
+      "weight_version": "industrial_dependency_weights_v1",
       "country": "克罗地亚",
       "country_slug": "croatia",
       "score": 15.8,
@@ -2361,6 +2480,7 @@
       "confidence": "medium",
       "calculation_date": "2026-08-12",
       "input_year": 2023,
+      "year_alignment_status": "aligned_common_year",
       "input_observation_ids": [
         "parity:croatia:manufacturing_share_gdp:2023",
         "parity:croatia:automotive_export_share:2023",

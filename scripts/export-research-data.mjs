@@ -96,6 +96,7 @@ const { getV4DataQualitySummary, v4QualityCountrySlugs } = require("../src/lib/v
 const { verifyChinaProject } = require("../src/lib/chinaProjectVerification.ts");
 const { modelCards, modelOutputs } = require("../src/lib/modelFramework.ts");
 const { scenarioExportLayers } = require("../src/lib/scenarioResearch.ts");
+const { goldenTestCases, validationRegistry, validationSummary } = require("../src/lib/researchValidation.ts");
 const {
   chinaExposureModelCard,
   chinaExposureOutputs,
@@ -1975,6 +1976,17 @@ for (const [layerId, records] of Object.entries(scenarioExportLayers)) {
     model_boundary: "Deterministic conditional analysis only. No probability, forecast, causal claim, combined future-risk score, or regional scenario score.",
   });
 }
+writeLayer("validation_registry", validationRegistry, {
+  generated_at: "2026-08-15",
+  schema_version: "model-scenario-validation-v0.91",
+  summary: validationSummary,
+  model_boundary: "Validation evidence only. Passed status does not turn scenarios into forecasts or confidence into probability.",
+});
+writeLayer("golden_test_cases", goldenTestCases, {
+  generated_at: "2026-08-15",
+  schema_version: "model-scenario-validation-v0.91",
+  relation_note: "Fixed regression cases for Hungary, Poland, Germany and Romania. Expected values require an explicit formula migration when changed.",
+});
 writeLayer("china_exposure_variables", chinaExposureVariables, {
   schema_version: "china-economic-exposure-v0.82",
   primary_key: "variable_id + country_slug",

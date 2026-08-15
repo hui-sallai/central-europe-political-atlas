@@ -11,6 +11,8 @@ export type ScenarioShockOperation = "additive" | "proportional" | "adverse_prop
 export type TransmissionRole = "direct" | "contextual";
 export type TransmissionDirection = "increase" | "decrease" | "conditional";
 export type ScenarioConfidenceLevel = "high" | "medium" | "low" | "not_available";
+export type ShockBoundaryStatus = "within_range" | "clamped_to_min" | "clamped_to_max";
+export type ScenarioSaturationStatus = "not_saturated" | "normalization_boundary_reached" | "not_applicable";
 
 export interface ScenarioDefinition {
   scenario_id: ScenarioId;
@@ -90,7 +92,9 @@ export interface ScenarioResult {
   model_id: ModelId;
   model_name: string;
   status: ScenarioStatus;
+  requested_shock_value: number;
   shock_value: number;
+  shock_boundary_status: ShockBoundaryStatus;
   baseline_score: number | null;
   scenario_score: number | null;
   score_change: number | null;
@@ -99,19 +103,30 @@ export interface ScenarioResult {
   baseline_date: string | null;
   model_version: string | null;
   formula_version: string;
+  weight_version: string | null;
   calculation_date: string;
   calculation_timestamp: string;
   adjusted_input: ScenarioAdjustedInput | null;
   input_observation_ids: string[];
+  baseline_input_values: Array<{
+    indicator_id: string;
+    observation_id: string;
+    year: number;
+    value: number;
+    unit: string;
+    weight: number;
+  }>;
   transmission_chain: string[];
   limitations: string[];
   unavailable_reason: string | null;
+  saturation_status: ScenarioSaturationStatus;
   interpretation_boundary: string;
 }
 
 export interface ScenarioRegionalContextValue {
   region_id: string;
   region_name: string;
+  admin_level: string;
   indicator_id: string;
   indicator_name: string;
   year: string;

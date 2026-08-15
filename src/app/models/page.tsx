@@ -12,7 +12,7 @@ export default function ModelsPage() {
       <p className="eyebrow">Transparent Models / {platformStatus.version}</p>
       <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">透明模型工作台</h1>
       <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-        v0.50 的居民经济压力、财政压力与外部脆弱性及 v0.70 产业依赖规则均保持不变。v0.90 只登记哪些情景复用这些模型，并保留输入追踪、权重和准入门槛；不生成 region-level model score。
+        v0.50 的居民经济压力、财政压力与外部脆弱性及 v0.70 产业依赖规则均保持不变。v0.91 只验证这些既有公式、权重、输入追踪和准入门槛；不生成 region-level model score。
       </p>
       <Link href="/scenarios" className="mt-4 inline-flex rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)] hover:bg-[var(--accent)] hover:text-white">
         进入 Scenario Workspace

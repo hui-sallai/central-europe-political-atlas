@@ -35,8 +35,20 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Export research data
+        run: pnpm export:research-data
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Typecheck
+        run: pnpm typecheck
+
+      - name: Research validation
+        run: pnpm research:validate
+
       - name: Build static site
-        run: pnpm build
+        run: pnpm build:site
         env:
           NEXT_PUBLIC_BASE_PATH: /central-europe-political-atlas
 

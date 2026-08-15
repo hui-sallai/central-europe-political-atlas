@@ -11,7 +11,9 @@
       "country_slug": "poland",
       "model_id": "household_economic_pressure",
       "model_name": "居民经济压力指数",
+      "requested_shock_value": 2,
       "shock_value": 2,
+      "shock_boundary_status": "within_range",
       "baseline_score": 22,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -24,12 +26,31 @@
       },
       "baseline_date": "2025",
       "model_version": "v0.50.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "household_pressure_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
         "macro:poland:hicp_inflation:2025",
         "macro:poland:unemployment_rate:2025"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "hicp_inflation",
+          "observation_id": "macro:poland:hicp_inflation:2025",
+          "year": 2025,
+          "value": 3.3,
+          "unit": "%",
+          "weight": 0.5
+        },
+        {
+          "indicator_id": "unemployment_rate",
+          "observation_id": "macro:poland:unemployment_rate:2025",
+          "year": 2025,
+          "value": 3.1,
+          "unit": "%",
+          "weight": 0.5
+        }
       ],
       "transmission_chain": [
         "基线 HICP",
@@ -42,11 +63,12 @@
         "冲击幅度由用户设定，不是平台对未来通胀的预测。",
         "模型暂未纳入实际工资、住房成本和居民能源账单。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 32,
       "score_change": 10,
-      "confidence": "medium",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "hicp_inflation",
         "indicator_name": "CPI / HICP 通胀率",
@@ -70,7 +92,9 @@
       "country_slug": "poland",
       "model_id": "fiscal_pressure",
       "model_name": "财政压力指数",
+      "requested_shock_value": 1,
       "shock_value": 1,
+      "shock_boundary_status": "within_range",
       "baseline_score": 61.3,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -83,12 +107,31 @@
       },
       "baseline_date": "2025",
       "model_version": "v0.50.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "fiscal_pressure_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
         "v4:poland:fiscal_balance_gdp:2025",
         "v4:poland:government_debt_gdp:2025"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "fiscal_balance_gdp",
+          "observation_id": "v4:poland:fiscal_balance_gdp:2025",
+          "year": 2025,
+          "value": -7.3,
+          "unit": "% GDP",
+          "weight": 0.5
+        },
+        {
+          "indicator_id": "government_debt_gdp",
+          "observation_id": "v4:poland:government_debt_gdp:2025",
+          "year": 2025,
+          "value": 59.7,
+          "unit": "% GDP",
+          "weight": 0.5
+        }
       ],
       "transmission_chain": [
         "基线财政余额/GDP",
@@ -101,11 +144,12 @@
         "平台没有估计欧盟资金延迟与财政余额之间的经验系数；财政余额变化完全由用户设定。",
         "该情景不改变债务、融资成本或实际拨款观测值。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 66.3,
       "score_change": 5,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "fiscal_balance_gdp",
         "indicator_name": "财政赤字/GDP",
@@ -129,7 +173,9 @@
       "country_slug": "poland",
       "model_id": "industrial_dependency",
       "model_name": "产业依赖指数",
+      "requested_shock_value": 20,
       "shock_value": 20,
+      "shock_boundary_status": "within_range",
       "baseline_score": 41.5,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -142,7 +188,8 @@
       },
       "baseline_date": "2024",
       "model_version": "v0.70.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "industrial_dependency_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
@@ -150,6 +197,40 @@
         "v4:poland:automotive_export_share:2024",
         "transmission:poland:germany_export_dependence:2024",
         "transmission:poland:industrial_electricity_price:2024"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "observation_id": "v4:poland:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "value": 15.4,
+          "unit": "%",
+          "weight": 0.25
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "observation_id": "v4:poland:automotive_export_share:2024",
+          "year": 2024,
+          "value": 14.981,
+          "unit": "%",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "observation_id": "transmission:poland:germany_export_dependence:2024",
+          "year": 2024,
+          "value": 27.063,
+          "unit": "% exports",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "observation_id": "transmission:poland:industrial_electricity_price:2024",
+          "year": 2024,
+          "value": 0.2573,
+          "unit": "欧元/kWh",
+          "weight": 0.15
+        }
       ],
       "transmission_chain": [
         "工业电价基线",
@@ -162,11 +243,12 @@
         "能源进口依赖是结构指标，未被当作能源价格输入。",
         "该情景只调整工业电价，不估计企业对冲、补贴、合同期限或向终端价格的传导。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 44,
       "score_change": 2.5,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "industrial_electricity_price",
         "indicator_name": "工业电价",
@@ -190,7 +272,9 @@
       "country_slug": "poland",
       "model_id": "industrial_dependency",
       "model_name": "产业依赖指数",
+      "requested_shock_value": -5,
       "shock_value": -5,
+      "shock_boundary_status": "within_range",
       "baseline_score": 41.5,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -203,7 +287,8 @@
       },
       "baseline_date": "2024",
       "model_version": "v0.70.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "industrial_dependency_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
@@ -211,6 +296,40 @@
         "v4:poland:automotive_export_share:2024",
         "transmission:poland:germany_export_dependence:2024",
         "transmission:poland:industrial_electricity_price:2024"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "observation_id": "v4:poland:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "value": 15.4,
+          "unit": "%",
+          "weight": 0.25
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "observation_id": "v4:poland:automotive_export_share:2024",
+          "year": 2024,
+          "value": 14.981,
+          "unit": "%",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "observation_id": "transmission:poland:germany_export_dependence:2024",
+          "year": 2024,
+          "value": 27.063,
+          "unit": "% exports",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "observation_id": "transmission:poland:industrial_electricity_price:2024",
+          "year": 2024,
+          "value": 0.2573,
+          "unit": "欧元/kWh",
+          "weight": 0.15
+        }
       ],
       "transmission_chain": [
         "对德国出口依赖基线",
@@ -223,11 +342,12 @@
         "对德国出口依赖来自双边货物出口占比，不以总出口规模替代。",
         "压力暴露增量是公开的算术假设，不是估计的贸易弹性、产出损失或 GDP 预测。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 42.8,
       "score_change": 1.3,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "germany_export_dependence",
         "indicator_name": "对德国出口依赖",
@@ -251,7 +371,9 @@
       "country_slug": "hungary",
       "model_id": "household_economic_pressure",
       "model_name": "居民经济压力指数",
+      "requested_shock_value": 2,
       "shock_value": 2,
+      "shock_boundary_status": "within_range",
       "baseline_score": 34,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -264,12 +386,31 @@
       },
       "baseline_date": "2025",
       "model_version": "v0.50.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "household_pressure_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
         "macro:hungary:hicp_inflation:2025",
         "macro:hungary:unemployment_rate:2025"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "hicp_inflation",
+          "observation_id": "macro:hungary:hicp_inflation:2025",
+          "year": 2025,
+          "value": 4.4,
+          "unit": "%",
+          "weight": 0.5
+        },
+        {
+          "indicator_id": "unemployment_rate",
+          "observation_id": "macro:hungary:unemployment_rate:2025",
+          "year": 2025,
+          "value": 4.4,
+          "unit": "%",
+          "weight": 0.5
+        }
       ],
       "transmission_chain": [
         "基线 HICP",
@@ -282,11 +423,12 @@
         "冲击幅度由用户设定，不是平台对未来通胀的预测。",
         "模型暂未纳入实际工资、住房成本和居民能源账单。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 44,
       "score_change": 10,
-      "confidence": "medium",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "hicp_inflation",
         "indicator_name": "CPI / HICP 通胀率",
@@ -310,7 +452,9 @@
       "country_slug": "hungary",
       "model_id": "fiscal_pressure",
       "model_name": "财政压力指数",
+      "requested_shock_value": 1,
       "shock_value": 1,
+      "shock_boundary_status": "within_range",
       "baseline_score": 57.6,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -323,12 +467,31 @@
       },
       "baseline_date": "2025",
       "model_version": "v0.50.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "fiscal_pressure_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
         "v4:hungary:fiscal_balance_gdp:2025",
         "v4:hungary:government_debt_gdp:2025"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "fiscal_balance_gdp",
+          "observation_id": "v4:hungary:fiscal_balance_gdp:2025",
+          "year": 2025,
+          "value": -4.7,
+          "unit": "% GDP",
+          "weight": 0.5
+        },
+        {
+          "indicator_id": "government_debt_gdp",
+          "observation_id": "v4:hungary:government_debt_gdp:2025",
+          "year": 2025,
+          "value": 74.6,
+          "unit": "% GDP",
+          "weight": 0.5
+        }
       ],
       "transmission_chain": [
         "基线财政余额/GDP",
@@ -341,11 +504,12 @@
         "平台没有估计欧盟资金延迟与财政余额之间的经验系数；财政余额变化完全由用户设定。",
         "该情景不改变债务、融资成本或实际拨款观测值。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 62.6,
       "score_change": 5,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "fiscal_balance_gdp",
         "indicator_name": "财政赤字/GDP",
@@ -369,7 +533,9 @@
       "country_slug": "hungary",
       "model_id": "industrial_dependency",
       "model_name": "产业依赖指数",
+      "requested_shock_value": 20,
       "shock_value": 20,
+      "shock_boundary_status": "within_range",
       "baseline_score": 46.3,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -382,7 +548,8 @@
       },
       "baseline_date": "2024",
       "model_version": "v0.70.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "industrial_dependency_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
@@ -390,6 +557,40 @@
         "v4:hungary:automotive_export_share:2024",
         "transmission:hungary:germany_export_dependence:2024",
         "transmission:hungary:industrial_electricity_price:2024"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "observation_id": "v4:hungary:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "value": 15.9,
+          "unit": "%",
+          "weight": 0.25
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "observation_id": "v4:hungary:automotive_export_share:2024",
+          "year": 2024,
+          "value": 21.91,
+          "unit": "%",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "observation_id": "transmission:hungary:germany_export_dependence:2024",
+          "year": 2024,
+          "value": 24.6,
+          "unit": "% exports",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "observation_id": "transmission:hungary:industrial_electricity_price:2024",
+          "year": 2024,
+          "value": 0.28495,
+          "unit": "欧元/kWh",
+          "weight": 0.15
+        }
       ],
       "transmission_chain": [
         "工业电价基线",
@@ -402,11 +603,12 @@
         "能源进口依赖是结构指标，未被当作能源价格输入。",
         "该情景只调整工业电价，不估计企业对冲、补贴、合同期限或向终端价格的传导。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 49.2,
       "score_change": 2.9,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "industrial_electricity_price",
         "indicator_name": "工业电价",
@@ -430,7 +632,9 @@
       "country_slug": "hungary",
       "model_id": "industrial_dependency",
       "model_name": "产业依赖指数",
+      "requested_shock_value": -5,
       "shock_value": -5,
+      "shock_boundary_status": "within_range",
       "baseline_score": 46.3,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -443,7 +647,8 @@
       },
       "baseline_date": "2024",
       "model_version": "v0.70.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "industrial_dependency_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
@@ -451,6 +656,40 @@
         "v4:hungary:automotive_export_share:2024",
         "transmission:hungary:germany_export_dependence:2024",
         "transmission:hungary:industrial_electricity_price:2024"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "observation_id": "v4:hungary:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "value": 15.9,
+          "unit": "%",
+          "weight": 0.25
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "observation_id": "v4:hungary:automotive_export_share:2024",
+          "year": 2024,
+          "value": 21.91,
+          "unit": "%",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "observation_id": "transmission:hungary:germany_export_dependence:2024",
+          "year": 2024,
+          "value": 24.6,
+          "unit": "% exports",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "observation_id": "transmission:hungary:industrial_electricity_price:2024",
+          "year": 2024,
+          "value": 0.28495,
+          "unit": "欧元/kWh",
+          "weight": 0.15
+        }
       ],
       "transmission_chain": [
         "对德国出口依赖基线",
@@ -463,11 +702,12 @@
         "对德国出口依赖来自双边货物出口占比，不以总出口规模替代。",
         "压力暴露增量是公开的算术假设，不是估计的贸易弹性、产出损失或 GDP 预测。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 47.5,
       "score_change": 1.2,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "germany_export_dependence",
         "indicator_name": "对德国出口依赖",
@@ -491,7 +731,9 @@
       "country_slug": "czechia",
       "model_id": "household_economic_pressure",
       "model_name": "居民经济压力指数",
+      "requested_shock_value": 2,
       "shock_value": 2,
+      "shock_boundary_status": "within_range",
       "baseline_score": 15.5,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -504,12 +746,31 @@
       },
       "baseline_date": "2025",
       "model_version": "v0.50.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "household_pressure_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
         "macro:czechia:hicp_inflation:2025",
         "macro:czechia:unemployment_rate:2025"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "hicp_inflation",
+          "observation_id": "macro:czechia:hicp_inflation:2025",
+          "year": 2025,
+          "value": 2.3,
+          "unit": "%",
+          "weight": 0.5
+        },
+        {
+          "indicator_id": "unemployment_rate",
+          "observation_id": "macro:czechia:unemployment_rate:2025",
+          "year": 2025,
+          "value": 2.8,
+          "unit": "%",
+          "weight": 0.5
+        }
       ],
       "transmission_chain": [
         "基线 HICP",
@@ -522,11 +783,12 @@
         "冲击幅度由用户设定，不是平台对未来通胀的预测。",
         "模型暂未纳入实际工资、住房成本和居民能源账单。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 25.5,
       "score_change": 10,
-      "confidence": "medium",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "hicp_inflation",
         "indicator_name": "CPI / HICP 通胀率",
@@ -550,7 +812,9 @@
       "country_slug": "czechia",
       "model_id": "fiscal_pressure",
       "model_name": "财政压力指数",
+      "requested_shock_value": 1,
       "shock_value": 1,
+      "shock_boundary_status": "within_range",
       "baseline_score": 25.7,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -563,12 +827,31 @@
       },
       "baseline_date": "2025",
       "model_version": "v0.50.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "fiscal_pressure_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
         "v4:czechia:fiscal_balance_gdp:2025",
         "v4:czechia:government_debt_gdp:2025"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "fiscal_balance_gdp",
+          "observation_id": "v4:czechia:fiscal_balance_gdp:2025",
+          "year": 2025,
+          "value": -2.1,
+          "unit": "% GDP",
+          "weight": 0.5
+        },
+        {
+          "indicator_id": "government_debt_gdp",
+          "observation_id": "v4:czechia:government_debt_gdp:2025",
+          "year": 2025,
+          "value": 44.3,
+          "unit": "% GDP",
+          "weight": 0.5
+        }
       ],
       "transmission_chain": [
         "基线财政余额/GDP",
@@ -581,11 +864,12 @@
         "平台没有估计欧盟资金延迟与财政余额之间的经验系数；财政余额变化完全由用户设定。",
         "该情景不改变债务、融资成本或实际拨款观测值。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 30.7,
       "score_change": 5,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "fiscal_balance_gdp",
         "indicator_name": "财政赤字/GDP",
@@ -609,7 +893,9 @@
       "country_slug": "czechia",
       "model_id": "industrial_dependency",
       "model_name": "产业依赖指数",
+      "requested_shock_value": 20,
       "shock_value": 20,
+      "shock_boundary_status": "within_range",
       "baseline_score": 66.2,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -622,7 +908,8 @@
       },
       "baseline_date": "2024",
       "model_version": "v0.70.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "industrial_dependency_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
@@ -630,6 +917,40 @@
         "v4:czechia:automotive_export_share:2024",
         "transmission:czechia:germany_export_dependence:2024",
         "transmission:czechia:industrial_electricity_price:2024"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "observation_id": "v4:czechia:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "value": 20.2,
+          "unit": "%",
+          "weight": 0.25
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "observation_id": "v4:czechia:automotive_export_share:2024",
+          "year": 2024,
+          "value": 32.356,
+          "unit": "%",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "observation_id": "transmission:czechia:germany_export_dependence:2024",
+          "year": 2024,
+          "value": 32.211,
+          "unit": "% exports",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "observation_id": "transmission:czechia:industrial_electricity_price:2024",
+          "year": 2024,
+          "value": 0.2293,
+          "unit": "欧元/kWh",
+          "weight": 0.15
+        }
       ],
       "transmission_chain": [
         "工业电价基线",
@@ -642,11 +963,12 @@
         "能源进口依赖是结构指标，未被当作能源价格输入。",
         "该情景只调整工业电价，不估计企业对冲、补贴、合同期限或向终端价格的传导。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 68.5,
       "score_change": 2.3,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "industrial_electricity_price",
         "indicator_name": "工业电价",
@@ -670,7 +992,9 @@
       "country_slug": "czechia",
       "model_id": "industrial_dependency",
       "model_name": "产业依赖指数",
+      "requested_shock_value": -5,
       "shock_value": -5,
+      "shock_boundary_status": "within_range",
       "baseline_score": 66.2,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -683,7 +1007,8 @@
       },
       "baseline_date": "2024",
       "model_version": "v0.70.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "industrial_dependency_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
@@ -691,6 +1016,40 @@
         "v4:czechia:automotive_export_share:2024",
         "transmission:czechia:germany_export_dependence:2024",
         "transmission:czechia:industrial_electricity_price:2024"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "observation_id": "v4:czechia:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "value": 20.2,
+          "unit": "%",
+          "weight": 0.25
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "observation_id": "v4:czechia:automotive_export_share:2024",
+          "year": 2024,
+          "value": 32.356,
+          "unit": "%",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "observation_id": "transmission:czechia:germany_export_dependence:2024",
+          "year": 2024,
+          "value": 32.211,
+          "unit": "% exports",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "observation_id": "transmission:czechia:industrial_electricity_price:2024",
+          "year": 2024,
+          "value": 0.2293,
+          "unit": "欧元/kWh",
+          "weight": 0.15
+        }
       ],
       "transmission_chain": [
         "对德国出口依赖基线",
@@ -703,11 +1062,12 @@
         "对德国出口依赖来自双边货物出口占比，不以总出口规模替代。",
         "压力暴露增量是公开的算术假设，不是估计的贸易弹性、产出损失或 GDP 预测。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 67.8,
       "score_change": 1.6,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "germany_export_dependence",
         "indicator_name": "对德国出口依赖",
@@ -731,7 +1091,9 @@
       "country_slug": "slovakia",
       "model_id": "household_economic_pressure",
       "model_name": "居民经济压力指数",
+      "requested_shock_value": 2,
       "shock_value": 2,
+      "shock_boundary_status": "within_range",
       "baseline_score": 38,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -744,12 +1106,31 @@
       },
       "baseline_date": "2025",
       "model_version": "v0.50.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "household_pressure_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
         "macro:slovakia:hicp_inflation:2025",
         "macro:slovakia:unemployment_rate:2025"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "hicp_inflation",
+          "observation_id": "macro:slovakia:hicp_inflation:2025",
+          "year": 2025,
+          "value": 4.2,
+          "unit": "%",
+          "weight": 0.5
+        },
+        {
+          "indicator_id": "unemployment_rate",
+          "observation_id": "macro:slovakia:unemployment_rate:2025",
+          "year": 2025,
+          "value": 5.4,
+          "unit": "%",
+          "weight": 0.5
+        }
       ],
       "transmission_chain": [
         "基线 HICP",
@@ -762,11 +1143,12 @@
         "冲击幅度由用户设定，不是平台对未来通胀的预测。",
         "模型暂未纳入实际工资、住房成本和居民能源账单。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 48,
       "score_change": 10,
-      "confidence": "medium",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "hicp_inflation",
         "indicator_name": "CPI / HICP 通胀率",
@@ -790,7 +1172,9 @@
       "country_slug": "slovakia",
       "model_id": "fiscal_pressure",
       "model_name": "财政压力指数",
+      "requested_shock_value": 1,
       "shock_value": 1,
+      "shock_boundary_status": "within_range",
       "baseline_score": 48.4,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -803,12 +1187,31 @@
       },
       "baseline_date": "2025",
       "model_version": "v0.50.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "fiscal_pressure_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
         "v4:slovakia:fiscal_balance_gdp:2025",
         "v4:slovakia:government_debt_gdp:2025"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "fiscal_balance_gdp",
+          "observation_id": "v4:slovakia:fiscal_balance_gdp:2025",
+          "year": 2025,
+          "value": -4.5,
+          "unit": "% GDP",
+          "weight": 0.5
+        },
+        {
+          "indicator_id": "government_debt_gdp",
+          "observation_id": "v4:slovakia:government_debt_gdp:2025",
+          "year": 2025,
+          "value": 61.4,
+          "unit": "% GDP",
+          "weight": 0.5
+        }
       ],
       "transmission_chain": [
         "基线财政余额/GDP",
@@ -821,11 +1224,12 @@
         "平台没有估计欧盟资金延迟与财政余额之间的经验系数；财政余额变化完全由用户设定。",
         "该情景不改变债务、融资成本或实际拨款观测值。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 53.4,
       "score_change": 5,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "fiscal_balance_gdp",
         "indicator_name": "财政赤字/GDP",
@@ -849,7 +1253,9 @@
       "country_slug": "slovakia",
       "model_id": "industrial_dependency",
       "model_name": "产业依赖指数",
+      "requested_shock_value": 20,
       "shock_value": 20,
+      "shock_boundary_status": "within_range",
       "baseline_score": 55.2,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -862,7 +1268,8 @@
       },
       "baseline_date": "2024",
       "model_version": "v0.70.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "industrial_dependency_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
@@ -870,6 +1277,40 @@
         "v4:slovakia:automotive_export_share:2024",
         "transmission:slovakia:germany_export_dependence:2024",
         "transmission:slovakia:industrial_electricity_price:2024"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "observation_id": "v4:slovakia:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "value": 16.3,
+          "unit": "%",
+          "weight": 0.25
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "observation_id": "v4:slovakia:automotive_export_share:2024",
+          "year": 2024,
+          "value": 40.357,
+          "unit": "%",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "observation_id": "transmission:slovakia:germany_export_dependence:2024",
+          "year": 2024,
+          "value": 21.398,
+          "unit": "% exports",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "observation_id": "transmission:slovakia:industrial_electricity_price:2024",
+          "year": 2024,
+          "value": 0.23665,
+          "unit": "欧元/kWh",
+          "weight": 0.15
+        }
       ],
       "transmission_chain": [
         "工业电价基线",
@@ -882,11 +1323,12 @@
         "能源进口依赖是结构指标，未被当作能源价格输入。",
         "该情景只调整工业电价，不估计企业对冲、补贴、合同期限或向终端价格的传导。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 57.6,
       "score_change": 2.4,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "industrial_electricity_price",
         "indicator_name": "工业电价",
@@ -910,7 +1352,9 @@
       "country_slug": "slovakia",
       "model_id": "industrial_dependency",
       "model_name": "产业依赖指数",
+      "requested_shock_value": -5,
       "shock_value": -5,
+      "shock_boundary_status": "within_range",
       "baseline_score": 55.2,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -923,7 +1367,8 @@
       },
       "baseline_date": "2024",
       "model_version": "v0.70.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "industrial_dependency_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
@@ -931,6 +1376,40 @@
         "v4:slovakia:automotive_export_share:2024",
         "transmission:slovakia:germany_export_dependence:2024",
         "transmission:slovakia:industrial_electricity_price:2024"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "observation_id": "v4:slovakia:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "value": 16.3,
+          "unit": "%",
+          "weight": 0.25
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "observation_id": "v4:slovakia:automotive_export_share:2024",
+          "year": 2024,
+          "value": 40.357,
+          "unit": "%",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "observation_id": "transmission:slovakia:germany_export_dependence:2024",
+          "year": 2024,
+          "value": 21.398,
+          "unit": "% exports",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "observation_id": "transmission:slovakia:industrial_electricity_price:2024",
+          "year": 2024,
+          "value": 0.23665,
+          "unit": "欧元/kWh",
+          "weight": 0.15
+        }
       ],
       "transmission_chain": [
         "对德国出口依赖基线",
@@ -943,11 +1422,12 @@
         "对德国出口依赖来自双边货物出口占比，不以总出口规模替代。",
         "压力暴露增量是公开的算术假设，不是估计的贸易弹性、产出损失或 GDP 预测。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 56.3,
       "score_change": 1.1,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "germany_export_dependence",
         "indicator_name": "对德国出口依赖",
@@ -971,7 +1451,9 @@
       "country_slug": "germany",
       "model_id": "household_economic_pressure",
       "model_name": "居民经济压力指数",
+      "requested_shock_value": 2,
       "shock_value": 2,
+      "shock_boundary_status": "within_range",
       "baseline_score": 20.5,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -984,12 +1466,31 @@
       },
       "baseline_date": "2025",
       "model_version": "v0.50.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "household_pressure_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
         "macro:germany:hicp_inflation:2025",
         "macro:germany:unemployment_rate:2025"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "hicp_inflation",
+          "observation_id": "macro:germany:hicp_inflation:2025",
+          "year": 2025,
+          "value": 2.3,
+          "unit": "%",
+          "weight": 0.5
+        },
+        {
+          "indicator_id": "unemployment_rate",
+          "observation_id": "macro:germany:unemployment_rate:2025",
+          "year": 2025,
+          "value": 3.8,
+          "unit": "%",
+          "weight": 0.5
+        }
       ],
       "transmission_chain": [
         "基线 HICP",
@@ -1002,11 +1503,12 @@
         "冲击幅度由用户设定，不是平台对未来通胀的预测。",
         "模型暂未纳入实际工资、住房成本和居民能源账单。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 30.5,
       "score_change": 10,
-      "confidence": "medium",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "hicp_inflation",
         "indicator_name": "CPI / HICP 通胀率",
@@ -1030,7 +1532,9 @@
       "country_slug": "germany",
       "model_id": "fiscal_pressure",
       "model_name": "财政压力指数",
+      "requested_shock_value": 1,
       "shock_value": 1,
+      "shock_boundary_status": "within_range",
       "baseline_score": 40.7,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -1043,12 +1547,31 @@
       },
       "baseline_date": "2025",
       "model_version": "v0.50.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "fiscal_pressure_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
         "parity:germany:fiscal_balance_gdp:2025",
         "parity:germany:government_debt_gdp:2025"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "fiscal_balance_gdp",
+          "observation_id": "parity:germany:fiscal_balance_gdp:2025",
+          "year": 2025,
+          "value": -2.7,
+          "unit": "% GDP",
+          "weight": 0.5
+        },
+        {
+          "indicator_id": "government_debt_gdp",
+          "observation_id": "parity:germany:government_debt_gdp:2025",
+          "year": 2025,
+          "value": 63.5,
+          "unit": "% GDP",
+          "weight": 0.5
+        }
       ],
       "transmission_chain": [
         "基线财政余额/GDP",
@@ -1061,11 +1584,12 @@
         "平台没有估计欧盟资金延迟与财政余额之间的经验系数；财政余额变化完全由用户设定。",
         "该情景不改变债务、融资成本或实际拨款观测值。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 45.7,
       "score_change": 5,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "fiscal_balance_gdp",
         "indicator_name": "财政赤字/GDP",
@@ -1089,7 +1613,9 @@
       "country_slug": "germany",
       "model_id": "industrial_dependency",
       "model_name": "产业依赖指数",
+      "requested_shock_value": 20,
       "shock_value": 20,
+      "shock_boundary_status": "within_range",
       "baseline_score": null,
       "confidence_decomposition": {
         "baseline_data_completeness": 25,
@@ -1102,11 +1628,22 @@
       },
       "baseline_date": "2025",
       "model_version": "v0.70.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "industrial_dependency_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
         "parity:germany:manufacturing_share_gdp:2025"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "observation_id": "parity:germany:manufacturing_share_gdp:2025",
+          "year": 2025,
+          "value": 17.7,
+          "unit": "%",
+          "weight": 0.25
+        }
       ],
       "transmission_chain": [
         "工业电价基线",
@@ -1119,6 +1656,7 @@
         "能源进口依赖是结构指标，未被当作能源价格输入。",
         "该情景只调整工业电价，不估计企业对冲、补贴、合同期限或向终端价格的传导。"
       ],
+      "saturation_status": "not_applicable",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "unavailable",
       "scenario_score": null,
@@ -1132,7 +1670,9 @@
       "country_slug": "germany",
       "model_id": "industrial_dependency",
       "model_name": "产业依赖指数",
+      "requested_shock_value": -5,
       "shock_value": -5,
+      "shock_boundary_status": "within_range",
       "baseline_score": null,
       "confidence_decomposition": {
         "baseline_data_completeness": 25,
@@ -1145,11 +1685,22 @@
       },
       "baseline_date": "2025",
       "model_version": "v0.70.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "industrial_dependency_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
         "parity:germany:manufacturing_share_gdp:2025"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "observation_id": "parity:germany:manufacturing_share_gdp:2025",
+          "year": 2025,
+          "value": 17.7,
+          "unit": "%",
+          "weight": 0.25
+        }
       ],
       "transmission_chain": [
         "对德国出口依赖基线",
@@ -1162,6 +1713,7 @@
         "对德国出口依赖来自双边货物出口占比，不以总出口规模替代。",
         "压力暴露增量是公开的算术假设，不是估计的贸易弹性、产出损失或 GDP 预测。"
       ],
+      "saturation_status": "not_applicable",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "unavailable",
       "scenario_score": null,
@@ -1175,7 +1727,9 @@
       "country_slug": "romania",
       "model_id": "household_economic_pressure",
       "model_name": "居民经济压力指数",
+      "requested_shock_value": 2,
       "shock_value": 2,
+      "shock_boundary_status": "within_range",
       "baseline_score": 54.5,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -1188,12 +1742,31 @@
       },
       "baseline_date": "2025",
       "model_version": "v0.50.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "household_pressure_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
         "macro:romania:hicp_inflation:2025",
         "macro:romania:unemployment_rate:2025"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "hicp_inflation",
+          "observation_id": "macro:romania:hicp_inflation:2025",
+          "year": 2025,
+          "value": 6.8,
+          "unit": "%",
+          "weight": 0.5
+        },
+        {
+          "indicator_id": "unemployment_rate",
+          "observation_id": "macro:romania:unemployment_rate:2025",
+          "year": 2025,
+          "value": 6.1,
+          "unit": "%",
+          "weight": 0.5
+        }
       ],
       "transmission_chain": [
         "基线 HICP",
@@ -1206,11 +1779,12 @@
         "冲击幅度由用户设定，不是平台对未来通胀的预测。",
         "模型暂未纳入实际工资、住房成本和居民能源账单。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 64.5,
       "score_change": 10,
-      "confidence": "medium",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "hicp_inflation",
         "indicator_name": "CPI / HICP 通胀率",
@@ -1234,7 +1808,9 @@
       "country_slug": "romania",
       "model_id": "fiscal_pressure",
       "model_name": "财政压力指数",
+      "requested_shock_value": 1,
       "shock_value": 1,
+      "shock_boundary_status": "within_range",
       "baseline_score": 64.1,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -1247,12 +1823,31 @@
       },
       "baseline_date": "2025",
       "model_version": "v0.50.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "fiscal_pressure_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
         "parity:romania:fiscal_balance_gdp:2025",
         "parity:romania:government_debt_gdp:2025"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "fiscal_balance_gdp",
+          "observation_id": "parity:romania:fiscal_balance_gdp:2025",
+          "year": 2025,
+          "value": -7.9,
+          "unit": "% GDP",
+          "weight": 0.5
+        },
+        {
+          "indicator_id": "government_debt_gdp",
+          "observation_id": "parity:romania:government_debt_gdp:2025",
+          "year": 2025,
+          "value": 59.3,
+          "unit": "% GDP",
+          "weight": 0.5
+        }
       ],
       "transmission_chain": [
         "基线财政余额/GDP",
@@ -1265,11 +1860,12 @@
         "平台没有估计欧盟资金延迟与财政余额之间的经验系数；财政余额变化完全由用户设定。",
         "该情景不改变债务、融资成本或实际拨款观测值。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 69.1,
       "score_change": 5,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "fiscal_balance_gdp",
         "indicator_name": "财政赤字/GDP",
@@ -1293,7 +1889,9 @@
       "country_slug": "romania",
       "model_id": "industrial_dependency",
       "model_name": "产业依赖指数",
+      "requested_shock_value": 20,
       "shock_value": 20,
+      "shock_boundary_status": "within_range",
       "baseline_score": 31.7,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -1306,7 +1904,8 @@
       },
       "baseline_date": "2024",
       "model_version": "v0.70.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "industrial_dependency_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
@@ -1314,6 +1913,40 @@
         "parity:romania:automotive_export_share:2024",
         "transmission:romania:germany_export_dependence:2024",
         "transmission:romania:industrial_electricity_price:2024"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "observation_id": "parity:romania:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "value": 13.2,
+          "unit": "%",
+          "weight": 0.25
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "observation_id": "parity:romania:automotive_export_share:2024",
+          "year": 2024,
+          "value": 19.949,
+          "unit": "%",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "observation_id": "transmission:romania:germany_export_dependence:2024",
+          "year": 2024,
+          "value": 20.542,
+          "unit": "% exports",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "observation_id": "transmission:romania:industrial_electricity_price:2024",
+          "year": 2024,
+          "value": 0.19445,
+          "unit": "欧元/kWh",
+          "weight": 0.15
+        }
       ],
       "transmission_chain": [
         "工业电价基线",
@@ -1326,11 +1959,12 @@
         "能源进口依赖是结构指标，未被当作能源价格输入。",
         "该情景只调整工业电价，不估计企业对冲、补贴、合同期限或向终端价格的传导。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 33.6,
       "score_change": 1.9,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "industrial_electricity_price",
         "indicator_name": "工业电价",
@@ -1354,7 +1988,9 @@
       "country_slug": "romania",
       "model_id": "industrial_dependency",
       "model_name": "产业依赖指数",
+      "requested_shock_value": -5,
       "shock_value": -5,
+      "shock_boundary_status": "within_range",
       "baseline_score": 31.7,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -1367,7 +2003,8 @@
       },
       "baseline_date": "2024",
       "model_version": "v0.70.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "industrial_dependency_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
@@ -1375,6 +2012,40 @@
         "parity:romania:automotive_export_share:2024",
         "transmission:romania:germany_export_dependence:2024",
         "transmission:romania:industrial_electricity_price:2024"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "observation_id": "parity:romania:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "value": 13.2,
+          "unit": "%",
+          "weight": 0.25
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "observation_id": "parity:romania:automotive_export_share:2024",
+          "year": 2024,
+          "value": 19.949,
+          "unit": "%",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "observation_id": "transmission:romania:germany_export_dependence:2024",
+          "year": 2024,
+          "value": 20.542,
+          "unit": "% exports",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "observation_id": "transmission:romania:industrial_electricity_price:2024",
+          "year": 2024,
+          "value": 0.19445,
+          "unit": "欧元/kWh",
+          "weight": 0.15
+        }
       ],
       "transmission_chain": [
         "对德国出口依赖基线",
@@ -1387,11 +2058,12 @@
         "对德国出口依赖来自双边货物出口占比，不以总出口规模替代。",
         "压力暴露增量是公开的算术假设，不是估计的贸易弹性、产出损失或 GDP 预测。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 32.8,
       "score_change": 1.1,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "germany_export_dependence",
         "indicator_name": "对德国出口依赖",
@@ -1415,7 +2087,9 @@
       "country_slug": "slovenia",
       "model_id": "household_economic_pressure",
       "model_name": "居民经济压力指数",
+      "requested_shock_value": 2,
       "shock_value": 2,
+      "shock_boundary_status": "within_range",
       "baseline_score": 22,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -1428,12 +2102,31 @@
       },
       "baseline_date": "2025",
       "model_version": "v0.50.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "household_pressure_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
         "macro:slovenia:hicp_inflation:2025",
         "macro:slovenia:unemployment_rate:2025"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "hicp_inflation",
+          "observation_id": "macro:slovenia:hicp_inflation:2025",
+          "year": 2025,
+          "value": 2.5,
+          "unit": "%",
+          "weight": 0.5
+        },
+        {
+          "indicator_id": "unemployment_rate",
+          "observation_id": "macro:slovenia:unemployment_rate:2025",
+          "year": 2025,
+          "value": 3.9,
+          "unit": "%",
+          "weight": 0.5
+        }
       ],
       "transmission_chain": [
         "基线 HICP",
@@ -1446,11 +2139,12 @@
         "冲击幅度由用户设定，不是平台对未来通胀的预测。",
         "模型暂未纳入实际工资、住房成本和居民能源账单。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 32,
       "score_change": 10,
-      "confidence": "medium",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "hicp_inflation",
         "indicator_name": "CPI / HICP 通胀率",
@@ -1474,7 +2168,9 @@
       "country_slug": "slovenia",
       "model_id": "fiscal_pressure",
       "model_name": "财政压力指数",
+      "requested_shock_value": 1,
       "shock_value": 1,
+      "shock_boundary_status": "within_range",
       "baseline_score": 41.1,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -1487,12 +2183,31 @@
       },
       "baseline_date": "2025",
       "model_version": "v0.50.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "fiscal_pressure_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
         "parity:slovenia:fiscal_balance_gdp:2025",
         "parity:slovenia:government_debt_gdp:2025"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "fiscal_balance_gdp",
+          "observation_id": "parity:slovenia:fiscal_balance_gdp:2025",
+          "year": 2025,
+          "value": -2.5,
+          "unit": "% GDP",
+          "weight": 0.5
+        },
+        {
+          "indicator_id": "government_debt_gdp",
+          "observation_id": "parity:slovenia:government_debt_gdp:2025",
+          "year": 2025,
+          "value": 65.7,
+          "unit": "% GDP",
+          "weight": 0.5
+        }
       ],
       "transmission_chain": [
         "基线财政余额/GDP",
@@ -1505,11 +2220,12 @@
         "平台没有估计欧盟资金延迟与财政余额之间的经验系数；财政余额变化完全由用户设定。",
         "该情景不改变债务、融资成本或实际拨款观测值。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 46.1,
       "score_change": 5,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "fiscal_balance_gdp",
         "indicator_name": "财政赤字/GDP",
@@ -1533,7 +2249,9 @@
       "country_slug": "slovenia",
       "model_id": "industrial_dependency",
       "model_name": "产业依赖指数",
+      "requested_shock_value": 20,
       "shock_value": 20,
+      "shock_boundary_status": "within_range",
       "baseline_score": 24.1,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -1546,7 +2264,8 @@
       },
       "baseline_date": "2024",
       "model_version": "v0.70.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "industrial_dependency_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
@@ -1554,6 +2273,40 @@
         "parity:slovenia:automotive_export_share:2024",
         "transmission:slovenia:germany_export_dependence:2024",
         "transmission:slovenia:industrial_electricity_price:2024"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "observation_id": "parity:slovenia:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "value": 19.4,
+          "unit": "%",
+          "weight": 0.25
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "observation_id": "parity:slovenia:automotive_export_share:2024",
+          "year": 2024,
+          "value": 5.96,
+          "unit": "%",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "observation_id": "transmission:slovenia:germany_export_dependence:2024",
+          "year": 2024,
+          "value": 11.876,
+          "unit": "% exports",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "observation_id": "transmission:slovenia:industrial_electricity_price:2024",
+          "year": 2024,
+          "value": 0.2152,
+          "unit": "欧元/kWh",
+          "weight": 0.15
+        }
       ],
       "transmission_chain": [
         "工业电价基线",
@@ -1566,11 +2319,12 @@
         "能源进口依赖是结构指标，未被当作能源价格输入。",
         "该情景只调整工业电价，不估计企业对冲、补贴、合同期限或向终端价格的传导。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 26.2,
       "score_change": 2.1,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "industrial_electricity_price",
         "indicator_name": "工业电价",
@@ -1594,7 +2348,9 @@
       "country_slug": "slovenia",
       "model_id": "industrial_dependency",
       "model_name": "产业依赖指数",
+      "requested_shock_value": -5,
       "shock_value": -5,
+      "shock_boundary_status": "within_range",
       "baseline_score": 24.1,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -1607,7 +2363,8 @@
       },
       "baseline_date": "2024",
       "model_version": "v0.70.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "industrial_dependency_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
@@ -1615,6 +2372,40 @@
         "parity:slovenia:automotive_export_share:2024",
         "transmission:slovenia:germany_export_dependence:2024",
         "transmission:slovenia:industrial_electricity_price:2024"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "observation_id": "parity:slovenia:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "value": 19.4,
+          "unit": "%",
+          "weight": 0.25
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "observation_id": "parity:slovenia:automotive_export_share:2024",
+          "year": 2024,
+          "value": 5.96,
+          "unit": "%",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "observation_id": "transmission:slovenia:germany_export_dependence:2024",
+          "year": 2024,
+          "value": 11.876,
+          "unit": "% exports",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "observation_id": "transmission:slovenia:industrial_electricity_price:2024",
+          "year": 2024,
+          "value": 0.2152,
+          "unit": "欧元/kWh",
+          "weight": 0.15
+        }
       ],
       "transmission_chain": [
         "对德国出口依赖基线",
@@ -1627,11 +2418,12 @@
         "对德国出口依赖来自双边货物出口占比，不以总出口规模替代。",
         "压力暴露增量是公开的算术假设，不是估计的贸易弹性、产出损失或 GDP 预测。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 24.7,
       "score_change": 0.6,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "germany_export_dependence",
         "indicator_name": "对德国出口依赖",
@@ -1655,7 +2447,9 @@
       "country_slug": "serbia",
       "model_id": "household_economic_pressure",
       "model_name": "居民经济压力指数",
+      "requested_shock_value": 2,
       "shock_value": 2,
+      "shock_boundary_status": "within_range",
       "baseline_score": null,
       "confidence_decomposition": {
         "baseline_data_completeness": 50,
@@ -1668,11 +2462,22 @@
       },
       "baseline_date": "2025",
       "model_version": "v0.50.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "household_pressure_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
         "macro:serbia:unemployment_rate:2025"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "unemployment_rate",
+          "observation_id": "macro:serbia:unemployment_rate:2025",
+          "year": 2025,
+          "value": 8.7,
+          "unit": "%",
+          "weight": 0.5
+        }
       ],
       "transmission_chain": [
         "基线 HICP",
@@ -1685,6 +2490,7 @@
         "冲击幅度由用户设定，不是平台对未来通胀的预测。",
         "模型暂未纳入实际工资、住房成本和居民能源账单。"
       ],
+      "saturation_status": "not_applicable",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "unavailable",
       "scenario_score": null,
@@ -1698,7 +2504,9 @@
       "country_slug": "serbia",
       "model_id": "fiscal_pressure",
       "model_name": "财政压力指数",
+      "requested_shock_value": 1,
       "shock_value": 1,
+      "shock_boundary_status": "within_range",
       "baseline_score": null,
       "confidence_decomposition": {
         "baseline_data_completeness": 0,
@@ -1711,10 +2519,12 @@
       },
       "baseline_date": null,
       "model_version": "v0.50.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "fiscal_pressure_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [],
+      "baseline_input_values": [],
       "transmission_chain": [
         "基线财政余额/GDP",
         "欧盟资金延迟假设",
@@ -1726,6 +2536,7 @@
         "平台没有估计欧盟资金延迟与财政余额之间的经验系数；财政余额变化完全由用户设定。",
         "该情景不改变债务、融资成本或实际拨款观测值。"
       ],
+      "saturation_status": "not_applicable",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "unavailable",
       "scenario_score": null,
@@ -1739,7 +2550,9 @@
       "country_slug": "serbia",
       "model_id": "industrial_dependency",
       "model_name": "产业依赖指数",
+      "requested_shock_value": 20,
       "shock_value": 20,
+      "shock_boundary_status": "within_range",
       "baseline_score": 22.5,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -1752,7 +2565,8 @@
       },
       "baseline_date": "2024",
       "model_version": "v0.70.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "industrial_dependency_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
@@ -1760,6 +2574,40 @@
         "parity:serbia:automotive_export_share:2024",
         "transmission:serbia:germany_export_dependence:2024",
         "transmission:serbia:industrial_electricity_price:2024"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "observation_id": "parity:serbia:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "value": 12.7,
+          "unit": "%",
+          "weight": 0.25
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "observation_id": "parity:serbia:automotive_export_share:2024",
+          "year": 2024,
+          "value": 16.901,
+          "unit": "%",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "observation_id": "transmission:serbia:germany_export_dependence:2024",
+          "year": 2024,
+          "value": 15.483,
+          "unit": "% exports",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "observation_id": "transmission:serbia:industrial_electricity_price:2024",
+          "year": 2024,
+          "value": 0.1714,
+          "unit": "欧元/kWh",
+          "weight": 0.15
+        }
       ],
       "transmission_chain": [
         "工业电价基线",
@@ -1772,11 +2620,12 @@
         "能源进口依赖是结构指标，未被当作能源价格输入。",
         "该情景只调整工业电价，不估计企业对冲、补贴、合同期限或向终端价格的传导。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 24.2,
       "score_change": 1.7,
-      "confidence": "low",
+      "confidence": "medium",
       "adjusted_input": {
         "indicator_id": "industrial_electricity_price",
         "indicator_name": "工业电价",
@@ -1800,7 +2649,9 @@
       "country_slug": "serbia",
       "model_id": "industrial_dependency",
       "model_name": "产业依赖指数",
+      "requested_shock_value": -5,
       "shock_value": -5,
+      "shock_boundary_status": "within_range",
       "baseline_score": 22.5,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -1813,7 +2664,8 @@
       },
       "baseline_date": "2024",
       "model_version": "v0.70.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "industrial_dependency_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
@@ -1821,6 +2673,40 @@
         "parity:serbia:automotive_export_share:2024",
         "transmission:serbia:germany_export_dependence:2024",
         "transmission:serbia:industrial_electricity_price:2024"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "observation_id": "parity:serbia:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "value": 12.7,
+          "unit": "%",
+          "weight": 0.25
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "observation_id": "parity:serbia:automotive_export_share:2024",
+          "year": 2024,
+          "value": 16.901,
+          "unit": "%",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "observation_id": "transmission:serbia:germany_export_dependence:2024",
+          "year": 2024,
+          "value": 15.483,
+          "unit": "% exports",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "observation_id": "transmission:serbia:industrial_electricity_price:2024",
+          "year": 2024,
+          "value": 0.1714,
+          "unit": "欧元/kWh",
+          "weight": 0.15
+        }
       ],
       "transmission_chain": [
         "对德国出口依赖基线",
@@ -1833,11 +2719,12 @@
         "对德国出口依赖来自双边货物出口占比，不以总出口规模替代。",
         "压力暴露增量是公开的算术假设，不是估计的贸易弹性、产出损失或 GDP 预测。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 23.3,
       "score_change": 0.8,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "germany_export_dependence",
         "indicator_name": "对德国出口依赖",
@@ -1861,7 +2748,9 @@
       "country_slug": "austria",
       "model_id": "household_economic_pressure",
       "model_name": "居民经济压力指数",
+      "requested_shock_value": 2,
       "shock_value": 2,
+      "shock_boundary_status": "within_range",
       "baseline_score": 36.5,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -1874,12 +2763,31 @@
       },
       "baseline_date": "2025",
       "model_version": "v0.50.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "household_pressure_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
         "macro:austria:hicp_inflation:2025",
         "macro:austria:unemployment_rate:2025"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "hicp_inflation",
+          "observation_id": "macro:austria:hicp_inflation:2025",
+          "year": 2025,
+          "value": 3.6,
+          "unit": "%",
+          "weight": 0.5
+        },
+        {
+          "indicator_id": "unemployment_rate",
+          "observation_id": "macro:austria:unemployment_rate:2025",
+          "year": 2025,
+          "value": 5.7,
+          "unit": "%",
+          "weight": 0.5
+        }
       ],
       "transmission_chain": [
         "基线 HICP",
@@ -1892,11 +2800,12 @@
         "冲击幅度由用户设定，不是平台对未来通胀的预测。",
         "模型暂未纳入实际工资、住房成本和居民能源账单。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 46.5,
       "score_change": 10,
-      "confidence": "medium",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "hicp_inflation",
         "indicator_name": "CPI / HICP 通胀率",
@@ -1920,7 +2829,9 @@
       "country_slug": "austria",
       "model_id": "fiscal_pressure",
       "model_name": "财政压力指数",
+      "requested_shock_value": 1,
       "shock_value": 1,
+      "shock_boundary_status": "within_range",
       "baseline_score": 59.4,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -1933,12 +2844,31 @@
       },
       "baseline_date": "2025",
       "model_version": "v0.50.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "fiscal_pressure_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
         "parity:austria:fiscal_balance_gdp:2025",
         "parity:austria:government_debt_gdp:2025"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "fiscal_balance_gdp",
+          "observation_id": "parity:austria:fiscal_balance_gdp:2025",
+          "year": 2025,
+          "value": -4.2,
+          "unit": "% GDP",
+          "weight": 0.5
+        },
+        {
+          "indicator_id": "government_debt_gdp",
+          "observation_id": "parity:austria:government_debt_gdp:2025",
+          "year": 2025,
+          "value": 81.5,
+          "unit": "% GDP",
+          "weight": 0.5
+        }
       ],
       "transmission_chain": [
         "基线财政余额/GDP",
@@ -1951,11 +2881,12 @@
         "平台没有估计欧盟资金延迟与财政余额之间的经验系数；财政余额变化完全由用户设定。",
         "该情景不改变债务、融资成本或实际拨款观测值。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 64.4,
       "score_change": 5,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "fiscal_balance_gdp",
         "indicator_name": "财政赤字/GDP",
@@ -1979,7 +2910,9 @@
       "country_slug": "austria",
       "model_id": "industrial_dependency",
       "model_name": "产业依赖指数",
+      "requested_shock_value": 20,
       "shock_value": 20,
+      "shock_boundary_status": "within_range",
       "baseline_score": 36.2,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -1992,7 +2925,8 @@
       },
       "baseline_date": "2024",
       "model_version": "v0.70.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "industrial_dependency_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
@@ -2000,6 +2934,40 @@
         "parity:austria:automotive_export_share:2024",
         "transmission:austria:germany_export_dependence:2024",
         "transmission:austria:industrial_electricity_price:2024"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "observation_id": "parity:austria:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "value": 15.1,
+          "unit": "%",
+          "weight": 0.25
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "observation_id": "parity:austria:automotive_export_share:2024",
+          "year": 2024,
+          "value": 6.333,
+          "unit": "%",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "observation_id": "transmission:austria:germany_export_dependence:2024",
+          "year": 2024,
+          "value": 29.653,
+          "unit": "% exports",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "observation_id": "transmission:austria:industrial_electricity_price:2024",
+          "year": 2024,
+          "value": 0.23955,
+          "unit": "欧元/kWh",
+          "weight": 0.15
+        }
       ],
       "transmission_chain": [
         "工业电价基线",
@@ -2012,11 +2980,12 @@
         "能源进口依赖是结构指标，未被当作能源价格输入。",
         "该情景只调整工业电价，不估计企业对冲、补贴、合同期限或向终端价格的传导。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 38.5,
       "score_change": 2.3,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "industrial_electricity_price",
         "indicator_name": "工业电价",
@@ -2040,7 +3009,9 @@
       "country_slug": "austria",
       "model_id": "industrial_dependency",
       "model_name": "产业依赖指数",
+      "requested_shock_value": -5,
       "shock_value": -5,
+      "shock_boundary_status": "within_range",
       "baseline_score": 36.2,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -2053,7 +3024,8 @@
       },
       "baseline_date": "2024",
       "model_version": "v0.70.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "industrial_dependency_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
@@ -2061,6 +3033,40 @@
         "parity:austria:automotive_export_share:2024",
         "transmission:austria:germany_export_dependence:2024",
         "transmission:austria:industrial_electricity_price:2024"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "observation_id": "parity:austria:manufacturing_share_gdp:2024",
+          "year": 2024,
+          "value": 15.1,
+          "unit": "%",
+          "weight": 0.25
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "observation_id": "parity:austria:automotive_export_share:2024",
+          "year": 2024,
+          "value": 6.333,
+          "unit": "%",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "observation_id": "transmission:austria:germany_export_dependence:2024",
+          "year": 2024,
+          "value": 29.653,
+          "unit": "% exports",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "observation_id": "transmission:austria:industrial_electricity_price:2024",
+          "year": 2024,
+          "value": 0.23955,
+          "unit": "欧元/kWh",
+          "weight": 0.15
+        }
       ],
       "transmission_chain": [
         "对德国出口依赖基线",
@@ -2073,11 +3079,12 @@
         "对德国出口依赖来自双边货物出口占比，不以总出口规模替代。",
         "压力暴露增量是公开的算术假设，不是估计的贸易弹性、产出损失或 GDP 预测。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 37.6,
       "score_change": 1.4,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "germany_export_dependence",
         "indicator_name": "对德国出口依赖",
@@ -2101,7 +3108,9 @@
       "country_slug": "croatia",
       "model_id": "household_economic_pressure",
       "model_name": "居民经济压力指数",
+      "requested_shock_value": 2,
       "shock_value": 2,
+      "shock_boundary_status": "within_range",
       "baseline_score": 36.5,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -2114,12 +3123,31 @@
       },
       "baseline_date": "2025",
       "model_version": "v0.50.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "household_pressure_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
         "macro:croatia:hicp_inflation:2025",
         "macro:croatia:unemployment_rate:2025"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "hicp_inflation",
+          "observation_id": "macro:croatia:hicp_inflation:2025",
+          "year": 2025,
+          "value": 4.4,
+          "unit": "%",
+          "weight": 0.5
+        },
+        {
+          "indicator_id": "unemployment_rate",
+          "observation_id": "macro:croatia:unemployment_rate:2025",
+          "year": 2025,
+          "value": 4.9,
+          "unit": "%",
+          "weight": 0.5
+        }
       ],
       "transmission_chain": [
         "基线 HICP",
@@ -2132,11 +3160,12 @@
         "冲击幅度由用户设定，不是平台对未来通胀的预测。",
         "模型暂未纳入实际工资、住房成本和居民能源账单。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 46.5,
       "score_change": 10,
-      "confidence": "medium",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "hicp_inflation",
         "indicator_name": "CPI / HICP 通胀率",
@@ -2160,7 +3189,9 @@
       "country_slug": "croatia",
       "model_id": "fiscal_pressure",
       "model_name": "财政压力指数",
+      "requested_shock_value": 1,
       "shock_value": 1,
+      "shock_boundary_status": "within_range",
       "baseline_score": 37.7,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -2173,12 +3204,31 @@
       },
       "baseline_date": "2025",
       "model_version": "v0.50.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "fiscal_pressure_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
         "parity:croatia:fiscal_balance_gdp:2025",
         "parity:croatia:government_debt_gdp:2025"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "fiscal_balance_gdp",
+          "observation_id": "parity:croatia:fiscal_balance_gdp:2025",
+          "year": 2025,
+          "value": -3,
+          "unit": "% GDP",
+          "weight": 0.5
+        },
+        {
+          "indicator_id": "government_debt_gdp",
+          "observation_id": "parity:croatia:government_debt_gdp:2025",
+          "year": 2025,
+          "value": 56.3,
+          "unit": "% GDP",
+          "weight": 0.5
+        }
       ],
       "transmission_chain": [
         "基线财政余额/GDP",
@@ -2191,11 +3241,12 @@
         "平台没有估计欧盟资金延迟与财政余额之间的经验系数；财政余额变化完全由用户设定。",
         "该情景不改变债务、融资成本或实际拨款观测值。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 42.7,
       "score_change": 5,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "fiscal_balance_gdp",
         "indicator_name": "财政赤字/GDP",
@@ -2219,7 +3270,9 @@
       "country_slug": "croatia",
       "model_id": "industrial_dependency",
       "model_name": "产业依赖指数",
+      "requested_shock_value": 20,
       "shock_value": 20,
+      "shock_boundary_status": "within_range",
       "baseline_score": 15.8,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -2232,7 +3285,8 @@
       },
       "baseline_date": "2023",
       "model_version": "v0.70.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "industrial_dependency_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
@@ -2240,6 +3294,40 @@
         "parity:croatia:automotive_export_share:2023",
         "transmission:croatia:germany_export_dependence:2023",
         "transmission:croatia:industrial_electricity_price:2023"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "observation_id": "parity:croatia:manufacturing_share_gdp:2023",
+          "year": 2023,
+          "value": 12.2,
+          "unit": "%",
+          "weight": 0.25
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "observation_id": "parity:croatia:automotive_export_share:2023",
+          "year": 2023,
+          "value": 0.961,
+          "unit": "%",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "observation_id": "transmission:croatia:germany_export_dependence:2023",
+          "year": 2023,
+          "value": 12.212,
+          "unit": "% exports",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "observation_id": "transmission:croatia:industrial_electricity_price:2023",
+          "year": 2023,
+          "value": 0.2975,
+          "unit": "欧元/kWh",
+          "weight": 0.15
+        }
       ],
       "transmission_chain": [
         "工业电价基线",
@@ -2252,11 +3340,12 @@
         "能源进口依赖是结构指标，未被当作能源价格输入。",
         "该情景只调整工业电价，不估计企业对冲、补贴、合同期限或向终端价格的传导。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 18.8,
       "score_change": 3,
-      "confidence": "low",
+      "confidence": "medium",
       "adjusted_input": {
         "indicator_id": "industrial_electricity_price",
         "indicator_name": "工业电价",
@@ -2280,7 +3369,9 @@
       "country_slug": "croatia",
       "model_id": "industrial_dependency",
       "model_name": "产业依赖指数",
+      "requested_shock_value": -5,
       "shock_value": -5,
+      "shock_boundary_status": "within_range",
       "baseline_score": 15.8,
       "confidence_decomposition": {
         "baseline_data_completeness": 100,
@@ -2293,7 +3384,8 @@
       },
       "baseline_date": "2023",
       "model_version": "v0.70.0",
-      "formula_version": "v0.90.0",
+      "formula_version": "scenario_transmission_v090",
+      "weight_version": "industrial_dependency_weights_v1",
       "calculation_date": "2026-08-15",
       "calculation_timestamp": "2026-08-15T00:00:00Z",
       "input_observation_ids": [
@@ -2301,6 +3393,40 @@
         "parity:croatia:automotive_export_share:2023",
         "transmission:croatia:germany_export_dependence:2023",
         "transmission:croatia:industrial_electricity_price:2023"
+      ],
+      "baseline_input_values": [
+        {
+          "indicator_id": "manufacturing_share_gdp",
+          "observation_id": "parity:croatia:manufacturing_share_gdp:2023",
+          "year": 2023,
+          "value": 12.2,
+          "unit": "%",
+          "weight": 0.25
+        },
+        {
+          "indicator_id": "automotive_export_share",
+          "observation_id": "parity:croatia:automotive_export_share:2023",
+          "year": 2023,
+          "value": 0.961,
+          "unit": "%",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "germany_export_dependence",
+          "observation_id": "transmission:croatia:germany_export_dependence:2023",
+          "year": 2023,
+          "value": 12.212,
+          "unit": "% exports",
+          "weight": 0.3
+        },
+        {
+          "indicator_id": "industrial_electricity_price",
+          "observation_id": "transmission:croatia:industrial_electricity_price:2023",
+          "year": 2023,
+          "value": 0.2975,
+          "unit": "欧元/kWh",
+          "weight": 0.15
+        }
       ],
       "transmission_chain": [
         "对德国出口依赖基线",
@@ -2313,11 +3439,12 @@
         "对德国出口依赖来自双边货物出口占比，不以总出口规模替代。",
         "压力暴露增量是公开的算术假设，不是估计的贸易弹性、产出损失或 GDP 预测。"
       ],
+      "saturation_status": "not_saturated",
       "interpretation_boundary": "情景结果是基于用户假设的条件式比较，不是预测、风险真值或未来事实。",
       "status": "available",
       "scenario_score": 16.4,
       "score_change": 0.6,
-      "confidence": "low",
+      "confidence": "high",
       "adjusted_input": {
         "indicator_id": "germany_export_dependence",
         "indicator_name": "对德国出口依赖",

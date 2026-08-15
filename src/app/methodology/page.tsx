@@ -1,4 +1,5 @@
 import { platformStatus } from "@/lib/platformStatus";
+import { ModelValidationStatus } from "@/components/ModelValidationStatus";
 import { researchEvents, researchProjects } from "@/lib/researchData";
 import { researchDataLayerFiles } from "@/lib/countryMetadata";
 import { modelAvailabilitySummary, modelCards } from "@/lib/modelFramework";
@@ -129,6 +130,25 @@ export default function MethodologyPage() {
         <p className="mt-4 rounded-2xl bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--muted)]">
           “待核验”是人工整理内容的页面工作流标签，不是独立的 DataStatus；进入统一数据层时必须明确归入 verified 或 pending。
         </p>
+      </section>
+
+      <ModelValidationStatus />
+
+      <section className="mt-6 card p-6">
+        <p className="eyebrow">Validation &amp; Reproducibility / v0.91</p>
+        <h2 className="mt-3 text-2xl font-semibold">验证、稳定性与可复现性</h2>
+        <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+          {[
+            ["Determinism", "相同 observations、weights 与 formula version 必须复现相同 score、完整度、置信度和 drivers。"],
+            ["Boundary & missing", "标准化限制在 0–100；null/undefined 保持缺失，绝不按 0 处理。"],
+            ["Scenario isolation", "单一情景只调整声明的直接输入；区域、事件和项目证据不进入数值重算。"],
+            ["Formula versioning", "Model Card、输出和情景记录分别保存 formula_version 与 weight_version；规则变化必须新建版本。"],
+            ["Zero shock", "shock=0 必须满足 scenario=baseline、difference=0。越界值会明确截断并记录请求值。"],
+            ["Confidence", "置信度由完整度、模型准入、直接覆盖、区域背景和证据质量组成，表示分析可靠性，不是概率。"],
+            ["Golden cases", "匈牙利、波兰、德国和罗马尼亚保存固定模型与情景输出，用于识别意外公式漂移。"],
+            ["Backtest limit", "现有历史值可能经过修订；没有 vintage data 时只做 directional validation，不报告 forecast accuracy。"],
+          ].map(([label, note]) => <article key={label} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4"><h3 className="font-semibold">{label}</h3><p className="mt-2 text-sm leading-6 text-[var(--muted)]">{note}</p></article>)}
+        </div>
       </section>
 
       <section className="mt-6 card p-6">

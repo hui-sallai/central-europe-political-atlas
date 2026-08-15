@@ -13,7 +13,7 @@ export default function ScenariosPage() {
       <p className="eyebrow">Scenario Simulation / {platformStatus.version}</p>
       <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">政治经济情景模拟</h1>
       <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-        v0.90 在既有透明模型上连接直接冲击、区域结构背景、事件与项目证据。四个情景保持独立并沿用原模型公式；页面只做确定性条件比较，不改写原始数据，不输出概率预测或综合未来风险。
+        v0.91 保持四个既有情景及原模型公式不变，并增加确定性、参数边界、零冲击、单调性、隔离与复现验证。页面仍只做条件式比较，不改写原始数据，不输出概率预测或综合未来风险。
       </p>
 
       <section className="mt-6 grid gap-3 md:grid-cols-4">
