@@ -1,20 +1,27 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useSyncExternalStore } from "react";
 import type { RegionalCoverageRecord } from "@/lib/spatialFoundation";
+import { mapCountryFromLocation, serverMapCountryFallback, subscribeToMapCountry, updateMapCountry } from "@/lib/mapCountrySelection";
 
 type FactualLayerSummary = {
+  country_id: string;
   layer_id: string;
   layer_name_zh: string;
   is_ready_for_display: boolean;
+  blocker?: string;
 };
 
 export function SpatialResearchWorkbench({ matrix, layers }: { matrix: RegionalCoverageRecord[]; layers: FactualLayerSummary[] }) {
-  const [countryId, setCountryId] = useState(matrix[0]?.country_id ?? "poland");
+  const requestedCountryId = useSyncExternalStore(subscribeToMapCountry, mapCountryFromLocation, serverMapCountryFallback);
+  const countryId = matrix.some((record) => record.country_id === requestedCountryId)
+    ? requestedCountryId
+    : matrix[0]?.country_id ?? "poland";
   const selected = useMemo(
     () => matrix.find((record) => record.country_id === countryId) ?? matrix[0],
     [countryId, matrix],
   );
+  const selectedLayers = useMemo(() => layers.filter((layer) => layer.country_id === selected?.country_id), [layers, selected?.country_id]);
 
   if (!selected) return null;
 
@@ -25,12 +32,12 @@ export function SpatialResearchWorkbench({ matrix, layers }: { matrix: RegionalC
           <p className="eyebrow">Spatial Research Workbench</p>
           <h2 className="mt-3 text-2xl font-semibold">空间研究工作台</h2>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-            国家与图层分别验收。匈牙利已开放事实边界和 P0 区域图层；其余国家可在这里查看数据、边界与项目定位各自的准备状态和未通过原因。
+            国家与图层分别验收。通过边界、许可、主键、拓扑与数据质量闸门的事实层可以显示；没有通过的图层保留明确阻断原因。
           </p>
         </div>
         <label className="grid gap-2 text-xs font-semibold text-[var(--muted)]">
           国家
-          <select value={countryId} onChange={(event) => setCountryId(event.target.value)} className="rounded-xl border border-[var(--line)] bg-white px-4 py-2 text-sm text-[var(--foreground)]">
+          <select value={countryId} onChange={(event) => updateMapCountry(event.target.value)} className="rounded-xl border border-[var(--line)] bg-white px-4 py-2 text-sm text-[var(--foreground)]">
             {matrix.map((record) => <option key={record.country_id} value={record.country_id}>{record.country_name_zh}</option>)}
           </select>
         </label>
@@ -55,10 +62,10 @@ export function SpatialResearchWorkbench({ matrix, layers }: { matrix: RegionalC
         <article className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
           <h3 className="font-semibold">事实型图层注册状态</h3>
           <div className="mt-3 grid gap-2">
-            {layers.map((layer) => (
+            {selectedLayers.map((layer) => (
               <div key={layer.layer_id} className="flex items-center justify-between gap-3 rounded-xl bg-[var(--surface-muted)] px-3 py-2 text-xs">
-                <span className="font-semibold">{layer.layer_name_zh}</span>
-                <span className="text-[var(--muted)]">{layer.is_ready_for_display ? "可显示" : "未启用"}</span>
+                <span><strong>{layer.layer_name_zh}</strong>{layer.blocker ? <small className="mt-1 block text-[var(--muted)]">{layer.blocker}</small> : null}</span>
+                <span className="shrink-0 text-[var(--muted)]">{layer.is_ready_for_display ? "可显示" : "未启用"}</span>
               </div>
             ))}
           </div>

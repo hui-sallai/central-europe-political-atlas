@@ -9,6 +9,7 @@ import { getCountryLayerData, getLayerOption, getRegionMetricMap, mapLayerOption
 
 type CountryMapWorkbenchProps = {
   country: Country;
+  factualBoundaryReady?: boolean;
 };
 
 type Adm2Plan = {
@@ -94,7 +95,7 @@ const adm2Plans: Record<string, Adm2Plan> = {
 
 const adm2Fields = ["名称", "原文名", "所属一级区", "行政中心", "人口", "面积", "最近选举", "来源链接"];
 
-export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
+export function CountryMapWorkbench({ country, factualBoundaryReady = false }: CountryMapWorkbenchProps) {
   const [selectedRegionSlug, setSelectedRegionSlug] = useState(country.regions[0]?.slug);
   const [activeLayer, setActiveLayer] = useState<MapLayer>("party");
   const selectedRegion = useMemo(
@@ -133,7 +134,9 @@ export function CountryMapWorkbench({ country }: CountryMapWorkbenchProps) {
           <p className="eyebrow">Dynamic Country Map</p>
           <h2 className="mt-3 text-3xl font-semibold tracking-[-0.03em]">5. 地图图层仪表盘</h2>
           <p className="mt-3 max-w-2xl text-sm leading-6 text-[var(--muted)]">
-            真实行政边界待接入；当前仅保留地图工作台入口和结构样例。不新增风险图层，不新增预测图层，不新增真实党派支持率图层。
+            {factualBoundaryReady
+              ? "事实行政边界已在多国地图通过展示闸门；本页嵌入模块仅保留结构样例与二级行政区接入说明。风险、预测和真实党派支持率图层均未启用。"
+              : "事实行政边界尚未通过公开展示闸门；当前仅保留结构样例与后续接入入口。风险、预测和真实党派支持率图层均未启用。"}
           </p>
         </div>
         <div className="flex flex-wrap gap-2">

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { DataStatusBadge } from "@/components/DataStatusBadge";
 import { getExtendedObservationCoverage } from "@/lib/extendedData";
 import { researchCountries } from "@/lib/researchData";
-import { regionalCoverageMatrixV086, spatialV086Summary } from "@/lib/spatialDataV086";
+import { regionalCoverageMatrixV087, spatialV087Summary } from "@/lib/spatialDataV087";
 import type { DataStatus } from "@/types/researchData";
 
 const v4CountrySlugs = new Set(["poland", "hungary", "czechia", "slovakia"]);
@@ -26,7 +26,7 @@ export default function CountriesPage() {
         {[
           ["统一核心指标", "10 国", "基础宏观与 12 项扩展指标采用同一字典和观测值结构。"],
           ["扩展观测位置", "600 个", "十国 × 12 指标 × 2021–2025；缺失值明确保留待接入。"],
-          ["区域空间主键", `${spatialV086Summary.region_count} 个`, `十国边界均完成主键映射；${spatialV086Summary.boundary_display_ready_country_count} 国通过公开展示闸门。`],
+          ["区域空间主键", `${spatialV087Summary.region_count} 个`, `十国均完成逐国 QA；${spatialV087Summary.public_boundary_country_count} 国通过事实边界展示闸门。`],
         ].map(([label, value, note]) => (
           <div key={label} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
             <p className="text-xs font-semibold text-[var(--muted)]">{label}</p>
@@ -42,7 +42,7 @@ export default function CountriesPage() {
           const extendedCoverage = getExtendedObservationCoverage(countryRecord.slug);
           const macroStatus = compactStatus(countryRecord.macro_status);
           const projectStatus = compactStatus(countryRecord.project_status);
-          const regionalCoverage = regionalCoverageMatrixV086.find((record) => record.country_id === countryRecord.slug);
+          const regionalCoverage = regionalCoverageMatrixV087.find((record) => record.country_id === countryRecord.slug);
           const regionalStatus = regionalCoverage
             ? `${regionalCoverage.region_count} 区域 / P0 ${regionalCoverage.p0_indicator_count}/3 / ${regionalCoverage.public_layer_count} 个公开图层`
             : compactStatus(countryRecord.region_status);
@@ -67,6 +67,7 @@ export default function CountriesPage() {
                   ["对华项目", projectStatus],
                   ["区域数据", regionalStatus],
                   ["事件数据", eventStatus],
+                  ["Map Ready", regionalCoverage?.public_layer_count ? `${regionalCoverage.public_layer_count} factual layers ready` : "Spatial QA pending"],
                 ].map(([label, value]) => (
                   <div key={label} className="rounded-xl bg-[var(--surface-muted)] px-3 py-3">
                     <dt className="text-xs text-[var(--muted)]">{label}</dt>

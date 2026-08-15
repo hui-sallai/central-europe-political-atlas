@@ -1,4 +1,5 @@
 import { createRequire } from "node:module";
+import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -13,6 +14,11 @@ const schemaVersion = "research-data-v0.1";
 const canonicalGeneratedAt = "2026-08-12";
 const canonicalSchemaVersion = "data-foundation-v0.76";
 const chinaExposureDatabaseUpdatedAt = "2026-08-11";
+
+execFileSync(process.execPath, [path.join(projectRoot, "scripts", "build-spatial-data-v087.mjs")], {
+  cwd: projectRoot,
+  stdio: "inherit",
+});
 
 require.extensions[".ts"] = (module, filename) => {
   const source = fs.readFileSync(filename, "utf8");
@@ -49,12 +55,19 @@ const { regionSourceRecords } = require("../src/lib/regionSources.ts");
 const { projectLocationRecords } = require("../src/lib/projectLocations.ts");
 const { mapLayerRecords } = require("../src/lib/mapLayers.ts");
 const {
-  mapLayerReadiness,
-  regionalCoverageMatrixV086,
   regionalObservationQa,
   spatialBoundaryManifestRecords,
-  spatialV086Summary,
 } = require("../src/lib/spatialDataV086.ts");
+const {
+  mapLayerReadinessV087,
+  projectLocationReadiness,
+  publicDisplayDecisionsV087,
+  regionalCoverageMatrixV087,
+  regionalGeometryQa,
+  sharedSpatialLicenseRecords,
+  spatialDisplayGateAudit,
+  spatialV087Summary,
+} = require("../src/lib/spatialDataV087.ts");
 const {
   chinaProjectRecords,
   extendedObservations,
@@ -1801,16 +1814,30 @@ writeLayer("map_layers", mapLayerRecords, {
   validation_note: "All registered real boundary and analytical layers keep is_ready_for_display=false until boundary, source, observation, project-location, and quality checks pass.",
   model_boundary: "Registry only. No risk layer, prediction layer, party-support layer, China exposure index, or live boundary rendering is generated.",
 });
-writeLayer("regional_coverage_matrix", regionalCoverageMatrixV086, {
-  schema_version: "spatial-coverage-v0.86",
-  summary: spatialV086Summary,
+writeLayer("regional_coverage_matrix", regionalCoverageMatrixV087, {
+  schema_version: "spatial-coverage-v0.87",
+  summary: spatialV087Summary,
   boundary_manifest: spatialBoundaryManifestRecords,
   model_boundary: "Coverage and readiness only. It is not a regional risk score or prediction.",
 });
-writeLayer("map_layer_readiness", mapLayerReadiness, {
-  schema_version: "map-layer-readiness-v0.86",
+writeLayer("map_layer_readiness", mapLayerReadinessV087, {
+  schema_version: "map-layer-readiness-v0.87",
   relation_note: "Boundary, regional-data and project-reference gates are assessed independently for each country and layer.",
   model_boundary: "Only factual layers that pass their own gate may display. Risk, prediction, party-support, scenario and China Exposure map layers remain disabled.",
+});
+writeLayer("spatial_display_gate", spatialDisplayGateAudit, {
+  schema_version: "spatial-display-gate-v0.87",
+  public_display_decisions: publicDisplayDecisionsV087,
+  shared_license_records: sharedSpatialLicenseRecords,
+  model_boundary: "Country and layer display decisions only; no regional score, prediction or risk classification.",
+});
+writeLayer("regional_geometry_qa", regionalGeometryQa, {
+  schema_version: "regional-geometry-qa-v0.87",
+  validation_note: "Local geometry integrity and source-topology evidence are recorded separately; this does not replace legal or cadastral boundary validation.",
+});
+writeLayer("project_location_readiness", projectLocationReadiness, {
+  schema_version: "project-location-readiness-v0.87",
+  marker_policy: "Regional centroids may only be used as marker_type=regional_reference and must never be represented as exact project coordinates.",
 });
 writeLayer("indicators", indicatorRecords, {
   primary_key: "indicator_id",

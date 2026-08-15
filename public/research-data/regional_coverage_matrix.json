@@ -1,18 +1,17 @@
 {
-  "schema_version": "spatial-coverage-v0.86",
+  "schema_version": "spatial-coverage-v0.87",
   "generated_at": "2026-08-12",
   "data_type": "regional_coverage_matrix",
   "record_count": 10,
   "summary": {
     "country_count": 10,
     "region_count": 173,
-    "geometry_mapped_country_count": 10,
-    "boundary_display_ready_country_count": 1,
-    "p0_data_country_count": 9,
-    "mapped_project_count": 19,
-    "display_eligible_project_count": 0,
+    "geometry_qa_passed_country_count": 10,
+    "public_boundary_country_count": 9,
+    "public_layer_count": 43,
+    "project_reference_count": 23,
     "factual_observation_count": 1776,
-    "pending_observation_count": 1684
+    "reviewed_at": "2026-08-15"
   },
   "boundary_manifest": [
     {
@@ -282,16 +281,28 @@
       "pending_observation_count": 128,
       "latest_year": "2024",
       "project_mapped_count": 3,
-      "project_display_eligible_count": 0,
-      "boundary_ready": false,
+      "project_display_eligible_count": 2,
+      "boundary_ready": true,
       "regional_data_ready": true,
-      "project_ready": false,
-      "public_layer_count": 0,
+      "project_ready": true,
+      "public_layer_count": 5,
       "priority_gaps": [
-        "公开边界闸门",
-        "失业率与制造业比重",
-        "可显示项目定位"
-      ]
+        "区域失业率",
+        "区域制造业比重"
+      ],
+      "approved_layers": [
+        "regional_boundary",
+        "regional_population",
+        "regional_gdp",
+        "regional_gdp_per_capita",
+        "china_project_locations"
+      ],
+      "rejected_layers": [
+        "regional_unemployment_rate",
+        "regional_manufacturing_share"
+      ],
+      "blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable",
+      "latest_common_year": "2024"
     },
     {
       "country_id": "hungary",
@@ -306,16 +317,29 @@
       "factual_observation_count": 240,
       "pending_observation_count": 160,
       "latest_year": "2024",
-      "project_mapped_count": 3,
-      "project_display_eligible_count": 0,
+      "project_mapped_count": 5,
+      "project_display_eligible_count": 2,
       "boundary_ready": true,
       "regional_data_ready": true,
-      "project_ready": false,
-      "public_layer_count": 4,
+      "project_ready": true,
+      "public_layer_count": 5,
       "priority_gaps": [
-        "失业率与制造业比重",
-        "可显示项目定位"
-      ]
+        "区域失业率",
+        "区域制造业比重"
+      ],
+      "approved_layers": [
+        "regional_boundary",
+        "regional_population",
+        "regional_gdp",
+        "regional_gdp_per_capita",
+        "china_project_locations"
+      ],
+      "rejected_layers": [
+        "regional_unemployment_rate",
+        "regional_manufacturing_share"
+      ],
+      "blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable",
+      "latest_common_year": "2024"
     },
     {
       "country_id": "czechia",
@@ -331,16 +355,28 @@
       "pending_observation_count": 112,
       "latest_year": "2024",
       "project_mapped_count": 3,
-      "project_display_eligible_count": 0,
-      "boundary_ready": false,
+      "project_display_eligible_count": 2,
+      "boundary_ready": true,
       "regional_data_ready": true,
-      "project_ready": false,
-      "public_layer_count": 0,
+      "project_ready": true,
+      "public_layer_count": 5,
       "priority_gaps": [
-        "公开边界闸门",
-        "失业率与制造业比重",
-        "可显示项目定位"
-      ]
+        "区域失业率",
+        "区域制造业比重"
+      ],
+      "approved_layers": [
+        "regional_boundary",
+        "regional_population",
+        "regional_gdp",
+        "regional_gdp_per_capita",
+        "china_project_locations"
+      ],
+      "rejected_layers": [
+        "regional_unemployment_rate",
+        "regional_manufacturing_share"
+      ],
+      "blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable",
+      "latest_common_year": "2024"
     },
     {
       "country_id": "slovakia",
@@ -355,17 +391,29 @@
       "factual_observation_count": 96,
       "pending_observation_count": 64,
       "latest_year": "2024",
-      "project_mapped_count": 2,
-      "project_display_eligible_count": 0,
-      "boundary_ready": false,
+      "project_mapped_count": 4,
+      "project_display_eligible_count": 1,
+      "boundary_ready": true,
       "regional_data_ready": true,
-      "project_ready": false,
-      "public_layer_count": 0,
+      "project_ready": true,
+      "public_layer_count": 5,
       "priority_gaps": [
-        "公开边界闸门",
-        "失业率与制造业比重",
-        "可显示项目定位"
-      ]
+        "区域失业率",
+        "区域制造业比重"
+      ],
+      "approved_layers": [
+        "regional_boundary",
+        "regional_population",
+        "regional_gdp",
+        "regional_gdp_per_capita",
+        "china_project_locations"
+      ],
+      "rejected_layers": [
+        "regional_unemployment_rate",
+        "regional_manufacturing_share"
+      ],
+      "blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable",
+      "latest_common_year": "2024"
     },
     {
       "country_id": "germany",
@@ -381,16 +429,28 @@
       "pending_observation_count": 128,
       "latest_year": "2024",
       "project_mapped_count": 2,
-      "project_display_eligible_count": 0,
-      "boundary_ready": false,
+      "project_display_eligible_count": 1,
+      "boundary_ready": true,
       "regional_data_ready": true,
-      "project_ready": false,
-      "public_layer_count": 0,
+      "project_ready": true,
+      "public_layer_count": 5,
       "priority_gaps": [
-        "公开边界闸门",
-        "失业率与制造业比重",
-        "可显示项目定位"
-      ]
+        "区域失业率",
+        "区域制造业比重"
+      ],
+      "approved_layers": [
+        "regional_boundary",
+        "regional_population",
+        "regional_gdp",
+        "regional_gdp_per_capita",
+        "china_project_locations"
+      ],
+      "rejected_layers": [
+        "regional_unemployment_rate",
+        "regional_manufacturing_share"
+      ],
+      "blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable",
+      "latest_common_year": "2024"
     },
     {
       "country_id": "romania",
@@ -406,16 +466,28 @@
       "pending_observation_count": 336,
       "latest_year": "2024",
       "project_mapped_count": 1,
-      "project_display_eligible_count": 0,
-      "boundary_ready": false,
+      "project_display_eligible_count": 1,
+      "boundary_ready": true,
       "regional_data_ready": true,
-      "project_ready": false,
-      "public_layer_count": 0,
+      "project_ready": true,
+      "public_layer_count": 5,
       "priority_gaps": [
-        "公开边界闸门",
-        "失业率与制造业比重",
-        "可显示项目定位"
-      ]
+        "区域失业率",
+        "区域制造业比重"
+      ],
+      "approved_layers": [
+        "regional_boundary",
+        "regional_population",
+        "regional_gdp",
+        "regional_gdp_per_capita",
+        "china_project_locations"
+      ],
+      "rejected_layers": [
+        "regional_unemployment_rate",
+        "regional_manufacturing_share"
+      ],
+      "blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable",
+      "latest_common_year": "2024"
     },
     {
       "country_id": "slovenia",
@@ -431,16 +503,28 @@
       "pending_observation_count": 16,
       "latest_year": "2024",
       "project_mapped_count": 1,
-      "project_display_eligible_count": 0,
-      "boundary_ready": false,
+      "project_display_eligible_count": 1,
+      "boundary_ready": true,
       "regional_data_ready": true,
-      "project_ready": false,
-      "public_layer_count": 0,
+      "project_ready": true,
+      "public_layer_count": 5,
       "priority_gaps": [
-        "公开边界闸门",
-        "失业率与制造业比重",
-        "可显示项目定位"
-      ]
+        "区域失业率",
+        "区域制造业比重"
+      ],
+      "approved_layers": [
+        "regional_boundary",
+        "regional_population",
+        "regional_gdp",
+        "regional_gdp_per_capita",
+        "china_project_locations"
+      ],
+      "rejected_layers": [
+        "regional_unemployment_rate",
+        "regional_manufacturing_share"
+      ],
+      "blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable",
+      "latest_common_year": "2024"
     },
     {
       "country_id": "serbia",
@@ -456,18 +540,32 @@
       "pending_observation_count": 500,
       "latest_year": "unavailable",
       "project_mapped_count": 2,
-      "project_display_eligible_count": 0,
+      "project_display_eligible_count": 2,
       "boundary_ready": false,
       "regional_data_ready": false,
       "project_ready": false,
       "public_layer_count": 0,
       "priority_gaps": [
-        "公开边界闸门",
-        "P0 区域统计",
-        "失业率与制造业比重",
-        "可显示项目定位",
-        "国家行政区与 EU NUTS 可比性"
-      ]
+        "行政边界",
+        "区域人口",
+        "区域 GDP",
+        "区域人均 GDP",
+        "区域失业率",
+        "区域制造业比重",
+        "对华项目区域参考"
+      ],
+      "approved_layers": [],
+      "rejected_layers": [
+        "regional_boundary",
+        "regional_population",
+        "regional_gdp",
+        "regional_gdp_per_capita",
+        "regional_unemployment_rate",
+        "regional_manufacturing_share",
+        "china_project_locations"
+      ],
+      "blocker": "行政边界: official_boundary_correspondence_and_regional_comparability_pending；区域人口: official_boundary_correspondence_and_regional_comparability_pending；区域 GDP: official_boundary_correspondence_and_regional_comparability_pending；区域人均 GDP: official_boundary_correspondence_and_regional_comparability_pending；区域失业率: official_boundary_correspondence_and_regional_comparability_pending；区域制造业比重: official_boundary_correspondence_and_regional_comparability_pending；对华项目区域参考: official_boundary_correspondence_and_regional_comparability_pending",
+      "latest_common_year": "unavailable"
     },
     {
       "country_id": "austria",
@@ -484,15 +582,28 @@
       "latest_year": "2024",
       "project_mapped_count": 1,
       "project_display_eligible_count": 0,
-      "boundary_ready": false,
+      "boundary_ready": true,
       "regional_data_ready": true,
       "project_ready": false,
-      "public_layer_count": 0,
+      "public_layer_count": 4,
       "priority_gaps": [
-        "公开边界闸门",
-        "失业率与制造业比重",
-        "可显示项目定位"
-      ]
+        "区域失业率",
+        "区域制造业比重",
+        "对华项目区域参考"
+      ],
+      "approved_layers": [
+        "regional_boundary",
+        "regional_population",
+        "regional_gdp",
+        "regional_gdp_per_capita"
+      ],
+      "rejected_layers": [
+        "regional_unemployment_rate",
+        "regional_manufacturing_share",
+        "china_project_locations"
+      ],
+      "blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable；对华项目区域参考: no_high_or_medium_confidence_project_reference",
+      "latest_common_year": "2024"
     },
     {
       "country_id": "croatia",
@@ -509,15 +620,28 @@
       "latest_year": "2024",
       "project_mapped_count": 1,
       "project_display_eligible_count": 0,
-      "boundary_ready": false,
+      "boundary_ready": true,
       "regional_data_ready": true,
       "project_ready": false,
-      "public_layer_count": 0,
+      "public_layer_count": 4,
       "priority_gaps": [
-        "公开边界闸门",
-        "失业率与制造业比重",
-        "可显示项目定位"
-      ]
+        "区域失业率",
+        "区域制造业比重",
+        "对华项目区域参考"
+      ],
+      "approved_layers": [
+        "regional_boundary",
+        "regional_population",
+        "regional_gdp",
+        "regional_gdp_per_capita"
+      ],
+      "rejected_layers": [
+        "regional_unemployment_rate",
+        "regional_manufacturing_share",
+        "china_project_locations"
+      ],
+      "blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable；对华项目区域参考: no_high_or_medium_confidence_project_reference",
+      "latest_common_year": "2024"
     }
   ]
 }

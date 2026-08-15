@@ -63,7 +63,7 @@
     {
       "id": "map_layers",
       "label": "map_layers",
-      "description": "v0.86 图层独立准入注册表；只开放通过闸门的匈牙利事实边界和 P0 图层。",
+      "description": "v0.87 图层独立准入注册表；按国家开放通过边界、许可、主键、拓扑与数据质量闸门的事实层。",
       "json_file": "map_layers.json",
       "csv_file": "map_layers.csv"
     },

@@ -1,0 +1,500 @@
+{
+  "schema_version": "spatial-display-gate-v0.87",
+  "generated_at": "2026-08-12",
+  "data_type": "spatial_display_gate",
+  "record_count": 10,
+  "public_display_decisions": [
+    {
+      "country_id": "germany",
+      "boundary_ready": true,
+      "license_ready": true,
+      "topology_ready": true,
+      "region_id_ready": true,
+      "attribution_ready": true,
+      "license_record_id": "gisco_nuts_2024_public_research",
+      "approved_layers": [
+        "regional_boundary",
+        "regional_population",
+        "regional_gdp",
+        "regional_gdp_per_capita",
+        "china_project_locations"
+      ],
+      "rejected_layers": [
+        "regional_unemployment_rate",
+        "regional_manufacturing_share"
+      ],
+      "blockers": [
+        "regional_unemployment_rate:complete_regional_observations_unavailable",
+        "regional_manufacturing_share:complete_regional_observations_unavailable"
+      ],
+      "public_display_decision": "approved_for_factual_display",
+      "reviewed_at": "2026-08-15"
+    },
+    {
+      "country_id": "austria",
+      "boundary_ready": true,
+      "license_ready": true,
+      "topology_ready": true,
+      "region_id_ready": true,
+      "attribution_ready": true,
+      "license_record_id": "gisco_nuts_2024_public_research",
+      "approved_layers": [
+        "regional_boundary",
+        "regional_population",
+        "regional_gdp",
+        "regional_gdp_per_capita"
+      ],
+      "rejected_layers": [
+        "regional_unemployment_rate",
+        "regional_manufacturing_share",
+        "china_project_locations"
+      ],
+      "blockers": [
+        "regional_unemployment_rate:complete_regional_observations_unavailable",
+        "regional_manufacturing_share:complete_regional_observations_unavailable",
+        "china_project_locations:no_high_or_medium_confidence_project_reference"
+      ],
+      "public_display_decision": "approved_for_factual_display",
+      "reviewed_at": "2026-08-15"
+    },
+    {
+      "country_id": "slovenia",
+      "boundary_ready": true,
+      "license_ready": true,
+      "topology_ready": true,
+      "region_id_ready": true,
+      "attribution_ready": true,
+      "license_record_id": "gisco_nuts_2024_public_research",
+      "approved_layers": [
+        "regional_boundary",
+        "regional_population",
+        "regional_gdp",
+        "regional_gdp_per_capita",
+        "china_project_locations"
+      ],
+      "rejected_layers": [
+        "regional_unemployment_rate",
+        "regional_manufacturing_share"
+      ],
+      "blockers": [
+        "regional_unemployment_rate:complete_regional_observations_unavailable",
+        "regional_manufacturing_share:complete_regional_observations_unavailable"
+      ],
+      "public_display_decision": "approved_for_factual_display",
+      "reviewed_at": "2026-08-15"
+    },
+    {
+      "country_id": "hungary",
+      "boundary_ready": true,
+      "license_ready": true,
+      "topology_ready": true,
+      "region_id_ready": true,
+      "attribution_ready": true,
+      "license_record_id": "gisco_nuts_2024_public_research",
+      "approved_layers": [
+        "regional_boundary",
+        "regional_population",
+        "regional_gdp",
+        "regional_gdp_per_capita",
+        "china_project_locations"
+      ],
+      "rejected_layers": [
+        "regional_unemployment_rate",
+        "regional_manufacturing_share"
+      ],
+      "blockers": [
+        "regional_unemployment_rate:complete_regional_observations_unavailable",
+        "regional_manufacturing_share:complete_regional_observations_unavailable"
+      ],
+      "public_display_decision": "approved_for_factual_display",
+      "reviewed_at": "2026-08-15"
+    },
+    {
+      "country_id": "czechia",
+      "boundary_ready": true,
+      "license_ready": true,
+      "topology_ready": true,
+      "region_id_ready": true,
+      "attribution_ready": true,
+      "license_record_id": "gisco_nuts_2024_public_research",
+      "approved_layers": [
+        "regional_boundary",
+        "regional_population",
+        "regional_gdp",
+        "regional_gdp_per_capita",
+        "china_project_locations"
+      ],
+      "rejected_layers": [
+        "regional_unemployment_rate",
+        "regional_manufacturing_share"
+      ],
+      "blockers": [
+        "regional_unemployment_rate:complete_regional_observations_unavailable",
+        "regional_manufacturing_share:complete_regional_observations_unavailable"
+      ],
+      "public_display_decision": "approved_for_factual_display",
+      "reviewed_at": "2026-08-15"
+    },
+    {
+      "country_id": "slovakia",
+      "boundary_ready": true,
+      "license_ready": true,
+      "topology_ready": true,
+      "region_id_ready": true,
+      "attribution_ready": true,
+      "license_record_id": "gisco_nuts_2024_public_research",
+      "approved_layers": [
+        "regional_boundary",
+        "regional_population",
+        "regional_gdp",
+        "regional_gdp_per_capita",
+        "china_project_locations"
+      ],
+      "rejected_layers": [
+        "regional_unemployment_rate",
+        "regional_manufacturing_share"
+      ],
+      "blockers": [
+        "regional_unemployment_rate:complete_regional_observations_unavailable",
+        "regional_manufacturing_share:complete_regional_observations_unavailable"
+      ],
+      "public_display_decision": "approved_for_factual_display",
+      "reviewed_at": "2026-08-15"
+    },
+    {
+      "country_id": "romania",
+      "boundary_ready": true,
+      "license_ready": true,
+      "topology_ready": true,
+      "region_id_ready": true,
+      "attribution_ready": true,
+      "license_record_id": "gisco_nuts_2024_public_research",
+      "approved_layers": [
+        "regional_boundary",
+        "regional_population",
+        "regional_gdp",
+        "regional_gdp_per_capita",
+        "china_project_locations"
+      ],
+      "rejected_layers": [
+        "regional_unemployment_rate",
+        "regional_manufacturing_share"
+      ],
+      "blockers": [
+        "regional_unemployment_rate:complete_regional_observations_unavailable",
+        "regional_manufacturing_share:complete_regional_observations_unavailable"
+      ],
+      "public_display_decision": "approved_for_factual_display",
+      "reviewed_at": "2026-08-15"
+    },
+    {
+      "country_id": "croatia",
+      "boundary_ready": true,
+      "license_ready": true,
+      "topology_ready": true,
+      "region_id_ready": true,
+      "attribution_ready": true,
+      "license_record_id": "gisco_nuts_2024_public_research",
+      "approved_layers": [
+        "regional_boundary",
+        "regional_population",
+        "regional_gdp",
+        "regional_gdp_per_capita"
+      ],
+      "rejected_layers": [
+        "regional_unemployment_rate",
+        "regional_manufacturing_share",
+        "china_project_locations"
+      ],
+      "blockers": [
+        "regional_unemployment_rate:complete_regional_observations_unavailable",
+        "regional_manufacturing_share:complete_regional_observations_unavailable",
+        "china_project_locations:no_high_or_medium_confidence_project_reference"
+      ],
+      "public_display_decision": "approved_for_factual_display",
+      "reviewed_at": "2026-08-15"
+    },
+    {
+      "country_id": "poland",
+      "boundary_ready": true,
+      "license_ready": true,
+      "topology_ready": true,
+      "region_id_ready": true,
+      "attribution_ready": true,
+      "license_record_id": "geoboundaries_gbopen_cc_by_4",
+      "approved_layers": [
+        "regional_boundary",
+        "regional_population",
+        "regional_gdp",
+        "regional_gdp_per_capita",
+        "china_project_locations"
+      ],
+      "rejected_layers": [
+        "regional_unemployment_rate",
+        "regional_manufacturing_share"
+      ],
+      "blockers": [
+        "regional_unemployment_rate:complete_regional_observations_unavailable",
+        "regional_manufacturing_share:complete_regional_observations_unavailable"
+      ],
+      "public_display_decision": "approved_for_factual_display",
+      "reviewed_at": "2026-08-15"
+    },
+    {
+      "country_id": "serbia",
+      "boundary_ready": false,
+      "license_ready": true,
+      "topology_ready": true,
+      "region_id_ready": true,
+      "attribution_ready": true,
+      "license_record_id": "geoboundaries_gbopen_cc_by_4",
+      "approved_layers": [],
+      "rejected_layers": [
+        "regional_boundary",
+        "regional_population",
+        "regional_gdp",
+        "regional_gdp_per_capita",
+        "regional_unemployment_rate",
+        "regional_manufacturing_share",
+        "china_project_locations"
+      ],
+      "blockers": [
+        "official_boundary_correspondence_and_regional_comparability_pending",
+        "regional_boundary:official_boundary_correspondence_and_regional_comparability_pending",
+        "regional_population:official_boundary_correspondence_and_regional_comparability_pending",
+        "regional_gdp:official_boundary_correspondence_and_regional_comparability_pending",
+        "regional_gdp_per_capita:official_boundary_correspondence_and_regional_comparability_pending",
+        "regional_unemployment_rate:official_boundary_correspondence_and_regional_comparability_pending",
+        "regional_manufacturing_share:official_boundary_correspondence_and_regional_comparability_pending",
+        "china_project_locations:official_boundary_correspondence_and_regional_comparability_pending"
+      ],
+      "public_display_decision": "not_ready_for_public_display",
+      "reviewed_at": "2026-08-15"
+    }
+  ],
+  "shared_license_records": [
+    {
+      "license_record_id": "gisco_nuts_2024_public_research",
+      "provider": "European Commission / Eurostat GISCO",
+      "dataset_version": "NUTS 2024 / 1:1M regional polygons",
+      "source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
+      "license_url": "https://ec.europa.eu/eurostat/web/gisco/geodata/administrative-units",
+      "usage_terms": "Non-commercial public research display is permitted when the required source and boundary attribution are visible.",
+      "attribution": "Source: European Commission - Eurostat/GISCO; administrative boundaries: © EuroGeographics.",
+      "attribution_ready": true,
+      "license_checked": true,
+      "review_date": "2026-08-15",
+      "covered_countries": [
+        "germany",
+        "austria",
+        "slovenia",
+        "hungary",
+        "czechia",
+        "slovakia",
+        "romania",
+        "croatia"
+      ],
+      "notes": "One dataset-level record is reused by every covered country. Country geometry, region-id and layer gates remain independent."
+    },
+    {
+      "license_record_id": "geoboundaries_gbopen_cc_by_4",
+      "provider": "geoBoundaries / William & Mary geoLab",
+      "dataset_version": "gbOpen ADM1",
+      "source_url": "https://www.geoboundaries.org/",
+      "license_url": "https://www.geoboundaries.org/index.html#usage",
+      "usage_terms": "CC BY 4.0 permits commercial, non-commercial and academic use with acknowledgement.",
+      "attribution": "Boundary data: geoBoundaries (CC BY 4.0).",
+      "attribution_ready": true,
+      "license_checked": true,
+      "review_date": "2026-08-15",
+      "covered_countries": [
+        "poland",
+        "serbia"
+      ],
+      "notes": "Poland keeps ADM1 geometry because its display layer is administrative rather than the split NUTS2 statistical geography. Serbia remains blocked by official correspondence and statistical comparability checks."
+    }
+  ],
+  "model_boundary": "Country and layer display decisions only; no regional score, prediction or risk classification.",
+  "records": [
+    {
+      "country_id": "poland",
+      "country_name_zh": "波兰",
+      "geometry_ready": true,
+      "region_ids_matched": true,
+      "license_checked": true,
+      "attribution_ready": true,
+      "topology_checked": true,
+      "regional_data_ready": true,
+      "boundary_layer_ready": true,
+      "population_layer_ready": true,
+      "gdp_layer_ready": true,
+      "gdp_per_capita_layer_ready": true,
+      "unemployment_layer_ready": false,
+      "project_layer_ready": true,
+      "approved_layer_count": 5,
+      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "hungary",
+      "country_name_zh": "匈牙利",
+      "geometry_ready": true,
+      "region_ids_matched": true,
+      "license_checked": true,
+      "attribution_ready": true,
+      "topology_checked": true,
+      "regional_data_ready": true,
+      "boundary_layer_ready": true,
+      "population_layer_ready": true,
+      "gdp_layer_ready": true,
+      "gdp_per_capita_layer_ready": true,
+      "unemployment_layer_ready": false,
+      "project_layer_ready": true,
+      "approved_layer_count": 5,
+      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "czechia",
+      "country_name_zh": "捷克",
+      "geometry_ready": true,
+      "region_ids_matched": true,
+      "license_checked": true,
+      "attribution_ready": true,
+      "topology_checked": true,
+      "regional_data_ready": true,
+      "boundary_layer_ready": true,
+      "population_layer_ready": true,
+      "gdp_layer_ready": true,
+      "gdp_per_capita_layer_ready": true,
+      "unemployment_layer_ready": false,
+      "project_layer_ready": true,
+      "approved_layer_count": 5,
+      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "slovakia",
+      "country_name_zh": "斯洛伐克",
+      "geometry_ready": true,
+      "region_ids_matched": true,
+      "license_checked": true,
+      "attribution_ready": true,
+      "topology_checked": true,
+      "regional_data_ready": true,
+      "boundary_layer_ready": true,
+      "population_layer_ready": true,
+      "gdp_layer_ready": true,
+      "gdp_per_capita_layer_ready": true,
+      "unemployment_layer_ready": false,
+      "project_layer_ready": true,
+      "approved_layer_count": 5,
+      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "germany",
+      "country_name_zh": "德国",
+      "geometry_ready": true,
+      "region_ids_matched": true,
+      "license_checked": true,
+      "attribution_ready": true,
+      "topology_checked": true,
+      "regional_data_ready": true,
+      "boundary_layer_ready": true,
+      "population_layer_ready": true,
+      "gdp_layer_ready": true,
+      "gdp_per_capita_layer_ready": true,
+      "unemployment_layer_ready": false,
+      "project_layer_ready": true,
+      "approved_layer_count": 5,
+      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "romania",
+      "country_name_zh": "罗马尼亚",
+      "geometry_ready": true,
+      "region_ids_matched": true,
+      "license_checked": true,
+      "attribution_ready": true,
+      "topology_checked": true,
+      "regional_data_ready": true,
+      "boundary_layer_ready": true,
+      "population_layer_ready": true,
+      "gdp_layer_ready": true,
+      "gdp_per_capita_layer_ready": true,
+      "unemployment_layer_ready": false,
+      "project_layer_ready": true,
+      "approved_layer_count": 5,
+      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "slovenia",
+      "country_name_zh": "斯洛文尼亚",
+      "geometry_ready": true,
+      "region_ids_matched": true,
+      "license_checked": true,
+      "attribution_ready": true,
+      "topology_checked": true,
+      "regional_data_ready": true,
+      "boundary_layer_ready": true,
+      "population_layer_ready": true,
+      "gdp_layer_ready": true,
+      "gdp_per_capita_layer_ready": true,
+      "unemployment_layer_ready": false,
+      "project_layer_ready": true,
+      "approved_layer_count": 5,
+      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "serbia",
+      "country_name_zh": "塞尔维亚",
+      "geometry_ready": true,
+      "region_ids_matched": true,
+      "license_checked": true,
+      "attribution_ready": true,
+      "topology_checked": true,
+      "regional_data_ready": false,
+      "boundary_layer_ready": false,
+      "population_layer_ready": false,
+      "gdp_layer_ready": false,
+      "gdp_per_capita_layer_ready": false,
+      "unemployment_layer_ready": false,
+      "project_layer_ready": false,
+      "approved_layer_count": 0,
+      "public_display_blocker": "official_boundary_correspondence_and_regional_comparability_pending；regional_boundary:official_boundary_correspondence_and_regional_comparability_pending；regional_population:official_boundary_correspondence_and_regional_comparability_pending；regional_gdp:official_boundary_correspondence_and_regional_comparability_pending；regional_gdp_per_capita:official_boundary_correspondence_and_regional_comparability_pending；regional_unemployment_rate:official_boundary_correspondence_and_regional_comparability_pending；regional_manufacturing_share:official_boundary_correspondence_and_regional_comparability_pending；china_project_locations:official_boundary_correspondence_and_regional_comparability_pending"
+    },
+    {
+      "country_id": "austria",
+      "country_name_zh": "奥地利",
+      "geometry_ready": true,
+      "region_ids_matched": true,
+      "license_checked": true,
+      "attribution_ready": true,
+      "topology_checked": true,
+      "regional_data_ready": true,
+      "boundary_layer_ready": true,
+      "population_layer_ready": true,
+      "gdp_layer_ready": true,
+      "gdp_per_capita_layer_ready": true,
+      "unemployment_layer_ready": false,
+      "project_layer_ready": false,
+      "approved_layer_count": 4,
+      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable；对华项目区域参考: no_high_or_medium_confidence_project_reference"
+    },
+    {
+      "country_id": "croatia",
+      "country_name_zh": "克罗地亚",
+      "geometry_ready": true,
+      "region_ids_matched": true,
+      "license_checked": true,
+      "attribution_ready": true,
+      "topology_checked": true,
+      "regional_data_ready": true,
+      "boundary_layer_ready": true,
+      "population_layer_ready": true,
+      "gdp_layer_ready": true,
+      "gdp_per_capita_layer_ready": true,
+      "unemployment_layer_ready": false,
+      "project_layer_ready": false,
+      "approved_layer_count": 4,
+      "public_display_blocker": "区域失业率: complete_regional_observations_unavailable；区域制造业比重: complete_regional_observations_unavailable；对华项目区域参考: no_high_or_medium_confidence_project_reference"
+    }
+  ]
+}

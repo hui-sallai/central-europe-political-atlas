@@ -335,7 +335,7 @@ export const researchDataLayerFiles = [
   { id: "region_quality_checks", label: "region_quality_checks", description: "区域边界、观测值、来源与展示准入 QA；异常只标记 review_required。" },
   { id: "region_sources", label: "region_sources", description: "v0.21 区域来源字典；锁定 GISCO NUTS 2024 Level 3 GeoJSON，并保留许可与署名记录。" },
   { id: "project_locations", label: "project_locations", description: "v0.86 十国项目到 region_id 的证据映射；无核验坐标时不生成点位。" },
-  { id: "map_layers", label: "map_layers", description: "v0.86 图层独立准入注册表；只开放通过闸门的匈牙利事实边界和 P0 图层。" },
+  { id: "map_layers", label: "map_layers", description: "v0.87 图层独立准入注册表；按国家开放通过边界、许可、主键、拓扑与数据质量闸门的事实层。" },
   { id: "indicators", label: "indicators", description: "18 个核心指标与 4 个 transmission 指标的口径、单位、频率、来源优先级和派生资格。" },
   { id: "sources", label: "sources", description: "来源字典与 A/B/C/D 可靠性等级。" },
   { id: "observations", label: "observations", description: "十国基础宏观、核心扩展与 transmission 观测值。" },
@@ -344,4 +344,12 @@ export const researchDataLayerFiles = [
   { id: "china_projects", label: "china_projects", description: "对华项目核验表。" },
   { id: "china_exposure_candidates", label: "china_exposure_candidates", description: "china_exposure_candidates（暴露变量候选库）：不等于指数。" },
   { id: "methodology_rules", label: "methodology_rules", description: "方法论边界、数据状态、来源等级和分析准入规则。" },
+];
+
+export const spatialAuditExportFiles = [
+  { id: "spatial_display_gate", label: "spatial_display_gate", description: "十国公开空间展示闸门审计；记录逐国通过项、阻断项和最终决定。" },
+  { id: "map_layer_readiness", label: "map_layer_readiness", description: "逐国、逐图层展示资格；边界、统计与项目参考互不连带放行。" },
+  { id: "regional_geometry_qa", label: "regional_geometry_qa", description: "十国通用几何 QA；记录要素、代码、空几何、坐标范围、重叠与缝隙证据。" },
+  { id: "regional_coverage_matrix", label: "regional_coverage_matrix", description: "十国区域层覆盖、共同年份、数据缺口与公开图层数量。" },
+  { id: "project_location_readiness", label: "project_location_readiness", description: "项目位置精度、置信度、区域参考资格与多地点记录。" },
 ];

@@ -30,7 +30,7 @@ export type ProjectLocationRecord = {
   notes: string;
   location_source?: string;
   region_match_status?: "region_matched_candidate" | "country_only" | "uncertain";
-  location_role: "primary_site" | "corridor_node" | "registered_office" | "asset_location" | "multi_location_reference";
+  location_role: "primary_site" | "origin" | "destination" | "facility" | "corridor_node" | "administrative_reference" | "registered_office" | "asset_location" | "multi_location_reference";
   match_method: "official_city_to_region" | "official_region_reference" | "manual_candidate" | "unmatched";
   confidence: "high" | "medium" | "low" | "unavailable";
   map_eligibility: "eligible_region_reference" | "eligible_city_reference" | "pending_verification" | "not_eligible";
@@ -44,9 +44,9 @@ type ProjectLocationMapping = {
   mapping_note: string;
 };
 
-const updatedAt = "2026-07-26";
+const updatedAt = "2026-08-15";
 const manualLocationSource = "china_projects 人工整理地区字段 + regions 区域元数据";
-const missingCoordinateReason = "尚未接入可核验地理编码来源；v0.9 不填充未经核验的经纬度。";
+const missingCoordinateReason = "尚未接入可核验地理编码来源；v0.87 不填充未经核验的经纬度，只允许明确标记的区域参考。";
 const regionById = new Map(regionMetadataRecords.map((region) => [region.region_id, region]));
 
 const projectLocationMappings: Record<string, ProjectLocationMapping> = {
@@ -238,7 +238,69 @@ function buildProjectLocation(project: (typeof chinaProjectRecords)[number]): Pr
   };
 }
 
-export const projectLocationRecords: ProjectLocationRecord[] = chinaProjectRecords.map(buildProjectLocation).map((record) => ({
+const baseProjectLocationRecords = chinaProjectRecords.map(buildProjectLocation);
+const baseLocationByProject = new Map(baseProjectLocationRecords.map((record) => [record.project_id, record]));
+
+const multiLocationReferences: ProjectLocationRecord[] = [
+  {
+    ...baseLocationByProject.get("hu-budapest-belgrade-rail")!,
+    project_location_id: "hu-budapest-belgrade-rail_pest_corridor",
+    region_id: "hungary_pest",
+    region_name: regionById.get("hungary_pest")?.region_name_zh ?? "Pest",
+    city_or_locality: "Pest corridor",
+    location_role: "corridor_node",
+    location_precision: "region_level",
+    is_city_level: false,
+    is_region_level: true,
+    confidence: "low",
+    map_eligibility: "pending_verification",
+    notes: "铁路走廊的区域级参考节点；不是项目精确坐标。一个 project_id 保留多个 project_location。",
+  },
+  {
+    ...baseLocationByProject.get("hu-budapest-belgrade-rail")!,
+    project_location_id: "hu-budapest-belgrade-rail_kelebia_destination",
+    region_id: "hungary_bacs_kiskun",
+    region_name: regionById.get("hungary_bacs_kiskun")?.region_name_zh ?? "Bacs-Kiskun",
+    city_or_locality: "Kelebia / Bacs-Kiskun",
+    location_role: "destination",
+    location_precision: "region_level",
+    is_city_level: false,
+    is_region_level: true,
+    confidence: "low",
+    map_eligibility: "pending_verification",
+    notes: "跨境铁路南端的区域级参考；不是项目精确坐标。一个 project_id 保留多个 project_location。",
+  },
+  {
+    ...baseLocationByProject.get("sk-gotion-inobat-equity")!,
+    project_location_id: "sk-gotion-inobat-equity_voderady_facility",
+    region_id: "slovakia_trnava",
+    region_name: regionById.get("slovakia_trnava")?.region_name_zh ?? "Trnava",
+    city_or_locality: "Voderady / Trnava Region",
+    location_role: "facility",
+    location_precision: "region_level",
+    is_city_level: false,
+    is_region_level: true,
+    confidence: "low",
+    map_eligibility: "pending_verification",
+    notes: "股权与产业合作网络的区域级设施参考；不是项目精确坐标。",
+  },
+  {
+    ...baseLocationByProject.get("sk-gotion-inobat-equity")!,
+    project_location_id: "sk-gotion-inobat-equity_surany_facility",
+    region_id: "slovakia_nitra",
+    region_name: regionById.get("slovakia_nitra")?.region_name_zh ?? "Nitra",
+    city_or_locality: "Surany / Nitra Region",
+    location_role: "facility",
+    location_precision: "region_level",
+    is_city_level: false,
+    is_region_level: true,
+    confidence: "low",
+    map_eligibility: "pending_verification",
+    notes: "股权与产业合作网络的区域级设施参考；不是项目精确坐标。",
+  },
+];
+
+export const projectLocationRecords: ProjectLocationRecord[] = [...baseProjectLocationRecords, ...multiLocationReferences].map((record) => ({
   ...record,
   location_source: record.location_source_name,
   region_match_status: record.is_mapped_to_region

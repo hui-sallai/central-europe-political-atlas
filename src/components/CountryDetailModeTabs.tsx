@@ -16,7 +16,7 @@ import { getModelCard, getModelOutputsForCountry } from "@/lib/modelFramework";
 import { getChinaExposureOutput } from "@/lib/chinaExposureModel";
 import { getTransmissionObservations } from "@/lib/transmissionData";
 import { getCountryParitySummary, coverageMatrix } from "@/lib/dataParityQa";
-import type { RegionalCoverageV086Record } from "@/lib/spatialDataV086";
+import type { RegionalCoverageV087Record } from "@/lib/spatialDataV087";
 
 type DetailMode = "map" | "reading";
 
@@ -35,7 +35,7 @@ function CoverageStat({ label, value, note }: { label: string; value: string; no
   );
 }
 
-export function CountryDetailModeTabs({ country, regionalCoverage }: { country: Country; regionalCoverage?: RegionalCoverageV086Record }) {
+export function CountryDetailModeTabs({ country, regionalCoverage }: { country: Country; regionalCoverage?: RegionalCoverageV087Record }) {
   const [activeMode, setActiveMode] = useState<DetailMode>("map");
   const activeModeInfo = detailModes.find((mode) => mode.id === activeMode) ?? detailModes[0];
   const basicIndicators = getBasicIndicators(country.slug);
@@ -212,7 +212,7 @@ export function CountryDetailModeTabs({ country, regionalCoverage }: { country: 
             <p className="eyebrow">Regional And Map Status</p>
             <h2 className="mt-3 text-2xl font-semibold">区域数据与地图状态</h2>
           </div>
-          <DataStatusBadge status="pending" />
+          <DataStatusBadge status={regionalCoverage?.public_layer_count ? "official" : "pending"} />
         </div>
         <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
           {regionalItems.map((item) => (
@@ -227,6 +227,13 @@ export function CountryDetailModeTabs({ country, regionalCoverage }: { country: 
             ? `Regional Profile 已接入统一空间主键。主要缺口：${regionalCoverage.priority_gaps.join("；")}。未通过 public display gate 前不显示真实区域图层。`
             : "区域空间资料待接入。"}
         </p>
+        {regionalCoverage?.public_layer_count ? (
+          <Link href={`/map?country=${country.slug}`} className="mt-4 inline-flex rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-white">
+            View Spatial Profile
+          </Link>
+        ) : (
+          <p className="mt-4 rounded-xl bg-amber-50 px-4 py-3 text-xs leading-5 text-amber-950">事实地图未启用：{regionalCoverage?.blocker || "空间准入记录待完成"}</p>
+        )}
       </section>
 
       <div className="mt-4 card p-3">
@@ -245,7 +252,7 @@ export function CountryDetailModeTabs({ country, regionalCoverage }: { country: 
         </div>
       </div>
 
-      {activeMode === "map" ? <CountryMapWorkbench country={country} /> : null}
+      {activeMode === "map" ? <CountryMapWorkbench country={country} factualBoundaryReady={regionalCoverage?.boundary_ready} /> : null}
       {activeMode === "reading" ? <CountryReadingTabs country={country} /> : null}
 
       <section className="mt-4 grid gap-3 lg:grid-cols-3">

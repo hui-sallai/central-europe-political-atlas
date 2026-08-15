@@ -10,7 +10,8 @@ import {
   hungaryNuts3ValidationManifestSummary,
 } from "@/lib/regionQualityChecks";
 import { publicDisplayGate, serbiaSpatialComparabilityPolicy } from "@/lib/spatialFoundation";
-import { regionalObservationQa, spatialV086Summary } from "@/lib/spatialDataV086";
+import { regionalObservationQa } from "@/lib/spatialDataV086";
+import { sharedSpatialLicenseRecords, spatialV087Summary } from "@/lib/spatialDataV087";
 
 const dataStatuses = [
   ["official", "正式数据", "已取得可核验来源、年份、数值、单位和更新时间，可进入事实数据表。"],
@@ -407,10 +408,10 @@ export default function MethodologyPage() {
       </section>
 
       <section className="mt-6 card p-6">
-        <p className="eyebrow">Spatial Data Methodology / v0.86</p>
+        <p className="eyebrow">Spatial Data Methodology / v0.87</p>
         <h2 className="mt-3 text-2xl font-semibold">9. 区域空间数据方法</h2>
         <p className="mt-3 max-w-4xl text-sm leading-7 text-[var(--muted)]">
-          区域事实层使用 Country → Region → Geometry → Regional Observation → Project Location 的关联链。当前 {spatialV086Summary.country_count} 国共有 {spatialV086Summary.region_count} 个稳定区域主键和 {spatialV086Summary.factual_observation_count} 条区域事实；区域指标与国家级 observations 分表管理，缺失区域值不会由国家值代填。
+          区域事实层使用 Country → Region → Geometry → Regional Observation → Layer Gate → Public Display 的关联链。当前 {spatialV087Summary.country_count} 国共有 {spatialV087Summary.region_count} 个稳定区域主键和 {spatialV087Summary.factual_observation_count} 条区域事实；区域指标与国家级 observations 分表管理，缺失区域值不会由国家值代填。
         </p>
         <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
           {[
@@ -418,7 +419,13 @@ export default function MethodologyPage() {
             ["Boundary source", "欧盟九国优先 GISCO NUTS 2024；波兰因 NUTS2 拆分马佐夫舍而保留 ADM1 几何，塞尔维亚采用 national_admin，不伪造 NUTS。"],
             ["Geometry QA", "检查要素数、重复与缺失代码、无效几何、CRS、MultiPolygon、重叠、缝隙和国界包含关系。"],
             ["Region matching", "region_id 必须与官方区域代码和单一 geometry feature 一对一对应。"],
-            ["Project geolocation", "保留定位精度、来源和匹配状态；未核验坐标不进入项目点位图层。"],
+            ["Shared GISCO licence", "同一 GISCO NUTS 2024 数据集只维护一条许可与署名记录，各国引用共享记录；逐国几何和图层 QA 仍独立。"],
+            ["Country display decision", "每国记录 boundary、license、topology、region_id、attribution、approved layers、rejected layers、blockers 和 review date。"],
+            ["Layer-level gate", "边界通过不表示所有统计层通过；人口、GDP、人均 GDP、失业率和项目参考分别验收。"],
+            ["Choropleth classification", "单国事实色阶使用国家内分位数或有文档的数值区间，不使用 low/medium/high risk。"],
+            ["Common-year comparison", "跨国统一图例只允许相同指标、定义、单位和 latest common year；否则使用国家独立 scale。"],
+            ["Project geolocation", "无精确坐标时只能使用 marker_type=regional_reference，并在 tooltip 明示 location precision；low confidence 默认不显示。"],
+            ["Multi-location project", "一个 project_id 可以关联多个 project_location，并用 origin、destination、facility、corridor_node 或 administrative_reference 区分角色。"],
             ["Regional observation", "P0 为人口、GDP、人均 GDP；P1 为失业率、制造业比重。只接入有年份、单位、来源链接、可靠性和状态的真实区域值。"],
             ["Spatial comparability", "比较必须使用可对应层级和一致定义；层级差异需显式记录。"],
             ["Model boundary", "本轮不生成区域风险、选举、党派、情景或 China Exposure 色阶。"],
@@ -430,9 +437,10 @@ export default function MethodologyPage() {
           ))}
         </div>
         <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/65 p-4 text-sm leading-6 text-[var(--muted)]">
-          <p className="font-semibold text-[var(--foreground)]">v0.86 Regional Observation QA</p>
+          <p className="font-semibold text-[var(--foreground)]">v0.87 Regional Observation And Display QA</p>
           <p className="mt-2">区域观测值按 region_id、indicator、year 唯一；检查重复、国家错配、异常值、单位与来源。当前事实值 {regionalObservationQa.factual_observation_count} 条，明确待接入 {regionalObservationQa.pending_observation_count} 个位置。异常只标记 review_required，不自动修正。</p>
           <p className="mt-2">跨国比较必须记录 NUTS/ADM 层级差异和 latest common year；区域值不得由国家值下推，计算值必须保留分子、分母、来源代码和公式。</p>
+          <p className="mt-2">当前共有 {spatialV087Summary.public_boundary_country_count} 国通过事实边界准入、{spatialV087Summary.public_layer_count} 个国家-图层通过独立展示闸门。通过只表示事实地图资格，不代表模型、风险或政策判断。</p>
         </div>
         <div className="mt-5 grid gap-4 lg:grid-cols-2">
           <article className="rounded-2xl border border-[var(--line)] bg-[var(--surface-muted)] p-4">
@@ -447,6 +455,9 @@ export default function MethodologyPage() {
             <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{serbiaSpatialComparabilityPolicy.correspondence_to_eu_scale}</p>
             <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{serbiaSpatialComparabilityPolicy.comparability_limitation}</p>
           </article>
+        </div>
+        <div className="mt-5 grid gap-3 lg:grid-cols-2">
+          {sharedSpatialLicenseRecords.map((record) => <article key={record.license_record_id} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4"><p className="font-mono text-xs font-semibold text-[var(--accent)]">{record.license_record_id}</p><p className="mt-2 text-sm font-semibold">{record.provider}</p><p className="mt-2 text-xs leading-5 text-[var(--muted)]">{record.usage_terms}</p><p className="mt-2 text-xs leading-5">{record.attribution}</p></article>)}
         </div>
       </section>
 

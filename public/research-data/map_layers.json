@@ -87,8 +87,8 @@
       "source_requirement": "Eurostat GISCO NUTS 2024 来源、许可、格式、坐标系、几何状态、拓扑检查状态和 NUTS 主键匹配必须完成核验。",
       "quality_requirement": "许可确认、几何下载与过滤、拓扑检查、NUTS / region_id 主键匹配均通过前，is_ready_for_display 必须保持 false。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
-      "last_updated": "2026-08-02",
-      "notes": "v0.86 复用已通过的许可、最终主键、权威拓扑与视觉 QA 证据，独立开放匈牙利 NUTS3 事实边界；不包含风险、预测或党派支持率。"
+      "last_updated": "2026-08-15",
+      "notes": "匈牙利 NUTS3 记录作为历史试点证据保留；v0.87 公开地图不再以该试点记录替代逐国展示闸门。"
     },
     {
       "layer_id": "v4_adm1_boundary",
@@ -171,7 +171,7 @@
       "source_requirement": "region_boundaries 必须提供可信边界来源、可公开展示许可、文件格式、坐标系和 region_id 对齐说明。",
       "quality_requirement": "region_boundaries.geometry_available=true、geometry_simplified=true、topology_checked=true、boundary_license_checked=true，且 region_quality_checks 中对应区域 is_map_ready=true。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
-      "last_updated": "2026-08-02",
+      "last_updated": "2026-08-15",
       "notes": "正式展示仍需单独通过 public display readiness gate；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
     },
     {
@@ -182,7 +182,7 @@
       "data_source_table": "region_observations",
       "geometry_source_table": "region_boundaries",
       "admin_level": "ADM1",
-      "country_coverage": "hungary",
+      "country_coverage": "逐国资格由 map_layer_readiness 决定；v0.87 已批准欧盟九国，塞尔维亚待核验",
       "indicator_or_variable": "regional_population",
       "is_active": true,
       "license_source": "European Commission / Eurostat GISCO geodata and NUTS usage conditions",
@@ -258,8 +258,8 @@
       "source_requirement": "region_observations 必须关联 region_indicators 和 region_sources，并保留数值、单位、来源名称、来源链接、来源等级和更新时间。",
       "quality_requirement": "需要 region_observations 有正式数值、来源链接、单位、来源等级，并通过 region_quality_checks；当前待接入观测值不得进入地图显示。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
-      "last_updated": "2026-08-02",
-      "notes": "v0.86 仅对匈牙利开放通过边界与区域观测闸门的事实色阶；不表示风险、预测或政策优劣。"
+      "last_updated": "2026-08-15",
+      "notes": "本记录只定义事实图层；逐国公开资格、年份与阻断原因以 map_layer_readiness 和 spatial_display_gate 为准。"
     },
     {
       "layer_id": "regional_gdp_choropleth",
@@ -269,7 +269,7 @@
       "data_source_table": "region_observations",
       "geometry_source_table": "region_boundaries",
       "admin_level": "ADM1",
-      "country_coverage": "hungary",
+      "country_coverage": "逐国资格由 map_layer_readiness 决定；v0.87 已批准欧盟九国，塞尔维亚待核验",
       "indicator_or_variable": "regional_gdp",
       "is_active": true,
       "license_source": "European Commission / Eurostat GISCO geodata and NUTS usage conditions",
@@ -345,8 +345,8 @@
       "source_requirement": "region_observations 必须关联 region_indicators 和 region_sources，并保留数值、单位、来源名称、来源链接、来源等级和更新时间。",
       "quality_requirement": "需要 region_observations 有正式数值、来源链接、单位、来源等级，并通过 region_quality_checks；当前待接入观测值不得进入地图显示。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
-      "last_updated": "2026-08-02",
-      "notes": "v0.86 仅对匈牙利开放通过边界与区域观测闸门的事实色阶；不表示风险、预测或政策优劣。"
+      "last_updated": "2026-08-15",
+      "notes": "本记录只定义事实图层；逐国公开资格、年份与阻断原因以 map_layer_readiness 和 spatial_display_gate 为准。"
     },
     {
       "layer_id": "regional_gdp_per_capita_choropleth",
@@ -356,7 +356,7 @@
       "data_source_table": "region_observations",
       "geometry_source_table": "region_boundaries",
       "admin_level": "ADM1",
-      "country_coverage": "hungary",
+      "country_coverage": "逐国资格由 map_layer_readiness 决定；v0.87 已批准欧盟九国，塞尔维亚待核验",
       "indicator_or_variable": "regional_gdp_per_capita",
       "is_active": true,
       "license_source": "European Commission / Eurostat GISCO geodata and NUTS usage conditions",
@@ -432,8 +432,8 @@
       "source_requirement": "region_observations 必须关联 region_indicators 和 region_sources，并保留数值、单位、来源名称、来源链接、来源等级和更新时间。",
       "quality_requirement": "需要 region_observations 有正式数值、来源链接、单位、来源等级，并通过 region_quality_checks；当前待接入观测值不得进入地图显示。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
-      "last_updated": "2026-08-02",
-      "notes": "v0.86 仅对匈牙利开放通过边界与区域观测闸门的事实色阶；不表示风险、预测或政策优劣。"
+      "last_updated": "2026-08-15",
+      "notes": "本记录只定义事实图层；逐国公开资格、年份与阻断原因以 map_layer_readiness 和 spatial_display_gate 为准。"
     },
     {
       "layer_id": "regional_unemployment_rate_choropleth",
@@ -519,7 +519,7 @@
       "source_requirement": "region_observations 必须关联 region_indicators 和 region_sources，并保留数值、单位、来源名称、来源链接、来源等级和更新时间。",
       "quality_requirement": "需要 region_observations 有正式数值、来源链接、单位、来源等级，并通过 region_quality_checks；当前待接入观测值不得进入地图显示。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
-      "last_updated": "2026-08-02",
+      "last_updated": "2026-08-15",
       "notes": "正式展示仍需单独通过 public display readiness gate；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
     },
     {
@@ -606,7 +606,7 @@
       "source_requirement": "region_observations 必须关联 region_indicators 和 region_sources，并保留数值、单位、来源名称、来源链接、来源等级和更新时间。",
       "quality_requirement": "需要 region_observations 有正式数值、来源链接、单位、来源等级，并通过 region_quality_checks；当前待接入观测值不得进入地图显示。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
-      "last_updated": "2026-08-02",
+      "last_updated": "2026-08-15",
       "notes": "正式展示仍需单独通过 public display readiness gate；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。"
     },
     {
@@ -693,7 +693,7 @@
       "source_requirement": "project_locations 必须保留位置来源、来源链接、可靠性等级、定位精度和缺失原因；精确点位需要单独可核验地理编码来源。",
       "quality_requirement": "需要 project_locations 有可核验位置来源、region_id 映射、经纬度或明确区域级定位，并通过后续项目位置质量验收；当前不进入正式地图图层。",
       "model_boundary": "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。",
-      "last_updated": "2026-08-02",
+      "last_updated": "2026-08-15",
       "notes": "当前 11 条项目已有 region_id 映射，但经纬度未核验，is_ready_for_map_layer=false；不得展示为正式项目点位图。"
     },
     {

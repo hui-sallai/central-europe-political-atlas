@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
 import { getEventsForCountry, getResearchIndicator, researchCountries } from "@/lib/researchData";
-import { countryMetadataRecords, researchDataLayerFiles } from "@/lib/countryMetadata";
+import { countryMetadataRecords, researchDataLayerFiles, spatialAuditExportFiles } from "@/lib/countryMetadata";
 import { regionMetadataRecords } from "@/lib/regions";
 import { regionBoundaryRecords } from "@/lib/regionBoundaries";
 import { regionIndicatorRecords } from "@/lib/regionIndicators";
@@ -2889,7 +2889,7 @@ function ResearchDataExportLinks() {
   const exportStatusCards = [
     { label: "CSV 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .csv 文件。" },
     { label: "JSON 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: platformStatus.version, note: "v0.86 完成十国边界覆盖审计、欧盟九国 P0 区域事实与图层独立闸门；国家级模型保持不变。" },
+    { label: "当前阶段", value: platformStatus.version, note: "v0.87 完成十国 Display Gate Audit，并按国家、按图层开放通过验收的多国事实地图；国家级模型保持不变。" },
   ];
 
   return (
@@ -2918,6 +2918,23 @@ function ResearchDataExportLinks() {
             </div>
           </article>
         ))}
+      </div>
+      <div className="mt-6 border-t border-[var(--line)] pt-5">
+        <p className="eyebrow">Spatial Audit Export Views</p>
+        <h3 className="mt-2 text-xl font-semibold">v0.87 空间审计导出视图</h3>
+        <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">这些文件是从现有空间数据层生成的审计视图，不构成新的逻辑数据表。</p>
+        <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+          {spatialAuditExportFiles.map((layer) => (
+            <article key={layer.id} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+              <p className="font-mono text-xs font-semibold text-[var(--accent)]">{layer.label}</p>
+              <p className="mt-2 min-h-[3rem] text-xs leading-5 text-[var(--muted)]">{layer.description}</p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                <a href={`${basePath}/research-data/${layer.id}.json`} className="rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs font-semibold text-[var(--accent)] hover:border-[var(--accent)]">JSON</a>
+                <a href={`${basePath}/research-data/${layer.id}.csv`} className="rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs font-semibold text-[var(--accent)] hover:border-[var(--accent)]">CSV</a>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </>
   );
@@ -3832,7 +3849,7 @@ export function DataCountryExplorer() {
                 <p className="eyebrow">Regional Map Data Structure</p>
                 <h3 className="mt-2 text-lg font-semibold">区域地图数据结构</h3>
                 <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
-                  v0.86 的十国区域主键、边界覆盖审计、区域观测、项目定位追踪与图层独立准入状态集中在这里；不建设平行空间结构。
+                  v0.87 的十国展示准入、区域主键、几何 QA、区域观测、项目定位追踪与图层独立状态集中在这里；不建设平行空间结构。
                 </p>
               </div>
               <span className="text-xs text-[var(--muted)]">8 个区域地图数据表</span>
@@ -3859,7 +3876,7 @@ export function DataCountryExplorer() {
                   <p className="eyebrow">v0.15 Hungary Boundary License And Topology Evidence Record</p>
                   <h4 className="mt-2 text-base font-semibold">区域表字段级验收</h4>
                   <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
-                    八个区域表继续保留完整字段、枚举/状态和用途说明；v0.86 在现有结构内加入十国边界清单、P0 区域观测、项目映射与独立图层闸门。
+                    八个区域表继续保留完整字段、枚举/状态和用途说明；v0.87 在现有结构内加入共享许可、逐国展示决策、项目区域参考与独立图层闸门。
                   </p>
                 </div>
                 <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">8 / 8 表体已实化</span>
@@ -3903,7 +3920,7 @@ export function DataCountryExplorer() {
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldSourceRequirement(schema.table, field)}</td>
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldMapDisplayRule(schema.table, field)}</td>
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldModelRule(field)}</td>
-                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">v0.86 空间事实字段口径；不新增区域模型、预测、风险指数或中国经济暴露地图。</td>
+                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">v0.87 多国事实地图字段口径；不新增区域模型、预测、风险指数或中国经济暴露地图。</td>
                               </tr>
                             ))}
                           </tbody>
@@ -3949,7 +3966,7 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Research Registry Tables</p>
               <h2 className="mt-3 text-2xl font-semibold">研究数据结构总表</h2>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                以下十七个逻辑数据层继续常驻数据页。v0.86 不新增平行表，而是在既有八个区域表上完成十国边界清单、区域观测 QA、项目定位和图层独立闸门。regions 是稳定主键层；region_observations 不与国家 observations 混写；缺失区域事实不由国家值代填。
+                以下十七个逻辑数据层继续常驻数据页。v0.87 不新增平行逻辑表，而是在既有区域结构上生成展示准入、几何 QA 和项目定位 readiness 导出。regions 是稳定主键层；region_observations 不与国家 observations 混写；缺失区域事实不由国家值代填。
               </p>
             </div>
             <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">按需展开</span>
@@ -4034,7 +4051,7 @@ export function DataCountryExplorer() {
               <ProjectLocationTable rows={projectLocationRecords} />
             </DeferredDetails>
 
-            <DeferredDetails id="map-layers-layer-entry" title="map_layers：v0.86 independent factual display gate">
+            <DeferredDetails id="map-layers-layer-entry" title="map_layers：v0.87 multi-country factual display gate">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
                 map_layers 只注册行政边界、人口、区域 GDP、人均 GDP、失业率和已核验项目位置等事实型候选图层。当前所有正式展示字段仍为 false；风险、预测、党派支持率、情景分数和 China Exposure 色阶均未启用。
               </p>

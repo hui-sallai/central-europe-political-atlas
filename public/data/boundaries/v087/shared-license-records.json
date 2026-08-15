@@ -1,0 +1,46 @@
+{
+  "schema_version": "spatial-license-v0.87",
+  "generated_at": "2026-08-15",
+  "records": [
+    {
+      "license_record_id": "gisco_nuts_2024_public_research",
+      "provider": "European Commission / Eurostat GISCO",
+      "dataset_version": "NUTS 2024 / 1:1M regional polygons",
+      "source_url": "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html",
+      "license_url": "https://ec.europa.eu/eurostat/web/gisco/geodata/administrative-units",
+      "usage_terms": "Non-commercial public research display is permitted when the required source and boundary attribution are visible.",
+      "attribution": "Source: European Commission - Eurostat/GISCO; administrative boundaries: © EuroGeographics.",
+      "attribution_ready": true,
+      "license_checked": true,
+      "review_date": "2026-08-15",
+      "covered_countries": [
+        "germany",
+        "austria",
+        "slovenia",
+        "hungary",
+        "czechia",
+        "slovakia",
+        "romania",
+        "croatia"
+      ],
+      "notes": "One dataset-level record is reused by every covered country. Country geometry, region-id and layer gates remain independent."
+    },
+    {
+      "license_record_id": "geoboundaries_gbopen_cc_by_4",
+      "provider": "geoBoundaries / William & Mary geoLab",
+      "dataset_version": "gbOpen ADM1",
+      "source_url": "https://www.geoboundaries.org/",
+      "license_url": "https://www.geoboundaries.org/index.html#usage",
+      "usage_terms": "CC BY 4.0 permits commercial, non-commercial and academic use with acknowledgement.",
+      "attribution": "Boundary data: geoBoundaries (CC BY 4.0).",
+      "attribution_ready": true,
+      "license_checked": true,
+      "review_date": "2026-08-15",
+      "covered_countries": [
+        "poland",
+        "serbia"
+      ],
+      "notes": "Poland keeps ADM1 geometry because its display layer is administrative rather than the split NUTS2 statistical geography. Serbia remains blocked by official correspondence and statistical comparability checks."
+    }
+  ]
+}

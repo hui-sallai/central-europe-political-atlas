@@ -75,8 +75,9 @@ export type MapLayerRecord = {
   notes: string;
 };
 
-const updatedAt = "2026-08-02";
+const updatedAt = "2026-08-15";
 const v4Adm1Coverage = "V4 四国 ADM1：poland, hungary, czechia, slovakia";
+const multiCountryFactualCoverage = "逐国资格由 map_layer_readiness 决定；v0.87 已批准欧盟九国，塞尔维亚待核验";
 const noDisplayBoundary = "正式展示仍需单独通过 public display readiness gate；public_display_ready=false 且 is_ready_for_display=false 时不得在地图工作台显示为真实图层。";
 const noModelBoundary = "地图图层注册表不生成风险图层、预测图层、党派支持率图层、选举预测或中国经济暴露指数。";
 const giscoLicenseSource = giscoLicenseVerificationDecision.license_source;
@@ -235,7 +236,7 @@ function hungaryNuts3PilotLayer(): MapLayerRecord {
     model_boundary: noModelBoundary,
     last_updated: updatedAt,
     notes:
-      "v0.86 复用已通过的许可、最终主键、权威拓扑与视觉 QA 证据，独立开放匈牙利 NUTS3 事实边界；不包含风险、预测或党派支持率。",
+      "匈牙利 NUTS3 记录作为历史试点证据保留；v0.87 公开地图不再以该试点记录替代逐国展示闸门。",
   };
 }
 
@@ -256,7 +257,7 @@ function choroplethLayer(layer: {
     data_source_table: "region_observations",
     geometry_source_table: "region_boundaries",
     admin_level: "ADM1",
-    country_coverage: factualP0Ready ? "hungary" : v4Adm1Coverage,
+    country_coverage: factualP0Ready ? multiCountryFactualCoverage : v4Adm1Coverage,
     indicator_or_variable: layer.indicator,
     is_active: factualP0Ready,
     license_source: giscoLicenseSource,
@@ -311,7 +312,9 @@ function choroplethLayer(layer: {
     quality_requirement: choroplethQuality,
     model_boundary: noModelBoundary,
     last_updated: updatedAt,
-    notes: factualP0Ready ? "v0.86 仅对匈牙利开放通过边界与区域观测闸门的事实色阶；不表示风险、预测或政策优劣。" : noDisplayBoundary,
+    notes: factualP0Ready
+      ? "本记录只定义事实图层；逐国公开资格、年份与阻断原因以 map_layer_readiness 和 spatial_display_gate 为准。"
+      : noDisplayBoundary,
   };
 }
 
