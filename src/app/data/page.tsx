@@ -23,7 +23,7 @@ export default function DataOverviewPage() {
           items={[
             { label: "默认视图", value: "国家选择 + 宏观经济数据" },
             { label: "研究数据层", value: "17 个逻辑层保留，按需展开" },
-            { label: "模型与情景", value: "保持国家级；v0.87 只开放事实地图图层" },
+            { label: "空间研究", value: "v0.88 支持年份、同层级比较、事实排名与 Data → Map" },
           ]}
         />
       </div>

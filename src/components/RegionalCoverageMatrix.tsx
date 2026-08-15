@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { regionalObservationQa } from "@/lib/spatialDataV086";
 import { mapLayerReadinessV087, projectLocationReadiness, regionalCoverageMatrixV087, regionalGeometryQa, spatialV087Summary } from "@/lib/spatialDataV087";
 
@@ -25,7 +26,7 @@ export function RegionalCoverageMatrix() {
         <table className="research-data-table w-full min-w-[1850px] border-separate border-spacing-0 text-left text-xs">
           <thead>
             <tr className="uppercase tracking-[0.12em] text-[var(--muted)]">
-              {["国家", "区域数", "分类 / 层级", "Geometry", "P0 指标", "P1 指标", "事实观测", "待接入", "Latest year", "Latest common year", "Approved layers", "Rejected layers", "项目映射", "Blocker"].map((header) => (
+              {["国家", "区域数", "分类 / 层级", "Geometry", "P0 指标", "P1 指标", "事实观测", "待接入", "Latest year", "Latest common year", "Approved layers", "Rejected layers", "项目映射", "地图", "Blocker"].map((header) => (
                 <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
               ))}
             </tr>
@@ -46,6 +47,9 @@ export function RegionalCoverageMatrix() {
                 <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{record.approved_layers.join(" / ") || "无"}</td>
                 <td className="border-b border-[var(--line)] px-3 py-3">{record.rejected_layers.join(" / ") || "无"}</td>
                 <td className="border-b border-[var(--line)] px-3 py-3">{record.project_mapped_count} / {record.project_display_eligible_count} eligible</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">
+                  {record.boundary_ready ? <Link href={`/map?country=${record.country_id}&layer=regional_gdp_per_capita&year=${record.latest_common_year}`} className="font-semibold text-[var(--accent)] hover:underline">View on Map</Link> : <span className="text-[var(--muted)]">{record.country_id === "serbia" ? "Spatial comparison pending" : "未通过"}</span>}
+                </td>
                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{record.blocker || "—"}</td>
               </tr>
             ))}

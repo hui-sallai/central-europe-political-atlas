@@ -69,6 +69,11 @@ const {
   spatialV087Summary,
 } = require("../src/lib/spatialDataV087.ts");
 const {
+  regionalRankingsV088,
+  spatialComparisonEligibilityV088,
+  spatialV088Summary,
+} = require("../src/lib/spatialResearchV088.ts");
+const {
   chinaProjectRecords,
   extendedObservations,
   v4TemplateIndicatorIds,
@@ -1838,6 +1843,16 @@ writeLayer("regional_geometry_qa", regionalGeometryQa, {
 writeLayer("project_location_readiness", projectLocationReadiness, {
   schema_version: "project-location-readiness-v0.87",
   marker_policy: "Regional centroids may only be used as marker_type=regional_reference and must never be represented as exact project coordinates.",
+});
+writeLayer("regional_rankings", regionalRankingsV088, {
+  schema_version: "regional-rankings-v0.88",
+  summary: spatialV088Summary,
+  ranking_policy: "Facts only: same country, indicator, unit and year. No risk, policy or prediction interpretation.",
+});
+writeLayer("comparison_eligibility", spatialComparisonEligibilityV088, {
+  schema_version: "comparison-eligibility-v0.88",
+  comparison_policy: "Cross-country views require the same administrative level, indicator definition, unit and latest common year.",
+  missing_value_policy: "Pending or unavailable values are not converted, downscaled or displayed as zero.",
 });
 writeLayer("indicators", indicatorRecords, {
   primary_key: "indicator_id",

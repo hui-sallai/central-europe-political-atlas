@@ -3418,10 +3418,18 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
             <tbody>
               {filteredProjects.map((project) => {
                 const verification = verifyChinaProject(project);
+                const mapLocation = projectLocationRecords.find((location) =>
+                  location.project_id === project.projectId &&
+                  location.is_mapped_to_region &&
+                  ["high", "medium"].includes(location.confidence),
+                );
 
                 return (
                 <tr key={project.projectId} className="align-top">
-                  <td className="text-cell border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{project.projectName}</td>
+                  <td className="text-cell border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">
+                    <p>{project.projectName}</p>
+                    {mapLocation ? <Link href={`/map?country=${project.countrySlug}&layer=china_project_locations&regions=${mapLocation.region_id}&project=${mapLocation.project_location_id}`} className="mt-2 inline-flex text-xs font-semibold text-[var(--accent)] hover:underline">View on Map</Link> : <p className="mt-2 text-[10px] font-normal text-[var(--muted)]">位置未达到地图准入</p>}
+                  </td>
                   <td className="nowrap-cell border-b border-[var(--line)] px-3 py-3">{countryName}</td>
                   <td className="text-cell border-b border-[var(--line)] px-3 py-3">{project.regionName || "待接入"}</td>
                   <td className="text-cell border-b border-[var(--line)] px-3 py-3">{project.sector || "待接入"}</td>

@@ -4,7 +4,7 @@ import { StatusSummary } from "@/components/StatusSummary";
 import { platformStatus, platformStatusItems } from "@/lib/platformStatus";
 
 const primaryEntries = [
-  { href: "/map", label: "地图工作台", note: "查看国家空间入口与区域数据状态" },
+  { href: "/map", label: "Explore Spatial Data", note: "进入单国地图、同层级跨国比较与区域数据追溯" },
   { href: "/countries", label: "国家档案", note: "进入十国概览与单国研究页" },
   { href: "/data", label: "数据工作台", note: "查询宏观、项目、来源与质量记录" },
   { href: "/news", label: "事件库", note: "查看政治经济事件编码与指标关联" },
@@ -24,11 +24,11 @@ export default function Home() {
               中欧政治经济地图与研究数据平台
             </h1>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-              平台围绕十个中欧及邻近国家，组织国家档案、宏观数据、对华经贸项目、事件记录与区域地图资料。v0.87 将通过许可、主键、几何和数据质量闸门的国家接入多国事实地图；未通过的图层继续明确说明原因。
+              平台围绕十个中欧及邻近国家，组织国家档案、宏观数据、对华经贸项目、事件记录与区域地图资料。v0.88 将九国已通过闸门的事实地图整理为可选择年份、比较区域并追溯来源的研究工作台；未通过的图层继续明确说明原因。
             </p>
           </div>
           <p className="rounded-2xl border border-[var(--line)] bg-white/65 p-4 text-sm leading-6 text-[var(--muted)]">
-            既有四个透明模型和情景公式保持不变。中国经济暴露结果按维度呈现，不等于政治影响力、风险预测或投资质量评价，地图风险图层仍未启用。
+            Spatial coverage：9 / 10 countries factual map ready。既有国家级模型与情景保持不变；区域风险、预测和真实党派支持率图层仍未启用。
           </p>
         </div>
 

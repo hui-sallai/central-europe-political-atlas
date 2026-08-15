@@ -228,9 +228,17 @@ export function CountryDetailModeTabs({ country, regionalCoverage }: { country: 
             : "区域空间资料待接入。"}
         </p>
         {regionalCoverage?.public_layer_count ? (
-          <Link href={`/map?country=${country.slug}`} className="mt-4 inline-flex rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-white">
-            View Spatial Profile
-          </Link>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <Link href={`/map?country=${country.slug}&layer=regional_boundary`} className="inline-flex rounded-full bg-[var(--accent)] px-4 py-2 text-sm font-semibold text-white">
+              View Spatial Profile
+            </Link>
+            <Link href={`/map?country=${country.slug}&layer=regional_gdp_per_capita`} className="inline-flex rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold text-[var(--accent)]">
+              查看区域人均 GDP
+            </Link>
+            <Link href={`/map?country=${country.slug}&layer=china_project_locations`} className="inline-flex rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold text-[var(--accent)]">
+              查看项目位置
+            </Link>
+          </div>
         ) : (
           <p className="mt-4 rounded-xl bg-amber-50 px-4 py-3 text-xs leading-5 text-amber-950">事实地图未启用：{regionalCoverage?.blocker || "空间准入记录待完成"}</p>
         )}

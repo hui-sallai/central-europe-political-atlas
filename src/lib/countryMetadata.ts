@@ -352,4 +352,6 @@ export const spatialAuditExportFiles = [
   { id: "regional_geometry_qa", label: "regional_geometry_qa", description: "十国通用几何 QA；记录要素、代码、空几何、坐标范围、重叠与缝隙证据。" },
   { id: "regional_coverage_matrix", label: "regional_coverage_matrix", description: "十国区域层覆盖、共同年份、数据缺口与公开图层数量。" },
   { id: "project_location_readiness", label: "project_location_readiness", description: "项目位置精度、置信度、区域参考资格与多地点记录。" },
+  { id: "regional_rankings", label: "regional_rankings", description: "同国同年同指标的事实区域排名；不表示风险或政策优劣。" },
+  { id: "comparison_eligibility", label: "comparison_eligibility", description: "逐国逐指标的年份、单位、层级和跨国比较资格。" },
 ];

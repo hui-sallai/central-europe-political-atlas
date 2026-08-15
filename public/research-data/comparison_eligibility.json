@@ -1,0 +1,915 @@
+{
+  "schema_version": "comparison-eligibility-v0.88",
+  "generated_at": "2026-08-12",
+  "data_type": "comparison_eligibility",
+  "record_count": 70,
+  "comparison_policy": "Cross-country views require the same administrative level, indicator definition, unit and latest common year.",
+  "missing_value_policy": "Pending or unavailable values are not converted, downscaled or displayed as zero.",
+  "records": [
+    {
+      "country_id": "poland",
+      "layer_id": "regional_boundary",
+      "admin_level": "ADM1",
+      "definition": "已核验行政边界。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "该图层不参与跨国数值比较。"
+    },
+    {
+      "country_id": "poland",
+      "layer_id": "regional_population",
+      "admin_level": "ADM1",
+      "definition": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。",
+      "unit": "人",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "poland",
+      "layer_id": "regional_gdp",
+      "admin_level": "ADM1",
+      "definition": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。",
+      "unit": "百万欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "poland",
+      "layer_id": "regional_gdp_per_capita",
+      "admin_level": "ADM1",
+      "definition": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。",
+      "unit": "欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "poland",
+      "layer_id": "regional_unemployment_rate",
+      "admin_level": "ADM1",
+      "definition": "区域劳动力指标，后续需统一年龄口径和统计频率。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "poland",
+      "layer_id": "regional_manufacturing_share",
+      "admin_level": "ADM1",
+      "definition": "由区域制造业增加值 / 区域总增加值计算；不直接复用国家级制造业占 GDP 比重。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "poland",
+      "layer_id": "china_project_locations",
+      "admin_level": "ADM1",
+      "definition": "经来源核验的城市或区域参考位置；不代表项目影响。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "该图层不参与跨国数值比较。"
+    },
+    {
+      "country_id": "hungary",
+      "layer_id": "regional_boundary",
+      "admin_level": "NUTS3",
+      "definition": "已核验行政边界。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "该图层不参与跨国数值比较。"
+    },
+    {
+      "country_id": "hungary",
+      "layer_id": "regional_population",
+      "admin_level": "NUTS3",
+      "definition": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。",
+      "unit": "人",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "hungary",
+      "layer_id": "regional_gdp",
+      "admin_level": "NUTS3",
+      "definition": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。",
+      "unit": "百万欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "hungary",
+      "layer_id": "regional_gdp_per_capita",
+      "admin_level": "NUTS3",
+      "definition": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。",
+      "unit": "欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "hungary",
+      "layer_id": "regional_unemployment_rate",
+      "admin_level": "NUTS3",
+      "definition": "区域劳动力指标，后续需统一年龄口径和统计频率。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "hungary",
+      "layer_id": "regional_manufacturing_share",
+      "admin_level": "NUTS3",
+      "definition": "由区域制造业增加值 / 区域总增加值计算；不直接复用国家级制造业占 GDP 比重。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "hungary",
+      "layer_id": "china_project_locations",
+      "admin_level": "NUTS3",
+      "definition": "经来源核验的城市或区域参考位置；不代表项目影响。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "该图层不参与跨国数值比较。"
+    },
+    {
+      "country_id": "czechia",
+      "layer_id": "regional_boundary",
+      "admin_level": "NUTS3",
+      "definition": "已核验行政边界。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "该图层不参与跨国数值比较。"
+    },
+    {
+      "country_id": "czechia",
+      "layer_id": "regional_population",
+      "admin_level": "NUTS3",
+      "definition": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。",
+      "unit": "人",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "czechia",
+      "layer_id": "regional_gdp",
+      "admin_level": "NUTS3",
+      "definition": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。",
+      "unit": "百万欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "czechia",
+      "layer_id": "regional_gdp_per_capita",
+      "admin_level": "NUTS3",
+      "definition": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。",
+      "unit": "欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "czechia",
+      "layer_id": "regional_unemployment_rate",
+      "admin_level": "NUTS3",
+      "definition": "区域劳动力指标，后续需统一年龄口径和统计频率。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "czechia",
+      "layer_id": "regional_manufacturing_share",
+      "admin_level": "NUTS3",
+      "definition": "由区域制造业增加值 / 区域总增加值计算；不直接复用国家级制造业占 GDP 比重。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "czechia",
+      "layer_id": "china_project_locations",
+      "admin_level": "NUTS3",
+      "definition": "经来源核验的城市或区域参考位置；不代表项目影响。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "该图层不参与跨国数值比较。"
+    },
+    {
+      "country_id": "slovakia",
+      "layer_id": "regional_boundary",
+      "admin_level": "NUTS3",
+      "definition": "已核验行政边界。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "该图层不参与跨国数值比较。"
+    },
+    {
+      "country_id": "slovakia",
+      "layer_id": "regional_population",
+      "admin_level": "NUTS3",
+      "definition": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。",
+      "unit": "人",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "slovakia",
+      "layer_id": "regional_gdp",
+      "admin_level": "NUTS3",
+      "definition": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。",
+      "unit": "百万欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "slovakia",
+      "layer_id": "regional_gdp_per_capita",
+      "admin_level": "NUTS3",
+      "definition": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。",
+      "unit": "欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "slovakia",
+      "layer_id": "regional_unemployment_rate",
+      "admin_level": "NUTS3",
+      "definition": "区域劳动力指标，后续需统一年龄口径和统计频率。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "slovakia",
+      "layer_id": "regional_manufacturing_share",
+      "admin_level": "NUTS3",
+      "definition": "由区域制造业增加值 / 区域总增加值计算；不直接复用国家级制造业占 GDP 比重。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "slovakia",
+      "layer_id": "china_project_locations",
+      "admin_level": "NUTS3",
+      "definition": "经来源核验的城市或区域参考位置；不代表项目影响。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "该图层不参与跨国数值比较。"
+    },
+    {
+      "country_id": "germany",
+      "layer_id": "regional_boundary",
+      "admin_level": "NUTS1",
+      "definition": "已核验行政边界。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "该图层不参与跨国数值比较。"
+    },
+    {
+      "country_id": "germany",
+      "layer_id": "regional_population",
+      "admin_level": "NUTS1",
+      "definition": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。",
+      "unit": "人",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "germany",
+      "layer_id": "regional_gdp",
+      "admin_level": "NUTS1",
+      "definition": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。",
+      "unit": "百万欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "germany",
+      "layer_id": "regional_gdp_per_capita",
+      "admin_level": "NUTS1",
+      "definition": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。",
+      "unit": "欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "germany",
+      "layer_id": "regional_unemployment_rate",
+      "admin_level": "NUTS1",
+      "definition": "区域劳动力指标，后续需统一年龄口径和统计频率。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "germany",
+      "layer_id": "regional_manufacturing_share",
+      "admin_level": "NUTS1",
+      "definition": "由区域制造业增加值 / 区域总增加值计算；不直接复用国家级制造业占 GDP 比重。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "germany",
+      "layer_id": "china_project_locations",
+      "admin_level": "NUTS1",
+      "definition": "经来源核验的城市或区域参考位置；不代表项目影响。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "该图层不参与跨国数值比较。"
+    },
+    {
+      "country_id": "romania",
+      "layer_id": "regional_boundary",
+      "admin_level": "NUTS3",
+      "definition": "已核验行政边界。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "该图层不参与跨国数值比较。"
+    },
+    {
+      "country_id": "romania",
+      "layer_id": "regional_population",
+      "admin_level": "NUTS3",
+      "definition": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。",
+      "unit": "人",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "romania",
+      "layer_id": "regional_gdp",
+      "admin_level": "NUTS3",
+      "definition": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。",
+      "unit": "百万欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "romania",
+      "layer_id": "regional_gdp_per_capita",
+      "admin_level": "NUTS3",
+      "definition": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。",
+      "unit": "欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "romania",
+      "layer_id": "regional_unemployment_rate",
+      "admin_level": "NUTS3",
+      "definition": "区域劳动力指标，后续需统一年龄口径和统计频率。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "romania",
+      "layer_id": "regional_manufacturing_share",
+      "admin_level": "NUTS3",
+      "definition": "由区域制造业增加值 / 区域总增加值计算；不直接复用国家级制造业占 GDP 比重。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "romania",
+      "layer_id": "china_project_locations",
+      "admin_level": "NUTS3",
+      "definition": "经来源核验的城市或区域参考位置；不代表项目影响。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "该图层不参与跨国数值比较。"
+    },
+    {
+      "country_id": "slovenia",
+      "layer_id": "regional_boundary",
+      "admin_level": "NUTS2",
+      "definition": "已核验行政边界。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "该图层不参与跨国数值比较。"
+    },
+    {
+      "country_id": "slovenia",
+      "layer_id": "regional_population",
+      "admin_level": "NUTS2",
+      "definition": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。",
+      "unit": "人",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "slovenia",
+      "layer_id": "regional_gdp",
+      "admin_level": "NUTS2",
+      "definition": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。",
+      "unit": "百万欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "slovenia",
+      "layer_id": "regional_gdp_per_capita",
+      "admin_level": "NUTS2",
+      "definition": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。",
+      "unit": "欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "slovenia",
+      "layer_id": "regional_unemployment_rate",
+      "admin_level": "NUTS2",
+      "definition": "区域劳动力指标，后续需统一年龄口径和统计频率。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "slovenia",
+      "layer_id": "regional_manufacturing_share",
+      "admin_level": "NUTS2",
+      "definition": "由区域制造业增加值 / 区域总增加值计算；不直接复用国家级制造业占 GDP 比重。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "slovenia",
+      "layer_id": "china_project_locations",
+      "admin_level": "NUTS2",
+      "definition": "经来源核验的城市或区域参考位置；不代表项目影响。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "该图层不参与跨国数值比较。"
+    },
+    {
+      "country_id": "serbia",
+      "layer_id": "regional_boundary",
+      "admin_level": "ADM1",
+      "definition": "已核验行政边界。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+    },
+    {
+      "country_id": "serbia",
+      "layer_id": "regional_population",
+      "admin_level": "ADM1",
+      "definition": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+    },
+    {
+      "country_id": "serbia",
+      "layer_id": "regional_gdp",
+      "admin_level": "ADM1",
+      "definition": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+    },
+    {
+      "country_id": "serbia",
+      "layer_id": "regional_gdp_per_capita",
+      "admin_level": "ADM1",
+      "definition": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+    },
+    {
+      "country_id": "serbia",
+      "layer_id": "regional_unemployment_rate",
+      "admin_level": "ADM1",
+      "definition": "区域劳动力指标，后续需统一年龄口径和统计频率。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+    },
+    {
+      "country_id": "serbia",
+      "layer_id": "regional_manufacturing_share",
+      "admin_level": "ADM1",
+      "definition": "由区域制造业增加值 / 区域总增加值计算；不直接复用国家级制造业占 GDP 比重。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+    },
+    {
+      "country_id": "serbia",
+      "layer_id": "china_project_locations",
+      "admin_level": "ADM1",
+      "definition": "经来源核验的城市或区域参考位置；不代表项目影响。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "official_boundary_correspondence_and_regional_comparability_pending"
+    },
+    {
+      "country_id": "austria",
+      "layer_id": "regional_boundary",
+      "admin_level": "NUTS2",
+      "definition": "已核验行政边界。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "该图层不参与跨国数值比较。"
+    },
+    {
+      "country_id": "austria",
+      "layer_id": "regional_population",
+      "admin_level": "NUTS2",
+      "definition": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。",
+      "unit": "人",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "austria",
+      "layer_id": "regional_gdp",
+      "admin_level": "NUTS2",
+      "definition": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。",
+      "unit": "百万欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "austria",
+      "layer_id": "regional_gdp_per_capita",
+      "admin_level": "NUTS2",
+      "definition": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。",
+      "unit": "欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "austria",
+      "layer_id": "regional_unemployment_rate",
+      "admin_level": "NUTS2",
+      "definition": "区域劳动力指标，后续需统一年龄口径和统计频率。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "austria",
+      "layer_id": "regional_manufacturing_share",
+      "admin_level": "NUTS2",
+      "definition": "由区域制造业增加值 / 区域总增加值计算；不直接复用国家级制造业占 GDP 比重。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "austria",
+      "layer_id": "china_project_locations",
+      "admin_level": "NUTS2",
+      "definition": "经来源核验的城市或区域参考位置；不代表项目影响。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "no_high_or_medium_confidence_project_reference"
+    },
+    {
+      "country_id": "croatia",
+      "layer_id": "regional_boundary",
+      "admin_level": "NUTS3",
+      "definition": "已核验行政边界。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "该图层不参与跨国数值比较。"
+    },
+    {
+      "country_id": "croatia",
+      "layer_id": "regional_population",
+      "admin_level": "NUTS3",
+      "definition": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。",
+      "unit": "人",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "croatia",
+      "layer_id": "regional_gdp",
+      "admin_level": "NUTS3",
+      "definition": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。",
+      "unit": "百万欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "croatia",
+      "layer_id": "regional_gdp_per_capita",
+      "admin_level": "NUTS3",
+      "definition": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。",
+      "unit": "欧元",
+      "available_years": [
+        "2021",
+        "2022",
+        "2023",
+        "2024"
+      ],
+      "latest_available_year": "2024",
+      "comparison_eligible": true,
+      "blocker": ""
+    },
+    {
+      "country_id": "croatia",
+      "layer_id": "regional_unemployment_rate",
+      "admin_level": "NUTS3",
+      "definition": "区域劳动力指标，后续需统一年龄口径和统计频率。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "croatia",
+      "layer_id": "regional_manufacturing_share",
+      "admin_level": "NUTS3",
+      "definition": "由区域制造业增加值 / 区域总增加值计算；不直接复用国家级制造业占 GDP 比重。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "complete_regional_observations_unavailable"
+    },
+    {
+      "country_id": "croatia",
+      "layer_id": "china_project_locations",
+      "admin_level": "NUTS3",
+      "definition": "经来源核验的城市或区域参考位置；不代表项目影响。",
+      "unit": "not_applicable",
+      "available_years": [],
+      "latest_available_year": "unavailable",
+      "comparison_eligible": false,
+      "blocker": "no_high_or_medium_confidence_project_reference"
+    }
+  ]
+}
