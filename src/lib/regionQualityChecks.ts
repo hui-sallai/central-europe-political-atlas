@@ -655,7 +655,7 @@ const hungaryBoundaryPilotQualityCheck: RegionQualityCheckRecord = {
 
 export const regionQualityCheckRecords: RegionQualityCheckRecord[] = [
   hungaryBoundaryPilotQualityCheck,
-  ...regionObservationRecords.map(buildRegionQualityCheck),
+  ...regionObservationRecords.filter((observation) => observation.year === "2024").map(buildRegionQualityCheck),
 ];
 
 const boundaryAvailableRegionIds = new Set(regionBoundaryRecords.filter((boundary) => boundary.geometry_available).map((boundary) => boundary.region_id));

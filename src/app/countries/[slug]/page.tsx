@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { CountryDetailModeTabs } from "@/components/CountryDetailModeTabs";
 import { getCountry } from "@/lib/data";
 import { getResearchCountryBySlug, researchCountries } from "@/lib/researchData";
-import { getCountryRegionalCoverage } from "@/lib/spatialFoundation";
+import { regionalCoverageMatrixV086 } from "@/lib/spatialDataV086";
 
 type CountryPageProps = {
   params: Promise<{
@@ -18,7 +18,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
   const { slug } = await params;
   const countryRecord = getResearchCountryBySlug(slug);
   const country = getCountry(slug);
-  const regionalCoverage = getCountryRegionalCoverage(slug);
+  const regionalCoverage = regionalCoverageMatrixV086.find((record) => record.country_id === slug);
 
   if (!country || !countryRecord) {
     notFound();

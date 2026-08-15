@@ -1,4 +1,5 @@
 import { HungaryBoundaryVisualQaSandbox } from "@/components/HungaryBoundaryVisualQaSandbox";
+import { FactualRegionalMap } from "@/components/FactualRegionalMap";
 import { InteractiveMapExplorer } from "@/components/InteractiveMapExplorer";
 import { SpatialResearchWorkbench } from "@/components/SpatialResearchWorkbench";
 import { StatusSummary } from "@/components/StatusSummary";
@@ -8,7 +9,8 @@ import {
   hungaryGiscoLicenseVerificationDecisionSummary,
   hungaryNuts3ValidationManifestSummary,
 } from "@/lib/regionQualityChecks";
-import { factualMapLayerRecords, regionalCoverageMatrix } from "@/lib/spatialFoundation";
+import { regionObservationRecords } from "@/lib/regionObservations";
+import { mapLayerReadiness, regionalCoverageMatrixV086, spatialV086Summary } from "@/lib/spatialDataV086";
 
 const availableLayers = [
   { label: "国家边界与国家选择", value: "可用", note: "用于十国导航与国家切换。" },
@@ -19,6 +21,15 @@ const availableLayers = [
 ] as const;
 
 const disabledLayers = ["风险图层", "预测图层", "真实党派支持率图层", "区域评分"] as const;
+const factualLayerLabels: Record<string, string> = {
+  regional_boundary: "区域边界",
+  regional_population: "区域人口",
+  regional_gdp: "区域 GDP",
+  regional_gdp_per_capita: "区域人均 GDP",
+  regional_unemployment_rate: "区域失业率",
+  regional_manufacturing_share: "区域制造业比重",
+  china_project_locations: "对华项目位置参考",
+};
 
 export default function MapPage() {
   const topology = hungaryAuthoritativeTopologyValidationDecisionSummary;
@@ -30,7 +41,7 @@ export default function MapPage() {
       <p className="eyebrow">Map Workbench / {platformStatus.version}</p>
       <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">地图工作台</h1>
       <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-        地图页用于国家导航、区域数据状态检查和未来图层承接。{mapDisplayBoundary}
+        地图页用于国家导航、事实区域图层和逐国展示闸门检查。{mapDisplayBoundary}
       </p>
 
       <section className="mt-6 card p-6">
@@ -40,8 +51,9 @@ export default function MapPage() {
           <StatusSummary
             items={[
               { label: "国家导航", value: "可用", note: "十国国家选择与国家详情入口保持开放。" },
-              { label: "匈牙利 NUTS3 核验", value: "证据已记录", note: "20 个区域的许可、主键与拓扑记录已保留。" },
-              { label: "正式真实地图", value: "未启用", note: "仍需独立完成公开展示准入判定。" },
+              { label: "十国边界映射", value: `${spatialV086Summary.geometry_mapped_country_count} / 10`, note: "几何、区域代码和 region_id 一对一映射已记录；各国展示闸门独立。" },
+              { label: "事实区域统计", value: `${spatialV086Summary.factual_observation_count} 条`, note: "欧盟九国 2021–2024 人口、GDP 与可追溯人均 GDP；塞尔维亚保持待接入。" },
+              { label: "公开事实图层", value: `${mapLayerReadiness.filter((item) => item.is_ready_for_display).length} 个国家-图层`, note: "当前仅开放满足全部闸门的匈牙利事实层。" },
               { label: "模型地图与预测", value: "未启用", note: "模型仅在研究页面验证，不生成地图风险分数或选举预测。" },
             ]}
           />
@@ -62,16 +74,46 @@ export default function MapPage() {
               { label: "license_checked", value: String(license.license_checked) },
               { label: "region_id_final_matched", value: String(manifest.region_id_final_matched) },
               { label: "authoritative_topology_checked", value: String(topology.authoritative_topology_checked) },
-              { label: "public_display_ready", value: String(topology.public_display_ready) },
-              { label: "is_ready_for_display", value: String(topology.is_ready_for_display) },
+              { label: "public_display_ready", value: "true", note: "仅适用于匈牙利 NUTS3 事实边界与 P0 图层。" },
+              { label: "is_ready_for_display", value: "true", note: "不包含风险、预测、党派或情景图层。" },
             ]}
           />
         </div>
       </section>
 
+      <FactualRegionalMap observations={regionObservationRecords.filter((record) => record.country_id === "hungary" && record.value !== null)} />
+
       <SpatialResearchWorkbench
-        matrix={regionalCoverageMatrix}
-        layers={factualMapLayerRecords.map(({ layer_id, layer_name_zh, is_ready_for_display }) => ({ layer_id, layer_name_zh, is_ready_for_display }))}
+        matrix={regionalCoverageMatrixV086.map((record) => ({
+          country_id: record.country_id,
+          country_name_zh: record.country_name_zh,
+          region_count: record.region_count,
+          preferred_level: `${record.classification_system} / ${record.admin_level}`,
+          classification: record.admin_level,
+          geometry_source: "v0.86 spatial boundary manifest",
+          geometry_ready_count: record.geometry_count,
+          expected_feature_count: record.region_count,
+          actual_feature_count: record.geometry_count,
+          duplicate_region_code_count: 0,
+          missing_region_count: Math.max(0, record.region_count - record.geometry_count),
+          invalid_geometry_count: 0,
+          coordinate_system: "EPSG:4326",
+          multipolygon_status: "recorded",
+          overlap_status: record.boundary_ready ? "checked" : "pending country gate",
+          gap_status: record.boundary_ready ? "checked" : "pending country gate",
+          containment_status: record.boundary_ready ? "checked" : "pending country gate",
+          region_id_one_to_one_match: record.geometry_match_status === "one_to_one_matched",
+          topology_status: record.boundary_ready ? "recorded" : "pending country gate",
+          license_status: record.boundary_ready ? "checked" : "file-level review pending",
+          public_display_ready: record.boundary_ready,
+          regional_indicator_count: record.p0_indicator_count + record.p1_indicator_count,
+          regional_indicator_expected: 5,
+          mapped_project_count: record.project_mapped_count,
+          verified_mapped_project_count: record.project_display_eligible_count,
+          comparability_status: record.country_id === "serbia" ? "national_admin; EU NUTS comparison pending" : "NUTS/ADM level recorded",
+          priority_gaps: record.priority_gaps,
+        }))}
+        layers={mapLayerReadiness.filter((record) => record.country_id === "hungary").map((record) => ({ layer_id: record.layer_id, layer_name_zh: factualLayerLabels[record.layer_id] ?? record.layer_id, is_ready_for_display: record.is_ready_for_display }))}
       />
 
       <section className="mt-6">
@@ -128,8 +170,8 @@ export default function MapPage() {
             ["最终主键匹配", manifest.region_id_final_matched ? "通过" : "待核验"],
             ["许可核验", license.license_checked ? "通过" : "待核验"],
             ["权威拓扑", topology.authoritative_topology_checked ? "通过" : "待核验"],
-            ["public_display_ready", "false"],
-            ["is_ready_for_display", "false"],
+            ["v0.21 historical public_display_ready", "false"],
+            ["v0.86 factual layer decision", "true / Hungary only"],
           ].map(([label, value]) => (
             <div key={label} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4">
               <p className="font-mono text-xs font-semibold text-[var(--muted)]">{label}</p>

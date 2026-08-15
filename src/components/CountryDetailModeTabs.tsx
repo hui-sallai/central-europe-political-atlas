@@ -16,7 +16,7 @@ import { getModelCard, getModelOutputsForCountry } from "@/lib/modelFramework";
 import { getChinaExposureOutput } from "@/lib/chinaExposureModel";
 import { getTransmissionObservations } from "@/lib/transmissionData";
 import { getCountryParitySummary, coverageMatrix } from "@/lib/dataParityQa";
-import type { RegionalCoverageRecord } from "@/lib/spatialFoundation";
+import type { RegionalCoverageV086Record } from "@/lib/spatialDataV086";
 
 type DetailMode = "map" | "reading";
 
@@ -35,7 +35,7 @@ function CoverageStat({ label, value, note }: { label: string; value: string; no
   );
 }
 
-export function CountryDetailModeTabs({ country, regionalCoverage }: { country: Country; regionalCoverage?: RegionalCoverageRecord }) {
+export function CountryDetailModeTabs({ country, regionalCoverage }: { country: Country; regionalCoverage?: RegionalCoverageV086Record }) {
   const [activeMode, setActiveMode] = useState<DetailMode>("map");
   const activeModeInfo = detailModes.find((mode) => mode.id === activeMode) ?? detailModes[0];
   const basicIndicators = getBasicIndicators(country.slug);
@@ -76,11 +76,14 @@ export function CountryDetailModeTabs({ country, regionalCoverage }: { country: 
   const regionalItems = regionalCoverage
     ? [
         { label: "区域主键", value: `${regionalCoverage.region_count} 个` },
-        { label: "分析层级", value: regionalCoverage.preferred_level },
-        { label: "边界几何", value: `${regionalCoverage.geometry_ready_count} / ${regionalCoverage.region_count}` },
-        { label: "区域指标", value: `${regionalCoverage.regional_indicator_count} / ${regionalCoverage.regional_indicator_expected}` },
-        { label: "项目区域映射", value: `${regionalCoverage.mapped_project_count} 条候选 / ${regionalCoverage.verified_mapped_project_count} 条可上图` },
-        { label: "正式地图展示", value: regionalCoverage.public_display_ready ? "可用" : "未启用" },
+        { label: "分析层级", value: `${regionalCoverage.classification_system} / ${regionalCoverage.admin_level}` },
+        { label: "边界几何", value: `${regionalCoverage.geometry_count} / ${regionalCoverage.region_count}` },
+        { label: "区域事实", value: `${regionalCoverage.factual_observation_count} 条 / 最新 ${regionalCoverage.latest_year}` },
+        { label: "P0 / P1 指标", value: `${regionalCoverage.p0_indicator_count} / 3；${regionalCoverage.p1_indicator_count} / 2` },
+        { label: "公开事实图层", value: `${regionalCoverage.public_layer_count} 个` },
+        { label: "区域指标", value: `${regionalCoverage.p0_indicator_count + regionalCoverage.p1_indicator_count} / 5` },
+        { label: "项目区域映射", value: `${regionalCoverage.project_mapped_count} 条 / ${regionalCoverage.project_display_eligible_count} 条可作为城市参考` },
+        { label: "事实边界展示", value: regionalCoverage.boundary_ready ? "可用" : "未启用" },
       ]
     : [];
 

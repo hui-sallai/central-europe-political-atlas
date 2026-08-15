@@ -23,9 +23,9 @@ export type RegionIndicatorRecord = {
   notes: string;
 };
 
-const updatedAt = "2026-07-26";
-const v4Adm1Scope = "V4 四国优先：poland, hungary, czechia, slovakia；非 V4 暂不下放复杂区域指标。";
-const adm1Only = "ADM1";
+const updatedAt = "2026-08-14";
+const v4Adm1Scope = "十国：poland, hungary, czechia, slovakia, germany, austria, romania, slovenia, croatia, serbia；按已核验 ADM1/NUTS 对应层级使用。";
+const adm1Only = "ADM1 / NUTS1 / NUTS2 / NUTS3；跨国比较必须显式记录层级差异。";
 const officialRegionalSource = "Eurostat regional statistics / 各国统计局区域统计";
 const nationalFallbackSource = "各国统计局、Eurostat、官方区域统计年鉴";
 const manualProjectSource = "china_projects / project_locations 待接入后汇总";

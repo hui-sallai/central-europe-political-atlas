@@ -14,35 +14,35 @@
     {
       "id": "regions",
       "label": "regions",
-      "description": "v0.21 区域元数据表；匈牙利 NUTS3 已记录最终主键、许可与权威拓扑判定。",
+      "description": "v0.86 十国 173 个区域主键；记录 NUTS/ADM 分类、官方代码匹配和层级差异。",
       "json_file": "regions.json",
       "csv_file": "regions.csv"
     },
     {
       "id": "region_boundaries",
       "label": "region_boundaries",
-      "description": "v0.21 区域边界来源表；hu_nuts3_gisco_2024 记录 authoritative_topology_validated 并继续保持 not_ready_for_display。",
+      "description": "v0.86 十国边界来源与几何审计；公开展示资格按国家、按图层独立判断。",
       "json_file": "region_boundaries.json",
       "csv_file": "region_boundaries.csv"
     },
     {
       "id": "region_indicators",
       "label": "region_indicators",
-      "description": "v0.11 继续保留区域指标字典；独立于国家级 indicators，第一批只覆盖 10 个区域指标。",
+      "description": "独立于国家级 indicators 的区域指标字典；P0 与 P1 优先级和层级政策明确。",
       "json_file": "region_indicators.json",
       "csv_file": "region_indicators.csv"
     },
     {
       "id": "region_observations",
       "label": "region_observations",
-      "description": "v0.11 继续保留区域观测值表；第一批区域指标仍保留待接入观测位置。",
+      "description": "v0.86 接入欧盟九国 2021–2024 P0 区域事实；缺失位置保留 null，不下推国家值。",
       "json_file": "region_observations.json",
       "csv_file": "region_observations.csv"
     },
     {
       "id": "region_quality_checks",
       "label": "region_quality_checks",
-      "description": "v0.21 区域数据质量验收表；记录 Hungary authoritative topology validation decision summary，正式展示状态保持 false。",
+      "description": "区域边界、观测值、来源与展示准入 QA；异常只标记 review_required。",
       "json_file": "region_quality_checks.json",
       "csv_file": "region_quality_checks.csv"
     },
@@ -56,14 +56,14 @@
     {
       "id": "project_locations",
       "label": "project_locations",
-      "description": "v0.11 继续保留对华项目地区定位表；不启用真实项目点位图层。",
+      "description": "v0.86 十国项目到 region_id 的证据映射；无核验坐标时不生成点位。",
       "json_file": "project_locations.json",
       "csv_file": "project_locations.csv"
     },
     {
       "id": "map_layers",
       "label": "map_layers",
-      "description": "v0.21 地图图层注册表；hu_nuts3_boundary_pilot 同步权威拓扑判定，is_ready_for_display=false。",
+      "description": "v0.86 图层独立准入注册表；只开放通过闸门的匈牙利事实边界和 P0 图层。",
       "json_file": "map_layers.json",
       "csv_file": "map_layers.csv"
     },

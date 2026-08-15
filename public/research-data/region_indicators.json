@@ -17,8 +17,8 @@
       "section": "区域基础数据",
       "unit": "人",
       "frequency": "annual",
-      "applicable_countries": "V4 四国优先：poland, hungary, czechia, slovakia；非 V4 暂不下放复杂区域指标。",
-      "applicable_admin_levels": "ADM1",
+      "applicable_countries": "十国：poland, hungary, czechia, slovakia, germany, austria, romania, slovenia, croatia, serbia；按已核验 ADM1/NUTS 对应层级使用。",
+      "applicable_admin_levels": "ADM1 / NUTS1 / NUTS2 / NUTS3；跨国比较必须显式记录层级差异。",
       "primary_source": "Eurostat regional statistics / 各国统计局区域统计",
       "fallback_source": "各国统计局、Eurostat、官方区域统计年鉴",
       "source_reliability": "A",
@@ -30,7 +30,7 @@
       "is_future_model_candidate": true,
       "missing_value_rule": "不得填 0；保留空值并标记待接入或待核验。",
       "pending_value_rule": "显示为待接入，不参与地图图层、区域比较或未来模型候选输入。",
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-14",
       "notes": "第一批区域基础指标；真实观测值应进入 region_observations，不与国家级 observations 混写。"
     },
     {
@@ -41,8 +41,8 @@
       "section": "区域基础数据",
       "unit": "百万欧元",
       "frequency": "annual",
-      "applicable_countries": "V4 四国优先：poland, hungary, czechia, slovakia；非 V4 暂不下放复杂区域指标。",
-      "applicable_admin_levels": "ADM1",
+      "applicable_countries": "十国：poland, hungary, czechia, slovakia, germany, austria, romania, slovenia, croatia, serbia；按已核验 ADM1/NUTS 对应层级使用。",
+      "applicable_admin_levels": "ADM1 / NUTS1 / NUTS2 / NUTS3；跨国比较必须显式记录层级差异。",
       "primary_source": "Eurostat regional statistics / 各国统计局区域统计",
       "fallback_source": "各国统计局、Eurostat、官方区域统计年鉴",
       "source_reliability": "A",
@@ -54,7 +54,7 @@
       "is_future_model_candidate": true,
       "missing_value_rule": "不得填 0；保留空值并标记待接入或待核验。",
       "pending_value_rule": "显示为待接入，不参与地图图层、区域比较或未来模型候选输入。",
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-14",
       "notes": "区域 GDP 仅用于区域事实展示和比较准备，不下推国家级 GDP 数据。"
     },
     {
@@ -65,8 +65,8 @@
       "section": "区域基础数据",
       "unit": "欧元",
       "frequency": "annual",
-      "applicable_countries": "V4 四国优先：poland, hungary, czechia, slovakia；非 V4 暂不下放复杂区域指标。",
-      "applicable_admin_levels": "ADM1",
+      "applicable_countries": "十国：poland, hungary, czechia, slovakia, germany, austria, romania, slovenia, croatia, serbia；按已核验 ADM1/NUTS 对应层级使用。",
+      "applicable_admin_levels": "ADM1 / NUTS1 / NUTS2 / NUTS3；跨国比较必须显式记录层级差异。",
       "primary_source": "Eurostat regional statistics / 各国统计局区域统计",
       "fallback_source": "各国统计局、Eurostat、官方区域统计年鉴",
       "source_reliability": "A",
@@ -78,7 +78,7 @@
       "is_future_model_candidate": true,
       "missing_value_rule": "区域 GDP 或区域人口任一缺失时不得计算；保留待接入。",
       "pending_value_rule": "显示为待接入，不参与地图图层、区域比较或未来模型候选输入。",
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-14",
       "notes": "由区域 GDP / 区域人口计算；必须保留计算公式和原始来源。"
     },
     {
@@ -89,8 +89,8 @@
       "section": "区域劳动力",
       "unit": "%",
       "frequency": "annual",
-      "applicable_countries": "V4 四国优先：poland, hungary, czechia, slovakia；非 V4 暂不下放复杂区域指标。",
-      "applicable_admin_levels": "ADM1",
+      "applicable_countries": "十国：poland, hungary, czechia, slovakia, germany, austria, romania, slovenia, croatia, serbia；按已核验 ADM1/NUTS 对应层级使用。",
+      "applicable_admin_levels": "ADM1 / NUTS1 / NUTS2 / NUTS3；跨国比较必须显式记录层级差异。",
       "primary_source": "Eurostat regional statistics / 各国统计局区域统计",
       "fallback_source": "各国统计局、Eurostat、官方区域统计年鉴",
       "source_reliability": "A",
@@ -102,7 +102,7 @@
       "is_future_model_candidate": true,
       "missing_value_rule": "不得填 0；保留空值并标记待接入或待核验。",
       "pending_value_rule": "显示为待接入，不参与地图图层、区域比较或未来模型候选输入。",
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-14",
       "notes": "区域劳动力指标，后续需统一年龄口径和统计频率。"
     },
     {
@@ -113,8 +113,8 @@
       "section": "区域产业",
       "unit": "分类 / 占比",
       "frequency": "annual",
-      "applicable_countries": "V4 四国优先：poland, hungary, czechia, slovakia；非 V4 暂不下放复杂区域指标。",
-      "applicable_admin_levels": "ADM1",
+      "applicable_countries": "十国：poland, hungary, czechia, slovakia, germany, austria, romania, slovenia, croatia, serbia；按已核验 ADM1/NUTS 对应层级使用。",
+      "applicable_admin_levels": "ADM1 / NUTS1 / NUTS2 / NUTS3；跨国比较必须显式记录层级差异。",
       "primary_source": "Eurostat regional statistics / 各国统计局区域统计",
       "fallback_source": "各国统计局、Eurostat、官方区域统计年鉴",
       "source_reliability": "A",
@@ -126,7 +126,7 @@
       "is_future_model_candidate": true,
       "missing_value_rule": "不得填 0；保留空值并标记待接入或待核验。",
       "pending_value_rule": "显示为待接入，不参与地图图层、区域比较或未来模型候选输入。",
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-14",
       "notes": "可用于区域产业结构图层；必须先统一行业分类口径。"
     },
     {
@@ -137,8 +137,8 @@
       "section": "区域产业",
       "unit": "%",
       "frequency": "annual",
-      "applicable_countries": "V4 四国优先：poland, hungary, czechia, slovakia；非 V4 暂不下放复杂区域指标。",
-      "applicable_admin_levels": "ADM1",
+      "applicable_countries": "十国：poland, hungary, czechia, slovakia, germany, austria, romania, slovenia, croatia, serbia；按已核验 ADM1/NUTS 对应层级使用。",
+      "applicable_admin_levels": "ADM1 / NUTS1 / NUTS2 / NUTS3；跨国比较必须显式记录层级差异。",
       "primary_source": "Eurostat regional statistics / 各国统计局区域统计",
       "fallback_source": "各国统计局、Eurostat、官方区域统计年鉴",
       "source_reliability": "A",
@@ -150,7 +150,7 @@
       "is_future_model_candidate": true,
       "missing_value_rule": "制造业 GVA 或区域总 GVA 缺失时不得计算；保留待接入。",
       "pending_value_rule": "显示为待接入，不参与地图图层、区域比较或未来模型候选输入。",
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-14",
       "notes": "由区域制造业增加值 / 区域总增加值计算；不直接复用国家级制造业占 GDP 比重。"
     },
     {
@@ -174,7 +174,7 @@
       "is_future_model_candidate": false,
       "missing_value_rule": "缺失时显示待核验，不填入推测城市。",
       "pending_value_rule": "显示为待接入或待核验，不参与区域比较。",
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-14",
       "notes": "来自 regions 元数据表；作为地图标签候选，不作为数值型指标。"
     },
     {
@@ -185,8 +185,8 @@
       "section": "区域对华经贸",
       "unit": "项",
       "frequency": "annual / snapshot",
-      "applicable_countries": "V4 四国优先：poland, hungary, czechia, slovakia；非 V4 暂不下放复杂区域指标。",
-      "applicable_admin_levels": "ADM1",
+      "applicable_countries": "十国：poland, hungary, czechia, slovakia, germany, austria, romania, slovenia, croatia, serbia；按已核验 ADM1/NUTS 对应层级使用。",
+      "applicable_admin_levels": "ADM1 / NUTS1 / NUTS2 / NUTS3；跨国比较必须显式记录层级差异。",
       "primary_source": "china_projects / project_locations 待接入后汇总",
       "fallback_source": "企业公告、官方年报、地方政府公告、主流通讯社",
       "source_reliability": "B",
@@ -198,7 +198,7 @@
       "is_future_model_candidate": true,
       "missing_value_rule": "project_locations 未接入前不得显示为 0；显示待接入。",
       "pending_value_rule": "项目坐标和 region_id 映射完成前不进入地图图层或区域比较。",
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-14",
       "notes": "由项目表按 region_id 聚合；当前不是中国经济暴露指数。"
     },
     {
@@ -209,8 +209,8 @@
       "section": "区域对华经贸",
       "unit": "分类",
       "frequency": "event / snapshot",
-      "applicable_countries": "V4 四国优先：poland, hungary, czechia, slovakia；非 V4 暂不下放复杂区域指标。",
-      "applicable_admin_levels": "ADM1",
+      "applicable_countries": "十国：poland, hungary, czechia, slovakia, germany, austria, romania, slovenia, croatia, serbia；按已核验 ADM1/NUTS 对应层级使用。",
+      "applicable_admin_levels": "ADM1 / NUTS1 / NUTS2 / NUTS3；跨国比较必须显式记录层级差异。",
       "primary_source": "china_projects / project_locations 待接入后汇总",
       "fallback_source": "企业公告、官方年报、地方政府公告、主流通讯社",
       "source_reliability": "B",
@@ -222,7 +222,7 @@
       "is_future_model_candidate": true,
       "missing_value_rule": "缺少项目状态时间线时显示待核验，不推断项目状态。",
       "pending_value_rule": "显示为待接入或待核验，不参与区域比较。",
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-14",
       "notes": "用于项目状态图层候选；不生成风险判断或政策评价。"
     },
     {
@@ -246,7 +246,7 @@
       "is_future_model_candidate": false,
       "missing_value_rule": "无边界来源时显示待接入；不得显示为真实边界已上线。",
       "pending_value_rule": "geometry_available=false 时只作为地图工作台准备状态，不渲染真实边界。",
-      "last_updated": "2026-07-26",
+      "last_updated": "2026-08-14",
       "notes": "由 region_boundaries 读取边界来源、许可、格式、几何接入和拓扑检查状态。"
     }
   ]

@@ -1,3 +1,4 @@
+import v086RegionalObservations from "../data/regional/v086-observations.json";
 import { regionMetadataRecords } from "./regions";
 import { regionIndicatorRecords } from "./regionIndicators";
 
@@ -33,40 +34,36 @@ export type RegionObservationRecord = {
   updated_at: string;
 };
 
-const targetYear = "2025";
-const updatedAt = "2026-07-26";
+const years = ["2021", "2022", "2023", "2024"];
+const updatedAt = "2026-08-14";
 const firstBatchIndicatorIds = [
   "regional_population",
   "regional_gdp",
   "regional_gdp_per_capita",
   "regional_unemployment_rate",
   "regional_manufacturing_share",
-];
+] as const;
 
-const firstBatchIndicators = firstBatchIndicatorIds.map((indicatorId) => {
-  const indicator = regionIndicatorRecords.find((record) => record.region_indicator_id === indicatorId);
-  if (!indicator) {
-    throw new Error(`Missing region indicator: ${indicatorId}`);
-  }
-  return indicator;
-});
+const indicatorById = new Map(regionIndicatorRecords.map((indicator) => [indicator.region_indicator_id, indicator]));
+const factualRecords = v086RegionalObservations.records as RegionObservationRecord[];
+const factualById = new Map(factualRecords.map((record) => [record.region_observation_id, record]));
 
-const v4FirstBatchRegions = regionMetadataRecords.filter((region) =>
-  region.is_v4_region && (region.admin_level === "ADM1" || region.admin_level === "NUTS3")
-);
-
-function buildPendingObservation(
-  region: (typeof v4FirstBatchRegions)[number],
-  indicator: (typeof firstBatchIndicators)[number],
-): RegionObservationRecord {
-  const isCalculated = indicator.region_indicator_id === "regional_gdp_per_capita" || indicator.region_indicator_id === "regional_manufacturing_share";
+function pendingObservation(region: (typeof regionMetadataRecords)[number], indicatorId: string, year: string): RegionObservationRecord {
+  const indicator = indicatorById.get(indicatorId);
+  if (!indicator) throw new Error(`Missing regional indicator ${indicatorId}`);
+  const id = `${region.region_id}_${indicatorId}_${year}`;
+  const mismatchReason = region.country_id === "serbia"
+    ? "塞尔维亚同层级官方区域序列与欧盟 NUTS 口径尚未完成可比性验收。"
+    : indicatorId === "regional_unemployment_rate"
+      ? "Eurostat 区域失业率的可用层级与当前国家展示层级不完全一致；不做向下分摊。"
+      : "官方区域制造业增加值与总增加值的统一分子、分母序列尚未完成接入。";
 
   return {
-    region_observation_id: `${region.region_id}_${indicator.region_indicator_id}_${targetYear}`,
+    region_observation_id: id,
     region_id: region.region_id,
     country_id: region.country_id,
-    region_indicator_id: indicator.region_indicator_id,
-    year: targetYear,
+    region_indicator_id: indicatorId,
+    year,
     period_type: "annual",
     value: null,
     unit: indicator.unit,
@@ -78,22 +75,30 @@ function buildPendingObservation(
     source_status: "待接入",
     is_official_data: false,
     is_pending: true,
-    is_calculated: isCalculated,
+    is_calculated: indicatorId === "regional_gdp_per_capita" || indicatorId === "regional_manufacturing_share",
     is_manual: false,
     is_structural_sample: false,
     is_in_map_layer: false,
     is_in_region_comparison: false,
     is_in_future_model_candidate: false,
-    missing_reason: "v0.11 仅保留区域观测值结构；尚未接入具体 ADM1/NUTS3 区域统计表、来源链接和数值。",
-    calculation_method: isCalculated ? "待接入原始分子和分母后再计算；当前不生成计算结果。" : "不适用。",
+    missing_reason: mismatchReason,
+    calculation_method: indicatorId === "regional_manufacturing_share"
+      ? "待接入区域制造业 GVA 与区域总 GVA 后计算；当前不生成结果。"
+      : "不适用。",
     last_updated: updatedAt,
-    notes: "第一批区域观测位置；不得填 0，不进入地图图层、区域比较或未来模型候选输入。",
+    notes: "明确缺失位置；不得填 0、复制国家值或进入事实图层。",
     source: indicator.primary_source,
     status: "待接入",
     updated_at: updatedAt,
   };
 }
 
-export const regionObservationRecords: RegionObservationRecord[] = v4FirstBatchRegions.flatMap((region) =>
-  firstBatchIndicators.map((indicator) => buildPendingObservation(region, indicator)),
+export const regionObservationRecords: RegionObservationRecord[] = regionMetadataRecords.flatMap((region) =>
+  years.flatMap((year) => firstBatchIndicatorIds.map((indicatorId) => {
+    const id = `${region.region_id}_${indicatorId}_${year}`;
+    return factualById.get(id) ?? pendingObservation(region, indicatorId, year);
+  })),
 );
+
+export const regionalObservationYears = years;
+export const regionalFactualObservationCount = factualRecords.length;

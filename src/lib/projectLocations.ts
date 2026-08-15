@@ -30,6 +30,10 @@ export type ProjectLocationRecord = {
   notes: string;
   location_source?: string;
   region_match_status?: "region_matched_candidate" | "country_only" | "uncertain";
+  location_role: "primary_site" | "corridor_node" | "registered_office" | "asset_location" | "multi_location_reference";
+  match_method: "official_city_to_region" | "official_region_reference" | "manual_candidate" | "unmatched";
+  confidence: "high" | "medium" | "low" | "unavailable";
+  map_eligibility: "eligible_region_reference" | "eligible_city_reference" | "pending_verification" | "not_eligible";
 };
 
 type ProjectLocationMapping = {
@@ -123,6 +127,62 @@ const projectLocationMappings: Record<string, ProjectLocationMapping> = {
     location_status: "待核验",
     mapping_note: "股权与技术合作涉及多地网络，当前只保留布拉迪斯拉发关联入口；Voderady 和 Šurany 后续应拆成多位置记录。",
   },
+  "de-catl-thuringia-battery": {
+    region_id: "germany_thuringia",
+    city_or_locality: "Thuringia",
+    location_precision: "region_level",
+    location_status: "部分定位",
+    mapping_note: "项目公开材料可核验至图林根州；没有可靠厂址坐标，因此只保留区域级参考。",
+  },
+  "de-cosco-hhla-tollerort": {
+    region_id: "germany_hamburg",
+    city_or_locality: "Hamburg / Tollerort terminal",
+    location_precision: "city_level",
+    location_status: "部分定位",
+    mapping_note: "港口与码头名称可核验至汉堡；未引入未经来源确认的精确坐标。",
+  },
+  "at-avic-facc-majority-stake": {
+    region_id: "austria_upper_austria",
+    city_or_locality: "Upper Austria",
+    location_precision: "region_level",
+    location_status: "部分定位",
+    mapping_note: "企业主要运营地可核验至上奥地利州；股权项目不等同于单一精确点位。",
+  },
+  "ro-cgn-cernavoda-terminated": {
+    region_id: "romania_constanta",
+    city_or_locality: "Cernavoda / Constanta County",
+    location_precision: "city_level",
+    location_status: "部分定位",
+    mapping_note: "核电站城市与县级归属可核验；项目已终止，点位仅作历史项目参考。",
+  },
+  "si-hisense-gorenje-acquisition": {
+    region_id: "slovenia_eastern_slovenia",
+    city_or_locality: "Velenje / Eastern Slovenia",
+    location_precision: "city_level",
+    location_status: "部分定位",
+    mapping_note: "企业总部和主要运营城市可核验至 Velenje；不推断其他资产位置。",
+  },
+  "hr-peljesac-bridge-crbc": {
+    region_id: "croatia_dubrovnik_neretva",
+    city_or_locality: "Peljesac / Dubrovnik-Neretva County",
+    location_precision: "region_level",
+    location_status: "部分定位",
+    mapping_note: "线性基础设施跨越多个节点，当前以主要所属县作为 corridor_node 参考。",
+  },
+  "rs-linglong-zrenjanin-tire": {
+    region_id: "serbia_central_banat",
+    city_or_locality: "Zrenjanin / Central Banat District",
+    location_precision: "city_level",
+    location_status: "部分定位",
+    mapping_note: "城市与行政区归属可核验；没有可靠地理编码证据时不填精确坐标。",
+  },
+  "rs-zijin-rtb-bor": {
+    region_id: "serbia_bor",
+    city_or_locality: "Bor / Bor District",
+    location_precision: "city_level",
+    location_status: "部分定位",
+    mapping_note: "矿业资产分布于多个地点，当前以 Bor 城市和行政区作为 multi_location_reference。",
+  },
 };
 
 function buildProjectLocation(project: (typeof chinaProjectRecords)[number]): ProjectLocationRecord {
@@ -132,6 +192,16 @@ function buildProjectLocation(project: (typeof chinaProjectRecords)[number]): Pr
   const locationPrecision = mapping?.location_precision ?? "unknown";
   const locationStatus = mapping?.location_status ?? "待接入";
   const locationSourceReliability = isMappedToRegion ? project.sourceReliabilityLevel : "D";
+  const locationRole = project.projectId.includes("rail") || project.projectId.includes("bridge")
+    ? "corridor_node"
+    : project.projectId.includes("equity") || project.projectId.includes("stake") || project.projectId.includes("acquisition")
+      ? "asset_location"
+      : project.projectId.includes("zijin")
+        ? "multi_location_reference"
+        : "primary_site";
+  const confidence = isMappedToRegion && locationSourceReliability !== "D"
+    ? locationPrecision === "city_level" ? "medium" : "low"
+    : "unavailable";
 
   return {
     project_location_id: `${project.projectId}_location`,
@@ -157,6 +227,14 @@ function buildProjectLocation(project: (typeof chinaProjectRecords)[number]): Pr
     missing_location_reason: missingCoordinateReason,
     last_updated: updatedAt,
     notes: `${mapping?.mapping_note ?? "尚未建立项目到区域的映射。"} 当前只建立项目定位结构，不生成地图图层、风险分数或中国经济暴露指数。`,
+    location_role: locationRole,
+    match_method: isMappedToRegion
+      ? locationPrecision === "city_level" ? "official_city_to_region" : "official_region_reference"
+      : "unmatched",
+    confidence,
+    map_eligibility: confidence === "medium"
+      ? "eligible_city_reference"
+      : confidence === "low" ? "pending_verification" : "not_eligible",
   };
 }
 
@@ -170,8 +248,11 @@ export const projectLocationRecords: ProjectLocationRecord[] = chinaProjectRecor
       : "uncertain",
   is_ready_for_map_layer:
     record.is_mapped_to_region &&
-    record.location_status === "已定位" &&
+    (record.location_status === "已定位" || record.location_status === "部分定位") &&
     record.location_source_reliability !== "D" &&
     Boolean(record.location_source_url) &&
-    (record.location_precision === "exact_site" || record.location_precision === "city_level" || record.location_precision === "region_level"),
+    record.latitude !== null &&
+    record.longitude !== null &&
+    (record.location_precision === "exact_site" || record.location_precision === "city_level") &&
+    record.confidence !== "low",
 }));

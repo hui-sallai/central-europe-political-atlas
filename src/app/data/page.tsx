@@ -23,7 +23,7 @@ export default function DataOverviewPage() {
           items={[
             { label: "默认视图", value: "国家选择 + 宏观经济数据" },
             { label: "研究数据层", value: "17 个逻辑层保留，按需展开" },
-            { label: "模型与情景", value: "保持国家级；v0.85 不生成区域模型分数" },
+            { label: "模型与情景", value: "保持国家级；v0.86 不生成区域模型分数" },
           ]}
         />
       </div>

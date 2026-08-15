@@ -25,7 +25,7 @@ export function SpatialResearchWorkbench({ matrix, layers }: { matrix: RegionalC
           <p className="eyebrow">Spatial Research Workbench</p>
           <h2 className="mt-3 text-2xl font-semibold">空间研究工作台</h2>
           <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-            当前只开放国家选择和空间数据状态检查。区域 hover、click、profile 与事实图层将在对应国家通过公开展示闸门后启用。
+            国家与图层分别验收。匈牙利已开放事实边界和 P0 区域图层；其余国家可在这里查看数据、边界与项目定位各自的准备状态和未通过原因。
           </p>
         </div>
         <label className="grid gap-2 text-xs font-semibold text-[var(--muted)]">

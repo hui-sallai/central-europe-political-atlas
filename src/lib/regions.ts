@@ -1,4 +1,5 @@
 import hungaryBoundaryValidation from "../../public/data/boundaries/sandbox/hu_nuts3_gisco_2024.validation.json";
+import v086RegionCodeMap from "../../public/data/boundaries/v086/region-code-map.json";
 import { additionalCountries } from "./additionalCountries";
 
 export type RegionDataStatus = "正式数据" | "待核验" | "待接入" | "结构样例" | "pilot_pending_region_code_match";
@@ -311,6 +312,7 @@ const baseRegionMetadataRecords: RegionMetadataRecord[] = [
 const giscoSourceUrl = "https://gisco-services.ec.europa.eu/distribution/v2/nuts/nuts-2024-files.html";
 const giscoLicense = "Non-commercial research display candidate; attribution required; public display remains gated.";
 const serbiaSourceUrl = "https://www.stat.gov.rs/sr-Latn/oblasti/registar-prostornih-jedinica-i-gis";
+const v086CodeByRegion = new Map(v086RegionCodeMap.records.map((record) => [record.region_id, record]));
 
 function spatialClassification(region: RegionMetadataRecord) {
   if (region.nuts_adm_classification) return region.nuts_adm_classification;
@@ -324,19 +326,27 @@ function spatialClassification(region: RegionMetadataRecord) {
 export const regionMetadataRecords: RegionMetadataRecord[] = baseRegionMetadataRecords.map((region) => {
   const isSerbia = region.country_id === "serbia";
   const isHungary = region.country_id === "hungary";
+  const verifiedCode = v086CodeByRegion.get(region.region_id);
+  const verifiedLevel = verifiedCode?.admin_level as RegionMetadataRecord["admin_level"] | undefined;
 
   return {
     ...region,
-    region_code: region.admin_code,
+    admin_code: verifiedCode?.region_code ?? region.admin_code,
+    admin_level: verifiedLevel ?? region.admin_level,
+    region_code: verifiedCode?.region_code ?? region.admin_code,
     region_name: region.region_name_en,
     local_name: region.region_name_local,
-    level: region.admin_level,
-    nuts_adm_classification: spatialClassification(region),
-    geometry_source: isSerbia ? "Statistical Office of the Republic of Serbia spatial unit register candidate" : "Eurostat GISCO NUTS 2024 candidate",
+    level: verifiedLevel ?? region.admin_level,
+    nuts_adm_classification: verifiedCode ? `${verifiedCode.classification_system} / ${verifiedCode.admin_level}` : spatialClassification(region),
+    geometry_source: verifiedCode ? verifiedCode.source : isSerbia ? "Statistical Office of the Republic of Serbia spatial unit register candidate" : "Eurostat GISCO NUTS 2024 candidate",
     geometry_version: isSerbia ? "Current RPJ/NSTJ register; file version pending" : "NUTS 2024",
-    geometry_source_url: isSerbia ? serbiaSourceUrl : giscoSourceUrl,
+    geometry_source_url: verifiedCode?.source_url ?? (isSerbia ? serbiaSourceUrl : giscoSourceUrl),
     geometry_license: isSerbia ? "Public register confirmed; geometry reuse licence pending review" : giscoLicense,
-    topology_status: isHungary && region.authoritative_topology_checked ? "authoritative_topology_recorded" : "not_checked",
+    is_boundary_available: Boolean(verifiedCode) || region.is_boundary_available,
+    is_statistical_data_available: Boolean(verifiedCode) || region.is_statistical_data_available,
+    source_status: verifiedCode ? "官方来源" : region.source_status,
+    data_status: verifiedCode ? "正式数据" : region.data_status,
+    topology_status: isHungary && region.authoritative_topology_checked ? "authoritative_topology_recorded" : verifiedCode ? "basic_geometry_qa_recorded_pending_country_gate" : "not_checked",
     spatial_comparability: isSerbia
       ? "partial_comparability: Serbian administrative districts/NSTJ3 are not labelled as EU NUTS; correspondence must be documented before cross-country regional comparison."
       : "pending_level_and_definition_alignment",

@@ -49,6 +49,13 @@ const { regionSourceRecords } = require("../src/lib/regionSources.ts");
 const { projectLocationRecords } = require("../src/lib/projectLocations.ts");
 const { mapLayerRecords } = require("../src/lib/mapLayers.ts");
 const {
+  mapLayerReadiness,
+  regionalCoverageMatrixV086,
+  regionalObservationQa,
+  spatialBoundaryManifestRecords,
+  spatialV086Summary,
+} = require("../src/lib/spatialDataV086.ts");
+const {
   chinaProjectRecords,
   extendedObservations,
   v4TemplateIndicatorIds,
@@ -1720,13 +1727,24 @@ writeLayer("countries", countryRecords, {
   relation_note: "All observations, projects, derived comparisons, and exposure candidates should reference country_id.",
 });
 writeLayer("regions", regionMetadataRecords, {
-  scope: "v0.21 regions metadata. Hungary NUTS3 records final region-id, licence, and authoritative topology decisions while public display remains disabled; non-V4 countries keep national-level pending placeholders.",
+  scope: "v0.86 ten-country region metadata. NUTS/ADM classification is explicit and Serbia uses national_admin without synthetic NUTS codes.",
   primary_key: "region_id",
   relation_note: "Every region references country_id from countries. ADM2 is intentionally excluded from the current boundary verification pass.",
   model_boundary: "Region metadata only. No regional risk layer, forecast, election model, or ADM2 analysis is generated.",
 });
-writeLayer("region_boundaries", regionBoundaryRecords, {
-  scope: "v0.21 authoritative topology validation registry. hu_nuts3_gisco_2024 records authoritative_topology_validated while remaining not_ready_for_display.",
+const v086BoundaryAuditRecords = spatialBoundaryManifestRecords.map((record) => ({
+  boundary_id: `${record.country_id}_v086_spatial_boundary_audit`,
+  ...record,
+  boundary_format: "GeoJSON",
+  geometry_available: record.actual_feature_count > 0,
+  geometry_simplified: true,
+  source_reliability: record.source_name.includes("GISCO") ? "A" : "B",
+  source_status: record.source_verified ? "verified" : "pending",
+  last_checked: "2026-08-14",
+}));
+
+writeLayer("region_boundaries", [...regionBoundaryRecords, ...v086BoundaryAuditRecords], {
+  scope: "v0.86 boundary registry plus ten-country spatial coverage audit. Only layer-level records whose complete display gate passes may render.",
   primary_key: "boundary_id",
   relation_note: "Every boundary record references region_id from regions and country_id from countries.",
   validation_note: "Records track source credibility, public display licence, simplification readiness, front-end suitability, region_id matching, admin codes, and historical boundary issues before geometry ingestion.",
@@ -1740,11 +1758,12 @@ writeLayer("region_indicators", regionIndicatorRecords, {
   model_boundary: "Dictionary only. No regional model, risk layer, forecast, or election prediction is generated.",
 });
 writeLayer("region_observations", regionObservationRecords, {
-  scope: "v0.9 regional observation table. First batch creates pending observation positions for V4 ADM1 regions and five regional indicators.",
+  scope: "v0.86 regional observation table. P0 population, GDP and traceable GDP per capita cover EU9 for 2021-2024; unemployment, manufacturing and Serbia gaps remain explicit.",
   primary_key: "region_observation_id",
   relation_note: "Every record references region_id from regions and region_indicator_id from region_indicators. It does not use national indicator_id.",
   validation_note: "Missing regional values are kept as null with value_status=pending. No zero-filling or structural sample values are generated.",
-  model_boundary: "Observation structure only. Pending rows do not enter map layers, regional comparison, or future model candidate inputs.",
+  qa_summary: regionalObservationQa,
+  model_boundary: "Regional facts only. Pending rows do not enter map layers, regional comparison, or future model inputs; national observations are never downscaled.",
 });
 writeLayer("region_quality_checks", regionQualityCheckRecords, {
   scope: "v0.21 regional data quality checks. Hungary NUTS3 records final region-id matching, GISCO licence, and authoritative topology as passed while formal display remains disabled.",
@@ -1769,7 +1788,7 @@ writeLayer("region_sources", regionSourceRecords, {
   model_boundary: "Source dictionary only. No regional model, risk layer, forecast, election prediction, or live boundary rendering is generated.",
 });
 writeLayer("project_locations", projectLocationRecords, {
-  scope: "v0.9 project location bridge table. It maps current V4 china_projects to regions where the project geography is clear enough.",
+  scope: "v0.86 project location bridge table. It maps all current ten-country China-related projects to regions where documentary evidence supports a city or region reference.",
   primary_key: "project_location_id",
   relation_note: "Every record references project_id from china_projects and, where available, region_id from regions.",
   validation_note: "Coordinates remain null until a verifiable geocoding or official site source is added. Region mapping does not mean exact site location is verified.",
@@ -1781,6 +1800,17 @@ writeLayer("map_layers", mapLayerRecords, {
   relation_note: "Each layer declares its data_source_table, geometry_source_table, indicator_or_variable, tooltip fields, filters, source requirements, and quality requirements.",
   validation_note: "All registered real boundary and analytical layers keep is_ready_for_display=false until boundary, source, observation, project-location, and quality checks pass.",
   model_boundary: "Registry only. No risk layer, prediction layer, party-support layer, China exposure index, or live boundary rendering is generated.",
+});
+writeLayer("regional_coverage_matrix", regionalCoverageMatrixV086, {
+  schema_version: "spatial-coverage-v0.86",
+  summary: spatialV086Summary,
+  boundary_manifest: spatialBoundaryManifestRecords,
+  model_boundary: "Coverage and readiness only. It is not a regional risk score or prediction.",
+});
+writeLayer("map_layer_readiness", mapLayerReadiness, {
+  schema_version: "map-layer-readiness-v0.86",
+  relation_note: "Boundary, regional-data and project-reference gates are assessed independently for each country and layer.",
+  model_boundary: "Only factual layers that pass their own gate may display. Risk, prediction, party-support, scenario and China Exposure map layers remain disabled.",
 });
 writeLayer("indicators", indicatorRecords, {
   primary_key: "indicator_id",

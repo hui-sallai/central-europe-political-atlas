@@ -1,5 +1,5 @@
 import { projectLocationRecords } from "@/lib/projectLocations";
-import { regionalCoverageMatrix, regionalFoundationSummary } from "@/lib/spatialFoundation";
+import { mapLayerReadiness, regionalCoverageMatrixV086, regionalObservationQa, spatialBoundaryManifestRecords, spatialV086Summary } from "@/lib/spatialDataV086";
 
 function displayBoolean(value: boolean) {
   return value ? "是" : "否";
@@ -17,7 +17,7 @@ export function RegionalCoverageMatrix() {
           </p>
         </div>
         <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs font-semibold text-[var(--muted)]">
-          {regionalFoundationSummary.region_count} 个区域主键 / {regionalFoundationSummary.public_display_ready_country_count} 国可公开展示
+          {spatialV086Summary.region_count} 个区域主键 / {spatialV086Summary.factual_observation_count} 条事实观测
         </span>
       </div>
 
@@ -25,23 +25,25 @@ export function RegionalCoverageMatrix() {
         <table className="research-data-table w-full min-w-[1500px] border-separate border-spacing-0 text-left text-xs">
           <thead>
             <tr className="uppercase tracking-[0.12em] text-[var(--muted)]">
-              {["国家", "区域数", "选定层级", "Geometry ready", "Topology", "Public display", "区域指标", "项目映射", "已核验点位", "主要缺口"].map((header) => (
+              {["国家", "区域数", "分类 / 层级", "Geometry", "P0 指标", "P1 指标", "事实观测", "待接入", "Latest year", "公开图层", "项目映射", "主要缺口"].map((header) => (
                 <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {regionalCoverageMatrix.map((record) => (
+            {regionalCoverageMatrixV086.map((record) => (
               <tr key={record.country_id} className="align-top">
                 <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{record.country_name_zh}</td>
                 <td className="border-b border-[var(--line)] px-3 py-3">{record.region_count}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3 leading-5">{record.preferred_level}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{record.geometry_ready_count} / {record.region_count}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{record.topology_status}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{displayBoolean(record.public_display_ready)}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{record.regional_indicator_count} / {record.regional_indicator_expected}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{record.mapped_project_count}</td>
-                <td className="border-b border-[var(--line)] px-3 py-3">{record.verified_mapped_project_count}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3 leading-5">{record.classification_system} / {record.admin_level}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{record.geometry_count} / {record.region_count}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{record.p0_indicator_count} / 3</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{record.p1_indicator_count} / 2</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{record.factual_observation_count}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{record.pending_observation_count}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{record.latest_year}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3 font-semibold">{record.public_layer_count}</td>
+                <td className="border-b border-[var(--line)] px-3 py-3">{record.project_mapped_count} / {record.project_display_eligible_count} eligible</td>
                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{record.priority_gaps.join("；")}</td>
               </tr>
             ))}
@@ -56,21 +58,21 @@ export function RegionalCoverageMatrix() {
           <table className="research-data-table w-full min-w-[1650px] border-separate border-spacing-0 text-left text-xs">
             <thead><tr className="text-[var(--muted)]">{["国家", "Expected", "Actual", "Missing", "Duplicate code", "Invalid geometry", "CRS", "MultiPolygon", "Overlap", "Gaps", "Containment", "region_id 1:1", "Topology"].map((header) => <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>)}</tr></thead>
             <tbody>
-              {regionalCoverageMatrix.map((record) => (
+              {spatialBoundaryManifestRecords.map((record) => (
                 <tr key={`qa-${record.country_id}`} className="align-top">
-                  <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{record.country_name_zh}</td>
+                  <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{record.country_id}</td>
                   <td className="border-b border-[var(--line)] px-3 py-3">{record.expected_feature_count}</td>
                   <td className="border-b border-[var(--line)] px-3 py-3">{record.actual_feature_count}</td>
                   <td className="border-b border-[var(--line)] px-3 py-3">{record.missing_region_count}</td>
-                  <td className="border-b border-[var(--line)] px-3 py-3">{record.duplicate_region_code_count}</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">{record.duplicate_region_id_count}</td>
                   <td className="border-b border-[var(--line)] px-3 py-3">{record.invalid_geometry_count}</td>
                   <td className="border-b border-[var(--line)] px-3 py-3">{record.coordinate_system}</td>
-                  <td className="border-b border-[var(--line)] px-3 py-3">{record.multipolygon_status}</td>
-                  <td className="border-b border-[var(--line)] px-3 py-3">{record.overlap_status}</td>
-                  <td className="border-b border-[var(--line)] px-3 py-3">{record.gap_status}</td>
-                  <td className="border-b border-[var(--line)] px-3 py-3">{record.containment_status}</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">recorded</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">{record.topology_checked ? "checked" : "pending"}</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">{record.topology_checked ? "checked" : "pending"}</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">{record.topology_checked ? "checked" : "pending"}</td>
                   <td className="border-b border-[var(--line)] px-3 py-3">{displayBoolean(record.region_id_one_to_one_match)}</td>
-                  <td className="border-b border-[var(--line)] px-3 py-3">{record.topology_status}</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">{record.topology_checked ? "passed" : "country gate pending"}</td>
                 </tr>
               ))}
             </tbody>
@@ -87,7 +89,7 @@ export function RegionalCoverageMatrix() {
           <table className="research-data-table w-full min-w-[1200px] border-separate border-spacing-0 text-left text-xs">
             <thead>
               <tr className="text-[var(--muted)]">
-                {["Project", "Country", "Region", "City / locality", "Precision", "Match status", "Source level", "Map ready", "Source"].map((header) => (
+                {["Project", "Country", "Region", "City / locality", "Role", "Precision", "Match method", "Confidence", "Map eligibility", "Source level", "Map ready", "Source"].map((header) => (
                   <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>
                 ))}
               </tr>
@@ -99,8 +101,11 @@ export function RegionalCoverageMatrix() {
                   <td className="border-b border-[var(--line)] px-3 py-3">{record.country_id}</td>
                   <td className="border-b border-[var(--line)] px-3 py-3 font-mono">{record.region_id || "待接入"}</td>
                   <td className="border-b border-[var(--line)] px-3 py-3">{record.city_or_locality || "待接入"}</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">{record.location_role}</td>
                   <td className="border-b border-[var(--line)] px-3 py-3">{record.location_precision}</td>
-                  <td className="border-b border-[var(--line)] px-3 py-3">{record.region_match_status}</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">{record.match_method}</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">{record.confidence}</td>
+                  <td className="border-b border-[var(--line)] px-3 py-3">{record.map_eligibility}</td>
                   <td className="border-b border-[var(--line)] px-3 py-3">{record.location_source_reliability}</td>
                   <td className="border-b border-[var(--line)] px-3 py-3">{displayBoolean(record.is_ready_for_map_layer)}</td>
                   <td className="border-b border-[var(--line)] px-3 py-3">
@@ -112,6 +117,19 @@ export function RegionalCoverageMatrix() {
           </table>
         </div>
       </details>
+
+      <details className="mt-5 rounded-2xl border border-[var(--line)] bg-white/65 p-4">
+        <summary className="cursor-pointer font-semibold">Layer Readiness / 图层独立准入</summary>
+        <p className="mt-2 text-xs leading-5 text-[var(--muted)]">边界、区域统计和项目定位分别验收。数据存在不代表图层自动开放。</p>
+        <div className="mt-4 grid gap-2 md:grid-cols-2 xl:grid-cols-4">
+          {mapLayerReadiness.map((record) => <div key={`${record.country_id}-${record.layer_id}`} className="rounded-xl bg-[var(--surface-muted)] p-3 text-xs"><p className="font-mono font-semibold">{record.country_id} / {record.layer_id}</p><p className="mt-2">display: {String(record.is_ready_for_display)}</p><p className="mt-1 leading-5 text-[var(--muted)]">{record.unavailable_reason || `latest year ${record.latest_year}`}</p></div>)}
+        </div>
+      </details>
+
+      <div className="mt-5 rounded-2xl border border-[var(--line)] bg-white/65 p-4 text-xs leading-6 text-[var(--muted)]">
+        <span className="font-semibold text-[var(--foreground)]">Regional QA：</span>
+        {regionalObservationQa.factual_observation_count} 条事实值，{regionalObservationQa.pending_observation_count} 个明确缺失位置；重复 {regionalObservationQa.duplicate_observation_count}、国家错配 {regionalObservationQa.country_mismatch_count}、无来源 {regionalObservationQa.missing_source_count}。异常只标记复核，不自动修改。
+      </div>
     </section>
   );
 }

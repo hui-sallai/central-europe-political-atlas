@@ -308,8 +308,8 @@ const dataCredibilityBacklog = [
 ] as const;
 const dataEntryShortcuts: DataEntryShortcut[] = [
   { id: "countries-layer-entry", label: "国家元数据表", mode: "tables", description: "十国 countries 逻辑层，作为 country_id 关联表。" },
-  { id: "regions-layer-entry", label: "区域元数据表", mode: "tables", description: "v0.85 regions 统一十国 173 个区域主键，并保留匈牙利 NUTS3 既有核验记录。" },
-  { id: "region-boundaries-layer-entry", label: "区域边界来源表", mode: "tables", description: "v0.85 region_boundaries 登记九国 GISCO 与塞尔维亚官方候选来源；未过 gate 均不可展示。" },
+  { id: "regions-layer-entry", label: "区域元数据表", mode: "tables", description: "v0.86 regions 统一十国 173 个区域主键，并保留各国 ADM/NUTS 分类政策。" },
+  { id: "region-boundaries-layer-entry", label: "区域边界来源表", mode: "tables", description: "v0.86 完成十国 geometry 与 region_id 一对一审计；公开展示仍按国家独立验收。" },
   { id: "region-indicators-layer-entry", label: "区域指标字典", mode: "tables", description: "独立于国家级指标；第一批只保留人口、GDP、人均 GDP、失业率和制造业等稀疏事实项。" },
   { id: "region-observations-layer-entry", label: "区域观测值表", mode: "tables", description: "区域经济数据主表；无官方区域值时保留 pending，不用国家值代填。" },
   { id: "region-quality-checks-layer-entry", label: "区域质量验收表", mode: "tables", description: "v0.21 region_quality_checks 记录 Hungary authoritative topology validation decision summary。" },
@@ -2889,7 +2889,7 @@ function ResearchDataExportLinks() {
   const exportStatusCards = [
     { label: "CSV 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .csv 文件。" },
     { label: "JSON 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: platformStatus.version, note: "v0.85 建立十国区域主键、边界审计、项目定位追踪和公开展示闸门；国家级模型与既有门槛保持不变。" },
+    { label: "当前阶段", value: platformStatus.version, note: "v0.86 完成十国边界覆盖审计、欧盟九国 P0 区域事实与图层独立闸门；国家级模型保持不变。" },
   ];
 
   return (
@@ -3832,7 +3832,7 @@ export function DataCountryExplorer() {
                 <p className="eyebrow">Regional Map Data Structure</p>
                 <h3 className="mt-2 text-lg font-semibold">区域地图数据结构</h3>
                 <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
-                  v0.85 的十国区域主键、边界候选来源、项目定位追踪与公开展示状态集中在这里；匈牙利既有 NUTS3 证据继续保留，不重新建设第二套结构。
+                  v0.86 的十国区域主键、边界覆盖审计、区域观测、项目定位追踪与图层独立准入状态集中在这里；不建设平行空间结构。
                 </p>
               </div>
               <span className="text-xs text-[var(--muted)]">8 个区域地图数据表</span>
@@ -3859,7 +3859,7 @@ export function DataCountryExplorer() {
                   <p className="eyebrow">v0.15 Hungary Boundary License And Topology Evidence Record</p>
                   <h4 className="mt-2 text-base font-semibold">区域表字段级验收</h4>
                   <p className="mt-2 max-w-3xl text-xs leading-5 text-[var(--muted)]">
-                    八个区域表继续保留完整字段、枚举/状态和用途说明；v0.85 只扩展现有 regions、region_boundaries、region_sources、project_locations 与展示派生，不新增平行地图结构。
+                    八个区域表继续保留完整字段、枚举/状态和用途说明；v0.86 在现有结构内加入十国边界清单、P0 区域观测、项目映射与独立图层闸门。
                   </p>
                 </div>
                 <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">8 / 8 表体已实化</span>
@@ -3903,7 +3903,7 @@ export function DataCountryExplorer() {
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldSourceRequirement(schema.table, field)}</td>
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldMapDisplayRule(schema.table, field)}</td>
                                 <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">{regionalFieldModelRule(field)}</td>
-                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">v0.85 空间事实字段口径；不新增区域模型、预测、风险指数或中国经济暴露地图。</td>
+                                <td className="border-b border-[var(--line)] px-3 py-3 leading-5 text-[var(--muted)]">v0.86 空间事实字段口径；不新增区域模型、预测、风险指数或中国经济暴露地图。</td>
                               </tr>
                             ))}
                           </tbody>
@@ -3949,7 +3949,7 @@ export function DataCountryExplorer() {
               <p className="eyebrow">Research Registry Tables</p>
               <h2 className="mt-3 text-2xl font-semibold">研究数据结构总表</h2>
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                以下十七个逻辑数据层继续常驻数据页。v0.85 不新增平行表，而是在既有八个区域表上统一十国 region_id、边界来源与许可、几何 QA、项目定位和展示闸门。regions 是稳定主键层；region_boundaries 保存来源、许可与几何状态；region_observations 不与国家 observations 混写；project_locations 只允许已核验定位进入未来事实点位图层。
+                以下十七个逻辑数据层继续常驻数据页。v0.86 不新增平行表，而是在既有八个区域表上完成十国边界清单、区域观测 QA、项目定位和图层独立闸门。regions 是稳定主键层；region_observations 不与国家 observations 混写；缺失区域事实不由国家值代填。
               </p>
             </div>
             <span className="rounded-full bg-[var(--surface-muted)] px-4 py-2 text-xs text-[var(--muted)]">按需展开</span>
@@ -3965,14 +3965,14 @@ export function DataCountryExplorer() {
               <CountryMetadataTable />
             </DeferredDetails>
 
-            <DeferredDetails id="regions-layer-entry" title="regions：v0.85 ten-country region schema">
+            <DeferredDetails id="regions-layer-entry" title="regions：v0.86 ten-country region schema">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
-                regions 是地图层的稳定区域主键表。v0.85 覆盖十国 173 个区域入口；匈牙利 20 条既有匹配记录保留，其余国家官方代码与层级对应仍明确待核验。
+                regions 是地图层的稳定区域主键表。v0.86 覆盖十国 173 个区域入口；边界清单记录 NUTS/ADM 分类和一对一 geometry 对应，塞尔维亚不伪造 NUTS。
               </p>
               <RegionMetadataTable rows={regionMetadataRecords} />
             </DeferredDetails>
 
-            <DeferredDetails id="region-boundaries-layer-entry" title="region_boundaries：v0.85 boundary source audit">
+            <DeferredDetails id="region-boundaries-layer-entry" title="region_boundaries：v0.86 boundary coverage audit">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
                 region_boundaries 保留匈牙利 hu_nuts3_gisco_2024 证据，并为其余欧盟国家登记 GISCO NUTS 2024 候选来源、为塞尔维亚登记官方空间单位来源。未完成逐国文件、许可、主键和拓扑复核前保持 not_ready_for_display。
               </p>
@@ -4034,7 +4034,7 @@ export function DataCountryExplorer() {
               <ProjectLocationTable rows={projectLocationRecords} />
             </DeferredDetails>
 
-            <DeferredDetails id="map-layers-layer-entry" title="map_layers：v0.85 factual display gate">
+            <DeferredDetails id="map-layers-layer-entry" title="map_layers：v0.86 independent factual display gate">
               <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">
                 map_layers 只注册行政边界、人口、区域 GDP、人均 GDP、失业率和已核验项目位置等事实型候选图层。当前所有正式展示字段仍为 false；风险、预测、党派支持率、情景分数和 China Exposure 色阶均未启用。
               </p>
