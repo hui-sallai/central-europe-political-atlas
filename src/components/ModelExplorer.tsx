@@ -1,7 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { CitationActions } from "@/components/CitationActions";
+import { PLATFORM_BASE_URL, PLATFORM_VERSION } from "@/lib/releaseMetadata";
+import { validationRegistry } from "@/lib/researchValidation";
 import type { Country } from "@/types/Country";
 import type { ModelCard, ModelOutput } from "@/types/ModelOutput";
 import { scenarioDefinitions } from "@/lib/scenarioFramework";
@@ -55,12 +58,34 @@ function ScorePanel({ output }: { output: ModelOutput }) {
 export function ModelExplorer({ countries, cards, outputs }: { countries: Country[]; cards: ModelCard[]; outputs: ModelOutput[] }) {
   const [countrySlug, setCountrySlug] = useState("poland");
   const [modelId, setModelId] = useState<ModelCard["model_id"]>("household_economic_pressure");
+  const [urlReady, setUrlReady] = useState(false);
   const card = cards.find((candidate) => candidate.model_id === modelId) ?? cards[0];
   const output = useMemo(
     () => outputs.find((candidate) => candidate.country_slug === countrySlug && candidate.model_id === modelId),
     [countrySlug, modelId, outputs],
   );
   const usedByScenarios = scenarioDefinitions.filter((scenario) => scenario.reference_model_id === modelId);
+  const validationFailed = validationRegistry.some((item) => item.status === "failed" && item.severity === "error" && [modelId, "all_models"].includes(item.target_id));
+
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      const params = new URLSearchParams(window.location.search);
+      const requestedCountry = params.get("country");
+      const requestedModel = params.get("model") as ModelCard["model_id"] | null;
+      if (requestedCountry && countries.some((country) => country.slug === requestedCountry)) setCountrySlug(requestedCountry);
+      if (requestedModel && cards.some((candidate) => candidate.model_id === requestedModel)) setModelId(requestedModel);
+      setUrlReady(true);
+    }, 0);
+    return () => window.clearTimeout(timeoutId);
+  }, [cards, countries]);
+
+  useEffect(() => {
+    if (!urlReady) return;
+    const url = new URL(window.location.href);
+    url.searchParams.set("model", modelId);
+    url.searchParams.set("country", countrySlug);
+    window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+  }, [countrySlug, modelId, urlReady]);
 
   if (!card || !output) return null;
 
@@ -93,7 +118,7 @@ export function ModelExplorer({ countries, cards, outputs }: { countries: Countr
             </div>
             <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">{availabilityLabels[output.availability]}</span>
           </div>
-          <div className="mt-5"><ScorePanel output={output} /></div>
+          {validationFailed ? <div className="mt-5 rounded-2xl border border-rose-200 bg-rose-50 p-5 text-sm font-semibold text-rose-900">Temporarily unavailable due to validation issue. 旧分数不会继续显示。</div> : <div className="mt-5"><ScorePanel output={output} /></div>}
           {output.score !== null && output.missing_indicator_ids.length > 0 ? (
             <p className="mt-3 rounded-xl bg-[var(--surface-muted)] px-3 py-2 font-mono text-xs text-[var(--muted)]">partial 缺失输入：{output.missing_indicator_ids.join(" / ")}</p>
           ) : null}
@@ -119,6 +144,13 @@ export function ModelExplorer({ countries, cards, outputs }: { countries: Countr
             </div>
           ) : null}
           <p className="mt-5 text-xs leading-5 text-[var(--muted)]">{output.interpretation_boundary}</p>
+          <div className="mt-4">
+            <CitationActions
+              compact
+              plainText={`Central Europe Political Atlas, ${PLATFORM_VERSION}, model ${card.model_id}, country ${countrySlug}, input year ${output.input_year ?? "unavailable"}, formula ${card.formula_version}, accessed YYYY-MM-DD. ${PLATFORM_BASE_URL}models/?model=${card.model_id}&country=${countrySlug}`}
+              apaText={`Central Europe Political Atlas. (${PLATFORM_VERSION}). ${card.name} for ${output.country}, input year ${output.input_year ?? "unavailable"}. Retrieved YYYY-MM-DD from ${PLATFORM_BASE_URL}models/?model=${card.model_id}&country=${countrySlug}`}
+            />
+          </div>
         </article>
 
         <article className="card p-6">
@@ -143,6 +175,7 @@ export function ModelExplorer({ countries, cards, outputs }: { countries: Countr
                       <span className="block font-mono">{input.observation_id}</span>
                       <a href={input.source_url} target="_blank" rel="noreferrer" className="mt-1 block font-semibold text-[var(--accent)] hover:underline">{input.source_name} / {input.source_reliability} 级</a>
                       <Link href={`/data?modelObservation=${encodeURIComponent(input.observation_id)}#model-observation-usage`} className="mt-1 block font-semibold text-[var(--accent)] hover:underline">返回数据页查看该 observation</Link>
+                      <div className="mt-2"><CitationActions compact plainText={`${input.source_name}. ${input.indicator_name}, ${input.year}, ${input.raw_value} ${input.unit}. Platform record ${input.observation_id}. ${input.source_url}`} /></div>
                     </td>
                   </tr>
                 ))}
@@ -186,6 +219,7 @@ export function ModelExplorer({ countries, cards, outputs }: { countries: Countr
         <ul className="mt-5 grid gap-2 text-sm leading-6 text-[var(--muted)] md:grid-cols-3">
           {card.limitations.map((limitation) => <li key={limitation} className="rounded-xl bg-[var(--surface-muted)] px-4 py-3">{limitation}</li>)}
         </ul>
+        <div className="mt-4"><CitationActions compact plainText={`Central Europe Political Atlas, ${PLATFORM_VERSION}, Model Card ${card.model_id}, formula ${card.formula_version}, weights ${card.weight_version}, accessed YYYY-MM-DD. ${PLATFORM_BASE_URL}models/?model=${card.model_id}&country=${countrySlug}`} /></div>
       </details>
     </div>
   );

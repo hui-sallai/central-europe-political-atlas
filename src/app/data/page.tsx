@@ -1,15 +1,12 @@
-import { Suspense } from "react";
-import { DataCountryExplorer } from "@/components/DataCountryExplorer";
-import { CrossCountryParitySummary } from "@/components/CrossCountryParitySummary";
-import { ChinaExposureCoverageMatrix } from "@/components/ChinaExposureCoverageMatrix";
-import { ModelObservationUsage } from "@/components/ModelObservationUsage";
-import { RegionalCoverageMatrix } from "@/components/RegionalCoverageMatrix";
+import type { Metadata } from "next";
+import { DataWorkspaceClient } from "@/components/DataWorkspaceClient";
 import { StatusSummary } from "@/components/StatusSummary";
-import { TransmissionDataSummary } from "@/components/TransmissionDataSummary";
-import { ScenarioTransmissionInputs } from "@/components/ScenarioTransmissionInputs";
-import { ModelValidationStatus } from "@/components/ModelValidationStatus";
 import { platformStatus } from "@/lib/platformStatus";
-import { chinaEvidenceCoverageMatrix, chinaExposureCoverageAudit, chinaExposureRankingGate, chinaSectorLinkageMatrix, chinaTradeHistoricalSeries } from "@/lib/chinaExposureModel";
+
+export const metadata: Metadata = {
+  title: "研究数据工作台",
+  description: "十国观测值、指标字典、来源字典、项目、区域数据和质量验收入口。",
+};
 
 export default function DataOverviewPage() {
   return (
@@ -25,20 +22,11 @@ export default function DataOverviewPage() {
           items={[
             { label: "默认视图", value: "国家选择 + 宏观经济数据" },
             { label: "研究数据层", value: "17 个逻辑层保留，按需展开" },
-            { label: "验证阶段", value: "v0.91 可执行 QA、黄金案例与复现记录" },
+            { label: "发布状态", value: "验证启用；引用与导出结构可用" },
           ]}
         />
       </div>
-      <Suspense fallback={<div className="mt-5 card p-6 text-sm text-[var(--muted)]">正在读取模型输入追踪…</div>}>
-        <ModelObservationUsage />
-      </Suspense>
-      <TransmissionDataSummary />
-      <ScenarioTransmissionInputs />
-      <ModelValidationStatus />
-      <CrossCountryParitySummary />
-      <ChinaExposureCoverageMatrix matrix={chinaEvidenceCoverageMatrix} audit={chinaExposureCoverageAudit} history={chinaTradeHistoricalSeries} sectors={chinaSectorLinkageMatrix} rankingGate={chinaExposureRankingGate} />
-      <RegionalCoverageMatrix />
-      <DataCountryExplorer />
+      <DataWorkspaceClient />
     </main>
   );
 }

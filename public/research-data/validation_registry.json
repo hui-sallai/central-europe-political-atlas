@@ -14,6 +14,10 @@
     "blocking_failures": 0,
     "golden_cases": 32,
     "golden_failures": 0,
+    "expected_unavailable_cases": 3,
+    "validated_countries": 4,
+    "models_covered": 4,
+    "scenarios_covered": 4,
     "unresolved": [
       "Historical backtests remain structure_only because point-in-time vintage observations are not yet available.",
       "Revised historical data can support directional validation but not strict real-time forecast accuracy claims.",

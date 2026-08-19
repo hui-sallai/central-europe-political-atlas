@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { CitationActions } from "@/components/CitationActions";
 import { CountryMapWorkbench } from "@/components/CountryMapWorkbench";
 import { CountryReadingTabs } from "@/components/CountryReadingTabs";
 import { DataLayerOverview } from "@/components/DataLayerOverview";
@@ -19,6 +20,7 @@ import { getTransmissionObservations } from "@/lib/transmissionData";
 import { getCountryParitySummary, coverageMatrix } from "@/lib/dataParityQa";
 import type { RegionalCoverageV087Record } from "@/lib/spatialDataV087";
 import { regionalIndicatorGapAuditV089 } from "@/lib/spatialResearchV089";
+import { PLATFORM_BASE_URL, PLATFORM_VERSION } from "@/lib/releaseMetadata";
 
 type DetailMode = "map" | "reading";
 
@@ -103,6 +105,18 @@ export function CountryDetailModeTabs({ country, regionalCoverage }: { country: 
   return (
     <section className="mt-8">
       <DataLayerOverview countrySlug={country.slug} compact title={`${country.nameZh}数据状态`} />
+
+      <section className="mt-4 card p-6">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="eyebrow">Research Snapshot</p>
+            <h2 className="mt-3 text-2xl font-semibold">当前研究摘要</h2>
+            <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">数据共同年份 {latestCommonYearLabel}；透明模型可计算 {modelOutputs.filter((item) => item.score !== null).length}/{modelOutputs.length}；对华项目 {projectRecords.length} 项；已编码事件 {codedEventCount} 条；区域事实图层 {regionalCoverage?.public_layer_count ?? 0} 个。</p>
+            <p className="mt-2 text-xs leading-5 text-[var(--muted)]">限制：{regionalCoverage?.blocker || "区域事实只作结构背景"}；模型与情景均不构成预测、投资建议或因果估计。</p>
+          </div>
+          <CitationActions compact plainText={`Central Europe Political Atlas, ${PLATFORM_VERSION}, country research snapshot: ${country.nameZh} (${country.slug}), common-year range ${latestCommonYearLabel}, accessed YYYY-MM-DD. ${PLATFORM_BASE_URL}countries/${country.slug}/`} />
+        </div>
+      </section>
 
       <section className="mt-4 grid gap-4 xl:grid-cols-[1fr_1.1fr]">
         <article className="card p-6">
@@ -218,7 +232,7 @@ export function CountryDetailModeTabs({ country, regionalCoverage }: { country: 
           {modelOutputs.map((output) => {
             const card = getModelCard(output.model_id);
             return (
-              <article key={output.model_id} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
+              <Link key={output.model_id} href={`/models?model=${output.model_id}&country=${country.slug}`} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4 transition hover:border-[var(--accent)]">
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <p className="font-semibold">{card?.name_zh ?? output.model_id}</p>
@@ -229,8 +243,9 @@ export function CountryDetailModeTabs({ country, regionalCoverage }: { country: 
                   </span>
                 </div>
                 <p className="mt-4 text-3xl font-semibold text-[var(--accent)]">{output.score === null ? "不输出分数" : output.score.toFixed(1)}</p>
-                <p className="mt-3 text-xs leading-5 text-[var(--muted)]">分数不进入地图图层，不代表预测或客观风险真值。</p>
-              </article>
+                <p className="mt-2 font-mono text-[10px] leading-4 text-[var(--muted)]">formula={output.formula_version} · weights={output.weight_version}</p>
+                <p className="mt-3 text-xs leading-5 text-[var(--muted)]">{output.score === null ? `不可用原因：${output.missing_indicator_ids.join(" / ") || "insufficient evidence"}` : "分数不进入地图图层，不代表预测或客观风险真值。"}</p>
+              </Link>
             );
           })}
         </div>

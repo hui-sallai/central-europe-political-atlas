@@ -1,10 +1,12 @@
+import { PLATFORM_RELEASE_DATE, PLATFORM_VERSION } from "./releaseMetadata";
+
 export const platformStatus = {
-  version: "v0.91 Model & Scenario Validation",
-  stage: "模型与情景验证、稳定性与可复现性验收",
+  version: PLATFORM_VERSION,
+  stage: "研究产品收口、引用与发布候选验收",
   regionalData: "九国区域事实用于结构背景；塞尔维亚区域比较继续待接入，不阻断合格国家级情景",
-  mapDisplay: "事实地图仅承接 structural context；情景影响、风险与预测色阶未启用",
-  modelLayer: "四项既有模型与四个情景公式保持不变；新增确定性、边界、缺失值、方向、隔离和黄金案例 QA",
-  lastUpdated: "2026-08-15",
+  mapDisplay: "九国事实地图可用；情景影响、风险、预测与真实党派支持率色阶未启用",
+  modelLayer: "四项透明模型与四个条件式情景保持原公式；验证、追溯与引用处于启用状态",
+  lastUpdated: PLATFORM_RELEASE_DATE,
 } as const;
 
 export const platformStatusItems = [

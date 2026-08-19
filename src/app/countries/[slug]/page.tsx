@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { CountryDetailModeTabs } from "@/components/CountryDetailModeTabs";
 import { getCountry } from "@/lib/data";
 import { getResearchCountryBySlug, researchCountries } from "@/lib/researchData";
@@ -12,6 +13,14 @@ type CountryPageProps = {
 
 export function generateStaticParams() {
   return researchCountries.map((country) => ({ slug: country.slug }));
+}
+
+export async function generateMetadata({ params }: CountryPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const country = getResearchCountryBySlug(slug);
+  return country
+    ? { title: `${country.name_zh}国家研究档案`, description: `${country.name_zh}宏观数据、透明模型、区域事实、对华项目与事件研究入口。` }
+    : { title: "国家档案" };
 }
 
 export default async function CountryPage({ params }: CountryPageProps) {

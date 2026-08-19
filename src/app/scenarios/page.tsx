@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
 import { ScenarioExplorer } from "@/components/ScenarioExplorer";
 import { modelCards, modelOutputs } from "@/lib/modelFramework";
 import { platformStatus } from "@/lib/platformStatus";
 import { researchCountries } from "@/lib/researchData";
 import { scenarioDefinitions } from "@/lib/scenarioFramework";
 import { chinaProjectDisruptionDecision, scenarioEvidenceLinks, scenarioRegionalContexts } from "@/lib/scenarioResearch";
+
+export const metadata: Metadata = {
+  title: "条件式情景分析",
+  description: "四项条件式政治经济情景的基线、冲击、模型变化、证据与限制。",
+};
 
 export default function ScenariosPage() {
   const availableCount = scenarioDefinitions.filter((item) => item.calculation_status === "available").length;
@@ -13,7 +19,7 @@ export default function ScenariosPage() {
       <p className="eyebrow">Scenario Simulation / {platformStatus.version}</p>
       <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">政治经济情景模拟</h1>
       <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-        v0.91 保持四个既有情景及原模型公式不变，并增加确定性、参数边界、零冲击、单调性、隔离与复现验证。页面仍只做条件式比较，不改写原始数据，不输出概率预测或综合未来风险。
+        四个既有情景在固定基线与公开冲击假设下重算模型输入。结果保留公式、权重、来源和复现记录；它们是“如果……那么……”分析，不是预测、概率或综合未来风险。
       </p>
 
       <section className="mt-6 grid gap-3 md:grid-cols-4">

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { CitationActions } from "@/components/CitationActions";
 import { modelCards, modelOutputs } from "@/lib/modelFramework";
 
 export function ModelObservationUsage() {
@@ -32,6 +33,7 @@ export function ModelObservationUsage() {
             <div><p className="text-xs text-[var(--muted)]">模型使用</p><p className="mt-1 font-semibold">权重 {Math.round(selectedUsage.input.weight * 100)}% / 贡献 {selectedUsage.input.weighted_contribution}</p></div>
             <div><p className="text-xs text-[var(--muted)]">来源</p><a href={selectedUsage.input.source_url} target="_blank" rel="noreferrer" className="mt-1 block font-semibold text-[var(--accent)] hover:underline">{selectedUsage.input.source_name} / {selectedUsage.input.source_reliability} 级</a></div>
           </div>
+          <div className="mt-4"><CitationActions compact plainText={`${selectedUsage.input.source_name}. ${selectedUsage.input.indicator_name}, ${selectedUsage.input.year}, ${selectedUsage.input.raw_value} ${selectedUsage.input.unit}. Platform record ${selectedUsage.input.observation_id}. ${selectedUsage.input.source_url}`} /></div>
         </div>
       ) : (
         <div className="mt-5 grid gap-3 md:grid-cols-2">

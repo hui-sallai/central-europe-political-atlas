@@ -1,0 +1,38 @@
+{
+  "name": "Central Europe Political Atlas",
+  "version": "v0.95 Research Release Candidate",
+  "release_date": "2026-08-19",
+  "countries": 10,
+  "regional_factual_map_countries": 9,
+  "transparent_models": 4,
+  "scenarios": 4,
+  "validation_status": "active",
+  "data_schema_versions": [
+    "data-foundation-v0.76",
+    "regional-data-v0.89",
+    "model-scenario-validation-v0.91"
+  ],
+  "limitations": [
+    "No election forecasts, investment advice, probability forecasts, or causal impact estimates.",
+    "Serbia regional comparison remains pending while national data remain available.",
+    "China Economic Exposure and China-linked Project Disruption remain subject to their published evidence gates."
+  ],
+  "citation": "Central Europe Political Atlas, version v0.95 Research Release Candidate, accessed YYYY-MM-DD. https://hui-sallai.github.io/central-europe-political-atlas/",
+  "canonical_url": "https://hui-sallai.github.io/central-europe-political-atlas/",
+  "data_status_enum": [
+    "official",
+    "verified",
+    "calculated",
+    "derived",
+    "pending",
+    "sample",
+    "placeholder"
+  ],
+  "missing_data_enum": [
+    "unavailable",
+    "pending_publication",
+    "not_applicable",
+    "insufficient_evidence",
+    "review_required"
+  ]
+}

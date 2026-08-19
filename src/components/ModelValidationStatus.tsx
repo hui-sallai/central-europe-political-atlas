@@ -40,7 +40,7 @@ export function ModelValidationStatus() {
 
   return (
     <section id="model-validation-status" className="mt-6 card p-6">
-      <p className="eyebrow">v0.91 Validation Registry</p>
+      <p className="eyebrow">Validation Registry</p>
       <div className="mt-3 flex flex-wrap items-end justify-between gap-3">
         <div>
           <h2 className="text-2xl font-semibold">Model Validation Status</h2>
@@ -48,15 +48,15 @@ export function ModelValidationStatus() {
         </div>
         <a href={`${basePath}/research-data/validation_registry.json`} className="text-sm font-semibold text-[var(--accent)] hover:underline">导出 validation registry</a>
       </div>
-      <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
+      <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
         {[
-          ["验证记录", validationSummary.total],
-          ["通过", validationSummary.passed],
-          ["部分完成", validationSummary.partial],
-          ["失败", validationSummary.failed],
+          ["Validated countries", validationSummary.validated_countries],
           ["Golden cases", `${validationSummary.golden_cases - validationSummary.golden_failures}/${validationSummary.golden_cases}`],
+          ["Models covered", validationSummary.models_covered],
+          ["Scenarios covered", validationSummary.scenarios_covered],
         ].map(([label, value]) => <div key={label} className="rounded-2xl bg-[var(--surface-muted)] p-4"><p className="text-xs text-[var(--muted)]">{label}</p><p className="mt-2 text-xl font-semibold">{value}</p></div>)}
       </div>
+      <div className="mt-3 flex flex-wrap gap-2 text-xs"><span className="rounded-full bg-emerald-50 px-3 py-1 font-semibold text-emerald-900">Passed {validationSummary.passed}</span><span className="rounded-full bg-sky-50 px-3 py-1 font-semibold text-sky-900">Expected unavailable {validationSummary.expected_unavailable_cases}</span><span className="rounded-full bg-amber-50 px-3 py-1 font-semibold text-amber-950">Partial {validationSummary.partial}</span><span className="rounded-full bg-rose-50 px-3 py-1 font-semibold text-rose-900">Failed {validationSummary.failed}</span><span className="rounded-full bg-slate-100 px-3 py-1 font-semibold text-slate-700">Not tested {validationSummary.not_tested}</span></div>
       <div className="wide-table-scroll mt-5">
         <table className="research-data-table w-full min-w-[900px] text-left text-sm">
           <thead><tr>{["模型", "Determinism", "Boundary", "Missing data", "Direction", "Year alignment", "Golden"].map((header) => <th key={header} className="px-3 py-3">{header}</th>)}</tr></thead>
@@ -70,7 +70,7 @@ export function ModelValidationStatus() {
         })}
       </div>
       <details className="mt-5 rounded-2xl border border-[var(--line)] p-4">
-        <summary className="cursor-pointer font-semibold">未解决的验证限制</summary>
+        <summary className="cursor-pointer font-semibold">Historical reconstruction readiness 与未解决限制</summary>
         <ul className="mt-3 grid gap-2 text-sm leading-6 text-[var(--muted)]">{validationSummary.unresolved.map((item) => <li key={item}>{item}</li>)}</ul>
       </details>
     </section>

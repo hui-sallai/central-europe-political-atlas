@@ -52,6 +52,11 @@ jobs:
         env:
           NEXT_PUBLIC_BASE_PATH: /central-europe-political-atlas
 
+      - name: Release QA
+        run: pnpm release:validate
+        env:
+          NEXT_PUBLIC_BASE_PATH: /central-europe-political-atlas
+
       - name: Add nojekyll marker
         run: touch out/.nojekyll
 

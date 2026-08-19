@@ -95,8 +95,10 @@ const { transmissionIndicators, transmissionObservations } = require("../src/lib
 const { getV4DataQualitySummary, v4QualityCountrySlugs } = require("../src/lib/v4DataQuality.ts");
 const { verifyChinaProject } = require("../src/lib/chinaProjectVerification.ts");
 const { modelCards, modelOutputs } = require("../src/lib/modelFramework.ts");
+const { SCENARIO_FORMULA_VERSION, scenarioDefinitions } = require("../src/lib/scenarioFramework.ts");
 const { scenarioExportLayers } = require("../src/lib/scenarioResearch.ts");
 const { goldenTestCases, validationRegistry, validationSummary } = require("../src/lib/researchValidation.ts");
+const { platformRelease, platformCitation } = require("../src/lib/releaseMetadata.ts");
 const {
   chinaExposureModelCard,
   chinaExposureOutputs,
@@ -1986,6 +1988,26 @@ writeLayer("golden_test_cases", goldenTestCases, {
   generated_at: "2026-08-15",
   schema_version: "model-scenario-validation-v0.91",
   relation_note: "Fixed regression cases for Hungary, Poland, Germany and Romania. Expected values require an explicit formula migration when changed.",
+});
+writeJson("platform_metadata.json", {
+  ...platformRelease,
+  citation: platformCitation("YYYY-MM-DD"),
+  canonical_url: "https://hui-sallai.github.io/central-europe-political-atlas/",
+  data_status_enum: ["official", "verified", "calculated", "derived", "pending", "sample", "placeholder"],
+  missing_data_enum: ["unavailable", "pending_publication", "not_applicable", "insufficient_evidence", "review_required"],
+});
+writeJson("release_manifest.json", {
+  platform_version: platformRelease.version,
+  release_date: platformRelease.release_date,
+  source_commit: process.env.GITHUB_SHA ?? "working-tree",
+  data_export_version: schemaVersion,
+  canonical_data_version: canonicalSchemaVersion,
+  model_versions: modelCards.map((card) => ({ model_id: card.model_id, model_version: card.model_version, formula_version: card.formula_version, weight_version: card.weight_version })),
+  scenario_versions: scenarioDefinitions.map((scenario) => ({ scenario_id: scenario.scenario_id, formula_version: SCENARIO_FORMULA_VERSION })),
+  validation_version: validationSummary.stage,
+  boundary_versions: ["GISCO NUTS 2024", "regional spatial QA v0.87-v0.89"],
+  validation_summary: validationSummary,
+  public_display_boundaries: platformRelease.limitations,
 });
 writeLayer("china_exposure_variables", chinaExposureVariables, {
   schema_version: "china-economic-exposure-v0.82",

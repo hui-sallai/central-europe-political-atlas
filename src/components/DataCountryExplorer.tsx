@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
+import { CitationActions } from "@/components/CitationActions";
 import { getEventsForCountry, getResearchIndicator, researchCountries } from "@/lib/researchData";
 import { countryMetadataRecords, researchDataLayerFiles, scenarioExportFiles, spatialAuditExportFiles } from "@/lib/countryMetadata";
 import { regionMetadataRecords } from "@/lib/regions";
@@ -2889,7 +2890,7 @@ function ResearchDataExportLinks() {
   const exportStatusCards = [
     { label: "CSV 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .csv 文件。" },
     { label: "JSON 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: platformStatus.version, note: "v0.91 新增 validation registry、黄金案例和可执行复现检查；17 个核心逻辑数据层保持不变。" },
+    { label: "当前阶段", value: platformStatus.version, note: "当前发布候选保留 17 个核心逻辑数据层，并增加统一引用、稳定研究链接和发布验收。" },
   ];
 
   return (
@@ -3439,9 +3440,11 @@ function ChinaProjectTable({ projects, countryName }: { projects: ChinaProjectRe
                 );
 
                 return (
-                <tr key={project.projectId} className="align-top">
+                <tr id={`project-${project.projectId}`} key={project.projectId} className="scroll-mt-24 align-top">
                   <td className="text-cell border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">
                     <p>{project.projectName}</p>
+                    <p className="mt-1 font-mono text-[10px] font-normal text-[var(--muted)]">{project.projectId}</p>
+                    <div className="mt-2"><CitationActions compact plainText={`Central Europe Political Atlas, project ${project.projectId}, ${project.projectName}, ${project.year || "year pending"}. Source reliability: ${project.sourceReliabilityLevel}. ${project.sourceUrl}`} /></div>
                     {mapLocation ? <Link href={`/map?country=${project.countrySlug}&layer=china_project_locations&regions=${mapLocation.region_id}&project=${mapLocation.project_location_id}`} className="mt-2 inline-flex text-xs font-semibold text-[var(--accent)] hover:underline">View on Map</Link> : <p className="mt-2 text-[10px] font-normal text-[var(--muted)]">位置未达到地图准入</p>}
                   </td>
                   <td className="nowrap-cell border-b border-[var(--line)] px-3 py-3">{countryName}</td>
@@ -3575,6 +3578,27 @@ export function DataCountryExplorer() {
   const [selectedSlug, setSelectedSlug] = useState(countries[0]?.slug ?? "");
   const [activeMode, setActiveMode] = useState<DataMode>("economy");
   const [activeMetric, setActiveMetric] = useState<EconomicMetricId>("gdp");
+  const [urlReady, setUrlReady] = useState(false);
+
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      const params = new URLSearchParams(window.location.search);
+      const requestedCountry = params.get("country");
+      const requestedMode = params.get("mode") as DataMode | null;
+      if (requestedCountry && countries.some((country) => country.slug === requestedCountry)) setSelectedSlug(requestedCountry);
+      if (requestedMode && dataModes.some((mode) => mode.id === requestedMode)) setActiveMode(requestedMode);
+      setUrlReady(true);
+    }, 0);
+    return () => window.clearTimeout(timeoutId);
+  }, []);
+
+  useEffect(() => {
+    if (!urlReady) return;
+    const url = new URL(window.location.href);
+    url.searchParams.set("country", selectedSlug);
+    url.searchParams.set("mode", activeMode);
+    window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+  }, [activeMode, selectedSlug, urlReady]);
   const selectedCountry = useMemo(
     () => countries.find((country) => country.slug === selectedSlug) ?? countries[0],
     [selectedSlug],

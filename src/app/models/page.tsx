@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { ModelExplorer } from "@/components/ModelExplorer";
 import { ChinaExposureExplorer } from "@/components/ChinaExposureExplorer";
 import { chinaExposureModelCard, chinaExposureOutputs, chinaExposureRankingGate } from "@/lib/chinaExposureModel";
@@ -6,13 +7,18 @@ import { modelAvailabilitySummary, modelCards, modelOutputs } from "@/lib/modelF
 import { platformStatus } from "@/lib/platformStatus";
 import { researchCountries } from "@/lib/researchData";
 
+export const metadata: Metadata = {
+  title: "透明模型",
+  description: "四项透明规则模型、输入追踪、权重、数据完整度、置信度与限制。",
+};
+
 export default function ModelsPage() {
   return (
     <main className="page-shell">
       <p className="eyebrow">Transparent Models / {platformStatus.version}</p>
       <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">透明模型工作台</h1>
       <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-        v0.50 的居民经济压力、财政压力与外部脆弱性及 v0.70 产业依赖规则均保持不变。v0.91 只验证这些既有公式、权重、输入追踪和准入门槛；不生成 region-level model score。
+        四项既有规则模型公开输入、标准化、权重、贡献、完整度与限制。每项输出都能回到 observation 和来源；模型分数用于比较，不是概率、预测或客观风险真值。
       </p>
       <Link href="/scenarios" className="mt-4 inline-flex rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)] hover:bg-[var(--accent)] hover:text-white">
         进入 Scenario Workspace

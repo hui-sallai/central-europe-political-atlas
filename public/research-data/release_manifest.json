@@ -1,0 +1,82 @@
+{
+  "platform_version": "v0.95 Research Release Candidate",
+  "release_date": "2026-08-19",
+  "source_commit": "working-tree",
+  "data_export_version": "research-data-v0.1",
+  "canonical_data_version": "data-foundation-v0.76",
+  "model_versions": [
+    {
+      "model_id": "household_economic_pressure",
+      "model_version": "v0.50.0",
+      "formula_version": "household_pressure_v1",
+      "weight_version": "household_pressure_weights_v1"
+    },
+    {
+      "model_id": "fiscal_pressure",
+      "model_version": "v0.50.0",
+      "formula_version": "fiscal_pressure_v1",
+      "weight_version": "fiscal_pressure_weights_v1"
+    },
+    {
+      "model_id": "external_vulnerability",
+      "model_version": "v0.50.0",
+      "formula_version": "external_vulnerability_v1",
+      "weight_version": "external_vulnerability_weights_v1"
+    },
+    {
+      "model_id": "industrial_dependency",
+      "model_version": "v0.70.0",
+      "formula_version": "industrial_dependency_v1",
+      "weight_version": "industrial_dependency_weights_v1"
+    }
+  ],
+  "scenario_versions": [
+    {
+      "scenario_id": "inflation_resurgence",
+      "formula_version": "scenario_transmission_v090"
+    },
+    {
+      "scenario_id": "eu_funds_delay",
+      "formula_version": "scenario_transmission_v090"
+    },
+    {
+      "scenario_id": "energy_price_shock",
+      "formula_version": "scenario_transmission_v090"
+    },
+    {
+      "scenario_id": "germany_demand_slowdown",
+      "formula_version": "scenario_transmission_v090"
+    }
+  ],
+  "validation_version": "v0.91 Model & Scenario Validation",
+  "boundary_versions": [
+    "GISCO NUTS 2024",
+    "regional spatial QA v0.87-v0.89"
+  ],
+  "validation_summary": {
+    "stage": "v0.91 Model & Scenario Validation",
+    "reviewed_at": "2026-08-15",
+    "total": 145,
+    "passed": 144,
+    "partial": 1,
+    "failed": 0,
+    "not_tested": 0,
+    "blocking_failures": 0,
+    "golden_cases": 32,
+    "golden_failures": 0,
+    "expected_unavailable_cases": 3,
+    "validated_countries": 4,
+    "models_covered": 4,
+    "scenarios_covered": 4,
+    "unresolved": [
+      "Historical backtests remain structure_only because point-in-time vintage observations are not yet available.",
+      "Revised historical data can support directional validation but not strict real-time forecast accuracy claims.",
+      "Regional context remains factual and cross-level comparison is prohibited; no regional scenario score exists."
+    ]
+  },
+  "public_display_boundaries": [
+    "No election forecasts, investment advice, probability forecasts, or causal impact estimates.",
+    "Serbia regional comparison remains pending while national data remain available.",
+    "China Economic Exposure and China-linked Project Disruption remain subject to their published evidence gates."
+  ]
+}

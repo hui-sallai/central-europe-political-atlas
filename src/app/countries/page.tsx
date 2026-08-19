@@ -1,9 +1,15 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { DataStatusBadge } from "@/components/DataStatusBadge";
 import { getExtendedObservationCoverage } from "@/lib/extendedData";
 import { researchCountries } from "@/lib/researchData";
 import { regionalCoverageMatrixV087, spatialV087Summary } from "@/lib/spatialDataV087";
 import type { DataStatus } from "@/types/researchData";
+
+export const metadata: Metadata = {
+  title: "国家研究目录",
+  description: "十国国家档案、数据完整度、模型可用性、事件与区域资料入口。",
+};
 
 const v4CountrySlugs = new Set(["poland", "hungary", "czechia", "slovakia"]);
 

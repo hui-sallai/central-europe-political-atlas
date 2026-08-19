@@ -2,7 +2,10 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { CitationActions } from "@/components/CitationActions";
 import { calculateScenario, getSensitivityShockValues } from "@/lib/scenarioFramework";
+import { PLATFORM_BASE_URL, PLATFORM_VERSION } from "@/lib/releaseMetadata";
+import { validationRegistry } from "@/lib/researchValidation";
 import type { Country } from "@/types/Country";
 import type { ModelCard, ModelOutput } from "@/types/ModelOutput";
 import type {
@@ -56,6 +59,7 @@ export function ScenarioExplorer({
   const evidence = evidenceLinks.filter((item) => item.country_slug === countrySlug && item.scenario_id === scenarioId);
   const contextCoverage = regionalContext?.status === "available" ? 100 : 0;
   const currentEvidenceQuality = evidenceQuality(evidence);
+  const validationFailed = validationRegistry.some((item) => item.status === "failed" && item.severity === "error" && item.target_id === scenarioId);
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -123,6 +127,10 @@ export function ScenarioExplorer({
 
   const adjustmentRows = [{ label: "Scenario A", result: resultA }, { label: "Scenario B", result: resultB }];
 
+  if (validationFailed) {
+    return <section className="mt-6 rounded-2xl border border-rose-200 bg-rose-50 p-6 text-rose-950"><p className="eyebrow">Validation Gate</p><h2 className="mt-3 text-2xl font-semibold">Temporarily unavailable due to validation issue</h2><p className="mt-3 text-sm leading-6">该情景的验证门禁失败，旧结果不会继续显示。原始 observation 未被修改。</p></section>;
+  }
+
   return (
     <div className="mt-6 grid gap-5">
       <section className="card p-6">
@@ -172,6 +180,7 @@ export function ScenarioExplorer({
           </table>
         </div>
         <p className="mt-4 text-xs leading-5 text-[var(--muted)]">Scenario A 与 B 是两个独立假设，不合成为综合未来预测。{resultA.interpretation_boundary}</p>
+        <div className="mt-4"><CitationActions compact plainText={`Central Europe Political Atlas, ${PLATFORM_VERSION}, scenario ${scenarioId}, country ${countrySlug}, baseline ${resultA.baseline_date ?? "unavailable"}, shock ${resultA.shock_value} ${definition.shock_unit}, model ${resultA.model_version ?? "unavailable"}, formula ${resultA.formula_version}, accessed YYYY-MM-DD. ${PLATFORM_BASE_URL}scenarios/?scenario=${scenarioId}&country=${countrySlug}&shock=${resultA.requested_shock_value}`} /></div>
       </section>
 
       <section className="grid gap-5 xl:grid-cols-[1.1fr_0.9fr]">
@@ -227,6 +236,7 @@ export function ScenarioExplorer({
         </div>
         <ul className="mt-5 grid gap-2 text-sm leading-6 text-[var(--muted)] md:grid-cols-2">{definition.limitations.map((item) => <li key={item} className="rounded-xl bg-[var(--surface-muted)] px-4 py-3">{item}</li>)}<li className="rounded-xl bg-[var(--surface-muted)] px-4 py-3">情景 ≠ 预测；暴露 ≠ 风险；相关 ≠ 因果；结构背景 ≠ 精确影响量。</li></ul>
         <p className="mt-4 font-mono text-xs text-[var(--muted)]">baseline={resultA.baseline_date ?? "unavailable"} / model={resultA.model_version ?? "unavailable"} / formula={resultA.formula_version} / weights={resultA.weight_version ?? "unavailable"} / boundary={resultA.shock_boundary_status} / calculation={resultA.calculation_timestamp}</p>
+        <div className="mt-4"><CitationActions compact plainText={`Central Europe Political Atlas, ${PLATFORM_VERSION}, Scenario Card ${definition.scenario_id}, formula ${resultA.formula_version}, model ${definition.reference_model_id}, accessed YYYY-MM-DD. ${PLATFORM_BASE_URL}scenarios/?scenario=${definition.scenario_id}&country=${countrySlug}&shock=${resultA.requested_shock_value}`} /></div>
       </details>
     </div>
   );

@@ -1,7 +1,10 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
+import { CitationActions } from "@/components/CitationActions";
 import { DataStatusBadge, SourceStatusBadge } from "@/components/DataStatusBadge";
+import { PLATFORM_BASE_URL, PLATFORM_VERSION } from "@/lib/releaseMetadata";
 import { getResearchIndicator, getResearchProject, researchCountries, researchEvents } from "@/lib/researchData";
 import type { Event, EventType } from "@/types/researchData";
 
@@ -95,6 +98,7 @@ function EventCard({ item }: { item: Event }) {
           </a>
         ) : <span className="text-[var(--muted)]">来源：{item.source_name}</span>}
       </div>
+      <div className="mt-3"><CitationActions compact plainText={`Central Europe Political Atlas, ${PLATFORM_VERSION}, event ${item.event_id}, ${item.date}, ${item.title}. Source: ${item.source_name}. Platform record: ${PLATFORM_BASE_URL}news/#${item.id}`} /></div>
       <div className="mt-4 rounded-xl bg-[var(--surface-muted)] p-3">
         <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">Affected Indicators</p>
         <div className="mt-2 flex flex-wrap gap-2">
@@ -110,9 +114,9 @@ function EventCard({ item }: { item: Event }) {
           <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">Related Projects</p>
           <div className="mt-2 flex flex-wrap gap-2">
             {item.related_project_ids.map((projectId) => (
-              <span key={projectId} className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold" title={projectId}>
+              <Link key={projectId} href={`/data?country=${item.country_slug}&mode=projects#project-${projectId}`} className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold hover:text-[var(--accent)]" title={projectId}>
                 {getResearchProject(projectId)?.name ?? projectId}
-              </span>
+              </Link>
             ))}
           </div>
           <p className="mt-2 text-xs text-[var(--muted)]">Event → Project → Indicator 仅记录研究关联，不生成风险判断或模型分数。</p>
@@ -144,6 +148,26 @@ function EventCard({ item }: { item: Event }) {
 export function NewsExplorer() {
   const [countryFilter, setCountryFilter] = useState<CountryFilter>("all");
   const [eventTypeFilter, setEventTypeFilter] = useState<EventTypeFilter>("all");
+
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => {
+      const params = new URLSearchParams(window.location.search);
+      const country = params.get("country");
+      const type = params.get("type") as EventType | null;
+      if (country && researchCountries.some((item) => item.slug === country)) setCountryFilter(country);
+      if (type && Object.prototype.hasOwnProperty.call(eventTypeLabels, type)) setEventTypeFilter(type);
+    }, 0);
+    return () => window.clearTimeout(timeoutId);
+  }, []);
+
+  function updateFilter(kind: "country" | "type", value: string) {
+    if (kind === "country") setCountryFilter(value);
+    else setEventTypeFilter(value as EventTypeFilter);
+    const url = new URL(window.location.href);
+    if (value === "all") url.searchParams.delete(kind);
+    else url.searchParams.set(kind, value);
+    window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+  }
   const eventTypes = Object.keys(eventTypeLabels) as EventType[];
   const filteredItems = useMemo(
     () => researchEvents.filter((item) => (countryFilter === "all" || item.country_slug === countryFilter) && (eventTypeFilter === "all" || item.event_type === eventTypeFilter)),
@@ -176,18 +200,18 @@ export function NewsExplorer() {
         <div className="mt-5">
           <p className="text-xs font-semibold text-[var(--muted)]">国家</p>
           <div className="mt-3 flex flex-wrap gap-2">
-            <button type="button" onClick={() => setCountryFilter("all")} className={`rounded-full border px-3 py-1 text-sm ${countryFilter === "all" ? "border-[var(--accent)] bg-[var(--accent)] text-white" : "border-[var(--line)] bg-white text-[var(--muted)]"}`}>全部</button>
+            <button type="button" onClick={() => updateFilter("country", "all")} className={`rounded-full border px-3 py-1 text-sm ${countryFilter === "all" ? "border-[var(--accent)] bg-[var(--accent)] text-white" : "border-[var(--line)] bg-white text-[var(--muted)]"}`}>全部</button>
             {researchCountries.map((country) => (
-              <button key={country.slug} type="button" onClick={() => setCountryFilter(country.slug)} className={`rounded-full border px-3 py-1 text-sm ${countryFilter === country.slug ? "border-[var(--accent)] bg-[var(--accent)] text-white" : "border-[var(--line)] bg-white text-[var(--muted)]"}`}>{country.name_zh}</button>
+              <button key={country.slug} type="button" onClick={() => updateFilter("country", country.slug)} className={`rounded-full border px-3 py-1 text-sm ${countryFilter === country.slug ? "border-[var(--accent)] bg-[var(--accent)] text-white" : "border-[var(--line)] bg-white text-[var(--muted)]"}`}>{country.name_zh}</button>
             ))}
           </div>
         </div>
         <div className="mt-6">
           <p className="text-xs font-semibold text-[var(--muted)]">事件类型</p>
           <div className="mt-3 flex flex-wrap gap-2">
-            <button type="button" onClick={() => setEventTypeFilter("all")} className={`rounded-full border px-3 py-1 text-sm ${eventTypeFilter === "all" ? "border-[var(--accent)] bg-[var(--accent)] text-white" : "border-[var(--line)] bg-white text-[var(--muted)]"}`}>全部</button>
+            <button type="button" onClick={() => updateFilter("type", "all")} className={`rounded-full border px-3 py-1 text-sm ${eventTypeFilter === "all" ? "border-[var(--accent)] bg-[var(--accent)] text-white" : "border-[var(--line)] bg-white text-[var(--muted)]"}`}>全部</button>
             {eventTypes.map((eventType) => (
-              <button key={eventType} type="button" onClick={() => setEventTypeFilter(eventType)} className={`rounded-full border px-3 py-1 text-sm ${eventTypeFilter === eventType ? "border-[var(--accent)] bg-[var(--accent)] text-white" : "border-[var(--line)] bg-white text-[var(--muted)]"}`}>{eventTypeLabels[eventType]}</button>
+              <button key={eventType} type="button" onClick={() => updateFilter("type", eventType)} className={`rounded-full border px-3 py-1 text-sm ${eventTypeFilter === eventType ? "border-[var(--accent)] bg-[var(--accent)] text-white" : "border-[var(--line)] bg-white text-[var(--muted)]"}`}>{eventTypeLabels[eventType]}</button>
             ))}
           </div>
         </div>

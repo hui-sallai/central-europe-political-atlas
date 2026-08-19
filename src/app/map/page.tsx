@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { ComparativeSpatialWorkbench } from "@/components/ComparativeSpatialWorkbench";
 import { mapDisplayBoundary, platformStatus } from "@/lib/platformStatus";
 import { regionalGeometryQa, sharedSpatialLicenseRecords, spatialDisplayGateAudit } from "@/lib/spatialDataV087";
@@ -11,6 +12,11 @@ import {
   spatialV089Summary,
 } from "@/lib/spatialResearchV089";
 
+export const metadata: Metadata = {
+  title: "区域事实地图",
+  description: "九国区域事实比较、历史变化、项目位置和来源追溯工作台。",
+};
+
 export default function MapPage() {
   const serbia = spatialDisplayGateAudit.find((record) => record.country_id === "serbia");
 
@@ -21,7 +27,7 @@ export default function MapPage() {
         <div>
           <h1 className="text-4xl font-semibold tracking-[-0.03em]">区域比较研究工作台</h1>
           <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-            九个欧盟国家已开放通过验收的事实边界，并按层级接入经济、劳动力、产业与历史变化指标。选择国家、指标和年份后可比较区域、查看项目与追溯来源；塞尔维亚继续保持空间比较待接入。
+            九个欧盟国家已开放通过展示闸门的事实边界，并按层级接入经济、劳动力、产业与历史变化指标。选择国家、指标和年份后可比较区域、查看项目与追溯来源；塞尔维亚保留国家数据，区域比较继续待接入。
           </p>
         </div>
         <div className="grid grid-cols-2 gap-2 text-xs sm:grid-cols-4 lg:max-w-xl">

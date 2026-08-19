@@ -26,6 +26,9 @@ export interface GoldenTestCase {
   known_input: string;
   expected_output: number | null;
   actual_output: number | null;
+  expected_status: "numeric" | "unavailable";
+  actual_status: "numeric" | "unavailable";
+  validation_status: "passed_numeric" | "passed_gate" | "failed";
   tolerance: number;
   status: "passed" | "failed";
   formula_version: string;
