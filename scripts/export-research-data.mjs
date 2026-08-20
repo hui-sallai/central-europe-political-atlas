@@ -14,6 +14,7 @@ const schemaVersion = "research-data-v0.1";
 const canonicalGeneratedAt = "2026-08-12";
 const canonicalSchemaVersion = "data-foundation-v0.76";
 const chinaExposureDatabaseUpdatedAt = "2026-08-11";
+const eventLibraryUpdatedAt = "2026-08-20";
 
 execFileSync(process.execPath, [path.join(projectRoot, "scripts", "build-spatial-data-v087.mjs")], {
   cwd: projectRoot,
@@ -2095,7 +2096,7 @@ writeCanonicalCollection("observations", canonicalObservationRecords, {
 writeCanonicalCollection("sources", canonicalSourceRecords, { primary_key: "id" });
 writeCanonicalCollection("events", canonicalEventRecords, {
   schema_version: "event-database-v0.35",
-  generated_at: chinaExposureDatabaseUpdatedAt,
+  generated_at: eventLibraryUpdatedAt,
   primary_key: "id",
   event_types: eventTypeValues,
   model_boundary: "Coded events only record indicator and future-model associations. All current records keep enters_model=false and generate no scores or forecasts.",

@@ -173,16 +173,21 @@ export function NewsExplorer() {
     () => researchEvents.filter((item) => (countryFilter === "all" || item.country_slug === countryFilter) && (eventTypeFilter === "all" || item.event_type === eventTypeFilter)),
     [countryFilter, eventTypeFilter],
   );
-  const verifiedItems = filteredItems.filter((item) => item.data_status === "verified");
+  const verifiedItems = filteredItems
+    .filter((item) => item.data_status === "verified")
+    .slice()
+    .sort((left, right) => right.date.localeCompare(left.date));
   const sampleItems = filteredItems.filter((item) => item.data_status === "sample");
-  const codedCount = researchEvents.filter((item) => item.coding_status === "coded" && item.data_status === "verified").length;
+  const verifiedCount = researchEvents.filter((item) => item.data_status === "verified").length;
+  const weeklyVerifiedCount = researchEvents.filter((item) => item.data_status === "verified" && item.date >= "2026-08-13" && item.date <= "2026-08-20").length;
   const associatedIndicatorCount = new Set(researchEvents.flatMap((item) => item.affected_indicator)).size;
 
   return (
     <>
-      <section className="mt-6 grid gap-3 md:grid-cols-3">
+      <section className="mt-6 grid gap-3 md:grid-cols-4">
         {[
-          ["V4 已编码事件", `${codedCount} 条`],
+          ["本周十国事件", `${weeklyVerifiedCount} 条`],
+          ["全部经核验事件", `${verifiedCount} 条`],
           ["事件分类", `${eventTypes.length} 类`],
           ["已关联指标", `${associatedIndicatorCount} 项`],
         ].map(([label, value]) => (
@@ -222,7 +227,7 @@ export function NewsExplorer() {
           <p className="eyebrow">Political Economy Event Library</p>
           <div className="mt-2 flex flex-wrap items-end justify-between gap-3">
             <div>
-              <h2 className="text-2xl font-semibold">V4 正式事件样本</h2>
+              <h2 className="text-2xl font-semibold">十国正式事件记录</h2>
               <p className="mt-2 text-sm leading-6 text-[var(--muted)]">事件可关联 projects、indicators 与未来模型候选，但当前不计算分数；所有记录保持 enters_model=false。</p>
             </div>
             <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">{verifiedItems.length} 条</span>
