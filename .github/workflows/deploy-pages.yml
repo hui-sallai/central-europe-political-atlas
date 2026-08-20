@@ -38,6 +38,9 @@ jobs:
       - name: Export research data
         run: pnpm export:research-data
 
+      - name: Build versioned research package
+        run: pnpm package:research-data
+
       - name: Lint
         run: pnpm lint
 
