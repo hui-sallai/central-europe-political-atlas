@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PLATFORM_BASE_URL, PLATFORM_NAME, PLATFORM_VERSION } from "@/lib/releaseMetadata";
-import { frozenNavItems } from "@/lib/siteStructure";
+import { primaryNavItems } from "@/lib/siteStructure";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -36,12 +36,11 @@ export default function RootLayout({
               Central Europe <span className="text-[var(--accent)]">Political Atlas</span>
             </Link>
             <div className="flex max-w-full gap-x-4 overflow-x-auto py-1 text-xs font-semibold text-[var(--muted)] sm:text-sm">
-              {frozenNavItems.map((item) => (
+              {primaryNavItems.map((item) => (
                 <Link key={item.href} href={item.href} className="whitespace-nowrap hover:text-[var(--accent)]">
                   {item.label}
                 </Link>
               ))}
-              <Link href="/scenarios" className="whitespace-nowrap hover:text-[var(--accent)]">Scenarios</Link>
             </div>
           </nav>
         </header>

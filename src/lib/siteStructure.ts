@@ -1,8 +1,9 @@
-export const frozenNavItems = [
+export const primaryNavItems = [
   { href: "/", label: "Overview", role: "研究平台总览" },
   { href: "/countries", label: "Countries", role: "国家研究目录" },
   { href: "/data", label: "Data", role: "数据浏览与下载" },
   { href: "/models", label: "Analysis", role: "分析工作台" },
+  { href: "/scenarios", label: "Scenarios", role: "条件情景分析" },
   { href: "/news", label: "Events", role: "政治经济事件库" },
   { href: "/map", label: "Map", role: "区域事实地图" },
   { href: "/methodology", label: "Research", role: "方法论与研究下载" },

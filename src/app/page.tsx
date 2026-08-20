@@ -1,9 +1,9 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { modelOutputs } from "@/lib/modelFramework";
+import { HomeResearchMap, type HomeMapCountry } from "@/components/HomeResearchMap";
+import { getBasicIndicators } from "@/lib/basicIndicators";
 import { platformStatus } from "@/lib/platformStatus";
-import { researchCountries, researchEvents } from "@/lib/researchData";
-import { platformRelease } from "@/lib/releaseMetadata";
+import { getEventsForCountry, researchCountries, researchEvents } from "@/lib/researchData";
 
 export const metadata: Metadata = {
   title: "中欧政治经济研究平台",
@@ -11,17 +11,32 @@ export const metadata: Metadata = {
 };
 
 const primaryEntries = [
-  { href: "/countries", label: "Countries", zh: "国家研究", note: "十国经济、政治、项目、事件和模型入口" },
-  { href: "/data", label: "Data", zh: "数据浏览", note: "按国家、指标和年份查询可追溯观测值" },
-  { href: "/models", label: "Analysis", zh: "分析工作台", note: "Composite Indicators 与未来分析技能注册表" },
-  { href: "/news", label: "Events", zh: "事件库", note: "政治经济事件、来源与研究关联" },
-  { href: "/map", label: "Map", zh: "区域地图", note: "九国已验收区域事实和项目位置" },
-  { href: "/methodology", label: "Research", zh: "方法与下载", note: "来源、验证、限制、引用和研究数据包" },
+  { href: "/countries", label: "Countries", zh: "国家研究" },
+  { href: "/data", label: "Data", zh: "数据浏览" },
+  { href: "/models", label: "Analysis", zh: "分析工作台" },
+  { href: "/scenarios", label: "Scenarios", zh: "条件情景" },
+  { href: "/news", label: "Events", zh: "事件库" },
+  { href: "/map", label: "Map", zh: "区域地图" },
+  { href: "/methodology", label: "Research", zh: "方法与下载" },
 ] as const;
 
 export default function Home() {
-  const verifiedEvents = researchEvents.filter((event) => event.data_status === "verified").length;
-  const availableModelOutputs = modelOutputs.filter((output) => output.score !== null).length;
+  const mapCountries: HomeMapCountry[] = researchCountries.map((country) => {
+    const indicators = getBasicIndicators(country.slug).filter((indicator) => ["growth", "inflation", "unemployment", "gdpPerCapita"].includes(indicator.id));
+    const latestEvent = getEventsForCountry(country.slug).find((event) => event.data_status === "verified") ?? null;
+    return {
+      slug: country.slug,
+      nameZh: country.name_zh,
+      nameEn: country.name,
+      iso2: country.iso2,
+      indicators: indicators.map((indicator) => ({ id: indicator.id, label: indicator.label, value: indicator.value, year: indicator.year })),
+      latestEvent: latestEvent ? { id: latestEvent.id, date: latestEvent.date, title: latestEvent.title } : null,
+    };
+  });
+  const latestSignals = researchEvents
+    .filter((event) => event.data_status === "verified")
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .slice(0, 6);
 
   return (
     <main className="page-shell">
@@ -42,19 +57,13 @@ export default function Home() {
         </aside>
       </section>
 
-      <section className="grid gap-px overflow-hidden border-b border-[var(--line)] bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-4" aria-label="研究覆盖摘要">
-        {[
-          ["国家", String(researchCountries.length), "统一国家与观测值结构"],
-          ["区域事实地图", `${platformRelease.regional_factual_map_countries} 国`, "通过公开展示闸门"],
-          ["可用模型结果", String(availableModelOutputs), "透明规则输出，非预测"],
-          ["经核验事件", String(verifiedEvents), "来源可追溯，默认不进入模型"],
-        ].map(([label, value, note]) => (
-          <article key={label} className="bg-[var(--surface)] px-5 py-6">
-            <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[var(--muted)]">{label}</p>
-            <p className="metric-number mt-3 text-3xl font-semibold text-[var(--accent)]">{value}</p>
-            <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{note}</p>
-          </article>
-        ))}
+      <HomeResearchMap countries={mapCountries} />
+
+      <section className="editorial-section mt-10" aria-labelledby="latest-signals-title">
+        <div className="flex items-end justify-between gap-4"><div><p className="editorial-kicker">Latest Signals</p><h2 id="latest-signals-title" className="mt-2 text-3xl font-semibold">近期已核验事件</h2></div><Link href="/news" className="text-sm font-semibold text-[var(--accent)]">打开事件库</Link></div>
+        <div className="latest-signals-grid mt-5">
+          {latestSignals.map((event) => <article key={event.id}><p>{event.date} · {event.country_name}</p><h3><Link href={`/news?country=${event.country_slug}#${event.id}`}>{event.title}</Link></h3><span>{event.event_type} · {event.source_name}</span></article>)}
+        </div>
       </section>
 
       <section className="mt-10">
@@ -65,13 +74,11 @@ export default function Home() {
           </div>
           <p className="max-w-xl text-sm leading-6 text-[var(--muted)]">公开页面优先呈现研究任务；完整 schema、QA 和版本记录保留在下载包与方法论中。</p>
         </div>
-        <nav className="analysis-category-grid mt-6 sm:grid-cols-2 lg:grid-cols-3" aria-label="主要研究入口">
+        <nav className="compact-research-workflow mt-5" aria-label="主要研究入口">
           {primaryEntries.map((entry, index) => (
-            <Link key={entry.href} href={entry.href} className="group min-h-36 p-5 transition hover:bg-white">
-              <span className="metric-number text-xs text-[var(--accent)]">0{index + 1}</span>
-              <span className="mt-4 block text-xl font-semibold">{entry.label}</span>
-              <span className="mt-1 block text-sm font-semibold text-[var(--muted)]">{entry.zh}</span>
-              <span className="mt-3 block text-sm leading-6 text-[var(--muted)] group-hover:text-[var(--foreground)]">{entry.note}</span>
+            <Link key={entry.href} href={entry.href}>
+              <span className="metric-number">0{index + 1}</span>
+              <span><strong>{entry.label}</strong><small>{entry.zh}</small></span>
             </Link>
           ))}
         </nav>

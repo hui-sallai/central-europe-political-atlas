@@ -53,6 +53,9 @@ jobs:
       - name: Research validation
         run: pnpm research:validate
 
+      - name: Build simplified home map
+        run: pnpm map:home
+
       - name: Build static site
         run: pnpm build:site
 

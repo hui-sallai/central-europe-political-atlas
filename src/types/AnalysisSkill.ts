@@ -32,3 +32,32 @@ export interface ScenarioPreset {
   predefined_parameters: Record<string, number | string>;
   explanation: string;
 }
+
+export type AnalysisRunStatus = "completed" | "unavailable" | "registry_only";
+
+export interface AnalysisDataset {
+  country_slug: string;
+  model_id?: string;
+}
+
+export interface AnalysisRunRequest {
+  skillId: string;
+  dataset: AnalysisDataset;
+  parameters?: Record<string, unknown>;
+}
+
+export interface AnalysisDiagnostics {
+  input_completeness: number | null;
+  year_alignment: string;
+  validation_gate: string;
+  missing_variables: string[];
+}
+
+export interface AnalysisResult<TEstimate = unknown> {
+  status: AnalysisRunStatus;
+  estimates: TEstimate | null;
+  diagnostics: AnalysisDiagnostics;
+  visualizations: Array<{ type: string; title: string; data: unknown }>;
+  data_trace: string[];
+  limitations: string[];
+}

@@ -127,11 +127,11 @@ export function CountryResearchProfile({
       ) : null}
 
       {activeTab === "economy" ? (
-        <div className="mt-7 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-7 divide-y divide-[var(--line)] border-y border-[var(--line)]">
           {economyIndicators.map((indicatorId) => {
             const series = observations.filter((item) => item.indicator === indicatorId).sort((a, b) => a.year - b.year);
             const latest = series.filter((item) => item.value !== null).at(-1);
-            return <article key={indicatorId} className="editorial-panel p-5"><p className="text-sm font-semibold">{indicatorLabels[indicatorId]}</p><p className="metric-number mt-3 text-2xl font-semibold text-[var(--accent)]">{latest ? formatValue(latest.value, latest.unit) : "待接入"}</p><p className="mt-1 text-xs text-[var(--muted)]">latest {latest?.year ?? "—"}</p><div className="mt-4"><Sparkline label={`${indicatorLabels[indicatorId]}时间序列`} values={series.map((item) => ({ label: String(item.year), value: item.value }))} /></div><details className="advanced-disclosure mt-4"><summary>来源与观测记录</summary><div className="mt-3 grid gap-2 text-xs text-[var(--muted)]">{series.map((item) => <p key={item.id}>{item.year}: {formatValue(item.value, item.unit)} · {item.source_name}</p>)}</div></details></article>;
+            return <article key={indicatorId} className="grid gap-3 py-4 sm:grid-cols-[minmax(150px,0.6fr)_minmax(150px,0.55fr)_minmax(180px,1fr)_auto] sm:items-center"><div><p className="text-sm font-semibold">{indicatorLabels[indicatorId]}</p><p className="mt-1 text-xs text-[var(--muted)]">latest {latest?.year ?? "—"}</p></div><p className="metric-number text-xl font-semibold text-[var(--accent)]">{latest ? formatValue(latest.value, latest.unit) : "待接入"}</p><Sparkline label={`${indicatorLabels[indicatorId]}时间序列`} values={series.map((item) => ({ label: String(item.year), value: item.value }))} /><details className="advanced-disclosure sm:min-w-36"><summary>来源与记录</summary><div className="mt-3 grid gap-2 text-xs text-[var(--muted)]">{series.map((item) => <p key={item.id}>{item.year}: {formatValue(item.value, item.unit)} · {item.source_name}</p>)}</div></details></article>;
           })}
         </div>
       ) : null}
