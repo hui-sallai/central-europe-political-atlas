@@ -1,32 +1,21 @@
 import type { Metadata } from "next";
-import { DataWorkspaceClient } from "@/components/DataWorkspaceClient";
-import { StatusSummary } from "@/components/StatusSummary";
-import { platformStatus } from "@/lib/platformStatus";
+import { DataExplorerV11 } from "@/components/DataExplorerV11";
+import { researchCountries, researchIndicators, researchObservations } from "@/lib/researchData";
 
 export const metadata: Metadata = {
-  title: "研究数据工作台",
-  description: "十国观测值、指标字典、来源字典、项目、区域数据和质量验收入口。",
+  title: "Data Explorer",
+  description: "按国家、指标与年份浏览可追溯观测值并下载研究数据。",
 };
 
-export default function DataOverviewPage() {
+export default function DataPage() {
   return (
-    <main className="page-shell data-page-shell">
-      <p className="eyebrow">Data Workspace / {platformStatus.version}</p>
-      <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">数据工作台</h1>
-      <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-        先选择国家，再查看基础宏观数据、十国统一扩展指标、对华经贸项目与来源。区域结构、字典、质量验收和导出记录保留在“结构与字典”中，默认不展开。
-      </p>
-      <div className="mt-5">
-        <StatusSummary
-          columns="three"
-          items={[
-            { label: "默认视图", value: "国家选择 + 宏观经济数据" },
-            { label: "研究数据层", value: "17 个逻辑层保留，按需展开" },
-            { label: "发布状态", value: "验证启用；引用与导出结构可用" },
-          ]}
-        />
-      </div>
-      <DataWorkspaceClient />
+    <main className="page-shell">
+      <header className="max-w-4xl border-b border-[var(--line)] pb-8">
+        <p className="editorial-kicker">Data Explorer</p>
+        <h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">研究数据浏览</h1>
+        <p className="mt-5 text-base leading-8 text-[var(--muted)]">按国家、指标和年份读取正式观测值、单位、来源与状态。字段字典、覆盖矩阵、传导输入和 QA 记录保留在高级下载层，不再占据公开页面主体。</p>
+      </header>
+      <DataExplorerV11 countries={researchCountries} indicators={researchIndicators} observations={researchObservations} />
     </main>
   );
 }

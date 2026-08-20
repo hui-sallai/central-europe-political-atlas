@@ -1,11 +1,11 @@
 export const frozenNavItems = [
-  { href: "/map", label: "地图", role: "地图工作台入口" },
-  { href: "/countries", label: "国家", role: "国家档案 + 图层仪表盘" },
-  { href: "/data", label: "数据", role: "数据工作台" },
-  { href: "/news", label: "事件库", role: "政治经济事件编码与指标关联入口" },
-  { href: "/models", label: "模型", role: "透明模型、输入追踪与 Model Card" },
-  { href: "/scenarios", label: "情景", role: "基线、冲击假设与情景差值" },
-  { href: "/methodology", label: "方法论", role: "数据边界和口径说明" },
+  { href: "/", label: "Overview", role: "研究平台总览" },
+  { href: "/countries", label: "Countries", role: "国家研究目录" },
+  { href: "/data", label: "Data", role: "数据浏览与下载" },
+  { href: "/models", label: "Analysis", role: "分析工作台" },
+  { href: "/news", label: "Events", role: "政治经济事件库" },
+  { href: "/map", label: "Map", role: "区域事实地图" },
+  { href: "/methodology", label: "Research", role: "方法论与研究下载" },
 ];
 
 export const frozenScopeNotes = [

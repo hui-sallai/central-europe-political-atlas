@@ -1,72 +1,25 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { ModelExplorer } from "@/components/ModelExplorer";
-import { ChinaExposureExplorer } from "@/components/ChinaExposureExplorer";
-import { chinaExposureModelCard, chinaExposureOutputs, chinaExposureRankingGate } from "@/lib/chinaExposureModel";
-import { modelAvailabilitySummary, modelCards, modelOutputs } from "@/lib/modelFramework";
+import { AnalysisWorkbench } from "@/components/AnalysisWorkbench";
+import { modelCards, modelOutputs } from "@/lib/modelFramework";
 import { platformStatus } from "@/lib/platformStatus";
 import { researchCountries } from "@/lib/researchData";
 
 export const metadata: Metadata = {
-  title: "透明模型",
-  description: "四项透明规则模型、输入追踪、权重、数据完整度、置信度与限制。",
+  title: "分析工作台",
+  description: "运行透明综合指标，并登记未来计量、时间序列、事件、网络与贝叶斯分析能力。",
 };
 
 export default function ModelsPage() {
   return (
     <main className="page-shell">
-      <p className="eyebrow">Transparent Models / {platformStatus.version}</p>
-      <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">透明模型工作台</h1>
-      <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-        四项既有规则模型公开输入、标准化、权重、贡献、完整度与限制。每项输出都能回到 observation 和来源；模型分数用于比较，不是概率、预测或客观风险真值。
-      </p>
-      <Link href="/scenarios" className="mt-4 inline-flex rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)] hover:bg-[var(--accent)] hover:text-white">
-        进入 Scenario Workspace
-      </Link>
-
-      <section className="mt-6 grid gap-3 md:grid-cols-3 xl:grid-cols-4">
-        {modelAvailabilitySummary.map((summary) => {
-          const card = modelCards.find((item) => item.model_id === summary.model_id);
-          return (
-            <article key={summary.model_id} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
-              <p className="font-semibold">{card?.name_zh}</p>
-              <dl className="mt-3 grid grid-cols-3 gap-2 text-center">
-                {[
-                  ["可计算", summary.sufficient],
-                  ["部分", summary.partial],
-                  ["不可计算", summary.insufficient],
-                ].map(([label, value]) => (
-                  <div key={label} className="rounded-xl bg-[var(--surface-muted)] px-2 py-2">
-                    <dt className="text-[10px] text-[var(--muted)]">{label}</dt>
-                    <dd className="mt-1 font-semibold text-[var(--accent)]">{value} 国</dd>
-                  </div>
-                ))}
-              </dl>
-            </article>
-          );
-        })}
-      </section>
-
-      <ModelExplorer countries={researchCountries} cards={modelCards} outputs={modelOutputs} />
-
-      <ChinaExposureExplorer countries={researchCountries} card={chinaExposureModelCard} outputs={chinaExposureOutputs} rankingGate={chinaExposureRankingGate} />
-
-      <section className="mt-6 card p-6">
-        <p className="eyebrow">Reserved Interfaces</p>
-        <h2 className="mt-3 text-2xl font-semibold">当前边界与后续接口</h2>
-        <div className="mt-5 grid gap-3 md:grid-cols-2">
-          {[
-            ["Scenario Simulation", "已在独立情景层启用；不改变 v0.50 基线模型或原始观测值。"],
-            ["Industrial Dependency Index", "v0.75 已统一十国输入结构；FDI 和供应链集中度仍不计正式权重。"],
-            ["China Economic Exposure", "v0.82 已建立十国四维证据矩阵、2021–2024 贸易序列和独立排名闸门；总体门槛未降低，不满足三维充分时仍不输出总体指数。"],
-          ].map(([name, note]) => (
-            <article key={name} className="rounded-2xl border border-dashed border-[var(--line)] bg-[var(--surface-muted)] p-4">
-              <h3 className="font-semibold">{name}</h3>
-              <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{note}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      <header className="max-w-4xl border-b border-[var(--line)] pb-8">
+        <p className="editorial-kicker">Analysis Workbench / {platformStatus.version}</p>
+        <h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">分析工作台</h1>
+        <p className="mt-5 text-base leading-8 text-[var(--muted)]">在同一入口运行现有透明综合指标，并查看结果、驱动、方法和输入数据。Panel、VAR、Event Study、Network 与 Bayesian 方法只登记接口，不生成尚无数据支持的估计。</p>
+        <div className="mt-5 flex flex-wrap gap-3"><Link href="/scenarios" className="rounded-lg bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-white">Scenario presets</Link><Link href="/methodology#models" className="rounded-lg border border-[var(--line)] px-4 py-2 text-sm font-semibold">Research methods</Link></div>
+      </header>
+      <AnalysisWorkbench countries={researchCountries} cards={modelCards} outputs={modelOutputs} />
     </main>
   );
 }

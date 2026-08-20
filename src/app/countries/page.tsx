@@ -1,99 +1,87 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { DataStatusBadge } from "@/components/DataStatusBadge";
-import { getExtendedObservationCoverage } from "@/lib/extendedData";
-import { researchCountries } from "@/lib/researchData";
-import { regionalCoverageMatrixV087, spatialV087Summary } from "@/lib/spatialDataV087";
-import type { DataStatus } from "@/types/researchData";
+import { modelOutputs } from "@/lib/modelFramework";
+import { getLatestObservation, researchCountries, researchEvents, researchProjects } from "@/lib/researchData";
+import { regionalCoverageMatrixV087 } from "@/lib/spatialDataV087";
 
 export const metadata: Metadata = {
   title: "国家研究目录",
-  description: "十国国家档案、数据完整度、模型可用性、事件与区域资料入口。",
+  description: "十国经济、政治事件、项目、模型与区域地图入口。",
 };
 
-const v4CountrySlugs = new Set(["poland", "hungary", "czechia", "slovakia"]);
+const coreIndicators = [
+  ["real_gdp_growth", "GDP 增长"],
+  ["hicp_inflation", "通胀"],
+  ["unemployment_rate", "失业率"],
+  ["gdp_per_capita_eur", "人均 GDP"],
+] as const;
 
-function compactStatus(value: DataStatus) {
-  if (value === "official") return "已接入";
-  if (value === "verified") return "待核验";
-  return "待接入";
+function formatValue(value: number | null, unit: string) {
+  if (value === null) return "待接入";
+  const formatted = value.toLocaleString("zh-CN", { maximumFractionDigits: unit === "欧元" ? 0 : 1 });
+  return `${formatted}${unit === "%" ? "%" : unit === "欧元" ? " €" : ` ${unit}`}`;
 }
 
 export default function CountriesPage() {
   return (
     <main className="page-shell">
-      <p className="eyebrow">Country Research Directory</p>
-      <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">国家档案</h1>
-      <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-        十国均使用同一套基础宏观与核心扩展指标结构。国家卡片只显示数据覆盖状态；完整观测值、来源和 QA 记录集中在数据工作台。
-      </p>
+      <header className="max-w-4xl border-b border-[var(--line)] pb-8">
+        <p className="editorial-kicker">Countries</p>
+        <h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">十国研究目录</h1>
+        <p className="mt-5 text-base leading-8 text-[var(--muted)]">从同一入口查看国家经济、政治事件、对华项目、复合指标和区域地图。卡片只呈现研究可用性，不展开内部 QA 与 schema。</p>
+      </header>
 
-      <div className="mt-6 grid gap-3 md:grid-cols-3">
-        {[
-          ["统一核心指标", "10 国", "基础宏观与 12 项扩展指标采用同一字典和观测值结构。"],
-          ["扩展观测位置", "600 个", "十国 × 12 指标 × 2021–2025；缺失值明确保留待接入。"],
-          ["区域空间主键", `${spatialV087Summary.region_count} 个`, `十国均完成逐国 QA；${spatialV087Summary.public_boundary_country_count} 国通过事实边界展示闸门。`],
-        ].map(([label, value, note]) => (
-          <div key={label} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4">
-            <p className="text-xs font-semibold text-[var(--muted)]">{label}</p>
-            <p className="mt-2 text-xl font-semibold">{value}</p>
-            <p className="mt-2 text-xs leading-5 text-[var(--muted)]">{note}</p>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-8 grid gap-4 md:grid-cols-2">
-        {researchCountries.map((countryRecord) => {
-          const isV4 = v4CountrySlugs.has(countryRecord.slug);
-          const extendedCoverage = getExtendedObservationCoverage(countryRecord.slug);
-          const macroStatus = compactStatus(countryRecord.macro_status);
-          const projectStatus = compactStatus(countryRecord.project_status);
-          const regionalCoverage = regionalCoverageMatrixV087.find((record) => record.country_id === countryRecord.slug);
-          const regionalStatus = regionalCoverage
-            ? `${regionalCoverage.region_count} 区域 / P0 ${regionalCoverage.p0_indicator_count}/3 / ${regionalCoverage.public_layer_count} 个公开图层`
-            : compactStatus(countryRecord.region_status);
-          const eventStatus = countryRecord.event_status === "verified" ? "人工整理" : "待编码";
+      <section className="mt-8 grid gap-px overflow-hidden border border-[var(--line)] bg-[var(--line)] md:grid-cols-2">
+        {researchCountries.map((country) => {
+          const observations = coreIndicators.map(([indicatorId, label]) => ({
+            label,
+            observation: getLatestObservation(country.slug, indicatorId),
+          }));
+          const availableModels = modelOutputs.filter((output) => output.country_slug === country.slug && output.score !== null).length;
+          const recentEvents = researchEvents.filter((event) => event.country_slug === country.slug && event.data_status === "verified").length;
+          const projects = researchProjects.filter((project) => project.country_slug === country.slug).length;
+          const regional = regionalCoverageMatrixV087.find((record) => record.country_id === country.slug);
 
           return (
-            <Link key={countryRecord.slug} href={`/countries/${countryRecord.slug}`} className="card p-6 transition hover:-translate-y-1 hover:shadow-xl">
-              <div className="flex items-start justify-between gap-4">
+            <article key={country.slug} className="bg-[var(--surface)] p-6 sm:p-7">
+              <div className="flex items-start justify-between gap-5">
                 <div>
-                  <p className="text-sm text-[var(--muted)]">{countryRecord.name}</p>
-                  <h2 className="mt-2 text-2xl font-semibold">{countryRecord.name_zh}</h2>
+                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">{country.iso2} · {country.region}</p>
+                  <h2 className="mt-2 text-3xl font-semibold">{country.name_zh}</h2>
+                  <p className="mt-1 text-sm text-[var(--muted)]">{country.name}</p>
                 </div>
-                <span className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">
-                  {isV4 ? "V4 / 十国统一样本" : "十国统一样本"}
-                </span>
+                <Link href={`/countries/${country.slug}`} className="rounded-full border border-[var(--line)] px-3 py-1.5 text-xs font-semibold text-[var(--accent)] hover:border-[var(--accent)]">打开档案</Link>
               </div>
-              <p className="mt-4 line-clamp-2 text-sm leading-6 text-[var(--muted)]">{countryRecord.summary_zh}</p>
-              <dl className="mt-5 grid gap-2 sm:grid-cols-2">
+
+              <div className="mt-6 grid grid-cols-2 gap-x-5 gap-y-4 sm:grid-cols-4">
+                {observations.map(({ label, observation }) => (
+                  <div key={label}>
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[var(--muted)]">{label}</p>
+                    <p className="metric-number mt-1 text-sm font-semibold">{observation ? formatValue(observation.value, observation.unit) : "待接入"}</p>
+                    <p className="mt-1 text-[10px] text-[var(--muted)]">{observation?.year ?? "—"}</p>
+                  </div>
+                ))}
+              </div>
+
+              <dl className="mt-6 grid grid-cols-2 gap-px border-y border-[var(--line)] bg-[var(--line)] text-sm sm:grid-cols-4">
                 {[
-                  ["基础宏观数据", macroStatus],
-                  ["核心扩展数据", `${extendedCoverage.present}/${extendedCoverage.expected} 已接入`],
-                  ["对华项目", projectStatus],
-                  ["区域数据", regionalStatus],
-                  ["事件数据", eventStatus],
-                  ["Map Ready", regionalCoverage?.public_layer_count ? `${regionalCoverage.public_layer_count} factual layers ready` : "Spatial QA pending"],
+                  ["模型", `${availableModels} 可用`],
+                  ["事件", `${recentEvents} 条`],
+                  ["项目", `${projects} 项`],
+                  ["区域地图", regional?.public_layer_count ? `${regional.public_layer_count} 图层` : "待接入"],
                 ].map(([label, value]) => (
-                  <div key={label} className="rounded-xl bg-[var(--surface-muted)] px-3 py-3">
-                    <dt className="text-xs text-[var(--muted)]">{label}</dt>
-                    <dd className="mt-1 text-sm font-semibold">{value}</dd>
+                  <div key={label} className="bg-[var(--surface)] py-3 pr-3">
+                    <dt className="text-[10px] text-[var(--muted)]">{label}</dt>
+                    <dd className="mt-1 font-semibold">{value}</dd>
                   </div>
                 ))}
               </dl>
-              <div className="mt-4 flex flex-wrap items-center gap-2">
-                {extendedCoverage.pending === 0 ? (
-                  <DataStatusBadge status="official" />
-                ) : (
-                  <span className="rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-900">部分接入</span>
-                )}
-                <span className="text-xs text-[var(--muted)]">一级行政区：{countryRecord.admin1_count}</span>
-                <span className="ml-auto text-sm font-semibold text-[var(--accent)]">进入国家页</span>
-              </div>
-            </Link>
+
+              <p className="mt-5 line-clamp-2 text-sm leading-6 text-[var(--muted)]">{country.summary_zh}</p>
+            </article>
           );
         })}
-      </div>
+      </section>
     </main>
   );
 }

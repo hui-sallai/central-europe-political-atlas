@@ -2,7 +2,6 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ComparativeSpatialWorkbench } from "@/components/ComparativeSpatialWorkbench";
 import { mapDisplayBoundary, platformStatus } from "@/lib/platformStatus";
-import { regionalGeometryQa, sharedSpatialLicenseRecords, spatialDisplayGateAudit } from "@/lib/spatialDataV087";
 import {
   spatialComparisonEligibilityV089,
   spatialResearchCountriesV089,
@@ -18,22 +17,9 @@ export const metadata: Metadata = {
 };
 
 export default function MapPage() {
-  const serbia = spatialDisplayGateAudit.find((record) => record.country_id === "serbia");
-
   return (
     <main className="page-shell">
-      <p className="eyebrow">Map / {platformStatus.version}</p>
-      <div className="mt-4 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-        <div>
-          <h1 className="text-4xl font-semibold tracking-[-0.03em]">区域比较研究工作台</h1>
-          <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-            九个欧盟国家已开放通过展示闸门的事实边界，并按层级接入经济、劳动力、产业与历史变化指标。选择国家、指标和年份后可比较区域、查看项目与追溯来源；塞尔维亚保留国家数据，区域比较继续待接入。
-          </p>
-        </div>
-        <div className="grid grid-cols-2 gap-2 text-xs sm:grid-cols-4 lg:max-w-xl">
-          {[["地图就绪", `${spatialV089Summary.public_country_count} / 10`], ["事实观测", String(spatialV089Summary.observation_count)], ["历史变化", String(spatialV089Summary.derived_observation_count)], ["区域模型", "未启用"]].map(([label, value]) => <div key={label} className="rounded-xl border border-[var(--line)] bg-white/70 px-3 py-2"><p className="text-[var(--muted)]">{label}</p><p className="mt-1 font-semibold">{value}</p></div>)}
-        </div>
-      </div>
+      <header className="max-w-4xl border-b border-[var(--line)] pb-7"><p className="editorial-kicker">Map Workspace / {platformStatus.version}</p><h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">区域事实地图</h1><p className="mt-5 text-base leading-8 text-[var(--muted)]">左侧选择国家、图层与年份，中间查看事实边界，右侧读取当前区域档案。九国可用，塞尔维亚区域比较继续待接入；模型、情景影响、风险与预测图层均未启用。</p><p className="mt-3 text-sm text-[var(--muted)]">当前可用：{spatialV089Summary.public_country_count} / 10 国 · {spatialV089Summary.observation_count} 条区域事实观测</p></header>
 
       <ComparativeSpatialWorkbench
         countries={spatialResearchCountriesV089}
@@ -44,46 +30,7 @@ export default function MapPage() {
         eligibility={spatialComparisonEligibilityV089}
       />
 
-      <section className="mt-6 grid gap-4 lg:grid-cols-2">
-        <article className="card p-6">
-          <p className="eyebrow">Layer Boundary</p>
-          <h2 className="mt-3 text-xl font-semibold">可用层与未启用层</h2>
-          <p className="mt-3 text-sm leading-6 text-[var(--muted)]">当前开放行政边界、经济、人口变化、制造业 GVA 比重与通过位置核验的项目参考。失业率和就业率只在当前地图层级与 Eurostat LFS 发布层级直接对应时开放；不把 NUTS2 值复制到 NUTS3。</p>
-          <p className="mt-3 text-xs leading-5 text-[var(--muted)]">{mapDisplayBoundary}</p>
-        </article>
-        <article className="card p-6">
-          <p className="eyebrow">Serbia</p>
-          <h2 className="mt-3 text-xl font-semibold">Spatial comparison pending</h2>
-          <p className="mt-3 text-sm leading-6 text-[var(--muted)]">{serbia?.public_display_blocker || "官方边界对应与同层级区域统计可比性尚未通过。"}</p>
-          <p className="mt-3 text-xs leading-5 text-[var(--muted)]">不使用国家值下推，不把待接入值显示为 0，也不为追求十国齐全而降低展示闸门。</p>
-        </article>
-      </section>
-
-      <section className="mt-6 card p-6">
-        <p className="eyebrow">Scenario Structural Context</p>
-        <h2 className="mt-3 text-xl font-semibold">从情景进入事实背景图层</h2>
-        <p className="mt-3 max-w-4xl text-sm leading-6 text-[var(--muted)]">这些入口只显示结构背景，不显示情景影响、概率或区域分数。国家级情景计算仍在 Scenario Workspace 完成。</p>
-        <div className="mt-4 flex flex-wrap gap-2">
-          <Link href="/scenarios?scenario=inflation_resurgence&country=poland&shock=2" className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold text-[var(--accent)]">Inflation → labour context</Link>
-          <Link href="/scenarios?scenario=energy_price_shock&country=hungary&shock=20" className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold text-[var(--accent)]">Energy → manufacturing context</Link>
-          <Link href="/scenarios?scenario=germany_demand_slowdown&country=czechia&shock=-5" className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold text-[var(--accent)]">Germany demand → manufacturing context</Link>
-        </div>
-        <p className="mt-4 text-xs font-semibold text-[var(--muted)]">Context map, not scenario impact map.</p>
-      </section>
-
-      <details className="mt-6 card p-6">
-        <summary className="cursor-pointer text-lg font-semibold">技术 QA、许可与逐国展示记录</summary>
-        <p className="mt-3 max-w-4xl text-sm leading-6 text-[var(--muted)]">底层 QA 数据完整保留，但不再占据地图首屏。许可、几何、主键和拓扑记录用于解释展示资格，不构成区域评价。</p>
-        <div className="mt-5 grid gap-3 lg:grid-cols-2">
-          {sharedSpatialLicenseRecords.map((record) => <article key={record.license_record_id} className="rounded-2xl border border-[var(--line)] bg-white/65 p-4"><p className="font-mono text-xs font-semibold text-[var(--accent)]">{record.license_record_id}</p><p className="mt-2 font-semibold">{record.provider}</p><p className="mt-2 text-xs leading-5 text-[var(--muted)]">{record.usage_terms}</p><p className="mt-2 text-xs">{record.attribution}</p><a href={record.license_url} target="_blank" rel="noreferrer" className="mt-3 inline-flex text-xs font-semibold text-[var(--accent)] underline">核验使用条件</a></article>)}
-        </div>
-        <div className="wide-table-scroll mt-5 max-w-full">
-          <table className="research-data-table w-full min-w-[1100px] border-separate border-spacing-0 text-left text-xs">
-            <thead><tr className="text-[var(--muted)]">{["国家", "Expected", "Actual", "Region ID", "Topology", "CRS", "Overlap", "Gaps"].map((header) => <th key={header} className="border-b border-[var(--line)] px-3 pb-3 font-semibold first:pl-0">{header}</th>)}</tr></thead>
-            <tbody>{regionalGeometryQa.map((record) => <tr key={record.country_id}><td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{record.country_id}</td><td className="border-b border-[var(--line)] px-3 py-3">{record.expected_feature_count}</td><td className="border-b border-[var(--line)] px-3 py-3">{record.actual_feature_count}</td><td className="border-b border-[var(--line)] px-3 py-3">{record.region_id_ready ? "通过" : "待复核"}</td><td className="border-b border-[var(--line)] px-3 py-3">{record.topology_ready ? "本地 QA 通过" : "待复核"}</td><td className="border-b border-[var(--line)] px-3 py-3">{record.coordinate_system}</td><td className="border-b border-[var(--line)] px-3 py-3">{record.overlap_review_status}</td><td className="border-b border-[var(--line)] px-3 py-3">{record.abnormal_gap_status}</td></tr>)}</tbody>
-          </table>
-        </div>
-      </details>
+      <section className="mt-6 border-y border-[var(--line)] py-5"><h2 className="text-xl font-semibold">图层边界</h2><p className="mt-3 max-w-4xl text-sm leading-7 text-[var(--muted)]">开放行政边界、经济、人口变化、制造业 GVA 比重与通过定位核验的项目参考。不同统计层级不会互相复制；待接入值不会显示为 0。</p><p className="mt-3 text-xs leading-5 text-[var(--muted)]">{mapDisplayBoundary}</p><Link href="/methodology#spatial" className="mt-4 inline-flex text-sm font-semibold text-[var(--accent)]">查看边界来源、许可与展示准入规则</Link></section>
     </main>
   );
 }

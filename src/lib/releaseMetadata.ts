@@ -47,6 +47,7 @@ export const releaseChangelog = [
   ["v0.91 Validation", "Added deterministic validation, golden cases, boundary checks and CI blocking.", "Expected unavailable outputs are validated as gates, not numeric results.", "Historical reconstruction remains exploratory without vintage data."],
   ["v0.95 Research Release Candidate", "Added citation, stable research URLs, release metadata, trace UX and release QA.", "Public pages now use one current release status and a consolidated methodology.", "No new model, scenario, index or prediction."],
   ["v1.0 Research Atlas", "Froze the public research boundary, canonical release metadata, reproducible provenance and final release gates.", "Model and scenario definitions remain unchanged; validation semantics now separate numeric checks, gates and expected-unavailable cases.", "No public route, formula, weight, shock range or canonical observation schema was broken."],
+  ["v1.1 Architecture & Interface Refactor", "Reorganized public pages around research workflows and moved technical records into progressive disclosure and a versioned research package.", "Registered future analysis skills without running unsupported estimates; models and scenario formulas remain unchanged.", "No canonical observation, formula, weight, validation gate or stable public route was broken."],
 ] as const;
 
 export function platformCitation(accessed = "YYYY-MM-DD") {

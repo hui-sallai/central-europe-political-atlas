@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { CountryDetailModeTabs } from "@/components/CountryDetailModeTabs";
+import { CountryResearchProfile } from "@/components/CountryResearchProfile";
 import { getCountry } from "@/lib/data";
-import { getResearchCountryBySlug, researchCountries } from "@/lib/researchData";
+import { getCountryObservations, getEventsForCountry, getProjectsForCountry, getResearchCountryBySlug, researchCountries } from "@/lib/researchData";
 import { regionalCoverageMatrixV087 } from "@/lib/spatialDataV087";
+import { getModelOutputsForCountry } from "@/lib/modelFramework";
 
 type CountryPageProps = {
   params: Promise<{
@@ -35,11 +36,19 @@ export default async function CountryPage({ params }: CountryPageProps) {
 
   return (
     <main className="page-shell">
-      <p className="eyebrow">Country Dashboard</p>
+      <p className="editorial-kicker">Country Research Profile</p>
       <h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">{countryRecord.name_zh}</h1>
-      <p className="mt-3 text-lg text-[var(--muted)]">{countryRecord.name}</p>
+      <p className="mt-3 text-lg text-[var(--muted)]">{countryRecord.name} · {country.capitalZh} · {country.currency}</p>
+      <p className="mt-5 max-w-3xl text-sm leading-7 text-[var(--muted)]">{countryRecord.summary_zh}</p>
 
-      <CountryDetailModeTabs country={country} regionalCoverage={regionalCoverage} />
+      <CountryResearchProfile
+        country={country}
+        observations={getCountryObservations(slug)}
+        events={getEventsForCountry(slug)}
+        projects={getProjectsForCountry(slug)}
+        modelOutputs={getModelOutputsForCountry(slug)}
+        regionalMapAvailable={Boolean(regionalCoverage?.public_layer_count)}
+      />
     </main>
   );
 }

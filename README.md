@@ -4,7 +4,7 @@ Central Europe Political Atlas is a public political-economy research platform f
 
 Public site: https://hy-central-europe-analysis.org/
 
-Current release: **v1.0 Research Atlas**
+Current release: **v1.1 Architecture & Interface Refactor**
 
 ## Research scope
 
@@ -51,7 +51,7 @@ Machine-readable files are published under `/research-data/`. See [the research-
 
 ## Citation
 
-Central Europe Political Atlas, version v1.0 Research Atlas, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
+Central Europe Political Atlas, version v1.1 Architecture & Interface Refactor, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
 
 The project currently does not claim a DOI. Cite original source URLs when using individual observations, events or project records.
 

@@ -1,124 +1,32 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CitationActions } from "@/components/CitationActions";
-import { ModelValidationStatus } from "@/components/ModelValidationStatus";
-import { dataStatusMeta } from "@/lib/dataStatusLabels";
-import { modelCards } from "@/lib/modelFramework";
 import { platformStatus } from "@/lib/platformStatus";
-import { platformApaCitation, platformBibtexCitation, platformCitation, releaseChangelog } from "@/lib/releaseMetadata";
-import { scenarioDefinitions } from "@/lib/scenarioFramework";
-import { sourceReliabilityRule } from "@/lib/sourceDictionary";
+import { platformApaCitation, platformBibtexCitation, platformCitation } from "@/lib/releaseMetadata";
 
-export const metadata: Metadata = {
-  title: "方法论、验证与引用",
-  description: "平台范围、数据状态、来源等级、跨国可比性、模型、情景、验证、限制和引用规则。",
-};
+export const metadata: Metadata = { title: "研究方法", description: "数据、模型、事件、空间、验证和引用规则。" };
 
-const sectionLinks = [
-  ["scope", "1. Scope"], ["sources", "2. Data Sources"], ["statuses", "3. Data Status"],
-  ["comparability", "4. Cross-country Comparability"], ["regional", "5. Regional Data"],
-  ["events", "6. Event Coding"], ["projects", "7. China Project Database"],
-  ["models", "8. Transparent Models"], ["scenarios", "9. Scenario Analysis"],
-  ["validation", "10. Validation & Reproducibility"], ["limitations", "11. Limitations"],
-  ["citation", "12. Citation"], ["history", "13. Version History"],
-] as const;
+const sections = [["data", "Data"], ["models", "Models"], ["events", "Events"], ["spatial", "Spatial"], ["validation", "Validation"], ["citation", "Citation"]] as const;
 
-const sourceLevels = (["A", "B", "C", "D"] as const).map((level) => [level, sourceReliabilityRule(level)] as const);
-
-function Section({ id, eyebrow, title, children }: { id: string; eyebrow: string; title: string; children: React.ReactNode }) {
-  return <section id={id} className="mt-6 scroll-mt-24 card p-6"><p className="eyebrow">{eyebrow}</p><h2 className="mt-3 text-2xl font-semibold">{title}</h2>{children}</section>;
+function Section({ id, label, title, children }: { id: string; label: string; title: string; children: React.ReactNode }) {
+  return <section id={id} className="scroll-mt-24 border-t border-[var(--line)] py-10"><p className="editorial-kicker">{label}</p><h2 className="mt-3 text-3xl font-semibold">{title}</h2>{children}</section>;
 }
 
 export default function MethodologyPage() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  return <main className="page-shell">
+    <header className="max-w-4xl border-b border-[var(--line)] pb-8"><p className="editorial-kicker">Research / {platformStatus.version}</p><h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">研究方法与边界</h1><p className="mt-5 text-base leading-8 text-[var(--muted)]">本页说明公开研究流程和不能说明什么。完整字典、QA、版本记录与技术字段保留在研究数据包，不再占据主要页面。</p><nav className="mt-5 flex flex-wrap gap-3">{sections.map(([id, label]) => <a key={id} href={`#${id}`} className="text-sm font-semibold text-[var(--accent)]">{label}</a>)}</nav></header>
 
-  return (
-    <main className="page-shell">
-      <p className="eyebrow">Methodology / {platformStatus.version}</p>
-      <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">方法论、验证与引用</h1>
-      <p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">本页集中说明哪些记录可以进入比较与模型、公式如何复现、情景不能说明什么，以及如何引用平台和导出记录。历史开发阶段只保留在 Changelog。</p>
+    <Section id="data" label="01 / Data" title="数据如何进入平台"><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">每条正式观测必须有国家或地区、时间、数值、单位、来源名称、来源链接、可靠性、状态和更新时间。official / verified 可进入相应事实层；pending 保留但不参与比较；sample 与 placeholder 不进入分析。A 级为官方统计或机构，B 级为可核验权威来源，C 级只作线索，D 级排除。</p><p className="mt-3 text-sm leading-7 text-[var(--muted)]">跨国比较只使用同定义、同单位、同层级和共同年份。计算值必须保留分子、分母、公式和来源。</p><Link href="/data" className="mt-4 inline-flex text-sm font-semibold text-[var(--accent)]">打开 Data Explorer</Link></Section>
 
-      <nav className="mt-6 flex flex-wrap gap-2" aria-label="方法论目录">
-        {sectionLinks.map(([id, label]) => <a key={id} href={`#${id}`} className="rounded-full border border-[var(--line)] bg-white px-3 py-1.5 text-xs font-semibold text-[var(--accent)] hover:border-[var(--accent)]">{label}</a>)}
-      </nav>
+    <Section id="models" label="02 / Models" title="透明分析方法"><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">Observation → Standardization → Weighting → Result → Drivers → Confidence。当前综合指标使用公开的线性标准化与权重，输出可回到原始 observation。Scenario 是方法上的参数预设，不是另一套模型，也不会改写原始数据。</p><div className="mt-5 border-l-2 border-[var(--accent)] pl-5"><h3 className="font-semibold">模型启用条件</h3><p className="mt-2 text-sm leading-7 text-[var(--muted)]">来源、年份、单位、状态、更新时间、可比性和完整度未通过时，不输出精确结果。所有方法必须显示输入变量、权重或参数逻辑、置信度、诊断与不能说明什么。Panel、VAR、Event Study、Network、Bayesian 和因果政策分析在 v1.1 只登记技能，不运行估计。</p></div><p className="mt-4 text-sm text-[var(--muted)]">模型结果是比较与研究工具，不是客观风险真值、概率、投资建议或选举预测。</p></Section>
 
-      <Section id="scope" eyebrow="Research Scope" title="1. Scope">
-        <div className="mt-5 grid gap-3 md:grid-cols-2">
-          <article className="rounded-2xl bg-[var(--surface-muted)] p-4"><h3 className="font-semibold">平台提供</h3><ul className="mt-3 grid gap-2 text-sm leading-6 text-[var(--muted)]"><li>十国事实数据和九国区域事实比较</li><li>公开公式与权重的规则模型</li><li>固定基线下的条件式情景分析</li><li>事件、项目、指标和来源追溯</li></ul></article>
-          <article className="rounded-2xl bg-[var(--surface-muted)] p-4"><h3 className="font-semibold">平台不提供</h3><ul className="mt-3 grid gap-2 text-sm leading-6 text-[var(--muted)]"><li>选举或概率预测</li><li>投资建议或客观风险真值</li><li>因果影响估计</li><li>区域情景分数或综合未来风险</li></ul></article>
-        </div>
-      </Section>
+    <Section id="events" label="03 / Events" title="事件编码"><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">Source → Event → Coding → Affected Indicator / Project → Research context。date、actor、event_type、direction 和 confidence 用于检索与解释；它们不自动构成因果关系，也不直接改变模型分数。未完整编码、低置信度或结构样例保持 enters_model=false。</p><Link href="/news" className="mt-4 inline-flex text-sm font-semibold text-[var(--accent)]">进入 Event Library</Link></Section>
 
-      <Section id="sources" eyebrow="Source Policy" title="2. Data Sources">
-        <p className="mt-3 text-sm leading-7 text-[var(--muted)]">每条正式记录保留来源名称、URL、数据集、年份、更新时间和可靠性等级。A/B 级可作为正式数据或事件依据；C 级只作补充；D 级不进入正式分析。</p>
-        <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">{sourceLevels.map(([level, rule]) => <article key={level} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4"><p className="text-xl font-semibold text-[var(--accent)]">{level} 级</p><p className="mt-2 text-sm leading-6 text-[var(--muted)]">{rule}</p></article>)}</div>
-        <Link href="/data?panel=dictionaries#source-dictionary" className="mt-4 inline-flex text-sm font-semibold text-[var(--accent)] hover:underline">浏览来源字典</Link>
-      </Section>
+    <Section id="spatial" label="04 / Spatial" title="空间与边界"><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">区域记录通过 region_id、行政层级、边界版本、来源、许可和年份关联。国家值不下推到区域，NUTS2 与 NUTS3 不混用。真实边界只有在来源、许可、坐标系、几何、拓扑和主键检查通过后才开放；地图不提供风险、预测、情景影响或真实党派支持率图层。</p></Section>
 
-      <Section id="statuses" eyebrow="Status Vocabulary" title="3. Data Status">
-        <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4">{Object.entries(dataStatusMeta).filter(([key]) => key !== "manual" && key !== "missing").map(([key, value]) => <article key={key} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4"><p className="font-mono text-xs font-semibold text-[var(--accent)]">{key}</p><h3 className="mt-2 font-semibold">{value.label}</h3><p className="mt-2 text-xs leading-5 text-[var(--muted)]">{value.description}</p></article>)}</div>
-        <p className="mt-4 text-sm leading-6 text-[var(--muted)]">缺失展示进一步区分：Unavailable（当前不能计算）、Pending publication（等待发布）、Not applicable（不适用）、Insufficient evidence（证据不足）和 Review required（需复核）。</p>
-        <div className="mt-5 grid gap-3 md:grid-cols-2">
-          {[
-            ["Source reliability", "评价来源类型和可核验性，使用 A/B/C/D；它不表示模型结果正确的概率。"],
-            ["Model / scenario confidence", "评价合格输入覆盖、年份一致性和证据完整度；它不是事件发生概率。"],
-            ["Project verification", "评价项目主体、金额、年份和来源证据，使用可量化、部分可量化、仅作背景或不进入分析。"],
-            ["Location precision", "评价 exact site、city、region 或 country-only 的定位精度；它不表示项目事实本身的可靠性。"],
-          ].map(([title, description]) => <article key={title} className="rounded-2xl bg-[var(--surface-muted)] p-4"><h3 className="font-semibold">{title}</h3><p className="mt-2 text-xs leading-5 text-[var(--muted)]">{description}</p></article>)}
-        </div>
-      </Section>
+    <Section id="validation" label="05 / Validation" title="质量检查与已知限制"><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">验证覆盖确定性、权重、标准化边界、缺失值、年份对齐、情景零冲击、参数界限和复现。Expected unavailable 表示准入闸门按规则阻止输出，不是错误。</p><p className="mt-3 text-sm leading-7 text-[var(--muted)]"><strong>Validation ≠ scientific proof.</strong> 当前只声称 <strong>Historical reconstruction readiness</strong> 与方向性验证；没有 point-in-time vintage data 时，不报告预测准确率。事件关联不等于因果，项目库不等于项目普查，confidence 不等于发生概率。</p><div className="mt-5 flex flex-wrap gap-3"><a href={`${basePath}/research-data/validation_registry.json`} className="text-sm font-semibold text-[var(--accent)]">Validation registry</a><a href={`${basePath}/research-data/golden_test_cases.json`} className="text-sm font-semibold text-[var(--accent)]">Golden tests</a></div></Section>
 
-      <Section id="comparability" eyebrow="Comparison Gate" title="4. Cross-country Comparability">
-        <p className="mt-3 text-sm leading-7 text-[var(--muted)]">跨国排名、均值差距和派生比较只使用同一定义、单位、行政层级和 latest common year。待接入、不适用、定义不一致或 review_required 的记录会被排除，而不是转成零值。</p>
-        <ol className="mt-4 grid gap-2 text-sm leading-6 text-[var(--muted)] md:grid-cols-2">{["明确国家或地区与稳定 ID", "明确年份、季度、月份或事件日期", "数值与单位完整", "来源名称、链接和可靠性完整", "状态和更新时间完整", "指标与来源字典中存在", "不属于结构样例或未核验政治样本", "计算值保留分子、分母、公式与年份"].map((item, index) => <li key={item} className="rounded-xl bg-[var(--surface-muted)] px-4 py-3"><strong>{index + 1}.</strong> {item}</li>)}</ol>
-      </Section>
-
-      <Section id="regional" eyebrow="Spatial Evidence" title="5. Regional Data">
-        <p className="mt-3 text-sm leading-7 text-[var(--muted)]">区域事实按 region_id、行政层级、边界版本、许可、来源和年份管理。国家值不会下推到区域；NUTS2 与 NUTS3 不直接混合。九国已开放通过展示闸门的事实图层，塞尔维亚区域比较继续待接入。</p>
-        <p className="mt-3 text-sm leading-7 text-[var(--muted)]">地图不是唯一入口：可用区域事实同时通过区域表格、国家页和 research-data 导出读取。地图没有启用风险、预测、情景影响、China Exposure 或真实党派支持率图层。</p>
-      </Section>
-
-      <Section id="events" eyebrow="Event Coding" title="6. Event Coding">
-        <p className="mt-3 text-sm leading-7 text-[var(--muted)]">Source → Event → Coding → Affected Indicator → Future Model Input。direction、intensity 和 confidence 是结构化研究字段，不是预测概率。事件可解释近期变化，但当前记录保持 enters_model=false，不直接改变基础模型或情景分数。</p>
-        <Link href="/news" className="mt-4 inline-flex text-sm font-semibold text-[var(--accent)] hover:underline">进入 Event Library</Link>
-      </Section>
-
-      <Section id="projects" eyebrow="Project Evidence" title="7. China Project Database">
-        <p className="mt-3 text-sm leading-7 text-[var(--muted)]">Project → Region → Sector → Source → China Exposure evidence → Related events。项目按可量化、部分可量化、仅作背景和不进入分析核验；没有可靠来源的金额保持缺失。</p>
-        <p className="mt-3 text-sm leading-7 text-[var(--muted)]">China Economic Exposure 仍受证据维度门槛约束；暴露不等于政治影响力、风险或投资质量。China-linked Project Disruption 继续保持 score_enabled=false。</p>
-      </Section>
-
-      <Section id="models" eyebrow="Transparent Model Methodology" title="8. Transparent Models">
-        <p className="mt-3 text-sm leading-7 text-[var(--muted)]">Observation → Standardization → Weighting → Score → Drivers → Confidence。每项分数保留 observation_id、原始值、来源、标准化值、权重和贡献。缺失输入不会自动插值。</p>
-        <div className="mt-5 grid gap-3 md:grid-cols-2">{modelCards.map((card) => <article key={card.model_id} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4"><p className="font-mono text-xs text-[var(--accent)]">{card.model_id}</p><h3 className="mt-2 font-semibold">{card.name_zh}</h3><p className="mt-2 text-xs leading-5 text-[var(--muted)]">formula={card.formula_version} · weights={card.weight_version}</p><p className="mt-2 text-sm leading-6 text-[var(--muted)]">{card.output_meaning}</p></article>)}</div>
-        <p className="mt-4 text-sm leading-6 text-[var(--muted)]">模型只有在来源、年份、单位、状态、更新时间和完整度通过时才输出精确分数。任何未来模型都必须公开输入、权重逻辑、置信度和不能说明什么。</p>
-      </Section>
-
-      <Section id="scenarios" eyebrow="Conditional Analysis" title="9. Scenario Analysis">
-        <p className="mt-3 text-sm leading-7 text-[var(--muted)]">Baseline → Shock Assumption → Adjusted Variable → Model Recalculation → Scenario Difference → Interpretation。情景不改写原始 observation，不把事件强度当作数值冲击，也不解释为未来事实。</p>
-        <div className="mt-5 grid gap-3 md:grid-cols-2">{scenarioDefinitions.map((scenario) => <article key={scenario.scenario_id} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4"><p className="font-mono text-xs text-[var(--accent)]">{scenario.scenario_id}</p><h3 className="mt-2 font-semibold">{scenario.name_zh}</h3><p className="mt-2 text-sm leading-6 text-[var(--muted)]">{scenario.description}</p><p className="mt-2 text-xs text-[var(--muted)]">范围 {scenario.shock_min}–{scenario.shock_max} {scenario.shock_unit}</p></article>)}</div>
-      </Section>
-
-      <Section id="validation" eyebrow="Validation & Reproducibility" title="10. Validation & Reproducibility">
-        <p className="mt-3 text-sm leading-7 text-[var(--muted)]">验证覆盖确定性、权重、标准化边界、缺失值、方向、年份对齐、情景零冲击、隔离、参数界限、敏感性和复现。Expected unavailable 是准入闸门通过，不与数值相等测试混为一类。</p>
-        <p className="mt-3 text-sm leading-7 text-[var(--muted)]">当前只声称 Historical reconstruction readiness 与 directional validation。没有 point-in-time vintage data 时，不报告 forecast accuracy 或 predictive accuracy。Validation 不是 scientific proof，也不是预测准确率证明。</p>
-        <ModelValidationStatus />
-      </Section>
-
-      <Section id="limitations" eyebrow="Known Limits" title="11. Limitations">
-        <ul className="mt-5 grid gap-3 md:grid-cols-2">{["模型标准化边界和权重是公开研究设定，不是自然阈值。", "Confidence 表示证据与输入覆盖，不是发生概率。", "统计修订可能改变历史观测，当前没有完整 vintage 数据。", "项目库是经核验样本库，不是全部项目普查。", "事件关联不自动构成因果关系或分数调整。", "塞尔维亚国家数据可用，区域比较仍待接入。"].map((item) => <li key={item} className="rounded-xl bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--muted)]">{item}</li>)}</ul>
-      </Section>
-
-      <Section id="citation" eyebrow="Cite This Platform" title="12. Citation">
-        <p className="mt-3 text-sm leading-7 text-[var(--muted)]">引用必须包含平台版本和访问日期。平台没有 DOI，不会伪造 DOI。具体模型、情景、事件、项目和 observation 应同时引用其稳定 ID 与原始来源。</p>
-        <div className="mt-5"><CitationActions plainText={platformCitation()} apaText={platformApaCitation()} bibtexText={platformBibtexCitation()} label="复制平台引用" /></div>
-        <div className="mt-4 flex flex-wrap gap-3 text-sm font-semibold text-[var(--accent)]"><a href={`${basePath}/research-data/platform_metadata.json`} className="hover:underline">platform_metadata.json</a><a href={`${basePath}/research-data/release_manifest.json`} className="hover:underline">release_manifest.json</a><Link href="/data?panel=dictionaries" className="hover:underline">数据与来源字典</Link></div>
-      </Section>
-
-      <Section id="history" eyebrow="Changelog" title="13. Version History">
-        <p className="mt-3 text-sm leading-6 text-[var(--muted)]">这里记录方法阶段，不复制 commit log；历史版本不再占据主要页面正文。</p>
-        <div className="mt-5 grid gap-3">{[...releaseChangelog].reverse().map(([version, changes, methods, breaking]) => <details key={version} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4"><summary className="cursor-pointer font-semibold">{version}</summary><dl className="mt-3 grid gap-2 text-sm leading-6 text-[var(--muted)] md:grid-cols-3"><div><dt className="text-xs font-semibold text-[var(--foreground)]">Major changes</dt><dd>{changes}</dd></div><div><dt className="text-xs font-semibold text-[var(--foreground)]">Method changes</dt><dd>{methods}</dd></div><div><dt className="text-xs font-semibold text-[var(--foreground)]">Breaking changes</dt><dd>{breaking}</dd></div></dl></details>)}</div>
-      </Section>
-    </main>
-  );
+    <Section id="citation" label="06 / Citation" title="引用与下载"><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">引用应包含平台版本、访问日期和稳定 URL。具体 observation、事件、项目、模型或情景应同时引用其记录标识和原始来源；平台不会伪造 DOI。</p><div className="mt-5"><CitationActions plainText={platformCitation()} apaText={platformApaCitation()} bibtexText={platformBibtexCitation()} label="复制平台引用" /></div><div className="mt-5 flex flex-wrap gap-3"><a href={`${basePath}/research-data/research-data-v1.1.zip`} className="rounded-lg bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-white">Download research package</a><a href={`${basePath}/research-data/release_manifest.json`} className="rounded-lg border border-[var(--line)] px-4 py-2 text-sm font-semibold">Release manifest</a></div></Section>
+  </main>;
 }

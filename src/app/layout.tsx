@@ -30,23 +30,24 @@ export default function RootLayout({
     <html lang="zh-CN">
       <body>
         <a href="#main-content" className="skip-link">跳到主要内容</a>
-        <header className="border-b border-[var(--line)] bg-[rgba(246,244,238,0.86)] backdrop-blur">
-          <nav className="mx-auto flex max-w-[1180px] flex-wrap items-center justify-between gap-3 px-4 py-4 sm:px-6" aria-label="主导航">
-            <Link href="/" className="text-sm font-bold tracking-[0.16em] text-[var(--accent)] uppercase">
-              Central Europe Political Atlas
+        <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[rgba(245,243,238,0.94)] backdrop-blur">
+          <nav className="mx-auto flex max-w-[1240px] flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6" aria-label="主导航">
+            <Link href="/" className="editorial-headline text-base font-bold tracking-[-0.01em] text-[var(--foreground)]">
+              Central Europe <span className="text-[var(--accent)]">Political Atlas</span>
             </Link>
-            <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-[var(--muted)]">
+            <div className="flex max-w-full gap-x-4 overflow-x-auto py-1 text-xs font-semibold text-[var(--muted)] sm:text-sm">
               {frozenNavItems.map((item) => (
-                <Link key={item.href} href={item.href} className="hover:text-[var(--foreground)]">
+                <Link key={item.href} href={item.href} className="whitespace-nowrap hover:text-[var(--accent)]">
                   {item.label}
                 </Link>
               ))}
+              <Link href="/scenarios" className="whitespace-nowrap hover:text-[var(--accent)]">Scenarios</Link>
             </div>
           </nav>
         </header>
         <div id="main-content" tabIndex={-1}>{children}</div>
-        <footer className="border-t border-[var(--line)] bg-white/45">
-          <div className="mx-auto grid max-w-[1180px] gap-3 px-6 py-6 text-xs leading-5 text-[var(--muted)] md:grid-cols-[1fr_auto] md:items-center">
+        <footer className="border-t border-[var(--line)] bg-[var(--surface)]">
+          <div className="mx-auto grid max-w-[1240px] gap-3 px-6 py-7 text-xs leading-5 text-[var(--muted)] md:grid-cols-[1fr_auto] md:items-center">
             <div>
               <p>{PLATFORM_NAME} · {PLATFORM_VERSION}</p>
               <p>独立非商业研究项目，与欧盟、各国政府、政党、企业及数据提供方无隶属或背书关系。</p>
