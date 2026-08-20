@@ -1,15 +1,16 @@
 {
   "name": "central-europe-political-atlas",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "node scripts/export-research-data.mjs && node scripts/validation/run-research-validation.mjs && next build && node scripts/release/validate-release.mjs",
+    "build": "node scripts/security/check-public-secrets.mjs && node scripts/export-research-data.mjs && node scripts/validation/run-research-validation.mjs && next build && node scripts/release/validate-release.mjs",
     "build:site": "next build",
     "sandbox:hungary-boundary": "node scripts/build-hungary-boundary-sandbox.mjs",
     "export:research-data": "node scripts/export-research-data.mjs",
     "research:validate": "node scripts/validation/run-research-validation.mjs",
     "release:validate": "node scripts/release/validate-release.mjs",
+    "security:scan": "node scripts/security/check-public-secrets.mjs",
     "typecheck": "tsc --noEmit",
     "preview": "next start",
     "start": "next start",

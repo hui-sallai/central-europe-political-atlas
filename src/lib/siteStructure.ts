@@ -1,5 +1,4 @@
 export const frozenNavItems = [
-  { href: "/", label: "首页", role: "国家入口 + 核心指标" },
   { href: "/map", label: "地图", role: "地图工作台入口" },
   { href: "/countries", label: "国家", role: "国家档案 + 图层仪表盘" },
   { href: "/data", label: "数据", role: "数据工作台" },

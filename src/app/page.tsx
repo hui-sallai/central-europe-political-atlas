@@ -65,7 +65,7 @@ export default function Home() {
         <section className="mt-5 grid gap-4 lg:grid-cols-[1fr_auto] lg:items-center">
           <div>
             <p className="eyebrow">Cite This Platform</p>
-            <p className="mt-2 text-sm leading-6 text-[var(--muted)]">版本、方法、验证与导出记录均固定在当前发布候选版；不创建虚构 DOI。</p>
+            <p className="mt-2 text-sm leading-6 text-[var(--muted)]">版本、方法、验证与导出记录均固定在当前正式研究版本；不创建虚构 DOI。</p>
           </div>
           <CitationActions plainText={platformCitation()} apaText={platformApaCitation()} bibtexText={platformBibtexCitation()} compact />
         </section>

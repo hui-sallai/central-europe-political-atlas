@@ -2890,7 +2890,7 @@ function ResearchDataExportLinks() {
   const exportStatusCards = [
     { label: "CSV 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .csv 文件。" },
     { label: "JSON 导出结构", value: "已预留", note: "17 个逻辑数据层均生成 .json 文件。" },
-    { label: "当前阶段", value: platformStatus.version, note: "当前发布候选保留 17 个核心逻辑数据层，并增加统一引用、稳定研究链接和发布验收。" },
+    { label: "当前阶段", value: platformStatus.version, note: "当前正式研究版本保留 17 个核心逻辑数据层，并提供统一引用、稳定研究链接和发布验收。" },
   ];
 
   return (

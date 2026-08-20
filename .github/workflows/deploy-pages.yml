@@ -44,18 +44,17 @@ jobs:
       - name: Typecheck
         run: pnpm typecheck
 
+      - name: Scan tracked files for secrets and local artifacts
+        run: pnpm security:scan
+
       - name: Research validation
         run: pnpm research:validate
 
       - name: Build static site
         run: pnpm build:site
-        env:
-          NEXT_PUBLIC_BASE_PATH: /central-europe-political-atlas
 
       - name: Release QA
         run: pnpm release:validate
-        env:
-          NEXT_PUBLIC_BASE_PATH: /central-europe-political-atlas
 
       - name: Add nojekyll marker
         run: touch out/.nojekyll

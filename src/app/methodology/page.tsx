@@ -20,7 +20,7 @@ const sectionLinks = [
   ["events", "6. Event Coding"], ["projects", "7. China Project Database"],
   ["models", "8. Transparent Models"], ["scenarios", "9. Scenario Analysis"],
   ["validation", "10. Validation & Reproducibility"], ["limitations", "11. Limitations"],
-  ["history", "12. Version History"], ["citation", "13. Citation"],
+  ["citation", "12. Citation"], ["history", "13. Version History"],
 ] as const;
 
 const sourceLevels = (["A", "B", "C", "D"] as const).map((level) => [level, sourceReliabilityRule(level)] as const);
@@ -101,7 +101,7 @@ export default function MethodologyPage() {
 
       <Section id="validation" eyebrow="Validation & Reproducibility" title="10. Validation & Reproducibility">
         <p className="mt-3 text-sm leading-7 text-[var(--muted)]">验证覆盖确定性、权重、标准化边界、缺失值、方向、年份对齐、情景零冲击、隔离、参数界限、敏感性和复现。Expected unavailable 是准入闸门通过，不与数值相等测试混为一类。</p>
-        <p className="mt-3 text-sm leading-7 text-[var(--muted)]">当前只声称 Historical reconstruction readiness。没有 point-in-time vintage data 时，不报告 backtest accuracy。</p>
+        <p className="mt-3 text-sm leading-7 text-[var(--muted)]">当前只声称 Historical reconstruction readiness 与 directional validation。没有 point-in-time vintage data 时，不报告 forecast accuracy 或 predictive accuracy。Validation 不是 scientific proof，也不是预测准确率证明。</p>
         <ModelValidationStatus />
       </Section>
 
@@ -109,15 +109,15 @@ export default function MethodologyPage() {
         <ul className="mt-5 grid gap-3 md:grid-cols-2">{["模型标准化边界和权重是公开研究设定，不是自然阈值。", "Confidence 表示证据与输入覆盖，不是发生概率。", "统计修订可能改变历史观测，当前没有完整 vintage 数据。", "项目库是经核验样本库，不是全部项目普查。", "事件关联不自动构成因果关系或分数调整。", "塞尔维亚国家数据可用，区域比较仍待接入。"].map((item) => <li key={item} className="rounded-xl bg-[var(--surface-muted)] px-4 py-3 text-sm leading-6 text-[var(--muted)]">{item}</li>)}</ul>
       </Section>
 
-      <Section id="history" eyebrow="Changelog" title="12. Version History">
-        <p className="mt-3 text-sm leading-6 text-[var(--muted)]">这里记录方法阶段，不复制 commit log；历史版本不再占据主要页面正文。</p>
-        <div className="mt-5 grid gap-3">{releaseChangelog.map(([version, changes, methods, breaking]) => <details key={version} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4"><summary className="cursor-pointer font-semibold">{version}</summary><dl className="mt-3 grid gap-2 text-sm leading-6 text-[var(--muted)] md:grid-cols-3"><div><dt className="text-xs font-semibold text-[var(--foreground)]">Major changes</dt><dd>{changes}</dd></div><div><dt className="text-xs font-semibold text-[var(--foreground)]">Method changes</dt><dd>{methods}</dd></div><div><dt className="text-xs font-semibold text-[var(--foreground)]">Breaking changes</dt><dd>{breaking}</dd></div></dl></details>)}</div>
-      </Section>
-
-      <Section id="citation" eyebrow="Cite This Platform" title="13. Citation">
+      <Section id="citation" eyebrow="Cite This Platform" title="12. Citation">
         <p className="mt-3 text-sm leading-7 text-[var(--muted)]">引用必须包含平台版本和访问日期。平台没有 DOI，不会伪造 DOI。具体模型、情景、事件、项目和 observation 应同时引用其稳定 ID 与原始来源。</p>
         <div className="mt-5"><CitationActions plainText={platformCitation()} apaText={platformApaCitation()} bibtexText={platformBibtexCitation()} label="复制平台引用" /></div>
         <div className="mt-4 flex flex-wrap gap-3 text-sm font-semibold text-[var(--accent)]"><a href={`${basePath}/research-data/platform_metadata.json`} className="hover:underline">platform_metadata.json</a><a href={`${basePath}/research-data/release_manifest.json`} className="hover:underline">release_manifest.json</a><Link href="/data?panel=dictionaries" className="hover:underline">数据与来源字典</Link></div>
+      </Section>
+
+      <Section id="history" eyebrow="Changelog" title="13. Version History">
+        <p className="mt-3 text-sm leading-6 text-[var(--muted)]">这里记录方法阶段，不复制 commit log；历史版本不再占据主要页面正文。</p>
+        <div className="mt-5 grid gap-3">{[...releaseChangelog].reverse().map(([version, changes, methods, breaking]) => <details key={version} className="rounded-2xl border border-[var(--line)] bg-white/70 p-4"><summary className="cursor-pointer font-semibold">{version}</summary><dl className="mt-3 grid gap-2 text-sm leading-6 text-[var(--muted)] md:grid-cols-3"><div><dt className="text-xs font-semibold text-[var(--foreground)]">Major changes</dt><dd>{changes}</dd></div><div><dt className="text-xs font-semibold text-[var(--foreground)]">Method changes</dt><dd>{methods}</dd></div><div><dt className="text-xs font-semibold text-[var(--foreground)]">Breaking changes</dt><dd>{breaking}</dd></div></dl></details>)}</div>
       </Section>
     </main>
   );

@@ -2,9 +2,9 @@
 
 Central Europe Political Atlas is a public political-economy research platform for ten Central and Eastern European countries. It combines traceable national and regional observations, coded events, China-related project evidence, transparent model cards and conditional scenario analysis.
 
-Public site: https://hui-sallai.github.io/central-europe-political-atlas/
+Public site: https://hy-central-europe-analysis.org/
 
-Current release: **v0.95 Research Release Candidate**
+Current release: **v1.0 Research Atlas**
 
 ## Research scope
 
@@ -26,8 +26,12 @@ The platform does not publish election forecasts, probability forecasts, investm
 - `/models/` - transparent model results and model cards
 - `/scenarios/` - conditional scenario analysis
 - `/methodology/` - methods, limitations, validation and citation
+- `/legal/` - independence, copyright, data licensing and correction requests
+- `/privacy/` - data minimisation, hosting logs and contact-email handling
 
-The GitHub Pages base path `/central-europe-political-atlas/` is configured in `next.config.ts` and must be preserved.
+The production build is served from the custom-domain root. `NEXT_PUBLIC_BASE_PATH` remains available only for local or fallback project-path testing and must not be set in the custom-domain deployment workflow.
+
+The site intentionally contains no client-side API credentials, advertising trackers or first-party analytics. Secrets belong in local or repository environment settings and must never be committed.
 
 ## Local verification
 
@@ -47,6 +51,8 @@ Machine-readable files are published under `/research-data/`. See [the research-
 
 ## Citation
 
-Central Europe Political Atlas, version v0.95 Research Release Candidate, accessed YYYY-MM-DD. https://hui-sallai.github.io/central-europe-political-atlas/
+Central Europe Political Atlas, version v1.0 Research Atlas, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
 
 The project currently does not claim a DOI. Cite original source URLs when using individual observations, events or project records.
+
+Legal, copyright, privacy, correction and takedown contact: sallaizhang@outlook.com

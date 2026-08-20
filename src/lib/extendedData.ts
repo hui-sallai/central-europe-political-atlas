@@ -184,8 +184,8 @@ export const sourceTableRecords: SourceTableRecord[] = [
   { sourceId: "stat_cz", sourceName: "Czech Statistical Office", sourceType: "国家统计部门", reliabilityLevel: "A", url: "https://www.czso.cz/csu/czso/home", updateFrequency: "按指标更新", usageNotes: "捷克国别统计主源，用于交叉核验。" },
   { sourceId: "stat_sk", sourceName: "Statistical Office of the Slovak Republic", sourceType: "国家统计部门", reliabilityLevel: "A", url: "https://slovak.statistics.sk/", updateFrequency: "按指标更新", usageNotes: "斯洛伐克国别统计主源，用于交叉核验。" },
   { sourceId: "hu_gov_v4_summit_2026", sourceName: "匈牙利政府", sourceType: "政府公告", reliabilityLevel: "A", url: "https://kormany.hu/en/news/v4-csucs-godollon-orszagainkat-sokkal-tobb-koti-ossze-mint-ami-elvalasztja", updateFrequency: "事件更新", usageNotes: "2026 年 6 月 24 日格德勒 V4 峰会公告；用于四国正式事件记录，中文摘要由人工整理。" },
-  { sourceId: "news_pending", sourceName: "新闻来源待接入", sourceType: "新闻", reliabilityLevel: "D", url: "https://hui-sallai.github.io/central-europe-political-atlas/news/", updateFrequency: "周度候选", usageNotes: "结构样例新闻使用；不进入模型。" },
-  { sourceId: "project_pending", sourceName: "项目级来源待接入", sourceType: "对华经贸", reliabilityLevel: "D", url: "https://hui-sallai.github.io/central-europe-political-atlas/data/", updateFrequency: "不定期", usageNotes: "项目表初版入口；金额、主体和合同来源需后续逐条补。" },
+  { sourceId: "news_pending", sourceName: "新闻来源待接入", sourceType: "新闻", reliabilityLevel: "D", url: "https://hy-central-europe-analysis.org/news/", updateFrequency: "周度候选", usageNotes: "结构样例新闻使用；不进入模型。" },
+  { sourceId: "project_pending", sourceName: "项目级来源待接入", sourceType: "对华经贸", reliabilityLevel: "D", url: "https://hy-central-europe-analysis.org/data/", updateFrequency: "不定期", usageNotes: "项目表初版入口；金额、主体和合同来源需后续逐条补。" },
 ];
 
 const eurostatUpdatedFiscal = "2026-04-22";

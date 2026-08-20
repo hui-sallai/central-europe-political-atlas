@@ -21,9 +21,9 @@ import {
 } from "./scenarioResearch";
 import type { ModelCard, ModelOutput } from "@/types/ModelOutput";
 import type { ScenarioDefinition, ScenarioResult } from "@/types/Scenario";
-import type { GoldenTestCase, ValidationRecord, ValidationSeverity, ValidationStatus, ValidationTargetType } from "@/types/Validation";
+import type { GoldenTestCase, ValidationRecord, ValidationSemantic, ValidationSeverity, ValidationStatus, ValidationTargetType } from "@/types/Validation";
 
-const REVIEWED_AT = "2026-08-15";
+const REVIEWED_AT = "2026-08-20";
 const TOLERANCE = 0.0001;
 
 function stableValue(value: unknown): unknown {
@@ -51,6 +51,10 @@ function record(
   year: number | null = null,
   severity: ValidationSeverity = status === "failed" ? "error" : status === "partial" ? "warning" : "info",
 ): ValidationRecord {
+  const gateTests = new Set(["missing_data", "failure_state", "score_gate"]);
+  const validationSemantic: ValidationSemantic = status === "passed"
+    ? gateTests.has(testType) ? "passed_gate" : "numeric_passed"
+    : status;
   return {
     validation_id: validationId,
     target_type: targetType,
@@ -62,7 +66,9 @@ function record(
     expected_behavior: expected,
     actual_behavior: actual,
     status,
+    validation_semantic: validationSemantic,
     severity,
+    release_blocking: status === "failed" && severity === "error",
     notes,
     reviewed_at: REVIEWED_AT,
   };
@@ -475,6 +481,7 @@ export const goldenTestCases: GoldenTestCase[] = [
       expected_status: expected === null ? "unavailable" as const : "numeric" as const,
       actual_status: actual === null ? "unavailable" as const : "numeric" as const,
       validation_status: matchesExpected(actual, expected) ? expected === null ? "passed_gate" as const : "passed_numeric" as const : "failed" as const,
+      result_semantic: matchesExpected(actual, expected) ? expected === null ? "expected_unavailable" as const : "numeric_passed" as const : "failed" as const,
       tolerance: TOLERANCE,
       status: matchesExpected(actual, expected) ? "passed" as const : "failed" as const,
       formula_version: output?.formula_version ?? "unavailable",
@@ -495,6 +502,7 @@ export const goldenTestCases: GoldenTestCase[] = [
       expected_status: expected === null ? "unavailable" as const : "numeric" as const,
       actual_status: actual === null ? "unavailable" as const : "numeric" as const,
       validation_status: matchesExpected(actual, expected) ? expected === null ? "passed_gate" as const : "passed_numeric" as const : "failed" as const,
+      result_semantic: matchesExpected(actual, expected) ? expected === null ? "expected_unavailable" as const : "numeric_passed" as const : "failed" as const,
       tolerance: TOLERANCE,
       status: matchesExpected(actual, expected) ? "passed" as const : "failed" as const,
       formula_version: output?.formula_version ?? SCENARIO_FORMULA_VERSION,
@@ -549,16 +557,25 @@ export const validationSummary = {
   reviewed_at: REVIEWED_AT,
   total: validationRegistry.length,
   passed: validationRegistry.filter((item) => item.status === "passed").length,
+  numeric_passed: validationRegistry.filter((item) => item.validation_semantic === "numeric_passed").length,
+  passed_gates: validationRegistry.filter((item) => item.validation_semantic === "passed_gate").length,
   partial: validationRegistry.filter((item) => item.status === "partial").length,
   failed: validationRegistry.filter((item) => item.status === "failed").length,
   not_tested: validationRegistry.filter((item) => item.status === "not_tested").length,
-  blocking_failures: validationRegistry.filter((item) => item.status === "failed" && item.severity === "error").length,
+  blocking_failures: validationRegistry.filter((item) => item.release_blocking).length,
   golden_cases: goldenTestCases.length,
   golden_failures: goldenFailures.length,
-  expected_unavailable_cases: goldenTestCases.filter((item) => item.validation_status === "passed_gate").length,
+  expected_unavailable_cases: goldenTestCases.filter((item) => item.result_semantic === "expected_unavailable").length,
   validated_countries: new Set(goldenTestCases.map((item) => item.country)).size,
   models_covered: modelCards.length,
   scenarios_covered: scenarioDefinitions.length,
+  partial_records: validationRegistry.filter((item) => item.status === "partial").map((item) => ({
+    validation_id: item.validation_id,
+    reason: item.notes,
+    severity: item.severity,
+    release_blocking: item.release_blocking,
+    user_visible_limitation: item.expected_behavior,
+  })),
   unresolved: [
     "Historical backtests remain structure_only because point-in-time vintage observations are not yet available.",
     "Revised historical data can support directional validation but not strict real-time forecast accuracy claims.",

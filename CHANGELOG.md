@@ -2,6 +2,12 @@
 
 Public research releases are summarized here. Historical implementation QA remains in the data records and methodology appendix; this file records only major public changes, methodological changes and breaking changes.
 
+## v1.0 Research Atlas - 2026-08-20
+
+- Major: froze the public research boundary, canonical release metadata, reproducible provenance and final release gates.
+- Method: retained all v0.95 model formulas, weights, scenario shock ranges and transmission definitions; separated numerical validation, passed gates and expected-unavailable cases.
+- Public delivery: moved the canonical public URL to `https://hy-central-europe-analysis.org/`, added legal/privacy notices and retained all route paths, stable IDs, formulas, weights and observations.
+
 ## v0.95 Research Release Candidate - 2026-08-19
 
 - Major: consolidated public navigation, release status, citations, stable research URLs and trace views.
@@ -37,4 +43,3 @@ Public research releases are summarized here. Historical implementation QA remai
 - Major: established canonical data, coded events, verified China-related projects, transparent models, scenarios and ten-country data parity.
 - Method: all analytical outputs retain source, status, period, formula, weight and completeness traces.
 - Breaking: no missing values were imputed and no forecast API was introduced.
-

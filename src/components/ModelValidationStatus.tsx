@@ -50,13 +50,17 @@ export function ModelValidationStatus() {
       </div>
       <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
         {[
-          ["Validated countries", validationSummary.validated_countries],
+          ["Total tests", validationSummary.total],
+          ["Passed numeric tests", validationSummary.numeric_passed],
+          ["Expected-unavailable gates", validationSummary.expected_unavailable_cases],
+          ["Passed gates", validationSummary.passed_gates],
+          ["Partial", validationSummary.partial],
+          ["Failed", validationSummary.failed],
+          ["Blocking failures", validationSummary.blocking_failures],
           ["Golden cases", `${validationSummary.golden_cases - validationSummary.golden_failures}/${validationSummary.golden_cases}`],
-          ["Models covered", validationSummary.models_covered],
-          ["Scenarios covered", validationSummary.scenarios_covered],
         ].map(([label, value]) => <div key={label} className="rounded-2xl bg-[var(--surface-muted)] p-4"><p className="text-xs text-[var(--muted)]">{label}</p><p className="mt-2 text-xl font-semibold">{value}</p></div>)}
       </div>
-      <div className="mt-3 flex flex-wrap gap-2 text-xs"><span className="rounded-full bg-emerald-50 px-3 py-1 font-semibold text-emerald-900">Passed {validationSummary.passed}</span><span className="rounded-full bg-sky-50 px-3 py-1 font-semibold text-sky-900">Expected unavailable {validationSummary.expected_unavailable_cases}</span><span className="rounded-full bg-amber-50 px-3 py-1 font-semibold text-amber-950">Partial {validationSummary.partial}</span><span className="rounded-full bg-rose-50 px-3 py-1 font-semibold text-rose-900">Failed {validationSummary.failed}</span><span className="rounded-full bg-slate-100 px-3 py-1 font-semibold text-slate-700">Not tested {validationSummary.not_tested}</span></div>
+      <p className="mt-4 text-xs leading-5 text-[var(--muted)]">Validation ≠ scientific proof；Validation ≠ forecast accuracy。Expected unavailable / passed gate 表示系统正确拒绝了不满足准入条件的精确输出，不是一个数值测试。</p>
       <div className="wide-table-scroll mt-5">
         <table className="research-data-table w-full min-w-[900px] text-left text-sm">
           <thead><tr>{["模型", "Determinism", "Boundary", "Missing data", "Direction", "Year alignment", "Golden"].map((header) => <th key={header} className="px-3 py-3">{header}</th>)}</tr></thead>
@@ -71,6 +75,7 @@ export function ModelValidationStatus() {
       </div>
       <details className="mt-5 rounded-2xl border border-[var(--line)] p-4">
         <summary className="cursor-pointer font-semibold">Historical reconstruction readiness 与未解决限制</summary>
+        <div className="mt-3 grid gap-2">{validationSummary.partial_records.map((item) => <div key={item.validation_id} className="rounded-xl bg-[var(--surface-muted)] p-3 text-xs leading-5 text-[var(--muted)]"><p className="font-mono font-semibold text-[var(--foreground)]">{item.validation_id}</p><p>severity={item.severity} · release_blocking={String(item.release_blocking)}</p><p>{item.user_visible_limitation}</p><p>{item.reason}</p></div>)}</div>
         <ul className="mt-3 grid gap-2 text-sm leading-6 text-[var(--muted)]">{validationSummary.unresolved.map((item) => <li key={item}>{item}</li>)}</ul>
       </details>
     </section>

@@ -5,9 +5,11 @@
   "record_count": 145,
   "summary": {
     "stage": "v0.91 Model & Scenario Validation",
-    "reviewed_at": "2026-08-15",
+    "reviewed_at": "2026-08-20",
     "total": 145,
     "passed": 144,
+    "numeric_passed": 141,
+    "passed_gates": 3,
     "partial": 1,
     "failed": 0,
     "not_tested": 0,
@@ -18,6 +20,15 @@
     "validated_countries": 4,
     "models_covered": 4,
     "scenarios_covered": 4,
+    "partial_records": [
+      {
+        "validation_id": "scenario_backtest_feasibility",
+        "reason": "Historical values may be revised data; this is not forecast-accuracy testing.",
+        "severity": "warning",
+        "release_blocking": false,
+        "user_visible_limitation": "Backtest records remain structure-only until point-in-time vintage data can reconstruct historical baselines."
+      }
+    ],
     "unresolved": [
       "Historical backtests remain structure_only because point-in-time vintage observations are not yet available.",
       "Revised historical data can support directional validation but not strict real-time forecast accuracy claims.",
@@ -37,9 +48,11 @@
       "expected_behavior": "Eligible weights sum to 1 and reserved/context variables carry no weight.",
       "actual_behavior": "weight_sum=1; reserved_overlap=0",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "formula=household_pressure_v1; weights=household_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_normalization_boundary",
@@ -52,9 +65,11 @@
       "expected_behavior": "Minimum, maximum and out-of-range values clamp to 0–100; null/undefined remain missing.",
       "actual_behavior": "All configured inputs passed boundary and missing-value checks.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Missing values are never converted to zero.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_direction",
@@ -67,9 +82,11 @@
       "expected_behavior": "Moving every configured input in its documented adverse direction must not reduce the score contribution.",
       "actual_behavior": "All configured input directions are monotonic.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Direction follows the published Model Card normalization, not an external risk judgement.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_cross_country_scale",
@@ -82,9 +99,11 @@
       "expected_behavior": "All countries use the same formula, normalization and weight versions.",
       "actual_behavior": "10 outputs checked; shared formula=household_pressure_v1; shared weights=household_pressure_weights_v1",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Country-specific missingness may change availability but not the formula.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_weight_integrity",
@@ -97,9 +116,11 @@
       "expected_behavior": "Eligible weights sum to 1 and reserved/context variables carry no weight.",
       "actual_behavior": "weight_sum=1; reserved_overlap=0",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "formula=fiscal_pressure_v1; weights=fiscal_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_normalization_boundary",
@@ -112,9 +133,11 @@
       "expected_behavior": "Minimum, maximum and out-of-range values clamp to 0–100; null/undefined remain missing.",
       "actual_behavior": "All configured inputs passed boundary and missing-value checks.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Missing values are never converted to zero.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_direction",
@@ -127,9 +150,11 @@
       "expected_behavior": "Moving every configured input in its documented adverse direction must not reduce the score contribution.",
       "actual_behavior": "All configured input directions are monotonic.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Direction follows the published Model Card normalization, not an external risk judgement.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_cross_country_scale",
@@ -142,9 +167,11 @@
       "expected_behavior": "All countries use the same formula, normalization and weight versions.",
       "actual_behavior": "10 outputs checked; shared formula=fiscal_pressure_v1; shared weights=fiscal_pressure_weights_v1",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Country-specific missingness may change availability but not the formula.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_weight_integrity",
@@ -157,9 +184,11 @@
       "expected_behavior": "Eligible weights sum to 1 and reserved/context variables carry no weight.",
       "actual_behavior": "weight_sum=1; reserved_overlap=0",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "formula=external_vulnerability_v1; weights=external_vulnerability_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_normalization_boundary",
@@ -172,9 +201,11 @@
       "expected_behavior": "Minimum, maximum and out-of-range values clamp to 0–100; null/undefined remain missing.",
       "actual_behavior": "All configured inputs passed boundary and missing-value checks.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Missing values are never converted to zero.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_direction",
@@ -187,9 +218,11 @@
       "expected_behavior": "Moving every configured input in its documented adverse direction must not reduce the score contribution.",
       "actual_behavior": "All configured input directions are monotonic.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Direction follows the published Model Card normalization, not an external risk judgement.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_cross_country_scale",
@@ -202,9 +235,11 @@
       "expected_behavior": "All countries use the same formula, normalization and weight versions.",
       "actual_behavior": "10 outputs checked; shared formula=external_vulnerability_v1; shared weights=external_vulnerability_weights_v1",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Country-specific missingness may change availability but not the formula.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_weight_integrity",
@@ -217,9 +252,11 @@
       "expected_behavior": "Eligible weights sum to 1 and reserved/context variables carry no weight.",
       "actual_behavior": "weight_sum=1; reserved_overlap=0",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "formula=industrial_dependency_v1; weights=industrial_dependency_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_normalization_boundary",
@@ -232,9 +269,11 @@
       "expected_behavior": "Minimum, maximum and out-of-range values clamp to 0–100; null/undefined remain missing.",
       "actual_behavior": "All configured inputs passed boundary and missing-value checks.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Missing values are never converted to zero.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_direction",
@@ -247,9 +286,11 @@
       "expected_behavior": "Moving every configured input in its documented adverse direction must not reduce the score contribution.",
       "actual_behavior": "All configured input directions are monotonic.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Direction follows the published Model Card normalization, not an external risk judgement.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_cross_country_scale",
@@ -262,9 +303,11 @@
       "expected_behavior": "All countries use the same formula, normalization and weight versions.",
       "actual_behavior": "10 outputs checked; shared formula=industrial_dependency_v1; shared weights=industrial_dependency_weights_v1",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Country-specific missingness may change availability but not the formula.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_poland_determinism",
@@ -277,9 +320,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=household_pressure_v1; weights=household_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_poland_year_alignment",
@@ -292,9 +337,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2025; trace_years=2025",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_poland_determinism",
@@ -307,9 +354,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=fiscal_pressure_v1; weights=fiscal_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_poland_year_alignment",
@@ -322,9 +371,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2025; trace_years=2025",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_poland_determinism",
@@ -337,9 +388,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=external_vulnerability_v1; weights=external_vulnerability_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_poland_year_alignment",
@@ -352,9 +405,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2024; trace_years=2024",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_poland_determinism",
@@ -367,9 +422,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.70.0; formula=industrial_dependency_v1; weights=industrial_dependency_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_poland_year_alignment",
@@ -382,9 +439,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2024; trace_years=2024",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_hungary_determinism",
@@ -397,9 +456,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=household_pressure_v1; weights=household_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_hungary_year_alignment",
@@ -412,9 +473,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2025; trace_years=2025",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_hungary_determinism",
@@ -427,9 +490,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=fiscal_pressure_v1; weights=fiscal_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_hungary_year_alignment",
@@ -442,9 +507,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2025; trace_years=2025",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_hungary_determinism",
@@ -457,9 +524,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=external_vulnerability_v1; weights=external_vulnerability_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_hungary_year_alignment",
@@ -472,9 +541,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2024; trace_years=2024",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_hungary_determinism",
@@ -487,9 +558,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.70.0; formula=industrial_dependency_v1; weights=industrial_dependency_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_hungary_year_alignment",
@@ -502,9 +575,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2024; trace_years=2024",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_czechia_determinism",
@@ -517,9 +592,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=household_pressure_v1; weights=household_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_czechia_year_alignment",
@@ -532,9 +609,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2025; trace_years=2025",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_czechia_determinism",
@@ -547,9 +626,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=fiscal_pressure_v1; weights=fiscal_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_czechia_year_alignment",
@@ -562,9 +643,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2025; trace_years=2025",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_czechia_determinism",
@@ -577,9 +660,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=external_vulnerability_v1; weights=external_vulnerability_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_czechia_year_alignment",
@@ -592,9 +677,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2024; trace_years=2024",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_czechia_determinism",
@@ -607,9 +694,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.70.0; formula=industrial_dependency_v1; weights=industrial_dependency_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_czechia_year_alignment",
@@ -622,9 +711,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2024; trace_years=2024",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_slovakia_determinism",
@@ -637,9 +728,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=household_pressure_v1; weights=household_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_slovakia_year_alignment",
@@ -652,9 +745,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2025; trace_years=2025",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_slovakia_determinism",
@@ -667,9 +762,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=fiscal_pressure_v1; weights=fiscal_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_slovakia_year_alignment",
@@ -682,9 +779,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2025; trace_years=2025",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_slovakia_determinism",
@@ -697,9 +796,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=external_vulnerability_v1; weights=external_vulnerability_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_slovakia_year_alignment",
@@ -712,9 +813,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2024; trace_years=2024",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_slovakia_determinism",
@@ -727,9 +830,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.70.0; formula=industrial_dependency_v1; weights=industrial_dependency_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_slovakia_year_alignment",
@@ -742,9 +847,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2024; trace_years=2024",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_germany_determinism",
@@ -757,9 +864,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=household_pressure_v1; weights=household_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_germany_year_alignment",
@@ -772,9 +881,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2025; trace_years=2025",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_germany_determinism",
@@ -787,9 +898,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=fiscal_pressure_v1; weights=fiscal_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_germany_year_alignment",
@@ -802,9 +915,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2025; trace_years=2025",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_germany_determinism",
@@ -817,9 +932,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=external_vulnerability_v1; weights=external_vulnerability_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_germany_year_alignment",
@@ -832,9 +949,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2024; trace_years=2024",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_germany_determinism",
@@ -847,9 +966,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.70.0; formula=industrial_dependency_v1; weights=industrial_dependency_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_germany_year_alignment",
@@ -862,9 +983,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2025; trace_years=2025",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_romania_determinism",
@@ -877,9 +1000,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=household_pressure_v1; weights=household_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_romania_year_alignment",
@@ -892,9 +1017,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2025; trace_years=2025",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_romania_determinism",
@@ -907,9 +1034,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=fiscal_pressure_v1; weights=fiscal_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_romania_year_alignment",
@@ -922,9 +1051,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2025; trace_years=2025",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_romania_determinism",
@@ -937,9 +1068,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=external_vulnerability_v1; weights=external_vulnerability_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_romania_year_alignment",
@@ -952,9 +1085,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2024; trace_years=2024",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_romania_determinism",
@@ -967,9 +1102,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.70.0; formula=industrial_dependency_v1; weights=industrial_dependency_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_romania_year_alignment",
@@ -982,9 +1119,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2024; trace_years=2024",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_slovenia_determinism",
@@ -997,9 +1136,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=household_pressure_v1; weights=household_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_slovenia_year_alignment",
@@ -1012,9 +1153,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2025; trace_years=2025",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_slovenia_determinism",
@@ -1027,9 +1170,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=fiscal_pressure_v1; weights=fiscal_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_slovenia_year_alignment",
@@ -1042,9 +1187,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2025; trace_years=2025",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_slovenia_determinism",
@@ -1057,9 +1204,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=external_vulnerability_v1; weights=external_vulnerability_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_slovenia_year_alignment",
@@ -1072,9 +1221,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2024; trace_years=2024",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_slovenia_determinism",
@@ -1087,9 +1238,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.70.0; formula=industrial_dependency_v1; weights=industrial_dependency_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_slovenia_year_alignment",
@@ -1102,9 +1255,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2024; trace_years=2024",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_serbia_determinism",
@@ -1117,9 +1272,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=household_pressure_v1; weights=household_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_serbia_year_alignment",
@@ -1132,9 +1289,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2025; trace_years=2025",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_serbia_determinism",
@@ -1147,9 +1306,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=fiscal_pressure_v1; weights=fiscal_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_serbia_year_alignment",
@@ -1162,9 +1323,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "insufficient_inputs; input_year=none; trace_years=none",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_serbia_determinism",
@@ -1177,9 +1340,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=external_vulnerability_v1; weights=external_vulnerability_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_serbia_year_alignment",
@@ -1192,9 +1357,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2024; trace_years=2024",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_serbia_determinism",
@@ -1207,9 +1374,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.70.0; formula=industrial_dependency_v1; weights=industrial_dependency_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_serbia_year_alignment",
@@ -1222,9 +1391,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2024; trace_years=2024",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_austria_determinism",
@@ -1237,9 +1408,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=household_pressure_v1; weights=household_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_austria_year_alignment",
@@ -1252,9 +1425,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2025; trace_years=2025",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_austria_determinism",
@@ -1267,9 +1442,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=fiscal_pressure_v1; weights=fiscal_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_austria_year_alignment",
@@ -1282,9 +1459,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2025; trace_years=2025",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_austria_determinism",
@@ -1297,9 +1476,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=external_vulnerability_v1; weights=external_vulnerability_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_austria_year_alignment",
@@ -1312,9 +1493,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2024; trace_years=2024",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_austria_determinism",
@@ -1327,9 +1510,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.70.0; formula=industrial_dependency_v1; weights=industrial_dependency_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_austria_year_alignment",
@@ -1342,9 +1527,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2024; trace_years=2024",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_croatia_determinism",
@@ -1357,9 +1544,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=household_pressure_v1; weights=household_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_household_economic_pressure_croatia_year_alignment",
@@ -1372,9 +1561,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2025; trace_years=2025",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_croatia_determinism",
@@ -1387,9 +1578,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=fiscal_pressure_v1; weights=fiscal_pressure_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_fiscal_pressure_croatia_year_alignment",
@@ -1402,9 +1595,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2025; trace_years=2025",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_croatia_determinism",
@@ -1417,9 +1612,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.50.0; formula=external_vulnerability_v1; weights=external_vulnerability_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_external_vulnerability_croatia_year_alignment",
@@ -1432,9 +1629,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2024; trace_years=2024",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_croatia_determinism",
@@ -1447,9 +1646,11 @@
       "expected_behavior": "Repeated calculation and input object reordering preserve score, completeness, confidence and drivers.",
       "actual_behavior": "Repeated and reordered calculations are identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "model=v0.70.0; formula=industrial_dependency_v1; weights=industrial_dependency_weights_v1",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "model_industrial_dependency_croatia_year_alignment",
@@ -1462,9 +1663,11 @@
       "expected_behavior": "Every precise score uses one common input year; insufficient outputs may remain null.",
       "actual_behavior": "aligned_common_year; input_year=2023; trace_years=2023",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Staggered-year exact scores are not enabled.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "models_missing_data_gate",
@@ -1477,9 +1680,11 @@
       "expected_behavior": "100% is sufficient, at least 75% is partial, below 75% is insufficient; missing is not zero.",
       "actual_behavior": "1=sufficient; 0.75=partial; 0.5=insufficient",
       "status": "passed",
+      "validation_semantic": "passed_gate",
       "severity": "info",
+      "release_blocking": false,
       "notes": "No automatic imputation is used.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "models_negative_fdi_exclusion",
@@ -1492,9 +1697,11 @@
       "expected_behavior": "Annual FDI flow must not enter weighted scores while its direction is not methodologically stable.",
       "actual_behavior": "fdi_inflow is reserved/context only and carries zero formal weight.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Negative flows are not interpreted mechanically as low or high exposure.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_inflation_resurgence_determinism",
@@ -1507,9 +1714,11 @@
       "expected_behavior": "Identical baseline, shock and formula produce identical numerical output.",
       "actual_behavior": "Replay is identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "formula=scenario_transmission_v090",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_inflation_resurgence_zero_shock",
@@ -1522,9 +1731,11 @@
       "expected_behavior": "At shock=0, scenario output equals baseline and difference equals zero.",
       "actual_behavior": "baseline=22; scenario=22; change=0",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Unavailable baselines do not produce a fake zero score.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_inflation_resurgence_shock_boundary",
@@ -1537,9 +1748,11 @@
       "expected_behavior": "Out-of-range values are explicitly clamped and labelled; they are never silently calculated.",
       "actual_behavior": "below=clamped_to_min/0; above=clamped_to_max/5",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "The UI and export expose requested and applied shock values separately.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_inflation_resurgence_isolation",
@@ -1552,9 +1765,11 @@
       "expected_behavior": "Only the declared adjusted indicator may enter numeric recalculation.",
       "actual_behavior": "adjusted=hicp_inflation; declared=hicp_inflation",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "context=unemployment_rate,regional_unemployment_rate,regional_employment_rate,regional_gdp_per_capita",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_inflation_resurgence_context_leakage",
@@ -1567,9 +1782,11 @@
       "expected_behavior": "Regional, event and project context may change confidence metadata but never the numeric scenario score.",
       "actual_behavior": "context_off=32; context_on=32",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Context is explanatory evidence only.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_inflation_resurgence_sensitivity",
@@ -1582,9 +1799,11 @@
       "expected_behavior": "A larger adverse shock must not produce a smaller adverse score response; saturation is allowed and labelled.",
       "actual_behavior": "1:5 | 2:10 | 3:15 | 4:20 | 5:25",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Flat steps are accepted only at a normalization boundary.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_inflation_resurgence_compare_baseline",
@@ -1597,9 +1816,11 @@
       "expected_behavior": "Scenario A and B start from the same baseline and are not compounded.",
       "actual_behavior": "Both comparisons use the same baseline.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Compound scenarios are not enabled in v0.91.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_inflation_resurgence_saturation",
@@ -1612,9 +1833,11 @@
       "expected_behavior": "Maximum configured shocks record whether the adjusted input reached a 0/100 normalization boundary.",
       "actual_behavior": "shock=5; saturation_status=not_saturated; score=47",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "If a boundary is reached, further flat score movement is saturation rather than evidence of no effect.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_eu_funds_delay_determinism",
@@ -1627,9 +1850,11 @@
       "expected_behavior": "Identical baseline, shock and formula produce identical numerical output.",
       "actual_behavior": "Replay is identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "formula=scenario_transmission_v090",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_eu_funds_delay_zero_shock",
@@ -1642,9 +1867,11 @@
       "expected_behavior": "At shock=0, scenario output equals baseline and difference equals zero.",
       "actual_behavior": "baseline=61.3; scenario=61.3; change=0",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Unavailable baselines do not produce a fake zero score.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_eu_funds_delay_shock_boundary",
@@ -1657,9 +1884,11 @@
       "expected_behavior": "Out-of-range values are explicitly clamped and labelled; they are never silently calculated.",
       "actual_behavior": "below=clamped_to_min/0; above=clamped_to_max/3",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "The UI and export expose requested and applied shock values separately.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_eu_funds_delay_isolation",
@@ -1672,9 +1901,11 @@
       "expected_behavior": "Only the declared adjusted indicator may enter numeric recalculation.",
       "actual_behavior": "adjusted=fiscal_balance_gdp; declared=fiscal_balance_gdp",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "context=government_expenditure_gdp,regional_gdp_per_capita,regional_population",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_eu_funds_delay_context_leakage",
@@ -1687,9 +1918,11 @@
       "expected_behavior": "Regional, event and project context may change confidence metadata but never the numeric scenario score.",
       "actual_behavior": "context_off=66.3; context_on=66.3",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Context is explanatory evidence only.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_eu_funds_delay_sensitivity",
@@ -1702,9 +1935,11 @@
       "expected_behavior": "A larger adverse shock must not produce a smaller adverse score response; saturation is allowed and labelled.",
       "actual_behavior": "0.5:2.5 | 1:5 | 1.5:7.5 | 2:10 | 3:13.5",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Flat steps are accepted only at a normalization boundary.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_eu_funds_delay_compare_baseline",
@@ -1717,9 +1952,11 @@
       "expected_behavior": "Scenario A and B start from the same baseline and are not compounded.",
       "actual_behavior": "Both comparisons use the same baseline.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Compound scenarios are not enabled in v0.91.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_eu_funds_delay_saturation",
@@ -1732,9 +1969,11 @@
       "expected_behavior": "Maximum configured shocks record whether the adjusted input reached a 0/100 normalization boundary.",
       "actual_behavior": "shock=3; saturation_status=normalization_boundary_reached; score=74.8",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "If a boundary is reached, further flat score movement is saturation rather than evidence of no effect.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_energy_price_shock_determinism",
@@ -1747,9 +1986,11 @@
       "expected_behavior": "Identical baseline, shock and formula produce identical numerical output.",
       "actual_behavior": "Replay is identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "formula=scenario_transmission_v090",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_energy_price_shock_zero_shock",
@@ -1762,9 +2003,11 @@
       "expected_behavior": "At shock=0, scenario output equals baseline and difference equals zero.",
       "actual_behavior": "baseline=41.5; scenario=41.5; change=0",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Unavailable baselines do not produce a fake zero score.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_energy_price_shock_shock_boundary",
@@ -1777,9 +2020,11 @@
       "expected_behavior": "Out-of-range values are explicitly clamped and labelled; they are never silently calculated.",
       "actual_behavior": "below=clamped_to_min/0; above=clamped_to_max/50",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "The UI and export expose requested and applied shock values separately.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_energy_price_shock_isolation",
@@ -1792,9 +2037,11 @@
       "expected_behavior": "Only the declared adjusted indicator may enter numeric recalculation.",
       "actual_behavior": "adjusted=industrial_electricity_price; declared=industrial_electricity_price",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "context=energy_import_dependency,manufacturing_share_gdp,regional_manufacturing_share",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_energy_price_shock_context_leakage",
@@ -1807,9 +2054,11 @@
       "expected_behavior": "Regional, event and project context may change confidence metadata but never the numeric scenario score.",
       "actual_behavior": "context_off=44; context_on=44",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Context is explanatory evidence only.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_energy_price_shock_sensitivity",
@@ -1822,9 +2071,11 @@
       "expected_behavior": "A larger adverse shock must not produce a smaller adverse score response; saturation is allowed and labelled.",
       "actual_behavior": "10:1.3 | 20:2.5 | 30:3.8 | 40:5.1 | 50:6.4",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Flat steps are accepted only at a normalization boundary.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_energy_price_shock_compare_baseline",
@@ -1837,9 +2088,11 @@
       "expected_behavior": "Scenario A and B start from the same baseline and are not compounded.",
       "actual_behavior": "Both comparisons use the same baseline.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Compound scenarios are not enabled in v0.91.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_energy_price_shock_saturation",
@@ -1852,9 +2105,11 @@
       "expected_behavior": "Maximum configured shocks record whether the adjusted input reached a 0/100 normalization boundary.",
       "actual_behavior": "shock=50; saturation_status=not_saturated; score=47.9",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "If a boundary is reached, further flat score movement is saturation rather than evidence of no effect.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_germany_demand_slowdown_determinism",
@@ -1867,9 +2122,11 @@
       "expected_behavior": "Identical baseline, shock and formula produce identical numerical output.",
       "actual_behavior": "Replay is identical.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "formula=scenario_transmission_v090",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_germany_demand_slowdown_zero_shock",
@@ -1882,9 +2139,11 @@
       "expected_behavior": "At shock=0, scenario output equals baseline and difference equals zero.",
       "actual_behavior": "baseline=41.5; scenario=41.5; change=0",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Unavailable baselines do not produce a fake zero score.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_germany_demand_slowdown_shock_boundary",
@@ -1897,9 +2156,11 @@
       "expected_behavior": "Out-of-range values are explicitly clamped and labelled; they are never silently calculated.",
       "actual_behavior": "below=clamped_to_min/-20; above=clamped_to_max/0",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "The UI and export expose requested and applied shock values separately.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_germany_demand_slowdown_isolation",
@@ -1912,9 +2173,11 @@
       "expected_behavior": "Only the declared adjusted indicator may enter numeric recalculation.",
       "actual_behavior": "adjusted=germany_export_dependence; declared=germany_export_dependence",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "context=automotive_export_share,manufacturing_share_gdp,regional_manufacturing_share,regional_employment_rate,regional_unemployment_rate",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_germany_demand_slowdown_context_leakage",
@@ -1927,9 +2190,11 @@
       "expected_behavior": "Regional, event and project context may change confidence metadata but never the numeric scenario score.",
       "actual_behavior": "context_off=42.8; context_on=42.8",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Context is explanatory evidence only.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_germany_demand_slowdown_sensitivity",
@@ -1942,9 +2207,11 @@
       "expected_behavior": "A larger adverse shock must not produce a smaller adverse score response; saturation is allowed and labelled.",
       "actual_behavior": "-2:0.5 | -5:1.3 | -10:2.7 | -15:4 | -20:5.4",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Flat steps are accepted only at a normalization boundary.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_germany_demand_slowdown_compare_baseline",
@@ -1957,9 +2224,11 @@
       "expected_behavior": "Scenario A and B start from the same baseline and are not compounded.",
       "actual_behavior": "Both comparisons use the same baseline.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Compound scenarios are not enabled in v0.91.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_germany_demand_slowdown_saturation",
@@ -1972,9 +2241,11 @@
       "expected_behavior": "Maximum configured shocks record whether the adjusted input reached a 0/100 normalization boundary.",
       "actual_behavior": "shock=-20; saturation_status=not_saturated; score=46.9",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "If a boundary is reached, further flat score movement is saturation rather than evidence of no effect.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_confidence_rule",
@@ -1987,9 +2258,11 @@
       "expected_behavior": "Published confidence is generated from the rule-based decomposition and means evidence reliability, not probability.",
       "actual_behavior": "Every available result uses the decomposed label.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Components: baseline completeness, eligibility, direct coverage, regional context and evidence quality.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "regional_context_spatial_level",
@@ -2002,9 +2275,11 @@
       "expected_behavior": "Each factual regional ranking uses one explicit spatial level per country and indicator.",
       "actual_behavior": "No mixed-level ranking detected.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Cross-level regional rankings remain prohibited.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_evidence_numeric_leakage",
@@ -2017,9 +2292,11 @@
       "expected_behavior": "Events and projects remain explanatory links and never enter numeric scenario calculations.",
       "actual_behavior": "42 links checked; numeric entrants=0",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Event intensity and project presence do not alter a score.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_germany_demand_assumption",
@@ -2032,9 +2309,11 @@
       "expected_behavior": "The exposure adjustment is labelled synthetic pressure adjustment and never described as forecast export share or expected trade loss.",
       "actual_behavior": "Terminology is explicit and bounded.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "The arithmetic adjustment is not an estimated elasticity, export loss or GDP forecast.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_energy_direct_input",
@@ -2047,9 +2326,11 @@
       "expected_behavior": "Industrial electricity price is the only recalculated input; energy import dependency and regional manufacturing remain context.",
       "actual_behavior": "adjusted=industrial_electricity_price; contextual=energy_import_dependency,manufacturing_share_gdp,regional_manufacturing_share",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Household electricity price and energy inflation are not forced into a model that lacks those eligible inputs.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_eu_funds_assumption",
@@ -2062,9 +2343,11 @@
       "expected_behavior": "The fiscal deterioration is user-defined and is not presented as an estimated EU-funds multiplier.",
       "actual_behavior": "财政恶化幅度由用户直接设定，不估计欧盟拨款弹性。 债务率和融资成本保持不变。 没有统一地区凝聚资金数据时不推算区域财政影响。",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Only fiscal_balance_gdp is recalculated.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_inflation_assumption",
@@ -2077,9 +2360,11 @@
       "expected_behavior": "HICP shock is not described as a disposable-income shock.",
       "actual_behavior": "在不改写原始 HICP 观测值的前提下，假设通胀率上升若干个百分点，并按居民经济压力模型既有权重重算。",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Employment and other inputs remain fixed.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_failure_state",
@@ -2092,9 +2377,11 @@
       "expected_behavior": "Unavailable baselines produce a reason and null outputs, never NaN, blank output or a fake zero score.",
       "actual_behavior": "unavailable=4; invalid_unavailable=0",
       "status": "passed",
+      "validation_semantic": "passed_gate",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Precise output is refused when model inputs are insufficient.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "china_project_disruption_gate",
@@ -2107,9 +2394,11 @@
       "expected_behavior": "China project disruption scoring remains disabled until its formal data gate is met.",
       "actual_behavior": "decision=context_only; score_enabled=false",
       "status": "passed",
+      "validation_semantic": "passed_gate",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Eligible projects may appear as context only.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_backtest_feasibility",
@@ -2122,9 +2411,11 @@
       "expected_behavior": "Backtest records remain structure-only until point-in-time vintage data can reconstruct historical baselines.",
       "actual_behavior": "2 records; statuses=structure_only",
       "status": "partial",
+      "validation_semantic": "partial",
       "severity": "warning",
+      "release_blocking": false,
       "notes": "Historical values may be revised data; this is not forecast-accuracy testing.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "golden_test_cases",
@@ -2137,9 +2428,11 @@
       "expected_behavior": "Fixed Hungary, Poland, Germany and Romania model/scenario cases reproduce known outputs.",
       "actual_behavior": "32 cases; failures=0",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Expected values are fixed and must be intentionally migrated when a formula version changes.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_export_consistency",
@@ -2152,9 +2445,11 @@
       "expected_behavior": "Definitions, results, channels, evidence, sensitivity and backtest registries expose internally consistent identifiers.",
       "actual_behavior": "definitions=4; results=40; sensitivity=200; backtests=2",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "The executable validation script separately parses every generated JSON/CSV export.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "canonical_data_immutability",
@@ -2167,9 +2462,11 @@
       "expected_behavior": "Scenario and validation execution must not change canonical observations or transmission inputs.",
       "actual_behavior": "The executable validation command compares SHA-256 content before and after runtime evaluation and blocks on mismatch.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Scenario-adjusted values exist only inside scenario result records.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "formula_versioning",
@@ -2182,9 +2479,11 @@
       "expected_behavior": "Every model card/output and scenario result records formula and weight versions without silently replacing historical meaning.",
       "actual_behavior": "models=true; scenarios=true",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Any future formula or normalization change requires a new version and migration note.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     },
     {
       "validation_id": "scenario_reproducibility_record",
@@ -2197,9 +2496,11 @@
       "expected_behavior": "Every scenario result preserves baseline inputs, shock, model/formula/weight versions, output and calculation timestamp.",
       "actual_behavior": "39/40 records contain a complete available-baseline trace.",
       "status": "passed",
+      "validation_semantic": "numeric_passed",
       "severity": "info",
+      "release_blocking": false,
       "notes": "Unavailable results retain their reason and any baseline trace that exists.",
-      "reviewed_at": "2026-08-15"
+      "reviewed_at": "2026-08-20"
     }
   ]
 }

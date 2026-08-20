@@ -101,7 +101,8 @@ for (const phrase of ["forecast export share", "expected trade loss", "china ris
   if (terminologyPayload.includes(phrase)) errors.push(`Misleading result terminology found: ${phrase}.`);
 }
 
-console.log(`Research validation: ${validationSummary.passed} passed, ${validationSummary.partial} partial, ${validationSummary.failed} failed.`);
+console.log(`Research validation: total=${validationSummary.total}; numeric_passed=${validationSummary.numeric_passed}; passed_gates=${validationSummary.passed_gates}; partial=${validationSummary.partial}; failed=${validationSummary.failed}; blocking=${validationSummary.blocking_failures}.`);
+console.log(`Expected-unavailable golden gates: ${validationSummary.expected_unavailable_cases}.`);
 console.log(`Golden cases: ${validationSummary.golden_cases - validationSummary.golden_failures}/${validationSummary.golden_cases} passed.`);
 console.log(`Canonical immutability: ${canonicalHashBefore === canonicalHashAfter ? "passed" : "failed"}.`);
 

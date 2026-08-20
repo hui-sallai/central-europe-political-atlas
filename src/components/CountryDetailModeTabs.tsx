@@ -12,7 +12,7 @@ import { chinaProjectVerificationLabel, verifyChinaProject } from "@/lib/chinaPr
 import { getCountryMetadata } from "@/lib/countryMetadata";
 import type { Country } from "@/lib/data";
 import { getChinaProjectRecords, getExtendedObservationCoverage } from "@/lib/extendedData";
-import { getEventsForCountry } from "@/lib/researchData";
+import { getCountryObservations, getEventsForCountry } from "@/lib/researchData";
 import { getModelCard, getModelOutputsForCountry, modelCards } from "@/lib/modelFramework";
 import { calculateScenario, scenarioDefinitions } from "@/lib/scenarioFramework";
 import { getChinaExposureOutput } from "@/lib/chinaExposureModel";
@@ -47,6 +47,9 @@ export function CountryDetailModeTabs({ country, regionalCoverage }: { country: 
   const projectRecords = getChinaProjectRecords(country.slug);
   const eventRecords = getEventsForCountry(country.slug);
   const modelOutputs = getModelOutputsForCountry(country.slug);
+  const snapshotSourceIds = [...new Set(getCountryObservations(country.slug).map((observation) => observation.source))];
+  const snapshotFormulaVersions = [...new Set(modelOutputs.map((output) => output.formula_version))];
+  const snapshotValues = modelOutputs.map((output) => `${output.model_id}=${output.score === null ? "unavailable" : output.score.toFixed(1)}`);
   const scenarioSensitivity = scenarioDefinitions.map((definition) => ({
     definition,
     result: calculateScenario({
@@ -113,6 +116,16 @@ export function CountryDetailModeTabs({ country, regionalCoverage }: { country: 
             <h2 className="mt-3 text-2xl font-semibold">当前研究摘要</h2>
             <p className="mt-3 max-w-3xl text-sm leading-6 text-[var(--muted)]">数据共同年份 {latestCommonYearLabel}；透明模型可计算 {modelOutputs.filter((item) => item.score !== null).length}/{modelOutputs.length}；对华项目 {projectRecords.length} 项；已编码事件 {codedEventCount} 条；区域事实图层 {regionalCoverage?.public_layer_count ?? 0} 个。</p>
             <p className="mt-2 text-xs leading-5 text-[var(--muted)]">限制：{regionalCoverage?.blocker || "区域事实只作结构背景"}；模型与情景均不构成预测、投资建议或因果估计。</p>
+            <dl className="mt-4 grid gap-2 text-xs leading-5 sm:grid-cols-2 xl:grid-cols-3">
+              {[
+                ["Subject", "country political-economy research snapshot"],
+                ["Country / region", `${country.nameZh} / ${regionalCoverage?.admin_level ?? "regional pending"}`],
+                ["Year", latestCommonYearLabel],
+                ["Relevant values", snapshotValues.join(" / ")],
+                ["Formula versions", snapshotFormulaVersions.join(" / ")],
+                ["Source IDs", snapshotSourceIds.join(" / ") || "pending"],
+              ].map(([label, value]) => <div key={label} className="rounded-xl bg-[var(--surface-muted)] px-3 py-2"><dt className="font-semibold text-[var(--foreground)]">{label}</dt><dd className="mt-1 break-words text-[var(--muted)]">{value}</dd></div>)}
+            </dl>
           </div>
           <CitationActions compact plainText={`Central Europe Political Atlas, ${PLATFORM_VERSION}, country research snapshot: ${country.nameZh} (${country.slug}), common-year range ${latestCommonYearLabel}, accessed YYYY-MM-DD. ${PLATFORM_BASE_URL}countries/${country.slug}/`} />
         </div>

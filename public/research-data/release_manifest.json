@@ -1,7 +1,9 @@
 {
-  "platform_version": "v0.95 Research Release Candidate",
-  "release_date": "2026-08-19",
-  "source_commit": "working-tree",
+  "schema_version": "release-metadata-v1.0",
+  "platform_version": "v1.0 Research Atlas",
+  "release_date": "2026-08-20",
+  "source_commit": "local-working-tree",
+  "build_context": "local",
   "data_export_version": "research-data-v0.1",
   "canonical_data_version": "data-foundation-v0.76",
   "model_versions": [
@@ -33,19 +35,43 @@
   "scenario_versions": [
     {
       "scenario_id": "inflation_resurgence",
-      "formula_version": "scenario_transmission_v090"
+      "formula_version": "scenario_transmission_v090",
+      "reference_model_id": "household_economic_pressure",
+      "adjusted_indicator_id": "hicp_inflation",
+      "shock_min": 0,
+      "shock_max": 5,
+      "shock_step": 0.5,
+      "shock_unit": "个百分点"
     },
     {
       "scenario_id": "eu_funds_delay",
-      "formula_version": "scenario_transmission_v090"
+      "formula_version": "scenario_transmission_v090",
+      "reference_model_id": "fiscal_pressure",
+      "adjusted_indicator_id": "fiscal_balance_gdp",
+      "shock_min": 0,
+      "shock_max": 3,
+      "shock_step": 0.25,
+      "shock_unit": "% GDP"
     },
     {
       "scenario_id": "energy_price_shock",
-      "formula_version": "scenario_transmission_v090"
+      "formula_version": "scenario_transmission_v090",
+      "reference_model_id": "industrial_dependency",
+      "adjusted_indicator_id": "industrial_electricity_price",
+      "shock_min": 0,
+      "shock_max": 50,
+      "shock_step": 5,
+      "shock_unit": "%"
     },
     {
       "scenario_id": "germany_demand_slowdown",
-      "formula_version": "scenario_transmission_v090"
+      "formula_version": "scenario_transmission_v090",
+      "reference_model_id": "industrial_dependency",
+      "adjusted_indicator_id": "germany_export_dependence",
+      "shock_min": -20,
+      "shock_max": 0,
+      "shock_step": 1,
+      "shock_unit": "%"
     }
   ],
   "validation_version": "v0.91 Model & Scenario Validation",
@@ -55,9 +81,11 @@
   ],
   "validation_summary": {
     "stage": "v0.91 Model & Scenario Validation",
-    "reviewed_at": "2026-08-15",
+    "reviewed_at": "2026-08-20",
     "total": 145,
     "passed": 144,
+    "numeric_passed": 141,
+    "passed_gates": 3,
     "partial": 1,
     "failed": 0,
     "not_tested": 0,
@@ -68,6 +96,15 @@
     "validated_countries": 4,
     "models_covered": 4,
     "scenarios_covered": 4,
+    "partial_records": [
+      {
+        "validation_id": "scenario_backtest_feasibility",
+        "reason": "Historical values may be revised data; this is not forecast-accuracy testing.",
+        "severity": "warning",
+        "release_blocking": false,
+        "user_visible_limitation": "Backtest records remain structure-only until point-in-time vintage data can reconstruct historical baselines."
+      }
+    ],
     "unresolved": [
       "Historical backtests remain structure_only because point-in-time vintage observations are not yet available.",
       "Revised historical data can support directional validation but not strict real-time forecast accuracy claims.",

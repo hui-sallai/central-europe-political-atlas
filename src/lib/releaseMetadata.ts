@@ -1,12 +1,23 @@
-export const PLATFORM_NAME = "Central Europe Political Atlas";
-export const PLATFORM_VERSION = "v0.95 Research Release Candidate";
-export const PLATFORM_RELEASE_DATE = "2026-08-19";
-export const PLATFORM_BASE_URL = "https://hui-sallai.github.io/central-europe-political-atlas/";
+import releaseConfig from "../data/release.json";
+
+export const PLATFORM_NAME = releaseConfig.name;
+export const PLATFORM_VERSION = releaseConfig.version;
+export const PLATFORM_RELEASE_DATE = releaseConfig.release_date;
+export const PLATFORM_STAGE = releaseConfig.stage;
+export const PLATFORM_BASE_URL = releaseConfig.canonical_url;
+export const PLATFORM_CONTACT_EMAIL = releaseConfig.public_contact_email;
+export const PLATFORM_LEGAL_NOTICE_UPDATED = releaseConfig.legal_notice_updated;
+export const RELEASE_SCHEMA_VERSION = releaseConfig.schema_version;
 
 export const platformRelease = {
   name: PLATFORM_NAME,
   version: PLATFORM_VERSION,
   release_date: PLATFORM_RELEASE_DATE,
+  stage: PLATFORM_STAGE,
+  schema_version: RELEASE_SCHEMA_VERSION,
+  canonical_url: PLATFORM_BASE_URL,
+  public_contact_email: PLATFORM_CONTACT_EMAIL,
+  legal_notice_updated: PLATFORM_LEGAL_NOTICE_UPDATED,
   countries: 10,
   regional_factual_map_countries: 9,
   transparent_models: 4,
@@ -35,6 +46,7 @@ export const releaseChangelog = [
   ["v0.90 Transmission Scenarios", "Linked shocks, adjusted inputs, models, regional context and evidence.", "Events and projects remain explanatory context only.", "Scenario formulas did not modify baseline observations."],
   ["v0.91 Validation", "Added deterministic validation, golden cases, boundary checks and CI blocking.", "Expected unavailable outputs are validated as gates, not numeric results.", "Historical reconstruction remains exploratory without vintage data."],
   ["v0.95 Research Release Candidate", "Added citation, stable research URLs, release metadata, trace UX and release QA.", "Public pages now use one current release status and a consolidated methodology.", "No new model, scenario, index or prediction."],
+  ["v1.0 Research Atlas", "Froze the public research boundary, canonical release metadata, reproducible provenance and final release gates.", "Model and scenario definitions remain unchanged; validation semantics now separate numeric checks, gates and expected-unavailable cases.", "No public route, formula, weight, shock range or canonical observation schema was broken."],
 ] as const;
 
 export function platformCitation(accessed = "YYYY-MM-DD") {
@@ -46,5 +58,5 @@ export function platformApaCitation(accessed = "YYYY-MM-DD") {
 }
 
 export function platformBibtexCitation(accessed = "YYYY-MM-DD") {
-  return `@misc{central_europe_political_atlas_v095,\n  title = {${PLATFORM_NAME}},\n  author = {{Central Europe Political Atlas}},\n  year = {${PLATFORM_RELEASE_DATE.slice(0, 4)}},\n  version = {${PLATFORM_VERSION}},\n  url = {${PLATFORM_BASE_URL}},\n  note = {Accessed ${accessed}}\n}`;
+  return `@misc{${releaseConfig.citation_key},\n  title = {${PLATFORM_NAME}},\n  author = {{Central Europe Political Atlas}},\n  year = {${PLATFORM_RELEASE_DATE.slice(0, 4)}},\n  version = {${PLATFORM_VERSION}},\n  url = {${PLATFORM_BASE_URL}},\n  note = {Accessed ${accessed}}\n}`;
 }

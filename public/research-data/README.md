@@ -2,6 +2,8 @@
 
 This directory contains the public research exports used by the static site.
 
+Current release: **v1.0 Research Atlas**. The canonical release definition is exported through `platform_metadata.json`; deployment provenance is recorded in `release_manifest.json`.
+
 ## Core schemas
 
 - `countries`: stable country identifiers and country metadata.
@@ -26,9 +28,15 @@ Missing-data reason: `unavailable`, `pending_publication`, `not_applicable`, `in
 
 Source reliability: A (official/primary), B (authoritative secondary or official organizational records), C (supplementary), D (excluded/unverified/sample).
 
+Validation semantics: `numeric_passed` means a numerical or deterministic check passed; `passed_gate` means a release or availability gate behaved as defined; `expected_unavailable` means unavailable was the expected and observed result; `partial` is a disclosed non-blocking limitation; `failed` and `not_tested` retain their literal meanings.
+
 ## Formula versions
 
 Model cards and outputs retain `model_version`, `formula_version` and `weight_version`. Scenario results retain baseline records, requested and applied shock values, formula and weight versions, and calculation timestamps.
+
+Frozen v1.0 model IDs: `household_economic_pressure`, `fiscal_pressure`, `external_vulnerability`, `industrial_dependency`.
+
+Frozen v1.0 scenario IDs: `inflation_resurgence`, `eu_funds_delay`, `energy_price_shock`, `germany_demand_slowdown`.
 
 ## Release metadata
 

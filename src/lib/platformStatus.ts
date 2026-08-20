@@ -1,11 +1,11 @@
-import { PLATFORM_RELEASE_DATE, PLATFORM_VERSION } from "./releaseMetadata";
+import { PLATFORM_RELEASE_DATE, PLATFORM_STAGE, PLATFORM_VERSION } from "./releaseMetadata";
 
 export const platformStatus = {
   version: PLATFORM_VERSION,
-  stage: "研究产品收口、引用与发布候选验收",
-  regionalData: "九国区域事实用于结构背景；塞尔维亚区域比较继续待接入，不阻断合格国家级情景",
+  stage: PLATFORM_STAGE,
+  regionalData: "9-country factual regional comparison; Serbia regional pending",
   mapDisplay: "九国事实地图可用；情景影响、风险、预测与真实党派支持率色阶未启用",
-  modelLayer: "四项透明模型与四个条件式情景保持原公式；验证、追溯与引用处于启用状态",
+  modelLayer: "4 transparent models; 4 conditional scenarios; validation active",
   lastUpdated: PLATFORM_RELEASE_DATE,
 } as const;
 

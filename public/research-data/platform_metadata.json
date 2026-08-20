@@ -1,7 +1,12 @@
 {
   "name": "Central Europe Political Atlas",
-  "version": "v0.95 Research Release Candidate",
-  "release_date": "2026-08-19",
+  "version": "v1.0 Research Atlas",
+  "release_date": "2026-08-20",
+  "stage": "stable public research release",
+  "schema_version": "release-metadata-v1.0",
+  "canonical_url": "https://hy-central-europe-analysis.org/",
+  "public_contact_email": "sallaizhang@outlook.com",
+  "legal_notice_updated": "2026-08-20",
   "countries": 10,
   "regional_factual_map_countries": 9,
   "transparent_models": 4,
@@ -17,8 +22,7 @@
     "Serbia regional comparison remains pending while national data remain available.",
     "China Economic Exposure and China-linked Project Disruption remain subject to their published evidence gates."
   ],
-  "citation": "Central Europe Political Atlas, version v0.95 Research Release Candidate, accessed YYYY-MM-DD. https://hui-sallai.github.io/central-europe-political-atlas/",
-  "canonical_url": "https://hui-sallai.github.io/central-europe-political-atlas/",
+  "citation": "Central Europe Political Atlas, version v1.0 Research Atlas, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
   "data_status_enum": [
     "official",
     "verified",
@@ -34,5 +38,13 @@
     "not_applicable",
     "insufficient_evidence",
     "review_required"
+  ],
+  "validation_semantic_enum": [
+    "numeric_passed",
+    "passed_gate",
+    "expected_unavailable",
+    "partial",
+    "failed",
+    "not_tested"
   ]
 }
