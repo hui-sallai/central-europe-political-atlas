@@ -1,0 +1,14 @@
+{
+  "schema_version": "analysis-skill-registry-v1.2",
+  "generated_at": "2026-08-21",
+  "records": [
+    { "skill_id": "composite_indicators", "state": "active" },
+    { "skill_id": "panel_econometrics", "state": "active", "gate": ">=8 countries, >=8 years, >=4 qualified key variables" },
+    { "skill_id": "network_dependency", "state": "data_building", "gate": "complete comparable partner-country bilateral edges" },
+    { "skill_id": "event_study", "state": "registry_only", "required_data": ["verified_event", "pre_window", "post_window", "comparison_design", "daily_monthly_or_quarterly_outcome"] },
+    { "skill_id": "var_svar", "state": "blocked", "reason": "blocked_by_frequency", "future_gate": ">=40 effective quarterly or monthly observations plus stationarity, lag and stability diagnostics" },
+    { "skill_id": "bayesian_var", "state": "blocked", "reason": "blocked_by_frequency" },
+    { "skill_id": "causal_policy_analysis", "state": "registry_only" }
+  ],
+  "high_frequency_roadmap": ["industrial_production_monthly", "hicp_monthly", "unemployment_monthly", "policy_rates", "bond_yields", "exchange_rates", "energy_prices"]
+}

@@ -1,9 +1,9 @@
 {
   "name": "Central Europe Political Atlas",
-  "version": "v1.1 Architecture & Interface Refactor",
-  "release_date": "2026-08-20",
-  "stage": "research workflow interface release",
-  "schema_version": "release-metadata-v1.1",
+  "version": "v1.2 Advanced Analysis Data Foundation",
+  "release_date": "2026-08-21",
+  "stage": "advanced analysis data foundation",
+  "schema_version": "release-metadata-v1.2",
   "canonical_url": "https://hy-central-europe-analysis.org/",
   "public_contact_email": "sallaizhang@outlook.com",
   "legal_notice_updated": "2026-08-20",
@@ -15,14 +15,16 @@
   "data_schema_versions": [
     "data-foundation-v0.76",
     "regional-data-v0.89",
-    "model-scenario-validation-v0.91"
+    "model-scenario-validation-v0.91",
+    "panel-observations-v1.2",
+    "trade-network-v1.2"
   ],
   "limitations": [
     "No election forecasts, investment advice, probability forecasts, or causal impact estimates.",
     "Serbia regional comparison remains pending while national data remain available.",
     "China Economic Exposure and China-linked Project Disruption remain subject to their published evidence gates."
   ],
-  "citation": "Central Europe Political Atlas, version v1.1 Architecture & Interface Refactor, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
+  "citation": "Central Europe Political Atlas, version v1.2 Advanced Analysis Data Foundation, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
   "data_status_enum": [
     "official",
     "verified",

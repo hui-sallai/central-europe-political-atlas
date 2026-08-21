@@ -23,18 +23,7 @@ export type HomeMapCountry = {
 const width = 900;
 const height = 580;
 const padding = 24;
-const countryColors: Record<string, string> = {
-  germany: "#d7b59f",
-  poland: "#b9c7d6",
-  hungary: "#c9b9cf",
-  romania: "#d5c69f",
-  czechia: "#a9c8bc",
-  slovakia: "#c4bca6",
-  slovenia: "#aebfc7",
-  serbia: "#c9aaa4",
-  austria: "#b8c99f",
-  croatia: "#d3b6c2",
-};
+const neutralCountryFill = "#cbc8bf";
 
 function polygons(feature: MapFeature): MultiPolygon {
   return feature.geometry.type === "Polygon" ? [feature.geometry.coordinates as Polygon] : feature.geometry.coordinates as MultiPolygon;
@@ -117,8 +106,8 @@ export function HomeResearchMap({ countries }: { countries: HomeMapCountry[] }) 
               {paths.map((item) => {
                 const active = item.slug === selectedSlug;
                 const country = countries.find((candidate) => candidate.slug === item.slug);
-                const fill = active ? "var(--accent)" : countryColors[item.slug] ?? "#c8c3b8";
-                return <path key={item.key} d={item.d} fill={fill} stroke={fill} strokeWidth="1" className="home-country-shape" role="button" tabIndex={0} aria-label={`选择${country?.nameZh ?? item.slug}`} onClick={() => setSelectedSlug(item.slug)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") setSelectedSlug(item.slug); }}><title>{country?.nameZh ?? item.slug}</title></path>;
+                const fill = active ? "var(--accent)" : neutralCountryFill;
+                return <path key={item.key} d={item.d} fill={fill} stroke="#f7f5ef" strokeWidth="1.4" className={`home-country-shape${active ? " is-selected" : ""}`} role="button" tabIndex={0} aria-label={`选择${country?.nameZh ?? item.slug}`} onClick={() => setSelectedSlug(item.slug)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") setSelectedSlug(item.slug); }}><title>{country?.nameZh ?? item.slug}</title></path>;
               })}
             </svg>
           ) : null}

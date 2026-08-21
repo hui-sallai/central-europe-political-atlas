@@ -1,25 +1,48 @@
 import { analysisSkills } from "@/lib/analysisSkills";
 import { calculateModelOutput, modelCards } from "@/lib/modelFramework";
+import { runPanelEconometrics } from "@/lib/panelEngine";
 import { researchCountries } from "@/lib/researchData";
 import type { AnalysisResult, AnalysisRunRequest } from "@/types/AnalysisSkill";
 import type { ModelOutput } from "@/types/ModelOutput";
+import type { PanelAnalysisOutput, PanelSpecification } from "@/types/PanelAnalysis";
 
-export function runAnalysisSkill(request: AnalysisRunRequest): AnalysisResult<ModelOutput> {
+export function runAnalysisSkill(request: AnalysisRunRequest): AnalysisResult<ModelOutput | PanelAnalysisOutput> {
   const skill = analysisSkills.find((candidate) => candidate.skill_id === request.skillId);
-  if (!skill || skill.calculation_mode === "registry_only") {
+  if (!skill || skill.calculation_mode !== "active") {
     return {
-      status: "registry_only",
+      status: skill?.calculation_mode === "data_building" || skill?.calculation_mode === "blocked" || skill?.calculation_mode === "registry_only" ? skill.calculation_mode : "registry_only",
       estimates: null,
       diagnostics: {
         input_completeness: null,
         year_alignment: "not_run",
-        validation_gate: "registry_only",
+        validation_gate: skill?.calculation_mode ?? "registry_only",
         missing_variables: skill?.required_data ?? [],
       },
       visualizations: [],
       data_trace: [],
       limitations: skill?.limitations ?? ["分析技能未登记。"],
     };
+  }
+
+  if (request.skillId === "panel_econometrics") {
+    try {
+      const output = runPanelEconometrics(request.dataset.panel_observations ?? [], request.parameters as unknown as PanelSpecification);
+      return {
+        status: "completed",
+        estimates: output,
+        diagnostics: { input_completeness: Math.round(output.diagnostics.sample_coverage * 100), year_alignment: output.diagnostics.year_coverage, validation_gate: "panel_gate_passed", missing_variables: [] },
+        visualizations: [{ type: "coefficient_plot", title: "Panel coefficients", data: output.coefficients }],
+        data_trace: output.data_trace,
+        limitations: skill.limitations,
+      };
+    } catch (error) {
+      return {
+        status: "unavailable",
+        estimates: null,
+        diagnostics: { input_completeness: null, year_alignment: "not_run", validation_gate: error instanceof Error ? error.message : "panel_estimation_failed", missing_variables: [] },
+        visualizations: [], data_trace: [], limitations: skill.limitations,
+      };
+    }
   }
 
   const country = researchCountries.find((candidate) => candidate.slug === request.dataset.country_slug);

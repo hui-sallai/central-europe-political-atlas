@@ -23,7 +23,7 @@ export const platformRelease = {
   transparent_models: 4,
   scenarios: 4,
   validation_status: "active",
-  data_schema_versions: ["data-foundation-v0.76", "regional-data-v0.89", "model-scenario-validation-v0.91"],
+  data_schema_versions: ["data-foundation-v0.76", "regional-data-v0.89", "model-scenario-validation-v0.91", "panel-observations-v1.2", "trade-network-v1.2"],
   limitations: [
     "No election forecasts, investment advice, probability forecasts, or causal impact estimates.",
     "Serbia regional comparison remains pending while national data remain available.",
@@ -48,6 +48,7 @@ export const releaseChangelog = [
   ["v0.95 Research Release Candidate", "Added citation, stable research URLs, release metadata, trace UX and release QA.", "Public pages now use one current release status and a consolidated methodology.", "No new model, scenario, index or prediction."],
   ["v1.0 Research Atlas", "Froze the public research boundary, canonical release metadata, reproducible provenance and final release gates.", "Model and scenario definitions remain unchanged; validation semantics now separate numeric checks, gates and expected-unavailable cases.", "No public route, formula, weight, shock range or canonical observation schema was broken."],
   ["v1.1 Architecture & Interface Refactor", "Reorganized public pages around research workflows and moved technical records into progressive disclosure and a versioned research package.", "Registered future analysis skills without running unsupported estimates; models and scenario formulas remain unchanged.", "No canonical observation, formula, weight, validation gate or stable public route was broken."],
+  ["v1.2 Advanced Analysis Data Foundation", "Added a traceable 2015–2025 annual panel, formal coverage gates and transparent OLS/fixed-effects estimation.", "Registered bilateral-network contracts and deterministic metrics while retaining data-building status until complete partner edges exist.", "Composite formulas, scenario formulas, regional maps and event coding remain unchanged."],
 ] as const;
 
 export function platformCitation(accessed = "YYYY-MM-DD") {

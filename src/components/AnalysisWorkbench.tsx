@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import dynamic from "next/dynamic";
 import { BarMeter } from "@/components/ResearchCharts";
 import { runAnalysisSkill } from "@/lib/analysisRunner";
 import { analysisCategoryLabels, analysisSkills } from "@/lib/analysisSkills";
@@ -12,6 +13,10 @@ const categories = Object.keys(analysisCategoryLabels) as AnalysisSkillCategory[
 const tabLabels = { results: "Results", drivers: "Drivers", method: "Method", data: "Data" } as const;
 type ResultTab = keyof typeof tabLabels;
 type ConsistencyStatus = "match" | "mismatch" | "missing_reference" | null;
+
+const PanelEconometricsWorkbench = dynamic(() => import("@/components/PanelEconometricsWorkbench").then((module) => module.PanelEconometricsWorkbench), {
+  loading: () => <p className="mt-6 border-y border-[var(--line)] py-10 text-center text-sm text-[var(--muted)]">Loading panel workspace…</p>,
+});
 
 function downloadJson(value: unknown, fileName: string) {
   const url = URL.createObjectURL(new Blob([JSON.stringify(value, null, 2)], { type: "application/json" }));
@@ -45,9 +50,10 @@ export function AnalysisWorkbench({ countries, cards, outputs }: { countries: Co
 
   function runAnalysis() {
     const run = runAnalysisSkill({ skillId: modelId, dataset: { country_slug: countrySlug, model_id: modelId } });
-    setResult(run.estimates);
+    const compositeResult = run.estimates as ModelOutput | null;
+    setResult(compositeResult);
     setDiagnostics(run.diagnostics);
-    setConsistency(run.estimates ? candidate ? outputsMatch(run.estimates, candidate) ? "match" : "mismatch" : "missing_reference" : null);
+    setConsistency(compositeResult ? candidate ? outputsMatch(compositeResult, candidate) ? "match" : "mismatch" : "missing_reference" : null);
     setResultTab("results");
   }
 
@@ -55,6 +61,12 @@ export function AnalysisWorkbench({ countries, cards, outputs }: { countries: Co
     <section className="mt-8">
       <div className="research-tabs" role="tablist" aria-label="分析方法类别">
         {categories.map((item) => <button key={item} type="button" role="tab" className="research-tab" aria-selected={category === item} onClick={() => { setCategory(item); setResult(null); setDiagnostics(null); setConsistency(null); }}>{analysisCategoryLabels[item]}</button>)}
+      </div>
+
+      <div className="mt-5 grid gap-3 md:grid-cols-3">
+        <div className="editorial-panel p-4"><p className="editorial-kicker">Active Analyses</p><p className="mt-2 text-sm font-semibold">Composite Indicators · Panel Econometrics</p></div>
+        <div className="editorial-panel p-4"><p className="editorial-kicker">In Development</p><p className="mt-2 text-sm font-semibold">Network Dependency</p></div>
+        <div className="editorial-panel p-4"><p className="editorial-kicker">Future Methods</p><p className="mt-2 text-sm font-semibold">Event Study · VAR / SVAR · Bayesian · Causal</p></div>
       </div>
 
       {category === "composite_indicators" ? (
@@ -89,8 +101,10 @@ export function AnalysisWorkbench({ countries, cards, outputs }: { countries: Co
             </section>
           )}
         </div>
+      ) : category === "panel_econometrics" ? (
+        <PanelEconometricsWorkbench countries={countries} />
       ) : (
-        <div className="divide-y divide-[var(--line)] border-y border-[var(--line)] mt-6">{skills.map((skill) => <article key={skill.skill_id} className="grid gap-3 py-5 md:grid-cols-[220px_1fr_auto] md:items-start"><div><p className="editorial-kicker">Registry only</p><h2 className="mt-2 text-xl font-semibold">{skill.name}</h2></div><p className="text-sm leading-7 text-[var(--muted)]">{skill.description}</p><span className="text-xs font-semibold text-[var(--warning)]">Planned for v1.2+</span><details className="advanced-disclosure md:col-span-3"><summary>Registered requirements</summary><p className="mt-3 text-xs text-[var(--muted)]">Required: {skill.required_data.join(" / ")}</p><p className="mt-2 text-xs text-[var(--muted)]">Diagnostics: {skill.diagnostics.join(" / ")}</p></details></article>)}</div>
+        <div className="divide-y divide-[var(--line)] border-y border-[var(--line)] mt-6">{skills.map((skill) => <article key={skill.skill_id} className="grid gap-3 py-5 md:grid-cols-[220px_1fr_auto] md:items-start"><div><p className="editorial-kicker">{skill.calculation_mode.replaceAll("_", " ")}</p><h2 className="mt-2 text-xl font-semibold">{skill.name}</h2></div><p className="text-sm leading-7 text-[var(--muted)]">{skill.description}</p><span className="text-xs font-semibold text-[var(--warning)]">{skill.calculation_mode === "blocked" ? "Blocked by data frequency" : skill.calculation_mode === "data_building" ? "Data building" : "Registry only"}</span><details className="advanced-disclosure md:col-span-3"><summary>Registered requirements</summary><p className="mt-3 text-xs text-[var(--muted)]">Required: {skill.required_data.join(" / ")}</p><p className="mt-2 text-xs text-[var(--muted)]">Diagnostics: {skill.diagnostics.join(" / ")}</p></details></article>)}</div>
       )}
     </section>
   );

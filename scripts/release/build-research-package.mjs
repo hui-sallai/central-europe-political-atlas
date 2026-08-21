@@ -83,6 +83,20 @@ for (const [directory, files] of Object.entries(groups)) {
   }
 }
 
+const sourceEntries = [
+  ["panel/panel_observations.json", "src/data/panel/panel_observations.json"],
+  ["panel/panel_coverage.json", "src/data/panel/panel_coverage.json"],
+  ["network/trade_edges.json", "src/data/network/trade_edges.json"],
+  ["network/network_nodes.json", "src/data/network/network_nodes.json"],
+  ["network/network_metrics.json", "src/data/network/network_metrics.json"],
+  ["analysis/panel_specifications.json", "src/data/analysis/panel_specifications.json"],
+  ["analysis/analysis_skill_registry.json", "src/data/analysis/analysis_skill_registry.json"],
+];
+for (const [archivePath, sourcePath] of sourceEntries) {
+  const file = path.join(root, sourcePath);
+  if (fs.existsSync(file)) entries.push({ name: archivePath, data: fs.readFileSync(file) });
+}
+
 const modelCardsFile = path.join(sourceDir, "model_cards.json");
 if (fs.existsSync(modelCardsFile)) {
   const parsed = JSON.parse(fs.readFileSync(modelCardsFile, "utf8"));
@@ -91,7 +105,7 @@ if (fs.existsSync(modelCardsFile)) {
   entries.push({ name: "models/formula_versions.json", data: JSON.stringify(records.map((item) => ({ model_id: item.model_id, model_version: item.model_version, formula_version: item.formula_version, calculation_logic: item.calculation_logic })), null, 2) });
 }
 
-entries.push({ name: "README.md", data: `# Central Europe Political Atlas research package v1.1\n\nThis package preserves public research data, dictionaries, QA records, model and scenario metadata, methodology and release provenance.\n\n- Missing and pending values are not zero.\n- Samples and placeholders do not enter formal analysis.\n- Model outputs are comparative research tools, not forecasts or objective risk truths.\n- Scenario results are conditional assumptions, not future facts.\n\nCanonical site: https://hy-central-europe-analysis.org/\n` });
+entries.push({ name: "README.md", data: `# Central Europe Political Atlas research package v1.2\n\nThis package preserves public research data, dictionaries, QA records, model and scenario metadata, methodology and release provenance.\n\n- Missing and pending values are not zero.\n- Samples and placeholders do not enter formal analysis.\n- Model outputs are comparative research tools, not forecasts or objective risk truths.\n- Scenario results are conditional assumptions, not future facts.\n- Panel estimates preserve official source and observation traces.\n- Network outputs remain unavailable until complete bilateral partner edges pass coverage checks.\n\nCanonical site: https://hy-central-europe-analysis.org/\n` });
 entries.push({ name: "methodology/README.md", data: "Public methodology is available at /methodology/. Technical dictionaries and validation records in this archive are the authoritative downloadable companion to the interface.\n" });
 
 fs.mkdirSync(sourceDir, { recursive: true });

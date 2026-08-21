@@ -1,0 +1,9 @@
+{
+  "schema_version": "panel-specifications-v1.2",
+  "generated_at": "2026-08-21",
+  "records": [
+    { "specification_id": "pooled_ols_v1", "fixed_effects": "none", "supported_se": ["robust", "cluster_country"] },
+    { "specification_id": "country_fe_v1", "fixed_effects": "country", "supported_se": ["robust", "cluster_country"] },
+    { "specification_id": "country_year_fe_v1", "fixed_effects": "country_year", "supported_se": ["robust", "cluster_country"] }
+  ]
+}

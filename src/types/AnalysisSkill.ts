@@ -1,3 +1,5 @@
+import type { PanelRuntimeObservation } from "@/types/PanelAnalysis";
+
 export type AnalysisSkillCategory =
   | "composite_indicators"
   | "panel_econometrics"
@@ -6,7 +8,7 @@ export type AnalysisSkillCategory =
   | "network_analysis"
   | "bayesian_analysis";
 
-export type AnalysisCalculationMode = "active" | "registry_only";
+export type AnalysisCalculationMode = "active" | "data_building" | "registry_only" | "blocked";
 
 export interface AnalysisSkill {
   skill_id: string;
@@ -33,11 +35,12 @@ export interface ScenarioPreset {
   explanation: string;
 }
 
-export type AnalysisRunStatus = "completed" | "unavailable" | "registry_only";
+export type AnalysisRunStatus = "completed" | "unavailable" | "data_building" | "registry_only" | "blocked";
 
 export interface AnalysisDataset {
-  country_slug: string;
+  country_slug?: string;
   model_id?: string;
+  panel_observations?: PanelRuntimeObservation[];
 }
 
 export interface AnalysisRunRequest {

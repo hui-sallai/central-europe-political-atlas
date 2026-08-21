@@ -81,7 +81,7 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
         <p className="text-sm text-[var(--muted)]">当前视图 <strong className="text-[var(--foreground)]">{rows.length}</strong> 条观测值</p>
         <div className="flex flex-wrap gap-2">
           <button type="button" onClick={downloadCurrentView} className="rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)]">Download current view</button>
-          <a href={`${basePath}/research-data/observations.csv`} className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold">Download full dataset</a>
+          <a href={`${basePath}/research-data/observations.csv`} className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold">Download full observations</a>
           <a href={`${basePath}/research-data/research-data-v1.1.zip`} className="rounded-full bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-white">Research data package</a>
         </div>
       </div>
@@ -99,21 +99,6 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
 
       {!rows.length ? <p className="mt-5 border-y border-[var(--line)] py-8 text-center text-sm text-[var(--muted)]">当前筛选条件没有观测值；缺失记录不会显示为 0。</p> : null}
 
-      <details className="advanced-disclosure mt-8">
-        <summary>Advanced: dictionaries, QA and technical exports</summary>
-        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            ["Indicator dictionary", "indicators.json"],
-            ["Source dictionary", "sources.json"],
-            ["Validation registry", "validation_registry.json"],
-            ["Coverage", "comparison_eligibility.json"],
-            ["Regional observations", "regional_observations.json"],
-            ["Transmission inputs", "transmission_channels.json"],
-            ["China evidence", "china_evidence_coverage_matrix.json"],
-            ["Release manifest", "release_manifest.json"],
-          ].map(([label, file]) => <a key={file} href={`${basePath}/research-data/${file}`} className="editorial-panel p-4 text-sm font-semibold hover:text-[var(--accent)]">{label}<span className="mt-2 block font-mono text-[10px] font-normal text-[var(--muted)]">{file}</span></a>)}
-        </div>
-      </details>
     </section>
   );
 }

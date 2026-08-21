@@ -2017,6 +2017,13 @@ writeJson("release_manifest.json", {
     shock_unit: scenario.shock_unit,
   })),
   validation_version: validationSummary.stage,
+  advanced_analysis_versions: {
+    panel_observations: "panel-observations-v1.2",
+    panel_coverage: "panel-coverage-v1.2",
+    panel_engine: "pooled-ols-country-fe-country-year-fe-v1",
+    trade_network: "trade-network-v1.2-data-building",
+    analysis_skill_registry: "analysis-skill-registry-v1.2",
+  },
   boundary_versions: ["GISCO NUTS 2024", "regional spatial QA v0.87-v0.89"],
   validation_summary: validationSummary,
   public_display_boundaries: platformRelease.limitations,

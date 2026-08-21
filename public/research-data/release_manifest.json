@@ -1,7 +1,7 @@
 {
-  "schema_version": "release-metadata-v1.1",
-  "platform_version": "v1.1 Architecture & Interface Refactor",
-  "release_date": "2026-08-20",
+  "schema_version": "release-metadata-v1.2",
+  "platform_version": "v1.2 Advanced Analysis Data Foundation",
+  "release_date": "2026-08-21",
   "source_commit": "local-working-tree",
   "build_context": "local",
   "data_export_version": "research-data-v0.1",
@@ -75,6 +75,13 @@
     }
   ],
   "validation_version": "v0.91 Model & Scenario Validation",
+  "advanced_analysis_versions": {
+    "panel_observations": "panel-observations-v1.2",
+    "panel_coverage": "panel-coverage-v1.2",
+    "panel_engine": "pooled-ols-country-fe-country-year-fe-v1",
+    "trade_network": "trade-network-v1.2-data-building",
+    "analysis_skill_registry": "analysis-skill-registry-v1.2"
+  },
   "boundary_versions": [
     "GISCO NUTS 2024",
     "regional spatial QA v0.87-v0.89"

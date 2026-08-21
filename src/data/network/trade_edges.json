@@ -1,0 +1,11 @@
+{
+  "schema_version": "trade-network-v1.2",
+  "generated_at": "2026-08-21",
+  "record_count": 0,
+  "coverage_gate": {
+    "status": "data_building",
+    "reason": "The repository contains China/world aggregates but not complete partner-country bilateral edges. Aggregates are not promoted into a network.",
+    "is_active": false
+  },
+  "records": []
+}

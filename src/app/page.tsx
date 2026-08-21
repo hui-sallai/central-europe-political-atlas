@@ -52,8 +52,8 @@ export default function Home() {
         </div>
         <aside className="status-line text-sm leading-7 text-[var(--muted)]">
           <p className="font-semibold text-[var(--foreground)]">{platformStatus.version}</p>
-          <p>当前处于数据基础、透明复合指标与界面架构阶段。</p>
-          <p>高级统计技能、预测层和风险地图尚未启用。</p>
+          <p>当前处于高级分析数据基础阶段，年度面板估计已通过数据闸门。</p>
+          <p>贸易网络仍在建设；预测层和风险地图未启用。</p>
         </aside>
       </section>
 

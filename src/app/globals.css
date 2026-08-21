@@ -302,7 +302,13 @@ a {
 
 .home-country-shape:hover,
 .home-country-shape:focus-visible {
-  opacity: 0.82;
+  fill: var(--accent-soft);
+  opacity: 1;
+}
+
+.home-country-shape.is-selected:hover,
+.home-country-shape.is-selected:focus-visible {
+  fill: var(--accent);
 }
 
 .home-country-selector {
