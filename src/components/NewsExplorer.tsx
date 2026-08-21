@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { getResearchIndicator, getResearchProject, researchCountries, researchEvents } from "@/lib/researchData";
+import { eventWindowEligibility, suggestedOutcomes } from "@/lib/eventWindowEngine";
 import type { Event, EventType } from "@/types/researchData";
 
 type CountryFilter = "all" | string;
@@ -50,6 +51,14 @@ function EventCard({ item }: { item: Event }) {
           <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.summary}</p>
           <div className="mt-4 flex flex-wrap items-center gap-2">
             {topics.filter(Boolean).map((topic) => <span key={topic} className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">{topic}</span>)}
+            {eventWindowEligibility(item).eligible ? (
+              <Link
+                href={`/models?tab=run&skill=event_analysis&country=${item.country_slug}&event=${item.event_id}&outcome=${suggestedOutcomes(item.event_type)[0]}`}
+                className="rounded-full bg-[var(--foreground)] px-3 py-1 text-xs font-semibold text-white"
+              >
+                分析此事件
+              </Link>
+            ) : null}
             {item.source_url ? <a href={item.source_url} target="_blank" rel="noreferrer" className="ml-auto text-xs font-semibold text-[var(--accent)] hover:underline">{item.source_name} ↗</a> : <span className="ml-auto text-xs text-[var(--muted)]">{item.source_name}</span>}
           </div>
           <details className="advanced-disclosure mt-4">
@@ -62,7 +71,7 @@ function EventCard({ item }: { item: Event }) {
                 ["Affected indicators", item.affected_indicator.map((id) => getResearchIndicator(id)?.name_zh ?? id).join(" / ") || "待编码"],
               ].map(([label, value]) => <div key={label}><dt className="text-xs text-[var(--muted)]">{label}</dt><dd className="mt-1 font-semibold leading-6">{value}</dd></div>)}
             </dl>
-            {item.related_project_ids.length ? <div className="mt-4 flex flex-wrap gap-2"><span className="text-xs font-semibold text-[var(--muted)]">Related projects</span>{item.related_project_ids.map((id) => <Link key={id} href={`/data?country=${item.country_slug}`} className="text-xs font-semibold text-[var(--accent)]">{getResearchProject(id)?.name ?? id}</Link>)}</div> : null}
+            {item.related_project_ids.length ? <div className="mt-4 flex flex-wrap gap-2"><span className="text-xs font-semibold text-[var(--muted)]">相关项目</span>{item.related_project_ids.map((id) => <Link key={id} href={`/data?country=${item.country_slug}`} className="text-xs font-semibold text-[var(--accent)]">{getResearchProject(id)?.name ?? id}</Link>)}</div> : null}
             <p className="mt-4 text-xs leading-5 text-[var(--muted)]">方向与置信度是研究编码，不是预测或因果判断。完整 raw record 可在 research data package 中下载。</p>
           </details>
         </div>
@@ -119,7 +128,7 @@ export function NewsExplorer() {
           <div className="flex justify-between py-3"><dt className="text-[var(--muted)]">当前结果</dt><dd className="metric-number font-semibold">{verifiedItems.length}</dd></div>
           <div className="flex justify-between py-3"><dt className="text-[var(--muted)]">结构样例</dt><dd className="metric-number font-semibold">{sampleCount}</dd></div>
         </dl>
-        <a href="/research-data/events.json" className="mt-5 inline-flex text-sm font-semibold text-[var(--accent)]">Download raw events</a>
+        <a href="/research-data/events.json" className="mt-5 inline-flex text-sm font-semibold text-[var(--accent)]">下载全部事件数据（JSON）</a>
       </aside>
 
       <div>

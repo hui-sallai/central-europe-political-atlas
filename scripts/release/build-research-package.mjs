@@ -94,6 +94,13 @@ const sourceEntries = [
   ["network/network_ui_pack.json", "src/data/network/network_ui_pack.json"],
   ["analysis/panel_reference_cases.json", "src/data/analysis/panel_reference_cases.json"],
   ["analysis/panel_specifications.json", "src/data/analysis/panel_specifications.json"],
+  ["high-frequency/high_frequency_observations.json", "src/data/high-frequency/high_frequency_observations.json"],
+  ["high-frequency/high_frequency_coverage.json", "src/data/high-frequency/high_frequency_coverage.json"],
+  ["high-frequency/series_dictionary.json", "src/data/high-frequency/series_dictionary.json"],
+  ["events/event_analysis_eligibility.json", "src/data/events/event_analysis_eligibility.json"],
+  ["events/event_window_registry.json", "src/data/events/event_window_registry.json"],
+  ["events/event_overlap_registry.json", "src/data/events/event_overlap_registry.json"],
+  ["network/network_acquisition_manifest.json", "src/data/network/network_acquisition_manifest.json"],
   ["analysis/analysis_skill_registry.json", "src/data/analysis/analysis_skill_registry.json"],
 ];
 for (const [archivePath, sourcePath] of sourceEntries) {

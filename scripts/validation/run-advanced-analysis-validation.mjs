@@ -18,7 +18,8 @@ require.extensions[".ts"] = (module, filename) => {
 };
 
 const { runPanelEconometrics } = require("../../src/lib/panelEngine.ts");
-const { aggregateTradeEdges, calculateNetworkMetrics } = require("../../src/lib/networkEngine.ts");
+const { aggregateTradeEdges, calculateNetworkMetrics, computeCoverageGate } = require("../../src/lib/networkEngine.ts");
+const { computeEventWindow, attachOverlappingEvents, eventWindowEligibility } = require("../../src/lib/eventWindowEngine.ts");
 const countries = Array.from({ length: 10 }, (_, index) => `country_${index + 1}`);
 const observations = [];
 for (const [countryIndex, country] of countries.entries()) for (let year = 2015; year <= 2024; year += 1) {
@@ -33,9 +34,13 @@ let panelTests = 0;
 let networkTests = 0;
 function check(condition, message, bucket = "panel") {
   if (bucket === "panel") panelTests += 1;
-  else networkTests += 1;
+  else if (bucket === "network") networkTests += 1;
+  else if (bucket === "hf") hfTests += 1;
+  else eventTests += 1;
   if (!condition) errors.push(message);
 }
+let hfTests = 0;
+let eventTests = 0;
 function expectThrow(fn, pattern, message) {
   try {
     fn();
@@ -158,19 +163,36 @@ const metricsA = calculateNetworkMetrics(edges)[0];
 const metricsB = calculateNetworkMetrics([...edges].reverse())[0];
 check(Math.abs(metricsA.partner_hhi - 0.52) < 1e-12, `HHI test failed: ${metricsA.partner_hhi}`, "network");
 check(JSON.stringify(metricsA) === JSON.stringify(metricsB), "Network metrics are not deterministic.", "network");
-check(metricsA.partner_count === 2 && Math.abs(metricsA.partner_degree_ratio - 1) < 1e-12, "Aggregate partners must be excluded from metrics (partner count / degree ratio).", "network");
+check(metricsA.partner_count === 2, "Aggregate partners must be excluded from metrics (partner count).", "network");
 check(Math.abs(metricsA.china_share - 0.4) < 1e-12 && Math.abs(metricsA.top_partner_share - 0.6) < 1e-12, "China/top-partner share failed.", "network");
 check(Math.abs(metricsA.diversification - 0.48) < 1e-12, "Diversification failed.", "network");
+check(!("partner_degree_ratio" in metricsA) && !("total_eligible_partners" in metricsA), "Metrics must not publish degree-ratio style centrality proxies.", "network");
+
+// ---- Network: eligible coverage regression test (v1.3 release blocker) ----
+const coverageFixture = [
+  { ...edgeBase, edge_id: "w", reporter_country: "testland", partner_country: "world", trade_value: 100, partner_iso3: "W00", network_eligible: false },
+  { ...edgeBase, edge_id: "p1", reporter_country: "testland", partner_country: "germany", trade_value: 50 },
+  { ...edgeBase, edge_id: "p2", reporter_country: "testland", partner_country: "china", trade_value: 30, partner_iso3: "CHN" },
+  { ...edgeBase, edge_id: "agg", reporter_country: "testland", partner_country: "other-asia-nes", trade_value: 20, partner_iso3: "S19", network_eligible: false },
+];
+const coverageResult = computeCoverageGate(coverageFixture)[0];
+check(Math.abs(coverageResult.raw_coverage_ratio - 1) < 1e-12, `Raw coverage must include aggregates (expect 1.0): ${coverageResult.raw_coverage_ratio}`, "network");
+check(Math.abs(coverageResult.eligible_coverage_ratio - 0.8) < 1e-12, `Eligible coverage must exclude aggregates (expect 0.8): ${coverageResult.eligible_coverage_ratio}`, "network");
+check(coverageResult.gate_passed === false, "Coverage gate MUST FAIL when eligible coverage is 80% even if raw coverage is 100%.", "network");
 
 const canonicalEdges = JSON.parse(fs.readFileSync(path.join(root, "src/data/network/trade_edges.json"), "utf8"));
-check(canonicalEdges.record_count > 40000 && canonicalEdges.coverage_gate.is_active === true, "Canonical trade edges missing or coverage gate inactive.", "network");
 const storedCoverage = JSON.parse(fs.readFileSync(path.join(root, "src/data/network/network_coverage.json"), "utf8"));
-check(storedCoverage.records.every((entry) => entry.gate_passed), "Coverage gate: some reporter-year-flow groups below threshold.", "network");
-const polandExports2024 = canonicalEdges.records.filter((edge) => edge.reporter_country === "poland" && edge.year === 2024 && edge.flow === "exports");
-const recomputedWorld = polandExports2024.find((edge) => edge.partner_country === "world")?.trade_value ?? 0;
-const recomputedPartners = polandExports2024.filter((edge) => edge.partner_country !== "world").reduce((sum, edge) => sum + edge.trade_value, 0);
+const recomputedCoverage = computeCoverageGate(canonicalEdges.records);
+check(recomputedCoverage.length === storedCoverage.record_count, "Published coverage record count mismatch.", "network");
+check(recomputedCoverage.every((entry, index) => entry.gate_passed === storedCoverage.records[index].gate_passed
+  && Math.abs((entry.eligible_coverage_ratio ?? 0) - (storedCoverage.records[index].eligible_coverage_ratio ?? 0)) < 1e-9),
+  "Engine coverage diverges from published network_coverage.json.", "network");
+check(storedCoverage.records.every((entry) => entry.raw_coverage_ratio !== null && entry.eligible_coverage_ratio !== null), "Coverage records must carry both raw (QA-only) and eligible ratios.", "network");
+check(canonicalEdges.coverage_gate.is_active === true, "Network skill must remain active with per-group gating.", "network");
 const storedPoland = storedCoverage.records.find((entry) => entry.reporter_country === "poland" && entry.year === 2024 && entry.flow === "exports");
-check(storedPoland && Math.abs(storedPoland.coverage_ratio - recomputedPartners / recomputedWorld) < 1e-9, "Coverage ratio recomputation mismatch.", "network");
+const recomputedPoland = recomputedCoverage.find((entry) => entry.reporter_country === "poland" && entry.year === 2024 && entry.flow === "exports");
+check(storedPoland && recomputedPoland && Math.abs(storedPoland.eligible_coverage_ratio - recomputedPoland.eligible_coverage_ratio) < 1e-9
+  && Math.abs(storedPoland.raw_coverage_ratio - recomputedPoland.raw_coverage_ratio) < 1e-9, "Eligible coverage ratio recomputation mismatch.", "network");
 const recomputedMetrics = calculateNetworkMetrics(canonicalEdges.records);
 const storedMetrics = JSON.parse(fs.readFileSync(path.join(root, "src/data/network/network_metrics.json"), "utf8"));
 const hungaryImports2024 = recomputedMetrics.find((entry) => entry.country === "hungary" && entry.year === 2024 && entry.flow === "imports");
@@ -178,7 +200,83 @@ const storedHungary = storedMetrics.records.find((entry) => entry.country === "h
 check(hungaryImports2024 && storedHungary && Math.abs(hungaryImports2024.partner_hhi - storedHungary.partner_hhi) < 1e-12, "Engine metrics diverge from published network_metrics.json.", "network");
 check(recomputedMetrics.length === storedMetrics.record_count, "Published metric record count mismatch.", "network");
 
-console.log(`Advanced analysis validation: panel=${panelTests} tests; network=${networkTests} tests; failures=${errors.length}.`);
+// ---- High-frequency data validation (§91) ----
+const hfData = JSON.parse(fs.readFileSync(path.join(root, "src/data/high-frequency/high_frequency_observations.json"), "utf8"));
+const hfRecords = hfData.records;
+const hfIds = new Set(hfRecords.map((record) => record.observation_id));
+check(hfIds.size === hfRecords.length, "High-frequency: duplicate observation_id detected.", "hf");
+const periodPattern = /^\d{4}-(0[1-9]|1[0-2])$/;
+check(hfRecords.every((record) => periodPattern.test(record.period)), "High-frequency: invalid monthly period format.", "hf");
+const seriesKeys = new Set(hfRecords.map((record) => `${record.country}:${record.indicator}`));
+let duplicateMonths = 0;
+for (const key of seriesKeys) {
+  const periods = hfRecords.filter((record) => `${record.country}:${record.indicator}` === key).map((record) => record.period);
+  if (new Set(periods).size !== periods.length) duplicateMonths += 1;
+}
+check(duplicateMonths === 0, `High-frequency: duplicate months in ${duplicateMonths} series.`, "hf");
+const saByIndicator = new Map();
+for (const record of hfRecords) {
+  const existing = saByIndicator.get(record.indicator);
+  if (existing && existing !== record.seasonal_adjustment) errors.push(`High-frequency: mixed seasonal adjustment in ${record.indicator}.`);
+  saByIndicator.set(record.indicator, record.seasonal_adjustment);
+}
+hfTests += 1;
+const unitByIndicator = new Map();
+let unitMix = false;
+for (const record of hfRecords) {
+  const existing = unitByIndicator.get(record.indicator);
+  if (existing && existing !== record.unit) unitMix = true;
+  unitByIndicator.set(record.indicator, record.unit);
+}
+check(!unitMix || hfRecords.some((record) => record.series_break_status !== "none_recorded"), "High-frequency: unit change without series_break_status record.", "hf");
+check(hfRecords.every((record) => record.vintage_status === "latest_revised" && record.revision_status === "latest_revised"), "High-frequency: revision policy fields missing.", "hf");
+const hfCoverage = JSON.parse(fs.readFileSync(path.join(root, "src/data/high-frequency/high_frequency_coverage.json"), "utf8"));
+check(hfCoverage.record_count === 40, `High-frequency coverage must cover 10 countries × 4 indicators (got ${hfCoverage.record_count}).`, "hf");
+const huHicp = hfCoverage.records.find((entry) => entry.country === "hungary" && entry.indicator === "hicp_annual_rate");
+check(huHicp && huHicp.observations >= 120 && huHicp.analysis_eligible === true, "High-frequency coverage: Hungary HICP series incomplete.", "hf");
+const reorderedHf = [...hfRecords].reverse();
+const hfOrderKey = (records) => records.map((record) => `${record.observation_id}=${record.value}`).sort().join("|");
+check(hfOrderKey(reorderedHf) === hfOrderKey(hfRecords), "High-frequency: series content changed under reordering.", "hf");
+
+// ---- Event window validation (§92) ----
+const syntheticSeries = [];
+for (let month = 0; month < 36; month += 1) {
+  const year = 2020 + Math.floor(month / 12);
+  const period = `${year}-${String((month % 12) + 1).padStart(2, "0")}`;
+  syntheticSeries.push({ observation_id: `hf:test:index:${period}`, country: "testland", period, indicator: "test_index", value: 100 + month, transformation: "level" });
+}
+const syntheticEvent = { event_id: "ev-test", title: "Synthetic event", date: "2021-07-15", country_slug: "testland", data_status: "verified", event_type: "macro" };
+const windowResult = computeEventWindow(syntheticEvent, syntheticSeries, { preMonths: 12, postMonths: 12 });
+check(windowResult.event_period === "2021-07", `Event-date alignment failed: ${windowResult.event_period}`, "event");
+check(windowResult.points.length === 25 && windowResult.points[12].relative_month === 0 && windowResult.points[0].relative_month === -12 && windowResult.points[24].relative_month === 12, "Window boundaries / pre-post indexing failed.", "event");
+check(windowResult.pre_period_mean === 111.5 && windowResult.post_period_mean === 124, `Pre/post means failed: ${windowResult.pre_period_mean}/${windowResult.post_period_mean}`, "event");
+check(windowResult.absolute_change === 12.5 && windowResult.percentage_change !== null && Math.abs(windowResult.percentage_change - 12.5 / 111.5 * 100) < 0.01, "Absolute/percentage change failed.", "event");
+check(windowResult.gate === "full", "Full-window gate failed on complete synthetic data.", "event");
+const constantSeries = syntheticSeries.map((point) => ({ ...point, value: 50 }));
+const zeroChange = computeEventWindow(syntheticEvent, constantSeries, { preMonths: 12, postMonths: 12 });
+check(zeroChange.absolute_change === 0 && zeroChange.percentage_change === 0, "Zero-change fixture failed.", "event");
+const gapped = syntheticSeries.filter((point) => point.period !== "2021-03" && point.period !== "2021-04");
+const gappedResult = computeEventWindow(syntheticEvent, gapped, { preMonths: 12, postMonths: 12 });
+check(gappedResult.missing_periods.length === 2 && gappedResult.missing_periods.includes("2021-03"), "Missing-period handling failed.", "event");
+const shuffledSeries = [...syntheticSeries].reverse();
+const shuffledWindow = computeEventWindow(syntheticEvent, shuffledSeries, { preMonths: 12, postMonths: 12 });
+check(JSON.stringify({ ...shuffledWindow, data_trace: [], overlapping_events: [] }) === JSON.stringify({ ...windowResult, data_trace: [], overlapping_events: [] }), "Event window ordering invariance failed.", "event");
+const shortEvent = { ...syntheticEvent, date: "2020-09-15" };
+const shortResult = computeEventWindow(shortEvent, syntheticSeries, { preMonths: 12, postMonths: 12 });
+check(shortResult.gate === "exploratory" && shortResult.exploratory === true, `Exploratory short-window gate failed: ${shortResult.gate}`, "event");
+const tooShortEvent = { ...syntheticEvent, date: "2020-02-15" };
+check(computeEventWindow(tooShortEvent, syntheticSeries, { preMonths: 12, postMonths: 12 }).gate === "insufficient_data", "Insufficient-data gate failed.", "event");
+check(eventWindowEligibility({ ...syntheticEvent, data_status: "pending" }).eligible === false, "Unverified event must be ineligible.", "event");
+check(eventWindowEligibility({ ...syntheticEvent, date: "2021" }).eligible === false, "Year-only event date must be ineligible.", "event");
+const overlapBase = { country_slug: "testland", data_status: "verified", event_type: "macro", title: "t" };
+const withOverlap = attachOverlappingEvents(windowResult, [
+  { ...overlapBase, event_id: "ev-other", date: "2021-10-03" },
+  { ...overlapBase, event_id: "ev-outside", date: "2024-01-01" },
+  { ...overlapBase, event_id: "ev-unverified", date: "2021-11-01", data_status: "pending" },
+]);
+check(withOverlap.overlapping_events.length === 1 && withOverlap.overlapping_events[0].event_id === "ev-other" && withOverlap.overlapping_event_warning !== null, "Overlapping-event detection failed.", "event");
+
+console.log(`Advanced analysis validation: panel=${panelTests} tests; network=${networkTests} tests; hf=${hfTests} tests; event=${eventTests} tests; failures=${errors.length}.`);
 if (errors.length) {
   errors.forEach((error) => console.error(`ADVANCED ANALYSIS ERROR: ${error}`));
   process.exit(1);

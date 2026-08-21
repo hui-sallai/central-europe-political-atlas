@@ -52,8 +52,8 @@ export default function Home() {
         </div>
         <aside className="status-line text-sm leading-7 text-[var(--muted)]">
           <p className="font-semibold text-[var(--foreground)]">{platformStatus.version}</p>
-          <p>当前处于计量可靠性、跨国可比性与贸易网络激活阶段。</p>
-          <p>双边贸易网络已激活（描述性集中度）；预测层和风险地图未启用。</p>
+          <p>当前处于高频政治经济、事件分析与产品语言系统阶段。</p>
+          <p>贸易网络、月度高频数据与事件窗口分析已激活；预测层和风险地图未启用。</p>
         </aside>
       </section>
 

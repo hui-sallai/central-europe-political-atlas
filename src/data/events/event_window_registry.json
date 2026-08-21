@@ -1,0 +1,27 @@
+{
+  "schema_version": "event-window-registry-v1.3",
+  "generated_at": "2026-08-21",
+  "level_1": {
+    "name": "Event Window Analysis",
+    "status": "active",
+    "causal": false
+  },
+  "level_2": {
+    "name": "Formal Event Study",
+    "status": "registry_only",
+    "note": "Requires comparison-group design and identification strategy; not estimated."
+  },
+  "default_window": {
+    "pre_months": 12,
+    "post_months": 12
+  },
+  "full_gate": {
+    "min_pre_observations": 12,
+    "min_post_observations": 6
+  },
+  "exploratory_gate": {
+    "min_pre_observations": 6,
+    "min_post_observations": 3
+  },
+  "language_boundary": "No effect/impact/causal wording; descriptive change only."
+}

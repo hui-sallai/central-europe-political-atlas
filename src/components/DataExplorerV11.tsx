@@ -81,9 +81,9 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
       <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
         <p className="text-sm text-[var(--muted)]">当前视图 <strong className="text-[var(--foreground)]">{rows.length}</strong> 条观测值</p>
         <div className="flex flex-wrap gap-2">
-          <button type="button" onClick={downloadCurrentView} className="rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)]">Download current view</button>
-          <a href={`${basePath}/research-data/observations.csv`} className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold">Download full observations</a>
-          <a href={`${basePath}/research-data/${getResearchPackageFilename()}`} className="rounded-full bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-white">Research data package</a>
+          <button type="button" onClick={downloadCurrentView} className="rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)]">下载当前筛选结果（CSV）</button>
+          <a href={`${basePath}/research-data/observations.csv`} className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold">下载全部观测数据（CSV）</a>
+          <a href={`${basePath}/research-data/${getResearchPackageFilename()}`} className="rounded-full bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-white">下载完整研究数据包（ZIP）</a>
         </div>
       </div>
 

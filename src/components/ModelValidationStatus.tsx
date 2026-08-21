@@ -63,7 +63,7 @@ export function ModelValidationStatus() {
       <p className="mt-4 text-xs leading-5 text-[var(--muted)]">Validation ≠ scientific proof；Validation ≠ forecast accuracy。Expected unavailable / passed gate 表示系统正确拒绝了不满足准入条件的精确输出，不是一个数值测试。</p>
       <div className="wide-table-scroll mt-5">
         <table className="research-data-table w-full min-w-[900px] text-left text-sm">
-          <thead><tr>{["模型", "Determinism", "Boundary", "Missing data", "Direction", "Year alignment", "Golden"].map((header) => <th key={header} className="px-3 py-3">{header}</th>)}</tr></thead>
+          <thead><tr>{["模型", "Determinism", "Boundary", "Missing data", "Direction", "年份一致性", "Golden"].map((header) => <th key={header} className="px-3 py-3">{header}</th>)}</tr></thead>
           <tbody>{modelCards.map((card) => <tr key={card.model_id}><td className="px-3 py-3 font-semibold">{card.name_zh}<p className="mt-1 font-mono text-[10px] font-normal text-[var(--muted)]">{card.formula_version}</p></td><td className="px-3 py-3">{statusBadge(statusFor(card.model_id, "determinism"))}</td><td className="px-3 py-3">{statusBadge(statusFor(card.model_id, "normalization_boundary"))}</td><td className="px-3 py-3">{statusBadge(missingStatus)}</td><td className="px-3 py-3">{statusBadge(statusFor(card.model_id, "monotonicity"))}</td><td className="px-3 py-3">{statusBadge(statusFor(card.model_id, "year_alignment"))}</td><td className="px-3 py-3">{statusBadge(goldenStatus)}</td></tr>)}</tbody>
         </table>
       </div>

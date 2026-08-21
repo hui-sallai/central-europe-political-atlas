@@ -1,0 +1,1559 @@
+{
+  "schema_version": "event-analysis-eligibility-v1.3",
+  "generated_at": "2026-08-21",
+  "record_count": 121,
+  "eligible_count": 111,
+  "records": [
+    {
+      "event_id": "at-2026-08-14-import-prices-q1",
+      "country_slug": "austria",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "at-2026-08-14-import-prices-q2",
+      "country_slug": "austria",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "at-2026-08-14-minimum-wage-index",
+      "country_slug": "austria",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "at-2026-08-14-slaughterings",
+      "country_slug": "austria",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "at-2026-08-14-used-vehicle-registrations",
+      "country_slug": "austria",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "at-2026-08-17-agricultural-prices-annual",
+      "country_slug": "austria",
+      "date": "2026-08-17",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "at-2026-08-17-agricultural-prices-june",
+      "country_slug": "austria",
+      "date": "2026-08-17",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "at-2026-08-17-agricultural-prices-q2",
+      "country_slug": "austria",
+      "date": "2026-08-17",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "at-2026-08-18-vehicle-stock",
+      "country_slug": "austria",
+      "date": "2026-08-18",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "at-2026-08-19-july-inflation",
+      "country_slug": "austria",
+      "date": "2026-08-19",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "at-2026-w23-eu-industry",
+      "country_slug": "austria",
+      "date": "2026-06-01",
+      "data_status": "sample",
+      "date_precision_ok": true,
+      "eligible": false,
+      "reason": "事件未通过核验（data_status ≠ verified），不能进入事件窗口分析。",
+      "suggested_outcomes": []
+    },
+    {
+      "event_id": "cz-2023-10-16-repowereu-plan",
+      "country_slug": "czechia",
+      "date": "2023-10-16",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "cz-2026-06-24-v4-summit",
+      "country_slug": "czechia",
+      "date": "2026-06-24",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "cz-2026-08-13-statistical-metadata-update",
+      "country_slug": "czechia",
+      "date": "2026-08-13",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "cz-2026-08-14-current-economic-data",
+      "country_slug": "czechia",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "cz-2026-08-17-cybersecurity-strategy",
+      "country_slug": "czechia",
+      "date": "2026-08-17",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "cz-2026-08-17-digital-consumer-law",
+      "country_slug": "czechia",
+      "date": "2026-08-17",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "cz-2026-08-17-digital-innovation-centres",
+      "country_slug": "czechia",
+      "date": "2026-08-17",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "cz-2026-08-17-drought-response",
+      "country_slug": "czechia",
+      "date": "2026-08-17",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "cz-2026-08-17-government-agenda",
+      "country_slug": "czechia",
+      "date": "2026-08-17",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "cz-2026-08-17-municipal-fiscal-monitoring",
+      "country_slug": "czechia",
+      "date": "2026-08-17",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "cz-2026-08-17-post-cabinet-briefing",
+      "country_slug": "czechia",
+      "date": "2026-08-17",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "cz-2026-08-17-prague-high-speed-rail",
+      "country_slug": "czechia",
+      "date": "2026-08-17",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "cz-2026-w23-industry-energy",
+      "country_slug": "czechia",
+      "date": "2026-06-01",
+      "data_status": "sample",
+      "date_precision_ok": true,
+      "eligible": false,
+      "reason": "事件未通过核验（data_status ≠ verified），不能进入事件窗口分析。",
+      "suggested_outcomes": []
+    },
+    {
+      "event_id": "de-2026-08-13-economic-situation",
+      "country_slug": "germany",
+      "date": "2026-08-13",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "de-2026-08-19-fuel-prices",
+      "country_slug": "germany",
+      "date": "2026-08-19",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "de-2026-08-19-gas-storage",
+      "country_slug": "germany",
+      "date": "2026-08-19",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "de-2026-08-19-industrial-order-backlog",
+      "country_slug": "germany",
+      "date": "2026-08-19",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "de-2026-08-19-social-reform-proposal",
+      "country_slug": "germany",
+      "date": "2026-08-19",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "de-2026-08-20-china-trade",
+      "country_slug": "germany",
+      "date": "2026-08-20",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "hicp_annual_rate"
+      ]
+    },
+    {
+      "event_id": "de-2026-08-20-climate-policy",
+      "country_slug": "germany",
+      "date": "2026-08-20",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "de-2026-08-20-housing-supply",
+      "country_slug": "germany",
+      "date": "2026-08-20",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "de-2026-08-20-solar-target",
+      "country_slug": "germany",
+      "date": "2026-08-20",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "de-2026-08-20-wealth-inequality",
+      "country_slug": "germany",
+      "date": "2026-08-20",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "de-2026-w23-industry-trade",
+      "country_slug": "germany",
+      "date": "2026-06-01",
+      "data_status": "sample",
+      "date_precision_ok": true,
+      "eligible": false,
+      "reason": "事件未通过核验（data_status ≠ verified），不能进入事件窗口分析。",
+      "suggested_outcomes": []
+    },
+    {
+      "event_id": "hr-2026-08-14-building-material-prices",
+      "country_slug": "croatia",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "hr-2026-08-14-july-inflation-final",
+      "country_slug": "croatia",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "hr-2026-08-15-tourism-fire-response",
+      "country_slug": "croatia",
+      "date": "2026-08-15",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "hr-2026-08-15-tourism-season",
+      "country_slug": "croatia",
+      "date": "2026-08-15",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "hr-2026-08-16-wildfire-remediation",
+      "country_slug": "croatia",
+      "date": "2026-08-16",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "hr-2026-08-17-agriculture-restructuring-fund",
+      "country_slug": "croatia",
+      "date": "2026-08-17",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "hr-2026-08-17-extraordinary-parliament",
+      "country_slug": "croatia",
+      "date": "2026-08-17",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "hr-2026-08-17-no-confidence-call",
+      "country_slug": "croatia",
+      "date": "2026-08-17",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "hr-2026-08-18-building-permits",
+      "country_slug": "croatia",
+      "date": "2026-08-18",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "hr-2026-08-19-energy-statistics",
+      "country_slug": "croatia",
+      "date": "2026-08-19",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "hr-2026-w23-adriatic-infrastructure",
+      "country_slug": "croatia",
+      "date": "2026-06-01",
+      "data_status": "sample",
+      "date_precision_ok": true,
+      "eligible": false,
+      "reason": "事件未通过核验（data_status ≠ verified），不能进入事件窗口分析。",
+      "suggested_outcomes": []
+    },
+    {
+      "event_id": "hu-2022-08-12-catl-debrecen",
+      "country_slug": "hungary",
+      "date": "2022-08-12",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "hu-2023-01-26-eu-funds-conditionality",
+      "country_slug": "hungary",
+      "date": "2023-01-26",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "hu-2026-06-24-v4-summit",
+      "country_slug": "hungary",
+      "date": "2026-06-24",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "hu-2026-08-13-drought-farmer-measures",
+      "country_slug": "hungary",
+      "date": "2026-08-13",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "hu-2026-08-14-affordable-rental-programme",
+      "country_slug": "hungary",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "hu-2026-08-14-commercial-property-investment",
+      "country_slug": "hungary",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "hu-2026-08-14-procurement-exclusion-register",
+      "country_slug": "hungary",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "hu-2026-08-15-energy-development-plan",
+      "country_slug": "hungary",
+      "date": "2026-08-15",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "hu-2026-08-15-eu-recovery-fund",
+      "country_slug": "hungary",
+      "date": "2026-08-15",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "hu-2026-08-15-motorway-contract-review",
+      "country_slug": "hungary",
+      "date": "2026-08-15",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "hu-2026-08-15-paks-second-barge-plan",
+      "country_slug": "hungary",
+      "date": "2026-08-15",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "hu-2026-08-16-paks-barge-operation",
+      "country_slug": "hungary",
+      "date": "2026-08-16",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "hu-2026-08-19-president-inauguration",
+      "country_slug": "hungary",
+      "date": "2026-08-19",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "hu-2026-w23-policy-investment",
+      "country_slug": "hungary",
+      "date": "2026-06-01",
+      "data_status": "sample",
+      "date_precision_ok": true,
+      "eligible": false,
+      "reason": "事件未通过核验（data_status ≠ verified），不能进入事件窗口分析。",
+      "suggested_outcomes": []
+    },
+    {
+      "event_id": "pl-2024-04-23-nuctech-fsr-inspection",
+      "country_slug": "poland",
+      "date": "2024-04-23",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "hicp_annual_rate"
+      ]
+    },
+    {
+      "event_id": "pl-2024-07-01-amended-recovery-plan",
+      "country_slug": "poland",
+      "date": "2024-07-01",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "pl-2026-06-24-v4-summit",
+      "country_slug": "poland",
+      "date": "2026-06-24",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "pl-2026-08-13-gdp-analysis",
+      "country_slug": "poland",
+      "date": "2026-08-13",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "pl-2026-08-13-nato-airspace-response",
+      "country_slug": "poland",
+      "date": "2026-08-13",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "pl-2026-08-13-q2-gdp-flash",
+      "country_slug": "poland",
+      "date": "2026-08-13",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "pl-2026-08-14-july-consumer-prices",
+      "country_slug": "poland",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "pl-2026-08-17-seven-month-budget-gap",
+      "country_slug": "poland",
+      "date": "2026-08-17",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "pl-2026-08-19-tax-package",
+      "country_slug": "poland",
+      "date": "2026-08-19",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "pl-2026-08-20-enterprise-wages-employment",
+      "country_slug": "poland",
+      "date": "2026-08-20",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "pl-2026-08-20-housing-construction",
+      "country_slug": "poland",
+      "date": "2026-08-20",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "pl-2026-08-20-industrial-output",
+      "country_slug": "poland",
+      "date": "2026-08-20",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "pl-2026-08-20-producer-prices",
+      "country_slug": "poland",
+      "date": "2026-08-20",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "pl-2026-w23-security-eu",
+      "country_slug": "poland",
+      "date": "2026-06-01",
+      "data_status": "sample",
+      "date_precision_ok": true,
+      "eligible": false,
+      "reason": "事件未通过核验（data_status ≠ verified），不能进入事件窗口分析。",
+      "suggested_outcomes": []
+    },
+    {
+      "event_id": "ro-2026-08-13-cernavoda-shutdown",
+      "country_slug": "romania",
+      "date": "2026-08-13",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "ro-2026-08-13-cluj-industrial-site",
+      "country_slug": "romania",
+      "date": "2026-08-13",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "ro-2026-08-13-nato-airspace",
+      "country_slug": "romania",
+      "date": "2026-08-13",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "ro-2026-08-13-transgaz-loan",
+      "country_slug": "romania",
+      "date": "2026-08-13",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "ro-2026-08-14-alternative-power-supply",
+      "country_slug": "romania",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "ro-2026-08-14-electricity-saving-call",
+      "country_slug": "romania",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "ro-2026-08-14-moldova-power-effects",
+      "country_slug": "romania",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "ro-2026-08-14-q2-gdp-flash",
+      "country_slug": "romania",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "ro-2026-08-19-auto-production-pause",
+      "country_slug": "romania",
+      "date": "2026-08-19",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "ro-2026-08-20-drone-interception",
+      "country_slug": "romania",
+      "date": "2026-08-20",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "ro-2026-w23-black-sea-economy",
+      "country_slug": "romania",
+      "date": "2026-06-01",
+      "data_status": "sample",
+      "date_precision_ok": true,
+      "eligible": false,
+      "reason": "事件未通过核验（data_status ≠ verified），不能进入事件窗口分析。",
+      "suggested_outcomes": []
+    },
+    {
+      "event_id": "rs-2026-08-14-nis-gas-power-plant",
+      "country_slug": "serbia",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "rs-2026-08-18-bakery-inspections",
+      "country_slug": "serbia",
+      "date": "2026-08-18",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "rs-2026-08-18-diaspora-return",
+      "country_slug": "serbia",
+      "date": "2026-08-18",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "rs-2026-08-18-minimum-wage-proposal",
+      "country_slug": "serbia",
+      "date": "2026-08-18",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "rs-2026-08-18-prahovo-port",
+      "country_slug": "serbia",
+      "date": "2026-08-18",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "rs-2026-08-18-uk-bilateral-cooperation",
+      "country_slug": "serbia",
+      "date": "2026-08-18",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "rs-2026-08-19-bor-seliste-road",
+      "country_slug": "serbia",
+      "date": "2026-08-19",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "rs-2026-08-19-obrenovac-waste-system",
+      "country_slug": "serbia",
+      "date": "2026-08-19",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "rs-2026-08-19-sunflower-pricing",
+      "country_slug": "serbia",
+      "date": "2026-08-19",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "rs-2026-08-20-budget-revision",
+      "country_slug": "serbia",
+      "date": "2026-08-20",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "rs-2026-w23-infrastructure-china",
+      "country_slug": "serbia",
+      "date": "2026-06-01",
+      "data_status": "sample",
+      "date_precision_ok": true,
+      "eligible": false,
+      "reason": "事件未通过核验（data_status ≠ verified），不能进入事件窗口分析。",
+      "suggested_outcomes": []
+    },
+    {
+      "event_id": "si-2026-08-14-agricultural-input-prices",
+      "country_slug": "slovenia",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "si-2026-08-14-agricultural-producer-prices",
+      "country_slug": "slovenia",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "si-2026-08-14-construction-output",
+      "country_slug": "slovenia",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "si-2026-08-14-q2-gdp",
+      "country_slug": "slovenia",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "si-2026-08-14-roundwood-purchases",
+      "country_slug": "slovenia",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "si-2026-08-14-transport-indicators",
+      "country_slug": "slovenia",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "si-2026-08-18-employment-june",
+      "country_slug": "slovenia",
+      "date": "2026-08-18",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "si-2026-08-19-construction-producer-prices",
+      "country_slug": "slovenia",
+      "date": "2026-08-19",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "si-2026-08-19-services-producer-prices",
+      "country_slug": "slovenia",
+      "date": "2026-08-19",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "si-2026-08-20-building-permits",
+      "country_slug": "slovenia",
+      "date": "2026-08-20",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "si-2026-w23-port-logistics",
+      "country_slug": "slovenia",
+      "date": "2026-06-01",
+      "data_status": "sample",
+      "date_precision_ok": true,
+      "eligible": false,
+      "reason": "事件未通过核验（data_status ≠ verified），不能进入事件窗口分析。",
+      "suggested_outcomes": []
+    },
+    {
+      "event_id": "sk-2023-11-22-gotion-inobat-surany",
+      "country_slug": "slovakia",
+      "date": "2023-11-22",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "sk-2024-10-22-rrf-fourth-instalment",
+      "country_slug": "slovakia",
+      "date": "2024-10-22",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "sk-2026-06-24-v4-presidency",
+      "country_slug": "slovakia",
+      "date": "2026-06-24",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "sk-2026-08-13-anti-discrimination-guide",
+      "country_slug": "slovakia",
+      "date": "2026-08-13",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "sk-2026-08-13-july-cpi",
+      "country_slug": "slovakia",
+      "date": "2026-08-13",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "sk-2026-08-13-youth-advisory-body",
+      "country_slug": "slovakia",
+      "date": "2026-08-13",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "sk-2026-08-14-inacovce-family-support",
+      "country_slug": "slovakia",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index"
+      ]
+    },
+    {
+      "event_id": "sk-2026-08-14-q2-gdp-flash",
+      "country_slug": "slovakia",
+      "date": "2026-08-14",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "sk-2026-08-17-industrial-orders",
+      "country_slug": "slovakia",
+      "date": "2026-08-17",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "sk-2026-08-17-parliament-weekly-agenda",
+      "country_slug": "slovakia",
+      "date": "2026-08-17",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "sk-2026-08-18-accommodation-q2",
+      "country_slug": "slovakia",
+      "date": "2026-08-18",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "sk-2026-08-19-july-hicp",
+      "country_slug": "slovakia",
+      "date": "2026-08-19",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "sk-2026-08-20-consumer-survey",
+      "country_slug": "slovakia",
+      "date": "2026-08-20",
+      "data_status": "verified",
+      "date_precision_ok": true,
+      "eligible": true,
+      "reason": null,
+      "suggested_outcomes": [
+        "hicp_annual_rate",
+        "industrial_production_index",
+        "unemployment_rate_monthly"
+      ]
+    },
+    {
+      "event_id": "sk-2026-w23-auto-regional",
+      "country_slug": "slovakia",
+      "date": "2026-06-01",
+      "data_status": "sample",
+      "date_precision_ok": true,
+      "eligible": false,
+      "reason": "事件未通过核验（data_status ≠ verified），不能进入事件窗口分析。",
+      "suggested_outcomes": []
+    }
+  ]
+}

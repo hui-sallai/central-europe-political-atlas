@@ -37,7 +37,7 @@ export function ScenarioPresetWorkbench({ countries, definitions, cards, outputs
         <label className="text-xs font-semibold text-[var(--muted)]">Country<select className="field-control mt-2" value={countrySlug} onChange={(event) => { setCountrySlug(event.target.value); setResult(null); }}>{countries.map((country) => <option key={country.slug} value={country.slug}>{country.name_zh} / {country.name}</option>)}</select></label>
         <label className="text-xs font-semibold text-[var(--muted)]">Scenario<select className="field-control mt-2" value={scenarioId} onChange={(event) => changeScenario(event.target.value as ScenarioId)}>{definitions.map((item) => <option key={item.scenario_id} value={item.scenario_id}>{item.name_zh}</option>)}</select></label>
         <label className="text-xs font-semibold text-[var(--muted)]">Shock ({definition.shock_unit})<input className="field-control mt-2" type="number" min={definition.shock_min} max={definition.shock_max} step={definition.shock_step} value={shockValue} onChange={(event) => { setShockValue(Number(event.target.value)); setResult(null); }} /></label>
-        <div className="flex items-end"><button type="button" onClick={runScenario} className="w-full rounded-lg bg-[var(--foreground)] px-4 py-3 text-sm font-semibold text-white">Run preset</button></div>
+        <div className="flex items-end"><button type="button" onClick={runScenario} className="w-full rounded-lg bg-[var(--foreground)] px-4 py-3 text-sm font-semibold text-white">运行情景分析</button></div>
       </div>
       <p className="mt-4 text-sm text-[var(--muted)]">Target skill: <strong className="text-[var(--foreground)]">{preset?.target_skill}</strong>. 情景不改写原始 observation。</p>
     </div>

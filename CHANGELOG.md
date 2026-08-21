@@ -2,6 +2,14 @@
 
 Public research releases are summarized here. Historical implementation QA remains in the data records and methodology appendix; this file records only major public changes, methodological changes and breaking changes.
 
+## v1.3 High-Frequency Political Economy, Event Analysis & Product Language System - 2026-08-21
+
+- Major: added the monthly high-frequency data layer (Eurostat HICP monthly index and annual rate as separate indicators, harmonised unemployment SA 15-74, industrial production SCA; 2015-01 onward; gaps stay missing, no interpolation).
+- Major: activated descriptive Event Window Analysis (level 1) with verified-event and month-precision eligibility, pre/post window statistics, overlap warnings, exploratory short-window flagging and strict non-causal language; Formal Event Study remains registry_only.
+- Fix (release blocker): network coverage gate now uses eligible partners only (eligible_coverage_ratio >= 0.95); raw coverage is QA-only and aggregate records can no longer help the gate pass. 12 of 220 groups now correctly fail and are unavailable for formal metrics.
+- Major: added the network acquisition manifest (per-call endpoint, parameters, response count, content hash) and a central Chinese-first UI language registry with mapped internal statuses; primary navigation and workbench controls are now Chinese-first.
+- Breaking: network metrics no longer publish partner_degree_ratio (partner_count retained); network schema versions move to v1.3.
+
 ## v1.25 Econometric Reliability, Cross-Country Comparability & Trade Network Activation - 2026-08-21
 
 - Major: formal cross-country comparisons now require the same model version, formula, weight and input year; the comparison matrix reads one common year per column and never falls back to older data; non-eligible countries are listed explicitly with exclusion reasons instead of silently ranked.

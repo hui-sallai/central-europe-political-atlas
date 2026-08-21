@@ -90,7 +90,7 @@ export function ModelComparisonBoard({ comparisons }: { comparisons: ModelCompar
     <section className="editorial-panel mt-6 p-5" aria-label="十国模型得分横向对比">
       <div className="flex flex-wrap items-start justify-between gap-4 border-b border-[var(--line)] pb-5">
         <div>
-          <p className="editorial-kicker">Cross-country comparison</p>
+          <p className="editorial-kicker">十国横向对比</p>
           <h2 className="mt-2 text-2xl font-semibold">{gate.all_countries_eligible ? "模型得分十国排名" : "模型得分比较可用性"}</h2>
           <p className="mt-2 max-w-2xl text-sm leading-7 text-[var(--muted)]">
             正式比较只在同一模型版本、同一公式、同一权重与同一输入年份下进行。未通过比较门控的国家单列展示，不参与排名。

@@ -2,7 +2,7 @@
 
 This directory contains the public research exports used by the static site.
 
-Current release: **v1.25 Econometric Reliability, Cross-Country Comparability & Trade Network Activation**. The canonical release definition is exported through `platform_metadata.json`; deployment provenance is recorded in `release_manifest.json`.
+Current release: **v1.3 High-Frequency Political Economy, Event Analysis & Product Language System**. The canonical release definition is exported through `platform_metadata.json`; deployment provenance is recorded in `release_manifest.json`.
 
 ## Core schemas
 

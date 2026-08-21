@@ -23,7 +23,7 @@ export const platformRelease = {
   transparent_models: 4,
   scenarios: 4,
   validation_status: "active",
-  data_schema_versions: ["data-foundation-v0.76", "regional-data-v0.89", "model-scenario-validation-v0.91", "panel-observations-v1.2", "trade-network-v1.2"],
+  data_schema_versions: ["data-foundation-v0.76", "regional-data-v0.89", "model-scenario-validation-v0.91", "panel-observations-v1.2", "trade-network-v1.3", "comparison-gates-v1.25", "panel-inference-v1.25", "high-frequency-v1.3", "event-window-v1.3", "ui-language-v1.3"],
   limitations: [
     "No election forecasts, investment advice, probability forecasts, or causal impact estimates.",
     "Serbia regional comparison remains pending while national data remain available.",
@@ -49,6 +49,7 @@ export const releaseChangelog = [
   ["v1.0 Research Atlas", "Froze the public research boundary, canonical release metadata, reproducible provenance and final release gates.", "Model and scenario definitions remain unchanged; validation semantics now separate numeric checks, gates and expected-unavailable cases.", "No public route, formula, weight, shock range or canonical observation schema was broken."],
   ["v1.1 Architecture & Interface Refactor", "Reorganized public pages around research workflows and moved technical records into progressive disclosure and a versioned research package.", "Registered future analysis skills without running unsupported estimates; models and scenario formulas remain unchanged.", "No canonical observation, formula, weight, validation gate or stable public route was broken."],
   ["v1.2 Advanced Analysis Data Foundation", "Added a traceable 2015–2025 annual panel, formal coverage gates and transparent OLS/fixed-effects estimation.", "Registered bilateral-network contracts and deterministic metrics while retaining data-building status until complete partner edges exist.", "Composite formulas, scenario formulas, regional maps and event coding remain unchanged."],
+  ["v1.3 High-Frequency Political Economy, Event Analysis & Product Language System", "Added a monthly high-frequency layer (Eurostat HICP index/rate, harmonised unemployment, industrial production; 2015-01 onward, no interpolation) and activated descriptive Event Window Analysis with overlap warnings and explicit non-causal language.", "Network coverage gate now uses eligible partners only (aggregates are QA-only), with a per-run acquisition manifest; the interface now uses a central Chinese-first product language registry with mapped internal statuses.", "No causal event-study estimates, no VAR/Bayesian activation, no route or formula changes."],
   ["v1.25 Econometric Reliability, Cross-Country Comparability & Trade Network Activation", "Formal cross-country comparisons now require the same model version, formula, weight and input year; matrix columns read a single common year and never fall back to older data. Panel cluster-robust inference uses Student-t with G−1 degrees of freedom and explicit small-cluster gates.", "Activated the bilateral goods trade network (2015–2025, ten reporters, complete partner edges) with coverage gates and deterministic concentration metrics.", "No canonical observation, composite formula, weight, scenario shock or stable public route was broken. The research package filename now derives from canonical release metadata."],
 ] as const;
 

@@ -1,16 +1,18 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import { useSearchParams } from "next/navigation";
 
 const tabs = [
-  { id: "run", label: "Run Analysis" },
-  { id: "compare", label: "Compare Countries" },
+  { id: "run", label: "运行分析" },
+  { id: "compare", label: "国家比较" },
 ] as const;
 
 type TabId = (typeof tabs)[number]["id"];
 
 export function ModelsPageTabs({ runAnalysis, compareCountries }: { runAnalysis: ReactNode; compareCountries: ReactNode }) {
-  const [tab, setTab] = useState<TabId>("run");
+  const searchParams = useSearchParams();
+  const [tab, setTab] = useState<TabId>(searchParams.get("tab") === "compare" ? "compare" : "run");
 
   return (
     <section className="mt-8">

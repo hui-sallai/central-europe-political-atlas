@@ -28,7 +28,7 @@ require.extensions[".ts"] = (module, filename) => {
   const output = ts.transpileModule(fs.readFileSync(filename, "utf8"), { compilerOptions: { esModuleInterop: true, module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2020 }, fileName: filename });
   module._compile(output.outputText, filename);
 };
-const { calculateNetworkMetrics } = require("../../src/lib/networkEngine.ts");
+const { calculateNetworkMetrics, computeCoverageGate } = require("../../src/lib/networkEngine.ts");
 const rawDir = path.join(root, ".tmp-comtrade", "raw");
 const outDir = path.join(root, "src", "data", "network");
 
@@ -79,43 +79,27 @@ for (const edge of edges) {
   const key = `${edge.reporter_country}:${edge.year}:${edge.flow}`;
   groups.set(key, [...(groups.get(key) ?? []), edge]);
 }
-const coverage = [];
-for (const [key, group] of groups) {
-  const [reporter, year, flow] = key.split(":");
-  const world = group.find((edge) => edge.partner_country === "world");
-  const partnerSum = group.filter((edge) => edge.partner_country !== "world").reduce((sum, edge) => sum + edge.trade_value, 0);
-  const eligibleSum = group.filter((edge) => edge.network_eligible).reduce((sum, edge) => sum + edge.trade_value, 0);
-  const ratio = world && world.trade_value > 0 ? partnerSum / world.trade_value : null;
-  coverage.push({
-    reporter_country: reporter,
-    year: Number(year),
-    flow,
-    world_total: world?.trade_value ?? null,
-    partner_sum: partnerSum,
-    eligible_partner_sum: eligibleSum,
-    coverage_ratio: ratio === null ? null : Number(ratio.toFixed(6)),
-    gate_passed: ratio !== null && ratio >= COVERAGE_THRESHOLD,
-    threshold: COVERAGE_THRESHOLD,
-  });
-}
-coverage.sort((a, b) => `${a.reporter_country}:${a.year}:${a.flow}`.localeCompare(`${b.reporter_country}:${b.year}:${b.flow}`));
+// Formal coverage gate via the canonical engine (v1.3): eligible partner sum / world
+// total >= threshold. Raw coverage (including aggregates) is QA-only.
+const coverage = computeCoverageGate(edges, COVERAGE_THRESHOLD);
 
 const failed = coverage.filter((entry) => !entry.gate_passed);
 const generatedAt = new Date().toISOString().slice(0, 10);
 
 const edgesFile = {
-  schema_version: "trade-network-v1.25",
+  schema_version: "trade-network-v1.3",
   generated_at: generatedAt,
   record_count: edges.length,
   coverage_gate: {
+    definition: "eligible_coverage_ratio = sum(network_eligible partner values) / world_total; raw coverage is QA-only",
     status: failed.length ? "partial" : "active",
     threshold: COVERAGE_THRESHOLD,
     failed_groups: failed.length,
     total_groups: coverage.length,
     reason: failed.length
-      ? `${failed.length} reporter-year-flow groups below coverage threshold ${COVERAGE_THRESHOLD}; see network_coverage.json.`
-      : "All reporter-year-flow groups pass the coverage threshold.",
-    is_active: failed.length === 0,
+      ? `${failed.length} reporter-year-flow groups below eligible coverage threshold ${COVERAGE_THRESHOLD}; those combinations are unavailable for formal network metrics (see network_coverage.json).`
+      : "All reporter-year-flow groups pass the eligible coverage threshold.",
+    is_active: coverage.length > 0,
   },
   aggregate_partner_codes: [...AGGREGATE_PARTNER_CODES],
   records: edges,
@@ -130,9 +114,9 @@ for (const edge of edges) {
 
 fs.mkdirSync(outDir, { recursive: true });
 fs.writeFileSync(path.join(outDir, "trade_edges.json"), JSON.stringify(edgesFile));
-fs.writeFileSync(path.join(outDir, "network_coverage.json"), JSON.stringify({ schema_version: "trade-network-coverage-v1.25", generated_at: generatedAt, threshold: COVERAGE_THRESHOLD, record_count: coverage.length, records: coverage }, null, 2));
+fs.writeFileSync(path.join(outDir, "network_coverage.json"), JSON.stringify({ schema_version: "trade-network-coverage-v1.3", generated_at: generatedAt, threshold: COVERAGE_THRESHOLD, gate_definition: "eligible_coverage_ratio >= threshold; raw_coverage_ratio is QA-only", record_count: coverage.length, records: coverage }, null, 2));
 fs.writeFileSync(path.join(outDir, "network_nodes.json"), JSON.stringify({
-  schema_version: "trade-network-nodes-v1.25",
+  schema_version: "trade-network-nodes-v1.3",
   generated_at: generatedAt,
   record_count: nodes.size,
   records: [...nodes.values()].sort((a, b) => a.node_id.localeCompare(b.node_id)),
@@ -141,7 +125,7 @@ fs.writeFileSync(path.join(outDir, "network_nodes.json"), JSON.stringify({
 // Deterministic metrics via the canonical TypeScript engine (single source of truth).
 const metrics = calculateNetworkMetrics(edges);
 fs.writeFileSync(path.join(outDir, "network_metrics.json"), JSON.stringify({
-  schema_version: "trade-network-metrics-v1.25",
+  schema_version: "trade-network-metrics-v1.3",
   generated_at: generatedAt,
   record_count: metrics.length,
   status: "active",
@@ -151,8 +135,8 @@ fs.writeFileSync(path.join(outDir, "network_metrics.json"), JSON.stringify({
     china_share: "China share of the reporter flow (null when absent).",
     germany_share: "Germany share of the reporter flow (null for Germany itself or when absent).",
     diversification: "1 - partner_hhi.",
-    weighted_trade_volume: "Total trade value of the reporter-year-flow group (current USD).",
-    partner_degree_ratio: "Distinct partners of the group / total distinct eligible partners in the dataset. Not a centrality measure.",
+    weighted_trade_volume: "Nominal trade value of the reporter-year-flow group (current USD, not a real/growth measure).",
+    partner_count: "Plain count of distinct eligible partners. No centrality measure is published.",
   },
   interpretation_boundary: "Trade concentration is not economic risk; China share is not political dependence; network position is not political influence.",
   records: metrics,
@@ -182,7 +166,7 @@ for (const [key, group] of [...groups.entries()].sort(([a], [b]) => a.localeComp
   });
 }
 fs.writeFileSync(path.join(outDir, "network_ui_pack.json"), JSON.stringify({
-  schema_version: "trade-network-ui-pack-v1.25",
+  schema_version: "trade-network-ui-pack-v1.3",
   generated_at: generatedAt,
   record_count: uiGroups.length,
   interpretation_boundary: "Trade concentration is not economic risk; China share is not political dependence; network position is not political influence.",
@@ -196,6 +180,40 @@ for (const name of ["network_ui_pack.json", "network_coverage.json", "network_me
   fs.copyFileSync(path.join(outDir, name), path.join(publicDir, name));
 }
 
+// Acquisition manifest: one record per raw Comtrade response, with content hash,
+// so any release can answer "which acquisition run produced this dataset?".
+const crypto = await import("node:crypto");
+const manifestRecords = files.map((file) => {
+  const absolute = path.join(rawDir, file);
+  const content = fs.readFileSync(absolute);
+  const payload = JSON.parse(content.toString("utf8"));
+  const [slug, year, flow] = file.replace(".json", "").split("-");
+  const reporterCode = { germany: 276, poland: 616, hungary: 348, romania: 642, czechia: 203, slovakia: 703, slovenia: 705, serbia: 688, austria: 40, croatia: 191 }[slug];
+  return {
+    reporter: slug,
+    reporter_code: reporterCode,
+    year: Number(year),
+    flow: flow === "X" ? "exports" : "imports",
+    api_endpoint: "https://comtradeapi.un.org/public/v1/preview/C/A/HS",
+    query_parameters: { reporterCode, period: Number(year), flowCode: flow, cmdCode: "TOTAL", motCode: 0, customsCode: "C00", partner2Code: 0, includeDesc: true },
+    api_type: "public preview (no key)",
+    response_count: Array.isArray(payload.data) ? payload.data.length : 0,
+    unavailable_reason: payload.error ?? null,
+    acquisition_date: fs.statSync(absolute).mtime.toISOString().slice(0, 10),
+    source: SOURCE,
+    source_dataset: "UN Comtrade C/A/HS TOTAL goods",
+    content_hash_sha256: crypto.createHash("sha256").update(content).digest("hex"),
+  };
+});
+manifestRecords.sort((a, b) => `${a.reporter}:${a.year}:${a.flow}`.localeCompare(`${b.reporter}:${b.year}:${b.flow}`));
+fs.writeFileSync(path.join(outDir, "network_acquisition_manifest.json"), JSON.stringify({
+  schema_version: "network-acquisition-manifest-v1.3",
+  generated_at: generatedAt,
+  record_count: manifestRecords.length,
+  records: manifestRecords,
+}, null, 2));
+fs.copyFileSync(path.join(outDir, "network_acquisition_manifest.json"), path.join(publicDir, "network_acquisition_manifest.json"));
+
 console.log(`edges: ${edges.length}; nodes: ${nodes.size}; coverage groups: ${coverage.length}; failed groups: ${failed.length}; metrics: ${metrics.length}; ui groups: ${uiGroups.length}`);
-if (failed.length) console.log(`failed: ${failed.map((entry) => `${entry.reporter_country} ${entry.year} ${entry.flow} (${entry.coverage_ratio})`).join("; ")}`);
+if (failed.length) console.log(`failed: ${failed.map((entry) => `${entry.reporter_country} ${entry.year} ${entry.flow} (eligible ${entry.eligible_coverage_ratio})`).join("; ")}`);
 if (skipped.length) console.log(`skipped payloads: ${skipped.join(", ")}`);

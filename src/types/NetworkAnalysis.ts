@@ -21,8 +21,6 @@ export interface NetworkMetric {
   flow: "exports" | "imports";
   sector: string;
   partner_count: number;
-  total_eligible_partners: number;
-  partner_degree_ratio: number;
   partner_hhi: number;
   top_partner: string | null;
   top_partner_share: number;
@@ -30,4 +28,17 @@ export interface NetworkMetric {
   germany_share: number | null;
   diversification: number;
   weighted_trade_volume: number;
+}
+
+export interface NetworkCoverageRecord {
+  reporter_country: string;
+  year: number;
+  flow: "exports" | "imports";
+  world_total: number | null;
+  raw_partner_sum: number;
+  eligible_partner_sum: number;
+  raw_coverage_ratio: number | null;
+  eligible_coverage_ratio: number | null;
+  threshold: number;
+  gate_passed: boolean;
 }
