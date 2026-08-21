@@ -12,3 +12,9 @@ yarn-error.log*
 *.tsbuildinfo
 *.log
 *.zip
+
+# local tooling
+.pnpm-store/
+.workbuddy/
+launch-dev.mjs
+dev-server*.log

@@ -22,7 +22,7 @@ const contentPatterns = [
   ["OpenAI API key", /\bsk-(?:proj-|svcacct-)[A-Za-z0-9_-]{20,}\b/],
   ["AWS access key", /\bAKIA[0-9A-Z]{16}\b/],
   ["Slack token", /\bxox[baprs]-[A-Za-z0-9-]{20,}\b/],
-  ["local user path", /\b[A-Za-z]:\\Users\\(?!Public\\)[^\\\r\n]+/i],
+  ["local user path", /\b[A-Za-z]:(?:\\{1,2}|\/)+Users(?:\\{1,2}|\/)+(?!Public(?:\\{1,2}|\/)+)/i],
 ];
 
 const failures = [];
