@@ -4,13 +4,15 @@ Central Europe Political Atlas is a public political-economy research platform f
 
 Public site: https://hy-central-europe-analysis.org/
 
-Current release: **v1.2 Advanced Analysis Data Foundation**
+Current release: **v1.25 Econometric Reliability, Cross-Country Comparability & Trade Network Activation**
 
 ## Research scope
 
 - 10 country profiles and a shared canonical observation schema.
 - Factual regional comparison maps for 9 countries; Serbia remains available at national level while regional comparison is pending.
-- 4 transparent, rule-based models with input traces, published weights, completeness and confidence.
+- 4 transparent, rule-based models with input traces, published weights, completeness and confidence; formal cross-country comparisons require the same model version, formula, weight and input year.
+- An annual 2015–2025 econometric panel with cluster-robust Student-t (G−1) inference, small-cluster gates and offline Python reference validation.
+- An activated bilateral goods trade network (UN Comtrade, complete partner edges, 0.95 coverage gate) with deterministic descriptive concentration metrics.
 - 4 conditional scenarios with baseline, shock assumption, adjusted input and result traces.
 - Coded political-economy events and verified China-related project records.
 - Deterministic validation, golden cases and a release QA gate.
@@ -51,7 +53,7 @@ Machine-readable files are published under `/research-data/`. See [the research-
 
 ## Citation
 
-Central Europe Political Atlas, version v1.2 Advanced Analysis Data Foundation, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
+Central Europe Political Atlas, version v1.25 Econometric Reliability, Cross-Country Comparability & Trade Network Activation, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
 
 The project currently does not claim a DOI. Cite original source URLs when using individual observations, events or project records.
 

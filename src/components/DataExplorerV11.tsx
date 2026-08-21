@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import type { Country, Indicator, Observation } from "@/types/researchData";
+import { getResearchPackageFilename } from "@/lib/releaseMetadata";
 
 function csvCell(value: unknown) {
   const text = value === null || value === undefined ? "" : String(value);
@@ -82,7 +83,7 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
         <div className="flex flex-wrap gap-2">
           <button type="button" onClick={downloadCurrentView} className="rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)]">Download current view</button>
           <a href={`${basePath}/research-data/observations.csv`} className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold">Download full observations</a>
-          <a href={`${basePath}/research-data/research-data-v1.1.zip`} className="rounded-full bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-white">Research data package</a>
+          <a href={`${basePath}/research-data/${getResearchPackageFilename()}`} className="rounded-full bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-white">Research data package</a>
         </div>
       </div>
 

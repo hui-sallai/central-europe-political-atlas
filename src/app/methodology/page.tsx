@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CitationActions } from "@/components/CitationActions";
 import { platformStatus } from "@/lib/platformStatus";
-import { platformApaCitation, platformBibtexCitation, platformCitation } from "@/lib/releaseMetadata";
+import { getResearchPackageFilename, platformApaCitation, platformBibtexCitation, platformCitation } from "@/lib/releaseMetadata";
 
 export const metadata: Metadata = { title: "研究方法", description: "数据、模型、事件、空间、验证和引用规则。" };
 
@@ -27,6 +27,6 @@ export default function MethodologyPage() {
 
     <Section id="validation" label="05 / Validation" title="质量检查与已知限制"><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">验证覆盖确定性、权重、标准化边界、缺失值、年份对齐、情景零冲击、参数界限和复现。Expected unavailable 表示准入闸门按规则阻止输出，不是错误。</p><p className="mt-3 text-sm leading-7 text-[var(--muted)]"><strong>Validation ≠ scientific proof.</strong> 当前只声称 <strong>Historical reconstruction readiness</strong> 与方向性验证；没有 point-in-time vintage data 时，不报告预测准确率。事件关联不等于因果，项目库不等于项目普查，confidence 不等于发生概率。</p><div className="mt-5 flex flex-wrap gap-3"><a href={`${basePath}/research-data/validation_registry.json`} className="text-sm font-semibold text-[var(--accent)]">Validation registry</a><a href={`${basePath}/research-data/golden_test_cases.json`} className="text-sm font-semibold text-[var(--accent)]">Golden tests</a></div></Section>
 
-    <Section id="citation" label="06 / Citation" title="引用与下载"><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">引用应包含平台版本、访问日期和稳定 URL。具体 observation、事件、项目、模型或情景应同时引用其记录标识和原始来源；平台不会伪造 DOI。</p><div className="mt-5"><CitationActions plainText={platformCitation()} apaText={platformApaCitation()} bibtexText={platformBibtexCitation()} label="复制平台引用" /></div><div className="mt-5 flex flex-wrap gap-3"><a href={`${basePath}/research-data/research-data-v1.1.zip`} className="rounded-lg bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-white">Download research package</a><a href={`${basePath}/research-data/release_manifest.json`} className="rounded-lg border border-[var(--line)] px-4 py-2 text-sm font-semibold">Release manifest</a></div></Section>
+    <Section id="citation" label="06 / Citation" title="引用与下载"><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">引用应包含平台版本、访问日期和稳定 URL。具体 observation、事件、项目、模型或情景应同时引用其记录标识和原始来源；平台不会伪造 DOI。</p><div className="mt-5"><CitationActions plainText={platformCitation()} apaText={platformApaCitation()} bibtexText={platformBibtexCitation()} label="复制平台引用" /></div><div className="mt-5 flex flex-wrap gap-3"><a href={`${basePath}/research-data/${getResearchPackageFilename()}`} className="rounded-lg bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-white">Download research package</a><a href={`${basePath}/research-data/release_manifest.json`} className="rounded-lg border border-[var(--line)] px-4 py-2 text-sm font-semibold">Release manifest</a></div></Section>
   </main>;
 }

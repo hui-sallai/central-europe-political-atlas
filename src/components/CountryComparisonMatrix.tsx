@@ -2,50 +2,62 @@
 
 import { useMemo, useState } from "react";
 
-export type MatrixIndicatorColumn = {
+export type MatrixColumnMeta = {
   id: string;
   label: string;
-  value: number | null;
+  kind: "indicator" | "model";
   unit: string;
-  year: number | null;
+  comparison_year: number | null;
+  eligible_country_count: number;
+  total_countries: number;
+  heat_enabled: boolean;
+  unavailability_note: string | null;
 };
 
-export type MatrixModelColumn = {
-  model_id: string;
-  label: string;
-  score: number | null;
-  availability: string;
+export type MatrixCell = {
+  value: number | null;
+  year: number | null;
+  comparable: boolean;
 };
 
 export type MatrixRow = {
   slug: string;
   name_zh: string;
   name: string;
-  indicators: MatrixIndicatorColumn[];
-  models: MatrixModelColumn[];
+  cells: Record<string, MatrixCell>;
+};
+
+export type ComparisonMatrixData = {
+  columns: MatrixColumnMeta[];
+  rows: MatrixRow[];
 };
 
 type SortState = { key: string; dir: "asc" | "desc" } | null;
 
-function cellIntensity(values: number[], value: number) {
-  if (values.length < 2) return 0.3;
-  const min = Math.min(...values);
-  const max = Math.max(...values);
-  const range = max - min;
-  if (range === 0) return 0.3;
-  return (value - min) / range;
+function downloadJson(value: unknown, fileName: string) {
+  const url = URL.createObjectURL(new Blob([JSON.stringify(value, null, 2)], { type: "application/json" }));
+  const anchor = document.createElement("a");
+  anchor.href = url;
+  anchor.download = fileName;
+  anchor.click();
+  URL.revokeObjectURL(url);
 }
 
 function formatValue(value: number, unit: string) {
   if (unit === "EUR") return `${Math.round(value).toLocaleString("zh-CN")}`;
+  if (unit === "score") return value.toFixed(1);
   return value.toLocaleString("zh-CN", { maximumFractionDigits: 2 });
 }
 
-export function CountryComparisonMatrix({ rows }: { rows: MatrixRow[] }) {
-  const [sort, setSort] = useState<SortState>(null);
+function unitSuffix(unit: string) {
+  if (unit === "EUR") return "€";
+  if (unit === "%") return "%";
+  return "";
+}
 
-  const indicatorKeys = useMemo(() => rows[0]?.indicators.map((indicator) => indicator.id) ?? [], [rows]);
-  const modelKeys = useMemo(() => rows[0]?.models.map((model) => model.model_id) ?? [], [rows]);
+export function CountryComparisonMatrix({ data }: { data: ComparisonMatrixData }) {
+  const [sort, setSort] = useState<SortState>(null);
+  const { columns, rows } = data;
 
   const sortedRows = useMemo(() => {
     if (!sort) return rows;
@@ -54,19 +66,13 @@ export function CountryComparisonMatrix({ rows }: { rows: MatrixRow[] }) {
       let diff: number;
       if (sort.key === "country") {
         diff = a.name_zh.localeCompare(b.name_zh, "zh-CN");
-      } else if (indicatorKeys.includes(sort.key)) {
-        const aCell = a.indicators.find((indicator) => indicator.id === sort.key);
-        const bCell = b.indicators.find((indicator) => indicator.id === sort.key);
-        diff = (aCell?.value ?? Number.POSITIVE_INFINITY) - (bCell?.value ?? Number.POSITIVE_INFINITY);
       } else {
-        const aCell = a.models.find((model) => model.model_id === sort.key);
-        const bCell = b.models.find((model) => model.model_id === sort.key);
-        diff = (aCell?.score ?? Number.POSITIVE_INFINITY) - (bCell?.score ?? Number.POSITIVE_INFINITY);
+        diff = (a.cells[sort.key]?.value ?? Number.POSITIVE_INFINITY) - (b.cells[sort.key]?.value ?? Number.POSITIVE_INFINITY);
       }
       return sort.dir === "asc" ? diff : -diff;
     });
     return list;
-  }, [rows, sort, indicatorKeys]);
+  }, [rows, sort]);
 
   function toggleSort(key: string) {
     setSort((current) => {
@@ -81,54 +87,85 @@ export function CountryComparisonMatrix({ rows }: { rows: MatrixRow[] }) {
   }
 
   const columnSeries: Record<string, number[]> = {};
-  for (const key of indicatorKeys) {
-    columnSeries[key] = rows.flatMap((row) => {
-      const cell = row.indicators.find((indicator) => indicator.id === key);
-      return cell?.value !== null && cell?.value !== undefined ? [cell.value] : [];
-    });
-  }
-  for (const key of modelKeys) {
-    columnSeries[key] = rows.flatMap((row) => {
-      const cell = row.models.find((model) => model.model_id === key);
-      return cell?.score !== null && cell?.score !== undefined ? [cell.score] : [];
+  for (const column of columns) {
+    columnSeries[column.id] = rows.flatMap((row) => {
+      const cell = row.cells[column.id];
+      return cell && cell.value !== null && cell.comparable ? [cell.value] : [];
     });
   }
 
-  function heatStyle(key: string, value: number | null) {
-    if (value === null) return {};
-    const intensity = cellIntensity(columnSeries[key] ?? [], value);
+  function cellIntensity(key: string, value: number) {
+    const values = columnSeries[key] ?? [];
+    if (values.length < 2) return 0.3;
+    const min = Math.min(...values);
+    const max = Math.max(...values);
+    const range = max - min;
+    if (range === 0) return 0.3;
+    return (value - min) / range;
+  }
+
+  function heatStyle(column: MatrixColumnMeta, cell: MatrixCell | undefined) {
+    if (!column.heat_enabled || !cell || cell.value === null || !cell.comparable) return {};
+    const intensity = cellIntensity(column.id, cell.value);
     return { backgroundColor: `rgba(166, 69, 60, ${0.05 + intensity * 0.26})` };
   }
 
+  const exportPayload = {
+    comparison_metadata: columns.map((column) => ({
+      column: column.id,
+      label: column.label,
+      kind: column.kind,
+      unit: column.unit,
+      comparison_year: column.comparison_year,
+      eligible_country_count: column.eligible_country_count,
+      excluded_countries: rows
+        .filter((row) => (row.cells[column.id]?.value ?? null) === null)
+        .map((row) => row.slug),
+      exclusion_reason: "no valid observation at the common comparison year",
+      heat_enabled: column.heat_enabled,
+      unavailability_note: column.unavailability_note,
+    })),
+    rows: rows.map((row) => ({
+      country: row.name_zh,
+      country_slug: row.slug,
+      values: Object.fromEntries(columns.map((column) => [column.id, row.cells[column.id]?.value ?? null])),
+    })),
+  };
+
   return (
     <section className="editorial-panel mt-6 p-5" aria-label="国家指标与模型得分对比矩阵">
-      <div className="border-b border-[var(--line)] pb-5">
-        <p className="editorial-kicker">Comparison matrix</p>
-        <h2 className="mt-2 text-2xl font-semibold">国家 × 指标对比矩阵</h2>
-        <p className="mt-2 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-          十国核心经济观测与四个透明模型得分放在同一张矩阵中。点击列头可排序，快速识别相对位置与缺口。
-        </p>
+      <div className="flex flex-wrap items-start justify-between gap-4 border-b border-[var(--line)] pb-5">
+        <div>
+          <p className="editorial-kicker">Comparison matrix</p>
+          <h2 className="mt-2 text-2xl font-semibold">国家 × 指标对比矩阵</h2>
+          <p className="mt-2 max-w-3xl text-sm leading-7 text-[var(--muted)]">
+            每一列只读取同一个共同年份的数据；某国在该年没有有效观测时显示“—”，不会回退到旧年份。点击列头可排序。
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={() => downloadJson(exportPayload, "country-comparison-matrix.json")}
+          className="rounded-lg border border-[var(--line)] px-4 py-2 text-sm font-semibold"
+        >
+          导出矩阵
+        </button>
       </div>
 
       <div className="mt-5 overflow-x-auto">
         <table className="research-data-table w-full min-w-[900px] text-left text-sm">
           <thead>
             <tr>
-              <th className="px-3 py-3">
+              <th className="px-3 py-3 align-bottom">
                 <button type="button" className="font-semibold" onClick={() => toggleSort("country")}>国家{sortIndicator("country")}</button>
               </th>
-              {rows[0]?.indicators.map((indicator) => (
-                <th key={indicator.id} className="px-3 py-3">
-                  <button type="button" className="font-semibold" onClick={() => toggleSort(indicator.id)}>
-                    {indicator.label}{sortIndicator(indicator.id)}
+              {columns.map((column) => (
+                <th key={column.id} className="px-3 py-3 align-bottom">
+                  <button type="button" className="font-semibold" onClick={() => toggleSort(column.id)}>
+                    {column.label}{sortIndicator(column.id)}
                   </button>
-                </th>
-              ))}
-              {rows[0]?.models.map((model) => (
-                <th key={model.model_id} className="px-3 py-3">
-                  <button type="button" className="font-semibold" onClick={() => toggleSort(model.model_id)}>
-                    {model.label}{sortIndicator(model.model_id)}
-                  </button>
+                  <span className="mt-1 block text-xs font-normal text-[var(--muted)]">
+                    {column.comparison_year ?? "无共同年份"} · {column.eligible_country_count}/{column.total_countries} 国
+                  </span>
                 </th>
               ))}
             </tr>
@@ -140,35 +177,41 @@ export function CountryComparisonMatrix({ rows }: { rows: MatrixRow[] }) {
                   {row.name_zh}
                   <span className="block text-xs font-normal text-[var(--muted)]">{row.name}</span>
                 </td>
-                {row.indicators.map((indicator) => (
-                  <td
-                    key={indicator.id}
-                    className="metric-number px-3 py-3"
-                    style={heatStyle(indicator.id, indicator.value)}
-                    title={indicator.value === null ? "观测待接入" : `${indicator.label}：${formatValue(indicator.value, indicator.unit)} ${indicator.unit}（${indicator.year ?? "年份未知"}）`}
-                  >
-                    {indicator.value === null ? <span className="text-[var(--muted)]">—</span> : formatValue(indicator.value, indicator.unit)}
-                    {indicator.value !== null ? <span className="ml-1 text-xs font-normal text-[var(--muted)]">{indicator.unit === "EUR" ? "€" : indicator.unit === "%" ? "%" : ""}</span> : null}
-                  </td>
-                ))}
-                {row.models.map((model) => (
-                  <td
-                    key={model.model_id}
-                    className="metric-number px-3 py-3"
-                    style={heatStyle(model.model_id, model.score)}
-                    title={model.score === null ? `${model.label}：输入不足，不输出分数` : `${model.label}：${model.score.toFixed(1)} / 100（${model.availability}）`}
-                  >
-                    {model.score === null ? <span className="text-[var(--muted)]">—</span> : model.score.toFixed(1)}
-                  </td>
-                ))}
+                {columns.map((column) => {
+                  const cell = row.cells[column.id];
+                  return (
+                    <td
+                      key={column.id}
+                      className="metric-number px-3 py-3"
+                      style={heatStyle(column, cell)}
+                      title={!cell || cell.value === null
+                        ? `${column.label}：${column.comparison_year ?? "—"} 年无有效观测（不回退旧年份）`
+                        : `${column.label}：${formatValue(cell.value, column.unit)} ${column.unit === "score" ? "/ 100" : column.unit}（${cell.year}）`}
+                    >
+                      {!cell || cell.value === null ? (
+                        <span className="text-[var(--muted)]">—</span>
+                      ) : (
+                        <>
+                          {formatValue(cell.value, column.unit)}
+                          <span className="ml-1 text-xs font-normal text-[var(--muted)]">{unitSuffix(column.unit)}</span>
+                        </>
+                      )}
+                    </td>
+                  );
+                })}
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      <p className="mt-4 text-xs leading-6 text-[var(--muted)]">
-        单元格颜色深浅仅表示该列在十国之内的相对位置（深 = 该列中数值高），不构成绝对评价、风险判断或预测。“—” 表示该观测或模型输入不足，缺失值不会被推测或补零。
+      {columns.some((column) => !column.heat_enabled) ? (
+        <p className="mt-4 text-xs leading-6 text-[var(--warning)]">
+          部分列未能建立同年、同单位、同定义的比较基础（comparison unavailable），这些列仅以普通数值展示，不着色。
+        </p>
+      ) : null}
+      <p className="mt-2 text-xs leading-6 text-[var(--muted)]">
+        单元格颜色深浅仅表示该列在同一共同年份、同一单位与同一定义下的相对位置（深 = 该列中数值高），不构成绝对评价、风险判断或预测。“—” 表示该国在共同年份没有有效观测，缺失值不会被推测或补零。
       </p>
     </section>
   );

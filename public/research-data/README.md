@@ -2,7 +2,7 @@
 
 This directory contains the public research exports used by the static site.
 
-Current release: **v1.0 Research Atlas**. The canonical release definition is exported through `platform_metadata.json`; deployment provenance is recorded in `release_manifest.json`.
+Current release: **v1.25 Econometric Reliability, Cross-Country Comparability & Trade Network Activation**. The canonical release definition is exported through `platform_metadata.json`; deployment provenance is recorded in `release_manifest.json`.
 
 ## Core schemas
 
@@ -15,6 +15,7 @@ Current release: **v1.0 Research Atlas**. The canonical release definition is ex
 - `model_cards` and `model_outputs`: formulas, weights, limitations and observation traces.
 - `scenario_definitions` and `scenario_results`: shock assumptions, adjusted inputs and baseline/scenario results.
 - `validation_registry` and `golden_test_cases`: executable validation evidence.
+- `network_ui_pack`, `network_metrics` and `network_coverage`: activated bilateral goods trade network (UN Comtrade 2015–2025), descriptive concentration metrics and per-group coverage gates.
 
 ## Stable IDs
 

@@ -255,6 +255,11 @@ function eligibleObservation(observation: Observation | undefined) {
 }
 
 function latestCandidateYear(countrySlug: string, inputs: ModelInputDefinition[]) {
+  const years = eligibleModelYears(countrySlug, inputs);
+  return years[0] ?? null;
+}
+
+export function eligibleModelYears(countrySlug: string, inputs: ModelInputDefinition[]) {
   const inputIds = new Set(inputs.map((input) => input.indicator_id));
   const candidateYears = observations
     .filter((observation) => observation.country_slug === countrySlug && inputIds.has(observation.indicator) && eligibleObservation(observation))
@@ -262,10 +267,11 @@ function latestCandidateYear(countrySlug: string, inputs: ModelInputDefinition[]
     .filter((year, index, years) => years.indexOf(year) === index)
     .sort((a, b) => b - a);
 
-  return candidateYears.find((year) => {
+  const scoredYears = candidateYears.filter((year) => {
     const availableWeight = inputs.reduce((total, input) => total + (inputTrace(countrySlug, year, input)?.weight ?? 0), 0);
     return availableWeight >= PARTIAL_SCORE_THRESHOLD;
-  }) ?? candidateYears[0] ?? null;
+  });
+  return scoredYears.length ? scoredYears : candidateYears;
 }
 
 function inputTrace(countrySlug: string, year: number, input: ModelInputDefinition): ModelInputTrace | null {
@@ -325,6 +331,10 @@ function relatedEventIds(countrySlug: string, card: ModelCard) {
 
 export function calculateModelOutput(country: Country, card: ModelCard): ModelOutput {
   const year = latestCandidateYear(country.slug, card.inputs);
+  return calculateModelOutputForYear(country, card, year);
+}
+
+export function calculateModelOutputForYear(country: Country, card: ModelCard, year: number | null): ModelOutput {
   const traces = year === null
     ? []
     : card.inputs.map((input) => inputTrace(country.slug, year, input)).filter((trace): trace is ModelInputTrace => trace !== null);

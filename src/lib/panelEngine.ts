@@ -3,6 +3,11 @@ import type { PanelAnalysisOutput, PanelCoefficient, PanelRuntimeObservation, Pa
 
 type Matrix = number[][];
 
+export const PANEL_ENGINE_VERSION = "panel-engine-v1.25";
+export const PANEL_DATASET_VERSION = "panel-observations-v1.2";
+const MIN_CLUSTERS = 8;
+const SMALL_CLUSTER_THRESHOLD = 20;
+
 function transpose(matrix: Matrix): Matrix {
   return matrix[0].map((_, column) => matrix.map((row) => row[column]));
 }
@@ -17,7 +22,7 @@ function inverse(matrix: Matrix): Matrix {
   for (let column = 0; column < size; column += 1) {
     let pivot = column;
     for (let row = column + 1; row < size; row += 1) if (Math.abs(augmented[row][column]) > Math.abs(augmented[pivot][column])) pivot = row;
-    if (Math.abs(augmented[pivot][column]) < 1e-10) throw new Error("设计矩阵奇异；请减少高度相关变量或固定效应。 ");
+    if (Math.abs(augmented[pivot][column]) < 1e-10) throw new Error("设计矩阵奇异（完全共线）；请减少高度相关变量或固定效应。 ");
     [augmented[column], augmented[pivot]] = [augmented[pivot], augmented[column]];
     const divisor = augmented[column][column];
     augmented[column] = augmented[column].map((value) => value / divisor);
@@ -42,6 +47,70 @@ function normalCdf(value: number) {
   return 0.5 * (1 + sign * erf);
 }
 
+// Lanczos log-gamma for the incomplete-beta based Student-t CDF.
+function logGamma(z: number): number {
+  const coefficients = [0.99999999999980993, 676.5203681218851, -1259.1392167224028, 771.32342877765313, -176.61502916214059, 12.507343278686905, -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7];
+  if (z < 0.5) return Math.log(Math.PI / Math.sin(Math.PI * z)) - logGamma(1 - z);
+  const shift = z - 1;
+  let x = coefficients[0];
+  for (let index = 1; index < coefficients.length; index += 1) x += coefficients[index] / (shift + index);
+  const t = shift + 7.5;
+  return 0.5 * Math.log(2 * Math.PI) + (shift + 0.5) * Math.log(t) - t + Math.log(x);
+}
+
+function betaContinuedFraction(x: number, a: number, b: number) {
+  let c = 1;
+  let d = 1 - ((a + b) * x) / (a + 1);
+  d = Math.abs(d) < 1e-30 ? 1e-30 : d;
+  d = 1 / d;
+  let h = d;
+  for (let m = 1; m <= 200; m += 1) {
+    const m2 = 2 * m;
+    let numerator = (m * (b - m) * x) / ((a + m2 - 1) * (a + m2));
+    d = 1 + numerator * d;
+    d = Math.abs(d) < 1e-30 ? 1e-30 : d;
+    c = 1 + numerator / c;
+    c = Math.abs(c) < 1e-30 ? 1e-30 : c;
+    d = 1 / d;
+    h *= d * c;
+    numerator = (-(a + m) * (a + b + m) * x) / ((a + m2) * (a + m2 + 1));
+    d = 1 + numerator * d;
+    d = Math.abs(d) < 1e-30 ? 1e-30 : d;
+    c = 1 + numerator / c;
+    c = Math.abs(c) < 1e-30 ? 1e-30 : c;
+    d = 1 / d;
+    const delta = d * c;
+    h *= delta;
+    if (Math.abs(delta - 1) < 3e-14) break;
+  }
+  return h;
+}
+
+function regularizedIncompleteBeta(x: number, a: number, b: number) {
+  if (x <= 0) return 0;
+  if (x >= 1) return 1;
+  const bt = Math.exp(logGamma(a + b) - logGamma(a) - logGamma(b) + a * Math.log(x) + b * Math.log(1 - x));
+  if (x < (a + 1) / (a + b + 2)) return (bt * betaContinuedFraction(x, a, b)) / a;
+  return 1 - (bt * betaContinuedFraction(1 - x, b, a)) / b;
+}
+
+export function studentTCdf(t: number, degreesOfFreedom: number) {
+  const x = degreesOfFreedom / (degreesOfFreedom + t * t);
+  const ib = regularizedIncompleteBeta(x, degreesOfFreedom / 2, 0.5);
+  return t >= 0 ? 1 - 0.5 * ib : 0.5 * ib;
+}
+
+export function studentTCritical(probability: number, degreesOfFreedom: number) {
+  let low = 0;
+  let high = 1000;
+  for (let iteration = 0; iteration < 100; iteration += 1) {
+    const mid = (low + high) / 2;
+    if (studentTCdf(mid, degreesOfFreedom) < probability) low = mid;
+    else high = mid;
+  }
+  return (low + high) / 2;
+}
+
 function covarianceRobust(x: Matrix, residuals: number[], xtxInverse: Matrix) {
   const meat = Array.from({ length: x[0].length }, () => Array(x[0].length).fill(0));
   x.forEach((row, index) => row.forEach((left, i) => row.forEach((right, j) => { meat[i][j] += residuals[index] ** 2 * left * right; })));
@@ -51,7 +120,7 @@ function covarianceRobust(x: Matrix, residuals: number[], xtxInverse: Matrix) {
 
 function covarianceClustered(x: Matrix, residuals: number[], xtxInverse: Matrix, clusters: string[]) {
   const groups = [...new Set(clusters)];
-  if (groups.length < 8) throw new Error("按国家聚类标准误至少需要 8 个国家。 ");
+  if (groups.length < MIN_CLUSTERS) throw new Error(`按国家聚类标准误至少需要 ${MIN_CLUSTERS} 个国家（聚类数 G=${groups.length} 时被阻止）。 `);
   const meat = Array.from({ length: x[0].length }, () => Array(x[0].length).fill(0));
   for (const group of groups) {
     const score = Array(x[0].length).fill(0);
@@ -106,6 +175,18 @@ export function runPanelEconometrics(observations: PanelRuntimeObservation[], sp
   const x = rows.map((row) => [1, ...row.predictors, ...countryDummies.map((country) => row.country === country ? 1 : 0), ...yearDummies.map((year) => row.year === year ? 1 : 0)]);
   const y = rows.map((row) => row.y);
   const estimated = fit(x, y, rows.map((row) => row.country), specification.standard_errors);
+
+  // Inference: clustered SEs use a Student-t reference with G-1 degrees of freedom;
+  // HC1 robust SEs keep the asymptotic normal reference. The two never mix.
+  const clusterCount = countries.length;
+  const clustered = specification.standard_errors === "cluster_country";
+  const degreesOfFreedom = clustered ? clusterCount - 1 : null;
+  const inferenceMethod = clustered ? "cluster_country_student_t" : "hc1_asymptotic";
+  const criticalValue = clustered && degreesOfFreedom !== null ? studentTCritical(0.975, degreesOfFreedom) : 1.96;
+  const clusterWarning = clustered && clusterCount < SMALL_CLUSTER_THRESHOLD
+    ? `Small number of clusters (G=${clusterCount}); cluster-robust inference may be imprecise.`
+    : null;
+
   const mean = y.reduce((sum, value) => sum + value, 0) / y.length;
   const totalSumSquares = y.reduce((sum, value) => sum + (value - mean) ** 2, 0);
   const residualSumSquares = estimated.residuals.reduce((sum, value) => sum + value ** 2, 0);
@@ -121,8 +202,14 @@ export function runPanelEconometrics(observations: PanelRuntimeObservation[], sp
     const coefficient = estimated.beta[position];
     const standardError = Math.sqrt(Math.max(0, estimated.covariance[position][position]));
     const tStat = standardError ? coefficient / standardError : 0;
-    return { variable, coefficient, standard_error: standardError, t_stat: tStat, p_value: 2 * (1 - normalCdf(Math.abs(tStat))), ci_95_low: coefficient - 1.96 * standardError, ci_95_high: coefficient + 1.96 * standardError };
+    const pValue = clustered && degreesOfFreedom !== null
+      ? 2 * (1 - studentTCdf(Math.abs(tStat), degreesOfFreedom))
+      : 2 * (1 - normalCdf(Math.abs(tStat)));
+    return { variable, coefficient, standard_error: standardError, t_stat: tStat, p_value: pValue, ci_95_low: coefficient - criticalValue * standardError, ci_95_high: coefficient + criticalValue * standardError };
   });
+  if (coefficients.some((item) => !Number.isFinite(item.coefficient) || !Number.isFinite(item.standard_error))) {
+    throw new Error("估计产生非有限系数或标准误；请检查输入的共线性与方差。 ");
+  }
   let multicollinearityWarning: string | null = null;
   for (let i = 0; i < specification.explanatory_variables.length; i += 1) for (let j = i + 1; j < specification.explanatory_variables.length; j += 1) {
     if (Math.abs(correlation(rows.map((row) => row.predictors[i]), rows.map((row) => row.predictors[j]))) >= 0.9) multicollinearityWarning = "至少一对解释变量的绝对相关系数达到 0.90；系数可能不稳定。";
@@ -132,10 +219,35 @@ export function runPanelEconometrics(observations: PanelRuntimeObservation[], sp
     model: specification.fixed_effects === "none" ? "pooled_ols" : specification.fixed_effects === "country" ? "country_fixed_effects" : "country_and_year_fixed_effects",
     specification,
     coefficients,
-    diagnostics: { observations: rows.length, countries: countries.length, years: years.length, r_squared: 1 - residualSumSquares / totalSumSquares, within_r_squared: withinR2, missing_rows: expectedRows - rows.length, standard_error_method: specification.standard_errors, multicollinearity_warning: multicollinearityWarning, sample_coverage: rows.length / expectedRows, year_coverage: `${years[0]}–${years.at(-1)}` },
+    diagnostics: {
+      observations: rows.length,
+      countries: countries.length,
+      years: years.length,
+      r_squared: 1 - residualSumSquares / totalSumSquares,
+      within_r_squared: withinR2,
+      expected_rows: expectedRows,
+      missing_rows: expectedRows - rows.length,
+      sample_coverage: rows.length / expectedRows,
+      standard_error_method: specification.standard_errors,
+      inference_method: inferenceMethod,
+      clusters: clustered ? clusterCount : null,
+      degrees_of_freedom: degreesOfFreedom,
+      cluster_warning: clusterWarning,
+      multicollinearity_warning: multicollinearityWarning,
+      year_coverage: `${years[0]}–${years.at(-1)}`,
+    },
+    bootstrap: {
+      method: "wild_cluster_bootstrap",
+      status: "unavailable",
+      supported_repetitions: [499, 999],
+      reason: "浏览器端引擎尚未实现 wild cluster bootstrap；接口保留，不输出伪实现。",
+    },
     data_trace: [...new Set(rows.flatMap((row) => row.trace))],
     calculation_date: new Date().toISOString().slice(0, 10),
     platform_version: PLATFORM_VERSION,
+    dataset_version: PANEL_DATASET_VERSION,
+    panel_schema_version: PANEL_DATASET_VERSION,
+    engine_version: PANEL_ENGINE_VERSION,
     interpretation_boundary: "面板系数描述在所选样本和规格下的条件关联，不等于因果效应；固定效应本身不构成因果识别。",
   };
 }

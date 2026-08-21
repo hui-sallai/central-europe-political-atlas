@@ -1,10 +1,11 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { researchPackageFilename, researchPackageLabel } from "./research-package-name.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const sourceDir = path.join(root, "public", "research-data");
-const outputFile = path.join(sourceDir, "research-data-v1.1.zip");
+const outputFile = path.join(sourceDir, researchPackageFilename());
 
 const groups = {
   data: ["observations.json", "observations.csv", "comparison_eligibility.json", "transmission_channels.json"],
@@ -89,6 +90,9 @@ const sourceEntries = [
   ["network/trade_edges.json", "src/data/network/trade_edges.json"],
   ["network/network_nodes.json", "src/data/network/network_nodes.json"],
   ["network/network_metrics.json", "src/data/network/network_metrics.json"],
+  ["network/network_coverage.json", "src/data/network/network_coverage.json"],
+  ["network/network_ui_pack.json", "src/data/network/network_ui_pack.json"],
+  ["analysis/panel_reference_cases.json", "src/data/analysis/panel_reference_cases.json"],
   ["analysis/panel_specifications.json", "src/data/analysis/panel_specifications.json"],
   ["analysis/analysis_skill_registry.json", "src/data/analysis/analysis_skill_registry.json"],
 ];
@@ -105,7 +109,7 @@ if (fs.existsSync(modelCardsFile)) {
   entries.push({ name: "models/formula_versions.json", data: JSON.stringify(records.map((item) => ({ model_id: item.model_id, model_version: item.model_version, formula_version: item.formula_version, calculation_logic: item.calculation_logic })), null, 2) });
 }
 
-entries.push({ name: "README.md", data: `# Central Europe Political Atlas research package v1.2\n\nThis package preserves public research data, dictionaries, QA records, model and scenario metadata, methodology and release provenance.\n\n- Missing and pending values are not zero.\n- Samples and placeholders do not enter formal analysis.\n- Model outputs are comparative research tools, not forecasts or objective risk truths.\n- Scenario results are conditional assumptions, not future facts.\n- Panel estimates preserve official source and observation traces.\n- Network outputs remain unavailable until complete bilateral partner edges pass coverage checks.\n\nCanonical site: https://hy-central-europe-analysis.org/\n` });
+entries.push({ name: "README.md", data: `# Central Europe Political Atlas ${researchPackageLabel()}\n\nThis package preserves public research data, dictionaries, QA records, model and scenario metadata, methodology and release provenance.\n\n- Missing and pending values are not zero.\n- Samples and placeholders do not enter formal analysis.\n- Model outputs are comparative research tools, not forecasts or objective risk truths.\n- Scenario results are conditional assumptions, not future facts.\n- Panel estimates preserve official source and observation traces.\n- Network outputs require complete bilateral partner edges passing coverage checks.\n\nCanonical site: https://hy-central-europe-analysis.org/\n` });
 entries.push({ name: "methodology/README.md", data: "Public methodology is available at /methodology/. Technical dictionaries and validation records in this archive are the authoritative downloadable companion to the interface.\n" });
 
 fs.mkdirSync(sourceDir, { recursive: true });

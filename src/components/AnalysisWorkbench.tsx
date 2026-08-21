@@ -17,6 +17,9 @@ type ConsistencyStatus = "match" | "mismatch" | "missing_reference" | null;
 const PanelEconometricsWorkbench = dynamic(() => import("@/components/PanelEconometricsWorkbench").then((module) => module.PanelEconometricsWorkbench), {
   loading: () => <p className="mt-6 border-y border-[var(--line)] py-10 text-center text-sm text-[var(--muted)]">Loading panel workspace…</p>,
 });
+const TradeNetworkWorkbench = dynamic(() => import("@/components/TradeNetworkWorkbench").then((module) => module.TradeNetworkWorkbench), {
+  loading: () => <p className="mt-6 border-y border-[var(--line)] py-10 text-center text-sm text-[var(--muted)]">Loading network workspace…</p>,
+});
 
 function downloadJson(value: unknown, fileName: string) {
   const url = URL.createObjectURL(new Blob([JSON.stringify(value, null, 2)], { type: "application/json" }));
@@ -64,13 +67,12 @@ export function AnalysisWorkbench({ countries, cards, outputs }: { countries: Co
       </div>
 
       <div className="mt-5 grid gap-3 md:grid-cols-3">
-        <div className="editorial-panel p-4"><p className="editorial-kicker">Active Analyses</p><p className="mt-2 text-sm font-semibold">Composite Indicators · Panel Econometrics</p></div>
-        <div className="editorial-panel p-4"><p className="editorial-kicker">In Development</p><p className="mt-2 text-sm font-semibold">Network Dependency</p></div>
+        <div className="editorial-panel p-4"><p className="editorial-kicker">Active Analyses</p><p className="mt-2 text-sm font-semibold">Composite Indicators · Panel Econometrics · Network Analysis</p></div>
+        <div className="editorial-panel p-4"><p className="editorial-kicker">Interfaces Reserved</p><p className="mt-2 text-sm font-semibold">Wild Cluster Bootstrap</p></div>
         <div className="editorial-panel p-4"><p className="editorial-kicker">Future Methods</p><p className="mt-2 text-sm font-semibold">Event Study · VAR / SVAR · Bayesian · Causal</p></div>
       </div>
 
-      {category === "composite_indicators" ? (
-        <div className="mt-6 grid gap-6">
+      {category === "composite_indicators" ? (        <div className="mt-6 grid gap-6">
           <section className="editorial-panel p-5">
             <div className="grid gap-4 md:grid-cols-3">
               <label className="text-xs font-semibold text-[var(--muted)]">Country<select className="field-control mt-2" value={countrySlug} onChange={(event) => { setCountrySlug(event.target.value); setResult(null); setDiagnostics(null); setConsistency(null); }}>{countries.map((country) => <option key={country.slug} value={country.slug}>{country.name_zh} / {country.name}</option>)}</select></label>
@@ -103,6 +105,8 @@ export function AnalysisWorkbench({ countries, cards, outputs }: { countries: Co
         </div>
       ) : category === "panel_econometrics" ? (
         <PanelEconometricsWorkbench countries={countries} />
+      ) : category === "network_analysis" ? (
+        <TradeNetworkWorkbench countries={countries} />
       ) : (
         <div className="divide-y divide-[var(--line)] border-y border-[var(--line)] mt-6">{skills.map((skill) => <article key={skill.skill_id} className="grid gap-3 py-5 md:grid-cols-[220px_1fr_auto] md:items-start"><div><p className="editorial-kicker">{skill.calculation_mode.replaceAll("_", " ")}</p><h2 className="mt-2 text-xl font-semibold">{skill.name}</h2></div><p className="text-sm leading-7 text-[var(--muted)]">{skill.description}</p><span className="text-xs font-semibold text-[var(--warning)]">{skill.calculation_mode === "blocked" ? "Blocked by data frequency" : skill.calculation_mode === "data_building" ? "Data building" : "Registry only"}</span><details className="advanced-disclosure md:col-span-3"><summary>Registered requirements</summary><p className="mt-3 text-xs text-[var(--muted)]">Required: {skill.required_data.join(" / ")}</p><p className="mt-2 text-xs text-[var(--muted)]">Diagnostics: {skill.diagnostics.join(" / ")}</p></details></article>)}</div>
       )}

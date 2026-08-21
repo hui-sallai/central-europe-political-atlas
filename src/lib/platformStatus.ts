@@ -5,7 +5,7 @@ export const platformStatus = {
   stage: PLATFORM_STAGE,
   regionalData: "9-country factual regional comparison; Serbia regional pending",
   mapDisplay: "九国事实地图可用；情景影响、风险、预测与真实党派支持率色阶未启用",
-  modelLayer: "4 transparent composite indicators; annual panel active; trade network data building",
+  modelLayer: "4 transparent composite indicators; annual panel with cluster-t inference; bilateral trade network active",
   lastUpdated: PLATFORM_RELEASE_DATE,
 } as const;
 

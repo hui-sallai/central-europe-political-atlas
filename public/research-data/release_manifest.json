@@ -1,6 +1,6 @@
 {
-  "schema_version": "release-metadata-v1.2",
-  "platform_version": "v1.2 Advanced Analysis Data Foundation",
+  "schema_version": "release-metadata-v1.25",
+  "platform_version": "v1.25 Econometric Reliability, Cross-Country Comparability & Trade Network Activation",
   "release_date": "2026-08-21",
   "source_commit": "local-working-tree",
   "build_context": "local",
@@ -78,8 +78,8 @@
   "advanced_analysis_versions": {
     "panel_observations": "panel-observations-v1.2",
     "panel_coverage": "panel-coverage-v1.2",
-    "panel_engine": "pooled-ols-country-fe-country-year-fe-v1",
-    "trade_network": "trade-network-v1.2-data-building",
+    "panel_engine": "panel-engine-v1.25",
+    "trade_network": "trade-network-v1.25-active",
     "analysis_skill_registry": "analysis-skill-registry-v1.2"
   },
   "boundary_versions": [

@@ -14,6 +14,8 @@
     "analysis:validate": "node scripts/validation/run-advanced-analysis-validation.mjs",
     "release:validate": "node scripts/release/validate-release.mjs",
     "security:scan": "node scripts/security/check-public-secrets.mjs",
+    "network:acquire": "node scripts/acquire-comtrade-bilateral.mjs",
+    "network:build": "node scripts/network/build-trade-network.mjs",
     "typecheck": "tsc --noEmit",
     "preview": "next start",
     "start": "next start",

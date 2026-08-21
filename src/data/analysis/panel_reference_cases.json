@@ -1,0 +1,3063 @@
+{
+ "schema_version": "panel-reference-cases-v1.25",
+ "generator": "statsmodels OLS + cluster cov (small-sample correction) + scipy Student-t",
+ "specification": {
+  "outcome": "synthetic_y",
+  "explanatory_variables": [
+   "synthetic_x",
+   "synthetic_z"
+  ],
+  "countries": [
+   "country_1",
+   "country_2",
+   "country_3",
+   "country_4",
+   "country_5",
+   "country_6",
+   "country_7",
+   "country_8",
+   "country_9",
+   "country_10"
+  ],
+  "start_year": 2015,
+  "end_year": 2025,
+  "standard_errors": "cluster_country"
+ },
+ "observations": [
+  {
+   "observation_id": "country_1:synthetic_y:2015",
+   "country": "country_1",
+   "year": 2015,
+   "indicator": "synthetic_y",
+   "value": 0.4,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_x:2015",
+   "country": "country_1",
+   "year": 2015,
+   "indicator": "synthetic_x",
+   "value": 0.0,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_z:2015",
+   "country": "country_1",
+   "year": 2015,
+   "indicator": "synthetic_z",
+   "value": 0.8,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_y:2016",
+   "country": "country_1",
+   "year": 2016,
+   "indicator": "synthetic_y",
+   "value": 2.878152851434792,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_x:2016",
+   "country": "country_1",
+   "year": 2016,
+   "indicator": "synthetic_x",
+   "value": 0.963558185417193,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_z:2016",
+   "country": "country_1",
+   "year": 2016,
+   "indicator": "synthetic_z",
+   "value": 0.4972879746165315,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_y:2017",
+   "country": "country_1",
+   "year": 2017,
+   "indicator": "synthetic_y",
+   "value": 2.3354758839715557,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_x:2017",
+   "country": "country_1",
+   "year": 2017,
+   "indicator": "synthetic_x",
+   "value": 0.5155013718214642,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_z:2017",
+   "country": "country_1",
+   "year": 2017,
+   "indicator": "synthetic_z",
+   "value": -0.1817616757544697,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_y:2018",
+   "country": "country_1",
+   "year": 2018,
+   "indicator": "synthetic_y",
+   "value": 0.36946851712604883,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_x:2018",
+   "country": "country_1",
+   "year": 2018,
+   "indicator": "synthetic_x",
+   "value": -0.6877661591839741,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_z:2018",
+   "country": "country_1",
+   "year": 2018,
+   "indicator": "synthetic_z",
+   "value": -0.723257713613649,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_y:2019",
+   "country": "country_1",
+   "year": 2019,
+   "indicator": "synthetic_y",
+   "value": 0.6661590360763475,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_x:2019",
+   "country": "country_1",
+   "year": 2019,
+   "indicator": "synthetic_x",
+   "value": -0.8834546557201531,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_z:2019",
+   "country": "country_1",
+   "year": 2019,
+   "indicator": "synthetic_z",
+   "value": -0.7174067330673176,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_y:2020",
+   "country": "country_1",
+   "year": 2020,
+   "indicator": "synthetic_y",
+   "value": 3.8552706069585656,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_x:2020",
+   "country": "country_1",
+   "year": 2020,
+   "indicator": "synthetic_x",
+   "value": 0.21511998808781552,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_z:2020",
+   "country": "country_1",
+   "year": 2020,
+   "indicator": "synthetic_z",
+   "value": -0.16863663954462377,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_y:2021",
+   "country": "country_1",
+   "year": 2021,
+   "indicator": "synthetic_y",
+   "value": 6.441037247321558,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_x:2021",
+   "country": "country_1",
+   "year": 2021,
+   "indicator": "synthetic_x",
+   "value": 0.998543345374605,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_z:2021",
+   "country": "country_1",
+   "year": 2021,
+   "indicator": "synthetic_z",
+   "value": 0.5077543007541078,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_y:2022",
+   "country": "country_1",
+   "year": 2022,
+   "indicator": "synthetic_y",
+   "value": 5.948067843310429,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_x:2022",
+   "country": "country_1",
+   "year": 2022,
+   "indicator": "synthetic_x",
+   "value": 0.3190983623493521,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_z:2022",
+   "country": "country_1",
+   "year": 2022,
+   "indicator": "synthetic_z",
+   "value": 0.7998869091067321,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_y:2023",
+   "country": "country_1",
+   "year": 2023,
+   "indicator": "synthetic_y",
+   "value": 4.178335488489649,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_x:2023",
+   "country": "country_1",
+   "year": 2023,
+   "indicator": "synthetic_x",
+   "value": -0.8278264690856537,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_z:2023",
+   "country": "country_1",
+   "year": 2023,
+   "indicator": "synthetic_z",
+   "value": 0.48668105162580366,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_y:2024",
+   "country": "country_1",
+   "year": 2024,
+   "indicator": "synthetic_y",
+   "value": 4.6868485006750005,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_x:2024",
+   "country": "country_1",
+   "year": 2024,
+   "indicator": "synthetic_x",
+   "value": -0.7619835839190321,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_z:2024",
+   "country": "country_1",
+   "year": 2024,
+   "indicator": "synthetic_z",
+   "value": -0.1948353229886329,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_y:2025",
+   "country": "country_1",
+   "year": 2025,
+   "indicator": "synthetic_y",
+   "value": 7.469245630057281,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_x:2025",
+   "country": "country_1",
+   "year": 2025,
+   "indicator": "synthetic_x",
+   "value": 0.4201670368266409,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_1:synthetic_z:2025",
+   "country": "country_1",
+   "year": 2025,
+   "indicator": "synthetic_z",
+   "value": -0.7289042095077416,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_y:2015",
+   "country": "country_2",
+   "year": 2015,
+   "indicator": "synthetic_y",
+   "value": 4.691558261157299,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_x:2015",
+   "country": "country_2",
+   "year": 2015,
+   "indicator": "synthetic_x",
+   "value": 0.8632093666488737,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_z:2015",
+   "country": "country_2",
+   "year": 2015,
+   "indicator": "synthetic_z",
+   "value": -0.05307559543641971,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_y:2016",
+   "country": "country_2",
+   "year": 2016,
+   "indicator": "synthetic_y",
+   "value": 3.5280077852520004,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_x:2016",
+   "country": "country_2",
+   "year": 2016,
+   "indicator": "synthetic_x",
+   "value": -0.24254110202683166,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_z:2016",
+   "country": "country_2",
+   "year": 2016,
+   "indicator": "synthetic_z",
+   "value": 0.6073653674777325,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_y:2017",
+   "country": "country_2",
+   "year": 2017,
+   "indicator": "synthetic_y",
+   "value": 2.865209625100969,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_x:2017",
+   "country": "country_2",
+   "year": 2017,
+   "indicator": "synthetic_x",
+   "value": -0.9739232575641008,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_z:2017",
+   "country": "country_2",
+   "year": 2017,
+   "indicator": "synthetic_z",
+   "value": 0.8460033322224206,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_y:2018",
+   "country": "country_2",
+   "year": 2018,
+   "indicator": "synthetic_y",
+   "value": 4.870195999506353,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_x:2018",
+   "country": "country_2",
+   "year": 2018,
+   "indicator": "synthetic_x",
+   "value": -0.24041549819892585,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_z:2018",
+   "country": "country_2",
+   "year": 2018,
+   "indicator": "synthetic_z",
+   "value": 0.48224184469451165,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_y:2019",
+   "country": "country_2",
+   "year": 2019,
+   "indicator": "synthetic_y",
+   "value": 7.491266174384384,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_x:2019",
+   "country": "country_2",
+   "year": 2019,
+   "indicator": "synthetic_x",
+   "value": 0.9024366206285649,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_z:2019",
+   "country": "country_2",
+   "year": 2019,
+   "indicator": "synthetic_z",
+   "value": -0.20863165349080287,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_y:2020",
+   "country": "country_2",
+   "year": 2020,
+   "indicator": "synthetic_y",
+   "value": 7.755041996855835,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_x:2020",
+   "country": "country_2",
+   "year": 2020,
+   "indicator": "synthetic_x",
+   "value": 0.7993970978741134,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_z:2020",
+   "country": "country_2",
+   "year": 2020,
+   "indicator": "synthetic_z",
+   "value": -0.7037778725349264,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_y:2021",
+   "country": "country_2",
+   "year": 2021,
+   "indicator": "synthetic_y",
+   "value": 6.120178576708531,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_x:2021",
+   "country": "country_2",
+   "year": 2021,
+   "indicator": "synthetic_x",
+   "value": -0.3795358937753213,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_z:2021",
+   "country": "country_2",
+   "year": 2021,
+   "indicator": "synthetic_z",
+   "value": -0.6284800253683265,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_y:2022",
+   "country": "country_2",
+   "year": 2022,
+   "indicator": "synthetic_y",
+   "value": 6.1082879368660965,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_x:2022",
+   "country": "country_2",
+   "year": 2022,
+   "indicator": "synthetic_x",
+   "value": -0.8881777291513174,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_z:2022",
+   "country": "country_2",
+   "year": 2022,
+   "indicator": "synthetic_z",
+   "value": -0.0397220215480439,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_y:2023",
+   "country": "country_2",
+   "year": 2023,
+   "indicator": "synthetic_y",
+   "value": 8.981586558612234,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_x:2023",
+   "country": "country_2",
+   "year": 2023,
+   "indicator": "synthetic_x",
+   "value": 0.03767810264879931,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_z:2023",
+   "country": "country_2",
+   "year": 2023,
+   "indicator": "synthetic_z",
+   "value": 0.616935819433008,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_y:2024",
+   "country": "country_2",
+   "year": 2024,
+   "indicator": "synthetic_y",
+   "value": 11.843506047765485,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_x:2024",
+   "country": "country_2",
+   "year": 2024,
+   "indicator": "synthetic_x",
+   "value": 1.0606956694441048,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_z:2024",
+   "country": "country_2",
+   "year": 2024,
+   "indicator": "synthetic_z",
+   "value": 0.8445479350065542,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_y:2025",
+   "country": "country_2",
+   "year": 2025,
+   "indicator": "synthetic_y",
+   "value": 11.640371569600859,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_x:2025",
+   "country": "country_2",
+   "year": 2025,
+   "indicator": "synthetic_x",
+   "value": 0.7011968696599886,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_2:synthetic_z:2025",
+   "country": "country_2",
+   "year": 2025,
+   "indicator": "synthetic_z",
+   "value": 0.47086201390488425,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_y:2015",
+   "country": "country_3",
+   "year": 2015,
+   "indicator": "synthetic_y",
+   "value": 3.910901423924911,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_x:2015",
+   "country": "country_3",
+   "year": 2015,
+   "indicator": "synthetic_x",
+   "value": -0.8715757724135882,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_z:2015",
+   "country": "country_3",
+   "year": 2015,
+   "indicator": "synthetic_z",
+   "value": -0.6734385540635689,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_y:2016",
+   "country": "country_3",
+   "year": 2016,
+   "indicator": "synthetic_y",
+   "value": 5.078499746905959,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_x:2016",
+   "country": "country_3",
+   "year": 2016,
+   "indicator": "synthetic_x",
+   "value": -0.6795403255703919,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_z:2016",
+   "country": "country_3",
+   "year": 2016,
+   "indicator": "synthetic_z",
+   "value": -0.540914892437547,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_y:2017",
+   "country": "country_3",
+   "year": 2017,
+   "indicator": "synthetic_y",
+   "value": 8.524165826533222,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_x:2017",
+   "country": "country_3",
+   "year": 2017,
+   "indicator": "synthetic_x",
+   "value": 0.5461133511386089,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_z:2017",
+   "country": "country_3",
+   "year": 2017,
+   "indicator": "synthetic_z",
+   "value": 0.07664038215896912,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_y:2018",
+   "country": "country_3",
+   "year": 2018,
+   "indicator": "synthetic_y",
+   "value": 10.556070150207697,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_x:2018",
+   "country": "country_3",
+   "year": 2018,
+   "indicator": "synthetic_x",
+   "value": 1.0478898108450858,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_z:2018",
+   "country": "country_3",
+   "year": 2018,
+   "indicator": "synthetic_z",
+   "value": 0.7118737498275909,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_y:2019",
+   "country": "country_3",
+   "year": 2019,
+   "indicator": "synthetic_y",
+   "value": 9.497504117837144,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_x:2019",
+   "country": "country_3",
+   "year": 2019,
+   "indicator": "synthetic_x",
+   "value": 0.12877542545335777,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_z:2019",
+   "country": "country_3",
+   "year": 2019,
+   "indicator": "synthetic_z",
+   "value": 0.8840532622729933,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_y:2020",
+   "country": "country_3",
+   "year": 2020,
+   "indicator": "synthetic_y",
+   "value": 8.077841062236548,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_x:2020",
+   "country": "country_3",
+   "year": 2020,
+   "indicator": "synthetic_x",
+   "value": -0.8266350162701879,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_z:2020",
+   "country": "country_3",
+   "year": 2020,
+   "indicator": "synthetic_z",
+   "value": 0.4628768971404619,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_y:2021",
+   "country": "country_3",
+   "year": 2021,
+   "indicator": "synthetic_y",
+   "value": 9.325104487263351,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_x:2021",
+   "country": "country_3",
+   "year": 2021,
+   "indicator": "synthetic_x",
+   "value": -0.3805729180004349,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_z:2021",
+   "country": "country_3",
+   "year": 2021,
+   "indicator": "synthetic_z",
+   "value": -0.23291746923771425,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_y:2022",
+   "country": "country_3",
+   "year": 2022,
+   "indicator": "synthetic_y",
+   "value": 12.2598228483838,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_x:2022",
+   "country": "country_3",
+   "year": 2022,
+   "indicator": "synthetic_x",
+   "value": 0.8515697621966023,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_z:2022",
+   "country": "country_3",
+   "year": 2022,
+   "indicator": "synthetic_z",
+   "value": -0.6767665321196725,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_y:2023",
+   "country": "country_3",
+   "year": 2023,
+   "indicator": "synthetic_y",
+   "value": 13.546066470977287,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_x:2023",
+   "country": "country_3",
+   "year": 2023,
+   "indicator": "synthetic_x",
+   "value": 1.1027911721405035,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_z:2023",
+   "country": "country_3",
+   "year": 2023,
+   "indicator": "synthetic_z",
+   "value": -0.5327741695315332,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_y:2024",
+   "country": "country_3",
+   "year": 2024,
+   "indicator": "synthetic_y",
+   "value": 12.42291746406894,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_x:2024",
+   "country": "country_3",
+   "year": 2024,
+   "indicator": "synthetic_x",
+   "value": 0.043141418625808864,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_z:2024",
+   "country": "country_3",
+   "year": 2024,
+   "indicator": "synthetic_z",
+   "value": 0.09008906922968685,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_y:2025",
+   "country": "country_3",
+   "year": 2025,
+   "indicator": "synthetic_y",
+   "value": 11.895886345147177,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_x:2025",
+   "country": "country_3",
+   "year": 2025,
+   "indicator": "synthetic_x",
+   "value": -0.7369000660415961,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_3:synthetic_z:2025",
+   "country": "country_3",
+   "year": 2025,
+   "indicator": "synthetic_z",
+   "value": 0.7204527028081997,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_y:2015",
+   "country": "country_4",
+   "year": 2015,
+   "indicator": "synthetic_y",
+   "value": 9.257910312240151,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_x:2015",
+   "country": "country_4",
+   "year": 2015,
+   "indicator": "synthetic_x",
+   "value": 0.0168139004843506,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_z:2015",
+   "country": "country_4",
+   "year": 2015,
+   "indicator": "synthetic_z",
+   "value": 0.4523821941703842,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_y:2016",
+   "country": "country_4",
+   "year": 2016,
+   "indicator": "synthetic_y",
+   "value": 11.592239659117908,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_x:2016",
+   "country": "country_4",
+   "year": 2016,
+   "indicator": "synthetic_x",
+   "value": 1.0069196720314866,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_z:2016",
+   "country": "country_4",
+   "year": 2016,
+   "indicator": "synthetic_z",
+   "value": -0.24220865707256017,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_y:2017",
+   "country": "country_4",
+   "year": 2017,
+   "indicator": "synthetic_y",
+   "value": 11.240920331465501,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_x:2017",
+   "country": "country_4",
+   "year": 2017,
+   "indicator": "synthetic_x",
+   "value": 0.5790208564578846,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_z:2017",
+   "country": "country_4",
+   "year": 2017,
+   "indicator": "synthetic_z",
+   "value": -0.639983815927092,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_y:2018",
+   "country": "country_4",
+   "year": 2018,
+   "indicator": "synthetic_y",
+   "value": 9.709214172692509,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_x:2018",
+   "country": "country_4",
+   "year": 2018,
+   "indicator": "synthetic_x",
+   "value": -0.5828746875935437,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_z:2018",
+   "country": "country_4",
+   "year": 2018,
+   "indicator": "synthetic_z",
+   "value": -0.43991497243299604,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_y:2019",
+   "country": "country_4",
+   "year": 2019,
+   "indicator": "synthetic_y",
+   "value": 10.471382931606776,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_x:2019",
+   "country": "country_4",
+   "year": 2019,
+   "indicator": "synthetic_x",
+   "value": -0.7194521746884285,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_z:2019",
+   "country": "country_4",
+   "year": 2019,
+   "indicator": "synthetic_z",
+   "value": 0.2065897613341627,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_y:2020",
+   "country": "country_4",
+   "year": 2020,
+   "indicator": "synthetic_y",
+   "value": 13.749654205708156,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_x:2020",
+   "country": "country_4",
+   "year": 2020,
+   "indicator": "synthetic_x",
+   "value": 0.4265098251015389,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_z:2020",
+   "country": "country_4",
+   "year": 2020,
+   "indicator": "synthetic_z",
+   "value": 0.8102684919277429,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_y:2021",
+   "country": "country_4",
+   "year": 2021,
+   "indicator": "synthetic_y",
+   "value": 16.133266660533945,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_x:2021",
+   "country": "country_4",
+   "year": 2021,
+   "indicator": "synthetic_x",
+   "value": 1.2333093887479176,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_z:2021",
+   "country": "country_4",
+   "year": 2021,
+   "indicator": "synthetic_z",
+   "value": 0.9142691913004847,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_y:2022",
+   "country": "country_4",
+   "year": 2022,
+   "indicator": "synthetic_y",
+   "value": 15.262205497607535,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_x:2022",
+   "country": "country_4",
+   "year": 2022,
+   "indicator": "synthetic_x",
+   "value": 0.5761183567457022,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_z:2022",
+   "country": "country_4",
+   "year": 2022,
+   "indicator": "synthetic_z",
+   "value": 0.43988620358133873,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_y:2023",
+   "country": "country_4",
+   "year": 2023,
+   "indicator": "synthetic_y",
+   "value": 13.432634005108465,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_x:2023",
+   "country": "country_4",
+   "year": 2023,
+   "indicator": "synthetic_x",
+   "value": -0.5251417780197487,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_z:2023",
+   "country": "country_4",
+   "year": 2023,
+   "indicator": "synthetic_z",
+   "value": -0.2538768836798863,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_y:2024",
+   "country": "country_4",
+   "year": 2024,
+   "indicator": "synthetic_y",
+   "value": 14.169863292337313,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_x:2024",
+   "country": "country_4",
+   "year": 2024,
+   "indicator": "synthetic_x",
+   "value": -0.3999872467716762,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_z:2024",
+   "country": "country_4",
+   "year": 2024,
+   "indicator": "synthetic_z",
+   "value": -0.6419939972803563,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_y:2025",
+   "country": "country_4",
+   "year": 2025,
+   "indicator": "synthetic_y",
+   "value": 17.443299877687508,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_x:2025",
+   "country": "country_4",
+   "year": 2025,
+   "indicator": "synthetic_x",
+   "value": 0.8253653603728932,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_4:synthetic_z:2025",
+   "country": "country_4",
+   "year": 2025,
+   "indicator": "synthetic_z",
+   "value": -0.4307458433601119,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_y:2015",
+   "country": "country_5",
+   "year": 2015,
+   "indicator": "synthetic_y",
+   "value": 14.164068424545551,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_x:2015",
+   "country": "country_5",
+   "year": 2015,
+   "indicator": "synthetic_x",
+   "value": 0.8545989080882805,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_z:2015",
+   "country": "country_5",
+   "year": 2015,
+   "indicator": "synthetic_z",
+   "value": 0.8955179922798602,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_y:2016",
+   "country": "country_5",
+   "year": 2016,
+   "indicator": "synthetic_y",
+   "value": 12.722883049449626,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_x:2016",
+   "country": "country_5",
+   "year": 2016,
+   "indicator": "synthetic_x",
+   "value": -0.21976062641094418,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_z:2016",
+   "country": "country_5",
+   "year": 2016,
+   "indicator": "synthetic_z",
+   "value": 0.9419827445952285,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_y:2017",
+   "country": "country_5",
+   "year": 2017,
+   "indicator": "synthetic_y",
+   "value": 11.83104822036793,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_x:2017",
+   "country": "country_5",
+   "year": 2017,
+   "indicator": "synthetic_x",
+   "value": -0.8959902065507035,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_z:2017",
+   "country": "country_5",
+   "year": 2017,
+   "indicator": "synthetic_z",
+   "value": 0.426929748370581,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_y:2018",
+   "country": "country_5",
+   "year": 2018,
+   "indicator": "synthetic_y",
+   "value": 13.745621888348452,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_x:2018",
+   "country": "country_5",
+   "year": 2018,
+   "indicator": "synthetic_x",
+   "value": -0.10723179136580094,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_z:2018",
+   "country": "country_5",
+   "year": 2018,
+   "indicator": "synthetic_z",
+   "value": -0.25985915722661534,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_y:2019",
+   "country": "country_5",
+   "year": 2019,
+   "indicator": "synthetic_y",
+   "value": 16.644831898168732,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_x:2019",
+   "country": "country_5",
+   "year": 2019,
+   "indicator": "synthetic_x",
+   "value": 1.0671618148564967,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_z:2019",
+   "country": "country_5",
+   "year": 2019,
+   "indicator": "synthetic_z",
+   "value": -0.5986358206358025,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_y:2020",
+   "country": "country_5",
+   "year": 2020,
+   "indicator": "synthetic_y",
+   "value": 17.290155623793687,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_x:2020",
+   "country": "country_5",
+   "year": 2020,
+   "indicator": "synthetic_x",
+   "value": 0.982881349511976,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_z:2020",
+   "country": "country_5",
+   "year": 2020,
+   "indicator": "synthetic_z",
+   "value": -0.33302081702385916,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_y:2021",
+   "country": "country_5",
+   "year": 2021,
+   "indicator": "synthetic_y",
+   "value": 16.05498167124114,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_x:2021",
+   "country": "country_5",
+   "year": 2021,
+   "indicator": "synthetic_x",
+   "value": -0.16042198639846927,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_z:2021",
+   "country": "country_5",
+   "year": 2021,
+   "indicator": "synthetic_z",
+   "value": 0.3359737143201932,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_y:2022",
+   "country": "country_5",
+   "year": 2022,
+   "indicator": "synthetic_y",
+   "value": 16.12165541229008,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_x:2022",
+   "country": "country_5",
+   "year": 2022,
+   "indicator": "synthetic_x",
+   "value": -0.6116260054681576,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_z:2022",
+   "country": "country_5",
+   "year": 2022,
+   "indicator": "synthetic_z",
+   "value": 0.9020660495122983,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_y:2023",
+   "country": "country_5",
+   "year": 2023,
+   "indicator": "synthetic_y",
+   "value": 18.805409734609974,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_x:2023",
+   "country": "country_5",
+   "year": 2023,
+   "indicator": "synthetic_x",
+   "value": 0.36646435912163255,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_z:2023",
+   "country": "country_5",
+   "year": 2023,
+   "indicator": "synthetic_z",
+   "value": 0.9368487952023081,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_y:2024",
+   "country": "country_5",
+   "year": 2024,
+   "indicator": "synthetic_y",
+   "value": 21.339496626048753,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_x:2024",
+   "country": "country_5",
+   "year": 2024,
+   "indicator": "synthetic_x",
+   "value": 1.4171245536478945,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_z:2024",
+   "country": "country_5",
+   "year": 2024,
+   "indicator": "synthetic_z",
+   "value": 0.4139990628996701,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_y:2025",
+   "country": "country_5",
+   "year": 2025,
+   "indicator": "synthetic_y",
+   "value": 21.018575303434577,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_x:2025",
+   "country": "country_5",
+   "year": 2025,
+   "indicator": "synthetic_x",
+   "value": 1.0773150535176614,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_5:synthetic_z:2025",
+   "country": "country_5",
+   "year": 2025,
+   "indicator": "synthetic_z",
+   "value": -0.2708008938042767,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_y:2015",
+   "country": "country_6",
+   "year": 2015,
+   "indicator": "synthetic_y",
+   "value": 13.134597295413771,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_x:2015",
+   "country": "country_6",
+   "year": 2015,
+   "indicator": "synthetic_x",
+   "value": -0.87969575997167,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_z:2015",
+   "country": "country_6",
+   "year": 2015,
+   "indicator": "synthetic_z",
+   "value": -0.2316095221478589,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_y:2016",
+   "country": "country_6",
+   "year": 2016,
+   "indicator": "synthetic_y",
+   "value": 14.659428221396555,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_x:2016",
+   "country": "country_6",
+   "year": 2016,
+   "indicator": "synthetic_x",
+   "value": -0.6285250847771224,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_z:2016",
+   "country": "country_6",
+   "year": 2016,
+   "indicator": "synthetic_z",
+   "value": 0.45100787406580456,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_y:2017",
+   "country": "country_6",
+   "year": 2017,
+   "indicator": "synthetic_y",
+   "value": 18.17580946693454,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_x:2017",
+   "country": "country_6",
+   "year": 2017,
+   "indicator": "synthetic_x",
+   "value": 0.6386614643723737,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_z:2017",
+   "country": "country_6",
+   "year": 2017,
+   "indicator": "synthetic_z",
+   "value": 0.9815065185882555,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_y:2018",
+   "country": "country_6",
+   "year": 2018,
+   "indicator": "synthetic_y",
+   "value": 19.894531525382938,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_x:2018",
+   "country": "country_6",
+   "year": 2018,
+   "indicator": "synthetic_x",
+   "value": 1.1606577765492774,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_z:2018",
+   "country": "country_6",
+   "year": 2018,
+   "indicator": "synthetic_z",
+   "value": 0.9584156135530552,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_y:2019",
+   "country": "country_6",
+   "year": 2019,
+   "indicator": "synthetic_y",
+   "value": 18.539433677693985,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_x:2019",
+   "country": "country_6",
+   "year": 2019,
+   "indicator": "synthetic_x",
+   "value": 0.26796318378593736,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_z:2019",
+   "country": "country_6",
+   "year": 2019,
+   "indicator": "synthetic_z",
+   "value": 0.39920989553806063,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_y:2020",
+   "country": "country_6",
+   "year": 2020,
+   "indicator": "synthetic_y",
+   "value": 17.089161341207394,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_x:2020",
+   "country": "country_6",
+   "year": 2020,
+   "indicator": "synthetic_x",
+   "value": -0.6363974918795567,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_z:2020",
+   "country": "country_6",
+   "year": 2020,
+   "indicator": "synthetic_z",
+   "value": -0.27291489669088953,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_y:2021",
+   "country": "country_6",
+   "year": 2021,
+   "indicator": "synthetic_y",
+   "value": 18.659906717793223,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_x:2021",
+   "country": "country_6",
+   "year": 2021,
+   "indicator": "synthetic_x",
+   "value": -0.1323085896267316,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_z:2021",
+   "country": "country_6",
+   "year": 2021,
+   "indicator": "synthetic_z",
+   "value": -0.5493081202186236,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_y:2022",
+   "country": "country_6",
+   "year": 2022,
+   "indicator": "synthetic_y",
+   "value": 22.066709358345157,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_x:2022",
+   "country": "country_6",
+   "year": 2022,
+   "indicator": "synthetic_x",
+   "value": 1.1369636200681357,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_z:2022",
+   "country": "country_6",
+   "year": 2022,
+   "indicator": "synthetic_z",
+   "value": -0.2208008938042767,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_y:2023",
+   "country": "country_6",
+   "year": 2023,
+   "indicator": "synthetic_y",
+   "value": 23.6409563565172,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_x:2023",
+   "country": "country_6",
+   "year": 2023,
+   "indicator": "synthetic_x",
+   "value": 1.407157528692351,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_z:2023",
+   "country": "country_6",
+   "year": 2023,
+   "indicator": "synthetic_z",
+   "value": 0.4639990628996701,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_y:2024",
+   "country": "country_6",
+   "year": 2024,
+   "indicator": "synthetic_y",
+   "value": 22.555974230115172,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_x:2024",
+   "country": "country_6",
+   "year": 2024,
+   "indicator": "synthetic_x",
+   "value": 0.3776635793932377,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_z:2024",
+   "country": "country_6",
+   "year": 2024,
+   "indicator": "synthetic_z",
+   "value": 0.9868487952023081,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_y:2025",
+   "country": "country_6",
+   "year": 2025,
+   "indicator": "synthetic_y",
+   "value": 21.77120137305475,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_x:2025",
+   "country": "country_6",
+   "year": 2025,
+   "indicator": "synthetic_x",
+   "value": -0.34808202797939625,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_6:synthetic_z:2025",
+   "country": "country_6",
+   "year": 2025,
+   "indicator": "synthetic_z",
+   "value": 0.9520660495122982,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_y:2015",
+   "country": "country_7",
+   "year": 2015,
+   "indicator": "synthetic_y",
+   "value": 17.935286836267892,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_x:2015",
+   "country": "country_7",
+   "year": 2015,
+   "indicator": "synthetic_x",
+   "value": 0.03362304722113847,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_z:2015",
+   "country": "country_7",
+   "year": 2015,
+   "indicator": "synthetic_z",
+   "value": -0.2714125216217601,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_y:2016",
+   "country": "country_7",
+   "year": 2016,
+   "indicator": "synthetic_y",
+   "value": 20.55170488039917,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_x:2016",
+   "country": "country_7",
+   "year": 2016,
+   "indicator": "synthetic_x",
+   "value": 1.0500075013949763,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_z:2016",
+   "country": "country_7",
+   "year": 2016,
+   "indicator": "synthetic_z",
+   "value": -0.49378026036208256,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_y:2017",
+   "country": "country_7",
+   "year": 2017,
+   "indicator": "synthetic_y",
+   "value": 20.626092419485417,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_x:2017",
+   "country": "country_7",
+   "year": 2017,
+   "indicator": "synthetic_x",
+   "value": 0.6423986888537981,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_z:2017",
+   "country": "country_7",
+   "year": 2017,
+   "indicator": "synthetic_z",
+   "value": -0.11543092329334725,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_y:2018",
+   "country": "country_7",
+   "year": 2018,
+   "indicator": "synthetic_y",
+   "value": 19.436424954164245,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_x:2018",
+   "country": "country_7",
+   "year": 2018,
+   "indicator": "synthetic_x",
+   "value": -0.47778534236912307,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_z:2018",
+   "country": "country_7",
+   "year": 2018,
+   "indicator": "synthetic_z",
+   "value": 0.5773082542680215,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_y:2019",
+   "country": "country_7",
+   "year": 2019,
+   "indicator": "synthetic_y",
+   "value": 20.214189238116646,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_x:2019",
+   "country": "country_7",
+   "year": 2019,
+   "indicator": "synthetic_x",
+   "value": -0.5552021794855813,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_z:2019",
+   "country": "country_7",
+   "year": 2019,
+   "indicator": "synthetic_z",
+   "value": 1.0601860735668238,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_y:2020",
+   "country": "country_7",
+   "year": 2020,
+   "indicator": "synthetic_y",
+   "value": 23.266891469885486,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_x:2020",
+   "country": "country_7",
+   "year": 2020,
+   "indicator": "synthetic_x",
+   "value": 0.6378342079829598,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_z:2020",
+   "country": "country_7",
+   "year": 2020,
+   "indicator": "synthetic_z",
+   "value": 0.9677702278713276,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_y:2021",
+   "country": "country_7",
+   "year": 2021,
+   "indicator": "synthetic_y",
+   "value": 25.31183516787122,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_x:2021",
+   "country": "country_7",
+   "year": 2021,
+   "indicator": "synthetic_x",
+   "value": 1.4677929001426693,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_z:2021",
+   "country": "country_7",
+   "year": 2021,
+   "indicator": "synthetic_z",
+   "value": 0.36999918675155646,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_y:2022",
+   "country": "country_7",
+   "year": 2022,
+   "indicator": "synthetic_y",
+   "value": 24.43538664734669,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_x:2022",
+   "country": "country_7",
+   "year": 2022,
+   "indicator": "synthetic_x",
+   "value": 0.833052651327725,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_z:2022",
+   "country": "country_7",
+   "year": 2022,
+   "indicator": "synthetic_z",
+   "value": -0.28074584336011243,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_y:2023",
+   "country": "country_7",
+   "year": 2023,
+   "indicator": "synthetic_y",
+   "value": 22.89956464127589,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_x:2023",
+   "country": "country_7",
+   "year": 2023,
+   "indicator": "synthetic_x",
+   "value": -0.22222040417517064,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_z:2023",
+   "country": "country_7",
+   "year": 2023,
+   "indicator": "synthetic_z",
+   "value": -0.4919939972803562,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_y:2024",
+   "country": "country_7",
+   "year": 2024,
+   "indicator": "synthetic_y",
+   "value": 24.18226453060744,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_x:2024",
+   "country": "country_7",
+   "year": 2024,
+   "indicator": "synthetic_x",
+   "value": -0.037778585077891,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_z:2024",
+   "country": "country_7",
+   "year": 2024,
+   "indicator": "synthetic_z",
+   "value": -0.10387688367988568,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_y:2025",
+   "country": "country_7",
+   "year": 2025,
+   "indicator": "synthetic_y",
+   "value": 27.7468684617679,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_x:2025",
+   "country": "country_7",
+   "year": 2025,
+   "indicator": "synthetic_x",
+   "value": 1.230440594275389,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_7:synthetic_z:2025",
+   "country": "country_7",
+   "year": 2025,
+   "indicator": "synthetic_z",
+   "value": 0.5898862035813395,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_y:2015",
+   "country": "country_8",
+   "year": 2015,
+   "indicator": "synthetic_y",
+   "value": 23.17528268850978,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_x:2015",
+   "country": "country_8",
+   "year": 2015,
+   "indicator": "synthetic_x",
+   "value": 0.8457468311429334,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_z:2015",
+   "country": "country_8",
+   "year": 2015,
+   "indicator": "synthetic_z",
+   "value": 0.9788562369128315,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_y:2016",
+   "country": "country_8",
+   "year": 2016,
+   "indicator": "synthetic_y",
+   "value": 21.49041477746988,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_x:2016",
+   "country": "country_8",
+   "year": 2016,
+   "indicator": "synthetic_x",
+   "value": -0.1969033166650653,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_z:2016",
+   "country": "country_8",
+   "year": 2016,
+   "indicator": "synthetic_z",
+   "value": 0.3535405583904407,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_y:2017",
+   "country": "country_8",
+   "year": 2017,
+   "indicator": "synthetic_y",
+   "value": 20.618393483876247,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_x:2017",
+   "country": "country_8",
+   "year": 2017,
+   "indicator": "synthetic_x",
+   "value": -0.8177744310730111,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_z:2017",
+   "country": "country_8",
+   "year": 2017,
+   "indicator": "synthetic_z",
+   "value": -0.27445454413534703,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_y:2018",
+   "country": "country_8",
+   "year": 2018,
+   "indicator": "synthetic_y",
+   "value": 22.946811959194214,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_x:2018",
+   "country": "country_8",
+   "year": 2018,
+   "indicator": "synthetic_x",
+   "value": 0.02602633826337908,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_z:2018",
+   "country": "country_8",
+   "year": 2018,
+   "indicator": "synthetic_z",
+   "value": -0.4298748971233309,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_y:2019",
+   "country": "country_8",
+   "year": 2019,
+   "indicator": "synthetic_y",
+   "value": 26.255737604480796,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_x:2019",
+   "country": "country_8",
+   "year": 2019,
+   "indicator": "synthetic_x",
+   "value": 1.231644100641669,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_z:2019",
+   "country": "country_8",
+   "year": 2019,
+   "indicator": "synthetic_z",
+   "value": 0.004898524023503326,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_y:2020",
+   "country": "country_8",
+   "year": 2020,
+   "indicator": "synthetic_y",
+   "value": 27.19246353474476,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_x:2020",
+   "country": "country_8",
+   "year": 2020,
+   "indicator": "synthetic_x",
+   "value": 1.16616122290598,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_z:2020",
+   "country": "country_8",
+   "year": 2020,
+   "indicator": "synthetic_z",
+   "value": 0.7008378620595124,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_y:2021",
+   "country": "country_8",
+   "year": 2021,
+   "indicator": "synthetic_y",
+   "value": 25.874406266986814,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_x:2021",
+   "country": "country_8",
+   "year": 2021,
+   "indicator": "synthetic_x",
+   "value": 0.058825487539490406,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_z:2021",
+   "country": "country_8",
+   "year": 2021,
+   "indicator": "synthetic_z",
+   "value": 1.1312701005824188,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_y:2022",
+   "country": "country_8",
+   "year": 2022,
+   "indicator": "synthetic_y",
+   "value": 25.723151049827116,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_x:2022",
+   "country": "country_8",
+   "year": 2022,
+   "indicator": "synthetic_x",
+   "value": -0.3347984457438633,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_z:2022",
+   "country": "country_8",
+   "year": 2022,
+   "indicator": "synthetic_z",
+   "value": 0.9704527028082002,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_y:2023",
+   "country": "country_8",
+   "year": 2023,
+   "indicator": "synthetic_y",
+   "value": 28.15484723605904,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_x:2023",
+   "country": "country_8",
+   "year": 2023,
+   "indicator": "synthetic_x",
+   "value": 0.6952646206691546,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_z:2023",
+   "country": "country_8",
+   "year": 2023,
+   "indicator": "synthetic_z",
+   "value": 0.34008906922968757,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_y:2024",
+   "country": "country_8",
+   "year": 2024,
+   "indicator": "synthetic_y",
+   "value": 30.708781975645373,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_x:2024",
+   "country": "country_8",
+   "year": 2024,
+   "indicator": "synthetic_x",
+   "value": 1.773285094492698,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_z:2024",
+   "country": "country_8",
+   "year": 2024,
+   "indicator": "synthetic_z",
+   "value": -0.28277416953153306,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_y:2025",
+   "country": "country_8",
+   "year": 2025,
+   "indicator": "synthetic_y",
+   "value": 30.69190590510647,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_x:2025",
+   "country": "country_8",
+   "year": 2025,
+   "indicator": "synthetic_x",
+   "value": 1.4532756692322448,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_8:synthetic_z:2025",
+   "country": "country_8",
+   "year": 2025,
+   "indicator": "synthetic_z",
+   "value": -0.4267665321196726,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_y:2015",
+   "country": "country_9",
+   "year": 2015,
+   "indicator": "synthetic_y",
+   "value": 22.619548191155662,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_x:2015",
+   "country": "country_9",
+   "year": 2015,
+   "indicator": "synthetic_x",
+   "value": -0.8875670335815046,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_z:2015",
+   "country": "country_9",
+   "year": 2015,
+   "indicator": "synthetic_z",
+   "value": 0.8093631939625192,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_y:2016",
+   "country": "country_9",
+   "year": 2016,
+   "indicator": "synthetic_y",
+   "value": 24.15148784209882,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_x:2016",
+   "country": "country_9",
+   "year": 2016,
+   "indicator": "synthetic_x",
+   "value": -0.5773137655555,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_z:2016",
+   "country": "country_9",
+   "year": 2016,
+   "indicator": "synthetic_z",
+   "value": 1.1928678974514026,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_y:2017",
+   "country": "country_9",
+   "year": 2017,
+   "indicator": "synthetic_y",
+   "value": 27.341503344268045,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_x:2017",
+   "country": "country_9",
+   "year": 2017,
+   "indicator": "synthetic_x",
+   "value": 0.7310657651576994,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_z:2017",
+   "country": "country_9",
+   "year": 2017,
+   "indicator": "synthetic_z",
+   "value": 0.9763459831926701,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_y:2018",
+   "country": "country_9",
+   "year": 2018,
+   "indicator": "synthetic_y",
+   "value": 28.815543634711865,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_x:2018",
+   "country": "country_9",
+   "year": 2018,
+   "indicator": "synthetic_x",
+   "value": 1.2731527245021155,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_z:2018",
+   "country": "country_9",
+   "year": 2018,
+   "indicator": "synthetic_z",
+   "value": 0.32365691919923806,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_y:2019",
+   "country": "country_9",
+   "year": 2019,
+   "indicator": "synthetic_y",
+   "value": 27.473080879300095,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_x:2019",
+   "country": "country_9",
+   "year": 2019,
+   "indicator": "synthetic_x",
+   "value": 0.4071486907095961,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_z:2019",
+   "country": "country_9",
+   "year": 2019,
+   "indicator": "synthetic_z",
+   "value": -0.271257223261162,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_y:2020",
+   "country": "country_9",
+   "year": 2020,
+   "indicator": "synthetic_y",
+   "value": 26.43257654035897,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_x:2020",
+   "country": "country_9",
+   "year": 2020,
+   "indicator": "synthetic_x",
+   "value": -0.4458881542360704,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_z:2020",
+   "country": "country_9",
+   "year": 2020,
+   "indicator": "synthetic_z",
+   "value": -0.3581772817048895,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_y:2021",
+   "country": "country_9",
+   "year": 2021,
+   "indicator": "synthetic_y",
+   "value": 28.495449680296684,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_x:2021",
+   "country": "country_9",
+   "year": 2021,
+   "indicator": "synthetic_x",
+   "value": 0.11610340960937793,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_z:2021",
+   "country": "country_9",
+   "year": 2021,
+   "indicator": "synthetic_z",
+   "value": 0.12867611121293238,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_y:2022",
+   "country": "country_9",
+   "year": 2022,
+   "indicator": "synthetic_y",
+   "value": 32.15344562991319,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_x:2022",
+   "country": "country_9",
+   "year": 2022,
+   "indicator": "synthetic_x",
+   "value": 1.422164668252242,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_z:2022",
+   "country": "country_9",
+   "year": 2022,
+   "indicator": "synthetic_z",
+   "value": 0.8208620139048843,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_y:2023",
+   "country": "country_9",
+   "year": 2023,
+   "indicator": "synthetic_y",
+   "value": 33.6234683490335,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_x:2023",
+   "country": "country_9",
+   "year": 2023,
+   "indicator": "synthetic_x",
+   "value": 1.7112730616507226,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_z:2023",
+   "country": "country_9",
+   "year": 2023,
+   "indicator": "synthetic_z",
+   "value": 1.1945479350065542,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_y:2024",
+   "country": "country_9",
+   "year": 2024,
+   "indicator": "synthetic_y",
+   "value": 32.20218673065502,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_x:2024",
+   "country": "country_9",
+   "year": 2024,
+   "indicator": "synthetic_x",
+   "value": 0.7122443598132036,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_z:2024",
+   "country": "country_9",
+   "year": 2024,
+   "indicator": "synthetic_z",
+   "value": 0.966935819433008,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_y:2025",
+   "country": "country_9",
+   "year": 2025,
+   "indicator": "synthetic_y",
+   "value": 31.244731781589472,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_x:2025",
+   "country": "country_9",
+   "year": 2025,
+   "indicator": "synthetic_x",
+   "value": 0.0410181950530506,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_9:synthetic_z:2025",
+   "country": "country_9",
+   "year": 2025,
+   "indicator": "synthetic_z",
+   "value": 0.31027797845195615,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_y:2015",
+   "country": "country_10",
+   "year": 2015,
+   "indicator": "synthetic_y",
+   "value": 26.953225402213807,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_x:2015",
+   "country": "country_10",
+   "year": 2015,
+   "indicator": "synthetic_x",
+   "value": 0.05042268780681477,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_z:2015",
+   "country": "country_10",
+   "year": 2015,
+   "indicator": "synthetic_z",
+   "value": -0.2843446243314341,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_y:2016",
+   "country": "country_10",
+   "year": 2016,
+   "indicator": "synthetic_y",
+   "value": 30.009997227986965,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_x:2016",
+   "country": "country_10",
+   "year": 2016,
+   "indicator": "synthetic_x",
+   "value": 1.0928205177669763,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_z:2016",
+   "country": "country_10",
+   "year": 2016,
+   "indicator": "synthetic_z",
+   "value": 0.2421461150289967,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_y:2017",
+   "country": "country_10",
+   "year": 2017,
+   "indicator": "synthetic_y",
+   "value": 30.27331835939477,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_x:2017",
+   "country": "country_10",
+   "year": 2017,
+   "indicator": "synthetic_x",
+   "value": 0.705639003094193,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_z:2017",
+   "country": "country_10",
+   "year": 2017,
+   "indicator": "synthetic_z",
+   "value": 0.9259365306479148,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_y:2018",
+   "country": "country_10",
+   "year": 2018,
+   "indicator": "synthetic_y",
+   "value": 28.978303114867586,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_x:2018",
+   "country": "country_10",
+   "year": 2018,
+   "indicator": "synthetic_x",
+   "value": -0.3724947560442474,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_z:2018",
+   "country": "country_10",
+   "year": 2018,
+   "indicator": "synthetic_z",
+   "value": 1.249547668400804,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_y:2019",
+   "country": "country_10",
+   "year": 2019,
+   "indicator": "synthetic_y",
+   "value": 29.50642882289556,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_x:2019",
+   "country": "country_10",
+   "year": 2019,
+   "indicator": "synthetic_x",
+   "value": -0.3907070026099295,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_z:2019",
+   "country": "country_10",
+   "year": 2019,
+   "indicator": "synthetic_z",
+   "value": 0.9680770709231008,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_y:2020",
+   "country": "country_10",
+   "year": 2020,
+   "indicator": "synthetic_y",
+   "value": 32.339538669401335,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_x:2020",
+   "country": "country_10",
+   "year": 2020,
+   "indicator": "synthetic_x",
+   "value": 0.8490885213844728,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_z:2020",
+   "country": "country_10",
+   "year": 2020,
+   "indicator": "synthetic_z",
+   "value": 0.29453607483573074,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_y:2021",
+   "country": "country_10",
+   "year": 2021,
+   "indicator": "synthetic_y",
+   "value": 34.48097648756779,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_x:2021",
+   "country": "country_10",
+   "year": 2021,
+   "indicator": "synthetic_x",
+   "value": 1.7019937428570207,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_z:2021",
+   "country": "country_10",
+   "year": 2021,
+   "indicator": "synthetic_z",
+   "value": -0.26135292210028943,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_y:2022",
+   "country": "country_10",
+   "year": 2022,
+   "indicator": "synthetic_y",
+   "value": 33.93138019505498,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_x:2022",
+   "country": "country_10",
+   "year": 2022,
+   "indicator": "synthetic_x",
+   "value": 1.089905788307869,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_z:2022",
+   "country": "country_10",
+   "year": 2022,
+   "indicator": "synthetic_z",
+   "value": -0.2789042095077416,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_y:2023",
+   "country": "country_10",
+   "year": 2023,
+   "indicator": "synthetic_y",
+   "value": 32.89923431831323,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_x:2023",
+   "country": "country_10",
+   "year": 2023,
+   "indicator": "synthetic_x",
+   "value": 0.08094021922292782,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_z:2023",
+   "country": "country_10",
+   "year": 2023,
+   "indicator": "synthetic_z",
+   "value": 0.25516467701136847,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_y:2024",
+   "country": "country_10",
+   "year": 2024,
+   "indicator": "synthetic_y",
+   "value": 34.407622751214134,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_x:2024",
+   "country": "country_10",
+   "year": 2024,
+   "indicator": "synthetic_x",
+   "value": 0.3246392321684065,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_z:2024",
+   "country": "country_10",
+   "year": 2024,
+   "indicator": "synthetic_z",
+   "value": 0.9366810516258042,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_y:2025",
+   "country": "country_10",
+   "year": 2025,
+   "indicator": "synthetic_y",
+   "value": 37.905360725532155,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_x:2025",
+   "country": "country_10",
+   "year": 2025,
+   "indicator": "synthetic_x",
+   "value": 1.6353884763549584,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  },
+  {
+   "observation_id": "country_10:synthetic_z:2025",
+   "country": "country_10",
+   "year": 2025,
+   "indicator": "synthetic_z",
+   "value": 1.2498869091067322,
+   "comparability_status": "comparable",
+   "data_status": "official"
+  }
+ ],
+ "cases": {
+  "pooled_ols": {
+   "fixed_effects": "none",
+   "coefficients": [
+    {
+     "variable": "synthetic_x",
+     "coefficient": 5.189597579466712,
+     "standard_error": 0.7690272600681058,
+     "p_value_t_g_minus_1": 8.381374633414929e-05
+    },
+    {
+     "variable": "synthetic_z",
+     "coefficient": 3.8698987914118455,
+     "standard_error": 1.0565181193274977,
+     "p_value_t_g_minus_1": 0.005212151585369362
+    }
+   ],
+   "r_squared": 0.23790905366709525,
+   "within_r_squared": 0.23790905366709525,
+   "clusters": 10,
+   "degrees_of_freedom": 9
+  },
+  "country_fixed_effects": {
+   "fixed_effects": "country",
+   "coefficients": [
+    {
+     "variable": "synthetic_x",
+     "coefficient": 2.710053232328811,
+     "standard_error": 0.19979139074152205,
+     "p_value_t_g_minus_1": 2.69393125584827e-07
+    },
+    {
+     "variable": "synthetic_z",
+     "coefficient": 0.4965406486928878,
+     "standard_error": 0.25352154264301785,
+     "p_value_t_g_minus_1": 0.08183176411929383
+    }
+   ],
+   "r_squared": 0.9487645659718027,
+   "within_r_squared": 0.46272842859069985,
+   "clusters": 10,
+   "degrees_of_freedom": 9
+  },
+  "country_and_year_fixed_effects": {
+   "fixed_effects": "country_year",
+   "coefficients": [
+    {
+     "variable": "synthetic_x",
+     "coefficient": 1.9999539479004256,
+     "standard_error": 0.00030908105777089967,
+     "p_value_t_g_minus_1": 0.0
+    },
+    {
+     "variable": "synthetic_z",
+     "coefficient": 0.5001528701326097,
+     "standard_error": 0.00046831165743631883,
+     "p_value_t_g_minus_1": 0.0
+    }
+   ],
+   "r_squared": 0.99999946884401,
+   "within_r_squared": 0.9999768582158385,
+   "clusters": 10,
+   "degrees_of_freedom": 9
+  }
+ }
+}

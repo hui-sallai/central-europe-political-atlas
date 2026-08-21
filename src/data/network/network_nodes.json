@@ -1,17 +1,1416 @@
 {
-  "schema_version": "trade-network-nodes-v1.2",
+  "schema_version": "trade-network-nodes-v1.25",
   "generated_at": "2026-08-21",
-  "record_count": 10,
+  "record_count": 235,
   "records": [
-    { "node_id": "germany", "node_type": "country", "label": "Germany" },
-    { "node_id": "poland", "node_type": "country", "label": "Poland" },
-    { "node_id": "hungary", "node_type": "country", "label": "Hungary" },
-    { "node_id": "romania", "node_type": "country", "label": "Romania" },
-    { "node_id": "czechia", "node_type": "country", "label": "Czechia" },
-    { "node_id": "slovakia", "node_type": "country", "label": "Slovakia" },
-    { "node_id": "slovenia", "node_type": "country", "label": "Slovenia" },
-    { "node_id": "serbia", "node_type": "country", "label": "Serbia" },
-    { "node_id": "austria", "node_type": "country", "label": "Austria" },
-    { "node_id": "croatia", "node_type": "country", "label": "Croatia" }
+    {
+      "node_id": "afghanistan",
+      "node_type": "partner",
+      "label": "afghanistan",
+      "iso3": "AFG"
+    },
+    {
+      "node_id": "albania",
+      "node_type": "partner",
+      "label": "albania",
+      "iso3": "ALB"
+    },
+    {
+      "node_id": "algeria",
+      "node_type": "partner",
+      "label": "algeria",
+      "iso3": "DZA"
+    },
+    {
+      "node_id": "american-samoa",
+      "node_type": "partner",
+      "label": "american-samoa",
+      "iso3": "ASM"
+    },
+    {
+      "node_id": "andorra",
+      "node_type": "partner",
+      "label": "andorra",
+      "iso3": "AND"
+    },
+    {
+      "node_id": "angola",
+      "node_type": "partner",
+      "label": "angola",
+      "iso3": "AGO"
+    },
+    {
+      "node_id": "anguilla",
+      "node_type": "partner",
+      "label": "anguilla",
+      "iso3": "AIA"
+    },
+    {
+      "node_id": "antarctica",
+      "node_type": "partner",
+      "label": "antarctica",
+      "iso3": "ATA"
+    },
+    {
+      "node_id": "antigua-and-barbuda",
+      "node_type": "partner",
+      "label": "antigua-and-barbuda",
+      "iso3": "ATG"
+    },
+    {
+      "node_id": "argentina",
+      "node_type": "partner",
+      "label": "argentina",
+      "iso3": "ARG"
+    },
+    {
+      "node_id": "armenia",
+      "node_type": "partner",
+      "label": "armenia",
+      "iso3": "ARM"
+    },
+    {
+      "node_id": "aruba",
+      "node_type": "partner",
+      "label": "aruba",
+      "iso3": "ABW"
+    },
+    {
+      "node_id": "australia",
+      "node_type": "partner",
+      "label": "australia",
+      "iso3": "AUS"
+    },
+    {
+      "node_id": "austria",
+      "node_type": "reporter",
+      "label": "austria"
+    },
+    {
+      "node_id": "azerbaijan",
+      "node_type": "partner",
+      "label": "azerbaijan",
+      "iso3": "AZE"
+    },
+    {
+      "node_id": "bahamas",
+      "node_type": "partner",
+      "label": "bahamas",
+      "iso3": "BHS"
+    },
+    {
+      "node_id": "bahrain",
+      "node_type": "partner",
+      "label": "bahrain",
+      "iso3": "BHR"
+    },
+    {
+      "node_id": "bangladesh",
+      "node_type": "partner",
+      "label": "bangladesh",
+      "iso3": "BGD"
+    },
+    {
+      "node_id": "barbados",
+      "node_type": "partner",
+      "label": "barbados",
+      "iso3": "BRB"
+    },
+    {
+      "node_id": "belarus",
+      "node_type": "partner",
+      "label": "belarus",
+      "iso3": "BLR"
+    },
+    {
+      "node_id": "belgium",
+      "node_type": "partner",
+      "label": "belgium",
+      "iso3": "BEL"
+    },
+    {
+      "node_id": "belize",
+      "node_type": "partner",
+      "label": "belize",
+      "iso3": "BLZ"
+    },
+    {
+      "node_id": "benin",
+      "node_type": "partner",
+      "label": "benin",
+      "iso3": "BEN"
+    },
+    {
+      "node_id": "bermuda",
+      "node_type": "partner",
+      "label": "bermuda",
+      "iso3": "BMU"
+    },
+    {
+      "node_id": "bhutan",
+      "node_type": "partner",
+      "label": "bhutan",
+      "iso3": "BTN"
+    },
+    {
+      "node_id": "bolivia-plurinational-state-of",
+      "node_type": "partner",
+      "label": "bolivia-plurinational-state-of",
+      "iso3": "BOL"
+    },
+    {
+      "node_id": "bonaire",
+      "node_type": "partner",
+      "label": "bonaire",
+      "iso3": "BES"
+    },
+    {
+      "node_id": "bosnia-herzegovina",
+      "node_type": "partner",
+      "label": "bosnia-herzegovina",
+      "iso3": "BIH"
+    },
+    {
+      "node_id": "botswana",
+      "node_type": "partner",
+      "label": "botswana",
+      "iso3": "BWA"
+    },
+    {
+      "node_id": "bouvet-island",
+      "node_type": "partner",
+      "label": "bouvet-island",
+      "iso3": "BVT"
+    },
+    {
+      "node_id": "br-indian-ocean-terr",
+      "node_type": "partner",
+      "label": "br-indian-ocean-terr",
+      "iso3": "IOT"
+    },
+    {
+      "node_id": "br-virgin-isds",
+      "node_type": "partner",
+      "label": "br-virgin-isds",
+      "iso3": "VGB"
+    },
+    {
+      "node_id": "brazil",
+      "node_type": "partner",
+      "label": "brazil",
+      "iso3": "BRA"
+    },
+    {
+      "node_id": "brunei-darussalam",
+      "node_type": "partner",
+      "label": "brunei-darussalam",
+      "iso3": "BRN"
+    },
+    {
+      "node_id": "bulgaria",
+      "node_type": "partner",
+      "label": "bulgaria",
+      "iso3": "BGR"
+    },
+    {
+      "node_id": "bunkers",
+      "node_type": "partner",
+      "label": "bunkers",
+      "iso3": "X1 "
+    },
+    {
+      "node_id": "burkina-faso",
+      "node_type": "partner",
+      "label": "burkina-faso",
+      "iso3": "BFA"
+    },
+    {
+      "node_id": "burundi",
+      "node_type": "partner",
+      "label": "burundi",
+      "iso3": "BDI"
+    },
+    {
+      "node_id": "c-te-d-ivoire",
+      "node_type": "partner",
+      "label": "c-te-d-ivoire",
+      "iso3": "CIV"
+    },
+    {
+      "node_id": "cabo-verde",
+      "node_type": "partner",
+      "label": "cabo-verde",
+      "iso3": "CPV"
+    },
+    {
+      "node_id": "cambodia",
+      "node_type": "partner",
+      "label": "cambodia",
+      "iso3": "KHM"
+    },
+    {
+      "node_id": "cameroon",
+      "node_type": "partner",
+      "label": "cameroon",
+      "iso3": "CMR"
+    },
+    {
+      "node_id": "canada",
+      "node_type": "partner",
+      "label": "canada",
+      "iso3": "CAN"
+    },
+    {
+      "node_id": "cayman-isds",
+      "node_type": "partner",
+      "label": "cayman-isds",
+      "iso3": "CYM"
+    },
+    {
+      "node_id": "central-african-rep",
+      "node_type": "partner",
+      "label": "central-african-rep",
+      "iso3": "CAF"
+    },
+    {
+      "node_id": "chad",
+      "node_type": "partner",
+      "label": "chad",
+      "iso3": "TCD"
+    },
+    {
+      "node_id": "chile",
+      "node_type": "partner",
+      "label": "chile",
+      "iso3": "CHL"
+    },
+    {
+      "node_id": "china",
+      "node_type": "partner",
+      "label": "china",
+      "iso3": "CHN"
+    },
+    {
+      "node_id": "china-hong-kong-sar",
+      "node_type": "partner",
+      "label": "china-hong-kong-sar",
+      "iso3": "HKG"
+    },
+    {
+      "node_id": "china-macao-sar",
+      "node_type": "partner",
+      "label": "china-macao-sar",
+      "iso3": "MAC"
+    },
+    {
+      "node_id": "christmas-isds",
+      "node_type": "partner",
+      "label": "christmas-isds",
+      "iso3": "CXR"
+    },
+    {
+      "node_id": "cocos-isds",
+      "node_type": "partner",
+      "label": "cocos-isds",
+      "iso3": "CCK"
+    },
+    {
+      "node_id": "colombia",
+      "node_type": "partner",
+      "label": "colombia",
+      "iso3": "COL"
+    },
+    {
+      "node_id": "comoros",
+      "node_type": "partner",
+      "label": "comoros",
+      "iso3": "COM"
+    },
+    {
+      "node_id": "congo",
+      "node_type": "partner",
+      "label": "congo",
+      "iso3": "COG"
+    },
+    {
+      "node_id": "cook-isds",
+      "node_type": "partner",
+      "label": "cook-isds",
+      "iso3": "COK"
+    },
+    {
+      "node_id": "costa-rica",
+      "node_type": "partner",
+      "label": "costa-rica",
+      "iso3": "CRI"
+    },
+    {
+      "node_id": "croatia",
+      "node_type": "partner",
+      "label": "croatia",
+      "iso3": "HRV"
+    },
+    {
+      "node_id": "cuba",
+      "node_type": "partner",
+      "label": "cuba",
+      "iso3": "CUB"
+    },
+    {
+      "node_id": "cura-ao",
+      "node_type": "partner",
+      "label": "cura-ao",
+      "iso3": "CUW"
+    },
+    {
+      "node_id": "cyprus",
+      "node_type": "partner",
+      "label": "cyprus",
+      "iso3": "CYP"
+    },
+    {
+      "node_id": "czechia",
+      "node_type": "partner",
+      "label": "czechia",
+      "iso3": "CZE"
+    },
+    {
+      "node_id": "dem-people-s-rep-of-korea",
+      "node_type": "partner",
+      "label": "dem-people-s-rep-of-korea",
+      "iso3": "PRK"
+    },
+    {
+      "node_id": "dem-rep-of-the-congo",
+      "node_type": "partner",
+      "label": "dem-rep-of-the-congo",
+      "iso3": "COD"
+    },
+    {
+      "node_id": "denmark",
+      "node_type": "partner",
+      "label": "denmark",
+      "iso3": "DNK"
+    },
+    {
+      "node_id": "djibouti",
+      "node_type": "partner",
+      "label": "djibouti",
+      "iso3": "DJI"
+    },
+    {
+      "node_id": "dominica",
+      "node_type": "partner",
+      "label": "dominica",
+      "iso3": "DMA"
+    },
+    {
+      "node_id": "dominican-rep",
+      "node_type": "partner",
+      "label": "dominican-rep",
+      "iso3": "DOM"
+    },
+    {
+      "node_id": "ecuador",
+      "node_type": "partner",
+      "label": "ecuador",
+      "iso3": "ECU"
+    },
+    {
+      "node_id": "egypt",
+      "node_type": "partner",
+      "label": "egypt",
+      "iso3": "EGY"
+    },
+    {
+      "node_id": "el-salvador",
+      "node_type": "partner",
+      "label": "el-salvador",
+      "iso3": "SLV"
+    },
+    {
+      "node_id": "equatorial-guinea",
+      "node_type": "partner",
+      "label": "equatorial-guinea",
+      "iso3": "GNQ"
+    },
+    {
+      "node_id": "eritrea",
+      "node_type": "partner",
+      "label": "eritrea",
+      "iso3": "ERI"
+    },
+    {
+      "node_id": "estonia",
+      "node_type": "partner",
+      "label": "estonia",
+      "iso3": "EST"
+    },
+    {
+      "node_id": "eswatini",
+      "node_type": "partner",
+      "label": "eswatini",
+      "iso3": "SWZ"
+    },
+    {
+      "node_id": "ethiopia",
+      "node_type": "partner",
+      "label": "ethiopia",
+      "iso3": "ETH"
+    },
+    {
+      "node_id": "falkland-isds-malvinas",
+      "node_type": "partner",
+      "label": "falkland-isds-malvinas",
+      "iso3": "FLK"
+    },
+    {
+      "node_id": "faroe-isds",
+      "node_type": "partner",
+      "label": "faroe-isds",
+      "iso3": "FRO"
+    },
+    {
+      "node_id": "fiji",
+      "node_type": "partner",
+      "label": "fiji",
+      "iso3": "FJI"
+    },
+    {
+      "node_id": "finland",
+      "node_type": "partner",
+      "label": "finland",
+      "iso3": "FIN"
+    },
+    {
+      "node_id": "fr-south-antarctic-terr",
+      "node_type": "partner",
+      "label": "fr-south-antarctic-terr",
+      "iso3": "ATF"
+    },
+    {
+      "node_id": "france",
+      "node_type": "partner",
+      "label": "france",
+      "iso3": "FRA"
+    },
+    {
+      "node_id": "french-polynesia",
+      "node_type": "partner",
+      "label": "french-polynesia",
+      "iso3": "PYF"
+    },
+    {
+      "node_id": "fs-micronesia",
+      "node_type": "partner",
+      "label": "fs-micronesia",
+      "iso3": "FSM"
+    },
+    {
+      "node_id": "gabon",
+      "node_type": "partner",
+      "label": "gabon",
+      "iso3": "GAB"
+    },
+    {
+      "node_id": "gambia",
+      "node_type": "partner",
+      "label": "gambia",
+      "iso3": "GMB"
+    },
+    {
+      "node_id": "georgia",
+      "node_type": "partner",
+      "label": "georgia",
+      "iso3": "GEO"
+    },
+    {
+      "node_id": "germany",
+      "node_type": "partner",
+      "label": "germany",
+      "iso3": "DEU"
+    },
+    {
+      "node_id": "ghana",
+      "node_type": "partner",
+      "label": "ghana",
+      "iso3": "GHA"
+    },
+    {
+      "node_id": "gibraltar",
+      "node_type": "partner",
+      "label": "gibraltar",
+      "iso3": "GIB"
+    },
+    {
+      "node_id": "greece",
+      "node_type": "partner",
+      "label": "greece",
+      "iso3": "GRC"
+    },
+    {
+      "node_id": "greenland",
+      "node_type": "partner",
+      "label": "greenland",
+      "iso3": "GRL"
+    },
+    {
+      "node_id": "grenada",
+      "node_type": "partner",
+      "label": "grenada",
+      "iso3": "GRD"
+    },
+    {
+      "node_id": "guam",
+      "node_type": "partner",
+      "label": "guam",
+      "iso3": "GUM"
+    },
+    {
+      "node_id": "guatemala",
+      "node_type": "partner",
+      "label": "guatemala",
+      "iso3": "GTM"
+    },
+    {
+      "node_id": "guinea",
+      "node_type": "partner",
+      "label": "guinea",
+      "iso3": "GIN"
+    },
+    {
+      "node_id": "guinea-bissau",
+      "node_type": "partner",
+      "label": "guinea-bissau",
+      "iso3": "GNB"
+    },
+    {
+      "node_id": "guyana",
+      "node_type": "partner",
+      "label": "guyana",
+      "iso3": "GUY"
+    },
+    {
+      "node_id": "haiti",
+      "node_type": "partner",
+      "label": "haiti",
+      "iso3": "HTI"
+    },
+    {
+      "node_id": "heard-island-and-mcdonald-islands",
+      "node_type": "partner",
+      "label": "heard-island-and-mcdonald-islands",
+      "iso3": "HMD"
+    },
+    {
+      "node_id": "holy-see-vatican-city-state",
+      "node_type": "partner",
+      "label": "holy-see-vatican-city-state",
+      "iso3": "VAT"
+    },
+    {
+      "node_id": "honduras",
+      "node_type": "partner",
+      "label": "honduras",
+      "iso3": "HND"
+    },
+    {
+      "node_id": "hungary",
+      "node_type": "partner",
+      "label": "hungary",
+      "iso3": "HUN"
+    },
+    {
+      "node_id": "iceland",
+      "node_type": "partner",
+      "label": "iceland",
+      "iso3": "ISL"
+    },
+    {
+      "node_id": "india",
+      "node_type": "partner",
+      "label": "india",
+      "iso3": "IND"
+    },
+    {
+      "node_id": "indonesia",
+      "node_type": "partner",
+      "label": "indonesia",
+      "iso3": "IDN"
+    },
+    {
+      "node_id": "iran",
+      "node_type": "partner",
+      "label": "iran",
+      "iso3": "IRN"
+    },
+    {
+      "node_id": "iraq",
+      "node_type": "partner",
+      "label": "iraq",
+      "iso3": "IRQ"
+    },
+    {
+      "node_id": "ireland",
+      "node_type": "partner",
+      "label": "ireland",
+      "iso3": "IRL"
+    },
+    {
+      "node_id": "israel",
+      "node_type": "partner",
+      "label": "israel",
+      "iso3": "ISR"
+    },
+    {
+      "node_id": "italy",
+      "node_type": "partner",
+      "label": "italy",
+      "iso3": "ITA"
+    },
+    {
+      "node_id": "jamaica",
+      "node_type": "partner",
+      "label": "jamaica",
+      "iso3": "JAM"
+    },
+    {
+      "node_id": "japan",
+      "node_type": "partner",
+      "label": "japan",
+      "iso3": "JPN"
+    },
+    {
+      "node_id": "jordan",
+      "node_type": "partner",
+      "label": "jordan",
+      "iso3": "JOR"
+    },
+    {
+      "node_id": "kazakhstan",
+      "node_type": "partner",
+      "label": "kazakhstan",
+      "iso3": "KAZ"
+    },
+    {
+      "node_id": "kenya",
+      "node_type": "partner",
+      "label": "kenya",
+      "iso3": "KEN"
+    },
+    {
+      "node_id": "kiribati",
+      "node_type": "partner",
+      "label": "kiribati",
+      "iso3": "KIR"
+    },
+    {
+      "node_id": "kuwait",
+      "node_type": "partner",
+      "label": "kuwait",
+      "iso3": "KWT"
+    },
+    {
+      "node_id": "kyrgyzstan",
+      "node_type": "partner",
+      "label": "kyrgyzstan",
+      "iso3": "KGZ"
+    },
+    {
+      "node_id": "lao-people-s-dem-rep",
+      "node_type": "partner",
+      "label": "lao-people-s-dem-rep",
+      "iso3": "LAO"
+    },
+    {
+      "node_id": "latvia",
+      "node_type": "partner",
+      "label": "latvia",
+      "iso3": "LVA"
+    },
+    {
+      "node_id": "lebanon",
+      "node_type": "partner",
+      "label": "lebanon",
+      "iso3": "LBN"
+    },
+    {
+      "node_id": "lesotho",
+      "node_type": "partner",
+      "label": "lesotho",
+      "iso3": "LSO"
+    },
+    {
+      "node_id": "liberia",
+      "node_type": "partner",
+      "label": "liberia",
+      "iso3": "LBR"
+    },
+    {
+      "node_id": "libya",
+      "node_type": "partner",
+      "label": "libya",
+      "iso3": "LBY"
+    },
+    {
+      "node_id": "lithuania",
+      "node_type": "partner",
+      "label": "lithuania",
+      "iso3": "LTU"
+    },
+    {
+      "node_id": "luxembourg",
+      "node_type": "partner",
+      "label": "luxembourg",
+      "iso3": "LUX"
+    },
+    {
+      "node_id": "madagascar",
+      "node_type": "partner",
+      "label": "madagascar",
+      "iso3": "MDG"
+    },
+    {
+      "node_id": "malawi",
+      "node_type": "partner",
+      "label": "malawi",
+      "iso3": "MWI"
+    },
+    {
+      "node_id": "malaysia",
+      "node_type": "partner",
+      "label": "malaysia",
+      "iso3": "MYS"
+    },
+    {
+      "node_id": "maldives",
+      "node_type": "partner",
+      "label": "maldives",
+      "iso3": "MDV"
+    },
+    {
+      "node_id": "mali",
+      "node_type": "partner",
+      "label": "mali",
+      "iso3": "MLI"
+    },
+    {
+      "node_id": "malta",
+      "node_type": "partner",
+      "label": "malta",
+      "iso3": "MLT"
+    },
+    {
+      "node_id": "marshall-isds",
+      "node_type": "partner",
+      "label": "marshall-isds",
+      "iso3": "MHL"
+    },
+    {
+      "node_id": "mauritania",
+      "node_type": "partner",
+      "label": "mauritania",
+      "iso3": "MRT"
+    },
+    {
+      "node_id": "mauritius",
+      "node_type": "partner",
+      "label": "mauritius",
+      "iso3": "MUS"
+    },
+    {
+      "node_id": "mexico",
+      "node_type": "partner",
+      "label": "mexico",
+      "iso3": "MEX"
+    },
+    {
+      "node_id": "mongolia",
+      "node_type": "partner",
+      "label": "mongolia",
+      "iso3": "MNG"
+    },
+    {
+      "node_id": "montenegro",
+      "node_type": "partner",
+      "label": "montenegro",
+      "iso3": "MNE"
+    },
+    {
+      "node_id": "montserrat",
+      "node_type": "partner",
+      "label": "montserrat",
+      "iso3": "MSR"
+    },
+    {
+      "node_id": "morocco",
+      "node_type": "partner",
+      "label": "morocco",
+      "iso3": "MAR"
+    },
+    {
+      "node_id": "mozambique",
+      "node_type": "partner",
+      "label": "mozambique",
+      "iso3": "MOZ"
+    },
+    {
+      "node_id": "myanmar",
+      "node_type": "partner",
+      "label": "myanmar",
+      "iso3": "MMR"
+    },
+    {
+      "node_id": "n-mariana-isds",
+      "node_type": "partner",
+      "label": "n-mariana-isds",
+      "iso3": "MNP"
+    },
+    {
+      "node_id": "namibia",
+      "node_type": "partner",
+      "label": "namibia",
+      "iso3": "NAM"
+    },
+    {
+      "node_id": "nauru",
+      "node_type": "partner",
+      "label": "nauru",
+      "iso3": "NRU"
+    },
+    {
+      "node_id": "nepal",
+      "node_type": "partner",
+      "label": "nepal",
+      "iso3": "NPL"
+    },
+    {
+      "node_id": "netherlands",
+      "node_type": "partner",
+      "label": "netherlands",
+      "iso3": "NLD"
+    },
+    {
+      "node_id": "new-caledonia",
+      "node_type": "partner",
+      "label": "new-caledonia",
+      "iso3": "NCL"
+    },
+    {
+      "node_id": "new-zealand",
+      "node_type": "partner",
+      "label": "new-zealand",
+      "iso3": "NZL"
+    },
+    {
+      "node_id": "nicaragua",
+      "node_type": "partner",
+      "label": "nicaragua",
+      "iso3": "NIC"
+    },
+    {
+      "node_id": "niger",
+      "node_type": "partner",
+      "label": "niger",
+      "iso3": "NER"
+    },
+    {
+      "node_id": "nigeria",
+      "node_type": "partner",
+      "label": "nigeria",
+      "iso3": "NGA"
+    },
+    {
+      "node_id": "niue",
+      "node_type": "partner",
+      "label": "niue",
+      "iso3": "NIU"
+    },
+    {
+      "node_id": "norfolk-isds",
+      "node_type": "partner",
+      "label": "norfolk-isds",
+      "iso3": "NFK"
+    },
+    {
+      "node_id": "north-macedonia",
+      "node_type": "partner",
+      "label": "north-macedonia",
+      "iso3": "MKD"
+    },
+    {
+      "node_id": "norway",
+      "node_type": "partner",
+      "label": "norway",
+      "iso3": "NOR"
+    },
+    {
+      "node_id": "oman",
+      "node_type": "partner",
+      "label": "oman",
+      "iso3": "OMN"
+    },
+    {
+      "node_id": "pakistan",
+      "node_type": "partner",
+      "label": "pakistan",
+      "iso3": "PAK"
+    },
+    {
+      "node_id": "palau",
+      "node_type": "partner",
+      "label": "palau",
+      "iso3": "PLW"
+    },
+    {
+      "node_id": "panama",
+      "node_type": "partner",
+      "label": "panama",
+      "iso3": "PAN"
+    },
+    {
+      "node_id": "papua-new-guinea",
+      "node_type": "partner",
+      "label": "papua-new-guinea",
+      "iso3": "PNG"
+    },
+    {
+      "node_id": "paraguay",
+      "node_type": "partner",
+      "label": "paraguay",
+      "iso3": "PRY"
+    },
+    {
+      "node_id": "peru",
+      "node_type": "partner",
+      "label": "peru",
+      "iso3": "PER"
+    },
+    {
+      "node_id": "philippines",
+      "node_type": "partner",
+      "label": "philippines",
+      "iso3": "PHL"
+    },
+    {
+      "node_id": "pitcairn",
+      "node_type": "partner",
+      "label": "pitcairn",
+      "iso3": "PCN"
+    },
+    {
+      "node_id": "poland",
+      "node_type": "partner",
+      "label": "poland",
+      "iso3": "POL"
+    },
+    {
+      "node_id": "portugal",
+      "node_type": "partner",
+      "label": "portugal",
+      "iso3": "PRT"
+    },
+    {
+      "node_id": "qatar",
+      "node_type": "partner",
+      "label": "qatar",
+      "iso3": "QAT"
+    },
+    {
+      "node_id": "rep-of-korea",
+      "node_type": "partner",
+      "label": "rep-of-korea",
+      "iso3": "KOR"
+    },
+    {
+      "node_id": "rep-of-moldova",
+      "node_type": "partner",
+      "label": "rep-of-moldova",
+      "iso3": "MDA"
+    },
+    {
+      "node_id": "romania",
+      "node_type": "partner",
+      "label": "romania",
+      "iso3": "ROU"
+    },
+    {
+      "node_id": "russian-federation",
+      "node_type": "partner",
+      "label": "russian-federation",
+      "iso3": "RUS"
+    },
+    {
+      "node_id": "rwanda",
+      "node_type": "partner",
+      "label": "rwanda",
+      "iso3": "RWA"
+    },
+    {
+      "node_id": "saint-barth-lemy",
+      "node_type": "partner",
+      "label": "saint-barth-lemy",
+      "iso3": "BLM"
+    },
+    {
+      "node_id": "saint-helena",
+      "node_type": "partner",
+      "label": "saint-helena",
+      "iso3": "SHN"
+    },
+    {
+      "node_id": "saint-kitts-and-nevis",
+      "node_type": "partner",
+      "label": "saint-kitts-and-nevis",
+      "iso3": "KNA"
+    },
+    {
+      "node_id": "saint-lucia",
+      "node_type": "partner",
+      "label": "saint-lucia",
+      "iso3": "LCA"
+    },
+    {
+      "node_id": "saint-pierre-and-miquelon",
+      "node_type": "partner",
+      "label": "saint-pierre-and-miquelon",
+      "iso3": "SPM"
+    },
+    {
+      "node_id": "saint-vincent-and-the-grenadines",
+      "node_type": "partner",
+      "label": "saint-vincent-and-the-grenadines",
+      "iso3": "VCT"
+    },
+    {
+      "node_id": "samoa",
+      "node_type": "partner",
+      "label": "samoa",
+      "iso3": "WSM"
+    },
+    {
+      "node_id": "san-marino",
+      "node_type": "partner",
+      "label": "san-marino",
+      "iso3": "SMR"
+    },
+    {
+      "node_id": "sao-tome-and-principe",
+      "node_type": "partner",
+      "label": "sao-tome-and-principe",
+      "iso3": "STP"
+    },
+    {
+      "node_id": "saudi-arabia",
+      "node_type": "partner",
+      "label": "saudi-arabia",
+      "iso3": "SAU"
+    },
+    {
+      "node_id": "senegal",
+      "node_type": "partner",
+      "label": "senegal",
+      "iso3": "SEN"
+    },
+    {
+      "node_id": "serbia",
+      "node_type": "partner",
+      "label": "serbia",
+      "iso3": "SRB"
+    },
+    {
+      "node_id": "seychelles",
+      "node_type": "partner",
+      "label": "seychelles",
+      "iso3": "SYC"
+    },
+    {
+      "node_id": "sierra-leone",
+      "node_type": "partner",
+      "label": "sierra-leone",
+      "iso3": "SLE"
+    },
+    {
+      "node_id": "singapore",
+      "node_type": "partner",
+      "label": "singapore",
+      "iso3": "SGP"
+    },
+    {
+      "node_id": "sint-maarten",
+      "node_type": "partner",
+      "label": "sint-maarten",
+      "iso3": "SXM"
+    },
+    {
+      "node_id": "slovakia",
+      "node_type": "partner",
+      "label": "slovakia",
+      "iso3": "SVK"
+    },
+    {
+      "node_id": "slovenia",
+      "node_type": "partner",
+      "label": "slovenia",
+      "iso3": "SVN"
+    },
+    {
+      "node_id": "solomon-isds",
+      "node_type": "partner",
+      "label": "solomon-isds",
+      "iso3": "SLB"
+    },
+    {
+      "node_id": "somalia",
+      "node_type": "partner",
+      "label": "somalia",
+      "iso3": "SOM"
+    },
+    {
+      "node_id": "south-africa",
+      "node_type": "partner",
+      "label": "south-africa",
+      "iso3": "ZAF"
+    },
+    {
+      "node_id": "south-georgia-and-the-south-sandwich-islands",
+      "node_type": "partner",
+      "label": "south-georgia-and-the-south-sandwich-islands",
+      "iso3": "SGS"
+    },
+    {
+      "node_id": "south-sudan",
+      "node_type": "partner",
+      "label": "south-sudan",
+      "iso3": "SSD"
+    },
+    {
+      "node_id": "spain",
+      "node_type": "partner",
+      "label": "spain",
+      "iso3": "ESP"
+    },
+    {
+      "node_id": "special-categories",
+      "node_type": "partner",
+      "label": "special-categories",
+      "iso3": "XX "
+    },
+    {
+      "node_id": "sri-lanka",
+      "node_type": "partner",
+      "label": "sri-lanka",
+      "iso3": "LKA"
+    },
+    {
+      "node_id": "state-of-palestine",
+      "node_type": "partner",
+      "label": "state-of-palestine",
+      "iso3": "PSE"
+    },
+    {
+      "node_id": "sudan",
+      "node_type": "partner",
+      "label": "sudan",
+      "iso3": "SDN"
+    },
+    {
+      "node_id": "suriname",
+      "node_type": "partner",
+      "label": "suriname",
+      "iso3": "SUR"
+    },
+    {
+      "node_id": "sweden",
+      "node_type": "partner",
+      "label": "sweden",
+      "iso3": "SWE"
+    },
+    {
+      "node_id": "switzerland",
+      "node_type": "partner",
+      "label": "switzerland",
+      "iso3": "CHE"
+    },
+    {
+      "node_id": "syria",
+      "node_type": "partner",
+      "label": "syria",
+      "iso3": "SYR"
+    },
+    {
+      "node_id": "t-rkiye",
+      "node_type": "partner",
+      "label": "t-rkiye",
+      "iso3": "TUR"
+    },
+    {
+      "node_id": "tajikistan",
+      "node_type": "partner",
+      "label": "tajikistan",
+      "iso3": "TJK"
+    },
+    {
+      "node_id": "thailand",
+      "node_type": "partner",
+      "label": "thailand",
+      "iso3": "THA"
+    },
+    {
+      "node_id": "timor-leste",
+      "node_type": "partner",
+      "label": "timor-leste",
+      "iso3": "TLS"
+    },
+    {
+      "node_id": "togo",
+      "node_type": "partner",
+      "label": "togo",
+      "iso3": "TGO"
+    },
+    {
+      "node_id": "tokelau",
+      "node_type": "partner",
+      "label": "tokelau",
+      "iso3": "TKL"
+    },
+    {
+      "node_id": "tonga",
+      "node_type": "partner",
+      "label": "tonga",
+      "iso3": "TON"
+    },
+    {
+      "node_id": "trinidad-and-tobago",
+      "node_type": "partner",
+      "label": "trinidad-and-tobago",
+      "iso3": "TTO"
+    },
+    {
+      "node_id": "tunisia",
+      "node_type": "partner",
+      "label": "tunisia",
+      "iso3": "TUN"
+    },
+    {
+      "node_id": "turkmenistan",
+      "node_type": "partner",
+      "label": "turkmenistan",
+      "iso3": "TKM"
+    },
+    {
+      "node_id": "turks-and-caicos-isds",
+      "node_type": "partner",
+      "label": "turks-and-caicos-isds",
+      "iso3": "TCA"
+    },
+    {
+      "node_id": "tuvalu",
+      "node_type": "partner",
+      "label": "tuvalu",
+      "iso3": "TUV"
+    },
+    {
+      "node_id": "uganda",
+      "node_type": "partner",
+      "label": "uganda",
+      "iso3": "UGA"
+    },
+    {
+      "node_id": "ukraine",
+      "node_type": "partner",
+      "label": "ukraine",
+      "iso3": "UKR"
+    },
+    {
+      "node_id": "united-arab-emirates",
+      "node_type": "partner",
+      "label": "united-arab-emirates",
+      "iso3": "ARE"
+    },
+    {
+      "node_id": "united-kingdom",
+      "node_type": "partner",
+      "label": "united-kingdom",
+      "iso3": "GBR"
+    },
+    {
+      "node_id": "united-rep-of-tanzania",
+      "node_type": "partner",
+      "label": "united-rep-of-tanzania",
+      "iso3": "TZA"
+    },
+    {
+      "node_id": "united-states-minor-outlying-islands",
+      "node_type": "partner",
+      "label": "united-states-minor-outlying-islands",
+      "iso3": "UMI"
+    },
+    {
+      "node_id": "uruguay",
+      "node_type": "partner",
+      "label": "uruguay",
+      "iso3": "URY"
+    },
+    {
+      "node_id": "usa",
+      "node_type": "partner",
+      "label": "usa",
+      "iso3": "USA"
+    },
+    {
+      "node_id": "uzbekistan",
+      "node_type": "partner",
+      "label": "uzbekistan",
+      "iso3": "UZB"
+    },
+    {
+      "node_id": "vanuatu",
+      "node_type": "partner",
+      "label": "vanuatu",
+      "iso3": "VUT"
+    },
+    {
+      "node_id": "venezuela",
+      "node_type": "partner",
+      "label": "venezuela",
+      "iso3": "VEN"
+    },
+    {
+      "node_id": "viet-nam",
+      "node_type": "partner",
+      "label": "viet-nam",
+      "iso3": "VNM"
+    },
+    {
+      "node_id": "wallis-and-futuna-isds",
+      "node_type": "partner",
+      "label": "wallis-and-futuna-isds",
+      "iso3": "WLF"
+    },
+    {
+      "node_id": "western-sahara",
+      "node_type": "partner",
+      "label": "western-sahara",
+      "iso3": "ESH"
+    },
+    {
+      "node_id": "yemen",
+      "node_type": "partner",
+      "label": "yemen",
+      "iso3": "YEM"
+    },
+    {
+      "node_id": "zambia",
+      "node_type": "partner",
+      "label": "zambia",
+      "iso3": "ZMB"
+    },
+    {
+      "node_id": "zimbabwe",
+      "node_type": "partner",
+      "label": "zimbabwe",
+      "iso3": "ZWE"
+    }
   ]
 }

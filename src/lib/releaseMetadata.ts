@@ -49,7 +49,14 @@ export const releaseChangelog = [
   ["v1.0 Research Atlas", "Froze the public research boundary, canonical release metadata, reproducible provenance and final release gates.", "Model and scenario definitions remain unchanged; validation semantics now separate numeric checks, gates and expected-unavailable cases.", "No public route, formula, weight, shock range or canonical observation schema was broken."],
   ["v1.1 Architecture & Interface Refactor", "Reorganized public pages around research workflows and moved technical records into progressive disclosure and a versioned research package.", "Registered future analysis skills without running unsupported estimates; models and scenario formulas remain unchanged.", "No canonical observation, formula, weight, validation gate or stable public route was broken."],
   ["v1.2 Advanced Analysis Data Foundation", "Added a traceable 2015–2025 annual panel, formal coverage gates and transparent OLS/fixed-effects estimation.", "Registered bilateral-network contracts and deterministic metrics while retaining data-building status until complete partner edges exist.", "Composite formulas, scenario formulas, regional maps and event coding remain unchanged."],
+  ["v1.25 Econometric Reliability, Cross-Country Comparability & Trade Network Activation", "Formal cross-country comparisons now require the same model version, formula, weight and input year; matrix columns read a single common year and never fall back to older data. Panel cluster-robust inference uses Student-t with G−1 degrees of freedom and explicit small-cluster gates.", "Activated the bilateral goods trade network (2015–2025, ten reporters, complete partner edges) with coverage gates and deterministic concentration metrics.", "No canonical observation, composite formula, weight, scenario shock or stable public route was broken. The research package filename now derives from canonical release metadata."],
 ] as const;
+
+export function getResearchPackageFilename() {
+  const match = /^v[\d.]+/.exec(PLATFORM_VERSION);
+  if (!match) throw new Error(`Cannot derive version token from platform version: ${PLATFORM_VERSION}`);
+  return `research-data-${match[0]}.zip`;
+}
 
 export function platformCitation(accessed = "YYYY-MM-DD") {
   return `${PLATFORM_NAME}, version ${PLATFORM_VERSION}, accessed ${accessed}. ${PLATFORM_BASE_URL}`;

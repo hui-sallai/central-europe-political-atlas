@@ -64,14 +64,28 @@ export interface PanelAnalysisOutput {
     years: number;
     r_squared: number;
     within_r_squared: number;
+    expected_rows: number;
     missing_rows: number;
     standard_error_method: string;
+    inference_method: "hc1_asymptotic" | "cluster_country_student_t";
+    clusters: number | null;
+    degrees_of_freedom: number | null;
+    cluster_warning: string | null;
     multicollinearity_warning: string | null;
     sample_coverage: number;
     year_coverage: string;
   };
+  bootstrap: {
+    method: "wild_cluster_bootstrap";
+    status: "unavailable";
+    supported_repetitions: number[];
+    reason: string;
+  };
   data_trace: string[];
   calculation_date: string;
   platform_version: string;
+  dataset_version: string;
+  panel_schema_version: string;
+  engine_version: string;
   interpretation_boundary: string;
 }

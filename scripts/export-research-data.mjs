@@ -2020,8 +2020,8 @@ writeJson("release_manifest.json", {
   advanced_analysis_versions: {
     panel_observations: "panel-observations-v1.2",
     panel_coverage: "panel-coverage-v1.2",
-    panel_engine: "pooled-ols-country-fe-country-year-fe-v1",
-    trade_network: "trade-network-v1.2-data-building",
+    panel_engine: "panel-engine-v1.25",
+    trade_network: "trade-network-v1.25-active",
     analysis_skill_registry: "analysis-skill-registry-v1.2",
   },
   boundary_versions: ["GISCO NUTS 2024", "regional spatial QA v0.87-v0.89"],
