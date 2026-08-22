@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "node scripts/security/check-public-secrets.mjs && node scripts/export-research-data.mjs && node scripts/release/build-research-package.mjs && node scripts/validation/run-research-validation.mjs && node scripts/validation/run-advanced-analysis-validation.mjs && node scripts/validation/run-ui-language-qa.mjs && node scripts/build-home-country-map.mjs && next build && node scripts/release/validate-release.mjs",
+    "build": "node scripts/security/check-public-secrets.mjs && node scripts/macro/build-var-readiness.mjs && node scripts/export-research-data.mjs && node scripts/release/build-research-package.mjs && node scripts/validation/run-research-validation.mjs && node scripts/validation/run-advanced-analysis-validation.mjs && node scripts/validation/run-ui-language-qa.mjs && node scripts/build-home-country-map.mjs && next build && node scripts/release/validate-release.mjs",
     "build:site": "node scripts/build-home-country-map.mjs && next build",
     "map:home": "node scripts/build-home-country-map.mjs",
     "sandbox:hungary-boundary": "node scripts/build-hungary-boundary-sandbox.mjs",
@@ -12,6 +12,8 @@
     "package:research-data": "node scripts/release/build-research-package.mjs",
     "research:validate": "node scripts/validation/run-research-validation.mjs",
     "analysis:validate": "node scripts/validation/run-advanced-analysis-validation.mjs",
+    "macro:build": "node scripts/macro/build-var-readiness.mjs",
+    "var:reference": "python scripts/validation/generate-var-reference.py",
     "ui-language:qa": "node scripts/validation/run-ui-language-qa.mjs",
     "events:build": "node scripts/events/build-event-registries.mjs",
     "hf:acquire": "node scripts/acquire-eurostat-monthly.mjs",

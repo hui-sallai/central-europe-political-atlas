@@ -74,7 +74,7 @@ export default function ModelsPage() {
       <header className="max-w-4xl border-b border-[var(--line)] pb-8">
         <p className="editorial-kicker">分析工作台 / {platformStatus.version}</p>
         <h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">分析工作台</h1>
-        <p className="mt-5 text-base leading-8 text-[var(--muted)]">在同一入口运行透明综合指标、年度面板估计、贸易网络分析与事件窗口分析，或切换到十国横向对比——正式比较只在同一版本、同一单位、同一输入年份下进行。VAR 与 Bayesian 因频率不足暂不可用。</p>
+        <p className="mt-5 text-base leading-8 text-[var(--muted)]">在同一入口运行透明综合指标、年度面板估计、贸易网络分析、事件窗口分析与逐国简化式 VAR，或切换到十国横向对比。VAR 只对通过月度数据、平稳性、参数数量、稳定性和残差诊断闸门的国家与规格开放；SVAR、Local Projections 与 Bayesian VAR 仍未启用。</p>
         <div className="mt-5 flex flex-wrap gap-3"><Link href="/scenarios" className="rounded-lg bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-white">运行情景分析</Link><Link href="/methodology#models" className="rounded-lg border border-[var(--line)] px-4 py-2 text-sm font-semibold">查看方法说明</Link></div>
       </header>
       <Suspense fallback={<p className="mt-8 border-y border-[var(--line)] py-10 text-center text-sm text-[var(--muted)]">正在加载分析工作台…</p>}>

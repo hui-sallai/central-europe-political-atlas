@@ -35,6 +35,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build macro-dynamics readiness
+        run: pnpm macro:build
+
       - name: Export research data
         run: pnpm export:research-data
 
@@ -52,6 +55,9 @@ jobs:
 
       - name: Research validation
         run: pnpm research:validate
+
+      - name: Advanced analysis validation
+        run: pnpm analysis:validate
 
       - name: UI language QA
         run: pnpm ui-language:qa

@@ -1,0 +1,978 @@
+{
+  "schema_version": "var-country-readiness-v1.4",
+  "generated_at": "2026-08-22",
+  "readiness_unit": "country × variable set × sample window × transformation specification",
+  "default_variable_set": [
+    {
+      "indicator": "hicp_monthly_index",
+      "transformation": "log_difference"
+    },
+    {
+      "indicator": "industrial_production_index",
+      "transformation": "log_difference"
+    },
+    {
+      "indicator": "unemployment_rate_monthly",
+      "transformation": "level"
+    }
+  ],
+  "fallback_chains": [
+    {
+      "role": "inflation",
+      "chain": [
+        {
+          "indicator": "hicp_monthly_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "hicp_monthly_index",
+          "transformation": "log_difference_12"
+        },
+        {
+          "indicator": "hicp_annual_rate",
+          "transformation": "level"
+        },
+        {
+          "indicator": "hicp_annual_rate",
+          "transformation": "first_difference"
+        }
+      ]
+    },
+    {
+      "role": "industrial_production",
+      "chain": [
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference_12"
+        }
+      ]
+    },
+    {
+      "role": "unemployment",
+      "chain": [
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level"
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "first_difference"
+        }
+      ]
+    }
+  ],
+  "ready_countries": [
+    "austria",
+    "czechia",
+    "poland",
+    "romania",
+    "slovenia"
+  ],
+  "irf_ready_countries": [
+    "poland"
+  ],
+  "record_count": 10,
+  "records": [
+    {
+      "country": "austria",
+      "variables": [
+        {
+          "indicator": "hicp_annual_rate",
+          "transformation": "first_difference"
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level"
+        }
+      ],
+      "start_period": "2015-02",
+      "end_period": "2026-06",
+      "effective_observations": 137,
+      "missing_ratio": 0.0144,
+      "stationarity_status": "stationary",
+      "stationarity_detail": [
+        {
+          "indicator": "hicp_annual_rate",
+          "transformation": "first_difference",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 12,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 124,
+            "statistic": -3.0992598191378296,
+            "p_value": 0.02660801369511806,
+            "critical_values": {
+              "1%": -3.484219653271961,
+              "5%": -2.8851452356416374,
+              "10%": -2.5793591389177943
+            },
+            "status": "stationary"
+          }
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 2,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 134,
+            "statistic": -9.11773122700783,
+            "p_value": 3.2751579226442118e-15,
+            "critical_values": {
+              "1%": -3.4801186001103854,
+              "5%": -2.8833618426136196,
+              "10%": -2.5784070349743815
+            },
+            "status": "stationary"
+          }
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 0,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 136,
+            "statistic": -2.906913598444285,
+            "p_value": 0.044549926602545475,
+            "critical_values": {
+              "1%": -3.4793722137854926,
+              "5%": -2.8830370378332995,
+              "10%": -2.578233635380623
+            },
+            "status": "stationary"
+          }
+        }
+      ],
+      "lag_selection_status": "completed",
+      "selected_lag": 1,
+      "stability_status": "stable",
+      "residual_status": "failed",
+      "irf_available": false,
+      "readiness_state": "ready_with_warning",
+      "blocking_reasons": [
+        "残差自相关诊断未通过（p=0.000019），动态响应输出被门控"
+      ]
+    },
+    {
+      "country": "croatia",
+      "variables": [
+        {
+          "indicator": "hicp_annual_rate",
+          "transformation": "first_difference"
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level"
+        }
+      ],
+      "start_period": null,
+      "end_period": null,
+      "effective_observations": 0,
+      "missing_ratio": null,
+      "stationarity_status": "non_stationary",
+      "stationarity_detail": [
+        {
+          "indicator": "hicp_annual_rate",
+          "transformation": "first_difference",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 13,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 123,
+            "statistic": -2.1658246623860653,
+            "p_value": 0.2188820467470054,
+            "critical_values": {
+              "1%": -3.484667251420977,
+              "5%": -2.8853397507076006,
+              "10%": -2.5794629869786503
+            },
+            "status": "non_stationary"
+          }
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 4,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 132,
+            "statistic": -7.3359195007179485,
+            "p_value": 1.0966755281671681e-10,
+            "critical_values": {
+              "1%": -3.4808880719210005,
+              "5%": -2.8836966192225284,
+              "10%": -2.5785857598714417
+            },
+            "status": "stationary"
+          }
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 2,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 134,
+            "statistic": -2.9241262522040286,
+            "p_value": 0.04261351654174905,
+            "critical_values": {
+              "1%": -3.4801186001103854,
+              "5%": -2.8833618426136196,
+              "10%": -2.5784070349743815
+            },
+            "status": "stationary"
+          }
+        }
+      ],
+      "lag_selection_status": "not_run",
+      "selected_lag": null,
+      "stability_status": "not_run",
+      "residual_status": "not_run",
+      "irf_available": false,
+      "readiness_state": "non_stationary",
+      "blocking_reasons": [
+        "hicp_annual_rate（first_difference）ADF 不能拒绝单位根（stat=-2.166，5% 临界值 -2.885）；请更换 transformation。"
+      ]
+    },
+    {
+      "country": "czechia",
+      "variables": [
+        {
+          "indicator": "hicp_annual_rate",
+          "transformation": "first_difference"
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level"
+        }
+      ],
+      "start_period": "2015-02",
+      "end_period": "2026-06",
+      "effective_observations": 137,
+      "missing_ratio": 0.0144,
+      "stationarity_status": "borderline",
+      "stationarity_detail": [
+        {
+          "indicator": "hicp_annual_rate",
+          "transformation": "first_difference",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 11,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 125,
+            "statistic": -3.849809670780044,
+            "p_value": 0.0024368928457235706,
+            "critical_values": {
+              "1%": -3.4837793736959997,
+              "5%": -2.88495387648,
+              "10%": -2.579256976
+            },
+            "status": "stationary"
+          }
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 2,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 134,
+            "statistic": -8.903537879038959,
+            "p_value": 1.1546319456101628e-14,
+            "critical_values": {
+              "1%": -3.4801186001103854,
+              "5%": -2.8833618426136196,
+              "10%": -2.5784070349743815
+            },
+            "status": "stationary"
+          }
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 4,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 132,
+            "statistic": -2.6974697629564144,
+            "p_value": 0.07447713490562952,
+            "critical_values": {
+              "1%": -3.4808880719210005,
+              "5%": -2.8836966192225284,
+              "10%": -2.5785857598714417
+            },
+            "status": "borderline"
+          }
+        }
+      ],
+      "lag_selection_status": "completed",
+      "selected_lag": 2,
+      "stability_status": "stable",
+      "residual_status": "failed",
+      "irf_available": false,
+      "readiness_state": "ready_with_warning",
+      "blocking_reasons": [
+        "残差自相关诊断未通过（p=0.046046），动态响应输出被门控",
+        "至少一个变换后序列 ADF 结果为 borderline / not_tested，解释时须谨慎"
+      ]
+    },
+    {
+      "country": "germany",
+      "variables": [
+        {
+          "indicator": "hicp_annual_rate",
+          "transformation": "first_difference"
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level"
+        }
+      ],
+      "start_period": null,
+      "end_period": null,
+      "effective_observations": 0,
+      "missing_ratio": null,
+      "stationarity_status": "non_stationary",
+      "stationarity_detail": [
+        {
+          "indicator": "hicp_annual_rate",
+          "transformation": "first_difference",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 13,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 123,
+            "statistic": -2.5389836000031036,
+            "p_value": 0.10627495515434005,
+            "critical_values": {
+              "1%": -3.484667251420977,
+              "5%": -2.8853397507076006,
+              "10%": -2.5794629869786503
+            },
+            "status": "non_stationary"
+          }
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 2,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 134,
+            "statistic": -9.20973972500051,
+            "p_value": 1.887379141862766e-15,
+            "critical_values": {
+              "1%": -3.4801186001103854,
+              "5%": -2.8833618426136196,
+              "10%": -2.5784070349743815
+            },
+            "status": "stationary"
+          }
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 3,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 133,
+            "statistic": -2.386552492863822,
+            "p_value": 0.14556789484809946,
+            "critical_values": {
+              "1%": -3.4805003838883772,
+              "5%": -2.8835279559405045,
+              "10%": -2.578495716547007
+            },
+            "status": "non_stationary"
+          }
+        }
+      ],
+      "lag_selection_status": "not_run",
+      "selected_lag": null,
+      "stability_status": "not_run",
+      "residual_status": "not_run",
+      "irf_available": false,
+      "readiness_state": "non_stationary",
+      "blocking_reasons": [
+        "hicp_annual_rate（first_difference）ADF 不能拒绝单位根（stat=-2.539，5% 临界值 -2.885）；请更换 transformation。",
+        "unemployment_rate_monthly（level）ADF 不能拒绝单位根（stat=-2.387，5% 临界值 -2.884）；请更换 transformation。"
+      ]
+    },
+    {
+      "country": "hungary",
+      "variables": [
+        {
+          "indicator": "hicp_annual_rate",
+          "transformation": "first_difference"
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level"
+        }
+      ],
+      "start_period": null,
+      "end_period": null,
+      "effective_observations": 0,
+      "missing_ratio": null,
+      "stationarity_status": "non_stationary",
+      "stationarity_detail": [
+        {
+          "indicator": "hicp_annual_rate",
+          "transformation": "first_difference",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 13,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 123,
+            "statistic": -2.5252648204854062,
+            "p_value": 0.10944750390851937,
+            "critical_values": {
+              "1%": -3.484667251420977,
+              "5%": -2.8853397507076006,
+              "10%": -2.5794629869786503
+            },
+            "status": "non_stationary"
+          }
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 1,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 135,
+            "statistic": -10.37531994602584,
+            "p_value": 0,
+            "critical_values": {
+              "1%": -3.4797425866991816,
+              "5%": -2.88319822181578,
+              "10%": -2.578319684499314
+            },
+            "status": "stationary"
+          }
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 1,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 135,
+            "statistic": -3.831586865257551,
+            "p_value": 0.0026001791869343926,
+            "critical_values": {
+              "1%": -3.4797425866991816,
+              "5%": -2.88319822181578,
+              "10%": -2.578319684499314
+            },
+            "status": "stationary"
+          }
+        }
+      ],
+      "lag_selection_status": "not_run",
+      "selected_lag": null,
+      "stability_status": "not_run",
+      "residual_status": "not_run",
+      "irf_available": false,
+      "readiness_state": "non_stationary",
+      "blocking_reasons": [
+        "hicp_annual_rate（first_difference）ADF 不能拒绝单位根（stat=-2.525，5% 临界值 -2.885）；请更换 transformation。"
+      ]
+    },
+    {
+      "country": "poland",
+      "variables": [
+        {
+          "indicator": "hicp_monthly_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level"
+        }
+      ],
+      "start_period": "2015-02",
+      "end_period": "2026-06",
+      "effective_observations": 137,
+      "missing_ratio": 0.0144,
+      "stationarity_status": "stationary",
+      "stationarity_detail": [
+        {
+          "indicator": "hicp_monthly_index",
+          "transformation": "log_difference",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 2,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 134,
+            "statistic": -3.5047864635483457,
+            "p_value": 0.007865015085694094,
+            "critical_values": {
+              "1%": -3.4801186001103854,
+              "5%": -2.8833618426136196,
+              "10%": -2.5784070349743815
+            },
+            "status": "stationary"
+          }
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 2,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 134,
+            "statistic": -8.720505958252971,
+            "p_value": 3.397282455352979e-14,
+            "critical_values": {
+              "1%": -3.4801186001103854,
+              "5%": -2.8833618426136196,
+              "10%": -2.5784070349743815
+            },
+            "status": "stationary"
+          }
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 3,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 133,
+            "statistic": -3.9627958849319738,
+            "p_value": 0.0016183541611727303,
+            "critical_values": {
+              "1%": -3.4805003838883772,
+              "5%": -2.8835279559405045,
+              "10%": -2.578495716547007
+            },
+            "status": "stationary"
+          }
+        }
+      ],
+      "lag_selection_status": "completed",
+      "selected_lag": 2,
+      "stability_status": "stable",
+      "residual_status": "passed",
+      "irf_available": true,
+      "readiness_state": "ready",
+      "blocking_reasons": []
+    },
+    {
+      "country": "romania",
+      "variables": [
+        {
+          "indicator": "hicp_monthly_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level"
+        }
+      ],
+      "start_period": "2015-02",
+      "end_period": "2026-06",
+      "effective_observations": 137,
+      "missing_ratio": 0.0144,
+      "stationarity_status": "borderline",
+      "stationarity_detail": [
+        {
+          "indicator": "hicp_monthly_index",
+          "transformation": "log_difference",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 4,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 132,
+            "statistic": -3.8080312254882975,
+            "p_value": 0.002826205653293279,
+            "critical_values": {
+              "1%": -3.4808880719210005,
+              "5%": -2.8836966192225284,
+              "10%": -2.5785857598714417
+            },
+            "status": "stationary"
+          }
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 4,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 132,
+            "statistic": -7.376913501326395,
+            "p_value": 8.673939344561177e-11,
+            "critical_values": {
+              "1%": -3.4808880719210005,
+              "5%": -2.8836966192225284,
+              "10%": -2.5785857598714417
+            },
+            "status": "stationary"
+          }
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 4,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 132,
+            "statistic": -2.7999946707686365,
+            "p_value": 0.05827452931554267,
+            "critical_values": {
+              "1%": -3.4808880719210005,
+              "5%": -2.8836966192225284,
+              "10%": -2.5785857598714417
+            },
+            "status": "borderline"
+          }
+        }
+      ],
+      "lag_selection_status": "completed",
+      "selected_lag": 1,
+      "stability_status": "stable",
+      "residual_status": "failed",
+      "irf_available": false,
+      "readiness_state": "ready_with_warning",
+      "blocking_reasons": [
+        "残差自相关诊断未通过（p=0.017288），动态响应输出被门控",
+        "至少一个变换后序列 ADF 结果为 borderline / not_tested，解释时须谨慎"
+      ]
+    },
+    {
+      "country": "serbia",
+      "variables": [
+        {
+          "indicator": "hicp_monthly_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level"
+        }
+      ],
+      "start_period": null,
+      "end_period": null,
+      "effective_observations": 0,
+      "missing_ratio": null,
+      "stationarity_status": "not_tested",
+      "stationarity_detail": [],
+      "lag_selection_status": "not_run",
+      "selected_lag": null,
+      "stability_status": "not_run",
+      "residual_status": "not_run",
+      "irf_available": false,
+      "readiness_state": "missing_data",
+      "blocking_reasons": [
+        "所选变量组合在该国家没有共同可用的变换后序列。"
+      ]
+    },
+    {
+      "country": "slovakia",
+      "variables": [
+        {
+          "indicator": "hicp_annual_rate",
+          "transformation": "first_difference"
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "first_difference"
+        }
+      ],
+      "start_period": null,
+      "end_period": null,
+      "effective_observations": 0,
+      "missing_ratio": null,
+      "stationarity_status": "non_stationary",
+      "stationarity_detail": [
+        {
+          "indicator": "hicp_annual_rate",
+          "transformation": "first_difference",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 11,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 125,
+            "statistic": -4.658137802453753,
+            "p_value": 0.00010078608474278772,
+            "critical_values": {
+              "1%": -3.4837793736959997,
+              "5%": -2.88495387648,
+              "10%": -2.579256976
+            },
+            "status": "stationary"
+          }
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 2,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 134,
+            "statistic": -9.671029255164536,
+            "p_value": 1.1102230246251565e-16,
+            "critical_values": {
+              "1%": -3.4801186001103854,
+              "5%": -2.8833618426136196,
+              "10%": -2.5784070349743815
+            },
+            "status": "stationary"
+          }
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "first_difference",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 7,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 129,
+            "statistic": -1.7767736042600961,
+            "p_value": 0.39205238689189326,
+            "critical_values": {
+              "1%": -3.482087964046026,
+              "5%": -2.8842185101614626,
+              "10%": -2.578864381347275
+            },
+            "status": "non_stationary"
+          }
+        }
+      ],
+      "lag_selection_status": "not_run",
+      "selected_lag": null,
+      "stability_status": "not_run",
+      "residual_status": "not_run",
+      "irf_available": false,
+      "readiness_state": "non_stationary",
+      "blocking_reasons": [
+        "unemployment_rate_monthly（first_difference）ADF 不能拒绝单位根（stat=-1.777，5% 临界值 -2.884）；请更换 transformation。"
+      ]
+    },
+    {
+      "country": "slovenia",
+      "variables": [
+        {
+          "indicator": "hicp_annual_rate",
+          "transformation": "first_difference"
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level"
+        }
+      ],
+      "start_period": "2015-02",
+      "end_period": "2026-06",
+      "effective_observations": 137,
+      "missing_ratio": 0.0144,
+      "stationarity_status": "stationary",
+      "stationarity_detail": [
+        {
+          "indicator": "hicp_annual_rate",
+          "transformation": "first_difference",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 12,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 124,
+            "statistic": -3.232241703710786,
+            "p_value": 0.01819262983634351,
+            "critical_values": {
+              "1%": -3.484219653271961,
+              "5%": -2.8851452356416374,
+              "10%": -2.5793591389177943
+            },
+            "status": "stationary"
+          }
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 2,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 134,
+            "statistic": -9.06496854348619,
+            "p_value": 4.440892098500626e-15,
+            "critical_values": {
+              "1%": -3.4801186001103854,
+              "5%": -2.8833618426136196,
+              "10%": -2.5784070349743815
+            },
+            "status": "stationary"
+          }
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level",
+          "adf": {
+            "test": "adf",
+            "regression": "c",
+            "series_length": 137,
+            "used_lag": 3,
+            "max_lag": 13,
+            "autolag_criterion": "aic",
+            "nobs": 133,
+            "statistic": -3.017322574204362,
+            "p_value": 0.03330805268117831,
+            "critical_values": {
+              "1%": -3.4805003838883772,
+              "5%": -2.8835279559405045,
+              "10%": -2.578495716547007
+            },
+            "status": "stationary"
+          }
+        }
+      ],
+      "lag_selection_status": "completed",
+      "selected_lag": 2,
+      "stability_status": "stable",
+      "residual_status": "failed",
+      "irf_available": false,
+      "readiness_state": "ready_with_warning",
+      "blocking_reasons": [
+        "残差自相关诊断未通过（p=0），动态响应输出被门控"
+      ]
+    }
+  ]
+}

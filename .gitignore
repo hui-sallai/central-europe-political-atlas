@@ -14,6 +14,7 @@ yarn-error.log*
 *.zip
 
 # local tooling
+.venv/
 .pnpm-store/
 .workbuddy/
 launch-dev.mjs

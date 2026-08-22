@@ -2,7 +2,7 @@
 
 This directory contains the public research exports used by the static site.
 
-Current release: **v1.3 High-Frequency Political Economy, Event Analysis & Product Language System**. The canonical release definition is exported through `platform_metadata.json`; deployment provenance is recorded in `release_manifest.json`.
+Current release: **v1.4 Macro Dynamics & Reduced-Form VAR**. The canonical release definition is exported through `platform_metadata.json`; deployment provenance is recorded in `release_manifest.json`.
 
 ## Core schemas
 
@@ -16,6 +16,8 @@ Current release: **v1.3 High-Frequency Political Economy, Event Analysis & Produ
 - `scenario_definitions` and `scenario_results`: shock assumptions, adjusted inputs and baseline/scenario results.
 - `validation_registry` and `golden_test_cases`: executable validation evidence.
 - `network_ui_pack`, `network_metrics` and `network_coverage`: activated bilateral goods trade network (UN Comtrade 2015–2025), descriptive concentration metrics and per-group coverage gates.
+- `var_country_readiness`: public per-country readiness summary for the default reduced-form VAR specification.
+- The versioned research package contains `macro-dynamics/transformation_registry.json`, `stationarity_results.json`, `lag_selection_registry.json`, `var_country_readiness.json` and `var_model_registry.json`, plus the offline `analysis/var_reference_cases.json` fixture.
 
 ## Stable IDs
 
@@ -51,3 +53,5 @@ Use the platform version, access date, stable record ID and original source URL.
 ## Boundaries
 
 Exports support factual comparison and reproducibility. They are not election forecasts, probability forecasts, investment advice, causal estimates or objective risk truths. Pending/sample records must not be promoted to official data.
+
+Reduced-form VAR outputs are conditional time-series descriptions. Orthogonalized responses depend on variable ordering and are not structural shocks; KPSS, uncertainty intervals and SVAR are not published in v1.4.

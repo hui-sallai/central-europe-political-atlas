@@ -4,7 +4,7 @@ Central Europe Political Atlas is a public political-economy research platform f
 
 Public site: https://hy-central-europe-analysis.org/
 
-Current release: **v1.31 High-Frequency Integrity & Event Semantics**
+Current release: **v1.4 Macro Dynamics & Reduced-Form VAR**
 
 ## Research scope
 
@@ -13,6 +13,7 @@ Current release: **v1.31 High-Frequency Integrity & Event Semantics**
 - 4 transparent, rule-based models with input traces, published weights, completeness and confidence; formal cross-country comparisons require the same model version, formula, weight and input year.
 - An annual 2015–2025 econometric panel with cluster-robust Student-t (G−1) inference, small-cluster gates and offline Python reference validation.
 - An activated bilateral goods trade network (UN Comtrade, complete partner edges, 0.95 coverage gate) with deterministic descriptive concentration metrics.
+- A per-country monthly reduced-form VAR workbench with explicit transformations, ADF gates, common-sample AIC/BIC/HQIC lag selection, stability and residual diagnostics, and ordering-dependent orthogonalized responses. SVAR and uncertainty intervals remain unavailable.
 - 4 conditional scenarios with baseline, shock assumption, adjusted input and result traces.
 - Coded political-economy events and verified China-related project records.
 - Deterministic validation, golden cases and a release QA gate.
@@ -53,7 +54,7 @@ Machine-readable files are published under `/research-data/`. See [the research-
 
 ## Citation
 
-Central Europe Political Atlas, version v1.31 High-Frequency Integrity & Event Semantics, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
+Central Europe Political Atlas, version v1.4 Macro Dynamics & Reduced-Form VAR, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
 
 The project currently does not claim a DOI. Cite original source URLs when using individual observations, events or project records.
 

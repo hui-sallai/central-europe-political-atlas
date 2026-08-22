@@ -33,10 +33,12 @@ for (const [countryIndex, country] of countries.entries()) for (let year = 2015;
 const errors = [];
 let panelTests = 0;
 let networkTests = 0;
+let varTests = 0;
 function check(condition, message, bucket = "panel") {
   if (bucket === "panel") panelTests += 1;
   else if (bucket === "network") networkTests += 1;
   else if (bucket === "hf") hfTests += 1;
+  else if (bucket === "var") varTests += 1;
   else eventTests += 1;
   if (!condition) errors.push(message);
 }
@@ -355,7 +357,195 @@ const withOverlap = attachOverlappingEvents(windowResult, [
 ]);
 check(withOverlap.overlapping_events.length === 1 && withOverlap.overlapping_events[0].event_id === "ev-other" && withOverlap.overlapping_event_warning !== null, "Overlapping-event detection failed.", "event");
 
-console.log(`Advanced analysis validation: panel=${panelTests} tests; network=${networkTests} tests; hf=${hfTests} tests; event=${eventTests} tests; failures=${errors.length}.`);
+// ---- Reduced-form VAR / macro-dynamics validation (v1.4 §53-§59) ----
+const { estimateVarModel, selectVarLagOrder, varStability, portmanteauTest, orthogonalizedIrf, runReducedFormVar } = require("../../src/lib/varEngine.ts");
+const { adfTest, kpssStatus } = require("../../src/lib/stationarityTests.ts");
+const { applyTransformation } = require("../../src/lib/timeSeriesTransforms.ts");
+const { eigenvalues, normalCdf, chiSquareCdf } = require("../../src/lib/numericLinAlg.ts");
+const varRef = JSON.parse(fs.readFileSync(path.join(root, "src/data/analysis/var_reference_cases.json"), "utf8")).cases;
+
+// Special functions vs scipy.
+for (const [x, expected] of Object.entries(varRef.special_functions.normal_cdf)) {
+  check(Math.abs(normalCdf(Number(x)) - expected) < 1e-12, `normalCdf mismatch at ${x}.`, "var");
+}
+for (const [key, expected] of Object.entries(varRef.special_functions.chi2_cdf)) {
+  const [x, df] = key.split(",").map(Number);
+  check(Math.abs(chiSquareCdf(x, df) - expected) < 1e-12, `chiSquareCdf mismatch at ${key}.`, "var");
+}
+
+// Eigenvalue port vs numpy.
+{
+  const ref = varRef.eigenvalue_reference;
+  const actual = eigenvalues(ref.matrix);
+  const actualPairs = actual.re.map((re, index) => [re, actual.im[index]]).sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+  const maxDiff = Math.max(...ref.eigenvalues.map((pair, index) => Math.max(Math.abs(pair[0] - actualPairs[index][0]), Math.abs(pair[1] - actualPairs[index][1]))));
+  check(maxDiff < 1e-8, `Eigenvalue reference mismatch: ${maxDiff}`, "var");
+}
+
+// Stable VAR(2) K=3: full pipeline vs statsmodels.
+{
+  const stable = varRef.stable_var2_k3;
+  const data = stable.data;
+  const icTable = selectVarLagOrder(data, 8);
+  let icMaxDiff = 0;
+  for (let index = 0; index < 8; index += 1) {
+    const ref = stable.ic_table[index];
+    const actual = icTable[index];
+    icMaxDiff = Math.max(icMaxDiff, Math.abs(ref.aic - actual.aic), Math.abs(ref.bic - actual.bic), Math.abs(ref.hqic - actual.hqic));
+    if (ref.nobs !== actual.nobs || ref.free_parameters !== actual.free_parameters) icMaxDiff = Number.POSITIVE_INFINITY;
+  }
+  check(icMaxDiff < 1e-9, `IC table mismatch: ${icMaxDiff}`, "var");
+  for (const criterion of ["aic", "bic", "hqic"]) {
+    const selected = icTable.reduce((best, row) => (row[criterion] < best[criterion] ? row : best), icTable[0]).lag;
+    check(selected === stable.selected_lags[criterion], `Selected lag (${criterion}) mismatch: ${selected} vs ${stable.selected_lags[criterion]}`, "var");
+  }
+  const est = estimateVarModel(data, stable.estimation.lag);
+  const flat = (matrix) => matrix.flat();
+  const maxArrayDiff = (a, b) => Math.max(...a.map((value, index) => Math.abs(value - b[index])));
+  check(maxArrayDiff(est.intercepts, stable.estimation.intercepts) < 1e-6, "VAR intercept mismatch.", "var");
+  let coefDiff = 0;
+  est.coefficientMatrices.forEach((matrix, lagIndex) => {
+    coefDiff = Math.max(coefDiff, maxArrayDiff(flat(matrix), flat(stable.estimation.coefficient_matrices[lagIndex])));
+  });
+  check(coefDiff < 1e-6, `VAR coefficient matrix mismatch: ${coefDiff}`, "var");
+  check(maxArrayDiff(flat(est.sigma_u), flat(stable.estimation.residual_covariance)) < 1e-6, "Residual covariance mismatch.", "var");
+  check(est.nobs === stable.estimation.nobs, "VAR effective sample mismatch.", "var");
+  const stability = varStability(est.coefficientMatrices);
+  const moduliDiff = maxArrayDiff([...stability.roots_moduli].sort(), stable.companion_root_moduli);
+  check(stability.stable === true && moduliDiff < 1e-6, `Root modulus mismatch: ${moduliDiff}`, "var");
+  const psi = orthogonalizedIrf(est.coefficientMatrices, est.sigma_u, 24);
+  let irfDiff = 0;
+  for (const path of stable.irf.paths) {
+    path.horizon.forEach((horizon, hIndex) => {
+      irfDiff = Math.max(irfDiff, Math.abs(psi[horizon][path.response_index][path.shock_index] - path.response[hIndex]));
+    });
+  }
+  check(irfDiff < 1e-6, `Orthogonalized IRF mismatch: ${irfDiff}`, "var");
+  const hPort = Math.max(est.coefficientMatrices.length + 3, Math.min(24, Math.floor(est.nobs / 3)));
+  const port = portmanteauTest(est.resid, est.coefficientMatrices.length, hPort);
+  check(Math.abs(port.statistic - stable.portmanteau.statistic) < 1e-6 && port.degrees_of_freedom === stable.portmanteau.degrees_of_freedom && Math.abs(port.p_value - stable.portmanteau.p_value) < 1e-6, `Portmanteau mismatch: ${port.statistic} vs ${stable.portmanteau.statistic}`, "var");
+  for (const adfRef of stable.adf) {
+    const series = data.map((row) => row[adfRef.column]);
+    const actual = adfTest(series, { autolag: "aic" });
+    check(Math.abs(actual.statistic - adfRef.statistic) < 1e-9 && actual.used_lag === adfRef.used_lag && actual.nobs === adfRef.nobs, `ADF statistic/lag/nobs mismatch (col ${adfRef.column}): ${actual.statistic} vs ${adfRef.statistic}`, "var");
+    check(Math.abs(actual.p_value - adfRef.p_value) < 1e-6, `ADF p-value mismatch (col ${adfRef.column}): ${actual.p_value} vs ${adfRef.p_value}`, "var");
+    check(Math.abs(actual.critical_values["5%"] - adfRef.critical_values["5%"]) < 1e-9, `ADF critical value mismatch (col ${adfRef.column}).`, "var");
+  }
+}
+
+// Unstable fixture: engine must detect instability; coefficients and moduli match.
+{
+  const unstable = varRef.unstable_var1_k2;
+  const est = estimateVarModel(unstable.data, 1);
+  const stability = varStability(est.coefficientMatrices);
+  check(stability.stable === false && stability.max_root_modulus > 1, "Unstable VAR not detected.", "var");
+  const moduliDiff = Math.max(...[...stability.roots_moduli].sort().map((value, index) => Math.abs(value - unstable.companion_root_moduli[index])));
+  check(moduliDiff < 1e-6, `Unstable root modulus mismatch: ${moduliDiff}`, "var");
+}
+
+// Known-lag fixture: BIC must recover the true lag 2.
+{
+  const known = varRef.known_lag_var2;
+  const ics = selectVarLagOrder(known.data, 8);
+  const bicSelected = ics.reduce((best, row) => (row.bic < best.bic ? row : best), ics[0]).lag;
+  check(bicSelected === 2 && known.bic_selected === 2, `Known-lag recovery failed: ${bicSelected}`, "var");
+}
+
+// End-to-end engine run on synthetic high-frequency points + gate behavior.
+const varToPoints = (data, prefix) => data.map((row, index) => ({
+  observation_id: `hf:testland:${prefix}:${2020 + Math.floor(index / 12)}-${String((index % 12) + 1).padStart(2, "0")}`,
+  country: "testland",
+  period: `${2020 + Math.floor(index / 12)}-${String((index % 12) + 1).padStart(2, "0")}`,
+  indicator: prefix,
+  value: row[["var_a", "var_b", "var_c"].indexOf(prefix)],
+  transformation: "level",
+}));
+{
+  const stable = varRef.stable_var2_k3;
+  const seriesMap = new Map(["var_a", "var_b", "var_c"].map((id) => [id, varToPoints(stable.data, id)]));
+  const spec = {
+    country: "testland",
+    variables: [{ indicator: "var_a", transformation: "level" }, { indicator: "var_b", transformation: "level" }, { indicator: "var_c", transformation: "level" }],
+    start_period: "2020-01",
+    end_period: "2034-12",
+    ic_criterion: "bic",
+    max_lag: 12,
+    deterministic_terms: "constant",
+  };
+  const outcome = runReducedFormVar(spec, seriesMap);
+  check(outcome.status === "ok" && outcome.result.selected_lag === stable.selected_lags.bic && outcome.result.diagnostics.stability.stable, "End-to-end VAR run failed on stable fixture.", "var");
+  if (outcome.status === "ok") {
+    check(outcome.result.sample.effective_observations === stable.data.length, "VAR result structure incomplete.", "var");
+    check(outcome.result.data_trace.length > 0 && outcome.result.input_series.length === 3, "VAR data trace / input series missing.", "var");
+    // BIC underselects lag 1 for this VAR(2) process → residual autocorrelation
+    // must gate the dynamic response (§29): coefficients visible, IRF blocked.
+    check(outcome.result.irf === null && outcome.result.irf_blocked_reason !== null && outcome.result.irf_blocked_reason.includes("残差自相关"), `IRF diagnostic gate failed: ${outcome.result.irf_blocked_reason}`, "var");
+  }
+  // On the known-lag fixture (true VAR(2), T=240, BIC recovers lag 2) the full
+  // pipeline passes diagnostics and IRF is produced.
+  const known = varRef.known_lag_var2;
+  const knownMap = new Map(["var_a", "var_b", "var_c"].map((id) => [id, varToPoints(known.data, id)]));
+  const knownOutcome = runReducedFormVar({ ...spec, end_period: "2039-12" }, knownMap);
+  check(knownOutcome.status === "ok" && knownOutcome.result.selected_lag === 2 && knownOutcome.result.diagnostics.residual_autocorrelation.status === "passed" && knownOutcome.result.irf !== null && knownOutcome.result.irf.paths.length === 9 && knownOutcome.result.irf.ordering.length === 3, `Known-lag full-pipeline run failed: ${knownOutcome.status === "ok" ? knownOutcome.result.irf_blocked_reason : knownOutcome.reason_code}`, "var");
+  const shuffled = new Map(["var_a", "var_b", "var_c"].map((id) => [id, [...seriesMap.get(id)].reverse()]));
+  const shuffledOutcome = runReducedFormVar(spec, shuffled);
+  check(shuffledOutcome.status === "ok" && outcome.status === "ok" && shuffledOutcome.result.selected_lag === outcome.result.selected_lag && Math.abs(shuffledOutcome.result.coefficient_matrices[0][0][0] - outcome.result.coefficient_matrices[0][0][0]) < 1e-12, "Input row ordering changed VAR estimates.", "var");
+  const shortMap = new Map([...seriesMap.entries()].map(([id, points]) => [id, points.slice(0, 45)]));
+  const shortSpec = { ...spec, end_period: "2023-09" };
+  const shortOutcome = runReducedFormVar(shortSpec, shortMap);
+  check(shortOutcome.status === "blocked" && shortOutcome.reason_code === "insufficient_observations", "Insufficient-sample gate failed.", "var");
+  const gappedMap = new Map([...seriesMap.entries()].map(([id, points]) => [id, points.filter((point) => point.period !== "2025-06")]));
+  const gappedOutcome = runReducedFormVar(spec, gappedMap);
+  check(gappedOutcome.status === "blocked" && gappedOutcome.reason_code === "missing_data", "Interior missing-month gate failed.", "var");
+  const duplicatedMap = new Map([...seriesMap.entries()].map(([id, points]) => [id, points]));
+  duplicatedMap.set("var_c", seriesMap.get("var_a"));
+  const singularOutcome = runReducedFormVar(spec, duplicatedMap);
+  check(singularOutcome.status === "blocked" && singularOutcome.reason_code === "singular", `Singular specification gate failed: ${singularOutcome.status}/${singularOutcome.reason_code}`, "var");
+  const rwFixture = varRef.random_walk_fixture;
+  const randomWalk = rwFixture.data.map((value, index) => ({ observation_id: `hf:testland:rw:${index}`, country: "testland", period: `${2020 + Math.floor(index / 12)}-${String((index % 12) + 1).padStart(2, "0")}`, indicator: "rw", value, transformation: "level" }));
+  const rwAdf = adfTest(rwFixture.data, { autolag: "aic" });
+  check(rwAdf.status === "non_stationary" && Math.abs(rwAdf.statistic - rwFixture.adf.statistic) < 1e-9, `Random-walk ADF fixture mismatch: ${rwAdf.status}/${rwAdf.statistic} vs ${rwFixture.adf.statistic}`, "var");
+  const rwMap = new Map([...seriesMap.entries()].map(([id, points]) => [id, points]));
+  rwMap.set("rw", randomWalk);
+  const rwOutcome = runReducedFormVar({ ...spec, variables: [{ indicator: "rw", transformation: "level" }, { indicator: "var_b", transformation: "level" }, { indicator: "var_c", transformation: "level" }] }, rwMap);
+  check(rwOutcome.status === "blocked" && rwOutcome.reason_code === "non_stationary", `Unit-root level gate failed: ${rwOutcome.status}/${rwOutcome.reason_code}`, "var");
+  const registryOutcome = runReducedFormVar({ ...spec, variables: [{ indicator: "hicp_monthly_index", transformation: "level" }, { indicator: "var_b", transformation: "level" }] }, seriesMap);
+  check(registryOutcome.status === "blocked" && registryOutcome.reason_code === "unsupported_specification", "Registry transformation enforcement failed (raw HICP level must not enter VAR).", "var");
+  const duplicateMap = new Map([...seriesMap.entries()].map(([id, points]) => [id, [...points]]));
+  duplicateMap.set("var_a", [...seriesMap.get("var_a"), { ...seriesMap.get("var_a")[0], observation_id: "hf:testland:duplicate" }]);
+  const duplicateOutcome = runReducedFormVar(spec, duplicateMap);
+  check(duplicateOutcome.status === "blocked" && duplicateOutcome.reason_code === "missing_data" && duplicateOutcome.reasons[0].includes("重复月份"), "Duplicate-month gate failed.", "var");
+  const reversedWindow = runReducedFormVar({ ...spec, start_period: "2030-01", end_period: "2020-01" }, seriesMap);
+  check(reversedWindow.status === "blocked" && reversedWindow.reason_code === "unsupported_specification", "Invalid sample-window gate failed.", "var");
+}
+
+// Transformation semantics, source trace and monthly continuity.
+{
+  const monthly = Array.from({ length: 13 }, (_, index) => ({
+    observation_id: `hf:testland:index:${2020 + Math.floor(index / 12)}-${String((index % 12) + 1).padStart(2, "0")}`,
+    country: "testland",
+    period: `${2020 + Math.floor(index / 12)}-${String((index % 12) + 1).padStart(2, "0")}`,
+    indicator: "test_index",
+    value: 100 + index,
+    transformation: "level",
+  }));
+  const firstDifference = applyTransformation(monthly, "first_difference");
+  check(firstDifference[0].value === null && firstDifference[1].value === 1 && firstDifference[1].source_observation_ids.length === 2, "First-difference value or trace failed.", "var");
+  const logDifference = applyTransformation(monthly, "log_difference");
+  check(Math.abs(logDifference[1].value - 100 * (Math.log(101) - Math.log(100))) < 1e-12, "Log-difference transformation failed.", "var");
+  const annualLogDifference = applyTransformation(monthly, "log_difference_12");
+  check(annualLogDifference.slice(0, 12).every((point) => point.value === null) && Math.abs(annualLogDifference[12].value - 100 * (Math.log(112) - Math.log(100))) < 1e-12, "Twelve-month log-difference failed.", "var");
+  const gapped = monthly.filter((point) => point.period !== "2020-02");
+  const gappedDifference = applyTransformation(gapped, "first_difference");
+  check(gappedDifference.find((point) => point.period === "2020-03")?.value === null, "Transformation crossed a missing month.", "var");
+  const withMissing = monthly.map((point) => point.period === "2020-06" ? { ...point, value: null } : point);
+  const missingDifference = applyTransformation(withMissing, "first_difference");
+  check(missingDifference.find((point) => point.period === "2020-06")?.value === null && missingDifference.find((point) => point.period === "2020-07")?.value === null, "Missing-value propagation failed.", "var");
+}
+check(adfTest(new Array(80).fill(5), { autolag: "aic" }).status === "not_tested", "Singular ADF design must report not_tested.", "var");
+check(kpssStatus().status === "not_available", "KPSS must honestly report not_available.", "var");
+
+console.log(`Advanced analysis validation: panel=${panelTests} tests; network=${networkTests} tests; hf=${hfTests} tests; event=${eventTests} tests; var=${varTests} tests; failures=${errors.length}.`);
 if (errors.length) {
   errors.forEach((error) => console.error(`ADVANCED ANALYSIS ERROR: ${error}`));
   process.exit(1);

@@ -104,6 +104,12 @@ const sourceEntries = [
   ["network/network_acquisition_manifest.json", "src/data/network/network_acquisition_manifest.json"],
   ["analysis/analysis_skill_registry.json", "src/data/analysis/analysis_skill_registry.json"],
   ["analysis/var_readiness.json", "src/data/analysis/var_readiness.json"],
+  ["analysis/var_reference_cases.json", "src/data/analysis/var_reference_cases.json"],
+  ["macro-dynamics/var_country_readiness.json", "src/data/macro/var_country_readiness.json"],
+  ["macro-dynamics/transformation_registry.json", "src/data/macro/transformation_registry.json"],
+  ["macro-dynamics/stationarity_results.json", "src/data/macro/stationarity_results.json"],
+  ["macro-dynamics/lag_selection_registry.json", "src/data/macro/lag_selection_registry.json"],
+  ["macro-dynamics/var_model_registry.json", "src/data/macro/var_model_registry.json"],
 ];
 for (const [archivePath, sourcePath] of sourceEntries) {
   const file = path.join(root, sourcePath);

@@ -1,0 +1,104 @@
+{
+  "schema_version": "transformation-registry-v1.4",
+  "generated_at": "2026-08-22",
+  "records": [
+    {
+      "indicator": "hicp_monthly_index",
+      "input_semantics": "index_level",
+      "allowed_transformations": [
+        "log_difference",
+        "log_difference_12"
+      ],
+      "default_transformation": "log_difference",
+      "output_semantics": "growth_rate",
+      "output_unit": "%（100×Δlog，月度通胀近似）",
+      "stationarity_note": "指数水平不允许直接进入 VAR；100×Δlog(HICP) 为月度通胀近似，12 个月对数差分为另一独立变换。"
+    },
+    {
+      "indicator": "hicp_annual_rate",
+      "input_semantics": "yoy_rate",
+      "allowed_transformations": [
+        "level",
+        "first_difference"
+      ],
+      "default_transformation": "level",
+      "output_semantics": "yoy_rate",
+      "output_unit": "%",
+      "stationarity_note": "百分比率不自动视为平稳：level 规格必须通过 ADF 检验，否则使用一阶差分。"
+    },
+    {
+      "indicator": "industrial_production_index",
+      "input_semantics": "index_level",
+      "allowed_transformations": [
+        "log_difference",
+        "log_difference_12"
+      ],
+      "default_transformation": "log_difference",
+      "output_semantics": "growth_rate",
+      "output_unit": "%（100×Δlog）",
+      "stationarity_note": "指数水平禁止直接进入平稳 VAR；默认 100×Δlog(IPI)，可选 12 个月对数增长。"
+    },
+    {
+      "indicator": "unemployment_rate_monthly",
+      "input_semantics": "rate_percent",
+      "allowed_transformations": [
+        "level",
+        "first_difference"
+      ],
+      "default_transformation": "level",
+      "output_semantics": "rate_percent",
+      "output_unit": "%",
+      "stationarity_note": "level 或一阶差分由 ADF 检验决定，不做静默变换；实际使用的变换必须展示。"
+    }
+  ],
+  "fallback_chains": [
+    {
+      "role": "inflation",
+      "chain": [
+        {
+          "indicator": "hicp_monthly_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "hicp_monthly_index",
+          "transformation": "log_difference_12"
+        },
+        {
+          "indicator": "hicp_annual_rate",
+          "transformation": "level"
+        },
+        {
+          "indicator": "hicp_annual_rate",
+          "transformation": "first_difference"
+        }
+      ]
+    },
+    {
+      "role": "industrial_production",
+      "chain": [
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference_12"
+        }
+      ]
+    },
+    {
+      "role": "unemployment",
+      "chain": [
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level"
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "first_difference"
+        }
+      ]
+    }
+  ],
+  "boundary": "Index levels never enter a stationary VAR as raw levels; rate series enter in level only after an explicit stationarity test. The applied transformation is always displayed."
+}

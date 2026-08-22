@@ -2,6 +2,20 @@
 
 Public research releases are summarized here. Historical implementation QA remains in the data records and methodology appendix; this file records only major public changes, methodological changes and breaking changes.
 
+## v1.4 Macro Dynamics & Reduced-Form VAR - 2026-08-22
+
+- Major: activated a single-country monthly reduced-form VAR workbench with per-country readiness, documented transformations, common continuous samples and full raw-observation traces.
+- Method: added ADF stationarity gates, common-sample AIC/BIC/HQIC lag selection, a parameter-count gate, companion-root stability, adjusted Portmanteau residual diagnostics and ordering-dependent orthogonalized reduced-form responses.
+- Validation: coefficients, information criteria, roots, residual covariance, Portmanteau statistics, ADF results and IRF paths are cross-checked against offline statsmodels, NumPy and SciPy fixtures.
+- Boundary: KPSS, bootstrap uncertainty intervals, SVAR, Local Projections and Bayesian VAR remain unavailable; Cholesky ordering is not presented as structural identification.
+- Breaking: none. Composite indicators, panel estimators, trade-network formulas, event-window semantics and scenario definitions remain unchanged.
+
+## v1.31 High-Frequency Integrity & Event Semantics - 2026-08-22
+
+- Major: migrated HICP inputs to Eurostat `prc_hicp_minr` with ECOICOP-2 all-items continuity and an explicit migration manifest.
+- Fix: event-window pre, event and post periods are disjoint; the event month is not counted as post-event data, and changes use indicator-appropriate units.
+- Boundary: this release prepared but did not activate VAR; v1.4 is the first release that activates the reduced-form implementation.
+
 ## v1.3 High-Frequency Political Economy, Event Analysis & Product Language System - 2026-08-21
 
 - Major: added the monthly high-frequency data layer (Eurostat HICP monthly index and annual rate as separate indicators, harmonised unemployment SA 15-74, industrial production SCA; 2015-01 onward; gaps stay missing, no interpolation).

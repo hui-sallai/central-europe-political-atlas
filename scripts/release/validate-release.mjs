@@ -9,9 +9,9 @@ const researchOut = path.join(out, "research-data");
 const configuredBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const releaseConfig = JSON.parse(fs.readFileSync(path.join(root, "src", "data", "release.json"), "utf8"));
 const requiredRoutes = ["", "map", "countries", "data", "news", "models", "scenarios", "methodology", "legal", "privacy", ...["poland", "hungary", "czechia", "slovakia", "germany", "austria", "romania", "slovenia", "croatia", "serbia"].map((country) => `countries/${country}`)];
-const requiredExports = ["platform_metadata.json", "release_manifest.json", "validation_registry.json", "golden_test_cases.json", "observations.json", "sources.json", "indicators.json", researchPackageFilename()];
+const requiredExports = ["platform_metadata.json", "release_manifest.json", "validation_registry.json", "golden_test_cases.json", "observations.json", "sources.json", "indicators.json", "var_country_readiness.json", researchPackageFilename()];
 const methodologySections = ["data", "models", "events", "spatial", "validation", "citation"];
-const stableResearchUrls = ["/map?country=hungary&layer=regional_boundary", "/models?model=fiscal_pressure&country=hungary", "/scenarios?scenario=inflation_resurgence&country=poland&shock=2", "/countries/poland/", "/news?country=hungary&type=China"];
+const stableResearchUrls = ["/map?country=hungary&layer=regional_boundary", "/models?model=fiscal_pressure&country=hungary", "/models?skill=var_svar&country=poland", "/scenarios?scenario=inflation_resurgence&country=poland&shock=2", "/countries/poland/", "/news?country=hungary&type=China"];
 const failures = [];
 let internalLinksChecked = 0;
 
@@ -71,6 +71,7 @@ const metadata = readJson("platform_metadata.json");
 const manifest = readJson("release_manifest.json");
 const validationExport = readJson("validation_registry.json");
 const goldenExport = readJson("golden_test_cases.json");
+const varReadiness = readJson("var_country_readiness.json");
 const expectedVersion = releaseConfig.version;
 
 if (metadata) {
@@ -103,6 +104,8 @@ if (manifest) {
 if (!validationExport?.records?.length) failures.push("validation registry has no records");
 if (!goldenExport?.records?.length) failures.push("golden cases have no records");
 if (goldenExport?.records?.some((item) => item.status === "failed" || item.result_semantic === "failed")) failures.push("golden case failure found in export");
+if (varReadiness?.schema_version !== "var-country-readiness-v1.4" || varReadiness?.records?.length !== 10) failures.push("v1.4 VAR country readiness export is incomplete");
+if (varReadiness?.records?.some((item) => !item.country || !item.readiness_state || !Array.isArray(item.variables))) failures.push("v1.4 VAR country readiness records are malformed");
 
 const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
 if (!readme.includes(`Current release: **${expectedVersion}**`)) failures.push("README current release does not match canonical metadata");
@@ -121,6 +124,7 @@ for (const section of methodologySections) {
   previousSectionIndex = sectionIndex;
 }
 if (!methodology.includes("Validation ≠ scientific proof") || !methodology.includes("Historical reconstruction readiness")) failures.push("methodology validation boundary is incomplete");
+if (!methodology.includes("Reduced-form VAR") || !methodology.includes("KPSS") || !methodology.includes("不是结构冲击或因果效应")) failures.push("v1.4 VAR methodology boundary is incomplete");
 
 for (const stableUrl of stableResearchUrls) {
   const route = stableUrl.split(/[?#]/)[0].replace(/^\//, "").replace(/\/$/, "");

@@ -23,6 +23,9 @@ const TradeNetworkWorkbench = dynamic(() => import("@/components/TradeNetworkWor
 const EventWindowWorkbench = dynamic(() => import("@/components/EventWindowWorkbench").then((module) => module.EventWindowWorkbench), {
   loading: () => <p className="mt-6 border-y border-[var(--line)] py-10 text-center text-sm text-[var(--muted)]">正在加载事件窗口工作区…</p>,
 });
+const VarWorkbench = dynamic(() => import("@/components/VarWorkbench").then((module) => module.VarWorkbench), {
+  loading: () => <p className="mt-6 border-y border-[var(--line)] py-10 text-center text-sm text-[var(--muted)]">正在加载宏观时间序列工作区…</p>,
+});
 
 type ConsistencyStatus = "match" | "mismatch" | "missing_reference" | null;
 type ResultTab = keyof typeof analysisLabels.resultTabs;
@@ -51,6 +54,9 @@ const skillToCategory: Record<string, AnalysisSkillCategory> = {
   event_window_analysis: "event_analysis",
   network_analysis: "network_analysis",
   network_dependency: "network_analysis",
+  var_svar: "macro_time_series",
+  reduced_form_var: "macro_time_series",
+  macro_time_series: "macro_time_series",
 };
 
 export function AnalysisWorkbench({ countries, cards, outputs, events }: { countries: Country[]; cards: ModelCard[]; outputs: ModelOutput[]; events: Event[] }) {
@@ -128,6 +134,11 @@ export function AnalysisWorkbench({ countries, cards, outputs, events }: { count
           initialEvent={searchParams.get("event") ?? undefined}
           initialOutcome={searchParams.get("outcome") ?? undefined}
         />
+      ) : category === "macro_time_series" ? (
+        <div className="mt-6 grid gap-6">
+          <VarWorkbench countries={countries} />
+          <div className="divide-y divide-[var(--line)] border-y border-[var(--line)]">{skills.filter((skill) => skill.calculation_mode !== "active").map((skill) => <article key={skill.skill_id} className="grid gap-3 py-5 md:grid-cols-[220px_1fr_auto] md:items-start"><div><p className="editorial-kicker">{skill.calculation_mode.replaceAll("_", " ")}</p><h2 className="mt-2 text-xl font-semibold">{skill.name}</h2></div><p className="text-sm leading-7 text-[var(--muted)]">{skill.description}</p><span className="text-xs font-semibold text-[var(--warning)]">{statusLabels[skill.calculation_mode]}</span><details className="advanced-disclosure md:col-span-3"><summary>登记的需求与诊断</summary><p className="mt-3 text-xs text-[var(--muted)]">Required: {skill.required_data.join(" / ")}</p><p className="mt-2 text-xs text-[var(--muted)]">Diagnostics: {skill.diagnostics.join(" / ")}</p></details></article>)}</div>
+        </div>
       ) : (
         <div className="divide-y divide-[var(--line)] border-y border-[var(--line)] mt-6">{skills.map((skill) => <article key={skill.skill_id} className="grid gap-3 py-5 md:grid-cols-[220px_1fr_auto] md:items-start"><div><p className="editorial-kicker">{skill.calculation_mode.replaceAll("_", " ")}</p><h2 className="mt-2 text-xl font-semibold">{skill.name}</h2></div><p className="text-sm leading-7 text-[var(--muted)]">{skill.description}</p><span className="text-xs font-semibold text-[var(--warning)]">{statusLabels[skill.calculation_mode]}</span><details className="advanced-disclosure md:col-span-3"><summary>登记的需求与诊断</summary><p className="mt-3 text-xs text-[var(--muted)]">Required: {skill.required_data.join(" / ")}</p><p className="mt-2 text-xs text-[var(--muted)]">Diagnostics: {skill.diagnostics.join(" / ")}</p></details></article>)}</div>
       )}

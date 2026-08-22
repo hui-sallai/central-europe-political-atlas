@@ -1,16 +1,18 @@
 {
-  "schema_version": "analysis-skill-registry-v1.31",
+  "schema_version": "analysis-skill-registry-v1.4",
   "generated_at": "2026-08-22",
   "records": [
     { "skill_id": "composite_indicators", "state": "active" },
     { "skill_id": "panel_econometrics", "state": "active", "gate": ">=8 countries, >=8 years, >=4 qualified key variables" },
     { "skill_id": "network_dependency", "state": "active", "gate": "eligible partner coverage ratio >= 0.95 on complete bilateral edges" },
     { "skill_id": "event_window_analysis", "state": "active", "gate": "verified event with month precision; >=12 pre and >=6 true post monthly observations (event month excluded)" },
+    { "skill_id": "var_svar", "state": "active", "gate": "per country × variable set × window × transformation: >=60 effective monthly observations, ADF stationary transformed series, common-sample IC lag selection, parameter-count gate, companion-root stability, residual autocorrelation diagnostic", "readiness_reference": "macro-dynamics/var_country_readiness.json", "note": "Reduced-form VAR only; readiness is per-country — one country's failure never blocks the others." },
+    { "skill_id": "svar", "state": "registry_only", "required_data": ["explicit_identification_strategy"], "note": "Cholesky ordering is not structural identification." },
     { "skill_id": "event_study", "state": "registry_only", "required_data": ["verified_event", "pre_window", "post_window", "comparison_design", "daily_monthly_or_quarterly_outcome"] },
     { "skill_id": "local_projections", "state": "registry_only" },
-    { "skill_id": "var_svar", "state": "blocked", "reason": "blocked_by_frequency", "future_gate": ">=60 effective monthly observations, consistent definitions, no unresolved series break, missing-data gate passed, plus stationarity, lag and stability diagnostics and a full readiness audit", "readiness_reference": "analysis/var_readiness.json" },
-    { "skill_id": "bayesian_var", "state": "blocked", "reason": "blocked_by_frequency" },
+    { "skill_id": "bayesian_var", "state": "blocked", "reason": "blocked_by_prior_and_validation_design" },
     { "skill_id": "causal_policy_analysis", "state": "registry_only" }
   ],
-  "high_frequency_roadmap": ["industrial_production_monthly", "hicp_monthly", "unemployment_monthly", "policy_rates", "bond_yields", "exchange_rates", "energy_prices"]
+  "high_frequency_roadmap": ["industrial_production_monthly", "hicp_monthly", "unemployment_monthly", "policy_rates", "bond_yields", "exchange_rates", "energy_prices"],
+  "macro_driver_roadmap": ["energy_price", "policy_interest_rate", "exchange_rate", "bond_yield"]
 }
