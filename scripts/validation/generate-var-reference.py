@@ -1,6 +1,6 @@
 # Generates offline reference cases for the v1.4 reduced-form VAR engine.
 # Uses statsmodels (VAR, adfuller), numpy (eigvals) and scipy (cdf tables).
-# All fixture innovations are deterministic (sin/cos composites) — no RNG.
+# Fixture innovations use a fixed NumPy seed, so regeneration is deterministic.
 # Output: src/data/analysis/var_reference_cases.json
 import json
 import math
