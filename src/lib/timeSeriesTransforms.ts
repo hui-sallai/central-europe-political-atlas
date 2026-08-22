@@ -1,10 +1,10 @@
 import type { TimeSeriesTransformationSpec, TransformationId, TransformedPoint } from "@/types/MacroDynamics";
 import type { HighFrequencyPoint } from "@/lib/eventWindowEngine";
 
-export const TRANSFORM_REGISTRY_VERSION = "transformation-registry-v1.4";
+export const TRANSFORM_REGISTRY_VERSION = "transformation-registry-v1.41";
 
 /**
- * Transformation registry (v1.4 §5-§9). Index levels are never allowed into a
+ * Transformation registry (v1.41). Index levels are never allowed into a
  * stationary VAR as raw levels; rate series may enter in level only after an
  * explicit stationarity test. The UI always shows the transformation actually
  * used — nothing is silently transformed.
@@ -54,9 +54,9 @@ export function transformationSpec(indicator: string): TimeSeriesTransformationS
 
 export const transformationLabels: Record<TransformationId, string> = {
   level: "水平值（level）",
-  first_difference: "一阶差分（Δ）",
-  log_difference: "对数差分 ×100（100×Δlog）",
-  log_difference_12: "12 个月对数差分 ×100",
+  first_difference: "一阶差分 · Δx",
+  log_difference: "月度对数差分 · 100 × Δlog(x)",
+  log_difference_12: "12个月对数变化 · 100 × [log(x_t)-log(x_t-12)]",
 };
 
 const LAG_BY_TRANSFORMATION: Record<TransformationId, number> = {

@@ -1,9 +1,9 @@
 {
   "name": "Central Europe Political Atlas",
-  "version": "v1.4 Macro Dynamics & Reduced-Form VAR",
+  "version": "v1.41 VAR Specification & Diagnostic Reliability",
   "release_date": "2026-08-22",
-  "stage": "macro dynamics and reduced-form VAR",
-  "schema_version": "release-metadata-v1.4",
+  "stage": "VAR specification and diagnostic reliability",
+  "schema_version": "release-metadata-v1.41",
   "canonical_url": "https://hy-central-europe-analysis.org/",
   "public_contact_email": "sallaizhang@outlook.com",
   "legal_notice_updated": "2026-08-20",
@@ -26,17 +26,18 @@
     "high-frequency-v1.31",
     "event-window-v1.31",
     "hicp-migration-v1.31",
-    "transformation-registry-v1.4",
+    "transformation-registry-v1.41",
     "stationarity-engine-v1.4",
-    "var-engine-v1.4",
-    "var-country-readiness-v1.4"
+    "var-engine-v1.41",
+    "var-country-readiness-v1.41",
+    "var-specification-profiles-v1.41"
   ],
   "limitations": [
     "No election forecasts, investment advice, probability forecasts, or causal impact estimates.",
     "Serbia regional comparison remains pending while national data remain available.",
     "China Economic Exposure and China-linked Project Disruption remain subject to their published evidence gates."
   ],
-  "citation": "Central Europe Political Atlas, version v1.4 Macro Dynamics & Reduced-Form VAR, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
+  "citation": "Central Europe Political Atlas, version v1.41 VAR Specification & Diagnostic Reliability, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
   "data_status_enum": [
     "official",
     "verified",

@@ -357,12 +357,26 @@ const withOverlap = attachOverlappingEvents(windowResult, [
 ]);
 check(withOverlap.overlapping_events.length === 1 && withOverlap.overlapping_events[0].event_id === "ev-other" && withOverlap.overlapping_event_warning !== null, "Overlapping-event detection failed.", "event");
 
-// ---- Reduced-form VAR / macro-dynamics validation (v1.4 §53-§59) ----
-const { estimateVarModel, selectVarLagOrder, varStability, portmanteauTest, orthogonalizedIrf, runReducedFormVar } = require("../../src/lib/varEngine.ts");
+// ---- Reduced-form VAR / macro-dynamics validation (v1.41) ----
+const { estimateVarModel, selectVarLagOrder, varStability, portmanteauTest, orthogonalizedIrf, runReducedFormVar, isValidMonthPeriod, maximumAllowedVarLag } = require("../../src/lib/varEngine.ts");
 const { adfTest, kpssStatus } = require("../../src/lib/stationarityTests.ts");
 const { applyTransformation } = require("../../src/lib/timeSeriesTransforms.ts");
 const { eigenvalues, normalCdf, chiSquareCdf } = require("../../src/lib/numericLinAlg.ts");
-const varRef = JSON.parse(fs.readFileSync(path.join(root, "src/data/analysis/var_reference_cases.json"), "utf8")).cases;
+const { BASELINE_VAR_PROFILE, EXPLORATORY_VAR_PROFILE, createVarComparabilitySignature } = require("../../src/lib/varSpecifications.ts");
+const varReferencePayload = JSON.parse(fs.readFileSync(path.join(root, "src/data/analysis/var_reference_cases.json"), "utf8"));
+const varRef = varReferencePayload.cases;
+
+check(varReferencePayload.schema_version === "var-reference-cases-v1.41" && varReferencePayload.provenance?.generator_version === "var-reference-generator-v1.41", "VAR reference provenance version is missing.", "var");
+check(["python_version", "numpy_version", "scipy_version", "statsmodels_version", "generation_date"].every((field) => Boolean(varReferencePayload.provenance?.[field])), "VAR reference runtime provenance is incomplete.", "var");
+check(varReferencePayload.provenance?.seeds?.var_simulation === 42 && varReferencePayload.provenance?.seeds?.random_walk === 7, "VAR reference seeds are not pinned.", "var");
+check(BASELINE_VAR_PROFILE.fallback_policy === "none" && EXPLORATORY_VAR_PROFILE.fallback_policy === "documented_exploratory_chain", "Baseline/exploratory profile boundary failed.", "var");
+check(BASELINE_VAR_PROFILE.deterministic_terms === "constant" && EXPLORATORY_VAR_PROFILE.deterministic_terms === "constant", "Unsupported deterministic trend leaked into public profiles.", "var");
+const signatureA = createVarComparabilitySignature(BASELINE_VAR_PROFILE.variables);
+const signatureB = createVarComparabilitySignature(BASELINE_VAR_PROFILE.variables);
+const signatureC = createVarComparabilitySignature(BASELINE_VAR_PROFILE.variables.map((item, index) => index === 0 ? { ...item, transformation: "log_difference_12" } : item));
+check(signatureA.signature_id === signatureB.signature_id && signatureA.signature_id !== signatureC.signature_id, "VAR comparability signature is not deterministic or transformation-sensitive.", "var");
+check(isValidMonthPeriod("2024-01") && !isValidMonthPeriod("2024-1") && !isValidMonthPeriod("2024-13"), "YYYY-MM preflight validation failed.", "var");
+check(maximumAllowedVarLag(180, 3) === 12 && maximumAllowedVarLag(60, 4) === 3, "VAR lag preflight parameter gate failed.", "var");
 
 // Special functions vs scipy.
 for (const [x, expected] of Object.entries(varRef.special_functions.normal_cdf)) {
@@ -421,8 +435,7 @@ for (const [key, expected] of Object.entries(varRef.special_functions.chi2_cdf))
     });
   }
   check(irfDiff < 1e-6, `Orthogonalized IRF mismatch: ${irfDiff}`, "var");
-  const hPort = Math.max(est.coefficientMatrices.length + 3, Math.min(24, Math.floor(est.nobs / 3)));
-  const port = portmanteauTest(est.resid, est.coefficientMatrices.length, hPort);
+  const port = portmanteauTest(est.resid, est.coefficientMatrices.length, 24);
   check(Math.abs(port.statistic - stable.portmanteau.statistic) < 1e-6 && port.degrees_of_freedom === stable.portmanteau.degrees_of_freedom && Math.abs(port.p_value - stable.portmanteau.p_value) < 1e-6, `Portmanteau mismatch: ${port.statistic} vs ${stable.portmanteau.statistic}`, "var");
   for (const adfRef of stable.adf) {
     const series = data.map((row) => row[adfRef.column]);
@@ -477,6 +490,8 @@ const varToPoints = (data, prefix) => data.map((row, index) => ({
   if (outcome.status === "ok") {
     check(outcome.result.sample.effective_observations === stable.data.length, "VAR result structure incomplete.", "var");
     check(outcome.result.data_trace.length > 0 && outcome.result.input_series.length === 3, "VAR data trace / input series missing.", "var");
+    check(outcome.result.diagnostics.residual_autocorrelation_sensitivity.map((item) => item.lags).join(",") === "12,18,24" && outcome.result.diagnostics.residual_lm.status === "unavailable", "VAR residual diagnostic sensitivity / LM boundary failed.", "var");
+    check(outcome.result.variable_order.join(",") === "var_a,var_b,var_c" && outcome.result.comparability_signature.variables.join(",") === "var_a,var_b,var_c", "VAR ordering trace failed.", "var");
     // BIC underselects lag 1 for this VAR(2) process → residual autocorrelation
     // must gate the dynamic response (§29): coefficients visible, IRF blocked.
     check(outcome.result.irf === null && outcome.result.irf_blocked_reason !== null && outcome.result.irf_blocked_reason.includes("残差自相关"), `IRF diagnostic gate failed: ${outcome.result.irf_blocked_reason}`, "var");
@@ -517,6 +532,10 @@ const varToPoints = (data, prefix) => data.map((row, index) => ({
   check(duplicateOutcome.status === "blocked" && duplicateOutcome.reason_code === "missing_data" && duplicateOutcome.reasons[0].includes("重复月份"), "Duplicate-month gate failed.", "var");
   const reversedWindow = runReducedFormVar({ ...spec, start_period: "2030-01", end_period: "2020-01" }, seriesMap);
   check(reversedWindow.status === "blocked" && reversedWindow.reason_code === "unsupported_specification", "Invalid sample-window gate failed.", "var");
+  const malformedWindow = runReducedFormVar({ ...spec, start_period: "2020-1" }, seriesMap);
+  check(malformedWindow.status === "blocked" && malformedWindow.reason_code === "unsupported_specification", "Malformed YYYY-MM gate failed.", "var");
+  const trendOutcome = runReducedFormVar({ ...spec, deterministic_terms: "constant_trend" }, seriesMap);
+  check(trendOutcome.status === "blocked" && trendOutcome.reason_code === "unsupported_specification", "Unsupported trend specification was not blocked.", "var");
 }
 
 // Transformation semantics, source trace and monthly continuity.

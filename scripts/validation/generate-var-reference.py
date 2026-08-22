@@ -1,13 +1,17 @@
-# Generates offline reference cases for the v1.4 reduced-form VAR engine.
+# Generates offline reference cases for the v1.41 reduced-form VAR engine.
 # Uses statsmodels (VAR, adfuller), numpy (eigvals) and scipy (cdf tables).
 # Fixture innovations use a fixed NumPy seed, so regeneration is deterministic.
 # Output: src/data/analysis/var_reference_cases.json
 import json
 import math
 import os
+import platform
+from datetime import date
 
 import numpy as np
+import scipy
 from scipy import stats as scipy_stats
+import statsmodels
 from statsmodels.tsa.api import VAR
 from statsmodels.tsa.stattools import adfuller
 
@@ -106,8 +110,8 @@ def reference_for_case(name, data, maxlags, irf_horizons):
                 "horizon": irf_horizons,
                 "response": [float(orth[h, response, shock]) for h in irf_horizons],
             })
-    h_port = max(p_sel + 3, min(24, res.nobs // 3))
-    port = portmanteau(np.asarray(res.resid), p_sel, h_port)
+    port = portmanteau(np.asarray(res.resid), p_sel, 24)
+    port_sensitivity = [portmanteau(np.asarray(res.resid), p_sel, horizon) for horizon in (12, 18, 24)]
     adf_results = []
     for col in range(K):
         stat, pvalue, usedlag, nobs, crit, icbest = adfuller(data[:, col], regression="c", autolag="AIC")
@@ -135,6 +139,7 @@ def reference_for_case(name, data, maxlags, irf_horizons):
         "companion_root_moduli": moduli,
         "irf": {"horizons": irf_horizons, "paths": irf_paths},
         "portmanteau": port,
+        "portmanteau_sensitivity": port_sensitivity,
         "adf": adf_results,
     }
 
@@ -201,7 +206,19 @@ def main():
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as handle:
-        json.dump({"schema_version": "var-reference-cases-v1.4", "cases": cases}, handle)
+        json.dump({
+            "schema_version": "var-reference-cases-v1.41",
+            "provenance": {
+                "python_version": platform.python_version(),
+                "numpy_version": np.__version__,
+                "scipy_version": scipy.__version__,
+                "statsmodels_version": statsmodels.__version__,
+                "seeds": {"var_simulation": 42, "random_walk": 7},
+                "generation_date": date.today().isoformat(),
+                "generator_version": "var-reference-generator-v1.41",
+            },
+            "cases": cases,
+        }, handle)
     print(f"stable case: selected BIC lag = {cases['stable_var2_k3']['selected_lags']['bic']}; "
           f"max root modulus = {cases['stable_var2_k3']['companion_root_moduli'][-1]:.4f}")
     print(f"known-lag case: BIC selected = {cases['known_lag_var2']['bic_selected']} (expected 2)")

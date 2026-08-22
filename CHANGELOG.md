@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.41 VAR Specification & Diagnostic Reliability - 2026-08-22
+
+- Major: separated the fixed formal baseline from the explicitly exploratory transformation fallback profile; readiness now distinguishes coefficient estimation from dynamic-response eligibility.
+- Diagnostics: fixed adjusted Portmanteau sensitivity horizons at 12, 18 and 24 months, added lag preflight and comparability signatures, and withheld IRF for borderline ADF, instability, residual failure or failed orthogonalization.
+- Reproducibility: pinned the Python reference environment and added fixture provenance for runtime versions, seeds, generator version and generation date.
+- Boundary: only the constant deterministic specification is public. Residual LM, bootstrap intervals, SVAR, Local Projections and Bayesian VAR remain unavailable.
+
 Public research releases are summarized here. Historical implementation QA remains in the data records and methodology appendix; this file records only major public changes, methodological changes and breaking changes.
 
 ## v1.4 Macro Dynamics & Reduced-Form VAR - 2026-08-22

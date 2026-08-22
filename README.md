@@ -4,7 +4,7 @@ Central Europe Political Atlas is a public political-economy research platform f
 
 Public site: https://hy-central-europe-analysis.org/
 
-Current release: **v1.4 Macro Dynamics & Reduced-Form VAR**
+Current release: **v1.41 VAR Specification & Diagnostic Reliability**
 
 ## Research scope
 
@@ -13,7 +13,7 @@ Current release: **v1.4 Macro Dynamics & Reduced-Form VAR**
 - 4 transparent, rule-based models with input traces, published weights, completeness and confidence; formal cross-country comparisons require the same model version, formula, weight and input year.
 - An annual 2015–2025 econometric panel with cluster-robust Student-t (G−1) inference, small-cluster gates and offline Python reference validation.
 - An activated bilateral goods trade network (UN Comtrade, complete partner edges, 0.95 coverage gate) with deterministic descriptive concentration metrics.
-- A per-country monthly reduced-form VAR workbench with explicit transformations, ADF gates, common-sample AIC/BIC/HQIC lag selection, stability and residual diagnostics, and ordering-dependent orthogonalized responses. SVAR and uncertainty intervals remain unavailable.
+- A per-country monthly reduced-form VAR workbench with a fixed formal baseline, a separately labelled exploratory fallback profile, strict `estimable` versus `dynamic_response_ready` states, h=12/18/24 residual sensitivity diagnostics, and ordering-dependent orthogonalized point responses. SVAR, residual LM and uncertainty intervals remain unavailable.
 - 4 conditional scenarios with baseline, shock assumption, adjusted input and result traces.
 - Coded political-economy events and verified China-related project records.
 - Deterministic validation, golden cases and a release QA gate.
@@ -54,7 +54,20 @@ Machine-readable files are published under `/research-data/`. See [the research-
 
 ## Citation
 
-Central Europe Political Atlas, version v1.4 Macro Dynamics & Reduced-Form VAR, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
+Central Europe Political Atlas, version v1.41 VAR Specification & Diagnostic Reliability, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
+
+## Official VAR reference environment
+
+The JavaScript estimator is checked against a pinned Python reference stack. Create an isolated environment and regenerate the fixture with:
+
+```powershell
+python -m venv .venv
+.venv\Scripts\python -m pip install -r scripts/validation/requirements-var-reference.txt
+.venv\Scripts\python scripts/validation/generate-var-reference.py
+pnpm.cmd analysis:validate
+```
+
+The generated fixture records Python, NumPy, SciPy and statsmodels versions, deterministic seeds, generation date and generator version. This environment is for reference validation only; the public site runs the TypeScript engine.
 
 The project currently does not claim a DOI. Cite original source URLs when using individual observations, events or project records.
 

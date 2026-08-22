@@ -1,532 +1,777 @@
 {
-  "schema_version": "lag-selection-registry-v1.4",
+  "schema_version": "lag-selection-registry-v1.41",
   "generated_at": "2026-08-22",
   "default_criterion": "bic",
-  "note": "Common effective sample per candidate lag; AIC / BIC / HQIC reported for every candidate; BIC is the default for the current sample sizes.",
-  "record_count": 5,
+  "note": "候选滞后使用共同有效样本；最大滞后同时受请求值 12 和 (T-p)/(Kp+1)>=4 参数门约束。",
+  "record_count": 7,
   "records": [
     {
       "country": "austria",
+      "profile_id": "exploratory_monthly_macro_fallback_v1",
+      "profile_kind": "exploratory_fallback",
+      "comparability_signature": {
+        "variables": [
+          "hicp_annual_rate",
+          "industrial_production_index",
+          "unemployment_rate_monthly"
+        ],
+        "transformations": [
+          "first_difference",
+          "log_difference",
+          "level"
+        ],
+        "frequency": "monthly",
+        "deterministic_terms": "constant",
+        "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
+        "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
+        "signature_id": "varcmp-v1.41__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+      },
       "criterion": "bic",
-      "max_lag": 12,
+      "requested_max_lag": 12,
+      "maximum_allowed_lag": 10,
+      "applied_max_lag": 10,
       "selected_lag": 1,
-      "selected_ic_value": -1.3814813819868585,
+      "selected_ic_value": -1.3545202793871831,
       "candidates": [
         {
           "lag": 1,
-          "aic": -1.6529995007678795,
-          "bic": -1.3814813819868585,
-          "hqic": -1.542696022240797,
-          "nobs": 125,
+          "aic": -1.623262366296656,
+          "bic": -1.3545202793871831,
+          "hqic": -1.5140756990992874,
+          "nobs": 127,
           "free_parameters": 12
         },
         {
           "lag": 2,
-          "aic": -1.7512536857046979,
-          "bic": -1.2760969778379114,
-          "hqic": -1.558222598282304,
-          "nobs": 125,
+          "aic": -1.7468432752904195,
+          "bic": -1.2765446231988413,
+          "hqic": -1.555766607695024,
+          "nobs": 127,
           "free_parameters": 21
         },
         {
           "lag": 3,
-          "aic": -1.8047925884827962,
-          "bic": -1.1259972915302439,
-          "hqic": -1.5290338921650903,
-          "nobs": 125,
+          "aic": -1.792940809324583,
+          "bic": -1.1210855920509002,
+          "hqic": -1.5199741413311614,
+          "nobs": 127,
           "free_parameters": 30
         },
         {
           "lag": 4,
-          "aic": -1.7628022805475498,
-          "bic": -0.8803683945092318,
-          "hqic": -1.4043159753345322,
-          "nobs": 125,
+          "aic": -1.743087555552276,
+          "bic": -0.8696757730964881,
+          "hqic": -1.3882308871608275,
+          "nobs": 127,
           "free_parameters": 39
         },
         {
           "lag": 5,
-          "aic": -1.6679356213774137,
-          "bic": -0.5818631462533299,
-          "hqic": -1.2267217072690844,
-          "nobs": 125,
+          "aic": -1.651619598965382,
+          "bic": -0.5766512513274891,
+          "hqic": -1.214872930175907,
+          "nobs": 127,
           "free_parameters": 48
         },
         {
           "lag": 6,
-          "aic": -1.5690173634758988,
-          "bic": -0.27930629926604933,
-          "hqic": -1.0450758404722575,
-          "nobs": 125,
+          "aic": -1.5549842755409629,
+          "bic": -0.27845936272096505,
+          "hqic": -1.0363476063534613,
+          "nobs": 127,
           "free_parameters": 57
         },
         {
           "lag": 7,
-          "aic": -1.5355545854993702,
-          "bic": -0.042204932203754986,
-          "hqic": -0.9288854536004174,
-          "nobs": 125,
+          "aic": -1.5227342142616216,
+          "bic": -0.04465273625951882,
+          "hqic": -0.9222075446760936,
+          "nobs": 127,
           "free_parameters": 66
         },
         {
           "lag": 8,
-          "aic": -1.5397782013489512,
-          "bic": 0.15721004103242997,
-          "hqic": -0.8503814605546864,
-          "nobs": 125,
+          "aic": -1.524846504767593,
+          "bic": 0.15479153841661475,
+          "hqic": -0.8424298347840382,
+          "nobs": 127,
           "free_parameters": 75
         },
         {
           "lag": 9,
-          "aic": -1.6276325587935807,
-          "bic": 0.2729942726735657,
-          "hqic": -0.8555082091040043,
-          "nobs": 125,
+          "aic": -1.6120357870456758,
+          "bic": 0.26915882132063684,
+          "hqic": -0.8477291166640946,
+          "nobs": 127,
           "free_parameters": 84
         },
         {
           "lag": 10,
-          "aic": -1.5590149106403843,
-          "bic": 0.545250509912528,
-          "hqic": -0.704162952055496,
-          "nobs": 125,
+          "aic": -1.553461185324576,
+          "bic": 0.5292899882238413,
+          "hqic": -0.7072645145449683,
+          "nobs": 127,
           "free_parameters": 93
-        },
-        {
-          "lag": 11,
-          "aic": -1.5162981486615421,
-          "bic": 0.7916058609771359,
-          "hqic": -0.5787185811813425,
-          "nobs": 125,
-          "free_parameters": 102
-        },
-        {
-          "lag": 12,
-          "aic": -1.6101856422986234,
-          "bic": 0.9013569564258201,
-          "hqic": -0.5898784659231118,
-          "nobs": 125,
-          "free_parameters": 111
         }
       ]
     },
     {
       "country": "czechia",
+      "profile_id": "exploratory_monthly_macro_fallback_v1",
+      "profile_kind": "exploratory_fallback",
+      "comparability_signature": {
+        "variables": [
+          "hicp_annual_rate",
+          "industrial_production_index",
+          "unemployment_rate_monthly"
+        ],
+        "transformations": [
+          "first_difference",
+          "log_difference",
+          "level"
+        ],
+        "frequency": "monthly",
+        "deterministic_terms": "constant",
+        "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
+        "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
+        "signature_id": "varcmp-v1.41__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+      },
       "criterion": "bic",
-      "max_lag": 12,
+      "requested_max_lag": 12,
+      "maximum_allowed_lag": 10,
+      "applied_max_lag": 10,
       "selected_lag": 2,
-      "selected_ic_value": -0.6147376914568973,
+      "selected_ic_value": -0.6515545263382946,
       "candidates": [
         {
           "lag": 1,
-          "aic": -0.8694690676941768,
-          "bic": -0.5979509489131558,
-          "hqic": -0.7591655891670943,
-          "nobs": 125,
+          "aic": -0.8977012338307097,
+          "bic": -0.6289591469212364,
+          "hqic": -0.7885145666333409,
+          "nobs": 127,
           "free_parameters": 12
         },
         {
           "lag": 2,
-          "aic": -1.0898943993236838,
-          "bic": -0.6147376914568973,
-          "hqic": -0.8968633119012898,
-          "nobs": 125,
+          "aic": -1.1218531784298729,
+          "bic": -0.6515545263382946,
+          "hqic": -0.9307765108344774,
+          "nobs": 127,
           "free_parameters": 21
         },
         {
           "lag": 3,
-          "aic": -1.0721538636924706,
-          "bic": -0.3933585667399182,
-          "hqic": -0.7963951673747647,
-          "nobs": 125,
+          "aic": -1.1104334626709322,
+          "bic": -0.4385782453972493,
+          "hqic": -0.8374667946775105,
+          "nobs": 127,
           "free_parameters": 30
         },
         {
           "lag": 4,
-          "aic": -1.049407688720211,
-          "bic": -0.166973802681893,
-          "hqic": -0.6909213835071936,
-          "nobs": 125,
+          "aic": -1.0923928377320524,
+          "bic": -0.21898105527626455,
+          "hqic": -0.7375361693406041,
+          "nobs": 127,
           "free_parameters": 39
         },
         {
           "lag": 5,
-          "aic": -1.1129778634203633,
-          "bic": -0.02690538829627953,
-          "hqic": -0.671763949312034,
-          "nobs": 125,
+          "aic": -1.1526688200425699,
+          "bic": -0.07770047240467703,
+          "hqic": -0.7159221512530949,
+          "nobs": 127,
           "free_parameters": 48
         },
         {
           "lag": 6,
-          "aic": -1.0141424893971052,
-          "bic": 0.2755685748127443,
-          "hqic": -0.4902009663934639,
-          "nobs": 125,
+          "aic": -1.0582054627202295,
+          "bic": 0.21831945009976828,
+          "hqic": -0.539568793532728,
+          "nobs": 127,
           "free_parameters": 57
         },
         {
           "lag": 7,
-          "aic": -0.9263280159146816,
-          "bic": 0.5670216373809336,
-          "hqic": -0.31965888401572884,
-          "nobs": 125,
+          "aic": -0.9747506945835522,
+          "bic": 0.5033307834185505,
+          "hqic": -0.3742240249980242,
+          "nobs": 127,
           "free_parameters": 66
         },
         {
           "lag": 8,
-          "aic": -0.8293751324083705,
-          "bic": 0.8676131099730107,
-          "hqic": -0.13997839161410575,
-          "nobs": 125,
+          "aic": -0.8777410931386445,
+          "bic": 0.8018969500455633,
+          "hqic": -0.1953244231550897,
+          "nobs": 127,
           "free_parameters": 75
         },
         {
           "lag": 9,
-          "aic": -0.7867446241548584,
-          "bic": 1.113882207312288,
-          "hqic": -0.014620274465281913,
-          "nobs": 125,
+          "aic": -0.8323610306990479,
+          "bic": 1.0488335776672648,
+          "hqic": -0.06805436031746659,
+          "nobs": 127,
           "free_parameters": 84
         },
         {
           "lag": 10,
-          "aic": -0.7279119086311252,
-          "bic": 1.3763535119217871,
-          "hqic": 0.12694004995376318,
-          "nobs": 125,
+          "aic": -0.764092589152455,
+          "bic": 1.3186585843959624,
+          "hqic": 0.08210408162715277,
+          "nobs": 127,
           "free_parameters": 93
-        },
-        {
-          "lag": 11,
-          "aic": -0.7823428127369731,
-          "bic": 1.5255611969017049,
-          "hqic": 0.1552367547432265,
-          "nobs": 125,
-          "free_parameters": 102
-        },
-        {
-          "lag": 12,
-          "aic": -0.9321282824705499,
-          "bic": 1.5794143162538936,
-          "hqic": 0.0881788939049617,
-          "nobs": 125,
-          "free_parameters": 111
         }
       ]
     },
     {
       "country": "poland",
+      "profile_id": "baseline_monthly_macro_v1",
+      "profile_kind": "baseline_prespecified",
+      "comparability_signature": {
+        "variables": [
+          "hicp_monthly_index",
+          "industrial_production_index",
+          "unemployment_rate_monthly"
+        ],
+        "transformations": [
+          "log_difference",
+          "log_difference",
+          "level"
+        ],
+        "frequency": "monthly",
+        "deterministic_terms": "constant",
+        "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
+        "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
+        "signature_id": "varcmp-v1.41__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+      },
       "criterion": "bic",
-      "max_lag": 12,
+      "requested_max_lag": 12,
+      "maximum_allowed_lag": 10,
+      "applied_max_lag": 10,
       "selected_lag": 2,
-      "selected_ic_value": -3.859748650060363,
+      "selected_ic_value": -3.9120977479699324,
       "candidates": [
         {
           "lag": 1,
-          "aic": -3.985286189520081,
-          "bic": -3.71376807073906,
-          "hqic": -3.874982710992999,
-          "nobs": 125,
+          "aic": -4.032587387088057,
+          "bic": -3.7638453001785837,
+          "hqic": -3.923400719890688,
+          "nobs": 127,
           "free_parameters": 12
         },
         {
           "lag": 2,
-          "aic": -4.334905357927149,
-          "bic": -3.859748650060363,
-          "hqic": -4.141874270504755,
-          "nobs": 125,
+          "aic": -4.38239640006151,
+          "bic": -3.9120977479699324,
+          "hqic": -4.191319732466115,
+          "nobs": 127,
           "free_parameters": 21
         },
         {
           "lag": 3,
-          "aic": -4.285124226609083,
-          "bic": -3.6063289296565313,
-          "hqic": -4.009365530291378,
-          "nobs": 125,
+          "aic": -4.335081156085462,
+          "bic": -3.6632259388117787,
+          "hqic": -4.06211448809204,
+          "nobs": 127,
           "free_parameters": 30
         },
         {
           "lag": 4,
-          "aic": -4.301924057272084,
-          "bic": -3.419490171233765,
-          "hqic": -3.9434377520590655,
-          "nobs": 125,
+          "aic": -4.3543148904752575,
+          "bic": -3.4809031080194694,
+          "hqic": -3.999458222083809,
+          "nobs": 127,
           "free_parameters": 39
         },
         {
           "lag": 5,
-          "aic": -4.22778505868905,
-          "bic": -3.141712583564966,
-          "hqic": -3.78657114458072,
-          "nobs": 125,
+          "aic": -4.283236798408648,
+          "bic": -3.2082684507707557,
+          "hqic": -3.8464901296191734,
+          "nobs": 127,
           "free_parameters": 48
         },
         {
           "lag": 6,
-          "aic": -4.167240078640494,
-          "bic": -2.8775290144306442,
-          "hqic": -3.6432985556368527,
-          "nobs": 125,
+          "aic": -4.2234753854162985,
+          "bic": -2.946950472596301,
+          "hqic": -3.7048387162287972,
+          "nobs": 127,
           "free_parameters": 57
         },
         {
           "lag": 7,
-          "aic": -4.084034903717165,
-          "bic": -2.59068525042155,
-          "hqic": -3.4773657718182123,
-          "nobs": 125,
+          "aic": -4.142156907324104,
+          "bic": -2.664075429322001,
+          "hqic": -3.541630237738576,
+          "nobs": 127,
           "free_parameters": 66
         },
         {
           "lag": 8,
-          "aic": -4.010724149604844,
-          "bic": -2.313735907223463,
-          "hqic": -3.3213274088105793,
-          "nobs": 125,
+          "aic": -4.069701719619814,
+          "bic": -2.390063676435606,
+          "hqic": -3.387285049636259,
+          "nobs": 127,
           "free_parameters": 75
         },
         {
           "lag": 9,
-          "aic": -3.9374937858976446,
-          "bic": -2.0368669544304985,
-          "hqic": -3.1653694362080684,
-          "nobs": 125,
+          "aic": -3.9956415770193474,
+          "bic": -2.1144469686530347,
+          "hqic": -3.231334906637766,
+          "nobs": 127,
           "free_parameters": 84
         },
         {
           "lag": 10,
-          "aic": -3.933213296966397,
-          "bic": -1.8289478764134848,
-          "hqic": -3.0783613383815087,
-          "nobs": 125,
+          "aic": -3.9924877772133476,
+          "bic": -1.9097366036649301,
+          "hqic": -3.1462911064337398,
+          "nobs": 127,
           "free_parameters": 93
+        }
+      ]
+    },
+    {
+      "country": "poland",
+      "profile_id": "exploratory_monthly_macro_fallback_v1",
+      "profile_kind": "exploratory_fallback",
+      "comparability_signature": {
+        "variables": [
+          "hicp_monthly_index",
+          "industrial_production_index",
+          "unemployment_rate_monthly"
+        ],
+        "transformations": [
+          "log_difference",
+          "log_difference",
+          "level"
+        ],
+        "frequency": "monthly",
+        "deterministic_terms": "constant",
+        "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
+        "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
+        "signature_id": "varcmp-v1.41__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+      },
+      "criterion": "bic",
+      "requested_max_lag": 12,
+      "maximum_allowed_lag": 10,
+      "applied_max_lag": 10,
+      "selected_lag": 2,
+      "selected_ic_value": -3.9120977479699324,
+      "candidates": [
+        {
+          "lag": 1,
+          "aic": -4.032587387088057,
+          "bic": -3.7638453001785837,
+          "hqic": -3.923400719890688,
+          "nobs": 127,
+          "free_parameters": 12
         },
         {
-          "lag": 11,
-          "aic": -3.864250778207541,
-          "bic": -1.5563467685688628,
-          "hqic": -2.926671210727341,
-          "nobs": 125,
-          "free_parameters": 102
+          "lag": 2,
+          "aic": -4.38239640006151,
+          "bic": -3.9120977479699324,
+          "hqic": -4.191319732466115,
+          "nobs": 127,
+          "free_parameters": 21
         },
         {
-          "lag": 12,
-          "aic": -3.804252533122412,
-          "bic": -1.2927099343979682,
-          "hqic": -2.7839453567469,
-          "nobs": 125,
-          "free_parameters": 111
+          "lag": 3,
+          "aic": -4.335081156085462,
+          "bic": -3.6632259388117787,
+          "hqic": -4.06211448809204,
+          "nobs": 127,
+          "free_parameters": 30
+        },
+        {
+          "lag": 4,
+          "aic": -4.3543148904752575,
+          "bic": -3.4809031080194694,
+          "hqic": -3.999458222083809,
+          "nobs": 127,
+          "free_parameters": 39
+        },
+        {
+          "lag": 5,
+          "aic": -4.283236798408648,
+          "bic": -3.2082684507707557,
+          "hqic": -3.8464901296191734,
+          "nobs": 127,
+          "free_parameters": 48
+        },
+        {
+          "lag": 6,
+          "aic": -4.2234753854162985,
+          "bic": -2.946950472596301,
+          "hqic": -3.7048387162287972,
+          "nobs": 127,
+          "free_parameters": 57
+        },
+        {
+          "lag": 7,
+          "aic": -4.142156907324104,
+          "bic": -2.664075429322001,
+          "hqic": -3.541630237738576,
+          "nobs": 127,
+          "free_parameters": 66
+        },
+        {
+          "lag": 8,
+          "aic": -4.069701719619814,
+          "bic": -2.390063676435606,
+          "hqic": -3.387285049636259,
+          "nobs": 127,
+          "free_parameters": 75
+        },
+        {
+          "lag": 9,
+          "aic": -3.9956415770193474,
+          "bic": -2.1144469686530347,
+          "hqic": -3.231334906637766,
+          "nobs": 127,
+          "free_parameters": 84
+        },
+        {
+          "lag": 10,
+          "aic": -3.9924877772133476,
+          "bic": -1.9097366036649301,
+          "hqic": -3.1462911064337398,
+          "nobs": 127,
+          "free_parameters": 93
         }
       ]
     },
     {
       "country": "romania",
+      "profile_id": "baseline_monthly_macro_v1",
+      "profile_kind": "baseline_prespecified",
+      "comparability_signature": {
+        "variables": [
+          "hicp_monthly_index",
+          "industrial_production_index",
+          "unemployment_rate_monthly"
+        ],
+        "transformations": [
+          "log_difference",
+          "log_difference",
+          "level"
+        ],
+        "frequency": "monthly",
+        "deterministic_terms": "constant",
+        "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
+        "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
+        "signature_id": "varcmp-v1.41__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+      },
       "criterion": "bic",
-      "max_lag": 12,
+      "requested_max_lag": 12,
+      "maximum_allowed_lag": 10,
+      "applied_max_lag": 10,
       "selected_lag": 1,
-      "selected_ic_value": -1.7515868017505574,
+      "selected_ic_value": -1.7673175990034458,
       "candidates": [
         {
           "lag": 1,
-          "aic": -2.023104920531578,
-          "bic": -1.7515868017505574,
-          "hqic": -1.9128014420044959,
-          "nobs": 125,
+          "aic": -2.0360596859129187,
+          "bic": -1.7673175990034458,
+          "hqic": -1.92687301871555,
+          "nobs": 127,
           "free_parameters": 12
         },
         {
           "lag": 2,
-          "aic": -2.1003605762778004,
-          "bic": -1.6252038684110137,
-          "hqic": -1.9073294888554062,
-          "nobs": 125,
+          "aic": -2.1146947983723376,
+          "bic": -1.6443961462807595,
+          "hqic": -1.9236181307769422,
+          "nobs": 127,
           "free_parameters": 21
         },
         {
           "lag": 3,
-          "aic": -2.1235550430634786,
-          "bic": -1.4447597461109263,
-          "hqic": -1.8477963467457728,
-          "nobs": 125,
+          "aic": -2.131412348578274,
+          "bic": -1.459557131304591,
+          "hqic": -1.8584456805848522,
+          "nobs": 127,
           "free_parameters": 30
         },
         {
           "lag": 4,
-          "aic": -2.173587367166758,
-          "bic": -1.2911534811284398,
-          "hqic": -1.8151010619537402,
-          "nobs": 125,
+          "aic": -2.1966479447927147,
+          "bic": -1.323236162336927,
+          "hqic": -1.8417912764012665,
+          "nobs": 127,
           "free_parameters": 39
         },
         {
           "lag": 5,
-          "aic": -2.209195121739965,
-          "bic": -1.123122646615881,
-          "hqic": -1.7679812076316355,
-          "nobs": 125,
+          "aic": -2.235970323575675,
+          "bic": -1.1610019759377823,
+          "hqic": -1.7992236547862002,
+          "nobs": 127,
           "free_parameters": 48
         },
         {
           "lag": 6,
-          "aic": -2.134187650012681,
-          "bic": -0.8444765858028314,
-          "hqic": -1.6102461270090396,
-          "nobs": 125,
+          "aic": -2.1643666153455223,
+          "bic": -0.8878417025255243,
+          "hqic": -1.6457299461580206,
+          "nobs": 127,
           "free_parameters": 57
         },
         {
           "lag": 7,
-          "aic": -2.115935723477787,
-          "bic": -0.6225860701821717,
-          "hqic": -1.5092665915788341,
-          "nobs": 125,
+          "aic": -2.169352731083464,
+          "bic": -0.6912712530813612,
+          "hqic": -1.568826061497936,
+          "nobs": 127,
           "free_parameters": 66
         },
         {
           "lag": 8,
-          "aic": -2.0329736433908137,
-          "bic": -0.3359854010094323,
-          "hqic": -1.3435769025965487,
-          "nobs": 125,
+          "aic": -2.0825536515847114,
+          "bic": -0.4029156084005039,
+          "hqic": -1.4001369816011568,
+          "nobs": 127,
           "free_parameters": 75
         },
         {
           "lag": 9,
-          "aic": -1.9820623200453806,
-          "bic": -0.08143548857823424,
-          "hqic": -1.2099379703558042,
-          "nobs": 125,
+          "aic": -2.0280492705818958,
+          "bic": -0.14685466221558308,
+          "hqic": -1.2637426002003145,
+          "nobs": 127,
           "free_parameters": 84
         },
         {
           "lag": 10,
-          "aic": -1.976768436853508,
-          "bic": 0.12749698369940443,
-          "hqic": -1.1219164782686195,
-          "nobs": 125,
+          "aic": -2.0258926357302713,
+          "bic": 0.05685853781814609,
+          "hqic": -1.1796959649506635,
+          "nobs": 127,
           "free_parameters": 93
+        }
+      ]
+    },
+    {
+      "country": "romania",
+      "profile_id": "exploratory_monthly_macro_fallback_v1",
+      "profile_kind": "exploratory_fallback",
+      "comparability_signature": {
+        "variables": [
+          "hicp_monthly_index",
+          "industrial_production_index",
+          "unemployment_rate_monthly"
+        ],
+        "transformations": [
+          "log_difference",
+          "log_difference",
+          "level"
+        ],
+        "frequency": "monthly",
+        "deterministic_terms": "constant",
+        "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
+        "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
+        "signature_id": "varcmp-v1.41__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+      },
+      "criterion": "bic",
+      "requested_max_lag": 12,
+      "maximum_allowed_lag": 10,
+      "applied_max_lag": 10,
+      "selected_lag": 1,
+      "selected_ic_value": -1.7673175990034458,
+      "candidates": [
+        {
+          "lag": 1,
+          "aic": -2.0360596859129187,
+          "bic": -1.7673175990034458,
+          "hqic": -1.92687301871555,
+          "nobs": 127,
+          "free_parameters": 12
         },
         {
-          "lag": 11,
-          "aic": -1.9497877443483715,
-          "bic": 0.3581162652903065,
-          "hqic": -1.0122081768681719,
-          "nobs": 125,
-          "free_parameters": 102
+          "lag": 2,
+          "aic": -2.1146947983723376,
+          "bic": -1.6443961462807595,
+          "hqic": -1.9236181307769422,
+          "nobs": 127,
+          "free_parameters": 21
         },
         {
-          "lag": 12,
-          "aic": -1.9358770518122885,
-          "bic": 0.575665546912155,
-          "hqic": -0.9155698754367769,
-          "nobs": 125,
-          "free_parameters": 111
+          "lag": 3,
+          "aic": -2.131412348578274,
+          "bic": -1.459557131304591,
+          "hqic": -1.8584456805848522,
+          "nobs": 127,
+          "free_parameters": 30
+        },
+        {
+          "lag": 4,
+          "aic": -2.1966479447927147,
+          "bic": -1.323236162336927,
+          "hqic": -1.8417912764012665,
+          "nobs": 127,
+          "free_parameters": 39
+        },
+        {
+          "lag": 5,
+          "aic": -2.235970323575675,
+          "bic": -1.1610019759377823,
+          "hqic": -1.7992236547862002,
+          "nobs": 127,
+          "free_parameters": 48
+        },
+        {
+          "lag": 6,
+          "aic": -2.1643666153455223,
+          "bic": -0.8878417025255243,
+          "hqic": -1.6457299461580206,
+          "nobs": 127,
+          "free_parameters": 57
+        },
+        {
+          "lag": 7,
+          "aic": -2.169352731083464,
+          "bic": -0.6912712530813612,
+          "hqic": -1.568826061497936,
+          "nobs": 127,
+          "free_parameters": 66
+        },
+        {
+          "lag": 8,
+          "aic": -2.0825536515847114,
+          "bic": -0.4029156084005039,
+          "hqic": -1.4001369816011568,
+          "nobs": 127,
+          "free_parameters": 75
+        },
+        {
+          "lag": 9,
+          "aic": -2.0280492705818958,
+          "bic": -0.14685466221558308,
+          "hqic": -1.2637426002003145,
+          "nobs": 127,
+          "free_parameters": 84
+        },
+        {
+          "lag": 10,
+          "aic": -2.0258926357302713,
+          "bic": 0.05685853781814609,
+          "hqic": -1.1796959649506635,
+          "nobs": 127,
+          "free_parameters": 93
         }
       ]
     },
     {
       "country": "slovenia",
+      "profile_id": "exploratory_monthly_macro_fallback_v1",
+      "profile_kind": "exploratory_fallback",
+      "comparability_signature": {
+        "variables": [
+          "hicp_annual_rate",
+          "industrial_production_index",
+          "unemployment_rate_monthly"
+        ],
+        "transformations": [
+          "first_difference",
+          "log_difference",
+          "level"
+        ],
+        "frequency": "monthly",
+        "deterministic_terms": "constant",
+        "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
+        "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
+        "signature_id": "varcmp-v1.41__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+      },
       "criterion": "bic",
-      "max_lag": 12,
+      "requested_max_lag": 12,
+      "maximum_allowed_lag": 10,
+      "applied_max_lag": 10,
       "selected_lag": 2,
-      "selected_ic_value": -1.9557966915624472,
+      "selected_ic_value": -1.9542504532880822,
       "candidates": [
         {
           "lag": 1,
-          "aic": -2.1341889737302537,
-          "bic": -1.862670854949233,
-          "hqic": -2.0238854952031717,
-          "nobs": 125,
+          "aic": -2.1254609660753103,
+          "bic": -1.8567188791658373,
+          "hqic": -2.0162742988779416,
+          "nobs": 127,
           "free_parameters": 12
         },
         {
           "lag": 2,
-          "aic": -2.430953399429234,
-          "bic": -1.9557966915624472,
-          "hqic": -2.2379223120068397,
-          "nobs": 125,
+          "aic": -2.4245491053796604,
+          "bic": -1.9542504532880822,
+          "hqic": -2.2334724377842647,
+          "nobs": 127,
           "free_parameters": 21
         },
         {
           "lag": 3,
-          "aic": -2.527224189530318,
-          "bic": -1.8484288925777657,
-          "hqic": -2.251465493212612,
-          "nobs": 125,
+          "aic": -2.5198733221934244,
+          "bic": -1.8480181049197415,
+          "hqic": -2.2469066542000027,
+          "nobs": 127,
           "free_parameters": 30
         },
         {
           "lag": 4,
-          "aic": -2.5213999037903756,
-          "bic": -1.6389660177520575,
-          "hqic": -2.162913598577358,
-          "nobs": 125,
+          "aic": -2.523637287333802,
+          "bic": -1.650225504878014,
+          "hqic": -2.1687806189423533,
+          "nobs": 127,
           "free_parameters": 39
         },
         {
           "lag": 5,
-          "aic": -2.4420679921667308,
-          "bic": -1.3559955170426468,
-          "hqic": -2.000854078058401,
-          "nobs": 125,
+          "aic": -2.4430073244451287,
+          "bic": -1.3680389768072359,
+          "hqic": -2.0062606556556535,
+          "nobs": 127,
           "free_parameters": 48
         },
         {
           "lag": 6,
-          "aic": -2.4217874284898837,
-          "bic": -1.1320763642800342,
-          "hqic": -1.8978459054862424,
-          "nobs": 125,
+          "aic": -2.4309598172113454,
+          "bic": -1.1544349043913478,
+          "hqic": -1.912323148023844,
+          "nobs": 127,
           "free_parameters": 57
         },
         {
           "lag": 7,
-          "aic": -2.382353339092912,
-          "bic": -0.8890036857972969,
-          "hqic": -1.7756842071939594,
-          "nobs": 125,
+          "aic": -2.391160407392837,
+          "bic": -0.9130789293907342,
+          "hqic": -1.790633737807309,
+          "nobs": 127,
           "free_parameters": 66
         },
         {
           "lag": 8,
-          "aic": -2.261535676197161,
-          "bic": -0.5645474338157799,
-          "hqic": -1.5721389354028963,
-          "nobs": 125,
+          "aic": -2.2740146855052057,
+          "bic": -0.5943766423209977,
+          "hqic": -1.5915980155216507,
+          "nobs": 127,
           "free_parameters": 75
         },
         {
           "lag": 9,
-          "aic": -2.2483485973222743,
-          "bic": -0.3477217658551277,
-          "hqic": -1.4762242476326977,
-          "nobs": 125,
+          "aic": -2.2718004918126966,
+          "bic": -0.3906058834463839,
+          "hqic": -1.5074938214311153,
+          "nobs": 127,
           "free_parameters": 84
         },
         {
           "lag": 10,
-          "aic": -2.2694306953522285,
-          "bic": -0.1651652747993162,
-          "hqic": -1.4145787367673401,
-          "nobs": 125,
+          "aic": -2.290697357088499,
+          "bic": -0.20794618354008154,
+          "hqic": -1.4445006863088912,
+          "nobs": 127,
           "free_parameters": 93
-        },
-        {
-          "lag": 11,
-          "aic": -2.3085742199714923,
-          "bic": -0.000670210332814225,
-          "hqic": -1.3709946524912926,
-          "nobs": 125,
-          "free_parameters": 102
-        },
-        {
-          "lag": 12,
-          "aic": -2.4727519630159724,
-          "bic": 0.0387906357084713,
-          "hqic": -1.4524447866404606,
-          "nobs": 125,
-          "free_parameters": 111
         }
       ]
     }

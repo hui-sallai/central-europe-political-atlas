@@ -1,5 +1,5 @@
 {
-  "schema_version": "transformation-registry-v1.4",
+  "schema_version": "transformation-registry-v1.41",
   "generated_at": "2026-08-22",
   "records": [
     {
@@ -51,7 +51,7 @@
       "stationarity_note": "level 或一阶差分由 ADF 检验决定，不做静默变换；实际使用的变换必须展示。"
     }
   ],
-  "fallback_chains": [
+  "exploratory_fallback_chains": [
     {
       "role": "inflation",
       "chain": [
@@ -87,7 +87,7 @@
       ]
     },
     {
-      "role": "unemployment",
+      "role": "labour",
       "chain": [
         {
           "indicator": "unemployment_rate_monthly",
@@ -100,5 +100,5 @@
       ]
     }
   ],
-  "boundary": "Index levels never enter a stationary VAR as raw levels; rate series enter in level only after an explicit stationarity test. The applied transformation is always displayed."
+  "boundary": "正式 baseline 不做 transformation fallback。探索性 fallback 单独记录所有尝试；指数水平不能以 raw level 进入当前 VAR。"
 }

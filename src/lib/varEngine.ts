@@ -6,7 +6,9 @@ import type {
   LagCandidateResult,
   TransformationId,
   VarModelResult,
+  VarSpecificationKind,
 } from "@/types/MacroDynamics";
+import { createVarComparabilitySignature } from "@/lib/varSpecifications";
 import { applyTransformation, transformationSpec } from "@/lib/timeSeriesTransforms";
 import { adfTest } from "@/lib/stationarityTests";
 import {
@@ -24,7 +26,7 @@ import {
   type Matrix,
 } from "@/lib/numericLinAlg";
 
-export const VAR_ENGINE_VERSION = "var-engine-v1.4";
+export const VAR_ENGINE_VERSION = "var-engine-v1.41";
 export const VAR_DATASET_VERSION = "high-frequency-v1.31";
 
 export interface VarSpecification {
@@ -34,12 +36,14 @@ export interface VarSpecification {
   end_period: string;
   ic_criterion: InformationCriterion;
   max_lag: number;
-  deterministic_terms: "constant" | "constant_trend";
+  deterministic_terms: "constant";
+  profile_id?: string | null;
+  specification_kind?: VarSpecificationKind;
 }
 
 export type VarRunFailure = {
   status: "blocked";
-  reason_code: "insufficient_observations" | "missing_data" | "non_stationary" | "unstable" | "diagnostics_failed" | "unsupported_specification" | "singular";
+  reason_code: "insufficient_observations" | "missing_data" | "non_stationary" | "unstable" | "residual_diagnostics_failed" | "unsupported_specification" | "singular";
   reasons: string[];
   stationarity?: Array<{ indicator: string; transformation: TransformationId; adf: AdfTestResult }>;
 };
@@ -69,6 +73,18 @@ export function selectVarLagOrder(data: Matrix, maxLags: number): LagCandidateRe
 function monthToIndex(period: string): number {
   const [year, month] = period.split("-").map(Number);
   return year * 12 + (month - 1);
+}
+
+export function isValidMonthPeriod(period: string): boolean {
+  if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(period)) return false;
+  const [year] = period.split("-").map(Number);
+  return year >= 1900 && year <= 2200;
+}
+
+/** Largest lag satisfying (T-p)/(Kp+1) >= 4, capped at 12. */
+export function maximumAllowedVarLag(effectiveObservations: number, variableCount: number): number {
+  if (effectiveObservations < 2 || variableCount < 1) return 0;
+  return Math.max(0, Math.min(12, Math.floor((effectiveObservations - 4) / (4 * variableCount + 1))));
 }
 
 function indexToMonth(index: number): string {
@@ -235,11 +251,14 @@ export function runReducedFormVar(
   specification: VarSpecification,
   seriesByIndicator: Map<string, HighFrequencyPoint[]>,
 ): VarRunOutcome {
+  if (!isValidMonthPeriod(specification.start_period) || !isValidMonthPeriod(specification.end_period)) {
+    return { status: "blocked", reason_code: "unsupported_specification", reasons: ["月份必须使用严格 YYYY-MM 格式，例如 2020-01。"] };
+  }
   if (monthToIndex(specification.start_period) > monthToIndex(specification.end_period)) {
     return { status: "blocked", reason_code: "unsupported_specification", reasons: ["开始月份不能晚于结束月份。"] };
   }
-  if (specification.deterministic_terms !== "constant") {
-    return { status: "blocked", reason_code: "unsupported_specification", reasons: ["v1.4 只支持常数项确定性规格；线性趋势暂不可用。"] };
+  if ((specification.deterministic_terms as string) !== "constant") {
+    return { status: "blocked", reason_code: "unsupported_specification", reasons: ["v1.41 公开规格只支持常数项；线性趋势不属于当前可用规格。"] };
   }
   const k = specification.variables.length;
   if (k < 2 || k > 4) {
@@ -347,9 +366,11 @@ function runEstimationPipeline(
   const effective = effectivePeriods.length;
 
   // 4. Lag selection with sample-capped max lag.
-  const maxEstimable = Math.floor((effective - k - 1) / (1 + k));
-  const defaultMaxLag = Math.round(12 * Math.pow(effective / 100, 0.25));
-  const maxLag = Math.max(1, Math.min(specification.max_lag, maxEstimable, defaultMaxLag, 12));
+  const maximumAllowedLag = maximumAllowedVarLag(effective, k);
+  if (maximumAllowedLag < 1) {
+    return { status: "blocked", reason_code: "insufficient_observations", reasons: ["当前有效样本和变量数量不允许估计至少一阶 VAR。"] };
+  }
+  const maxLag = Math.max(1, Math.min(specification.max_lag, maximumAllowedLag));
   const candidates = selectLagOrder(data, maxLag);
   const criterion = specification.ic_criterion;
   const selected = candidates.reduce((best, candidate) => (candidate[criterion] < best[criterion] ? candidate : best), candidates[0]);
@@ -366,20 +387,35 @@ function runEstimationPipeline(
   const stability = varStability(finalEstimate.coefficientMatrices);
 
   // 7. Residual diagnostics.
-  const h = Math.max(selected.lag + 3, Math.min(24, Math.floor(finalEstimate.nobs / 3)));
-  const portmanteau = portmanteauTest(finalEstimate.resid, selected.lag, h);
+  const diagnosticHorizons = [12, 18, 24];
+  const residualSensitivity = diagnosticHorizons.map((horizon) => ({
+    test: "portmanteau_adjusted" as const,
+    ...portmanteauTest(finalEstimate.resid, selected.lag, horizon),
+  }));
+  const portmanteau = residualSensitivity.find((entry) => entry.lags === 24) ?? residualSensitivity[residualSensitivity.length - 1];
+  const borderlineStationarity = stationarity.some((entry) => entry.adf.status === "borderline");
 
   // 8. IRF only when stable; residual failure gates the dynamic response.
   let irf: VarModelResult["irf"] = null;
   let irfBlockedReason: string | null = null;
   if (!stability.stable) {
     irfBlockedReason = `模型不稳定：伴随矩阵最大根模 ${stability.max_root_modulus.toFixed(4)} ≥ 1，当前规格不能用于动态响应分析。`;
-  } else if (portmanteau.status === "failed") {
-    irfBlockedReason = `残差自相关诊断未通过（Portmanteau p=${portmanteau.p_value.toFixed(4)}），动态响应输出被门控。`;
+  } else if (borderlineStationarity) {
+    irfBlockedReason = "至少一个变量的 ADF 结果处于 borderline；模型可估计，但动态响应暂不开放。";
+  } else if (residualSensitivity.some((entry) => entry.status !== "passed")) {
+    irfBlockedReason = `残差自相关敏感性诊断未全部通过（h=12/18/24），动态响应输出被门控。`;
   } else {
     const horizons = [6, 12, 18, 24];
     const maxHorizon = Math.max(...horizons);
-    const psi = orthogonalizedIrf(finalEstimate.coefficientMatrices, finalEstimate.sigma_u, maxHorizon);
+    let psi: Matrix[];
+    try {
+      psi = orthogonalizedIrf(finalEstimate.coefficientMatrices, finalEstimate.sigma_u, maxHorizon);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      irfBlockedReason = `正交化分解未通过，动态响应暂不可用（${message}）。`;
+      psi = [];
+    }
+    if (psi.length) {
     const paths: IrfPath[] = [];
     const fullHorizon = Array.from({ length: maxHorizon + 1 }, (_, index) => index);
     for (let shock = 0; shock < k; shock += 1) {
@@ -392,7 +428,7 @@ function runEstimationPipeline(
         });
       }
     }
-    irf = {
+      irf = {
       method: "orthogonalized_reduced_form_cholesky",
       ordering: specification.variables.map((variable) => variable.indicator),
       ordering_dependency_note: IRF_ORDERING_NOTE,
@@ -400,7 +436,8 @@ function runEstimationPipeline(
       uncertainty_note: IRF_UNCERTAINTY_NOTE,
       horizons,
       paths,
-    };
+      };
+    }
   }
 
   const traceIds = new Set<string>();
@@ -416,6 +453,9 @@ function runEstimationPipeline(
     engine_version: VAR_ENGINE_VERSION,
     dataset_version: VAR_DATASET_VERSION,
     country: specification.country,
+    profile_id: specification.profile_id ?? null,
+    specification_kind: specification.specification_kind ?? "custom",
+    comparability_signature: createVarComparabilitySignature(specification.variables),
     variables: specification.variables,
     variable_order: specification.variables.map((variable) => variable.indicator),
     sample: {
@@ -440,9 +480,12 @@ function runEstimationPipeline(
     residual_covariance: finalEstimate.sigma_u,
     diagnostics: {
       stability: { stable: stability.stable, max_root_modulus: Number(stability.max_root_modulus.toFixed(8)), roots_moduli: stability.roots_moduli },
-      residual_autocorrelation: { test: "portmanteau_adjusted", ...portmanteau, statistic: Number(portmanteau.statistic.toFixed(6)), p_value: Number(portmanteau.p_value.toFixed(6)) },
+      residual_autocorrelation: portmanteau,
+      residual_autocorrelation_sensitivity: residualSensitivity,
+      residual_lm: { status: "unavailable", note: "v1.41 未实现多元残差 LM 检验；不得把 Portmanteau 结果表述为 LM 检验。" },
     },
     parameter_gate: { effective_observations: finalEstimate.nobs, parameters_per_equation: paramsPerEquation, ratio: Number(ratio.toFixed(2)), passed: ratio >= 4 },
+    lag_preflight: { requested_max_lag: specification.max_lag, maximum_allowed_lag: maximumAllowedLag, applied_max_lag: maxLag },
     irf,
     irf_blocked_reason: irfBlockedReason,
     input_series: transformed.map((entry) => ({

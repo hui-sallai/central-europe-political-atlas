@@ -104,8 +104,9 @@ if (manifest) {
 if (!validationExport?.records?.length) failures.push("validation registry has no records");
 if (!goldenExport?.records?.length) failures.push("golden cases have no records");
 if (goldenExport?.records?.some((item) => item.status === "failed" || item.result_semantic === "failed")) failures.push("golden case failure found in export");
-if (varReadiness?.schema_version !== "var-country-readiness-v1.4" || varReadiness?.records?.length !== 10) failures.push("v1.4 VAR country readiness export is incomplete");
-if (varReadiness?.records?.some((item) => !item.country || !item.readiness_state || !Array.isArray(item.variables))) failures.push("v1.4 VAR country readiness records are malformed");
+if (varReadiness?.schema_version !== "var-country-readiness-v1.41" || varReadiness?.records?.length !== 10) failures.push("v1.41 VAR country readiness export is incomplete");
+if (varReadiness?.records?.some((item) => !item.country || !item.readiness_state || !Array.isArray(item.variables) || typeof item.estimable !== "boolean" || typeof item.dynamic_response_ready !== "boolean")) failures.push("v1.41 VAR country readiness records are malformed");
+if (!varReadiness?.baseline_profile_readiness || !varReadiness?.exploratory_profile_readiness || varReadiness?.ready_countries || varReadiness?.irf_ready_countries) failures.push("v1.41 baseline/exploratory readiness boundary is incomplete");
 
 const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
 if (!readme.includes(`Current release: **${expectedVersion}**`)) failures.push("README current release does not match canonical metadata");
@@ -124,7 +125,7 @@ for (const section of methodologySections) {
   previousSectionIndex = sectionIndex;
 }
 if (!methodology.includes("Validation ≠ scientific proof") || !methodology.includes("Historical reconstruction readiness")) failures.push("methodology validation boundary is incomplete");
-if (!methodology.includes("Reduced-form VAR") || !methodology.includes("KPSS") || !methodology.includes("不是结构冲击或因果效应")) failures.push("v1.4 VAR methodology boundary is incomplete");
+if (!methodology.includes("Reduced-form VAR") || !methodology.includes("残差 LM") || !methodology.includes("正式 baseline") || !methodology.includes("不是结构冲击或因果效应")) failures.push("v1.41 VAR methodology boundary is incomplete");
 
 for (const stableUrl of stableResearchUrls) {
   const route = stableUrl.split(/[?#]/)[0].replace(/^\//, "").replace(/\/$/, "");

@@ -1,12 +1,12 @@
 {
-  "schema_version": "analysis-skill-registry-v1.4",
+  "schema_version": "analysis-skill-registry-v1.41",
   "generated_at": "2026-08-22",
   "records": [
     { "skill_id": "composite_indicators", "state": "active" },
     { "skill_id": "panel_econometrics", "state": "active", "gate": ">=8 countries, >=8 years, >=4 qualified key variables" },
     { "skill_id": "network_dependency", "state": "active", "gate": "eligible partner coverage ratio >= 0.95 on complete bilateral edges" },
     { "skill_id": "event_window_analysis", "state": "active", "gate": "verified event with month precision; >=12 pre and >=6 true post monthly observations (event month excluded)" },
-    { "skill_id": "var_svar", "state": "active", "gate": "per country × variable set × window × transformation: >=60 effective monthly observations, ADF stationary transformed series, common-sample IC lag selection, parameter-count gate, companion-root stability, residual autocorrelation diagnostic", "readiness_reference": "macro-dynamics/var_country_readiness.json", "note": "Reduced-form VAR only; readiness is per-country — one country's failure never blocks the others." },
+    { "skill_id": "var_svar", "state": "active", "gate": "formal baseline and exploratory fallback are separate; >=60 continuous monthly observations, ADF gate, common-sample IC lag selection, parameter ratio >=4, companion-root stability and h=12/18/24 residual diagnostics", "readiness_reference": "macro-dynamics/var_country_readiness.json", "note": "Reduced-form VAR only. Estimable does not imply dynamic-response-ready; exploratory search never replaces the formal baseline." },
     { "skill_id": "svar", "state": "registry_only", "required_data": ["explicit_identification_strategy"], "note": "Cholesky ordering is not structural identification." },
     { "skill_id": "event_study", "state": "registry_only", "required_data": ["verified_event", "pre_window", "post_window", "comparison_design", "daily_monthly_or_quarterly_outcome"] },
     { "skill_id": "local_projections", "state": "registry_only" },
