@@ -4,6 +4,7 @@ import Module from "node:module";
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 import ts from "typescript";
+import { missingMonths, monthSequence } from "../lib/months.mjs";
 
 const require = createRequire(import.meta.url);
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
@@ -19,7 +20,7 @@ require.extensions[".ts"] = (module, filename) => {
 
 const { runPanelEconometrics } = require("../../src/lib/panelEngine.ts");
 const { aggregateTradeEdges, calculateNetworkMetrics, computeCoverageGate } = require("../../src/lib/networkEngine.ts");
-const { computeEventWindow, attachOverlappingEvents, eventWindowEligibility } = require("../../src/lib/eventWindowEngine.ts");
+const { computeEventWindow, attachOverlappingEvents, eventWindowEligibility, buildLineSegments } = require("../../src/lib/eventWindowEngine.ts");
 const countries = Array.from({ length: 10 }, (_, index) => `country_${index + 1}`);
 const observations = [];
 for (const [countryIndex, country] of countries.entries()) for (let year = 2015; year <= 2024; year += 1) {
@@ -238,7 +239,52 @@ const reorderedHf = [...hfRecords].reverse();
 const hfOrderKey = (records) => records.map((record) => `${record.observation_id}=${record.value}`).sort().join("|");
 check(hfOrderKey(reorderedHf) === hfOrderKey(hfRecords), "High-frequency: series content changed under reordering.", "hf");
 
-// ---- Event window validation (§92) ----
+// v1.31 §1/§6 — HICP dataset migration: legacy tables must not be active sources.
+const LEGACY_HICP = /prc_hicp_midx|prc_hicp_manr/;
+check(hfRecords.filter((record) => record.indicator.startsWith("hicp")).every((record) => record.source_dataset.includes("prc_hicp_minr")), "HICP records must use prc_hicp_minr as the active source.", "hf");
+check(!hfRecords.some((record) => LEGACY_HICP.test(record.source_dataset) || LEGACY_HICP.test(record.definition_version)), "Legacy HICP dataset IDs must not appear in observations.", "hf");
+const dictionary = JSON.parse(fs.readFileSync(path.join(root, "src/data/high-frequency/series_dictionary.json"), "utf8"));
+check(!dictionary.records.some((record) => LEGACY_HICP.test(record.source_dataset)), "Legacy HICP dataset IDs must not appear in the series dictionary.", "hf");
+
+// v1.31 §3 — HICP reference base: single, explicit, never spliced.
+const hicpIndex = hfRecords.filter((record) => record.indicator === "hicp_monthly_index");
+check(hicpIndex.length > 0 && hicpIndex.every((record) => record.unit === "I15" && record.index_reference === "2015=100"), "HICP index reference base must be consistently 2015=100 (I15).", "hf");
+
+// v1.31 §7/§8 — migration overlap QA manifest must exist and have passed.
+const migrationManifest = JSON.parse(fs.readFileSync(path.join(root, "src/data/high-frequency/hicp_migration_manifest.json"), "utf8"));
+check(migrationManifest.new_dataset === "prc_hicp_minr" && migrationManifest.overlap_test.result === "passed" && migrationManifest.overlap_test.annual_rate.maximum_difference <= 0.15 && migrationManifest.overlap_test.index.maximum_difference <= 0.5, "HICP migration overlap QA must have passed within tolerance.", "hf");
+check(migrationManifest.all_items_continuity === "verified" && migrationManifest.classification.includes("ECOICOP"), "HICP ECOICOP-2 classification / all-items continuity must be recorded.", "hf");
+
+// v1.31 §13/§14 — runtime schema carries unit / value_semantics / SA / definition.
+check(hfRecords.every((record) => record.unit && record.value_semantics && record.seasonal_adjustment && record.definition_version), "High-frequency records must carry unit, value_semantics, seasonal_adjustment, definition_version.", "hf");
+const semanticsByIndicator = new Map();
+for (const record of hfRecords) {
+  const existing = semanticsByIndicator.get(record.indicator);
+  if (existing && existing !== record.value_semantics) errors.push(`High-frequency: mixed value_semantics in ${record.indicator}.`);
+  semanticsByIndicator.set(record.indicator, record.value_semantics);
+}
+hfTests += 1;
+check(semanticsByIndicator.get("unemployment_rate_monthly") === "rate_percent" && semanticsByIndicator.get("hicp_annual_rate") === "yoy_rate" && semanticsByIndicator.get("hicp_monthly_index") === "index_level", "value_semantics assignments wrong.", "hf");
+
+// v1.31 §25/§26 — expected axis is the complete month sequence; API-omitted months
+// must surface as missing. Synthetic: 2025-01, 2025-02, 2025-04 → 2025-03 missing.
+const syntheticGap = new Map([["2025-01", 1], ["2025-02", 2], ["2025-04", 4]]);
+check(JSON.stringify(missingMonths("2025-01", "2025-04", syntheticGap)) === JSON.stringify(["2025-03"]), "Missing-month detection must catch API-omitted months.", "hf");
+let coverageMismatch = 0;
+for (const entry of hfCoverage.records) {
+  if (entry.definition_status !== "defined") continue;
+  const valueByPeriod = new Map(hfRecords.filter((record) => `${record.country}:${record.indicator}` === `${entry.country}:${entry.indicator}`).map((record) => [record.period, record.value]));
+  const recomputed = missingMonths("2015-01", entry.expected_latest_period, valueByPeriod);
+  if (JSON.stringify(recomputed) !== JSON.stringify(entry.missing_period_list)) coverageMismatch += 1;
+  if (entry.expected_periods !== monthSequence("2015-01", entry.expected_latest_period).length) coverageMismatch += 1;
+}
+check(coverageMismatch === 0, `Coverage missing-month lists inconsistent with observations in ${coverageMismatch} entries.`, "hf");
+
+// v1.31 §27 — freshness / publication lag fields present and well-formed.
+check(hfCoverage.records.every((entry) => entry.latest_available_period !== undefined && entry.expected_latest_period && ["normal_publication_lag", "stale_series", "no_data"].includes(entry.publication_lag_status)), "Coverage freshness / publication-lag fields missing or invalid.", "hf");
+check(huHicp.end_period >= "2026-01", `HICP coverage must extend beyond 2025-12 after migration (got ${huHicp.end_period}).`, "hf");
+
+// ---- Event window validation (§92, extended v1.31 §9-§21) ----
 const syntheticSeries = [];
 for (let month = 0; month < 36; month += 1) {
   const year = 2020 + Math.floor(month / 12);
@@ -249,15 +295,39 @@ const syntheticEvent = { event_id: "ev-test", title: "Synthetic event", date: "2
 const windowResult = computeEventWindow(syntheticEvent, syntheticSeries, { preMonths: 12, postMonths: 12 });
 check(windowResult.event_period === "2021-07", `Event-date alignment failed: ${windowResult.event_period}`, "event");
 check(windowResult.points.length === 25 && windowResult.points[12].relative_month === 0 && windowResult.points[0].relative_month === -12 && windowResult.points[24].relative_month === 12, "Window boundaries / pre-post indexing failed.", "event");
-check(windowResult.pre_period_mean === 111.5 && windowResult.post_period_mean === 124, `Pre/post means failed: ${windowResult.pre_period_mean}/${windowResult.post_period_mean}`, "event");
-check(windowResult.absolute_change === 12.5 && windowResult.percentage_change !== null && Math.abs(windowResult.percentage_change - 12.5 / 111.5 * 100) < 0.01, "Absolute/percentage change failed.", "event");
+// v1.31: true post excludes the event month → post months are 2021-08..2022-07 (values 119..130).
+check(windowResult.pre_period_mean === 111.5 && windowResult.post_period_mean === 124.5 && windowResult.event_period_value === 118, `Pre/event/post separation failed: ${windowResult.pre_period_mean}/${windowResult.event_period_value}/${windowResult.post_period_mean}`, "event");
+check(windowResult.absolute_change_pre_to_post === 13 && windowResult.event_vs_pre_difference === 6.5, "Pre-to-post change / event-vs-pre failed.", "event");
+check(windowResult.relative_percentage_change !== null && Math.abs(windowResult.relative_percentage_change - 13 / 111.5 * 100) < 0.01, "Index relative percentage change failed.", "event");
+check(windowResult.change_semantics === "index_points" && windowResult.value_semantics === "index_level", `Index change semantics failed: ${windowResult.change_semantics}`, "event");
+check(windowResult.post_observations === 12 && windowResult.pre_observations === 12, `Post observation count must exclude the event month: ${windowResult.post_observations}`, "event");
 check(windowResult.gate === "full", "Full-window gate failed on complete synthetic data.", "event");
 const constantSeries = syntheticSeries.map((point) => ({ ...point, value: 50 }));
 const zeroChange = computeEventWindow(syntheticEvent, constantSeries, { preMonths: 12, postMonths: 12 });
-check(zeroChange.absolute_change === 0 && zeroChange.percentage_change === 0, "Zero-change fixture failed.", "event");
+check(zeroChange.absolute_change_pre_to_post === 0 && zeroChange.relative_percentage_change === 0, "Zero-change fixture failed.", "event");
+
+// v1.31 §12 — event-month spike must not pull the post mean.
+const spikeSeries = syntheticSeries.map((point) => ({ ...point, value: point.period < "2021-07" ? 50 : point.period === "2021-07" ? 100 : 60 }));
+const spikeResult = computeEventWindow(syntheticEvent, spikeSeries, { preMonths: 12, postMonths: 12 });
+check(spikeResult.pre_period_mean === 50 && spikeResult.event_period_value === 100 && spikeResult.post_period_mean === 60 && spikeResult.absolute_change_pre_to_post === 10, `Event-month exclusion from post mean failed: ${spikeResult.pre_period_mean}/${spikeResult.event_period_value}/${spikeResult.post_period_mean}`, "event");
+
+// v1.31 §15/§16 — rate series report percentage-point changes, never relative %.
+const rateSeries = syntheticSeries.map((point) => ({ ...point, indicator: "test_rate", unit: "%", value_semantics: "rate_percent", value: point.period < "2021-07" ? 6 : point.period === "2021-07" ? 7 : 6.5 }));
+const rateResult = computeEventWindow(syntheticEvent, rateSeries, { preMonths: 12, postMonths: 12 });
+check(rateResult.change_semantics === "percentage_points" && Math.abs(rateResult.absolute_change_pre_to_post - 0.5) < 1e-9 && rateResult.relative_percentage_change === null, `Unemployment-style pp semantics failed: ${rateResult.change_semantics}/${rateResult.absolute_change_pre_to_post}/${rateResult.relative_percentage_change}`, "event");
+
+// v1.31 §18 — YoY rate series: pp change only (3% → 4% is +1 pp, not +33.3%).
+const yoySeries = syntheticSeries.map((point) => ({ ...point, indicator: "test_yoy", unit: "%", value_semantics: "yoy_rate", transformation: "yoy_rate", value: point.period < "2021-07" ? 3 : point.period === "2021-07" ? 5 : 4 }));
+const yoyResult = computeEventWindow(syntheticEvent, yoySeries, { preMonths: 12, postMonths: 12 });
+check(yoyResult.change_semantics === "percentage_points" && yoyResult.absolute_change_pre_to_post === 1 && yoyResult.relative_percentage_change === null, "YoY-rate pp-change semantics failed.", "event");
+
+// v1.31 §20 — chart gap segmentation: missing months break the line, no visual interpolation.
 const gapped = syntheticSeries.filter((point) => point.period !== "2021-03" && point.period !== "2021-04");
 const gappedResult = computeEventWindow(syntheticEvent, gapped, { preMonths: 12, postMonths: 12 });
 check(gappedResult.missing_periods.length === 2 && gappedResult.missing_periods.includes("2021-03"), "Missing-period handling failed.", "event");
+const segments = buildLineSegments(gappedResult.points);
+check(segments.length === 2 && segments[0].at(-1).period === "2021-02" && segments[1][0].period === "2021-05" && segments.every((segment) => segment.every((point) => point.value !== null)), `Chart gap segmentation failed: ${segments.length} segments`, "event");
+
 const shuffledSeries = [...syntheticSeries].reverse();
 const shuffledWindow = computeEventWindow(syntheticEvent, shuffledSeries, { preMonths: 12, postMonths: 12 });
 check(JSON.stringify({ ...shuffledWindow, data_trace: [], overlapping_events: [] }) === JSON.stringify({ ...windowResult, data_trace: [], overlapping_events: [] }), "Event window ordering invariance failed.", "event");
@@ -266,6 +336,15 @@ const shortResult = computeEventWindow(shortEvent, syntheticSeries, { preMonths:
 check(shortResult.gate === "exploratory" && shortResult.exploratory === true, `Exploratory short-window gate failed: ${shortResult.gate}`, "event");
 const tooShortEvent = { ...syntheticEvent, date: "2020-02-15" };
 check(computeEventWindow(tooShortEvent, syntheticSeries, { preMonths: 12, postMonths: 12 }).gate === "insufficient_data", "Insufficient-data gate failed.", "event");
+// v1.31 §10 — the full gate counts true post observations only: an event 6 months
+// before the series end yields exactly 6 post observations (event month excluded) and still passes;
+// 5 months before the end yields 5 and must drop to exploratory.
+const nearEndEvent = { ...syntheticEvent, date: "2022-06-15" };
+const nearEndResult = computeEventWindow(nearEndEvent, syntheticSeries, { preMonths: 12, postMonths: 12 });
+check(nearEndResult.post_observations === 6 && nearEndResult.gate === "full", `True post gate (6) failed: ${nearEndResult.post_observations}/${nearEndResult.gate}`, "event");
+const pastEndEvent = { ...syntheticEvent, date: "2022-07-15" };
+const pastEndResult = computeEventWindow(pastEndEvent, syntheticSeries, { preMonths: 12, postMonths: 12 });
+check(pastEndResult.post_observations === 5 && pastEndResult.gate === "exploratory", `True post gate (5→exploratory) failed: ${pastEndResult.post_observations}/${pastEndResult.gate}`, "event");
 check(eventWindowEligibility({ ...syntheticEvent, data_status: "pending" }).eligible === false, "Unverified event must be ineligible.", "event");
 check(eventWindowEligibility({ ...syntheticEvent, date: "2021" }).eligible === false, "Year-only event date must be ineligible.", "event");
 const overlapBase = { country_slug: "testland", data_status: "verified", event_type: "macro", title: "t" };

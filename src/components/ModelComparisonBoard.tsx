@@ -26,8 +26,8 @@ const confidenceLabels: Record<ModelOutput["confidence"], string> = {
 };
 
 const exclusionReasonLabels = {
-  insufficient_inputs: "Insufficient inputs",
-  unavailable: "Unavailable",
+  insufficient_inputs: "输入数据不足",
+  unavailable: "不可用",
 } as const;
 
 const sortOptions = [

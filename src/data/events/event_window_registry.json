@@ -1,6 +1,6 @@
 {
-  "schema_version": "event-window-registry-v1.3",
-  "generated_at": "2026-08-21",
+  "schema_version": "event-window-registry-v1.31",
+  "generated_at": "2026-08-22",
   "level_1": {
     "name": "Event Window Analysis",
     "status": "active",
@@ -15,13 +15,21 @@
     "pre_months": 12,
     "post_months": 12
   },
+  "period_separation": "PRE: relative_month < 0; EVENT: relative_month === 0 (reported separately as event_period_value); POST: relative_month > 0. The event month never enters post statistics.",
   "full_gate": {
     "min_pre_observations": 12,
-    "min_post_observations": 6
+    "min_post_observations": 6,
+    "note": "post observations count relative_month > 0 only; the event month never counts"
   },
   "exploratory_gate": {
     "min_pre_observations": 6,
-    "min_post_observations": 3
+    "min_post_observations": 3,
+    "note": "post observations count relative_month > 0 only; the event month never counts"
+  },
+  "change_semantics": {
+    "percentage_points": "rate series (rate_percent / yoy_rate / growth_rate / rate_percentage_point): pp change only, no relative %",
+    "index_points": "index_level: absolute index-point change plus relative percentage change",
+    "absolute_units": "currency_level: absolute change plus relative percentage change"
   },
   "language_boundary": "No effect/impact/causal wording; descriptive change only."
 }

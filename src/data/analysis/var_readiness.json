@@ -1,0 +1,52 @@
+{
+  "schema_version": "var-readiness-v1.31",
+  "generated_at": "2026-08-22",
+  "skill_id": "var_svar",
+  "state": "blocked",
+  "gates": {
+    "min_effective_monthly_observations": 60,
+    "definition_consistency": "single unit per indicator across all countries",
+    "series_break": "no unresolved series break",
+    "missing_data": "missing_periods <= 5% of the expected monthly axis per series"
+  },
+  "indicators": [
+    {
+      "indicator": "hicp_monthly_index",
+      "countries_with_60plus_effective_observations": 10,
+      "countries_defined": 10,
+      "definition_consistent": true,
+      "unresolved_series_breaks": false,
+      "missing_data_gate_passed": true,
+      "readiness_met": true
+    },
+    {
+      "indicator": "hicp_annual_rate",
+      "countries_with_60plus_effective_observations": 10,
+      "countries_defined": 10,
+      "definition_consistent": true,
+      "unresolved_series_breaks": false,
+      "missing_data_gate_passed": true,
+      "readiness_met": true
+    },
+    {
+      "indicator": "unemployment_rate_monthly",
+      "countries_with_60plus_effective_observations": 9,
+      "countries_defined": 9,
+      "definition_consistent": true,
+      "unresolved_series_breaks": false,
+      "missing_data_gate_passed": true,
+      "readiness_met": false
+    },
+    {
+      "indicator": "industrial_production_index",
+      "countries_with_60plus_effective_observations": 10,
+      "countries_defined": 10,
+      "definition_consistent": true,
+      "unresolved_series_breaks": false,
+      "missing_data_gate_passed": true,
+      "readiness_met": true
+    }
+  ],
+  "overall_readiness_met": false,
+  "note": "Readiness recomputed on the corrected v1.31 high-frequency layer. VAR / SVAR remains blocked: activation additionally requires stationarity, lag-selection, stability and residual diagnostics plus a full readiness audit."
+}

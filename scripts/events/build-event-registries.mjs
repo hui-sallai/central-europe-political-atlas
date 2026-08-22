@@ -63,27 +63,29 @@ overlap.sort((a, b) => a.event_id.localeCompare(b.event_id));
 const outDir = path.join(root, "src", "data", "events");
 fs.mkdirSync(outDir, { recursive: true });
 fs.writeFileSync(path.join(outDir, "event_analysis_eligibility.json"), JSON.stringify({
-  schema_version: "event-analysis-eligibility-v1.3",
+  schema_version: "event-analysis-eligibility-v1.31",
   generated_at: generatedAt,
   record_count: eligibility.length,
   eligible_count: eligibility.filter((entry) => entry.eligible).length,
   records: eligibility,
 }, null, 2));
 fs.writeFileSync(path.join(outDir, "event_overlap_registry.json"), JSON.stringify({
-  schema_version: "event-overlap-registry-v1.3",
+  schema_version: "event-overlap-registry-v1.31",
   generated_at: generatedAt,
   window_months: 12,
   record_count: overlap.length,
   records: overlap,
 }, null, 2));
 fs.writeFileSync(path.join(outDir, "event_window_registry.json"), JSON.stringify({
-  schema_version: "event-window-registry-v1.3",
+  schema_version: "event-window-registry-v1.31",
   generated_at: generatedAt,
   level_1: { name: "Event Window Analysis", status: "active", causal: false },
   level_2: { name: "Formal Event Study", status: "registry_only", note: "Requires comparison-group design and identification strategy; not estimated." },
   default_window: { pre_months: 12, post_months: 12 },
-  full_gate: { min_pre_observations: 12, min_post_observations: 6 },
-  exploratory_gate: { min_pre_observations: 6, min_post_observations: 3 },
+  period_separation: "PRE: relative_month < 0; EVENT: relative_month === 0 (reported separately as event_period_value); POST: relative_month > 0. The event month never enters post statistics.",
+  full_gate: { min_pre_observations: 12, min_post_observations: 6, note: "post observations count relative_month > 0 only; the event month never counts" },
+  exploratory_gate: { min_pre_observations: 6, min_post_observations: 3, note: "post observations count relative_month > 0 only; the event month never counts" },
+  change_semantics: { percentage_points: "rate series (rate_percent / yoy_rate / growth_rate / rate_percentage_point): pp change only, no relative %", index_points: "index_level: absolute index-point change plus relative percentage change", absolute_units: "currency_level: absolute change plus relative percentage change" },
   language_boundary: "No effect/impact/causal wording; descriptive change only.",
 }, null, 2));
 

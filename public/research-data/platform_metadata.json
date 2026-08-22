@@ -1,9 +1,9 @@
 {
   "name": "Central Europe Political Atlas",
-  "version": "v1.3 High-Frequency Political Economy, Event Analysis & Product Language System",
-  "release_date": "2026-08-21",
-  "stage": "high-frequency political economy, event analysis and product language system",
-  "schema_version": "release-metadata-v1.3",
+  "version": "v1.31 High-Frequency Integrity & Event Semantics",
+  "release_date": "2026-08-22",
+  "stage": "high-frequency integrity and event semantics",
+  "schema_version": "release-metadata-v1.31",
   "canonical_url": "https://hy-central-europe-analysis.org/",
   "public_contact_email": "sallaizhang@outlook.com",
   "legal_notice_updated": "2026-08-20",
@@ -22,14 +22,17 @@
     "panel-inference-v1.25",
     "high-frequency-v1.3",
     "event-window-v1.3",
-    "ui-language-v1.3"
+    "ui-language-v1.3",
+    "high-frequency-v1.31",
+    "event-window-v1.31",
+    "hicp-migration-v1.31"
   ],
   "limitations": [
     "No election forecasts, investment advice, probability forecasts, or causal impact estimates.",
     "Serbia regional comparison remains pending while national data remain available.",
     "China Economic Exposure and China-linked Project Disruption remain subject to their published evidence gates."
   ],
-  "citation": "Central Europe Political Atlas, version v1.3 High-Frequency Political Economy, Event Analysis & Product Language System, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
+  "citation": "Central Europe Political Atlas, version v1.31 High-Frequency Integrity & Event Semantics, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
   "data_status_enum": [
     "official",
     "verified",

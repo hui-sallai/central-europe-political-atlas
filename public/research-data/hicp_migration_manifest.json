@@ -1,0 +1,40 @@
+{
+  "schema_version": "hicp-migration-manifest-v1.31",
+  "migration_date": "2026-08-22",
+  "old_dataset": [
+    "prc_hicp_midx",
+    "prc_hicp_manr"
+  ],
+  "new_dataset": "prc_hicp_minr",
+  "old_unit": {
+    "index": "I15 (2015=100), coicop=CP00",
+    "annual_rate": "RCH_A, coicop=CP00"
+  },
+  "new_unit": {
+    "index": "I15 (2015=100), coicop18=TOTAL",
+    "annual_rate": "RCH_A, coicop18=TOTAL"
+  },
+  "classification": "ECOICOP ver.2 (dimension coicop18); all-items code TOTAL",
+  "reference_period": "2015=100 (still officially provided by prc_hicp_minr; no reference-base splice)",
+  "classification_transition": "Legacy tables used ECOICOP ver.1 codes; prc_hicp_minr carries ECOICOP ver.2. All-items (TOTAL) series continuity across the transition verified over the overlap window.",
+  "all_items_continuity": "verified",
+  "overlap_window": "2024-01..2025-12",
+  "overlap_test": {
+    "annual_rate": {
+      "compared": 240,
+      "tolerance_pp": 0.15,
+      "maximum_difference": 0.1,
+      "worst": "HR:2025-06",
+      "failures": 0
+    },
+    "index": {
+      "compared": 240,
+      "tolerance_index_points": 0.5,
+      "maximum_difference": 0.05,
+      "worst": "CZ:2025-02",
+      "failures": 0,
+      "note": "Same 2015=100 reference on both sides; compared directly without re-referencing."
+    },
+    "result": "passed"
+  }
+}

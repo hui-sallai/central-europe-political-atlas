@@ -47,7 +47,7 @@ export function ChinaExposureCoverageMatrix({
 
       <div className="mt-5 overflow-x-auto">
         <table className="min-w-[1120px] w-full border-collapse text-left text-sm">
-          <thead><tr>{["国家", ...Object.values(dimensionLabels), "Sufficient", "Partial", "Unavailable", "项目库覆盖", "优先缺口"].map((header) => <th key={header} className="border-b border-[var(--line)] px-3 py-3 font-semibold first:pl-0">{header}</th>)}</tr></thead>
+          <thead><tr>{["国家", ...Object.values(dimensionLabels), "证据充分", "证据部分", "不可得", "项目库覆盖", "优先缺口"].map((header) => <th key={header} className="border-b border-[var(--line)] px-3 py-3 font-semibold first:pl-0">{header}</th>)}</tr></thead>
           <tbody>{matrix.map((record) => <tr key={record.country_slug} className="align-top">
             <td className="border-b border-[var(--line)] py-3 pl-0 pr-3 font-semibold">{record.country}</td>
             {dimensionKeys.map((dimension) => <td key={dimension} className="border-b border-[var(--line)] px-3 py-3">

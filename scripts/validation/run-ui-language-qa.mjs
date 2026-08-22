@@ -23,6 +23,10 @@ const forbidden = [
   "Composite diagnostics", "Input completeness", "Year alignment", "Validation gate", "Missing variables",
   "Advanced model metadata and limitations", "Expected rows", "Missing rows", "Inference method",
   "Clusters", "Degrees of freedom", "Related projects",
+  "Run", "Download", "Unavailable", "Gate passed",
+  "Run event window analysis", "Download current high-frequency results",
+  "High-frequency data", "Annual core data", "Recommended causal outcome",
+  "Loading", "Event month", "Post period", "Pre period",
 ];
 
 // Files/paths allowed to contain these strings (registry itself, tests).

@@ -97,11 +97,13 @@ const sourceEntries = [
   ["high-frequency/high_frequency_observations.json", "src/data/high-frequency/high_frequency_observations.json"],
   ["high-frequency/high_frequency_coverage.json", "src/data/high-frequency/high_frequency_coverage.json"],
   ["high-frequency/series_dictionary.json", "src/data/high-frequency/series_dictionary.json"],
+  ["high-frequency/hicp_migration_manifest.json", "src/data/high-frequency/hicp_migration_manifest.json"],
   ["events/event_analysis_eligibility.json", "src/data/events/event_analysis_eligibility.json"],
   ["events/event_window_registry.json", "src/data/events/event_window_registry.json"],
   ["events/event_overlap_registry.json", "src/data/events/event_overlap_registry.json"],
   ["network/network_acquisition_manifest.json", "src/data/network/network_acquisition_manifest.json"],
   ["analysis/analysis_skill_registry.json", "src/data/analysis/analysis_skill_registry.json"],
+  ["analysis/var_readiness.json", "src/data/analysis/var_readiness.json"],
 ];
 for (const [archivePath, sourcePath] of sourceEntries) {
   const file = path.join(root, sourcePath);

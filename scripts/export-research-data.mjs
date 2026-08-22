@@ -2022,7 +2022,7 @@ writeJson("release_manifest.json", {
     panel_coverage: "panel-coverage-v1.2",
     panel_engine: "panel-engine-v1.25",
     trade_network: "trade-network-v1.25-active",
-    analysis_skill_registry: "analysis-skill-registry-v1.2",
+    analysis_skill_registry: "analysis-skill-registry-v1.31",
   },
   boundary_versions: ["GISCO NUTS 2024", "regional spatial QA v0.87-v0.89"],
   validation_summary: validationSummary,

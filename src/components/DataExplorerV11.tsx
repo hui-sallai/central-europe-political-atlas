@@ -13,8 +13,99 @@ function formatValue(value: number | null) {
   return value === null ? "待接入" : value.toLocaleString("zh-CN", { maximumFractionDigits: 3 });
 }
 
+// high_frequency_runtime.json row layout (schema high-frequency-runtime-v1.31)
+type HfRuntimeRow = [string, string, string, string, number | null, string, string, string, string, string, string, string];
+
+const hfIndicatorLabels: Record<string, string> = {
+  hicp_monthly_index: "HICP 月度指数",
+  hicp_annual_rate: "HICP 年通胀率",
+  unemployment_rate_monthly: "月度失业率（季调）",
+  industrial_production_index: "工业生产指数（季调日历调整）",
+};
+
+function downloadCsv(filename: string, headers: string[], rows: unknown[][]) {
+  const content = [headers, ...rows].map((row) => row.map(csvCell).join(",")).join("\n");
+  const url = URL.createObjectURL(new Blob([content], { type: "text/csv;charset=utf-8" }));
+  const anchor = document.createElement("a");
+  anchor.href = url;
+  anchor.download = filename;
+  anchor.click();
+  URL.revokeObjectURL(url);
+}
+
+function HighFrequencyDataView({ countries }: { countries: Country[] }) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  const [records, setRecords] = useState<HfRuntimeRow[]>([]);
+  const [loadState, setLoadState] = useState<"loading" | "ready" | "error">("loading");
+  const [countrySlug, setCountrySlug] = useState("hungary");
+  const [indicator, setIndicator] = useState("hicp_annual_rate");
+
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch(`${basePath}/research-data/high_frequency_runtime.json`, { signal: controller.signal })
+      .then((response) => { if (!response.ok) throw new Error(String(response.status)); return response.json(); })
+      .then((payload: { records: HfRuntimeRow[] }) => { setRecords(payload.records); setLoadState("ready"); })
+      .catch((loadError) => { if (!(loadError instanceof DOMException && loadError.name === "AbortError")) setLoadState("error"); });
+    return () => controller.abort();
+  }, [basePath]);
+
+  const countryMap = useMemo(() => new Map(countries.map((item) => [item.slug, item])), [countries]);
+  const rows = useMemo(() => records
+    .filter((row) => row[1] === countrySlug && row[3] === indicator && row[4] !== null)
+    .sort((a, b) => b[2].localeCompare(a[2])), [records, countrySlug, indicator]);
+
+  return (
+    <div className="mt-5">
+      <div className="grid gap-4 border-y border-[var(--line)] py-5 md:grid-cols-2">
+        <label className="text-xs font-semibold text-[var(--muted)]">国家
+          <select className="field-control mt-2" value={countrySlug} onChange={(event) => setCountrySlug(event.target.value)}>{countries.map((country) => <option key={country.slug} value={country.slug}>{country.name_zh} / {country.name}</option>)}</select>
+        </label>
+        <label className="text-xs font-semibold text-[var(--muted)]">指标
+          <select className="field-control mt-2" value={indicator} onChange={(event) => setIndicator(event.target.value)}>{Object.entries(hfIndicatorLabels).map(([id, label]) => <option key={id} value={id}>{label}</option>)}</select>
+        </label>
+      </div>
+
+      <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
+        <p className="text-sm text-[var(--muted)]">
+          {loadState === "loading" ? "正在加载高频数据…" : loadState === "error" ? "高频数据不可用" : <>当前视图 <strong className="text-[var(--foreground)]">{rows.length}</strong> 条月度观测</>}
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <button type="button" disabled={loadState !== "ready"} onClick={() => downloadCsv(
+            `high-frequency-${countrySlug}-${indicator}.csv`,
+            ["country", "indicator", "period", "value", "unit", "value_semantics", "seasonal_adjustment", "source", "status"],
+            rows.map((row) => [row[1], row[3], row[2], row[4], row[6], row[7], row[8], row[10], row[11]]),
+          )} className="rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-50">下载当前高频筛选结果（CSV）</button>
+          <a href={`${basePath}/research-data/${getResearchPackageFilename()}`} className="rounded-full bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-white">下载完整研究数据包（ZIP）</a>
+        </div>
+      </div>
+
+      {loadState === "ready" ? (
+        <div className="data-table-desktop wide-table-scroll mt-5 max-h-[560px] overflow-y-auto">
+          <table className="research-data-table w-full min-w-[860px] text-left text-sm">
+            <thead><tr>{["国家", "指标", "月份", "数值", "单位", "来源", "状态"].map((header) => <th key={header} className="px-3 py-3">{header}</th>)}</tr></thead>
+            <tbody>{rows.map((row) => (
+              <tr key={row[0]}>
+                <td className="px-3 py-2">{countryMap.get(row[1])?.name_zh ?? row[1]}</td>
+                <td className="px-3 py-2 font-semibold">{hfIndicatorLabels[row[3]] ?? row[3]}</td>
+                <td className="metric-number px-3 py-2">{row[2]}</td>
+                <td className="metric-number px-3 py-2 font-semibold">{formatValue(row[4])}</td>
+                <td className="px-3 py-2">{row[6]}</td>
+                <td className="px-3 py-2">{row[10]}</td>
+                <td className="px-3 py-2">{row[11]}</td>
+              </tr>
+            ))}</tbody>
+          </table>
+        </div>
+      ) : null}
+
+      {loadState === "ready" && !rows.length ? <p className="mt-5 border-y border-[var(--line)] py-8 text-center text-sm text-[var(--muted)]">当前筛选条件没有观测值；缺失月份不会显示为 0。</p> : null}
+    </div>
+  );
+}
+
 export function DataExplorerV11({ countries, indicators, observations }: { countries: Country[]; indicators: Indicator[]; observations: Observation[] }) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  const [dataset, setDataset] = useState<"annual" | "high_frequency">("annual");
   const [countrySlug, setCountrySlug] = useState("poland");
   const [indicatorId, setIndicatorId] = useState("all");
   const [year, setYear] = useState("all");
@@ -49,31 +140,37 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
     .sort((a, b) => b.year - a.year || a.indicator.localeCompare(b.indicator)), [countryObservations, indicatorId, indicatorMap, search, year]);
 
   function downloadCurrentView() {
-    const headers = ["country", "indicator", "year", "value", "unit", "status", "source", "source_url", "updated_at"];
-    const content = [headers, ...rows.map((item) => [item.country_slug, item.indicator, item.year, item.value, item.unit, item.status, item.source_name, item.source_url, item.updated_at])]
-      .map((row) => row.map(csvCell).join(","))
-      .join("\n");
-    const url = URL.createObjectURL(new Blob([content], { type: "text/csv;charset=utf-8" }));
-    const anchor = document.createElement("a");
-    anchor.href = url;
-    anchor.download = `observations-${countrySlug}-${indicatorId}-${year}.csv`;
-    anchor.click();
-    URL.revokeObjectURL(url);
+    downloadCsv(
+      `observations-${countrySlug}-${indicatorId}-${year}.csv`,
+      ["country", "indicator", "year", "value", "unit", "status", "source", "source_url", "updated_at"],
+      rows.map((item) => [item.country_slug, item.indicator, item.year, item.value, item.unit, item.status, item.source_name, item.source_url, item.updated_at]),
+    );
   }
 
   return (
     <section className="mt-7">
+      <div className="flex flex-wrap gap-2" role="tablist" aria-label="数据集选择">
+        {([["annual", "年度核心数据"], ["high_frequency", "高频数据"]] as const).map(([id, label]) => (
+          <button key={id} type="button" role="tab" aria-selected={dataset === id} onClick={() => setDataset(id)}
+            className={dataset === id ? "rounded-full bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-white" : "rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold"}>
+            {label}
+          </button>
+        ))}
+      </div>
+
+      {dataset === "high_frequency" ? <HighFrequencyDataView countries={countries} /> : (
+        <>
       <div className="grid gap-4 border-y border-[var(--line)] py-5 md:grid-cols-2 xl:grid-cols-4">
-        <label className="text-xs font-semibold text-[var(--muted)]">Country
+        <label className="text-xs font-semibold text-[var(--muted)]">国家
           <select className="field-control mt-2" value={countrySlug} onChange={(event) => setCountrySlug(event.target.value)}>{countries.map((country) => <option key={country.slug} value={country.slug}>{country.name_zh} / {country.name}</option>)}</select>
         </label>
-        <label className="text-xs font-semibold text-[var(--muted)]">Indicator
+        <label className="text-xs font-semibold text-[var(--muted)]">指标
           <select className="field-control mt-2" value={indicatorId} onChange={(event) => setIndicatorId(event.target.value)}><option value="all">全部指标</option>{availableIndicatorIds.map((id) => <option key={id} value={id}>{indicatorMap.get(id)?.name_zh ?? id}</option>)}</select>
         </label>
-        <label className="text-xs font-semibold text-[var(--muted)]">Year
+        <label className="text-xs font-semibold text-[var(--muted)]">年份
           <select className="field-control mt-2" value={year} onChange={(event) => setYear(event.target.value)}><option value="all">全部年份</option>{availableYears.map((item) => <option key={item} value={item}>{item}</option>)}</select>
         </label>
-        <label className="text-xs font-semibold text-[var(--muted)]">Search
+        <label className="text-xs font-semibold text-[var(--muted)]">搜索
           <input className="field-control mt-2" type="search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="指标或来源" />
         </label>
       </div>
@@ -89,7 +186,7 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
 
       <div className="data-table-desktop wide-table-scroll mt-5">
         <table className="research-data-table w-full min-w-[920px] text-left text-sm">
-          <thead><tr>{["Indicator", "Year", "Value", "Unit", "Source", "Status", "Updated"].map((header) => <th key={header} className="px-3 py-3">{header}</th>)}</tr></thead>
+          <thead><tr>{["指标", "年份", "数值", "单位", "来源", "状态", "更新时间"].map((header) => <th key={header} className="px-3 py-3">{header}</th>)}</tr></thead>
           <tbody>{rows.map((item) => <tr key={item.id}><td className="px-3 py-3 font-semibold">{indicatorMap.get(item.indicator)?.name_zh ?? item.indicator}<span className="mt-1 block font-mono text-[10px] font-normal text-[var(--muted)]">{item.indicator}</span></td><td className="metric-number px-3 py-3">{item.year}</td><td className="metric-number px-3 py-3 font-semibold">{formatValue(item.value)}</td><td className="px-3 py-3">{item.unit}</td><td className="px-3 py-3"><a href={item.source_url} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)] hover:underline">{item.source_name}</a><span className="mt-1 block text-[10px] text-[var(--muted)]">{item.source_reliability} 级</span></td><td className="px-3 py-3">{item.status}</td><td className="metric-number px-3 py-3 text-xs">{item.updated_at}</td></tr>)}</tbody>
         </table>
       </div>
@@ -99,6 +196,8 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
       </div>
 
       {!rows.length ? <p className="mt-5 border-y border-[var(--line)] py-8 text-center text-sm text-[var(--muted)]">当前筛选条件没有观测值；缺失记录不会显示为 0。</p> : null}
+        </>
+      )}
 
     </section>
   );

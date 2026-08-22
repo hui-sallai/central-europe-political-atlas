@@ -4,7 +4,7 @@ Central Europe Political Atlas is a public political-economy research platform f
 
 Public site: https://hy-central-europe-analysis.org/
 
-Current release: **v1.3 High-Frequency Political Economy, Event Analysis & Product Language System**
+Current release: **v1.31 High-Frequency Integrity & Event Semantics**
 
 ## Research scope
 
@@ -53,7 +53,7 @@ Machine-readable files are published under `/research-data/`. See [the research-
 
 ## Citation
 
-Central Europe Political Atlas, version v1.3 High-Frequency Political Economy, Event Analysis & Product Language System, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
+Central Europe Political Atlas, version v1.31 High-Frequency Integrity & Event Semantics, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
 
 The project currently does not claim a DOI. Cite original source URLs when using individual observations, events or project records.
 
