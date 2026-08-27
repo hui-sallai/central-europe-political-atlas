@@ -9,7 +9,7 @@ const researchOut = path.join(out, "research-data");
 const configuredBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const releaseConfig = JSON.parse(fs.readFileSync(path.join(root, "src", "data", "release.json"), "utf8"));
 const requiredRoutes = ["", "map", "countries", "data", "news", "models", "scenarios", "methodology", "legal", "privacy", ...["poland", "hungary", "czechia", "slovakia", "germany", "austria", "romania", "slovenia", "croatia", "serbia"].map((country) => `countries/${country}`)];
-const requiredExports = ["platform_metadata.json", "release_manifest.json", "validation_registry.json", "golden_test_cases.json", "observations.json", "sources.json", "indicators.json", "var_country_readiness.json", researchPackageFilename()];
+const requiredExports = ["platform_metadata.json", "release_manifest.json", "validation_registry.json", "golden_test_cases.json", "observations.json", "sources.json", "indicators.json", "var_country_readiness.json", "stationarity_specification_registry.json", "seasonal_stationarity_results.json", "structural_break_registry.json", "persistence_diagnostics.json", researchPackageFilename()];
 const methodologySections = ["data", "models", "events", "spatial", "validation", "citation"];
 const stableResearchUrls = ["/map?country=hungary&layer=regional_boundary", "/models?model=fiscal_pressure&country=hungary", "/models?skill=var_svar&country=poland", "/scenarios?scenario=inflation_resurgence&country=poland&shock=2", "/countries/poland/", "/news?country=hungary&type=China"];
 const failures = [];
@@ -73,6 +73,7 @@ const validationExport = readJson("validation_registry.json");
 const goldenExport = readJson("golden_test_cases.json");
 const varReadiness = readJson("var_country_readiness.json");
 const expectedVersion = releaseConfig.version;
+const expectedCommit = process.env.GITHUB_SHA ?? process.env.RELEASE_COMMIT_SHA ?? null;
 
 if (metadata) {
   if (metadata.version !== expectedVersion) failures.push(`platform metadata version mismatch: ${metadata.version}`);
@@ -94,7 +95,7 @@ if (manifest) {
   if (manifest.release_date !== releaseConfig.release_date) failures.push(`release manifest date mismatch: ${manifest.release_date}`);
   if (manifest.schema_version !== releaseConfig.schema_version) failures.push(`release manifest schema mismatch: ${manifest.schema_version}`);
   if (!manifest.source_commit || manifest.source_commit === "working-tree") failures.push(`invalid source commit provenance: ${manifest.source_commit}`);
-  if (process.env.GITHUB_SHA && manifest.source_commit !== process.env.GITHUB_SHA) failures.push(`deployment commit mismatch: manifest=${manifest.source_commit} ci=${process.env.GITHUB_SHA}`);
+  if (expectedCommit && manifest.source_commit !== expectedCommit) failures.push(`deployment commit mismatch: manifest=${manifest.source_commit} ci=${expectedCommit}`);
   if (!Array.isArray(manifest.model_versions) || manifest.model_versions.some((item) => !item.model_version || !item.formula_version || !item.weight_version)) failures.push("model version provenance is incomplete");
   if (!Array.isArray(manifest.scenario_versions) || manifest.scenario_versions.some((item) => !item.formula_version || item.shock_min === undefined || item.shock_max === undefined || item.shock_step === undefined)) failures.push("scenario version provenance is incomplete");
   if (manifest.validation_summary?.blocking_failures !== 0) failures.push(`blocking validation failures: ${manifest.validation_summary?.blocking_failures}`);
@@ -104,29 +105,35 @@ if (manifest) {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.42",
+    analysis_skill_registry: "analysis-skill-registry-v1.43",
     transformation_registry: "transformation-registry-v1.41",
-    stationarity_engine: "stationarity-engine-v1.4",
-    var_engine: "var-engine-v1.42",
-    var_specification_profiles: "var-specification-profiles-v1.42",
-    var_country_readiness: "var-country-readiness-v1.42",
+    stationarity_engine: "stationarity-engine-v1.43",
+    var_engine: "var-engine-v1.43",
+    var_specification_profiles: "var-specification-profiles-v1.43",
+    var_country_readiness: "var-country-readiness-v1.43",
   };
   for (const [key, expected] of Object.entries(expectedAdvancedVersions)) if (manifest.advanced_analysis_versions?.[key] !== expected) failures.push(`advanced analysis provenance mismatch: ${key}=${manifest.advanced_analysis_versions?.[key]} expected=${expected}`);
-  if (process.env.GITHUB_SHA && (manifest.build_context !== "github-actions" || !manifest.workflow_run_id)) failures.push("CI manifest is missing github-actions build context or workflow_run_id");
-  if (!process.env.GITHUB_SHA && manifest.build_context !== "local") failures.push(`local manifest build context mismatch: ${manifest.build_context}`);
-  if (manifest.research_package?.status !== "built" || !/^research-data-v1\.42\.zip$/.test(manifest.research_package?.filename ?? "") || !/^[a-f0-9]{64}$/.test(manifest.research_package?.sha256 ?? "") || !manifest.research_package?.generated_at) failures.push("research package filename/SHA256/generated_at provenance is incomplete");
+  if (expectedCommit && (manifest.build_context !== "github-actions" || !manifest.workflow_run_id)) failures.push("CI manifest is missing github-actions build context or workflow_run_id");
+  if (!expectedCommit && manifest.build_context !== "local") failures.push(`local manifest build context mismatch: ${manifest.build_context}`);
+  if (manifest.research_package?.status !== "built" || !/^research-data-v1\.43\.zip$/.test(manifest.research_package?.filename ?? "") || !/^[a-f0-9]{64}$/.test(manifest.research_package?.sha256 ?? "") || !manifest.research_package?.generated_at) failures.push("research package filename/SHA256/generated_at provenance is incomplete");
 }
 
 if (!validationExport?.records?.length) failures.push("validation registry has no records");
 if (!goldenExport?.records?.length) failures.push("golden cases have no records");
 if (goldenExport?.records?.some((item) => item.status === "failed" || item.result_semantic === "failed")) failures.push("golden case failure found in export");
-if (varReadiness?.schema_version !== "var-country-readiness-v1.42" || varReadiness?.records?.length !== 10) failures.push("v1.42 VAR country readiness export is incomplete");
-if (varReadiness?.records?.some((item) => !item.country || !item.readiness_state || !Array.isArray(item.variables) || typeof item.estimable !== "boolean" || typeof item.dynamic_response_ready !== "boolean" || !item.dynamic_response_ready_horizons)) failures.push("v1.42 VAR country readiness records are malformed");
-if (!varReadiness?.baseline_profile_readiness || !varReadiness?.baseline_v2_profile_readiness || !varReadiness?.exploratory_profile_readiness || varReadiness?.ready_countries || varReadiness?.irf_ready_countries) failures.push("v1.42 dual-baseline/exploratory readiness boundary is incomplete");
+if (varReadiness?.schema_version !== "var-country-readiness-v1.43" || varReadiness?.records?.length !== 10) failures.push("v1.43 VAR country readiness export is incomplete");
+if (varReadiness?.records?.some((item) => !item.country || !item.readiness_state || !Array.isArray(item.variables) || typeof item.estimable !== "boolean" || typeof item.dynamic_response_ready !== "boolean" || !item.dynamic_response_ready_horizons)) failures.push("v1.43 VAR country readiness records are malformed");
+if (!varReadiness?.baseline_profile_readiness || !varReadiness?.baseline_v2_profile_readiness || !varReadiness?.exploratory_profile_readiness || varReadiness?.ready_countries || varReadiness?.irf_ready_countries) failures.push("v1.43 dual-baseline/exploratory readiness boundary is incomplete");
 
 const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
 if (!readme.includes(`Current release: **${expectedVersion}**`)) failures.push("README current release does not match canonical metadata");
 if (!readme.includes(`version ${expectedVersion}, accessed`)) failures.push("README citation does not match canonical metadata");
+const changelog = fs.readFileSync(path.join(root, "CHANGELOG.md"), "utf8");
+const latestChangelogHeading = changelog.match(/^## (.+)$/m)?.[1] ?? "";
+if (!latestChangelogHeading.startsWith(expectedVersion) || !latestChangelogHeading.includes(releaseConfig.release_date)) failures.push(`CHANGELOG latest release mismatch: ${latestChangelogHeading}`);
+const skillRegistry = JSON.parse(fs.readFileSync(path.join(root, "src", "data", "analysis", "analysis_skill_registry.json"), "utf8"));
+if (skillRegistry.schema_version !== "analysis-skill-registry-v1.43") failures.push(`analysis skill registry schema mismatch: ${skillRegistry.schema_version}`);
+if (skillRegistry.generated_at !== releaseConfig.release_date) failures.push(`analysis skill registry generated_at mismatch: ${skillRegistry.generated_at}`);
 const releaseSource = fs.readFileSync(path.join(root, "src", "lib", "releaseMetadata.ts"), "utf8");
 if (!releaseSource.includes('import releaseConfig from "../data/release.json"')) failures.push("release metadata is not reading the canonical JSON source");
 const platformStatusSource = fs.readFileSync(path.join(root, "src", "lib", "platformStatus.ts"), "utf8");
@@ -141,7 +148,7 @@ for (const section of methodologySections) {
   previousSectionIndex = sectionIndex;
 }
 if (!methodology.includes("Validation ≠ scientific proof") || !methodology.includes("Historical reconstruction readiness")) failures.push("methodology validation boundary is incomplete");
-if (!methodology.includes("Reduced-form VAR") || !methodology.includes("残差 LM") || !methodology.includes("预注册正式基线") || !methodology.includes("月份虚拟变量") || !methodology.includes("不是结构冲击或因果效应")) failures.push("v1.42 VAR methodology boundary is incomplete");
+if (!methodology.includes("Reduced-form VAR") || !methodology.includes("残差 LM") || !methodology.includes("预注册正式基线") || !methodology.includes("月份虚拟变量") || !methodology.includes("seasonality") || !methodology.includes("seasonal unit root") || !methodology.includes("structural break") || !methodology.includes("不是结构冲击或因果效应")) failures.push("v1.43 VAR methodology boundary is incomplete");
 
 for (const stableUrl of stableResearchUrls) {
   const route = stableUrl.split(/[?#]/)[0].replace(/^\//, "").replace(/\/$/, "");

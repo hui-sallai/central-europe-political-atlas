@@ -1,5 +1,5 @@
 {
-  "schema_version": "var-specification-profiles-v1.42",
+  "schema_version": "var-specification-profiles-v1.43",
   "generated_at": "2026-08-27",
   "profiles": [
     {
@@ -24,6 +24,7 @@
         }
       ],
       "deterministic_terms": "constant",
+      "stationarity_specification_id": "adf_constant",
       "sample_policy": {
         "frequency": "monthly",
         "start_period": "2015-01",
@@ -62,6 +63,7 @@
         }
       ],
       "deterministic_terms": "constant_month_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies",
       "sample_policy": {
         "frequency": "monthly",
         "start_period": "2015-01",
@@ -100,6 +102,7 @@
         }
       ],
       "deterministic_terms": "constant",
+      "stationarity_specification_id": "adf_constant",
       "sample_policy": {
         "frequency": "monthly",
         "start_period": "2015-01",

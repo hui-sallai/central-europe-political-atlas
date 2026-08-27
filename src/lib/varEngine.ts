@@ -1,9 +1,10 @@
 import type { HighFrequencyPoint } from "@/lib/eventWindowEngine";
 import type {
-  AdfTestResult,
   InformationCriterion,
   IrfPath,
   LagCandidateResult,
+  StationarityEvidence,
+  StationaritySpecificationId,
   TransformationId,
   VarModelResult,
   VarDeterministicTerms,
@@ -11,7 +12,7 @@ import type {
 } from "@/types/MacroDynamics";
 import { createVarComparabilitySignature } from "@/lib/varSpecifications";
 import { applyTransformation, transformationSpec } from "@/lib/timeSeriesTransforms";
-import { adfTest } from "@/lib/stationarityTests";
+import { adfSeasonalDummyTest, adfTest, persistenceDiagnostics } from "@/lib/stationarityTests";
 import {
   chiSquareCdf,
   cholesky,
@@ -27,7 +28,7 @@ import {
   type Matrix,
 } from "@/lib/numericLinAlg";
 
-export const VAR_ENGINE_VERSION = "var-engine-v1.42";
+export const VAR_ENGINE_VERSION = "var-engine-v1.43";
 export const VAR_DATASET_VERSION = "high-frequency-v1.31";
 
 export interface VarSpecification {
@@ -38,6 +39,7 @@ export interface VarSpecification {
   ic_criterion: InformationCriterion;
   max_lag: number;
   deterministic_terms: VarDeterministicTerms;
+  stationarity_specification_id?: StationaritySpecificationId;
   profile_id?: string | null;
   specification_kind?: VarSpecificationKind;
 }
@@ -46,7 +48,7 @@ export type VarRunFailure = {
   status: "blocked";
   reason_code: "insufficient_observations" | "missing_data" | "non_stationary" | "unstable" | "residual_diagnostics_failed" | "unsupported_specification" | "singular";
   reasons: string[];
-  stationarity?: Array<{ indicator: string; transformation: TransformationId; adf: AdfTestResult }>;
+  stationarity?: StationarityEvidence[];
 };
 
 export type VarRunOutcome = { status: "ok"; result: VarModelResult } | VarRunFailure;
@@ -283,7 +285,7 @@ export function runReducedFormVar(
     return { status: "blocked", reason_code: "unsupported_specification", reasons: ["开始月份不能晚于结束月份。"] };
   }
   if (!(["constant", "constant_month_dummies"] as string[]).includes(specification.deterministic_terms)) {
-    return { status: "blocked", reason_code: "unsupported_specification", reasons: ["v1.42 只支持常数项，或常数项 + 11 个月份虚拟变量；趋势、断点与节假日项未开放。"] };
+    return { status: "blocked", reason_code: "unsupported_specification", reasons: ["v1.43 只支持常数项，或常数项 + 11 个月份虚拟变量；趋势、断点与节假日项未开放。"] };
   }
   const k = specification.variables.length;
   if (k < 2 || k > 4) {
@@ -346,10 +348,31 @@ export function runReducedFormVar(
     return { status: "blocked", reason_code: "insufficient_observations", reasons: [`有效月度观测 ${effective} 个，低于最低要求 60 个。`] };
   }
 
-  // 2. Stationarity gate: every transformed series must pass ADF.
+  // 2. Preregistered stationarity gate aligned with the profile deterministic specification.
+  const stationaritySpecificationId = specification.stationarity_specification_id
+    ?? (specification.deterministic_terms === "constant_month_dummies" ? "adf_constant_seasonal_dummies" : "adf_constant");
   const stationarity = transformed.map((entry, index) => {
     const series = effectivePeriods.map((period) => valueMaps[index].get(period) as number);
-    return { indicator: entry.indicator, transformation: entry.transformation, adf: adfTest(series, { autolag: "aic" }) };
+    const constantOnlyAdf = adfTest(series, { autolag: "aic" });
+    const adf = stationaritySpecificationId === "adf_constant_seasonal_dummies"
+      ? adfSeasonalDummyTest(series, effectivePeriods, { autolag: "aic" })
+      : constantOnlyAdf;
+    const formalDecision = adf.status === "stationary"
+      ? (stationaritySpecificationId === "adf_constant_seasonal_dummies" ? "stationary_with_seasonal_controls" : "stationary")
+      : adf.status === "non_stationary" ? "non_stationary"
+      : adf.status === "not_tested" ? "not_tested"
+      : "inconclusive";
+    return {
+      indicator: entry.indicator,
+      transformation: entry.transformation,
+      stationarity_specification_id: stationaritySpecificationId,
+      formal_decision: formalDecision,
+      adf,
+      constant_only_adf: stationaritySpecificationId === "adf_constant_seasonal_dummies" ? constantOnlyAdf : null,
+      seasonal_unit_root_status: "not_available" as const,
+      structural_break_status: "registry_only" as const,
+      persistence: persistenceDiagnostics(series, 24),
+    } satisfies StationarityEvidence;
   });
   const stationarityFailures = stationarity.filter((entry) => entry.adf.status === "non_stationary" || entry.adf.status === "not_tested");
   if (stationarityFailures.length) {
@@ -358,7 +381,7 @@ export function runReducedFormVar(
       reason_code: "non_stationary",
       reasons: stationarityFailures.map((entry) => entry.adf.status === "not_tested"
         ? `${entry.indicator}（${entry.transformation}）ADF 无法完成，未建立平稳性证据；当前规格不能进入正式 VAR。`
-        : `${entry.indicator}（${entry.transformation}）ADF 不能拒绝单位根（stat=${entry.adf.statistic.toFixed(3)}，5% 临界值 ${entry.adf.critical_values["5%"].toFixed(3)}）；请更换 transformation。`),
+        : `${entry.indicator}（${entry.transformation}）${entry.stationarity_specification_id} 不能拒绝零频单位根（stat=${entry.adf.statistic.toFixed(3)}，5% 临界值 ${entry.adf.critical_values["5%"].toFixed(3)}）；请按预注册 profile 处理。`),
       stationarity,
     };
   }
@@ -385,7 +408,7 @@ function runEstimationPipeline(
   fullAxis: string[],
   transformed: Array<{ indicator: string; transformation: TransformationId; points: ReturnType<typeof applyTransformation> }>,
   valueMaps: Array<Map<string, number | null>>,
-  stationarity: Array<{ indicator: string; transformation: TransformationId; adf: AdfTestResult }>,
+  stationarity: StationarityEvidence[],
   k: number,
 ): VarRunOutcome {
   const effective = effectivePeriods.length;
@@ -511,7 +534,7 @@ function runEstimationPipeline(
     country: specification.country,
     profile_id: specification.profile_id ?? null,
     specification_kind: specification.specification_kind ?? "custom",
-    comparability_signature: createVarComparabilitySignature(specification.variables, specification.deterministic_terms),
+    comparability_signature: createVarComparabilitySignature(specification.variables, specification.deterministic_terms, specification.stationarity_specification_id),
     variables: specification.variables,
     variable_order: specification.variables.map((variable) => variable.indicator),
     sample: {
@@ -541,7 +564,7 @@ function runEstimationPipeline(
       stability: { stable: stability.stable, max_root_modulus: Number(stability.max_root_modulus.toFixed(8)), roots_moduli: stability.roots_moduli },
       residual_autocorrelation: portmanteau,
       residual_autocorrelation_sensitivity: residualSensitivity,
-      residual_lm: { status: "unavailable", note: "v1.42 未实现多元残差 LM 检验；不得把 Portmanteau 结果表述为 LM 检验。" },
+      residual_lm: { status: "unavailable", note: "v1.43 未实现多元残差 LM 检验；不得把 Portmanteau 结果表述为 LM 检验。" },
       residual_seasonality: {
         residual_month_of_year_means: residualSeasonality.map((entry) => ({ month: entry.month, values: entry.means.map((value) => Number(value.toFixed(8))) })),
         residual_month_of_year_variances: residualSeasonality.map((entry) => ({ month: entry.month, values: entry.variances.map((value) => Number(value.toFixed(8))) })),

@@ -25,6 +25,12 @@ const stateClass: Record<string, string> = {
   estimable_with_warning: "text-[var(--warning)]",
 };
 
+const historicalReferenceMarkers: Record<string, string> = {
+  "2020-03": "COVID-19 历史参考",
+  "2021-07": "2021 H2 通胀上行历史参考",
+  "2022-02": "乌克兰战争 / 能源价格冲击历史参考",
+};
+
 function downloadJson(value: unknown, fileName: string) {
   const url = URL.createObjectURL(new Blob([JSON.stringify(value, null, 2)], { type: "application/json" }));
   const anchor = document.createElement("a");
@@ -140,6 +146,7 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
       ic_criterion: criterion,
       max_lag: maxLag,
       deterministic_terms: deterministicTerms,
+      stationarity_specification_id: deterministicTerms === "constant_month_dummies" ? "adf_constant_seasonal_dummies" : "adf_constant",
       profile_id: profileId,
       specification_kind: specificationKind,
     };
@@ -282,8 +289,8 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
           <p className="font-semibold">{varLabels.blockedTitle}：{varLabels.readinessStates[outcome.reason_code] ?? outcome.reason_code}</p>
           <ul className="mt-2 grid gap-1 text-sm text-[var(--muted)]">{outcome.reasons.map((reason) => <li key={reason}>{reason}</li>)}</ul>
           {outcome.stationarity?.length ? (
-            <div className="mt-4 overflow-x-auto"><table className="research-data-table w-full min-w-[640px] text-left text-sm"><thead><tr>{["指标", "变换", "ADF 统计量", "5% 临界值", "p 值", "状态"].map((header) => <th key={header} className="px-3 py-2">{header}</th>)}</tr></thead>
-              <tbody>{outcome.stationarity.map((entry) => <tr key={`${entry.indicator}-${entry.transformation}`}><td className="px-3 py-2">{indicatorLabels[entry.indicator] ?? entry.indicator}</td><td className="px-3 py-2">{transformationLabels[entry.transformation]}</td><td className="metric-number px-3 py-2">{Number.isFinite(entry.adf.statistic) ? entry.adf.statistic.toFixed(3) : "—"}</td><td className="metric-number px-3 py-2">{entry.adf.critical_values["5%"].toFixed(3)}</td><td className="metric-number px-3 py-2">{Number.isFinite(entry.adf.p_value) ? entry.adf.p_value.toFixed(4) : "—"}</td><td className="px-3 py-2">{entry.adf.status}</td></tr>)}</tbody></table></div>
+            <div className="mt-4 overflow-x-auto"><table className="research-data-table w-full min-w-[900px] text-left text-sm"><thead><tr>{["指标", "变换", "平稳性规格", "ADF 统计量", "5% 临界值", "p 值", "正式判断"].map((header) => <th key={header} className="px-3 py-2">{header}</th>)}</tr></thead>
+              <tbody>{outcome.stationarity.map((entry) => <tr key={`${entry.indicator}-${entry.transformation}`}><td className="px-3 py-2">{indicatorLabels[entry.indicator] ?? entry.indicator}</td><td className="px-3 py-2">{transformationLabels[entry.transformation]}</td><td className="px-3 py-2">{entry.stationarity_specification_id}</td><td className="metric-number px-3 py-2">{Number.isFinite(entry.adf.statistic) ? entry.adf.statistic.toFixed(3) : "—"}</td><td className="metric-number px-3 py-2">{entry.adf.critical_values["5%"].toFixed(3)}</td><td className="metric-number px-3 py-2">{Number.isFinite(entry.adf.p_value) ? entry.adf.p_value?.toFixed(4) : "不提供伪精确值"}</td><td className="px-3 py-2">{entry.formal_decision}</td></tr>)}</tbody></table></div>
           ) : null}
         </section>
       ) : null}
@@ -374,8 +381,9 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
             <div className="mt-6 grid gap-6">
               <div>
                 <p className="text-xs font-semibold text-[var(--muted)]">{varLabels.stationarityTable}</p>
-                <div className="mt-2 overflow-x-auto"><table className="research-data-table w-full min-w-[720px] text-left text-sm"><thead><tr>{["指标", "变换", "ADF 统计量", "1% / 5% / 10% 临界值", "p 值", "滞后", "状态"].map((header) => <th key={header} className="px-3 py-2">{header}</th>)}</tr></thead>
-                  <tbody>{result.stationarity.map((entry) => <tr key={`${entry.indicator}-${entry.transformation}`}><td className="px-3 py-2">{indicatorLabels[entry.indicator] ?? entry.indicator}</td><td className="px-3 py-2">{transformationLabels[entry.transformation]}</td><td className="metric-number px-3 py-2">{Number.isFinite(entry.adf.statistic) ? entry.adf.statistic.toFixed(3) : "—"}</td><td className="metric-number px-3 py-2">{entry.adf.critical_values["1%"].toFixed(2)} / {entry.adf.critical_values["5%"].toFixed(2)} / {entry.adf.critical_values["10%"].toFixed(2)}</td><td className="metric-number px-3 py-2">{Number.isFinite(entry.adf.p_value) ? entry.adf.p_value.toFixed(4) : "—"}</td><td className="metric-number px-3 py-2">{entry.adf.used_lag}</td><td className="px-3 py-2">{entry.adf.status}</td></tr>)}</tbody></table></div>
+                <div className="mt-2 overflow-x-auto"><table className="research-data-table w-full min-w-[1080px] text-left text-sm"><thead><tr>{["指标", "变换", "平稳性规格", "ADF 统计量", "1% / 5% / 10% 临界值", "p 值", "滞后", "正式判断", "季节持续性", "结构突变状态"].map((header) => <th key={header} className="px-3 py-2">{header}</th>)}</tr></thead>
+                  <tbody>{result.stationarity.map((entry) => <tr key={`${entry.indicator}-${entry.transformation}`}><td className="px-3 py-2">{indicatorLabels[entry.indicator] ?? entry.indicator}</td><td className="px-3 py-2">{transformationLabels[entry.transformation]}</td><td className="px-3 py-2">{entry.stationarity_specification_id}</td><td className="metric-number px-3 py-2">{Number.isFinite(entry.adf.statistic) ? entry.adf.statistic.toFixed(3) : "—"}</td><td className="metric-number px-3 py-2">{entry.adf.critical_values["1%"].toFixed(2)} / {entry.adf.critical_values["5%"].toFixed(2)} / {entry.adf.critical_values["10%"].toFixed(2)}</td><td className="metric-number px-3 py-2">{Number.isFinite(entry.adf.p_value) ? entry.adf.p_value?.toFixed(4) : "不提供伪精确值"}</td><td className="metric-number px-3 py-2">{entry.adf.used_lag}</td><td className="px-3 py-2">{entry.formal_decision}</td><td className="px-3 py-2">lag 12 = {entry.persistence.seasonal_lag_12_autocorrelation?.toFixed(3) ?? "—"}{entry.persistence.seasonal_persistence_warning ? " · 警示" : ""}</td><td className="px-3 py-2">{entry.structural_break_status}</td></tr>)}</tbody></table></div>
+                <p className="mt-2 text-xs leading-6 text-[var(--muted)]">v1 使用 ADF + constant；v2 使用 ADF + constant + 11 个月份确定性项（January reference）。季节控制下的 ADF 不提供伪精确自定义 p 值；HEGY 为 not_available，Zivot–Andrews 为 registry_only。</p>
               </div>
               <div>
                 <p className="text-xs font-semibold text-[var(--muted)]">{varLabels.lagSelectionTable}</p>
@@ -413,6 +421,7 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
                 ))}
               </dl>
               <details className="advanced-disclosure"><summary>残差月份模式</summary><div className="mt-3 overflow-x-auto"><table className="research-data-table w-full min-w-[720px] text-left text-xs"><thead><tr><th className="px-3 py-2">月份</th>{result.variable_order.map((item) => <th key={item} className="px-3 py-2">{indicatorLabels[item] ?? item} · 均值</th>)}</tr></thead><tbody>{result.diagnostics.residual_seasonality.residual_month_of_year_means.map((row) => <tr key={row.month}><td className="metric-number px-3 py-2">{row.month}</td>{row.values.map((value, index) => <td key={index} className="metric-number px-3 py-2">{Number.isFinite(value) ? value.toFixed(4) : "—"}</td>)}</tr>)}</tbody></table></div><p className="mt-2 text-xs text-[var(--muted)]">该表用于比较常数项基线与月份控制基线的残差季节结构，不用于挑选更好看的结果。</p></details>
+              <details className="advanced-disclosure"><summary>ACF / PACF 与季节持续性</summary><div className="mt-3 overflow-x-auto"><table className="research-data-table w-full min-w-[720px] text-left text-xs"><thead><tr>{["指标", "lag-1 ACF", "lag-12 ACF", "lag-12 PACF", "季节持续性"].map((header) => <th key={header} className="px-3 py-2">{header}</th>)}</tr></thead><tbody>{result.stationarity.map((entry) => <tr key={entry.indicator}><td className="px-3 py-2">{indicatorLabels[entry.indicator] ?? entry.indicator}</td><td className="metric-number px-3 py-2">{entry.persistence.acf.find((item) => item.lag === 1)?.value.toFixed(3) ?? "—"}</td><td className="metric-number px-3 py-2">{entry.persistence.seasonal_lag_12_autocorrelation?.toFixed(3) ?? "—"}</td><td className="metric-number px-3 py-2">{entry.persistence.pacf.find((item) => item.lag === 12)?.value.toFixed(3) ?? "—"}</td><td className="px-3 py-2">{entry.persistence.seasonal_persistence_warning ? "seasonal persistence warning" : "未触发描述性警示"}</td></tr>)}</tbody></table></div><p className="mt-2 text-xs text-[var(--muted)]">ACF/PACF 仅作描述，不自动选择模型；lag-12 自相关明显也不等于确认 seasonal unit root。</p></details>
             </div>
           ) : null}
 
@@ -424,9 +433,9 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
                   <div key={entry.indicator}>
                     <p className="text-xs font-semibold">{indicatorLabels[entry.indicator] ?? entry.indicator} · {transformationLabels[entry.transformation]}</p>
                     <div className="mt-2 max-h-[320px] overflow-y-auto border border-[var(--line)]">
-                      <table className="research-data-table w-full text-left text-xs"><thead><tr>{["月份", showRaw ? "原始值" : "变换后值"].map((header) => <th key={header} className="px-2 py-2">{header}</th>)}</tr></thead>
+                      <table className="research-data-table w-full text-left text-xs"><thead><tr>{["月份", showRaw ? "原始值" : "变换后值", "历史参考标记"].map((header) => <th key={header} className="px-2 py-2">{header}</th>)}</tr></thead>
                         <tbody>{entry.points.map((point) => (
-                          <tr key={point.period}><td className="metric-number px-2 py-1">{point.period}</td><td className="metric-number px-2 py-1">{showRaw ? (point.raw_values[0] === null ? "缺失" : point.raw_values[0].toFixed(3)) : (point.value === null ? "缺失" : point.value.toFixed(4))}</td></tr>
+                          <tr key={point.period}><td className="metric-number px-2 py-1">{point.period}</td><td className="metric-number px-2 py-1">{showRaw ? (point.raw_values[0] === null ? "缺失" : point.raw_values[0].toFixed(3)) : (point.value === null ? "缺失" : point.value.toFixed(4))}</td><td className="px-2 py-1">{historicalReferenceMarkers[point.period] ?? "—"}</td></tr>
                         ))}</tbody></table>
                     </div>
                   </div>
@@ -441,8 +450,9 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
               <p>本模型是单国月度简化式 VAR：每个方程使用相同滞后和确定性项做 OLS 估计，滞后阶数由共同有效样本上的 {result.lag_selection.criterion.toUpperCase()} 选择，稳定性按伴随矩阵特征根判定。调整 Portmanteau 的 h=12 是主诊断，h=18/24 是较长视野敏感性门。当前未实现多元残差 LM。</p>
               <p className="mt-3">{varLabels.noStructuralNote}</p>
               <p className="mt-3">动态响应为正交化简化式 IRF（Cholesky）：结果依赖变量排序，排序见「变量顺序」。当前版本不提供置信区间。SVAR（结构识别）与 Local Projections 保持 registry_only：Cholesky 排序不等于自动结构识别。</p>
-              <p className="mt-3">正式 baseline v1 与 v2 均预注册且并列保留；v2 的 11 个月份虚拟变量是模型季节控制，不把 NSA HICP 改称季调序列。探索性 fallback 的所有尝试单独记录，不能冒充 baseline。</p>
-              <p className="mt-3 font-mono text-xs">engine={result.engine_version} · dataset={result.dataset_version} · platform v1.42</p>
+               <p className="mt-3">正式 baseline v1 与 v2 均预注册且并列保留：v1 使用 constant VAR + constant ADF；v2 使用 seasonal-control VAR + seasonal-dummy ADF。v2 的 11 个月份虚拟变量是系统级确定性控制，主要吸收剩余 calendar/month effects，不把 NSA HICP 改称季调序列，也不重新季调已经是 SCA 的工业生产或 SA 的失业率。</p>
+               <p className="mt-3">Deterministic seasonality、seasonal unit root、structural break 与 persistent stationary process 是不同概念。当前 HEGY 与 Zivot–Andrews 未激活；2020/2021/2022 标记只是 historical reference marker，不是 estimated structural break。</p>
+               <p className="mt-3 font-mono text-xs">engine={result.engine_version} · dataset={result.dataset_version} · platform v1.43</p>
             </div>
           ) : null}
         </section>

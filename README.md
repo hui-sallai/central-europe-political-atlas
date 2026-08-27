@@ -4,7 +4,7 @@ Central Europe Political Atlas is a public political-economy research platform f
 
 Public site: https://hy-central-europe-analysis.org/
 
-Current release: **v1.42 Seasonal Controls & Dynamic Diagnostic Adequacy**
+Current release: **v1.43 Seasonality-Aware Stationarity & Structural-Break Diagnostics**
 
 ## Research scope
 
@@ -13,7 +13,7 @@ Current release: **v1.42 Seasonal Controls & Dynamic Diagnostic Adequacy**
 - 4 transparent, rule-based models with input traces, published weights, completeness and confidence; formal cross-country comparisons require the same model version, formula, weight and input year.
 - An annual 2015–2025 econometric panel with cluster-robust Student-t (G−1) inference, small-cluster gates and offline Python reference validation.
 - An activated bilateral goods trade network (UN Comtrade, complete partner edges, 0.95 coverage gate) with deterministic descriptive concentration metrics.
-- A per-country monthly reduced-form VAR workbench with a fixed formal baseline, a separately labelled exploratory fallback profile, strict `estimable` versus `dynamic_response_ready` states, h=12/18/24 residual sensitivity diagnostics, and ordering-dependent orthogonalized point responses. SVAR, residual LM and uncertainty intervals remain unavailable.
+- A per-country monthly reduced-form VAR workbench with constant-only and seasonal-control formal baselines, profile-mapped stationarity gates, descriptive persistence and structural-break readiness diagnostics, strict `estimable` versus `dynamic_response_ready` states, h=12/18/24 residual sensitivity diagnostics, and ordering-dependent orthogonalized point responses. SVAR, seasonal-unit-root tests, structural-break estimators, residual LM and uncertainty intervals remain unavailable.
 - 4 conditional scenarios with baseline, shock assumption, adjusted input and result traces.
 - Coded political-economy events and verified China-related project records.
 - Deterministic validation, golden cases and a release QA gate.
@@ -54,7 +54,7 @@ Machine-readable files are published under `/research-data/`. See [the research-
 
 ## Citation
 
-Central Europe Political Atlas, version v1.42 Seasonal Controls & Dynamic Diagnostic Adequacy, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
+Central Europe Political Atlas, version v1.43 Seasonality-Aware Stationarity & Structural-Break Diagnostics, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
 
 ## Official VAR reference environment
 

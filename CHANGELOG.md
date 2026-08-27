@@ -1,5 +1,19 @@
 # Changelog
 
+## v1.43 Seasonality-Aware Stationarity & Structural-Break Diagnostics - 2026-08-27
+
+- Method: aligned each registered VAR profile with a preregistered stationarity specification; baseline v1 retains constant-only ADF while baseline v2 uses ADF with a constant and 11 month-of-year dummies.
+- Diagnostics: added source-adjustment-aware seasonality audit, descriptive ACF/PACF and lag-12 persistence warnings, seasonal-unit-root and structural-break registries, and historical candidate-regime markers without claiming estimated breaks.
+- Validation: added Python OLS reference checks for seasonal-dummy ADF coefficients, standard errors, tau statistics and common-sample lag selection; retained every v1.42 residual, stability and horizon gate.
+- Boundary: HEGY and Zivot-Andrews remain registry-only/unavailable; no SVAR, Local Projections estimator, Bayesian VAR, causal event study or bootstrap IRF intervals were activated.
+
+## v1.42 Seasonal Controls & Dynamic Diagnostic Adequacy - 2026-08-27
+
+- Method: added a second preregistered baseline with a constant and 11 month-of-year dummies while preserving the original constant-only baseline and documented exploratory fallback.
+- Diagnostics: added a source seasonality audit, full legal-lag diagnostic grid, h=12 primary and h=18/24 sensitivity Portmanteau checks, horizon-specific 6/12/18/24 dynamic-response gates, and residual month-of-year summaries.
+- Registry: migrated the active public skill ID to `reduced_form_var`; retained `var_svar` only as a deprecated deep-link alias and kept SVAR, Local Projections and Bayesian VAR inactive.
+- Provenance: strengthened schema, package SHA-256, CI commit and workflow-run recording in the release manifest and downloadable research package.
+
 ## v1.41 VAR Specification & Diagnostic Reliability - 2026-08-22
 
 - Major: separated the fixed formal baseline from the explicitly exploratory transformation fallback profile; readiness now distinguishes coefficient estimation from dynamic-response eligibility.

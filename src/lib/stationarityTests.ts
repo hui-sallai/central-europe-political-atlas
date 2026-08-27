@@ -1,7 +1,49 @@
-import type { AdfTestResult, KpssStatus, StationarityStatus } from "@/types/MacroDynamics";
+import type {
+  AdfTestResult,
+  KpssStatus,
+  PersistenceDiagnostics,
+  StationaritySpecificationId,
+  StationarityStatus,
+} from "@/types/MacroDynamics";
 import { inverse, matMul, normalCdf, transpose, zeros, type Matrix } from "@/lib/numericLinAlg";
 
-export const STATIONARITY_ENGINE_VERSION = "stationarity-engine-v1.4";
+export const STATIONARITY_ENGINE_VERSION = "stationarity-engine-v1.43";
+
+export const STATIONARITY_SPECIFICATION_REGISTRY = [
+  {
+    specification_id: "adf_constant" as const,
+    state: "active",
+    deterministic_terms: "constant",
+    seasonal_dummies: 0,
+    reference_month: null,
+    critical_value_policy: "MacKinnon 2010 regression=c, N=1 finite-sample response surface",
+    p_value_policy: "MacKinnon 1994 regression=c response surface",
+  },
+  {
+    specification_id: "adf_constant_seasonal_dummies" as const,
+    state: "active",
+    deterministic_terms: "constant_month_dummies",
+    seasonal_dummies: 11,
+    reference_month: "January",
+    critical_value_policy: "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values are retained as the documented reference policy and independently checked against Python OLS fixtures",
+    p_value_policy: "unavailable_for_custom_deterministic_specification",
+  },
+  {
+    specification_id: "adf_constant_trend" as const,
+    state: "registry_only",
+    deterministic_terms: "constant_trend",
+    seasonal_dummies: 0,
+    reference_month: null,
+    critical_value_policy: "not_activated",
+    p_value_policy: "not_activated",
+  },
+] as const;
+
+export const SEASONAL_UNIT_ROOT_REGISTRY = [{
+  test_id: "hegy",
+  state: "not_available",
+  note: "HEGY is not activated because formula, critical values and cross-language validation are not yet complete. Deterministic month controls do not test seasonal unit roots.",
+}] as const;
 
 // MacKinnon (1994) response-surface tables for the ADF tau statistic with a
 // constant (regression "c", N=1), ported exactly from statsmodels adfvalues.py.
@@ -35,6 +77,7 @@ function mackinnonCritical(nobs: number): { "1%": number; "5%": number; "10%": n
 
 interface OlsFit {
   coefficients: number[];
+  standardErrors: number[];
   tValues: number[];
   sse: number;
   nobs: number;
@@ -59,8 +102,9 @@ function ols(y: number[], x: Matrix): OlsFit {
     sse += residual * residual;
   }
   const sigma2 = sse / (nobs - k);
-  const tValues = coefficients.map((value, j) => value / Math.sqrt(sigma2 * xtxInv[j][j]));
-  return { coefficients, tValues, sse, nobs, k };
+  const standardErrors = coefficients.map((_, j) => Math.sqrt(sigma2 * xtxInv[j][j]));
+  const tValues = coefficients.map((value, j) => value / standardErrors[j]);
+  return { coefficients, standardErrors, tValues, sse, nobs, k };
 }
 
 /** statsmodels OLS information criterion on a common sample (constants retained for fidelity). */
@@ -75,6 +119,12 @@ function olsBic(fit: OlsFit): number {
 export interface AdfOptions {
   maxlag?: number;
   autolag?: "aic" | "bic" | null;
+}
+
+function classifyAdf(statistic: number, criticalValues: { "1%": number; "5%": number; "10%": number }): StationarityStatus {
+  if (statistic < criticalValues["5%"]) return "stationary";
+  if (statistic > criticalValues["10%"]) return "non_stationary";
+  return "borderline";
 }
 
 /**
@@ -97,6 +147,9 @@ export function adfTest(values: number[], options: AdfOptions = {}): AdfTestResu
   const notTested = (lag: number): AdfTestResult => ({
     test: "adf",
     regression: "c",
+    deterministic_terms: "constant",
+    seasonal_dummies: 0,
+    reference_month: null,
     series_length: n,
     used_lag: lag,
     max_lag: maxlag,
@@ -105,6 +158,10 @@ export function adfTest(values: number[], options: AdfOptions = {}): AdfTestResu
     statistic: Number.NaN,
     p_value: Number.NaN,
     critical_values: mackinnonCritical(Math.max(2, n - 1 - lag)),
+    critical_value_policy: "MacKinnon 2010 regression=c, N=1 finite-sample response surface",
+    p_value_policy: "MacKinnon 1994 regression=c response surface",
+    lagged_level_coefficient: null,
+    lagged_level_standard_error: null,
     status: "not_tested",
   });
 
@@ -161,13 +218,14 @@ export function adfTest(values: number[], options: AdfOptions = {}): AdfTestResu
   if (!Number.isFinite(statistic)) return notTested(bestlag);
   const pValue = mackinnonPValue(statistic);
   const criticalValues = mackinnonCritical(nobs);
-  let status: StationarityStatus = "borderline";
-  if (statistic < criticalValues["5%"]) status = "stationary";
-  else if (statistic > criticalValues["10%"]) status = "non_stationary";
+  const status = classifyAdf(statistic, criticalValues);
 
   return {
     test: "adf",
     regression: "c",
+    deterministic_terms: "constant",
+    seasonal_dummies: 0,
+    reference_month: null,
     series_length: n,
     used_lag: bestlag,
     max_lag: maxlag,
@@ -176,8 +234,174 @@ export function adfTest(values: number[], options: AdfOptions = {}): AdfTestResu
     statistic,
     p_value: pValue,
     critical_values: criticalValues,
+    critical_value_policy: "MacKinnon 2010 regression=c, N=1 finite-sample response surface",
+    p_value_policy: "MacKinnon 1994 regression=c response surface",
+    lagged_level_coefficient: finalFit.coefficients[0],
+    lagged_level_standard_error: finalFit.standardErrors[0],
     status,
   };
+}
+
+function periodMonth(period: string): number {
+  if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(period)) throw new Error(`invalid monthly period: ${period}`);
+  return Number(period.slice(5, 7));
+}
+
+/**
+ * Zero-frequency ADF with a constant and 11 fixed month-of-year dummies.
+ * January is the reference month. Autolag candidates use one common effective
+ * sample. Because statsmodels adfuller has no exogenous-deterministic argument,
+ * the regression is constructed explicitly and validated against Python OLS.
+ * A custom MacKinnon p-value is not reported; the registered critical-value
+ * policy is used only for the zero-frequency tau decision.
+ */
+export function adfSeasonalDummyTest(values: number[], periods: string[], options: AdfOptions = {}): AdfTestResult {
+  if (values.length !== periods.length) throw new Error("seasonal ADF values and periods must have equal length");
+  periods.forEach(periodMonth);
+  const x = values;
+  const n = x.length;
+  const autolag = options.autolag === undefined ? "aic" : options.autolag;
+  let maxlag = options.maxlag ?? Math.ceil(12 * Math.pow(n / 100, 0.25));
+  maxlag = Math.min(maxlag, Math.floor((n - 12) / 2) - 2);
+  if (maxlag < 0) throw new Error("sample size is too short for ADF with monthly seasonal dummies");
+
+  const xdiff = Array.from({ length: n - 1 }, (_, index) => x[index + 1] - x[index]);
+  const monthDummies = (period: string) => {
+    const month = periodMonth(period);
+    return Array.from({ length: 11 }, (_, index) => month === index + 2 ? 1 : 0);
+  };
+  const buildRow = (t: number, lagCount: number, levelFirst: boolean) => {
+    const level = x[t];
+    const lags = Array.from({ length: lagCount }, (_, index) => xdiff[t - index - 1]);
+    const deterministic = [1, ...monthDummies(periods[t + 1])];
+    return levelFirst ? [level, ...lags, ...deterministic] : [...deterministic, level, ...lags];
+  };
+  const notTested = (lag: number): AdfTestResult => ({
+    test: "adf",
+    regression: "c+seasonal_dummies",
+    deterministic_terms: "constant_month_dummies",
+    seasonal_dummies: 11,
+    reference_month: "January",
+    series_length: n,
+    used_lag: lag,
+    max_lag: maxlag,
+    autolag_criterion: autolag,
+    nobs: Math.max(0, n - 1 - lag),
+    statistic: Number.NaN,
+    p_value: null,
+    critical_values: mackinnonCritical(Math.max(2, n - 1 - lag)),
+    critical_value_policy: "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+    p_value_policy: "unavailable_for_custom_deterministic_specification",
+    lagged_level_coefficient: null,
+    lagged_level_standard_error: null,
+    status: "not_tested",
+  });
+
+  let bestlag = maxlag;
+  if (autolag !== null) {
+    const nobsFull = n - 1 - maxlag;
+    let bestIc = Number.POSITIVE_INFINITY;
+    for (let lagCount = 0; lagCount <= maxlag; lagCount += 1) {
+      const y: number[] = [];
+      const xMat: Matrix = zeros(nobsFull, 13 + lagCount);
+      for (let row = 0; row < nobsFull; row += 1) {
+        const t = maxlag + row;
+        y.push(xdiff[t]);
+        xMat[row] = buildRow(t, lagCount, false);
+      }
+      try {
+        const fit = ols(y, xMat);
+        const ic = autolag === "aic" ? olsAic(fit) : olsBic(fit);
+        if (ic < bestIc) {
+          bestIc = ic;
+          bestlag = lagCount;
+        }
+      } catch {
+        // Singular candidate designs are not selectable.
+      }
+    }
+    if (!Number.isFinite(bestIc)) return notTested(maxlag);
+  }
+
+  const nobs = n - 1 - bestlag;
+  const yFinal: number[] = [];
+  const xFinal: Matrix = zeros(nobs, 13 + bestlag);
+  for (let row = 0; row < nobs; row += 1) {
+    const t = bestlag + row;
+    yFinal.push(xdiff[t]);
+    xFinal[row] = buildRow(t, bestlag, true);
+  }
+  let fit: OlsFit;
+  try {
+    fit = ols(yFinal, xFinal);
+  } catch {
+    return notTested(bestlag);
+  }
+  const statistic = fit.tValues[0];
+  if (!Number.isFinite(statistic)) return notTested(bestlag);
+  const criticalValues = mackinnonCritical(nobs);
+  return {
+    test: "adf",
+    regression: "c+seasonal_dummies",
+    deterministic_terms: "constant_month_dummies",
+    seasonal_dummies: 11,
+    reference_month: "January",
+    series_length: n,
+    used_lag: bestlag,
+    max_lag: maxlag,
+    autolag_criterion: autolag,
+    nobs,
+    statistic,
+    p_value: null,
+    critical_values: criticalValues,
+    critical_value_policy: "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+    p_value_policy: "unavailable_for_custom_deterministic_specification",
+    lagged_level_coefficient: fit.coefficients[0],
+    lagged_level_standard_error: fit.standardErrors[0],
+    status: classifyAdf(statistic, criticalValues),
+  };
+}
+
+export function persistenceDiagnostics(values: number[], maxLag = 24): PersistenceDiagnostics {
+  const n = values.length;
+  const mean = values.reduce((sum, value) => sum + value, 0) / n;
+  const variance = values.reduce((sum, value) => sum + (value - mean) ** 2, 0);
+  const applied = Math.max(0, Math.min(maxLag, n - 2));
+  const acfValues = Array.from({ length: applied + 1 }, (_, lag) => {
+    if (lag === 0) return 1;
+    let covariance = 0;
+    for (let index = lag; index < n; index += 1) covariance += (values[index] - mean) * (values[index - lag] - mean);
+    return variance > 0 ? covariance / variance : Number.NaN;
+  });
+  const pacfValues = [1];
+  let previous: number[] = [];
+  for (let order = 1; order <= applied; order += 1) {
+    let numerator = acfValues[order];
+    let denominator = 1;
+    for (let j = 1; j < order; j += 1) {
+      numerator -= previous[j - 1] * acfValues[order - j];
+      denominator -= previous[j - 1] * acfValues[j];
+    }
+    const reflection = Math.abs(denominator) > 1e-12 ? numerator / denominator : Number.NaN;
+    const current = Array.from({ length: order }, (_, index) => index === order - 1
+      ? reflection
+      : previous[index] - reflection * previous[order - index - 2]);
+    pacfValues.push(reflection);
+    previous = current;
+  }
+  const lag12 = applied >= 12 && Number.isFinite(acfValues[12]) ? acfValues[12] : null;
+  return {
+    max_lag: applied,
+    acf: acfValues.map((value, lag) => ({ lag, value })),
+    pacf: pacfValues.map((value, lag) => ({ lag, value })),
+    seasonal_lag_12_autocorrelation: lag12,
+    seasonal_persistence_warning: lag12 !== null && Math.abs(lag12) >= 0.3,
+    interpretation_boundary: "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root.",
+  };
+}
+
+export function stationaritySpecification(id: StationaritySpecificationId) {
+  return STATIONARITY_SPECIFICATION_REGISTRY.find((item) => item.specification_id === id) ?? null;
 }
 
 /** KPSS is deliberately not implemented in v1.4; the status is honest. */

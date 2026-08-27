@@ -1,4 +1,4 @@
-# Generates offline reference cases for the v1.42 reduced-form VAR engine.
+# Generates offline reference cases for the v1.43 reduced-form VAR engine.
 # Uses statsmodels (VAR, adfuller), numpy (eigvals) and scipy (cdf tables).
 # Fixture innovations use a fixed NumPy seed, so regeneration is deterministic.
 # Output: src/data/analysis/var_reference_cases.json
@@ -14,6 +14,7 @@ from scipy import stats as scipy_stats
 import statsmodels
 from statsmodels.tsa.api import VAR
 from statsmodels.tsa.stattools import adfuller
+from statsmodels.tsa.adfvalues import mackinnoncrit
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 OUT = os.path.join(ROOT, "src", "data", "analysis", "var_reference_cases.json")
@@ -82,6 +83,105 @@ def portmanteau(resid, var_lags, h):
     df = K * K * (h - var_lags)
     p_value = 1 - float(scipy_stats.chi2.cdf(q, df))
     return {"lags": h, "statistic": q, "degrees_of_freedom": df, "p_value": p_value}
+
+
+def seasonal_dummy_adf(values, periods, maxlag=None, autolag="AIC"):
+    """Independent OLS reference for ADF with constant + Feb-Dec dummies.
+
+    Autolag candidates share the effective sample implied by maxlag. January is
+    the reference month. A custom MacKinnon p-value is intentionally omitted.
+    """
+    values = np.asarray(values, dtype=float)
+    n = len(values)
+    if len(periods) != n:
+        raise ValueError("values and periods must have equal length")
+    if maxlag is None:
+        maxlag = int(math.ceil(12 * (n / 100.0) ** 0.25))
+    maxlag = min(maxlag, math.floor((n - 12) / 2) - 2)
+    if maxlag < 0:
+        raise ValueError("sample too short")
+    diff = np.diff(values)
+
+    def dummies(period):
+        month = int(period[5:7])
+        return [1.0 if month == candidate else 0.0 for candidate in range(2, 13)]
+
+    def row(t, lag_count, level_first):
+        lagged_diffs = [diff[t - lag] for lag in range(1, lag_count + 1)]
+        deterministic = [1.0] + dummies(periods[t + 1])
+        return ([values[t]] + lagged_diffs + deterministic) if level_first else (deterministic + [values[t]] + lagged_diffs)
+
+    def fit_ols(y, design):
+        y = np.asarray(y, dtype=float)
+        design = np.asarray(design, dtype=float)
+        beta = np.linalg.solve(design.T @ design, design.T @ y)
+        resid = y - design @ beta
+        sse = float(resid @ resid)
+        sigma2 = sse / (len(y) - design.shape[1])
+        covariance = sigma2 * np.linalg.inv(design.T @ design)
+        se = np.sqrt(np.diag(covariance))
+        aic = len(y) * math.log(sse / len(y)) + len(y) * (1 + math.log(2 * math.pi)) + 2 * design.shape[1]
+        bic = len(y) * math.log(sse / len(y)) + len(y) * (1 + math.log(2 * math.pi)) + math.log(len(y)) * design.shape[1]
+        return beta, se, aic, bic
+
+    best_lag = maxlag
+    if autolag is not None:
+        candidate_rows = []
+        nobs_full = n - 1 - maxlag
+        for lag_count in range(maxlag + 1):
+            y = [diff[maxlag + offset] for offset in range(nobs_full)]
+            design = [row(maxlag + offset, lag_count, False) for offset in range(nobs_full)]
+            beta, se, aic, bic = fit_ols(y, design)
+            candidate_rows.append({"lag": lag_count, "aic": aic, "bic": bic})
+        criterion = autolag.lower()
+        best_lag = min(candidate_rows, key=lambda item: item[criterion])["lag"]
+
+    nobs = n - 1 - best_lag
+    y = [diff[best_lag + offset] for offset in range(nobs)]
+    design = [row(best_lag + offset, best_lag, True) for offset in range(nobs)]
+    beta, se, _, _ = fit_ols(y, design)
+    tau = float(beta[0] / se[0])
+    critical = mackinnoncrit(N=1, regression="c", nobs=nobs)
+    return {
+        "used_lag": int(best_lag),
+        "nobs": int(nobs),
+        "lagged_level_coefficient": float(beta[0]),
+        "lagged_level_standard_error": float(se[0]),
+        "test_statistic": tau,
+        "p_value": None,
+        "critical_values": {"1%": float(critical[0]), "5%": float(critical[1]), "10%": float(critical[2])},
+        "reference_month": "January",
+        "seasonal_dummies": 11,
+        "critical_value_policy": "mackinnon_c_zero_frequency_with_fixed_monthly_deterministics",
+    }
+
+
+def seasonal_adf_reference_case():
+    rng = np.random.RandomState(143)
+    total = 180
+    months = np.arange(total) % 12
+    seasonal_pattern = 4.0 * np.array([0.0, 2.4, -1.8, 3.0, -2.2, 2.0, -2.8, 2.7, -1.4, 1.7, -2.5, 1.1])
+    values = np.zeros(total)
+    for index in range(1, total):
+        values[index] = 0.96 * values[index - 1] + seasonal_pattern[months[index]] + rng.normal(scale=0.45)
+    periods = [f"{2010 + index // 12:04d}-{index % 12 + 1:02d}" for index in range(total)]
+    seasonal = seasonal_dummy_adf(values, periods, autolag="AIC")
+    constant = adfuller(values, regression="c", autolag="AIC")
+    return {
+        "name": "stationary_with_strong_deterministic_month_pattern",
+        "data": values.tolist(),
+        "periods": periods,
+        "constant_only": {
+            "test_statistic": float(constant[0]),
+            "p_value": float(constant[1]),
+            "used_lag": int(constant[2]),
+        },
+        "seasonal_dummy": seasonal,
+        "expected": {
+            "seasonal_dummy_rejects_at_5pct": bool(seasonal["test_statistic"] < seasonal["critical_values"]["5%"]),
+            "seasonal_tau_more_negative_than_constant": bool(seasonal["test_statistic"] < constant[0]),
+        },
+    }
 
 
 def reference_for_case(name, data, maxlags, irf_horizons):
@@ -209,6 +309,7 @@ def main():
     assert max(companion_moduli(coefs_stable)) < 0.95, "stable fixture must be comfortably stable"
     cases["stable_var2_k3"] = reference_for_case("stable_var2_k3", data_stable, 8, [6, 12, 18, 24])
     cases["seasonal_month_dummy_var1_k2"] = seasonal_reference_case()
+    cases["seasonal_dummy_adf"] = seasonal_adf_reference_case()
 
     # Case 2: unstable VAR(1), K=2 (root 1.02 > 1).
     coefs_unstable = np.array([[[1.02, 0.1], [0.0, 0.5]]])
@@ -262,15 +363,15 @@ def main():
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as handle:
         json.dump({
-            "schema_version": "var-reference-cases-v1.42",
+            "schema_version": "var-reference-cases-v1.43",
             "provenance": {
                 "python_version": platform.python_version(),
                 "numpy_version": np.__version__,
                 "scipy_version": scipy.__version__,
                 "statsmodels_version": statsmodels.__version__,
-                "seeds": {"var_simulation": 42, "random_walk": 7},
+                "seeds": {"var_simulation": 42, "random_walk": 7, "seasonal_adf": 143},
                 "generation_date": date.today().isoformat(),
-                "generator_version": "var-reference-generator-v1.42",
+                "generator_version": "var-reference-generator-v1.43",
             },
             "cases": cases,
         }, handle)

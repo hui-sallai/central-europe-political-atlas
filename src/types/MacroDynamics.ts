@@ -1,6 +1,6 @@
 import type { ValueSemantics } from "./EventWindow";
 
-/** Supported time-series transformations (v1.42). */
+/** Supported time-series transformations (v1.43). */
 export type TransformationId = "level" | "first_difference" | "log_difference" | "log_difference_12";
 
 export interface TimeSeriesTransformationSpec {
@@ -25,18 +25,59 @@ export interface TransformedPoint {
 
 export type StationarityStatus = "stationary" | "non_stationary" | "borderline" | "not_tested";
 
+export type StationaritySpecificationId =
+  | "adf_constant"
+  | "adf_constant_seasonal_dummies"
+  | "adf_constant_trend";
+
+export type StationarityDecision =
+  | "stationary"
+  | "stationary_with_seasonal_controls"
+  | "non_stationary"
+  | "inconclusive"
+  | "break_sensitive"
+  | "not_tested";
+
 export interface AdfTestResult {
   test: "adf";
-  regression: "c";
+  regression: "c" | "c+seasonal_dummies";
+  deterministic_terms: "constant" | "constant_month_dummies";
+  seasonal_dummies: number;
+  reference_month: "January" | null;
   series_length: number;
   used_lag: number;
   max_lag: number;
   autolag_criterion: "aic" | "bic" | null;
   nobs: number;
   statistic: number;
-  p_value: number;
+  p_value: number | null;
   critical_values: { "1%": number; "5%": number; "10%": number };
+  critical_value_policy: string;
+  p_value_policy: string;
+  lagged_level_coefficient: number | null;
+  lagged_level_standard_error: number | null;
   status: StationarityStatus;
+}
+
+export interface PersistenceDiagnostics {
+  max_lag: number;
+  acf: Array<{ lag: number; value: number }>;
+  pacf: Array<{ lag: number; value: number }>;
+  seasonal_lag_12_autocorrelation: number | null;
+  seasonal_persistence_warning: boolean;
+  interpretation_boundary: string;
+}
+
+export interface StationarityEvidence {
+  indicator: string;
+  transformation: TransformationId;
+  stationarity_specification_id: StationaritySpecificationId;
+  formal_decision: StationarityDecision;
+  adf: AdfTestResult;
+  constant_only_adf: AdfTestResult | null;
+  seasonal_unit_root_status: "not_available";
+  structural_break_status: "registry_only";
+  persistence: PersistenceDiagnostics;
 }
 
 export interface KpssStatus {
@@ -115,6 +156,7 @@ export interface VarComparabilitySignature {
   transformations: TransformationId[];
   frequency: "monthly";
   deterministic_terms: VarDeterministicTerms;
+  stationarity_specification_id: StationaritySpecificationId;
   lag_policy: string;
   sample_policy: string;
   signature_id: string;
@@ -126,6 +168,7 @@ export interface VarSpecificationProfile {
   name: string;
   variables: Array<{ role: string; indicator: string; transformation: TransformationId }>;
   deterministic_terms: VarDeterministicTerms;
+  stationarity_specification_id: StationaritySpecificationId;
   sample_policy: { frequency: "monthly"; start_period: string; end_policy: "latest_country_observation"; minimum_effective_observations: number; contiguous_months_required: true };
   lag_policy: { criterion: InformationCriterion; max_lag: number; parameter_ratio_minimum: number; common_sample: true };
   fallback_policy: "none" | "documented_exploratory_chain";
@@ -150,7 +193,7 @@ export interface VarModelResult {
   variable_order: string[];
   sample: { start_period: string; end_period: string; effective_observations: number; dropped_periods: string[] };
   deterministic_terms: VarDeterministicTerms;
-  stationarity: Array<{ indicator: string; transformation: TransformationId; adf: AdfTestResult }>;
+  stationarity: StationarityEvidence[];
   lag_selection: LagSelectionResult;
   lag_diagnostic_grid: VarLagDiagnosticRow[];
   diagnostic_lag_refinement: { baseline_lag: number; alternative_lag: number | null; label: "diagnostically_adequate_alternative" | "none"; baseline_unchanged: true };
@@ -202,7 +245,7 @@ export interface VarCountryReadiness {
   effective_observations: number;
   missing_ratio: number | null;
   stationarity_status: StationarityStatus;
-  stationarity_detail: Array<{ indicator: string; transformation: TransformationId; adf: AdfTestResult }>;
+  stationarity_detail: StationarityEvidence[];
   lag_selection_status: "completed" | "not_run";
   selected_lag: number | null;
   stability_status: "stable" | "unstable" | "not_run";

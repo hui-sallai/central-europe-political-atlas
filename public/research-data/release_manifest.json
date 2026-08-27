@@ -1,15 +1,15 @@
 {
-  "schema_version": "release-metadata-v1.42",
-  "platform_version": "v1.42 Seasonal Controls & Dynamic Diagnostic Adequacy",
+  "schema_version": "release-metadata-v1.43",
+  "platform_version": "v1.43 Seasonality-Aware Stationarity & Structural-Break Diagnostics",
   "release_date": "2026-08-27",
   "source_commit": "local-working-tree",
   "build_context": "local",
   "workflow_run_id": null,
-  "generated_at": "2026-08-27T16:18:31.104Z",
+  "generated_at": "2026-08-27T17:14:44.621Z",
   "research_package": {
-    "filename": "research-data-v1.42.zip",
-    "sha256": "6359d85536c1a086ba7c64c6e31430c420631ec16771725f9b4b9ac7d2aed010",
-    "generated_at": "2026-08-27T16:18:31.642Z",
+    "filename": "research-data-v1.43.zip",
+    "sha256": "33f6798e278eff26868d1fa475e4e97d652c5526e6f27550f719a3e105bb7ce8",
+    "generated_at": "2026-08-27T17:14:45.184Z",
     "status": "built"
   },
   "data_export_version": "research-data-v0.1",
@@ -90,12 +90,12 @@
     "trade_network": "trade-network-v1.25-active",
     "event_window": "event-window-v1.31",
     "high_frequency": "high-frequency-v1.31",
-    "analysis_skill_registry": "analysis-skill-registry-v1.42",
+    "analysis_skill_registry": "analysis-skill-registry-v1.43",
     "transformation_registry": "transformation-registry-v1.41",
-    "stationarity_engine": "stationarity-engine-v1.4",
-    "var_engine": "var-engine-v1.42",
-    "var_specification_profiles": "var-specification-profiles-v1.42",
-    "var_country_readiness": "var-country-readiness-v1.42"
+    "stationarity_engine": "stationarity-engine-v1.43",
+    "var_engine": "var-engine-v1.43",
+    "var_specification_profiles": "var-specification-profiles-v1.43",
+    "var_country_readiness": "var-country-readiness-v1.43"
   },
   "boundary_versions": [
     "GISCO NUTS 2024",

@@ -1,9 +1,9 @@
 {
-  "schema_version": "lag-selection-registry-v1.42",
+  "schema_version": "lag-selection-registry-v1.43",
   "generated_at": "2026-08-27",
   "default_criterion": "bic",
   "note": "候选滞后使用共同有效样本；最大滞后同时受请求值 12 和 (T-p)/(Kp+1)>=4 参数门约束。",
-  "record_count": 9,
+  "record_count": 10,
   "records": [
     {
       "country": "austria",
@@ -22,9 +22,10 @@
         ],
         "frequency": "monthly",
         "deterministic_terms": "constant",
+        "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.42__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.43__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "criterion": "bic",
       "requested_max_lag": 12,
@@ -117,6 +118,117 @@
     },
     {
       "country": "czechia",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "comparability_signature": {
+        "variables": [
+          "hicp_monthly_index",
+          "industrial_production_index",
+          "unemployment_rate_monthly"
+        ],
+        "transformations": [
+          "log_difference",
+          "log_difference",
+          "level"
+        ],
+        "frequency": "monthly",
+        "deterministic_terms": "constant_month_dummies",
+        "stationarity_specification_id": "adf_constant_seasonal_dummies",
+        "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
+        "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
+        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+      },
+      "criterion": "bic",
+      "requested_max_lag": 12,
+      "maximum_allowed_lag": 10,
+      "applied_max_lag": 10,
+      "selected_lag": 2,
+      "selected_ic_value": -0.04905287864973884,
+      "candidates": [
+        {
+          "lag": 1,
+          "aic": -1.054497632965552,
+          "bic": -0.046714807055027396,
+          "hqic": -0.6450476309754192,
+          "nobs": 127,
+          "free_parameters": 45
+        },
+        {
+          "lag": 2,
+          "aic": -1.2583922697423684,
+          "bic": -0.04905287864973884,
+          "hqic": -0.7670522673542091,
+          "nobs": 127,
+          "free_parameters": 54
+        },
+        {
+          "lag": 3,
+          "aic": -1.2323681469683412,
+          "bic": 0.17852780930639334,
+          "hqic": -0.6591381441821553,
+          "nobs": 127,
+          "free_parameters": 63
+        },
+        {
+          "lag": 4,
+          "aic": -1.1982173699856487,
+          "bic": 0.41423515147119083,
+          "hqic": -0.5430973668014363,
+          "nobs": 127,
+          "free_parameters": 72
+        },
+        {
+          "lag": 5,
+          "aic": -1.2562058809937287,
+          "bic": 0.5578032056452153,
+          "hqic": -0.5191958774114895,
+          "nobs": 127,
+          "free_parameters": 81
+        },
+        {
+          "lag": 6,
+          "aic": -1.1544634070497553,
+          "bic": 0.8611022447712937,
+          "hqic": -0.33556340306948984,
+          "nobs": 127,
+          "free_parameters": 90
+        },
+        {
+          "lag": 7,
+          "aic": -1.1023793581823895,
+          "bic": 1.1147428588207644,
+          "hqic": -0.20158935380409737,
+          "nobs": 127,
+          "free_parameters": 99
+        },
+        {
+          "lag": 8,
+          "aic": -1.0234085884596085,
+          "bic": 1.3952701937256506,
+          "hqic": -0.0407285836832898,
+          "nobs": 127,
+          "free_parameters": 108
+        },
+        {
+          "lag": 9,
+          "aic": -0.9740831234619816,
+          "bic": 1.646152223905382,
+          "hqic": 0.09048688171236341,
+          "nobs": 127,
+          "free_parameters": 117
+        },
+        {
+          "lag": 10,
+          "aic": -0.9352612887000822,
+          "bic": 1.8865306238493869,
+          "hqic": 0.21119871687228953,
+          "nobs": 127,
+          "free_parameters": 126
+        }
+      ]
+    },
+    {
+      "country": "czechia",
       "profile_id": "exploratory_monthly_macro_fallback_v1",
       "profile_kind": "exploratory_fallback",
       "comparability_signature": {
@@ -132,9 +244,10 @@
         ],
         "frequency": "monthly",
         "deterministic_terms": "constant",
+        "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.42__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.43__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "criterion": "bic",
       "requested_max_lag": 12,
@@ -226,6 +339,228 @@
       ]
     },
     {
+      "country": "germany",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "comparability_signature": {
+        "variables": [
+          "hicp_monthly_index",
+          "industrial_production_index",
+          "unemployment_rate_monthly"
+        ],
+        "transformations": [
+          "log_difference",
+          "log_difference",
+          "level"
+        ],
+        "frequency": "monthly",
+        "deterministic_terms": "constant_month_dummies",
+        "stationarity_specification_id": "adf_constant_seasonal_dummies",
+        "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
+        "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
+        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+      },
+      "criterion": "bic",
+      "requested_max_lag": 12,
+      "maximum_allowed_lag": 10,
+      "applied_max_lag": 10,
+      "selected_lag": 2,
+      "selected_ic_value": -3.4943538896115234,
+      "candidates": [
+        {
+          "lag": 1,
+          "aic": -4.479974588205851,
+          "bic": -3.472191762295326,
+          "hqic": -4.0705245862157176,
+          "nobs": 127,
+          "free_parameters": 45
+        },
+        {
+          "lag": 2,
+          "aic": -4.703693280704153,
+          "bic": -3.4943538896115234,
+          "hqic": -4.212353278315994,
+          "nobs": 127,
+          "free_parameters": 54
+        },
+        {
+          "lag": 3,
+          "aic": -4.778296518023467,
+          "bic": -3.3674005617487324,
+          "hqic": -4.205066515237281,
+          "nobs": 127,
+          "free_parameters": 63
+        },
+        {
+          "lag": 4,
+          "aic": -4.831548189050124,
+          "bic": -3.219095667593284,
+          "hqic": -4.176428185865911,
+          "nobs": 127,
+          "free_parameters": 72
+        },
+        {
+          "lag": 5,
+          "aic": -4.761448633065385,
+          "bic": -2.9474395464264402,
+          "hqic": -4.024438629483145,
+          "nobs": 127,
+          "free_parameters": 81
+        },
+        {
+          "lag": 6,
+          "aic": -4.679937595836297,
+          "bic": -2.6643719440152487,
+          "hqic": -3.8610375918560322,
+          "nobs": 127,
+          "free_parameters": 90
+        },
+        {
+          "lag": 7,
+          "aic": -4.600652338042026,
+          "bic": -2.3835301210388717,
+          "hqic": -3.6998623336637335,
+          "nobs": 127,
+          "free_parameters": 99
+        },
+        {
+          "lag": 8,
+          "aic": -4.587347176412079,
+          "bic": -2.1686683942268203,
+          "hqic": -3.604667171635761,
+          "nobs": 127,
+          "free_parameters": 108
+        },
+        {
+          "lag": 9,
+          "aic": -4.648972167502934,
+          "bic": -2.0287368201355704,
+          "hqic": -3.584402162328589,
+          "nobs": 127,
+          "free_parameters": 117
+        },
+        {
+          "lag": 10,
+          "aic": -4.651732135582771,
+          "bic": -1.8299402230333017,
+          "hqic": -3.505272130010399,
+          "nobs": 127,
+          "free_parameters": 126
+        }
+      ]
+    },
+    {
+      "country": "hungary",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "comparability_signature": {
+        "variables": [
+          "hicp_monthly_index",
+          "industrial_production_index",
+          "unemployment_rate_monthly"
+        ],
+        "transformations": [
+          "log_difference",
+          "log_difference",
+          "level"
+        ],
+        "frequency": "monthly",
+        "deterministic_terms": "constant_month_dummies",
+        "stationarity_specification_id": "adf_constant_seasonal_dummies",
+        "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
+        "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
+        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+      },
+      "criterion": "bic",
+      "requested_max_lag": 12,
+      "maximum_allowed_lag": 10,
+      "applied_max_lag": 10,
+      "selected_lag": 2,
+      "selected_ic_value": -1.6160368532971119,
+      "candidates": [
+        {
+          "lag": 1,
+          "aic": -2.574367277337063,
+          "bic": -1.5665844514265388,
+          "hqic": -2.1649172753469306,
+          "nobs": 127,
+          "free_parameters": 45
+        },
+        {
+          "lag": 2,
+          "aic": -2.8253762443897417,
+          "bic": -1.6160368532971119,
+          "hqic": -2.334036242001582,
+          "nobs": 127,
+          "free_parameters": 54
+        },
+        {
+          "lag": 3,
+          "aic": -2.8783117241237646,
+          "bic": -1.46741576784903,
+          "hqic": -2.3050817213375785,
+          "nobs": 127,
+          "free_parameters": 63
+        },
+        {
+          "lag": 4,
+          "aic": -2.801903915177383,
+          "bic": -1.1894513937205433,
+          "hqic": -2.1467839119931704,
+          "nobs": 127,
+          "free_parameters": 72
+        },
+        {
+          "lag": 5,
+          "aic": -2.9084996634913414,
+          "bic": -1.0944905768523974,
+          "hqic": -2.1714896599091023,
+          "nobs": 127,
+          "free_parameters": 81
+        },
+        {
+          "lag": 6,
+          "aic": -2.894822894812118,
+          "bic": -0.8792572429910694,
+          "hqic": -2.075922890831853,
+          "nobs": 127,
+          "free_parameters": 90
+        },
+        {
+          "lag": 7,
+          "aic": -2.763573943375893,
+          "bic": -0.5464517263727391,
+          "hqic": -1.8627839389976009,
+          "nobs": 127,
+          "free_parameters": 99
+        },
+        {
+          "lag": 8,
+          "aic": -2.72717886942351,
+          "bic": -0.30850008723825084,
+          "hqic": -1.7444988646471913,
+          "nobs": 127,
+          "free_parameters": 108
+        },
+        {
+          "lag": 9,
+          "aic": -2.670173255610992,
+          "bic": -0.04993790824362865,
+          "hqic": -1.6056032504366473,
+          "nobs": 127,
+          "free_parameters": 117
+        },
+        {
+          "lag": 10,
+          "aic": -2.633869791917233,
+          "bic": 0.18792212063223612,
+          "hqic": -1.4874097863448612,
+          "nobs": 127,
+          "free_parameters": 126
+        }
+      ]
+    },
+    {
       "country": "poland",
       "profile_id": "baseline_monthly_macro_v1",
       "profile_kind": "baseline_prespecified",
@@ -242,9 +577,10 @@
         ],
         "frequency": "monthly",
         "deterministic_terms": "constant",
+        "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "criterion": "bic",
       "requested_max_lag": 12,
@@ -337,116 +673,6 @@
     },
     {
       "country": "poland",
-      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
-      "profile_kind": "baseline_prespecified",
-      "comparability_signature": {
-        "variables": [
-          "hicp_monthly_index",
-          "industrial_production_index",
-          "unemployment_rate_monthly"
-        ],
-        "transformations": [
-          "log_difference",
-          "log_difference",
-          "level"
-        ],
-        "frequency": "monthly",
-        "deterministic_terms": "constant_month_dummies",
-        "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
-        "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
-      },
-      "criterion": "bic",
-      "requested_max_lag": 12,
-      "maximum_allowed_lag": 10,
-      "applied_max_lag": 10,
-      "selected_lag": 2,
-      "selected_ic_value": -3.1379763634420588,
-      "candidates": [
-        {
-          "lag": 1,
-          "aic": -3.9449141448926786,
-          "bic": -2.9371313189821544,
-          "hqic": -3.535464142902546,
-          "nobs": 127,
-          "free_parameters": 45
-        },
-        {
-          "lag": 2,
-          "aic": -4.347315754534688,
-          "bic": -3.1379763634420588,
-          "hqic": -3.855975752146529,
-          "nobs": 127,
-          "free_parameters": 54
-        },
-        {
-          "lag": 3,
-          "aic": -4.282827942316943,
-          "bic": -2.8719319860422083,
-          "hqic": -3.709597939530757,
-          "nobs": 127,
-          "free_parameters": 63
-        },
-        {
-          "lag": 4,
-          "aic": -4.300583967027,
-          "bic": -2.6881314455701606,
-          "hqic": -3.6454639638427877,
-          "nobs": 127,
-          "free_parameters": 72
-        },
-        {
-          "lag": 5,
-          "aic": -4.254082697767103,
-          "bic": -2.4400736111281596,
-          "hqic": -3.5170726941848645,
-          "nobs": 127,
-          "free_parameters": 81
-        },
-        {
-          "lag": 6,
-          "aic": -4.204235963528386,
-          "bic": -2.188670311707337,
-          "hqic": -3.3853359595481205,
-          "nobs": 127,
-          "free_parameters": 90
-        },
-        {
-          "lag": 7,
-          "aic": -4.136408247379745,
-          "bic": -1.9192860303765915,
-          "hqic": -3.2356182430014533,
-          "nobs": 127,
-          "free_parameters": 99
-        },
-        {
-          "lag": 8,
-          "aic": -4.047792528570113,
-          "bic": -1.6291137463848537,
-          "hqic": -3.065112523793794,
-          "nobs": 127,
-          "free_parameters": 108
-        },
-        {
-          "lag": 9,
-          "aic": -3.9898254565883287,
-          "bic": -1.3695901092209652,
-          "hqic": -2.925255451413984,
-          "nobs": 127,
-          "free_parameters": 117
-        },
-        {
-          "lag": 10,
-          "aic": -4.019790718408465,
-          "bic": -1.1979988058589957,
-          "hqic": -2.873330712836093,
-          "nobs": 127,
-          "free_parameters": 126
-        }
-      ]
-    },
-    {
-      "country": "poland",
       "profile_id": "exploratory_monthly_macro_fallback_v1",
       "profile_kind": "exploratory_fallback",
       "comparability_signature": {
@@ -462,9 +688,10 @@
         ],
         "frequency": "monthly",
         "deterministic_terms": "constant",
+        "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "criterion": "bic",
       "requested_max_lag": 12,
@@ -572,9 +799,10 @@
         ],
         "frequency": "monthly",
         "deterministic_terms": "constant",
+        "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "criterion": "bic",
       "requested_max_lag": 12,
@@ -667,116 +895,6 @@
     },
     {
       "country": "romania",
-      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
-      "profile_kind": "baseline_prespecified",
-      "comparability_signature": {
-        "variables": [
-          "hicp_monthly_index",
-          "industrial_production_index",
-          "unemployment_rate_monthly"
-        ],
-        "transformations": [
-          "log_difference",
-          "log_difference",
-          "level"
-        ],
-        "frequency": "monthly",
-        "deterministic_terms": "constant_month_dummies",
-        "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
-        "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
-      },
-      "criterion": "bic",
-      "requested_max_lag": 12,
-      "maximum_allowed_lag": 10,
-      "applied_max_lag": 10,
-      "selected_lag": 1,
-      "selected_ic_value": -0.9149191000705821,
-      "candidates": [
-        {
-          "lag": 1,
-          "aic": -1.9227019259811065,
-          "bic": -0.9149191000705821,
-          "hqic": -1.5132519239909739,
-          "nobs": 127,
-          "free_parameters": 45
-        },
-        {
-          "lag": 2,
-          "aic": -2.0209640747644766,
-          "bic": -0.8116246836718473,
-          "hqic": -1.5296240723763175,
-          "nobs": 127,
-          "free_parameters": 54
-        },
-        {
-          "lag": 3,
-          "aic": -2.053254092706776,
-          "bic": -0.6423581364320414,
-          "hqic": -1.48002408992059,
-          "nobs": 127,
-          "free_parameters": 63
-        },
-        {
-          "lag": 4,
-          "aic": -2.140206453940346,
-          "bic": -0.5277539324835065,
-          "hqic": -1.4850864507561337,
-          "nobs": 127,
-          "free_parameters": 72
-        },
-        {
-          "lag": 5,
-          "aic": -2.178625347841309,
-          "bic": -0.3646162612023649,
-          "hqic": -1.4416153442590698,
-          "nobs": 127,
-          "free_parameters": 81
-        },
-        {
-          "lag": 6,
-          "aic": -2.1530233757967148,
-          "bic": -0.13745772397566602,
-          "hqic": -1.3341233718164496,
-          "nobs": 127,
-          "free_parameters": 90
-        },
-        {
-          "lag": 7,
-          "aic": -2.1797305139475736,
-          "bic": 0.03739170305558037,
-          "hqic": -1.2789405095692814,
-          "nobs": 127,
-          "free_parameters": 99
-        },
-        {
-          "lag": 8,
-          "aic": -2.114325600178968,
-          "bic": 0.30435318200629125,
-          "hqic": -1.1316455954026492,
-          "nobs": 127,
-          "free_parameters": 108
-        },
-        {
-          "lag": 9,
-          "aic": -2.082142690859195,
-          "bic": 0.538092656508169,
-          "hqic": -1.0175726856848497,
-          "nobs": 127,
-          "free_parameters": 117
-        },
-        {
-          "lag": 10,
-          "aic": -2.102877943015189,
-          "bic": 0.7189139695342801,
-          "hqic": -0.9564179374428172,
-          "nobs": 127,
-          "free_parameters": 126
-        }
-      ]
-    },
-    {
-      "country": "romania",
       "profile_id": "exploratory_monthly_macro_fallback_v1",
       "profile_kind": "exploratory_fallback",
       "comparability_signature": {
@@ -792,9 +910,10 @@
         ],
         "frequency": "monthly",
         "deterministic_terms": "constant",
+        "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "criterion": "bic",
       "requested_max_lag": 12,
@@ -902,9 +1021,10 @@
         ],
         "frequency": "monthly",
         "deterministic_terms": "constant",
+        "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.42__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.43__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "criterion": "bic",
       "requested_max_lag": 12,

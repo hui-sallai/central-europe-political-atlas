@@ -79,7 +79,7 @@ export const varLabels = {
   parameterGate: "参数数量门",
   residualCovariance: "残差协方差",
   lagSelectionTable: "滞后选择（共同有效样本）",
-  stationarityTable: "平稳性检验（ADF，含常数项）",
+  stationarityTable: "平稳性检验（按 profile 预注册规格）",
   residualAutocorrelation: "残差自相关（Portmanteau）",
   sampleCoverage: "样本覆盖",
   shockVariable: "冲击变量",
