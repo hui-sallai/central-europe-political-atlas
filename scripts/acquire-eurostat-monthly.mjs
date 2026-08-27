@@ -291,7 +291,7 @@ fs.mkdirSync(analysisDir, { recursive: true });
 fs.writeFileSync(path.join(analysisDir, "var_readiness.json"), JSON.stringify({
   schema_version: "var-readiness-v1.31",
   generated_at: generatedAt,
-  skill_id: "var_svar",
+  skill_id: "reduced_form_var",
   state: "blocked",
   gates: {
     min_effective_monthly_observations: 60,

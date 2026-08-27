@@ -1,6 +1,6 @@
 {
-  "schema_version": "var-profile-readiness-v1.41",
-  "generated_at": "2026-08-22",
+  "schema_version": "var-profile-readiness-v1.42",
+  "generated_at": "2026-08-27",
   "profile": {
     "profile_id": "exploratory_monthly_macro_fallback_v1",
     "profile_kind": "exploratory_search_policy",
@@ -47,6 +47,10 @@
     "slovenia"
   ],
   "dynamic_response_ready_countries": [],
+  "dynamic_response_ready_6m_countries": [],
+  "dynamic_response_ready_12m_countries": [],
+  "dynamic_response_ready_18m_countries": [],
+  "dynamic_response_ready_24m_countries": [],
   "record_count": 10,
   "records": [
     {
@@ -82,7 +86,7 @@
         "deterministic_terms": "constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.41__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.42__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": "2015-02",
       "end_period": "2026-06",
@@ -160,10 +164,16 @@
       "residual_status": "failed",
       "estimable": true,
       "dynamic_response_ready": false,
+      "dynamic_response_ready_horizons": {
+        "6": false,
+        "12": false,
+        "18": false,
+        "24": false
+      },
       "irf_available": false,
       "readiness_state": "residual_diagnostics_failed",
       "blocking_reasons": [
-        "h=12/18/24 残差 Portmanteau 敏感性诊断未全部通过；动态响应暂不可用"
+        "主残差 Portmanteau 诊断 h=12 未通过；动态响应暂不可用"
       ],
       "fallback_attempts": [
         {
@@ -292,7 +302,7 @@
         "deterministic_terms": "constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.41__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.42__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": null,
       "end_period": null,
@@ -370,6 +380,12 @@
       "residual_status": "not_run",
       "estimable": false,
       "dynamic_response_ready": false,
+      "dynamic_response_ready_horizons": {
+        "6": false,
+        "12": false,
+        "18": false,
+        "24": false
+      },
       "irf_available": false,
       "readiness_state": "non_stationary",
       "blocking_reasons": [
@@ -489,7 +505,7 @@
         "deterministic_terms": "constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.41__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.42__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": "2015-02",
       "end_period": "2026-06",
@@ -564,9 +580,15 @@
       "lag_selection_status": "completed",
       "selected_lag": 2,
       "stability_status": "stable",
-      "residual_status": "failed",
+      "residual_status": "passed",
       "estimable": true,
       "dynamic_response_ready": false,
+      "dynamic_response_ready_horizons": {
+        "6": false,
+        "12": false,
+        "18": false,
+        "24": false
+      },
       "irf_available": false,
       "readiness_state": "estimable_with_warning",
       "blocking_reasons": [
@@ -699,7 +721,7 @@
         "deterministic_terms": "constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.41__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.42__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": null,
       "end_period": null,
@@ -777,6 +799,12 @@
       "residual_status": "not_run",
       "estimable": false,
       "dynamic_response_ready": false,
+      "dynamic_response_ready_horizons": {
+        "6": false,
+        "12": false,
+        "18": false,
+        "24": false
+      },
       "irf_available": false,
       "readiness_state": "non_stationary",
       "blocking_reasons": [
@@ -897,7 +925,7 @@
         "deterministic_terms": "constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.41__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.42__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": null,
       "end_period": null,
@@ -975,6 +1003,12 @@
       "residual_status": "not_run",
       "estimable": false,
       "dynamic_response_ready": false,
+      "dynamic_response_ready_horizons": {
+        "6": false,
+        "12": false,
+        "18": false,
+        "24": false
+      },
       "irf_available": false,
       "readiness_state": "non_stationary",
       "blocking_reasons": [
@@ -1094,7 +1128,7 @@
         "deterministic_terms": "constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.41__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": "2015-02",
       "end_period": "2026-06",
@@ -1172,10 +1206,16 @@
       "residual_status": "failed",
       "estimable": true,
       "dynamic_response_ready": false,
+      "dynamic_response_ready_horizons": {
+        "6": false,
+        "12": false,
+        "18": false,
+        "24": false
+      },
       "irf_available": false,
       "readiness_state": "residual_diagnostics_failed",
       "blocking_reasons": [
-        "h=12/18/24 残差 Portmanteau 敏感性诊断未全部通过；动态响应暂不可用"
+        "主残差 Portmanteau 诊断 h=12 未通过；动态响应暂不可用"
       ],
       "fallback_attempts": [
         {
@@ -1247,7 +1287,7 @@
         "deterministic_terms": "constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.41__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": "2015-02",
       "end_period": "2026-06",
@@ -1322,9 +1362,15 @@
       "lag_selection_status": "completed",
       "selected_lag": 1,
       "stability_status": "stable",
-      "residual_status": "failed",
+      "residual_status": "passed",
       "estimable": true,
       "dynamic_response_ready": false,
+      "dynamic_response_ready_horizons": {
+        "6": false,
+        "12": false,
+        "18": false,
+        "24": false
+      },
       "irf_available": false,
       "readiness_state": "estimable_with_warning",
       "blocking_reasons": [
@@ -1400,7 +1446,7 @@
         "deterministic_terms": "constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.41__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": null,
       "end_period": null,
@@ -1414,6 +1460,12 @@
       "residual_status": "not_run",
       "estimable": false,
       "dynamic_response_ready": false,
+      "dynamic_response_ready_horizons": {
+        "6": false,
+        "12": false,
+        "18": false,
+        "24": false
+      },
       "irf_available": false,
       "readiness_state": "missing_data",
       "blocking_reasons": [
@@ -1476,7 +1528,7 @@
         "deterministic_terms": "constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.41__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:first_difference__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.42__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:first_difference__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": null,
       "end_period": null,
@@ -1554,6 +1606,12 @@
       "residual_status": "not_run",
       "estimable": false,
       "dynamic_response_ready": false,
+      "dynamic_response_ready_horizons": {
+        "6": false,
+        "12": false,
+        "18": false,
+        "24": false
+      },
       "irf_available": false,
       "readiness_state": "non_stationary",
       "blocking_reasons": [
@@ -1692,7 +1750,7 @@
         "deterministic_terms": "constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.41__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.42__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": "2015-02",
       "end_period": "2026-06",
@@ -1770,10 +1828,16 @@
       "residual_status": "failed",
       "estimable": true,
       "dynamic_response_ready": false,
+      "dynamic_response_ready_horizons": {
+        "6": false,
+        "12": false,
+        "18": false,
+        "24": false
+      },
       "irf_available": false,
       "readiness_state": "residual_diagnostics_failed",
       "blocking_reasons": [
-        "h=12/18/24 残差 Portmanteau 敏感性诊断未全部通过；动态响应暂不可用"
+        "主残差 Portmanteau 诊断 h=12 未通过；动态响应暂不可用"
       ],
       "fallback_attempts": [
         {

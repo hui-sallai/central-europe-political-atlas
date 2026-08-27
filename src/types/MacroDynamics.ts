@@ -1,6 +1,6 @@
 import type { ValueSemantics } from "./EventWindow";
 
-/** Supported time-series transformations (v1.41). */
+/** Supported time-series transformations (v1.42). */
 export type TransformationId = "level" | "first_difference" | "log_difference" | "log_difference_12";
 
 export interface TimeSeriesTransformationSpec {
@@ -46,6 +46,8 @@ export interface KpssStatus {
 }
 
 export type InformationCriterion = "aic" | "bic" | "hqic";
+export type VarDeterministicTerms = "constant" | "constant_month_dummies";
+export type VarIrfHorizon = 6 | 12 | 18 | 24;
 
 export interface LagCandidateResult {
   lag: number;
@@ -62,6 +64,16 @@ export interface LagSelectionResult {
   candidates: LagCandidateResult[];
   selected_lag: number;
   selected_ic_value: number;
+}
+
+export interface VarLagDiagnosticRow extends LagCandidateResult {
+  stable: boolean;
+  max_root_modulus: number;
+  portmanteau_h12_status: "passed" | "failed" | "not_tested";
+  portmanteau_h18_status: "passed" | "failed" | "not_tested";
+  portmanteau_h24_status: "passed" | "failed" | "not_tested";
+  is_bic_baseline: boolean;
+  is_diagnostically_adequate_alternative: boolean;
 }
 
 export interface VarDiagnostics {
@@ -90,6 +102,10 @@ export interface VarDiagnostics {
     status: "unavailable";
     note: string;
   };
+  residual_seasonality: {
+    residual_month_of_year_means: Array<{ month: number; values: number[] }>;
+    residual_month_of_year_variances: Array<{ month: number; values: number[] }>;
+  };
 }
 
 export type VarSpecificationKind = "baseline_prespecified" | "exploratory_fallback" | "custom";
@@ -98,7 +114,7 @@ export interface VarComparabilitySignature {
   variables: string[];
   transformations: TransformationId[];
   frequency: "monthly";
-  deterministic_terms: "constant";
+  deterministic_terms: VarDeterministicTerms;
   lag_policy: string;
   sample_policy: string;
   signature_id: string;
@@ -109,7 +125,7 @@ export interface VarSpecificationProfile {
   profile_kind: "baseline_prespecified" | "exploratory_search_policy";
   name: string;
   variables: Array<{ role: string; indicator: string; transformation: TransformationId }>;
-  deterministic_terms: "constant";
+  deterministic_terms: VarDeterministicTerms;
   sample_policy: { frequency: "monthly"; start_period: string; end_policy: "latest_country_observation"; minimum_effective_observations: number; contiguous_months_required: true };
   lag_policy: { criterion: InformationCriterion; max_lag: number; parameter_ratio_minimum: number; common_sample: true };
   fallback_policy: "none" | "documented_exploratory_chain";
@@ -133,13 +149,16 @@ export interface VarModelResult {
   variables: Array<{ indicator: string; transformation: TransformationId }>;
   variable_order: string[];
   sample: { start_period: string; end_period: string; effective_observations: number; dropped_periods: string[] };
-  deterministic_terms: "constant";
+  deterministic_terms: VarDeterministicTerms;
   stationarity: Array<{ indicator: string; transformation: TransformationId; adf: AdfTestResult }>;
   lag_selection: LagSelectionResult;
+  lag_diagnostic_grid: VarLagDiagnosticRow[];
+  diagnostic_lag_refinement: { baseline_lag: number; alternative_lag: number | null; label: "diagnostically_adequate_alternative" | "none"; baseline_unchanged: true };
   selected_lag: number;
   /** Coefficient matrices per lag, row = lagged variable, column = equation. */
   coefficient_matrices: number[][][];
   intercepts: number[];
+  deterministic_coefficients: Array<{ term: string; coefficients: number[] }>;
   trend_coefficients: number[] | null;
   residual_covariance: number[][];
   diagnostics: VarDiagnostics;
@@ -155,6 +174,7 @@ export interface VarModelResult {
     paths: IrfPath[];
   } | null;
   irf_blocked_reason: string | null;
+  dynamic_response_ready_horizons: Record<VarIrfHorizon, boolean>;
   /** Transformed input series with raw-to-transformed trace (Input Data tab). */
   input_series: Array<{ indicator: string; transformation: TransformationId; points: TransformedPoint[] }>;
   data_trace: string[];
@@ -208,6 +228,7 @@ export interface VarReadinessPayload {
   estimable_countries: string[];
   dynamic_response_ready_countries: string[];
   baseline_profile_readiness: { profile_id: string; estimable_countries: string[]; dynamic_response_ready_countries: string[]; records: VarCountryReadiness[] };
+  baseline_v2_profile_readiness: { profile_id: string; estimable_countries: string[]; dynamic_response_ready_countries: string[]; records: VarCountryReadiness[] };
   exploratory_profile_readiness: { profile_id: string; estimable_countries: string[]; dynamic_response_ready_countries: string[]; records: VarCountryReadiness[] };
   records: VarCountryReadiness[];
 }

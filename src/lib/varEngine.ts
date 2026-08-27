@@ -6,6 +6,7 @@ import type {
   LagCandidateResult,
   TransformationId,
   VarModelResult,
+  VarDeterministicTerms,
   VarSpecificationKind,
 } from "@/types/MacroDynamics";
 import { createVarComparabilitySignature } from "@/lib/varSpecifications";
@@ -26,7 +27,7 @@ import {
   type Matrix,
 } from "@/lib/numericLinAlg";
 
-export const VAR_ENGINE_VERSION = "var-engine-v1.41";
+export const VAR_ENGINE_VERSION = "var-engine-v1.42";
 export const VAR_DATASET_VERSION = "high-frequency-v1.31";
 
 export interface VarSpecification {
@@ -36,7 +37,7 @@ export interface VarSpecification {
   end_period: string;
   ic_criterion: InformationCriterion;
   max_lag: number;
-  deterministic_terms: "constant";
+  deterministic_terms: VarDeterministicTerms;
   profile_id?: string | null;
   specification_kind?: VarSpecificationKind;
 }
@@ -58,16 +59,28 @@ interface VarEstimate {
   nobs: number;
   coefficientMatrices: Matrix[]; // per lag, row = lagged variable, column = equation
   intercepts: number[];
+  deterministicCoefficients: Array<{ term: string; coefficients: number[] }>;
 }
 
 /** Exported for offline reference validation (scripts/validation). */
-export function estimateVarModel(data: Matrix, lags: number): VarEstimate {
-  return estimateVar(data, lags);
+export function estimateVarModel(data: Matrix, lags: number, deterministicTerms: VarDeterministicTerms = "constant", periods?: string[]): VarEstimate {
+  return estimateVar(data, lags, deterministicTerms, periods);
 }
 
 /** Exported for offline reference validation (scripts/validation). */
-export function selectVarLagOrder(data: Matrix, maxLags: number): LagCandidateResult[] {
-  return selectLagOrder(data, maxLags);
+export function selectVarLagOrder(data: Matrix, maxLags: number, deterministicTerms: VarDeterministicTerms = "constant", periods?: string[]): LagCandidateResult[] {
+  return selectLagOrder(data, maxLags, deterministicTerms, periods);
+}
+
+function deterministicNames(kind: VarDeterministicTerms): string[] {
+  return kind === "constant_month_dummies" ? ["constant", ...Array.from({ length: 11 }, (_, index) => `month_${String(index + 2).padStart(2, "0")}`)] : ["constant"];
+}
+
+function deterministicRow(period: string | undefined, kind: VarDeterministicTerms): number[] {
+  if (kind === "constant") return [1];
+  if (!period || !isValidMonthPeriod(period)) throw new Error("month periods are required for seasonal controls");
+  const month = Number(period.slice(5, 7));
+  return [1, ...Array.from({ length: 11 }, (_, index) => month === index + 2 ? 1 : 0)];
 }
 
 function monthToIndex(period: string): number {
@@ -97,17 +110,19 @@ function indexToMonth(index: number): string {
  * y_t = const + Σ_i y_{t−i} A_i, so A_i[r][c] is the effect of variable r
  * lagged i periods on equation c.
  */
-function estimateVar(data: Matrix, lags: number): VarEstimate {
+function estimateVar(data: Matrix, lags: number, deterministicTerms: VarDeterministicTerms = "constant", periods?: string[]): VarEstimate {
   const total = data.length;
   const k = data[0].length;
   const nobs = total - lags;
-  const kTrend = 1;
+  const names = deterministicNames(deterministicTerms);
+  const kTrend = names.length;
   const width = kTrend + k * lags;
   const z: Matrix = zeros(nobs, width);
   const ySample: Matrix = zeros(nobs, k);
   for (let t = 0; t < nobs; t += 1) {
     const row = t + lags;
-    z[t][0] = 1;
+    const deterministic = deterministicRow(periods?.[row], deterministicTerms);
+    for (let column = 0; column < kTrend; column += 1) z[t][column] = deterministic[column];
     for (let lag = 1; lag <= lags; lag += 1) {
       for (let variable = 0; variable < k; variable += 1) {
         z[t][kTrend + (lag - 1) * k + variable] = data[row - lag][variable];
@@ -141,19 +156,20 @@ function estimateVar(data: Matrix, lags: number): VarEstimate {
     coefficientMatrices.push(block);
   }
   const intercepts = params[0].slice();
-  return { params, resid, sigma_u, sigma_u_mle, nobs, coefficientMatrices, intercepts };
+  const deterministicCoefficients = names.map((term, index) => ({ term, coefficients: params[index].slice() }));
+  return { params, resid, sigma_u, sigma_u_mle, nobs, coefficientMatrices, intercepts, deterministicCoefficients };
 }
 
 /** Information criteria per candidate lag on a common effective sample (statsmodels select_order convention). */
-function selectLagOrder(data: Matrix, maxLags: number): LagCandidateResult[] {
+function selectLagOrder(data: Matrix, maxLags: number, deterministicTerms: VarDeterministicTerms = "constant", periods?: string[]): LagCandidateResult[] {
   const k = data[0].length;
   const candidates: LagCandidateResult[] = [];
   for (let p = 1; p <= maxLags; p += 1) {
     const offset = maxLags - p;
     const subset = data.slice(offset);
-    const estimate = estimateVar(subset, p);
+    const estimate = estimateVar(subset, p, deterministicTerms, periods?.slice(offset));
     const nobs = estimate.nobs; // = total - maxLags for every candidate
-    const freeParameters = p * k * k + k * 1;
+    const freeParameters = p * k * k + k * deterministicNames(deterministicTerms).length;
     const ld = logDetSpd(estimate.sigma_u_mle);
     candidates.push({
       lag: p,
@@ -218,6 +234,15 @@ export function portmanteauTest(resid: Matrix, varLags: number, h: number): { la
   return { lags: h, statistic: q, degrees_of_freedom: df, p_value: pValue, status };
 }
 
+export function dynamicResponseHorizonEligibility(baseGate: boolean, residualStatuses: Record<12 | 18 | 24, "passed" | "failed" | "not_tested">) {
+  return {
+    6: baseGate && residualStatuses[12] === "passed",
+    12: baseGate && residualStatuses[12] === "passed",
+    18: baseGate && residualStatuses[12] === "passed" && residualStatuses[18] === "passed",
+    24: baseGate && residualStatuses[12] === "passed" && residualStatuses[24] === "passed",
+  } as const;
+}
+
 /** Orthogonalized reduced-form IRF via Cholesky: Ψ_s = Φ_s P with the MA
  * recursion Φ_s = Σ_i A_iᵀ Φ_{s−i} (column form y_t = c + Σ A_iᵀ y_{t−i}),
  * matching the statsmodels orth_ma_rep convention exactly. */
@@ -257,8 +282,8 @@ export function runReducedFormVar(
   if (monthToIndex(specification.start_period) > monthToIndex(specification.end_period)) {
     return { status: "blocked", reason_code: "unsupported_specification", reasons: ["开始月份不能晚于结束月份。"] };
   }
-  if ((specification.deterministic_terms as string) !== "constant") {
-    return { status: "blocked", reason_code: "unsupported_specification", reasons: ["v1.41 公开规格只支持常数项；线性趋势不属于当前可用规格。"] };
+  if (!(["constant", "constant_month_dummies"] as string[]).includes(specification.deterministic_terms)) {
+    return { status: "blocked", reason_code: "unsupported_specification", reasons: ["v1.42 只支持常数项，或常数项 + 11 个月份虚拟变量；趋势、断点与节假日项未开放。"] };
   }
   const k = specification.variables.length;
   if (k < 2 || k > 4) {
@@ -371,13 +396,32 @@ function runEstimationPipeline(
     return { status: "blocked", reason_code: "insufficient_observations", reasons: ["当前有效样本和变量数量不允许估计至少一阶 VAR。"] };
   }
   const maxLag = Math.max(1, Math.min(specification.max_lag, maximumAllowedLag));
-  const candidates = selectLagOrder(data, maxLag);
+  const candidates = selectLagOrder(data, maxLag, specification.deterministic_terms, effectivePeriods);
   const criterion = specification.ic_criterion;
   const selected = candidates.reduce((best, candidate) => (candidate[criterion] < best[criterion] ? candidate : best), candidates[0]);
 
+  const lagDiagnosticGrid = candidates.map((candidate) => {
+    const offset = maxLag - candidate.lag;
+    const estimate = estimateVar(data.slice(offset), candidate.lag, specification.deterministic_terms, effectivePeriods.slice(offset));
+    const candidateStability = varStability(estimate.coefficientMatrices);
+    const statuses = [12, 18, 24].map((horizon) => portmanteauTest(estimate.resid, candidate.lag, horizon).status);
+    return {
+      ...candidate,
+      stable: candidateStability.stable,
+      max_root_modulus: Number(candidateStability.max_root_modulus.toFixed(8)),
+      portmanteau_h12_status: statuses[0],
+      portmanteau_h18_status: statuses[1],
+      portmanteau_h24_status: statuses[2],
+      is_bic_baseline: candidate.lag === selected.lag,
+      is_diagnostically_adequate_alternative: false,
+    };
+  });
+  const diagnosticAlternative = lagDiagnosticGrid.find((row) => row.lag > selected.lag && row.stable && row.portmanteau_h12_status === "passed") ?? null;
+  if (diagnosticAlternative) diagnosticAlternative.is_diagnostically_adequate_alternative = true;
+
   // 5. Parameter-count gate on the selected specification.
-  const finalEstimate = estimateVar(data, selected.lag);
-  const paramsPerEquation = k * selected.lag + 1;
+  const finalEstimate = estimateVar(data, selected.lag, specification.deterministic_terms, effectivePeriods);
+  const paramsPerEquation = k * selected.lag + deterministicNames(specification.deterministic_terms).length;
   const ratio = finalEstimate.nobs / paramsPerEquation;
   if (ratio < 4) {
     return { status: "blocked", reason_code: "insufficient_observations", reasons: [`参数数量门未通过：有效观测 ${finalEstimate.nobs}，每方程参数 ${paramsPerEquation}，比率 ${ratio.toFixed(1)} < 4（接近饱和的 VAR 不允许运行）。`] };
@@ -392,8 +436,20 @@ function runEstimationPipeline(
     test: "portmanteau_adjusted" as const,
     ...portmanteauTest(finalEstimate.resid, selected.lag, horizon),
   }));
-  const portmanteau = residualSensitivity.find((entry) => entry.lags === 24) ?? residualSensitivity[residualSensitivity.length - 1];
+  const portmanteau = residualSensitivity.find((entry) => entry.lags === 12) ?? residualSensitivity[0];
   const borderlineStationarity = stationarity.some((entry) => entry.adf.status === "borderline");
+
+  const residualPeriods = effectivePeriods.slice(selected.lag);
+  const residualSeasonality = Array.from({ length: 12 }, (_, monthIndex) => {
+    const rows = finalEstimate.resid.filter((_, index) => Number(residualPeriods[index]?.slice(5, 7)) === monthIndex + 1);
+    const means = Array.from({ length: k }, (_, variable) => rows.length ? rows.reduce((sum, row) => sum + row[variable], 0) / rows.length : Number.NaN);
+    const variances = Array.from({ length: k }, (_, variable) => rows.length > 1 ? rows.reduce((sum, row) => sum + (row[variable] - means[variable]) ** 2, 0) / (rows.length - 1) : Number.NaN);
+    return { month: monthIndex + 1, means, variances };
+  });
+
+  const baseDynamicGate = stability.stable && !borderlineStationarity;
+  const diagnosticPassed = (horizon: number) => residualSensitivity.find((entry) => entry.lags === horizon)?.status === "passed";
+  const dynamicResponseReadyHorizons = dynamicResponseHorizonEligibility(baseDynamicGate, { 12: diagnosticPassed(12) ? "passed" : "failed", 18: diagnosticPassed(18) ? "passed" : "failed", 24: diagnosticPassed(24) ? "passed" : "failed" });
 
   // 8. IRF only when stable; residual failure gates the dynamic response.
   let irf: VarModelResult["irf"] = null;
@@ -402,8 +458,8 @@ function runEstimationPipeline(
     irfBlockedReason = `模型不稳定：伴随矩阵最大根模 ${stability.max_root_modulus.toFixed(4)} ≥ 1，当前规格不能用于动态响应分析。`;
   } else if (borderlineStationarity) {
     irfBlockedReason = "至少一个变量的 ADF 结果处于 borderline；模型可估计，但动态响应暂不开放。";
-  } else if (residualSensitivity.some((entry) => entry.status !== "passed")) {
-    irfBlockedReason = `残差自相关敏感性诊断未全部通过（h=12/18/24），动态响应输出被门控。`;
+  } else if (!dynamicResponseReadyHorizons[6]) {
+    irfBlockedReason = "主残差诊断 h=12 未通过，6/12/18/24 月动态响应均不可用。";
   } else {
     const horizons = [6, 12, 18, 24];
     const maxHorizon = Math.max(...horizons);
@@ -455,7 +511,7 @@ function runEstimationPipeline(
     country: specification.country,
     profile_id: specification.profile_id ?? null,
     specification_kind: specification.specification_kind ?? "custom",
-    comparability_signature: createVarComparabilitySignature(specification.variables),
+    comparability_signature: createVarComparabilitySignature(specification.variables, specification.deterministic_terms),
     variables: specification.variables,
     variable_order: specification.variables.map((variable) => variable.indicator),
     sample: {
@@ -464,7 +520,7 @@ function runEstimationPipeline(
       effective_observations: effective,
       dropped_periods: fullAxis.filter((period) => !effectivePeriods.includes(period)),
     },
-    deterministic_terms: "constant",
+    deterministic_terms: specification.deterministic_terms,
     stationarity,
     lag_selection: {
       criterion,
@@ -473,21 +529,29 @@ function runEstimationPipeline(
       selected_lag: selected.lag,
       selected_ic_value: selected[criterion],
     },
+    lag_diagnostic_grid: lagDiagnosticGrid,
+    diagnostic_lag_refinement: { baseline_lag: selected.lag, alternative_lag: diagnosticAlternative?.lag ?? null, label: diagnosticAlternative ? "diagnostically_adequate_alternative" : "none", baseline_unchanged: true },
     selected_lag: selected.lag,
     coefficient_matrices: finalEstimate.coefficientMatrices,
     intercepts: finalEstimate.intercepts,
+    deterministic_coefficients: finalEstimate.deterministicCoefficients,
     trend_coefficients: null,
     residual_covariance: finalEstimate.sigma_u,
     diagnostics: {
       stability: { stable: stability.stable, max_root_modulus: Number(stability.max_root_modulus.toFixed(8)), roots_moduli: stability.roots_moduli },
       residual_autocorrelation: portmanteau,
       residual_autocorrelation_sensitivity: residualSensitivity,
-      residual_lm: { status: "unavailable", note: "v1.41 未实现多元残差 LM 检验；不得把 Portmanteau 结果表述为 LM 检验。" },
+      residual_lm: { status: "unavailable", note: "v1.42 未实现多元残差 LM 检验；不得把 Portmanteau 结果表述为 LM 检验。" },
+      residual_seasonality: {
+        residual_month_of_year_means: residualSeasonality.map((entry) => ({ month: entry.month, values: entry.means.map((value) => Number(value.toFixed(8))) })),
+        residual_month_of_year_variances: residualSeasonality.map((entry) => ({ month: entry.month, values: entry.variances.map((value) => Number(value.toFixed(8))) })),
+      },
     },
     parameter_gate: { effective_observations: finalEstimate.nobs, parameters_per_equation: paramsPerEquation, ratio: Number(ratio.toFixed(2)), passed: ratio >= 4 },
     lag_preflight: { requested_max_lag: specification.max_lag, maximum_allowed_lag: maximumAllowedLag, applied_max_lag: maxLag },
     irf,
     irf_blocked_reason: irfBlockedReason,
+    dynamic_response_ready_horizons: dynamicResponseReadyHorizons,
     input_series: transformed.map((entry) => ({
       indicator: entry.indicator,
       transformation: entry.transformation,

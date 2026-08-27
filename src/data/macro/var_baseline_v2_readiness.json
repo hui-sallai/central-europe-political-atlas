@@ -2,9 +2,9 @@
   "schema_version": "var-profile-readiness-v1.42",
   "generated_at": "2026-08-27",
   "profile": {
-    "profile_id": "baseline_monthly_macro_v1",
+    "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
     "profile_kind": "baseline_prespecified",
-    "name": "月度宏观预设基准规格",
+    "name": "月度宏观预设基准规格 v2（季节控制）",
     "variables": [
       {
         "role": "inflation",
@@ -22,7 +22,7 @@
         "transformation": "level"
       }
     ],
-    "deterministic_terms": "constant",
+    "deterministic_terms": "constant_month_dummies",
     "sample_policy": {
       "frequency": "monthly",
       "start_period": "2015-01",
@@ -37,7 +37,7 @@
       "common_sample": true
     },
     "fallback_policy": "none",
-    "interpretation_boundary": "预设规格不根据单个国家的 ADF 结果改变经济定义；任一变量未通过正式平稳性门时，该国 baseline 不具备动态响应资格。"
+    "interpretation_boundary": "与 v1 使用相同变量、变换、样本和 BIC 滞后政策；仅增加常数项与 11 个月份虚拟变量作为确定性控制。HICP 原始序列仍为 NSA，这不是官方季调。"
   },
   "estimable_countries": [
     "poland",
@@ -52,7 +52,7 @@
   "records": [
     {
       "country": "austria",
-      "profile_id": "baseline_monthly_macro_v1",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
       "profile_kind": "baseline_prespecified",
       "variables": [
         {
@@ -80,10 +80,10 @@
           "level"
         ],
         "frequency": "monthly",
-        "deterministic_terms": "constant",
+        "deterministic_terms": "constant_month_dummies",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": null,
       "end_period": null,
@@ -194,11 +194,11 @@
         }
       ],
       "selected_fallback": null,
-      "selection_reason": "预设 baseline；不根据单个国家结果更换 transformation。"
+      "selection_reason": "预注册 seasonal-control baseline v2；与 v1 变量和变换相同，仅增加 11 个月份虚拟变量。"
     },
     {
       "country": "croatia",
-      "profile_id": "baseline_monthly_macro_v1",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
       "profile_kind": "baseline_prespecified",
       "variables": [
         {
@@ -226,10 +226,10 @@
           "level"
         ],
         "frequency": "monthly",
-        "deterministic_terms": "constant",
+        "deterministic_terms": "constant_month_dummies",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": null,
       "end_period": null,
@@ -340,11 +340,11 @@
         }
       ],
       "selected_fallback": null,
-      "selection_reason": "预设 baseline；不根据单个国家结果更换 transformation。"
+      "selection_reason": "预注册 seasonal-control baseline v2；与 v1 变量和变换相同，仅增加 11 个月份虚拟变量。"
     },
     {
       "country": "czechia",
-      "profile_id": "baseline_monthly_macro_v1",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
       "profile_kind": "baseline_prespecified",
       "variables": [
         {
@@ -372,10 +372,10 @@
           "level"
         ],
         "frequency": "monthly",
-        "deterministic_terms": "constant",
+        "deterministic_terms": "constant_month_dummies",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": null,
       "end_period": null,
@@ -486,11 +486,11 @@
         }
       ],
       "selected_fallback": null,
-      "selection_reason": "预设 baseline；不根据单个国家结果更换 transformation。"
+      "selection_reason": "预注册 seasonal-control baseline v2；与 v1 变量和变换相同，仅增加 11 个月份虚拟变量。"
     },
     {
       "country": "germany",
-      "profile_id": "baseline_monthly_macro_v1",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
       "profile_kind": "baseline_prespecified",
       "variables": [
         {
@@ -518,10 +518,10 @@
           "level"
         ],
         "frequency": "monthly",
-        "deterministic_terms": "constant",
+        "deterministic_terms": "constant_month_dummies",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": null,
       "end_period": null,
@@ -633,11 +633,11 @@
         }
       ],
       "selected_fallback": null,
-      "selection_reason": "预设 baseline；不根据单个国家结果更换 transformation。"
+      "selection_reason": "预注册 seasonal-control baseline v2；与 v1 变量和变换相同，仅增加 11 个月份虚拟变量。"
     },
     {
       "country": "hungary",
-      "profile_id": "baseline_monthly_macro_v1",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
       "profile_kind": "baseline_prespecified",
       "variables": [
         {
@@ -665,10 +665,10 @@
           "level"
         ],
         "frequency": "monthly",
-        "deterministic_terms": "constant",
+        "deterministic_terms": "constant_month_dummies",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": null,
       "end_period": null,
@@ -779,11 +779,11 @@
         }
       ],
       "selected_fallback": null,
-      "selection_reason": "预设 baseline；不根据单个国家结果更换 transformation。"
+      "selection_reason": "预注册 seasonal-control baseline v2；与 v1 变量和变换相同，仅增加 11 个月份虚拟变量。"
     },
     {
       "country": "poland",
-      "profile_id": "baseline_monthly_macro_v1",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
       "profile_kind": "baseline_prespecified",
       "variables": [
         {
@@ -811,10 +811,10 @@
           "level"
         ],
         "frequency": "monthly",
-        "deterministic_terms": "constant",
+        "deterministic_terms": "constant_month_dummies",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": "2015-02",
       "end_period": "2026-06",
@@ -925,11 +925,11 @@
         }
       ],
       "selected_fallback": null,
-      "selection_reason": "预设 baseline；不根据单个国家结果更换 transformation。"
+      "selection_reason": "预注册 seasonal-control baseline v2；与 v1 变量和变换相同，仅增加 11 个月份虚拟变量。"
     },
     {
       "country": "romania",
-      "profile_id": "baseline_monthly_macro_v1",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
       "profile_kind": "baseline_prespecified",
       "variables": [
         {
@@ -957,10 +957,10 @@
           "level"
         ],
         "frequency": "monthly",
-        "deterministic_terms": "constant",
+        "deterministic_terms": "constant_month_dummies",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": "2015-02",
       "end_period": "2026-06",
@@ -1071,11 +1071,11 @@
         }
       ],
       "selected_fallback": null,
-      "selection_reason": "预设 baseline；不根据单个国家结果更换 transformation。"
+      "selection_reason": "预注册 seasonal-control baseline v2；与 v1 变量和变换相同，仅增加 11 个月份虚拟变量。"
     },
     {
       "country": "serbia",
-      "profile_id": "baseline_monthly_macro_v1",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
       "profile_kind": "baseline_prespecified",
       "variables": [
         {
@@ -1103,10 +1103,10 @@
           "level"
         ],
         "frequency": "monthly",
-        "deterministic_terms": "constant",
+        "deterministic_terms": "constant_month_dummies",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": null,
       "end_period": null,
@@ -1153,11 +1153,11 @@
         }
       ],
       "selected_fallback": null,
-      "selection_reason": "预设 baseline；不根据单个国家结果更换 transformation。"
+      "selection_reason": "预注册 seasonal-control baseline v2；与 v1 变量和变换相同，仅增加 11 个月份虚拟变量。"
     },
     {
       "country": "slovakia",
-      "profile_id": "baseline_monthly_macro_v1",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
       "profile_kind": "baseline_prespecified",
       "variables": [
         {
@@ -1185,10 +1185,10 @@
           "level"
         ],
         "frequency": "monthly",
-        "deterministic_terms": "constant",
+        "deterministic_terms": "constant_month_dummies",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": null,
       "end_period": null,
@@ -1300,11 +1300,11 @@
         }
       ],
       "selected_fallback": null,
-      "selection_reason": "预设 baseline；不根据单个国家结果更换 transformation。"
+      "selection_reason": "预注册 seasonal-control baseline v2；与 v1 变量和变换相同，仅增加 11 个月份虚拟变量。"
     },
     {
       "country": "slovenia",
-      "profile_id": "baseline_monthly_macro_v1",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
       "profile_kind": "baseline_prespecified",
       "variables": [
         {
@@ -1332,10 +1332,10 @@
           "level"
         ],
         "frequency": "monthly",
-        "deterministic_terms": "constant",
+        "deterministic_terms": "constant_month_dummies",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.42__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": null,
       "end_period": null,
@@ -1446,7 +1446,7 @@
         }
       ],
       "selected_fallback": null,
-      "selection_reason": "预设 baseline；不根据单个国家结果更换 transformation。"
+      "selection_reason": "预注册 seasonal-control baseline v2；与 v1 变量和变换相同，仅增加 11 个月份虚拟变量。"
     }
   ]
 }

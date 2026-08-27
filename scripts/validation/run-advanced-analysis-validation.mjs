@@ -357,26 +357,50 @@ const withOverlap = attachOverlappingEvents(windowResult, [
 ]);
 check(withOverlap.overlapping_events.length === 1 && withOverlap.overlapping_events[0].event_id === "ev-other" && withOverlap.overlapping_event_warning !== null, "Overlapping-event detection failed.", "event");
 
-// ---- Reduced-form VAR / macro-dynamics validation (v1.41) ----
-const { estimateVarModel, selectVarLagOrder, varStability, portmanteauTest, orthogonalizedIrf, runReducedFormVar, isValidMonthPeriod, maximumAllowedVarLag } = require("../../src/lib/varEngine.ts");
+// ---- Reduced-form VAR / macro-dynamics validation (v1.42) ----
+const { estimateVarModel, selectVarLagOrder, varStability, portmanteauTest, orthogonalizedIrf, runReducedFormVar, isValidMonthPeriod, maximumAllowedVarLag, dynamicResponseHorizonEligibility } = require("../../src/lib/varEngine.ts");
 const { adfTest, kpssStatus } = require("../../src/lib/stationarityTests.ts");
 const { applyTransformation } = require("../../src/lib/timeSeriesTransforms.ts");
 const { eigenvalues, normalCdf, chiSquareCdf } = require("../../src/lib/numericLinAlg.ts");
-const { BASELINE_VAR_PROFILE, EXPLORATORY_VAR_PROFILE, createVarComparabilitySignature } = require("../../src/lib/varSpecifications.ts");
+const { BASELINE_VAR_PROFILE, BASELINE_VAR_PROFILE_V2, EXPLORATORY_VAR_PROFILE, createVarComparabilitySignature } = require("../../src/lib/varSpecifications.ts");
 const varReferencePayload = JSON.parse(fs.readFileSync(path.join(root, "src/data/analysis/var_reference_cases.json"), "utf8"));
 const varRef = varReferencePayload.cases;
 
-check(varReferencePayload.schema_version === "var-reference-cases-v1.41" && varReferencePayload.provenance?.generator_version === "var-reference-generator-v1.41", "VAR reference provenance version is missing.", "var");
+check(varReferencePayload.schema_version === "var-reference-cases-v1.42" && varReferencePayload.provenance?.generator_version === "var-reference-generator-v1.42", "VAR reference provenance version is missing.", "var");
 check(["python_version", "numpy_version", "scipy_version", "statsmodels_version", "generation_date"].every((field) => Boolean(varReferencePayload.provenance?.[field])), "VAR reference runtime provenance is incomplete.", "var");
 check(varReferencePayload.provenance?.seeds?.var_simulation === 42 && varReferencePayload.provenance?.seeds?.random_walk === 7, "VAR reference seeds are not pinned.", "var");
 check(BASELINE_VAR_PROFILE.fallback_policy === "none" && EXPLORATORY_VAR_PROFILE.fallback_policy === "documented_exploratory_chain", "Baseline/exploratory profile boundary failed.", "var");
-check(BASELINE_VAR_PROFILE.deterministic_terms === "constant" && EXPLORATORY_VAR_PROFILE.deterministic_terms === "constant", "Unsupported deterministic trend leaked into public profiles.", "var");
+check(BASELINE_VAR_PROFILE.deterministic_terms === "constant" && BASELINE_VAR_PROFILE_V2.deterministic_terms === "constant_month_dummies" && EXPLORATORY_VAR_PROFILE.deterministic_terms === "constant", "Registered deterministic profiles are incorrect.", "var");
 const signatureA = createVarComparabilitySignature(BASELINE_VAR_PROFILE.variables);
 const signatureB = createVarComparabilitySignature(BASELINE_VAR_PROFILE.variables);
 const signatureC = createVarComparabilitySignature(BASELINE_VAR_PROFILE.variables.map((item, index) => index === 0 ? { ...item, transformation: "log_difference_12" } : item));
 check(signatureA.signature_id === signatureB.signature_id && signatureA.signature_id !== signatureC.signature_id, "VAR comparability signature is not deterministic or transformation-sensitive.", "var");
 check(isValidMonthPeriod("2024-01") && !isValidMonthPeriod("2024-1") && !isValidMonthPeriod("2024-13"), "YYYY-MM preflight validation failed.", "var");
 check(maximumAllowedVarLag(180, 3) === 12 && maximumAllowedVarLag(60, 4) === 3, "VAR lag preflight parameter gate failed.", "var");
+const horizonGateFixture = dynamicResponseHorizonEligibility(true, { 12: "passed", 18: "failed", 24: "failed" });
+check(horizonGateFixture[6] && horizonGateFixture[12] && !horizonGateFixture[18] && !horizonGateFixture[24], "Horizon-specific dynamic-response gate failed.", "var");
+
+// Seasonal deterministic controls vs statsmodels VAR(endog, exog=11 month dummies).
+{
+  const seasonal = varRef.seasonal_month_dummy_var1_k2;
+  const est = estimateVarModel(seasonal.data, 1, "constant_month_dummies", seasonal.periods);
+  const flat = (value) => value.flat(Infinity);
+  const maxDiff = (actual, expected) => Math.max(...flat(actual).map((value, index) => Math.abs(value - flat(expected)[index])));
+  check(maxDiff(est.deterministicCoefficients.map((entry) => entry.coefficients), seasonal.estimation.deterministic_coefficients) < 1e-6, "Seasonal deterministic coefficient mismatch vs statsmodels.", "var");
+  check(maxDiff(est.coefficientMatrices, seasonal.estimation.coefficient_matrices) < 1e-6, "Seasonal lag matrix mismatch vs statsmodels.", "var");
+  check(maxDiff(est.sigma_u, seasonal.estimation.residual_covariance) < 1e-6, "Seasonal residual covariance mismatch vs statsmodels.", "var");
+  const ic = selectVarLagOrder(seasonal.data, 1, "constant_month_dummies", seasonal.periods)[0];
+  check(Math.max(Math.abs(ic.aic - seasonal.estimation.information_criteria.aic), Math.abs(ic.bic - seasonal.estimation.information_criteria.bic), Math.abs(ic.hqic - seasonal.estimation.information_criteria.hqic)) < 1e-9, "Seasonal IC mismatch vs statsmodels.", "var");
+  const stability = varStability(est.coefficientMatrices);
+  check(maxDiff([...stability.roots_moduli].sort(), seasonal.estimation.companion_root_moduli) < 1e-6, "Seasonal roots mismatch vs statsmodels.", "var");
+  for (const reference of seasonal.estimation.portmanteau_sensitivity) {
+    const actual = portmanteauTest(est.resid, 1, reference.lags);
+    check(Math.abs(actual.statistic - reference.statistic) < 1e-6 && Math.abs(actual.p_value - reference.p_value) < 1e-8, `Seasonal Portmanteau mismatch at h=${reference.lags}.`, "var");
+  }
+  const irf = orthogonalizedIrf(est.coefficientMatrices, est.sigma_u, 24);
+  check(maxDiff(irf, seasonal.estimation.irf_h24) < 1e-6, "Seasonal IRF mismatch vs statsmodels.", "var");
+  check(seasonal.seasonal_abs_month_mean_controlled < seasonal.seasonal_abs_month_mean_constant * 0.25, "Seasonal fixture controls did not absorb the residual month pattern.", "var");
+}
 
 // Special functions vs scipy.
 for (const [x, expected] of Object.entries(varRef.special_functions.normal_cdf)) {
@@ -492,9 +516,10 @@ const varToPoints = (data, prefix) => data.map((row, index) => ({
     check(outcome.result.data_trace.length > 0 && outcome.result.input_series.length === 3, "VAR data trace / input series missing.", "var");
     check(outcome.result.diagnostics.residual_autocorrelation_sensitivity.map((item) => item.lags).join(",") === "12,18,24" && outcome.result.diagnostics.residual_lm.status === "unavailable", "VAR residual diagnostic sensitivity / LM boundary failed.", "var");
     check(outcome.result.variable_order.join(",") === "var_a,var_b,var_c" && outcome.result.comparability_signature.variables.join(",") === "var_a,var_b,var_c", "VAR ordering trace failed.", "var");
-    // BIC underselects lag 1 for this VAR(2) process → residual autocorrelation
-    // must gate the dynamic response (§29): coefficients visible, IRF blocked.
-    check(outcome.result.irf === null && outcome.result.irf_blocked_reason !== null && outcome.result.irf_blocked_reason.includes("残差自相关"), `IRF diagnostic gate failed: ${outcome.result.irf_blocked_reason}`, "var");
+    // BIC may underselect lag 1, but v1.42 gates each displayed horizon rather
+    // than requiring every sensitivity horizon to pass globally.
+    const ready = outcome.result.dynamic_response_ready_horizons;
+    check(outcome.result.irf !== null && ready[6] && ready[12] && (!ready[18] || !ready[24]), `Horizon-specific IRF gate failed: ${JSON.stringify(ready)}`, "var");
   }
   // On the known-lag fixture (true VAR(2), T=240, BIC recovers lag 2) the full
   // pipeline passes diagnostics and IRF is produced.

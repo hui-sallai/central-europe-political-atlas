@@ -99,14 +99,30 @@ if (manifest) {
   if (!Array.isArray(manifest.scenario_versions) || manifest.scenario_versions.some((item) => !item.formula_version || item.shock_min === undefined || item.shock_max === undefined || item.shock_step === undefined)) failures.push("scenario version provenance is incomplete");
   if (manifest.validation_summary?.blocking_failures !== 0) failures.push(`blocking validation failures: ${manifest.validation_summary?.blocking_failures}`);
   if (manifest.validation_summary?.golden_failures !== 0) failures.push(`golden failures: ${manifest.validation_summary?.golden_failures}`);
+  const expectedAdvancedVersions = {
+    panel_engine: "panel-engine-v1.25",
+    trade_network: "trade-network-v1.25-active",
+    event_window: "event-window-v1.31",
+    high_frequency: "high-frequency-v1.31",
+    analysis_skill_registry: "analysis-skill-registry-v1.42",
+    transformation_registry: "transformation-registry-v1.41",
+    stationarity_engine: "stationarity-engine-v1.4",
+    var_engine: "var-engine-v1.42",
+    var_specification_profiles: "var-specification-profiles-v1.42",
+    var_country_readiness: "var-country-readiness-v1.42",
+  };
+  for (const [key, expected] of Object.entries(expectedAdvancedVersions)) if (manifest.advanced_analysis_versions?.[key] !== expected) failures.push(`advanced analysis provenance mismatch: ${key}=${manifest.advanced_analysis_versions?.[key]} expected=${expected}`);
+  if (process.env.GITHUB_SHA && (manifest.build_context !== "github-actions" || !manifest.workflow_run_id)) failures.push("CI manifest is missing github-actions build context or workflow_run_id");
+  if (!process.env.GITHUB_SHA && manifest.build_context !== "local") failures.push(`local manifest build context mismatch: ${manifest.build_context}`);
+  if (manifest.research_package?.status !== "built" || !/^research-data-v1\.42\.zip$/.test(manifest.research_package?.filename ?? "") || !/^[a-f0-9]{64}$/.test(manifest.research_package?.sha256 ?? "") || !manifest.research_package?.generated_at) failures.push("research package filename/SHA256/generated_at provenance is incomplete");
 }
 
 if (!validationExport?.records?.length) failures.push("validation registry has no records");
 if (!goldenExport?.records?.length) failures.push("golden cases have no records");
 if (goldenExport?.records?.some((item) => item.status === "failed" || item.result_semantic === "failed")) failures.push("golden case failure found in export");
-if (varReadiness?.schema_version !== "var-country-readiness-v1.41" || varReadiness?.records?.length !== 10) failures.push("v1.41 VAR country readiness export is incomplete");
-if (varReadiness?.records?.some((item) => !item.country || !item.readiness_state || !Array.isArray(item.variables) || typeof item.estimable !== "boolean" || typeof item.dynamic_response_ready !== "boolean")) failures.push("v1.41 VAR country readiness records are malformed");
-if (!varReadiness?.baseline_profile_readiness || !varReadiness?.exploratory_profile_readiness || varReadiness?.ready_countries || varReadiness?.irf_ready_countries) failures.push("v1.41 baseline/exploratory readiness boundary is incomplete");
+if (varReadiness?.schema_version !== "var-country-readiness-v1.42" || varReadiness?.records?.length !== 10) failures.push("v1.42 VAR country readiness export is incomplete");
+if (varReadiness?.records?.some((item) => !item.country || !item.readiness_state || !Array.isArray(item.variables) || typeof item.estimable !== "boolean" || typeof item.dynamic_response_ready !== "boolean" || !item.dynamic_response_ready_horizons)) failures.push("v1.42 VAR country readiness records are malformed");
+if (!varReadiness?.baseline_profile_readiness || !varReadiness?.baseline_v2_profile_readiness || !varReadiness?.exploratory_profile_readiness || varReadiness?.ready_countries || varReadiness?.irf_ready_countries) failures.push("v1.42 dual-baseline/exploratory readiness boundary is incomplete");
 
 const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
 if (!readme.includes(`Current release: **${expectedVersion}**`)) failures.push("README current release does not match canonical metadata");
@@ -125,7 +141,7 @@ for (const section of methodologySections) {
   previousSectionIndex = sectionIndex;
 }
 if (!methodology.includes("Validation ≠ scientific proof") || !methodology.includes("Historical reconstruction readiness")) failures.push("methodology validation boundary is incomplete");
-if (!methodology.includes("Reduced-form VAR") || !methodology.includes("残差 LM") || !methodology.includes("正式 baseline") || !methodology.includes("不是结构冲击或因果效应")) failures.push("v1.41 VAR methodology boundary is incomplete");
+if (!methodology.includes("Reduced-form VAR") || !methodology.includes("残差 LM") || !methodology.includes("预注册正式基线") || !methodology.includes("月份虚拟变量") || !methodology.includes("不是结构冲击或因果效应")) failures.push("v1.42 VAR methodology boundary is incomplete");
 
 for (const stableUrl of stableResearchUrls) {
   const route = stableUrl.split(/[?#]/)[0].replace(/^\//, "").replace(/\/$/, "");

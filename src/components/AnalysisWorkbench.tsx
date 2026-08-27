@@ -61,7 +61,8 @@ const skillToCategory: Record<string, AnalysisSkillCategory> = {
 
 export function AnalysisWorkbench({ countries, cards, outputs, events }: { countries: Country[]; cards: ModelCard[]; outputs: ModelOutput[]; events: Event[] }) {
   const searchParams = useSearchParams();
-  const skillParam = searchParams.get("skill");
+  const requestedSkill = searchParams.get("skill");
+  const skillParam = requestedSkill === "var_svar" ? "reduced_form_var" : requestedSkill;
   const initialCategory: AnalysisSkillCategory = skillParam && skillToCategory[skillParam] ? skillToCategory[skillParam] : "composite_indicators";
 
   const [category, setCategory] = useState<AnalysisSkillCategory>(initialCategory);

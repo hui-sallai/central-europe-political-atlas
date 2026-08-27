@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import crypto from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { researchPackageFilename, researchPackageLabel } from "./research-package-name.mjs";
@@ -111,6 +112,11 @@ const sourceEntries = [
   ["macro-dynamics/var_country_readiness.json", "src/data/macro/var_country_readiness.json"],
   ["macro-dynamics/var_specification_profiles.json", "src/data/macro/var_specification_profiles.json"],
   ["macro-dynamics/var_baseline_readiness.json", "src/data/macro/var_baseline_readiness.json"],
+  ["macro-dynamics/var_baseline_v1_readiness.json", "src/data/macro/var_baseline_v1_readiness.json"],
+  ["macro-dynamics/var_baseline_v2_readiness.json", "src/data/macro/var_baseline_v2_readiness.json"],
+  ["macro-dynamics/var_baseline_profile_comparison.json", "src/data/macro/var_baseline_profile_comparison.json"],
+  ["macro-dynamics/var_seasonality_audit.json", "src/data/macro/var_seasonality_audit.json"],
+  ["macro-dynamics/var_lag_diagnostic_grid.json", "src/data/macro/var_lag_diagnostic_grid.json"],
   ["macro-dynamics/var_exploratory_readiness.json", "src/data/macro/var_exploratory_readiness.json"],
   ["macro-dynamics/transformation_registry.json", "src/data/macro/transformation_registry.json"],
   ["macro-dynamics/stationarity_results.json", "src/data/macro/stationarity_results.json"],
@@ -135,4 +141,17 @@ entries.push({ name: "methodology/README.md", data: "Public methodology is avail
 
 fs.mkdirSync(sourceDir, { recursive: true });
 fs.writeFileSync(outputFile, zipStore(entries));
+const packageBuffer = fs.readFileSync(outputFile);
+const packageSha256 = crypto.createHash("sha256").update(packageBuffer).digest("hex");
+const manifestFile = path.join(sourceDir, "release_manifest.json");
+if (fs.existsSync(manifestFile)) {
+  const manifest = JSON.parse(fs.readFileSync(manifestFile, "utf8"));
+  manifest.research_package = {
+    filename: path.basename(outputFile),
+    sha256: packageSha256,
+    generated_at: new Date().toISOString(),
+    status: "built",
+  };
+  fs.writeFileSync(manifestFile, JSON.stringify(manifest, null, 2));
+}
 console.log(`Research package created: ${path.relative(root, outputFile)} (${entries.length} entries)`);

@@ -3,8 +3,8 @@ import type { ScenarioPreset } from "@/types/AnalysisSkill";
 
 const targetSkillByScenario: Record<string, string> = {
   inflation_resurgence: "household_economic_pressure",
-  energy_price_shock: "var_svar / industrial_dependency",
-  germany_demand_slowdown: "var_svar / network_dependency",
+  energy_price_shock: "reduced_form_var / industrial_dependency",
+  germany_demand_slowdown: "reduced_form_var / network_dependency",
   eu_funds_delay: "panel_econometrics / fiscal_pressure",
 };
 

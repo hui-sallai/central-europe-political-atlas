@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { isValidMonthPeriod, maximumAllowedVarLag, runReducedFormVar, type VarRunOutcome, type VarSpecification } from "@/lib/varEngine";
 import { applyTransformation, TIME_SERIES_TRANSFORMATION_REGISTRY, transformationLabels, transformationSpec } from "@/lib/timeSeriesTransforms";
 import type { HighFrequencyPoint } from "@/lib/eventWindowEngine";
-import type { InformationCriterion, TransformationId, VarCountryReadiness, VarReadinessPayload, VarSpecificationKind } from "@/types/MacroDynamics";
+import type { InformationCriterion, TransformationId, VarCountryReadiness, VarDeterministicTerms, VarIrfHorizon, VarReadinessPayload, VarSpecificationKind } from "@/types/MacroDynamics";
 import type { Country } from "@/types/Country";
 import { actionLabels, varLabels } from "@/lib/uiLabels";
 
@@ -37,6 +37,7 @@ function downloadJson(value: unknown, fileName: string) {
 export function VarWorkbench({ countries }: { countries: Country[] }) {
   const [series, setSeries] = useState<HighFrequencyPoint[]>([]);
   const [baselineReadiness, setBaselineReadiness] = useState<VarCountryReadiness[]>([]);
+  const [baselineV2Readiness, setBaselineV2Readiness] = useState<VarCountryReadiness[]>([]);
   const [exploratoryReadiness, setExploratoryReadiness] = useState<VarCountryReadiness[]>([]);
   const [loadState, setLoadState] = useState<"loading" | "ready" | "error">("loading");
   const [country, setCountry] = useState("poland");
@@ -56,6 +57,7 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
   const [showRaw, setShowRaw] = useState(false);
   const [specificationKind, setSpecificationKind] = useState<VarSpecificationKind>("baseline_prespecified");
   const [profileId, setProfileId] = useState<string | null>("baseline_monthly_macro_v1");
+  const [deterministicTerms, setDeterministicTerms] = useState<VarDeterministicTerms>("constant");
 
   useEffect(() => {
     const controller = new AbortController();
@@ -68,6 +70,7 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
         const loadedSeries = runtime.records.map((row) => ({ observation_id: row[0], country: row[1], period: row[2], indicator: row[3], value: row[4], transformation: row[5], unit: row[6], value_semantics: row[7] ?? undefined }));
         setSeries(loadedSeries);
         setBaselineReadiness(readinessPayload.baseline_profile_readiness.records);
+        setBaselineV2Readiness(readinessPayload.baseline_v2_profile_readiness.records);
         setExploratoryReadiness(readinessPayload.exploratory_profile_readiness.records);
         const latestPolandPeriod = loadedSeries.filter((point) => point.country === "poland" && point.value !== null).map((point) => point.period).sort().at(-1);
         if (latestPolandPeriod) setEndPeriod(latestPolandPeriod);
@@ -78,6 +81,7 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
   }, []);
 
   const countryBaseline = baselineReadiness.find((entry) => entry.country === country) ?? null;
+  const countryBaselineV2 = baselineV2Readiness.find((entry) => entry.country === country) ?? null;
   const countryExploratory = exploratoryReadiness.find((entry) => entry.country === country) ?? null;
   const seriesByIndicator = useMemo(() => {
     const map = new Map<string, HighFrequencyPoint[]>();
@@ -135,7 +139,7 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
       end_period: endPeriod,
       ic_criterion: criterion,
       max_lag: maxLag,
-      deterministic_terms: "constant",
+      deterministic_terms: deterministicTerms,
       profile_id: profileId,
       specification_kind: specificationKind,
     };
@@ -155,15 +159,17 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
     if (registered?.variables.length) setSelected(registered.variables);
     setSpecificationKind("baseline_prespecified");
     setProfileId("baseline_monthly_macro_v1");
+    setDeterministicTerms("constant");
     const latestPeriod = series.filter((point) => point.country === nextCountry && point.value !== null).map((point) => point.period).sort().at(-1);
     if (latestPeriod) setEndPeriod(latestPeriod);
   }
 
-  function loadProfile(record: VarCountryReadiness | null, kind: VarSpecificationKind, id: string) {
+  function loadProfile(record: VarCountryReadiness | null, kind: VarSpecificationKind, id: string, deterministic: VarDeterministicTerms) {
     if (!record) return;
     setSelected(record.variables);
     setSpecificationKind(kind);
     setProfileId(id);
+    setDeterministicTerms(deterministic);
     setOutcome(null);
   }
 
@@ -240,15 +246,20 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
           </div>
         </div>
 
-        <div className="mt-5 grid gap-3 lg:grid-cols-2">
-          {[{ title: "正式 baseline", record: countryBaseline, kind: "baseline_prespecified" as const, id: "baseline_monthly_macro_v1", action: actionLabels.loadRegisteredVarSpec }, { title: "探索性 fallback", record: countryExploratory, kind: "exploratory_fallback" as const, id: "exploratory_monthly_macro_fallback_v1", action: actionLabels.loadExploratoryVarSpec }].map(({ title, record, kind, id, action }) => record ? (
+        <div className="mt-5 grid gap-3 lg:grid-cols-3">
+          {[
+            { title: "正式 baseline v1", record: countryBaseline, kind: "baseline_prespecified" as const, id: "baseline_monthly_macro_v1", deterministic: "constant" as const, action: actionLabels.loadRegisteredVarSpec },
+            { title: "正式 baseline v2 · 季节控制", record: countryBaselineV2, kind: "baseline_prespecified" as const, id: "baseline_monthly_macro_v2_seasonal_controls", deterministic: "constant_month_dummies" as const, action: actionLabels.loadRegisteredVarSpec },
+            { title: "探索性变换", record: countryExploratory, kind: "exploratory_fallback" as const, id: "exploratory_monthly_macro_fallback_v1", deterministic: "constant" as const, action: actionLabels.loadExploratoryVarSpec },
+          ].map(({ title, record, kind, id, deterministic, action }) => record ? (
             <div key={title} className="border-l-2 border-[var(--accent)] bg-white/50 p-4">
               <p className="text-xs font-semibold text-[var(--muted)]">{title}</p>
               <p className={`mt-1 text-sm font-semibold ${stateClass[record.readiness_state] ?? "text-[var(--warning)]"}`}>{varLabels.readinessStates[record.readiness_state]}</p>
               <p className="mt-1 text-xs leading-6 text-[var(--muted)]">VAR 可估计：{record.estimable ? "是" : "否"} · 动态响应可用：{record.dynamic_response_ready ? "是" : "否"} · 有效观测：{record.effective_observations || "—"}</p>
               {record.blocking_reasons.length ? <p className="mt-1 text-xs leading-6 text-[var(--muted)]">{record.blocking_reasons.join("；")}</p> : null}
               <p className="mt-2 text-xs leading-6 text-[var(--muted)]">{record.variables.map((entry) => `${indicatorLabels[entry.indicator] ?? entry.indicator} · ${transformationLabels[entry.transformation]}`).join("；")}</p>
-              <button type="button" onClick={() => loadProfile(record, kind, id)} className="mt-2 rounded-full border border-[var(--line)] px-3 py-1.5 text-xs font-semibold">{action}</button>
+              <p className="mt-1 text-xs text-[var(--muted)]">季节控制：{deterministic === "constant_month_dummies" ? "月度虚拟变量（11）" : "无"}</p>
+              <button type="button" onClick={() => loadProfile(record, kind, id, deterministic)} className="mt-2 rounded-full border border-[var(--line)] px-3 py-1.5 text-xs font-semibold">{action}</button>
             </div>
           ) : null)}
         </div>
@@ -256,6 +267,7 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
         <div className={`mt-4 rounded-lg border px-4 py-3 text-xs leading-6 ${preflight.valid ? "border-[var(--line)] bg-white" : "border-[var(--warning)] bg-amber-50"}`}>
           <p className="font-semibold">运行前检查 · {specificationKind === "baseline_prespecified" ? "正式 baseline" : specificationKind === "exploratory_fallback" ? "探索性规格" : "用户自定义规格"}</p>
           <p>{preflight.message} 请求最大滞后 {maxLag} 阶，实际将不超过 {preflight.maximumLag || "—"} 阶。</p>
+          <p>确定性规格：{deterministicTerms === "constant_month_dummies" ? "常数项 + 月度虚拟变量（11）；原始 HICP 仍为 NSA" : "常数项；季节控制：无"}。</p>
           <p>变量顺序：{selected.map((entry, index) => `${index + 1} ${indicatorLabels[entry.indicator] ?? entry.indicator}`).join(" → ")}</p>
         </div>
 
@@ -294,13 +306,13 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
             <div className="mt-6 grid gap-6 lg:grid-cols-2">
               <dl className="grid gap-px overflow-hidden border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2">
                 {([
-                  [varLabels.specification, `${result.variables.length} 变量 VAR(${result.selected_lag}) · 常数项`],
+                  [varLabels.specification, `${result.variables.length} 变量 VAR(${result.selected_lag}) · ${result.deterministic_terms === "constant_month_dummies" ? "常数项 + 11 个月份虚拟变量" : "常数项"}`],
                   [varLabels.sampleWindow, `${result.sample.start_period} — ${result.sample.end_period}（${result.sample.effective_observations} 个月）`],
                   [varLabels.selectedLag, `${result.selected_lag}（${result.lag_selection.criterion.toUpperCase()} = ${result.lag_selection.selected_ic_value.toFixed(4)}）`],
                   [varLabels.stabilityCheck, result.diagnostics.stability.stable ? `${varLabels.stable} · 最大根模 ${result.diagnostics.stability.max_root_modulus.toFixed(4)}` : `${varLabels.unstable} · 最大根模 ${result.diagnostics.stability.max_root_modulus.toFixed(4)}`],
                   [varLabels.parameterGate, `${result.parameter_gate.effective_observations} / ${result.parameter_gate.parameters_per_equation} 参数 = ${result.parameter_gate.ratio}（≥4 通过）`],
                   ["滞后预检", `请求 ${result.lag_preflight.requested_max_lag} · 上限 ${result.lag_preflight.maximum_allowed_lag} · 实际候选上限 ${result.lag_preflight.applied_max_lag}`],
-                  [varLabels.residualAutocorrelation, `主诊断 h=24 · Q=${Number.isFinite(result.diagnostics.residual_autocorrelation.statistic) ? result.diagnostics.residual_autocorrelation.statistic.toFixed(1) : "—"} · p=${Number.isFinite(result.diagnostics.residual_autocorrelation.p_value) ? result.diagnostics.residual_autocorrelation.p_value.toFixed(4) : "—"}`],
+                  [varLabels.residualAutocorrelation, `主诊断 h=12 · Q=${Number.isFinite(result.diagnostics.residual_autocorrelation.statistic) ? result.diagnostics.residual_autocorrelation.statistic.toFixed(1) : "—"} · p=${Number.isFinite(result.diagnostics.residual_autocorrelation.p_value) ? result.diagnostics.residual_autocorrelation.p_value.toFixed(4) : "—"}`],
                 ] as Array<[string, string]>).map(([label, value]) => (
                   <div key={label} className="bg-white p-3"><dt className="text-xs text-[var(--muted)]">{label}</dt><dd className="mt-1 text-sm font-semibold">{value}</dd></div>
                 ))}
@@ -310,7 +322,7 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
                 <table className="research-data-table mt-2 w-full text-left text-xs"><tbody>{result.residual_covariance.map((row, rowIndex) => (
                   <tr key={rowIndex}>{row.map((value, colIndex) => <td key={colIndex} className="metric-number px-3 py-2">{value.toExponential(3)}</td>)}</tr>
                 ))}</tbody></table>
-                <p className="mt-3 text-xs leading-6 text-[var(--muted)]">完整滞后系数矩阵与截距包含在下载结果中；主屏不展开几十个滞后系数。</p>
+                <p className="mt-3 text-xs leading-6 text-[var(--muted)]">完整滞后系数矩阵与确定性项系数包含在下载结果中；主屏不展开几十个系数。</p>
               </div>
             </div>
           ) : null}
@@ -327,7 +339,7 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
                     </label>
                     <label className="text-xs font-semibold text-[var(--muted)]">{varLabels.horizon}
                       <select className="field-control mt-1" value={horizon} onChange={(event) => setHorizon(Number(event.target.value))}>
-                        {[6, 12, 18, 24].map((option) => <option key={option} value={option}>{option} 个月</option>)}
+                        {([6, 12, 18, 24] as VarIrfHorizon[]).map((option) => <option key={option} value={option} disabled={!result.dynamic_response_ready_horizons[option]}>{option} 个月{result.dynamic_response_ready_horizons[option] ? "" : "（诊断门未通过）"}</option>)}
                       </select>
                     </label>
                   </div>
@@ -367,8 +379,8 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
               </div>
               <div>
                 <p className="text-xs font-semibold text-[var(--muted)]">{varLabels.lagSelectionTable}</p>
-                <div className="mt-2 overflow-x-auto"><table className="research-data-table w-full min-w-[640px] text-left text-sm"><thead><tr>{["滞后", "AIC", "BIC", "HQIC", "有效观测", "自由参数"].map((header) => <th key={header} className="px-3 py-2">{header}</th>)}</tr></thead>
-                  <tbody>{result.lag_selection.candidates.map((candidate) => (
+                <div className="mt-2 overflow-x-auto"><table className="research-data-table w-full min-w-[900px] text-left text-sm"><thead><tr>{["滞后", "AIC", "BIC", "HQIC", "有效观测", "自由参数", "稳定", "h=12", "h=18", "h=24", "口径"].map((header) => <th key={header} className="px-3 py-2">{header}</th>)}</tr></thead>
+                  <tbody>{result.lag_diagnostic_grid.map((candidate) => (
                     <tr key={candidate.lag} className={candidate.lag === result.selected_lag ? "font-semibold" : ""}>
                       <td className="metric-number px-3 py-2">{candidate.lag}{candidate.lag === result.selected_lag ? " ✓" : ""}</td>
                       <td className="metric-number px-3 py-2">{candidate.aic.toFixed(4)}</td>
@@ -376,14 +388,20 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
                       <td className="metric-number px-3 py-2">{candidate.hqic.toFixed(4)}</td>
                       <td className="metric-number px-3 py-2">{candidate.nobs}</td>
                       <td className="metric-number px-3 py-2">{candidate.free_parameters}</td>
+                      <td className="px-3 py-2">{candidate.stable ? "通过" : "未通过"}</td>
+                      <td className="px-3 py-2">{candidate.portmanteau_h12_status}</td>
+                      <td className="px-3 py-2">{candidate.portmanteau_h18_status}</td>
+                      <td className="px-3 py-2">{candidate.portmanteau_h24_status}</td>
+                      <td className="px-3 py-2">{candidate.is_bic_baseline ? "BIC 正式基线" : candidate.is_diagnostically_adequate_alternative ? "诊断充分备选（探索性）" : "候选"}</td>
                     </tr>
                   ))}</tbody></table></div>
+                <p className="mt-2 text-xs text-[var(--muted)]">正式 baseline 始终使用 BIC 选定的 {result.diagnostic_lag_refinement.baseline_lag} 阶；{result.diagnostic_lag_refinement.alternative_lag ? `${result.diagnostic_lag_refinement.alternative_lag} 阶只登记为诊断充分备选，不替换正式结果。` : "当前没有登记更高阶诊断充分备选。"}</p>
               </div>
               <div>
                 <p className="text-xs font-semibold text-[var(--muted)]">残差自相关敏感性（调整 Portmanteau）</p>
                 <div className="mt-2 overflow-x-auto"><table className="research-data-table w-full min-w-[640px] text-left text-sm"><thead><tr>{["VAR 滞后", "诊断视野 h", "Q", "df", "p 值", "状态"].map((header) => <th key={header} className="px-3 py-2">{header}</th>)}</tr></thead>
                   <tbody>{result.diagnostics.residual_autocorrelation_sensitivity.map((item) => <tr key={item.lags}><td className="metric-number px-3 py-2">{result.selected_lag}</td><td className="metric-number px-3 py-2">{item.lags}</td><td className="metric-number px-3 py-2">{Number.isFinite(item.statistic) ? item.statistic.toFixed(2) : "—"}</td><td className="metric-number px-3 py-2">{item.degrees_of_freedom}</td><td className="metric-number px-3 py-2">{Number.isFinite(item.p_value) ? item.p_value.toFixed(4) : "—"}</td><td className="px-3 py-2">{item.status === "passed" ? "通过" : item.status === "failed" ? "未通过" : "未检验"}</td></tr>)}</tbody></table></div>
-                <p className="mt-2 text-xs text-[var(--muted)]">残差 LM：{result.diagnostics.residual_lm.status}。{result.diagnostics.residual_lm.note}</p>
+                <p className="mt-2 text-xs text-[var(--muted)]">h=12 为主诊断；h=18/24 是视野敏感性门。残差 LM：{result.diagnostics.residual_lm.status}。{result.diagnostics.residual_lm.note}</p>
               </div>
               <dl className="grid gap-px overflow-hidden border border-[var(--line)] bg-[var(--line)] sm:grid-cols-3">
                 {([
@@ -394,6 +412,7 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
                   <div key={label} className="bg-white p-3"><dt className="text-xs text-[var(--muted)]">{label}</dt><dd className="mt-1 text-sm font-semibold">{value}</dd></div>
                 ))}
               </dl>
+              <details className="advanced-disclosure"><summary>残差月份模式</summary><div className="mt-3 overflow-x-auto"><table className="research-data-table w-full min-w-[720px] text-left text-xs"><thead><tr><th className="px-3 py-2">月份</th>{result.variable_order.map((item) => <th key={item} className="px-3 py-2">{indicatorLabels[item] ?? item} · 均值</th>)}</tr></thead><tbody>{result.diagnostics.residual_seasonality.residual_month_of_year_means.map((row) => <tr key={row.month}><td className="metric-number px-3 py-2">{row.month}</td>{row.values.map((value, index) => <td key={index} className="metric-number px-3 py-2">{Number.isFinite(value) ? value.toFixed(4) : "—"}</td>)}</tr>)}</tbody></table></div><p className="mt-2 text-xs text-[var(--muted)]">该表用于比较常数项基线与月份控制基线的残差季节结构，不用于挑选更好看的结果。</p></details>
             </div>
           ) : null}
 
@@ -419,11 +438,11 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
 
           {tab === "method" ? (
             <div className="mt-6 max-w-3xl text-sm leading-7 text-[var(--muted)]">
-              <p>本模型是单国月度简化式 VAR：每个方程以相同滞后结构做 OLS 估计，滞后阶数由共同有效样本上的 {result.lag_selection.criterion.toUpperCase()} 选择，稳定性按伴随矩阵特征根判定，残差自相关固定检查 h=12/18/24 的调整 Portmanteau。当前未实现多元残差 LM。</p>
+              <p>本模型是单国月度简化式 VAR：每个方程使用相同滞后和确定性项做 OLS 估计，滞后阶数由共同有效样本上的 {result.lag_selection.criterion.toUpperCase()} 选择，稳定性按伴随矩阵特征根判定。调整 Portmanteau 的 h=12 是主诊断，h=18/24 是较长视野敏感性门。当前未实现多元残差 LM。</p>
               <p className="mt-3">{varLabels.noStructuralNote}</p>
               <p className="mt-3">动态响应为正交化简化式 IRF（Cholesky）：结果依赖变量排序，排序见「变量顺序」。当前版本不提供置信区间。SVAR（结构识别）与 Local Projections 保持 registry_only：Cholesky 排序不等于自动结构识别。</p>
-              <p className="mt-3">正式 baseline 不会因单国 ADF 结果自动改换变量定义；探索性 fallback 的所有尝试单独记录，不能冒充 baseline。当前公开确定性规格只支持常数项。</p>
-              <p className="mt-3 font-mono text-xs">engine={result.engine_version} · dataset={result.dataset_version} · platform v1.41</p>
+              <p className="mt-3">正式 baseline v1 与 v2 均预注册且并列保留；v2 的 11 个月份虚拟变量是模型季节控制，不把 NSA HICP 改称季调序列。探索性 fallback 的所有尝试单独记录，不能冒充 baseline。</p>
+              <p className="mt-3 font-mono text-xs">engine={result.engine_version} · dataset={result.dataset_version} · platform v1.42</p>
             </div>
           ) : null}
         </section>

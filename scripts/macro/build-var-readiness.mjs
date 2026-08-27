@@ -27,6 +27,7 @@ const { kpssStatus, STATIONARITY_ENGINE_VERSION } = require("../../src/lib/stati
 const { TIME_SERIES_TRANSFORMATION_REGISTRY, TRANSFORM_REGISTRY_VERSION } = require("../../src/lib/timeSeriesTransforms.ts");
 const {
   BASELINE_VAR_PROFILE,
+  BASELINE_VAR_PROFILE_V2,
   EXPLORATORY_TRANSFORMATION_CHAINS,
   EXPLORATORY_VAR_PROFILE,
   VAR_SPECIFICATION_PROFILES,
@@ -82,10 +83,10 @@ function classify(country, profile, profileKind, variables, outcome, attempts, s
   if (outcome.status === "ok") {
     const result = outcome.result;
     const stable = result.diagnostics.stability.stable;
-    const residualPassed = result.diagnostics.residual_autocorrelation_sensitivity.every((entry) => entry.status === "passed");
+    const residualPassed = result.diagnostics.residual_autocorrelation.status === "passed";
     const borderline = detail.some((entry) => entry.adf.status === "borderline");
     const estimable = true;
-    const dynamicResponseReady = result.irf !== null;
+    const dynamicResponseReady = Object.values(result.dynamic_response_ready_horizons).some(Boolean);
     let readinessState = "estimable";
     const reasons = [];
     if (!stable) {
@@ -96,7 +97,7 @@ function classify(country, profile, profileKind, variables, outcome, attempts, s
       reasons.push("至少一个变量的 ADF 结果为 borderline；可估计但不开放动态响应");
     } else if (!residualPassed) {
       readinessState = "residual_diagnostics_failed";
-      reasons.push("h=12/18/24 残差 Portmanteau 敏感性诊断未全部通过；动态响应暂不可用");
+      reasons.push("主残差 Portmanteau 诊断 h=12 未通过；动态响应暂不可用");
     } else if (dynamicResponseReady) {
       readinessState = "dynamic_response_ready";
     }
@@ -140,6 +141,7 @@ function classify(country, profile, profileKind, variables, outcome, attempts, s
       residual_status: residualPassed ? "passed" : "failed",
       estimable,
       dynamic_response_ready: dynamicResponseReady,
+      dynamic_response_ready_horizons: result.dynamic_response_ready_horizons,
       irf_available: dynamicResponseReady,
       readiness_state: readinessState,
       blocking_reasons: reasons,
@@ -163,7 +165,7 @@ function classify(country, profile, profileKind, variables, outcome, attempts, s
     profile_id: profile.profile_id,
     profile_kind: profileKind,
     variables,
-    comparability_signature: createVarComparabilitySignature(variables),
+    comparability_signature: createVarComparabilitySignature(variables, profile.deterministic_terms),
     start_period: null,
     end_period: null,
     effective_observations: 0,
@@ -176,6 +178,7 @@ function classify(country, profile, profileKind, variables, outcome, attempts, s
     residual_status: "not_run",
     estimable: false,
     dynamic_response_ready: false,
+    dynamic_response_ready_horizons: { 6: false, 12: false, 18: false, 24: false },
     irf_available: false,
     readiness_state: stateByReason[outcome.reason_code] ?? "unsupported_specification",
     blocking_reasons: outcome.reasons,
@@ -192,6 +195,7 @@ function recordStationarity(country, profileId, profileKind, attempt, outcome) {
 }
 
 const baselineRecords = [];
+const baselineV2Records = [];
 const exploratoryRecords = [];
 for (const country of COUNTRIES) {
   const baselineVariables = profileVariables(BASELINE_VAR_PROFILE);
@@ -205,6 +209,19 @@ for (const country of COUNTRIES) {
     baselineOutcome,
     [{ attempt: 1, variables: baselineVariables, outcome: baselineOutcome.status, reason: baselineOutcome.status === "blocked" ? baselineOutcome.reasons[0] : null }],
     "预设 baseline；不根据单个国家结果更换 transformation。",
+  ));
+
+  const baselineV2Variables = profileVariables(BASELINE_VAR_PROFILE_V2);
+  const baselineV2Outcome = run(country, BASELINE_VAR_PROFILE_V2, "baseline_prespecified", baselineV2Variables);
+  recordStationarity(country, BASELINE_VAR_PROFILE_V2.profile_id, "baseline_prespecified", 1, baselineV2Outcome);
+  baselineV2Records.push(classify(
+    country,
+    BASELINE_VAR_PROFILE_V2,
+    "baseline_prespecified",
+    baselineV2Variables,
+    baselineV2Outcome,
+    [{ attempt: 1, variables: baselineV2Variables, outcome: baselineV2Outcome.status, reason: baselineV2Outcome.status === "blocked" ? baselineV2Outcome.reasons[0] : null }],
+    "预注册 seasonal-control baseline v2；与 v1 变量和变换相同，仅增加 11 个月份虚拟变量。",
   ));
 
   const choices = EXPLORATORY_TRANSFORMATION_CHAINS.map(() => 0);
@@ -232,25 +249,80 @@ for (const country of COUNTRIES) {
 }
 
 const profilePayload = (profile, profileRecords) => ({
-  schema_version: "var-profile-readiness-v1.41",
+  schema_version: "var-profile-readiness-v1.42",
   generated_at: generatedAt,
   profile,
   estimable_countries: profileRecords.filter((record) => record.estimable).map((record) => record.country),
   dynamic_response_ready_countries: profileRecords.filter((record) => record.dynamic_response_ready).map((record) => record.country),
+  dynamic_response_ready_6m_countries: profileRecords.filter((record) => record.dynamic_response_ready_horizons[6]).map((record) => record.country),
+  dynamic_response_ready_12m_countries: profileRecords.filter((record) => record.dynamic_response_ready_horizons[12]).map((record) => record.country),
+  dynamic_response_ready_18m_countries: profileRecords.filter((record) => record.dynamic_response_ready_horizons[18]).map((record) => record.country),
+  dynamic_response_ready_24m_countries: profileRecords.filter((record) => record.dynamic_response_ready_horizons[24]).map((record) => record.country),
   record_count: profileRecords.length,
   records: profileRecords,
 });
 const baselinePayload = profilePayload(BASELINE_VAR_PROFILE, baselineRecords);
+const baselineV2Payload = profilePayload(BASELINE_VAR_PROFILE_V2, baselineV2Records);
 const exploratoryPayload = profilePayload(EXPLORATORY_VAR_PROFILE, exploratoryRecords);
+const horizonSummary = (payload) => ({
+  estimable_countries: payload.estimable_countries,
+  dynamic_response_ready_6m_countries: payload.dynamic_response_ready_6m_countries,
+  dynamic_response_ready_12m_countries: payload.dynamic_response_ready_12m_countries,
+  dynamic_response_ready_18m_countries: payload.dynamic_response_ready_18m_countries,
+  dynamic_response_ready_24m_countries: payload.dynamic_response_ready_24m_countries,
+});
+const baselineComparison = {
+  schema_version: "var-baseline-profile-comparison-v1.42",
+  generated_at: generatedAt,
+  comparison_boundary: "v1 与 v2 均为预注册正式基线；比较用于评估月份控制对残差季节结构和诊断充分性的影响，不用于结果择优。",
+  records: COUNTRIES.map((country) => {
+    const v1 = baselineRecords.find((record) => record.country === country);
+    const v2 = baselineV2Records.find((record) => record.country === country);
+    return {
+      country,
+      baseline_v1: v1,
+      baseline_v2: v2,
+      comparison: {
+        selected_lag_v1: v1?.selected_lag ?? null,
+        selected_lag_v2: v2?.selected_lag ?? null,
+        estimable_v1: v1?.estimable ?? false,
+        estimable_v2: v2?.estimable ?? false,
+        dynamic_response_ready_horizons_v1: v1?.dynamic_response_ready_horizons ?? { 6: false, 12: false, 18: false, 24: false },
+        dynamic_response_ready_horizons_v2: v2?.dynamic_response_ready_horizons ?? { 6: false, 12: false, 18: false, 24: false },
+      },
+    };
+  }),
+};
+const seasonalityAudit = {
+  schema_version: "var-seasonality-audit-v1.42",
+  generated_at: generatedAt,
+  records: TIME_SERIES_TRANSFORMATION_REGISTRY.map((entry) => ({
+    indicator: entry.indicator,
+    seasonal_adjustment_status: entry.indicator.startsWith("hicp_") ? "not_seasonally_adjusted" : "source_series_status_documented_separately",
+    frequency: "monthly",
+    current_transformation: entry.default_transformation,
+    seasonality_risk: entry.indicator.startsWith("hicp_") || entry.indicator === "industrial_production_index" ? "material" : "review_required",
+    seasonal_control_required: true,
+    notes: entry.indicator.startsWith("hicp_") ? "Eurostat HICP monthly index and annual rate are NSA. Month dummies are model controls, not official seasonal adjustment." : "Seasonality is controlled through registered deterministic month dummies in baseline v2; raw data are not rewritten.",
+  })),
+};
+const lagDiagnosticPayload = {
+  schema_version: "var-lag-diagnostic-grid-v1.42",
+  generated_at: generatedAt,
+  baseline_policy: "BIC-selected lag remains the formal baseline. A higher diagnostically adequate alternative is exploratory and never replaces it silently.",
+  records: modelRegistryRecords.map((entry) => ({ country: entry.result.country, profile_id: entry.profile_id, profile_kind: entry.profile_kind, rows: entry.result.lag_diagnostic_grid, diagnostic_lag_refinement: entry.result.diagnostic_lag_refinement })),
+};
 const combinedPayload = {
-  schema_version: "var-country-readiness-v1.41",
+  schema_version: "var-country-readiness-v1.42",
   generated_at: generatedAt,
   readiness_unit: "country x profile x variable set x sample window x transformation specification",
-  interpretation_boundary: "estimable 只表示系数可估计；dynamic_response_ready 还要求平稳性、稳定性、h=12/18/24 残差诊断和正交化全部通过。探索性 fallback 不得作为 baseline 跨国比较。",
+  interpretation_boundary: "estimable 只表示系数可估计；动态响应按视野门控：6/12 月要求主诊断 h=12，18 月还要求 h=18，24 月还要求 h=24。探索性 fallback 不得作为 baseline 跨国比较。",
   profiles: VAR_SPECIFICATION_PROFILES,
   estimable_countries: baselinePayload.estimable_countries,
   dynamic_response_ready_countries: baselinePayload.dynamic_response_ready_countries,
+  ...horizonSummary(baselinePayload),
   baseline_profile_readiness: baselinePayload,
+  baseline_v2_profile_readiness: baselineV2Payload,
   exploratory_profile_readiness: exploratoryPayload,
   record_count: baselineRecords.length,
   records: baselineRecords,
@@ -265,7 +337,7 @@ const write = (name, payload, toPublic = false) => {
   if (toPublic) fs.writeFileSync(path.join(publicDir, name), JSON.stringify(payload));
 };
 
-write("var_specification_profiles.json", { schema_version: "var-specification-profiles-v1.41", generated_at: generatedAt, profiles: VAR_SPECIFICATION_PROFILES, exploratory_transformation_chains: EXPLORATORY_TRANSFORMATION_CHAINS });
+write("var_specification_profiles.json", { schema_version: "var-specification-profiles-v1.42", generated_at: generatedAt, profiles: VAR_SPECIFICATION_PROFILES, exploratory_transformation_chains: EXPLORATORY_TRANSFORMATION_CHAINS }, true);
 write("transformation_registry.json", {
   schema_version: TRANSFORM_REGISTRY_VERSION,
   generated_at: generatedAt,
@@ -274,16 +346,16 @@ write("transformation_registry.json", {
   boundary: "正式 baseline 不做 transformation fallback。探索性 fallback 单独记录所有尝试；指数水平不能以 raw level 进入当前 VAR。",
 });
 write("stationarity_results.json", {
-  schema_version: "stationarity-results-v1.41",
+  schema_version: "stationarity-results-v1.42",
   engine_version: STATIONARITY_ENGINE_VERSION,
   generated_at: generatedAt,
   tests: { adf: "augmented Dickey-Fuller with constant and AIC lag selection", kpss: kpssStatus() },
   multiple_search_warning: "探索性 profile 尝试多个 transformation 会增加选择后推断风险；其结果不得冒充预设 baseline。",
   record_count: stationarityRecords.length,
   records: stationarityRecords,
-});
+}, true);
 write("lag_selection_registry.json", {
-  schema_version: "lag-selection-registry-v1.41",
+  schema_version: "lag-selection-registry-v1.42",
   generated_at: generatedAt,
   default_criterion: "bic",
   note: "候选滞后使用共同有效样本；最大滞后同时受请求值 12 和 (T-p)/(Kp+1)>=4 参数门约束。",
@@ -291,17 +363,22 @@ write("lag_selection_registry.json", {
   records: lagSelectionRecords,
 });
 write("var_baseline_readiness.json", baselinePayload);
-write("var_exploratory_readiness.json", exploratoryPayload);
+write("var_baseline_v1_readiness.json", baselinePayload, true);
+write("var_baseline_v2_readiness.json", baselineV2Payload, true);
+write("var_exploratory_readiness.json", exploratoryPayload, true);
+write("var_baseline_profile_comparison.json", baselineComparison, true);
+write("var_seasonality_audit.json", seasonalityAudit, true);
+write("var_lag_diagnostic_grid.json", lagDiagnosticPayload, true);
 write("var_country_readiness.json", combinedPayload, true);
 write("var_model_registry.json", {
-  schema_version: "var-model-registry-v1.41",
+  schema_version: "var-model-registry-v1.42",
   generated_at: generatedAt,
   note: "Baseline 与 exploratory 结果按 profile_kind 分开。只有 dynamic_response_ready 的结果包含 IRF；IRF 为依赖排序且无置信区间的正交化简化式点响应。",
   record_count: modelRegistryRecords.length,
   records: modelRegistryRecords,
 });
 
-for (const [label, profile] of [["baseline", baselinePayload], ["exploratory", exploratoryPayload]]) {
+for (const [label, profile] of [["baseline_v1", baselinePayload], ["baseline_v2", baselineV2Payload], ["exploratory", exploratoryPayload]]) {
   console.log(`${label}: countries=${profile.record_count}; estimable=${profile.estimable_countries.length}; dynamic_response_ready=${profile.dynamic_response_ready_countries.length}`);
   for (const record of profile.records) console.log(`  ${record.country}: ${record.readiness_state}${record.selected_lag ? ` (lag ${record.selected_lag})` : ""}`);
 }

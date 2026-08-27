@@ -1,7 +1,7 @@
 {
-  "schema_version": "stationarity-results-v1.41",
+  "schema_version": "stationarity-results-v1.42",
   "engine_version": "stationarity-engine-v1.4",
-  "generated_at": "2026-08-22",
+  "generated_at": "2026-08-27",
   "tests": {
     "adf": "augmented Dickey-Fuller with constant and AIC lag selection",
     "kpss": {
@@ -11,7 +11,7 @@
     }
   },
   "multiple_search_warning": "探索性 profile 尝试多个 transformation 会增加选择后推断风险；其结果不得冒充预设 baseline。",
-  "record_count": 120,
+  "record_count": 147,
   "records": [
     {
       "country": "austria",
@@ -66,6 +66,81 @@
     {
       "country": "austria",
       "profile_id": "baseline_monthly_macro_v1",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "unemployment_rate_monthly",
+      "transformation": "level",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 0,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 136,
+        "statistic": -2.906913598444285,
+        "p_value": 0.044549926602545475,
+        "critical_values": {
+          "1%": -3.4793722137854926,
+          "5%": -2.8830370378332995,
+          "10%": -2.578233635380623
+        },
+        "status": "stationary"
+      }
+    },
+    {
+      "country": "austria",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "hicp_monthly_index",
+      "transformation": "log_difference",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 12,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 124,
+        "statistic": -1.9484322281810227,
+        "p_value": 0.30963100254069764,
+        "critical_values": {
+          "1%": -3.484219653271961,
+          "5%": -2.8851452356416374,
+          "10%": -2.5793591389177943
+        },
+        "status": "non_stationary"
+      }
+    },
+    {
+      "country": "austria",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "industrial_production_index",
+      "transformation": "log_difference",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 2,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 134,
+        "statistic": -9.11773122700783,
+        "p_value": 3.2751579226442118e-15,
+        "critical_values": {
+          "1%": -3.4801186001103854,
+          "5%": -2.8833618426136196,
+          "10%": -2.5784070349743815
+        },
+        "status": "stationary"
+      }
+    },
+    {
+      "country": "austria",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
       "profile_kind": "baseline_prespecified",
       "attempt": 1,
       "indicator": "unemployment_rate_monthly",
@@ -465,6 +540,81 @@
     },
     {
       "country": "croatia",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "hicp_monthly_index",
+      "transformation": "log_difference",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 13,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 123,
+        "statistic": -1.908579293359279,
+        "p_value": 0.3280359664363137,
+        "critical_values": {
+          "1%": -3.484667251420977,
+          "5%": -2.8853397507076006,
+          "10%": -2.5794629869786503
+        },
+        "status": "non_stationary"
+      }
+    },
+    {
+      "country": "croatia",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "industrial_production_index",
+      "transformation": "log_difference",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 4,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 132,
+        "statistic": -7.3359195007179485,
+        "p_value": 1.0966755281671681e-10,
+        "critical_values": {
+          "1%": -3.4808880719210005,
+          "5%": -2.8836966192225284,
+          "10%": -2.5785857598714417
+        },
+        "status": "stationary"
+      }
+    },
+    {
+      "country": "croatia",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "unemployment_rate_monthly",
+      "transformation": "level",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 2,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 134,
+        "statistic": -2.9241262522040286,
+        "p_value": 0.04261351654174905,
+        "critical_values": {
+          "1%": -3.4801186001103854,
+          "5%": -2.8833618426136196,
+          "10%": -2.5784070349743815
+        },
+        "status": "stationary"
+      }
+    },
+    {
+      "country": "croatia",
       "profile_id": "exploratory_monthly_macro_fallback_v1",
       "profile_kind": "exploratory_fallback",
       "attempt": 1,
@@ -816,6 +966,81 @@
     {
       "country": "czechia",
       "profile_id": "baseline_monthly_macro_v1",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "unemployment_rate_monthly",
+      "transformation": "level",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 4,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 132,
+        "statistic": -2.6974697629564144,
+        "p_value": 0.07447713490562952,
+        "critical_values": {
+          "1%": -3.4808880719210005,
+          "5%": -2.8836966192225284,
+          "10%": -2.5785857598714417
+        },
+        "status": "borderline"
+      }
+    },
+    {
+      "country": "czechia",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "hicp_monthly_index",
+      "transformation": "log_difference",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 13,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 123,
+        "statistic": -2.0972813372965464,
+        "p_value": 0.2456091937796448,
+        "critical_values": {
+          "1%": -3.484667251420977,
+          "5%": -2.8853397507076006,
+          "10%": -2.5794629869786503
+        },
+        "status": "non_stationary"
+      }
+    },
+    {
+      "country": "czechia",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "industrial_production_index",
+      "transformation": "log_difference",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 2,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 134,
+        "statistic": -8.903537879038959,
+        "p_value": 1.1546319456101628e-14,
+        "critical_values": {
+          "1%": -3.4801186001103854,
+          "5%": -2.8833618426136196,
+          "10%": -2.5784070349743815
+        },
+        "status": "stationary"
+      }
+    },
+    {
+      "country": "czechia",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
       "profile_kind": "baseline_prespecified",
       "attempt": 1,
       "indicator": "unemployment_rate_monthly",
@@ -1215,6 +1440,81 @@
     },
     {
       "country": "germany",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "hicp_monthly_index",
+      "transformation": "log_difference",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 11,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 125,
+        "statistic": -1.8590016529604616,
+        "p_value": 0.3515868443235479,
+        "critical_values": {
+          "1%": -3.4837793736959997,
+          "5%": -2.88495387648,
+          "10%": -2.579256976
+        },
+        "status": "non_stationary"
+      }
+    },
+    {
+      "country": "germany",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "industrial_production_index",
+      "transformation": "log_difference",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 2,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 134,
+        "statistic": -9.20973972500051,
+        "p_value": 1.887379141862766e-15,
+        "critical_values": {
+          "1%": -3.4801186001103854,
+          "5%": -2.8833618426136196,
+          "10%": -2.5784070349743815
+        },
+        "status": "stationary"
+      }
+    },
+    {
+      "country": "germany",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "unemployment_rate_monthly",
+      "transformation": "level",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 3,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 133,
+        "statistic": -2.386552492863822,
+        "p_value": 0.14556789484809946,
+        "critical_values": {
+          "1%": -3.4805003838883772,
+          "5%": -2.8835279559405045,
+          "10%": -2.578495716547007
+        },
+        "status": "non_stationary"
+      }
+    },
+    {
+      "country": "germany",
       "profile_id": "exploratory_monthly_macro_fallback_v1",
       "profile_kind": "exploratory_fallback",
       "attempt": 1,
@@ -1566,6 +1866,81 @@
     {
       "country": "hungary",
       "profile_id": "baseline_monthly_macro_v1",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "unemployment_rate_monthly",
+      "transformation": "level",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 1,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 135,
+        "statistic": -3.831586865257551,
+        "p_value": 0.0026001791869343926,
+        "critical_values": {
+          "1%": -3.4797425866991816,
+          "5%": -2.88319822181578,
+          "10%": -2.578319684499314
+        },
+        "status": "stationary"
+      }
+    },
+    {
+      "country": "hungary",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "hicp_monthly_index",
+      "transformation": "log_difference",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 13,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 123,
+        "statistic": -2.2832114326043986,
+        "p_value": 0.17743979973457918,
+        "critical_values": {
+          "1%": -3.484667251420977,
+          "5%": -2.8853397507076006,
+          "10%": -2.5794629869786503
+        },
+        "status": "non_stationary"
+      }
+    },
+    {
+      "country": "hungary",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "industrial_production_index",
+      "transformation": "log_difference",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 1,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 135,
+        "statistic": -10.37531994602584,
+        "p_value": 0,
+        "critical_values": {
+          "1%": -3.4797425866991816,
+          "5%": -2.88319822181578,
+          "10%": -2.578319684499314
+        },
+        "status": "stationary"
+      }
+    },
+    {
+      "country": "hungary",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
       "profile_kind": "baseline_prespecified",
       "attempt": 1,
       "indicator": "unemployment_rate_monthly",
@@ -1965,6 +2340,81 @@
     },
     {
       "country": "poland",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "hicp_monthly_index",
+      "transformation": "log_difference",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 2,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 134,
+        "statistic": -3.5047864635483457,
+        "p_value": 0.007865015085694094,
+        "critical_values": {
+          "1%": -3.4801186001103854,
+          "5%": -2.8833618426136196,
+          "10%": -2.5784070349743815
+        },
+        "status": "stationary"
+      }
+    },
+    {
+      "country": "poland",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "industrial_production_index",
+      "transformation": "log_difference",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 2,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 134,
+        "statistic": -8.720505958252971,
+        "p_value": 3.397282455352979e-14,
+        "critical_values": {
+          "1%": -3.4801186001103854,
+          "5%": -2.8833618426136196,
+          "10%": -2.5784070349743815
+        },
+        "status": "stationary"
+      }
+    },
+    {
+      "country": "poland",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "unemployment_rate_monthly",
+      "transformation": "level",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 3,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 133,
+        "statistic": -3.9627958849319738,
+        "p_value": 0.0016183541611727303,
+        "critical_values": {
+          "1%": -3.4805003838883772,
+          "5%": -2.8835279559405045,
+          "10%": -2.578495716547007
+        },
+        "status": "stationary"
+      }
+    },
+    {
+      "country": "poland",
       "profile_id": "exploratory_monthly_macro_fallback_v1",
       "profile_kind": "exploratory_fallback",
       "attempt": 1,
@@ -2115,6 +2565,81 @@
     },
     {
       "country": "romania",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "hicp_monthly_index",
+      "transformation": "log_difference",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 4,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 132,
+        "statistic": -3.8080312254882975,
+        "p_value": 0.002826205653293279,
+        "critical_values": {
+          "1%": -3.4808880719210005,
+          "5%": -2.8836966192225284,
+          "10%": -2.5785857598714417
+        },
+        "status": "stationary"
+      }
+    },
+    {
+      "country": "romania",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "industrial_production_index",
+      "transformation": "log_difference",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 4,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 132,
+        "statistic": -7.376913501326395,
+        "p_value": 8.673939344561177e-11,
+        "critical_values": {
+          "1%": -3.4808880719210005,
+          "5%": -2.8836966192225284,
+          "10%": -2.5785857598714417
+        },
+        "status": "stationary"
+      }
+    },
+    {
+      "country": "romania",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "unemployment_rate_monthly",
+      "transformation": "level",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 4,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 132,
+        "statistic": -2.7999946707686365,
+        "p_value": 0.05827452931554267,
+        "critical_values": {
+          "1%": -3.4808880719210005,
+          "5%": -2.8836966192225284,
+          "10%": -2.5785857598714417
+        },
+        "status": "borderline"
+      }
+    },
+    {
+      "country": "romania",
       "profile_id": "exploratory_monthly_macro_fallback_v1",
       "profile_kind": "exploratory_fallback",
       "attempt": 1,
@@ -2241,6 +2766,81 @@
     {
       "country": "slovakia",
       "profile_id": "baseline_monthly_macro_v1",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "unemployment_rate_monthly",
+      "transformation": "level",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 3,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 133,
+        "statistic": -2.5578151710269137,
+        "p_value": 0.10203315854708161,
+        "critical_values": {
+          "1%": -3.4805003838883772,
+          "5%": -2.8835279559405045,
+          "10%": -2.578495716547007
+        },
+        "status": "non_stationary"
+      }
+    },
+    {
+      "country": "slovakia",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "hicp_monthly_index",
+      "transformation": "log_difference",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 13,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 123,
+        "statistic": -2.5758044454960323,
+        "p_value": 0.09810181589256989,
+        "critical_values": {
+          "1%": -3.484667251420977,
+          "5%": -2.8853397507076006,
+          "10%": -2.5794629869786503
+        },
+        "status": "non_stationary"
+      }
+    },
+    {
+      "country": "slovakia",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "industrial_production_index",
+      "transformation": "log_difference",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 2,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 134,
+        "statistic": -9.671029255164536,
+        "p_value": 1.1102230246251565e-16,
+        "critical_values": {
+          "1%": -3.4801186001103854,
+          "5%": -2.8833618426136196,
+          "10%": -2.5784070349743815
+        },
+        "status": "stationary"
+      }
+    },
+    {
+      "country": "slovakia",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
       "profile_kind": "baseline_prespecified",
       "attempt": 1,
       "indicator": "unemployment_rate_monthly",
@@ -2691,6 +3291,81 @@
     {
       "country": "slovenia",
       "profile_id": "baseline_monthly_macro_v1",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "unemployment_rate_monthly",
+      "transformation": "level",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 3,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 133,
+        "statistic": -3.017322574204362,
+        "p_value": 0.03330805268117831,
+        "critical_values": {
+          "1%": -3.4805003838883772,
+          "5%": -2.8835279559405045,
+          "10%": -2.578495716547007
+        },
+        "status": "stationary"
+      }
+    },
+    {
+      "country": "slovenia",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "hicp_monthly_index",
+      "transformation": "log_difference",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 12,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 124,
+        "statistic": -2.0453294755966027,
+        "p_value": 0.26705795098835483,
+        "critical_values": {
+          "1%": -3.484219653271961,
+          "5%": -2.8851452356416374,
+          "10%": -2.5793591389177943
+        },
+        "status": "non_stationary"
+      }
+    },
+    {
+      "country": "slovenia",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_kind": "baseline_prespecified",
+      "attempt": 1,
+      "indicator": "industrial_production_index",
+      "transformation": "log_difference",
+      "adf": {
+        "test": "adf",
+        "regression": "c",
+        "series_length": 137,
+        "used_lag": 2,
+        "max_lag": 13,
+        "autolag_criterion": "aic",
+        "nobs": 134,
+        "statistic": -9.06496854348619,
+        "p_value": 4.440892098500626e-15,
+        "critical_values": {
+          "1%": -3.4801186001103854,
+          "5%": -2.8833618426136196,
+          "10%": -2.5784070349743815
+        },
+        "status": "stationary"
+      }
+    },
+    {
+      "country": "slovenia",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
       "profile_kind": "baseline_prespecified",
       "attempt": 1,
       "indicator": "unemployment_rate_monthly",

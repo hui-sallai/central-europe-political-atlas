@@ -31,6 +31,14 @@ export const BASELINE_VAR_PROFILE: VarSpecificationProfile = {
   interpretation_boundary: "预设规格不根据单个国家的 ADF 结果改变经济定义；任一变量未通过正式平稳性门时，该国 baseline 不具备动态响应资格。",
 };
 
+export const BASELINE_VAR_PROFILE_V2: VarSpecificationProfile = {
+  ...BASELINE_VAR_PROFILE,
+  profile_id: "baseline_monthly_macro_v2_seasonal_controls",
+  name: "月度宏观预设基准规格 v2（季节控制）",
+  deterministic_terms: "constant_month_dummies",
+  interpretation_boundary: "与 v1 使用相同变量、变换、样本和 BIC 滞后政策；仅增加常数项与 11 个月份虚拟变量作为确定性控制。HICP 原始序列仍为 NSA，这不是官方季调。",
+};
+
 export const EXPLORATORY_TRANSFORMATION_CHAINS: Array<{
   role: string;
   chain: Array<{ indicator: string; transformation: TransformationId }>;
@@ -69,7 +77,7 @@ export const EXPLORATORY_VAR_PROFILE: VarSpecificationProfile = {
   interpretation_boundary: "按预先登记的 fallback chain 进行探索性规格搜索；每次 ADF 尝试、变换改变及选择原因均须记录，结果不得冒充 baseline。",
 };
 
-export const VAR_SPECIFICATION_PROFILES = [BASELINE_VAR_PROFILE, EXPLORATORY_VAR_PROFILE] as const;
+export const VAR_SPECIFICATION_PROFILES = [BASELINE_VAR_PROFILE, BASELINE_VAR_PROFILE_V2, EXPLORATORY_VAR_PROFILE] as const;
 
 export function profileVariables(profile: VarSpecificationProfile) {
   return profile.variables.map(({ indicator, transformation }) => ({ indicator, transformation }));
@@ -77,6 +85,7 @@ export function profileVariables(profile: VarSpecificationProfile) {
 
 export function createVarComparabilitySignature(
   variables: Array<{ indicator: string; transformation: TransformationId }>,
+  deterministicTerms: VarSpecificationProfile["deterministic_terms"] = "constant",
 ): VarComparabilitySignature {
   const lagPolicy = "common_sample_bic_requested_max12_parameter_ratio4";
   const samplePolicy = "monthly_contiguous_from_2015-01_to_latest_country_observation";
@@ -85,9 +94,9 @@ export function createVarComparabilitySignature(
     variables: variables.map((item) => item.indicator),
     transformations: variables.map((item) => item.transformation),
     frequency: "monthly",
-    deterministic_terms: "constant",
+    deterministic_terms: deterministicTerms,
     lag_policy: lagPolicy,
     sample_policy: samplePolicy,
-    signature_id: `varcmp-v1.41__${variableToken}__constant__${lagPolicy}__${samplePolicy}`,
+    signature_id: `varcmp-v1.42__${variableToken}__${deterministicTerms}__${lagPolicy}__${samplePolicy}`,
   };
 }

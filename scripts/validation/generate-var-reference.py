@@ -1,4 +1,4 @@
-# Generates offline reference cases for the v1.41 reduced-form VAR engine.
+# Generates offline reference cases for the v1.42 reduced-form VAR engine.
 # Uses statsmodels (VAR, adfuller), numpy (eigvals) and scipy (cdf tables).
 # Fixture innovations use a fixed NumPy seed, so regeneration is deterministic.
 # Output: src/data/analysis/var_reference_cases.json
@@ -45,17 +45,19 @@ def companion_moduli(coefs):
     return sorted(np.abs(np.linalg.eigvals(comp)).tolist())
 
 
-def manual_ic_table(data, maxlags):
+def manual_ic_table(data, maxlags, exog=None):
     """statsmodels select_order convention: common sample T-maxlags for every candidate p>=1."""
     T, K = data.shape
     table = []
     for p in range(1, maxlags + 1):
         subset = data[maxlags - p:]
-        res = VAR(subset).fit(p)
+        exog_subset = None if exog is None else exog[maxlags - p:]
+        res = VAR(subset, exog=exog_subset).fit(p)
         sigma_mle = res.resid.T @ res.resid / res.nobs
         sign, ld = np.linalg.slogdet(sigma_mle)
         assert sign > 0
-        free = p * K * K + K
+        deterministic_count = 1 + (0 if exog_subset is None else exog_subset.shape[1])
+        free = p * K * K + K * deterministic_count
         nobs = res.nobs
         table.append({
             "lag": p,
@@ -144,6 +146,58 @@ def reference_for_case(name, data, maxlags, irf_horizons):
     }
 
 
+def seasonal_reference_case():
+    """Monthly seasonal fixture validated with statsmodels VAR(exog=11 month dummies)."""
+    rng = np.random.RandomState(142)
+    T, K = 180, 2
+    months = np.arange(T) % 12
+    exog = np.column_stack([(months == month).astype(float) for month in range(1, 12)])
+    seasonal = np.column_stack((1.2 * np.sin(2 * np.pi * months / 12), 0.8 * np.cos(2 * np.pi * months / 12)))
+    data = np.zeros((T, K))
+    for t in range(1, T):
+        data[t] = np.array([0.2, -0.1]) + data[t - 1] @ np.array([[0.45, 0.08], [0.05, 0.35]]) + seasonal[t] + rng.normal(scale=[0.25, 0.22], size=K)
+    res_constant = VAR(data).fit(1)
+    res_seasonal = VAR(data, exog=exog).fit(1)
+    params = np.asarray(res_seasonal.params)
+    deterministic_count = 12
+    coefficient_matrices = [params[deterministic_count:deterministic_count + K].tolist()]
+    sigma_mle = res_seasonal.resid.T @ res_seasonal.resid / res_seasonal.nobs
+    sign, ld = np.linalg.slogdet(sigma_mle)
+    assert sign > 0
+    free = K * K + K * deterministic_count
+    nobs = res_seasonal.nobs
+    ic = {
+        "aic": float(ld + 2.0 / nobs * free),
+        "bic": float(ld + math.log(nobs) / nobs * free),
+        "hqic": float(ld + 2.0 * math.log(math.log(nobs)) / nobs * free),
+    }
+    def month_mean_abs(resid):
+        residual_months = months[1:]
+        means = np.array([resid[residual_months == month].mean(axis=0) for month in range(12)])
+        return float(np.mean(np.abs(means)))
+    orth = np.asarray(res_seasonal.irf(24).orth_irfs)
+    return {
+        "name": "seasonal_month_dummy_var1_k2",
+        "data": data.tolist(),
+        "periods": [f"{2010 + index // 12:04d}-{index % 12 + 1:02d}" for index in range(T)],
+        "exog_month_dummies": exog.tolist(),
+        "estimation": {
+            "lag": 1,
+            "deterministic_terms": ["constant"] + [f"month_{month:02d}" for month in range(2, 13)],
+            "deterministic_coefficients": params[:deterministic_count].tolist(),
+            "coefficient_matrices": coefficient_matrices,
+            "residual_covariance": np.asarray(res_seasonal.sigma_u).tolist(),
+            "information_criteria": ic,
+            "companion_root_moduli": companion_moduli(np.asarray(coefficient_matrices)),
+            "portmanteau_sensitivity": [portmanteau(np.asarray(res_seasonal.resid), 1, horizon) for horizon in (12, 18, 24)],
+            "irf_h24": orth.tolist(),
+        },
+        "seasonal_abs_month_mean_constant": month_mean_abs(np.asarray(res_constant.resid)),
+        "seasonal_abs_month_mean_controlled": month_mean_abs(np.asarray(res_seasonal.resid)),
+        "expected_control_absorbs_seasonality": True,
+    }
+
+
 def main():
     cases = {}
 
@@ -154,6 +208,7 @@ def main():
     data_stable = simulate_var(coefs_stable, [0.3, -0.2, 0.1], 180)
     assert max(companion_moduli(coefs_stable)) < 0.95, "stable fixture must be comfortably stable"
     cases["stable_var2_k3"] = reference_for_case("stable_var2_k3", data_stable, 8, [6, 12, 18, 24])
+    cases["seasonal_month_dummy_var1_k2"] = seasonal_reference_case()
 
     # Case 2: unstable VAR(1), K=2 (root 1.02 > 1).
     coefs_unstable = np.array([[[1.02, 0.1], [0.0, 0.5]]])
@@ -207,7 +262,7 @@ def main():
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as handle:
         json.dump({
-            "schema_version": "var-reference-cases-v1.41",
+            "schema_version": "var-reference-cases-v1.42",
             "provenance": {
                 "python_version": platform.python_version(),
                 "numpy_version": np.__version__,
@@ -215,7 +270,7 @@ def main():
                 "statsmodels_version": statsmodels.__version__,
                 "seeds": {"var_simulation": 42, "random_walk": 7},
                 "generation_date": date.today().isoformat(),
-                "generator_version": "var-reference-generator-v1.41",
+                "generator_version": "var-reference-generator-v1.42",
             },
             "cases": cases,
         }, handle)
