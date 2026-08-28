@@ -1,0 +1,61 @@
+{
+  "schema_version": "interest-rate-acquisition-v1.5",
+  "retrieval_date": "2026-08-28",
+  "dataset": "Eurostat irt_lt_mcby_m",
+  "api_query": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/irt_lt_mcby_m?format=JSON&lang=en&sinceTimePeriod=2015-01&geo=AT&geo=CZ&geo=DE&geo=HR&geo=HU&geo=PL&geo=RO&geo=SI&geo=SK",
+  "response_rows": 1251,
+  "response_sha256": "9ea9e359631235370ea1d001cdebeeb5cb2b54dae6a15694fa0e3b591e65487d",
+  "aggregation_method": "monthly_average",
+  "country_status": [
+    {
+      "country": "austria",
+      "status": "available",
+      "note": null
+    },
+    {
+      "country": "czechia",
+      "status": "available",
+      "note": null
+    },
+    {
+      "country": "germany",
+      "status": "available",
+      "note": null
+    },
+    {
+      "country": "croatia",
+      "status": "available",
+      "note": null
+    },
+    {
+      "country": "hungary",
+      "status": "available",
+      "note": null
+    },
+    {
+      "country": "poland",
+      "status": "available",
+      "note": null
+    },
+    {
+      "country": "romania",
+      "status": "available",
+      "note": null
+    },
+    {
+      "country": "serbia",
+      "status": "missing_not_substituted",
+      "note": "No comparable official 10-year series found; no alternative maturity substituted."
+    },
+    {
+      "country": "slovenia",
+      "status": "available",
+      "note": null
+    },
+    {
+      "country": "slovakia",
+      "status": "available",
+      "note": null
+    }
+  ]
+}

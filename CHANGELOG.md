@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.5 Macro Drivers & Shock Identification Foundation - 2026-08-28
+
+- Added a separate 2015-present monthly macro-driver layer from BIS, Eurostat and World Bank official sources, with policy-instrument regimes, long-term yields, bilateral/effective FX, domestic HICP Energy and external commodity-price drivers.
+- Added driver dictionary, coverage, acquisition manifests, source checksums, shock-identification registry and Local Projections readiness registry. Observed movements and shock candidates are never promoted to identified shocks without a registered identification strategy.
+- Extended Event Registry research links and descriptive Event Window outcomes to macro drivers, and added a lightweight Macro Driver workbench without changing the frozen v1.44 VAR baselines or diagnostics.
+- Split release validation provenance into core research, advanced analysis and release summaries; research-data-v1.5.zip includes the complete macro-driver layer.
+
 ## v1.44 Finite-Sample Stationarity Calibration & Break Robustness - 2026-08-28
 
 - Calibrated the exact production seasonal-dummy ADF with nine sample-size nodes (N=96–168), 50,000 Monte Carlo replications per node, a fixed RNG seed and linear interpolation provenance.

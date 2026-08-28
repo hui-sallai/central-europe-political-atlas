@@ -5,6 +5,7 @@ import { attachOverlappingEvents, buildLineSegments, computeEventWindow, eventWi
 import type { Country } from "@/types/Country";
 import type { Event } from "@/types/Event";
 import type { EventChangeSemantics, EventWindowResult } from "@/types/EventWindow";
+import type { MacroDriverRuntimeRow } from "@/types/MacroDriver";
 
 // Runtime row layout (high_frequency_runtime.json, schema high-frequency-runtime-v1.31):
 // 0 id, 1 country, 2 period, 3 indicator, 4 value, 5 transformation,
@@ -17,7 +18,23 @@ const outcomeLabels: Record<string, string> = {
   hicp_annual_rate: "HICP 年通胀率",
   unemployment_rate_monthly: "月度失业率（季调）",
   industrial_production_index: "工业生产指数（季调日历调整）",
+  "policy_rate:level": "政策利率水平",
+  "long_term_government_yield:level": "长期政府债券收益率",
+  "bilateral_fx_local_per_eur:level": "本币兑欧元汇率",
+  "nominal_effective_exchange_rate:level": "名义有效汇率",
+  "real_effective_exchange_rate:level": "实际有效汇率",
+  "hicp_energy_annual_rate:yoy_rate": "HICP 能源同比",
+  "brent_crude_price_usd:level": "布伦特原油价格",
+  "europe_natural_gas_price_usd:level": "欧洲天然气价格",
 };
+
+function macroValueSemantics(row: MacroDriverRuntimeRow): HighFrequencyPoint["value_semantics"] {
+  if (row[7] === "yoy_rate") return "yoy_rate";
+  if (row[7].includes("change")) return "growth_rate";
+  if (row[6].startsWith("%")) return "rate_percent";
+  if (row[6].includes("index")) return "index_level";
+  return "currency_level";
+}
 
 const windowOptions = [6, 12, 18, 24] as const;
 
@@ -58,10 +75,11 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
   useEffect(() => {
     const controller = new AbortController();
     const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-    fetch(`${basePath}/research-data/high_frequency_runtime.json`, { signal: controller.signal })
-      .then((response) => { if (!response.ok) throw new Error(String(response.status)); return response.json(); })
-      .then((payload: { records: RuntimeRow[] }) => {
-        setSeries(payload.records.map((row) => ({
+    Promise.all([
+      fetch(`${basePath}/research-data/high_frequency_runtime.json`, { signal: controller.signal }).then((response) => { if (!response.ok) throw new Error(String(response.status)); return response.json(); }),
+      fetch(`${basePath}/research-data/macro_driver_runtime.json`, { signal: controller.signal }).then((response) => { if (!response.ok) throw new Error(String(response.status)); return response.json(); }),
+    ]).then(([payload, macroPayload]: [{ records: RuntimeRow[] }, { records: MacroDriverRuntimeRow[] }]) => {
+        const domestic = payload.records.map((row) => ({
           observation_id: row[0],
           country: row[1],
           period: row[2],
@@ -72,12 +90,31 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
           value_semantics: row[7] ?? undefined,
           seasonal_adjustment: row[8],
           definition_version: row[9],
-        })));
+        }));
+        const supported = new Set(Object.keys(outcomeLabels).filter((id) => id.includes(":")));
+        const macro = macroPayload.records.flatMap((row) => {
+          const indicator = `${row[1]}:${row[7]}`;
+          if (!supported.has(indicator)) return [];
+          const targetCountries = row[2] ? [row[2]] : countries.map((countryItem) => countryItem.slug);
+          return targetCountries.map((countrySlug) => ({
+            observation_id: `${row[0]}:${countrySlug}`,
+            country: countrySlug,
+            period: row[4],
+            indicator,
+            value: row[5],
+            transformation: row[7],
+            unit: row[6],
+            value_semantics: macroValueSemantics(row),
+            seasonal_adjustment: "not_applicable",
+            definition_version: row[12],
+          } satisfies HighFrequencyPoint));
+        });
+        setSeries([...domestic, ...macro]);
         setLoadState("ready");
       })
       .catch((loadError) => { if (!(loadError instanceof DOMException && loadError.name === "AbortError")) setLoadState("error"); });
     return () => controller.abort();
-  }, []);
+  }, [countries]);
 
   const countryEvents = useMemo(() => events
     .filter((event) => event.country_slug === country)
@@ -110,9 +147,9 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
   return (
     <div className="mt-6 grid gap-6">
       <section className="editorial-panel p-5">
-        <p className="editorial-kicker">Descriptive level 1 · 月度高频数据</p>
+        <p className="editorial-kicker">Descriptive level 1 · 月度高频与宏观驱动数据</p>
         <h2 className="mt-2 text-2xl font-semibold">事件窗口分析 Event Window Analysis</h2>
-        <p className="mt-2 max-w-3xl text-sm leading-7 text-[var(--muted)]">描述已核验事件前后的指标变化：事件前均值、事件期数值、事件后均值与变化幅度。事件月单独报告，不计入事件后统计。这不是因果事件研究（Formal Event Study 保持未开放），输出不构成因果效应。</p>
+        <p className="mt-2 max-w-3xl text-sm leading-7 text-[var(--muted)]">描述已核验事件前后的国内高频结果或宏观驱动变化：事件前均值、事件期数值、事件后均值与变化幅度。事件月单独报告，不计入事件后统计。宏观驱动关联只表示研究相关性；这不是因果事件研究，输出不构成因果效应。</p>
         <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <label className="text-xs font-semibold text-[var(--muted)]">国家
             <select className="field-control mt-2" value={country} onChange={(event) => { setCountry(event.target.value); setEventId(""); setResult(null); }}>

@@ -1,0 +1,22 @@
+{
+  "schema_version": "advanced-analysis-validation-summary-v1.5",
+  "generated_at": "2026-08-28T18:22:44.859Z",
+  "status": "passed",
+  "total_tests": 232,
+  "failure_count": 0,
+  "categories": {
+    "panel": 51,
+    "network": 17,
+    "high_frequency": 22,
+    "events": 22,
+    "var": 104,
+    "macro_drivers": 16
+  },
+  "boundaries": {
+    "identified_shock_count": 0,
+    "causal_lp_ready_count": 0,
+    "local_projections": "registry_only",
+    "svar": "registry_only"
+  },
+  "failures": []
+}

@@ -102,8 +102,20 @@ const sourceEntries = [
   ["events/event_analysis_eligibility.json", "src/data/events/event_analysis_eligibility.json"],
   ["events/event_window_registry.json", "src/data/events/event_window_registry.json"],
   ["events/event_overlap_registry.json", "src/data/events/event_overlap_registry.json"],
+  ["macro-drivers/macro_driver_observations.json", "src/data/macro-drivers/macro_driver_observations.json"],
+  ["macro-drivers/macro_driver_dictionary.json", "src/data/macro-drivers/macro_driver_dictionary.json"],
+  ["macro-drivers/macro_driver_coverage.json", "src/data/macro-drivers/macro_driver_coverage.json"],
+  ["macro-drivers/policy_rate_acquisition_manifest.json", "src/data/macro-drivers/policy_rate_acquisition_manifest.json"],
+  ["macro-drivers/interest_rate_acquisition_manifest.json", "src/data/macro-drivers/interest_rate_acquisition_manifest.json"],
+  ["macro-drivers/exchange_rate_acquisition_manifest.json", "src/data/macro-drivers/exchange_rate_acquisition_manifest.json"],
+  ["macro-drivers/energy_driver_acquisition_manifest.json", "src/data/macro-drivers/energy_driver_acquisition_manifest.json"],
+  ["macro-drivers/shock_identification_registry.json", "src/data/macro-drivers/shock_identification_registry.json"],
+  ["macro-drivers/lp_readiness_registry.json", "src/data/macro-drivers/lp_readiness_registry.json"],
+  ["macro-drivers/acquire-macro-drivers.py", "scripts/acquisition/acquire-macro-drivers.py"],
+  ["macro-drivers/requirements-macro-drivers.txt", "scripts/acquisition/requirements-macro-drivers.txt"],
   ["network/network_acquisition_manifest.json", "src/data/network/network_acquisition_manifest.json"],
   ["analysis/analysis_skill_registry.json", "src/data/analysis/analysis_skill_registry.json"],
+  ["analysis/advanced_analysis_validation_summary.json", "src/data/analysis/advanced_analysis_validation_summary.json"],
   ["analysis/var_readiness.json", "src/data/analysis/var_readiness.json"],
   ["analysis/var_reference_cases.json", "src/data/analysis/var_reference_cases.json"],
   ["analysis/requirements-var-reference.txt", "scripts/validation/requirements-var-reference.txt"],
@@ -144,7 +156,7 @@ if (fs.existsSync(modelCardsFile)) {
   entries.push({ name: "models/formula_versions.json", data: JSON.stringify(records.map((item) => ({ model_id: item.model_id, model_version: item.model_version, formula_version: item.formula_version, calculation_logic: item.calculation_logic })), null, 2) });
 }
 
-entries.push({ name: "README.md", data: `# Central Europe Political Atlas ${researchPackageLabel()}\n\nThis package preserves public research data, dictionaries, QA records, model and scenario metadata, methodology and release provenance.\n\n- Missing and pending values are not zero.\n- Samples and placeholders do not enter formal analysis.\n- Model outputs are comparative research tools, not forecasts or objective risk truths.\n- Scenario results are conditional assumptions, not future facts.\n- Panel estimates preserve official source and observation traces.\n- Network outputs require complete bilateral partner edges passing coverage checks.\n\nCanonical site: https://hy-central-europe-analysis.org/\n` });
+entries.push({ name: "README.md", data: `# Central Europe Political Atlas ${researchPackageLabel()}\n\nThis package preserves public research data, dictionaries, QA records, model and scenario metadata, methodology and release provenance.\n\n- Missing and pending values are not zero.\n- Samples and placeholders do not enter formal analysis.\n- Model outputs are comparative research tools, not forecasts or objective risk truths.\n- Scenario results are conditional assumptions, not future facts.\n- Panel estimates preserve official source and observation traces.\n- Network outputs require complete bilateral partner edges passing coverage checks.\n- Macro drivers remain distinct from identified shocks; Local Projections are registry-only in v1.5.\n\nCanonical site: https://hy-central-europe-analysis.org/\n` });
 entries.push({ name: "methodology/README.md", data: "Public methodology is available at /methodology/. Technical dictionaries and validation records in this archive are the authoritative downloadable companion to the interface.\n" });
 
 fs.mkdirSync(sourceDir, { recursive: true });
@@ -160,6 +172,10 @@ if (fs.existsSync(manifestFile)) {
     generated_at: new Date().toISOString(),
     status: "built",
   };
+  if (manifest.release_validation) {
+    manifest.release_validation.package_checksum = packageSha256;
+    manifest.release_validation.package_filename = path.basename(outputFile);
+  }
   fs.writeFileSync(manifestFile, JSON.stringify(manifest, null, 2));
 }
 console.log(`Research package created: ${path.relative(root, outputFile)} (${entries.length} entries)`);

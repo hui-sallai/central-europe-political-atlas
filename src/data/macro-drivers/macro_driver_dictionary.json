@@ -1,0 +1,176 @@
+{
+  "schema_version": "macro-driver-dictionary-v1.5",
+  "generated_at": "2026-08-28",
+  "record_count": 10,
+  "records": [
+    {
+      "driver_id": "policy_rate",
+      "name_zh": "政策利率",
+      "name_en": "Central bank policy rate",
+      "role": "domestic_policy_driver",
+      "frequency": "monthly",
+      "scope": "country or euro-area common",
+      "unit": "% p.a.",
+      "source": "BIS",
+      "transformation_options": [
+        "level",
+        "monthly_change_bp"
+      ],
+      "economic_interpretation": "Central-bank selected policy-rate level or observed monthly basis-point change; not a monetary-policy shock.",
+      "identification_status": "observed_driver",
+      "limitations": "Euro-area common rate is not a country-specific policy decision; instrument regimes can change."
+    },
+    {
+      "driver_id": "long_term_government_yield",
+      "name_zh": "长期政府债券收益率",
+      "name_en": "Long-term government bond yield",
+      "role": "domestic_financial_condition",
+      "frequency": "monthly",
+      "scope": "country",
+      "unit": "% p.a.",
+      "source": "Eurostat",
+      "transformation_options": [
+        "level"
+      ],
+      "economic_interpretation": "Monthly average yield for approximately 10-year central-government bonds.",
+      "identification_status": "observed_driver",
+      "limitations": "Serbia remains missing because a comparable official series was not established."
+    },
+    {
+      "driver_id": "bilateral_fx_local_per_eur",
+      "name_zh": "本币兑欧元汇率",
+      "name_en": "Bilateral FX: local currency per EUR",
+      "role": "domestic_financial_condition",
+      "frequency": "monthly",
+      "scope": "country",
+      "unit": "local currency per EUR",
+      "source": "BIS computed cross-rate",
+      "transformation_options": [
+        "level",
+        "monthly_log_change"
+      ],
+      "economic_interpretation": "Increase means local-currency depreciation against EUR.",
+      "identification_status": "observed_driver",
+      "limitations": "Only non-euro currencies; computed from two BIS USD cross-rates."
+    },
+    {
+      "driver_id": "eur_usd_common",
+      "name_zh": "欧元兑美元共同汇率",
+      "name_en": "EUR/USD common exchange rate",
+      "role": "external_common_driver",
+      "frequency": "monthly",
+      "scope": "euro_area",
+      "unit": "USD per EUR",
+      "source": "BIS",
+      "transformation_options": [
+        "level",
+        "monthly_log_change"
+      ],
+      "economic_interpretation": "Common euro-area external price, not a national FX decision.",
+      "identification_status": "observed_driver",
+      "limitations": "Shared regional series, never country-specific."
+    },
+    {
+      "driver_id": "nominal_effective_exchange_rate",
+      "name_zh": "名义有效汇率",
+      "name_en": "Nominal effective exchange rate",
+      "role": "domestic_financial_condition",
+      "frequency": "monthly",
+      "scope": "country",
+      "unit": "index",
+      "source": "BIS",
+      "transformation_options": [
+        "level",
+        "monthly_log_change"
+      ],
+      "economic_interpretation": "Broad-basket nominal effective-exchange-rate index.",
+      "identification_status": "observed_driver",
+      "limitations": "Index interpretation follows BIS methodology and basket composition."
+    },
+    {
+      "driver_id": "real_effective_exchange_rate",
+      "name_zh": "实际有效汇率",
+      "name_en": "Real effective exchange rate",
+      "role": "domestic_financial_condition",
+      "frequency": "monthly",
+      "scope": "country",
+      "unit": "index",
+      "source": "BIS",
+      "transformation_options": [
+        "level",
+        "monthly_log_change"
+      ],
+      "economic_interpretation": "Broad-basket real effective-exchange-rate index.",
+      "identification_status": "observed_driver",
+      "limitations": "Price/cost deflator and basket methodology follow BIS."
+    },
+    {
+      "driver_id": "hicp_energy_index",
+      "name_zh": "HICP 能源指数",
+      "name_en": "HICP Energy index",
+      "role": "domestic_price_outcome",
+      "frequency": "monthly",
+      "scope": "country",
+      "unit": "index 2015=100",
+      "source": "Eurostat",
+      "transformation_options": [
+        "level"
+      ],
+      "economic_interpretation": "Domestic consumer energy-price outcome.",
+      "identification_status": "observed_driver",
+      "limitations": "Not an external or exogenous energy shock."
+    },
+    {
+      "driver_id": "hicp_energy_annual_rate",
+      "name_zh": "HICP 能源同比",
+      "name_en": "HICP Energy annual rate",
+      "role": "domestic_price_outcome",
+      "frequency": "monthly",
+      "scope": "country",
+      "unit": "%",
+      "source": "Eurostat",
+      "transformation_options": [
+        "yoy_rate"
+      ],
+      "economic_interpretation": "Domestic consumer energy-price annual rate.",
+      "identification_status": "observed_driver",
+      "limitations": "Not an external or exogenous energy shock."
+    },
+    {
+      "driver_id": "brent_crude_price_usd",
+      "name_zh": "布伦特原油价格",
+      "name_en": "Brent crude oil price",
+      "role": "external_common_driver",
+      "frequency": "monthly",
+      "scope": "global",
+      "unit": "USD/bbl",
+      "source": "World Bank",
+      "transformation_options": [
+        "level",
+        "monthly_log_change",
+        "12m_log_change"
+      ],
+      "economic_interpretation": "Global observed energy-price movement.",
+      "identification_status": "observed_driver",
+      "limitations": "Monthly change is registered separately as a shock candidate; neither level nor change is an identified supply or geopolitical shock."
+    },
+    {
+      "driver_id": "europe_natural_gas_price_usd",
+      "name_zh": "欧洲天然气价格",
+      "name_en": "European natural gas price",
+      "role": "external_common_driver",
+      "frequency": "monthly",
+      "scope": "europe",
+      "unit": "USD/mmbtu",
+      "source": "World Bank",
+      "transformation_options": [
+        "level",
+        "monthly_log_change",
+        "12m_log_change"
+      ],
+      "economic_interpretation": "European observed energy-price movement.",
+      "identification_status": "observed_driver",
+      "limitations": "Monthly change is registered separately as a shock candidate; neither level nor change is an identified supply or geopolitical shock."
+    }
+  ]
+}

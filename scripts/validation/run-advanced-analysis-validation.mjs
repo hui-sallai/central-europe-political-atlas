@@ -34,11 +34,13 @@ const errors = [];
 let panelTests = 0;
 let networkTests = 0;
 let varTests = 0;
+let macroDriverTests = 0;
 function check(condition, message, bucket = "panel") {
   if (bucket === "panel") panelTests += 1;
   else if (bucket === "network") networkTests += 1;
   else if (bucket === "hf") hfTests += 1;
   else if (bucket === "var") varTests += 1;
+  else if (bucket === "macro_driver") macroDriverTests += 1;
   else eventTests += 1;
   if (!condition) errors.push(message);
 }
@@ -641,7 +643,71 @@ const varToPoints = (data, prefix) => data.map((row, index) => ({
 check(adfTest(new Array(80).fill(5), { autolag: "aic" }).status === "not_tested", "Singular ADF design must report not_tested.", "var");
 check(kpssStatus().status === "not_available", "KPSS must honestly report not_available.", "var");
 
-console.log(`Advanced analysis validation: panel=${panelTests} tests; network=${networkTests} tests; hf=${hfTests} tests; event=${eventTests} tests; var=${varTests} tests; failures=${errors.length}.`);
+// ---- v1.5 macro-driver integrity and identification gates ----
+{
+  const driverDir = path.join(root, "src/data/macro-drivers");
+  const driverPayload = JSON.parse(fs.readFileSync(path.join(driverDir, "macro_driver_observations.json"), "utf8"));
+  const driverDictionary = JSON.parse(fs.readFileSync(path.join(driverDir, "macro_driver_dictionary.json"), "utf8"));
+  const coverage = JSON.parse(fs.readFileSync(path.join(driverDir, "macro_driver_coverage.json"), "utf8"));
+  const shocks = JSON.parse(fs.readFileSync(path.join(driverDir, "shock_identification_registry.json"), "utf8"));
+  const lp = JSON.parse(fs.readFileSync(path.join(driverDir, "lp_readiness_registry.json"), "utf8"));
+  const policyManifest = JSON.parse(fs.readFileSync(path.join(driverDir, "policy_rate_acquisition_manifest.json"), "utf8"));
+  const fxManifest = JSON.parse(fs.readFileSync(path.join(driverDir, "exchange_rate_acquisition_manifest.json"), "utf8"));
+  const energyManifest = JSON.parse(fs.readFileSync(path.join(driverDir, "energy_driver_acquisition_manifest.json"), "utf8"));
+  const records = driverPayload.records;
+  const ids = records.map((item) => item.observation_id);
+  check(new Set(ids).size === ids.length, "Duplicate macro-driver observation ids found.", "macro_driver");
+  const keys = records.map((item) => [item.driver_id, item.country ?? item.scope, item.transformation, item.period].join("|"));
+  check(new Set(keys).size === keys.length, "Duplicate macro-driver series-period observations found.", "macro_driver");
+  check(records.every((item) => /^\d{4}-\d{2}$/.test(item.period) && item.frequency === "monthly"), "Macro-driver period/frequency convention failed.", "macro_driver");
+  check(records.every((item) => ["end_of_month", "monthly_average", "monthly_observation"].includes(item.aggregation_method)), "Macro-driver timing convention is missing or unsupported.", "macro_driver");
+  check(coverage.records.every((item) => item.expected_periods === item.observations + item.missing_periods.length), "Macro-driver continuity accounting failed.", "macro_driver");
+  const unitKeys = new Map();
+  for (const item of records) {
+    const key = `${item.driver_id}|${item.country ?? item.scope}|${item.transformation}`;
+    unitKeys.set(key, new Set([...(unitKeys.get(key) ?? []), item.unit]));
+  }
+  check([...unitKeys.values()].every((units) => units.size === 1), "Macro-driver unit consistency failed within a series.", "macro_driver");
+  const localFx = records.filter((item) => item.driver_id === "bilateral_fx_local_per_eur" && item.transformation === "level");
+  check(localFx.length > 0 && localFx.every((item) => item.orientation === "local currency units per 1 EUR; increase means local-currency depreciation"), "Bilateral FX orientation is inconsistent.", "macro_driver");
+  const commonFx = records.filter((item) => item.driver_id === "eur_usd_common");
+  check(commonFx.length > 0 && commonFx.every((item) => item.country === null && item.scope === "euro_area" && item.unit === (item.transformation === "level" ? "USD per EUR" : "%")), "EUR/USD common-series scope or inversion convention failed.", "macro_driver");
+  const policy = records.filter((item) => item.driver_id === "policy_rate" && item.transformation === "level");
+  check(new Set(policy.map((item) => item.country)).size === 10 && policy.every((item) => item.instrument_regime && item.country_monetary_regime), "Policy-rate country/regime mapping is incomplete.", "macro_driver");
+  check(policy.filter((item) => item.scope === "euro_area_common").every((item) => item.scope_note?.includes("not a country-specific policy decision")), "ECB common policy rate was represented as a country-specific decision.", "macro_driver");
+  const croatianPolicy = policy.filter((item) => item.country === "croatia");
+  check(croatianPolicy.some((item) => item.scope === "country" && item.period < "2023-01") && croatianPolicy.some((item) => item.scope === "euro_area_common" && item.period >= "2023-01"), "Croatia policy-regime transition was not preserved.", "macro_driver");
+  check(driverDictionary.records.find((item) => item.driver_id === "hicp_energy_index")?.role === "domestic_price_outcome" && !shocks.records.some((item) => item.driver_id?.startsWith("hicp_energy") && item.identification_status === "identified_shock"), "HICP Energy was incorrectly marked as an external/identified shock.", "macro_driver");
+  check(shocks.identified_shock_count === 0 && shocks.records.filter((item) => item.driver_id === "policy_rate").every((item) => item.identification_status !== "identified_shock"), "Policy-rate movement was incorrectly promoted to an identified monetary shock.", "macro_driver");
+  check(lp.method_state === "registry_only" && lp.causal_lp_ready_count === 0 && lp.records.every((item) => item.identification_status === "identified_shock" || item.causal_lp_ready === false), "LP identification gate failed.", "macro_driver");
+  check(policyManifest.series.length === 10 && policyManifest.series.every((item) => item.status === "available"), "BIS policy-rate coverage manifest is incomplete.", "macro_driver");
+  check([policyManifest.file_sha256, ...fxManifest.datasets.map((item) => item.file_sha256), energyManifest.pink_sheet.file_sha256].every((value) => /^[a-f0-9]{64}$/.test(value)), "Macro-driver source checksum provenance is incomplete.", "macro_driver");
+}
+
+const advancedValidationSummary = {
+  schema_version: "advanced-analysis-validation-summary-v1.5",
+  generated_at: new Date().toISOString(),
+  status: errors.length === 0 ? "passed" : "failed",
+  total_tests: panelTests + networkTests + hfTests + eventTests + varTests + macroDriverTests,
+  failure_count: errors.length,
+  categories: {
+    panel: panelTests,
+    network: networkTests,
+    high_frequency: hfTests,
+    events: eventTests,
+    var: varTests,
+    macro_drivers: macroDriverTests,
+  },
+  boundaries: {
+    identified_shock_count: 0,
+    causal_lp_ready_count: 0,
+    local_projections: "registry_only",
+    svar: "registry_only",
+  },
+  failures: errors,
+};
+fs.writeFileSync(path.join(root, "src", "data", "analysis", "advanced_analysis_validation_summary.json"), `${JSON.stringify(advancedValidationSummary, null, 2)}\n`);
+console.log(`Advanced analysis validation: panel=${panelTests} tests; network=${networkTests} tests; hf=${hfTests} tests; event=${eventTests} tests; var=${varTests} tests; macro_driver=${macroDriverTests} tests; failures=${errors.length}.`);
 if (errors.length) {
   errors.forEach((error) => console.error(`ADVANCED ANALYSIS ERROR: ${error}`));
   process.exit(1);

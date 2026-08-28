@@ -1,9 +1,9 @@
 {
   "name": "Central Europe Political Atlas",
-  "version": "v1.44 Finite-Sample Stationarity Calibration & Break Robustness",
+  "version": "v1.5 Macro Drivers & Shock Identification Foundation",
   "release_date": "2026-08-28",
-  "stage": "finite-sample stationarity calibration and break robustness",
-  "schema_version": "release-metadata-v1.44",
+  "stage": "macro drivers and shock identification foundation",
+  "schema_version": "release-metadata-v1.5",
   "canonical_url": "https://hy-central-europe-analysis.org/",
   "public_contact_email": "sallaizhang@outlook.com",
   "legal_notice_updated": "2026-08-20",
@@ -38,14 +38,17 @@
     "var-country-readiness-v1.44",
     "var-specification-profiles-v1.44",
     "var-seasonality-audit-v1.44",
-    "var-lag-diagnostic-grid-v1.44"
+    "var-lag-diagnostic-grid-v1.44",
+    "macro-driver-observations-v1.5",
+    "shock-identification-registry-v1.5",
+    "lp-readiness-registry-v1.5"
   ],
   "limitations": [
     "No election forecasts, investment advice, probability forecasts, or causal impact estimates.",
     "Serbia regional comparison remains pending while national data remain available.",
     "China Economic Exposure and China-linked Project Disruption remain subject to their published evidence gates."
   ],
-  "citation": "Central Europe Political Atlas, version v1.44 Finite-Sample Stationarity Calibration & Break Robustness, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
+  "citation": "Central Europe Political Atlas, version v1.5 Macro Drivers & Shock Identification Foundation, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
   "data_status_enum": [
     "official",
     "verified",

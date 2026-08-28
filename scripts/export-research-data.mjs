@@ -15,6 +15,19 @@ const canonicalGeneratedAt = "2026-08-12";
 const canonicalSchemaVersion = "data-foundation-v0.76";
 const chinaExposureDatabaseUpdatedAt = "2026-08-11";
 const eventLibraryUpdatedAt = "2026-08-20";
+const macroDriverDir = path.join(canonicalDataDir, "macro-drivers");
+const advancedValidationSummaryPath = path.join(canonicalDataDir, "analysis", "advanced_analysis_validation_summary.json");
+const macroDriverFiles = [
+  "macro_driver_observations.json",
+  "macro_driver_dictionary.json",
+  "macro_driver_coverage.json",
+  "policy_rate_acquisition_manifest.json",
+  "interest_rate_acquisition_manifest.json",
+  "exchange_rate_acquisition_manifest.json",
+  "energy_driver_acquisition_manifest.json",
+  "shock_identification_registry.json",
+  "lp_readiness_registry.json",
+];
 
 execFileSync(process.execPath, [path.join(projectRoot, "scripts", "build-spatial-data-v087.mjs")], {
   cwd: projectRoot,
@@ -1691,6 +1704,7 @@ const canonicalEventRecords = eventLibraryItems.map((item) => {
     affected_indicator: event.affected_indicator,
     affected_model: event.affected_model,
     related_project_ids: event.related_project_ids,
+    related_driver_ids: event.related_driver_ids,
     duration: event.duration,
     confidence: event.confidence,
     source_status: event.source_status,
@@ -1997,6 +2011,28 @@ writeJson("platform_metadata.json", {
   missing_data_enum: ["unavailable", "pending_publication", "not_applicable", "insufficient_evidence", "review_required"],
   validation_semantic_enum: ["numeric_passed", "passed_gate", "expected_unavailable", "partial", "failed", "not_tested"],
 });
+const macroDriverPayload = JSON.parse(fs.readFileSync(path.join(macroDriverDir, "macro_driver_observations.json"), "utf8"));
+const macroDriverDictionaryPayload = JSON.parse(fs.readFileSync(path.join(macroDriverDir, "macro_driver_dictionary.json"), "utf8"));
+const macroShockPayload = JSON.parse(fs.readFileSync(path.join(macroDriverDir, "shock_identification_registry.json"), "utf8"));
+const macroIdentificationByDriver = new Map(macroDriverDictionaryPayload.records.map((item) => [item.driver_id, item.identification_status]));
+const macroIdentificationBySeries = new Map(macroShockPayload.records.map((item) => [`${item.driver_id}|${item.transformation}`, item.identification_status]));
+for (const fileName of macroDriverFiles) fs.copyFileSync(path.join(macroDriverDir, fileName), path.join(outDir, fileName));
+const advancedValidationSummary = fs.existsSync(advancedValidationSummaryPath)
+  ? JSON.parse(fs.readFileSync(advancedValidationSummaryPath, "utf8"))
+  : { schema_version: "advanced-analysis-validation-summary-v1.5", status: "pending", total_tests: 0, failure_count: null, categories: {} };
+fs.writeFileSync(path.join(outDir, "advanced_analysis_validation_summary.json"), `${JSON.stringify(advancedValidationSummary, null, 2)}\n`);
+const macroRuntimeRows = macroDriverPayload.records.map((item) => [
+  item.observation_id, item.driver_id, item.country, item.scope, item.period, item.value,
+  item.unit, item.transformation, item.role, item.source, item.source_url,
+  macroIdentificationBySeries.get(`${item.driver_id}|${item.transformation}`) ?? macroIdentificationByDriver.get(item.driver_id) ?? "observed_driver",
+  item.definition_version, item.aggregation_method, item.orientation,
+]);
+fs.writeFileSync(path.join(outDir, "macro_driver_runtime.json"), JSON.stringify({
+  schema_version: "macro-driver-runtime-v1.5",
+  generated_at: macroDriverPayload.generated_at,
+  record_count: macroRuntimeRows.length,
+  records: macroRuntimeRows,
+}));
 writeJson("release_manifest.json", {
   schema_version: platformRelease.schema_version,
   platform_version: platformRelease.version,
@@ -2027,7 +2063,7 @@ writeJson("release_manifest.json", {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.44",
+    analysis_skill_registry: "analysis-skill-registry-v1.5",
     transformation_registry: "transformation-registry-v1.41",
     stationarity_engine: "stationarity-engine-v1.44",
     seasonal_adf_calibration: "seasonal-adf-critical-values-v1.44",
@@ -2037,8 +2073,31 @@ writeJson("release_manifest.json", {
     var_engine: "var-engine-v1.44",
     var_specification_profiles: "var-specification-profiles-v1.44",
     var_country_readiness: "var-country-readiness-v1.44",
+    macro_drivers: "macro-driver-observations-v1.5",
+    shock_identification: "shock-identification-registry-v1.5",
+    lp_readiness: "lp-readiness-registry-v1.5",
   },
   boundary_versions: ["GISCO NUTS 2024", "regional spatial QA v0.87-v0.89"],
+  core_research_validation: {
+    stage: validationSummary.stage,
+    historical_golden_cases: validationSummary.total,
+    golden_failures: validationSummary.golden_failures,
+    blocking_failures: validationSummary.blocking_failures,
+    note: "Historical v0.91 golden cases remain the core research regression suite.",
+  },
+  advanced_analysis_validation: {
+    stage: "v1.5 advanced analysis validation",
+    status: advancedValidationSummary.status,
+    total_tests: advancedValidationSummary.total_tests,
+    failure_count: advancedValidationSummary.failure_count,
+    test_counts: advancedValidationSummary.categories,
+    categories: ["panel", "network", "high_frequency", "events", "var", "seasonal_adf_calibration", "macro_drivers", "shock_identification", "lp_readiness"],
+  },
+  release_validation: {
+    stage: "v1.5 release validation",
+    status: "required_after_static_build",
+    gates: ["security_scan", "export", "research_package", "advanced_validation", "core_validation", "ui_language_qa", "lint", "typecheck", "static_build", "package_checksum"],
+  },
   validation_summary: validationSummary,
   public_display_boundaries: platformRelease.limitations,
 });

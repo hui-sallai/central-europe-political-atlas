@@ -1,0 +1,123 @@
+{
+  "schema_version": "shock-identification-registry-v1.5",
+  "generated_at": "2026-08-28",
+  "identification_levels": [
+    "observed_driver",
+    "shock_candidate",
+    "external_innovation_proxy",
+    "identified_shock",
+    "blocked"
+  ],
+  "identified_shock_count": 0,
+  "record_count": 12,
+  "records": [
+    {
+      "shock_id": "policy_rate_movement",
+      "driver_id": "policy_rate",
+      "transformation": "level_or_change",
+      "identification_status": "observed_driver",
+      "identification_strategy": null,
+      "causal_use_allowed": false,
+      "boundary": "Observed movement is not an identified shock."
+    },
+    {
+      "shock_id": "long_term_government_yield_movement",
+      "driver_id": "long_term_government_yield",
+      "transformation": "level_or_change",
+      "identification_status": "observed_driver",
+      "identification_strategy": null,
+      "causal_use_allowed": false,
+      "boundary": "Observed movement is not an identified shock."
+    },
+    {
+      "shock_id": "bilateral_fx_local_per_eur_movement",
+      "driver_id": "bilateral_fx_local_per_eur",
+      "transformation": "level_or_change",
+      "identification_status": "observed_driver",
+      "identification_strategy": null,
+      "causal_use_allowed": false,
+      "boundary": "Observed movement is not an identified shock."
+    },
+    {
+      "shock_id": "eur_usd_common_movement",
+      "driver_id": "eur_usd_common",
+      "transformation": "level_or_change",
+      "identification_status": "observed_driver",
+      "identification_strategy": null,
+      "causal_use_allowed": false,
+      "boundary": "Observed movement is not an identified shock."
+    },
+    {
+      "shock_id": "nominal_effective_exchange_rate_movement",
+      "driver_id": "nominal_effective_exchange_rate",
+      "transformation": "level_or_change",
+      "identification_status": "observed_driver",
+      "identification_strategy": null,
+      "causal_use_allowed": false,
+      "boundary": "Observed movement is not an identified shock."
+    },
+    {
+      "shock_id": "real_effective_exchange_rate_movement",
+      "driver_id": "real_effective_exchange_rate",
+      "transformation": "level_or_change",
+      "identification_status": "observed_driver",
+      "identification_strategy": null,
+      "causal_use_allowed": false,
+      "boundary": "Observed movement is not an identified shock."
+    },
+    {
+      "shock_id": "hicp_energy_index_movement",
+      "driver_id": "hicp_energy_index",
+      "transformation": "level_or_change",
+      "identification_status": "observed_driver",
+      "identification_strategy": null,
+      "causal_use_allowed": false,
+      "boundary": "Observed movement is not an identified shock."
+    },
+    {
+      "shock_id": "hicp_energy_annual_rate_movement",
+      "driver_id": "hicp_energy_annual_rate",
+      "transformation": "level_or_change",
+      "identification_status": "observed_driver",
+      "identification_strategy": null,
+      "causal_use_allowed": false,
+      "boundary": "Observed movement is not an identified shock."
+    },
+    {
+      "shock_id": "brent_crude_price_usd_monthly_change",
+      "driver_id": "brent_crude_price_usd",
+      "transformation": "monthly_log_change",
+      "identification_status": "shock_candidate",
+      "identification_strategy": null,
+      "causal_use_allowed": false,
+      "boundary": "Observed commodity-price change is not an identified structural energy shock."
+    },
+    {
+      "shock_id": "europe_natural_gas_price_usd_monthly_change",
+      "driver_id": "europe_natural_gas_price_usd",
+      "transformation": "monthly_log_change",
+      "identification_status": "shock_candidate",
+      "identification_strategy": null,
+      "causal_use_allowed": false,
+      "boundary": "Observed commodity-price change is not an identified structural energy shock."
+    },
+    {
+      "shock_id": "monetary_policy_surprise",
+      "driver_id": "policy_rate",
+      "transformation": "announcement_surprise",
+      "identification_status": "blocked",
+      "identification_strategy": "requires a validated high-frequency announcement surprise or external instrument",
+      "causal_use_allowed": false,
+      "boundary": "A policy-rate change is not a monetary-policy shock."
+    },
+    {
+      "shock_id": "external_energy_price_innovation",
+      "driver_id": "europe_natural_gas_price_usd",
+      "transformation": "innovation",
+      "identification_status": "blocked",
+      "identification_strategy": "innovation construction not yet registered or validated",
+      "causal_use_allowed": false,
+      "boundary": "Price innovation cannot be called a supply or geopolitical shock without identification."
+    }
+  ]
+}

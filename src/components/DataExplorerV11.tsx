@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import type { Country, Indicator, Observation } from "@/types/researchData";
 import { getResearchPackageFilename } from "@/lib/releaseMetadata";
+import { MacroDriverWorkbench } from "@/components/MacroDriverWorkbench";
 
 function csvCell(value: unknown) {
   const text = value === null || value === undefined ? "" : String(value);
@@ -105,7 +106,7 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
 
 export function DataExplorerV11({ countries, indicators, observations }: { countries: Country[]; indicators: Indicator[]; observations: Observation[] }) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-  const [dataset, setDataset] = useState<"annual" | "high_frequency">("annual");
+  const [dataset, setDataset] = useState<"annual" | "high_frequency" | "macro_drivers">("annual");
   const [countrySlug, setCountrySlug] = useState("poland");
   const [indicatorId, setIndicatorId] = useState("all");
   const [year, setYear] = useState("all");
@@ -150,7 +151,7 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
   return (
     <section className="mt-7">
       <div className="flex flex-wrap gap-2" role="tablist" aria-label="数据集选择">
-        {([["annual", "年度核心数据"], ["high_frequency", "高频数据"]] as const).map(([id, label]) => (
+        {([["annual", "年度核心数据"], ["high_frequency", "高频国内数据"], ["macro_drivers", "宏观驱动数据"]] as const).map(([id, label]) => (
           <button key={id} type="button" role="tab" aria-selected={dataset === id} onClick={() => setDataset(id)}
             className={dataset === id ? "rounded-full bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-white" : "rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold"}>
             {label}
@@ -158,7 +159,7 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
         ))}
       </div>
 
-      {dataset === "high_frequency" ? <HighFrequencyDataView countries={countries} /> : (
+      {dataset === "high_frequency" ? <HighFrequencyDataView countries={countries} /> : dataset === "macro_drivers" ? <MacroDriverWorkbench countries={countries} compact /> : (
         <>
       <div className="grid gap-4 border-y border-[var(--line)] py-5 md:grid-cols-2 xl:grid-cols-4">
         <label className="text-xs font-semibold text-[var(--muted)]">国家

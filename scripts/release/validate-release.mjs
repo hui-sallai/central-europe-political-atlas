@@ -9,7 +9,7 @@ const researchOut = path.join(out, "research-data");
 const configuredBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const releaseConfig = JSON.parse(fs.readFileSync(path.join(root, "src", "data", "release.json"), "utf8"));
 const requiredRoutes = ["", "map", "countries", "data", "news", "models", "scenarios", "methodology", "legal", "privacy", ...["poland", "hungary", "czechia", "slovakia", "germany", "austria", "romania", "slovenia", "croatia", "serbia"].map((country) => `countries/${country}`)];
-const requiredExports = ["platform_metadata.json", "release_manifest.json", "validation_registry.json", "golden_test_cases.json", "observations.json", "sources.json", "indicators.json", "var_country_readiness.json", "stationarity_specification_registry.json", "seasonal_stationarity_results.json", "seasonal_adf_critical_values.json", "seasonal_adf_decision_comparison.json", "hegy_readiness_registry.json", "structural_break_registry.json", "persistence_diagnostics.json", researchPackageFilename()];
+const requiredExports = ["platform_metadata.json", "release_manifest.json", "validation_registry.json", "golden_test_cases.json", "observations.json", "sources.json", "indicators.json", "var_country_readiness.json", "stationarity_specification_registry.json", "seasonal_stationarity_results.json", "seasonal_adf_critical_values.json", "seasonal_adf_decision_comparison.json", "hegy_readiness_registry.json", "structural_break_registry.json", "persistence_diagnostics.json", "macro_driver_observations.json", "macro_driver_dictionary.json", "macro_driver_coverage.json", "shock_identification_registry.json", "lp_readiness_registry.json", "macro_driver_runtime.json", "advanced_analysis_validation_summary.json", researchPackageFilename()];
 const methodologySections = ["data", "models", "events", "spatial", "validation", "citation"];
 const stableResearchUrls = ["/map?country=hungary&layer=regional_boundary", "/models?model=fiscal_pressure&country=hungary", "/models?skill=var_svar&country=poland", "/scenarios?scenario=inflation_resurgence&country=poland&shock=2", "/countries/poland/", "/news?country=hungary&type=China"];
 const failures = [];
@@ -109,7 +109,7 @@ if (manifest) {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.44",
+    analysis_skill_registry: "analysis-skill-registry-v1.5",
     transformation_registry: "transformation-registry-v1.41",
     stationarity_engine: "stationarity-engine-v1.44",
     seasonal_adf_calibration: "seasonal-adf-critical-values-v1.44",
@@ -119,11 +119,17 @@ if (manifest) {
     var_engine: "var-engine-v1.44",
     var_specification_profiles: "var-specification-profiles-v1.44",
     var_country_readiness: "var-country-readiness-v1.44",
+    macro_drivers: "macro-driver-observations-v1.5",
+    shock_identification: "shock-identification-registry-v1.5",
+    lp_readiness: "lp-readiness-registry-v1.5",
   };
   for (const [key, expected] of Object.entries(expectedAdvancedVersions)) if (manifest.advanced_analysis_versions?.[key] !== expected) failures.push(`advanced analysis provenance mismatch: ${key}=${manifest.advanced_analysis_versions?.[key]} expected=${expected}`);
   if (expectedCommit && (manifest.build_context !== "github-actions" || !manifest.workflow_run_id)) failures.push("CI manifest is missing github-actions build context or workflow_run_id");
   if (!expectedCommit && manifest.build_context !== "local") failures.push(`local manifest build context mismatch: ${manifest.build_context}`);
-  if (manifest.research_package?.status !== "built" || !/^research-data-v1\.44\.zip$/.test(manifest.research_package?.filename ?? "") || !/^[a-f0-9]{64}$/.test(manifest.research_package?.sha256 ?? "") || !manifest.research_package?.generated_at) failures.push("research package filename/SHA256/generated_at provenance is incomplete");
+  if (manifest.research_package?.status !== "built" || manifest.research_package?.filename !== researchPackageFilename() || !/^[a-f0-9]{64}$/.test(manifest.research_package?.sha256 ?? "") || !manifest.research_package?.generated_at) failures.push("research package filename/SHA256/generated_at provenance is incomplete");
+  if (!manifest.core_research_validation || !manifest.advanced_analysis_validation || !manifest.release_validation) failures.push("split validation summaries are incomplete");
+  if (manifest.advanced_analysis_validation?.status !== "passed" || !(manifest.advanced_analysis_validation?.total_tests > 0) || manifest.advanced_analysis_validation?.failure_count !== 0) failures.push("advanced analysis validation summary is not a recorded passing result");
+  if (manifest.release_validation?.package_checksum !== manifest.research_package?.sha256) failures.push("release validation package checksum is missing or inconsistent");
 }
 
 if (!validationExport?.records?.length) failures.push("validation registry has no records");
@@ -145,7 +151,7 @@ const changelog = fs.readFileSync(path.join(root, "CHANGELOG.md"), "utf8");
 const latestChangelogHeading = changelog.match(/^## (.+)$/m)?.[1] ?? "";
 if (!latestChangelogHeading.startsWith(expectedVersion) || !latestChangelogHeading.includes(releaseConfig.release_date)) failures.push(`CHANGELOG latest release mismatch: ${latestChangelogHeading}`);
 const skillRegistry = JSON.parse(fs.readFileSync(path.join(root, "src", "data", "analysis", "analysis_skill_registry.json"), "utf8"));
-if (skillRegistry.schema_version !== "analysis-skill-registry-v1.44") failures.push(`analysis skill registry schema mismatch: ${skillRegistry.schema_version}`);
+  if (skillRegistry.schema_version !== "analysis-skill-registry-v1.5") failures.push(`analysis skill registry schema mismatch: ${skillRegistry.schema_version}`);
 if (skillRegistry.generated_at !== releaseConfig.release_date) failures.push(`analysis skill registry generated_at mismatch: ${skillRegistry.generated_at}`);
 const releaseSource = fs.readFileSync(path.join(root, "src", "lib", "releaseMetadata.ts"), "utf8");
 if (!releaseSource.includes('import releaseConfig from "../data/release.json"')) failures.push("release metadata is not reading the canonical JSON source");
@@ -162,6 +168,7 @@ for (const section of methodologySections) {
 }
 if (!methodology.includes("Validation ≠ scientific proof") || !methodology.includes("Historical reconstruction readiness")) failures.push("methodology validation boundary is incomplete");
 if (!methodology.includes("Reduced-form VAR") || !methodology.includes("Finite-Sample Stationarity Calibration") || !methodology.includes("50,000") || !methodology.includes("asymptotic equivalence") || !methodology.includes("残差 LM") || !methodology.includes("预注册正式基线") || !methodology.includes("月份虚拟变量") || !methodology.includes("seasonality") || !methodology.includes("seasonal unit root") || !methodology.includes("structural break") || !methodology.includes("不是结构冲击或因果效应")) failures.push("v1.44 VAR methodology boundary is incomplete");
+if (!methodology.includes("宏观驱动与冲击识别边界") || !methodology.includes("Observed driver") || !methodology.includes("identified_shock") || !methodology.includes("causal_lp_ready")) failures.push("v1.5 macro-driver identification methodology boundary is incomplete");
 
 for (const stableUrl of stableResearchUrls) {
   const route = stableUrl.split(/[?#]/)[0].replace(/^\//, "").replace(/\/$/, "");

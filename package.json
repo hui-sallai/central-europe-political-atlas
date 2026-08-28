@@ -19,6 +19,7 @@
     "events:build": "node scripts/events/build-event-registries.mjs",
     "hf:acquire": "node scripts/acquire-eurostat-monthly.mjs",
     "hf:migration-qa": "node scripts/hicp-migration-qa.mjs",
+    "macro:acquire-drivers": "python scripts/acquisition/acquire-macro-drivers.py",
     "release:validate": "node scripts/release/validate-release.mjs",
     "security:scan": "node scripts/security/check-public-secrets.mjs",
     "network:acquire": "node scripts/acquire-comtrade-bilateral.mjs",

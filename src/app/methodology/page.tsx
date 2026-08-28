@@ -6,7 +6,7 @@ import { getResearchPackageFilename, platformApaCitation, platformBibtexCitation
 
 export const metadata: Metadata = { title: "研究方法", description: "数据、模型、事件、空间、验证和引用规则。" };
 
-const sections = [["data", "Data"], ["models", "Analysis"], ["events", "Events"], ["spatial", "Spatial"], ["validation", "Validation"], ["citation", "Citation"]] as const;
+const sections = [["data", "Data"], ["models", "Analysis"], ["events", "Events"], ["macro-drivers", "Macro Drivers"], ["spatial", "Spatial"], ["validation", "Validation"], ["citation", "Citation"]] as const;
 
 function Section({ id, label, title, children }: { id: string; label: string; title: string; children: React.ReactNode }) {
   return <section id={id} className="scroll-mt-24 border-t border-[var(--line)] py-10"><p className="editorial-kicker">{label}</p><h2 className="mt-3 text-3xl font-semibold">{title}</h2>{children}</section>;
@@ -34,6 +34,16 @@ export default function MethodologyPage() {
     <Section id="events" label="03 / Events" title="事件编码"><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">Source → Event → Coding → Affected Indicator / Project → Research context。date、actor、event_type、direction 和 confidence 用于检索与解释；它们不自动构成因果关系，也不直接改变模型分数。未完整编码、低置信度或结构样例保持 enters_model=false。</p><Link href="/news" className="mt-4 inline-flex text-sm font-semibold text-[var(--accent)]">进入 Event Library</Link></Section>
 
     <Section id="high-frequency" label="03b / High-Frequency & Events" title="高频数据与事件窗口分析"><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">高频层使用 Eurostat 月度序列（HICP 指数与年通胀率分列、统一失业率季调、工业生产指数季调日历调整），自 2015-01 起；缺口保持 missing，绝不插值。序列记录 seasonal adjustment、index reference、definition version、value semantics 与 revision 状态（latest revised）。v1.31 起 HICP 正式迁移到合并数据集 prc_hicp_minr（ECOICOP ver.2，全项代码 TOTAL）：月度指数固定使用 2015=100 参考基（该 unit 仍由 prc_hicp_minr 正式提供，不与 2025=100 拼接），旧表 prc_hicp_midx / prc_hicp_manr 已退役；迁移前后 2024-01 至 2025-12 重叠窗口一致性已逐国验证并记录在 hicp_migration_manifest.json，全项序列跨分类过渡保持连续（all-items continuity verified）。月度失业率（une_rt_m）为 15–74 岁活跃人口百分比的协调估计：各国月度构建方法可以不同，不是完全同质的原始调查月度值。工业生产指数（sts_inpr_m）为 B–D 合计、季调日历调整，index reference 逐条记录以避免参考基更新造成静默断点。覆盖检查使用起始月到最新可得月之间的完整月序列，API 未返回的月份同样计为缺失；每个序列记录 latest_available_period、expected_latest_period 与 publication lag 状态，区分正常发布滞后与异常停滞。</p><p className="mt-3 max-w-4xl text-sm leading-7 text-[var(--muted)]">事件窗口分析（Event Window Analysis）是描述性第一级分析：严格区分事件前（relative_month &lt; 0）、事件期（relative_month = 0，单独报告）与事件后（relative_month &gt; 0），事件月不进入事件后均值与事件后观测计数；完整窗口要求至少 12 个事件前与 6 个真正的事件后月度观测。变化语义由数据定义驱动：比率类序列（失业率、HICP 年通胀率）只报告百分点变化，指数类序列报告指数点变化并附相对百分比变化；图表在缺失月份断线，不做视觉插值。窗口内存在其他已核验事件时给出同期事件提示。它不自动识别因果关系——观察到的变化不能归因于单一事件。Formal Event Study 保持 registry_only。</p></Section>
+
+    <Section id="macro-drivers" label="03c / Macro Drivers & Identification" title="宏观驱动与冲击识别边界">
+      <p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">v1.5 将 macro_driver_observations 与 high_frequency_observations 逻辑关联、概念分离。政策利率来自 BIS，长期政府债券收益率与 HICP Energy 来自 Eurostat，汇率与有效汇率来自 BIS，Brent 与欧洲天然气月价来自 World Bank Pink Sheet。每条记录保留频率、时间、单位、转换、来源、定义版本、修订状态、月度聚合方式与角色；缺失值不插值。</p>
+      <div className="mt-5 grid gap-4 md:grid-cols-2">
+        <div className="border-l-2 border-[var(--accent)] pl-5"><h3 className="font-semibold">数据定义</h3><p className="mt-2 text-sm leading-7 text-[var(--muted)]">Policy rate ≠ market rate；bond yield ≠ policy rate；bilateral FX ≠ effective FX；HICP Energy ≠ wholesale energy price。非欧元区双边汇率统一为每 1 欧元对应的本币单位，上升表示本币贬值；欧元区只登记共同 EUR/USD 外部变量，不伪造国家专属汇率。政策利率使用月末值，债券收益率、BIS 汇率与商品价格按来源登记月均值。</p></div>
+        <div className="border-l-2 border-[var(--line)] pl-5"><h3 className="font-semibold">识别状态</h3><p className="mt-2 text-sm leading-7 text-[var(--muted)]">Observed driver ≠ identified shock。Policy-rate change ≠ monetary-policy shock；energy-price movement ≠ energy-supply shock；exchange-rate movement ≠ external shock。只有外部工具、高频意外、叙事识别或充分的时间/符号设计通过登记和验证后，序列才可以标记 identified_shock。当前 identified_shock 数量为 0。</p></div>
+      </div>
+      <p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">Local Projections 与 SVAR 继续 registry_only。LP readiness 按 shock series × outcome × country × sample × controls × horizon 登记；最低样本建议为 96 个连续月度观测，但只要 identification_status 不是 identified_shock，causal_lp_ready 就必须为 false。事件的 related_driver_ids 只表示研究相关性，不表示事件造成了驱动变化；事件窗口仍是描述性分析。</p>
+      <div className="mt-5 flex flex-wrap gap-3"><a href={`${basePath}/research-data/macro_driver_dictionary.json`} className="text-sm font-semibold text-[var(--accent)]">Macro driver dictionary</a><a href={`${basePath}/research-data/shock_identification_registry.json`} className="text-sm font-semibold text-[var(--accent)]">Shock identification registry</a><a href={`${basePath}/research-data/lp_readiness_registry.json`} className="text-sm font-semibold text-[var(--accent)]">LP readiness registry</a></div>
+    </Section>
 
     <Section id="spatial" label="04 / Spatial" title="空间与边界"><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">区域记录通过 region_id、行政层级、边界版本、来源、许可和年份关联。国家值不下推到区域，NUTS2 与 NUTS3 不混用。真实边界只有在来源、许可、坐标系、几何、拓扑和主键检查通过后才开放；地图不提供风险、预测、情景影响或真实党派支持率图层。</p></Section>
 

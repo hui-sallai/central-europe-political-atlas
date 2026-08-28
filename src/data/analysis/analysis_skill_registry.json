@@ -1,5 +1,5 @@
 {
-  "schema_version": "analysis-skill-registry-v1.44",
+  "schema_version": "analysis-skill-registry-v1.5",
   "generated_at": "2026-08-28",
   "records": [
     {
@@ -19,7 +19,13 @@
     {
       "skill_id": "event_window_analysis",
       "state": "active",
-      "gate": "verified event with month precision; >=12 pre and >=6 true post monthly observations (event month excluded)"
+      "gate": "verified event with month precision; >=12 pre and >=6 true post monthly observations (event month excluded); macro-driver outcomes remain descriptive"
+    },
+    {
+      "skill_id": "macro_driver_explorer",
+      "state": "active",
+      "gate": "official source, documented role, timing, orientation, transformation and identification status",
+      "note": "Data exploration only; no causal effect, forecast, risk score or shock response."
     },
     {
       "skill_id": "reduced_form_var",
@@ -55,7 +61,9 @@
     },
     {
       "skill_id": "local_projections",
-      "state": "registry_only"
+      "state": "registry_only",
+      "readiness_reference": "macro-drivers/lp_readiness_registry.json",
+      "gate": "identification_status must equal identified_shock before causal_lp_ready can be true"
     },
     {
       "skill_id": "bayesian_var",

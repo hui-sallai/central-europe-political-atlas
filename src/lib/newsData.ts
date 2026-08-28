@@ -41,6 +41,7 @@ export type WeeklyNewsItem = {
   affectedIndicators?: string[];
   affectedModels?: string[];
   relatedProjectIds?: string[];
+  relatedDriverIds?: string[];
   duration?: EventDuration;
   confidence?: EventConfidence;
   sourceStatus?: EventSourceStatus;
@@ -60,6 +61,7 @@ export type EventRecord = {
   affected_indicator: string[];
   affected_model: string[];
   related_project_ids: string[];
+  related_driver_ids: string[];
   duration: EventDuration;
   confidence: EventConfidence;
   source_status: EventSourceStatus;
@@ -91,6 +93,11 @@ const eventTypeByTopic: Record<NewsTopic, EventType> = {
 };
 
 export function toEventRecord(item: WeeklyNewsItem): EventRecord {
+  const inferredDriverIds = item.eventType === "energy" || item.topic === "能源"
+    ? ["europe_natural_gas_price_usd", "brent_crude_price_usd", "hicp_energy_annual_rate"]
+    : /central bank|policy rate|interest rate|央行|利率|mnb|ecb/i.test(`${item.title} ${item.summary}`)
+      ? ["policy_rate", "long_term_government_yield", "bilateral_fx_local_per_eur"]
+      : [];
   return {
     event_id: item.id,
     date: item.weekOf,
@@ -103,6 +110,7 @@ export function toEventRecord(item: WeeklyNewsItem): EventRecord {
     affected_indicator: item.affectedIndicators ?? [],
     affected_model: item.affectedModels ?? [],
     related_project_ids: item.relatedProjectIds ?? [],
+    related_driver_ids: item.relatedDriverIds ?? inferredDriverIds,
     duration: item.duration ?? "pending",
     confidence: item.confidence ?? (item.dataStatus === "verified" ? "pending" : "low"),
     source_status: item.sourceStatus ?? (item.dataStatus === "verified" ? "official" : "sample"),

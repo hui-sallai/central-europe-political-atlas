@@ -1,0 +1,39 @@
+{
+  "schema_version": "energy-driver-acquisition-v1.5",
+  "retrieval_date": "2026-08-28",
+  "eurostat_hicp_energy": [
+    {
+      "driver_id": "hicp_energy_index",
+      "api_query": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_minr?format=JSON&lang=en&sinceTimePeriod=2015-01&coicop18=NRG&unit=I15&geo=AT&geo=CZ&geo=DE&geo=HR&geo=HU&geo=PL&geo=RO&geo=RS&geo=SI&geo=SK",
+      "response_rows": 1390,
+      "response_sha256": "6caa77b5ab3d20c01e51e33bc9db832bc4213030fc2f0680e09ee976ab8e49ed"
+    },
+    {
+      "driver_id": "hicp_energy_annual_rate",
+      "api_query": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_minr?format=JSON&lang=en&sinceTimePeriod=2015-01&coicop18=NRG&unit=RCH_A&geo=AT&geo=CZ&geo=DE&geo=HR&geo=HU&geo=PL&geo=RO&geo=RS&geo=SI&geo=SK",
+      "response_rows": 1390,
+      "response_sha256": "2925046d1ef4ff608038882c14729652f8acff4b5c448fcc9a59b6d3adec9e14"
+    }
+  ],
+  "pink_sheet": {
+    "source_file": "CMO-Historical-Data-Monthly.xlsx",
+    "source_url": "https://thedocs.worldbank.org/en/doc/74e8be41ceb20fa0da750cda2f6b9e4e-0050012026/related/CMO-Historical-Data-Monthly.xlsx",
+    "sheet": "Monthly Prices",
+    "file_sha256": "7902a77505ebdc5d202ce65f666c2ee1b04b626f042d7738ed3e6f7d112c8433",
+    "series": [
+      {
+        "driver_id": "brent_crude_price_usd",
+        "sheet_series_name": "Crude oil, Brent",
+        "unit": "($/bbl)",
+        "rows": 139
+      },
+      {
+        "driver_id": "europe_natural_gas_price_usd",
+        "sheet_series_name": "Natural gas, Europe",
+        "unit": "($/mmbtu)",
+        "rows": 139
+      }
+    ]
+  },
+  "identification_boundary": "HICP Energy is a domestic outcome; commodity-price movements are external drivers or shock candidates, not identified structural shocks."
+}

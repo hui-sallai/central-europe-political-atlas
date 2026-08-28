@@ -32,6 +32,7 @@ export interface Event {
   affected_indicator: string[];
   affected_model: string[];
   related_project_ids: string[];
+  related_driver_ids: string[];
   duration: EventDuration;
   confidence: EventConfidence;
   source_status: EventSourceStatus;

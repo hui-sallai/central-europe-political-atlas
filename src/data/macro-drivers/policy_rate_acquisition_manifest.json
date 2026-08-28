@@ -1,0 +1,107 @@
+{
+  "schema_version": "policy-rate-acquisition-v1.5",
+  "retrieval_date": "2026-08-28",
+  "dataset": "BIS WS_CBPOL",
+  "download_url": "https://data.bis.org/static/bulk/WS_CBPOL_csv_col.zip",
+  "frequency": "monthly",
+  "file_sha256": "c06ed8983d12c3b54044ec1708eca356d8751a03d104c04ae11165b2b3afc1ab",
+  "metadata_version": "current BIS bulk file at retrieval",
+  "series": [
+    {
+      "country": "austria",
+      "status": "available",
+      "source_area": "XM",
+      "scope": "euro_area_common",
+      "series_id": "M:XM",
+      "source_reference": "European Central Bank",
+      "instrument_regime_metadata": null
+    },
+    {
+      "country": "czechia",
+      "status": "available",
+      "source_area": "CZ",
+      "scope": "country",
+      "series_id": "M:CZ",
+      "source_reference": "Czech National Bank",
+      "instrument_regime_metadata": "The 2 week repo rate can be considered the official policy rate as from 1998, when the CNB switched to an inflation targeting framework. Before 1998, the policy regime as well as monetary policy implementation were different, and the 2 week repo rate is thus just an approximation of the policy stance in that period."
+    },
+    {
+      "country": "germany",
+      "status": "available",
+      "source_area": "XM",
+      "scope": "euro_area_common",
+      "series_id": "M:XM",
+      "source_reference": "European Central Bank",
+      "instrument_regime_metadata": null
+    },
+    {
+      "country": "croatia",
+      "status": "available",
+      "source_area": "HR through 2022; XM from 2023",
+      "scope": "country_then_euro_area_common",
+      "series_id": [
+        "M:HR",
+        "M:XM"
+      ],
+      "source_reference": [
+        "Croatian National Bank",
+        "European Central Bank"
+      ],
+      "instrument_regime_metadata": "Croatian national series before euro adoption; ECB common regime from 2023-01"
+    },
+    {
+      "country": "hungary",
+      "status": "available",
+      "source_area": "HU",
+      "scope": "country",
+      "series_id": "M:HU",
+      "source_reference": "Hungarian National Bank",
+      "instrument_regime_metadata": "As from 23 Sep  2015: 3 month MNB deposit rate. From 1 Aug 2014 to 22 Sep  2015: the 2 week MNB deposit rate. From 10 Jan 2007 to 31 Jul 2014: the 2 week MNB bil rate. Prior to 10 Jan 2007: the 2 week MNB deposit rate. "
+    },
+    {
+      "country": "poland",
+      "status": "available",
+      "source_area": "PL",
+      "scope": "country",
+      "series_id": "M:PL",
+      "source_reference": "National Bank of Poland",
+      "instrument_regime_metadata": "This rate can be considered the official policy rate as from 26 Feb 1998 onwards. Prior to that, monetary policy was based on money supply control, not on targeting the interest rate. The Lombard rate was the reference rate for the interbank market, but the open market operations yield resulted from tenders. From 26 Feb 1998 onwards: 7 day central bank bill yield; 1 Jan 1993 until 25 Feb 1998: Lombard rate."
+    },
+    {
+      "country": "romania",
+      "status": "available",
+      "source_area": "RO",
+      "scope": "country",
+      "series_id": "M:RO",
+      "source_reference": "National Bank of Romania ",
+      "instrument_regime_metadata": null
+    },
+    {
+      "country": "serbia",
+      "status": "available",
+      "source_area": "RS",
+      "scope": "country",
+      "series_id": "M:RS",
+      "source_reference": "National Bank of Serbia",
+      "instrument_regime_metadata": null
+    },
+    {
+      "country": "slovenia",
+      "status": "available",
+      "source_area": "XM",
+      "scope": "euro_area_common",
+      "series_id": "M:XM",
+      "source_reference": "European Central Bank",
+      "instrument_regime_metadata": null
+    },
+    {
+      "country": "slovakia",
+      "status": "available",
+      "source_area": "XM",
+      "scope": "euro_area_common",
+      "series_id": "M:XM",
+      "source_reference": "European Central Bank",
+      "instrument_regime_metadata": null
+    }
+  ]
+}

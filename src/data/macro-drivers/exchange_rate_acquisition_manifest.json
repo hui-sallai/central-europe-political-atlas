@@ -1,0 +1,81 @@
+{
+  "schema_version": "exchange-rate-acquisition-v1.5",
+  "retrieval_date": "2026-08-28",
+  "datasets": [
+    {
+      "dataset": "BIS WS_XRU",
+      "download_url": "https://data.bis.org/static/bulk/WS_XRU_csv_col.zip",
+      "file_sha256": "336d5b4ba663a965dc559dcc2f0de34b0beb091e69a15cb913f4b29056aaa32e"
+    },
+    {
+      "dataset": "BIS WS_EER",
+      "download_url": "https://data.bis.org/static/bulk/WS_EER_csv_col.zip",
+      "file_sha256": "1f93110ffc9d7849d263770a521b580418351da4cb9d1df42b225adfe1bf6eaf"
+    }
+  ],
+  "bilateral_orientation": "local currency units per 1 EUR; increase means local-currency depreciation",
+  "monthly_aggregation": "monthly_average",
+  "series": [
+    {
+      "country": "austria",
+      "series": "eur_usd_common",
+      "scope": "euro_area",
+      "country_specific": false
+    },
+    {
+      "country": "czechia",
+      "series": "M:CZ:CZK:A",
+      "currency": "CZK",
+      "status": "computed_cross_rate"
+    },
+    {
+      "country": "germany",
+      "series": "eur_usd_common",
+      "scope": "euro_area",
+      "country_specific": false
+    },
+    {
+      "country": "croatia",
+      "series": "eur_usd_common",
+      "scope": "euro_area",
+      "country_specific": false
+    },
+    {
+      "country": "hungary",
+      "series": "M:HU:HUF:A",
+      "currency": "HUF",
+      "status": "computed_cross_rate"
+    },
+    {
+      "country": "poland",
+      "series": "M:PL:PLN:A",
+      "currency": "PLN",
+      "status": "computed_cross_rate"
+    },
+    {
+      "country": "romania",
+      "series": "M:RO:RON:A",
+      "currency": "RON",
+      "status": "computed_cross_rate"
+    },
+    {
+      "country": "serbia",
+      "series": "M:RS:RSD:A",
+      "currency": "RSD",
+      "status": "computed_cross_rate"
+    },
+    {
+      "country": "slovenia",
+      "series": "eur_usd_common",
+      "scope": "euro_area",
+      "country_specific": false
+    },
+    {
+      "country": "slovakia",
+      "series": "eur_usd_common",
+      "scope": "euro_area",
+      "country_specific": false
+    }
+  ],
+  "euro_area_boundary": "EUR/USD is a common external variable and is not represented as a country-specific exchange-rate decision."
+}
