@@ -29,6 +29,8 @@ DEFAULT_SAMPLE_SIZES = [96, 108, 120, 126, 132, 138, 144, 156, 168]
 DEFAULT_REPLICATIONS = 50_000
 DEFAULT_SEED = 144_043
 REFERENCE_MONTH = "January"
+INPUT_START_MONTH = "February"
+INPUT_START_MONTH_INDEX = 1
 # Destination-month deterministic increments.  The annual sum is exactly zero,
 # so the null remains a zero-frequency unit root with a fixed seasonal pattern.
 SEASONAL_INCREMENT = np.array(
@@ -44,13 +46,13 @@ def production_maxlag(n: int) -> int:
 
 def month_dummies(destination_indices: np.ndarray) -> np.ndarray:
     """Return February..December dummies for zero-based series indices."""
-    months = destination_indices % 12
+    months = (INPUT_START_MONTH_INDEX + destination_indices) % 12
     return (months[:, None] == np.arange(1, 12)[None, :]).astype(np.float64)
 
 
 def simulate_paths(rng: np.random.Generator, replications: int, n: int, phi: float | None) -> np.ndarray:
     errors = rng.standard_normal((replications, n - 1))
-    destination_months = np.arange(1, n) % 12
+    destination_months = (INPUT_START_MONTH_INDEX + np.arange(1, n)) % 12
     if phi is None:
         differences = errors + SEASONAL_INCREMENT[destination_months][None, :]
         values = np.zeros((replications, n), dtype=np.float64)
@@ -61,7 +63,7 @@ def simulate_paths(rng: np.random.Generator, replications: int, n: int, phi: flo
     innovations = np.zeros((replications, n), dtype=np.float64)
     for t in range(1, n):
         innovations[:, t] = phi * innovations[:, t - 1] + errors[:, t - 1]
-    return innovations + seasonal_level[np.arange(n) % 12][None, :]
+    return innovations + seasonal_level[(INPUT_START_MONTH_INDEX + np.arange(n)) % 12][None, :]
 
 
 def solve_ols_from_gram(gram: np.ndarray, rhs: np.ndarray, yty: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
@@ -270,6 +272,7 @@ def main() -> None:
         "regression_design": {
             "terms": ["lagged_level", "selected_lags_of_first_difference", "constant", "11_month_dummies"],
             "reference_month": REFERENCE_MONTH,
+            "input_start_month": INPUT_START_MONTH,
             "autolag": "aic",
             "autolag_sample": "common_sample_trimmed_at_maxlag",
             "final_refit": "selected_lag_sample",
