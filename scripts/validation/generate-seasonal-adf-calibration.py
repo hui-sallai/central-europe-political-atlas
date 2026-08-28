@@ -218,20 +218,20 @@ def run_validation(records: list[dict], seed: int, batch_size: int) -> dict:
         "different_seed_5pct_critical_values": [cv_a, cv_b],
         "different_seed_absolute_difference": abs(cv_a - cv_b),
         "different_seed_mc_tolerance": tolerance,
-        "different_seed_within_mc_tolerance": abs(cv_a - cv_b) <= tolerance,
+        "different_seed_within_mc_tolerance": bool(abs(cv_a - cv_b) <= tolerance),
         "null_size_test": {
             "sample_size": 132,
             "replications": 10_000,
             "rejection_rate_5pct": null_rejection,
             "acceptance_interval": [0.04, 0.06],
-            "passed": 0.04 <= null_rejection <= 0.06,
+            "passed": bool(0.04 <= null_rejection <= 0.06),
         },
         "stationary_ar_power_sanity": {
             "sample_size": 132,
             "phi": 0.85,
             "replications": 5_000,
             "rejection_rate_5pct": power_rejection,
-            "passed": power_rejection > null_rejection + 0.25,
+            "passed": bool(power_rejection > null_rejection + 0.25),
         },
     }
 
