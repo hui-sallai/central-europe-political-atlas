@@ -1,14 +1,14 @@
 {
-  "schema_version": "structural-break-registry-v1.43",
-  "generated_at": "2026-08-27",
+  "schema_version": "structural-break-registry-v1.44",
+  "generated_at": "2026-08-28",
   "test_registry": [
     {
       "test_id": "zivot_andrews",
       "state": "registry_only",
-      "reason": "A mature cross-language implementation and validated critical-value policy are not yet integrated."
+      "reason": "The statsmodels reference exists, but a production implementation, exact specification alignment and cross-language fixture have not been integrated; it cannot override the formal ADF gate."
     }
   ],
-  "candidate_periods": [
+  "historical_candidate_periods": [
     {
       "period": "2020-03",
       "label": "COVID-19 historical reference",
@@ -25,6 +25,8 @@
       "status": "candidate_only_not_estimated"
     }
   ],
+  "statistically_estimated_breaks": [],
+  "separation_rule": "Historical candidate periods and statistically estimated breaks are never merged. Temporal proximity is not causal attribution.",
   "records": [
     {
       "country": "austria",

@@ -2,7 +2,7 @@
 
 This directory contains the public research exports used by the static site.
 
-Current release: **v1.43 Seasonality-Aware Stationarity & Structural-Break Diagnostics**. The canonical release definition is exported through `platform_metadata.json`; deployment provenance is recorded in `release_manifest.json`.
+Current release: **v1.44 Finite-Sample Stationarity Calibration & Break Robustness**. The canonical release definition is exported through `platform_metadata.json`; deployment provenance is recorded in `release_manifest.json`.
 
 ## Core schemas
 
@@ -19,7 +19,7 @@ Current release: **v1.43 Seasonality-Aware Stationarity & Structural-Break Diagn
 - `var_country_readiness`: public baseline and exploratory readiness summary; `estimable` is distinct from `dynamic_response_ready`.
 - `macro-dynamics/var_specification_profiles.json`: fixed baseline and documented exploratory profile definitions, including profile-mapped stationarity specifications.
 - `macro-dynamics/var_baseline_v1_readiness.json`, `var_baseline_v2_readiness.json` and `var_exploratory_readiness.json`: profile-specific readiness records and complete exploratory attempt logs.
-- The versioned research package contains `stationarity_specification_registry.json`, `seasonal_stationarity_results.json`, `structural_break_registry.json`, `persistence_diagnostics.json`, `var_lag_diagnostic_grid.json`, `var_country_readiness.json` and `var_model_registry.json`, plus the offline `analysis/var_reference_cases.json` fixture.
+- The versioned research package contains `seasonal_adf_critical_values.json`, `seasonal_adf_decision_comparison.json`, `stationarity_specification_registry.json`, `seasonal_stationarity_results.json`, `hegy_readiness_registry.json`, `structural_break_registry.json`, `persistence_diagnostics.json`, `var_lag_diagnostic_grid.json`, `var_country_readiness.json` and `var_model_registry.json`, plus the offline reference and calibration generators.
 
 ## Stable IDs
 
@@ -56,4 +56,4 @@ Use the platform version, access date, stable record ID and original source URL.
 
 Exports support factual comparison and reproducibility. They are not election forecasts, probability forecasts, investment advice, causal estimates or objective risk truths. Pending/sample records must not be promoted to official data.
 
-Reduced-form VAR outputs are conditional time-series descriptions. Formal baseline v1 uses constant-only ADF; formal baseline v2 uses ADF with a constant and 11 month-of-year dummies. Deterministic seasonality is not a seasonal-unit-root test, and candidate regime markers are not estimated structural breaks. HEGY, Zivot-Andrews, residual LM, uncertainty intervals and SVAR are not published in v1.43.
+Reduced-form VAR outputs are conditional time-series descriptions. Formal baseline v1 uses constant-only ADF; formal baseline v2 uses the finite-sample calibrated seasonal-dummy ADF while preserving the v1.43 MacKinnon-c result as historical reference. Deterministic seasonality is not a seasonal-unit-root test, and historical candidate periods are never merged with statistically estimated breaks. HEGY, Zivot-Andrews, residual LM, uncertainty intervals and SVAR are not active in v1.44.

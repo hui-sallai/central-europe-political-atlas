@@ -1,6 +1,6 @@
 {
-  "schema_version": "var-specification-profiles-v1.43",
-  "generated_at": "2026-08-27",
+  "schema_version": "var-specification-profiles-v1.44",
+  "generated_at": "2026-08-28",
   "profiles": [
     {
       "profile_id": "baseline_monthly_macro_v1",
@@ -63,7 +63,7 @@
         }
       ],
       "deterministic_terms": "constant_month_dummies",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
       "sample_policy": {
         "frequency": "monthly",
         "start_period": "2015-01",

@@ -42,6 +42,7 @@ const {
 const release = JSON.parse(fs.readFileSync(path.join(root, "src/data/release.json"), "utf8"));
 const hf = JSON.parse(fs.readFileSync(path.join(root, "src/data/high-frequency/high_frequency_observations.json"), "utf8"));
 const hfDictionary = JSON.parse(fs.readFileSync(path.join(root, "src/data/high-frequency/series_dictionary.json"), "utf8"));
+const seasonalAdfCalibration = JSON.parse(fs.readFileSync(path.join(root, "src/data/macro/seasonal_adf_critical_values.json"), "utf8"));
 const records = hf.records;
 const COUNTRIES = [...new Set(records.map((record) => record.country))].sort();
 const latestPeriodByCountry = new Map(COUNTRIES.map((country) => [
@@ -256,7 +257,7 @@ for (const country of COUNTRIES) {
 }
 
 const profilePayload = (profile, profileRecords) => ({
-  schema_version: "var-profile-readiness-v1.43",
+  schema_version: "var-profile-readiness-v1.44",
   generated_at: generatedAt,
   profile,
   estimable_countries: profileRecords.filter((record) => record.estimable).map((record) => record.country),
@@ -279,7 +280,7 @@ const horizonSummary = (payload) => ({
   dynamic_response_ready_24m_countries: payload.dynamic_response_ready_24m_countries,
 });
 const baselineComparison = {
-  schema_version: "var-baseline-profile-comparison-v1.43",
+  schema_version: "var-baseline-profile-comparison-v1.44",
   generated_at: generatedAt,
   comparison_boundary: "v1 与 v2 均为预注册正式基线；比较用于评估月份控制对残差季节结构和诊断充分性的影响，不用于结果择优。",
   records: COUNTRIES.map((country) => {
@@ -328,7 +329,7 @@ const seasonalityPolicy = {
   },
 };
 const seasonalityAudit = {
-  schema_version: "var-seasonality-audit-v1.43",
+  schema_version: "var-seasonality-audit-v1.44",
   generated_at: generatedAt,
   source_dictionary_schema: hfDictionary.schema_version,
   records: TIME_SERIES_TRANSFORMATION_REGISTRY.map((entry) => {
@@ -349,13 +350,13 @@ const seasonalityAudit = {
   }),
 };
 const lagDiagnosticPayload = {
-  schema_version: "var-lag-diagnostic-grid-v1.43",
+  schema_version: "var-lag-diagnostic-grid-v1.44",
   generated_at: generatedAt,
   baseline_policy: "BIC-selected lag remains the formal baseline. A higher diagnostically adequate alternative is exploratory and never replaces it silently.",
   records: modelRegistryRecords.map((entry) => ({ country: entry.result.country, profile_id: entry.profile_id, profile_kind: entry.profile_kind, rows: entry.result.lag_diagnostic_grid, diagnostic_lag_refinement: entry.result.diagnostic_lag_refinement })),
 };
 const combinedPayload = {
-  schema_version: "var-country-readiness-v1.43",
+  schema_version: "var-country-readiness-v1.44",
   generated_at: generatedAt,
   readiness_unit: "country x profile x variable set x sample window x transformation specification",
   interpretation_boundary: "estimable 只表示系数可估计；动态响应按视野门控：6/12 月要求主诊断 h=12，18 月还要求 h=18，24 月还要求 h=24。探索性 fallback 不得作为 baseline 跨国比较。",
@@ -379,7 +380,7 @@ const write = (name, payload, toPublic = false) => {
   if (toPublic) fs.writeFileSync(path.join(publicDir, name), JSON.stringify(payload));
 };
 
-write("var_specification_profiles.json", { schema_version: "var-specification-profiles-v1.43", generated_at: generatedAt, profiles: VAR_SPECIFICATION_PROFILES, exploratory_transformation_chains: EXPLORATORY_TRANSFORMATION_CHAINS }, true);
+write("var_specification_profiles.json", { schema_version: "var-specification-profiles-v1.44", generated_at: generatedAt, profiles: VAR_SPECIFICATION_PROFILES, exploratory_transformation_chains: EXPLORATORY_TRANSFORMATION_CHAINS }, true);
 write("transformation_registry.json", {
   schema_version: TRANSFORM_REGISTRY_VERSION,
   generated_at: generatedAt,
@@ -388,12 +389,13 @@ write("transformation_registry.json", {
   boundary: "正式 baseline 不做 transformation fallback。探索性 fallback 单独记录所有尝试；指数水平不能以 raw level 进入当前 VAR。",
 });
 write("stationarity_results.json", {
-  schema_version: "stationarity-results-v1.43",
+  schema_version: "stationarity-results-v1.44",
   engine_version: STATIONARITY_ENGINE_VERSION,
   generated_at: generatedAt,
   tests: {
     adf_constant: "augmented Dickey-Fuller with constant and AIC lag selection",
     adf_constant_seasonal_dummies: "zero-frequency ADF with constant, 11 monthly dummies (January reference), common-sample AIC lag selection and no pseudo-precise custom p-value",
+    adf_constant_seasonal_dummies_mc: "same seasonal-dummy tau regression with validated precomputed Monte Carlo finite-sample critical values and linear sample-size interpolation",
     seasonal_unit_root: SEASONAL_UNIT_ROOT_REGISTRY,
     kpss: kpssStatus(),
   },
@@ -402,7 +404,7 @@ write("stationarity_results.json", {
   records: stationarityRecords,
 }, true);
 write("lag_selection_registry.json", {
-  schema_version: "lag-selection-registry-v1.43",
+  schema_version: "lag-selection-registry-v1.44",
   generated_at: generatedAt,
   default_criterion: "bic",
   note: "候选滞后使用共同有效样本；最大滞后同时受请求值 12 和 (T-p)/(Kp+1)>=4 参数门约束。",
@@ -417,30 +419,66 @@ write("var_baseline_profile_comparison.json", baselineComparison, true);
 write("var_seasonality_audit.json", seasonalityAudit, true);
 write("var_lag_diagnostic_grid.json", lagDiagnosticPayload, true);
 write("stationarity_specification_registry.json", {
-  schema_version: "stationarity-specification-registry-v1.43",
+  schema_version: "stationarity-specification-registry-v1.44",
   generated_at: generatedAt,
   profile_mapping: VAR_SPECIFICATION_PROFILES.map((profile) => ({ profile_id: profile.profile_id, stationarity_specification_id: profile.stationarity_specification_id })),
   records: STATIONARITY_SPECIFICATION_REGISTRY,
 }, true);
 write("seasonal_stationarity_results.json", {
-  schema_version: "seasonal-stationarity-results-v1.43",
+  schema_version: "seasonal-stationarity-results-v1.44",
   generated_at: generatedAt,
   interpretation_boundary: "Deterministic seasonal controls test the zero-frequency unit root under a registered deterministic specification. They do not test seasonal roots; HEGY remains unavailable.",
-  records: stationarityRecords.filter((record) => record.stationarity_specification_id === "adf_constant_seasonal_dummies"),
+  records: stationarityRecords.filter((record) => record.stationarity_specification_id === "adf_constant_seasonal_dummies_mc"),
+}, true);
+write("seasonal_adf_critical_values.json", seasonalAdfCalibration, true);
+write("seasonal_adf_decision_comparison.json", {
+  schema_version: "seasonal-adf-decision-comparison-v1.44",
+  generated_at: generatedAt,
+  historical_reference: "v1.43 MacKinnon regression=c finite-sample critical values applied to the seasonal-dummy tau",
+  formal_v2_policy: "v1.44 exact-design Monte Carlo finite-sample critical values",
+  records: stationarityRecords
+    .filter((record) => record.stationarity_specification_id === "adf_constant_seasonal_dummies_mc")
+    .map((record) => ({
+      country: record.country,
+      indicator: record.indicator,
+      transformation: record.transformation,
+      profile: record.profile_id,
+      tau: record.adf.statistic,
+      mackinnon_5pct: record.legacy_seasonal_adf?.critical_values?.["5%"] ?? null,
+      mc_5pct: record.adf.critical_values["5%"],
+      mackinnon_decision: record.legacy_seasonal_adf?.status ?? "not_tested",
+      mc_decision: record.adf.status,
+      decision_changed: (record.legacy_seasonal_adf?.status ?? "not_tested") !== record.adf.status,
+      calibration: record.adf.calibration,
+    })),
+}, true);
+write("hegy_readiness_registry.json", {
+  schema_version: "hegy-readiness-registry-v1.44",
+  generated_at: generatedAt,
+  test_id: "hegy_monthly",
+  state: "not_available",
+  monthly_formula_status: "not_implemented",
+  critical_values_status: "not_validated",
+  deterministic_terms_status: "not_registered",
+  cross_language_validation_status: "not_available",
+  remaining_blockers: ["monthly HEGY formula implementation", "finite-sample critical-value policy", "deterministic-term registry", "independent cross-language fixture"],
+  interpretation_boundary: "ADF with deterministic month dummies tests a zero-frequency unit root under seasonal controls; it is not a seasonal-unit-root test.",
 }, true);
 write("structural_break_registry.json", {
-  schema_version: "structural-break-registry-v1.43",
+  schema_version: "structural-break-registry-v1.44",
   generated_at: generatedAt,
-  test_registry: [{ test_id: "zivot_andrews", state: "registry_only", reason: "A mature cross-language implementation and validated critical-value policy are not yet integrated." }],
-  candidate_periods: [
+  test_registry: [{ test_id: "zivot_andrews", state: "registry_only", reason: "The statsmodels reference exists, but a production implementation, exact specification alignment and cross-language fixture have not been integrated; it cannot override the formal ADF gate." }],
+  historical_candidate_periods: [
     { period: "2020-03", label: "COVID-19 historical reference", status: "candidate_only_not_estimated" },
     { period: "2021-07", label: "2021 H2 inflation-surge historical reference", status: "candidate_only_not_estimated" },
     { period: "2022-02", label: "Ukraine-war / energy-price-shock historical reference", status: "candidate_only_not_estimated" },
   ],
+  statistically_estimated_breaks: [],
+  separation_rule: "Historical candidate periods and statistically estimated breaks are never merged. Temporal proximity is not causal attribution.",
   records: COUNTRIES.flatMap((country) => VAR_SPECIFICATION_PROFILES.map((profile) => ({ country, profile_id: profile.profile_id, structural_break_status: "registry_only", decision_effect: "none", note: "Candidate dates are historical markers, not estimated statistical breaks." }))),
 }, true);
 write("persistence_diagnostics.json", {
-  schema_version: "persistence-diagnostics-v1.43",
+  schema_version: "persistence-diagnostics-v1.44",
   generated_at: generatedAt,
   interpretation_boundary: "ACF/PACF are descriptive and never select the model automatically. Lag-12 warnings do not confirm a seasonal unit root.",
   records: stationarityRecords.map((record) => ({
@@ -455,7 +493,7 @@ write("persistence_diagnostics.json", {
 }, true);
 write("var_country_readiness.json", combinedPayload, true);
 write("var_model_registry.json", {
-  schema_version: "var-model-registry-v1.43",
+  schema_version: "var-model-registry-v1.44",
   generated_at: generatedAt,
   note: "Baseline 与 exploratory 结果按 profile_kind 分开。只有 dynamic_response_ready 的结果包含 IRF；IRF 为依赖排序且无置信区间的正交化简化式点响应。",
   record_count: modelRegistryRecords.length,
@@ -464,7 +502,7 @@ write("var_model_registry.json", {
 
 const skillRegistryFile = path.join(root, "src/data/analysis/analysis_skill_registry.json");
 const skillRegistry = JSON.parse(fs.readFileSync(skillRegistryFile, "utf8"));
-skillRegistry.schema_version = "analysis-skill-registry-v1.43";
+skillRegistry.schema_version = "analysis-skill-registry-v1.44";
 skillRegistry.generated_at = generatedAt;
 const reducedFormSkill = skillRegistry.records.find((record) => record.skill_id === "reduced_form_var");
 if (reducedFormSkill) reducedFormSkill.gate = "formal baseline v1/v2 and exploratory fallback are separate; >=60 continuous monthly observations, profile-mapped ADF gate, common-sample BIC lag selection, parameter ratio >=4, companion-root stability and horizon-specific residual diagnostics";

@@ -4,7 +4,7 @@ Central Europe Political Atlas is a public political-economy research platform f
 
 Public site: https://hy-central-europe-analysis.org/
 
-Current release: **v1.43 Seasonality-Aware Stationarity & Structural-Break Diagnostics**
+Current release: **v1.44 Finite-Sample Stationarity Calibration & Break Robustness**
 
 ## Research scope
 
@@ -54,7 +54,7 @@ Machine-readable files are published under `/research-data/`. See [the research-
 
 ## Citation
 
-Central Europe Political Atlas, version v1.43 Seasonality-Aware Stationarity & Structural-Break Diagnostics, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
+Central Europe Political Atlas, version v1.44 Finite-Sample Stationarity Calibration & Break Robustness, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
 
 ## Official VAR reference environment
 

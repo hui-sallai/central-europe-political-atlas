@@ -37,7 +37,7 @@ export const BASELINE_VAR_PROFILE_V2: VarSpecificationProfile = {
   profile_id: "baseline_monthly_macro_v2_seasonal_controls",
   name: "月度宏观预设基准规格 v2（季节控制）",
   deterministic_terms: "constant_month_dummies",
-  stationarity_specification_id: "adf_constant_seasonal_dummies",
+  stationarity_specification_id: "adf_constant_seasonal_dummies_mc",
   interpretation_boundary: "与 v1 使用相同变量、变换、样本和 BIC 滞后政策；仅增加常数项与 11 个月份虚拟变量作为确定性控制。HICP 原始序列仍为 NSA，这不是官方季调。",
 };
 
@@ -89,7 +89,7 @@ export function profileVariables(profile: VarSpecificationProfile) {
 export function createVarComparabilitySignature(
   variables: Array<{ indicator: string; transformation: TransformationId }>,
   deterministicTerms: VarSpecificationProfile["deterministic_terms"] = "constant",
-  stationaritySpecificationId: VarSpecificationProfile["stationarity_specification_id"] = deterministicTerms === "constant_month_dummies" ? "adf_constant_seasonal_dummies" : "adf_constant",
+  stationaritySpecificationId: VarSpecificationProfile["stationarity_specification_id"] = deterministicTerms === "constant_month_dummies" ? "adf_constant_seasonal_dummies_mc" : "adf_constant",
 ): VarComparabilitySignature {
   const lagPolicy = "common_sample_bic_requested_max12_parameter_ratio4";
   const samplePolicy = "monthly_contiguous_from_2015-01_to_latest_country_observation";
@@ -102,6 +102,6 @@ export function createVarComparabilitySignature(
     stationarity_specification_id: stationaritySpecificationId,
     lag_policy: lagPolicy,
     sample_policy: samplePolicy,
-    signature_id: `varcmp-v1.43__${variableToken}__${deterministicTerms}__${stationaritySpecificationId}__${lagPolicy}__${samplePolicy}`,
+    signature_id: `varcmp-v1.44__${variableToken}__${deterministicTerms}__${stationaritySpecificationId}__${lagPolicy}__${samplePolicy}`,
   };
 }

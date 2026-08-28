@@ -6,8 +6,9 @@ import type {
   StationarityStatus,
 } from "@/types/MacroDynamics";
 import { inverse, matMul, normalCdf, transpose, zeros, type Matrix } from "@/lib/numericLinAlg";
+import seasonalAdfCalibration from "@/data/macro/seasonal_adf_critical_values.json";
 
-export const STATIONARITY_ENGINE_VERSION = "stationarity-engine-v1.43";
+export const STATIONARITY_ENGINE_VERSION = "stationarity-engine-v1.44";
 
 export const STATIONARITY_SPECIFICATION_REGISTRY = [
   {
@@ -21,12 +22,21 @@ export const STATIONARITY_SPECIFICATION_REGISTRY = [
   },
   {
     specification_id: "adf_constant_seasonal_dummies" as const,
-    state: "active",
+    state: "historical_reference",
     deterministic_terms: "constant_month_dummies",
     seasonal_dummies: 11,
     reference_month: "January",
     critical_value_policy: "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values are retained as the documented reference policy and independently checked against Python OLS fixtures",
     p_value_policy: "unavailable_for_custom_deterministic_specification",
+  },
+  {
+    specification_id: "adf_constant_seasonal_dummies_mc" as const,
+    state: "active",
+    deterministic_terms: "constant_month_dummies",
+    seasonal_dummies: 11,
+    reference_month: "January",
+    critical_value_policy: "precomputed Monte Carlo finite-sample critical values for the exact production seasonal-dummy ADF design; linear interpolation by input series length",
+    p_value_policy: "unavailable_without_full_empirical_null_cdf",
   },
   {
     specification_id: "adf_constant_trend" as const,
@@ -162,6 +172,7 @@ export function adfTest(values: number[], options: AdfOptions = {}): AdfTestResu
     p_value_policy: "MacKinnon 1994 regression=c response surface",
     lagged_level_coefficient: null,
     lagged_level_standard_error: null,
+    calibration: null,
     status: "not_tested",
   });
 
@@ -238,6 +249,7 @@ export function adfTest(values: number[], options: AdfOptions = {}): AdfTestResu
     p_value_policy: "MacKinnon 1994 regression=c response surface",
     lagged_level_coefficient: finalFit.coefficients[0],
     lagged_level_standard_error: finalFit.standardErrors[0],
+    calibration: null,
     status,
   };
 }
@@ -294,6 +306,7 @@ export function adfSeasonalDummyTest(values: number[], periods: string[], option
     p_value_policy: "unavailable_for_custom_deterministic_specification",
     lagged_level_coefficient: null,
     lagged_level_standard_error: null,
+    calibration: null,
     status: "not_tested",
   });
 
@@ -358,7 +371,70 @@ export function adfSeasonalDummyTest(values: number[], periods: string[], option
     p_value_policy: "unavailable_for_custom_deterministic_specification",
     lagged_level_coefficient: fit.coefficients[0],
     lagged_level_standard_error: fit.standardErrors[0],
+    calibration: null,
     status: classifyAdf(statistic, criticalValues),
+  };
+}
+
+type CalibrationRecord = (typeof seasonalAdfCalibration.records)[number];
+
+function interpolateSeasonalCriticalValues(seriesLength: number) {
+  const records = [...seasonalAdfCalibration.records].sort((a, b) => a.sample_size - b.sample_size);
+  let lower: CalibrationRecord = records[0];
+  let upper: CalibrationRecord = records[records.length - 1];
+  const exact = records.find((record) => record.sample_size === seriesLength);
+  if (exact) lower = upper = exact;
+  else if (seriesLength <= lower.sample_size) upper = lower;
+  else if (seriesLength >= upper.sample_size) lower = upper;
+  else {
+    for (let index = 1; index < records.length; index += 1) {
+      if (records[index].sample_size >= seriesLength) {
+        lower = records[index - 1];
+        upper = records[index];
+        break;
+      }
+    }
+  }
+  const weight = lower.sample_size === upper.sample_size ? 0 : (seriesLength - lower.sample_size) / (upper.sample_size - lower.sample_size);
+  const value = (key: "critical_1pct" | "critical_5pct" | "critical_10pct") => lower[key] + weight * (upper[key] - lower[key]);
+  return {
+    criticalValues: { "1%": value("critical_1pct"), "5%": value("critical_5pct"), "10%": value("critical_10pct") },
+    lower,
+    upper,
+    weight,
+  };
+}
+
+/**
+ * Production seasonal-dummy ADF with validated, finite-sample Monte Carlo
+ * critical values. The tau regression remains identical to the v1.43 reference
+ * implementation; only the registered decision rule changes. No empirical
+ * p-value is published because the complete null CDF is not retained.
+ */
+export function adfSeasonalDummyMonteCarloTest(values: number[], periods: string[], options: AdfOptions = {}): AdfTestResult {
+  if (seasonalAdfCalibration.state !== "active_after_validation") throw new Error("seasonal ADF calibration is not validated for active use");
+  const historical = adfSeasonalDummyTest(values, periods, options);
+  const { criticalValues, lower, upper, weight } = interpolateSeasonalCriticalValues(values.length);
+  return {
+    ...historical,
+    p_value: null,
+    critical_values: criticalValues,
+    critical_value_policy: "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+    p_value_policy: "unavailable_without_full_empirical_null_cdf",
+    calibration: {
+      specification_id: "adf_constant_seasonal_dummies_mc",
+      sample_size_basis: "input_series_length_before_adf_lag_loss",
+      requested_sample_size: values.length,
+      calibration_n_lower: lower.sample_size,
+      calibration_n_upper: upper.sample_size,
+      interpolation_weight: weight,
+      interpolation_policy: seasonalAdfCalibration.interpolation_policy,
+      replications_lower: lower.replications,
+      replications_upper: upper.replications,
+      generator_version: seasonalAdfCalibration.provenance.generator_version,
+      source_commit: seasonalAdfCalibration.provenance.source_commit,
+    },
+    status: Number.isFinite(historical.statistic) ? classifyAdf(historical.statistic, criticalValues) : "not_tested",
   };
 }
 
@@ -390,12 +466,15 @@ export function persistenceDiagnostics(values: number[], maxLag = 24): Persisten
     previous = current;
   }
   const lag12 = applied >= 12 && Number.isFinite(acfValues[12]) ? acfValues[12] : null;
+  const band = 1.96 / Math.sqrt(n);
   return {
+    nobs: n,
     max_lag: applied,
     acf: acfValues.map((value, lag) => ({ lag, value })),
     pacf: pacfValues.map((value, lag) => ({ lag, value })),
     seasonal_lag_12_autocorrelation: lag12,
     seasonal_persistence_warning: lag12 !== null && Math.abs(lag12) >= 0.3,
+    approximate_significance_band_95: { lower: -band, upper: band, formula: "plus_minus_1.96_over_sqrt_n" },
     interpretation_boundary: "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root.",
   };
 }

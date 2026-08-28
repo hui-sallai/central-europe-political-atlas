@@ -1,6 +1,6 @@
 {
-  "schema_version": "persistence-diagnostics-v1.43",
-  "generated_at": "2026-08-27",
+  "schema_version": "persistence-diagnostics-v1.44",
+  "generated_at": "2026-08-28",
   "interpretation_boundary": "ACF/PACF are descriptive and never select the model automatically. Lag-12 warnings do not confirm a seasonal unit root.",
   "records": [
     {
@@ -10,6 +10,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -217,6 +218,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.5386712876163734,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -226,6 +232,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -433,6 +440,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.0013315509707656319,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -442,6 +454,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -649,6 +662,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.054143885610816636,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -657,7 +675,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -865,6 +884,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.5386712876163734,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -873,7 +897,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -1081,6 +1106,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.0013315509707656319,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -1089,7 +1119,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -1297,6 +1328,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.054143885610816636,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -1306,6 +1342,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -1513,6 +1550,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.5386712876163734,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -1522,6 +1564,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -1729,6 +1772,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.0013315509707656319,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -1738,6 +1786,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -1945,6 +1994,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.054143885610816636,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -1954,6 +2008,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference_12",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 126,
       "max_lag": 24,
       "acf": [
         {
@@ -2161,6 +2216,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.37202154134810994,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.1746106780494506,
+        "upper": 0.1746106780494506,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -2170,6 +2230,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 126,
       "max_lag": 24,
       "acf": [
         {
@@ -2377,6 +2438,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.0002484713435932104,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.1746106780494506,
+        "upper": 0.1746106780494506,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -2386,6 +2452,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 126,
       "max_lag": 24,
       "acf": [
         {
@@ -2593,6 +2660,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.035374630870976184,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.1746106780494506,
+        "upper": 0.1746106780494506,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -2602,6 +2674,7 @@
       "indicator": "hicp_annual_rate",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -2809,6 +2882,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.4109733847953247,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -2818,6 +2896,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -3025,6 +3104,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.0013315509707656319,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -3034,6 +3118,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -3241,6 +3326,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.054143885610816636,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -3250,6 +3340,7 @@
       "indicator": "hicp_annual_rate",
       "transformation": "first_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -3457,6 +3548,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.3572503297729655,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -3466,6 +3562,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -3673,6 +3770,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.0013315509707656319,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -3682,6 +3784,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -3889,6 +3992,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.054143885610816636,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -3898,6 +4006,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -4105,6 +4214,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.5285102816856017,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -4114,6 +4228,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -4321,6 +4436,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.015529791288352815,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -4330,6 +4450,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -4537,6 +4658,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.6022823694339047,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -4545,7 +4671,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -4753,6 +4880,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.5285102816856017,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -4761,7 +4893,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -4969,6 +5102,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.015529791288352815,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -4977,7 +5115,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -5185,6 +5324,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.6022823694339047,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -5194,6 +5338,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -5401,6 +5546,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.5285102816856017,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -5410,6 +5560,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -5617,6 +5768,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.015529791288352815,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -5626,6 +5782,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -5833,6 +5990,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.6022823694339047,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -5842,6 +6004,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference_12",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 126,
       "max_lag": 24,
       "acf": [
         {
@@ -6049,6 +6212,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.45825104185939486,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.1746106780494506,
+        "upper": 0.1746106780494506,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -6058,6 +6226,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 126,
       "max_lag": 24,
       "acf": [
         {
@@ -6265,6 +6434,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.008116729410494492,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.1746106780494506,
+        "upper": 0.1746106780494506,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -6274,6 +6448,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 126,
       "max_lag": 24,
       "acf": [
         {
@@ -6481,6 +6656,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.529070625559879,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.1746106780494506,
+        "upper": 0.1746106780494506,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -6490,6 +6670,7 @@
       "indicator": "hicp_annual_rate",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -6697,6 +6878,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.5041855912711573,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -6706,6 +6892,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -6913,6 +7100,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.015529791288352815,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -6922,6 +7114,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -7129,6 +7322,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.6022823694339047,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -7138,6 +7336,7 @@
       "indicator": "hicp_annual_rate",
       "transformation": "first_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -7345,6 +7544,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.2743869340928651,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -7354,6 +7558,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -7561,6 +7766,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.015529791288352815,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -7570,6 +7780,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -7777,6 +7988,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.6022823694339047,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -7786,6 +8002,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -7993,6 +8210,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.5155712671504374,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -8002,6 +8224,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -8209,6 +8432,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.1475030296650977,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -8218,6 +8446,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -8425,6 +8654,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.3925842231044142,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -8433,7 +8667,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -8641,6 +8876,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.5155712671504374,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -8649,7 +8889,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -8857,6 +9098,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.1475030296650977,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -8865,7 +9111,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -9073,6 +9320,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.3925842231044142,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -9082,6 +9334,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -9289,6 +9542,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.5155712671504374,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -9298,6 +9556,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -9505,6 +9764,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.1475030296650977,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -9514,6 +9778,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -9721,6 +9986,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.3925842231044142,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -9730,6 +10000,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference_12",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 126,
       "max_lag": 24,
       "acf": [
         {
@@ -9937,6 +10208,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.31089163792064467,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.1746106780494506,
+        "upper": 0.1746106780494506,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -9946,6 +10222,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 126,
       "max_lag": 24,
       "acf": [
         {
@@ -10153,6 +10430,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.14865663264629073,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.1746106780494506,
+        "upper": 0.1746106780494506,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -10162,6 +10444,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 126,
       "max_lag": 24,
       "acf": [
         {
@@ -10369,6 +10652,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.14503555012577454,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.1746106780494506,
+        "upper": 0.1746106780494506,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -10378,6 +10666,7 @@
       "indicator": "hicp_annual_rate",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -10585,6 +10874,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.3454017419354294,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -10594,6 +10888,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -10801,6 +11096,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.1475030296650977,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -10810,6 +11110,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -11017,6 +11318,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.3925842231044142,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -11026,6 +11332,7 @@
       "indicator": "hicp_annual_rate",
       "transformation": "first_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -11233,6 +11540,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.30105397261878714,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -11242,6 +11554,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -11449,6 +11762,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.1475030296650977,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -11458,6 +11776,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -11665,6 +11984,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.3925842231044142,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -11674,6 +11998,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -11881,6 +12206,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.43655619981293214,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -11890,6 +12220,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -12097,6 +12428,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.025795210902232253,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -12106,6 +12442,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -12313,6 +12650,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.31045057057254416,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -12321,7 +12663,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -12529,6 +12872,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.43655619981293214,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -12537,7 +12885,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -12745,6 +13094,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.025795210902232253,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -12753,7 +13107,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -12961,6 +13316,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.31045057057254416,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -12970,6 +13330,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -13177,6 +13538,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.43655619981293214,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -13186,6 +13552,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -13393,6 +13760,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.025795210902232253,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -13402,6 +13774,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -13609,6 +13982,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.31045057057254416,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -13618,6 +13996,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference_12",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 126,
       "max_lag": 24,
       "acf": [
         {
@@ -13825,6 +14204,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.3466361993892642,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.1746106780494506,
+        "upper": 0.1746106780494506,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -13834,6 +14218,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 126,
       "max_lag": 24,
       "acf": [
         {
@@ -14041,6 +14426,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.021166358814547415,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.1746106780494506,
+        "upper": 0.1746106780494506,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -14050,6 +14440,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 126,
       "max_lag": 24,
       "acf": [
         {
@@ -14257,6 +14648,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.1370610098550341,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.1746106780494506,
+        "upper": 0.1746106780494506,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -14266,6 +14662,7 @@
       "indicator": "hicp_annual_rate",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -14473,6 +14870,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.38530043146822884,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -14482,6 +14884,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -14689,6 +15092,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.025795210902232253,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -14698,6 +15106,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -14905,6 +15314,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.31045057057254416,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -14914,6 +15328,7 @@
       "indicator": "hicp_annual_rate",
       "transformation": "first_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -15121,6 +15536,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.31338296985406294,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -15130,6 +15550,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -15337,6 +15758,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.025795210902232253,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -15346,6 +15772,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -15553,6 +15980,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.31045057057254416,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -15562,6 +15994,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -15769,6 +16202,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.14427284824365422,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -15778,6 +16216,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -15985,6 +16424,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.013965183303782176,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -15994,6 +16438,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -16201,6 +16646,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.31312059282912075,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -16209,7 +16659,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -16417,6 +16868,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.14427284824365422,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -16425,7 +16881,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -16633,6 +17090,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.013965183303782176,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -16641,7 +17103,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -16849,6 +17312,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.31312059282912075,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -16858,6 +17326,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -17065,6 +17534,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.14427284824365422,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -17074,6 +17548,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -17281,6 +17756,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.013965183303782176,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -17290,6 +17770,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -17497,6 +17978,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.31312059282912075,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -17506,6 +17992,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference_12",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 126,
       "max_lag": 24,
       "acf": [
         {
@@ -17713,6 +18200,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.2442772513336386,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.1746106780494506,
+        "upper": 0.1746106780494506,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -17722,6 +18214,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 126,
       "max_lag": 24,
       "acf": [
         {
@@ -17929,6 +18422,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.022981731667445028,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.1746106780494506,
+        "upper": 0.1746106780494506,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -17938,6 +18436,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 126,
       "max_lag": 24,
       "acf": [
         {
@@ -18145,6 +18644,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.21153958985426266,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.1746106780494506,
+        "upper": 0.1746106780494506,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -18154,6 +18658,7 @@
       "indicator": "hicp_annual_rate",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -18361,6 +18866,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.2788413099859047,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -18370,6 +18880,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -18577,6 +19088,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.013965183303782176,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -18586,6 +19102,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -18793,6 +19310,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.31312059282912075,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -18802,6 +19324,7 @@
       "indicator": "hicp_annual_rate",
       "transformation": "first_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -19009,6 +19532,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.4391582341705561,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -19018,6 +19546,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -19225,6 +19754,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.013965183303782176,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -19234,6 +19768,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -19441,6 +19976,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.31312059282912075,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -19450,6 +19990,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -19657,6 +20198,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.3326610197620174,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -19666,6 +20212,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -19873,6 +20420,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.06605360033460805,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -19882,6 +20434,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -20089,6 +20642,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.602945327793274,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -20097,7 +20655,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -20305,6 +20864,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.3326610197620174,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -20313,7 +20877,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -20521,6 +21086,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.06605360033460805,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -20529,7 +21099,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -20737,6 +21308,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.602945327793274,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -20746,6 +21322,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -20953,6 +21530,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.3326610197620174,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -20962,6 +21544,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -21169,6 +21752,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.06605360033460805,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -21178,6 +21766,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -21385,6 +21974,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.602945327793274,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -21394,6 +21988,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -21601,6 +22196,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.2901776204188878,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -21610,6 +22210,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -21817,6 +22418,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.0753597376532328,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -21826,6 +22432,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -22033,6 +22640,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.3886128716857551,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -22041,7 +22653,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -22249,6 +22862,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.2901776204188878,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -22257,7 +22875,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -22465,6 +23084,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.0753597376532328,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -22473,7 +23097,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -22681,6 +23306,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.3886128716857551,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -22690,6 +23320,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -22897,6 +23528,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.2901776204188878,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -22906,6 +23542,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -23113,6 +23750,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.0753597376532328,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -23122,6 +23764,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -23329,6 +23972,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.3886128716857551,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -23338,6 +23986,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -23545,6 +24194,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.46230282485076774,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -23554,6 +24208,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -23761,6 +24416,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.03934081009425978,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -23770,6 +24430,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -23977,6 +24638,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.5656162782277814,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -23985,7 +24651,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -24193,6 +24860,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.46230282485076774,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -24201,7 +24873,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -24409,6 +25082,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.03934081009425978,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -24417,7 +25095,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -24625,6 +25304,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.5656162782277814,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -24634,6 +25318,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -24841,6 +25526,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.46230282485076774,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -24850,6 +25540,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -25057,6 +25748,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.03934081009425978,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -25066,6 +25762,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -25273,6 +25970,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.5656162782277814,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -25282,6 +25984,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference_12",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 126,
       "max_lag": 24,
       "acf": [
         {
@@ -25489,6 +26192,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.3455514114773522,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.1746106780494506,
+        "upper": 0.1746106780494506,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -25498,6 +26206,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 126,
       "max_lag": 24,
       "acf": [
         {
@@ -25705,6 +26414,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.0045649665760010075,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.1746106780494506,
+        "upper": 0.1746106780494506,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -25714,6 +26428,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 126,
       "max_lag": 24,
       "acf": [
         {
@@ -25921,6 +26636,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.46041567818569035,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.1746106780494506,
+        "upper": 0.1746106780494506,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -25930,6 +26650,7 @@
       "indicator": "hicp_annual_rate",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -26137,6 +26858,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.408978888940304,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -26146,6 +26872,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -26353,6 +27080,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.03934081009425978,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -26362,6 +27094,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -26569,6 +27302,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.5656162782277814,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -26578,6 +27316,7 @@
       "indicator": "hicp_annual_rate",
       "transformation": "first_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -26785,6 +27524,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.2759074298202439,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -26794,6 +27538,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -27001,6 +27746,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.03934081009425978,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -27010,6 +27760,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -27217,6 +27968,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.5656162782277814,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -27226,6 +27982,7 @@
       "indicator": "hicp_annual_rate",
       "transformation": "first_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -27433,6 +28190,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.2759074298202439,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -27442,6 +28204,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -27649,6 +28412,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.03934081009425978,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -27658,6 +28426,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "first_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -27865,6 +28634,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.2584654078692481,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -27874,6 +28648,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -28081,6 +28856,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.3690466468281178,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -28090,6 +28870,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -28297,6 +29078,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.11450857101724939,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -28306,6 +29092,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -28513,6 +29300,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.6399564807334857,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -28521,7 +29313,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -28729,6 +29522,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.3690466468281178,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -28737,7 +29535,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -28945,6 +29744,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.11450857101724939,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -28953,7 +29757,8 @@
       "profile_kind": "baseline_prespecified",
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies",
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -29161,6 +29966,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.6399564807334857,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -29170,6 +29980,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -29377,6 +30188,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.3690466468281178,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -29386,6 +30202,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -29593,6 +30410,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.11450857101724939,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -29602,6 +30424,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -29809,6 +30632,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.6399564807334857,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -29818,6 +30646,7 @@
       "indicator": "hicp_monthly_index",
       "transformation": "log_difference_12",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 126,
       "max_lag": 24,
       "acf": [
         {
@@ -30025,6 +30854,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.29797695716877887,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.1746106780494506,
+        "upper": 0.1746106780494506,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -30034,6 +30868,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 126,
       "max_lag": 24,
       "acf": [
         {
@@ -30241,6 +31076,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.10106831452907958,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.1746106780494506,
+        "upper": 0.1746106780494506,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -30250,6 +31090,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 126,
       "max_lag": 24,
       "acf": [
         {
@@ -30457,6 +31298,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.5243405653473625,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.1746106780494506,
+        "upper": 0.1746106780494506,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -30466,6 +31312,7 @@
       "indicator": "hicp_annual_rate",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -30673,6 +31520,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.3523349179892422,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -30682,6 +31534,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -30889,6 +31742,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.11450857101724939,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -30898,6 +31756,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -31105,6 +31964,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.6399564807334857,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -31114,6 +31978,7 @@
       "indicator": "hicp_annual_rate",
       "transformation": "first_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -31321,6 +32186,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.42035359441500797,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -31330,6 +32200,7 @@
       "indicator": "industrial_production_index",
       "transformation": "log_difference",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -31537,6 +32408,11 @@
       ],
       "seasonal_lag_12_autocorrelation": -0.11450857101724939,
       "seasonal_persistence_warning": false,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     },
     {
@@ -31546,6 +32422,7 @@
       "indicator": "unemployment_rate_monthly",
       "transformation": "level",
       "stationarity_specification_id": "adf_constant",
+      "nobs": 137,
       "max_lag": 24,
       "acf": [
         {
@@ -31753,6 +32630,11 @@
       ],
       "seasonal_lag_12_autocorrelation": 0.6399564807334857,
       "seasonal_persistence_warning": true,
+      "approximate_significance_band_95": {
+        "lower": -0.16745410091248514,
+        "upper": 0.16745410091248514,
+        "formula": "plus_minus_1.96_over_sqrt_n"
+      },
       "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
     }
   ]

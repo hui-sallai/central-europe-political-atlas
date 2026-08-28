@@ -1,6 +1,6 @@
 {
-  "schema_version": "lag-selection-registry-v1.43",
-  "generated_at": "2026-08-27",
+  "schema_version": "lag-selection-registry-v1.44",
+  "generated_at": "2026-08-28",
   "default_criterion": "bic",
   "note": "候选滞后使用共同有效样本；最大滞后同时受请求值 12 和 (T-p)/(Kp+1)>=4 参数门约束。",
   "record_count": 10,
@@ -25,7 +25,7 @@
         "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.43__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.44__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "criterion": "bic",
       "requested_max_lag": 12,
@@ -133,10 +133,10 @@
         ],
         "frequency": "monthly",
         "deterministic_terms": "constant_month_dummies",
-        "stationarity_specification_id": "adf_constant_seasonal_dummies",
+        "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies_mc__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "criterion": "bic",
       "requested_max_lag": 12,
@@ -247,7 +247,7 @@
         "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.43__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.44__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "criterion": "bic",
       "requested_max_lag": 12,
@@ -355,10 +355,10 @@
         ],
         "frequency": "monthly",
         "deterministic_terms": "constant_month_dummies",
-        "stationarity_specification_id": "adf_constant_seasonal_dummies",
+        "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies_mc__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "criterion": "bic",
       "requested_max_lag": 12,
@@ -466,10 +466,10 @@
         ],
         "frequency": "monthly",
         "deterministic_terms": "constant_month_dummies",
-        "stationarity_specification_id": "adf_constant_seasonal_dummies",
+        "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies_mc__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "criterion": "bic",
       "requested_max_lag": 12,
@@ -580,7 +580,7 @@
         "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "criterion": "bic",
       "requested_max_lag": 12,
@@ -691,7 +691,7 @@
         "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "criterion": "bic",
       "requested_max_lag": 12,
@@ -802,7 +802,7 @@
         "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "criterion": "bic",
       "requested_max_lag": 12,
@@ -913,7 +913,7 @@
         "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "criterion": "bic",
       "requested_max_lag": 12,
@@ -1024,7 +1024,7 @@
         "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.43__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.44__hicp_annual_rate:first_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "criterion": "bic",
       "requested_max_lag": 12,

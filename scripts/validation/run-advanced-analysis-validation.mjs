@@ -357,13 +357,14 @@ const withOverlap = attachOverlappingEvents(windowResult, [
 ]);
 check(withOverlap.overlapping_events.length === 1 && withOverlap.overlapping_events[0].event_id === "ev-other" && withOverlap.overlapping_event_warning !== null, "Overlapping-event detection failed.", "event");
 
-// ---- Reduced-form VAR / macro-dynamics validation (v1.43) ----
+// ---- Reduced-form VAR / macro-dynamics validation (v1.44) ----
 const { estimateVarModel, selectVarLagOrder, varStability, portmanteauTest, orthogonalizedIrf, runReducedFormVar, isValidMonthPeriod, maximumAllowedVarLag, dynamicResponseHorizonEligibility } = require("../../src/lib/varEngine.ts");
-const { adfSeasonalDummyTest, adfTest, kpssStatus, persistenceDiagnostics, STATIONARITY_SPECIFICATION_REGISTRY } = require("../../src/lib/stationarityTests.ts");
+const { adfSeasonalDummyMonteCarloTest, adfSeasonalDummyTest, adfTest, kpssStatus, persistenceDiagnostics, STATIONARITY_SPECIFICATION_REGISTRY } = require("../../src/lib/stationarityTests.ts");
 const { applyTransformation } = require("../../src/lib/timeSeriesTransforms.ts");
 const { eigenvalues, normalCdf, chiSquareCdf } = require("../../src/lib/numericLinAlg.ts");
 const { BASELINE_VAR_PROFILE, BASELINE_VAR_PROFILE_V2, EXPLORATORY_VAR_PROFILE, createVarComparabilitySignature } = require("../../src/lib/varSpecifications.ts");
 const varReferencePayload = JSON.parse(fs.readFileSync(path.join(root, "src/data/analysis/var_reference_cases.json"), "utf8"));
+const seasonalCalibration = JSON.parse(fs.readFileSync(path.join(root, "src/data/macro/seasonal_adf_critical_values.json"), "utf8"));
 const varRef = varReferencePayload.cases;
 
 check(varReferencePayload.schema_version === "var-reference-cases-v1.43" && varReferencePayload.provenance?.generator_version === "var-reference-generator-v1.43", "VAR reference provenance version is missing.", "var");
@@ -371,8 +372,11 @@ check(["python_version", "numpy_version", "scipy_version", "statsmodels_version"
 check(varReferencePayload.provenance?.seeds?.var_simulation === 42 && varReferencePayload.provenance?.seeds?.random_walk === 7 && varReferencePayload.provenance?.seeds?.seasonal_adf === 143, "VAR reference seeds are not pinned.", "var");
 check(BASELINE_VAR_PROFILE.fallback_policy === "none" && EXPLORATORY_VAR_PROFILE.fallback_policy === "documented_exploratory_chain", "Baseline/exploratory profile boundary failed.", "var");
 check(BASELINE_VAR_PROFILE.deterministic_terms === "constant" && BASELINE_VAR_PROFILE_V2.deterministic_terms === "constant_month_dummies" && EXPLORATORY_VAR_PROFILE.deterministic_terms === "constant", "Registered deterministic profiles are incorrect.", "var");
-check(BASELINE_VAR_PROFILE.stationarity_specification_id === "adf_constant" && BASELINE_VAR_PROFILE_V2.stationarity_specification_id === "adf_constant_seasonal_dummies" && EXPLORATORY_VAR_PROFILE.stationarity_specification_id === "adf_constant", "Profile-to-stationarity mapping is incorrect.", "var");
-check(STATIONARITY_SPECIFICATION_REGISTRY.some((item) => item.specification_id === "adf_constant_seasonal_dummies" && item.state === "active") && STATIONARITY_SPECIFICATION_REGISTRY.some((item) => item.specification_id === "adf_constant_trend" && item.state === "registry_only"), "Stationarity specification registry is incomplete.", "var");
+check(BASELINE_VAR_PROFILE.stationarity_specification_id === "adf_constant" && BASELINE_VAR_PROFILE_V2.stationarity_specification_id === "adf_constant_seasonal_dummies_mc" && EXPLORATORY_VAR_PROFILE.stationarity_specification_id === "adf_constant", "Profile-to-stationarity mapping is incorrect.", "var");
+check(STATIONARITY_SPECIFICATION_REGISTRY.some((item) => item.specification_id === "adf_constant_seasonal_dummies" && item.state === "historical_reference") && STATIONARITY_SPECIFICATION_REGISTRY.some((item) => item.specification_id === "adf_constant_seasonal_dummies_mc" && item.state === "active") && STATIONARITY_SPECIFICATION_REGISTRY.some((item) => item.specification_id === "adf_constant_trend" && item.state === "registry_only"), "Stationarity specification registry is incomplete.", "var");
+check(seasonalCalibration.schema_version === "seasonal-adf-critical-values-v1.44" && seasonalCalibration.state === "active_after_validation", "Seasonal ADF finite-sample calibration is not validated for active use.", "var");
+check(seasonalCalibration.records.length === 9 && seasonalCalibration.records.every((item) => item.replications >= 50_000) && seasonalCalibration.sample_size_grid.join(",") === "96,108,120,126,132,138,144,156,168", "Seasonal ADF calibration grid or replication count is incomplete.", "var");
+check(seasonalCalibration.validation.same_seed_reproducible && seasonalCalibration.validation.different_seed_within_mc_tolerance && seasonalCalibration.validation.null_size_test.passed && seasonalCalibration.validation.stationary_ar_power_sanity.passed, "Seasonal ADF Monte Carlo reproducibility/size/power validation failed.", "var");
 const signatureA = createVarComparabilitySignature(BASELINE_VAR_PROFILE.variables);
 const signatureB = createVarComparabilitySignature(BASELINE_VAR_PROFILE.variables);
 const signatureC = createVarComparabilitySignature(BASELINE_VAR_PROFILE.variables.map((item, index) => index === 0 ? { ...item, transformation: "log_difference_12" } : item));
@@ -394,7 +398,14 @@ check(horizonGateFixture[6] && horizonGateFixture[12] && !horizonGateFixture[18]
   check(actual.p_value === null && actual.p_value_policy === "unavailable_for_custom_deterministic_specification", "Seasonal ADF must not publish a pseudo-precise MacKinnon p-value.", "var");
   check(reference.expected.seasonal_dummy_rejects_at_5pct && reference.expected.seasonal_tau_more_negative_than_constant && actual.status === "stationary", "Synthetic deterministic-seasonality fixture did not demonstrate the registered seasonal-control decision.", "var");
   const persistence = persistenceDiagnostics(reference.data, 24);
-  check(persistence.acf.length === 25 && persistence.pacf.length === 25 && persistence.seasonal_lag_12_autocorrelation !== null, "ACF/PACF persistence diagnostics are incomplete.", "var");
+  check(persistence.acf.length === 25 && persistence.pacf.length === 25 && persistence.seasonal_lag_12_autocorrelation !== null && persistence.approximate_significance_band_95.formula === "plus_minus_1.96_over_sqrt_n", "ACF/PACF persistence diagnostics are incomplete.", "var");
+
+  const calibrated = adfSeasonalDummyMonteCarloTest(reference.data, reference.periods, { autolag: "aic" });
+  check(calibrated.statistic === actual.statistic && calibrated.used_lag === actual.used_lag && calibrated.p_value === null, "Calibrated seasonal ADF changed the validated production tau regression or published a pseudo p-value.", "var");
+  check(calibrated.calibration?.calibration_n_lower === 168 && calibrated.calibration?.calibration_n_upper === 168 && calibrated.p_value_policy === "unavailable_without_full_empirical_null_cdf", "Seasonal ADF endpoint calibration provenance is incorrect.", "var");
+  const exactGrid = adfSeasonalDummyMonteCarloTest(reference.data.slice(0, 126), reference.periods.slice(0, 126), { autolag: "aic" });
+  const grid126 = seasonalCalibration.records.find((item) => item.sample_size === 126);
+  check(exactGrid.calibration?.interpolation_weight === 0 && Math.abs(exactGrid.critical_values["5%"] - grid126.critical_5pct) < 1e-12, "Seasonal ADF exact-grid lookup failed.", "var");
 }
 
 // Canonical source-adjustment metadata must not regress from NSA / SA / SCA.
@@ -406,13 +417,19 @@ check(horizonGateFixture[6] && horizonGateFixture[12] && !horizonGateFixture[18]
   check(byIndicator.get("unemployment_rate_monthly")?.seasonal_adjustment === "SA", "Unemployment source adjustment must remain SA.", "var");
 }
 
-// v1.42 historical baseline-v1 output is frozen: v1.43 may only change baseline v2 through its registered stationarity specification.
+// v1.42 historical baseline-v1 output is frozen: v1.44 may only change baseline v2 through its registered calibrated specification.
 {
   const baselineV1 = JSON.parse(fs.readFileSync(path.join(root, "src/data/macro/var_baseline_v1_readiness.json"), "utf8"));
   const baselineV2 = JSON.parse(fs.readFileSync(path.join(root, "src/data/macro/var_baseline_v2_readiness.json"), "utf8"));
   check(baselineV1.estimable_countries.join(",") === "poland,romania" && baselineV1.dynamic_response_ready_countries.length === 0, "Baseline v1 historical readiness changed unexpectedly.", "var");
   check(baselineV1.records.every((item) => item.stationarity_detail.every((entry) => entry.stationarity_specification_id === "adf_constant")), "Baseline v1 stationarity mapping changed.", "var");
-  check(baselineV2.records.every((item) => item.stationarity_detail.every((entry) => entry.stationarity_specification_id === "adf_constant_seasonal_dummies")), "Baseline v2 did not use the registered seasonality-aware gate.", "var");
+  check(baselineV2.records.every((item) => item.stationarity_detail.every((entry) => entry.stationarity_specification_id === "adf_constant_seasonal_dummies_mc" && entry.adf.calibration && entry.legacy_seasonal_adf)), "Baseline v2 did not use the calibrated seasonal ADF while preserving the historical reference.", "var");
+  const decisionComparison = JSON.parse(fs.readFileSync(path.join(root, "src/data/macro/seasonal_adf_decision_comparison.json"), "utf8"));
+  check(decisionComparison.records.length > 0 && decisionComparison.records.every((item) => typeof item.decision_changed === "boolean" && item.mc_5pct !== null && item.mackinnon_5pct !== null), "MacKinnon vs calibrated decision comparison is incomplete.", "var");
+  const hegy = JSON.parse(fs.readFileSync(path.join(root, "src/data/macro/hegy_readiness_registry.json"), "utf8"));
+  const breaks = JSON.parse(fs.readFileSync(path.join(root, "src/data/macro/structural_break_registry.json"), "utf8"));
+  check(hegy.state === "not_available" && hegy.remaining_blockers.length >= 4, "HEGY boundary was overstated.", "var");
+  check(Array.isArray(breaks.historical_candidate_periods) && Array.isArray(breaks.statistically_estimated_breaks) && breaks.statistically_estimated_breaks.length === 0 && breaks.test_registry[0].state === "registry_only", "Historical markers and statistical breaks are not separated.", "var");
 }
 
 // Seasonal deterministic controls vs statsmodels VAR(endog, exog=11 month dummies).

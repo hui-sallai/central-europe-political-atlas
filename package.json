@@ -14,6 +14,7 @@
     "analysis:validate": "node scripts/validation/run-advanced-analysis-validation.mjs",
     "macro:build": "node scripts/macro/build-var-readiness.mjs",
     "var:reference": "python scripts/validation/generate-var-reference.py",
+    "var:calibrate-seasonal-adf": "python scripts/validation/generate-seasonal-adf-calibration.py",
     "ui-language:qa": "node scripts/validation/run-ui-language-qa.mjs",
     "events:build": "node scripts/events/build-event-registries.mjs",
     "hf:acquire": "node scripts/acquire-eurostat-monthly.mjs",

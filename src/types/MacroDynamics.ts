@@ -1,6 +1,6 @@
 import type { ValueSemantics } from "./EventWindow";
 
-/** Supported time-series transformations (v1.43). */
+/** Supported time-series transformations (v1.44). */
 export type TransformationId = "level" | "first_difference" | "log_difference" | "log_difference_12";
 
 export interface TimeSeriesTransformationSpec {
@@ -28,6 +28,7 @@ export type StationarityStatus = "stationary" | "non_stationary" | "borderline" 
 export type StationaritySpecificationId =
   | "adf_constant"
   | "adf_constant_seasonal_dummies"
+  | "adf_constant_seasonal_dummies_mc"
   | "adf_constant_trend";
 
 export type StationarityDecision =
@@ -56,15 +57,30 @@ export interface AdfTestResult {
   p_value_policy: string;
   lagged_level_coefficient: number | null;
   lagged_level_standard_error: number | null;
+  calibration: {
+    specification_id: "adf_constant_seasonal_dummies_mc";
+    sample_size_basis: "input_series_length_before_adf_lag_loss";
+    requested_sample_size: number;
+    calibration_n_lower: number;
+    calibration_n_upper: number;
+    interpolation_weight: number;
+    interpolation_policy: string;
+    replications_lower: number;
+    replications_upper: number;
+    generator_version: string;
+    source_commit: string;
+  } | null;
   status: StationarityStatus;
 }
 
 export interface PersistenceDiagnostics {
+  nobs: number;
   max_lag: number;
   acf: Array<{ lag: number; value: number }>;
   pacf: Array<{ lag: number; value: number }>;
   seasonal_lag_12_autocorrelation: number | null;
   seasonal_persistence_warning: boolean;
+  approximate_significance_band_95: { lower: number; upper: number; formula: "plus_minus_1.96_over_sqrt_n" };
   interpretation_boundary: string;
 }
 
@@ -75,6 +91,7 @@ export interface StationarityEvidence {
   formal_decision: StationarityDecision;
   adf: AdfTestResult;
   constant_only_adf: AdfTestResult | null;
+  legacy_seasonal_adf: AdfTestResult | null;
   seasonal_unit_root_status: "not_available";
   structural_break_status: "registry_only";
   persistence: PersistenceDiagnostics;

@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.44 Finite-Sample Stationarity Calibration & Break Robustness - 2026-08-28
+
+- Calibrated the exact production seasonal-dummy ADF with nine sample-size nodes (N=96–168), 50,000 Monte Carlo replications per node, a fixed RNG seed and linear interpolation provenance.
+- Baseline v2 now gates on `adf_constant_seasonal_dummies_mc`; the v1.43 MacKinnon-c result remains available as a historical reference, and no empirical p-value is fabricated.
+- Added MacKinnon-vs-calibrated decision comparison, HEGY readiness, descriptive ACF/PACF significance bands, and a strict split between historical candidate periods and statistically estimated breaks.
+- Zivot–Andrews remains `registry_only`; all stationarity, stability, parameter-count, h=12/18/24 residual and orthogonalization gates remain unchanged.
+
 ## v1.43 Seasonality-Aware Stationarity & Structural-Break Diagnostics - 2026-08-27
 
 - Method: aligned each registered VAR profile with a preregistered stationarity specification; baseline v1 retains constant-only ADF while baseline v2 uses ADF with a constant and 11 month-of-year dummies.

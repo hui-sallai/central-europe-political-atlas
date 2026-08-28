@@ -1,6 +1,6 @@
 {
-  "schema_version": "var-baseline-profile-comparison-v1.43",
-  "generated_at": "2026-08-27",
+  "schema_version": "var-baseline-profile-comparison-v1.44",
+  "generated_at": "2026-08-28",
   "comparison_boundary": "v1 与 v2 均为预注册正式基线；比较用于评估月份控制对残差季节结构和诊断充分性的影响，不用于结果择优。",
   "records": [
     {
@@ -39,7 +39,7 @@
           "stationarity_specification_id": "adf_constant",
           "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
           "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-          "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+          "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
         },
         "start_period": null,
         "end_period": null,
@@ -74,12 +74,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.3512378913133771,
               "lagged_level_standard_error": 0.18026692754988896,
+              "calibration": null,
               "status": "non_stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -287,6 +290,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.5386712876163734,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
@@ -317,12 +325,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -1.345076192575128,
               "lagged_level_standard_error": 0.14752312379979446,
+              "calibration": null,
               "status": "stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -530,6 +541,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.0013315509707656319,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
@@ -560,12 +576,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.11808151241975312,
               "lagged_level_standard_error": 0.040620922645567346,
+              "calibration": null,
               "status": "stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -773,6 +792,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.054143885610816636,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           }
@@ -849,10 +873,10 @@
           ],
           "frequency": "monthly",
           "deterministic_terms": "constant_month_dummies",
-          "stationarity_specification_id": "adf_constant_seasonal_dummies",
+          "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
           "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
           "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-          "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+          "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies_mc__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
         },
         "start_period": null,
         "end_period": null,
@@ -863,7 +887,7 @@
           {
             "indicator": "hicp_monthly_index",
             "transformation": "log_difference",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "non_stationary",
             "adf": {
               "test": "adf",
@@ -879,14 +903,27 @@
               "statistic": -1.9547170133106697,
               "p_value": null,
               "critical_values": {
-                "1%": -3.481681717341829,
-                "5%": -2.8840418343195267,
-                "10%": -2.578770059171598
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -0.2859389212513076,
               "lagged_level_standard_error": 0.14628149205445237,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "non_stationary"
             },
             "constant_only_adf": {
@@ -911,11 +948,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.3512378913133771,
               "lagged_level_standard_error": 0.18026692754988896,
+              "calibration": null,
+              "status": "non_stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 6,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 130,
+              "statistic": -1.9547170133106697,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.481681717341829,
+                "5%": -2.8840418343195267,
+                "10%": -2.578770059171598
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -0.2859389212513076,
+              "lagged_level_standard_error": 0.14628149205445237,
+              "calibration": null,
               "status": "non_stationary"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -1123,13 +1187,18 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.5386712876163734,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
           {
             "indicator": "industrial_production_index",
             "transformation": "log_difference",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "stationary_with_seasonal_controls",
             "adf": {
               "test": "adf",
@@ -1145,14 +1214,27 @@
               "statistic": -8.575407131702084,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4801186001103854,
-                "5%": -2.8833618426136196,
-                "10%": -2.5784070349743815
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -1.3293026142409154,
               "lagged_level_standard_error": 0.15501335316508402,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "stationary"
             },
             "constant_only_adf": {
@@ -1177,11 +1259,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -1.345076192575128,
               "lagged_level_standard_error": 0.14752312379979446,
+              "calibration": null,
+              "status": "stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 2,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 134,
+              "statistic": -8.575407131702084,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4801186001103854,
+                "5%": -2.8833618426136196,
+                "10%": -2.5784070349743815
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -1.3293026142409154,
+              "lagged_level_standard_error": 0.15501335316508402,
+              "calibration": null,
               "status": "stationary"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -1389,13 +1498,18 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.0013315509707656319,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
           {
             "indicator": "unemployment_rate_monthly",
             "transformation": "level",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "inconclusive",
             "adf": {
               "test": "adf",
@@ -1411,14 +1525,27 @@
               "statistic": -2.7246113989270286,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4793722137854926,
-                "5%": -2.8830370378332995,
-                "10%": -2.578233635380623
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -0.11271995176026191,
               "lagged_level_standard_error": 0.04137101966344699,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "borderline"
             },
             "constant_only_adf": {
@@ -1443,11 +1570,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.11808151241975312,
               "lagged_level_standard_error": 0.040620922645567346,
+              "calibration": null,
               "status": "stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 0,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 136,
+              "statistic": -2.7246113989270286,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4793722137854926,
+                "5%": -2.8830370378332995,
+                "10%": -2.578233635380623
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -0.11271995176026191,
+              "lagged_level_standard_error": 0.04137101966344699,
+              "calibration": null,
+              "status": "borderline"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -1655,6 +1809,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.054143885610816636,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           }
@@ -1674,7 +1833,7 @@
         "irf_available": false,
         "readiness_state": "non_stationary",
         "blocking_reasons": [
-          "hicp_monthly_index（log_difference）adf_constant_seasonal_dummies 不能拒绝零频单位根（stat=-1.955，5% 临界值 -2.884）；请按预注册 profile 处理。"
+          "hicp_monthly_index（log_difference）adf_constant_seasonal_dummies_mc 不能拒绝零频单位根（stat=-1.955，5% 临界值 -2.818）；请按预注册 profile 处理。"
         ],
         "fallback_attempts": [
           {
@@ -1694,7 +1853,7 @@
               }
             ],
             "outcome": "blocked",
-            "reason": "hicp_monthly_index（log_difference）adf_constant_seasonal_dummies 不能拒绝零频单位根（stat=-1.955，5% 临界值 -2.884）；请按预注册 profile 处理。"
+            "reason": "hicp_monthly_index（log_difference）adf_constant_seasonal_dummies_mc 不能拒绝零频单位根（stat=-1.955，5% 临界值 -2.818）；请按预注册 profile 处理。"
           }
         ],
         "selected_fallback": null,
@@ -1755,7 +1914,7 @@
           "stationarity_specification_id": "adf_constant",
           "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
           "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-          "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+          "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
         },
         "start_period": null,
         "end_period": null,
@@ -1790,12 +1949,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.22200196288360133,
               "lagged_level_standard_error": 0.11631791440682406,
+              "calibration": null,
               "status": "non_stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -2003,6 +2165,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.5285102816856017,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
@@ -2033,12 +2200,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -2.0464500715546228,
               "lagged_level_standard_error": 0.27896299453045276,
+              "calibration": null,
               "status": "stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -2246,6 +2416,11 @@
               ],
               "seasonal_lag_12_autocorrelation": -0.015529791288352815,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
@@ -2276,12 +2451,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.011083396003647342,
               "lagged_level_standard_error": 0.0037903274509072074,
+              "calibration": null,
               "status": "stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -2489,6 +2667,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.6022823694339047,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           }
@@ -2565,10 +2748,10 @@
           ],
           "frequency": "monthly",
           "deterministic_terms": "constant_month_dummies",
-          "stationarity_specification_id": "adf_constant_seasonal_dummies",
+          "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
           "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
           "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-          "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+          "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies_mc__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
         },
         "start_period": null,
         "end_period": null,
@@ -2579,7 +2762,7 @@
           {
             "indicator": "hicp_monthly_index",
             "transformation": "log_difference",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "non_stationary",
             "adf": {
               "test": "adf",
@@ -2595,14 +2778,27 @@
               "statistic": -1.767203888394705,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4837793736959997,
-                "5%": -2.88495387648,
-                "10%": -2.579256976
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -0.1761943289104334,
               "lagged_level_standard_error": 0.09970232074946657,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "non_stationary"
             },
             "constant_only_adf": {
@@ -2627,11 +2823,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.22200196288360133,
               "lagged_level_standard_error": 0.11631791440682406,
+              "calibration": null,
+              "status": "non_stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 11,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 125,
+              "statistic": -1.767203888394705,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4837793736959997,
+                "5%": -2.88495387648,
+                "10%": -2.579256976
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -0.1761943289104334,
+              "lagged_level_standard_error": 0.09970232074946657,
+              "calibration": null,
               "status": "non_stationary"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -2839,13 +3062,18 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.5285102816856017,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
           {
             "indicator": "industrial_production_index",
             "transformation": "log_difference",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "stationary_with_seasonal_controls",
             "adf": {
               "test": "adf",
@@ -2861,14 +3089,27 @@
               "statistic": -9.031658649476107,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4801186001103854,
-                "5%": -2.8833618426136196,
-                "10%": -2.5784070349743815
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -1.6730672927003045,
               "lagged_level_standard_error": 0.18524474380985967,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "stationary"
             },
             "constant_only_adf": {
@@ -2893,11 +3134,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -2.0464500715546228,
               "lagged_level_standard_error": 0.27896299453045276,
+              "calibration": null,
+              "status": "stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 2,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 134,
+              "statistic": -9.031658649476107,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4801186001103854,
+                "5%": -2.8833618426136196,
+                "10%": -2.5784070349743815
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -1.6730672927003045,
+              "lagged_level_standard_error": 0.18524474380985967,
+              "calibration": null,
               "status": "stationary"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -3105,13 +3373,18 @@
               ],
               "seasonal_lag_12_autocorrelation": -0.015529791288352815,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
           {
             "indicator": "unemployment_rate_monthly",
             "transformation": "level",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "inconclusive",
             "adf": {
               "test": "adf",
@@ -3127,14 +3400,27 @@
               "statistic": -2.7568045754367887,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4805003838883772,
-                "5%": -2.8835279559405045,
-                "10%": -2.578495716547007
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -0.011126496975373622,
               "lagged_level_standard_error": 0.004036012227530033,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "borderline"
             },
             "constant_only_adf": {
@@ -3159,11 +3445,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.011083396003647342,
               "lagged_level_standard_error": 0.0037903274509072074,
+              "calibration": null,
               "status": "stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 3,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 133,
+              "statistic": -2.7568045754367887,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4805003838883772,
+                "5%": -2.8835279559405045,
+                "10%": -2.578495716547007
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -0.011126496975373622,
+              "lagged_level_standard_error": 0.004036012227530033,
+              "calibration": null,
+              "status": "borderline"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -3371,6 +3684,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.6022823694339047,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           }
@@ -3390,7 +3708,7 @@
         "irf_available": false,
         "readiness_state": "non_stationary",
         "blocking_reasons": [
-          "hicp_monthly_index（log_difference）adf_constant_seasonal_dummies 不能拒绝零频单位根（stat=-1.767，5% 临界值 -2.885）；请按预注册 profile 处理。"
+          "hicp_monthly_index（log_difference）adf_constant_seasonal_dummies_mc 不能拒绝零频单位根（stat=-1.767，5% 临界值 -2.818）；请按预注册 profile 处理。"
         ],
         "fallback_attempts": [
           {
@@ -3410,7 +3728,7 @@
               }
             ],
             "outcome": "blocked",
-            "reason": "hicp_monthly_index（log_difference）adf_constant_seasonal_dummies 不能拒绝零频单位根（stat=-1.767，5% 临界值 -2.885）；请按预注册 profile 处理。"
+            "reason": "hicp_monthly_index（log_difference）adf_constant_seasonal_dummies_mc 不能拒绝零频单位根（stat=-1.767，5% 临界值 -2.818）；请按预注册 profile 处理。"
           }
         ],
         "selected_fallback": null,
@@ -3471,7 +3789,7 @@
           "stationarity_specification_id": "adf_constant",
           "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
           "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-          "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+          "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
         },
         "start_period": null,
         "end_period": null,
@@ -3506,12 +3824,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.3692985130864265,
               "lagged_level_standard_error": 0.17608439388606897,
+              "calibration": null,
               "status": "non_stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -3719,6 +4040,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.5155712671504374,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
@@ -3749,12 +4075,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -1.4256334734893985,
               "lagged_level_standard_error": 0.16011988637075134,
+              "calibration": null,
               "status": "stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -3962,6 +4291,11 @@
               ],
               "seasonal_lag_12_autocorrelation": -0.1475030296650977,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
@@ -3992,12 +4326,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.06526807010586125,
               "lagged_level_standard_error": 0.024196034002741795,
+              "calibration": null,
               "status": "borderline"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -4205,6 +4542,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.3925842231044142,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           }
@@ -4281,10 +4623,10 @@
           ],
           "frequency": "monthly",
           "deterministic_terms": "constant_month_dummies",
-          "stationarity_specification_id": "adf_constant_seasonal_dummies",
+          "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
           "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
           "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-          "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+          "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies_mc__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
         },
         "start_period": "2015-02",
         "end_period": "2026-06",
@@ -4295,7 +4637,7 @@
           {
             "indicator": "hicp_monthly_index",
             "transformation": "log_difference",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "inconclusive",
             "adf": {
               "test": "adf",
@@ -4311,14 +4653,27 @@
               "statistic": -2.732081886988713,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4808880719210005,
-                "5%": -2.8836966192225284,
-                "10%": -2.5785857598714417
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -0.3544986724601546,
               "lagged_level_standard_error": 0.12975404366480436,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "borderline"
             },
             "constant_only_adf": {
@@ -4343,11 +4698,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.3692985130864265,
               "lagged_level_standard_error": 0.17608439388606897,
+              "calibration": null,
               "status": "non_stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 4,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 132,
+              "statistic": -2.732081886988713,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4808880719210005,
+                "5%": -2.8836966192225284,
+                "10%": -2.5785857598714417
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -0.3544986724601546,
+              "lagged_level_standard_error": 0.12975404366480436,
+              "calibration": null,
+              "status": "borderline"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -4555,13 +4937,18 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.5155712671504374,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
           {
             "indicator": "industrial_production_index",
             "transformation": "log_difference",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "stationary_with_seasonal_controls",
             "adf": {
               "test": "adf",
@@ -4577,14 +4964,27 @@
               "statistic": -8.585586120291442,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4801186001103854,
-                "5%": -2.8833618426136196,
-                "10%": -2.5784070349743815
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -1.4329900642685467,
               "lagged_level_standard_error": 0.16690649236885216,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "stationary"
             },
             "constant_only_adf": {
@@ -4609,11 +5009,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -1.4256334734893985,
               "lagged_level_standard_error": 0.16011988637075134,
+              "calibration": null,
+              "status": "stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 2,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 134,
+              "statistic": -8.585586120291442,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4801186001103854,
+                "5%": -2.8833618426136196,
+                "10%": -2.5784070349743815
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -1.4329900642685467,
+              "lagged_level_standard_error": 0.16690649236885216,
+              "calibration": null,
               "status": "stationary"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -4821,13 +5248,18 @@
               ],
               "seasonal_lag_12_autocorrelation": -0.1475030296650977,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
           {
             "indicator": "unemployment_rate_monthly",
             "transformation": "level",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "inconclusive",
             "adf": {
               "test": "adf",
@@ -4843,14 +5275,27 @@
               "statistic": -2.587256675891799,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4808880719210005,
-                "5%": -2.8836966192225284,
-                "10%": -2.5785857598714417
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -0.0648734466680774,
               "lagged_level_standard_error": 0.02507422138382008,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "borderline"
             },
             "constant_only_adf": {
@@ -4875,11 +5320,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.06526807010586125,
               "lagged_level_standard_error": 0.024196034002741795,
+              "calibration": null,
+              "status": "borderline"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 4,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 132,
+              "statistic": -2.587256675891799,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4808880719210005,
+                "5%": -2.8836966192225284,
+                "10%": -2.5785857598714417
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -0.0648734466680774,
+              "lagged_level_standard_error": 0.02507422138382008,
+              "calibration": null,
               "status": "borderline"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -5087,6 +5559,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.3925842231044142,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           }
@@ -5187,7 +5664,7 @@
           "stationarity_specification_id": "adf_constant",
           "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
           "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-          "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+          "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
         },
         "start_period": null,
         "end_period": null,
@@ -5222,12 +5699,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.39833416446811665,
               "lagged_level_standard_error": 0.21427316314311456,
+              "calibration": null,
               "status": "non_stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -5435,6 +5915,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.43655619981293214,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
@@ -5465,12 +5950,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -1.4773330337582826,
               "lagged_level_standard_error": 0.160409857158933,
+              "calibration": null,
               "status": "stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -5678,6 +6166,11 @@
               ],
               "seasonal_lag_12_autocorrelation": -0.025795210902232253,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
@@ -5708,12 +6201,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.029095384956861786,
               "lagged_level_standard_error": 0.012191386966706868,
+              "calibration": null,
               "status": "non_stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -5921,6 +6417,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.31045057057254416,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           }
@@ -5998,21 +6499,21 @@
           ],
           "frequency": "monthly",
           "deterministic_terms": "constant_month_dummies",
-          "stationarity_specification_id": "adf_constant_seasonal_dummies",
+          "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
           "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
           "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-          "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+          "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies_mc__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
         },
         "start_period": "2015-02",
         "end_period": "2026-06",
         "effective_observations": 137,
         "missing_ratio": 0.0144,
-        "stationarity_status": "borderline",
+        "stationarity_status": "stationary",
         "stationarity_detail": [
           {
             "indicator": "hicp_monthly_index",
             "transformation": "log_difference",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "stationary_with_seasonal_controls",
             "adf": {
               "test": "adf",
@@ -6028,14 +6529,27 @@
               "statistic": -3.0715344599557066,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4808880719210005,
-                "5%": -2.8836966192225284,
-                "10%": -2.5785857598714417
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -0.48079113410675145,
               "lagged_level_standard_error": 0.15653125184657207,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "stationary"
             },
             "constant_only_adf": {
@@ -6060,11 +6574,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.39833416446811665,
               "lagged_level_standard_error": 0.21427316314311456,
+              "calibration": null,
               "status": "non_stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 4,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 132,
+              "statistic": -3.0715344599557066,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4808880719210005,
+                "5%": -2.8836966192225284,
+                "10%": -2.5785857598714417
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -0.48079113410675145,
+              "lagged_level_standard_error": 0.15653125184657207,
+              "calibration": null,
+              "status": "stationary"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -6272,13 +6813,18 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.43655619981293214,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
           {
             "indicator": "industrial_production_index",
             "transformation": "log_difference",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "stationary_with_seasonal_controls",
             "adf": {
               "test": "adf",
@@ -6294,14 +6840,27 @@
               "statistic": -8.761644809624146,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4801186001103854,
-                "5%": -2.8833618426136196,
-                "10%": -2.5784070349743815
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -1.4623474565587256,
               "lagged_level_standard_error": 0.1669033027853884,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "stationary"
             },
             "constant_only_adf": {
@@ -6326,11 +6885,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -1.4773330337582826,
               "lagged_level_standard_error": 0.160409857158933,
+              "calibration": null,
+              "status": "stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 2,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 134,
+              "statistic": -8.761644809624146,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4801186001103854,
+                "5%": -2.8833618426136196,
+                "10%": -2.5784070349743815
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -1.4623474565587256,
+              "lagged_level_standard_error": 0.1669033027853884,
+              "calibration": null,
               "status": "stationary"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -6538,14 +7124,19 @@
               ],
               "seasonal_lag_12_autocorrelation": -0.025795210902232253,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
           {
             "indicator": "unemployment_rate_monthly",
             "transformation": "level",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
-            "formal_decision": "inconclusive",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
+            "formal_decision": "stationary_with_seasonal_controls",
             "adf": {
               "test": "adf",
               "regression": "c+seasonal_dummies",
@@ -6560,15 +7151,28 @@
               "statistic": -2.868512845037112,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4825006939888,
-                "5%": -2.884397984161377,
-                "10%": -2.5789601977539065
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -0.040703911023705824,
               "lagged_level_standard_error": 0.014189900210531988,
-              "status": "borderline"
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
+              "status": "stationary"
             },
             "constant_only_adf": {
               "test": "adf",
@@ -6592,11 +7196,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.029095384956861786,
               "lagged_level_standard_error": 0.012191386966706868,
+              "calibration": null,
               "status": "non_stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 8,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 128,
+              "statistic": -2.868512845037112,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4825006939888,
+                "5%": -2.884397984161377,
+                "10%": -2.5789601977539065
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -0.040703911023705824,
+              "lagged_level_standard_error": 0.014189900210531988,
+              "calibration": null,
+              "status": "borderline"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -6804,6 +7435,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.31045057057254416,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           }
@@ -6821,9 +7457,9 @@
           "24": false
         },
         "irf_available": false,
-        "readiness_state": "estimable_with_warning",
+        "readiness_state": "residual_diagnostics_failed",
         "blocking_reasons": [
-          "至少一个变量的 ADF 结果为 borderline；可估计但不开放动态响应"
+          "主残差 Portmanteau 诊断 h=12 未通过；动态响应暂不可用"
         ],
         "fallback_attempts": [
           {
@@ -6904,7 +7540,7 @@
           "stationarity_specification_id": "adf_constant",
           "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
           "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-          "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+          "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
         },
         "start_period": null,
         "end_period": null,
@@ -6939,12 +7575,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.21977316208805758,
               "lagged_level_standard_error": 0.09625615873750605,
+              "calibration": null,
               "status": "non_stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -7152,6 +7791,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.14427284824365422,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
@@ -7182,12 +7826,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -1.2296099760676658,
               "lagged_level_standard_error": 0.11851296947605507,
+              "calibration": null,
               "status": "stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -7395,6 +8042,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.013965183303782176,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
@@ -7425,12 +8077,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.05640650538244407,
               "lagged_level_standard_error": 0.014721447631503076,
+              "calibration": null,
               "status": "stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -7638,6 +8293,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.31312059282912075,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           }
@@ -7714,10 +8374,10 @@
           ],
           "frequency": "monthly",
           "deterministic_terms": "constant_month_dummies",
-          "stationarity_specification_id": "adf_constant_seasonal_dummies",
+          "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
           "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
           "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-          "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+          "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies_mc__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
         },
         "start_period": "2015-02",
         "end_period": "2026-06",
@@ -7728,7 +8388,7 @@
           {
             "indicator": "hicp_monthly_index",
             "transformation": "log_difference",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "inconclusive",
             "adf": {
               "test": "adf",
@@ -7744,14 +8404,27 @@
               "statistic": -2.591461420650791,
               "p_value": null,
               "critical_values": {
-                "1%": -3.483346234607893,
-                "5%": -2.8847655969877666,
-                "10%": -2.5791564575459813
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -0.2092769931422941,
               "lagged_level_standard_error": 0.08075636066761842,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "borderline"
             },
             "constant_only_adf": {
@@ -7776,11 +8449,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.21977316208805758,
               "lagged_level_standard_error": 0.09625615873750605,
+              "calibration": null,
               "status": "non_stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 10,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 126,
+              "statistic": -2.591461420650791,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.483346234607893,
+                "5%": -2.8847655969877666,
+                "10%": -2.5791564575459813
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -0.2092769931422941,
+              "lagged_level_standard_error": 0.08075636066761842,
+              "calibration": null,
+              "status": "borderline"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -7988,13 +8688,18 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.14427284824365422,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
           {
             "indicator": "industrial_production_index",
             "transformation": "log_difference",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "stationary_with_seasonal_controls",
             "adf": {
               "test": "adf",
@@ -8010,14 +8715,27 @@
               "statistic": -10.008731544678783,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4797425866991816,
-                "5%": -2.88319822181578,
-                "10%": -2.578319684499314
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -1.231475259305957,
               "lagged_level_standard_error": 0.12304009292373119,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "stationary"
             },
             "constant_only_adf": {
@@ -8042,11 +8760,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -1.2296099760676658,
               "lagged_level_standard_error": 0.11851296947605507,
+              "calibration": null,
+              "status": "stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 1,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 135,
+              "statistic": -10.008731544678783,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4797425866991816,
+                "5%": -2.88319822181578,
+                "10%": -2.578319684499314
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -1.231475259305957,
+              "lagged_level_standard_error": 0.12304009292373119,
+              "calibration": null,
               "status": "stationary"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -8254,13 +8999,18 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.013965183303782176,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
           {
             "indicator": "unemployment_rate_monthly",
             "transformation": "level",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "stationary_with_seasonal_controls",
             "adf": {
               "test": "adf",
@@ -8276,14 +9026,27 @@
               "statistic": -3.7251011951382504,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4797425866991816,
-                "5%": -2.88319822181578,
-                "10%": -2.578319684499314
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -0.05531975708860636,
               "lagged_level_standard_error": 0.014850538063450722,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "stationary"
             },
             "constant_only_adf": {
@@ -8308,11 +9071,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.05640650538244407,
               "lagged_level_standard_error": 0.014721447631503076,
+              "calibration": null,
+              "status": "stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 1,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 135,
+              "statistic": -3.7251011951382504,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4797425866991816,
+                "5%": -2.88319822181578,
+                "10%": -2.578319684499314
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -0.05531975708860636,
+              "lagged_level_standard_error": 0.014850538063450722,
+              "calibration": null,
               "status": "stationary"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -8520,6 +9310,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.31312059282912075,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           }
@@ -8620,7 +9415,7 @@
           "stationarity_specification_id": "adf_constant",
           "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
           "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-          "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+          "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
         },
         "start_period": "2015-02",
         "end_period": "2026-06",
@@ -8655,12 +9450,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.31860096673382626,
               "lagged_level_standard_error": 0.09090453014682828,
+              "calibration": null,
               "status": "stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -8868,6 +9666,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.3326610197620174,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
@@ -8898,12 +9701,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -1.3964482257033317,
               "lagged_level_standard_error": 0.160133853745235,
+              "calibration": null,
               "status": "stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -9111,6 +9917,11 @@
               ],
               "seasonal_lag_12_autocorrelation": -0.06605360033460805,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
@@ -9141,12 +9952,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.021260100826221484,
               "lagged_level_standard_error": 0.005364924523884843,
+              "calibration": null,
               "status": "stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -9354,6 +10168,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.602945327793274,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           }
@@ -9430,10 +10249,10 @@
           ],
           "frequency": "monthly",
           "deterministic_terms": "constant_month_dummies",
-          "stationarity_specification_id": "adf_constant_seasonal_dummies",
+          "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
           "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
           "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-          "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+          "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies_mc__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
         },
         "start_period": null,
         "end_period": null,
@@ -9444,7 +10263,7 @@
           {
             "indicator": "hicp_monthly_index",
             "transformation": "log_difference",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "non_stationary",
             "adf": {
               "test": "adf",
@@ -9460,14 +10279,27 @@
               "statistic": -1.9622665487574364,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4808880719210005,
-                "5%": -2.8836966192225284,
-                "10%": -2.5785857598714417
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -0.1790943097284198,
               "lagged_level_standard_error": 0.09126910400721425,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "non_stationary"
             },
             "constant_only_adf": {
@@ -9492,11 +10324,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.31860096673382626,
               "lagged_level_standard_error": 0.09090453014682828,
+              "calibration": null,
               "status": "stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 4,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 132,
+              "statistic": -1.9622665487574364,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4808880719210005,
+                "5%": -2.8836966192225284,
+                "10%": -2.5785857598714417
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -0.1790943097284198,
+              "lagged_level_standard_error": 0.09126910400721425,
+              "calibration": null,
+              "status": "non_stationary"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -9704,13 +10563,18 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.3326610197620174,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
           {
             "indicator": "industrial_production_index",
             "transformation": "log_difference",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "stationary_with_seasonal_controls",
             "adf": {
               "test": "adf",
@@ -9726,14 +10590,27 @@
               "statistic": -8.413687263593303,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4801186001103854,
-                "5%": -2.8833618426136196,
-                "10%": -2.5784070349743815
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -1.4094470853939327,
               "lagged_level_standard_error": 0.16751835922078098,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "stationary"
             },
             "constant_only_adf": {
@@ -9758,11 +10635,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -1.3964482257033317,
               "lagged_level_standard_error": 0.160133853745235,
+              "calibration": null,
+              "status": "stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 2,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 134,
+              "statistic": -8.413687263593303,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4801186001103854,
+                "5%": -2.8833618426136196,
+                "10%": -2.5784070349743815
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -1.4094470853939327,
+              "lagged_level_standard_error": 0.16751835922078098,
+              "calibration": null,
               "status": "stationary"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -9970,13 +10874,18 @@
               ],
               "seasonal_lag_12_autocorrelation": -0.06605360033460805,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
           {
             "indicator": "unemployment_rate_monthly",
             "transformation": "level",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "stationary_with_seasonal_controls",
             "adf": {
               "test": "adf",
@@ -9992,14 +10901,27 @@
               "statistic": -3.827250067926859,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4805003838883772,
-                "5%": -2.8835279559405045,
-                "10%": -2.578495716547007
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -0.02132995316010377,
               "lagged_level_standard_error": 0.005573179902419534,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "stationary"
             },
             "constant_only_adf": {
@@ -10024,11 +10946,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.021260100826221484,
               "lagged_level_standard_error": 0.005364924523884843,
+              "calibration": null,
+              "status": "stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 3,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 133,
+              "statistic": -3.827250067926859,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4805003838883772,
+                "5%": -2.8835279559405045,
+                "10%": -2.578495716547007
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -0.02132995316010377,
+              "lagged_level_standard_error": 0.005573179902419534,
+              "calibration": null,
               "status": "stationary"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -10236,6 +11185,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.602945327793274,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           }
@@ -10255,7 +11209,7 @@
         "irf_available": false,
         "readiness_state": "non_stationary",
         "blocking_reasons": [
-          "hicp_monthly_index（log_difference）adf_constant_seasonal_dummies 不能拒绝零频单位根（stat=-1.962，5% 临界值 -2.884）；请按预注册 profile 处理。"
+          "hicp_monthly_index（log_difference）adf_constant_seasonal_dummies_mc 不能拒绝零频单位根（stat=-1.962，5% 临界值 -2.818）；请按预注册 profile 处理。"
         ],
         "fallback_attempts": [
           {
@@ -10275,7 +11229,7 @@
               }
             ],
             "outcome": "blocked",
-            "reason": "hicp_monthly_index（log_difference）adf_constant_seasonal_dummies 不能拒绝零频单位根（stat=-1.962，5% 临界值 -2.884）；请按预注册 profile 处理。"
+            "reason": "hicp_monthly_index（log_difference）adf_constant_seasonal_dummies_mc 不能拒绝零频单位根（stat=-1.962，5% 临界值 -2.818）；请按预注册 profile 处理。"
           }
         ],
         "selected_fallback": null,
@@ -10336,7 +11290,7 @@
           "stationarity_specification_id": "adf_constant",
           "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
           "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-          "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+          "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
         },
         "start_period": "2015-02",
         "end_period": "2026-06",
@@ -10371,12 +11325,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.3554588013127248,
               "lagged_level_standard_error": 0.09334450803174411,
+              "calibration": null,
               "status": "stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -10584,6 +11541,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.2901776204188878,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
@@ -10614,12 +11576,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -1.8357176820247012,
               "lagged_level_standard_error": 0.24884630702185037,
+              "calibration": null,
               "status": "stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -10827,6 +11792,11 @@
               ],
               "seasonal_lag_12_autocorrelation": -0.0753597376532328,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
@@ -10857,12 +11827,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.05369718173131513,
               "lagged_level_standard_error": 0.01917760140471072,
+              "calibration": null,
               "status": "borderline"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -11070,6 +12043,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.3886128716857551,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           }
@@ -11146,10 +12124,10 @@
           ],
           "frequency": "monthly",
           "deterministic_terms": "constant_month_dummies",
-          "stationarity_specification_id": "adf_constant_seasonal_dummies",
+          "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
           "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
           "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-          "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+          "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies_mc__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
         },
         "start_period": null,
         "end_period": null,
@@ -11160,7 +12138,7 @@
           {
             "indicator": "hicp_monthly_index",
             "transformation": "log_difference",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "non_stationary",
             "adf": {
               "test": "adf",
@@ -11176,14 +12154,27 @@
               "statistic": -2.498856702124384,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4812818022713494,
-                "5%": -2.883867891664528,
-                "10%": -2.5786771965503177
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -0.22986193459412102,
               "lagged_level_standard_error": 0.09198684118169147,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "non_stationary"
             },
             "constant_only_adf": {
@@ -11208,11 +12199,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.3554588013127248,
               "lagged_level_standard_error": 0.09334450803174411,
+              "calibration": null,
               "status": "stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 5,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 131,
+              "statistic": -2.498856702124384,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4812818022713494,
+                "5%": -2.883867891664528,
+                "10%": -2.5786771965503177
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -0.22986193459412102,
+              "lagged_level_standard_error": 0.09198684118169147,
+              "calibration": null,
+              "status": "non_stationary"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -11420,13 +12438,18 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.2901776204188878,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
           {
             "indicator": "industrial_production_index",
             "transformation": "log_difference",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "stationary_with_seasonal_controls",
             "adf": {
               "test": "adf",
@@ -11442,14 +12465,27 @@
               "statistic": -8.552444779085652,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4801186001103854,
-                "5%": -2.8833618426136196,
-                "10%": -2.5784070349743815
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -1.4601180836362382,
               "lagged_level_standard_error": 0.1707252278561149,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "stationary"
             },
             "constant_only_adf": {
@@ -11474,11 +12510,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -1.8357176820247012,
               "lagged_level_standard_error": 0.24884630702185037,
+              "calibration": null,
+              "status": "stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 2,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 134,
+              "statistic": -8.552444779085652,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4801186001103854,
+                "5%": -2.8833618426136196,
+                "10%": -2.5784070349743815
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -1.4601180836362382,
+              "lagged_level_standard_error": 0.1707252278561149,
+              "calibration": null,
               "status": "stationary"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -11686,13 +12749,18 @@
               ],
               "seasonal_lag_12_autocorrelation": -0.0753597376532328,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
           {
             "indicator": "unemployment_rate_monthly",
             "transformation": "level",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "inconclusive",
             "adf": {
               "test": "adf",
@@ -11708,14 +12776,27 @@
               "statistic": -2.681471747610595,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4808880719210005,
-                "5%": -2.8836966192225284,
-                "10%": -2.5785857598714417
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -0.05250855657881899,
               "lagged_level_standard_error": 0.01958199135441509,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "borderline"
             },
             "constant_only_adf": {
@@ -11740,11 +12821,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.05369718173131513,
               "lagged_level_standard_error": 0.01917760140471072,
+              "calibration": null,
+              "status": "borderline"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 4,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 132,
+              "statistic": -2.681471747610595,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4808880719210005,
+                "5%": -2.8836966192225284,
+                "10%": -2.5785857598714417
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -0.05250855657881899,
+              "lagged_level_standard_error": 0.01958199135441509,
+              "calibration": null,
               "status": "borderline"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -11952,6 +13060,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.3886128716857551,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           }
@@ -11971,7 +13084,7 @@
         "irf_available": false,
         "readiness_state": "non_stationary",
         "blocking_reasons": [
-          "hicp_monthly_index（log_difference）adf_constant_seasonal_dummies 不能拒绝零频单位根（stat=-2.499，5% 临界值 -2.884）；请按预注册 profile 处理。"
+          "hicp_monthly_index（log_difference）adf_constant_seasonal_dummies_mc 不能拒绝零频单位根（stat=-2.499，5% 临界值 -2.818）；请按预注册 profile 处理。"
         ],
         "fallback_attempts": [
           {
@@ -11991,7 +13104,7 @@
               }
             ],
             "outcome": "blocked",
-            "reason": "hicp_monthly_index（log_difference）adf_constant_seasonal_dummies 不能拒绝零频单位根（stat=-2.499，5% 临界值 -2.884）；请按预注册 profile 处理。"
+            "reason": "hicp_monthly_index（log_difference）adf_constant_seasonal_dummies_mc 不能拒绝零频单位根（stat=-2.499，5% 临界值 -2.818）；请按预注册 profile 处理。"
           }
         ],
         "selected_fallback": null,
@@ -12052,7 +13165,7 @@
           "stationarity_specification_id": "adf_constant",
           "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
           "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-          "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+          "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
         },
         "start_period": null,
         "end_period": null,
@@ -12132,10 +13245,10 @@
           ],
           "frequency": "monthly",
           "deterministic_terms": "constant_month_dummies",
-          "stationarity_specification_id": "adf_constant_seasonal_dummies",
+          "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
           "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
           "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-          "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+          "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies_mc__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
         },
         "start_period": null,
         "end_period": null,
@@ -12239,7 +13352,7 @@
           "stationarity_specification_id": "adf_constant",
           "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
           "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-          "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+          "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
         },
         "start_period": null,
         "end_period": null,
@@ -12274,12 +13387,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.30309924645358466,
               "lagged_level_standard_error": 0.1176716838825145,
+              "calibration": null,
               "status": "non_stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -12487,6 +13603,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.46230282485076774,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
@@ -12517,12 +13638,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -1.5273686649740825,
               "lagged_level_standard_error": 0.15793237975765972,
+              "calibration": null,
               "status": "stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -12730,6 +13854,11 @@
               ],
               "seasonal_lag_12_autocorrelation": -0.03934081009425978,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
@@ -12760,12 +13889,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.014647730962581845,
               "lagged_level_standard_error": 0.00572665731617389,
+              "calibration": null,
               "status": "non_stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -12973,6 +14105,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.5656162782277814,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           }
@@ -13050,10 +14187,10 @@
           ],
           "frequency": "monthly",
           "deterministic_terms": "constant_month_dummies",
-          "stationarity_specification_id": "adf_constant_seasonal_dummies",
+          "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
           "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
           "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-          "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+          "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies_mc__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
         },
         "start_period": null,
         "end_period": null,
@@ -13064,7 +14201,7 @@
           {
             "indicator": "hicp_monthly_index",
             "transformation": "log_difference",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "inconclusive",
             "adf": {
               "test": "adf",
@@ -13080,14 +14217,27 @@
               "statistic": -2.696549481471936,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4801186001103854,
-                "5%": -2.8833618426136196,
-                "10%": -2.5784070349743815
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -0.22943234102064627,
               "lagged_level_standard_error": 0.08508367548865023,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "borderline"
             },
             "constant_only_adf": {
@@ -13112,11 +14262,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.30309924645358466,
               "lagged_level_standard_error": 0.1176716838825145,
+              "calibration": null,
               "status": "non_stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 2,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 134,
+              "statistic": -2.696549481471936,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4801186001103854,
+                "5%": -2.8833618426136196,
+                "10%": -2.5784070349743815
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -0.22943234102064627,
+              "lagged_level_standard_error": 0.08508367548865023,
+              "calibration": null,
+              "status": "borderline"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -13324,13 +14501,18 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.46230282485076774,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
           {
             "indicator": "industrial_production_index",
             "transformation": "log_difference",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "stationary_with_seasonal_controls",
             "adf": {
               "test": "adf",
@@ -13346,14 +14528,27 @@
               "statistic": -9.477338139569392,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4801186001103854,
-                "5%": -2.8833618426136196,
-                "10%": -2.5784070349743815
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -1.5335029992243614,
               "lagged_level_standard_error": 0.1618073531450506,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "stationary"
             },
             "constant_only_adf": {
@@ -13378,11 +14573,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -1.5273686649740825,
               "lagged_level_standard_error": 0.15793237975765972,
+              "calibration": null,
+              "status": "stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 2,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 134,
+              "statistic": -9.477338139569392,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4801186001103854,
+                "5%": -2.8833618426136196,
+                "10%": -2.5784070349743815
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -1.5335029992243614,
+              "lagged_level_standard_error": 0.1618073531450506,
+              "calibration": null,
               "status": "stationary"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -13590,13 +14812,18 @@
               ],
               "seasonal_lag_12_autocorrelation": -0.03934081009425978,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
           {
             "indicator": "unemployment_rate_monthly",
             "transformation": "level",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "non_stationary",
             "adf": {
               "test": "adf",
@@ -13612,14 +14839,27 @@
               "statistic": -2.4111472664518425,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4805003838883772,
-                "5%": -2.8835279559405045,
-                "10%": -2.578495716547007
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -0.014199561929749903,
               "lagged_level_standard_error": 0.005889130924236522,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "non_stationary"
             },
             "constant_only_adf": {
@@ -13644,11 +14884,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.014647730962581845,
               "lagged_level_standard_error": 0.00572665731617389,
+              "calibration": null,
+              "status": "non_stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 3,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 133,
+              "statistic": -2.4111472664518425,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4805003838883772,
+                "5%": -2.8835279559405045,
+                "10%": -2.578495716547007
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -0.014199561929749903,
+              "lagged_level_standard_error": 0.005889130924236522,
+              "calibration": null,
               "status": "non_stationary"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -13856,6 +15123,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.5656162782277814,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           }
@@ -13875,7 +15147,7 @@
         "irf_available": false,
         "readiness_state": "non_stationary",
         "blocking_reasons": [
-          "unemployment_rate_monthly（level）adf_constant_seasonal_dummies 不能拒绝零频单位根（stat=-2.411，5% 临界值 -2.884）；请按预注册 profile 处理。"
+          "unemployment_rate_monthly（level）adf_constant_seasonal_dummies_mc 不能拒绝零频单位根（stat=-2.411，5% 临界值 -2.818）；请按预注册 profile 处理。"
         ],
         "fallback_attempts": [
           {
@@ -13895,7 +15167,7 @@
               }
             ],
             "outcome": "blocked",
-            "reason": "unemployment_rate_monthly（level）adf_constant_seasonal_dummies 不能拒绝零频单位根（stat=-2.411，5% 临界值 -2.884）；请按预注册 profile 处理。"
+            "reason": "unemployment_rate_monthly（level）adf_constant_seasonal_dummies_mc 不能拒绝零频单位根（stat=-2.411，5% 临界值 -2.818）；请按预注册 profile 处理。"
           }
         ],
         "selected_fallback": null,
@@ -13956,7 +15228,7 @@
           "stationarity_specification_id": "adf_constant",
           "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
           "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-          "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+          "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
         },
         "start_period": null,
         "end_period": null,
@@ -13991,12 +15263,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.40090520148894954,
               "lagged_level_standard_error": 0.19601008359399377,
+              "calibration": null,
               "status": "non_stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -14204,6 +15479,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.3690466468281178,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
@@ -14234,12 +15514,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -1.524014902769355,
               "lagged_level_standard_error": 0.16812136693672983,
+              "calibration": null,
               "status": "stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -14447,6 +15730,11 @@
               ],
               "seasonal_lag_12_autocorrelation": -0.11450857101724939,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
@@ -14477,12 +15765,15 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.021960050346903362,
               "lagged_level_standard_error": 0.00727799226196225,
+              "calibration": null,
               "status": "stationary"
             },
             "constant_only_adf": null,
+            "legacy_seasonal_adf": null,
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -14690,6 +15981,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.6399564807334857,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           }
@@ -14766,10 +16062,10 @@
           ],
           "frequency": "monthly",
           "deterministic_terms": "constant_month_dummies",
-          "stationarity_specification_id": "adf_constant_seasonal_dummies",
+          "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
           "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
           "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-          "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+          "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant_month_dummies__adf_constant_seasonal_dummies_mc__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
         },
         "start_period": null,
         "end_period": null,
@@ -14780,7 +16076,7 @@
           {
             "indicator": "hicp_monthly_index",
             "transformation": "log_difference",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "non_stationary",
             "adf": {
               "test": "adf",
@@ -14796,14 +16092,27 @@
               "statistic": -1.8574083616260653,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4825006939888,
-                "5%": -2.884397984161377,
-                "10%": -2.5789601977539065
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -0.29198117946218416,
               "lagged_level_standard_error": 0.15719816142453977,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "non_stationary"
             },
             "constant_only_adf": {
@@ -14828,11 +16137,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.40090520148894954,
               "lagged_level_standard_error": 0.19601008359399377,
+              "calibration": null,
+              "status": "non_stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 8,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 128,
+              "statistic": -1.8574083616260653,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4825006939888,
+                "5%": -2.884397984161377,
+                "10%": -2.5789601977539065
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -0.29198117946218416,
+              "lagged_level_standard_error": 0.15719816142453977,
+              "calibration": null,
               "status": "non_stationary"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -15040,13 +16376,18 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.3690466468281178,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
           {
             "indicator": "industrial_production_index",
             "transformation": "log_difference",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "stationary_with_seasonal_controls",
             "adf": {
               "test": "adf",
@@ -15062,14 +16403,27 @@
               "statistic": -8.519008210785946,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4801186001103854,
-                "5%": -2.8833618426136196,
-                "10%": -2.5784070349743815
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -1.5073796029841384,
               "lagged_level_standard_error": 0.17694308605967063,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "stationary"
             },
             "constant_only_adf": {
@@ -15094,11 +16448,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -1.524014902769355,
               "lagged_level_standard_error": 0.16812136693672983,
+              "calibration": null,
+              "status": "stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 2,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 134,
+              "statistic": -8.519008210785946,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4801186001103854,
+                "5%": -2.8833618426136196,
+                "10%": -2.5784070349743815
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -1.5073796029841384,
+              "lagged_level_standard_error": 0.17694308605967063,
+              "calibration": null,
               "status": "stationary"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -15306,13 +16687,18 @@
               ],
               "seasonal_lag_12_autocorrelation": -0.11450857101724939,
               "seasonal_persistence_warning": false,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           },
           {
             "indicator": "unemployment_rate_monthly",
             "transformation": "level",
-            "stationarity_specification_id": "adf_constant_seasonal_dummies",
+            "stationarity_specification_id": "adf_constant_seasonal_dummies_mc",
             "formal_decision": "stationary_with_seasonal_controls",
             "adf": {
               "test": "adf",
@@ -15328,14 +16714,27 @@
               "statistic": -2.911002557095307,
               "p_value": null,
               "critical_values": {
-                "1%": -3.4805003838883772,
-                "5%": -2.8835279559405045,
-                "10%": -2.578495716547007
+                "1%": -3.4430601104313854,
+                "5%": -2.8178793999544505,
+                "10%": -2.502465111482774
               },
-              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
-              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "critical_value_policy": "Monte Carlo finite-sample calibration for constant + 11 month dummies, common-sample AIC autolag and production tau; linear interpolation by input series length",
+              "p_value_policy": "unavailable_without_full_empirical_null_cdf",
               "lagged_level_coefficient": -0.021984160698982545,
               "lagged_level_standard_error": 0.007552092541244297,
+              "calibration": {
+                "specification_id": "adf_constant_seasonal_dummies_mc",
+                "sample_size_basis": "input_series_length_before_adf_lag_loss",
+                "requested_sample_size": 137,
+                "calibration_n_lower": 132,
+                "calibration_n_upper": 138,
+                "interpolation_weight": 0.8333333333333334,
+                "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
+                "replications_lower": 50000,
+                "replications_upper": 50000,
+                "generator_version": "seasonal-adf-mc-generator-v1.44",
+                "source_commit": "c635236f33de1a3010b145292fb92f8e24240e59"
+              },
               "status": "stationary"
             },
             "constant_only_adf": {
@@ -15360,11 +16759,38 @@
               "p_value_policy": "MacKinnon 1994 regression=c response surface",
               "lagged_level_coefficient": -0.021960050346903362,
               "lagged_level_standard_error": 0.00727799226196225,
+              "calibration": null,
+              "status": "stationary"
+            },
+            "legacy_seasonal_adf": {
+              "test": "adf",
+              "regression": "c+seasonal_dummies",
+              "deterministic_terms": "constant_month_dummies",
+              "seasonal_dummies": 11,
+              "reference_month": "January",
+              "series_length": 137,
+              "used_lag": 3,
+              "max_lag": 13,
+              "autolag_criterion": "aic",
+              "nobs": 133,
+              "statistic": -2.911002557095307,
+              "p_value": null,
+              "critical_values": {
+                "1%": -3.4805003838883772,
+                "5%": -2.8835279559405045,
+                "10%": -2.578495716547007
+              },
+              "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values retained as the documented reference policy",
+              "p_value_policy": "unavailable_for_custom_deterministic_specification",
+              "lagged_level_coefficient": -0.021984160698982545,
+              "lagged_level_standard_error": 0.007552092541244297,
+              "calibration": null,
               "status": "stationary"
             },
             "seasonal_unit_root_status": "not_available",
             "structural_break_status": "registry_only",
             "persistence": {
+              "nobs": 137,
               "max_lag": 24,
               "acf": [
                 {
@@ -15572,6 +16998,11 @@
               ],
               "seasonal_lag_12_autocorrelation": 0.6399564807334857,
               "seasonal_persistence_warning": true,
+              "approximate_significance_band_95": {
+                "lower": -0.16745410091248514,
+                "upper": 0.16745410091248514,
+                "formula": "plus_minus_1.96_over_sqrt_n"
+              },
               "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
             }
           }
@@ -15591,7 +17022,7 @@
         "irf_available": false,
         "readiness_state": "non_stationary",
         "blocking_reasons": [
-          "hicp_monthly_index（log_difference）adf_constant_seasonal_dummies 不能拒绝零频单位根（stat=-1.857，5% 临界值 -2.884）；请按预注册 profile 处理。"
+          "hicp_monthly_index（log_difference）adf_constant_seasonal_dummies_mc 不能拒绝零频单位根（stat=-1.857，5% 临界值 -2.818）；请按预注册 profile 处理。"
         ],
         "fallback_attempts": [
           {
@@ -15611,7 +17042,7 @@
               }
             ],
             "outcome": "blocked",
-            "reason": "hicp_monthly_index（log_difference）adf_constant_seasonal_dummies 不能拒绝零频单位根（stat=-1.857，5% 临界值 -2.884）；请按预注册 profile 处理。"
+            "reason": "hicp_monthly_index（log_difference）adf_constant_seasonal_dummies_mc 不能拒绝零频单位根（stat=-1.857，5% 临界值 -2.818）；请按预注册 profile 处理。"
           }
         ],
         "selected_fallback": null,

@@ -1,6 +1,6 @@
 {
-  "schema_version": "stationarity-specification-registry-v1.43",
-  "generated_at": "2026-08-27",
+  "schema_version": "stationarity-specification-registry-v1.44",
+  "generated_at": "2026-08-28",
   "profile_mapping": [
     {
       "profile_id": "baseline_monthly_macro_v1",
@@ -8,7 +8,7 @@
     },
     {
       "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
-      "stationarity_specification_id": "adf_constant_seasonal_dummies"
+      "stationarity_specification_id": "adf_constant_seasonal_dummies_mc"
     },
     {
       "profile_id": "exploratory_monthly_macro_fallback_v1",
@@ -27,12 +27,21 @@
     },
     {
       "specification_id": "adf_constant_seasonal_dummies",
-      "state": "active",
+      "state": "historical_reference",
       "deterministic_terms": "constant_month_dummies",
       "seasonal_dummies": 11,
       "reference_month": "January",
       "critical_value_policy": "zero-frequency ADF with fixed monthly deterministic terms; MacKinnon regression=c critical values are retained as the documented reference policy and independently checked against Python OLS fixtures",
       "p_value_policy": "unavailable_for_custom_deterministic_specification"
+    },
+    {
+      "specification_id": "adf_constant_seasonal_dummies_mc",
+      "state": "active",
+      "deterministic_terms": "constant_month_dummies",
+      "seasonal_dummies": 11,
+      "reference_month": "January",
+      "critical_value_policy": "precomputed Monte Carlo finite-sample critical values for the exact production seasonal-dummy ADF design; linear interpolation by input series length",
+      "p_value_policy": "unavailable_without_full_empirical_null_cdf"
     },
     {
       "specification_id": "adf_constant_trend",

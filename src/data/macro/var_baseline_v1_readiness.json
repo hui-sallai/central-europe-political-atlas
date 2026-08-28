@@ -1,6 +1,6 @@
 {
-  "schema_version": "var-profile-readiness-v1.43",
-  "generated_at": "2026-08-27",
+  "schema_version": "var-profile-readiness-v1.44",
+  "generated_at": "2026-08-28",
   "profile": {
     "profile_id": "baseline_monthly_macro_v1",
     "profile_kind": "baseline_prespecified",
@@ -85,7 +85,7 @@
         "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": null,
       "end_period": null,
@@ -120,12 +120,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -0.3512378913133771,
             "lagged_level_standard_error": 0.18026692754988896,
+            "calibration": null,
             "status": "non_stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -333,6 +336,11 @@
             ],
             "seasonal_lag_12_autocorrelation": 0.5386712876163734,
             "seasonal_persistence_warning": true,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         },
@@ -363,12 +371,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -1.345076192575128,
             "lagged_level_standard_error": 0.14752312379979446,
+            "calibration": null,
             "status": "stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -576,6 +587,11 @@
             ],
             "seasonal_lag_12_autocorrelation": 0.0013315509707656319,
             "seasonal_persistence_warning": false,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         },
@@ -606,12 +622,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -0.11808151241975312,
             "lagged_level_standard_error": 0.040620922645567346,
+            "calibration": null,
             "status": "stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -819,6 +838,11 @@
             ],
             "seasonal_lag_12_autocorrelation": 0.054143885610816636,
             "seasonal_persistence_warning": false,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         }
@@ -898,7 +922,7 @@
         "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": null,
       "end_period": null,
@@ -933,12 +957,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -0.22200196288360133,
             "lagged_level_standard_error": 0.11631791440682406,
+            "calibration": null,
             "status": "non_stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -1146,6 +1173,11 @@
             ],
             "seasonal_lag_12_autocorrelation": 0.5285102816856017,
             "seasonal_persistence_warning": true,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         },
@@ -1176,12 +1208,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -2.0464500715546228,
             "lagged_level_standard_error": 0.27896299453045276,
+            "calibration": null,
             "status": "stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -1389,6 +1424,11 @@
             ],
             "seasonal_lag_12_autocorrelation": -0.015529791288352815,
             "seasonal_persistence_warning": false,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         },
@@ -1419,12 +1459,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -0.011083396003647342,
             "lagged_level_standard_error": 0.0037903274509072074,
+            "calibration": null,
             "status": "stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -1632,6 +1675,11 @@
             ],
             "seasonal_lag_12_autocorrelation": 0.6022823694339047,
             "seasonal_persistence_warning": true,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         }
@@ -1711,7 +1759,7 @@
         "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": null,
       "end_period": null,
@@ -1746,12 +1794,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -0.3692985130864265,
             "lagged_level_standard_error": 0.17608439388606897,
+            "calibration": null,
             "status": "non_stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -1959,6 +2010,11 @@
             ],
             "seasonal_lag_12_autocorrelation": 0.5155712671504374,
             "seasonal_persistence_warning": true,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         },
@@ -1989,12 +2045,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -1.4256334734893985,
             "lagged_level_standard_error": 0.16011988637075134,
+            "calibration": null,
             "status": "stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -2202,6 +2261,11 @@
             ],
             "seasonal_lag_12_autocorrelation": -0.1475030296650977,
             "seasonal_persistence_warning": false,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         },
@@ -2232,12 +2296,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -0.06526807010586125,
             "lagged_level_standard_error": 0.024196034002741795,
+            "calibration": null,
             "status": "borderline"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -2445,6 +2512,11 @@
             ],
             "seasonal_lag_12_autocorrelation": 0.3925842231044142,
             "seasonal_persistence_warning": true,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         }
@@ -2524,7 +2596,7 @@
         "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": null,
       "end_period": null,
@@ -2559,12 +2631,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -0.39833416446811665,
             "lagged_level_standard_error": 0.21427316314311456,
+            "calibration": null,
             "status": "non_stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -2772,6 +2847,11 @@
             ],
             "seasonal_lag_12_autocorrelation": 0.43655619981293214,
             "seasonal_persistence_warning": true,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         },
@@ -2802,12 +2882,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -1.4773330337582826,
             "lagged_level_standard_error": 0.160409857158933,
+            "calibration": null,
             "status": "stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -3015,6 +3098,11 @@
             ],
             "seasonal_lag_12_autocorrelation": -0.025795210902232253,
             "seasonal_persistence_warning": false,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         },
@@ -3045,12 +3133,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -0.029095384956861786,
             "lagged_level_standard_error": 0.012191386966706868,
+            "calibration": null,
             "status": "non_stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -3258,6 +3349,11 @@
             ],
             "seasonal_lag_12_autocorrelation": 0.31045057057254416,
             "seasonal_persistence_warning": true,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         }
@@ -3338,7 +3434,7 @@
         "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": null,
       "end_period": null,
@@ -3373,12 +3469,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -0.21977316208805758,
             "lagged_level_standard_error": 0.09625615873750605,
+            "calibration": null,
             "status": "non_stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -3586,6 +3685,11 @@
             ],
             "seasonal_lag_12_autocorrelation": 0.14427284824365422,
             "seasonal_persistence_warning": false,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         },
@@ -3616,12 +3720,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -1.2296099760676658,
             "lagged_level_standard_error": 0.11851296947605507,
+            "calibration": null,
             "status": "stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -3829,6 +3936,11 @@
             ],
             "seasonal_lag_12_autocorrelation": 0.013965183303782176,
             "seasonal_persistence_warning": false,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         },
@@ -3859,12 +3971,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -0.05640650538244407,
             "lagged_level_standard_error": 0.014721447631503076,
+            "calibration": null,
             "status": "stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -4072,6 +4187,11 @@
             ],
             "seasonal_lag_12_autocorrelation": 0.31312059282912075,
             "seasonal_persistence_warning": true,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         }
@@ -4151,7 +4271,7 @@
         "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": "2015-02",
       "end_period": "2026-06",
@@ -4186,12 +4306,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -0.31860096673382626,
             "lagged_level_standard_error": 0.09090453014682828,
+            "calibration": null,
             "status": "stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -4399,6 +4522,11 @@
             ],
             "seasonal_lag_12_autocorrelation": 0.3326610197620174,
             "seasonal_persistence_warning": true,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         },
@@ -4429,12 +4557,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -1.3964482257033317,
             "lagged_level_standard_error": 0.160133853745235,
+            "calibration": null,
             "status": "stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -4642,6 +4773,11 @@
             ],
             "seasonal_lag_12_autocorrelation": -0.06605360033460805,
             "seasonal_persistence_warning": false,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         },
@@ -4672,12 +4808,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -0.021260100826221484,
             "lagged_level_standard_error": 0.005364924523884843,
+            "calibration": null,
             "status": "stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -4885,6 +5024,11 @@
             ],
             "seasonal_lag_12_autocorrelation": 0.602945327793274,
             "seasonal_persistence_warning": true,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         }
@@ -4964,7 +5108,7 @@
         "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": "2015-02",
       "end_period": "2026-06",
@@ -4999,12 +5143,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -0.3554588013127248,
             "lagged_level_standard_error": 0.09334450803174411,
+            "calibration": null,
             "status": "stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -5212,6 +5359,11 @@
             ],
             "seasonal_lag_12_autocorrelation": 0.2901776204188878,
             "seasonal_persistence_warning": false,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         },
@@ -5242,12 +5394,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -1.8357176820247012,
             "lagged_level_standard_error": 0.24884630702185037,
+            "calibration": null,
             "status": "stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -5455,6 +5610,11 @@
             ],
             "seasonal_lag_12_autocorrelation": -0.0753597376532328,
             "seasonal_persistence_warning": false,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         },
@@ -5485,12 +5645,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -0.05369718173131513,
             "lagged_level_standard_error": 0.01917760140471072,
+            "calibration": null,
             "status": "borderline"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -5698,6 +5861,11 @@
             ],
             "seasonal_lag_12_autocorrelation": 0.3886128716857551,
             "seasonal_persistence_warning": true,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         }
@@ -5777,7 +5945,7 @@
         "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": null,
       "end_period": null,
@@ -5860,7 +6028,7 @@
         "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": null,
       "end_period": null,
@@ -5895,12 +6063,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -0.30309924645358466,
             "lagged_level_standard_error": 0.1176716838825145,
+            "calibration": null,
             "status": "non_stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -6108,6 +6279,11 @@
             ],
             "seasonal_lag_12_autocorrelation": 0.46230282485076774,
             "seasonal_persistence_warning": true,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         },
@@ -6138,12 +6314,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -1.5273686649740825,
             "lagged_level_standard_error": 0.15793237975765972,
+            "calibration": null,
             "status": "stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -6351,6 +6530,11 @@
             ],
             "seasonal_lag_12_autocorrelation": -0.03934081009425978,
             "seasonal_persistence_warning": false,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         },
@@ -6381,12 +6565,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -0.014647730962581845,
             "lagged_level_standard_error": 0.00572665731617389,
+            "calibration": null,
             "status": "non_stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -6594,6 +6781,11 @@
             ],
             "seasonal_lag_12_autocorrelation": 0.5656162782277814,
             "seasonal_persistence_warning": true,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         }
@@ -6674,7 +6866,7 @@
         "stationarity_specification_id": "adf_constant",
         "lag_policy": "common_sample_bic_requested_max12_parameter_ratio4",
         "sample_policy": "monthly_contiguous_from_2015-01_to_latest_country_observation",
-        "signature_id": "varcmp-v1.43__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
+        "signature_id": "varcmp-v1.44__hicp_monthly_index:log_difference__industrial_production_index:log_difference__unemployment_rate_monthly:level__constant__adf_constant__common_sample_bic_requested_max12_parameter_ratio4__monthly_contiguous_from_2015-01_to_latest_country_observation"
       },
       "start_period": null,
       "end_period": null,
@@ -6709,12 +6901,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -0.40090520148894954,
             "lagged_level_standard_error": 0.19601008359399377,
+            "calibration": null,
             "status": "non_stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -6922,6 +7117,11 @@
             ],
             "seasonal_lag_12_autocorrelation": 0.3690466468281178,
             "seasonal_persistence_warning": true,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         },
@@ -6952,12 +7152,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -1.524014902769355,
             "lagged_level_standard_error": 0.16812136693672983,
+            "calibration": null,
             "status": "stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -7165,6 +7368,11 @@
             ],
             "seasonal_lag_12_autocorrelation": -0.11450857101724939,
             "seasonal_persistence_warning": false,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         },
@@ -7195,12 +7403,15 @@
             "p_value_policy": "MacKinnon 1994 regression=c response surface",
             "lagged_level_coefficient": -0.021960050346903362,
             "lagged_level_standard_error": 0.00727799226196225,
+            "calibration": null,
             "status": "stationary"
           },
           "constant_only_adf": null,
+          "legacy_seasonal_adf": null,
           "seasonal_unit_root_status": "not_available",
           "structural_break_status": "registry_only",
           "persistence": {
+            "nobs": 137,
             "max_lag": 24,
             "acf": [
               {
@@ -7408,6 +7619,11 @@
             ],
             "seasonal_lag_12_autocorrelation": 0.6399564807334857,
             "seasonal_persistence_warning": true,
+            "approximate_significance_band_95": {
+              "lower": -0.16745410091248514,
+              "upper": 0.16745410091248514,
+              "formula": "plus_minus_1.96_over_sqrt_n"
+            },
             "interpretation_boundary": "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root."
           }
         }

@@ -21,4 +21,4 @@ Pinned packages are listed in `requirements-var-reference.txt`. The generated `v
 
 Regeneration changes must be reviewed together with the generator, pinned requirements and TypeScript validation tolerances. A generated fixture alone is not evidence of correctness.
 
-The seasonal-dummy ADF fixture deliberately does not call `statsmodels.adfuller` as though it supported exogenous seasonal dummies. A custom-specification p-value is not published. HEGY seasonal-unit-root testing and Zivot-Andrews structural-break testing remain unavailable/registry-only.
+The seasonal-dummy ADF OLS fixture deliberately does not call `statsmodels.adfuller` as though it supported exogenous seasonal dummies. The v1.44 decision rule is generated separately by `generate-seasonal-adf-calibration.py`: nine sample-size nodes, 50,000 Monte Carlo replications per node, fixed seed, exact production AIC/sample/tau design and no pseudo empirical p-value. HEGY seasonal-unit-root testing remains unavailable and Zivot-Andrews remains registry-only.
