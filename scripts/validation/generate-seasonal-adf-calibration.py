@@ -252,6 +252,13 @@ def main() -> None:
     root = Path(__file__).resolve().parents[2]
     records = [calibration_record(n, args.replications, args.seed, args.batch_size) for n in args.sample_sizes]
     validation = None if args.skip_validation else run_validation(records, args.seed, args.batch_size)
+    generation_environment = {
+        "python_version": platform.python_version(),
+        "numpy_version": np.__version__,
+        "scipy_version": scipy.__version__,
+        "statsmodels_version": statsmodels.__version__,
+        "platform": platform.platform(),
+    }
     payload = {
         "schema_version": "seasonal-adf-critical-values-v1.44",
         "specification_id": "adf_constant_seasonal_dummies_mc",
@@ -262,6 +269,7 @@ def main() -> None:
         "sample_size_grid": args.sample_sizes,
         "interpolation_policy": "linear_between_bracketing_sample_sizes; nearest_endpoint_outside_grid",
         "empirical_p_value_available": False,
+        "generation_environment": generation_environment,
         "dgp": {
             "null": "zero_frequency_unit_root_with_fixed_deterministic_monthly_increment",
             "equation": "y_t = y_(t-1) + seasonal_increment_month(t) + epsilon_t",
@@ -283,11 +291,7 @@ def main() -> None:
             "generator_version": GENERATOR_VERSION,
             "generation_date": date.today().isoformat(),
             "source_commit": source_commit(root),
-            "python_version": platform.python_version(),
-            "numpy_version": np.__version__,
-            "scipy_version": scipy.__version__,
-            "statsmodels_version": statsmodels.__version__,
-            "platform": platform.platform(),
+            **generation_environment,
             "seed": args.seed,
             "replications_per_sample_size": args.replications,
             "batch_size": args.batch_size,
