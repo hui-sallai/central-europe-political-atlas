@@ -1,15 +1,22 @@
 {
-  "schema_version": "macro-driver-dictionary-v1.5",
-  "generated_at": "2026-08-28",
+  "schema_version": "macro-driver-dictionary-v1.51",
+  "generated_at": "2026-08-30",
   "record_count": 10,
   "records": [
     {
       "driver_id": "policy_rate",
       "name_zh": "政策利率",
       "name_en": "Central bank policy rate",
+      "economic_role": "domestic_policy_driver",
       "role": "domestic_policy_driver",
+      "identification_default": "observed_driver",
+      "identification_status": "observed_driver",
       "frequency": "monthly",
+      "series_scope_type": "country or euro-area common",
       "scope": "country or euro-area common",
+      "shared_series": true,
+      "timing_convention": "monthly end-of-period",
+      "regime_sensitive": true,
       "unit": "% p.a.",
       "source": "BIS",
       "transformation_options": [
@@ -17,32 +24,44 @@
         "monthly_change_bp"
       ],
       "economic_interpretation": "Central-bank selected policy-rate level or observed monthly basis-point change; not a monetary-policy shock.",
-      "identification_status": "observed_driver",
       "limitations": "Euro-area common rate is not a country-specific policy decision; instrument regimes can change."
     },
     {
       "driver_id": "long_term_government_yield",
       "name_zh": "长期政府债券收益率",
       "name_en": "Long-term government bond yield",
+      "economic_role": "domestic_financial_condition",
       "role": "domestic_financial_condition",
+      "identification_default": "observed_driver",
+      "identification_status": "observed_driver",
       "frequency": "monthly",
+      "series_scope_type": "country",
       "scope": "country",
+      "shared_series": false,
+      "timing_convention": "monthly observation or monthly average as documented",
+      "regime_sensitive": false,
       "unit": "% p.a.",
       "source": "Eurostat",
       "transformation_options": [
         "level"
       ],
       "economic_interpretation": "Monthly average yield for approximately 10-year central-government bonds.",
-      "identification_status": "observed_driver",
       "limitations": "Serbia remains missing because a comparable official series was not established."
     },
     {
       "driver_id": "bilateral_fx_local_per_eur",
       "name_zh": "本币兑欧元汇率",
       "name_en": "Bilateral FX: local currency per EUR",
+      "economic_role": "domestic_financial_condition",
       "role": "domestic_financial_condition",
+      "identification_default": "observed_driver",
+      "identification_status": "observed_driver",
       "frequency": "monthly",
+      "series_scope_type": "country",
       "scope": "country",
+      "shared_series": false,
+      "timing_convention": "monthly observation or monthly average as documented",
+      "regime_sensitive": false,
       "unit": "local currency per EUR",
       "source": "BIS computed cross-rate",
       "transformation_options": [
@@ -50,16 +69,22 @@
         "monthly_log_change"
       ],
       "economic_interpretation": "Increase means local-currency depreciation against EUR.",
-      "identification_status": "observed_driver",
       "limitations": "Only non-euro currencies; computed from two BIS USD cross-rates."
     },
     {
       "driver_id": "eur_usd_common",
       "name_zh": "欧元兑美元共同汇率",
       "name_en": "EUR/USD common exchange rate",
+      "economic_role": "external_common_driver",
       "role": "external_common_driver",
+      "identification_default": "observed_driver",
+      "identification_status": "observed_driver",
       "frequency": "monthly",
+      "series_scope_type": "euro_area",
       "scope": "euro_area",
+      "shared_series": true,
+      "timing_convention": "monthly observation or monthly average as documented",
+      "regime_sensitive": false,
       "unit": "USD per EUR",
       "source": "BIS",
       "transformation_options": [
@@ -67,82 +92,112 @@
         "monthly_log_change"
       ],
       "economic_interpretation": "Common euro-area external price, not a national FX decision.",
-      "identification_status": "observed_driver",
       "limitations": "Shared regional series, never country-specific."
     },
     {
       "driver_id": "nominal_effective_exchange_rate",
       "name_zh": "名义有效汇率",
       "name_en": "Nominal effective exchange rate",
+      "economic_role": "domestic_financial_condition",
       "role": "domestic_financial_condition",
+      "identification_default": "observed_driver",
+      "identification_status": "observed_driver",
       "frequency": "monthly",
+      "series_scope_type": "country",
       "scope": "country",
+      "shared_series": false,
+      "timing_convention": "monthly observation or monthly average as documented",
+      "regime_sensitive": false,
       "unit": "index",
       "source": "BIS",
       "transformation_options": [
         "level",
         "monthly_log_change"
       ],
-      "economic_interpretation": "Broad-basket nominal effective-exchange-rate index.",
-      "identification_status": "observed_driver",
-      "limitations": "Index interpretation follows BIS methodology and basket composition."
+      "economic_interpretation": "Under the BIS convention, a higher broad-basket NEER index means effective appreciation or strengthening.",
+      "limitations": "A higher index does not by itself imply overvaluation; basket composition follows BIS methodology."
     },
     {
       "driver_id": "real_effective_exchange_rate",
       "name_zh": "实际有效汇率",
       "name_en": "Real effective exchange rate",
+      "economic_role": "domestic_financial_condition",
       "role": "domestic_financial_condition",
+      "identification_default": "observed_driver",
+      "identification_status": "observed_driver",
       "frequency": "monthly",
+      "series_scope_type": "country",
       "scope": "country",
+      "shared_series": false,
+      "timing_convention": "monthly observation or monthly average as documented",
+      "regime_sensitive": false,
       "unit": "index",
       "source": "BIS",
       "transformation_options": [
         "level",
         "monthly_log_change"
       ],
-      "economic_interpretation": "Broad-basket real effective-exchange-rate index.",
-      "identification_status": "observed_driver",
-      "limitations": "Price/cost deflator and basket methodology follow BIS."
+      "economic_interpretation": "Under the BIS convention, a higher broad-basket REER index means effective appreciation or strengthening.",
+      "limitations": "A higher index does not by itself imply overvaluation; price/cost deflator and basket methodology follow BIS."
     },
     {
       "driver_id": "hicp_energy_index",
       "name_zh": "HICP 能源指数",
       "name_en": "HICP Energy index",
+      "economic_role": "domestic_price_outcome",
       "role": "domestic_price_outcome",
+      "identification_default": "observed_driver",
+      "identification_status": "observed_driver",
       "frequency": "monthly",
+      "series_scope_type": "country",
       "scope": "country",
+      "shared_series": false,
+      "timing_convention": "monthly observation or monthly average as documented",
+      "regime_sensitive": false,
       "unit": "index 2015=100",
       "source": "Eurostat",
       "transformation_options": [
         "level"
       ],
       "economic_interpretation": "Domestic consumer energy-price outcome.",
-      "identification_status": "observed_driver",
       "limitations": "Not an external or exogenous energy shock."
     },
     {
       "driver_id": "hicp_energy_annual_rate",
       "name_zh": "HICP 能源同比",
       "name_en": "HICP Energy annual rate",
+      "economic_role": "domestic_price_outcome",
       "role": "domestic_price_outcome",
+      "identification_default": "observed_driver",
+      "identification_status": "observed_driver",
       "frequency": "monthly",
+      "series_scope_type": "country",
       "scope": "country",
+      "shared_series": false,
+      "timing_convention": "monthly observation or monthly average as documented",
+      "regime_sensitive": false,
       "unit": "%",
       "source": "Eurostat",
       "transformation_options": [
         "yoy_rate"
       ],
       "economic_interpretation": "Domestic consumer energy-price annual rate.",
-      "identification_status": "observed_driver",
       "limitations": "Not an external or exogenous energy shock."
     },
     {
       "driver_id": "brent_crude_price_usd",
       "name_zh": "布伦特原油价格",
       "name_en": "Brent crude oil price",
+      "economic_role": "external_common_driver",
       "role": "external_common_driver",
+      "identification_default": "observed_driver",
+      "identification_status": "observed_driver",
       "frequency": "monthly",
+      "series_scope_type": "global",
       "scope": "global",
+      "shared_series": true,
+      "timing_convention": "monthly observation or monthly average as documented",
+      "regime_sensitive": false,
       "unit": "USD/bbl",
       "source": "World Bank",
       "transformation_options": [
@@ -151,16 +206,22 @@
         "12m_log_change"
       ],
       "economic_interpretation": "Global observed energy-price movement.",
-      "identification_status": "observed_driver",
       "limitations": "Monthly change is registered separately as a shock candidate; neither level nor change is an identified supply or geopolitical shock."
     },
     {
       "driver_id": "europe_natural_gas_price_usd",
       "name_zh": "欧洲天然气价格",
       "name_en": "European natural gas price",
+      "economic_role": "external_common_driver",
       "role": "external_common_driver",
+      "identification_default": "observed_driver",
+      "identification_status": "observed_driver",
       "frequency": "monthly",
+      "series_scope_type": "europe",
       "scope": "europe",
+      "shared_series": true,
+      "timing_convention": "monthly observation or monthly average as documented",
+      "regime_sensitive": false,
       "unit": "USD/mmbtu",
       "source": "World Bank",
       "transformation_options": [
@@ -169,7 +230,6 @@
         "12m_log_change"
       ],
       "economic_interpretation": "European observed energy-price movement.",
-      "identification_status": "observed_driver",
       "limitations": "Monthly change is registered separately as a shock candidate; neither level nor change is an identified supply or geopolitical shock."
     }
   ]

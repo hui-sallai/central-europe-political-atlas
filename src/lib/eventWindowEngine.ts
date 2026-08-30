@@ -21,6 +21,13 @@ export interface HighFrequencyPoint {
   value_semantics?: ValueSemantics;
   seasonal_adjustment?: string;
   definition_version?: string;
+  derivation_status?: string | null;
+  availability_reason?: string | null;
+  temporal_alignment_status?: string | null;
+  series_instance_id?: string;
+  applicability_scope?: string;
+  shared_series?: boolean;
+  policy_regime_id?: string | null;
 }
 
 const MONTH_PRECISION = /^\d{4}-\d{2}/;

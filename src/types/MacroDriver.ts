@@ -3,7 +3,7 @@ export type MacroDriverRole =
   | "domestic_financial_condition"
   | "domestic_price_outcome"
   | "external_common_driver"
-  | "shock_candidate";
+  | "regional_common_driver";
 
 export type IdentificationStatus =
   | "observed_driver"
@@ -28,6 +28,16 @@ export type MacroDriverRuntimeRow = [
   definitionVersion: string,
   aggregationMethod: string,
   orientation: string,
+  derivationStatus: "valid" | "warmup" | "gap_blocked" | "regime_blocked" | "definition_blocked" | null,
+  availabilityReason: string | null,
+  temporalAlignmentStatus: "aligned" | "warmup" | "source_gap" | "regime_break" | "definition_break" | null,
+  seriesInstanceId: string,
+  applicabilityScope: string,
+  applicableCountryIds: string[],
+  sharedSeries: boolean,
+  independentCrossSectionUnit: boolean,
+  policyRegimeId: string | null,
+  policyInstrumentId: string | null,
 ];
 
 export interface MacroDriverDefinition {
@@ -35,6 +45,7 @@ export interface MacroDriverDefinition {
   name_zh: string;
   name_en: string;
   role: MacroDriverRole;
+  economic_role: MacroDriverRole;
   frequency: "monthly";
   scope: string;
   unit: string;
@@ -42,5 +53,10 @@ export interface MacroDriverDefinition {
   transformation_options: string[];
   economic_interpretation: string;
   identification_status: IdentificationStatus;
+  identification_default: IdentificationStatus;
+  series_scope_type: string;
+  shared_series: boolean;
+  timing_convention: string;
+  regime_sensitive: boolean;
   limitations: string;
 }

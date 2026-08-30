@@ -4,7 +4,7 @@ Central Europe Political Atlas is a public political-economy research platform f
 
 Public site: https://hy-central-europe-analysis.org/
 
-Current release: **v1.5 Macro Drivers & Shock Identification Foundation**
+Current release: **v1.51 Macro-Driver Temporal & Scope Integrity**
 
 ## Research scope
 
@@ -55,7 +55,7 @@ Machine-readable files are published under `/research-data/`. See [the research-
 
 ## Citation
 
-Central Europe Political Atlas, version v1.5 Macro Drivers & Shock Identification Foundation, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
+Central Europe Political Atlas, version v1.51 Macro-Driver Temporal & Scope Integrity, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
 
 ## Official VAR reference environment
 

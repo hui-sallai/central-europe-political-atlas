@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.51 Macro-Driver Temporal & Scope Integrity - 2026-08-30
+
+- Enforced exact one-month and twelve-month calendar alignment; transformation warm-up is now separate from source missingness.
+- Blocked policy-rate changes across Croatia's euro adoption and registered instrument/source-series transitions with explicit reasons.
+- Added shared-series identities, dated applicability, pseudo-replication guards, official identified-shock source candidates and a gated v1.6 readiness checklist.
+- Preserved zero identified shocks, zero causal-LP-ready records, and all frozen v1.44 VAR, panel, network, event-window and composite estimators.
+
 ## v1.5 Macro Drivers & Shock Identification Foundation - 2026-08-28
 
 - Added a separate 2015-present monthly macro-driver layer from BIS, Eurostat and World Bank official sources, with policy-instrument regimes, long-term yields, bilateral/effective FX, domestic HICP Energy and external commodity-price drivers.

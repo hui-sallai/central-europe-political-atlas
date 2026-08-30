@@ -1,15 +1,15 @@
 {
-  "schema_version": "release-metadata-v1.5",
-  "platform_version": "v1.5 Macro Drivers & Shock Identification Foundation",
-  "release_date": "2026-08-28",
+  "schema_version": "release-metadata-v1.51",
+  "platform_version": "v1.51 Macro-Driver Temporal & Scope Integrity",
+  "release_date": "2026-08-30",
   "source_commit": "local-working-tree",
   "build_context": "local",
   "workflow_run_id": null,
-  "generated_at": "2026-08-28T18:23:46.275Z",
+  "generated_at": "2026-08-30T06:25:48.663Z",
   "research_package": {
-    "filename": "research-data-v1.5.zip",
-    "sha256": "79ba8aff1cb731fa63f7e3f900271f1ed36841e2c1ca071c6379b150d6d16325",
-    "generated_at": "2026-08-28T18:23:47.004Z",
+    "filename": "research-data-v1.51.zip",
+    "sha256": "faf259f369845bc9e21a0ee5198a73ab27a4309621cdac4c77f845888f4a46c8",
+    "generated_at": "2026-08-30T06:25:49.529Z",
     "status": "built"
   },
   "data_export_version": "research-data-v0.1",
@@ -90,7 +90,7 @@
     "trade_network": "trade-network-v1.25-active",
     "event_window": "event-window-v1.31",
     "high_frequency": "high-frequency-v1.31",
-    "analysis_skill_registry": "analysis-skill-registry-v1.5",
+    "analysis_skill_registry": "analysis-skill-registry-v1.51",
     "transformation_registry": "transformation-registry-v1.41",
     "stationarity_engine": "stationarity-engine-v1.44",
     "seasonal_adf_calibration": "seasonal-adf-critical-values-v1.44",
@@ -100,9 +100,10 @@
     "var_engine": "var-engine-v1.44",
     "var_specification_profiles": "var-specification-profiles-v1.44",
     "var_country_readiness": "var-country-readiness-v1.44",
-    "macro_drivers": "macro-driver-observations-v1.5",
-    "shock_identification": "shock-identification-registry-v1.5",
-    "lp_readiness": "lp-readiness-registry-v1.5"
+    "macro_drivers": "macro-driver-observations-v1.51",
+    "shock_identification": "shock-identification-registry-v1.51",
+    "lp_readiness": "lp-readiness-registry-v1.51",
+    "driver_applicability": "driver-applicability-registry-v1.51"
   },
   "boundary_versions": [
     "GISCO NUTS 2024",
@@ -116,9 +117,9 @@
     "note": "Historical v0.91 golden cases remain the core research regression suite."
   },
   "advanced_analysis_validation": {
-    "stage": "v1.5 advanced analysis validation",
+    "stage": "v1.51 advanced analysis validation",
     "status": "passed",
-    "total_tests": 232,
+    "total_tests": 246,
     "failure_count": 0,
     "test_counts": {
       "panel": 51,
@@ -126,7 +127,7 @@
       "high_frequency": 22,
       "events": 22,
       "var": 104,
-      "macro_drivers": 16
+      "macro_drivers": 30
     },
     "categories": [
       "panel",
@@ -141,7 +142,7 @@
     ]
   },
   "release_validation": {
-    "stage": "v1.5 release validation",
+    "stage": "v1.51 release validation",
     "status": "required_after_static_build",
     "gates": [
       "security_scan",
@@ -155,10 +156,10 @@
       "static_build",
       "package_checksum"
     ],
-    "package_checksum": "79ba8aff1cb731fa63f7e3f900271f1ed36841e2c1ca071c6379b150d6d16325",
-    "package_filename": "research-data-v1.5.zip"
+    "package_checksum": "faf259f369845bc9e21a0ee5198a73ab27a4309621cdac4c77f845888f4a46c8",
+    "package_filename": "research-data-v1.51.zip"
   },
-  "validation_summary": {
+  "legacy_validation_summary_v091": {
     "stage": "v0.91 Model & Scenario Validation",
     "reviewed_at": "2026-08-20",
     "total": 145,

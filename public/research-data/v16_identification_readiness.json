@@ -1,0 +1,59 @@
+{
+  "schema_version": "identification-readiness-v1.6-planning",
+  "generated_at": "2026-08-30",
+  "target_release": "v1.6",
+  "all_gates_passed": false,
+  "record_count": 10,
+  "records": [
+    {
+      "gate_id": "ea_mpd_acquisition",
+      "status": "not_started",
+      "required_evidence": "official EA-MPD asset, immutable checksum and redistribution review"
+    },
+    {
+      "gate_id": "ea_empd_acquisition",
+      "status": "not_started",
+      "required_evidence": "official EA-EMPD annex asset, immutable checksum and redistribution review"
+    },
+    {
+      "gate_id": "shock_field_definitions",
+      "status": "pending",
+      "required_evidence": "registered factors, units, signs and information-set interpretation"
+    },
+    {
+      "gate_id": "announcement_timestamps",
+      "status": "pending",
+      "required_evidence": "decision/speech timestamps, market windows and timezone handling"
+    },
+    {
+      "gate_id": "event_coverage",
+      "status": "pending",
+      "required_evidence": "event universe, omissions, revisions and vintage audit"
+    },
+    {
+      "gate_id": "monthly_aggregation",
+      "status": "pending",
+      "required_evidence": "pre-registered event-to-month aggregation without look-ahead"
+    },
+    {
+      "gate_id": "information_effect_handling",
+      "status": "pending",
+      "required_evidence": "separate policy and information components or an explicit limitation"
+    },
+    {
+      "gate_id": "euro_area_applicability",
+      "status": "pending",
+      "required_evidence": "dated monetary-union applicability including Croatia from 2023-01"
+    },
+    {
+      "gate_id": "non_euro_spillover_interpretation",
+      "status": "pending",
+      "required_evidence": "external ECB spillover wording; never domestic monetary-policy shock"
+    },
+    {
+      "gate_id": "lp_estimator_validation",
+      "status": "blocked",
+      "required_evidence": "separate LP specification, inference and diagnostic validation"
+    }
+  ]
+}

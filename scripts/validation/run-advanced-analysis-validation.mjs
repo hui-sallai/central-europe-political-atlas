@@ -643,7 +643,7 @@ const varToPoints = (data, prefix) => data.map((row, index) => ({
 check(adfTest(new Array(80).fill(5), { autolag: "aic" }).status === "not_tested", "Singular ADF design must report not_tested.", "var");
 check(kpssStatus().status === "not_available", "KPSS must honestly report not_available.", "var");
 
-// ---- v1.5 macro-driver integrity and identification gates ----
+// ---- v1.51 macro-driver temporal, regime, scope and identification gates ----
 {
   const driverDir = path.join(root, "src/data/macro-drivers");
   const driverPayload = JSON.parse(fs.readFileSync(path.join(driverDir, "macro_driver_observations.json"), "utf8"));
@@ -654,6 +654,9 @@ check(kpssStatus().status === "not_available", "KPSS must honestly report not_av
   const policyManifest = JSON.parse(fs.readFileSync(path.join(driverDir, "policy_rate_acquisition_manifest.json"), "utf8"));
   const fxManifest = JSON.parse(fs.readFileSync(path.join(driverDir, "exchange_rate_acquisition_manifest.json"), "utf8"));
   const energyManifest = JSON.parse(fs.readFileSync(path.join(driverDir, "energy_driver_acquisition_manifest.json"), "utf8"));
+  const applicability = JSON.parse(fs.readFileSync(path.join(driverDir, "driver_applicability_registry.json"), "utf8"));
+  const sourceCandidates = JSON.parse(fs.readFileSync(path.join(driverDir, "identified_shock_source_candidates.json"), "utf8"));
+  const v16Readiness = JSON.parse(fs.readFileSync(path.join(driverDir, "v16_identification_readiness.json"), "utf8"));
   const records = driverPayload.records;
   const ids = records.map((item) => item.observation_id);
   check(new Set(ids).size === ids.length, "Duplicate macro-driver observation ids found.", "macro_driver");
@@ -661,7 +664,26 @@ check(kpssStatus().status === "not_available", "KPSS must honestly report not_av
   check(new Set(keys).size === keys.length, "Duplicate macro-driver series-period observations found.", "macro_driver");
   check(records.every((item) => /^\d{4}-\d{2}$/.test(item.period) && item.frequency === "monthly"), "Macro-driver period/frequency convention failed.", "macro_driver");
   check(records.every((item) => ["end_of_month", "monthly_average", "monthly_observation"].includes(item.aggregation_method)), "Macro-driver timing convention is missing or unsupported.", "macro_driver");
-  check(coverage.records.every((item) => item.expected_periods === item.observations + item.missing_periods.length), "Macro-driver continuity accounting failed.", "macro_driver");
+  check(coverage.records.every((item) => item.source_expected_periods === item.source_observations + item.source_missing_periods.length), "Macro-driver source continuity accounting failed.", "macro_driver");
+  check(coverage.records.every((item) => item.transformation_warmup_periods.every((period) => !item.source_missing_periods.includes(period))), "Transformation warm-up was misclassified as source missing.", "macro_driver");
+  const monthIndex = (period) => Number(period.slice(0, 4)) * 12 + Number(period.slice(5, 7)) - 1;
+  const validMonthly = records.filter((item) => item.transformation === "monthly_log_change" && item.derivation_status === "valid");
+  check(validMonthly.length > 0 && validMonthly.every((item) => item.source_periods?.length === 2 && monthIndex(item.source_periods[1]) - monthIndex(item.source_periods[0]) === 1 && item.actual_lag_months === 1), "Monthly derived records crossed a non-consecutive source period.", "macro_driver");
+  const validTwelveMonth = records.filter((item) => item.transformation === "12m_log_change" && item.derivation_status === "valid");
+  check(validTwelveMonth.length > 0 && validTwelveMonth.every((item) => item.source_periods?.length === 2 && monthIndex(item.source_periods[1]) - monthIndex(item.source_periods[0]) === 12 && item.actual_lag_months === 12), "Twelve-month derived records do not use an exact calendar lag.", "macro_driver");
+  check(records.filter((item) => item.data_status === "computed" && item.value === null).every((item) => item.derivation_status && item.availability_reason), "Null derived observation lacks a derivation status or availability reason.", "macro_driver");
+  const fixtureValues = new Map([["2025-01", 100], ["2025-03", 110]]);
+  const fixturePreviousPeriod = "2025-02";
+  const fixtureMonthlyResult = fixtureValues.has(fixturePreviousPeriod)
+    ? { value: 100 * Math.log(fixtureValues.get("2025-03") / fixtureValues.get(fixturePreviousPeriod)), availability_reason: null }
+    : { value: null, availability_reason: "non_consecutive_source_period" };
+  check(fixtureMonthlyResult.value === null && fixtureMonthlyResult.availability_reason === "non_consecutive_source_period", "Monthly gap fixture incorrectly calculated March from January.", "macro_driver");
+  const fixtureTwelveMonthValues = new Map([["2024-02", 90], ["2025-03", 110]]);
+  const requiredTwelveMonthPeriod = "2024-03";
+  const fixtureTwelveMonthResult = fixtureTwelveMonthValues.has(requiredTwelveMonthPeriod)
+    ? { value: 100 * Math.log(fixtureTwelveMonthValues.get("2025-03") / fixtureTwelveMonthValues.get(requiredTwelveMonthPeriod)), availability_reason: null }
+    : { value: null, availability_reason: "missing_exact_12_month_source_period" };
+  check(fixtureTwelveMonthResult.value === null && fixtureTwelveMonthResult.availability_reason === "missing_exact_12_month_source_period", "Twelve-month gap fixture used array position instead of the exact calendar lag.", "macro_driver");
   const unitKeys = new Map();
   for (const item of records) {
     const key = `${item.driver_id}|${item.country ?? item.scope}|${item.transformation}`;
@@ -672,20 +694,37 @@ check(kpssStatus().status === "not_available", "KPSS must honestly report not_av
   check(localFx.length > 0 && localFx.every((item) => item.orientation === "local currency units per 1 EUR; increase means local-currency depreciation"), "Bilateral FX orientation is inconsistent.", "macro_driver");
   const commonFx = records.filter((item) => item.driver_id === "eur_usd_common");
   check(commonFx.length > 0 && commonFx.every((item) => item.country === null && item.scope === "euro_area" && item.unit === (item.transformation === "level" ? "USD per EUR" : "%")), "EUR/USD common-series scope or inversion convention failed.", "macro_driver");
+  check(commonFx.every((item) => item.series_instance_id === "bis_eurusd_common" && item.shared_series && !item.independent_cross_section_unit), "EUR/USD shared-series identity failed.", "macro_driver");
+  check(records.filter((item) => item.driver_id === "brent_crude_price_usd").every((item) => item.series_instance_id === "worldbank_brent" && item.shared_series), "Brent shared-series identity failed.", "macro_driver");
+  check(records.filter((item) => item.driver_id === "europe_natural_gas_price_usd").every((item) => item.series_instance_id === "worldbank_europe_gas" && item.shared_series), "European gas shared-series identity failed.", "macro_driver");
   const policy = records.filter((item) => item.driver_id === "policy_rate" && item.transformation === "level");
   check(new Set(policy.map((item) => item.country)).size === 10 && policy.every((item) => item.instrument_regime && item.country_monetary_regime), "Policy-rate country/regime mapping is incomplete.", "macro_driver");
   check(policy.filter((item) => item.scope === "euro_area_common").every((item) => item.scope_note?.includes("not a country-specific policy decision")), "ECB common policy rate was represented as a country-specific decision.", "macro_driver");
   const croatianPolicy = policy.filter((item) => item.country === "croatia");
   check(croatianPolicy.some((item) => item.scope === "country" && item.period < "2023-01") && croatianPolicy.some((item) => item.scope === "euro_area_common" && item.period >= "2023-01"), "Croatia policy-regime transition was not preserved.", "macro_driver");
-  check(driverDictionary.records.find((item) => item.driver_id === "hicp_energy_index")?.role === "domestic_price_outcome" && !shocks.records.some((item) => item.driver_id?.startsWith("hicp_energy") && item.identification_status === "identified_shock"), "HICP Energy was incorrectly marked as an external/identified shock.", "macro_driver");
+  const croatiaTransition = records.find((item) => item.driver_id === "policy_rate" && item.country === "croatia" && item.period === "2023-01" && item.transformation === "monthly_change_bp");
+  const croatiaSameRegime = records.find((item) => item.driver_id === "policy_rate" && item.country === "croatia" && item.period === "2023-02" && item.transformation === "monthly_change_bp");
+  check(croatiaTransition?.value === null && croatiaTransition?.derivation_status === "regime_blocked" && croatiaTransition?.availability_reason === "policy_regime_transition", "Croatia 2023-01 policy transition was not blocked.", "macro_driver");
+  check(croatiaSameRegime?.value !== null && croatiaSameRegime?.derivation_status === "valid", "Croatia same-regime policy change did not resume after transition.", "macro_driver");
+  const hungaryInstrumentBreak = records.find((item) => item.driver_id === "policy_rate" && item.country === "hungary" && item.period === "2015-09" && item.transformation === "monthly_change_bp");
+  check(hungaryInstrumentBreak?.value === null && hungaryInstrumentBreak?.derivation_status === "definition_blocked", "Known Hungary policy-instrument transition was not blocked.", "macro_driver");
+  const ecb2024 = policy.filter((item) => item.period === "2024-01" && ["austria", "croatia", "germany", "slovakia", "slovenia"].includes(item.country));
+  check(ecb2024.length === 5 && new Set(ecb2024.map((item) => item.series_instance_id)).size === 1 && ecb2024.every((item) => item.shared_series && !item.independent_cross_section_unit), "ECB common series identity or pseudo-replication guard failed.", "macro_driver");
+  check(applicability.records.some((item) => item.series_instance_id === "bis_cbpol_euro_area" && item.country_id === "croatia" && item.start_period === "2023-01"), "Croatia euro-area applicability rule is missing.", "macro_driver");
+  const brentChanges = records.filter((item) => item.driver_id === "brent_crude_price_usd" && item.transformation === "monthly_log_change");
+  check(brentChanges.length > 0 && brentChanges.every((item) => item.economic_role === "external_common_driver" && item.identification_status === "shock_candidate"), "Economic role and identification status are not orthogonal for Brent changes.", "macro_driver");
+  check(driverDictionary.records.find((item) => item.driver_id === "hicp_energy_index")?.economic_role === "domestic_price_outcome" && !shocks.records.some((item) => item.driver_id?.startsWith("hicp_energy") && item.identification_status === "identified_shock"), "HICP Energy was incorrectly marked as an external/identified shock.", "macro_driver");
   check(shocks.identified_shock_count === 0 && shocks.records.filter((item) => item.driver_id === "policy_rate").every((item) => item.identification_status !== "identified_shock"), "Policy-rate movement was incorrectly promoted to an identified monetary shock.", "macro_driver");
   check(lp.method_state === "registry_only" && lp.causal_lp_ready_count === 0 && lp.records.every((item) => item.identification_status === "identified_shock" || item.causal_lp_ready === false), "LP identification gate failed.", "macro_driver");
+  check(lp.records.every((item) => Array.isArray(item.transformation_warmup_periods) && Array.isArray(item.temporally_or_definition_excluded_periods) && item.shock_scope), "LP temporal/scope readiness trace is incomplete.", "macro_driver");
+  check(sourceCandidates.records.length >= 2 && sourceCandidates.records.every((item) => item.identification_status === "candidate_for_identification_review" && item.source_institution === "European Central Bank"), "Official identified-shock source candidates are not properly gated.", "macro_driver");
+  check(v16Readiness.all_gates_passed === false && v16Readiness.records.every((item) => item.status !== "passed"), "v1.6 identification readiness was overstated.", "macro_driver");
   check(policyManifest.series.length === 10 && policyManifest.series.every((item) => item.status === "available"), "BIS policy-rate coverage manifest is incomplete.", "macro_driver");
   check([policyManifest.file_sha256, ...fxManifest.datasets.map((item) => item.file_sha256), energyManifest.pink_sheet.file_sha256].every((value) => /^[a-f0-9]{64}$/.test(value)), "Macro-driver source checksum provenance is incomplete.", "macro_driver");
 }
 
 const advancedValidationSummary = {
-  schema_version: "advanced-analysis-validation-summary-v1.5",
+  schema_version: "advanced-analysis-validation-summary-v1.51",
   generated_at: new Date().toISOString(),
   status: errors.length === 0 ? "passed" : "failed",
   total_tests: panelTests + networkTests + hfTests + eventTests + varTests + macroDriverTests,

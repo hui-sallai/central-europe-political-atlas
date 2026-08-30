@@ -111,6 +111,9 @@ const sourceEntries = [
   ["macro-drivers/energy_driver_acquisition_manifest.json", "src/data/macro-drivers/energy_driver_acquisition_manifest.json"],
   ["macro-drivers/shock_identification_registry.json", "src/data/macro-drivers/shock_identification_registry.json"],
   ["macro-drivers/lp_readiness_registry.json", "src/data/macro-drivers/lp_readiness_registry.json"],
+  ["macro-drivers/driver_applicability_registry.json", "src/data/macro-drivers/driver_applicability_registry.json"],
+  ["macro-drivers/identified_shock_source_candidates.json", "src/data/macro-drivers/identified_shock_source_candidates.json"],
+  ["macro-drivers/v16_identification_readiness.json", "src/data/macro-drivers/v16_identification_readiness.json"],
   ["macro-drivers/acquire-macro-drivers.py", "scripts/acquisition/acquire-macro-drivers.py"],
   ["macro-drivers/requirements-macro-drivers.txt", "scripts/acquisition/requirements-macro-drivers.txt"],
   ["network/network_acquisition_manifest.json", "src/data/network/network_acquisition_manifest.json"],
@@ -156,7 +159,7 @@ if (fs.existsSync(modelCardsFile)) {
   entries.push({ name: "models/formula_versions.json", data: JSON.stringify(records.map((item) => ({ model_id: item.model_id, model_version: item.model_version, formula_version: item.formula_version, calculation_logic: item.calculation_logic })), null, 2) });
 }
 
-entries.push({ name: "README.md", data: `# Central Europe Political Atlas ${researchPackageLabel()}\n\nThis package preserves public research data, dictionaries, QA records, model and scenario metadata, methodology and release provenance.\n\n- Missing and pending values are not zero.\n- Samples and placeholders do not enter formal analysis.\n- Model outputs are comparative research tools, not forecasts or objective risk truths.\n- Scenario results are conditional assumptions, not future facts.\n- Panel estimates preserve official source and observation traces.\n- Network outputs require complete bilateral partner edges passing coverage checks.\n- Macro drivers remain distinct from identified shocks; Local Projections are registry-only in v1.5.\n\nCanonical site: https://hy-central-europe-analysis.org/\n` });
+entries.push({ name: "README.md", data: `# Central Europe Political Atlas ${researchPackageLabel()}\n\nThis package preserves public research data, dictionaries, QA records, model and scenario metadata, methodology and release provenance.\n\n- Missing and pending values are not zero.\n- Samples and placeholders do not enter formal analysis.\n- Model outputs are comparative research tools, not forecasts or objective risk truths.\n- Scenario results are conditional assumptions, not future facts.\n- Panel estimates preserve official source and observation traces.\n- Network outputs require complete bilateral partner edges passing coverage checks.\n- Macro drivers remain distinct from identified shocks; temporal, regime and shared-scope gates apply, and Local Projections are registry-only in v1.51.\n\nCanonical site: https://hy-central-europe-analysis.org/\n` });
 entries.push({ name: "methodology/README.md", data: "Public methodology is available at /methodology/. Technical dictionaries and validation records in this archive are the authoritative downloadable companion to the interface.\n" });
 
 fs.mkdirSync(sourceDir, { recursive: true });

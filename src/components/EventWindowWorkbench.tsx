@@ -95,7 +95,7 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
         const macro = macroPayload.records.flatMap((row) => {
           const indicator = `${row[1]}:${row[7]}`;
           if (!supported.has(indicator)) return [];
-          const targetCountries = row[2] ? [row[2]] : countries.map((countryItem) => countryItem.slug);
+          const targetCountries = row[2] ? [row[2]] : (row[20]?.length ? row[20] : countries.map((countryItem) => countryItem.slug));
           return targetCountries.map((countrySlug) => ({
             observation_id: `${row[0]}:${countrySlug}`,
             country: countrySlug,
@@ -107,6 +107,8 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
             value_semantics: macroValueSemantics(row),
             seasonal_adjustment: "not_applicable",
             definition_version: row[12],
+            derivation_status: row[15], availability_reason: row[16], temporal_alignment_status: row[17],
+            series_instance_id: row[18], applicability_scope: row[19], shared_series: row[21], policy_regime_id: row[23],
           } satisfies HighFrequencyPoint));
         });
         setSeries([...domestic, ...macro]);
@@ -143,6 +145,10 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
   const pointY = (value: number) => plotBottom - ((value - chartMin) / chartRange) * (plotBottom - plotTop);
   const axisValue = (value: number) => value.toLocaleString("zh-CN", { maximumFractionDigits: 1 });
   const segments = result ? buildLineSegments(result.points) : [];
+  const resultPeriods = new Set(result?.points.map((point) => point.period) ?? []);
+  const resultSeries = series.filter((item) => item.country === country && item.indicator === outcome && resultPeriods.has(item.period));
+  const policyRegimes = new Set(resultSeries.map((item) => item.policy_regime_id).filter(Boolean));
+  const regimeWarning = policyRegimes.size > 1 || resultSeries.some((item) => item.temporal_alignment_status === "regime_break" || item.derivation_status === "regime_blocked");
 
   return (
     <div className="mt-6 grid gap-6">
@@ -197,6 +203,7 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
           ) : (
             <>
               {result.exploratory ? <p className="mt-5 border-l-4 border-[var(--warning)] bg-amber-50 px-4 py-3 text-sm" role="alert">探索性 · 数据窗口较短：当前观测（事件前 {result.pre_observations} / 事件后 {result.post_observations}）未达到完整窗口要求，结果仅供初步浏览。</p> : null}
+              {regimeWarning ? <p className="mt-5 border-l-4 border-[var(--warning)] bg-amber-50 px-4 py-3 text-sm" role="alert">该窗口跨越政策制度或工具定义切换。切换两侧不能解释为同一政策利率序列的自然连续变化；被阻断月份保持缺口，不做插值。</p> : null}
               {result.overlapping_event_warning ? (
                 <div className="mt-5 border-l-4 border-[var(--warning)] bg-amber-50 px-4 py-3 text-sm" role="alert">
                   <p className="font-semibold">同期其他事件（{result.overlapping_events.length}）</p>

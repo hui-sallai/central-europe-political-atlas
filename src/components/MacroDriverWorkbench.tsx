@@ -9,7 +9,7 @@ const roleLabels: Record<string, string> = {
   domestic_financial_condition: "国内金融条件",
   domestic_price_outcome: "国内价格结果",
   external_common_driver: "共同外部驱动",
-  shock_candidate: "冲击候选",
+  regional_common_driver: "区域共同驱动",
 };
 
 const identificationLabels: Record<string, string> = {
@@ -25,10 +25,17 @@ function signed(value: number | null, suffix = "") {
   return `${value > 0 ? "+" : ""}${value.toLocaleString("zh-CN", { maximumFractionDigits: 2 })}${suffix}`;
 }
 
+function shiftPeriod(period: string, lag: number) {
+  const [year, month] = period.split("-").map(Number);
+  const ordinal = year * 12 + month - 1 - lag;
+  return `${Math.floor(ordinal / 12)}-${String((ordinal % 12) + 1).padStart(2, "0")}`;
+}
+
 function periodChange(rows: MacroDriverRuntimeRow[], lag: number) {
-  if (rows.length <= lag || rows[0][5] === null || rows[lag][5] === null) return null;
+  const previousRow = rows.find((row) => row[4] === shiftPeriod(rows[0]?.[4] ?? "0000-01", lag));
+  if (!rows.length || rows[0][5] === null || !previousRow || previousRow[5] === null) return null;
   const current = rows[0][5] as number;
-  const previous = rows[lag][5] as number;
+  const previous = previousRow[5] as number;
   if (previous === 0) return null;
   return ((current / previous) - 1) * 100;
 }
@@ -63,7 +70,9 @@ export function MacroDriverWorkbench({ countries, compact = false }: { countries
     for (const row of records.filter((item) => item[1] === driverId)) {
       const key = row[2] ?? `scope:${row[3]}`;
       const country = countries.find((item) => item.slug === row[2]);
-      values.set(key, country ? `${country.name_zh} / ${country.name}` : `${row[3]}（共同范围）`);
+      values.set(key, country
+        ? `${country.name_zh} / ${country.name}${driverId === "policy_rate" && row[21] ? " · 欧洲央行共同政策利率" : ""}`
+        : `${row[3]}（共同范围）`);
     }
     return [...values.entries()].sort((a, b) => a[1].localeCompare(b[1]));
   }, [countries, driverId, records]);
@@ -72,11 +81,12 @@ export function MacroDriverWorkbench({ countries, compact = false }: { countries
   const selectedArea = areas.some(([key]) => key === area) ? area : (areas[0]?.[0] ?? area);
   const selectedTransformation = transformations.includes(transformation) ? transformation : (transformations[0] ?? transformation);
 
-  const rows = useMemo(() => records
+  const allRows = useMemo(() => records
     .filter((row) => row[1] === driverId)
     .filter((row) => (row[2] ?? `scope:${row[3]}`) === selectedArea)
-    .filter((row) => row[7] === selectedTransformation && row[5] !== null)
+    .filter((row) => row[7] === selectedTransformation)
     .sort((a, b) => b[4].localeCompare(a[4])), [driverId, records, selectedArea, selectedTransformation]);
+  const rows = allRows.filter((row) => row[5] !== null);
   const chartRows = [...rows].reverse().slice(-120);
   const values = chartRows.map((row) => row[5] as number);
   const min = values.length ? Math.min(...values) : 0;
@@ -86,6 +96,10 @@ export function MacroDriverWorkbench({ countries, compact = false }: { countries
   const latest = rows[0] ?? null;
   const mom = selectedTransformation === "level" ? periodChange(rows, 1) : null;
   const yoy = selectedTransformation === "level" ? periodChange(rows, 12) : null;
+  const warmupCount = allRows.filter((row) => row[15] === "warmup").length;
+  const gapCount = allRows.filter((row) => row[15] === "gap_blocked").length;
+  const regimeCount = allRows.filter((row) => row[15] === "regime_blocked" || row[15] === "definition_blocked").length;
+  const sharedSeries = Boolean(latest?.[21]);
 
   return (
     <section className={compact ? "mt-5" : "editorial-panel mt-6 p-5"}>
@@ -103,7 +117,9 @@ export function MacroDriverWorkbench({ countries, compact = false }: { countries
         </dl>
         <svg viewBox="0 0 700 180" className="mt-5 w-full" role="img" aria-label={`${definition?.name_zh ?? driverId}月度序列`}><line x1="20" y1="150" x2="680" y2="150" stroke="var(--line)"/><polyline points={points} fill="none" stroke="var(--accent)" strokeWidth="2"/><text x="20" y="170" fontSize="10" fill="var(--muted)">{chartRows[0]?.[4]}</text><text x="680" y="170" textAnchor="end" fontSize="10" fill="var(--muted)">{chartRows.at(-1)?.[4]}</text><text x="20" y="15" fontSize="10" fill="var(--muted)">{max.toLocaleString("zh-CN", { maximumFractionDigits: 2 })}</text><text x="20" y="145" fontSize="10" fill="var(--muted)">{min.toLocaleString("zh-CN", { maximumFractionDigits: 2 })}</text></svg>
         <div className="mt-5 grid gap-4 md:grid-cols-2"><div><p className="text-xs font-semibold text-[var(--muted)]">定义与解释</p><p className="mt-2 text-sm leading-7">{definition?.economic_interpretation}</p><p className="mt-2 text-xs leading-6 text-[var(--muted)]">{definition?.limitations}</p></div><div><p className="text-xs font-semibold text-[var(--muted)]">来源与识别状态</p><p className="mt-2 text-sm"><a href={latest[10]} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)] hover:underline">{latest[9]}</a></p><p className="mt-2 text-xs text-[var(--muted)]">角色：{roleLabels[latest[8]] ?? latest[8]} · 识别：{identificationLabels[latest[11]] ?? latest[11]} · {latest[13]}</p></div></div>
-        {compact ? <div className="data-table-desktop wide-table-scroll mt-5 max-h-[520px] overflow-y-auto"><table className="research-data-table w-full min-w-[980px] text-left text-sm"><thead><tr>{["驱动指标", "国家 / 范围", "时期", "值", "单位", "角色", "来源", "识别状态"].map((header) => <th key={header} className="px-3 py-3">{header}</th>)}</tr></thead><tbody>{rows.map((row) => <tr key={row[0]}><td className="px-3 py-2 font-semibold">{definition?.name_zh ?? row[1]}<span className="mt-1 block font-mono text-[10px] font-normal text-[var(--muted)]">{row[1]} · {row[7]}</span></td><td className="px-3 py-2">{countries.find((item) => item.slug === row[2])?.name_zh ?? row[3]}</td><td className="metric-number px-3 py-2">{row[4]}</td><td className="metric-number px-3 py-2 font-semibold">{row[5]?.toLocaleString("zh-CN", { maximumFractionDigits: 3 })}</td><td className="px-3 py-2">{row[6]}</td><td className="px-3 py-2">{roleLabels[row[8]] ?? row[8]}</td><td className="px-3 py-2"><a href={row[10]} target="_blank" rel="noreferrer" className="text-[var(--accent)]">{row[9]}</a></td><td className="px-3 py-2">{identificationLabels[row[11]] ?? row[11]}</td></tr>)}</tbody></table></div> : null}
+        <p className="mt-4 border-l-2 border-[var(--line)] pl-4 text-xs leading-6 text-[var(--muted)]">时间完整性：有效观测 {rows.length}；变换预热 {warmupCount}；源序列缺口阻断 {gapCount}；制度或定义切换排除 {regimeCount}。{warmupCount ? "预热期是计算窗口要求，不是原始数据缺失。" : ""}{sharedSeries ? ` 当前为共同序列（${latest[18]}），适用于多个国家但不是统计独立冲击。` : ""}</p>
+        {driverId === "policy_rate" && selectedArea === "croatia" ? <p className="mt-3 border-l-2 border-[var(--accent)] pl-4 text-xs leading-6 text-[var(--muted)]">克罗地亚政策制度：2015–2022 为克罗地亚国家货币政策制度；2023 年起为 ECB 共同政策制度。2023-01 的跨制度月度变化被排除。</p> : null}
+        {compact ? <div className="data-table-desktop wide-table-scroll mt-5 max-h-[520px] overflow-y-auto"><table className="research-data-table w-full min-w-[1120px] text-left text-sm"><thead><tr>{["驱动指标", "国家 / 范围", "时期", "值", "单位", "角色", "来源", "识别状态", "时间 / 制度状态"].map((header) => <th key={header} className="px-3 py-3">{header}</th>)}</tr></thead><tbody>{allRows.map((row) => <tr key={row[0]}><td className="px-3 py-2 font-semibold">{definition?.name_zh ?? row[1]}<span className="mt-1 block font-mono text-[10px] font-normal text-[var(--muted)]">{row[1]} · {row[7]}</span></td><td className="px-3 py-2">{countries.find((item) => item.slug === row[2])?.name_zh ?? row[3]}{row[21] ? <span className="mt-1 block text-[10px] text-[var(--muted)]">共同序列，不构成独立国家冲击</span> : null}</td><td className="metric-number px-3 py-2">{row[4]}</td><td className="metric-number px-3 py-2 font-semibold">{row[5] === null ? "—" : row[5].toLocaleString("zh-CN", { maximumFractionDigits: 3 })}</td><td className="px-3 py-2">{row[6]}</td><td className="px-3 py-2">{roleLabels[row[8]] ?? row[8]}</td><td className="px-3 py-2"><a href={row[10]} target="_blank" rel="noreferrer" className="text-[var(--accent)]">{row[9]}</a></td><td className="px-3 py-2">{identificationLabels[row[11]] ?? row[11]}</td><td className="px-3 py-2">{row[15] === "warmup" ? "变换预热" : row[15] === "gap_blocked" ? "源序列缺口" : row[15] === "regime_blocked" ? "制度切换排除" : row[15] === "definition_blocked" ? "定义切换排除" : "连续 / 可用"}{row[16] ? <span className="mt-1 block text-[10px] text-[var(--muted)]">{row[16]}</span> : null}</td></tr>)}</tbody></table></div> : null}
       </> : null}
     </section>
   );

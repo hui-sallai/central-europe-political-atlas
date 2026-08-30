@@ -1,9 +1,9 @@
 {
   "name": "Central Europe Political Atlas",
-  "version": "v1.5 Macro Drivers & Shock Identification Foundation",
-  "release_date": "2026-08-28",
-  "stage": "macro drivers and shock identification foundation",
-  "schema_version": "release-metadata-v1.5",
+  "version": "v1.51 Macro-Driver Temporal & Scope Integrity",
+  "release_date": "2026-08-30",
+  "stage": "macro-driver temporal, regime and shared-scope integrity",
+  "schema_version": "release-metadata-v1.51",
   "canonical_url": "https://hy-central-europe-analysis.org/",
   "public_contact_email": "sallaizhang@outlook.com",
   "legal_notice_updated": "2026-08-20",
@@ -39,16 +39,17 @@
     "var-specification-profiles-v1.44",
     "var-seasonality-audit-v1.44",
     "var-lag-diagnostic-grid-v1.44",
-    "macro-driver-observations-v1.5",
-    "shock-identification-registry-v1.5",
-    "lp-readiness-registry-v1.5"
+    "macro-driver-observations-v1.51",
+    "driver-applicability-registry-v1.51",
+    "shock-identification-registry-v1.51",
+    "lp-readiness-registry-v1.51"
   ],
   "limitations": [
     "No election forecasts, investment advice, probability forecasts, or causal impact estimates.",
     "Serbia regional comparison remains pending while national data remain available.",
     "China Economic Exposure and China-linked Project Disruption remain subject to their published evidence gates."
   ],
-  "citation": "Central Europe Political Atlas, version v1.5 Macro Drivers & Shock Identification Foundation, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
+  "citation": "Central Europe Political Atlas, version v1.51 Macro-Driver Temporal & Scope Integrity, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
   "data_status_enum": [
     "official",
     "verified",

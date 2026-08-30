@@ -1,6 +1,6 @@
 {
   "schema_version": "lag-selection-registry-v1.44",
-  "generated_at": "2026-08-28",
+  "generated_at": "2026-08-30",
   "default_criterion": "bic",
   "note": "候选滞后使用共同有效样本；最大滞后同时受请求值 12 和 (T-p)/(Kp+1)>=4 参数门约束。",
   "record_count": 10,

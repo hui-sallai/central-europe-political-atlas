@@ -1,0 +1,65 @@
+{
+  "schema_version": "identified-shock-source-candidates-v1.51",
+  "generated_at": "2026-08-30",
+  "record_count": 2,
+  "records": [
+    {
+      "candidate_id": "ecb_ea_mpd",
+      "name": "Euro Area Monetary Policy Event-Study Database (EA-MPD)",
+      "source_institution": "European Central Bank",
+      "source_url": "https://www.ecb.europa.eu/pub/pdf/annex/Dataset_EA-MPD.xlsx",
+      "methodology_url": "https://www.ecb.europa.eu/pub/pdf/scpwps/ecb.wp2281~3303fd281b.en.pdf",
+      "authors": [
+        "Carlo Altavilla",
+        "Luca Brugnolini",
+        "Refet S. Gürkaynak",
+        "Roberto Motto",
+        "Giuseppe Ragusa"
+      ],
+      "dataset_type": "official ECB research dataset; event-level high-frequency/intraday surprise information",
+      "coverage_scope": "euro_area_policy_announcements",
+      "identification_status": "candidate_for_identification_review",
+      "required_audits": [
+        "variable-definition",
+        "information-effect",
+        "event-window",
+        "aggregation policy",
+        "coverage",
+        "license",
+        "vintage",
+        "country applicability"
+      ],
+      "croatia_interpretation": "Euro-area surprise exposure can apply only after euro adoption unless a separate research design justifies earlier external spillover use."
+    },
+    {
+      "candidate_id": "ecb_ea_empd",
+      "name": "Euro Area Extended Monetary Policy Event-Study Database (EA-EMPD)",
+      "source_institution": "European Central Bank",
+      "source_url": "https://www.ecb.europa.eu/pub/pdf/scpwps/ecb.wp3157~f5789c7b8a.da.pdf",
+      "methodology_url": "https://www.ecb.europa.eu/pub/pdf/scpwps/ecb.wp3157~f5789c7b8a.da.pdf",
+      "authors": [
+        "Carlo Altavilla",
+        "Refet S. Gürkaynak",
+        "Luc Laeven",
+        "Thilo Kind"
+      ],
+      "dataset_type": "official ECB research annex; official decisions and policymaker speeches",
+      "official_annex_status": "listed by ECB; exact downloadable annex asset remains subject to acquisition and checksum audit",
+      "coverage_scope": "euro_area_decisions_and_policy_speeches",
+      "identification_status": "candidate_for_identification_review",
+      "required_audits": [
+        "annex download",
+        "variable-definition",
+        "information-effect",
+        "event-window",
+        "aggregation policy",
+        "coverage",
+        "license",
+        "revision policy",
+        "country applicability"
+      ],
+      "croatia_interpretation": "Country treatment must distinguish euro-area membership from external spillover exposure and preserve event-date applicability."
+    }
+  ],
+  "boundary": "Candidate registration is not ingestion, validation or identification approval."
+}

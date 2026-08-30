@@ -27,6 +27,9 @@ const macroDriverFiles = [
   "energy_driver_acquisition_manifest.json",
   "shock_identification_registry.json",
   "lp_readiness_registry.json",
+  "driver_applicability_registry.json",
+  "identified_shock_source_candidates.json",
+  "v16_identification_readiness.json",
 ];
 
 execFileSync(process.execPath, [path.join(projectRoot, "scripts", "build-spatial-data-v087.mjs")], {
@@ -2019,16 +2022,20 @@ const macroIdentificationBySeries = new Map(macroShockPayload.records.map((item)
 for (const fileName of macroDriverFiles) fs.copyFileSync(path.join(macroDriverDir, fileName), path.join(outDir, fileName));
 const advancedValidationSummary = fs.existsSync(advancedValidationSummaryPath)
   ? JSON.parse(fs.readFileSync(advancedValidationSummaryPath, "utf8"))
-  : { schema_version: "advanced-analysis-validation-summary-v1.5", status: "pending", total_tests: 0, failure_count: null, categories: {} };
+  : { schema_version: "advanced-analysis-validation-summary-v1.51", status: "pending", total_tests: 0, failure_count: null, categories: {} };
 fs.writeFileSync(path.join(outDir, "advanced_analysis_validation_summary.json"), `${JSON.stringify(advancedValidationSummary, null, 2)}\n`);
 const macroRuntimeRows = macroDriverPayload.records.map((item) => [
   item.observation_id, item.driver_id, item.country, item.scope, item.period, item.value,
-  item.unit, item.transformation, item.role, item.source, item.source_url,
-  macroIdentificationBySeries.get(`${item.driver_id}|${item.transformation}`) ?? macroIdentificationByDriver.get(item.driver_id) ?? "observed_driver",
+  item.unit, item.transformation, item.economic_role ?? item.role, item.source, item.source_url,
+  item.identification_status ?? macroIdentificationBySeries.get(`${item.driver_id}|${item.transformation}`) ?? macroIdentificationByDriver.get(item.driver_id) ?? "observed_driver",
   item.definition_version, item.aggregation_method, item.orientation,
+  item.derivation_status ?? null, item.availability_reason ?? null, item.temporal_alignment_status ?? null,
+  item.series_instance_id, item.applicability_scope, item.applicable_country_ids ?? [],
+  item.shared_series ?? false, item.independent_cross_section_unit ?? true,
+  item.policy_regime_id ?? null, item.policy_instrument_id ?? null,
 ]);
 fs.writeFileSync(path.join(outDir, "macro_driver_runtime.json"), JSON.stringify({
-  schema_version: "macro-driver-runtime-v1.5",
+  schema_version: "macro-driver-runtime-v1.51",
   generated_at: macroDriverPayload.generated_at,
   record_count: macroRuntimeRows.length,
   records: macroRuntimeRows,
@@ -2063,7 +2070,7 @@ writeJson("release_manifest.json", {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.5",
+    analysis_skill_registry: "analysis-skill-registry-v1.51",
     transformation_registry: "transformation-registry-v1.41",
     stationarity_engine: "stationarity-engine-v1.44",
     seasonal_adf_calibration: "seasonal-adf-critical-values-v1.44",
@@ -2073,9 +2080,10 @@ writeJson("release_manifest.json", {
     var_engine: "var-engine-v1.44",
     var_specification_profiles: "var-specification-profiles-v1.44",
     var_country_readiness: "var-country-readiness-v1.44",
-    macro_drivers: "macro-driver-observations-v1.5",
-    shock_identification: "shock-identification-registry-v1.5",
-    lp_readiness: "lp-readiness-registry-v1.5",
+    macro_drivers: "macro-driver-observations-v1.51",
+    shock_identification: "shock-identification-registry-v1.51",
+    lp_readiness: "lp-readiness-registry-v1.51",
+    driver_applicability: "driver-applicability-registry-v1.51",
   },
   boundary_versions: ["GISCO NUTS 2024", "regional spatial QA v0.87-v0.89"],
   core_research_validation: {
@@ -2086,7 +2094,7 @@ writeJson("release_manifest.json", {
     note: "Historical v0.91 golden cases remain the core research regression suite.",
   },
   advanced_analysis_validation: {
-    stage: "v1.5 advanced analysis validation",
+    stage: "v1.51 advanced analysis validation",
     status: advancedValidationSummary.status,
     total_tests: advancedValidationSummary.total_tests,
     failure_count: advancedValidationSummary.failure_count,
@@ -2094,11 +2102,11 @@ writeJson("release_manifest.json", {
     categories: ["panel", "network", "high_frequency", "events", "var", "seasonal_adf_calibration", "macro_drivers", "shock_identification", "lp_readiness"],
   },
   release_validation: {
-    stage: "v1.5 release validation",
+    stage: "v1.51 release validation",
     status: "required_after_static_build",
     gates: ["security_scan", "export", "research_package", "advanced_validation", "core_validation", "ui_language_qa", "lint", "typecheck", "static_build", "package_checksum"],
   },
-  validation_summary: validationSummary,
+  legacy_validation_summary_v091: validationSummary,
   public_display_boundaries: platformRelease.limitations,
 });
 writeLayer("china_exposure_variables", chinaExposureVariables, {
