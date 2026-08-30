@@ -4,7 +4,7 @@ Central Europe Political Atlas is a public political-economy research platform f
 
 Public site: https://hy-central-europe-analysis.org/
 
-Current release: **v1.51 Macro-Driver Temporal & Scope Integrity**
+Current release: **v1.6 ECB Monetary Policy Identification & LP Readiness**
 
 ## Research scope
 
@@ -14,7 +14,8 @@ Current release: **v1.51 Macro-Driver Temporal & Scope Integrity**
 - An annual 2015–2025 econometric panel with cluster-robust Student-t (G−1) inference, small-cluster gates and offline Python reference validation.
 - An activated bilateral goods trade network (UN Comtrade, complete partner edges, 0.95 coverage gate) with deterministic descriptive concentration metrics.
 - A per-country monthly reduced-form VAR workbench with constant-only and seasonal-control formal baselines, profile-mapped stationarity gates, descriptive persistence and structural-break readiness diagnostics, strict `estimable` versus `dynamic_response_ready` states, h=12/18/24 residual sensitivity diagnostics, and ordering-dependent orthogonalized point responses. SVAR, seasonal-unit-root tests, structural-break estimators, residual LM and uncertainty intervals remain unavailable.
-- A separate monthly macro-driver layer for policy rates, long-term government yields, bilateral and effective exchange rates, HICP Energy, Brent and European natural gas, with source checksums, timing conventions and machine-readable identification status. The release contains no identified shocks; Local Projections remain registry-only.
+- A separate monthly macro-driver layer for policy rates, long-term government yields, bilateral and effective exchange rates, HICP Energy, Brent and European natural gas, with source checksums, timing conventions and machine-readable identification status.
+- An audited ECB high-frequency monetary-policy event layer built from EA-MPD and EA-EMPD. It retains event windows, timing conventions, overlap records, monthly profiles and validation evidence. The imported series are external innovation proxies, not identified causal shocks: the release contains zero identified shocks and Local Projections remain registry-only.
 - 4 conditional scenarios with baseline, shock assumption, adjusted input and result traces.
 - Coded political-economy events and verified China-related project records.
 - Deterministic validation, golden cases and a release QA gate.
@@ -44,6 +45,7 @@ pnpm.cmd install --frozen-lockfile
 pnpm.cmd run lint
 pnpm.cmd run typecheck
 pnpm.cmd run research:validate
+pnpm.cmd run ecb:validate
 pnpm.cmd run build
 ```
 
@@ -55,7 +57,7 @@ Machine-readable files are published under `/research-data/`. See [the research-
 
 ## Citation
 
-Central Europe Political Atlas, version v1.51 Macro-Driver Temporal & Scope Integrity, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
+Central Europe Political Atlas, version v1.6 ECB Monetary Policy Identification & LP Readiness, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
 
 ## Official VAR reference environment
 

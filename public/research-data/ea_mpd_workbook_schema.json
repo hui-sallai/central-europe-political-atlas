@@ -1,0 +1,1288 @@
+{
+  "schema_version": "ea_mpd-workbook-schema-v1.6",
+  "generated_at": "2026-08-30",
+  "dataset_id": "ea_mpd",
+  "raw_field_names_preserved": true,
+  "sheet_count": 4,
+  "sheets": [
+    {
+      "sheet_name": "Notes",
+      "row_count": 66,
+      "column_count": 1,
+      "columns": [
+        {
+          "column_name": "Euro Area Monetary Policy event study Database (EA-MPD) ",
+          "inferred_type": "string",
+          "missing_count": 6,
+          "sample_value": "Euro Area Monetary Policy event study Database (EA-MPD) ",
+          "description": null,
+          "unit": null,
+          "source_description": null
+        }
+      ]
+    },
+    {
+      "sheet_name": "Press Release Window",
+      "row_count": 315,
+      "column_count": 46,
+      "columns": [
+        {
+          "column_name": "date",
+          "inferred_type": "mixed",
+          "missing_count": 0,
+          "sample_value": "1999-01-07T00:00:00",
+          "description": null,
+          "unit": "datetime_or_date",
+          "source_description": null
+        },
+        {
+          "column_name": "OIS_SW",
+          "inferred_type": "number",
+          "missing_count": 3,
+          "sample_value": 0,
+          "description": "1 week OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "1 week OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_1M",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 0,
+          "description": "1 month OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "1 month OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_3M",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 0,
+          "description": "3 months OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "3 months OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_6M",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 0,
+          "description": "6 months OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "6 months OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_1Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 0,
+          "description": "1 year OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "1 year OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_2Y",
+          "inferred_type": "number",
+          "missing_count": 22,
+          "sample_value": 0.600000000000023,
+          "description": "2 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "2 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_3Y",
+          "inferred_type": "number",
+          "missing_count": 83,
+          "sample_value": -0.300000000000011,
+          "description": "3 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "3 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_4Y",
+          "inferred_type": "number",
+          "missing_count": 186,
+          "sample_value": -0.89999999999999,
+          "description": "4 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "4 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_5Y",
+          "inferred_type": "number",
+          "missing_count": 187,
+          "sample_value": 0.4,
+          "description": "5 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "5 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_6Y",
+          "inferred_type": "number",
+          "missing_count": 187,
+          "sample_value": 0.4,
+          "description": "6 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "6 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_7Y",
+          "inferred_type": "number",
+          "missing_count": 186,
+          "sample_value": -0.4,
+          "description": "7 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "7 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_8Y",
+          "inferred_type": "number",
+          "missing_count": 187,
+          "sample_value": 0.500000000000034,
+          "description": "8 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "8 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_9Y",
+          "inferred_type": "number",
+          "missing_count": 187,
+          "sample_value": 0.599999999999978,
+          "description": "9 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "9 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_10Y",
+          "inferred_type": "number",
+          "missing_count": 186,
+          "sample_value": 0.09999999999998901,
+          "description": "10 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "10 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_15Y",
+          "inferred_type": "number",
+          "missing_count": 212,
+          "sample_value": 0.09999999999998901,
+          "description": "15 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "15 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_20Y",
+          "inferred_type": "number",
+          "missing_count": 213,
+          "sample_value": 1.6,
+          "description": "20 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "20 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE3M",
+          "inferred_type": "number",
+          "missing_count": 123,
+          "sample_value": 0.249999999999995,
+          "description": "3 months German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "3 months German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE6M",
+          "inferred_type": "number",
+          "missing_count": 123,
+          "sample_value": -0.09999999999998901,
+          "description": "6 months German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "6 months German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE1Y",
+          "inferred_type": "number",
+          "missing_count": 90,
+          "sample_value": -1.94999999999999,
+          "description": "1 year German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "1 year German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE2Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": -0.300000000000011,
+          "description": "2 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "2 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE3Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": -0.550000000000006,
+          "description": "3 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "3 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE4Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 0.4,
+          "description": "4 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "4 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE5Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 0.800000000000001,
+          "description": "5 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "5 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE6Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 0.599999999999978,
+          "description": "6 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "6 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE7Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 0.449999999999973,
+          "description": "7 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "7 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE8Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 1.30000000000003,
+          "description": "8 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "8 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE9Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 0.800000000000001,
+          "description": "9 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "9 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE10Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 0.500000000000034,
+          "description": "10 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "10 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE15Y",
+          "inferred_type": "number",
+          "missing_count": 179,
+          "sample_value": 1.75000000000001,
+          "description": "15 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "15 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE20Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 0.999999999999979,
+          "description": "20 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "20 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE30Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": -0.150000000000006,
+          "description": "30 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "30 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "IT2Y",
+          "inferred_type": "number",
+          "missing_count": 52,
+          "sample_value": 0.600000000000023,
+          "description": "2 years Italian bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "2 years Italian bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "FR2Y",
+          "inferred_type": "number",
+          "missing_count": 6,
+          "sample_value": 0,
+          "description": "2 years French bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "2 years French bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "ES2Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 0.800000000000001,
+          "description": "2 years Spanish bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "2 years Spanish bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "IT5Y",
+          "inferred_type": "number",
+          "missing_count": 52,
+          "sample_value": 0.549999999999962,
+          "description": "5 years Italian bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "5 years Italian bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "ES5Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": -0.499999999999989,
+          "description": "5 years Spanish bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "5 years Spanish bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "FR5Y",
+          "inferred_type": "number",
+          "missing_count": 3,
+          "sample_value": 2,
+          "description": "5 years French bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "5 years French bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "ES10Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 0.150000000000006,
+          "description": "10 years Spanish bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "10 years Spanish bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "FR10Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 10.05,
+          "description": "10 years French bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "10 years French bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "IT10Y",
+          "inferred_type": "number",
+          "missing_count": 52,
+          "sample_value": 0,
+          "description": "10 years Italian bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "10 years Italian bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "STOXX50",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": -0.355884985397026,
+          "description": "euro STOXX50E index change in the relevant window in percentage points.",
+          "unit": "percentage_points",
+          "source_description": "euro STOXX50E index change in the relevant window in percentage points."
+        },
+        {
+          "column_name": "SX7E",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": -0.632078231376809,
+          "description": "euro SX7E index change in the relevant window in percentage points.",
+          "unit": "percentage_points",
+          "source_description": "euro SX7E index change in the relevant window in percentage points."
+        },
+        {
+          "column_name": "EURUSD",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": -0.126629839317349,
+          "description": "euro/dollar exchange rate change in the relevant window in percentage points.",
+          "unit": "percentage_points",
+          "source_description": "euro/dollar exchange rate change in the relevant window in percentage points."
+        },
+        {
+          "column_name": "EURGBP",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": -0.0212336766908849,
+          "description": "euro/pound exchange rate change in the relevant window in percentage points.",
+          "unit": "percentage_points",
+          "source_description": "euro/pound exchange rate change in the relevant window in percentage points."
+        },
+        {
+          "column_name": "EURJPY",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": -0.0481867341610709,
+          "description": "euro/yen exchange rate change in the relevant window in percentage points.",
+          "unit": "percentage_points",
+          "source_description": "euro/yen exchange rate change in the relevant window in percentage points."
+        }
+      ]
+    },
+    {
+      "sheet_name": "Press Conference Window",
+      "row_count": 315,
+      "column_count": 46,
+      "columns": [
+        {
+          "column_name": "date",
+          "inferred_type": "mixed",
+          "missing_count": 0,
+          "sample_value": "1999-01-07T00:00:00",
+          "description": null,
+          "unit": "datetime_or_date",
+          "source_description": null
+        },
+        {
+          "column_name": "OIS_SW",
+          "inferred_type": "number",
+          "missing_count": 44,
+          "sample_value": -1.24999999999997,
+          "description": "1 week OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "1 week OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_1M",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": -4.99999999999998,
+          "description": "1 month OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "1 month OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_3M",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": -0.499999999999989,
+          "description": "3 months OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "3 months OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_6M",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": -5.24999999999998,
+          "description": "6 months OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "6 months OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_1Y",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": -0.250000000000039,
+          "description": "1 year OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "1 year OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_2Y",
+          "inferred_type": "number",
+          "missing_count": 52,
+          "sample_value": -0.300000000000011,
+          "description": "2 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "2 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_3Y",
+          "inferred_type": "number",
+          "missing_count": 87,
+          "sample_value": 3.50000000000001,
+          "description": "3 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "3 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_4Y",
+          "inferred_type": "number",
+          "missing_count": 186,
+          "sample_value": 3.29999999999999,
+          "description": "4 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "4 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_5Y",
+          "inferred_type": "number",
+          "missing_count": 187,
+          "sample_value": -12.6,
+          "description": "5 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "5 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_6Y",
+          "inferred_type": "number",
+          "missing_count": 187,
+          "sample_value": -10,
+          "description": "6 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "6 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_7Y",
+          "inferred_type": "number",
+          "missing_count": 186,
+          "sample_value": 3.39999999999998,
+          "description": "7 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "7 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_8Y",
+          "inferred_type": "number",
+          "missing_count": 187,
+          "sample_value": -6.599999999999979,
+          "description": "8 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "8 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_9Y",
+          "inferred_type": "number",
+          "missing_count": 187,
+          "sample_value": -5.29999999999999,
+          "description": "9 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "9 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_10Y",
+          "inferred_type": "number",
+          "missing_count": 186,
+          "sample_value": 2.30000000000001,
+          "description": "10 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "10 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_15Y",
+          "inferred_type": "number",
+          "missing_count": 212,
+          "sample_value": 0.700000000000012,
+          "description": "15 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "15 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_20Y",
+          "inferred_type": "number",
+          "missing_count": 213,
+          "sample_value": 1.30000000000003,
+          "description": "20 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "20 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE3M",
+          "inferred_type": "number",
+          "missing_count": 125,
+          "sample_value": -0.999999999999979,
+          "description": "3 months German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "3 months German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE6M",
+          "inferred_type": "number",
+          "missing_count": 124,
+          "sample_value": -0.700000000000012,
+          "description": "6 months German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "6 months German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE1Y",
+          "inferred_type": "number",
+          "missing_count": 95,
+          "sample_value": -4.15000000000001,
+          "description": "1 year German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "1 year German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE2Y",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": -1.2,
+          "description": "2 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "2 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE3Y",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": 0.149999999999961,
+          "description": "3 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "3 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE4Y",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": 1.29999999999999,
+          "description": "4 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "4 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE5Y",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": 0.300000000000011,
+          "description": "5 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "5 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE6Y",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": 1.05,
+          "description": "6 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "6 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE7Y",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": 1.6,
+          "description": "7 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "7 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE8Y",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": 0.300000000000011,
+          "description": "8 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "8 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE9Y",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": 1.15000000000003,
+          "description": "9 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "9 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE10Y",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": 1.15000000000003,
+          "description": "10 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "10 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE15Y",
+          "inferred_type": "number",
+          "missing_count": 179,
+          "sample_value": 0.299999999999967,
+          "description": "15 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "15 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE20Y",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": 0.999999999999979,
+          "description": "20 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "20 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE30Y",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": 0.649999999999995,
+          "description": "30 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "30 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "IT2Y",
+          "inferred_type": "number",
+          "missing_count": 68,
+          "sample_value": 7.899999999999969,
+          "description": "2 years Italian bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "2 years Italian bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "FR2Y",
+          "inferred_type": "number",
+          "missing_count": 49,
+          "sample_value": -1.29999999999999,
+          "description": "2 years French bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "2 years French bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "ES2Y",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": 2.4,
+          "description": "2 years Spanish bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "2 years Spanish bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "IT5Y",
+          "inferred_type": "number",
+          "missing_count": 68,
+          "sample_value": 6.09999999999999,
+          "description": "5 years Italian bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "5 years Italian bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "ES5Y",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": 2.54999999999996,
+          "description": "5 years Spanish bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "5 years Spanish bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "FR5Y",
+          "inferred_type": "number",
+          "missing_count": 46,
+          "sample_value": 0.700000000000012,
+          "description": "5 years French bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "5 years French bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "ES10Y",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": 1.90000000000001,
+          "description": "10 years Spanish bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "10 years Spanish bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "FR10Y",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": 1.45,
+          "description": "10 years French bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "10 years French bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "IT10Y",
+          "inferred_type": "number",
+          "missing_count": 68,
+          "sample_value": 2.80000000000005,
+          "description": "10 years Italian bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "10 years Italian bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "STOXX50",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": -0.995335791690621,
+          "description": "euro STOXX50E index change in the relevant window in percentage points.",
+          "unit": "percentage_points",
+          "source_description": "euro STOXX50E index change in the relevant window in percentage points."
+        },
+        {
+          "column_name": "SX7E",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": -0.7085915471612301,
+          "description": "euro SX7E index change in the relevant window in percentage points.",
+          "unit": "percentage_points",
+          "source_description": "euro SX7E index change in the relevant window in percentage points."
+        },
+        {
+          "column_name": "EURUSD",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": 0.162908378650675,
+          "description": "euro/dollar exchange rate change in the relevant window in percentage points.",
+          "unit": "percentage_points",
+          "source_description": "euro/dollar exchange rate change in the relevant window in percentage points."
+        },
+        {
+          "column_name": "EURGBP",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": 0.0707363685150175,
+          "description": "euro/pound exchange rate change in the relevant window in percentage points.",
+          "unit": "percentage_points",
+          "source_description": "euro/pound exchange rate change in the relevant window in percentage points."
+        },
+        {
+          "column_name": "EURJPY",
+          "inferred_type": "number",
+          "missing_count": 43,
+          "sample_value": -0.0943805145419141,
+          "description": "euro/yen exchange rate change in the relevant window in percentage points.",
+          "unit": "percentage_points",
+          "source_description": "euro/yen exchange rate change in the relevant window in percentage points."
+        }
+      ]
+    },
+    {
+      "sheet_name": "Monetary Event Window",
+      "row_count": 315,
+      "column_count": 46,
+      "columns": [
+        {
+          "column_name": "date",
+          "inferred_type": "mixed",
+          "missing_count": 0,
+          "sample_value": "1999-01-07T00:00:00",
+          "description": null,
+          "unit": "datetime_or_date",
+          "source_description": null
+        },
+        {
+          "column_name": "OIS_SW",
+          "inferred_type": "number",
+          "missing_count": 3,
+          "sample_value": 0,
+          "description": "1 week OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "1 week OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_1M",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": -4.99999999999998,
+          "description": "1 month OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "1 month OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_3M",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": -0.499999999999989,
+          "description": "3 months OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "3 months OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_6M",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": -5.24999999999998,
+          "description": "6 months OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "6 months OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_1Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": -0.250000000000039,
+          "description": "1 year OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "1 year OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_2Y",
+          "inferred_type": "number",
+          "missing_count": 22,
+          "sample_value": 0.400000000000045,
+          "description": "2 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "2 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_3Y",
+          "inferred_type": "number",
+          "missing_count": 83,
+          "sample_value": 0.9500000000000061,
+          "description": "3 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "3 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_4Y",
+          "inferred_type": "number",
+          "missing_count": 186,
+          "sample_value": 3.39999999999998,
+          "description": "4 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "4 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_5Y",
+          "inferred_type": "number",
+          "missing_count": 187,
+          "sample_value": -12,
+          "description": "5 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "5 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_6Y",
+          "inferred_type": "number",
+          "missing_count": 187,
+          "sample_value": -9.50000000000002,
+          "description": "6 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "6 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_7Y",
+          "inferred_type": "number",
+          "missing_count": 186,
+          "sample_value": 4,
+          "description": "7 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "7 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_8Y",
+          "inferred_type": "number",
+          "missing_count": 187,
+          "sample_value": -5.99999999999996,
+          "description": "8 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "8 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_9Y",
+          "inferred_type": "number",
+          "missing_count": 187,
+          "sample_value": -4.60000000000003,
+          "description": "9 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "9 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_10Y",
+          "inferred_type": "number",
+          "missing_count": 186,
+          "sample_value": 3.90000000000001,
+          "description": "10 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "10 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_15Y",
+          "inferred_type": "number",
+          "missing_count": 212,
+          "sample_value": 0.599999999999978,
+          "description": "15 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "15 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "OIS_20Y",
+          "inferred_type": "number",
+          "missing_count": 213,
+          "sample_value": 2.20000000000002,
+          "description": "20 years OIS rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "20 years OIS rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE3M",
+          "inferred_type": "number",
+          "missing_count": 123,
+          "sample_value": -0.749999999999984,
+          "description": "3 months German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "3 months German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE6M",
+          "inferred_type": "number",
+          "missing_count": 123,
+          "sample_value": -0.950000000000007,
+          "description": "6 months German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "6 months German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE1Y",
+          "inferred_type": "number",
+          "missing_count": 90,
+          "sample_value": -7.449999999999981,
+          "description": "1 year German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "1 year German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE2Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": -1.50000000000001,
+          "description": "2 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "2 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE3Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": -0.750000000000028,
+          "description": "3 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "3 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE4Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 1.29999999999999,
+          "description": "4 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "4 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE5Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 1.10000000000001,
+          "description": "5 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "5 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE6Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 1.64999999999997,
+          "description": "6 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "6 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE7Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 2.04999999999997,
+          "description": "7 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "7 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE8Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 1.70000000000003,
+          "description": "8 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "8 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE9Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 2.10000000000004,
+          "description": "9 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "9 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE10Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 1.95000000000003,
+          "description": "10 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "10 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE15Y",
+          "inferred_type": "number",
+          "missing_count": 179,
+          "sample_value": 1.29999999999999,
+          "description": "15 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "15 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE20Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 2.20000000000002,
+          "description": "20 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "20 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "DE30Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 1.29999999999999,
+          "description": "30 years German bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "30 years German bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "IT2Y",
+          "inferred_type": "number",
+          "missing_count": 52,
+          "sample_value": 0.600000000000023,
+          "description": "2 years Italian bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "2 years Italian bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "FR2Y",
+          "inferred_type": "number",
+          "missing_count": 6,
+          "sample_value": -1.29999999999999,
+          "description": "2 years French bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "2 years French bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "ES2Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 3.54999999999999,
+          "description": "2 years Spanish bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "2 years Spanish bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "IT5Y",
+          "inferred_type": "number",
+          "missing_count": 52,
+          "sample_value": 0.549999999999962,
+          "description": "5 years Italian bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "5 years Italian bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "ES5Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 2.04999999999997,
+          "description": "5 years Spanish bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "5 years Spanish bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "FR5Y",
+          "inferred_type": "number",
+          "missing_count": 3,
+          "sample_value": 0.999999999999979,
+          "description": "5 years French bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "5 years French bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "ES10Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 2.05000000000002,
+          "description": "10 years Spanish bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "10 years Spanish bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "FR10Y",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 2.15000000000001,
+          "description": "10 years French bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "10 years French bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "IT10Y",
+          "inferred_type": "number",
+          "missing_count": 52,
+          "sample_value": 0,
+          "description": "10 years Italian bond rate change in the relevant window in basis points.",
+          "unit": "basis_points",
+          "source_description": "10 years Italian bond rate change in the relevant window in basis points."
+        },
+        {
+          "column_name": "STOXX50",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": -1.23144264141146,
+          "description": "euro STOXX50E index change in the relevant window in percentage points.",
+          "unit": "percentage_points",
+          "source_description": "euro STOXX50E index change in the relevant window in percentage points."
+        },
+        {
+          "column_name": "SX7E",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": -1.17705774614816,
+          "description": "euro SX7E index change in the relevant window in percentage points.",
+          "unit": "percentage_points",
+          "source_description": "euro SX7E index change in the relevant window in percentage points."
+        },
+        {
+          "column_name": "EURUSD",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 0.145747625251491,
+          "description": "euro/dollar exchange rate change in the relevant window in percentage points.",
+          "unit": "percentage_points",
+          "source_description": "euro/dollar exchange rate change in the relevant window in percentage points."
+        },
+        {
+          "column_name": "EURGBP",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": 0.0848896485612871,
+          "description": "euro/pound exchange rate change in the relevant window in percentage points.",
+          "unit": "percentage_points",
+          "source_description": "euro/pound exchange rate change in the relevant window in percentage points."
+        },
+        {
+          "column_name": "EURJPY",
+          "inferred_type": "number",
+          "missing_count": 0,
+          "sample_value": -0.00192702361578867,
+          "description": "euro/yen exchange rate change in the relevant window in percentage points.",
+          "unit": "percentage_points",
+          "source_description": "euro/yen exchange rate change in the relevant window in percentage points."
+        }
+      ]
+    }
+  ]
+}

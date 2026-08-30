@@ -16,6 +16,7 @@ const canonicalSchemaVersion = "data-foundation-v0.76";
 const chinaExposureDatabaseUpdatedAt = "2026-08-11";
 const eventLibraryUpdatedAt = "2026-08-20";
 const macroDriverDir = path.join(canonicalDataDir, "macro-drivers");
+const identifiedShockDir = path.join(canonicalDataDir, "identified-shocks");
 const advancedValidationSummaryPath = path.join(canonicalDataDir, "analysis", "advanced_analysis_validation_summary.json");
 const macroDriverFiles = [
   "macro_driver_observations.json",
@@ -30,6 +31,20 @@ const macroDriverFiles = [
   "driver_applicability_registry.json",
   "identified_shock_source_candidates.json",
   "v16_identification_readiness.json",
+];
+const identifiedShockFiles = [
+  "ecb_monetary_event_data_acquisition_manifest.json",
+  "ea_mpd_acquisition_manifest.json",
+  "ea_empd_acquisition_manifest.json",
+  "ea_mpd_workbook_schema.json",
+  "ea_empd_workbook_schema.json",
+  "monetary_policy_event_observations.json",
+  "ecb_policy_factor_registry.json",
+  "monetary_policy_information_effect_registry.json",
+  "ecb_event_dataset_overlap_registry.json",
+  "ecb_monetary_policy_monthly_series.json",
+  "shock_applicability_registry.json",
+  "ecb_shock_validation_summary.json",
 ];
 
 execFileSync(process.execPath, [path.join(projectRoot, "scripts", "build-spatial-data-v087.mjs")], {
@@ -2020,9 +2035,10 @@ const macroShockPayload = JSON.parse(fs.readFileSync(path.join(macroDriverDir, "
 const macroIdentificationByDriver = new Map(macroDriverDictionaryPayload.records.map((item) => [item.driver_id, item.identification_status]));
 const macroIdentificationBySeries = new Map(macroShockPayload.records.map((item) => [`${item.driver_id}|${item.transformation}`, item.identification_status]));
 for (const fileName of macroDriverFiles) fs.copyFileSync(path.join(macroDriverDir, fileName), path.join(outDir, fileName));
+for (const fileName of identifiedShockFiles) fs.copyFileSync(path.join(identifiedShockDir, fileName), path.join(outDir, fileName));
 const advancedValidationSummary = fs.existsSync(advancedValidationSummaryPath)
   ? JSON.parse(fs.readFileSync(advancedValidationSummaryPath, "utf8"))
-  : { schema_version: "advanced-analysis-validation-summary-v1.51", status: "pending", total_tests: 0, failure_count: null, categories: {} };
+  : { schema_version: "advanced-analysis-validation-summary-v1.6", status: "pending", total_tests: 0, failure_count: null, categories: {} };
 fs.writeFileSync(path.join(outDir, "advanced_analysis_validation_summary.json"), `${JSON.stringify(advancedValidationSummary, null, 2)}\n`);
 const macroRuntimeRows = macroDriverPayload.records.map((item) => [
   item.observation_id, item.driver_id, item.country, item.scope, item.period, item.value,
@@ -2081,8 +2097,10 @@ writeJson("release_manifest.json", {
     var_specification_profiles: "var-specification-profiles-v1.44",
     var_country_readiness: "var-country-readiness-v1.44",
     macro_drivers: "macro-driver-observations-v1.51",
-    shock_identification: "shock-identification-registry-v1.51",
-    lp_readiness: "lp-readiness-registry-v1.51",
+    shock_identification: "shock-identification-registry-v1.6",
+    identified_shocks: "monetary-policy-event-observations-v1.6",
+    ecb_shock_validation: "ecb-shock-validation-summary-v1.6",
+    lp_readiness: "lp-readiness-registry-v1.6",
     driver_applicability: "driver-applicability-registry-v1.51",
   },
   boundary_versions: ["GISCO NUTS 2024", "regional spatial QA v0.87-v0.89"],
@@ -2094,15 +2112,15 @@ writeJson("release_manifest.json", {
     note: "Historical v0.91 golden cases remain the core research regression suite.",
   },
   advanced_analysis_validation: {
-    stage: "v1.51 advanced analysis validation",
+    stage: "v1.6 advanced analysis validation",
     status: advancedValidationSummary.status,
     total_tests: advancedValidationSummary.total_tests,
     failure_count: advancedValidationSummary.failure_count,
     test_counts: advancedValidationSummary.categories,
-    categories: ["panel", "network", "high_frequency", "events", "var", "seasonal_adf_calibration", "macro_drivers", "shock_identification", "lp_readiness"],
+    categories: ["panel", "network", "high_frequency", "events", "var", "seasonal_adf_calibration", "macro_drivers", "shock_identification", "identified_shocks", "lp_readiness"],
   },
   release_validation: {
-    stage: "v1.51 release validation",
+    stage: "v1.6 release validation",
     status: "required_after_static_build",
     gates: ["security_scan", "export", "research_package", "advanced_validation", "core_validation", "ui_language_qa", "lint", "typecheck", "static_build", "package_checksum"],
   },

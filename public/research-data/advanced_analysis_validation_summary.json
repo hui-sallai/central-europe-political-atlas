@@ -1,8 +1,8 @@
 {
-  "schema_version": "advanced-analysis-validation-summary-v1.51",
-  "generated_at": "2026-08-30T06:21:46.249Z",
+  "schema_version": "advanced-analysis-validation-summary-v1.6",
+  "generated_at": "2026-08-30T14:51:05.985Z",
   "status": "passed",
-  "total_tests": 246,
+  "total_tests": 299,
   "failure_count": 0,
   "categories": {
     "panel": 51,
@@ -10,10 +10,12 @@
     "high_frequency": 22,
     "events": 22,
     "var": 104,
-    "macro_drivers": 30
+    "macro_drivers": 34,
+    "identified_shocks": 49
   },
   "boundaries": {
     "identified_shock_count": 0,
+    "external_innovation_proxy_count": 3,
     "causal_lp_ready_count": 0,
     "local_projections": "registry_only",
     "svar": "registry_only"

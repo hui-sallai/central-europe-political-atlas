@@ -116,6 +116,21 @@ const sourceEntries = [
   ["macro-drivers/v16_identification_readiness.json", "src/data/macro-drivers/v16_identification_readiness.json"],
   ["macro-drivers/acquire-macro-drivers.py", "scripts/acquisition/acquire-macro-drivers.py"],
   ["macro-drivers/requirements-macro-drivers.txt", "scripts/acquisition/requirements-macro-drivers.txt"],
+  ["identified-shocks/ecb_monetary_event_data_acquisition_manifest.json", "src/data/identified-shocks/ecb_monetary_event_data_acquisition_manifest.json"],
+  ["identified-shocks/ea_mpd_acquisition_manifest.json", "src/data/identified-shocks/ea_mpd_acquisition_manifest.json"],
+  ["identified-shocks/ea_empd_acquisition_manifest.json", "src/data/identified-shocks/ea_empd_acquisition_manifest.json"],
+  ["identified-shocks/ea_mpd_workbook_schema.json", "src/data/identified-shocks/ea_mpd_workbook_schema.json"],
+  ["identified-shocks/ea_empd_workbook_schema.json", "src/data/identified-shocks/ea_empd_workbook_schema.json"],
+  ["identified-shocks/monetary_policy_event_observations.json", "src/data/identified-shocks/monetary_policy_event_observations.json"],
+  ["identified-shocks/ecb_policy_factor_registry.json", "src/data/identified-shocks/ecb_policy_factor_registry.json"],
+  ["identified-shocks/monetary_policy_information_effect_registry.json", "src/data/identified-shocks/monetary_policy_information_effect_registry.json"],
+  ["identified-shocks/ecb_event_dataset_overlap_registry.json", "src/data/identified-shocks/ecb_event_dataset_overlap_registry.json"],
+  ["identified-shocks/ecb_monetary_policy_monthly_series.json", "src/data/identified-shocks/ecb_monetary_policy_monthly_series.json"],
+  ["identified-shocks/shock_applicability_registry.json", "src/data/identified-shocks/shock_applicability_registry.json"],
+  ["identified-shocks/ecb_shock_validation_summary.json", "src/data/identified-shocks/ecb_shock_validation_summary.json"],
+  ["identified-shocks/acquire-ecb-monetary-events.py", "scripts/acquisition/acquire-ecb-monetary-events.py"],
+  ["identified-shocks/requirements-ecb-events.txt", "scripts/acquisition/requirements-ecb-events.txt"],
+  ["identified-shocks/validate-ecb-shocks.mjs", "scripts/validation/validate-ecb-shocks.mjs"],
   ["network/network_acquisition_manifest.json", "src/data/network/network_acquisition_manifest.json"],
   ["analysis/analysis_skill_registry.json", "src/data/analysis/analysis_skill_registry.json"],
   ["analysis/advanced_analysis_validation_summary.json", "src/data/analysis/advanced_analysis_validation_summary.json"],
@@ -159,7 +174,7 @@ if (fs.existsSync(modelCardsFile)) {
   entries.push({ name: "models/formula_versions.json", data: JSON.stringify(records.map((item) => ({ model_id: item.model_id, model_version: item.model_version, formula_version: item.formula_version, calculation_logic: item.calculation_logic })), null, 2) });
 }
 
-entries.push({ name: "README.md", data: `# Central Europe Political Atlas ${researchPackageLabel()}\n\nThis package preserves public research data, dictionaries, QA records, model and scenario metadata, methodology and release provenance.\n\n- Missing and pending values are not zero.\n- Samples and placeholders do not enter formal analysis.\n- Model outputs are comparative research tools, not forecasts or objective risk truths.\n- Scenario results are conditional assumptions, not future facts.\n- Panel estimates preserve official source and observation traces.\n- Network outputs require complete bilateral partner edges passing coverage checks.\n- Macro drivers remain distinct from identified shocks; temporal, regime and shared-scope gates apply, and Local Projections are registry-only in v1.51.\n\nCanonical site: https://hy-central-europe-analysis.org/\n` });
+entries.push({ name: "README.md", data: `# Central Europe Political Atlas ${researchPackageLabel()}\n\nThis package preserves public research data, dictionaries, QA records, model and scenario metadata, methodology and release provenance.\n\n- Missing and pending values are not zero.\n- Samples and placeholders do not enter formal analysis.\n- Model outputs are comparative research tools, not forecasts or objective risk truths.\n- Scenario results are conditional assumptions, not future facts.\n- Panel estimates preserve official source and observation traces.\n- Network outputs require complete bilateral partner edges passing coverage checks.\n- Official EA-MPD / EA-EMPD assets are schema-audited and deduplicated; current OIS event series remain external innovation proxies because central-bank information effects are not separated.\n- Local Projections remain registry-only in v1.6; no causal response is estimated.\n\nCanonical site: https://hy-central-europe-analysis.org/\n` });
 entries.push({ name: "methodology/README.md", data: "Public methodology is available at /methodology/. Technical dictionaries and validation records in this archive are the authoritative downloadable companion to the interface.\n" });
 
 fs.mkdirSync(sourceDir, { recursive: true });

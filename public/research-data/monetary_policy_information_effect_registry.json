@@ -1,0 +1,34 @@
+{
+  "schema_version": "monetary-policy-information-effect-registry-v1.6",
+  "generated_at": "2026-08-30",
+  "allowed_statuses": [
+    "not_addressed",
+    "partially_addressed",
+    "separated",
+    "not_applicable"
+  ],
+  "record_count": 3,
+  "records": [
+    {
+      "shock_series_id": "ecb_ois_1m_official_decisions_only_monthly_v1",
+      "information_effect_handling": "not_addressed",
+      "evidence": "Acquired workbook reports intraday asset-price changes but does not publish a separately validated policy component and central-bank information component for this canonical series.",
+      "maximum_identification_status": "external_innovation_proxy",
+      "identified_shock_allowed": false
+    },
+    {
+      "shock_series_id": "ecb_ois_1m_speeches_only_monthly_v1",
+      "information_effect_handling": "not_addressed",
+      "evidence": "Acquired workbook reports intraday asset-price changes but does not publish a separately validated policy component and central-bank information component for this canonical series.",
+      "maximum_identification_status": "external_innovation_proxy",
+      "identified_shock_allowed": false
+    },
+    {
+      "shock_series_id": "ecb_ois_1m_all_policy_events_monthly_v1",
+      "information_effect_handling": "not_addressed",
+      "evidence": "Acquired workbook reports intraday asset-price changes but does not publish a separately validated policy component and central-bank information component for this canonical series.",
+      "maximum_identification_status": "external_innovation_proxy",
+      "identified_shock_allowed": false
+    }
+  ]
+}

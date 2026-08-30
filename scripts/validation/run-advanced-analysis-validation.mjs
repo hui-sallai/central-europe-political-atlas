@@ -35,6 +35,7 @@ let panelTests = 0;
 let networkTests = 0;
 let varTests = 0;
 let macroDriverTests = 0;
+let identifiedShockTests = 0;
 function check(condition, message, bucket = "panel") {
   if (bucket === "panel") panelTests += 1;
   else if (bucket === "network") networkTests += 1;
@@ -643,7 +644,7 @@ const varToPoints = (data, prefix) => data.map((row, index) => ({
 check(adfTest(new Array(80).fill(5), { autolag: "aic" }).status === "not_tested", "Singular ADF design must report not_tested.", "var");
 check(kpssStatus().status === "not_available", "KPSS must honestly report not_available.", "var");
 
-// ---- v1.51 macro-driver temporal, regime, scope and identification gates ----
+// ---- v1.51 macro-driver temporal/scope gates + v1.6 ECB identification layer ----
 {
   const driverDir = path.join(root, "src/data/macro-drivers");
   const driverPayload = JSON.parse(fs.readFileSync(path.join(driverDir, "macro_driver_observations.json"), "utf8"));
@@ -657,6 +658,7 @@ check(kpssStatus().status === "not_available", "KPSS must honestly report not_av
   const applicability = JSON.parse(fs.readFileSync(path.join(driverDir, "driver_applicability_registry.json"), "utf8"));
   const sourceCandidates = JSON.parse(fs.readFileSync(path.join(driverDir, "identified_shock_source_candidates.json"), "utf8"));
   const v16Readiness = JSON.parse(fs.readFileSync(path.join(driverDir, "v16_identification_readiness.json"), "utf8"));
+  const ecbValidation = JSON.parse(fs.readFileSync(path.join(root, "src/data/identified-shocks/ecb_shock_validation_summary.json"), "utf8"));
   const records = driverPayload.records;
   const ids = records.map((item) => item.observation_id);
   check(new Set(ids).size === ids.length, "Duplicate macro-driver observation ids found.", "macro_driver");
@@ -717,17 +719,19 @@ check(kpssStatus().status === "not_available", "KPSS must honestly report not_av
   check(shocks.identified_shock_count === 0 && shocks.records.filter((item) => item.driver_id === "policy_rate").every((item) => item.identification_status !== "identified_shock"), "Policy-rate movement was incorrectly promoted to an identified monetary shock.", "macro_driver");
   check(lp.method_state === "registry_only" && lp.causal_lp_ready_count === 0 && lp.records.every((item) => item.identification_status === "identified_shock" || item.causal_lp_ready === false), "LP identification gate failed.", "macro_driver");
   check(lp.records.every((item) => Array.isArray(item.transformation_warmup_periods) && Array.isArray(item.temporally_or_definition_excluded_periods) && item.shock_scope), "LP temporal/scope readiness trace is incomplete.", "macro_driver");
-  check(sourceCandidates.records.length >= 2 && sourceCandidates.records.every((item) => item.identification_status === "candidate_for_identification_review" && item.source_institution === "European Central Bank"), "Official identified-shock source candidates are not properly gated.", "macro_driver");
-  check(v16Readiness.all_gates_passed === false && v16Readiness.records.every((item) => item.status !== "passed"), "v1.6 identification readiness was overstated.", "macro_driver");
+  check(sourceCandidates.records.length >= 2 && sourceCandidates.records.every((item) => item.acquisition_status === "acquired" && item.identification_status === "external_innovation_proxy" && item.information_effect_status === "not_addressed" && item.source_institution === "European Central Bank"), "Official ECB source acquisition or identification boundary is inconsistent.", "macro_driver");
+  check(v16Readiness.data_layer_complete === true && v16Readiness.all_identification_gates_passed === false && v16Readiness.identification_decision === "external_innovation_proxy_only" && v16Readiness.local_projections_state === "registry_only", "v1.6 identification readiness was overstated.", "macro_driver");
+  identifiedShockTests = ecbValidation.total_tests;
+  if (ecbValidation.status !== "passed" || ecbValidation.failure_count !== 0) errors.push("ECB identified-shock validation summary is not passing.");
   check(policyManifest.series.length === 10 && policyManifest.series.every((item) => item.status === "available"), "BIS policy-rate coverage manifest is incomplete.", "macro_driver");
   check([policyManifest.file_sha256, ...fxManifest.datasets.map((item) => item.file_sha256), energyManifest.pink_sheet.file_sha256].every((value) => /^[a-f0-9]{64}$/.test(value)), "Macro-driver source checksum provenance is incomplete.", "macro_driver");
 }
 
 const advancedValidationSummary = {
-  schema_version: "advanced-analysis-validation-summary-v1.51",
+  schema_version: "advanced-analysis-validation-summary-v1.6",
   generated_at: new Date().toISOString(),
   status: errors.length === 0 ? "passed" : "failed",
-  total_tests: panelTests + networkTests + hfTests + eventTests + varTests + macroDriverTests,
+  total_tests: panelTests + networkTests + hfTests + eventTests + varTests + macroDriverTests + identifiedShockTests,
   failure_count: errors.length,
   categories: {
     panel: panelTests,
@@ -736,9 +740,11 @@ const advancedValidationSummary = {
     events: eventTests,
     var: varTests,
     macro_drivers: macroDriverTests,
+    identified_shocks: identifiedShockTests,
   },
   boundaries: {
     identified_shock_count: 0,
+    external_innovation_proxy_count: 3,
     causal_lp_ready_count: 0,
     local_projections: "registry_only",
     svar: "registry_only",
@@ -746,7 +752,7 @@ const advancedValidationSummary = {
   failures: errors,
 };
 fs.writeFileSync(path.join(root, "src", "data", "analysis", "advanced_analysis_validation_summary.json"), `${JSON.stringify(advancedValidationSummary, null, 2)}\n`);
-console.log(`Advanced analysis validation: panel=${panelTests} tests; network=${networkTests} tests; hf=${hfTests} tests; event=${eventTests} tests; var=${varTests} tests; macro_driver=${macroDriverTests} tests; failures=${errors.length}.`);
+console.log(`Advanced analysis validation: panel=${panelTests} tests; network=${networkTests} tests; hf=${hfTests} tests; event=${eventTests} tests; var=${varTests} tests; macro_driver=${macroDriverTests} tests; identified_shocks=${identifiedShockTests} tests; failures=${errors.length}.`);
 if (errors.length) {
   errors.forEach((error) => console.error(`ADVANCED ANALYSIS ERROR: ${error}`));
   process.exit(1);

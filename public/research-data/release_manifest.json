@@ -1,15 +1,15 @@
 {
-  "schema_version": "release-metadata-v1.51",
-  "platform_version": "v1.51 Macro-Driver Temporal & Scope Integrity",
+  "schema_version": "release-metadata-v1.6",
+  "platform_version": "v1.6 ECB Monetary Policy Identification & LP Readiness",
   "release_date": "2026-08-30",
   "source_commit": "local-working-tree",
   "build_context": "local",
   "workflow_run_id": null,
-  "generated_at": "2026-08-30T06:25:48.663Z",
+  "generated_at": "2026-08-30T15:00:22.721Z",
   "research_package": {
-    "filename": "research-data-v1.51.zip",
-    "sha256": "faf259f369845bc9e21a0ee5198a73ab27a4309621cdac4c77f845888f4a46c8",
-    "generated_at": "2026-08-30T06:25:49.529Z",
+    "filename": "research-data-v1.6.zip",
+    "sha256": "1611de222ee33c417c678425f9b957b7600ac4e3521e4facc346aaf1803a18c9",
+    "generated_at": "2026-08-30T15:04:13.179Z",
     "status": "built"
   },
   "data_export_version": "research-data-v0.1",
@@ -101,8 +101,10 @@
     "var_specification_profiles": "var-specification-profiles-v1.44",
     "var_country_readiness": "var-country-readiness-v1.44",
     "macro_drivers": "macro-driver-observations-v1.51",
-    "shock_identification": "shock-identification-registry-v1.51",
-    "lp_readiness": "lp-readiness-registry-v1.51",
+    "shock_identification": "shock-identification-registry-v1.6",
+    "identified_shocks": "monetary-policy-event-observations-v1.6",
+    "ecb_shock_validation": "ecb-shock-validation-summary-v1.6",
+    "lp_readiness": "lp-readiness-registry-v1.6",
     "driver_applicability": "driver-applicability-registry-v1.51"
   },
   "boundary_versions": [
@@ -117,9 +119,9 @@
     "note": "Historical v0.91 golden cases remain the core research regression suite."
   },
   "advanced_analysis_validation": {
-    "stage": "v1.51 advanced analysis validation",
+    "stage": "v1.6 advanced analysis validation",
     "status": "passed",
-    "total_tests": 246,
+    "total_tests": 299,
     "failure_count": 0,
     "test_counts": {
       "panel": 51,
@@ -127,7 +129,8 @@
       "high_frequency": 22,
       "events": 22,
       "var": 104,
-      "macro_drivers": 30
+      "macro_drivers": 34,
+      "identified_shocks": 49
     },
     "categories": [
       "panel",
@@ -138,11 +141,12 @@
       "seasonal_adf_calibration",
       "macro_drivers",
       "shock_identification",
+      "identified_shocks",
       "lp_readiness"
     ]
   },
   "release_validation": {
-    "stage": "v1.51 release validation",
+    "stage": "v1.6 release validation",
     "status": "required_after_static_build",
     "gates": [
       "security_scan",
@@ -156,8 +160,8 @@
       "static_build",
       "package_checksum"
     ],
-    "package_checksum": "faf259f369845bc9e21a0ee5198a73ab27a4309621cdac4c77f845888f4a46c8",
-    "package_filename": "research-data-v1.51.zip"
+    "package_checksum": "1611de222ee33c417c678425f9b957b7600ac4e3521e4facc346aaf1803a18c9",
+    "package_filename": "research-data-v1.6.zip"
   },
   "legacy_validation_summary_v091": {
     "stage": "v0.91 Model & Scenario Validation",

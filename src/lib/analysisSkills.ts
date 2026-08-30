@@ -123,7 +123,7 @@ export const futureAnalysisSkills: AnalysisSkill[] = [
     skill_id: "local_projections",
     name: "Local Projections",
     category: "macro_time_series",
-    description: "冲击→期限响应（shock → horizon response）研究接口；本轮不估计。",
+    description: "冲击→期限响应（shock → horizon response）研究接口。v1.6 已完成 ECB 高频事件数据审计，但信息效应尚未分离；当前只登记 readiness，不估计因果响应。",
     required_data: ["consistent_time_series", "identified_shock_series", "sufficient_lags"],
     optional_data: ["state_dependence", "instrumental_variables"],
     parameters: ["horizon", "shock_definition", "controls"],

@@ -1,0 +1,106 @@
+{
+  "schema_version": "shock-applicability-registry-v1.6",
+  "generated_at": "2026-08-30",
+  "record_count": 11,
+  "records": [
+    {
+      "country_id": "austria",
+      "start_period": "2015-01",
+      "end_period": null,
+      "applicability": "euro_area_common_monetary_policy_exposure",
+      "domestic_shock_wording_allowed": false,
+      "required_wording": "common euro-area monetary-policy innovation proxy",
+      "causal_status": "external_innovation_proxy"
+    },
+    {
+      "country_id": "germany",
+      "start_period": "2015-01",
+      "end_period": null,
+      "applicability": "euro_area_common_monetary_policy_exposure",
+      "domestic_shock_wording_allowed": false,
+      "required_wording": "common euro-area monetary-policy innovation proxy",
+      "causal_status": "external_innovation_proxy"
+    },
+    {
+      "country_id": "slovakia",
+      "start_period": "2015-01",
+      "end_period": null,
+      "applicability": "euro_area_common_monetary_policy_exposure",
+      "domestic_shock_wording_allowed": false,
+      "required_wording": "common euro-area monetary-policy innovation proxy",
+      "causal_status": "external_innovation_proxy"
+    },
+    {
+      "country_id": "slovenia",
+      "start_period": "2015-01",
+      "end_period": null,
+      "applicability": "euro_area_common_monetary_policy_exposure",
+      "domestic_shock_wording_allowed": false,
+      "required_wording": "common euro-area monetary-policy innovation proxy",
+      "causal_status": "external_innovation_proxy"
+    },
+    {
+      "country_id": "croatia",
+      "start_period": "2015-01",
+      "end_period": "2022-12",
+      "applicability": "external_ecb_spillover",
+      "domestic_shock_wording_allowed": false,
+      "required_wording": "external ECB monetary-policy innovation spillover",
+      "causal_status": "external_innovation_proxy"
+    },
+    {
+      "country_id": "croatia",
+      "start_period": "2023-01",
+      "end_period": null,
+      "applicability": "euro_area_common_monetary_policy_exposure",
+      "domestic_shock_wording_allowed": false,
+      "required_wording": "common euro-area monetary-policy innovation proxy",
+      "causal_status": "external_innovation_proxy"
+    },
+    {
+      "country_id": "czechia",
+      "start_period": "2015-01",
+      "end_period": null,
+      "applicability": "external_ecb_spillover",
+      "domestic_shock_wording_allowed": false,
+      "required_wording": "external ECB monetary-policy innovation spillover",
+      "causal_status": "external_innovation_proxy"
+    },
+    {
+      "country_id": "hungary",
+      "start_period": "2015-01",
+      "end_period": null,
+      "applicability": "external_ecb_spillover",
+      "domestic_shock_wording_allowed": false,
+      "required_wording": "external ECB monetary-policy innovation spillover",
+      "causal_status": "external_innovation_proxy"
+    },
+    {
+      "country_id": "poland",
+      "start_period": "2015-01",
+      "end_period": null,
+      "applicability": "external_ecb_spillover",
+      "domestic_shock_wording_allowed": false,
+      "required_wording": "external ECB monetary-policy innovation spillover",
+      "causal_status": "external_innovation_proxy"
+    },
+    {
+      "country_id": "romania",
+      "start_period": "2015-01",
+      "end_period": null,
+      "applicability": "external_ecb_spillover",
+      "domestic_shock_wording_allowed": false,
+      "required_wording": "external ECB monetary-policy innovation spillover",
+      "causal_status": "external_innovation_proxy"
+    },
+    {
+      "country_id": "serbia",
+      "start_period": "2015-01",
+      "end_period": null,
+      "applicability": "external_ecb_spillover",
+      "domestic_shock_wording_allowed": false,
+      "required_wording": "external ECB monetary-policy innovation spillover",
+      "causal_status": "external_innovation_proxy"
+    }
+  ]
+}

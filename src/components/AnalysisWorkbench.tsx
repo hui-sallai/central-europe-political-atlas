@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import { useSearchParams } from "next/navigation";
 import { BarMeter } from "@/components/ResearchCharts";
+import { EcbIdentificationStatus } from "@/components/EcbIdentificationStatus";
 import { runAnalysisSkill } from "@/lib/analysisRunner";
 import { analysisCategoryLabels, analysisSkills } from "@/lib/analysisSkills";
 import { analysisLabels, downloadLabels, fieldLabels, statusLabels } from "@/lib/uiLabels";
@@ -140,6 +141,7 @@ export function AnalysisWorkbench({ countries, cards, outputs, events }: { count
         />
       ) : category === "macro_time_series" ? (
         <div className="mt-6 grid gap-6">
+          <EcbIdentificationStatus />
           <MacroDriverWorkbench countries={countries} />
           <VarWorkbench countries={countries} />
           <div className="divide-y divide-[var(--line)] border-y border-[var(--line)]">{skills.filter((skill) => skill.calculation_mode !== "active").map((skill) => <article key={skill.skill_id} className="grid gap-3 py-5 md:grid-cols-[220px_1fr_auto] md:items-start"><div><p className="editorial-kicker">{skill.calculation_mode.replaceAll("_", " ")}</p><h2 className="mt-2 text-xl font-semibold">{skill.name}</h2></div><p className="text-sm leading-7 text-[var(--muted)]">{skill.description}</p><span className="text-xs font-semibold text-[var(--warning)]">{statusLabels[skill.calculation_mode]}</span><details className="advanced-disclosure md:col-span-3"><summary>登记的需求与诊断</summary><p className="mt-3 text-xs text-[var(--muted)]">Required: {skill.required_data.join(" / ")}</p><p className="mt-2 text-xs text-[var(--muted)]">Diagnostics: {skill.diagnostics.join(" / ")}</p></details></article>)}</div>

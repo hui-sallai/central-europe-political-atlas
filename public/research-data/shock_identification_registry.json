@@ -1,5 +1,5 @@
 {
-  "schema_version": "shock-identification-registry-v1.51",
+  "schema_version": "shock-identification-registry-v1.6",
   "generated_at": "2026-08-30",
   "identification_levels": [
     "observed_driver",
@@ -9,7 +9,7 @@
     "blocked"
   ],
   "identified_shock_count": 0,
-  "record_count": 12,
+  "record_count": 15,
   "records": [
     {
       "shock_id": "policy_rate_movement",
@@ -118,6 +118,41 @@
       "identification_strategy": "innovation construction not yet registered or validated",
       "causal_use_allowed": false,
       "boundary": "Price innovation cannot be called a supply or geopolitical shock without identification."
+    },
+    {
+      "shock_id": "ecb_ois_1m_official_decisions_only_monthly_v1",
+      "driver_id": "ecb_monetary_policy_event_surprise",
+      "transformation": "monthly_sum_of_event_surprises",
+      "aggregation_profile": "official_decisions_only",
+      "identification_status": "external_innovation_proxy",
+      "identification_strategy": "narrow-window OIS change with official event timing, overlap control and pre-registered monthly aggregation",
+      "information_effect_status": "not_addressed",
+      "causal_use_allowed": false,
+      "boundary": "Official high-frequency surprise proxy; central-bank information effects are not separated, so it is not an identified monetary-policy shock."
+    },
+    {
+      "shock_id": "ecb_ois_1m_speeches_only_monthly_v1",
+      "driver_id": "ecb_monetary_policy_event_surprise",
+      "transformation": "monthly_sum_of_event_surprises",
+      "aggregation_profile": "speeches_only",
+      "identification_status": "external_innovation_proxy",
+      "identification_strategy": "narrow-window OIS change with official event timing, overlap control and pre-registered monthly aggregation",
+      "information_effect_status": "not_addressed",
+      "causal_use_allowed": false,
+      "boundary": "Official high-frequency surprise proxy; central-bank information effects are not separated, so it is not an identified monetary-policy shock."
+    },
+    {
+      "shock_id": "ecb_ois_1m_all_policy_events_monthly_v1",
+      "driver_id": "ecb_monetary_policy_event_surprise",
+      "transformation": "monthly_sum_of_event_surprises",
+      "aggregation_profile": "all_policy_events",
+      "identification_status": "external_innovation_proxy",
+      "identification_strategy": "narrow-window OIS change with official event timing, overlap control and pre-registered monthly aggregation",
+      "information_effect_status": "not_addressed",
+      "causal_use_allowed": false,
+      "boundary": "Official high-frequency surprise proxy; central-bank information effects are not separated, so it is not an identified monetary-policy shock."
     }
-  ]
+  ],
+  "external_innovation_proxy_count": 3,
+  "shock_candidate_count": 2
 }

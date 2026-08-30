@@ -13,3 +13,7 @@ The GISCO boundary data used by this project are limited to non-commercial resea
 Corrections, rights, privacy, and takedown requests: sallaizhang@outlook.com
 
 Public legal notice: https://hy-central-europe-analysis.org/legal/
+
+## ECB high-frequency monetary-policy datasets
+
+The v1.6 research layer uses the ECB-hosted EA-MPD and EA-EMPD workbooks as source material. Public derived records identify the original source, access date and checksum. The source workbooks are not redistributed in the public research package while workbook-specific redistribution terms remain under review. ECB attribution does not imply ECB endorsement of this platform or its analysis.

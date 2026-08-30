@@ -2,7 +2,7 @@
 
 This directory contains the public research exports used by the static site.
 
-Current release: **v1.51 Macro-Driver Temporal & Scope Integrity**. The canonical release definition is exported through `platform_metadata.json`; deployment provenance is recorded in `release_manifest.json`.
+Current release: **v1.6 ECB Monetary Policy Identification & LP Readiness**. The canonical release definition is exported through `platform_metadata.json`; deployment provenance is recorded in `release_manifest.json`.
 
 ## Core schemas
 
@@ -21,7 +21,10 @@ Current release: **v1.51 Macro-Driver Temporal & Scope Integrity**. The canonica
 - `macro-dynamics/var_baseline_v1_readiness.json`, `var_baseline_v2_readiness.json` and `var_exploratory_readiness.json`: profile-specific readiness records and complete exploratory attempt logs.
 - The versioned research package contains `seasonal_adf_critical_values.json`, `seasonal_adf_decision_comparison.json`, `stationarity_specification_registry.json`, `seasonal_stationarity_results.json`, `hegy_readiness_registry.json`, `structural_break_registry.json`, `persistence_diagnostics.json`, `var_lag_diagnostic_grid.json`, `var_country_readiness.json` and `var_model_registry.json`, plus the offline reference and calibration generators.
 - `macro_driver_observations`, `macro_driver_dictionary` and `macro_driver_coverage`: the separate monthly driver layer for policy rates, yields, FX, HICP Energy and external commodity prices.
-- `shock_identification_registry`, `driver_applicability_registry` and `lp_readiness_registry`: machine-readable identification, shared-scope and causal-readiness gates. v1.51 contains zero identified shocks and no active Local Projections estimator.
+- `monetary_policy_event_observations.json`: audited EA-MPD and EA-EMPD event-window observations. The platform redistributes structured derived records and provenance, not the source workbooks.
+- `ecb_policy_factor_registry.json`, `monetary_policy_information_effect_registry.json` and `ecb_event_dataset_overlap_registry.json`: factor availability, information-effect restrictions and cross-dataset overlap evidence.
+- `ecb_monetary_policy_monthly_series.json`: descriptive monthly profiles derived from event-window observations; these profiles are not identified shocks.
+- `shock_identification_registry`, `driver_applicability_registry` and `lp_readiness_registry`: machine-readable identification, shared-scope and causal-readiness gates. v1.6 contains three external innovation proxies, zero identified shocks and no active Local Projections estimator.
 
 ## Stable IDs
 
@@ -58,4 +61,4 @@ Use the platform version, access date, stable record ID and original source URL.
 
 Exports support factual comparison and reproducibility. They are not election forecasts, probability forecasts, investment advice, causal estimates or objective risk truths. Pending/sample records must not be promoted to official data.
 
-Reduced-form VAR outputs are conditional time-series descriptions. Formal baseline v1 uses constant-only ADF; formal baseline v2 uses the finite-sample calibrated seasonal-dummy ADF while preserving the v1.43 MacKinnon-c result as historical reference. Deterministic seasonality is not a seasonal-unit-root test, and historical candidate periods are never merged with statistically estimated breaks. HEGY, Zivot-Andrews, residual LM, uncertainty intervals and SVAR are not active. Observed macro-driver movements and shock candidates are not identified shocks; exact-lag, regime and shared-series gates apply, and Local Projections remain registry-only in v1.51.
+Reduced-form VAR outputs are conditional time-series descriptions. Formal baseline v1 uses constant-only ADF; formal baseline v2 uses the finite-sample calibrated seasonal-dummy ADF while preserving the v1.43 MacKinnon-c result as historical reference. Deterministic seasonality is not a seasonal-unit-root test, and historical candidate periods are never merged with statistically estimated breaks. HEGY, Zivot-Andrews, residual LM, uncertainty intervals and SVAR are not active. Observed macro-driver movements and audited ECB event-window proxies are not identified shocks; the information-effect separation gate remains unresolved, exact-lag, regime and shared-series gates apply, and Local Projections remain registry-only in v1.6.

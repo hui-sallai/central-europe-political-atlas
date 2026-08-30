@@ -1,5 +1,5 @@
 {
-  "schema_version": "identified-shock-source-candidates-v1.51",
+  "schema_version": "identified-shock-source-candidates-v1.6",
   "generated_at": "2026-08-30",
   "record_count": 2,
   "records": [
@@ -18,7 +18,7 @@
       ],
       "dataset_type": "official ECB research dataset; event-level high-frequency/intraday surprise information",
       "coverage_scope": "euro_area_policy_announcements",
-      "identification_status": "candidate_for_identification_review",
+      "identification_status": "external_innovation_proxy",
       "required_audits": [
         "variable-definition",
         "information-effect",
@@ -29,14 +29,20 @@
         "vintage",
         "country applicability"
       ],
-      "croatia_interpretation": "Euro-area surprise exposure can apply only after euro adoption unless a separate research design justifies earlier external spillover use."
+      "croatia_interpretation": "Euro-area surprise exposure can apply only after euro adoption unless a separate research design justifies earlier external spillover use.",
+      "official_annex_status": "acquired_and_schema_audited",
+      "acquisition_status": "acquired",
+      "field_audit_status": "audited",
+      "checksum": "f417fb861a305e3cbb871a7571c4899ba6bca003d9e087024d2f3f0744426cef",
+      "information_effect_status": "not_addressed",
+      "redistribution_status": "raw_workbook_excluded_from_public_package"
     },
     {
       "candidate_id": "ecb_ea_empd",
       "name": "Euro Area Extended Monetary Policy Event-Study Database (EA-EMPD)",
       "source_institution": "European Central Bank",
-      "source_url": "https://www.ecb.europa.eu/pub/pdf/scpwps/ecb.wp3157~f5789c7b8a.da.pdf",
-      "methodology_url": "https://www.ecb.europa.eu/pub/pdf/scpwps/ecb.wp3157~f5789c7b8a.da.pdf",
+      "source_url": "https://www.ecb.europa.eu/pub/pdf/scpwps/ecb.wp3157-annex-EA-EMPD~8b94679d77.en.xlsx",
+      "methodology_url": "https://www.ecb.europa.eu/pub/pdf/scpwps/ecb.wp3157~f5789c7b8a.en.pdf",
       "authors": [
         "Carlo Altavilla",
         "Refet S. Gürkaynak",
@@ -44,9 +50,9 @@
         "Thilo Kind"
       ],
       "dataset_type": "official ECB research annex; official decisions and policymaker speeches",
-      "official_annex_status": "listed by ECB; exact downloadable annex asset remains subject to acquisition and checksum audit",
+      "official_annex_status": "acquired_and_schema_audited",
       "coverage_scope": "euro_area_decisions_and_policy_speeches",
-      "identification_status": "candidate_for_identification_review",
+      "identification_status": "external_innovation_proxy",
       "required_audits": [
         "annex download",
         "variable-definition",
@@ -58,8 +64,13 @@
         "revision policy",
         "country applicability"
       ],
-      "croatia_interpretation": "Country treatment must distinguish euro-area membership from external spillover exposure and preserve event-date applicability."
+      "croatia_interpretation": "Country treatment must distinguish euro-area membership from external spillover exposure and preserve event-date applicability.",
+      "acquisition_status": "acquired",
+      "field_audit_status": "audited",
+      "checksum": "b4bdc1b90b9842227e74ff013eb79c71edce5dff9da1d5e02ac75b5d45c5e129",
+      "information_effect_status": "not_addressed",
+      "redistribution_status": "raw_workbook_excluded_from_public_package"
     }
   ],
-  "boundary": "Candidate registration is not ingestion, validation or identification approval."
+  "boundary": "Official acquisition and schema audit establish provenance, not automatic causal identification."
 }

@@ -1,0 +1,78 @@
+{
+  "schema_version": "ecb-monetary-event-data-acquisition-manifest-v1.6",
+  "generated_at": "2026-08-30",
+  "record_count": 2,
+  "records": [
+    {
+      "schema_version": "ea_mpd-acquisition-manifest-v1.6",
+      "dataset_id": "ea_mpd",
+      "dataset_name": "Euro Area Monetary Policy Event-Study Database (EA-MPD)",
+      "official_publication": "Measuring euro area monetary policy, ECB Working Paper 2281",
+      "official_annex_asset": "https://www.ecb.europa.eu/pub/pdf/annex/Dataset_EA-MPD.xlsx",
+      "retrieval_date": "2026-08-30",
+      "file_size": 377116,
+      "sha256": "f417fb861a305e3cbb871a7571c4899ba6bca003d9e087024d2f3f0744426cef",
+      "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "workbook_sheets": [
+        {
+          "sheet_name": "Notes",
+          "row_count": 66,
+          "column_count": 1
+        },
+        {
+          "sheet_name": "Press Release Window",
+          "row_count": 315,
+          "column_count": 46
+        },
+        {
+          "sheet_name": "Press Conference Window",
+          "row_count": 315,
+          "column_count": 46
+        },
+        {
+          "sheet_name": "Monetary Event Window",
+          "row_count": 315,
+          "column_count": 46
+        }
+      ],
+      "source_institution": "European Central Bank",
+      "methodology_reference": "https://www.ecb.europa.eu/pub/pdf/scpwps/ecb.wp2281~3303fd281b.en.pdf",
+      "license_or_reuse_status": "ECB website information may be reused with accurate reproduction, source citation and disclosure of modifications; workbook-specific redistribution permission not independently confirmed.",
+      "license_reference": "https://www.ecb.europa.eu/services/using-our-site/disclaimer/html/index.en.html",
+      "statistics_reuse_reference": "https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html",
+      "redistribution_status": "raw_workbook_excluded_from_public_package",
+      "public_release_contents": "derived machine-readable observations, checksum and official source reference only"
+    },
+    {
+      "schema_version": "ea_empd-acquisition-manifest-v1.6",
+      "dataset_id": "ea_empd",
+      "dataset_name": "Euro Area Extended Monetary Policy Event-Study Database (EA-EMPD)",
+      "official_publication": "Monetary transmission with frequent policy events, ECB Working Paper 3157",
+      "official_annex_asset": "https://www.ecb.europa.eu/pub/pdf/scpwps/ecb.wp3157-annex-EA-EMPD~8b94679d77.en.xlsx",
+      "retrieval_date": "2026-08-30",
+      "file_size": 1832465,
+      "sha256": "b4bdc1b90b9842227e74ff013eb79c71edce5dff9da1d5e02ac75b5d45c5e129",
+      "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "workbook_sheets": [
+        {
+          "sheet_name": "Notes",
+          "row_count": 199,
+          "column_count": 12
+        },
+        {
+          "sheet_name": "EA-EMPD",
+          "row_count": 4926,
+          "column_count": 54
+        }
+      ],
+      "source_institution": "European Central Bank",
+      "methodology_reference": "https://www.ecb.europa.eu/pub/pdf/scpwps/ecb.wp3157~f5789c7b8a.en.pdf",
+      "license_or_reuse_status": "ECB website information may be reused with accurate reproduction, source citation and disclosure of modifications; workbook-specific redistribution permission not independently confirmed.",
+      "license_reference": "https://www.ecb.europa.eu/services/using-our-site/disclaimer/html/index.en.html",
+      "statistics_reuse_reference": "https://www.ecb.europa.eu/stats/ecb_statistics/governance_and_quality_framework/html/usage_policy.en.html",
+      "redistribution_status": "raw_workbook_excluded_from_public_package",
+      "public_release_contents": "derived machine-readable observations, checksum and official source reference only"
+    }
+  ],
+  "raw_workbooks_publicly_redistributed": false
+}

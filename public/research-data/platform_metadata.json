@@ -1,9 +1,9 @@
 {
   "name": "Central Europe Political Atlas",
-  "version": "v1.51 Macro-Driver Temporal & Scope Integrity",
+  "version": "v1.6 ECB Monetary Policy Identification & LP Readiness",
   "release_date": "2026-08-30",
-  "stage": "macro-driver temporal, regime and shared-scope integrity",
-  "schema_version": "release-metadata-v1.51",
+  "stage": "ECB high-frequency event data audited; identification proxy only; Local Projections registry-only",
+  "schema_version": "release-metadata-v1.6",
   "canonical_url": "https://hy-central-europe-analysis.org/",
   "public_contact_email": "sallaizhang@outlook.com",
   "legal_notice_updated": "2026-08-20",
@@ -41,15 +41,17 @@
     "var-lag-diagnostic-grid-v1.44",
     "macro-driver-observations-v1.51",
     "driver-applicability-registry-v1.51",
-    "shock-identification-registry-v1.51",
-    "lp-readiness-registry-v1.51"
+    "monetary-policy-event-observations-v1.6",
+    "ecb-policy-factor-registry-v1.6",
+    "shock-identification-registry-v1.6",
+    "lp-readiness-registry-v1.6"
   ],
   "limitations": [
     "No election forecasts, investment advice, probability forecasts, or causal impact estimates.",
     "Serbia regional comparison remains pending while national data remain available.",
     "China Economic Exposure and China-linked Project Disruption remain subject to their published evidence gates."
   ],
-  "citation": "Central Europe Political Atlas, version v1.51 Macro-Driver Temporal & Scope Integrity, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
+  "citation": "Central Europe Political Atlas, version v1.6 ECB Monetary Policy Identification & LP Readiness, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
   "data_status_enum": [
     "official",
     "verified",

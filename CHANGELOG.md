@@ -1,5 +1,14 @@
 # Changelog
 
+## v1.6 ECB Monetary Policy Identification & LP Readiness - 2026-08-30
+
+- Acquired and audited the official EA-MPD and EA-EMPD workbooks with source URLs, checksums, workbook schemas and reproducible acquisition manifests.
+- Added 5,871 canonical monetary-policy event-window records, cross-dataset overlap evidence, monthly descriptive profiles and 49 deterministic validation checks.
+- Registered three external innovation proxies while keeping `identified_shock_count = 0`; the information-effect separation requirement remains unresolved.
+- Added country/outcome LP readiness records without activating an estimator. `causal_lp_ready_count = 0` and Local Projections remain `registry_only`.
+- Added a concise public identification-status panel and a detailed methodology section while preserving the v1.44 reduced-form VAR implementation.
+- Excluded the source workbooks from public exports pending workbook-specific redistribution confirmation; public records retain original source links and checksums.
+
 ## v1.51 Macro-Driver Temporal & Scope Integrity - 2026-08-30
 
 - Enforced exact one-month and twelve-month calendar alignment; transformation warm-up is now separate from source missingness.
