@@ -1,9 +1,9 @@
 {
   "name": "Central Europe Political Atlas",
-  "version": "v1.6 ECB Monetary Policy Identification & LP Readiness",
-  "release_date": "2026-08-30",
-  "stage": "ECB high-frequency event data audited; identification proxy only; Local Projections registry-only",
-  "schema_version": "release-metadata-v1.6",
+  "version": "v1.61 Information-Effect Separation & Monetary Shock Calibration",
+  "release_date": "2026-09-01",
+  "stage": "JK inputs and diagnostic separation audited; structural replication blocked; Local Projections registry-only",
+  "schema_version": "release-metadata-v1.61",
   "canonical_url": "https://hy-central-europe-analysis.org/",
   "public_contact_email": "sallaizhang@outlook.com",
   "legal_notice_updated": "2026-08-20",
@@ -43,15 +43,16 @@
     "driver-applicability-registry-v1.51",
     "monetary-policy-event-observations-v1.6",
     "ecb-policy-factor-registry-v1.6",
-    "shock-identification-registry-v1.6",
-    "lp-readiness-registry-v1.6"
+    "shock-identification-registry-v1.61",
+    "information-effect-separation-validation-v1.61",
+    "lp-readiness-registry-v1.61"
   ],
   "limitations": [
     "No election forecasts, investment advice, probability forecasts, or causal impact estimates.",
     "Serbia regional comparison remains pending while national data remain available.",
     "China Economic Exposure and China-linked Project Disruption remain subject to their published evidence gates."
   ],
-  "citation": "Central Europe Political Atlas, version v1.6 ECB Monetary Policy Identification & LP Readiness, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
+  "citation": "Central Europe Political Atlas, version v1.61 Information-Effect Separation & Monetary Shock Calibration, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
   "data_status_enum": [
     "official",
     "verified",

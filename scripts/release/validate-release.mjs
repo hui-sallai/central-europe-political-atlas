@@ -9,7 +9,7 @@ const researchOut = path.join(out, "research-data");
 const configuredBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const releaseConfig = JSON.parse(fs.readFileSync(path.join(root, "src", "data", "release.json"), "utf8"));
 const requiredRoutes = ["", "map", "countries", "data", "news", "models", "scenarios", "methodology", "legal", "privacy", ...["poland", "hungary", "czechia", "slovakia", "germany", "austria", "romania", "slovenia", "croatia", "serbia"].map((country) => `countries/${country}`)];
-const requiredExports = ["platform_metadata.json", "release_manifest.json", "validation_registry.json", "golden_test_cases.json", "observations.json", "sources.json", "indicators.json", "var_country_readiness.json", "stationarity_specification_registry.json", "seasonal_stationarity_results.json", "seasonal_adf_critical_values.json", "seasonal_adf_decision_comparison.json", "hegy_readiness_registry.json", "structural_break_registry.json", "persistence_diagnostics.json", "macro_driver_observations.json", "macro_driver_dictionary.json", "macro_driver_coverage.json", "shock_identification_registry.json", "lp_readiness_registry.json", "driver_applicability_registry.json", "identified_shock_source_candidates.json", "v16_identification_readiness.json", "macro_driver_runtime.json", "ecb_monetary_event_data_acquisition_manifest.json", "ea_mpd_workbook_schema.json", "ea_empd_workbook_schema.json", "monetary_policy_event_observations.json", "ecb_policy_factor_registry.json", "monetary_policy_information_effect_registry.json", "ecb_event_dataset_overlap_registry.json", "ecb_monetary_policy_monthly_series.json", "shock_applicability_registry.json", "ecb_shock_validation_summary.json", "advanced_analysis_validation_summary.json", researchPackageFilename()];
+const requiredExports = ["platform_metadata.json", "release_manifest.json", "validation_registry.json", "golden_test_cases.json", "observations.json", "sources.json", "indicators.json", "var_country_readiness.json", "stationarity_specification_registry.json", "seasonal_stationarity_results.json", "seasonal_adf_critical_values.json", "seasonal_adf_decision_comparison.json", "hegy_readiness_registry.json", "structural_break_registry.json", "persistence_diagnostics.json", "macro_driver_observations.json", "macro_driver_dictionary.json", "macro_driver_coverage.json", "shock_identification_registry.json", "lp_readiness_registry.json", "driver_applicability_registry.json", "identified_shock_source_candidates.json", "v16_identification_readiness.json", "macro_driver_runtime.json", "ecb_monetary_event_data_acquisition_manifest.json", "ea_mpd_workbook_schema.json", "ea_empd_workbook_schema.json", "monetary_policy_event_observations.json", "ecb_policy_factor_registry.json", "monetary_policy_information_effect_registry.json", "ecb_event_dataset_overlap_registry.json", "ecb_monetary_policy_monthly_series.json", "shock_applicability_registry.json", "ecb_shock_validation_summary.json", "monetary_policy_identification_method_registry.json", "jk_replication_acquisition_manifest.json", "information_effect_input_registry.json", "information_effect_window_registry.json", "jk_event_sample_registry.json", "identification_specification_registry.json", "jk_event_level_shocks.json", "ecb_pure_monetary_policy_shock_monthly.json", "ecb_central_bank_information_shock_monthly.json", "information_effect_separation_validation.json", "identification_regime_diagnostics.json", "advanced_analysis_validation_summary.json", researchPackageFilename()];
 const methodologySections = ["data", "models", "events", "spatial", "validation", "citation"];
 const stableResearchUrls = ["/map?country=hungary&layer=regional_boundary", "/models?model=fiscal_pressure&country=hungary", "/models?skill=var_svar&country=poland", "/scenarios?scenario=inflation_resurgence&country=poland&shock=2", "/countries/poland/", "/news?country=hungary&type=China"];
 const failures = [];
@@ -115,7 +115,7 @@ if (manifest) {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.51",
+    analysis_skill_registry: "analysis-skill-registry-v1.61",
     transformation_registry: "transformation-registry-v1.41",
     stationarity_engine: "stationarity-engine-v1.44",
     seasonal_adf_calibration: "seasonal-adf-critical-values-v1.44",
@@ -126,10 +126,11 @@ if (manifest) {
     var_specification_profiles: "var-specification-profiles-v1.44",
     var_country_readiness: "var-country-readiness-v1.44",
     macro_drivers: "macro-driver-observations-v1.51",
-    shock_identification: "shock-identification-registry-v1.6",
+    shock_identification: "shock-identification-registry-v1.61",
     identified_shocks: "monetary-policy-event-observations-v1.6",
-    ecb_shock_validation: "ecb-shock-validation-summary-v1.6",
-    lp_readiness: "lp-readiness-registry-v1.6",
+    ecb_shock_validation: "ecb-shock-validation-summary-v1.61",
+    information_effect_separation: "information-effect-separation-validation-v1.61",
+    lp_readiness: "lp-readiness-registry-v1.61",
     driver_applicability: "driver-applicability-registry-v1.51",
   };
   for (const [key, expected] of Object.entries(expectedAdvancedVersions)) if (manifest.advanced_analysis_versions?.[key] !== expected) failures.push(`advanced analysis provenance mismatch: ${key}=${manifest.advanced_analysis_versions?.[key]} expected=${expected}`);
@@ -155,7 +156,7 @@ if (!Array.isArray(structuralBreaks?.historical_candidate_periods) || !Array.isA
 if (ecbAcquisition?.record_count !== 2 || ecbAcquisition?.raw_workbooks_publicly_redistributed !== false || ecbAcquisition?.records?.some((item) => !item.official_annex_asset?.startsWith("https://www.ecb.europa.eu/") || !/^[a-f0-9]{64}$/.test(item.sha256) || item.redistribution_status !== "raw_workbook_excluded_from_public_package")) failures.push("v1.6 ECB acquisition provenance or redistribution boundary is incomplete");
 if (ecbValidation?.status !== "passed" || ecbValidation?.failure_count !== 0 || ecbValidation?.canonical_event_count !== 5871) failures.push("v1.6 ECB shock validation summary is incomplete or failing");
 if (shockIdentification?.identified_shock_count !== 0 || shockIdentification?.external_innovation_proxy_count !== 3) failures.push("v1.6 identification-status counts are incorrect");
-if (informationEffect?.records?.some((item) => item.information_effect_handling !== "not_addressed" || item.identified_shock_allowed !== false)) failures.push("v1.6 information-effect blocker was relaxed");
+if (informationEffect?.records?.some((item) => item.information_effect_handling !== "partially_addressed" || item.identified_shock_allowed !== false)) failures.push("v1.61 information-effect blocker was relaxed");
 if (lpReadiness?.method_state !== "registry_only" || lpReadiness?.causal_lp_ready_count !== 0 || lpReadiness?.records?.some((item) => item.identification_status !== "identified_shock" && item.causal_lp_ready !== false)) failures.push("v1.6 causal LP gate was relaxed");
 
 const readme = fs.readFileSync(path.join(root, "README.md"), "utf8");
@@ -165,7 +166,7 @@ const changelog = fs.readFileSync(path.join(root, "CHANGELOG.md"), "utf8");
 const latestChangelogHeading = changelog.match(/^## (.+)$/m)?.[1] ?? "";
 if (!latestChangelogHeading.startsWith(expectedVersion) || !latestChangelogHeading.includes(releaseConfig.release_date)) failures.push(`CHANGELOG latest release mismatch: ${latestChangelogHeading}`);
 const skillRegistry = JSON.parse(fs.readFileSync(path.join(root, "src", "data", "analysis", "analysis_skill_registry.json"), "utf8"));
-if (skillRegistry.schema_version !== "analysis-skill-registry-v1.51") failures.push(`analysis skill registry schema mismatch: ${skillRegistry.schema_version}`);
+if (skillRegistry.schema_version !== "analysis-skill-registry-v1.61") failures.push(`analysis skill registry schema mismatch: ${skillRegistry.schema_version}`);
 if (skillRegistry.generated_at !== releaseConfig.release_date) failures.push(`analysis skill registry generated_at mismatch: ${skillRegistry.generated_at}`);
 const releaseSource = fs.readFileSync(path.join(root, "src", "lib", "releaseMetadata.ts"), "utf8");
 if (!releaseSource.includes('import releaseConfig from "../data/release.json"')) failures.push("release metadata is not reading the canonical JSON source");
@@ -184,6 +185,7 @@ if (!methodology.includes("Validation ≠ scientific proof") || !methodology.inc
 if (!methodology.includes("Reduced-form VAR") || !methodology.includes("Finite-Sample Stationarity Calibration") || !methodology.includes("50,000") || !methodology.includes("asymptotic equivalence") || !methodology.includes("残差 LM") || !methodology.includes("预注册正式基线") || !methodology.includes("月份虚拟变量") || !methodology.includes("seasonality") || !methodology.includes("seasonal unit root") || !methodology.includes("structural break") || !methodology.includes("不是结构冲击或因果效应")) failures.push("v1.44 VAR methodology boundary is incomplete");
 if (!methodology.includes("宏观驱动与冲击识别边界") || !methodology.includes("Observed driver") || !methodology.includes("identified_shock") || !methodology.includes("causal_lp_ready") || !methodology.includes("时间对齐") || !methodology.includes("共同序列")) failures.push("v1.51 macro-driver temporal/scope methodology boundary is incomplete");
 if (!methodology.includes("High-Frequency Monetary Policy Identification") || !methodology.includes("EA-MPD") || !methodology.includes("EA-EMPD") || !methodology.includes("central-bank information effect") || !methodology.includes("monthly_sum_of_event_surprises") || !methodology.includes("external ECB spillover")) failures.push("v1.6 ECB identification methodology boundary is incomplete");
+if (!methodology.includes("Jarociński–Karadi") || !methodology.includes("High-Frequency Sign Restrictions") || !methodology.includes("Set Identification") || !methodology.includes("OIS_3M") || !methodology.includes("STOXX50") || !methodology.includes("poor-man") || !methodology.includes("Representative rotation")) failures.push("v1.61 information-effect methodology boundary is incomplete");
 
 for (const stableUrl of stableResearchUrls) {
   const route = stableUrl.split(/[?#]/)[0].replace(/^\//, "").replace(/\/$/, "");

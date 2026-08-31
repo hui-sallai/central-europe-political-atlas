@@ -1,6 +1,6 @@
 {
-  "schema_version": "monetary-policy-information-effect-registry-v1.6",
-  "generated_at": "2026-08-30",
+  "schema_version": "monetary-policy-information-effect-registry-v1.61",
+  "generated_at": "2026-09-01",
   "allowed_statuses": [
     "not_addressed",
     "partially_addressed",
@@ -11,24 +11,27 @@
   "records": [
     {
       "shock_series_id": "ecb_ois_1m_official_decisions_only_monthly_v1",
-      "information_effect_handling": "not_addressed",
-      "evidence": "Acquired workbook reports intraday asset-price changes but does not publish a separately validated policy component and central-bank information component for this canonical series.",
+      "information_effect_handling": "partially_addressed",
+      "evidence": "OIS_3M/STOXX50 input and event-window alignment are audited and a diagnostic sign screen is active, but exact JK BVAR replication, posterior rotations and event-level structural outputs remain blocked.",
       "maximum_identification_status": "external_innovation_proxy",
-      "identified_shock_allowed": false
+      "identified_shock_allowed": false,
+      "validation_reference": "information_effect_separation_validation.json"
     },
     {
       "shock_series_id": "ecb_ois_1m_speeches_only_monthly_v1",
-      "information_effect_handling": "not_addressed",
-      "evidence": "Acquired workbook reports intraday asset-price changes but does not publish a separately validated policy component and central-bank information component for this canonical series.",
+      "information_effect_handling": "partially_addressed",
+      "evidence": "OIS_3M/STOXX50 input and event-window alignment are audited and a diagnostic sign screen is active, but exact JK BVAR replication, posterior rotations and event-level structural outputs remain blocked.",
       "maximum_identification_status": "external_innovation_proxy",
-      "identified_shock_allowed": false
+      "identified_shock_allowed": false,
+      "validation_reference": "information_effect_separation_validation.json"
     },
     {
       "shock_series_id": "ecb_ois_1m_all_policy_events_monthly_v1",
-      "information_effect_handling": "not_addressed",
-      "evidence": "Acquired workbook reports intraday asset-price changes but does not publish a separately validated policy component and central-bank information component for this canonical series.",
+      "information_effect_handling": "partially_addressed",
+      "evidence": "OIS_3M/STOXX50 input and event-window alignment are audited and a diagnostic sign screen is active, but exact JK BVAR replication, posterior rotations and event-level structural outputs remain blocked.",
       "maximum_identification_status": "external_innovation_proxy",
-      "identified_shock_allowed": false
+      "identified_shock_allowed": false,
+      "validation_reference": "information_effect_separation_validation.json"
     }
   ]
 }

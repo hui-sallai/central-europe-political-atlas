@@ -1,0 +1,77 @@
+{
+  "schema_version": "monetary-policy-identification-method-registry-v1.61",
+  "generated_at": "2026-09-01",
+  "record_count": 2,
+  "records": [
+    {
+      "method_id": "jarocinski_karadi_sign_restrictions_v1",
+      "method_name": "Jarociński–Karadi high-frequency sign restrictions",
+      "authors": [
+        "Marek Jarociński",
+        "Peter Karadi"
+      ],
+      "publication": "Deconstructing Monetary Policy Surprises—The Role of Information Shocks, AEJ: Macroeconomics 12(2), 2020, 1–43",
+      "reference_url": "https://doi.org/10.1257/mac.20180090",
+      "working_paper_url": "https://www.ecb.europa.eu/pub/pdf/scpwps/ecb.wp2133.en.pdf",
+      "identification_family": "Bayesian structural VAR with high-frequency block exogeneity and set-identifying sign restrictions",
+      "input_variables": [
+        "monthly sum of 3-month Eonia OIS announcement surprises",
+        "monthly sum of Euro Stoxx 50 announcement returns",
+        "five monthly low-frequency macro-financial variables"
+      ],
+      "event_window": "press-release 30 minutes and press-conference 90 minutes; each begins 10 minutes before and ends 20 minutes after; sum the two windows when both occur",
+      "sample": "euro area January 1999–December 2016 in the published application",
+      "normalization": "positive monetary-policy shock is tightening; published historical contributions are scaled in basis points of the 3-month rate surprise",
+      "sign_restrictions": {
+        "monetary_policy": {
+          "rate": "+",
+          "stock": "-"
+        },
+        "central_bank_information": {
+          "rate": "+",
+          "stock": "+"
+        }
+      },
+      "covariance_construction": "posterior draws of the full VAR residual covariance matrix Sigma; lower-triangular Cholesky factor C",
+      "rotation_method": "postmultiply C by block-diagonal Q; 2x2 Q* comes from QR decomposition of a standard-normal random matrix; accept draws satisfying signs; uniform prior over admissible rotations",
+      "output_shocks": [
+        "monetary_policy_component",
+        "central_bank_information_component"
+      ],
+      "replication_status": "blocked",
+      "production_status": "diagnostic_only",
+      "limitations": [
+        "Set identification is not a unique point decomposition.",
+        "The published method identifies monthly VAR shocks, not a standalone event-by-event two-variable decomposition.",
+        "The official ICPSR V1 package is discoverable but its files require an authenticated download session in the acquisition environment.",
+        "The canonical EA-MPD 1999–2016 row count does not match the paper's reported reference dataset, so exact input alignment is not established."
+      ]
+    },
+    {
+      "method_id": "poor_mans_sign_screen_v1",
+      "method_name": "Poor-man sign-quadrant diagnostic",
+      "authors": [
+        "Central Europe Political Atlas implementation, following the paper's diagnostic robustness intuition"
+      ],
+      "publication": "Diagnostic only",
+      "reference_url": "https://doi.org/10.1257/mac.20180090",
+      "identification_family": "event sign screen",
+      "input_variables": [
+        "OIS_3M",
+        "STOXX50"
+      ],
+      "event_window": "EA-MPD Monetary Event Window",
+      "sample": "all canonical EA-MPD combined-window events",
+      "normalization": "opposite signs = policy-dominant; same signs = information-dominant; numerical zero or missing = ambiguous",
+      "sign_restrictions": null,
+      "output_shocks": [],
+      "replication_status": "passed_as_diagnostic",
+      "production_status": "diagnostic_active",
+      "limitations": [
+        "Not a structural decomposition.",
+        "Does not allow both shocks to coexist within an event.",
+        "Cannot be promoted to identified_shock."
+      ]
+    }
+  ]
+}

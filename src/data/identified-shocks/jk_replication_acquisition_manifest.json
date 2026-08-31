@@ -1,0 +1,23 @@
+{
+  "schema_version": "jk-replication-acquisition-manifest-v1.61",
+  "generated_at": "2026-09-01",
+  "source": "American Economic Association Data and Code Repository / ICPSR",
+  "project_doi": "10.3886/E231538V1",
+  "official_project_url": "https://www.openicpsr.org/openicpsr/project/231538/version/V1/view",
+  "asset": "Replication data for: Deconstructing Monetary Policy Surprises—The Role of Information Shocks",
+  "version": "V1 (2025-05-30)",
+  "retrieval_date": "2026-09-01",
+  "acquisition_status": "metadata_acquired_files_blocked_by_authenticated_download",
+  "checksum": null,
+  "checksum_status": "unavailable_without_asset_download",
+  "observed_contents": [
+    "data/data_var/data.csv",
+    "data/data_var/ydict.csv",
+    "data/work_matlab",
+    "data/readme.pdf",
+    "LICENSE.txt"
+  ],
+  "license_status": "license_file_listed_but_text_not_acquired; reuse terms not independently verified",
+  "redistribution_status": "no_replication_asset_redistributed",
+  "metadata_fingerprint_sha256": "564ace4731d99cb2ea8bdf01112e41a4894ecf0efa19fb59c31743886cf0fa40"
+}

@@ -1,15 +1,15 @@
 {
-  "schema_version": "release-metadata-v1.6",
-  "platform_version": "v1.6 ECB Monetary Policy Identification & LP Readiness",
-  "release_date": "2026-08-30",
+  "schema_version": "release-metadata-v1.61",
+  "platform_version": "v1.61 Information-Effect Separation & Monetary Shock Calibration",
+  "release_date": "2026-09-01",
   "source_commit": "local-working-tree",
   "build_context": "local",
   "workflow_run_id": null,
-  "generated_at": "2026-08-30T15:00:22.721Z",
+  "generated_at": "2026-08-31T17:20:01.104Z",
   "research_package": {
-    "filename": "research-data-v1.6.zip",
-    "sha256": "1611de222ee33c417c678425f9b957b7600ac4e3521e4facc346aaf1803a18c9",
-    "generated_at": "2026-08-30T15:04:13.179Z",
+    "filename": "research-data-v1.61.zip",
+    "sha256": "49f23cf70360bb87210cd24977c5812d325eb3c470929cfb17676e259cc5432b",
+    "generated_at": "2026-08-31T17:20:01.921Z",
     "status": "built"
   },
   "data_export_version": "research-data-v0.1",
@@ -90,7 +90,7 @@
     "trade_network": "trade-network-v1.25-active",
     "event_window": "event-window-v1.31",
     "high_frequency": "high-frequency-v1.31",
-    "analysis_skill_registry": "analysis-skill-registry-v1.51",
+    "analysis_skill_registry": "analysis-skill-registry-v1.61",
     "transformation_registry": "transformation-registry-v1.41",
     "stationarity_engine": "stationarity-engine-v1.44",
     "seasonal_adf_calibration": "seasonal-adf-critical-values-v1.44",
@@ -101,10 +101,11 @@
     "var_specification_profiles": "var-specification-profiles-v1.44",
     "var_country_readiness": "var-country-readiness-v1.44",
     "macro_drivers": "macro-driver-observations-v1.51",
-    "shock_identification": "shock-identification-registry-v1.6",
+    "shock_identification": "shock-identification-registry-v1.61",
     "identified_shocks": "monetary-policy-event-observations-v1.6",
-    "ecb_shock_validation": "ecb-shock-validation-summary-v1.6",
-    "lp_readiness": "lp-readiness-registry-v1.6",
+    "ecb_shock_validation": "ecb-shock-validation-summary-v1.61",
+    "information_effect_separation": "information-effect-separation-validation-v1.61",
+    "lp_readiness": "lp-readiness-registry-v1.61",
     "driver_applicability": "driver-applicability-registry-v1.51"
   },
   "boundary_versions": [
@@ -119,9 +120,9 @@
     "note": "Historical v0.91 golden cases remain the core research regression suite."
   },
   "advanced_analysis_validation": {
-    "stage": "v1.6 advanced analysis validation",
+    "stage": "v1.61 advanced analysis validation",
     "status": "passed",
-    "total_tests": 299,
+    "total_tests": 297,
     "failure_count": 0,
     "test_counts": {
       "panel": 51,
@@ -130,7 +131,7 @@
       "events": 22,
       "var": 104,
       "macro_drivers": 34,
-      "identified_shocks": 49
+      "identified_shocks": 47
     },
     "categories": [
       "panel",
@@ -146,7 +147,7 @@
     ]
   },
   "release_validation": {
-    "stage": "v1.6 release validation",
+    "stage": "v1.61 release validation",
     "status": "required_after_static_build",
     "gates": [
       "security_scan",
@@ -160,8 +161,8 @@
       "static_build",
       "package_checksum"
     ],
-    "package_checksum": "1611de222ee33c417c678425f9b957b7600ac4e3521e4facc346aaf1803a18c9",
-    "package_filename": "research-data-v1.6.zip"
+    "package_checksum": "49f23cf70360bb87210cd24977c5812d325eb3c470929cfb17676e259cc5432b",
+    "package_filename": "research-data-v1.61.zip"
   },
   "legacy_validation_summary_v091": {
     "stage": "v0.91 Model & Scenario Validation",

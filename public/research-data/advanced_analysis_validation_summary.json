@@ -1,8 +1,8 @@
 {
-  "schema_version": "advanced-analysis-validation-summary-v1.6",
-  "generated_at": "2026-08-30T14:51:05.985Z",
+  "schema_version": "advanced-analysis-validation-summary-v1.61",
+  "generated_at": "2026-08-31T17:18:13.167Z",
   "status": "passed",
-  "total_tests": 299,
+  "total_tests": 297,
   "failure_count": 0,
   "categories": {
     "panel": 51,
@@ -11,7 +11,7 @@
     "events": 22,
     "var": 104,
     "macro_drivers": 34,
-    "identified_shocks": 49
+    "identified_shocks": 47
   },
   "boundaries": {
     "identified_shock_count": 0,

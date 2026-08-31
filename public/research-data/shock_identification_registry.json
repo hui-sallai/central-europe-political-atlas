@@ -1,6 +1,6 @@
 {
-  "schema_version": "shock-identification-registry-v1.6",
-  "generated_at": "2026-08-30",
+  "schema_version": "shock-identification-registry-v1.61",
+  "generated_at": "2026-09-01",
   "identification_levels": [
     "observed_driver",
     "shock_candidate",
@@ -154,5 +154,17 @@
     }
   ],
   "external_innovation_proxy_count": 3,
-  "shock_candidate_count": 2
+  "shock_candidate_count": 2,
+  "v161_identification_candidates": [
+    {
+      "shock_series_id": "ecb_pure_monetary_policy_shock_jk_v1",
+      "status": "blocked",
+      "identified_shock_allowed": false
+    },
+    {
+      "shock_series_id": "ecb_central_bank_information_shock_jk_v1",
+      "status": "blocked",
+      "identified_shock_allowed": false
+    }
+  ]
 }

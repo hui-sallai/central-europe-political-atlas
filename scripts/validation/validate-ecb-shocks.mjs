@@ -86,7 +86,7 @@ for (const factorId of ["target", "timing", "forward_guidance", "qe"]) {
 }
 
 const information = read("monetary_policy_information_effect_registry.json");
-check(information.records.every((record) => record.information_effect_handling === "not_addressed" && record.maximum_identification_status === "external_innovation_proxy" && record.identified_shock_allowed === false), "Information-effect release blocker failed.", "identification");
+check(information.records.every((record) => record.information_effect_handling === "partially_addressed" && record.maximum_identification_status === "external_innovation_proxy" && record.identified_shock_allowed === false), "Information-effect release blocker failed.", "identification");
 
 const monthly = read("ecb_monetary_policy_monthly_series.json");
 const monthlyKeys = monthly.records.map((record) => `${record.shock_series_id}|${record.month}`);
@@ -118,8 +118,8 @@ check(lp.method_state === "registry_only" && lp.causal_lp_ready_count === 0, "LP
 check(lp.records.every((record) => record.identification_status === "identified_shock" || record.causal_lp_ready === false), "Non-identified series entered causal LP readiness.", "lp_readiness");
 
 const summary = {
-  schema_version: "ecb-shock-validation-summary-v1.6",
-  generated_at: "2026-08-30",
+  schema_version: "ecb-shock-validation-summary-v1.61",
+  generated_at: "2026-09-01",
   status: failures.length ? "failed" : "passed",
   total_tests: Object.values(counts).reduce((sum, value) => sum + value, 0),
   failure_count: failures.length,

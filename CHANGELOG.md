@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.61 Information-Effect Separation & Monetary Shock Calibration - 2026-09-01
+
+- Audited the published Jarociński–Karadi methodology, official AEA/ICPSR replication-project metadata, the euro-area OIS_3M/STOXX50 mapping, and the combined ECB monetary-event window.
+- Added a 315-event EA-MPD input registry, deterministic poor-man sign diagnostic, regime/outlier diagnostics, method/specification registries, synthetic cases and explicit validation gates.
+- Withheld event-level and monthly structural components because exact replication assets require an authenticated session, the reference sample is not aligned, and the published BVAR estimand is monthly rather than a standalone event decomposition.
+- Kept `identified_shock_count = 0`, three external innovation proxies, zero causal-LP-ready records, and Local Projections/SVAR registry-only; no frozen estimator or formula changed.
+
 ## v1.6 ECB Monetary Policy Identification & LP Readiness - 2026-08-30
 
 - Acquired and audited the official EA-MPD and EA-EMPD workbooks with source URLs, checksums, workbook schemas and reproducible acquisition manifests.

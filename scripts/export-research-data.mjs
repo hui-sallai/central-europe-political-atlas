@@ -45,9 +45,24 @@ const identifiedShockFiles = [
   "ecb_monetary_policy_monthly_series.json",
   "shock_applicability_registry.json",
   "ecb_shock_validation_summary.json",
+  "monetary_policy_identification_method_registry.json",
+  "jk_replication_acquisition_manifest.json",
+  "information_effect_input_registry.json",
+  "information_effect_window_registry.json",
+  "jk_event_sample_registry.json",
+  "identification_specification_registry.json",
+  "jk_event_level_shocks.json",
+  "ecb_pure_monetary_policy_shock_monthly.json",
+  "ecb_central_bank_information_shock_monthly.json",
+  "information_effect_separation_validation.json",
+  "identification_regime_diagnostics.json",
 ];
 
 execFileSync(process.execPath, [path.join(projectRoot, "scripts", "build-spatial-data-v087.mjs")], {
+  cwd: projectRoot,
+  stdio: "inherit",
+});
+execFileSync(process.execPath, [path.join(projectRoot, "scripts", "identified-shocks", "build-information-effect-separation.mjs")], {
   cwd: projectRoot,
   stdio: "inherit",
 });
@@ -2086,7 +2101,7 @@ writeJson("release_manifest.json", {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.51",
+    analysis_skill_registry: "analysis-skill-registry-v1.61",
     transformation_registry: "transformation-registry-v1.41",
     stationarity_engine: "stationarity-engine-v1.44",
     seasonal_adf_calibration: "seasonal-adf-critical-values-v1.44",
@@ -2097,10 +2112,11 @@ writeJson("release_manifest.json", {
     var_specification_profiles: "var-specification-profiles-v1.44",
     var_country_readiness: "var-country-readiness-v1.44",
     macro_drivers: "macro-driver-observations-v1.51",
-    shock_identification: "shock-identification-registry-v1.6",
+    shock_identification: "shock-identification-registry-v1.61",
     identified_shocks: "monetary-policy-event-observations-v1.6",
-    ecb_shock_validation: "ecb-shock-validation-summary-v1.6",
-    lp_readiness: "lp-readiness-registry-v1.6",
+    ecb_shock_validation: "ecb-shock-validation-summary-v1.61",
+    information_effect_separation: "information-effect-separation-validation-v1.61",
+    lp_readiness: "lp-readiness-registry-v1.61",
     driver_applicability: "driver-applicability-registry-v1.51",
   },
   boundary_versions: ["GISCO NUTS 2024", "regional spatial QA v0.87-v0.89"],
@@ -2112,7 +2128,7 @@ writeJson("release_manifest.json", {
     note: "Historical v0.91 golden cases remain the core research regression suite.",
   },
   advanced_analysis_validation: {
-    stage: "v1.6 advanced analysis validation",
+    stage: "v1.61 advanced analysis validation",
     status: advancedValidationSummary.status,
     total_tests: advancedValidationSummary.total_tests,
     failure_count: advancedValidationSummary.failure_count,
@@ -2120,7 +2136,7 @@ writeJson("release_manifest.json", {
     categories: ["panel", "network", "high_frequency", "events", "var", "seasonal_adf_calibration", "macro_drivers", "shock_identification", "identified_shocks", "lp_readiness"],
   },
   release_validation: {
-    stage: "v1.6 release validation",
+    stage: "v1.61 release validation",
     status: "required_after_static_build",
     gates: ["security_scan", "export", "research_package", "advanced_validation", "core_validation", "ui_language_qa", "lint", "typecheck", "static_build", "package_checksum"],
   },

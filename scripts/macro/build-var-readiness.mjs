@@ -504,7 +504,7 @@ const skillRegistryFile = path.join(root, "src/data/analysis/analysis_skill_regi
 const skillRegistry = JSON.parse(fs.readFileSync(skillRegistryFile, "utf8"));
 // The VAR generator updates its own skill gate but must preserve the current
 // Platform-level registry schema follows the release data-contract version.
-skillRegistry.schema_version = "analysis-skill-registry-v1.51";
+skillRegistry.schema_version = "analysis-skill-registry-v1.61";
 skillRegistry.generated_at = generatedAt;
 const reducedFormSkill = skillRegistry.records.find((record) => record.skill_id === "reduced_form_var");
 if (reducedFormSkill) reducedFormSkill.gate = "formal baseline v1/v2 and exploratory fallback are separate; >=60 continuous monthly observations, profile-mapped ADF gate, common-sample BIC lag selection, parameter ratio >=4, companion-root stability and horizon-specific residual diagnostics";

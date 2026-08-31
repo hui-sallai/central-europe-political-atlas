@@ -1,6 +1,6 @@
 {
-  "schema_version": "analysis-skill-registry-v1.51",
-  "generated_at": "2026-08-30",
+  "schema_version": "analysis-skill-registry-v1.61",
+  "generated_at": "2026-09-01",
   "records": [
     {
       "skill_id": "composite_indicators",
@@ -73,6 +73,13 @@
     {
       "skill_id": "causal_policy_analysis",
       "state": "registry_only"
+    },
+    {
+      "skill_id": "monetary_policy_identification",
+      "state": "diagnostic_active",
+      "gate": "formal JK replication, input alignment, posterior rotation and separated-output validation must pass before identified_shock",
+      "readiness_reference": "identified-shocks/information_effect_separation_validation.json",
+      "note": "OIS_3M/STOXX50 and poor-man quadrant diagnostics are active; structural shocks are withheld."
     }
   ],
   "high_frequency_roadmap": [

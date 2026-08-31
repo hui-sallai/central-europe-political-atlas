@@ -1,6 +1,6 @@
 {
-  "schema_version": "lp-readiness-registry-v1.6",
-  "generated_at": "2026-08-30",
+  "schema_version": "lp-readiness-registry-v1.61",
+  "generated_at": "2026-09-01",
   "method_state": "registry_only",
   "causal_lp_ready_count": 0,
   "record_count": 85,
@@ -62,7 +62,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:austria:h0-24",
@@ -120,7 +123,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:czechia:h0-24",
@@ -178,7 +184,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:czechia:h0-24",
@@ -236,7 +245,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:germany:h0-24",
@@ -294,7 +306,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:germany:h0-24",
@@ -352,7 +367,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:croatia:h0-24",
@@ -410,7 +428,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:croatia:h0-24",
@@ -468,7 +489,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:hungary:h0-24",
@@ -526,7 +550,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:hungary:h0-24",
@@ -584,7 +611,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:poland:h0-24",
@@ -642,7 +672,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:poland:h0-24",
@@ -700,7 +733,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:romania:h0-24",
@@ -758,7 +794,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:romania:h0-24",
@@ -816,7 +855,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:serbia:h0-24",
@@ -874,7 +916,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:serbia:h0-24",
@@ -932,7 +977,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:slovenia:h0-24",
@@ -990,7 +1038,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:slovenia:h0-24",
@@ -1048,7 +1099,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:slovakia:h0-24",
@@ -1106,7 +1160,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:slovakia:h0-24",
@@ -1164,7 +1221,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:austria:h0-24",
@@ -1222,7 +1282,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:austria:h0-24",
@@ -1280,7 +1343,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:czechia:h0-24",
@@ -1338,7 +1404,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:czechia:h0-24",
@@ -1396,7 +1465,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:germany:h0-24",
@@ -1454,7 +1526,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:germany:h0-24",
@@ -1512,7 +1587,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:croatia:h0-24",
@@ -1570,7 +1648,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:croatia:h0-24",
@@ -1628,7 +1709,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:hungary:h0-24",
@@ -1686,7 +1770,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:hungary:h0-24",
@@ -1744,7 +1831,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:poland:h0-24",
@@ -1802,7 +1892,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:poland:h0-24",
@@ -1860,7 +1953,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:romania:h0-24",
@@ -1918,7 +2014,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:romania:h0-24",
@@ -1976,7 +2075,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:serbia:h0-24",
@@ -2034,7 +2136,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:serbia:h0-24",
@@ -2092,7 +2197,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:slovenia:h0-24",
@@ -2150,7 +2258,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:slovenia:h0-24",
@@ -2208,7 +2319,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:slovakia:h0-24",
@@ -2266,7 +2380,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:slovakia:h0-24",
@@ -2324,7 +2441,10 @@
       "blockers": [
         "shock identification is not identified_shock",
         "Local Projections estimator is not activated in v1.51"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": true,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:austria:h0-24",
@@ -2380,7 +2500,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:austria:h0-24",
@@ -2436,7 +2559,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:austria:h0-24",
@@ -2492,7 +2618,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:austria:h0-24",
@@ -2548,7 +2677,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:croatia:h0-24",
@@ -2604,7 +2736,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:croatia:h0-24",
@@ -2660,7 +2795,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:croatia:h0-24",
@@ -2716,7 +2854,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:croatia:h0-24",
@@ -2772,7 +2913,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:czechia:h0-24",
@@ -2828,7 +2972,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:czechia:h0-24",
@@ -2884,7 +3031,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:czechia:h0-24",
@@ -2940,7 +3090,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:czechia:h0-24",
@@ -2996,7 +3149,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:bilateral_fx_local_per_eur:czechia:h0-24",
@@ -3052,7 +3208,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:germany:h0-24",
@@ -3108,7 +3267,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:germany:h0-24",
@@ -3164,7 +3326,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:germany:h0-24",
@@ -3220,7 +3385,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:germany:h0-24",
@@ -3276,7 +3444,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:hungary:h0-24",
@@ -3332,7 +3503,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:hungary:h0-24",
@@ -3388,7 +3562,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:hungary:h0-24",
@@ -3444,7 +3621,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:hungary:h0-24",
@@ -3500,7 +3680,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:bilateral_fx_local_per_eur:hungary:h0-24",
@@ -3556,7 +3739,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:poland:h0-24",
@@ -3612,7 +3798,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:poland:h0-24",
@@ -3668,7 +3857,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:poland:h0-24",
@@ -3724,7 +3916,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:poland:h0-24",
@@ -3780,7 +3975,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:bilateral_fx_local_per_eur:poland:h0-24",
@@ -3836,7 +4034,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:romania:h0-24",
@@ -3892,7 +4093,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:romania:h0-24",
@@ -3948,7 +4152,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:romania:h0-24",
@@ -4004,7 +4211,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:romania:h0-24",
@@ -4060,7 +4270,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:bilateral_fx_local_per_eur:romania:h0-24",
@@ -4116,7 +4329,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:serbia:h0-24",
@@ -4172,7 +4388,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:serbia:h0-24",
@@ -4228,7 +4447,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:serbia:h0-24",
@@ -4284,7 +4506,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:serbia:h0-24",
@@ -4340,7 +4565,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:bilateral_fx_local_per_eur:serbia:h0-24",
@@ -4396,7 +4624,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:slovakia:h0-24",
@@ -4452,7 +4683,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:slovakia:h0-24",
@@ -4508,7 +4742,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:slovakia:h0-24",
@@ -4564,7 +4801,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:slovakia:h0-24",
@@ -4620,7 +4860,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:slovenia:h0-24",
@@ -4676,7 +4919,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:slovenia:h0-24",
@@ -4732,7 +4978,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:slovenia:h0-24",
@@ -4788,7 +5037,10 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:slovenia:h0-24",
@@ -4844,8 +5096,14 @@
         "identification status is external_innovation_proxy rather than identified_shock",
         "outcome-specific common sample and controls require separate pre-registration validation",
         "Local Projections estimator is not activated in v1.6"
-      ]
+      ],
+      "shock_identification_ready": false,
+      "outcome_data_ready": false,
+      "estimator_ready": false
     }
   ],
-  "identified_data_ready_count": 45
+  "identified_data_ready_count": 45,
+  "shock_identification_ready_count": 0,
+  "outcome_data_ready_count": 40,
+  "estimator_ready_count": 0
 }

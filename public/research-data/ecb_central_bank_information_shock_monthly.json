@@ -1,0 +1,10 @@
+{
+  "schema_version": "ecb-separated-shock-monthly-v1.61",
+  "generated_at": "2026-09-01",
+  "shock_series_id": "ecb_central_bank_information_shock_jk_v1",
+  "identification_status": "withheld_blocked",
+  "aggregation_rule": "sum eligible validated event-level components within month; no eligible event = 0; expected event with missing component = missing",
+  "record_count": 0,
+  "records": [],
+  "blocker": "central-bank information component is not published because structural replication and event-level identification validation did not pass"
+}

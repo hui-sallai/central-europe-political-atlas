@@ -128,6 +128,19 @@ const sourceEntries = [
   ["identified-shocks/ecb_monetary_policy_monthly_series.json", "src/data/identified-shocks/ecb_monetary_policy_monthly_series.json"],
   ["identified-shocks/shock_applicability_registry.json", "src/data/identified-shocks/shock_applicability_registry.json"],
   ["identified-shocks/ecb_shock_validation_summary.json", "src/data/identified-shocks/ecb_shock_validation_summary.json"],
+  ["identified-shocks/monetary_policy_identification_method_registry.json", "src/data/identified-shocks/monetary_policy_identification_method_registry.json"],
+  ["identified-shocks/jk_replication_acquisition_manifest.json", "src/data/identified-shocks/jk_replication_acquisition_manifest.json"],
+  ["identified-shocks/information_effect_input_registry.json", "src/data/identified-shocks/information_effect_input_registry.json"],
+  ["identified-shocks/information_effect_window_registry.json", "src/data/identified-shocks/information_effect_window_registry.json"],
+  ["identified-shocks/jk_event_sample_registry.json", "src/data/identified-shocks/jk_event_sample_registry.json"],
+  ["identified-shocks/identification_specification_registry.json", "src/data/identified-shocks/identification_specification_registry.json"],
+  ["identified-shocks/jk_event_level_shocks.json", "src/data/identified-shocks/jk_event_level_shocks.json"],
+  ["identified-shocks/ecb_pure_monetary_policy_shock_monthly.json", "src/data/identified-shocks/ecb_pure_monetary_policy_shock_monthly.json"],
+  ["identified-shocks/ecb_central_bank_information_shock_monthly.json", "src/data/identified-shocks/ecb_central_bank_information_shock_monthly.json"],
+  ["identified-shocks/information_effect_separation_validation.json", "src/data/identified-shocks/information_effect_separation_validation.json"],
+  ["identified-shocks/identification_regime_diagnostics.json", "src/data/identified-shocks/identification_regime_diagnostics.json"],
+  ["identified-shocks/build-information-effect-separation.mjs", "scripts/identified-shocks/build-information-effect-separation.mjs"],
+  ["identified-shocks/validate-information-effect-separation.mjs", "scripts/validation/validate-information-effect-separation.mjs"],
   ["identified-shocks/acquire-ecb-monetary-events.py", "scripts/acquisition/acquire-ecb-monetary-events.py"],
   ["identified-shocks/requirements-ecb-events.txt", "scripts/acquisition/requirements-ecb-events.txt"],
   ["identified-shocks/validate-ecb-shocks.mjs", "scripts/validation/validate-ecb-shocks.mjs"],
@@ -174,7 +187,7 @@ if (fs.existsSync(modelCardsFile)) {
   entries.push({ name: "models/formula_versions.json", data: JSON.stringify(records.map((item) => ({ model_id: item.model_id, model_version: item.model_version, formula_version: item.formula_version, calculation_logic: item.calculation_logic })), null, 2) });
 }
 
-entries.push({ name: "README.md", data: `# Central Europe Political Atlas ${researchPackageLabel()}\n\nThis package preserves public research data, dictionaries, QA records, model and scenario metadata, methodology and release provenance.\n\n- Missing and pending values are not zero.\n- Samples and placeholders do not enter formal analysis.\n- Model outputs are comparative research tools, not forecasts or objective risk truths.\n- Scenario results are conditional assumptions, not future facts.\n- Panel estimates preserve official source and observation traces.\n- Network outputs require complete bilateral partner edges passing coverage checks.\n- Official EA-MPD / EA-EMPD assets are schema-audited and deduplicated; current OIS event series remain external innovation proxies because central-bank information effects are not separated.\n- Local Projections remain registry-only in v1.6; no causal response is estimated.\n\nCanonical site: https://hy-central-europe-analysis.org/\n` });
+entries.push({ name: "README.md", data: `# Central Europe Political Atlas ${researchPackageLabel()}\n\nThis package preserves public research data, dictionaries, QA records, model and scenario metadata, methodology and release provenance.\n\n- Missing and pending values are not zero.\n- Samples and placeholders do not enter formal analysis.\n- Model outputs are comparative research tools, not forecasts or objective risk truths.\n- Scenario results are conditional assumptions, not future facts.\n- Panel estimates preserve official source and observation traces.\n- Network outputs require complete bilateral partner edges passing coverage checks.\n- Official EA-MPD / EA-EMPD assets are schema-audited and deduplicated. v1.61 audits the Jarociński–Karadi OIS_3M/STOXX50 inputs and activates only a sign-quadrant diagnostic; formal structural separation remains blocked.\n- Local Projections remain registry-only in v1.61; no causal response is estimated.\n\nCanonical site: https://hy-central-europe-analysis.org/\n` });
 entries.push({ name: "methodology/README.md", data: "Public methodology is available at /methodology/. Technical dictionaries and validation records in this archive are the authoritative downloadable companion to the interface.\n" });
 
 fs.mkdirSync(sourceDir, { recursive: true });

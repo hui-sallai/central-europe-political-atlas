@@ -1,0 +1,28 @@
+{
+  "schema_version": "identification-specification-registry-v1.61",
+  "generated_at": "2026-09-01",
+  "records": [
+    {
+      "specification_id": "A_jk_reference_baseline",
+      "state": "blocked",
+      "rate_field": "OIS_3M",
+      "equity_field": "STOXX50",
+      "window": "combined_monetary_event_window",
+      "sample": "1999-01 through 2016-12",
+      "blocker": "official replication files and exact VAR input alignment unavailable; event-level output is not the published estimand"
+    },
+    {
+      "specification_id": "B_alternative_ois_maturity",
+      "state": "registry_only",
+      "rate_field": null,
+      "reason": "no alternative maturity selected without a literature-supported preregistration"
+    },
+    {
+      "specification_id": "C_poor_mans_diagnostic",
+      "state": "diagnostic_active",
+      "rate_field": "OIS_3M",
+      "equity_field": "STOXX50",
+      "window": "combined_monetary_event_window"
+    }
+  ]
+}
