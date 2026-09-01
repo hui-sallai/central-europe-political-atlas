@@ -17,3 +17,9 @@ Public legal notice: https://hy-central-europe-analysis.org/legal/
 ## ECB high-frequency monetary-policy datasets
 
 The v1.6 research layer uses the ECB-hosted EA-MPD and EA-EMPD workbooks as source material. Public derived records identify the original source, access date and checksum. The source workbooks are not redistributed in the public research package while workbook-specific redistribution terms remain under review. ECB attribution does not imply ECB endorsement of this platform or its analysis.
+
+## Jarociński–Karadi author-reference shocks
+
+The v1.62 shock-construction implementation translates the MATLAB methodology and validates outputs from Marek Jarociński's author-maintained repository `marekjarocinski/jkshocks_update_ecb`, pinned at commit `f7ffc821b0ade71dd38539e4044e25368dfb4dc1`. Cite Jarociński, M. and Karadi, P. (2020), “Deconstructing Monetary Policy Surprises—The Role of Information Shocks,” *American Economic Journal: Macroeconomics*, 12(2), 1–43.
+
+According to the pinned repository README, its data are licensed under CC BY 4.0 and its code under the BSD 3-Clause License. The author-maintained repository and author affiliations do not imply ECB institutional endorsement of this platform, implementation, or analysis.

@@ -130,6 +130,14 @@ const sourceEntries = [
   ["identified-shocks/ecb_shock_validation_summary.json", "src/data/identified-shocks/ecb_shock_validation_summary.json"],
   ["identified-shocks/monetary_policy_identification_method_registry.json", "src/data/identified-shocks/monetary_policy_identification_method_registry.json"],
   ["identified-shocks/jk_replication_acquisition_manifest.json", "src/data/identified-shocks/jk_replication_acquisition_manifest.json"],
+  ["identified-shocks/jk_author_reference_manifest.json", "src/data/identified-shocks/jk_author_reference_manifest.json"],
+  ["identified-shocks/jk_author_event_exclusion_registry.json", "src/data/identified-shocks/jk_author_event_exclusion_registry.json"],
+  ["identified-shocks/jk_pc1_replication_validation.json", "src/data/identified-shocks/jk_pc1_replication_validation.json"],
+  ["identified-shocks/jk_poor_man_replication_validation.json", "src/data/identified-shocks/jk_poor_man_replication_validation.json"],
+  ["identified-shocks/jk_median_rotation_replication_validation.json", "src/data/identified-shocks/jk_median_rotation_replication_validation.json"],
+  ["identified-shocks/jk_monthly_replication_validation.json", "src/data/identified-shocks/jk_monthly_replication_validation.json"],
+  ["identified-shocks/jk_author_reference_comparison.json", "src/data/identified-shocks/jk_author_reference_comparison.json"],
+  ["identified-shocks/jk_cross_language_validation.json", "src/data/identified-shocks/jk_cross_language_validation.json"],
   ["identified-shocks/information_effect_input_registry.json", "src/data/identified-shocks/information_effect_input_registry.json"],
   ["identified-shocks/information_effect_window_registry.json", "src/data/identified-shocks/information_effect_window_registry.json"],
   ["identified-shocks/jk_event_sample_registry.json", "src/data/identified-shocks/jk_event_sample_registry.json"],
@@ -140,6 +148,8 @@ const sourceEntries = [
   ["identified-shocks/information_effect_separation_validation.json", "src/data/identified-shocks/information_effect_separation_validation.json"],
   ["identified-shocks/identification_regime_diagnostics.json", "src/data/identified-shocks/identification_regime_diagnostics.json"],
   ["identified-shocks/build-information-effect-separation.mjs", "scripts/identified-shocks/build-information-effect-separation.mjs"],
+  ["identified-shocks/jk-author-reference.mjs", "scripts/identified-shocks/jk-author-reference.mjs"],
+  ["identified-shocks/validate-jk-author-reference.py", "scripts/validation/validate-jk-author-reference.py"],
   ["identified-shocks/validate-information-effect-separation.mjs", "scripts/validation/validate-information-effect-separation.mjs"],
   ["identified-shocks/acquire-ecb-monetary-events.py", "scripts/acquisition/acquire-ecb-monetary-events.py"],
   ["identified-shocks/requirements-ecb-events.txt", "scripts/acquisition/requirements-ecb-events.txt"],
@@ -187,7 +197,7 @@ if (fs.existsSync(modelCardsFile)) {
   entries.push({ name: "models/formula_versions.json", data: JSON.stringify(records.map((item) => ({ model_id: item.model_id, model_version: item.model_version, formula_version: item.formula_version, calculation_logic: item.calculation_logic })), null, 2) });
 }
 
-entries.push({ name: "README.md", data: `# Central Europe Political Atlas ${researchPackageLabel()}\n\nThis package preserves public research data, dictionaries, QA records, model and scenario metadata, methodology and release provenance.\n\n- Missing and pending values are not zero.\n- Samples and placeholders do not enter formal analysis.\n- Model outputs are comparative research tools, not forecasts or objective risk truths.\n- Scenario results are conditional assumptions, not future facts.\n- Panel estimates preserve official source and observation traces.\n- Network outputs require complete bilateral partner edges passing coverage checks.\n- Official EA-MPD / EA-EMPD assets are schema-audited and deduplicated. v1.61 audits the Jarociński–Karadi OIS_3M/STOXX50 inputs and activates only a sign-quadrant diagnostic; formal structural separation remains blocked.\n- Local Projections remain registry-only in v1.61; no causal response is estimated.\n\nCanonical site: https://hy-central-europe-analysis.org/\n` });
+entries.push({ name: "README.md", data: `# Central Europe Political Atlas ${researchPackageLabel()}\n\nThis package preserves public research data, dictionaries, QA records, model and scenario metadata, methodology and release provenance.\n\n- Missing and pending values are not zero.\n- Model outputs are comparative research tools, not forecasts or objective risk truths.\n- Official EA-MPD / EA-EMPD assets are schema-audited and deduplicated.\n- v1.62 exactly validates the deterministic Jarociński–Karadi author-reference median decomposition at published precision.\n- The median rotation is representative under sign restrictions, not a unique structural truth.\n- Local Projections remain registry-only; no causal response is estimated.\n\nCanonical site: https://hy-central-europe-analysis.org/\n` });
 entries.push({ name: "methodology/README.md", data: "Public methodology is available at /methodology/. Technical dictionaries and validation records in this archive are the authoritative downloadable companion to the interface.\n" });
 
 fs.mkdirSync(sourceDir, { recursive: true });

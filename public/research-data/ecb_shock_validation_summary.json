@@ -1,5 +1,5 @@
 {
-  "schema_version": "ecb-shock-validation-summary-v1.61",
+  "schema_version": "ecb-shock-validation-summary-v1.62",
   "generated_at": "2026-09-01",
   "status": "passed",
   "total_tests": 47,
@@ -24,7 +24,7 @@
   "measure_observation_count": 205580,
   "overlap_record_count": 945,
   "monthly_record_count": 976,
-  "identified_shock_count": 0,
+  "identified_shock_count": 2,
   "external_innovation_proxy_count": 3,
   "shock_candidate_count": 2,
   "causal_lp_ready_count": 0,

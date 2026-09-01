@@ -1,5 +1,5 @@
 {
-  "schema_version": "lp-readiness-registry-v1.61",
+  "schema_version": "lp-readiness-registry-v1.62",
   "generated_at": "2026-09-01",
   "method_state": "registry_only",
   "causal_lp_ready_count": 0,
@@ -5103,7 +5103,21 @@
     }
   ],
   "identified_data_ready_count": 45,
-  "shock_identification_ready_count": 0,
+  "shock_identification_ready_count": 2,
   "outcome_data_ready_count": 40,
-  "estimator_ready_count": 0
+  "estimator_ready_count": 0,
+  "shock_series_readiness": [
+    {
+      "shock_series": "ecb_pure_monetary_policy_shock_jk_median_v1",
+      "shock_identification_ready": true,
+      "estimator_ready": false,
+      "causal_lp_ready": false
+    },
+    {
+      "shock_series": "ecb_central_bank_information_shock_jk_median_v1",
+      "shock_identification_ready": true,
+      "estimator_ready": false,
+      "causal_lp_ready": false
+    }
+  ]
 }

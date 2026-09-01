@@ -1,0 +1,15 @@
+{
+  "schema_version": "jk-poor-man-replication-validation-v1.62",
+  "generated_at": "2026-09-01",
+  "absolute_tolerance": 1e-8,
+  "relative_tolerance": 1e-8,
+  "matched_row_count": 312,
+  "failed_row_count": 0,
+  "status": "passed",
+  "maximum_absolute_difference": 0,
+  "expected_sha256": "ff6d8bb9477e665cf67178498075d9a3635076807e881d3ad5501e659e7af252",
+  "actual_sha256": "ff6d8bb9477e665cf67178498075d9a3635076807e881d3ad5501e659e7af252",
+  "rule": "pc1*STOXX50<0 => MP_pm=pc1; otherwise CBI_pm=pc1",
+  "role": "restrictive robustness diagnostic",
+  "identity_maximum_difference": 0
+}

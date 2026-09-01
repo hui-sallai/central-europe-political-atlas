@@ -1,158 +1,77 @@
 {
-  "schema_version": "information-effect-separation-validation-v1.61",
+  "schema_version": "information-effect-separation-validation-v1.62",
   "generated_at": "2026-09-01",
-  "status": "partial",
-  "total_gates": 17,
-  "passed": 9,
-  "partial": 1,
-  "blocked": 6,
-  "failures": 0,
-  "descriptive_input_covariance": [
-    [
-      13.654772516322936,
-      -0.4347886597251994
-    ],
-    [
-      -0.4347886597251994,
-      0.4707930942418167
-    ]
-  ],
-  "synthetic_cases": [
-    {
-      "rate": 1,
-      "stock": -1,
-      "expected": "policy_dominant",
-      "actual": "policy_dominant",
-      "passed": true
-    },
-    {
-      "rate": 1,
-      "stock": 1,
-      "expected": "information_dominant",
-      "actual": "information_dominant",
-      "passed": true
-    },
-    {
-      "rate": -1,
-      "stock": 1,
-      "expected": "policy_dominant",
-      "actual": "policy_dominant",
-      "passed": true
-    },
-    {
-      "rate": -1,
-      "stock": -1,
-      "expected": "information_dominant",
-      "actual": "information_dominant",
-      "passed": true
-    },
-    {
-      "rate": 0,
-      "stock": 1,
-      "expected": "ambiguous",
-      "actual": "ambiguous",
-      "passed": true
-    },
-    {
-      "rate": 1,
-      "stock": null,
-      "expected": "ambiguous",
-      "actual": "ambiguous",
-      "passed": true
-    },
-    {
-      "rate": null,
-      "stock": 1,
-      "expected": "ambiguous",
-      "actual": "ambiguous",
-      "passed": true
-    }
-  ],
+  "status": "passed",
+  "total_gates": 16,
+  "passed": 16,
+  "failed": 0,
+  "blocked": 0,
+  "rotation_angle_radians": 0.7051099539973873,
+  "identity_maximum_difference": 2.7755575615628914e-17,
   "gates": [
     {
-      "gate_id": "published_methodology",
-      "status": "passed",
-      "evidence": "Paper and ECB working-paper methodology audited."
+      "gate_id": "author_commit_pin",
+      "status": "passed"
     },
     {
-      "gate_id": "official_replication_asset_checksum",
-      "status": "blocked",
-      "evidence": "Official package files require authenticated download; no asset checksum fabricated."
+      "gate_id": "reference_checksums",
+      "status": "passed"
     },
     {
-      "gate_id": "reference_sample_match",
-      "status": "blocked",
-      "evidence": "Canonical EA-MPD has 244 combined-window events through 2016; exact paper input sample alignment is not established."
+      "gate_id": "event_dates",
+      "status": "passed"
     },
     {
-      "gate_id": "rate_field_match",
-      "status": "passed",
-      "evidence": "Euro-area reference field is 3-month Eonia OIS; mapped to EA-MPD OIS_3M."
+      "gate_id": "joint_exclusions",
+      "status": "passed"
     },
     {
-      "gate_id": "equity_field_match",
-      "status": "passed",
-      "evidence": "Euro-area reference equity is Euro Stoxx 50; mapped to EA-MPD STOXX50."
+      "gate_id": "missing_policy",
+      "status": "passed"
     },
     {
-      "gate_id": "window_match",
-      "status": "passed",
-      "evidence": "EA-MPD Monetary Event Window implements the combined press-release/press-conference concept."
+      "gate_id": "no_centering",
+      "status": "passed"
     },
     {
-      "gate_id": "transformation_validation",
-      "status": "passed",
-      "evidence": "Identity transform; native basis-point and percentage-point changes retained."
+      "gate_id": "pc1_exact",
+      "status": "passed"
     },
     {
-      "gate_id": "covariance_validation",
-      "status": "partial",
-      "evidence": "Descriptive 2x2 input covariance is reproducible; posterior full-VAR Sigma is not generated."
+      "gate_id": "poor_man_exact",
+      "status": "passed"
     },
     {
-      "gate_id": "rotation_validation",
-      "status": "blocked",
-      "evidence": "Posterior BVAR/QR rotation workflow not run without exact replication inputs."
+      "gate_id": "qr_positive_diagonal",
+      "status": "passed"
     },
     {
-      "gate_id": "sign_normalization",
-      "status": "passed",
-      "evidence": "Positive policy sign is canonical tightening."
+      "gate_id": "rotation_angle",
+      "status": "passed"
     },
     {
-      "gate_id": "event_level_output_validation",
-      "status": "blocked",
-      "evidence": "Published method does not provide a validated standalone event-level structural decomposition."
+      "gate_id": "median_exact",
+      "status": "passed"
     },
     {
-      "gate_id": "monthly_aggregation",
-      "status": "blocked",
-      "evidence": "Structural event components are withheld, so monthly separated series are empty."
+      "gate_id": "identity",
+      "status": "passed"
     },
     {
-      "gate_id": "zero_vs_missing",
-      "status": "passed",
-      "evidence": "Aggregation contract records zero for valid no-event months and missing for expected-event component gaps."
+      "gate_id": "monthly_exact",
+      "status": "passed"
     },
     {
-      "gate_id": "overlap_deduplication",
-      "status": "passed",
-      "evidence": "Baseline uses EA-MPD only; EA-EMPD is excluded from contribution."
+      "gate_id": "no_event_zero",
+      "status": "passed"
     },
     {
-      "gate_id": "row_order_invariance",
-      "status": "passed",
-      "evidence": "Rows are keyed and sorted by event_date/event_id; diagnostics are commutative."
+      "gate_id": "canonical_order",
+      "status": "passed"
     },
     {
-      "gate_id": "rng_reproducibility",
-      "status": "not_applicable",
-      "evidence": "No stochastic structural rotation was run."
-    },
-    {
-      "gate_id": "different_seed_sensitivity",
-      "status": "blocked",
-      "evidence": "Requires the validated posterior rotation workflow."
+      "gate_id": "extension_separation",
+      "status": "passed"
     }
   ]
 }

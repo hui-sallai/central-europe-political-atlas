@@ -1,33 +1,28 @@
 {
-  "schema_version": "information-effect-input-registry-v1.61",
+  "schema_version": "information-effect-input-registry-v1.62",
   "generated_at": "2026-09-01",
   "record_count": 1,
   "records": [
     {
-      "specification_id": "jk_euro_area_input_audit_v1",
-      "rate_surprise_field": "OIS_3M",
+      "specification_id": "jk_author_reference_v1",
+      "rate_surprise_fields": [
+        "OIS_1M",
+        "OIS_3M",
+        "OIS_6M",
+        "OIS_1Y"
+      ],
       "equity_surprise_field": "STOXX50",
-      "source_dataset": "EA-MPD official workbook",
-      "event_window": "Monetary Event Window (official combined press-release and press-conference window)",
-      "units": {
-        "OIS_3M": "basis_points",
-        "STOXX50": "percentage_points; workbook note describes Euro STOXX50E index change"
-      },
-      "transformations": "identity; no winsorization, demeaning, z-scoring or rescaling",
+      "source_dataset": "EA-MPD",
+      "source_sheet": "Monetary Event Window",
       "sample": {
-        "available_start": "1999-01-07",
-        "available_end": "2025-10-30",
-        "available_events": 315,
-        "paper_reference_end": "2016-12-31",
-        "aligned_reference_rows": 244
+        "source_events": 315,
+        "excluded_joint_events": 3,
+        "reference_events": 312,
+        "start": "1999-01-07",
+        "end": "2025-10-30"
       },
-      "missingness": {
-        "rate": 0,
-        "stock": 0
-      },
-      "reference_method": "jarocinski_karadi_sign_restrictions_v1",
       "source_checksum": "f417fb861a305e3cbb871a7571c4899ba6bca003d9e087024d2f3f0744426cef",
-      "alignment_status": "partial"
+      "alignment_status": "exact_author_reference"
     }
   ]
 }

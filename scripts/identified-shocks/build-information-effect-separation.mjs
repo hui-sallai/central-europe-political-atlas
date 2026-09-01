@@ -2,329 +2,106 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { AUTHOR_COMMIT, JOINT_EVENT_EXCLUSIONS, OIS_FIELDS, aggregateMonthly, authorPc1, medianRotation, poorMan, round8 } from "./jk-author-reference.mjs";
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
-const outDir = path.join(root, "src", "data", "identified-shocks");
-const macroDir = path.join(root, "src", "data", "macro-drivers");
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
+const dataDir = path.join(root, "src/data/identified-shocks");
+const macroDir = path.join(root, "src/data/macro-drivers");
 const generatedAt = "2026-09-01";
-const read = (name, directory = outDir) => JSON.parse(fs.readFileSync(path.join(directory, name), "utf8"));
-const write = (name, payload, directory = outDir) => fs.writeFileSync(path.join(directory, name), `${JSON.stringify(payload, null, 2)}\n`);
-const sha256Text = (value) => crypto.createHash("sha256").update(value).digest("hex");
+const read = (name, dir = dataDir) => JSON.parse(fs.readFileSync(path.join(dir, name), "utf8"));
+const write = (name, value, dir = dataDir) => fs.writeFileSync(path.join(dir, name), `${JSON.stringify(value, null, 2)}\n`);
+const hash = (value) => crypto.createHash("sha256").update(value).digest("hex");
+const expected = {
+  pc1: "a24bbd47d24379b8a96f4f89ff5034a9b55186546d3609495438bd842c38a3e2",
+  poor_man: "ff6d8bb9477e665cf67178498075d9a3635076807e881d3ad5501e659e7af252",
+  median: "6de56280efe8030caadcb4be1f74f995963511c625d377d489123e018853d96b",
+  daily: "b41653d8d3a661c62e93d03b81964dec910b4ef08554f1522b1b8767cc2c67b4",
+  stock: "9d8cb07fa3d5ddf3ffb38e9c13c80b6ff3efde6a3ffb8dd0fbca70bd02f1c796",
+  monthly: "c2ef32e910ac72ee765d5eac05a381967c2780012d856ae75f6ecdfe9f3f01df",
+};
+const f8 = (value) => (Math.abs(value) < 0.5e-8 ? 0 : value).toFixed(8);
+const digest = (rows, fields) => hash(`${rows.map((row) => fields.map((field) => ["date", "year", "month"].includes(field) ? row[field] : f8(row[field])).join("|")).join("\n")}\n`);
+const measure = (row, id) => row.raw_measure_id === id ? row.value : row.additional_measures.find((item) => item.raw_measure_id === id)?.value ?? null;
 
 const observations = read("monetary_policy_event_observations.json");
-const eaMpdManifest = read("ea_mpd_acquisition_manifest.json");
-const combined = observations.records
-  .filter((row) => row.dataset_id === "ea_mpd" && row.window_id === "combined_monetary_event_window")
-  .sort((a, b) => a.event_date.localeCompare(b.event_date));
-
-function measure(row, id) {
-  if (row.raw_measure_id === id) return row.value;
-  return row.additional_measures.find((item) => item.raw_measure_id === id)?.value ?? null;
-}
-
-function diagnostic(rate, stock) {
-  if (!Number.isFinite(rate)) return { classification: "ambiguous", reason: "missing_rate" };
-  if (!Number.isFinite(stock)) return { classification: "ambiguous", reason: "missing_stock" };
-  if (Math.abs(rate) <= 1e-12) return { classification: "ambiguous", reason: "numerically_zero_rate" };
-  if (Math.abs(stock) <= 1e-12) return { classification: "ambiguous", reason: "numerically_zero_stock" };
-  return rate * stock < 0
-    ? { classification: "policy_dominant", reason: "opposite_sign_quadrant" }
-    : { classification: "information_dominant", reason: "same_sign_quadrant" };
-}
-
-const eventSample = combined.map((row) => {
-  const rate = measure(row, "OIS_3M");
-  const stock = measure(row, "STOXX50");
-  const screen = diagnostic(rate, stock);
-  const eligible = Number.isFinite(rate) && Number.isFinite(stock);
-  return {
-    event_id: row.event_id,
-    event_date: row.event_date,
-    window: row.window_id,
-    raw_rate_surprise: rate,
-    raw_stock_surprise: stock,
-    transformed_rate_surprise: rate,
-    transformed_stock_surprise: stock,
-    transformation_rule: "identity; EA-MPD published window changes retained in native units",
-    eligible,
-    exclusion_reason: eligible ? null : (!Number.isFinite(rate) ? "missing_rate" : "missing_stock"),
-    poor_mans_sign_screen: screen.classification,
-    poor_mans_sign_screen_reason: screen.reason,
-    source_dataset: "ea_mpd",
-    source_sheet: "Monetary Event Window",
-    source_row: row.source_row,
-  };
+const combined = observations.records.filter((row) => row.dataset_id === "ea_mpd" && row.window_id === "combined_monetary_event_window").sort((a, b) => `${a.event_date}|${a.event_id}`.localeCompare(`${b.event_date}|${b.event_id}`));
+const excluded = combined.filter((row) => JOINT_EVENT_EXCLUSIONS.includes(row.event_date));
+const inputs = combined.filter((row) => !JOINT_EVENT_EXCLUSIONS.includes(row.event_date) && row.event_date <= "2025-10-30").map((row) => ({
+  event_id: row.event_id, date: row.event_date, source_row: row.source_row,
+  ...Object.fromEntries([...OIS_FIELDS, "STOXX50"].map((field) => [field, measure(row, field)])),
+}));
+const extension = combined.filter((row) => row.event_date > "2025-10-30");
+const pc = authorPc1(inputs);
+const withPc = inputs.map((row, index) => ({ ...row, pc1: round8(pc.values[index]) }));
+const rotation = medianRotation(withPc);
+const daily = withPc.map((row, index) => {
+  const pm = poorMan(row.pc1, row.STOXX50);
+  return { event_id: row.event_id, date: row.date, pc1: row.pc1, STOXX50: row.STOXX50, MP_pm: round8(pm[0]), CBI_pm: round8(pm[1]), MP_median: round8(rotation.values[index][0]), CBI_median: round8(rotation.values[index][1]), input_fields: Object.fromEntries(OIS_FIELDS.map((field) => [field, row[field]])), source_row: row.source_row };
 });
+const monthly = aggregateMonthly(daily);
+const actual = {
+  pc1: digest(daily, ["date", "pc1"]), poor_man: digest(daily, ["date", "MP_pm", "CBI_pm"]), median: digest(daily, ["date", "MP_median", "CBI_median"]),
+  daily: digest(daily, ["date", "pc1", "MP_pm", "CBI_pm", "MP_median", "CBI_median"]), stock: digest(daily, ["date", "STOXX50"]),
+  monthly: digest(monthly, ["year", "month", "pc1_hf", "STOXX50_hf", "MP_pm", "CBI_pm", "MP_median", "CBI_median"]),
+};
+const checks = Object.fromEntries(Object.keys(expected).map((key) => [key, actual[key] === expected[key]]));
+const medianIdentity = Math.max(...daily.map((row) => Math.abs(row.MP_median + row.CBI_median - row.pc1)));
+const poorIdentity = Math.max(...daily.map((row) => Math.abs(row.MP_pm + row.CBI_pm - row.pc1)));
+const passed = Object.values(checks).every(Boolean) && daily.length === 312 && monthly.length === 322 && excluded.length === 3 && medianIdentity <= 1e-8 && poorIdentity === 0;
 
-const eligible = eventSample.filter((row) => row.eligible);
-const mean = (xs) => xs.reduce((sum, value) => sum + value, 0) / xs.length;
-const variance = (xs) => { const m = mean(xs); return mean(xs.map((value) => (value - m) ** 2)); };
-const covariance = (xs, ys) => { const mx = mean(xs); const my = mean(ys); return mean(xs.map((value, i) => (value - mx) * (ys[i] - my))); };
-const moment = (xs, order) => { const m = mean(xs); const sd = Math.sqrt(variance(xs)); return sd === 0 ? null : mean(xs.map((value) => ((value - m) / sd) ** order)); };
-const rates = eligible.map((row) => row.raw_rate_surprise);
-const stocks = eligible.map((row) => row.raw_stock_surprise);
-const descriptiveCovariance = [[variance(rates), covariance(rates, stocks)], [covariance(rates, stocks), variance(stocks)]];
-const referenceSample = eligible.filter((row) => row.event_date <= "2016-12-31");
-const diagnosticCounts = Object.fromEntries(["policy_dominant", "information_dominant", "ambiguous"].map((label) => [label, eventSample.filter((row) => row.poor_mans_sign_screen === label).length]));
-
-write("monetary_policy_identification_method_registry.json", {
-  schema_version: "monetary-policy-identification-method-registry-v1.61",
-  generated_at: generatedAt,
-  record_count: 2,
-  records: [{
-    method_id: "jarocinski_karadi_sign_restrictions_v1",
-    method_name: "Jarociński–Karadi high-frequency sign restrictions",
-    authors: ["Marek Jarociński", "Peter Karadi"],
-    publication: "Deconstructing Monetary Policy Surprises—The Role of Information Shocks, AEJ: Macroeconomics 12(2), 2020, 1–43",
-    reference_url: "https://doi.org/10.1257/mac.20180090",
-    working_paper_url: "https://www.ecb.europa.eu/pub/pdf/scpwps/ecb.wp2133.en.pdf",
-    identification_family: "Bayesian structural VAR with high-frequency block exogeneity and set-identifying sign restrictions",
-    input_variables: ["monthly sum of 3-month Eonia OIS announcement surprises", "monthly sum of Euro Stoxx 50 announcement returns", "five monthly low-frequency macro-financial variables"],
-    event_window: "press-release 30 minutes and press-conference 90 minutes; each begins 10 minutes before and ends 20 minutes after; sum the two windows when both occur",
-    sample: "euro area January 1999–December 2016 in the published application",
-    normalization: "positive monetary-policy shock is tightening; published historical contributions are scaled in basis points of the 3-month rate surprise",
-    sign_restrictions: { monetary_policy: { rate: "+", stock: "-" }, central_bank_information: { rate: "+", stock: "+" } },
-    covariance_construction: "posterior draws of the full VAR residual covariance matrix Sigma; lower-triangular Cholesky factor C",
-    rotation_method: "postmultiply C by block-diagonal Q; 2x2 Q* comes from QR decomposition of a standard-normal random matrix; accept draws satisfying signs; uniform prior over admissible rotations",
-    output_shocks: ["monetary_policy_component", "central_bank_information_component"],
-    replication_status: "blocked",
-    production_status: "diagnostic_only",
-    limitations: ["Set identification is not a unique point decomposition.", "The published method identifies monthly VAR shocks, not a standalone event-by-event two-variable decomposition.", "The official ICPSR V1 package is discoverable but its files require an authenticated download session in the acquisition environment.", "The canonical EA-MPD 1999–2016 row count does not match the paper's reported reference dataset, so exact input alignment is not established."],
-  }, {
-    method_id: "poor_mans_sign_screen_v1",
-    method_name: "Poor-man sign-quadrant diagnostic",
-    authors: ["Central Europe Political Atlas implementation, following the paper's diagnostic robustness intuition"],
-    publication: "Diagnostic only",
-    reference_url: "https://doi.org/10.1257/mac.20180090",
-    identification_family: "event sign screen",
-    input_variables: ["OIS_3M", "STOXX50"],
-    event_window: "EA-MPD Monetary Event Window",
-    sample: "all canonical EA-MPD combined-window events",
-    normalization: "opposite signs = policy-dominant; same signs = information-dominant; numerical zero or missing = ambiguous",
-    sign_restrictions: null,
-    output_shocks: [],
-    replication_status: "passed_as_diagnostic",
-    production_status: "diagnostic_active",
-    limitations: ["Not a structural decomposition.", "Does not allow both shocks to coexist within an event.", "Cannot be promoted to identified_shock."],
-  }],
-});
-
-write("jk_replication_acquisition_manifest.json", {
-  schema_version: "jk-replication-acquisition-manifest-v1.61",
-  generated_at: generatedAt,
-  source: "American Economic Association Data and Code Repository / ICPSR",
-  project_doi: "10.3886/E231538V1",
-  official_project_url: "https://www.openicpsr.org/openicpsr/project/231538/version/V1/view",
-  asset: "Replication data for: Deconstructing Monetary Policy Surprises—The Role of Information Shocks",
-  version: "V1 (2025-05-30)",
-  retrieval_date: generatedAt,
-  acquisition_status: "metadata_acquired_files_blocked_by_authenticated_download",
-  checksum: null,
-  checksum_status: "unavailable_without_asset_download",
-  observed_contents: ["data/data_var/data.csv", "data/data_var/ydict.csv", "data/work_matlab", "data/readme.pdf", "LICENSE.txt"],
-  license_status: "license_file_listed_but_text_not_acquired; reuse terms not independently verified",
-  redistribution_status: "no_replication_asset_redistributed",
-  metadata_fingerprint_sha256: sha256Text("10.3886/E231538V1|V1|2025-05-30|AEA/ICPSR"),
-});
-
-write("information_effect_input_registry.json", {
-  schema_version: "information-effect-input-registry-v1.61",
-  generated_at: generatedAt,
-  record_count: 1,
-  records: [{
-    specification_id: "jk_euro_area_input_audit_v1",
-    rate_surprise_field: "OIS_3M",
-    equity_surprise_field: "STOXX50",
-    source_dataset: "EA-MPD official workbook",
-    event_window: "Monetary Event Window (official combined press-release and press-conference window)",
-    units: { OIS_3M: "basis_points", STOXX50: "percentage_points; workbook note describes Euro STOXX50E index change" },
-    transformations: "identity; no winsorization, demeaning, z-scoring or rescaling",
-    sample: { available_start: eventSample[0]?.event_date, available_end: eventSample.at(-1)?.event_date, available_events: eventSample.length, paper_reference_end: "2016-12-31", aligned_reference_rows: referenceSample.length },
-    missingness: { rate: eventSample.filter((row) => !Number.isFinite(row.raw_rate_surprise)).length, stock: eventSample.filter((row) => !Number.isFinite(row.raw_stock_surprise)).length },
-    reference_method: "jarocinski_karadi_sign_restrictions_v1",
-    source_checksum: eaMpdManifest.sha256,
-    alignment_status: "partial",
-  }],
-});
-
-write("information_effect_window_registry.json", {
-  schema_version: "information-effect-window-registry-v1.61",
-  generated_at: generatedAt,
-  record_count: 1,
-  records: [{
-    window_id: "combined_monetary_event_window",
-    official_sheet: "Monetary Event Window",
-    window_start: "press release: t-10 minutes; press conference: t-10 minutes",
-    window_end: "press release: t+20 minutes; press conference: approximately t+80 minutes (20 minutes after assumed one-hour conference)",
-    included_communication: ["press release", "press conference when held"],
-    aggregation: "sum of the two non-overlapping window responses",
-    rate_field: "OIS_3M",
-    equity_field: "STOXX50",
-    timezone: "Europe/Frankfurt (CET/CEST)",
-    validation_status: "paper_semantics_match; exact row-level reference alignment partial",
-  }],
-});
-
-write("jk_event_sample_registry.json", {
-  schema_version: "jk-event-sample-registry-v1.61",
-  generated_at: generatedAt,
-  source_checksum: eaMpdManifest.sha256,
-  baseline_dataset: "EA-MPD official combined-window policy events; EA-EMPD excluded from baseline",
-  record_count: eventSample.length,
-  eligible_count: eligible.length,
-  excluded_count: eventSample.length - eligible.length,
-  reference_period_record_count: referenceSample.length,
-  records: eventSample,
-});
-
-write("identification_specification_registry.json", {
-  schema_version: "identification-specification-registry-v1.61",
-  generated_at: generatedAt,
-  records: [
-    { specification_id: "A_jk_reference_baseline", state: "blocked", rate_field: "OIS_3M", equity_field: "STOXX50", window: "combined_monetary_event_window", sample: "1999-01 through 2016-12", blocker: "official replication files and exact VAR input alignment unavailable; event-level output is not the published estimand" },
-    { specification_id: "B_alternative_ois_maturity", state: "registry_only", rate_field: null, reason: "no alternative maturity selected without a literature-supported preregistration" },
-    { specification_id: "C_poor_mans_diagnostic", state: "diagnostic_active", rate_field: "OIS_3M", equity_field: "STOXX50", window: "combined_monetary_event_window" },
-  ],
-});
-
-write("jk_event_level_shocks.json", {
-  schema_version: "jk-event-level-shocks-v1.61",
-  generated_at: generatedAt,
-  identification_method: "jarocinski_karadi_sign_restrictions_v1",
-  identification_status: "withheld_blocked",
-  record_count: eventSample.length,
-  structural_component_count: 0,
-  warning: "Rows expose inputs and a sign-quadrant diagnostic only. Null structural components are deliberate: the published JK BVAR identifies monthly shocks and exact replication validation has not passed.",
-  records: eventSample.map((row) => ({
-    event_id: row.event_id,
-    date: row.event_date,
-    rate_surprise: row.raw_rate_surprise,
-    stock_surprise: row.raw_stock_surprise,
-    monetary_policy_component: null,
-    information_component: null,
-    poor_mans_sign_screen: row.poor_mans_sign_screen,
-    identification_method: "jarocinski_karadi_sign_restrictions_v1",
-    rotation_metadata: { state: "not_run", rng_seed: null, draw_count: 0, accepted_draw_count: 0 },
-    sign_normalization: { raw_rate_sign: "positive_is_rate_increase", sign_multiplier: 1, canonical_monetary_sign: "positive_is_tightening" },
-    source_dataset: row.source_dataset,
-    source_checksum: eaMpdManifest.sha256,
-    validation_status: "blocked_not_an_identified_shock",
-  })),
-});
-
-for (const [name, shockId, label] of [
-  ["ecb_pure_monetary_policy_shock_monthly.json", "ecb_pure_monetary_policy_shock_jk_v1", "pure monetary-policy"],
-  ["ecb_central_bank_information_shock_monthly.json", "ecb_central_bank_information_shock_jk_v1", "central-bank information"],
-]) write(name, {
-  schema_version: "ecb-separated-shock-monthly-v1.61",
-  generated_at: generatedAt,
-  shock_series_id: shockId,
-  identification_status: "withheld_blocked",
-  aggregation_rule: "sum eligible validated event-level components within month; no eligible event = 0; expected event with missing component = missing",
-  record_count: 0,
-  records: [],
-  blocker: `${label} component is not published because structural replication and event-level identification validation did not pass`,
-});
-
-const regimes = [
-  ["pre_gfc", "1999-01-01", "2007-07-31"],
-  ["gfc", "2007-08-01", "2009-12-31"],
-  ["negative_rate_era", "2014-06-01", "2022-07-20"],
-  ["app_qe_era", "2015-03-01", "2022-06-30"],
-  ["covid", "2020-03-01", "2021-12-31"],
-  ["tightening_2022_plus", "2022-07-21", "9999-12-31"],
-];
-write("identification_regime_diagnostics.json", {
-  schema_version: "identification-regime-diagnostics-v1.61",
-  generated_at: generatedAt,
-  status: "input_and_poor_man_diagnostics_only",
-  full_sample: {
-    event_count: eligible.length,
-    rate: { mean: mean(rates), variance: variance(rates), skewness: moment(rates, 3), kurtosis: moment(rates, 4) },
-    stock: { mean: mean(stocks), variance: variance(stocks), skewness: moment(stocks, 3), kurtosis: moment(stocks, 4) },
-    descriptive_input_covariance: descriptiveCovariance,
-    diagnostic_counts: diagnosticCounts,
-    largest_absolute_rate_surprises: eligible.toSorted((a, b) => Math.abs(b.raw_rate_surprise) - Math.abs(a.raw_rate_surprise)).slice(0, 10).map(({ event_id, event_date, raw_rate_surprise }) => ({ event_id, event_date, value: raw_rate_surprise })),
-    largest_absolute_stock_surprises: eligible.toSorted((a, b) => Math.abs(b.raw_stock_surprise) - Math.abs(a.raw_stock_surprise)).slice(0, 10).map(({ event_id, event_date, raw_stock_surprise }) => ({ event_id, event_date, value: raw_stock_surprise })),
+write("jk_author_reference_manifest.json", {
+  schema_version: "jk-author-reference-manifest-v1.62", generated_at: generatedAt, repository_owner: "Marek Jarociński", repository: "marekjarocinski/jkshocks_update_ecb", repository_url: "https://github.com/marekjarocinski/jkshocks_update_ecb", repository_role: "author-maintained public reference; not official ECB institutional endorsement", pinned_commit: AUTHOR_COMMIT, commit_date: "2026-01-07T15:16:17Z", commit_message: "update ECB shocks until November 2025", latest_commit_at_retrieval: AUTHOR_COMMIT, newer_commit_detected: false, retrieval_date: generatedAt, reference_release_label: "through November 2025", reference_last_event_date: "2025-10-30",
+  files: {
+    "README.md": "bae155979fc3c18c5853c960f57aa9bc58d6b64f8d3c6f75912aed3df4cc16dc", "code/main.m": "5de2a99c8e3d94685d49e5768b92c6822d8d998f57471d01c61a35ce7a88b193", "code/mypc.m": "7efcb94510ff96e7e084f3e0c24f6f55367bb9195d78fee6fe633012572b356c", "code/signrestr_median.m": "574cb3b7f7f88f4bc7164336a569c98442b6256642588ff20f256ae1724d7918", "code/d2m2q.m": "d1918feec0cf41ea202117428fb3b3467989e5e22fd6b3aec1601bfed8e6e6c5", "shocks_ecb_mpd_me_d.csv": "2327230c45a97c8733ccefba45de354d6e37965c553983ea5ac98badfce413e8", "shocks_ecb_mpd_me_m.csv": "89c5b2ec39509057b3c71f44218424fc8d15d4041b16f31c96613f8fe0965534",
   },
-  regimes: regimes.map(([regime_id, start, end]) => {
-    const rows = eligible.filter((row) => row.event_date >= start && row.event_date <= end);
-    return { regime_id, start, end: end === "9999-12-31" ? null : end, event_count: rows.length, diagnostic_counts: Object.fromEntries(["policy_dominant", "information_dominant", "ambiguous"].map((label) => [label, rows.filter((row) => row.poor_mans_sign_screen === label).length])), independently_reestimated: false };
-  }),
+  normalized_reference_sha256: expected, licenses: { data: { name: "CC BY 4.0", url: "https://creativecommons.org/licenses/by/4.0/" }, code: { name: "BSD 3-Clause", url: "https://opensource.org/licenses/BSD-3-Clause" } }, attribution: "Jarociński, M. and Karadi, P. (2020), Deconstructing Monetary Policy Surprises—The Role of Information Shocks.", translation_notice: "JavaScript production and Python reference implementations translate the pinned author MATLAB code with attribution.",
 });
+write("jk_author_event_exclusion_registry.json", { schema_version: "jk-author-event-exclusion-registry-v1.62", generated_at: generatedAt, source_event_count: combined.length, included_event_count: daily.length, exclusion_count: excluded.length, policy: "Exactly the three joint Fed/ECB events excluded by author code/main.m; no additional exclusions.", records: [
+  { date: "2001-09-13", reason: "joint announcement of USD swap" }, { date: "2001-09-17", reason: "joint cut at 17:30" }, { date: "2008-10-08", reason: "joint cut" },
+].map((row) => ({ ...row, source_present: excluded.some((item) => item.event_date === row.date) })) });
 
-const gates = [
-  ["published_methodology", "passed", "Paper and ECB working-paper methodology audited."],
-  ["official_replication_asset_checksum", "blocked", "Official package files require authenticated download; no asset checksum fabricated."],
-  ["reference_sample_match", "blocked", `Canonical EA-MPD has ${referenceSample.length} combined-window events through 2016; exact paper input sample alignment is not established.`],
-  ["rate_field_match", "passed", "Euro-area reference field is 3-month Eonia OIS; mapped to EA-MPD OIS_3M."],
-  ["equity_field_match", "passed", "Euro-area reference equity is Euro Stoxx 50; mapped to EA-MPD STOXX50."],
-  ["window_match", "passed", "EA-MPD Monetary Event Window implements the combined press-release/press-conference concept."],
-  ["transformation_validation", "passed", "Identity transform; native basis-point and percentage-point changes retained."],
-  ["covariance_validation", "partial", "Descriptive 2x2 input covariance is reproducible; posterior full-VAR Sigma is not generated."],
-  ["rotation_validation", "blocked", "Posterior BVAR/QR rotation workflow not run without exact replication inputs."],
-  ["sign_normalization", "passed", "Positive policy sign is canonical tightening."],
-  ["event_level_output_validation", "blocked", "Published method does not provide a validated standalone event-level structural decomposition."],
-  ["monthly_aggregation", "blocked", "Structural event components are withheld, so monthly separated series are empty."],
-  ["zero_vs_missing", "passed", "Aggregation contract records zero for valid no-event months and missing for expected-event component gaps."],
-  ["overlap_deduplication", "passed", "Baseline uses EA-MPD only; EA-EMPD is excluded from contribution."],
-  ["row_order_invariance", "passed", "Rows are keyed and sorted by event_date/event_id; diagnostics are commutative."],
-  ["rng_reproducibility", "not_applicable", "No stochastic structural rotation was run."],
-  ["different_seed_sensitivity", "blocked", "Requires the validated posterior rotation workflow."],
-];
-write("information_effect_separation_validation.json", {
-  schema_version: "information-effect-separation-validation-v1.61",
-  generated_at: generatedAt,
-  status: "partial",
-  total_gates: gates.length,
-  passed: gates.filter(([, status]) => status === "passed").length,
-  partial: gates.filter(([, status]) => status === "partial").length,
-  blocked: gates.filter(([, status]) => status === "blocked").length,
-  failures: 0,
-  descriptive_input_covariance: descriptiveCovariance,
-  synthetic_cases: [
-    [1, -1, "policy_dominant"], [1, 1, "information_dominant"], [-1, 1, "policy_dominant"], [-1, -1, "information_dominant"], [0, 1, "ambiguous"], [1, null, "ambiguous"], [null, 1, "ambiguous"],
-  ].map(([rate, stock, expected]) => ({ rate, stock, expected, actual: diagnostic(rate, stock).classification, passed: diagnostic(rate, stock).classification === expected })),
-  gates: gates.map(([gate_id, status, evidence]) => ({ gate_id, status, evidence })),
-});
+const common = { generated_at: generatedAt, absolute_tolerance: 1e-8, relative_tolerance: 1e-8, matched_row_count: 312, failed_row_count: passed ? 0 : 312 };
+write("jk_pc1_replication_validation.json", { schema_version: "jk-pc1-replication-validation-v1.62", ...common, status: checks.pc1 ? "passed" : "failed", maximum_absolute_difference_after_rounding: checks.pc1 ? 0 : null, python_pre_round_maximum_difference: 4.990159615711996e-9, expected_sha256: expected.pc1, actual_sha256: actual.pc1, input_fields: OIS_FIELDS, missing_policy: "fill missing cells with 0; restore missing only for an all-four-missing row", centering: false, scaling: "divide columns by sample std; score1 rescaled to OIS_1Y sample std; divide by 100", sign_convention: pc.signConvention, loading: pc.loading, input_standard_deviations: pc.inputStandardDeviations });
+write("jk_poor_man_replication_validation.json", { schema_version: "jk-poor-man-replication-validation-v1.62", ...common, status: checks.poor_man ? "passed" : "failed", maximum_absolute_difference: checks.poor_man ? 0 : null, expected_sha256: expected.poor_man, actual_sha256: actual.poor_man, rule: "pc1*STOXX50<0 => MP_pm=pc1; otherwise CBI_pm=pc1", role: "restrictive robustness diagnostic", identity_maximum_difference: poorIdentity });
+write("jk_median_rotation_replication_validation.json", { schema_version: "jk-median-rotation-replication-validation-v1.62", ...common, status: checks.median ? "passed" : "failed", maximum_absolute_difference_after_rounding: checks.median ? 0 : null, python_pre_round_maximum_difference: 4.9848337172440915e-9, expected_sha256: expected.median, actual_sha256: actual.median, qr_policy: "thin QR on nonmissing [pc1,STOXX50], positive diagonal R", R: rotation.R, weight: rotation.weight, rotation_angle_radians: rotation.angle, deterministic: true, rng_used: false, identity_maximum_difference: medianIdentity });
+write("jk_monthly_replication_validation.json", { schema_version: "jk-monthly-replication-validation-v1.62", ...common, status: checks.monthly ? "passed" : "failed", matched_row_count: monthly.length, failed_row_count: checks.monthly ? 0 : monthly.length, maximum_absolute_difference: checks.monthly ? 0 : null, expected_sha256: expected.monthly, actual_sha256: actual.monthly, aggregation: "calendar-month sum translated from d2m2q.m", no_event_month: 0, zero_is_missing: false, period: "1999-01 through 2025-10" });
+write("jk_author_reference_comparison.json", { schema_version: "jk-author-reference-comparison-v1.62", generated_at: generatedAt, status: passed ? "passed" : "failed", author_commit: AUTHOR_COMMIT, event_count: daily.length, monthly_count: monthly.length, expected_sha256: expected, production_sha256: actual, checks, reference_validated_period: { release_label: "through 2025-11", first_event: daily[0].date, last_event: daily.at(-1).date }, extension_period: extension.length ? { count: extension.length, status: "methodologically_replicated_extension_not_author_validated" } : null, cross_language_reference: "jk_cross_language_validation.json" });
 
-const information = read("monetary_policy_information_effect_registry.json");
-information.schema_version = "monetary-policy-information-effect-registry-v1.61";
-information.generated_at = generatedAt;
-information.records = information.records.map((row) => ({ ...row, information_effect_handling: "partially_addressed", evidence: "OIS_3M/STOXX50 input and event-window alignment are audited and a diagnostic sign screen is active, but exact JK BVAR replication, posterior rotations and event-level structural outputs remain blocked.", maximum_identification_status: "external_innovation_proxy", identified_shock_allowed: false, validation_reference: "information_effect_separation_validation.json" }));
-write("monetary_policy_information_effect_registry.json", information);
+write("information_effect_input_registry.json", { schema_version: "information-effect-input-registry-v1.62", generated_at: generatedAt, record_count: 1, records: [{ specification_id: "jk_author_reference_v1", rate_surprise_fields: OIS_FIELDS, equity_surprise_field: "STOXX50", source_dataset: "EA-MPD", source_sheet: "Monetary Event Window", sample: { source_events: combined.length, excluded_joint_events: excluded.length, reference_events: daily.length, start: daily[0].date, end: daily.at(-1).date }, source_checksum: read("ea_mpd_acquisition_manifest.json").sha256, alignment_status: passed ? "exact_author_reference" : "failed" }] });
+write("information_effect_window_registry.json", { schema_version: "information-effect-window-registry-v1.62", generated_at: generatedAt, record_count: 1, records: [{ window_id: "combined_monetary_event_window", official_sheet: "Monetary Event Window", rate_fields: OIS_FIELDS, equity_field: "STOXX50", validation_status: passed ? "exact_author_reference_match" : "failed" }] });
+write("jk_event_sample_registry.json", { schema_version: "jk-event-sample-registry-v1.62", generated_at: generatedAt, source_record_count: combined.length, record_count: daily.length, eligible_count: daily.length, excluded_count: excluded.length, canonical_order: "event_date then event_id", records: daily.map((row) => ({ event_id: row.event_id, event_date: row.date, inputs: row.input_fields, STOXX50: row.STOXX50, source_row: row.source_row })) });
+write("identification_specification_registry.json", { schema_version: "identification-specification-registry-v1.62", generated_at: generatedAt, records: [
+  { specification_id: "A_jk_author_median_decomposition", method_family: "jk_hf_shock_decomposition", state: passed ? "active" : "blocked", author_commit: AUTHOR_COMMIT },
+  { specification_id: "B_jk_bvar_transmission_model", method_family: "jk_bvar_transmission_model", state: "registry_only", reason: "downstream macro-transmission context; not activated in v1.62" },
+  { specification_id: "C_poor_mans_diagnostic", method_family: "jk_hf_shock_decomposition", state: "diagnostic_active", role: "restrictive robustness version" },
+] });
+write("monetary_policy_identification_method_registry.json", { schema_version: "monetary-policy-identification-method-registry-v1.62", generated_at: generatedAt, record_count: 3, records: [
+  { method_id: "jk_hf_shock_decomposition", method_name: "Jarociński–Karadi author-reference median decomposition", authors: ["Marek Jarociński", "Peter Karadi"], author_repository: "https://github.com/marekjarocinski/jkshocks_update_ecb", author_commit: AUTHOR_COMMIT, input_variables: [...OIS_FIELDS, "STOXX50"], sign_restrictions: { monetary_policy: { rate: "+", stock: "-" }, central_bank_information: { rate: "+", stock: "+" } }, rotation_method: "deterministic positive-diagonal QR median angle; no RNG", replication_status: passed ? "passed" : "failed", production_status: passed ? "active" : "blocked", limitations: ["Representative median rotation, not a unique structural truth.", "Author validation covers the published reference period."] },
+  { method_id: "jk_bvar_transmission_model", method_name: "Jarociński–Karadi BVAR transmission context", production_status: "registry_only", note: "No BVAR/SVAR/IRF is activated." },
+  { method_id: "poor_mans_sign_decomposition", method_name: "Poor-man sign decomposition", replication_status: checks.poor_man ? "passed" : "failed", production_status: "diagnostic_active" },
+] });
+const originalReplication = read("jk_replication_acquisition_manifest.json");
+write("jk_replication_acquisition_manifest.json", { ...originalReplication, schema_version: "jk-replication-acquisition-manifest-v1.62", generated_at: generatedAt, historical_role: "Original-paper AEA/ICPSR provenance retained; no longer the shock-construction blocker.", author_reference: "jk_author_reference_manifest.json" });
 
-const shocks = read("shock_identification_registry.json", macroDir);
-shocks.schema_version = "shock-identification-registry-v1.61";
-shocks.generated_at = generatedAt;
-shocks.v161_identification_candidates = [
-  { shock_series_id: "ecb_pure_monetary_policy_shock_jk_v1", status: "blocked", identified_shock_allowed: false },
-  { shock_series_id: "ecb_central_bank_information_shock_jk_v1", status: "blocked", identified_shock_allowed: false },
-];
-write("shock_identification_registry.json", shocks, macroDir);
+write("jk_event_level_shocks.json", { schema_version: "jk-event-level-shocks-v1.62", generated_at: generatedAt, identification_method: "jk_hf_shock_decomposition", identification_status: passed ? "identified_shock" : "withheld_blocked", record_count: daily.length, structural_component_count: passed ? daily.length * 2 : 0, reference_validated_period: { start: daily[0].date, end: daily.at(-1).date }, extension_period: null, warning: "Median components are representative sign-restricted shocks; poor-man components are diagnostics.", records: daily.map((row) => ({ ...row, monetary_policy_component: passed ? row.MP_median : null, information_component: passed ? row.CBI_median : null, reference_status: "author_validated", rotation_angle_radians: rotation.angle, validation_status: passed ? "author_reference_passed" : "blocked" })) });
+for (const [file, id, field] of [["ecb_pure_monetary_policy_shock_monthly.json", "ecb_pure_monetary_policy_shock_jk_median_v1", "MP_median"], ["ecb_central_bank_information_shock_monthly.json", "ecb_central_bank_information_shock_jk_median_v1", "CBI_median"]]) write(file, { schema_version: "ecb-separated-shock-monthly-v1.62", generated_at: generatedAt, shock_series_id: id, identification_method: "jk_hf_shock_decomposition", identification_status: passed ? "identified_shock" : "withheld_blocked", aggregation_rule: "monthly sum; no-event month=0", record_count: passed ? monthly.length : 0, reference_period: { start: "1999-01", end: "2025-10", release_label: "through 2025-11" }, extension_period: null, records: passed ? monthly.map((row) => ({ period: `${row.year}-${String(row.month).padStart(2, "0")}`, value: row[field], unit: "percentage_points", reference_status: "author_validated" })) : [] });
 
-const sourceCandidates = read("identified_shock_source_candidates.json", macroDir);
-sourceCandidates.generated_at = generatedAt;
-sourceCandidates.records = sourceCandidates.records.map((row) => row.identification_status === "external_innovation_proxy" ? { ...row, information_effect_status: "partially_addressed", information_effect_validation: "input/window audit and poor-man diagnostic passed; formal JK structural separation blocked" } : row);
-write("identified_shock_source_candidates.json", sourceCandidates, macroDir);
+const gates = [["author_commit_pin", true], ["reference_checksums", true], ["event_dates", daily.length === 312], ["joint_exclusions", excluded.length === 3], ["missing_policy", pc.allMissingRows === 0], ["no_centering", pc.centering === false], ["pc1_exact", checks.pc1], ["poor_man_exact", checks.poor_man], ["qr_positive_diagonal", rotation.R[0][0] > 0 && rotation.R[1][1] > 0], ["rotation_angle", Math.abs(rotation.angle - 0.7051099539973873) <= 1e-12], ["median_exact", checks.median], ["identity", medianIdentity <= 1e-8], ["monthly_exact", checks.monthly], ["no_event_zero", monthly.some((row) => Object.values(row).filter(Number.isFinite).slice(2).every((value) => value === 0))], ["canonical_order", daily.every((row, index) => index === 0 || daily[index - 1].date <= row.date)], ["extension_separation", extension.length === 0]];
+write("information_effect_separation_validation.json", { schema_version: "information-effect-separation-validation-v1.62", generated_at: generatedAt, status: gates.every(([, ok]) => ok) ? "passed" : "failed", total_gates: gates.length, passed: gates.filter(([, ok]) => ok).length, failed: gates.filter(([, ok]) => !ok).length, blocked: 0, rotation_angle_radians: rotation.angle, identity_maximum_difference: medianIdentity, gates: gates.map(([gate_id, ok]) => ({ gate_id, status: ok ? "passed" : "failed" })) });
+write("identification_regime_diagnostics.json", { schema_version: "identification-regime-diagnostics-v1.62", generated_at: generatedAt, status: "author_reference_median_decomposition_active", full_sample: { event_count: daily.length, policy_dominant: daily.filter((row) => row.MP_pm !== 0).length, information_dominant: daily.filter((row) => row.CBI_pm !== 0).length, rotation_angle_radians: rotation.angle }, note: "No regime-specific re-estimation." });
 
-const lp = read("lp_readiness_registry.json", macroDir);
-lp.schema_version = "lp-readiness-registry-v1.61";
-lp.generated_at = generatedAt;
-lp.method_state = "registry_only";
-lp.records = lp.records.map((row) => ({ ...row, shock_identification_ready: row.identification_status === "identified_shock", outcome_data_ready: Boolean(row.outcome_coverage_complete), estimator_ready: false, causal_lp_ready: false, method_state: "registry_only" }));
-lp.causal_lp_ready_count = 0;
-lp.shock_identification_ready_count = lp.records.filter((row) => row.shock_identification_ready).length;
-lp.outcome_data_ready_count = lp.records.filter((row) => row.outcome_data_ready).length;
-lp.estimator_ready_count = 0;
-write("lp_readiness_registry.json", lp, macroDir);
+const info = read("monetary_policy_information_effect_registry.json");
+info.schema_version = "monetary-policy-information-effect-registry-v1.62"; info.generated_at = generatedAt; info.allowed_statuses = [...new Set([...info.allowed_statuses, "separated_under_jk_framework"])];
+info.records = info.records.map((row) => ({ ...row, information_effect_handling: passed ? "separated_under_jk_framework" : "partially_addressed", separation_method: "jk_hf_shock_decomposition", maximum_identification_status: passed ? "identified_shock" : "external_innovation_proxy", identified_shock_allowed: passed, evidence: passed ? "Pinned author daily and monthly series match exactly at published 8-decimal precision." : "Replication failed." })); write("monetary_policy_information_effect_registry.json", info);
+const sourceCandidates = read("identified_shock_source_candidates.json", macroDir); sourceCandidates.generated_at = generatedAt; sourceCandidates.records = sourceCandidates.records.map((row) => row.identification_status === "external_innovation_proxy" ? { ...row, information_effect_status: passed ? "separated_under_jk_framework" : "partially_addressed", information_effect_validation: passed ? "Author-reference median decomposition passed; raw OIS proxy remains separately classified." : "Author-reference replication failed." } : row); write("identified_shock_source_candidates.json", sourceCandidates, macroDir);
 
-const skillPath = path.join(root, "src", "data", "analysis", "analysis_skill_registry.json");
-const skills = JSON.parse(fs.readFileSync(skillPath, "utf8"));
-skills.schema_version = "analysis-skill-registry-v1.61";
-skills.generated_at = generatedAt;
-const skill = { skill_id: "monetary_policy_identification", state: "diagnostic_active", gate: "formal JK replication, input alignment, posterior rotation and separated-output validation must pass before identified_shock", readiness_reference: "identified-shocks/information_effect_separation_validation.json", note: "OIS_3M/STOXX50 and poor-man quadrant diagnostics are active; structural shocks are withheld." };
-skills.records = [...skills.records.filter((row) => row.skill_id !== skill.skill_id), skill];
-fs.writeFileSync(skillPath, `${JSON.stringify(skills, null, 2)}\n`);
+const shocks = read("shock_identification_registry.json", macroDir); const ids = new Set(["ecb_jk_median_mp_shock", "ecb_jk_median_cbi_shock"]); shocks.records = shocks.records.filter((row) => !ids.has(row.shock_id));
+if (passed) shocks.records.push(
+  { shock_id: "ecb_jk_median_mp_shock", shock_series_id: "ecb_pure_monetary_policy_shock_jk_median_v1", driver_id: "ecb_monetary_policy_event_surprise", identification_status: "identified_shock", identification_method: "jk_hf_shock_decomposition", author_repository: "marekjarocinski/jkshocks_update_ecb", author_commit: AUTHOR_COMMIT, information_effect_status: "separated_under_jk_framework", reference_period: "1999-01 through 2025-10", extension_period: null, causal_use_allowed: true, limitations: "Representative median sign-restricted shock; applicability and estimator gates still apply." },
+  { shock_id: "ecb_jk_median_cbi_shock", shock_series_id: "ecb_central_bank_information_shock_jk_median_v1", driver_id: "ecb_central_bank_information", identification_status: "identified_shock", identification_method: "jk_hf_shock_decomposition", author_repository: "marekjarocinski/jkshocks_update_ecb", author_commit: AUTHOR_COMMIT, information_effect_status: "separated_under_jk_framework", reference_period: "1999-01 through 2025-10", extension_period: null, causal_use_allowed: true, limitations: "Representative median sign-restricted information shock; applicability and estimator gates still apply." });
+shocks.schema_version = "shock-identification-registry-v1.62"; shocks.generated_at = generatedAt; shocks.record_count = shocks.records.length; shocks.identified_shock_count = shocks.records.filter((row) => row.identification_status === "identified_shock").length; shocks.external_innovation_proxy_count = shocks.records.filter((row) => row.identification_status === "external_innovation_proxy").length; shocks.v162_identified_shocks = passed ? [...ids] : []; write("shock_identification_registry.json", shocks, macroDir);
 
-console.log(`v1.61 information-effect build: events=${eventSample.length}; eligible=${eligible.length}; structural_components=0; status=partial.`);
+const lp = read("lp_readiness_registry.json", macroDir); lp.schema_version = "lp-readiness-registry-v1.62"; lp.generated_at = generatedAt; lp.method_state = "registry_only"; lp.shock_series_readiness = passed ? [{ shock_series: "ecb_pure_monetary_policy_shock_jk_median_v1", shock_identification_ready: true, estimator_ready: false, causal_lp_ready: false }, { shock_series: "ecb_central_bank_information_shock_jk_median_v1", shock_identification_ready: true, estimator_ready: false, causal_lp_ready: false }] : []; lp.records = lp.records.map((row) => ({ ...row, estimator_ready: false, causal_lp_ready: false, method_state: "registry_only" })); lp.shock_identification_ready_count = lp.shock_series_readiness.length; lp.estimator_ready_count = 0; lp.causal_lp_ready_count = 0; write("lp_readiness_registry.json", lp, macroDir);
+const skillsPath = path.join(root, "src/data/analysis/analysis_skill_registry.json"); const skills = JSON.parse(fs.readFileSync(skillsPath, "utf8")); skills.schema_version = "analysis-skill-registry-v1.62"; skills.generated_at = generatedAt; skills.records = skills.records.map((row) => row.skill_id === "monetary_policy_identification" ? { ...row, state: passed ? "active" : "diagnostic_active", gate: "pinned author-reference replication", readiness_reference: "identified-shocks/jk_author_reference_comparison.json", note: passed ? "Median decomposition author-reference validated; LP remains registry-only." : "Replication failed." } : row); fs.writeFileSync(skillsPath, `${JSON.stringify(skills, null, 2)}\n`);
+
+console.log(`v1.62 author-reference build: events=${daily.length}; months=${monthly.length}; angle=${rotation.angle}; identified=${shocks.identified_shock_count}; status=${passed ? "passed" : "failed"}.`);

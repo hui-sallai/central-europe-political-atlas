@@ -1,0 +1,29 @@
+{
+  "schema_version": "jk-median-rotation-replication-validation-v1.62",
+  "generated_at": "2026-09-01",
+  "absolute_tolerance": 1e-8,
+  "relative_tolerance": 1e-8,
+  "matched_row_count": 312,
+  "failed_row_count": 0,
+  "status": "passed",
+  "maximum_absolute_difference_after_rounding": 0,
+  "python_pre_round_maximum_difference": 4.9848337172440915e-9,
+  "expected_sha256": "6de56280efe8030caadcb4be1f74f995963511c625d377d489123e018853d96b",
+  "actual_sha256": "6de56280efe8030caadcb4be1f74f995963511c625d377d489123e018853d96b",
+  "qr_policy": "thin QR on nonmissing [pc1,STOXX50], positive diagonal R",
+  "R": [
+    [
+      0.772268199672773,
+      -1.9320460685675922
+    ],
+    [
+      0,
+      11.928349561867094
+    ]
+  ],
+  "weight": 0.5,
+  "rotation_angle_radians": 0.7051099539973873,
+  "deterministic": true,
+  "rng_used": false,
+  "identity_maximum_difference": 2.7755575615628914e-17
+}

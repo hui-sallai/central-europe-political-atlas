@@ -1,5 +1,5 @@
 {
-  "schema_version": "shock-identification-registry-v1.61",
+  "schema_version": "shock-identification-registry-v1.62",
   "generated_at": "2026-09-01",
   "identification_levels": [
     "observed_driver",
@@ -8,8 +8,8 @@
     "identified_shock",
     "blocked"
   ],
-  "identified_shock_count": 0,
-  "record_count": 15,
+  "identified_shock_count": 2,
+  "record_count": 17,
   "records": [
     {
       "shock_id": "policy_rate_movement",
@@ -151,6 +151,34 @@
       "information_effect_status": "not_addressed",
       "causal_use_allowed": false,
       "boundary": "Official high-frequency surprise proxy; central-bank information effects are not separated, so it is not an identified monetary-policy shock."
+    },
+    {
+      "shock_id": "ecb_jk_median_mp_shock",
+      "shock_series_id": "ecb_pure_monetary_policy_shock_jk_median_v1",
+      "driver_id": "ecb_monetary_policy_event_surprise",
+      "identification_status": "identified_shock",
+      "identification_method": "jk_hf_shock_decomposition",
+      "author_repository": "marekjarocinski/jkshocks_update_ecb",
+      "author_commit": "f7ffc821b0ade71dd38539e4044e25368dfb4dc1",
+      "information_effect_status": "separated_under_jk_framework",
+      "reference_period": "1999-01 through 2025-10",
+      "extension_period": null,
+      "causal_use_allowed": true,
+      "limitations": "Representative median sign-restricted shock; applicability and estimator gates still apply."
+    },
+    {
+      "shock_id": "ecb_jk_median_cbi_shock",
+      "shock_series_id": "ecb_central_bank_information_shock_jk_median_v1",
+      "driver_id": "ecb_central_bank_information",
+      "identification_status": "identified_shock",
+      "identification_method": "jk_hf_shock_decomposition",
+      "author_repository": "marekjarocinski/jkshocks_update_ecb",
+      "author_commit": "f7ffc821b0ade71dd38539e4044e25368dfb4dc1",
+      "information_effect_status": "separated_under_jk_framework",
+      "reference_period": "1999-01 through 2025-10",
+      "extension_period": null,
+      "causal_use_allowed": true,
+      "limitations": "Representative median sign-restricted information shock; applicability and estimator gates still apply."
     }
   ],
   "external_innovation_proxy_count": 3,
@@ -166,5 +194,9 @@
       "status": "blocked",
       "identified_shock_allowed": false
     }
+  ],
+  "v162_identified_shocks": [
+    "ecb_jk_median_mp_shock",
+    "ecb_jk_median_cbi_shock"
   ]
 }

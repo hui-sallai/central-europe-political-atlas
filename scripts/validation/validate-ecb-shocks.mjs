@@ -86,7 +86,7 @@ for (const factorId of ["target", "timing", "forward_guidance", "qe"]) {
 }
 
 const information = read("monetary_policy_information_effect_registry.json");
-check(information.records.every((record) => record.information_effect_handling === "partially_addressed" && record.maximum_identification_status === "external_innovation_proxy" && record.identified_shock_allowed === false), "Information-effect release blocker failed.", "identification");
+check(information.records.every((record) => record.information_effect_handling === "separated_under_jk_framework" && record.maximum_identification_status === "identified_shock" && record.identified_shock_allowed === true), "Author-reference information-effect separation failed.", "identification");
 
 const monthly = read("ecb_monetary_policy_monthly_series.json");
 const monthlyKeys = monthly.records.map((record) => `${record.shock_series_id}|${record.month}`);
@@ -108,7 +108,7 @@ for (const country of ["czechia", "hungary", "poland", "romania", "serbia"]) {
 }
 
 const shocks = read("shock_identification_registry.json", driverDir);
-check(shocks.identified_shock_count === 0 && shocks.external_innovation_proxy_count === 3, "Identification decision counts are incorrect.", "identification");
+check(shocks.identified_shock_count === 2 && shocks.external_innovation_proxy_count === 3, "Identification decision counts are incorrect.", "identification");
 check(shocks.records.filter((record) => record.shock_id.startsWith("ecb_ois_1m_")).every((record) => record.identification_status === "external_innovation_proxy" && record.causal_use_allowed === false), "ECB proxy was promoted to identified shock.", "identification");
 const readiness = read("v16_identification_readiness.json", driverDir);
 check(readiness.data_layer_complete === true && readiness.all_identification_gates_passed === false && readiness.identification_decision === "external_innovation_proxy_only", "v1.6 readiness decision is inconsistent.", "identification");
@@ -118,7 +118,7 @@ check(lp.method_state === "registry_only" && lp.causal_lp_ready_count === 0, "LP
 check(lp.records.every((record) => record.identification_status === "identified_shock" || record.causal_lp_ready === false), "Non-identified series entered causal LP readiness.", "lp_readiness");
 
 const summary = {
-  schema_version: "ecb-shock-validation-summary-v1.61",
+  schema_version: "ecb-shock-validation-summary-v1.62",
   generated_at: "2026-09-01",
   status: failures.length ? "failed" : "passed",
   total_tests: Object.values(counts).reduce((sum, value) => sum + value, 0),

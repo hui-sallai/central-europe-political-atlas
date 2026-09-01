@@ -1,5 +1,5 @@
 {
-  "schema_version": "jk-replication-acquisition-manifest-v1.61",
+  "schema_version": "jk-replication-acquisition-manifest-v1.62",
   "generated_at": "2026-09-01",
   "source": "American Economic Association Data and Code Repository / ICPSR",
   "project_doi": "10.3886/E231538V1",
@@ -19,5 +19,7 @@
   ],
   "license_status": "license_file_listed_but_text_not_acquired; reuse terms not independently verified",
   "redistribution_status": "no_replication_asset_redistributed",
-  "metadata_fingerprint_sha256": "564ace4731d99cb2ea8bdf01112e41a4894ecf0efa19fb59c31743886cf0fa40"
+  "metadata_fingerprint_sha256": "564ace4731d99cb2ea8bdf01112e41a4894ecf0efa19fb59c31743886cf0fa40",
+  "historical_role": "Original-paper AEA/ICPSR provenance retained; no longer the shock-construction blocker.",
+  "author_reference": "jk_author_reference_manifest.json"
 }

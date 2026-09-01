@@ -4,7 +4,7 @@ Central Europe Political Atlas is a public political-economy research platform f
 
 Public site: https://hy-central-europe-analysis.org/
 
-Current release: **v1.61 Information-Effect Separation & Monetary Shock Calibration**
+Current release: **v1.62 Author-Reference Shock Replication & Identification Validation**
 
 ## Research scope
 
@@ -15,7 +15,7 @@ Current release: **v1.61 Information-Effect Separation & Monetary Shock Calibrat
 - An activated bilateral goods trade network (UN Comtrade, complete partner edges, 0.95 coverage gate) with deterministic descriptive concentration metrics.
 - A per-country monthly reduced-form VAR workbench with constant-only and seasonal-control formal baselines, profile-mapped stationarity gates, descriptive persistence and structural-break readiness diagnostics, strict `estimable` versus `dynamic_response_ready` states, h=12/18/24 residual sensitivity diagnostics, and ordering-dependent orthogonalized point responses. SVAR, seasonal-unit-root tests, structural-break estimators, residual LM and uncertainty intervals remain unavailable.
 - A separate monthly macro-driver layer for policy rates, long-term government yields, bilateral and effective exchange rates, HICP Energy, Brent and European natural gas, with source checksums, timing conventions and machine-readable identification status.
-- An audited ECB high-frequency monetary-policy event layer built from EA-MPD and EA-EMPD. v1.61 maps the Jarociński–Karadi euro-area inputs to OIS_3M and STOXX50 and activates a diagnostic sign-quadrant screen, while withholding structural components because exact BVAR replication and reference-sample alignment remain blocked. The release contains zero identified shocks and Local Projections remain registry-only.
+- An audited ECB high-frequency monetary-policy layer built from EA-MPD and EA-EMPD. v1.62 reproduces the pinned Jarociński–Karadi author-reference PC1, poor-man, deterministic median-rotation and monthly series at published precision. Two representative sign-restricted shocks are identified; Local Projections remain registry-only and no response estimator is active.
 - 4 conditional scenarios with baseline, shock assumption, adjusted input and result traces.
 - Coded political-economy events and verified China-related project records.
 - Deterministic validation, golden cases and a release QA gate.
@@ -57,7 +57,7 @@ Machine-readable files are published under `/research-data/`. See [the research-
 
 ## Citation
 
-Central Europe Political Atlas, version v1.61 Information-Effect Separation & Monetary Shock Calibration, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
+Central Europe Political Atlas, version v1.62 Author-Reference Shock Replication & Identification Validation, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
 
 ## Official VAR reference environment
 

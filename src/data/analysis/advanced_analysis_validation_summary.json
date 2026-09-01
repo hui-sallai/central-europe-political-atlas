@@ -1,6 +1,6 @@
 {
-  "schema_version": "advanced-analysis-validation-summary-v1.61",
-  "generated_at": "2026-08-31T17:20:03.407Z",
+  "schema_version": "advanced-analysis-validation-summary-v1.62",
+  "generated_at": "2026-09-01T05:39:52.549Z",
   "status": "passed",
   "total_tests": 297,
   "failure_count": 0,
@@ -14,7 +14,7 @@
     "identified_shocks": 47
   },
   "boundaries": {
-    "identified_shock_count": 0,
+    "identified_shock_count": 2,
     "external_innovation_proxy_count": 3,
     "causal_lp_ready_count": 0,
     "local_projections": "registry_only",

@@ -1,0 +1,16 @@
+{
+  "schema_version": "jk-monthly-replication-validation-v1.62",
+  "generated_at": "2026-09-01",
+  "absolute_tolerance": 1e-8,
+  "relative_tolerance": 1e-8,
+  "matched_row_count": 322,
+  "failed_row_count": 0,
+  "status": "passed",
+  "maximum_absolute_difference": 0,
+  "expected_sha256": "c2ef32e910ac72ee765d5eac05a381967c2780012d856ae75f6ecdfe9f3f01df",
+  "actual_sha256": "c2ef32e910ac72ee765d5eac05a381967c2780012d856ae75f6ecdfe9f3f01df",
+  "aggregation": "calendar-month sum translated from d2m2q.m",
+  "no_event_month": 0,
+  "zero_is_missing": false,
+  "period": "1999-01 through 2025-10"
+}

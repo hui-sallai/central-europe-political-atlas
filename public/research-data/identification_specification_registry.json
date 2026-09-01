@@ -1,28 +1,24 @@
 {
-  "schema_version": "identification-specification-registry-v1.61",
+  "schema_version": "identification-specification-registry-v1.62",
   "generated_at": "2026-09-01",
   "records": [
     {
-      "specification_id": "A_jk_reference_baseline",
-      "state": "blocked",
-      "rate_field": "OIS_3M",
-      "equity_field": "STOXX50",
-      "window": "combined_monetary_event_window",
-      "sample": "1999-01 through 2016-12",
-      "blocker": "official replication files and exact VAR input alignment unavailable; event-level output is not the published estimand"
+      "specification_id": "A_jk_author_median_decomposition",
+      "method_family": "jk_hf_shock_decomposition",
+      "state": "active",
+      "author_commit": "f7ffc821b0ade71dd38539e4044e25368dfb4dc1"
     },
     {
-      "specification_id": "B_alternative_ois_maturity",
+      "specification_id": "B_jk_bvar_transmission_model",
+      "method_family": "jk_bvar_transmission_model",
       "state": "registry_only",
-      "rate_field": null,
-      "reason": "no alternative maturity selected without a literature-supported preregistration"
+      "reason": "downstream macro-transmission context; not activated in v1.62"
     },
     {
       "specification_id": "C_poor_mans_diagnostic",
+      "method_family": "jk_hf_shock_decomposition",
       "state": "diagnostic_active",
-      "rate_field": "OIS_3M",
-      "equity_field": "STOXX50",
-      "window": "combined_monetary_event_window"
+      "role": "restrictive robustness version"
     }
   ]
 }

@@ -1,0 +1,45 @@
+{
+  "schema_version": "jk-author-reference-manifest-v1.62",
+  "generated_at": "2026-09-01",
+  "repository_owner": "Marek Jarociński",
+  "repository": "marekjarocinski/jkshocks_update_ecb",
+  "repository_url": "https://github.com/marekjarocinski/jkshocks_update_ecb",
+  "repository_role": "author-maintained public reference; not official ECB institutional endorsement",
+  "pinned_commit": "f7ffc821b0ade71dd38539e4044e25368dfb4dc1",
+  "commit_date": "2026-01-07T15:16:17Z",
+  "commit_message": "update ECB shocks until November 2025",
+  "latest_commit_at_retrieval": "f7ffc821b0ade71dd38539e4044e25368dfb4dc1",
+  "newer_commit_detected": false,
+  "retrieval_date": "2026-09-01",
+  "reference_release_label": "through November 2025",
+  "reference_last_event_date": "2025-10-30",
+  "files": {
+    "README.md": "bae155979fc3c18c5853c960f57aa9bc58d6b64f8d3c6f75912aed3df4cc16dc",
+    "code/main.m": "5de2a99c8e3d94685d49e5768b92c6822d8d998f57471d01c61a35ce7a88b193",
+    "code/mypc.m": "7efcb94510ff96e7e084f3e0c24f6f55367bb9195d78fee6fe633012572b356c",
+    "code/signrestr_median.m": "574cb3b7f7f88f4bc7164336a569c98442b6256642588ff20f256ae1724d7918",
+    "code/d2m2q.m": "d1918feec0cf41ea202117428fb3b3467989e5e22fd6b3aec1601bfed8e6e6c5",
+    "shocks_ecb_mpd_me_d.csv": "2327230c45a97c8733ccefba45de354d6e37965c553983ea5ac98badfce413e8",
+    "shocks_ecb_mpd_me_m.csv": "89c5b2ec39509057b3c71f44218424fc8d15d4041b16f31c96613f8fe0965534"
+  },
+  "normalized_reference_sha256": {
+    "pc1": "a24bbd47d24379b8a96f4f89ff5034a9b55186546d3609495438bd842c38a3e2",
+    "poor_man": "ff6d8bb9477e665cf67178498075d9a3635076807e881d3ad5501e659e7af252",
+    "median": "6de56280efe8030caadcb4be1f74f995963511c625d377d489123e018853d96b",
+    "daily": "b41653d8d3a661c62e93d03b81964dec910b4ef08554f1522b1b8767cc2c67b4",
+    "stock": "9d8cb07fa3d5ddf3ffb38e9c13c80b6ff3efde6a3ffb8dd0fbca70bd02f1c796",
+    "monthly": "c2ef32e910ac72ee765d5eac05a381967c2780012d856ae75f6ecdfe9f3f01df"
+  },
+  "licenses": {
+    "data": {
+      "name": "CC BY 4.0",
+      "url": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    "code": {
+      "name": "BSD 3-Clause",
+      "url": "https://opensource.org/licenses/BSD-3-Clause"
+    }
+  },
+  "attribution": "Jarociński, M. and Karadi, P. (2020), Deconstructing Monetary Policy Surprises—The Role of Information Shocks.",
+  "translation_notice": "JavaScript production and Python reference implementations translate the pinned author MATLAB code with attribution."
+}

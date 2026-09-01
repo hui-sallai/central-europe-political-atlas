@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.62 Author-Reference Shock Replication & Identification Validation - 2026-09-01
+
+- Pinned Marek Jarociński's author-maintained ECB shock update repository at `f7ffc821b0ade71dd38539e4044e25368dfb4dc1`, recorded source checksums and CC BY 4.0 / BSD-3-Clause terms, and retained AEA/ICPSR as original-paper provenance.
+- Reproduced 312 event-level `pc1`, poor-man, and deterministic median-rotation observations plus 322 monthly observations exactly at the author's published eight-decimal precision in independent JavaScript and Python implementations.
+- Activated two representative JK median identified shocks while keeping the restrictive poor-man decomposition diagnostic-only. Local Projections, SVAR and BVAR remain registry-only with no IRF or causal response estimator.
+
 ## v1.61 Information-Effect Separation & Monetary Shock Calibration - 2026-09-01
 
 - Audited the published Jarociński–Karadi methodology, official AEA/ICPSR replication-project metadata, the euro-area OIS_3M/STOXX50 mapping, and the combined ECB monetary-event window.

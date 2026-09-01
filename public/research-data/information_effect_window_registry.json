@@ -1,22 +1,19 @@
 {
-  "schema_version": "information-effect-window-registry-v1.61",
+  "schema_version": "information-effect-window-registry-v1.62",
   "generated_at": "2026-09-01",
   "record_count": 1,
   "records": [
     {
       "window_id": "combined_monetary_event_window",
       "official_sheet": "Monetary Event Window",
-      "window_start": "press release: t-10 minutes; press conference: t-10 minutes",
-      "window_end": "press release: t+20 minutes; press conference: approximately t+80 minutes (20 minutes after assumed one-hour conference)",
-      "included_communication": [
-        "press release",
-        "press conference when held"
+      "rate_fields": [
+        "OIS_1M",
+        "OIS_3M",
+        "OIS_6M",
+        "OIS_1Y"
       ],
-      "aggregation": "sum of the two non-overlapping window responses",
-      "rate_field": "OIS_3M",
       "equity_field": "STOXX50",
-      "timezone": "Europe/Frankfurt (CET/CEST)",
-      "validation_status": "paper_semantics_match; exact row-level reference alignment partial"
+      "validation_status": "exact_author_reference_match"
     }
   ]
 }

@@ -1,10 +1,1949 @@
 {
-  "schema_version": "ecb-separated-shock-monthly-v1.61",
+  "schema_version": "ecb-separated-shock-monthly-v1.62",
   "generated_at": "2026-09-01",
-  "shock_series_id": "ecb_central_bank_information_shock_jk_v1",
-  "identification_status": "withheld_blocked",
-  "aggregation_rule": "sum eligible validated event-level components within month; no eligible event = 0; expected event with missing component = missing",
-  "record_count": 0,
-  "records": [],
-  "blocker": "central-bank information component is not published because structural replication and event-level identification validation did not pass"
+  "shock_series_id": "ecb_central_bank_information_shock_jk_median_v1",
+  "identification_method": "jk_hf_shock_decomposition",
+  "identification_status": "identified_shock",
+  "aggregation_rule": "monthly sum; no-event month=0",
+  "record_count": 322,
+  "reference_period": {
+    "start": "1999-01",
+    "end": "2025-10",
+    "release_label": "through 2025-11"
+  },
+  "extension_period": null,
+  "records": [
+    {
+      "period": "1999-01",
+      "value": -0.06311121,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "1999-02",
+      "value": 0.00556514,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "1999-03",
+      "value": 0.00323799,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "1999-04",
+      "value": -0.00330584,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "1999-05",
+      "value": -0.00936631,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "1999-06",
+      "value": -0.01317122,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "1999-07",
+      "value": 0.02780708,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "1999-08",
+      "value": -0.00826848,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "1999-09",
+      "value": -0.00527997,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "1999-10",
+      "value": -0.10613335,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "1999-11",
+      "value": 0.04684463,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "1999-12",
+      "value": 0.00763541,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2000-01",
+      "value": -0.02335973,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2000-02",
+      "value": 0.06481814,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2000-03",
+      "value": -0.0176937,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2000-04",
+      "value": -0.01526446,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2000-05",
+      "value": 0.06313006,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2000-06",
+      "value": 0.04898755,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2000-07",
+      "value": -0.00231932,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2000-08",
+      "value": -0.036261,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2000-09",
+      "value": -0.00031136,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2000-10",
+      "value": 0.0510063,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2000-11",
+      "value": -0.01518934,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2000-12",
+      "value": 0.02324592,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2001-01",
+      "value": -0.00090513,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2001-02",
+      "value": 0.01927988,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2001-03",
+      "value": 0.03120769,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2001-04",
+      "value": 0.12710222,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2001-05",
+      "value": -0.08779026,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2001-06",
+      "value": 0.02396559,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2001-07",
+      "value": 0.01514081,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2001-08",
+      "value": -0.02379363,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2001-09",
+      "value": -0.01387918,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2001-10",
+      "value": 0.06975827,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2001-11",
+      "value": -0.00197459,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2001-12",
+      "value": 0.00333289,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2002-01",
+      "value": 0.01147814,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2002-02",
+      "value": 0.03998737,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2002-03",
+      "value": 0.01296051,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2002-04",
+      "value": -0.01196426,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2002-05",
+      "value": 0.01597417,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2002-06",
+      "value": -0.00618789,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2002-07",
+      "value": -0.0116348,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2002-08",
+      "value": -0.01560232,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2002-09",
+      "value": -0.04022966,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2002-10",
+      "value": 0.01000217,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2002-11",
+      "value": -0.03659766,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2002-12",
+      "value": -0.05100643,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2003-01",
+      "value": 0.05207753,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2003-02",
+      "value": -0.03445075,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2003-03",
+      "value": -0.02143875,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2003-04",
+      "value": 0.00312353,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2003-05",
+      "value": -0.01606747,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2003-06",
+      "value": -0.05865202,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2003-07",
+      "value": 0.01282863,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2003-08",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2003-09",
+      "value": -0.00730611,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2003-10",
+      "value": -0.01758272,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2003-11",
+      "value": 0.00553257,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2003-12",
+      "value": -0.01957929,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2004-01",
+      "value": 0.00742273,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2004-02",
+      "value": -0.00688155,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2004-03",
+      "value": 0.02812953,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2004-04",
+      "value": 0.02543383,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2004-05",
+      "value": -0.0065437,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2004-06",
+      "value": -0.00014359,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2004-07",
+      "value": -0.00812276,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2004-08",
+      "value": 0.00217688,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2004-09",
+      "value": 0.00103921,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2004-10",
+      "value": -0.00801005,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2004-11",
+      "value": -0.00525612,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2004-12",
+      "value": -0.00429348,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2005-01",
+      "value": -0.01631762,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2005-02",
+      "value": -0.01224856,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2005-03",
+      "value": 0.00175456,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2005-04",
+      "value": -0.01689142,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2005-05",
+      "value": 0.0089191,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2005-06",
+      "value": 0.00308786,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2005-07",
+      "value": 0.03965357,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2005-08",
+      "value": -0.00113823,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2005-09",
+      "value": 0.00137953,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2005-10",
+      "value": 0.0053286,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2005-11",
+      "value": 0.01567596,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2005-12",
+      "value": 0.00122556,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2006-01",
+      "value": -0.00771216,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2006-02",
+      "value": -0.00324349,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2006-03",
+      "value": -0.01310347,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2006-04",
+      "value": -0.03601184,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2006-05",
+      "value": -0.00236101,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2006-06",
+      "value": -0.00172699,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2006-07",
+      "value": 0.00627523,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2006-08",
+      "value": 0.01378088,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2006-09",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2006-10",
+      "value": 0.00292537,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2006-11",
+      "value": -0.03156989,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2006-12",
+      "value": 0.03226851,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2007-01",
+      "value": -0.00062716,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2007-02",
+      "value": -0.00426155,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2007-03",
+      "value": 0.00780903,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2007-04",
+      "value": -0.01206177,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2007-05",
+      "value": -0.00518441,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2007-06",
+      "value": -0.00707298,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2007-07",
+      "value": -0.00350775,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2007-08",
+      "value": -0.00333671,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2007-09",
+      "value": -0.00270934,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2007-10",
+      "value": -0.00365079,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2007-11",
+      "value": -0.02129922,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2007-12",
+      "value": -0.00235725,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2008-01",
+      "value": -0.01034839,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2008-02",
+      "value": -0.04432311,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2008-03",
+      "value": -0.00319577,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2008-04",
+      "value": 0.00211722,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2008-05",
+      "value": -0.01921652,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2008-06",
+      "value": 0.05944987,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2008-07",
+      "value": 0.0003162,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2008-08",
+      "value": -0.0412033,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2008-09",
+      "value": -0.02765799,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2008-10",
+      "value": -0.05476331,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2008-11",
+      "value": 0.0601037,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2008-12",
+      "value": -0.02195657,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2009-01",
+      "value": -0.03082516,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2009-02",
+      "value": -0.04348585,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2009-03",
+      "value": 0.00953191,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2009-04",
+      "value": 0.04035626,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2009-05",
+      "value": -0.02144281,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2009-06",
+      "value": 0.01991529,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2009-07",
+      "value": -0.08702865,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2009-08",
+      "value": -0.00227106,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2009-09",
+      "value": -0.0288011,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2009-10",
+      "value": -0.01739833,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2009-11",
+      "value": 0.01798103,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2009-12",
+      "value": -0.01008083,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2010-01",
+      "value": -0.01162683,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2010-02",
+      "value": -0.03309557,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2010-03",
+      "value": 0.00347371,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2010-04",
+      "value": -0.00101855,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2010-05",
+      "value": -0.01799763,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2010-06",
+      "value": 0.02024375,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2010-07",
+      "value": 0.04208827,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2010-08",
+      "value": -0.02426078,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2010-09",
+      "value": -0.01052608,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2010-10",
+      "value": 0.00162802,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2010-11",
+      "value": -0.0080795,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2010-12",
+      "value": -0.02320713,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2011-01",
+      "value": 0.01740865,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2011-02",
+      "value": -0.01441031,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2011-03",
+      "value": 0.06022116,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2011-04",
+      "value": 0.01943218,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2011-05",
+      "value": -0.04508166,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2011-06",
+      "value": -0.00214682,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2011-07",
+      "value": 0.02770202,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2011-08",
+      "value": -0.12013885,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2011-09",
+      "value": -0.01000965,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2011-10",
+      "value": 0.05031052,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2011-11",
+      "value": -0.0611927,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2011-12",
+      "value": -0.03948307,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2012-01",
+      "value": -0.02840244,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2012-02",
+      "value": 0.01535817,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2012-03",
+      "value": -0.00830541,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2012-04",
+      "value": -0.00606342,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2012-05",
+      "value": -0.02621478,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2012-06",
+      "value": -0.00627108,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2012-07",
+      "value": -0.10685152,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2012-08",
+      "value": -0.07344139,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2012-09",
+      "value": 0.0388083,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2012-10",
+      "value": -0.00081696,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2012-11",
+      "value": 0.00512519,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2012-12",
+      "value": -0.00486517,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2013-01",
+      "value": 0.01806952,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2013-02",
+      "value": -0.0096722,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2013-03",
+      "value": 0.00457824,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2013-04",
+      "value": -0.02755056,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2013-05",
+      "value": -0.005251,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2013-06",
+      "value": -0.01512024,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2013-07",
+      "value": 0.04203836,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2013-08",
+      "value": 0.01132435,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2013-09",
+      "value": 0.00132339,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2013-10",
+      "value": -0.00609358,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2013-11",
+      "value": 0.02352032,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2013-12",
+      "value": -0.00423027,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2014-01",
+      "value": -0.01504822,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2014-02",
+      "value": 0.02089548,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2014-03",
+      "value": 0.01102582,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2014-04",
+      "value": 0.03683678,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2014-05",
+      "value": 0.01007157,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2014-06",
+      "value": 0.01209969,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2014-07",
+      "value": 0.01292655,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2014-08",
+      "value": 0.00187773,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2014-09",
+      "value": -0.00068183,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2014-10",
+      "value": -0.04887129,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2014-11",
+      "value": 0.03947588,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2014-12",
+      "value": -0.04833079,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2015-01",
+      "value": 0.01173607,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2015-02",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2015-03",
+      "value": -0.00385565,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2015-04",
+      "value": 0.00811493,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2015-05",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2015-06",
+      "value": -0.01158719,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2015-07",
+      "value": 0.00208231,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2015-08",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2015-09",
+      "value": 0.0298776,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2015-10",
+      "value": 0.05369102,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2015-11",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2015-12",
+      "value": -0.06777853,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2016-01",
+      "value": 0.00207732,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2016-02",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2016-03",
+      "value": 0.04696157,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2016-04",
+      "value": -0.00714425,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2016-05",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2016-06",
+      "value": -0.01469861,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2016-07",
+      "value": 0.02136953,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2016-08",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2016-09",
+      "value": -0.01588046,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2016-10",
+      "value": 0.00288461,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2016-11",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2016-12",
+      "value": 0.02494524,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2017-01",
+      "value": 0.01125365,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2017-02",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2017-03",
+      "value": 0.01300103,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2017-04",
+      "value": -0.00059132,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2017-05",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2017-06",
+      "value": -0.00618022,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2017-07",
+      "value": -0.00386945,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2017-08",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2017-09",
+      "value": 0.00235026,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2017-10",
+      "value": 0.01350465,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2017-11",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2017-12",
+      "value": 0.00542794,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2018-01",
+      "value": -0.01940399,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2018-02",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2018-03",
+      "value": 0.02238169,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2018-04",
+      "value": -0.00433858,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2018-05",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2018-06",
+      "value": 0.03658385,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2018-07",
+      "value": 0.00753783,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2018-08",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2018-09",
+      "value": -0.00644394,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2018-10",
+      "value": -0.01825893,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2018-11",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2018-12",
+      "value": 0.00355439,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2019-01",
+      "value": -0.02145109,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2019-02",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2019-03",
+      "value": -0.01442751,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2019-04",
+      "value": -0.00018377,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2019-05",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2019-06",
+      "value": -0.0071408,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2019-07",
+      "value": -0.00506254,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2019-08",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2019-09",
+      "value": 0.03487853,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2019-10",
+      "value": -0.00665165,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2019-11",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2019-12",
+      "value": 0.01098215,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2020-01",
+      "value": -0.01219238,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2020-02",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2020-03",
+      "value": -0.0646914,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2020-04",
+      "value": -0.0282567,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2020-05",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2020-06",
+      "value": 0.00221042,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2020-07",
+      "value": 0.00663075,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2020-08",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2020-09",
+      "value": 0.0209051,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2020-10",
+      "value": 0.03827308,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2020-11",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2020-12",
+      "value": -0.0146942,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2021-01",
+      "value": -0.00964168,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2021-02",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2021-03",
+      "value": 0.0097477,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2021-04",
+      "value": -0.00343929,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2021-05",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2021-06",
+      "value": 0.01470217,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2021-07",
+      "value": -0.00768279,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2021-08",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2021-09",
+      "value": 0.01567899,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2021-10",
+      "value": -0.0061872,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2021-11",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2021-12",
+      "value": -0.02349587,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2022-01",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2022-02",
+      "value": -0.02262021,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2022-03",
+      "value": 0.00288687,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2022-04",
+      "value": -0.01209206,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2022-05",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2022-06",
+      "value": -0.05017059,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2022-07",
+      "value": 0.06828821,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2022-08",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2022-09",
+      "value": 0.05123198,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2022-10",
+      "value": -0.00738864,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2022-11",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2022-12",
+      "value": -0.05187298,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2023-01",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2023-02",
+      "value": 0.00739243,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2023-03",
+      "value": 0.13706177,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2023-04",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2023-05",
+      "value": -0.02205352,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2023-06",
+      "value": 0.01212789,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2023-07",
+      "value": 0.00761737,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2023-08",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2023-09",
+      "value": 0.06922208,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2023-10",
+      "value": 0.0050286,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2023-11",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2023-12",
+      "value": -0.00518218,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2024-01",
+      "value": 0.00364715,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2024-02",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2024-03",
+      "value": 0.02110809,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2024-04",
+      "value": 0.00746176,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2024-05",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2024-06",
+      "value": 0.0018587,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2024-07",
+      "value": 0.00050086,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2024-08",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2024-09",
+      "value": -0.01615053,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2024-10",
+      "value": -0.01217264,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2024-11",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2024-12",
+      "value": 0.02176619,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2025-01",
+      "value": -0.00804116,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2025-02",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2025-03",
+      "value": 0.02623149,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2025-04",
+      "value": -0.02455187,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2025-05",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2025-06",
+      "value": -0.00634498,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2025-07",
+      "value": -0.00106382,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2025-08",
+      "value": 0,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2025-09",
+      "value": 0.00187802,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    },
+    {
+      "period": "2025-10",
+      "value": 0.01192155,
+      "unit": "percentage_points",
+      "reference_status": "author_validated"
+    }
+  ]
 }

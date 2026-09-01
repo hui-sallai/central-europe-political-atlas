@@ -716,10 +716,10 @@ check(kpssStatus().status === "not_available", "KPSS must honestly report not_av
   const brentChanges = records.filter((item) => item.driver_id === "brent_crude_price_usd" && item.transformation === "monthly_log_change");
   check(brentChanges.length > 0 && brentChanges.every((item) => item.economic_role === "external_common_driver" && item.identification_status === "shock_candidate"), "Economic role and identification status are not orthogonal for Brent changes.", "macro_driver");
   check(driverDictionary.records.find((item) => item.driver_id === "hicp_energy_index")?.economic_role === "domestic_price_outcome" && !shocks.records.some((item) => item.driver_id?.startsWith("hicp_energy") && item.identification_status === "identified_shock"), "HICP Energy was incorrectly marked as an external/identified shock.", "macro_driver");
-  check(shocks.identified_shock_count === 0 && shocks.records.filter((item) => item.driver_id === "policy_rate").every((item) => item.identification_status !== "identified_shock"), "Policy-rate movement was incorrectly promoted to an identified monetary shock.", "macro_driver");
+  check(shocks.identified_shock_count === 2 && shocks.records.filter((item) => item.driver_id === "policy_rate").every((item) => item.identification_status !== "identified_shock"), "Author-reference shock count or policy-rate boundary failed.", "macro_driver");
   check(lp.method_state === "registry_only" && lp.causal_lp_ready_count === 0 && lp.records.every((item) => item.identification_status === "identified_shock" || item.causal_lp_ready === false), "LP identification gate failed.", "macro_driver");
   check(lp.records.every((item) => Array.isArray(item.transformation_warmup_periods) && Array.isArray(item.temporally_or_definition_excluded_periods) && item.shock_scope), "LP temporal/scope readiness trace is incomplete.", "macro_driver");
-  check(sourceCandidates.records.length >= 2 && sourceCandidates.records.every((item) => item.acquisition_status === "acquired" && item.identification_status === "external_innovation_proxy" && item.information_effect_status === "partially_addressed" && item.source_institution === "European Central Bank"), "Official ECB source acquisition or identification boundary is inconsistent.", "macro_driver");
+  check(sourceCandidates.records.length >= 2 && sourceCandidates.records.every((item) => item.acquisition_status === "acquired" && item.identification_status === "external_innovation_proxy" && item.information_effect_status === "separated_under_jk_framework" && item.source_institution === "European Central Bank"), "Official ECB source acquisition or identification boundary is inconsistent.", "macro_driver");
   check(v16Readiness.data_layer_complete === true && v16Readiness.all_identification_gates_passed === false && v16Readiness.identification_decision === "external_innovation_proxy_only" && v16Readiness.local_projections_state === "registry_only", "v1.6 identification readiness was overstated.", "macro_driver");
   identifiedShockTests = ecbValidation.total_tests;
   if (ecbValidation.status !== "passed" || ecbValidation.failure_count !== 0) errors.push("ECB identified-shock validation summary is not passing.");
@@ -728,7 +728,7 @@ check(kpssStatus().status === "not_available", "KPSS must honestly report not_av
 }
 
 const advancedValidationSummary = {
-  schema_version: "advanced-analysis-validation-summary-v1.61",
+  schema_version: "advanced-analysis-validation-summary-v1.62",
   generated_at: new Date().toISOString(),
   status: errors.length === 0 ? "passed" : "failed",
   total_tests: panelTests + networkTests + hfTests + eventTests + varTests + macroDriverTests + identifiedShockTests,
@@ -743,7 +743,7 @@ const advancedValidationSummary = {
     identified_shocks: identifiedShockTests,
   },
   boundaries: {
-    identified_shock_count: 0,
+    identified_shock_count: 2,
     external_innovation_proxy_count: 3,
     causal_lp_ready_count: 0,
     local_projections: "registry_only",

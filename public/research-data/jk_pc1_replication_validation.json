@@ -1,0 +1,35 @@
+{
+  "schema_version": "jk-pc1-replication-validation-v1.62",
+  "generated_at": "2026-09-01",
+  "absolute_tolerance": 1e-8,
+  "relative_tolerance": 1e-8,
+  "matched_row_count": 312,
+  "failed_row_count": 0,
+  "status": "passed",
+  "maximum_absolute_difference_after_rounding": 0,
+  "python_pre_round_maximum_difference": 4.990159615711996e-9,
+  "expected_sha256": "a24bbd47d24379b8a96f4f89ff5034a9b55186546d3609495438bd842c38a3e2",
+  "actual_sha256": "a24bbd47d24379b8a96f4f89ff5034a9b55186546d3609495438bd842c38a3e2",
+  "input_fields": [
+    "OIS_1M",
+    "OIS_3M",
+    "OIS_6M",
+    "OIS_1Y"
+  ],
+  "missing_policy": "fill missing cells with 0; restore missing only for an all-four-missing row",
+  "centering": false,
+  "scaling": "divide columns by sample std; score1 rescaled to OIS_1Y sample std; divide by 100",
+  "sign_convention": "largest absolute loading (OIS_6M) is positive",
+  "loading": [
+    0.45137509807809695,
+    0.5264621239863992,
+    0.5334894016236336,
+    0.4842387956349375
+  ],
+  "input_standard_deviations": [
+    3.3361709580496943,
+    3.264263690406438,
+    3.558815993110985,
+    4.367470911895663
+  ]
+}

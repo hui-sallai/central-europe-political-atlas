@@ -1,0 +1,20 @@
+{
+  "schema_version": "jk-cross-language-validation-v1.62",
+  "generated_at": "2026-09-01",
+  "status": "passed",
+  "implementations": [
+    "Python standard-library reference",
+    "JavaScript production",
+    "pinned MATLAB author output"
+  ],
+  "matched_row_count": 312,
+  "failed_row_count": 0,
+  "maximum_differences": {
+    "pc1": 0.0,
+    "MP_median": 0.0,
+    "CBI_median": 0.0
+  },
+  "rotation_angle_radians": 0.7051099539973873,
+  "absolute_tolerance": 1e-08,
+  "relative_tolerance": 1e-08
+}
