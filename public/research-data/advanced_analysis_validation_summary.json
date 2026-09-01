@@ -1,8 +1,8 @@
 {
-  "schema_version": "advanced-analysis-validation-summary-v1.62",
-  "generated_at": "2026-09-01T05:39:23.507Z",
+  "schema_version": "advanced-analysis-validation-summary-v1.7",
+  "generated_at": "2026-09-01T07:34:23.590Z",
   "status": "passed",
-  "total_tests": 297,
+  "total_tests": 898,
   "failure_count": 0,
   "categories": {
     "panel": 51,
@@ -10,14 +10,16 @@
     "high_frequency": 22,
     "events": 22,
     "var": 104,
-    "macro_drivers": 34,
-    "identified_shocks": 47
+    "macro_drivers": 35,
+    "identified_shocks": 48,
+    "local_projections": 583,
+    "author_reference": 16
   },
   "boundaries": {
     "identified_shock_count": 2,
     "external_innovation_proxy_count": 3,
-    "causal_lp_ready_count": 0,
-    "local_projections": "registry_only",
+    "causal_lp_ready_count": 44,
+    "local_projections": "active_single_country_joint_jk",
     "svar": "registry_only"
   },
   "failures": []

@@ -23,3 +23,9 @@ The v1.6 research layer uses the ECB-hosted EA-MPD and EA-EMPD workbooks as sour
 The v1.62 shock-construction implementation translates the MATLAB methodology and validates outputs from Marek Jarociński's author-maintained repository `marekjarocinski/jkshocks_update_ecb`, pinned at commit `f7ffc821b0ade71dd38539e4044e25368dfb4dc1`. Cite Jarociński, M. and Karadi, P. (2020), “Deconstructing Monetary Policy Surprises—The Role of Information Shocks,” *American Economic Journal: Macroeconomics*, 12(2), 1–43.
 
 According to the pinned repository README, its data are licensed under CC BY 4.0 and its code under the BSD 3-Clause License. The author-maintained repository and author affiliations do not imply ECB institutional endorsement of this platform, implementation, or analysis.
+
+## Lag-augmented Local Projections reference
+
+The v1.7 Local Projections implementation translates the lag-augmentation and Eicker–Huber–White inference structure from José L. Montiel Olea and Mikkel Plagborg-Møller's `jm4474/Lag-augmented_LocalProjections`, pinned at commit `02e8e65396f2c06d2c87879bbc5c2162863b907f`. The referenced code is distributed under the MIT License; copyright remains with its authors.
+
+Method citations: Jordà, Ò. (2005), “Estimation and Inference of Impulse Responses by Local Projections,” *American Economic Review*, 95(1), 161–182; Montiel Olea, J. L. and Plagborg-Møller, M. (2021), “Local Projection Inference Is Simpler and More Robust Than You Think,” *Econometrica*, 89(4), 1789–1823.

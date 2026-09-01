@@ -1,0 +1,20 @@
+{
+  "schema_version": "lp-reference-manifest-v1.7",
+  "generated_at": "2026-09-01",
+  "repository": "jm4474/Lag-augmented_LocalProjections",
+  "repository_url": "https://github.com/jm4474/Lag-augmented_LocalProjections",
+  "pinned_commit": "02e8e65396f2c06d2c87879bbc5c2162863b907f",
+  "commit_date": "2022-12-21T00:46:04Z",
+  "latest_commit_at_retrieval": "02e8e65396f2c06d2c87879bbc5c2162863b907f",
+  "newer_commit_detected": false,
+  "license": "MIT",
+  "files_sha256": {
+    "README.md": "86b6fc57233d1c79a626b99af3dc369d2bb75e50ffcfbc8df74df56e77987abe",
+    "LICENSE": "fa13b6927d93a253b28506e0692e17dad33c3f3035ef2fea9a6f04a45ed0b6b5",
+    "functions/ir_estim.m": "50235300c3b84ad39d6577900eae39be52498d3daeed3ab92490fa6bbd3bf753",
+    "functions/lp.m": "e4afccf8dd5949a6e22224291ffec85c73fdb46e9abe0481b6da9546d923509a",
+    "functions/linreg.m": "870b3322efc5858491af3ba7e9752d7218009242cccc9178be3ebc74b93dba32",
+    "functions/ewc.m": "c9608921da0ea8a32565230dc2762bfb2ad27a1b7abb774044b3fce162ce4da7"
+  },
+  "implementation_audit": "ir_estim.m passes p-1+lag_aug lags into lp.m; with lag_aug=true, the base order p therefore yields contemporaneous regressors plus p full lags. Primary delta-method inference uses EHW with HC1 finite-sample adjustment and normal critical values; no HAC required."
+}

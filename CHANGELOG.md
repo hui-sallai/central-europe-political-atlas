@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.7 Local Projections & ECB Spillover Transmission - 2026-09-01
+
+- Activated single-country, single-outcome, joint MP/CBI lag-augmented Local Projections while freezing the v1.62 JK shock construction, shock IDs and 2025-10 monthly endpoint.
+- Pre-registered outcome transformations, country/regime applicability, common-horizon samples, N≥96 gate, once-per-model AIC lag selection over p=1…6, p=2/p=6 sensitivities, and pointwise 90%/95% EHW-HC1 inference without HAC.
+- Cross-validated a synthetic case plus Germany HICP/IPI, Poland HICP/FX and Hungary policy-rate checkpoints against an independent NumPy/SciPy/statsmodels implementation; added the active workbench and downloadable response tables.
+- Published 44 ready country × outcome × regime combinations; kept Croatia's pre/post-2023 samples separate and unavailable, retained unavailable Serbian outcomes, and left panel LP, state dependence, SVAR and Bayesian VAR inactive.
+
 ## v1.62 Author-Reference Shock Replication & Identification Validation - 2026-09-01
 
 - Pinned Marek Jarociński's author-maintained ECB shock update repository at `f7ffc821b0ade71dd38539e4044e25368dfb4dc1`, recorded source checksums and CC BY 4.0 / BSD-3-Clause terms, and retained AEA/ICPSR as original-paper provenance.

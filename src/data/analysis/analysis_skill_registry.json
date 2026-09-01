@@ -1,5 +1,5 @@
 {
-  "schema_version": "analysis-skill-registry-v1.62",
+  "schema_version": "analysis-skill-registry-v1.7",
   "generated_at": "2026-09-01",
   "records": [
     {
@@ -61,9 +61,10 @@
     },
     {
       "skill_id": "local_projections",
-      "state": "registry_only",
-      "readiness_reference": "macro-drivers/lp_readiness_registry.json",
-      "gate": "identification_status must equal identified_shock before causal_lp_ready can be true"
+      "state": "active",
+      "readiness_reference": "local-projections/lp_readiness_registry.json",
+      "gate": "identified joint JK shocks + applicable country/outcome + common-horizon N >= 96 + validated lag-augmented estimator/inference",
+      "note": "Single-country joint MP/CBI Local Projections only; pointwise intervals; no panel LP or state dependence."
     },
     {
       "skill_id": "bayesian_var",
@@ -79,7 +80,7 @@
       "state": "active",
       "gate": "pinned author-reference replication",
       "readiness_reference": "identified-shocks/jk_author_reference_comparison.json",
-      "note": "Median decomposition author-reference validated; LP remains registry-only."
+      "note": "Median decomposition remains author-reference validated; v1.7 Local Projections use only the two frozen identified JK shock series."
     }
   ],
   "high_frequency_roadmap": [

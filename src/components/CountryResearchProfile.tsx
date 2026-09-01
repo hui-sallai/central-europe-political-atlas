@@ -153,7 +153,7 @@ export function CountryResearchProfile({
       {activeTab === "models" ? (
         <div className="mt-7 grid gap-7 lg:grid-cols-[1fr_0.65fr]">
           <section><p className="editorial-kicker">Composite Indicators</p><div className="mt-4 divide-y divide-[var(--line)] border-y border-[var(--line)]">{modelOutputs.map((output) => <ModelSnapshot key={output.model_id} output={output} />)}</div></section>
-          <aside className="editorial-panel p-5"><p className="editorial-kicker">Analysis Skills</p><h2 className="mt-3 text-2xl font-semibold">统一分析入口</h2><p className="mt-3 text-sm leading-7 text-[var(--muted)]">Panel、Network 与逐国简化式 VAR 已进入统一工作台；VAR 系数可估计与逐视野动态响应可用分别取决于该国、profile、变量、窗口、变换和诊断结果。SVAR、Formal Event Study、Local Projections 与 Bayesian VAR 仍未启用。</p><Link href={`/models?country=${country.slug}&skill=reduced_form_var`} className="mt-5 inline-flex rounded-full bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-white">进入 Analysis Workbench</Link></aside>
+          <aside className="editorial-panel p-5"><p className="editorial-kicker">Analysis Skills</p><h2 className="mt-3 text-2xl font-semibold">统一分析入口</h2><p className="mt-3 text-sm leading-7 text-[var(--muted)]">Panel、Network、逐国简化式 VAR 与通过门禁的单国 Local Projections 已进入统一工作台；各方法的可用性取决于其预注册数据、识别、样本和诊断条件。SVAR、Formal Event Study 与 Bayesian VAR 仍未启用。</p><Link href={`/models?country=${country.slug}&skill=reduced_form_var`} className="mt-5 inline-flex rounded-full bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-white">进入 Analysis Workbench</Link></aside>
         </div>
       ) : null}
     </section>

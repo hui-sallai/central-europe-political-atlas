@@ -4,7 +4,7 @@ Central Europe Political Atlas is a public political-economy research platform f
 
 Public site: https://hy-central-europe-analysis.org/
 
-Current release: **v1.62 Author-Reference Shock Replication & Identification Validation**
+Current release: **v1.7 Local Projections & ECB Spillover Transmission**
 
 ## Research scope
 
@@ -15,12 +15,13 @@ Current release: **v1.62 Author-Reference Shock Replication & Identification Val
 - An activated bilateral goods trade network (UN Comtrade, complete partner edges, 0.95 coverage gate) with deterministic descriptive concentration metrics.
 - A per-country monthly reduced-form VAR workbench with constant-only and seasonal-control formal baselines, profile-mapped stationarity gates, descriptive persistence and structural-break readiness diagnostics, strict `estimable` versus `dynamic_response_ready` states, h=12/18/24 residual sensitivity diagnostics, and ordering-dependent orthogonalized point responses. SVAR, seasonal-unit-root tests, structural-break estimators, residual LM and uncertainty intervals remain unavailable.
 - A separate monthly macro-driver layer for policy rates, long-term government yields, bilateral and effective exchange rates, HICP Energy, Brent and European natural gas, with source checksums, timing conventions and machine-readable identification status.
-- An audited ECB high-frequency monetary-policy layer built from EA-MPD and EA-EMPD. v1.62 reproduces the pinned Jarociński–Karadi author-reference PC1, poor-man, deterministic median-rotation and monthly series at published precision. Two representative sign-restricted shocks are identified; Local Projections remain registry-only and no response estimator is active.
+- An audited ECB high-frequency monetary-policy layer built from EA-MPD and EA-EMPD. The frozen v1.62 Jarociński–Karadi construction continues to reproduce PC1, poor-man, deterministic median-rotation and monthly series at published precision.
+- v1.7 activates single-country, joint MP/CBI, lag-augmented Local Projections for 44 country × outcome × regime combinations that pass the common-horizon N≥96 gate. Pointwise 90%/95% EHW-HC1 intervals and the production coefficients/standard errors are cross-validated against NumPy/SciPy/statsmodels. Panel LP, state dependence, SVAR and Bayesian VAR remain unavailable.
 - 4 conditional scenarios with baseline, shock assumption, adjusted input and result traces.
 - Coded political-economy events and verified China-related project records.
 - Deterministic validation, golden cases and a release QA gate.
 
-The platform does not publish election forecasts, probability forecasts, investment advice, causal impact estimates or objective risk truths. Missing, pending and sample records are never promoted to official data.
+The platform does not publish election forecasts, probability forecasts, investment advice or objective risk truths. Causal dynamic-response language is limited to the preregistered identified-shock Local Projection profile; missing, pending and sample records are never promoted to official data.
 
 ## Public routes
 
@@ -46,6 +47,9 @@ pnpm.cmd run lint
 pnpm.cmd run typecheck
 pnpm.cmd run research:validate
 pnpm.cmd run ecb:validate
+pnpm.cmd run lp:build
+pnpm.cmd run lp:reference
+pnpm.cmd run lp:validate
 pnpm.cmd run build
 ```
 
@@ -57,7 +61,7 @@ Machine-readable files are published under `/research-data/`. See [the research-
 
 ## Citation
 
-Central Europe Political Atlas, version v1.62 Author-Reference Shock Replication & Identification Validation, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
+Central Europe Political Atlas, version v1.7 Local Projections & ECB Spillover Transmission, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
 
 ## Official VAR reference environment
 

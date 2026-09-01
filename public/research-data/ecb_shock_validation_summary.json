@@ -1,8 +1,8 @@
 {
-  "schema_version": "ecb-shock-validation-summary-v1.62",
+  "schema_version": "ecb-shock-validation-summary-v1.7",
   "generated_at": "2026-09-01",
   "status": "passed",
-  "total_tests": 47,
+  "total_tests": 48,
   "failure_count": 0,
   "categories": {
     "acquisition": 8,
@@ -14,7 +14,7 @@
     "identification": 4,
     "aggregation": 7,
     "applicability": 6,
-    "lp_readiness": 2
+    "lp_readiness": 3
   },
   "dataset_counts": {
     "ea_mpd": 945,
@@ -27,7 +27,7 @@
   "identified_shock_count": 2,
   "external_innovation_proxy_count": 3,
   "shock_candidate_count": 2,
-  "causal_lp_ready_count": 0,
-  "lp_method_state": "registry_only",
+  "causal_lp_ready_count": 44,
+  "lp_method_state": "active",
   "failures": []
 }

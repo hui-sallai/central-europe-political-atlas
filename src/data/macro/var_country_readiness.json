@@ -1,6 +1,6 @@
 {
   "schema_version": "var-country-readiness-v1.44",
-  "generated_at": "2026-08-30",
+  "generated_at": "2026-09-01",
   "readiness_unit": "country x profile x variable set x sample window x transformation specification",
   "interpretation_boundary": "estimable 只表示系数可估计；动态响应按视野门控：6/12 月要求主诊断 h=12，18 月还要求 h=18，24 月还要求 h=24。探索性 fallback 不得作为 baseline 跨国比较。",
   "profiles": [
@@ -133,7 +133,7 @@
   "dynamic_response_ready_24m_countries": [],
   "baseline_profile_readiness": {
     "schema_version": "var-profile-readiness-v1.44",
-    "generated_at": "2026-08-30",
+    "generated_at": "2026-09-01",
     "profile": {
       "profile_id": "baseline_monthly_macro_v1",
       "profile_kind": "baseline_prespecified",
@@ -7806,7 +7806,7 @@
   },
   "baseline_v2_profile_readiness": {
     "schema_version": "var-profile-readiness-v1.44",
-    "generated_at": "2026-08-30",
+    "generated_at": "2026-09-01",
     "profile": {
       "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
       "profile_kind": "baseline_prespecified",
@@ -17098,7 +17098,7 @@
   },
   "exploratory_profile_readiness": {
     "schema_version": "var-profile-readiness-v1.44",
-    "generated_at": "2026-08-30",
+    "generated_at": "2026-09-01",
     "profile": {
       "profile_id": "exploratory_monthly_macro_fallback_v1",
       "profile_kind": "exploratory_search_policy",

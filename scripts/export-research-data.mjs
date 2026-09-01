@@ -17,6 +17,7 @@ const chinaExposureDatabaseUpdatedAt = "2026-08-11";
 const eventLibraryUpdatedAt = "2026-08-20";
 const macroDriverDir = path.join(canonicalDataDir, "macro-drivers");
 const identifiedShockDir = path.join(canonicalDataDir, "identified-shocks");
+const localProjectionDir = path.join(canonicalDataDir, "local-projections");
 const advancedValidationSummaryPath = path.join(canonicalDataDir, "analysis", "advanced_analysis_validation_summary.json");
 const macroDriverFiles = [
   "macro_driver_observations.json",
@@ -65,6 +66,11 @@ const identifiedShockFiles = [
   "information_effect_separation_validation.json",
   "identification_regime_diagnostics.json",
 ];
+const localProjectionFiles = [
+  "lp_reference_manifest.json", "lp_specification_registry.json", "lp_outcome_specification_registry.json", "lp_sample_policy_registry.json",
+  "lp_lag_policy_registry.json", "lp_control_profile_registry.json", "lp_readiness_registry.json", "lp_model_registry.json", "lp_results.json",
+  "lp_reference_cases.json", "lp_validation_summary.json",
+];
 
 execFileSync(process.execPath, [path.join(projectRoot, "scripts", "build-spatial-data-v087.mjs")], {
   cwd: projectRoot,
@@ -75,6 +81,9 @@ execFileSync(process.execPath, [path.join(projectRoot, "scripts", "identified-sh
   stdio: "inherit",
 });
 execFileSync("python3", [path.join(projectRoot, "scripts", "validation", "validate-jk-author-reference.py")], { cwd: projectRoot, stdio: "inherit" });
+execFileSync(process.execPath, [path.join(projectRoot, "scripts", "local-projections", "build-local-projections.mjs")], { cwd: projectRoot, stdio: "inherit" });
+execFileSync(process.execPath, [path.join(projectRoot, "scripts", "validation", "run-lp-reference.mjs")], { cwd: projectRoot, stdio: "inherit" });
+execFileSync(process.execPath, [path.join(projectRoot, "scripts", "validation", "validate-local-projections.mjs")], { cwd: projectRoot, stdio: "inherit" });
 
 require.extensions[".ts"] = (module, filename) => {
   const source = fs.readFileSync(filename, "utf8");
@@ -2060,6 +2069,7 @@ const macroIdentificationByDriver = new Map(macroDriverDictionaryPayload.records
 const macroIdentificationBySeries = new Map(macroShockPayload.records.map((item) => [`${item.driver_id}|${item.transformation}`, item.identification_status]));
 for (const fileName of macroDriverFiles) fs.copyFileSync(path.join(macroDriverDir, fileName), path.join(outDir, fileName));
 for (const fileName of identifiedShockFiles) fs.copyFileSync(path.join(identifiedShockDir, fileName), path.join(outDir, fileName));
+for (const fileName of localProjectionFiles) fs.copyFileSync(path.join(localProjectionDir, fileName), path.join(outDir, fileName));
 const advancedValidationSummary = fs.existsSync(advancedValidationSummaryPath)
   ? JSON.parse(fs.readFileSync(advancedValidationSummaryPath, "utf8"))
   : { schema_version: "advanced-analysis-validation-summary-v1.6", status: "pending", total_tests: 0, failure_count: null, categories: {} };
@@ -2110,7 +2120,7 @@ writeJson("release_manifest.json", {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.62",
+    analysis_skill_registry: "analysis-skill-registry-v1.7",
     transformation_registry: "transformation-registry-v1.41",
     stationarity_engine: "stationarity-engine-v1.44",
     seasonal_adf_calibration: "seasonal-adf-critical-values-v1.44",
@@ -2123,9 +2133,12 @@ writeJson("release_manifest.json", {
     macro_drivers: "macro-driver-observations-v1.51",
     shock_identification: "shock-identification-registry-v1.62",
     identified_shocks: "monetary-policy-event-observations-v1.6",
-    ecb_shock_validation: "ecb-shock-validation-summary-v1.62",
+    ecb_shock_validation: "ecb-shock-validation-summary-v1.7",
     information_effect_separation: "information-effect-separation-validation-v1.62",
-    lp_readiness: "lp-readiness-registry-v1.62",
+    lp_readiness: "lp-readiness-registry-v1.7",
+    lp_engine: "lp-engine-v1.7",
+    lp_results: "lp-results-v1.7",
+    lp_validation: "lp-validation-summary-v1.7",
     driver_applicability: "driver-applicability-registry-v1.51",
   },
   boundary_versions: ["GISCO NUTS 2024", "regional spatial QA v0.87-v0.89"],
@@ -2137,15 +2150,15 @@ writeJson("release_manifest.json", {
     note: "Historical v0.91 golden cases remain the core research regression suite.",
   },
   advanced_analysis_validation: {
-    stage: "v1.62 advanced analysis validation",
+    stage: "v1.7 advanced analysis validation",
     status: advancedValidationSummary.status,
     total_tests: advancedValidationSummary.total_tests,
     failure_count: advancedValidationSummary.failure_count,
     test_counts: advancedValidationSummary.categories,
-    categories: ["panel", "network", "high_frequency", "events", "var", "seasonal_adf_calibration", "macro_drivers", "shock_identification", "identified_shocks", "lp_readiness"],
+    categories: ["panel", "network", "high_frequency", "events", "var", "seasonal_adf_calibration", "macro_drivers", "shock_identification", "identified_shocks", "local_projections", "author_reference"],
   },
   release_validation: {
-    stage: "v1.62 release validation",
+    stage: "v1.7 release validation",
     status: "required_after_static_build",
     gates: ["security_scan", "export", "research_package", "advanced_validation", "core_validation", "ui_language_qa", "lint", "typecheck", "static_build", "package_checksum"],
   },

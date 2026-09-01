@@ -30,6 +30,9 @@ const VarWorkbench = dynamic(() => import("@/components/VarWorkbench").then((mod
 const MacroDriverWorkbench = dynamic(() => import("@/components/MacroDriverWorkbench").then((module) => module.MacroDriverWorkbench), {
   loading: () => <p className="mt-6 border-y border-[var(--line)] py-10 text-center text-sm text-[var(--muted)]">正在加载宏观驱动工作台…</p>,
 });
+const LocalProjectionWorkbench = dynamic(() => import("@/components/LocalProjectionWorkbench").then((module) => module.LocalProjectionWorkbench), {
+  loading: () => <p className="mt-6 border-y border-[var(--line)] py-10 text-center text-sm text-[var(--muted)]">正在加载本地投影工作区…</p>,
+});
 
 type ConsistencyStatus = "match" | "mismatch" | "missing_reference" | null;
 type ResultTab = keyof typeof analysisLabels.resultTabs;
@@ -142,6 +145,7 @@ export function AnalysisWorkbench({ countries, cards, outputs, events }: { count
       ) : category === "macro_time_series" ? (
         <div className="mt-6 grid gap-6">
           <EcbIdentificationStatus />
+          <LocalProjectionWorkbench />
           <MacroDriverWorkbench countries={countries} />
           <VarWorkbench countries={countries} />
           <div className="divide-y divide-[var(--line)] border-y border-[var(--line)]">{skills.filter((skill) => skill.calculation_mode !== "active").map((skill) => <article key={skill.skill_id} className="grid gap-3 py-5 md:grid-cols-[220px_1fr_auto] md:items-start"><div><p className="editorial-kicker">{skill.calculation_mode.replaceAll("_", " ")}</p><h2 className="mt-2 text-xl font-semibold">{skill.name}</h2></div><p className="text-sm leading-7 text-[var(--muted)]">{skill.description}</p><span className="text-xs font-semibold text-[var(--warning)]">{statusLabels[skill.calculation_mode]}</span><details className="advanced-disclosure md:col-span-3"><summary>登记的需求与诊断</summary><p className="mt-3 text-xs text-[var(--muted)]">Required: {skill.required_data.join(" / ")}</p><p className="mt-2 text-xs text-[var(--muted)]">Diagnostics: {skill.diagnostics.join(" / ")}</p></details></article>)}</div>

@@ -114,11 +114,13 @@ const readiness = read("v16_identification_readiness.json", driverDir);
 check(readiness.data_layer_complete === true && readiness.all_identification_gates_passed === false && readiness.identification_decision === "external_innovation_proxy_only", "v1.6 readiness decision is inconsistent.", "identification");
 
 const lp = read("lp_readiness_registry.json", driverDir);
-check(lp.method_state === "registry_only" && lp.causal_lp_ready_count === 0, "LP estimator or causal readiness was activated.", "lp_readiness");
-check(lp.records.every((record) => record.identification_status === "identified_shock" || record.causal_lp_ready === false), "Non-identified series entered causal LP readiness.", "lp_readiness");
+const formalLp = lp.records.filter((record) => String(record.readiness_id).includes(":jk_joint:"));
+check(lp.method_state === "active" && lp.causal_lp_ready_count === 44 && formalLp.length === 54, "v1.7 formal LP readiness counts are incorrect.", "lp_readiness");
+check(formalLp.every((record) => record.identification_status === "identified_shock" && (!record.causal_lp_ready || record.effective_n >= 96)), "Non-identified or underpowered series entered causal LP readiness.", "lp_readiness");
+check(lp.records.filter((record) => !String(record.readiness_id).includes(":jk_joint:")).every((record) => record.causal_lp_ready === false), "Legacy proxy readiness was promoted to causal LP.", "lp_readiness");
 
 const summary = {
-  schema_version: "ecb-shock-validation-summary-v1.62",
+  schema_version: "ecb-shock-validation-summary-v1.7",
   generated_at: "2026-09-01",
   status: failures.length ? "failed" : "passed",
   total_tests: Object.values(counts).reduce((sum, value) => sum + value, 0),

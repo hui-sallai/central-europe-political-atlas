@@ -1,15 +1,15 @@
 {
-  "schema_version": "release-metadata-v1.62",
-  "platform_version": "v1.62 Author-Reference Shock Replication & Identification Validation",
+  "schema_version": "release-metadata-v1.7",
+  "platform_version": "v1.7 Local Projections & ECB Spillover Transmission",
   "release_date": "2026-09-01",
   "source_commit": "local-working-tree",
   "build_context": "local",
   "workflow_run_id": null,
-  "generated_at": "2026-09-01T05:39:41.224Z",
+  "generated_at": "2026-09-01T07:40:45.269Z",
   "research_package": {
-    "filename": "research-data-v1.62.zip",
-    "sha256": "aeb67aaa711cd7889c9beba3264e50ed9e42dfda17d541d54b52a43f0ae9b90a",
-    "generated_at": "2026-09-01T05:39:42.035Z",
+    "filename": "research-data-v1.7.zip",
+    "sha256": "bb4d646a977a754170c8650dc1037dfad733cf074dfca03ea04fba9d50e2c0cd",
+    "generated_at": "2026-09-01T07:40:46.114Z",
     "status": "built"
   },
   "data_export_version": "research-data-v0.1",
@@ -90,7 +90,7 @@
     "trade_network": "trade-network-v1.25-active",
     "event_window": "event-window-v1.31",
     "high_frequency": "high-frequency-v1.31",
-    "analysis_skill_registry": "analysis-skill-registry-v1.62",
+    "analysis_skill_registry": "analysis-skill-registry-v1.7",
     "transformation_registry": "transformation-registry-v1.41",
     "stationarity_engine": "stationarity-engine-v1.44",
     "seasonal_adf_calibration": "seasonal-adf-critical-values-v1.44",
@@ -103,9 +103,12 @@
     "macro_drivers": "macro-driver-observations-v1.51",
     "shock_identification": "shock-identification-registry-v1.62",
     "identified_shocks": "monetary-policy-event-observations-v1.6",
-    "ecb_shock_validation": "ecb-shock-validation-summary-v1.62",
+    "ecb_shock_validation": "ecb-shock-validation-summary-v1.7",
     "information_effect_separation": "information-effect-separation-validation-v1.62",
-    "lp_readiness": "lp-readiness-registry-v1.62",
+    "lp_readiness": "lp-readiness-registry-v1.7",
+    "lp_engine": "lp-engine-v1.7",
+    "lp_results": "lp-results-v1.7",
+    "lp_validation": "lp-validation-summary-v1.7",
     "driver_applicability": "driver-applicability-registry-v1.51"
   },
   "boundary_versions": [
@@ -120,9 +123,9 @@
     "note": "Historical v0.91 golden cases remain the core research regression suite."
   },
   "advanced_analysis_validation": {
-    "stage": "v1.62 advanced analysis validation",
+    "stage": "v1.7 advanced analysis validation",
     "status": "passed",
-    "total_tests": 297,
+    "total_tests": 898,
     "failure_count": 0,
     "test_counts": {
       "panel": 51,
@@ -130,8 +133,10 @@
       "high_frequency": 22,
       "events": 22,
       "var": 104,
-      "macro_drivers": 34,
-      "identified_shocks": 47
+      "macro_drivers": 35,
+      "identified_shocks": 48,
+      "local_projections": 583,
+      "author_reference": 16
     },
     "categories": [
       "panel",
@@ -143,11 +148,12 @@
       "macro_drivers",
       "shock_identification",
       "identified_shocks",
-      "lp_readiness"
+      "local_projections",
+      "author_reference"
     ]
   },
   "release_validation": {
-    "stage": "v1.62 release validation",
+    "stage": "v1.7 release validation",
     "status": "required_after_static_build",
     "gates": [
       "security_scan",
@@ -161,8 +167,8 @@
       "static_build",
       "package_checksum"
     ],
-    "package_checksum": "aeb67aaa711cd7889c9beba3264e50ed9e42dfda17d541d54b52a43f0ae9b90a",
-    "package_filename": "research-data-v1.62.zip"
+    "package_checksum": "bb4d646a977a754170c8650dc1037dfad733cf074dfca03ea04fba9d50e2c0cd",
+    "package_filename": "research-data-v1.7.zip"
   },
   "legacy_validation_summary_v091": {
     "stage": "v0.91 Model & Scenario Validation",
@@ -197,7 +203,7 @@
     ]
   },
   "public_display_boundaries": [
-    "No election forecasts, investment advice, probability forecasts, or causal impact estimates.",
+    "No election forecasts, investment advice, probability forecasts, or causal claims outside the preregistered identified-shock Local Projection profile.",
     "Serbia regional comparison remains pending while national data remain available.",
     "China Economic Exposure and China-linked Project Disruption remain subject to their published evidence gates."
   ]

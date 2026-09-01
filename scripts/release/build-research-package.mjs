@@ -116,6 +116,23 @@ const sourceEntries = [
   ["macro-drivers/v16_identification_readiness.json", "src/data/macro-drivers/v16_identification_readiness.json"],
   ["macro-drivers/acquire-macro-drivers.py", "scripts/acquisition/acquire-macro-drivers.py"],
   ["macro-drivers/requirements-macro-drivers.txt", "scripts/acquisition/requirements-macro-drivers.txt"],
+  ["local-projections/lp_reference_manifest.json", "src/data/local-projections/lp_reference_manifest.json"],
+  ["local-projections/lp_specification_registry.json", "src/data/local-projections/lp_specification_registry.json"],
+  ["local-projections/lp_outcome_specification_registry.json", "src/data/local-projections/lp_outcome_specification_registry.json"],
+  ["local-projections/lp_sample_policy_registry.json", "src/data/local-projections/lp_sample_policy_registry.json"],
+  ["local-projections/lp_lag_policy_registry.json", "src/data/local-projections/lp_lag_policy_registry.json"],
+  ["local-projections/lp_control_profile_registry.json", "src/data/local-projections/lp_control_profile_registry.json"],
+  ["local-projections/lp_readiness_registry.json", "src/data/local-projections/lp_readiness_registry.json"],
+  ["local-projections/lp_model_registry.json", "src/data/local-projections/lp_model_registry.json"],
+  ["local-projections/lp_results.json", "src/data/local-projections/lp_results.json"],
+  ["local-projections/lp_reference_cases.json", "src/data/local-projections/lp_reference_cases.json"],
+  ["local-projections/lp_validation_summary.json", "src/data/local-projections/lp_validation_summary.json"],
+  ["local-projections/localProjectionEngine.mjs", "src/lib/localProjectionEngine.mjs"],
+  ["local-projections/build-local-projections.mjs", "scripts/local-projections/build-local-projections.mjs"],
+  ["local-projections/generate-lp-reference.py", "scripts/validation/generate-lp-reference.py"],
+  ["local-projections/run-lp-reference.mjs", "scripts/validation/run-lp-reference.mjs"],
+  ["local-projections/requirements-lp-reference.txt", "scripts/validation/requirements-lp-reference.txt"],
+  ["local-projections/validate-local-projections.mjs", "scripts/validation/validate-local-projections.mjs"],
   ["identified-shocks/ecb_monetary_event_data_acquisition_manifest.json", "src/data/identified-shocks/ecb_monetary_event_data_acquisition_manifest.json"],
   ["identified-shocks/ea_mpd_acquisition_manifest.json", "src/data/identified-shocks/ea_mpd_acquisition_manifest.json"],
   ["identified-shocks/ea_empd_acquisition_manifest.json", "src/data/identified-shocks/ea_empd_acquisition_manifest.json"],
@@ -197,7 +214,7 @@ if (fs.existsSync(modelCardsFile)) {
   entries.push({ name: "models/formula_versions.json", data: JSON.stringify(records.map((item) => ({ model_id: item.model_id, model_version: item.model_version, formula_version: item.formula_version, calculation_logic: item.calculation_logic })), null, 2) });
 }
 
-entries.push({ name: "README.md", data: `# Central Europe Political Atlas ${researchPackageLabel()}\n\nThis package preserves public research data, dictionaries, QA records, model and scenario metadata, methodology and release provenance.\n\n- Missing and pending values are not zero.\n- Model outputs are comparative research tools, not forecasts or objective risk truths.\n- Official EA-MPD / EA-EMPD assets are schema-audited and deduplicated.\n- v1.62 exactly validates the deterministic Jarociński–Karadi author-reference median decomposition at published precision.\n- The median rotation is representative under sign restrictions, not a unique structural truth.\n- Local Projections remain registry-only; no causal response is estimated.\n\nCanonical site: https://hy-central-europe-analysis.org/\n` });
+entries.push({ name: "README.md", data: `# Central Europe Political Atlas ${researchPackageLabel()}\n\nThis package preserves public research data, dictionaries, QA records, model and scenario metadata, methodology and release provenance.\n\n- Missing and pending values are not zero.\n- Model outputs are comparative research tools, not forecasts or objective risk truths.\n- Official EA-MPD / EA-EMPD assets are schema-audited and deduplicated.\n- v1.62 shock construction remains frozen and author-reference validated.\n- v1.7 activates single-country joint MP/CBI lag-augmented Local Projections with Python cross-validation and pointwise EHW/HC1 intervals.\n- CBI is normalized by 0.25 for display; it is not described as a 25bp tightening.\n- Panel LP, state dependence, SVAR and Bayesian VAR remain unavailable.\n\nCanonical site: https://hy-central-europe-analysis.org/\n` });
 entries.push({ name: "methodology/README.md", data: "Public methodology is available at /methodology/. Technical dictionaries and validation records in this archive are the authoritative downloadable companion to the interface.\n" });
 
 fs.mkdirSync(sourceDir, { recursive: true });

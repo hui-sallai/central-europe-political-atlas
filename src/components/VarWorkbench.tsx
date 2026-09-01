@@ -196,7 +196,7 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
       <section className="editorial-panel p-5">
         <p className="editorial-kicker">{varLabels.workbenchKicker}</p>
         <h2 className="mt-2 text-2xl font-semibold">{varLabels.workbenchTitle}</h2>
-        <p className="mt-2 max-w-3xl text-sm leading-7 text-[var(--muted)]">单国月度简化式 VAR：变换 → 平稳性检验 → 滞后选择 → 估计 → 稳定性与残差诊断 → 动态响应。简化式创新不等于已识别经济冲击；SVAR 与 Local Projections 保持未开放。</p>
+        <p className="mt-2 max-w-3xl text-sm leading-7 text-[var(--muted)]">单国月度简化式 VAR：变换 → 平稳性检验 → 滞后选择 → 估计 → 稳定性与残差诊断 → 动态响应。简化式创新不等于已识别经济冲击；SVAR 保持未开放，已识别冲击的 Local Projections 在上方独立工作台运行。</p>
 
         <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <label className="text-xs font-semibold text-[var(--muted)]">国家
@@ -449,7 +449,7 @@ export function VarWorkbench({ countries }: { countries: Country[] }) {
             <div className="mt-6 max-w-3xl text-sm leading-7 text-[var(--muted)]">
               <p>本模型是单国月度简化式 VAR：每个方程使用相同滞后和确定性项做 OLS 估计，滞后阶数由共同有效样本上的 {result.lag_selection.criterion.toUpperCase()} 选择，稳定性按伴随矩阵特征根判定。调整 Portmanteau 的 h=12 是主诊断，h=18/24 是较长视野敏感性门。当前未实现多元残差 LM。</p>
               <p className="mt-3">{varLabels.noStructuralNote}</p>
-              <p className="mt-3">动态响应为正交化简化式 IRF（Cholesky）：结果依赖变量排序，排序见「变量顺序」。当前版本不提供置信区间。SVAR（结构识别）与 Local Projections 保持 registry_only：Cholesky 排序不等于自动结构识别。</p>
+              <p className="mt-3">动态响应为正交化简化式 IRF（Cholesky）：结果依赖变量排序，排序见「变量顺序」。当前版本不提供置信区间。SVAR（结构识别）保持 registry_only；Local Projections 使用独立的 JK 识别冲击与门禁，不能由 Cholesky 排序自动替代。</p>
                <p className="mt-3">正式 baseline v1 与 v2 均预注册且并列保留：v1 使用 constant VAR + constant ADF；v2 使用 seasonal-control VAR + finite-sample calibrated seasonal-dummy ADF。v2 的 11 个月份虚拟变量是系统级确定性控制，主要吸收剩余 calendar/month effects，不把 NSA HICP 改称季调序列，也不重新季调已经是 SCA 的工业生产或 SA 的失业率。</p>
                <p className="mt-3">Deterministic seasonality、seasonal unit root、structural break 与 persistent stationary process 是不同概念。当前 HEGY 与 Zivot–Andrews 未激活；2020/2021/2022 标记只是 historical reference marker，不是 estimated structural break。</p>
                <p className="mt-3 font-mono text-xs">engine={result.engine_version} · dataset={result.dataset_version} · calibrated stationarity v1.44</p>

@@ -1,0 +1,22 @@
+{
+  "schema_version": "lp-validation-summary-v1.7",
+  "generated_at": "2026-09-01",
+  "status": "passed",
+  "total_tests": 583,
+  "failure_count": 0,
+  "maximum_cross_language_difference": 2.6087967341936746e-9,
+  "synthetic_case_count": 1,
+  "real_case_count": 5,
+  "checkpoint_count": 30,
+  "formal_readiness_records": 54,
+  "causal_lp_ready_count": 44,
+  "boundaries": {
+    "panel_lp": false,
+    "state_dependent_lp": false,
+    "svar": "registry_only",
+    "bayesian_var": "blocked",
+    "intervals": "pointwise",
+    "hac": false
+  },
+  "failures": []
+}

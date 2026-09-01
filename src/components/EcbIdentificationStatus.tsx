@@ -7,6 +7,7 @@ import separation from "@/data/identified-shocks/information_effect_separation_v
 import sample from "@/data/identified-shocks/jk_event_sample_registry.json";
 import authorReference from "@/data/identified-shocks/jk_author_reference_comparison.json";
 import medianValidation from "@/data/identified-shocks/jk_median_rotation_replication_validation.json";
+import lpValidation from "@/data/local-projections/lp_validation_summary.json";
 
 export function EcbIdentificationStatus() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -17,11 +18,11 @@ export function EcbIdentificationStatus() {
     <section className="editorial-panel p-5">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <p className="editorial-kicker">Monetary Policy Identification / v1.62</p>
+          <p className="editorial-kicker">Monetary Policy Identification / v1.7</p>
           <h2 className="mt-2 text-2xl font-semibold">货币政策识别</h2>
-          <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">Jarociński–Karadi 作者参考的 PC1、poor-man、确定性中位旋转与月度序列已逐项复刻通过。基准显示 Monetary Policy 与 Central Bank Information 两个代表性分量；它们不是唯一结构真值。Local Projections 仍未启用。</p>
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">Jarociński–Karadi 作者参考的 PC1、poor-man、确定性中位旋转与月度序列继续冻结并逐项复刻通过。v1.7 只使用两个已识别的代表性分量，激活单国联合 MP/CBI Local Projections；它们仍不是唯一结构真值。</p>
         </div>
-        <span className="rounded-full border border-[var(--success)] px-3 py-1 text-xs font-semibold text-[var(--success)]">作者参考验证通过 · LP 未启用</span>
+        <span className="rounded-full border border-[var(--success)] px-3 py-1 text-xs font-semibold text-[var(--success)]">作者参考通过 · LP 交叉验证通过</span>
       </div>
 
       <dl className="mt-6 grid gap-px overflow-hidden border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-4">
@@ -31,13 +32,13 @@ export function EcbIdentificationStatus() {
           ["跨库重叠记录", overlap.record_count.toLocaleString("zh-CN")],
           ["识别冲击", `${validation.identified_shock_count} 个`],
           ["外部创新代理", `${validation.external_innovation_proxy_count} 个`],
-          ["因果 LP 准入", `${validation.causal_lp_ready_count} 个`],
-          ["LP estimator", validation.lp_method_state],
+          ["因果 LP 准入", `${lpValidation.causal_lp_ready_count} 个`],
+          ["LP estimator", lpValidation.status],
           ["验证", `${validation.total_tests} 项通过`],
           ["JK 输入事件", `${sample.eligible_count} 个`],
           ["信息效应验证", separation.status],
           ["结构分量", "2 个代表性冲击"],
-          ["作者参考期", "through 2025-11"],
+          ["正式冲击终点", "2025-10"],
         ].map(([label, value]) => <div key={label} className="bg-[var(--surface)] p-3"><dt className="text-xs text-[var(--muted)]">{label}</dt><dd className="mt-1 text-sm font-semibold">{value}</dd></div>)}
       </dl>
 
@@ -48,7 +49,7 @@ export function EcbIdentificationStatus() {
           <div><h3 className="font-semibold text-[var(--foreground)]">因子边界</h3><p className="mt-2">工作簿直接提供 {directFactors.length} 条当前规范代理。Target、Timing、Forward Guidance、QE 共 {blockedFactors.length} 项只在方法论中定义，当前附件没有可直接复用的正式因子列，因此没有从原始列静默重建。</p></div>
           <div><h3 className="font-semibold text-[var(--foreground)]">识别边界</h3><p className="mt-2">信息效应状态为 {informationEffects.records[0]?.information_effect_handling}。作者参考匹配为 {authorReference.status}，中位旋转角为 {medianValidation.rotation_angle_radians.toFixed(6)}。poor-man 仅作限制性稳健性诊断；中位分解允许同一事件同时含两类冲击。</p></div>
         </div>
-        <p className="mt-4 text-xs text-[var(--muted)]">v1.62 JK replication: {authorReference.status} · identified shocks: {validation.identified_shock_count} · Local Projections: registry_only</p>
+        <p className="mt-4 text-xs text-[var(--muted)]">v1.62 JK replication frozen: {authorReference.status} · identified shocks: {validation.identified_shock_count} · v1.7 Local Projections: {lpValidation.status}</p>
         <div className="mt-4 flex flex-wrap gap-3">
           <a href={`${basePath}/research-data/ecb_monetary_event_data_acquisition_manifest.json`} className="text-sm font-semibold text-[var(--accent)]">Acquisition manifest</a>
           <a href={`${basePath}/research-data/ecb_policy_factor_registry.json`} className="text-sm font-semibold text-[var(--accent)]">Factor registry</a>

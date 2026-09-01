@@ -1,0 +1,31 @@
+{
+  "schema_version": "lp-control-profile-registry-v1.7",
+  "generated_at": "2026-09-01",
+  "records": [
+    {
+      "profile_id": "formal_baseline",
+      "controls": [
+        "constant",
+        "MP_t",
+        "CBI_t",
+        "p lags of outcome, MP and CBI"
+      ],
+      "hicp_addition": "11 month-of-year dummies",
+      "contemporaneous_mediators_excluded": [
+        "domestic policy rate",
+        "FX",
+        "bond yield",
+        "energy price"
+      ]
+    },
+    {
+      "profile_id": "predetermined_sensitivity",
+      "state": "registry_only",
+      "lagged_controls": [
+        "Brent",
+        "European gas",
+        "domestic policy rate for non-euro countries"
+      ]
+    }
+  ]
+}

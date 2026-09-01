@@ -37,6 +37,7 @@ check(event.records.every((row) => Math.abs(row.monetary_policy_component + row.
 check(mp.identification_status === "identified_shock" && cbi.identification_status === "identified_shock" && mp.record_count === 322 && cbi.record_count === 322, "Monthly shocks were not activated.");
 check(info.records.every((row) => row.information_effect_handling === "separated_under_jk_framework" && row.identified_shock_allowed), "Information-effect status failed.");
 check(shocks.identified_shock_count === 2 && shocks.external_innovation_proxy_count === 3, "Shock counts failed.");
-check(lp.method_state === "registry_only" && lp.shock_identification_ready_count === 2 && lp.estimator_ready_count === 0 && lp.causal_lp_ready_count === 0, "LP boundary failed.");
+const formalLp = lp.records.filter((row) => String(row.readiness_id).includes(":jk_joint:"));
+check(lp.method_state === "active" && lp.shock_identification_ready_count === 54 && lp.estimator_ready_count === 44 && lp.causal_lp_ready_count === 44 && formalLp.every((row) => row.shocks?.includes(mp.shock_series_id) && row.shocks?.includes(cbi.shock_series_id)), "LP boundary failed.");
 if (failures.length) { console.error(`Author-reference validation failed (${failures.length}/${tests}).`); failures.forEach((item) => console.error(`- ${item}`)); process.exit(1); }
 console.log(`Author-reference validation passed: ${tests} tests; events=${event.record_count}; identified shocks=${shocks.identified_shock_count}; LP=${lp.method_state}.`);

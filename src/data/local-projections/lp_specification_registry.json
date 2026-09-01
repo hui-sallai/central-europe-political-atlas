@@ -1,0 +1,11 @@
+{
+  "schema_version": "lp-specification-registry-v1.7",
+  "generated_at": "2026-09-01",
+  "engine_version": "lp-engine-v1.7",
+  "estimation_unit": "single country × outcome × joint JK shock pair × specification",
+  "joint_shocks": true,
+  "panel_lp": false,
+  "state_dependent_lp": false,
+  "baseline_equation": "cumulative/level response at h on contemporaneous MP_t and CBI_t, p lag-augmented lags of outcome/MP/CBI, deterministics",
+  "frozen_shock_construction": true
+}

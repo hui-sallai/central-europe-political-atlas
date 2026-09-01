@@ -1,11 +1,1602 @@
 {
-  "schema_version": "lp-readiness-registry-v1.62",
+  "schema_version": "lp-readiness-registry-v1.7",
   "generated_at": "2026-09-01",
-  "method_state": "registry_only",
-  "causal_lp_ready_count": 0,
-  "record_count": 85,
-  "readiness_unit": "shock series × outcome × country × sample × controls × horizon",
+  "method_state": "active",
+  "readiness_unit": "joint JK shock pair × outcome × country × regime × control profile × maximum horizon",
+  "minimum_usable_observations": 96,
+  "formal_record_count": 54,
+  "legacy_record_count": 85,
+  "shock_identification_ready_count": 54,
+  "sample_ready_count": 44,
+  "estimator_ready_count": 44,
+  "causal_lp_ready_count": 44,
   "records": [
+    {
+      "readiness_id": "lp:austria:hicp_price_level:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "common euro-area ECB monetary-policy shock",
+      "country": "austria",
+      "outcome": "hicp_price_level",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 111,
+      "sample_start": "2015-05",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:austria:industrial_production:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "common euro-area ECB monetary-policy shock",
+      "country": "austria",
+      "outcome": "industrial_production",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 110,
+      "sample_start": "2015-05",
+      "sample_end": "2024-06",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:austria:unemployment:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "common euro-area ECB monetary-policy shock",
+      "country": "austria",
+      "outcome": "unemployment",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 113,
+      "sample_start": "2015-02",
+      "sample_end": "2024-06",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:austria:long_term_yield:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "common euro-area ECB monetary-policy shock",
+      "country": "austria",
+      "outcome": "long_term_yield",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 114,
+      "sample_start": "2015-02",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:germany:hicp_price_level:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "common euro-area ECB monetary-policy shock",
+      "country": "germany",
+      "outcome": "hicp_price_level",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 109,
+      "sample_start": "2015-07",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:germany:industrial_production:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "common euro-area ECB monetary-policy shock",
+      "country": "germany",
+      "outcome": "industrial_production",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 110,
+      "sample_start": "2015-05",
+      "sample_end": "2024-06",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:germany:unemployment:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "common euro-area ECB monetary-policy shock",
+      "country": "germany",
+      "outcome": "unemployment",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 110,
+      "sample_start": "2015-05",
+      "sample_end": "2024-06",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:germany:long_term_yield:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "common euro-area ECB monetary-policy shock",
+      "country": "germany",
+      "outcome": "long_term_yield",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 114,
+      "sample_start": "2015-02",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:slovakia:hicp_price_level:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "common euro-area ECB monetary-policy shock",
+      "country": "slovakia",
+      "outcome": "hicp_price_level",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 111,
+      "sample_start": "2015-05",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:slovakia:industrial_production:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "common euro-area ECB monetary-policy shock",
+      "country": "slovakia",
+      "outcome": "industrial_production",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 113,
+      "sample_start": "2015-02",
+      "sample_end": "2024-06",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:slovakia:unemployment:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "common euro-area ECB monetary-policy shock",
+      "country": "slovakia",
+      "outcome": "unemployment",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 110,
+      "sample_start": "2015-05",
+      "sample_end": "2024-06",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:slovakia:long_term_yield:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "common euro-area ECB monetary-policy shock",
+      "country": "slovakia",
+      "outcome": "long_term_yield",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 113,
+      "sample_start": "2015-03",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:slovenia:hicp_price_level:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "common euro-area ECB monetary-policy shock",
+      "country": "slovenia",
+      "outcome": "hicp_price_level",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 109,
+      "sample_start": "2015-07",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:slovenia:industrial_production:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "common euro-area ECB monetary-policy shock",
+      "country": "slovenia",
+      "outcome": "industrial_production",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 113,
+      "sample_start": "2015-02",
+      "sample_end": "2024-06",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:slovenia:unemployment:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "common euro-area ECB monetary-policy shock",
+      "country": "slovenia",
+      "outcome": "unemployment",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 110,
+      "sample_start": "2015-05",
+      "sample_end": "2024-06",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:slovenia:long_term_yield:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "common euro-area ECB monetary-policy shock",
+      "country": "slovenia",
+      "outcome": "long_term_yield",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 112,
+      "sample_start": "2015-04",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:croatia:hicp_price_level:pre_2023:jk_joint:hunavailable",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy spillover",
+      "country": "croatia",
+      "outcome": "hicp_price_level",
+      "regime": "pre_2023",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": null,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": false,
+      "lag_policy_ready": true,
+      "estimator_ready": false,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": false,
+      "effective_n": 0,
+      "sample_start": null,
+      "sample_end": null,
+      "blockers": [
+        "monetary-regime-specific sample does not meet minimum observation gate"
+      ]
+    },
+    {
+      "readiness_id": "lp:croatia:hicp_price_level:post_2023:jk_joint:hunavailable",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "common euro-area ECB monetary-policy shock",
+      "country": "croatia",
+      "outcome": "hicp_price_level",
+      "regime": "post_2023",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": null,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": false,
+      "lag_policy_ready": true,
+      "estimator_ready": false,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": false,
+      "effective_n": 0,
+      "sample_start": null,
+      "sample_end": null,
+      "blockers": [
+        "monetary-regime-specific sample does not meet minimum observation gate"
+      ]
+    },
+    {
+      "readiness_id": "lp:croatia:industrial_production:pre_2023:jk_joint:hunavailable",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy spillover",
+      "country": "croatia",
+      "outcome": "industrial_production",
+      "regime": "pre_2023",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": null,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": false,
+      "lag_policy_ready": true,
+      "estimator_ready": false,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": false,
+      "effective_n": 0,
+      "sample_start": null,
+      "sample_end": null,
+      "blockers": [
+        "monetary-regime-specific sample does not meet minimum observation gate"
+      ]
+    },
+    {
+      "readiness_id": "lp:croatia:industrial_production:post_2023:jk_joint:hunavailable",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "common euro-area ECB monetary-policy shock",
+      "country": "croatia",
+      "outcome": "industrial_production",
+      "regime": "post_2023",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": null,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": false,
+      "lag_policy_ready": true,
+      "estimator_ready": false,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": false,
+      "effective_n": 0,
+      "sample_start": null,
+      "sample_end": null,
+      "blockers": [
+        "monetary-regime-specific sample does not meet minimum observation gate"
+      ]
+    },
+    {
+      "readiness_id": "lp:croatia:unemployment:pre_2023:jk_joint:hunavailable",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy spillover",
+      "country": "croatia",
+      "outcome": "unemployment",
+      "regime": "pre_2023",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": null,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": false,
+      "lag_policy_ready": true,
+      "estimator_ready": false,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": false,
+      "effective_n": 0,
+      "sample_start": null,
+      "sample_end": null,
+      "blockers": [
+        "monetary-regime-specific sample does not meet minimum observation gate"
+      ]
+    },
+    {
+      "readiness_id": "lp:croatia:unemployment:post_2023:jk_joint:hunavailable",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "common euro-area ECB monetary-policy shock",
+      "country": "croatia",
+      "outcome": "unemployment",
+      "regime": "post_2023",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": null,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": false,
+      "lag_policy_ready": true,
+      "estimator_ready": false,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": false,
+      "effective_n": 0,
+      "sample_start": null,
+      "sample_end": null,
+      "blockers": [
+        "monetary-regime-specific sample does not meet minimum observation gate"
+      ]
+    },
+    {
+      "readiness_id": "lp:croatia:long_term_yield:pre_2023:jk_joint:hunavailable",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy spillover",
+      "country": "croatia",
+      "outcome": "long_term_yield",
+      "regime": "pre_2023",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": null,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": false,
+      "lag_policy_ready": true,
+      "estimator_ready": false,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": false,
+      "effective_n": 0,
+      "sample_start": null,
+      "sample_end": null,
+      "blockers": [
+        "monetary-regime-specific sample does not meet minimum observation gate"
+      ]
+    },
+    {
+      "readiness_id": "lp:croatia:long_term_yield:post_2023:jk_joint:hunavailable",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "common euro-area ECB monetary-policy shock",
+      "country": "croatia",
+      "outcome": "long_term_yield",
+      "regime": "post_2023",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": null,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": false,
+      "lag_policy_ready": true,
+      "estimator_ready": false,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": false,
+      "effective_n": 0,
+      "sample_start": null,
+      "sample_end": null,
+      "blockers": [
+        "monetary-regime-specific sample does not meet minimum observation gate"
+      ]
+    },
+    {
+      "readiness_id": "lp:czechia:hicp_price_level:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "czechia",
+      "outcome": "hicp_price_level",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 109,
+      "sample_start": "2015-07",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:czechia:industrial_production:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "czechia",
+      "outcome": "industrial_production",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 113,
+      "sample_start": "2015-02",
+      "sample_end": "2024-06",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:czechia:unemployment:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "czechia",
+      "outcome": "unemployment",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 109,
+      "sample_start": "2015-06",
+      "sample_end": "2024-06",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:czechia:long_term_yield:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "czechia",
+      "outcome": "long_term_yield",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 111,
+      "sample_start": "2015-05",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:czechia:bilateral_fx:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "czechia",
+      "outcome": "bilateral_fx",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 114,
+      "sample_start": "2015-02",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:czechia:domestic_policy_rate:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "czechia",
+      "outcome": "domestic_policy_rate",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 112,
+      "sample_start": "2015-04",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:hungary:hicp_price_level:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "hungary",
+      "outcome": "hicp_price_level",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 113,
+      "sample_start": "2015-03",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:hungary:industrial_production:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "hungary",
+      "outcome": "industrial_production",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 113,
+      "sample_start": "2015-02",
+      "sample_end": "2024-06",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:hungary:unemployment:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "hungary",
+      "outcome": "unemployment",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 112,
+      "sample_start": "2015-03",
+      "sample_end": "2024-06",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:hungary:long_term_yield:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "hungary",
+      "outcome": "long_term_yield",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 111,
+      "sample_start": "2015-05",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:hungary:bilateral_fx:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "hungary",
+      "outcome": "bilateral_fx",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 113,
+      "sample_start": "2015-03",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:hungary:domestic_policy_rate:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "hungary",
+      "outcome": "domestic_policy_rate",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 110,
+      "sample_start": "2015-06",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:poland:hicp_price_level:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "poland",
+      "outcome": "hicp_price_level",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 111,
+      "sample_start": "2015-05",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:poland:industrial_production:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "poland",
+      "outcome": "industrial_production",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 110,
+      "sample_start": "2015-05",
+      "sample_end": "2024-06",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:poland:unemployment:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "poland",
+      "outcome": "unemployment",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 110,
+      "sample_start": "2015-05",
+      "sample_end": "2024-06",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:poland:long_term_yield:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "poland",
+      "outcome": "long_term_yield",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 111,
+      "sample_start": "2015-05",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:poland:bilateral_fx:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "poland",
+      "outcome": "bilateral_fx",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 114,
+      "sample_start": "2015-02",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:poland:domestic_policy_rate:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "poland",
+      "outcome": "domestic_policy_rate",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 109,
+      "sample_start": "2015-07",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:romania:hicp_price_level:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "romania",
+      "outcome": "hicp_price_level",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 113,
+      "sample_start": "2015-03",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:romania:industrial_production:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "romania",
+      "outcome": "industrial_production",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 113,
+      "sample_start": "2015-02",
+      "sample_end": "2024-06",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:romania:unemployment:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "romania",
+      "outcome": "unemployment",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 110,
+      "sample_start": "2015-05",
+      "sample_end": "2024-06",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:romania:long_term_yield:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "romania",
+      "outcome": "long_term_yield",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 111,
+      "sample_start": "2015-05",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:romania:bilateral_fx:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "romania",
+      "outcome": "bilateral_fx",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 111,
+      "sample_start": "2015-05",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:romania:domestic_policy_rate:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "romania",
+      "outcome": "domestic_policy_rate",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 109,
+      "sample_start": "2015-07",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:serbia:hicp_price_level:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "serbia",
+      "outcome": "hicp_price_level",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 109,
+      "sample_start": "2015-07",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:serbia:industrial_production:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "serbia",
+      "outcome": "industrial_production",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 110,
+      "sample_start": "2015-05",
+      "sample_end": "2024-06",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:serbia:unemployment:full:jk_joint:hunavailable",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "serbia",
+      "outcome": "unemployment",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": null,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": false,
+      "sample_ready": false,
+      "lag_policy_ready": false,
+      "estimator_ready": false,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": false,
+      "effective_n": 0,
+      "sample_start": null,
+      "sample_end": null,
+      "blockers": [
+        "official outcome coverage unavailable"
+      ]
+    },
+    {
+      "readiness_id": "lp:serbia:long_term_yield:full:jk_joint:hunavailable",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "serbia",
+      "outcome": "long_term_yield",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": null,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": false,
+      "sample_ready": false,
+      "lag_policy_ready": false,
+      "estimator_ready": false,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": false,
+      "effective_n": 0,
+      "sample_start": null,
+      "sample_end": null,
+      "blockers": [
+        "official outcome coverage unavailable"
+      ]
+    },
+    {
+      "readiness_id": "lp:serbia:bilateral_fx:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "serbia",
+      "outcome": "bilateral_fx",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 113,
+      "sample_start": "2015-03",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
+    {
+      "readiness_id": "lp:serbia:domestic_policy_rate:full:jk_joint:h24",
+      "shocks": [
+        "ecb_pure_monetary_policy_shock_jk_median_v1",
+        "ecb_central_bank_information_shock_jk_median_v1"
+      ],
+      "identification_status": "identified_shock",
+      "shock_scope": "external ECB monetary-policy shock / spillover",
+      "country": "serbia",
+      "outcome": "domestic_policy_rate",
+      "regime": "full",
+      "requested_horizon": 24,
+      "maximum_eligible_horizon": 24,
+      "control_profile": "formal_baseline",
+      "shock_identification_ready": true,
+      "shock_applicability_ready": true,
+      "outcome_definition_ready": true,
+      "outcome_data_ready": true,
+      "sample_ready": true,
+      "lag_policy_ready": true,
+      "estimator_ready": true,
+      "estimator_validated": true,
+      "inference_validated": true,
+      "causal_lp_ready": true,
+      "effective_n": 110,
+      "sample_start": "2015-06",
+      "sample_end": "2024-07",
+      "blockers": []
+    },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:austria:h0-24",
       "shock_series": "brent_crude_price_usd_monthly_change",
@@ -61,11 +1652,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:austria:h0-24",
@@ -122,11 +1715,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:czechia:h0-24",
@@ -183,11 +1778,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:czechia:h0-24",
@@ -244,11 +1841,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:germany:h0-24",
@@ -305,11 +1904,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:germany:h0-24",
@@ -366,11 +1967,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:croatia:h0-24",
@@ -427,11 +2030,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:croatia:h0-24",
@@ -488,11 +2093,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:hungary:h0-24",
@@ -549,11 +2156,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:hungary:h0-24",
@@ -610,11 +2219,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:poland:h0-24",
@@ -671,11 +2282,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:poland:h0-24",
@@ -732,11 +2345,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:romania:h0-24",
@@ -793,11 +2408,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:romania:h0-24",
@@ -854,11 +2471,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:serbia:h0-24",
@@ -915,11 +2534,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:serbia:h0-24",
@@ -976,11 +2597,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:slovenia:h0-24",
@@ -1037,11 +2660,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:slovenia:h0-24",
@@ -1098,11 +2723,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:slovakia:h0-24",
@@ -1159,11 +2786,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:slovakia:h0-24",
@@ -1220,11 +2849,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:austria:h0-24",
@@ -1281,11 +2912,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:austria:h0-24",
@@ -1342,11 +2975,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:czechia:h0-24",
@@ -1403,11 +3038,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:czechia:h0-24",
@@ -1464,11 +3101,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:germany:h0-24",
@@ -1525,11 +3164,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:germany:h0-24",
@@ -1586,11 +3227,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:croatia:h0-24",
@@ -1647,11 +3290,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:croatia:h0-24",
@@ -1708,11 +3353,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:hungary:h0-24",
@@ -1769,11 +3416,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:hungary:h0-24",
@@ -1830,11 +3479,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:poland:h0-24",
@@ -1891,11 +3542,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:poland:h0-24",
@@ -1952,11 +3605,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:romania:h0-24",
@@ -2013,11 +3668,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:romania:h0-24",
@@ -2074,11 +3731,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:serbia:h0-24",
@@ -2135,11 +3794,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:serbia:h0-24",
@@ -2196,11 +3857,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:slovenia:h0-24",
@@ -2257,11 +3920,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:slovenia:h0-24",
@@ -2318,11 +3983,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:slovakia:h0-24",
@@ -2379,11 +4046,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:slovakia:h0-24",
@@ -2440,11 +4109,13 @@
       "method_state": "registry_only",
       "blockers": [
         "shock identification is not identified_shock",
-        "Local Projections estimator is not activated in v1.51"
+        "not an identified JK shock under the v1.7 formal LP profile"
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": true,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:austria:h0-24",
@@ -2503,7 +4174,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:austria:h0-24",
@@ -2562,7 +4235,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:austria:h0-24",
@@ -2621,7 +4296,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:austria:h0-24",
@@ -2680,7 +4357,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:croatia:h0-24",
@@ -2739,7 +4418,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:croatia:h0-24",
@@ -2798,7 +4479,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:croatia:h0-24",
@@ -2857,7 +4540,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:croatia:h0-24",
@@ -2916,7 +4601,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:czechia:h0-24",
@@ -2975,7 +4662,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:czechia:h0-24",
@@ -3034,7 +4723,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:czechia:h0-24",
@@ -3093,7 +4784,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:czechia:h0-24",
@@ -3152,7 +4845,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:bilateral_fx_local_per_eur:czechia:h0-24",
@@ -3211,7 +4906,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:germany:h0-24",
@@ -3270,7 +4967,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:germany:h0-24",
@@ -3329,7 +5028,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:germany:h0-24",
@@ -3388,7 +5089,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:germany:h0-24",
@@ -3447,7 +5150,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:hungary:h0-24",
@@ -3506,7 +5211,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:hungary:h0-24",
@@ -3565,7 +5272,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:hungary:h0-24",
@@ -3624,7 +5333,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:hungary:h0-24",
@@ -3683,7 +5394,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:bilateral_fx_local_per_eur:hungary:h0-24",
@@ -3742,7 +5455,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:poland:h0-24",
@@ -3801,7 +5516,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:poland:h0-24",
@@ -3860,7 +5577,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:poland:h0-24",
@@ -3919,7 +5638,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:poland:h0-24",
@@ -3978,7 +5699,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:bilateral_fx_local_per_eur:poland:h0-24",
@@ -4037,7 +5760,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:romania:h0-24",
@@ -4096,7 +5821,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:romania:h0-24",
@@ -4155,7 +5882,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:romania:h0-24",
@@ -4214,7 +5943,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:romania:h0-24",
@@ -4273,7 +6004,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:bilateral_fx_local_per_eur:romania:h0-24",
@@ -4332,7 +6065,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:serbia:h0-24",
@@ -4391,7 +6126,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:serbia:h0-24",
@@ -4450,7 +6187,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:serbia:h0-24",
@@ -4509,7 +6248,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:serbia:h0-24",
@@ -4568,7 +6309,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:bilateral_fx_local_per_eur:serbia:h0-24",
@@ -4627,7 +6370,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:slovakia:h0-24",
@@ -4686,7 +6431,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:slovakia:h0-24",
@@ -4745,7 +6492,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:slovakia:h0-24",
@@ -4804,7 +6553,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:slovakia:h0-24",
@@ -4863,7 +6614,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:slovenia:h0-24",
@@ -4922,7 +6675,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:slovenia:h0-24",
@@ -4981,7 +6736,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:slovenia:h0-24",
@@ -5040,7 +6797,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
+      "estimator_ready": false,
+      "estimator_validated": false,
+      "inference_validated": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:slovenia:h0-24",
@@ -5099,25 +6858,9 @@
       ],
       "shock_identification_ready": false,
       "outcome_data_ready": false,
-      "estimator_ready": false
-    }
-  ],
-  "identified_data_ready_count": 45,
-  "shock_identification_ready_count": 2,
-  "outcome_data_ready_count": 40,
-  "estimator_ready_count": 0,
-  "shock_series_readiness": [
-    {
-      "shock_series": "ecb_pure_monetary_policy_shock_jk_median_v1",
-      "shock_identification_ready": true,
       "estimator_ready": false,
-      "causal_lp_ready": false
-    },
-    {
-      "shock_series": "ecb_central_bank_information_shock_jk_median_v1",
-      "shock_identification_ready": true,
-      "estimator_ready": false,
-      "causal_lp_ready": false
+      "estimator_validated": false,
+      "inference_validated": false
     }
   ]
 }

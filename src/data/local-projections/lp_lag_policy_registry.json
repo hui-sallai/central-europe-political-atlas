@@ -1,0 +1,2474 @@
+{
+  "schema_version": "lp-lag-policy-registry-v1.7",
+  "generated_at": "2026-09-01",
+  "baseline": {
+    "candidate_lags": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "criterion": "AIC",
+    "selection_frequency": "once per country × outcome × regime on a common pre-estimation sample",
+    "horizon_specific_selection": false,
+    "lag_augmentation": "add one full lag relative to non-augmented LP; reported augmented order p+1"
+  },
+  "sensitivity": [
+    {
+      "profile": "fixed_p2",
+      "lag": 2
+    },
+    {
+      "profile": "fixed_p6",
+      "lag": 6
+    }
+  ],
+  "selections": [
+    {
+      "country": "austria",
+      "outcome": "hicp_price_level",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 4,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -162.8248751181632,
+          "common_sample_n": 124,
+          "parameter_count": 15
+        },
+        {
+          "lag_order": 2,
+          "aic": -167.9302414693163,
+          "common_sample_n": 124,
+          "parameter_count": 18
+        },
+        {
+          "lag_order": 3,
+          "aic": -172.45548238812202,
+          "common_sample_n": 124,
+          "parameter_count": 21
+        },
+        {
+          "lag_order": 4,
+          "aic": -177.9641592238953,
+          "common_sample_n": 124,
+          "parameter_count": 24
+        },
+        {
+          "lag_order": 5,
+          "aic": -177.47689823552227,
+          "common_sample_n": 124,
+          "parameter_count": 27
+        },
+        {
+          "lag_order": 6,
+          "aic": -172.32104653539432,
+          "common_sample_n": 124,
+          "parameter_count": 30
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "austria",
+      "outcome": "industrial_production",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 4,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": 191.2611471302954,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": 191.84897309594803,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": 195.86753243811475,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": 190.59264608153188,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": 195.53914052045627,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": 200.83892787949324,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "austria",
+      "outcome": "unemployment",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 1,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -261.14927276114133,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -256.72077536532214,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -252.00616424698512,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -248.82039896313745,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -243.14399712024414,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -239.1836633496684,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "austria",
+      "outcome": "long_term_yield",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 1,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -433.26874182673384,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -433.17435814247386,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -429.04527189576834,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -424.08559102320703,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -423.6745363462198,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -419.10072058798386,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "germany",
+      "outcome": "hicp_price_level",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 6,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -134.44467043020268,
+          "common_sample_n": 124,
+          "parameter_count": 15
+        },
+        {
+          "lag_order": 2,
+          "aic": -134.24622341388888,
+          "common_sample_n": 124,
+          "parameter_count": 18
+        },
+        {
+          "lag_order": 3,
+          "aic": -139.16071052983628,
+          "common_sample_n": 124,
+          "parameter_count": 21
+        },
+        {
+          "lag_order": 4,
+          "aic": -138.69036240426823,
+          "common_sample_n": 124,
+          "parameter_count": 24
+        },
+        {
+          "lag_order": 5,
+          "aic": -138.52943809458938,
+          "common_sample_n": 124,
+          "parameter_count": 27
+        },
+        {
+          "lag_order": 6,
+          "aic": -142.33429704268966,
+          "common_sample_n": 124,
+          "parameter_count": 30
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "germany",
+      "outcome": "industrial_production",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 4,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": 244.03219920641436,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": 242.53714854916663,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": 239.3022673520969,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": 235.39622149216302,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": 239.7956773067182,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": 242.35404479390857,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "germany",
+      "outcome": "unemployment",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 4,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -689.3591246731754,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -697.1328635404399,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -703.0914774168363,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -706.8480309072078,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -702.9871039297975,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -697.9230434593924,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "germany",
+      "outcome": "long_term_yield",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 1,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -446.7694730230556,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -443.71354721390213,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -441.5650055815182,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -435.7235742023788,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -436.22457532590573,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -431.1099178820466,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "slovakia",
+      "outcome": "hicp_price_level",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 4,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -130.50866933606753,
+          "common_sample_n": 124,
+          "parameter_count": 15
+        },
+        {
+          "lag_order": 2,
+          "aic": -154.7622617051674,
+          "common_sample_n": 124,
+          "parameter_count": 18
+        },
+        {
+          "lag_order": 3,
+          "aic": -181.9267565037578,
+          "common_sample_n": 124,
+          "parameter_count": 21
+        },
+        {
+          "lag_order": 4,
+          "aic": -188.5748495891588,
+          "common_sample_n": 124,
+          "parameter_count": 24
+        },
+        {
+          "lag_order": 5,
+          "aic": -184.5788692974618,
+          "common_sample_n": 124,
+          "parameter_count": 27
+        },
+        {
+          "lag_order": 6,
+          "aic": -183.19805716630663,
+          "common_sample_n": 124,
+          "parameter_count": 30
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "slovakia",
+      "outcome": "industrial_production",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 1,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": 355.49149237880346,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": 359.6292155676512,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": 364.3318903160323,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": 364.13196776622544,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": 369.51163661068034,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": 368.9798598839964,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "slovakia",
+      "outcome": "unemployment",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 4,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -571.0995421936918,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -579.4159809183107,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -574.8385455502306,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -584.0434362926699,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -579.9579503397104,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -576.6219616261325,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "slovakia",
+      "outcome": "long_term_yield",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 2,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -389.8917199378098,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -396.98587194616516,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -396.9173672932395,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -392.4701834344865,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -390.3450928240785,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -391.03052211939485,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "slovenia",
+      "outcome": "hicp_price_level",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 6,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -132.60710492966427,
+          "common_sample_n": 124,
+          "parameter_count": 15
+        },
+        {
+          "lag_order": 2,
+          "aic": -146.05824347892298,
+          "common_sample_n": 124,
+          "parameter_count": 18
+        },
+        {
+          "lag_order": 3,
+          "aic": -142.88634270620844,
+          "common_sample_n": 124,
+          "parameter_count": 21
+        },
+        {
+          "lag_order": 4,
+          "aic": -147.21516684592555,
+          "common_sample_n": 124,
+          "parameter_count": 24
+        },
+        {
+          "lag_order": 5,
+          "aic": -144.18425657589344,
+          "common_sample_n": 124,
+          "parameter_count": 27
+        },
+        {
+          "lag_order": 6,
+          "aic": -147.71158186015793,
+          "common_sample_n": 124,
+          "parameter_count": 30
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "slovenia",
+      "outcome": "industrial_production",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 1,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": 258.0004601489608,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": 259.99050422310097,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": 264.5434198489344,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": 261.4800319166985,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": 264.00876817531923,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": 269.92254340955594,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "slovenia",
+      "outcome": "unemployment",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 4,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -427.5949196188508,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -464.85660815453366,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -476.25699198322246,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -485.37881538555047,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -479.57726124429814,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -475.1359946381907,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "slovenia",
+      "outcome": "long_term_yield",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 3,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -384.96345111121286,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -397.22520888870935,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -402.8581677813478,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -398.57624080903986,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -397.68056867203615,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -392.3499115815684,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "croatia",
+      "outcome": "hicp_price_level",
+      "regime": "pre_2023",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 2,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -157.06076667141298,
+          "common_sample_n": 90,
+          "parameter_count": 15
+        },
+        {
+          "lag_order": 2,
+          "aic": -170.1451729107595,
+          "common_sample_n": 90,
+          "parameter_count": 18
+        },
+        {
+          "lag_order": 3,
+          "aic": -165.46000246854916,
+          "common_sample_n": 90,
+          "parameter_count": 21
+        },
+        {
+          "lag_order": 4,
+          "aic": -163.17711745742167,
+          "common_sample_n": 90,
+          "parameter_count": 24
+        },
+        {
+          "lag_order": 5,
+          "aic": -162.71865643675096,
+          "common_sample_n": 90,
+          "parameter_count": 27
+        },
+        {
+          "lag_order": 6,
+          "aic": -157.64861663949847,
+          "common_sample_n": 90,
+          "parameter_count": 30
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "croatia",
+      "outcome": "hicp_price_level",
+      "regime": "post_2023",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 5,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -54.687690973445555,
+          "common_sample_n": 28,
+          "parameter_count": 15
+        },
+        {
+          "lag_order": 2,
+          "aic": -58.44291938974955,
+          "common_sample_n": 28,
+          "parameter_count": 18
+        },
+        {
+          "lag_order": 3,
+          "aic": -89.63872181790589,
+          "common_sample_n": 28,
+          "parameter_count": 21
+        },
+        {
+          "lag_order": 4,
+          "aic": -115.20472600186167,
+          "common_sample_n": 28,
+          "parameter_count": 24
+        },
+        {
+          "lag_order": 5,
+          "aic": -127.78486117762,
+          "common_sample_n": 28,
+          "parameter_count": 27
+        },
+        {
+          "lag_order": 6,
+          "aic": 237.53252149681632,
+          "common_sample_n": 28,
+          "parameter_count": 30
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "croatia",
+      "outcome": "industrial_production",
+      "regime": "pre_2023",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 1,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": 129.20553156817874,
+          "common_sample_n": 90,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": 129.7233143873006,
+          "common_sample_n": 90,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": 130.5675834849993,
+          "common_sample_n": 90,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": 132.91808297564475,
+          "common_sample_n": 90,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": 137.61852244371215,
+          "common_sample_n": 90,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": 140.69293853108434,
+          "common_sample_n": 90,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "croatia",
+      "outcome": "industrial_production",
+      "regime": "post_2023",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 3,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": 51.14493869907236,
+          "common_sample_n": 28,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": 53.99754214521606,
+          "common_sample_n": 28,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": 46.13154909629471,
+          "common_sample_n": 28,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": 47.747570791185616,
+          "common_sample_n": 28,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": 51.421659750614324,
+          "common_sample_n": 28,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": 51.53763370949682,
+          "common_sample_n": 28,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "croatia",
+      "outcome": "unemployment",
+      "regime": "pre_2023",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 2,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -304.1684539967856,
+          "common_sample_n": 90,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -340.8806417403944,
+          "common_sample_n": 90,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -338.842815224285,
+          "common_sample_n": 90,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -334.8193114190937,
+          "common_sample_n": 90,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -332.425322019738,
+          "common_sample_n": 90,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -333.66428308067594,
+          "common_sample_n": 90,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "croatia",
+      "outcome": "unemployment",
+      "regime": "post_2023",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 1,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -148.7190974283602,
+          "common_sample_n": 28,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -143.58672940776447,
+          "common_sample_n": 28,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -138.3730274699227,
+          "common_sample_n": 28,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -142.9251044808941,
+          "common_sample_n": 28,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -147.95688748973998,
+          "common_sample_n": 28,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -144.58099455071434,
+          "common_sample_n": 28,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "croatia",
+      "outcome": "long_term_yield",
+      "regime": "pre_2023",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 4,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -239.76380190233277,
+          "common_sample_n": 90,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -242.88388065079312,
+          "common_sample_n": 90,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -241.9522217065815,
+          "common_sample_n": 90,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -248.46638109957576,
+          "common_sample_n": 90,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -246.44119143563938,
+          "common_sample_n": 90,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -242.3029779318266,
+          "common_sample_n": 90,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "croatia",
+      "outcome": "long_term_yield",
+      "regime": "post_2023",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 3,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -112.11909890700835,
+          "common_sample_n": 28,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -109.69518442394403,
+          "common_sample_n": 28,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -117.13586352063874,
+          "common_sample_n": 28,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -114.42704641994317,
+          "common_sample_n": 28,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -109.91720290056881,
+          "common_sample_n": 28,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -105.22726277859016,
+          "common_sample_n": 28,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "czechia",
+      "outcome": "hicp_price_level",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 6,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -6.126480023153206,
+          "common_sample_n": 124,
+          "parameter_count": 15
+        },
+        {
+          "lag_order": 2,
+          "aic": -7.543812945405612,
+          "common_sample_n": 124,
+          "parameter_count": 18
+        },
+        {
+          "lag_order": 3,
+          "aic": -21.574123815576577,
+          "common_sample_n": 124,
+          "parameter_count": 21
+        },
+        {
+          "lag_order": 4,
+          "aic": -36.6319185478971,
+          "common_sample_n": 124,
+          "parameter_count": 24
+        },
+        {
+          "lag_order": 5,
+          "aic": -33.82373006954887,
+          "common_sample_n": 124,
+          "parameter_count": 27
+        },
+        {
+          "lag_order": 6,
+          "aic": -42.18142315365375,
+          "common_sample_n": 124,
+          "parameter_count": 30
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "czechia",
+      "outcome": "industrial_production",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 1,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": 245.92181655039178,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": 247.2935502211569,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": 251.3830065603807,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": 251.8697040902702,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": 257.5105553911155,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": 258.4989283740788,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "czechia",
+      "outcome": "unemployment",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 5,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -380.0295624940852,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -393.9120303770428,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -394.07764261601756,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -396.7481494991947,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -397.62680091690004,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -393.50472888555845,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "czechia",
+      "outcome": "long_term_yield",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 4,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -363.7889148523825,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -366.64724462250035,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -371.4117365142631,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -371.4163402408898,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -370.081342936458,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -364.87932085425143,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "czechia",
+      "outcome": "bilateral_fx",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 1,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -325.00081867436427,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -321.02439636963845,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -321.15692517922656,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -315.4887471212974,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -313.27508502752903,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -316.11068260948105,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "czechia",
+      "outcome": "domestic_policy_rate",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 3,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -303.48585786879454,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -319.9434123477705,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -327.6804620542967,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -325.08417066009406,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -321.26592557108944,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -319.3307615791295,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "hungary",
+      "outcome": "hicp_price_level",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 2,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -11.8687002372493,
+          "common_sample_n": 124,
+          "parameter_count": 15
+        },
+        {
+          "lag_order": 2,
+          "aic": -120.31453041141324,
+          "common_sample_n": 124,
+          "parameter_count": 18
+        },
+        {
+          "lag_order": 3,
+          "aic": -117.30268466044396,
+          "common_sample_n": 124,
+          "parameter_count": 21
+        },
+        {
+          "lag_order": 4,
+          "aic": -114.92652960917917,
+          "common_sample_n": 124,
+          "parameter_count": 24
+        },
+        {
+          "lag_order": 5,
+          "aic": -112.2744106457034,
+          "common_sample_n": 124,
+          "parameter_count": 27
+        },
+        {
+          "lag_order": 6,
+          "aic": -115.13095898844429,
+          "common_sample_n": 124,
+          "parameter_count": 30
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "hungary",
+      "outcome": "industrial_production",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 1,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": 307.96496020074744,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": 309.54756537104294,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": 311.4713571118964,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": 309.75802332609493,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": 312.76012940870675,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": 316.2661701594592,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "hungary",
+      "outcome": "unemployment",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 2,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -493.61786873548175,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -500.86437284992553,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -495.6383342268738,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -496.77541914650305,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -492.3929728326343,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -488.87441181309543,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "hungary",
+      "outcome": "long_term_yield",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 4,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -249.4652387901533,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -251.93661636265477,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -249.0372354351381,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -252.07162570119374,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -246.3989187113176,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -248.67208065953855,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "hungary",
+      "outcome": "bilateral_fx",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 2,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": 406.5182762822685,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": 402.42719168258986,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": 406.5419827628158,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": 412.3890661878017,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": 418.16402204966914,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": 419.98617319311177,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "hungary",
+      "outcome": "domestic_policy_rate",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 5,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -197.54568097702142,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -290.68259528062725,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -292.4286341525648,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -300.0299787044787,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -300.95033496815023,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -299.33209930685894,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "poland",
+      "outcome": "hicp_price_level",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 4,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -111.46335622958321,
+          "common_sample_n": 124,
+          "parameter_count": 15
+        },
+        {
+          "lag_order": 2,
+          "aic": -147.72140450190824,
+          "common_sample_n": 124,
+          "parameter_count": 18
+        },
+        {
+          "lag_order": 3,
+          "aic": -157.2612037139495,
+          "common_sample_n": 124,
+          "parameter_count": 21
+        },
+        {
+          "lag_order": 4,
+          "aic": -157.51321472018918,
+          "common_sample_n": 124,
+          "parameter_count": 24
+        },
+        {
+          "lag_order": 5,
+          "aic": -153.15741183609134,
+          "common_sample_n": 124,
+          "parameter_count": 27
+        },
+        {
+          "lag_order": 6,
+          "aic": -155.8689464986323,
+          "common_sample_n": 124,
+          "parameter_count": 30
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "poland",
+      "outcome": "industrial_production",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 4,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": 214.96426938278105,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": 212.58365774322445,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": 213.49068501830658,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": 205.11795555948817,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": 210.21078724004013,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": 208.37301747817637,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "poland",
+      "outcome": "unemployment",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 4,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -572.8219397845148,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -612.8585136611254,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -608.0740556240847,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -619.5936264413364,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -616.2794160658441,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -613.8592337589482,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "poland",
+      "outcome": "long_term_yield",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 4,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -287.99669922389717,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -296.44411141698714,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -297.45149392663023,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -303.5594270655685,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -303.16745646381736,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -303.04070234922705,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "poland",
+      "outcome": "bilateral_fx",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 1,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -737.462696983657,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -733.4335099024242,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -733.5016399934291,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -736.0007608205825,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -731.103833788415,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -729.7073702409574,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "poland",
+      "outcome": "domestic_policy_rate",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 6,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -366.32771149488775,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -467.8778494708841,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -467.81845583931533,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -464.22245800721333,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -459.9531114503016,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -474.0742875782199,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "romania",
+      "outcome": "hicp_price_level",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 2,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -127.96477862260741,
+          "common_sample_n": 124,
+          "parameter_count": 15
+        },
+        {
+          "lag_order": 2,
+          "aic": -161.83142586434275,
+          "common_sample_n": 124,
+          "parameter_count": 18
+        },
+        {
+          "lag_order": 3,
+          "aic": -157.58421801763134,
+          "common_sample_n": 124,
+          "parameter_count": 21
+        },
+        {
+          "lag_order": 4,
+          "aic": -154.11222137874276,
+          "common_sample_n": 124,
+          "parameter_count": 24
+        },
+        {
+          "lag_order": 5,
+          "aic": -151.24692856360053,
+          "common_sample_n": 124,
+          "parameter_count": 27
+        },
+        {
+          "lag_order": 6,
+          "aic": -149.76144846818275,
+          "common_sample_n": 124,
+          "parameter_count": 30
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "romania",
+      "outcome": "industrial_production",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 1,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": 317.04636208933994,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": 320.92953631410046,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": 323.06764883056223,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": 319.5122524411039,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": 323.3588100054364,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": 326.50856148527316,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "romania",
+      "outcome": "unemployment",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 4,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -407.8433280549045,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -410.4074529604984,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -412.1213661616971,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -415.56252704186625,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -412.87530908687785,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -406.9503085208536,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "romania",
+      "outcome": "long_term_yield",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 4,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -240.1620054235912,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -244.72951767499274,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -238.97508244645627,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -247.88517140185996,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -245.70815807070812,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -244.54515910510645,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "romania",
+      "outcome": "bilateral_fx",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 4,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -977.2733669302819,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -985.5234446892723,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -984.0887989092951,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -985.7258992787379,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -981.8498400986354,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -978.2853097433647,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "romania",
+      "outcome": "domestic_policy_rate",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 6,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -412.7484880045522,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -428.6036619119213,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -432.36399660024216,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -493.01904842314707,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -494.58471876540546,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -495.1271534365559,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "serbia",
+      "outcome": "hicp_price_level",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 6,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -117.59305170461403,
+          "common_sample_n": 124,
+          "parameter_count": 15
+        },
+        {
+          "lag_order": 2,
+          "aic": -156.3252606359779,
+          "common_sample_n": 124,
+          "parameter_count": 18
+        },
+        {
+          "lag_order": 3,
+          "aic": -154.95279753703304,
+          "common_sample_n": 124,
+          "parameter_count": 21
+        },
+        {
+          "lag_order": 4,
+          "aic": -158.36575612491603,
+          "common_sample_n": 124,
+          "parameter_count": 24
+        },
+        {
+          "lag_order": 5,
+          "aic": -156.29409168082464,
+          "common_sample_n": 124,
+          "parameter_count": 27
+        },
+        {
+          "lag_order": 6,
+          "aic": -162.34730161738028,
+          "common_sample_n": 124,
+          "parameter_count": 30
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "serbia",
+      "outcome": "industrial_production",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 4,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": 253.85832617091518,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": 248.88837189814032,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": 252.9775669976826,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": 246.73706893482168,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": 249.5345175680341,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": 253.54133485466235,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "serbia",
+      "outcome": "bilateral_fx",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 2,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -310.1627538437099,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -347.65606270267966,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -344.38188171651655,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -338.72494345252045,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -333.4063658753305,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -329.47365006536967,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    },
+    {
+      "country": "serbia",
+      "outcome": "domestic_policy_rate",
+      "regime": "full",
+      "criterion": "AIC",
+      "common_pre_estimation_sample": true,
+      "selectedLag": 5,
+      "candidates": [
+        {
+          "lag_order": 1,
+          "aic": -413.77871066388275,
+          "common_sample_n": 124,
+          "parameter_count": 4
+        },
+        {
+          "lag_order": 2,
+          "aic": -477.10843278459686,
+          "common_sample_n": 124,
+          "parameter_count": 7
+        },
+        {
+          "lag_order": 3,
+          "aic": -480.3061074933585,
+          "common_sample_n": 124,
+          "parameter_count": 10
+        },
+        {
+          "lag_order": 4,
+          "aic": -482.17016344106736,
+          "common_sample_n": 124,
+          "parameter_count": 13
+        },
+        {
+          "lag_order": 5,
+          "aic": -482.76595349233526,
+          "common_sample_n": 124,
+          "parameter_count": 16
+        },
+        {
+          "lag_order": 6,
+          "aic": -481.6052918468416,
+          "common_sample_n": 124,
+          "parameter_count": 19
+        }
+      ],
+      "commonSampleStartIndex": 6
+    }
+  ]
+}
