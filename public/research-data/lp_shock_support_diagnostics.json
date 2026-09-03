@@ -1,0 +1,2911 @@
+{
+  "schema_version": "lp-shock-support-diagnostics-v1.71",
+  "generated_at": "2026-09-03",
+  "record_count": 44,
+  "records": [
+    {
+      "model_id": "lp:austria:hicp_price_level:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 111,
+      "nonzero_mp_months": 74,
+      "nonzero_cbi_months": 74,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.03299882453963291,
+      "cbi_standard_deviation": 0.024069896883145078,
+      "mp_cbi_correlation": -0.34009106355756424,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29586545477540155,
+        "top_3": 0.582335694655715,
+        "top_5": 0.6631385282219276
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29163124469600143,
+        "top_3": 0.4384095299195196,
+        "top_5": 0.574692564820464
+      }
+    },
+    {
+      "model_id": "lp:austria:industrial_production:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 110,
+      "nonzero_mp_months": 73,
+      "nonzero_cbi_months": 73,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.033133554437896104,
+      "cbi_standard_deviation": 0.024179301210558828,
+      "mp_cbi_correlation": -0.34051699396653806,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.2959635752696719,
+        "top_3": 0.5825288198255131,
+        "top_5": 0.6633584507546487
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29163238041220135,
+        "top_3": 0.4384112372427724,
+        "top_5": 0.5746948028785176
+      }
+    },
+    {
+      "model_id": "lp:austria:unemployment:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 113,
+      "nonzero_mp_months": 75,
+      "nonzero_cbi_months": 75,
+      "zero_shock_months": 38,
+      "mp_standard_deviation": 0.03269660352976775,
+      "cbi_standard_deviation": 0.023867888916954027,
+      "mp_cbi_correlation": -0.3401594948457219,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29595830631559783,
+        "top_3": 0.5825184492331329,
+        "top_5": 0.6633466411756879
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29126740296944115,
+        "top_3": 0.4378625663029405,
+        "top_5": 0.5739755732812222
+      }
+    },
+    {
+      "model_id": "lp:austria:long_term_yield:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 114,
+      "nonzero_mp_months": 76,
+      "nonzero_cbi_months": 76,
+      "zero_shock_months": 38,
+      "mp_standard_deviation": 0.03256723052922564,
+      "cbi_standard_deviation": 0.023762765084990152,
+      "mp_cbi_correlation": -0.3397447280326581,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.2958601893143389,
+        "top_3": 0.5823253309384371,
+        "top_5": 0.6631267264720339
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.2912662700941508,
+        "top_3": 0.4378608632504297,
+        "top_5": 0.5739733408215044
+      }
+    },
+    {
+      "model_id": "lp:germany:hicp_price_level:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 109,
+      "nonzero_mp_months": 73,
+      "nonzero_cbi_months": 73,
+      "zero_shock_months": 36,
+      "mp_standard_deviation": 0.03329753258675478,
+      "cbi_standard_deviation": 0.024252295340126892,
+      "mp_cbi_correlation": -0.34011659135644,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29605522763365666,
+        "top_3": 0.5827092141303785,
+        "top_5": 0.6635638759328164
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29224035763760375,
+        "top_3": 0.4393252099889653,
+        "top_5": 0.57589289120881
+      }
+    },
+    {
+      "model_id": "lp:germany:industrial_production:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 110,
+      "nonzero_mp_months": 73,
+      "nonzero_cbi_months": 73,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.033133554437896104,
+      "cbi_standard_deviation": 0.024179301210558828,
+      "mp_cbi_correlation": -0.34051699396653806,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.2959635752696719,
+        "top_3": 0.5825288198255131,
+        "top_5": 0.6633584507546487
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29163238041220135,
+        "top_3": 0.4384112372427724,
+        "top_5": 0.5746948028785176
+      }
+    },
+    {
+      "model_id": "lp:germany:unemployment:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 110,
+      "nonzero_mp_months": 73,
+      "nonzero_cbi_months": 73,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.033133554437896104,
+      "cbi_standard_deviation": 0.024179301210558828,
+      "mp_cbi_correlation": -0.34051699396653806,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.2959635752696719,
+        "top_3": 0.5825288198255131,
+        "top_5": 0.6633584507546487
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29163238041220135,
+        "top_3": 0.4384112372427724,
+        "top_5": 0.5746948028785176
+      }
+    },
+    {
+      "model_id": "lp:germany:long_term_yield:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 114,
+      "nonzero_mp_months": 76,
+      "nonzero_cbi_months": 76,
+      "zero_shock_months": 38,
+      "mp_standard_deviation": 0.03256723052922564,
+      "cbi_standard_deviation": 0.023762765084990152,
+      "mp_cbi_correlation": -0.3397447280326581,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.2958601893143389,
+        "top_3": 0.5823253309384371,
+        "top_5": 0.6631267264720339
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.2912662700941508,
+        "top_3": 0.4378608632504297,
+        "top_5": 0.5739733408215044
+      }
+    },
+    {
+      "model_id": "lp:slovakia:hicp_price_level:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 111,
+      "nonzero_mp_months": 74,
+      "nonzero_cbi_months": 74,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.03299882453963291,
+      "cbi_standard_deviation": 0.024069896883145078,
+      "mp_cbi_correlation": -0.34009106355756424,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29586545477540155,
+        "top_3": 0.582335694655715,
+        "top_5": 0.6631385282219276
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29163124469600143,
+        "top_3": 0.4384095299195196,
+        "top_5": 0.574692564820464
+      }
+    },
+    {
+      "model_id": "lp:slovakia:industrial_production:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 113,
+      "nonzero_mp_months": 75,
+      "nonzero_cbi_months": 75,
+      "zero_shock_months": 38,
+      "mp_standard_deviation": 0.03269660352976775,
+      "cbi_standard_deviation": 0.023867888916954027,
+      "mp_cbi_correlation": -0.3401594948457219,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29595830631559783,
+        "top_3": 0.5825184492331329,
+        "top_5": 0.6633466411756879
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29126740296944115,
+        "top_3": 0.4378625663029405,
+        "top_5": 0.5739755732812222
+      }
+    },
+    {
+      "model_id": "lp:slovakia:unemployment:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 110,
+      "nonzero_mp_months": 73,
+      "nonzero_cbi_months": 73,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.033133554437896104,
+      "cbi_standard_deviation": 0.024179301210558828,
+      "mp_cbi_correlation": -0.34051699396653806,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.2959635752696719,
+        "top_3": 0.5825288198255131,
+        "top_5": 0.6633584507546487
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29163238041220135,
+        "top_3": 0.4384112372427724,
+        "top_5": 0.5746948028785176
+      }
+    },
+    {
+      "model_id": "lp:slovakia:long_term_yield:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 113,
+      "nonzero_mp_months": 76,
+      "nonzero_cbi_months": 76,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.032709732019744794,
+      "cbi_standard_deviation": 0.023867471270955162,
+      "mp_cbi_correlation": -0.3399101230607933,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.2958601893143389,
+        "top_3": 0.5823253309384371,
+        "top_5": 0.6631267264720339
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.2912662700941508,
+        "top_3": 0.4378608632504297,
+        "top_5": 0.5739733408215044
+      }
+    },
+    {
+      "model_id": "lp:slovenia:hicp_price_level:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 109,
+      "nonzero_mp_months": 73,
+      "nonzero_cbi_months": 73,
+      "zero_shock_months": 36,
+      "mp_standard_deviation": 0.03329753258675478,
+      "cbi_standard_deviation": 0.024252295340126892,
+      "mp_cbi_correlation": -0.34011659135644,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29605522763365666,
+        "top_3": 0.5827092141303785,
+        "top_5": 0.6635638759328164
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29224035763760375,
+        "top_3": 0.4393252099889653,
+        "top_5": 0.57589289120881
+      }
+    },
+    {
+      "model_id": "lp:slovenia:industrial_production:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 113,
+      "nonzero_mp_months": 75,
+      "nonzero_cbi_months": 75,
+      "zero_shock_months": 38,
+      "mp_standard_deviation": 0.03269660352976775,
+      "cbi_standard_deviation": 0.023867888916954027,
+      "mp_cbi_correlation": -0.3401594948457219,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29595830631559783,
+        "top_3": 0.5825184492331329,
+        "top_5": 0.6633466411756879
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29126740296944115,
+        "top_3": 0.4378625663029405,
+        "top_5": 0.5739755732812222
+      }
+    },
+    {
+      "model_id": "lp:slovenia:unemployment:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 110,
+      "nonzero_mp_months": 73,
+      "nonzero_cbi_months": 73,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.033133554437896104,
+      "cbi_standard_deviation": 0.024179301210558828,
+      "mp_cbi_correlation": -0.34051699396653806,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.2959635752696719,
+        "top_3": 0.5825288198255131,
+        "top_5": 0.6633584507546487
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29163238041220135,
+        "top_3": 0.4384112372427724,
+        "top_5": 0.5746948028785176
+      }
+    },
+    {
+      "model_id": "lp:slovenia:long_term_yield:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 112,
+      "nonzero_mp_months": 75,
+      "nonzero_cbi_months": 75,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.03285453082285634,
+      "cbi_standard_deviation": 0.02396712691116161,
+      "mp_cbi_correlation": -0.3403335384929261,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29586049562072275,
+        "top_3": 0.582325933824438,
+        "top_5": 0.6631274130123559
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.2913334196332536,
+        "top_3": 0.4379618092169809,
+        "top_5": 0.574105666632114
+      }
+    },
+    {
+      "model_id": "lp:czechia:hicp_price_level:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 109,
+      "nonzero_mp_months": 73,
+      "nonzero_cbi_months": 73,
+      "zero_shock_months": 36,
+      "mp_standard_deviation": 0.03329753258675478,
+      "cbi_standard_deviation": 0.024252295340126892,
+      "mp_cbi_correlation": -0.34011659135644,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29605522763365666,
+        "top_3": 0.5827092141303785,
+        "top_5": 0.6635638759328164
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29224035763760375,
+        "top_3": 0.4393252099889653,
+        "top_5": 0.57589289120881
+      }
+    },
+    {
+      "model_id": "lp:czechia:industrial_production:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 113,
+      "nonzero_mp_months": 75,
+      "nonzero_cbi_months": 75,
+      "zero_shock_months": 38,
+      "mp_standard_deviation": 0.03269660352976775,
+      "cbi_standard_deviation": 0.023867888916954027,
+      "mp_cbi_correlation": -0.3401594948457219,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29595830631559783,
+        "top_3": 0.5825184492331329,
+        "top_5": 0.6633466411756879
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29126740296944115,
+        "top_3": 0.4378625663029405,
+        "top_5": 0.5739755732812222
+      }
+    },
+    {
+      "model_id": "lp:czechia:unemployment:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 109,
+      "nonzero_mp_months": 73,
+      "nonzero_cbi_months": 73,
+      "zero_shock_months": 36,
+      "mp_standard_deviation": 0.033283703151818916,
+      "cbi_standard_deviation": 0.024289776460593798,
+      "mp_cbi_correlation": -0.3406950599865035,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.2959635752696719,
+        "top_3": 0.5825288198255131,
+        "top_5": 0.6633584507546487
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29163238041220135,
+        "top_3": 0.4384112372427724,
+        "top_5": 0.5746948028785176
+      }
+    },
+    {
+      "model_id": "lp:czechia:long_term_yield:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 111,
+      "nonzero_mp_months": 74,
+      "nonzero_cbi_months": 74,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.03299882453963291,
+      "cbi_standard_deviation": 0.024069896883145078,
+      "mp_cbi_correlation": -0.34009106355756424,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29586545477540155,
+        "top_3": 0.582335694655715,
+        "top_5": 0.6631385282219276
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29163124469600143,
+        "top_3": 0.4384095299195196,
+        "top_5": 0.574692564820464
+      }
+    },
+    {
+      "model_id": "lp:czechia:bilateral_fx:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 114,
+      "nonzero_mp_months": 76,
+      "nonzero_cbi_months": 76,
+      "zero_shock_months": 38,
+      "mp_standard_deviation": 0.03256723052922564,
+      "cbi_standard_deviation": 0.023762765084990152,
+      "mp_cbi_correlation": -0.3397447280326581,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.2958601893143389,
+        "top_3": 0.5823253309384371,
+        "top_5": 0.6631267264720339
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.2912662700941508,
+        "top_3": 0.4378608632504297,
+        "top_5": 0.5739733408215044
+      }
+    },
+    {
+      "model_id": "lp:czechia:domestic_policy_rate:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 112,
+      "nonzero_mp_months": 75,
+      "nonzero_cbi_months": 75,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.03285453082285634,
+      "cbi_standard_deviation": 0.02396712691116161,
+      "mp_cbi_correlation": -0.3403335384929261,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29586049562072275,
+        "top_3": 0.582325933824438,
+        "top_5": 0.6631274130123559
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.2913334196332536,
+        "top_3": 0.4379618092169809,
+        "top_5": 0.574105666632114
+      }
+    },
+    {
+      "model_id": "lp:hungary:hicp_price_level:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 113,
+      "nonzero_mp_months": 76,
+      "nonzero_cbi_months": 76,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.032709732019744794,
+      "cbi_standard_deviation": 0.023867471270955162,
+      "mp_cbi_correlation": -0.3399101230607933,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.2958601893143389,
+        "top_3": 0.5823253309384371,
+        "top_5": 0.6631267264720339
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.2912662700941508,
+        "top_3": 0.4378608632504297,
+        "top_5": 0.5739733408215044
+      }
+    },
+    {
+      "model_id": "lp:hungary:industrial_production:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 113,
+      "nonzero_mp_months": 75,
+      "nonzero_cbi_months": 75,
+      "zero_shock_months": 38,
+      "mp_standard_deviation": 0.03269660352976775,
+      "cbi_standard_deviation": 0.023867888916954027,
+      "mp_cbi_correlation": -0.3401594948457219,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29595830631559783,
+        "top_3": 0.5825184492331329,
+        "top_5": 0.6633466411756879
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29126740296944115,
+        "top_3": 0.4378625663029405,
+        "top_5": 0.5739755732812222
+      }
+    },
+    {
+      "model_id": "lp:hungary:unemployment:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 112,
+      "nonzero_mp_months": 75,
+      "nonzero_cbi_months": 75,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.032840863403435214,
+      "cbi_standard_deviation": 0.023973997541652834,
+      "mp_cbi_correlation": -0.3403300225554337,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29595830631559783,
+        "top_3": 0.5825184492331329,
+        "top_5": 0.6633466411756879
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29126740296944115,
+        "top_3": 0.4378625663029405,
+        "top_5": 0.5739755732812222
+      }
+    },
+    {
+      "model_id": "lp:hungary:long_term_yield:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 111,
+      "nonzero_mp_months": 74,
+      "nonzero_cbi_months": 74,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.03299882453963291,
+      "cbi_standard_deviation": 0.024069896883145078,
+      "mp_cbi_correlation": -0.34009106355756424,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29586545477540155,
+        "top_3": 0.582335694655715,
+        "top_5": 0.6631385282219276
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29163124469600143,
+        "top_3": 0.4384095299195196,
+        "top_5": 0.574692564820464
+      }
+    },
+    {
+      "model_id": "lp:hungary:bilateral_fx:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 113,
+      "nonzero_mp_months": 76,
+      "nonzero_cbi_months": 76,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.032709732019744794,
+      "cbi_standard_deviation": 0.023867471270955162,
+      "mp_cbi_correlation": -0.3399101230607933,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.2958601893143389,
+        "top_3": 0.5823253309384371,
+        "top_5": 0.6631267264720339
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.2912662700941508,
+        "top_3": 0.4378608632504297,
+        "top_5": 0.5739733408215044
+      }
+    },
+    {
+      "model_id": "lp:hungary:domestic_policy_rate:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 110,
+      "nonzero_mp_months": 74,
+      "nonzero_cbi_months": 74,
+      "zero_shock_months": 36,
+      "mp_standard_deviation": 0.03314709391397412,
+      "cbi_standard_deviation": 0.024178872104188343,
+      "mp_cbi_correlation": -0.3402636806203857,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29586545477540155,
+        "top_3": 0.582335694655715,
+        "top_5": 0.6631385282219276
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29163124469600143,
+        "top_3": 0.4384095299195196,
+        "top_5": 0.574692564820464
+      }
+    },
+    {
+      "model_id": "lp:poland:hicp_price_level:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 111,
+      "nonzero_mp_months": 74,
+      "nonzero_cbi_months": 74,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.03299882453963291,
+      "cbi_standard_deviation": 0.024069896883145078,
+      "mp_cbi_correlation": -0.34009106355756424,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29586545477540155,
+        "top_3": 0.582335694655715,
+        "top_5": 0.6631385282219276
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29163124469600143,
+        "top_3": 0.4384095299195196,
+        "top_5": 0.574692564820464
+      }
+    },
+    {
+      "model_id": "lp:poland:industrial_production:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 110,
+      "nonzero_mp_months": 73,
+      "nonzero_cbi_months": 73,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.033133554437896104,
+      "cbi_standard_deviation": 0.024179301210558828,
+      "mp_cbi_correlation": -0.34051699396653806,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.2959635752696719,
+        "top_3": 0.5825288198255131,
+        "top_5": 0.6633584507546487
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29163238041220135,
+        "top_3": 0.4384112372427724,
+        "top_5": 0.5746948028785176
+      }
+    },
+    {
+      "model_id": "lp:poland:unemployment:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 110,
+      "nonzero_mp_months": 73,
+      "nonzero_cbi_months": 73,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.033133554437896104,
+      "cbi_standard_deviation": 0.024179301210558828,
+      "mp_cbi_correlation": -0.34051699396653806,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.2959635752696719,
+        "top_3": 0.5825288198255131,
+        "top_5": 0.6633584507546487
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29163238041220135,
+        "top_3": 0.4384112372427724,
+        "top_5": 0.5746948028785176
+      }
+    },
+    {
+      "model_id": "lp:poland:long_term_yield:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 111,
+      "nonzero_mp_months": 74,
+      "nonzero_cbi_months": 74,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.03299882453963291,
+      "cbi_standard_deviation": 0.024069896883145078,
+      "mp_cbi_correlation": -0.34009106355756424,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29586545477540155,
+        "top_3": 0.582335694655715,
+        "top_5": 0.6631385282219276
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29163124469600143,
+        "top_3": 0.4384095299195196,
+        "top_5": 0.574692564820464
+      }
+    },
+    {
+      "model_id": "lp:poland:bilateral_fx:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 114,
+      "nonzero_mp_months": 76,
+      "nonzero_cbi_months": 76,
+      "zero_shock_months": 38,
+      "mp_standard_deviation": 0.03256723052922564,
+      "cbi_standard_deviation": 0.023762765084990152,
+      "mp_cbi_correlation": -0.3397447280326581,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.2958601893143389,
+        "top_3": 0.5823253309384371,
+        "top_5": 0.6631267264720339
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.2912662700941508,
+        "top_3": 0.4378608632504297,
+        "top_5": 0.5739733408215044
+      }
+    },
+    {
+      "model_id": "lp:poland:domestic_policy_rate:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 109,
+      "nonzero_mp_months": 73,
+      "nonzero_cbi_months": 73,
+      "zero_shock_months": 36,
+      "mp_standard_deviation": 0.03329753258675478,
+      "cbi_standard_deviation": 0.024252295340126892,
+      "mp_cbi_correlation": -0.34011659135644,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29605522763365666,
+        "top_3": 0.5827092141303785,
+        "top_5": 0.6635638759328164
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29224035763760375,
+        "top_3": 0.4393252099889653,
+        "top_5": 0.57589289120881
+      }
+    },
+    {
+      "model_id": "lp:romania:hicp_price_level:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 113,
+      "nonzero_mp_months": 76,
+      "nonzero_cbi_months": 76,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.032709732019744794,
+      "cbi_standard_deviation": 0.023867471270955162,
+      "mp_cbi_correlation": -0.3399101230607933,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.2958601893143389,
+        "top_3": 0.5823253309384371,
+        "top_5": 0.6631267264720339
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.2912662700941508,
+        "top_3": 0.4378608632504297,
+        "top_5": 0.5739733408215044
+      }
+    },
+    {
+      "model_id": "lp:romania:industrial_production:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 113,
+      "nonzero_mp_months": 75,
+      "nonzero_cbi_months": 75,
+      "zero_shock_months": 38,
+      "mp_standard_deviation": 0.03269660352976775,
+      "cbi_standard_deviation": 0.023867888916954027,
+      "mp_cbi_correlation": -0.3401594948457219,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29595830631559783,
+        "top_3": 0.5825184492331329,
+        "top_5": 0.6633466411756879
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29126740296944115,
+        "top_3": 0.4378625663029405,
+        "top_5": 0.5739755732812222
+      }
+    },
+    {
+      "model_id": "lp:romania:unemployment:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 110,
+      "nonzero_mp_months": 73,
+      "nonzero_cbi_months": 73,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.033133554437896104,
+      "cbi_standard_deviation": 0.024179301210558828,
+      "mp_cbi_correlation": -0.34051699396653806,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.2959635752696719,
+        "top_3": 0.5825288198255131,
+        "top_5": 0.6633584507546487
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29163238041220135,
+        "top_3": 0.4384112372427724,
+        "top_5": 0.5746948028785176
+      }
+    },
+    {
+      "model_id": "lp:romania:long_term_yield:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 111,
+      "nonzero_mp_months": 74,
+      "nonzero_cbi_months": 74,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.03299882453963291,
+      "cbi_standard_deviation": 0.024069896883145078,
+      "mp_cbi_correlation": -0.34009106355756424,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29586545477540155,
+        "top_3": 0.582335694655715,
+        "top_5": 0.6631385282219276
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29163124469600143,
+        "top_3": 0.4384095299195196,
+        "top_5": 0.574692564820464
+      }
+    },
+    {
+      "model_id": "lp:romania:bilateral_fx:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 111,
+      "nonzero_mp_months": 74,
+      "nonzero_cbi_months": 74,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.03299882453963291,
+      "cbi_standard_deviation": 0.024069896883145078,
+      "mp_cbi_correlation": -0.34009106355756424,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29586545477540155,
+        "top_3": 0.582335694655715,
+        "top_5": 0.6631385282219276
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29163124469600143,
+        "top_3": 0.4384095299195196,
+        "top_5": 0.574692564820464
+      }
+    },
+    {
+      "model_id": "lp:romania:domestic_policy_rate:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 109,
+      "nonzero_mp_months": 73,
+      "nonzero_cbi_months": 73,
+      "zero_shock_months": 36,
+      "mp_standard_deviation": 0.03329753258675478,
+      "cbi_standard_deviation": 0.024252295340126892,
+      "mp_cbi_correlation": -0.34011659135644,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29605522763365666,
+        "top_3": 0.5827092141303785,
+        "top_5": 0.6635638759328164
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29224035763760375,
+        "top_3": 0.4393252099889653,
+        "top_5": 0.57589289120881
+      }
+    },
+    {
+      "model_id": "lp:serbia:hicp_price_level:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 109,
+      "nonzero_mp_months": 73,
+      "nonzero_cbi_months": 73,
+      "zero_shock_months": 36,
+      "mp_standard_deviation": 0.03329753258675478,
+      "cbi_standard_deviation": 0.024252295340126892,
+      "mp_cbi_correlation": -0.34011659135644,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29605522763365666,
+        "top_3": 0.5827092141303785,
+        "top_5": 0.6635638759328164
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29224035763760375,
+        "top_3": 0.4393252099889653,
+        "top_5": 0.57589289120881
+      }
+    },
+    {
+      "model_id": "lp:serbia:industrial_production:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 110,
+      "nonzero_mp_months": 73,
+      "nonzero_cbi_months": 73,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.033133554437896104,
+      "cbi_standard_deviation": 0.024179301210558828,
+      "mp_cbi_correlation": -0.34051699396653806,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.2959635752696719,
+        "top_3": 0.5825288198255131,
+        "top_5": 0.6633584507546487
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29163238041220135,
+        "top_3": 0.4384112372427724,
+        "top_5": 0.5746948028785176
+      }
+    },
+    {
+      "model_id": "lp:serbia:bilateral_fx:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 113,
+      "nonzero_mp_months": 76,
+      "nonzero_cbi_months": 76,
+      "zero_shock_months": 37,
+      "mp_standard_deviation": 0.032709732019744794,
+      "cbi_standard_deviation": 0.023867471270955162,
+      "mp_cbi_correlation": -0.3399101230607933,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.2958601893143389,
+        "top_3": 0.5823253309384371,
+        "top_5": 0.6631267264720339
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.2912662700941508,
+        "top_3": 0.4378608632504297,
+        "top_5": 0.5739733408215044
+      }
+    },
+    {
+      "model_id": "lp:serbia:domestic_policy_rate:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "interpretation": "signal concentration diagnostic; not a shock validity test",
+      "sample_months": 110,
+      "nonzero_mp_months": 74,
+      "nonzero_cbi_months": 74,
+      "zero_shock_months": 36,
+      "mp_standard_deviation": 0.03314709391397412,
+      "cbi_standard_deviation": 0.024178872104188343,
+      "mp_cbi_correlation": -0.3402636806203857,
+      "largest_absolute_mp_months": [
+        {
+          "period": "2020-03",
+          "value": 0.18996661
+        },
+        {
+          "period": "2015-12",
+          "value": 0.16522564
+        },
+        {
+          "period": "2022-12",
+          "value": 0.08741766
+        },
+        {
+          "period": "2015-10",
+          "value": -0.07457095
+        },
+        {
+          "period": "2022-09",
+          "value": 0.06553518
+        }
+      ],
+      "largest_absolute_cbi_months": [
+        {
+          "period": "2023-03",
+          "value": 0.13706177
+        },
+        {
+          "period": "2023-09",
+          "value": 0.06922208
+        },
+        {
+          "period": "2022-07",
+          "value": 0.06828821
+        },
+        {
+          "period": "2015-12",
+          "value": -0.06777853
+        },
+        {
+          "period": "2020-03",
+          "value": -0.0646914
+        }
+      ],
+      "mp_squared_variation_share": {
+        "top_1": 0.29586545477540155,
+        "top_3": 0.582335694655715,
+        "top_5": 0.6631385282219276
+      },
+      "cbi_squared_variation_share": {
+        "top_1": 0.29163124469600143,
+        "top_3": 0.4384095299195196,
+        "top_5": 0.574692564820464
+      }
+    }
+  ]
+}

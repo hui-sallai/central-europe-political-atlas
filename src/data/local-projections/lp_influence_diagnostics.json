@@ -1,0 +1,4451 @@
+{
+  "schema_version": "lp-influence-diagnostics-v1.71",
+  "generated_at": "2026-09-03",
+  "record_count": 44,
+  "records": [
+    {
+      "model_id": "lp:austria:hicp_price_level:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2022-12",
+          "leverage": 0.40285505565505897,
+          "maximum_absolute_standardized_residual": 4.236243751049997,
+          "maximum_absolute_dfbeta_mp": 0.29743299111776306,
+          "maximum_absolute_dfbeta_cbi": 0.3729778020269766
+        },
+        {
+          "period": "2022-02",
+          "leverage": 0.1680001052809236,
+          "maximum_absolute_standardized_residual": 3.544888505657501,
+          "maximum_absolute_dfbeta_mp": 0.46959082933360274,
+          "maximum_absolute_dfbeta_cbi": 0.006967298436109333
+        },
+        {
+          "period": "2023-01",
+          "leverage": 0.36798786846243103,
+          "maximum_absolute_standardized_residual": 3.4772173643833435,
+          "maximum_absolute_dfbeta_mp": 0.05194652553110928,
+          "maximum_absolute_dfbeta_cbi": 0.28413105169084446
+        },
+        {
+          "period": "2022-01",
+          "leverage": 0.1557048572846282,
+          "maximum_absolute_standardized_residual": 3.4348153542779563,
+          "maximum_absolute_dfbeta_mp": 0.20583549888158087,
+          "maximum_absolute_dfbeta_cbi": 0.1916456044637446
+        },
+        {
+          "period": "2022-11",
+          "leverage": 0.5054487827264252,
+          "maximum_absolute_standardized_residual": 3.3036539453597604,
+          "maximum_absolute_dfbeta_mp": 0.2703511336161308,
+          "maximum_absolute_dfbeta_cbi": 0.5779487200253918
+        },
+        {
+          "period": "2021-11",
+          "leverage": 0.14805500426581428,
+          "maximum_absolute_standardized_residual": 3.0348640021417053,
+          "maximum_absolute_dfbeta_mp": 0.0026121192986759234,
+          "maximum_absolute_dfbeta_cbi": 0.030150469340689802
+        },
+        {
+          "period": "2022-03",
+          "leverage": 0.23999470669237333,
+          "maximum_absolute_standardized_residual": 3.0335577415828103,
+          "maximum_absolute_dfbeta_mp": 0.4384038301719382,
+          "maximum_absolute_dfbeta_cbi": 0.6587116234565293
+        },
+        {
+          "period": "2021-10",
+          "leverage": 0.15151497819696552,
+          "maximum_absolute_standardized_residual": 2.9772445373969854,
+          "maximum_absolute_dfbeta_mp": 0.16200726831526496,
+          "maximum_absolute_dfbeta_cbi": 0.21515031151512307
+        },
+        {
+          "period": "2021-12",
+          "leverage": 0.16447525653581654,
+          "maximum_absolute_standardized_residual": 2.9725760753587953,
+          "maximum_absolute_dfbeta_mp": 0.38014901187319733,
+          "maximum_absolute_dfbeta_cbi": 0.5246566410609452
+        },
+        {
+          "period": "2022-09",
+          "leverage": 0.42857767137094327,
+          "maximum_absolute_standardized_residual": 2.9064581751081486,
+          "maximum_absolute_dfbeta_mp": 0.6142300749598822,
+          "maximum_absolute_dfbeta_cbi": 0.6177447653925293
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 1.3554404863008838,
+          "sign_agreement_share": 0.76
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.3037172125172667,
+          "sign_agreement_share": 0.96
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 1.2957062512243045,
+          "sign_agreement_share": 0.96
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 2.8985562454261915,
+          "sign_agreement_share": 0.96
+        }
+      }
+    },
+    {
+      "model_id": "lp:austria:industrial_production:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2020-04",
+          "leverage": 0.3895357769660721,
+          "maximum_absolute_standardized_residual": 7.141168023085647,
+          "maximum_absolute_dfbeta_mp": 0.2678434214143286,
+          "maximum_absolute_dfbeta_cbi": 0.857446342364036
+        },
+        {
+          "period": "2020-02",
+          "leverage": 0.04622315408866379,
+          "maximum_absolute_standardized_residual": 6.566207220301529,
+          "maximum_absolute_dfbeta_mp": 0.09819204130623754,
+          "maximum_absolute_dfbeta_cbi": 0.1726547404912652
+        },
+        {
+          "period": "2020-03",
+          "leverage": 0.3584561643184325,
+          "maximum_absolute_standardized_residual": 6.044878379373705,
+          "maximum_absolute_dfbeta_mp": 1.279274401702037,
+          "maximum_absolute_dfbeta_cbi": 0.7171710779703816
+        },
+        {
+          "period": "2020-01",
+          "leverage": 0.06128771442077319,
+          "maximum_absolute_standardized_residual": 5.650475056673108,
+          "maximum_absolute_dfbeta_mp": 0.2674530158760962,
+          "maximum_absolute_dfbeta_cbi": 0.3847170558083259
+        },
+        {
+          "period": "2019-12",
+          "leverage": 0.0717563359790242,
+          "maximum_absolute_standardized_residual": 5.406039380250238,
+          "maximum_absolute_dfbeta_mp": 0.09712021807174313,
+          "maximum_absolute_dfbeta_cbi": 0.5036407902289048
+        },
+        {
+          "period": "2019-11",
+          "leverage": 0.07708400788180456,
+          "maximum_absolute_standardized_residual": 5.336072164613167,
+          "maximum_absolute_dfbeta_mp": 0.2246079086447864,
+          "maximum_absolute_dfbeta_cbi": 0.19360713741189095
+        },
+        {
+          "period": "2019-10",
+          "leverage": 0.07328309035139831,
+          "maximum_absolute_standardized_residual": 5.287300780182695,
+          "maximum_absolute_dfbeta_mp": 0.32614503418767865,
+          "maximum_absolute_dfbeta_cbi": 0.13076111438817845
+        },
+        {
+          "period": "2019-08",
+          "leverage": 0.029030174316536612,
+          "maximum_absolute_standardized_residual": 5.127888284310354,
+          "maximum_absolute_dfbeta_mp": 0.03672054647092627,
+          "maximum_absolute_dfbeta_cbi": 0.04851188695871349
+        },
+        {
+          "period": "2019-09",
+          "leverage": 0.06391105354476054,
+          "maximum_absolute_standardized_residual": 5.016218366047526,
+          "maximum_absolute_dfbeta_mp": 0.8055311098976204,
+          "maximum_absolute_dfbeta_cbi": 0.8067057686437967
+        },
+        {
+          "period": "2019-04",
+          "leverage": 0.043474364636528234,
+          "maximum_absolute_standardized_residual": 4.929089105901366,
+          "maximum_absolute_dfbeta_mp": 0.6614970878939584,
+          "maximum_absolute_dfbeta_cbi": 0.6119705596021204
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 9.813517912714552,
+          "sign_agreement_share": 0.8
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 2.418343792859069,
+          "sign_agreement_share": 0.88
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 2.628851244667127,
+          "sign_agreement_share": 0.84
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 5.916416328510462,
+          "sign_agreement_share": 0.72
+        }
+      }
+    },
+    {
+      "model_id": "lp:austria:unemployment:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2020-04",
+          "leverage": 0.3134528823073454,
+          "maximum_absolute_standardized_residual": 4.348219695697808,
+          "maximum_absolute_dfbeta_mp": 0.30526876091553806,
+          "maximum_absolute_dfbeta_cbi": 0.19748036511909403
+        },
+        {
+          "period": "2020-03",
+          "leverage": 0.3117847931779003,
+          "maximum_absolute_standardized_residual": 4.180106189371109,
+          "maximum_absolute_dfbeta_mp": 1.2808161411240653,
+          "maximum_absolute_dfbeta_cbi": 0.5017536840645992
+        },
+        {
+          "period": "2020-02",
+          "leverage": 0.03291006109671675,
+          "maximum_absolute_standardized_residual": 4.176049154373462,
+          "maximum_absolute_dfbeta_mp": 0.18209439325696333,
+          "maximum_absolute_dfbeta_cbi": 0.14192091821147673
+        },
+        {
+          "period": "2019-12",
+          "leverage": 0.039803394700763176,
+          "maximum_absolute_standardized_residual": 4.005117390334795,
+          "maximum_absolute_dfbeta_mp": 0.2740536975509,
+          "maximum_absolute_dfbeta_cbi": 0.05385721130971553
+        },
+        {
+          "period": "2020-01",
+          "leverage": 0.03358326101561572,
+          "maximum_absolute_standardized_residual": 3.9265076600815476,
+          "maximum_absolute_dfbeta_mp": 0.01293957108213787,
+          "maximum_absolute_dfbeta_cbi": 0.3293113582581377
+        },
+        {
+          "period": "2020-05",
+          "leverage": 0.034538675887106865,
+          "maximum_absolute_standardized_residual": 3.597455145893746,
+          "maximum_absolute_dfbeta_mp": 0.07647339029589376,
+          "maximum_absolute_dfbeta_cbi": 0.0360710693995769
+        },
+        {
+          "period": "2019-11",
+          "leverage": 0.021731805442509543,
+          "maximum_absolute_standardized_residual": 3.51317593270054,
+          "maximum_absolute_dfbeta_mp": 0.18874272951520388,
+          "maximum_absolute_dfbeta_cbi": 0.12049472649086052
+        },
+        {
+          "period": "2019-10",
+          "leverage": 0.05662649061965603,
+          "maximum_absolute_standardized_residual": 3.2702829130111044,
+          "maximum_absolute_dfbeta_mp": 0.042194135879345576,
+          "maximum_absolute_dfbeta_cbi": 0.060214409083747374
+        },
+        {
+          "period": "2018-09",
+          "leverage": 0.011688841477145731,
+          "maximum_absolute_standardized_residual": 3.182723320825477,
+          "maximum_absolute_dfbeta_mp": 0.06204454554391246,
+          "maximum_absolute_dfbeta_cbi": 0.1886722106301208
+        },
+        {
+          "period": "2020-11",
+          "leverage": 0.040676084100809,
+          "maximum_absolute_standardized_residual": 3.1629163270808665,
+          "maximum_absolute_dfbeta_mp": 0.009319285394032652,
+          "maximum_absolute_dfbeta_cbi": 0.07244770145174015
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 1.146175307414825,
+          "sign_agreement_share": 0.8
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.2986578516222207,
+          "sign_agreement_share": 0.96
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.48716356563952634,
+          "sign_agreement_share": 0.92
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 1.096175243417415,
+          "sign_agreement_share": 0.8
+        }
+      }
+    },
+    {
+      "model_id": "lp:austria:long_term_yield:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2022-09",
+          "leverage": 0.115518695478314,
+          "maximum_absolute_standardized_residual": 4.591358705820449,
+          "maximum_absolute_dfbeta_mp": 0.8899477962099382,
+          "maximum_absolute_dfbeta_cbi": 0.8930246495471096
+        },
+        {
+          "period": "2022-04",
+          "leverage": 0.02630075192203911,
+          "maximum_absolute_standardized_residual": 3.70361882470308,
+          "maximum_absolute_dfbeta_mp": 0.4037263716471429,
+          "maximum_absolute_dfbeta_cbi": 0.35966690480622593
+        },
+        {
+          "period": "2022-01",
+          "leverage": 0.024448056715883452,
+          "maximum_absolute_standardized_residual": 3.638006313458666,
+          "maximum_absolute_dfbeta_mp": 0.12043566870145982,
+          "maximum_absolute_dfbeta_cbi": 0.03151560924409751
+        },
+        {
+          "period": "2022-02",
+          "leverage": 0.0259065237188826,
+          "maximum_absolute_standardized_residual": 3.608580369373403,
+          "maximum_absolute_dfbeta_mp": 0.24463605622907278,
+          "maximum_absolute_dfbeta_cbi": 0.2545403588859448
+        },
+        {
+          "period": "2022-03",
+          "leverage": 0.024252108929941778,
+          "maximum_absolute_standardized_residual": 3.413094996110975,
+          "maximum_absolute_dfbeta_mp": 0.04381586385868397,
+          "maximum_absolute_dfbeta_cbi": 0.06371497456707946
+        },
+        {
+          "period": "2023-12",
+          "leverage": 0.059530760669441206,
+          "maximum_absolute_standardized_residual": 3.2746318418979596,
+          "maximum_absolute_dfbeta_mp": 0.17865341248179925,
+          "maximum_absolute_dfbeta_cbi": 0.08935446835407503
+        },
+        {
+          "period": "2022-08",
+          "leverage": 0.1514286643958854,
+          "maximum_absolute_standardized_residual": 3.2455587245014654,
+          "maximum_absolute_dfbeta_mp": 0.1462583981813812,
+          "maximum_absolute_dfbeta_cbi": 0.13017388236545127
+        },
+        {
+          "period": "2021-12",
+          "leverage": 0.023536773210069823,
+          "maximum_absolute_standardized_residual": 3.158338128666683,
+          "maximum_absolute_dfbeta_mp": 0.02968351360975193,
+          "maximum_absolute_dfbeta_cbi": 0.31322129325606535
+        },
+        {
+          "period": "2023-11",
+          "leverage": 0.06834007478913379,
+          "maximum_absolute_standardized_residual": 2.921200668978015,
+          "maximum_absolute_dfbeta_mp": 0.048469356403780424,
+          "maximum_absolute_dfbeta_cbi": 0.15287511213936042
+        },
+        {
+          "period": "2021-11",
+          "leverage": 0.014451346921002844,
+          "maximum_absolute_standardized_residual": 2.905371073813056,
+          "maximum_absolute_dfbeta_mp": 0.08254030796844311,
+          "maximum_absolute_dfbeta_cbi": 0.024289298614232232
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 0.4167701622217887,
+          "sign_agreement_share": 0.96
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.09459760806142642,
+          "sign_agreement_share": 0.96
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.129973752445508,
+          "sign_agreement_share": 0.92
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.28396573069197417,
+          "sign_agreement_share": 0.92
+        }
+      }
+    },
+    {
+      "model_id": "lp:germany:hicp_price_level:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2021-01",
+          "leverage": 0.17294246346912884,
+          "maximum_absolute_standardized_residual": 4.112467946246056,
+          "maximum_absolute_dfbeta_mp": 0.42808215423394985,
+          "maximum_absolute_dfbeta_cbi": 0.3370316046027153
+        },
+        {
+          "period": "2020-12",
+          "leverage": 0.16413360697478696,
+          "maximum_absolute_standardized_residual": 3.4718044444324154,
+          "maximum_absolute_dfbeta_mp": 0.036508775606942816,
+          "maximum_absolute_dfbeta_cbi": 0.03594086229716774
+        },
+        {
+          "period": "2022-09",
+          "leverage": 0.42900886809488237,
+          "maximum_absolute_standardized_residual": 3.4609264455970874,
+          "maximum_absolute_dfbeta_mp": 0.8699793300306045,
+          "maximum_absolute_dfbeta_cbi": 0.75994153821361
+        },
+        {
+          "period": "2022-12",
+          "leverage": 0.5556154084346154,
+          "maximum_absolute_standardized_residual": 3.2235587824288716,
+          "maximum_absolute_dfbeta_mp": 0.7054364852329984,
+          "maximum_absolute_dfbeta_cbi": 0.42163542733543985
+        },
+        {
+          "period": "2021-10",
+          "leverage": 0.1504970963951558,
+          "maximum_absolute_standardized_residual": 3.1216413652860298,
+          "maximum_absolute_dfbeta_mp": 0.22141916486645255,
+          "maximum_absolute_dfbeta_cbi": 0.16089427564587958
+        },
+        {
+          "period": "2021-11",
+          "leverage": 0.16190159768534707,
+          "maximum_absolute_standardized_residual": 2.902265778697838,
+          "maximum_absolute_dfbeta_mp": 0.1314902801817003,
+          "maximum_absolute_dfbeta_cbi": 0.0937751641929566
+        },
+        {
+          "period": "2021-09",
+          "leverage": 0.15293768346808004,
+          "maximum_absolute_standardized_residual": 2.869568896260389,
+          "maximum_absolute_dfbeta_mp": 0.21665431576577984,
+          "maximum_absolute_dfbeta_cbi": 0.07960137781493695
+        },
+        {
+          "period": "2023-05",
+          "leverage": 0.653668019046572,
+          "maximum_absolute_standardized_residual": 2.849441376069749,
+          "maximum_absolute_dfbeta_mp": 0.7663946317798178,
+          "maximum_absolute_dfbeta_cbi": 0.5013691938493534
+        },
+        {
+          "period": "2022-01",
+          "leverage": 0.19219835615421,
+          "maximum_absolute_standardized_residual": 2.8266972543514464,
+          "maximum_absolute_dfbeta_mp": 0.04310239630325862,
+          "maximum_absolute_dfbeta_cbi": 0.06126479348400668
+        },
+        {
+          "period": "2021-04",
+          "leverage": 0.34068149572666184,
+          "maximum_absolute_standardized_residual": 2.785293806265445,
+          "maximum_absolute_dfbeta_mp": 0.37605499446569185,
+          "maximum_absolute_dfbeta_cbi": 0.6869292880281845
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 1.4921762228639681,
+          "sign_agreement_share": 0.96
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.6954089702911999,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 1.7839893553284623,
+          "sign_agreement_share": 0.84
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 3.9098813284555094,
+          "sign_agreement_share": 0.84
+        }
+      }
+    },
+    {
+      "model_id": "lp:germany:industrial_production:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2020-04",
+          "leverage": 0.4284917973551261,
+          "maximum_absolute_standardized_residual": 6.988431115563015,
+          "maximum_absolute_dfbeta_mp": 0.11622069176345015,
+          "maximum_absolute_dfbeta_cbi": 1.0412410978211926
+        },
+        {
+          "period": "2020-02",
+          "leverage": 0.04903285161589749,
+          "maximum_absolute_standardized_residual": 6.976829605825052,
+          "maximum_absolute_dfbeta_mp": 0.022499454122354046,
+          "maximum_absolute_dfbeta_cbi": 0.06323886900871901
+        },
+        {
+          "period": "2020-03",
+          "leverage": 0.35150231299360757,
+          "maximum_absolute_standardized_residual": 6.5621657082896565,
+          "maximum_absolute_dfbeta_mp": 1.2653957514389647,
+          "maximum_absolute_dfbeta_cbi": 0.5752403013901991
+        },
+        {
+          "period": "2020-01",
+          "leverage": 0.06416585741005908,
+          "maximum_absolute_standardized_residual": 6.197753408959896,
+          "maximum_absolute_dfbeta_mp": 0.17489180401800816,
+          "maximum_absolute_dfbeta_cbi": 0.49307223916921594
+        },
+        {
+          "period": "2019-12",
+          "leverage": 0.05287884164784257,
+          "maximum_absolute_standardized_residual": 6.166656580285313,
+          "maximum_absolute_dfbeta_mp": 0.19665462586448304,
+          "maximum_absolute_dfbeta_cbi": 0.4749270842340093
+        },
+        {
+          "period": "2019-11",
+          "leverage": 0.0738445622544317,
+          "maximum_absolute_standardized_residual": 5.944956784832945,
+          "maximum_absolute_dfbeta_mp": 0.08211593645265483,
+          "maximum_absolute_dfbeta_cbi": 0.11278066149699677
+        },
+        {
+          "period": "2019-08",
+          "leverage": 0.03693079687224196,
+          "maximum_absolute_standardized_residual": 5.746471757331009,
+          "maximum_absolute_dfbeta_mp": 0.03019476347401723,
+          "maximum_absolute_dfbeta_cbi": 0.017605647933009463
+        },
+        {
+          "period": "2019-05",
+          "leverage": 0.04408526365665094,
+          "maximum_absolute_standardized_residual": 5.706735120977436,
+          "maximum_absolute_dfbeta_mp": 0.3208857177681845,
+          "maximum_absolute_dfbeta_cbi": 0.27014280433948706
+        },
+        {
+          "period": "2019-10",
+          "leverage": 0.07397548230122808,
+          "maximum_absolute_standardized_residual": 5.704930319293738,
+          "maximum_absolute_dfbeta_mp": 0.020470653508304917,
+          "maximum_absolute_dfbeta_cbi": 0.3533436194723269
+        },
+        {
+          "period": "2019-06",
+          "leverage": 0.036028286530842,
+          "maximum_absolute_standardized_residual": 5.6996749381712934,
+          "maximum_absolute_dfbeta_mp": 0.38189729284067414,
+          "maximum_absolute_dfbeta_cbi": 0.27610114348937115
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 12.96495801251559,
+          "sign_agreement_share": 0.96
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 2.254198929830356,
+          "sign_agreement_share": 0.92
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 3.95603967059547,
+          "sign_agreement_share": 0.88
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 8.831053292033257,
+          "sign_agreement_share": 0.72
+        }
+      }
+    },
+    {
+      "model_id": "lp:germany:unemployment:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2019-11",
+          "leverage": 0.07395065394468102,
+          "maximum_absolute_standardized_residual": 3.2785754860819925,
+          "maximum_absolute_dfbeta_mp": 0.06006653623589395,
+          "maximum_absolute_dfbeta_cbi": 0.02340589358053478
+        },
+        {
+          "period": "2019-12",
+          "leverage": 0.08279943790584704,
+          "maximum_absolute_standardized_residual": 3.107542507384744,
+          "maximum_absolute_dfbeta_mp": 0.17515874582924829,
+          "maximum_absolute_dfbeta_cbi": 0.20272263623594644
+        },
+        {
+          "period": "2019-10",
+          "leverage": 0.07644941339792975,
+          "maximum_absolute_standardized_residual": 2.8723308787488593,
+          "maximum_absolute_dfbeta_mp": 0.019597960744186474,
+          "maximum_absolute_dfbeta_cbi": 0.16009862153623022
+        },
+        {
+          "period": "2021-04",
+          "leverage": 0.06205160726654807,
+          "maximum_absolute_standardized_residual": 2.8061766415901452,
+          "maximum_absolute_dfbeta_mp": 0.1305961768930219,
+          "maximum_absolute_dfbeta_cbi": 0.09914479039440184
+        },
+        {
+          "period": "2020-04",
+          "leverage": 0.3776583466395076,
+          "maximum_absolute_standardized_residual": 2.7238848203239963,
+          "maximum_absolute_dfbeta_mp": 0.06710011483764704,
+          "maximum_absolute_dfbeta_cbi": 0.40492887850700293
+        },
+        {
+          "period": "2020-01",
+          "leverage": 0.10528853020255564,
+          "maximum_absolute_standardized_residual": 2.696123109740586,
+          "maximum_absolute_dfbeta_mp": 0.06722835433261348,
+          "maximum_absolute_dfbeta_cbi": 0.20048943583458853
+        },
+        {
+          "period": "2024-03",
+          "leverage": 0.06453302841502767,
+          "maximum_absolute_standardized_residual": 2.693439832290477,
+          "maximum_absolute_dfbeta_mp": 0.4714559004202866,
+          "maximum_absolute_dfbeta_cbi": 0.027807094869822788
+        },
+        {
+          "period": "2020-05",
+          "leverage": 0.3650856012187689,
+          "maximum_absolute_standardized_residual": 2.6262958465321726,
+          "maximum_absolute_dfbeta_mp": 0.20560569214377417,
+          "maximum_absolute_dfbeta_cbi": 0.15944234564000745
+        },
+        {
+          "period": "2020-02",
+          "leverage": 0.09031564041848154,
+          "maximum_absolute_standardized_residual": 2.5493438261912225,
+          "maximum_absolute_dfbeta_mp": 0.2281312762063255,
+          "maximum_absolute_dfbeta_cbi": 0.05701093053190821
+        },
+        {
+          "period": "2019-09",
+          "leverage": 0.07215235709918424,
+          "maximum_absolute_standardized_residual": 2.4052272954909424,
+          "maximum_absolute_dfbeta_mp": 0.38090065000897105,
+          "maximum_absolute_dfbeta_cbi": 0.43715367795258503
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 0.1602743136351698,
+          "sign_agreement_share": 0.88
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.027271126912543298,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.05135105375074413,
+          "sign_agreement_share": 0.96
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.10997466569614223,
+          "sign_agreement_share": 1
+        }
+      }
+    },
+    {
+      "model_id": "lp:germany:long_term_yield:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2022-09",
+          "leverage": 0.11470547097793857,
+          "maximum_absolute_standardized_residual": 4.925864313085381,
+          "maximum_absolute_dfbeta_mp": 0.9126968567690168,
+          "maximum_absolute_dfbeta_cbi": 0.9016588577732165
+        },
+        {
+          "period": "2022-01",
+          "leverage": 0.025347928026343454,
+          "maximum_absolute_standardized_residual": 3.612904157039703,
+          "maximum_absolute_dfbeta_mp": 0.12002952420632955,
+          "maximum_absolute_dfbeta_cbi": 0.027697304744734485
+        },
+        {
+          "period": "2022-04",
+          "leverage": 0.02649866849466418,
+          "maximum_absolute_standardized_residual": 3.589163457485081,
+          "maximum_absolute_dfbeta_mp": 0.3669801089544519,
+          "maximum_absolute_dfbeta_cbi": 0.30652287613176293
+        },
+        {
+          "period": "2022-02",
+          "leverage": 0.026052859256245522,
+          "maximum_absolute_standardized_residual": 3.4367613782620063,
+          "maximum_absolute_dfbeta_mp": 0.23272609876657546,
+          "maximum_absolute_dfbeta_cbi": 0.23787685343752396
+        },
+        {
+          "period": "2022-08",
+          "leverage": 0.15097920176078264,
+          "maximum_absolute_standardized_residual": 3.285530697258485,
+          "maximum_absolute_dfbeta_mp": 0.13738754006607565,
+          "maximum_absolute_dfbeta_cbi": 0.1248997634633342
+        },
+        {
+          "period": "2022-03",
+          "leverage": 0.024380064076409913,
+          "maximum_absolute_standardized_residual": 3.2624105498485383,
+          "maximum_absolute_dfbeta_mp": 0.04154927046176425,
+          "maximum_absolute_dfbeta_cbi": 0.06116373232146545
+        },
+        {
+          "period": "2023-12",
+          "leverage": 0.06087423647801349,
+          "maximum_absolute_standardized_residual": 3.228357197002387,
+          "maximum_absolute_dfbeta_mp": 0.17342971051283496,
+          "maximum_absolute_dfbeta_cbi": 0.0808784098821755
+        },
+        {
+          "period": "2021-12",
+          "leverage": 0.02408764060818281,
+          "maximum_absolute_standardized_residual": 3.0867573869815934,
+          "maximum_absolute_dfbeta_mp": 0.025962211711466163,
+          "maximum_absolute_dfbeta_cbi": 0.29329909909763635
+        },
+        {
+          "period": "2022-05",
+          "leverage": 0.0289053827745678,
+          "maximum_absolute_standardized_residual": 2.962596463357821,
+          "maximum_absolute_dfbeta_mp": 0.0906788774686129,
+          "maximum_absolute_dfbeta_cbi": 0.11413352590873908
+        },
+        {
+          "period": "2023-11",
+          "leverage": 0.06737536210512336,
+          "maximum_absolute_standardized_residual": 2.841684136686996,
+          "maximum_absolute_dfbeta_mp": 0.040325926878744214,
+          "maximum_absolute_dfbeta_cbi": 0.13662422775038868
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 0.402194485168557,
+          "sign_agreement_share": 0.96
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.09300351489458825,
+          "sign_agreement_share": 0.84
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.11584759248216667,
+          "sign_agreement_share": 0.96
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.25272037297625755,
+          "sign_agreement_share": 0.84
+        }
+      }
+    },
+    {
+      "model_id": "lp:slovakia:hicp_price_level:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2022-01",
+          "leverage": 0.14166113511857958,
+          "maximum_absolute_standardized_residual": 4.417273905092407,
+          "maximum_absolute_dfbeta_mp": 0.153649687508866,
+          "maximum_absolute_dfbeta_cbi": 0.18866469312774908
+        },
+        {
+          "period": "2023-01",
+          "leverage": 0.3427594237418611,
+          "maximum_absolute_standardized_residual": 3.464883303213043,
+          "maximum_absolute_dfbeta_mp": 0.03643928470138805,
+          "maximum_absolute_dfbeta_cbi": 0.021855385630966312
+        },
+        {
+          "period": "2023-02",
+          "leverage": 0.42078766514211763,
+          "maximum_absolute_standardized_residual": 3.265927931164335,
+          "maximum_absolute_dfbeta_mp": 0.27540038891756435,
+          "maximum_absolute_dfbeta_cbi": 0.010940254603952853
+        },
+        {
+          "period": "2023-05",
+          "leverage": 0.6022356339181016,
+          "maximum_absolute_standardized_residual": 3.14136570363226,
+          "maximum_absolute_dfbeta_mp": 1.1536274349449556,
+          "maximum_absolute_dfbeta_cbi": 0.9272870415893801
+        },
+        {
+          "period": "2022-09",
+          "leverage": 0.38570057011607906,
+          "maximum_absolute_standardized_residual": 3.0947450158822383,
+          "maximum_absolute_dfbeta_mp": 0.7614697178657639,
+          "maximum_absolute_dfbeta_cbi": 0.6088587616391943
+        },
+        {
+          "period": "2022-10",
+          "leverage": 0.3991529715435749,
+          "maximum_absolute_standardized_residual": 2.8695957629461732,
+          "maximum_absolute_dfbeta_mp": 0.44756709870528694,
+          "maximum_absolute_dfbeta_cbi": 0.2990271998810268
+        },
+        {
+          "period": "2023-03",
+          "leverage": 0.6214585599024971,
+          "maximum_absolute_standardized_residual": 2.8170602906271744,
+          "maximum_absolute_dfbeta_mp": 0.941360029062934,
+          "maximum_absolute_dfbeta_cbi": 1.6441241206915835
+        },
+        {
+          "period": "2016-01",
+          "leverage": 0.38574176369809066,
+          "maximum_absolute_standardized_residual": 2.7948717934627565,
+          "maximum_absolute_dfbeta_mp": 0.13523347438280978,
+          "maximum_absolute_dfbeta_cbi": 0.39565332928196234
+        },
+        {
+          "period": "2021-12",
+          "leverage": 0.15188803793609534,
+          "maximum_absolute_standardized_residual": 2.764859790068233,
+          "maximum_absolute_dfbeta_mp": 0.20581939781729214,
+          "maximum_absolute_dfbeta_cbi": 0.22112317354710137
+        },
+        {
+          "period": "2021-06",
+          "leverage": 0.13292424469913008,
+          "maximum_absolute_standardized_residual": 2.6956196001838184,
+          "maximum_absolute_dfbeta_mp": 0.043594942112821014,
+          "maximum_absolute_dfbeta_cbi": 0.3329674456762948
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 1.368279254581342,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.5170368464533404,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 2.656062977434914,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 7.288197333414433,
+          "sign_agreement_share": 1
+        }
+      }
+    },
+    {
+      "model_id": "lp:slovakia:industrial_production:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2020-02",
+          "leverage": 0.013392721489209785,
+          "maximum_absolute_standardized_residual": 7.056671667391501,
+          "maximum_absolute_dfbeta_mp": 0.14139089991538456,
+          "maximum_absolute_dfbeta_cbi": 0.1749787463911011
+        },
+        {
+          "period": "2020-04",
+          "leverage": 0.32165135808295847,
+          "maximum_absolute_standardized_residual": 6.558153540443679,
+          "maximum_absolute_dfbeta_mp": 0.4215849376929484,
+          "maximum_absolute_dfbeta_cbi": 0.3720475017373598
+        },
+        {
+          "period": "2020-01",
+          "leverage": 0.025662083366867358,
+          "maximum_absolute_standardized_residual": 6.375654688777748,
+          "maximum_absolute_dfbeta_mp": 0.14936614402714535,
+          "maximum_absolute_dfbeta_cbi": 0.5119830249389268
+        },
+        {
+          "period": "2018-05",
+          "leverage": 0.01086954530281398,
+          "maximum_absolute_standardized_residual": 6.367449383426953,
+          "maximum_absolute_dfbeta_mp": 0.17739170425348874,
+          "maximum_absolute_dfbeta_cbi": 0.20442420024767963
+        },
+        {
+          "period": "2019-11",
+          "leverage": 0.01607269898766292,
+          "maximum_absolute_standardized_residual": 6.34259341839441,
+          "maximum_absolute_dfbeta_mp": 0.2788328329103653,
+          "maximum_absolute_dfbeta_cbi": 0.2052738894004796
+        },
+        {
+          "period": "2018-06",
+          "leverage": 0.04147034285345447,
+          "maximum_absolute_standardized_residual": 6.335320964316865,
+          "maximum_absolute_dfbeta_mp": 0.7857919574995319,
+          "maximum_absolute_dfbeta_cbi": 0.7903903902805361
+        },
+        {
+          "period": "2019-12",
+          "leverage": 0.022377389005505094,
+          "maximum_absolute_standardized_residual": 6.32488813937282,
+          "maximum_absolute_dfbeta_mp": 0.3886138967344266,
+          "maximum_absolute_dfbeta_cbi": 0.19119191152102685
+        },
+        {
+          "period": "2018-04",
+          "leverage": 0.01908238276751928,
+          "maximum_absolute_standardized_residual": 6.318489314714064,
+          "maximum_absolute_dfbeta_mp": 0.02516872892162391,
+          "maximum_absolute_dfbeta_cbi": 0.4103902353249062
+        },
+        {
+          "period": "2019-10",
+          "leverage": 0.04519098896701591,
+          "maximum_absolute_standardized_residual": 6.299929156170053,
+          "maximum_absolute_dfbeta_mp": 0.2511681971893229,
+          "maximum_absolute_dfbeta_cbi": 0.09129869982917077
+        },
+        {
+          "period": "2019-04",
+          "leverage": 0.017473815421800376,
+          "maximum_absolute_standardized_residual": 6.276785579002599,
+          "maximum_absolute_dfbeta_mp": 0.4252463635616816,
+          "maximum_absolute_dfbeta_cbi": 0.30108780097259985
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 16.203671041265544,
+          "sign_agreement_share": 0.96
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 4.064668961755563,
+          "sign_agreement_share": 0.96
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 2.6970065053688335,
+          "sign_agreement_share": 0.96
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 6.02616085616382,
+          "sign_agreement_share": 0.68
+        }
+      }
+    },
+    {
+      "model_id": "lp:slovakia:unemployment:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2020-04",
+          "leverage": 0.39781764991733326,
+          "maximum_absolute_standardized_residual": 4.903876211221869,
+          "maximum_absolute_dfbeta_mp": 0.3989738075504275,
+          "maximum_absolute_dfbeta_cbi": 0.8759047852087638
+        },
+        {
+          "period": "2020-01",
+          "leverage": 0.06562224885390051,
+          "maximum_absolute_standardized_residual": 3.8436540106632027,
+          "maximum_absolute_dfbeta_mp": 0.12453577644444931,
+          "maximum_absolute_dfbeta_cbi": 0.22821857638454665
+        },
+        {
+          "period": "2019-12",
+          "leverage": 0.06403057989960412,
+          "maximum_absolute_standardized_residual": 3.752491465881068,
+          "maximum_absolute_dfbeta_mp": 0.160049866050474,
+          "maximum_absolute_dfbeta_cbi": 0.11437774367537315
+        },
+        {
+          "period": "2020-02",
+          "leverage": 0.0779275020508732,
+          "maximum_absolute_standardized_residual": 3.4401514520652796,
+          "maximum_absolute_dfbeta_mp": 0.23497385263276566,
+          "maximum_absolute_dfbeta_cbi": 0.19571106744886066
+        },
+        {
+          "period": "2019-11",
+          "leverage": 0.08000373397267299,
+          "maximum_absolute_standardized_residual": 3.275277983005653,
+          "maximum_absolute_dfbeta_mp": 0.00386043419852136,
+          "maximum_absolute_dfbeta_cbi": 0.06452246133212468
+        },
+        {
+          "period": "2020-03",
+          "leverage": 0.3747926477899721,
+          "maximum_absolute_standardized_residual": 2.8597908650404182,
+          "maximum_absolute_dfbeta_mp": 1.2343215932411973,
+          "maximum_absolute_dfbeta_cbi": 0.1940420078212167
+        },
+        {
+          "period": "2015-06",
+          "leverage": 0.0928290612966268,
+          "maximum_absolute_standardized_residual": 2.6433291458734685,
+          "maximum_absolute_dfbeta_mp": 0.024867675603787612,
+          "maximum_absolute_dfbeta_cbi": 0.2575334864564622
+        },
+        {
+          "period": "2019-10",
+          "leverage": 0.0689283791909934,
+          "maximum_absolute_standardized_residual": 2.519218752570434,
+          "maximum_absolute_dfbeta_mp": 0.02599086886740717,
+          "maximum_absolute_dfbeta_cbi": 0.13442097532369354
+        },
+        {
+          "period": "2019-09",
+          "leverage": 0.07525669601601284,
+          "maximum_absolute_standardized_residual": 2.3627120960633063,
+          "maximum_absolute_dfbeta_mp": 0.42749349826241106,
+          "maximum_absolute_dfbeta_cbi": 0.4127552943310116
+        },
+        {
+          "period": "2019-08",
+          "leverage": 0.04643035739222693,
+          "maximum_absolute_standardized_residual": 2.2500505274755125,
+          "maximum_absolute_dfbeta_mp": 0.038203839791375434,
+          "maximum_absolute_dfbeta_cbi": 0.017097185140728464
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 0.4444104203892498,
+          "sign_agreement_share": 0.96
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.050228619415648684,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.28897752206228644,
+          "sign_agreement_share": 0.92
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.6491766567990591,
+          "sign_agreement_share": 1
+        }
+      }
+    },
+    {
+      "model_id": "lp:slovakia:long_term_yield:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2022-09",
+          "leverage": 0.2893936908769944,
+          "maximum_absolute_standardized_residual": 4.564258907303882,
+          "maximum_absolute_dfbeta_mp": 1.0950394316367353,
+          "maximum_absolute_dfbeta_cbi": 1.0903939637555788
+        },
+        {
+          "period": "2022-01",
+          "leverage": 0.02658299522069041,
+          "maximum_absolute_standardized_residual": 3.507597962362798,
+          "maximum_absolute_dfbeta_mp": 0.14172534761060426,
+          "maximum_absolute_dfbeta_cbi": 0.03473657918494824
+        },
+        {
+          "period": "2022-02",
+          "leverage": 0.05424034007603225,
+          "maximum_absolute_standardized_residual": 3.3362469570219417,
+          "maximum_absolute_dfbeta_mp": 0.2866290566046031,
+          "maximum_absolute_dfbeta_cbi": 0.30362269468091396
+        },
+        {
+          "period": "2022-04",
+          "leverage": 0.04862371468915805,
+          "maximum_absolute_standardized_residual": 3.3362172007171673,
+          "maximum_absolute_dfbeta_mp": 0.35900156764579927,
+          "maximum_absolute_dfbeta_cbi": 0.37051343001039133
+        },
+        {
+          "period": "2021-12",
+          "leverage": 0.02750397554639493,
+          "maximum_absolute_standardized_residual": 3.334698748199217,
+          "maximum_absolute_dfbeta_mp": 0.027649409601670075,
+          "maximum_absolute_dfbeta_cbi": 0.3468408885237867
+        },
+        {
+          "period": "2022-08",
+          "leverage": 0.21588539484041375,
+          "maximum_absolute_standardized_residual": 3.184077736194569,
+          "maximum_absolute_dfbeta_mp": 0.20083040316573342,
+          "maximum_absolute_dfbeta_cbi": 0.09533923570010622
+        },
+        {
+          "period": "2021-09",
+          "leverage": 0.02829187529523121,
+          "maximum_absolute_standardized_residual": 3.024617618161093,
+          "maximum_absolute_dfbeta_mp": 0.15724580368294183,
+          "maximum_absolute_dfbeta_cbi": 0.18452321045519005
+        },
+        {
+          "period": "2022-03",
+          "leverage": 0.06551969086635903,
+          "maximum_absolute_standardized_residual": 2.9674624100665143,
+          "maximum_absolute_dfbeta_mp": 0.04579241267311702,
+          "maximum_absolute_dfbeta_cbi": 0.047175526406324636
+        },
+        {
+          "period": "2020-05",
+          "leverage": 0.3454046616595924,
+          "maximum_absolute_standardized_residual": 2.885009313746339,
+          "maximum_absolute_dfbeta_mp": 0.1941266742283107,
+          "maximum_absolute_dfbeta_cbi": 0.09719487762134009
+        },
+        {
+          "period": "2021-11",
+          "leverage": 0.033192643056706446,
+          "maximum_absolute_standardized_residual": 2.7982628260255535,
+          "maximum_absolute_dfbeta_mp": 0.0965840700211552,
+          "maximum_absolute_dfbeta_cbi": 0.01913152843290131
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 0.6106101437953956,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.14681667164386758,
+          "sign_agreement_share": 0.96
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.1974728871521812,
+          "sign_agreement_share": 0.92
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.42842290913323106,
+          "sign_agreement_share": 0.8
+        }
+      }
+    },
+    {
+      "model_id": "lp:slovenia:hicp_price_level:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2022-06",
+          "leverage": 0.444727254186185,
+          "maximum_absolute_standardized_residual": 3.3691440713549623,
+          "maximum_absolute_dfbeta_mp": 0.2150228206468201,
+          "maximum_absolute_dfbeta_cbi": 0.6749186235188741
+        },
+        {
+          "period": "2022-04",
+          "leverage": 0.34161496237248745,
+          "maximum_absolute_standardized_residual": 3.288593816263795,
+          "maximum_absolute_dfbeta_mp": 0.6663538787946055,
+          "maximum_absolute_dfbeta_cbi": 0.6066972707828369
+        },
+        {
+          "period": "2021-10",
+          "leverage": 0.1632414509552509,
+          "maximum_absolute_standardized_residual": 3.192939608841889,
+          "maximum_absolute_dfbeta_mp": 0.08540737832333295,
+          "maximum_absolute_dfbeta_cbi": 0.2959126352245311
+        },
+        {
+          "period": "2023-03",
+          "leverage": 0.6345144799517775,
+          "maximum_absolute_standardized_residual": 3.173000208079259,
+          "maximum_absolute_dfbeta_mp": 1.4897198204564879,
+          "maximum_absolute_dfbeta_cbi": 1.8848990159464107
+        },
+        {
+          "period": "2020-01",
+          "leverage": 0.19485045763321032,
+          "maximum_absolute_standardized_residual": 3.0043836677295257,
+          "maximum_absolute_dfbeta_mp": 0.06986058572956955,
+          "maximum_absolute_dfbeta_cbi": 0.07565284120381056
+        },
+        {
+          "period": "2021-09",
+          "leverage": 0.16769626067236396,
+          "maximum_absolute_standardized_residual": 2.9811456722548306,
+          "maximum_absolute_dfbeta_mp": 0.23584021374043365,
+          "maximum_absolute_dfbeta_cbi": 0.0405424856889684
+        },
+        {
+          "period": "2020-02",
+          "leverage": 0.17584796058386987,
+          "maximum_absolute_standardized_residual": 2.9767984606599325,
+          "maximum_absolute_dfbeta_mp": 0.032474946131497526,
+          "maximum_absolute_dfbeta_cbi": 0.09078257894856906
+        },
+        {
+          "period": "2023-04",
+          "leverage": 0.6340764237784715,
+          "maximum_absolute_standardized_residual": 2.9658330902719947,
+          "maximum_absolute_dfbeta_mp": 0.3203823900966672,
+          "maximum_absolute_dfbeta_cbi": 0.4905728218897081
+        },
+        {
+          "period": "2021-11",
+          "leverage": 0.1790608630428569,
+          "maximum_absolute_standardized_residual": 2.96405348381192,
+          "maximum_absolute_dfbeta_mp": 0.1207025098482571,
+          "maximum_absolute_dfbeta_cbi": 0.045499482687207
+        },
+        {
+          "period": "2021-07",
+          "leverage": 0.14285211359328803,
+          "maximum_absolute_standardized_residual": 2.908348741217335,
+          "maximum_absolute_dfbeta_mp": 0.19537777920567548,
+          "maximum_absolute_dfbeta_cbi": 0.40749099094172586
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 1.3795220444772136,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.7082263851397315,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 2.847760266698196,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 6.614628017096091,
+          "sign_agreement_share": 1
+        }
+      }
+    },
+    {
+      "model_id": "lp:slovenia:industrial_production:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2020-03",
+          "leverage": 0.3095180406344237,
+          "maximum_absolute_standardized_residual": 6.234602829896157,
+          "maximum_absolute_dfbeta_mp": 1.260276163401027,
+          "maximum_absolute_dfbeta_cbi": 0.7005702845527819
+        },
+        {
+          "period": "2020-04",
+          "leverage": 0.3155178860016224,
+          "maximum_absolute_standardized_residual": 5.922219230209079,
+          "maximum_absolute_dfbeta_mp": 0.4843150838148493,
+          "maximum_absolute_dfbeta_cbi": 0.22621273713459794
+        },
+        {
+          "period": "2019-12",
+          "leverage": 0.01457199030517703,
+          "maximum_absolute_standardized_residual": 5.531940327150948,
+          "maximum_absolute_dfbeta_mp": 0.4399899215414213,
+          "maximum_absolute_dfbeta_cbi": 0.1981001252466992
+        },
+        {
+          "period": "2020-02",
+          "leverage": 0.01516333948005294,
+          "maximum_absolute_standardized_residual": 5.499454523214222,
+          "maximum_absolute_dfbeta_mp": 0.14745359149560192,
+          "maximum_absolute_dfbeta_cbi": 0.11357180418043286
+        },
+        {
+          "period": "2019-11",
+          "leverage": 0.015366880297012844,
+          "maximum_absolute_standardized_residual": 5.498965583258364,
+          "maximum_absolute_dfbeta_mp": 0.2536538890744739,
+          "maximum_absolute_dfbeta_cbi": 0.12837877973069628
+        },
+        {
+          "period": "2018-04",
+          "leverage": 0.01830841798086016,
+          "maximum_absolute_standardized_residual": 5.407267875514282,
+          "maximum_absolute_dfbeta_mp": 0.051490935679725756,
+          "maximum_absolute_dfbeta_cbi": 0.3309649027552054
+        },
+        {
+          "period": "2018-05",
+          "leverage": 0.01076658089900489,
+          "maximum_absolute_standardized_residual": 5.398267613494967,
+          "maximum_absolute_dfbeta_mp": 0.2290664511340758,
+          "maximum_absolute_dfbeta_cbi": 0.18160117979491627
+        },
+        {
+          "period": "2019-08",
+          "leverage": 0.025798478855324006,
+          "maximum_absolute_standardized_residual": 5.3446134430681145,
+          "maximum_absolute_dfbeta_mp": 0.17008957063266136,
+          "maximum_absolute_dfbeta_cbi": 0.008469009681024098
+        },
+        {
+          "period": "2020-01",
+          "leverage": 0.016354989966747342,
+          "maximum_absolute_standardized_residual": 5.208306830625823,
+          "maximum_absolute_dfbeta_mp": 0.11819405365508334,
+          "maximum_absolute_dfbeta_cbi": 0.39875437047655515
+        },
+        {
+          "period": "2019-05",
+          "leverage": 0.014750376361859122,
+          "maximum_absolute_standardized_residual": 5.190504597118871,
+          "maximum_absolute_dfbeta_mp": 0.1865579937359202,
+          "maximum_absolute_dfbeta_cbi": 0.14113163510322757
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 11.307413001221583,
+          "sign_agreement_share": 0.8
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 2.831145698266243,
+          "sign_agreement_share": 0.92
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 3.0217486277932704,
+          "sign_agreement_share": 0.88
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 6.858632681090835,
+          "sign_agreement_share": 0.96
+        }
+      }
+    },
+    {
+      "model_id": "lp:slovenia:unemployment:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2020-04",
+          "leverage": 0.3610193635481327,
+          "maximum_absolute_standardized_residual": 5.014591596748886,
+          "maximum_absolute_dfbeta_mp": 0.3256588231697568,
+          "maximum_absolute_dfbeta_cbi": 0.7504410137289904
+        },
+        {
+          "period": "2020-03",
+          "leverage": 0.34378176618718753,
+          "maximum_absolute_standardized_residual": 3.2128198823829717,
+          "maximum_absolute_dfbeta_mp": 1.2234941457780117,
+          "maximum_absolute_dfbeta_cbi": 0.18755458467196143
+        },
+        {
+          "period": "2016-08",
+          "leverage": 0.052698485779659895,
+          "maximum_absolute_standardized_residual": 2.8502766021623045,
+          "maximum_absolute_dfbeta_mp": 0.05461804118118795,
+          "maximum_absolute_dfbeta_cbi": 0.034959438286798934
+        },
+        {
+          "period": "2016-10",
+          "leverage": 0.09702562374026637,
+          "maximum_absolute_standardized_residual": 2.7888291936304808,
+          "maximum_absolute_dfbeta_mp": 0.14239093523988658,
+          "maximum_absolute_dfbeta_cbi": 0.09548789974772152
+        },
+        {
+          "period": "2016-09",
+          "leverage": 0.08026715007069508,
+          "maximum_absolute_standardized_residual": 2.7537271822021525,
+          "maximum_absolute_dfbeta_mp": 0.12070870713173174,
+          "maximum_absolute_dfbeta_cbi": 0.3523737440613459
+        },
+        {
+          "period": "2020-05",
+          "leverage": 0.48132260160124873,
+          "maximum_absolute_standardized_residual": 2.630566150790997,
+          "maximum_absolute_dfbeta_mp": 0.24511377716285498,
+          "maximum_absolute_dfbeta_cbi": 0.039131268973657776
+        },
+        {
+          "period": "2015-10",
+          "leverage": 0.14924597242887722,
+          "maximum_absolute_standardized_residual": 2.5710067331142543,
+          "maximum_absolute_dfbeta_mp": 0.4492974848744965,
+          "maximum_absolute_dfbeta_cbi": 0.5367413002174921
+        },
+        {
+          "period": "2020-02",
+          "leverage": 0.06036327203877451,
+          "maximum_absolute_standardized_residual": 2.4893402783015515,
+          "maximum_absolute_dfbeta_mp": 0.16033684913109034,
+          "maximum_absolute_dfbeta_cbi": 0.1049617776174954
+        },
+        {
+          "period": "2015-05",
+          "leverage": 0.10234845093692481,
+          "maximum_absolute_standardized_residual": 2.4820841554479434,
+          "maximum_absolute_dfbeta_mp": 0.025827523780971962,
+          "maximum_absolute_dfbeta_cbi": 0.05512819638027766
+        },
+        {
+          "period": "2019-05",
+          "leverage": 0.04762991160596224,
+          "maximum_absolute_standardized_residual": 2.4798205240323665,
+          "maximum_absolute_dfbeta_mp": 0.13836142844418275,
+          "maximum_absolute_dfbeta_cbi": 0.1084850400427004
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 0.467725944435063,
+          "sign_agreement_share": 0.76
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.05765630558158921,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.3186395472701491,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.7180018236131842,
+          "sign_agreement_share": 0.8
+        }
+      }
+    },
+    {
+      "model_id": "lp:slovenia:long_term_yield:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2022-10",
+          "leverage": 0.30734505593918304,
+          "maximum_absolute_standardized_residual": 4.776005368550937,
+          "maximum_absolute_dfbeta_mp": 0.6280134067626331,
+          "maximum_absolute_dfbeta_cbi": 0.210965989862216
+        },
+        {
+          "period": "2022-09",
+          "leverage": 0.3138733998739246,
+          "maximum_absolute_standardized_residual": 4.247108526715984,
+          "maximum_absolute_dfbeta_mp": 1.031359622747413,
+          "maximum_absolute_dfbeta_cbi": 1.0297781768924128
+        },
+        {
+          "period": "2022-01",
+          "leverage": 0.0294318021074114,
+          "maximum_absolute_standardized_residual": 3.387095220715074,
+          "maximum_absolute_dfbeta_mp": 0.15647315170607762,
+          "maximum_absolute_dfbeta_cbi": 0.09216738462718806
+        },
+        {
+          "period": "2022-06",
+          "leverage": 0.10705330768552189,
+          "maximum_absolute_standardized_residual": 3.341462564497644,
+          "maximum_absolute_dfbeta_mp": 0.008799142565767124,
+          "maximum_absolute_dfbeta_cbi": 0.5396434214000635
+        },
+        {
+          "period": "2022-02",
+          "leverage": 0.049869907622416956,
+          "maximum_absolute_standardized_residual": 3.3140484772914403,
+          "maximum_absolute_dfbeta_mp": 0.25441842346092797,
+          "maximum_absolute_dfbeta_cbi": 0.23206740491747133
+        },
+        {
+          "period": "2022-03",
+          "leverage": 0.052780410072787706,
+          "maximum_absolute_standardized_residual": 3.2004197323583465,
+          "maximum_absolute_dfbeta_mp": 0.04308883417831351,
+          "maximum_absolute_dfbeta_cbi": 0.012072854778466506
+        },
+        {
+          "period": "2022-04",
+          "leverage": 0.06251340292698691,
+          "maximum_absolute_standardized_residual": 3.170222139729023,
+          "maximum_absolute_dfbeta_mp": 0.3550344117125245,
+          "maximum_absolute_dfbeta_cbi": 0.18088501424859665
+        },
+        {
+          "period": "2021-12",
+          "leverage": 0.034549613149841236,
+          "maximum_absolute_standardized_residual": 3.1377113679816175,
+          "maximum_absolute_dfbeta_mp": 0.06664609436910174,
+          "maximum_absolute_dfbeta_cbi": 0.1428061875107627
+        },
+        {
+          "period": "2022-05",
+          "leverage": 0.08244877713395422,
+          "maximum_absolute_standardized_residual": 2.9929079160260765,
+          "maximum_absolute_dfbeta_mp": 0.18483446865738307,
+          "maximum_absolute_dfbeta_cbi": 0.14441849477135524
+        },
+        {
+          "period": "2022-11",
+          "leverage": 0.2835817137842652,
+          "maximum_absolute_standardized_residual": 2.960875704470888,
+          "maximum_absolute_dfbeta_mp": 0.030786879028143532,
+          "maximum_absolute_dfbeta_cbi": 0.07121194142113631
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 0.44472642462055617,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.08162577004031801,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.24188272748688544,
+          "sign_agreement_share": 0.8
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.506346487761201,
+          "sign_agreement_share": 0.96
+        }
+      }
+    },
+    {
+      "model_id": "lp:czechia:hicp_price_level:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2023-01",
+          "leverage": 0.442414226489695,
+          "maximum_absolute_standardized_residual": 5.810941183444789,
+          "maximum_absolute_dfbeta_mp": 0.515478975886953,
+          "maximum_absolute_dfbeta_cbi": 0.44733020610785806
+        },
+        {
+          "period": "2022-12",
+          "leverage": 0.4683412338480476,
+          "maximum_absolute_standardized_residual": 4.1403410066114175,
+          "maximum_absolute_dfbeta_mp": 0.8354652055486758,
+          "maximum_absolute_dfbeta_cbi": 0.09985831342536593
+        },
+        {
+          "period": "2022-01",
+          "leverage": 0.17298237520679208,
+          "maximum_absolute_standardized_residual": 4.033741542024683,
+          "maximum_absolute_dfbeta_mp": 0.0016422380104694503,
+          "maximum_absolute_dfbeta_cbi": 0.11090449724870986
+        },
+        {
+          "period": "2023-02",
+          "leverage": 0.7083871059262057,
+          "maximum_absolute_standardized_residual": 3.3663110833017975,
+          "maximum_absolute_dfbeta_mp": 0.45439962807436535,
+          "maximum_absolute_dfbeta_cbi": 0.1481902426948776
+        },
+        {
+          "period": "2023-05",
+          "leverage": 0.7840664151528042,
+          "maximum_absolute_standardized_residual": 3.1321884107555844,
+          "maximum_absolute_dfbeta_mp": 1.1536155737440117,
+          "maximum_absolute_dfbeta_cbi": 0.7922939104510833
+        },
+        {
+          "period": "2023-07",
+          "leverage": 0.6366520291854052,
+          "maximum_absolute_standardized_residual": 2.8543469420093186,
+          "maximum_absolute_dfbeta_mp": 0.001656499721875805,
+          "maximum_absolute_dfbeta_cbi": 0.253423315716552
+        },
+        {
+          "period": "2021-12",
+          "leverage": 0.17993904655314583,
+          "maximum_absolute_standardized_residual": 2.852830210518295,
+          "maximum_absolute_dfbeta_mp": 0.3749382029769482,
+          "maximum_absolute_dfbeta_cbi": 0.421538509603887
+        },
+        {
+          "period": "2021-07",
+          "leverage": 0.13467773512928394,
+          "maximum_absolute_standardized_residual": 2.807801661937162,
+          "maximum_absolute_dfbeta_mp": 0.23732105149566382,
+          "maximum_absolute_dfbeta_cbi": 0.4168750543505518
+        },
+        {
+          "period": "2021-06",
+          "leverage": 0.14056051980730117,
+          "maximum_absolute_standardized_residual": 2.770804414712329,
+          "maximum_absolute_dfbeta_mp": 0.09219986798807811,
+          "maximum_absolute_dfbeta_cbi": 0.2237553690822408
+        },
+        {
+          "period": "2023-03",
+          "leverage": 0.7676821842904394,
+          "maximum_absolute_standardized_residual": 2.680636032742902,
+          "maximum_absolute_dfbeta_mp": 1.2088761442966902,
+          "maximum_absolute_dfbeta_cbi": 1.3800227722497296
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 1.8844612339191,
+          "sign_agreement_share": 0.96
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.5294359158755029,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 3.9283984732587736,
+          "sign_agreement_share": 0.84
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 8.176779140711275,
+          "sign_agreement_share": 1
+        }
+      }
+    },
+    {
+      "model_id": "lp:czechia:industrial_production:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2018-05",
+          "leverage": 0.011058844619965952,
+          "maximum_absolute_standardized_residual": 7.520305648942892,
+          "maximum_absolute_dfbeta_mp": 0.29912074927717947,
+          "maximum_absolute_dfbeta_cbi": 0.2587328648564836
+        },
+        {
+          "period": "2018-04",
+          "leverage": 0.019293678877757348,
+          "maximum_absolute_standardized_residual": 7.477617797555502,
+          "maximum_absolute_dfbeta_mp": 0.114576111932912,
+          "maximum_absolute_dfbeta_cbi": 0.4809494080964351
+        },
+        {
+          "period": "2018-06",
+          "leverage": 0.04276205885447992,
+          "maximum_absolute_standardized_residual": 7.327644810483642,
+          "maximum_absolute_dfbeta_mp": 0.8158025197600087,
+          "maximum_absolute_dfbeta_cbi": 0.8523695855217869
+        },
+        {
+          "period": "2018-09",
+          "leverage": 0.014235663240681207,
+          "maximum_absolute_standardized_residual": 7.269271171245348,
+          "maximum_absolute_dfbeta_mp": 0.3986217071128537,
+          "maximum_absolute_dfbeta_cbi": 0.5058132979845569
+        },
+        {
+          "period": "2018-07",
+          "leverage": 0.041922470167829684,
+          "maximum_absolute_standardized_residual": 7.268217518354622,
+          "maximum_absolute_dfbeta_mp": 0.33239170556022446,
+          "maximum_absolute_dfbeta_cbi": 0.01904958646387314
+        },
+        {
+          "period": "2018-08",
+          "leverage": 0.020268697360085297,
+          "maximum_absolute_standardized_residual": 7.249912341383868,
+          "maximum_absolute_dfbeta_mp": 0.38766291387555546,
+          "maximum_absolute_dfbeta_cbi": 0.3395300251794156
+        },
+        {
+          "period": "2018-12",
+          "leverage": 0.014716010459277062,
+          "maximum_absolute_standardized_residual": 7.242355164517885,
+          "maximum_absolute_dfbeta_mp": 0.69290278846029,
+          "maximum_absolute_dfbeta_cbi": 0.14242390866290267
+        },
+        {
+          "period": "2018-11",
+          "leverage": 0.021545713053261056,
+          "maximum_absolute_standardized_residual": 7.145411517544746,
+          "maximum_absolute_dfbeta_mp": 0.5543150520575161,
+          "maximum_absolute_dfbeta_cbi": 0.2848066059377406
+        },
+        {
+          "period": "2018-10",
+          "leverage": 0.023815893840904517,
+          "maximum_absolute_standardized_residual": 7.124779943861041,
+          "maximum_absolute_dfbeta_mp": 0.09612195128565253,
+          "maximum_absolute_dfbeta_cbi": 0.7706854096187534
+        },
+        {
+          "period": "2019-01",
+          "leverage": 0.024780888176876542,
+          "maximum_absolute_standardized_residual": 7.098481231145943,
+          "maximum_absolute_dfbeta_mp": 0.037605324041681785,
+          "maximum_absolute_dfbeta_cbi": 0.8349591148050588
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 12.214870376346674,
+          "sign_agreement_share": 0.88
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 3.0722812808123847,
+          "sign_agreement_share": 0.92
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 3.814483350084727,
+          "sign_agreement_share": 0.84
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 8.561150939019955,
+          "sign_agreement_share": 0.84
+        }
+      }
+    },
+    {
+      "model_id": "lp:czechia:unemployment:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2020-04",
+          "leverage": 0.3562088814072223,
+          "maximum_absolute_standardized_residual": 3.070191270511688,
+          "maximum_absolute_dfbeta_mp": 0.13302282167012844,
+          "maximum_absolute_dfbeta_cbi": 0.23168776617877856
+        },
+        {
+          "period": "2020-02",
+          "leverage": 0.09379843873698235,
+          "maximum_absolute_standardized_residual": 2.971879416954922,
+          "maximum_absolute_dfbeta_mp": 0.10529439926366475,
+          "maximum_absolute_dfbeta_cbi": 0.14092307872923965
+        },
+        {
+          "period": "2020-03",
+          "leverage": 0.3528027208946902,
+          "maximum_absolute_standardized_residual": 2.753300406275145,
+          "maximum_absolute_dfbeta_mp": 1.1977669990001525,
+          "maximum_absolute_dfbeta_cbi": 0.20706257458193164
+        },
+        {
+          "period": "2022-11",
+          "leverage": 0.3508489156713398,
+          "maximum_absolute_standardized_residual": 2.7338598022491705,
+          "maximum_absolute_dfbeta_mp": 0.19714857740639832,
+          "maximum_absolute_dfbeta_cbi": 0.20075692905289905
+        },
+        {
+          "period": "2021-05",
+          "leverage": 0.05565143438911202,
+          "maximum_absolute_standardized_residual": 2.70163578769842,
+          "maximum_absolute_dfbeta_mp": 0.0771259964384837,
+          "maximum_absolute_dfbeta_cbi": 0.1774817550188121
+        },
+        {
+          "period": "2020-05",
+          "leverage": 0.36646856034936337,
+          "maximum_absolute_standardized_residual": 2.585907465060347,
+          "maximum_absolute_dfbeta_mp": 0.11830818477562213,
+          "maximum_absolute_dfbeta_cbi": 0.01929600700683055
+        },
+        {
+          "period": "2015-10",
+          "leverage": 0.14769881771667975,
+          "maximum_absolute_standardized_residual": 2.5853363346921725,
+          "maximum_absolute_dfbeta_mp": 0.37679502925573755,
+          "maximum_absolute_dfbeta_cbi": 0.42155358141247345
+        },
+        {
+          "period": "2020-01",
+          "leverage": 0.08560099561298408,
+          "maximum_absolute_standardized_residual": 2.5636955327557884,
+          "maximum_absolute_dfbeta_mp": 0.11406863923311777,
+          "maximum_absolute_dfbeta_cbi": 0.1102083749964954
+        },
+        {
+          "period": "2015-11",
+          "leverage": 0.14464227294773116,
+          "maximum_absolute_standardized_residual": 2.529612388551336,
+          "maximum_absolute_dfbeta_mp": 0.022492094724498916,
+          "maximum_absolute_dfbeta_cbi": 0.16918054611984296
+        },
+        {
+          "period": "2015-06",
+          "leverage": 0.1750635374760172,
+          "maximum_absolute_standardized_residual": 2.514712048416617,
+          "maximum_absolute_dfbeta_mp": 0.014959280080505373,
+          "maximum_absolute_dfbeta_cbi": 0.3720865841411174
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 0.39175835041358276,
+          "sign_agreement_share": 0.92
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.07013298440261384,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.10554555262285381,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.23852424474293,
+          "sign_agreement_share": 0.96
+        }
+      }
+    },
+    {
+      "model_id": "lp:czechia:long_term_yield:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2022-03",
+          "leverage": 0.11907947955998455,
+          "maximum_absolute_standardized_residual": 4.29211651582324,
+          "maximum_absolute_dfbeta_mp": 0.2562985453386784,
+          "maximum_absolute_dfbeta_cbi": 0.15088312670516524
+        },
+        {
+          "period": "2022-09",
+          "leverage": 0.4400673017401513,
+          "maximum_absolute_standardized_residual": 3.8973059296898644,
+          "maximum_absolute_dfbeta_mp": 1.1319425715114892,
+          "maximum_absolute_dfbeta_cbi": 0.8065519930840845
+        },
+        {
+          "period": "2021-09",
+          "leverage": 0.027200986818890063,
+          "maximum_absolute_standardized_residual": 3.5401408273110526,
+          "maximum_absolute_dfbeta_mp": 0.16345691055884207,
+          "maximum_absolute_dfbeta_cbi": 0.2733890740814221
+        },
+        {
+          "period": "2022-01",
+          "leverage": 0.053436744400611094,
+          "maximum_absolute_standardized_residual": 3.4639075336804512,
+          "maximum_absolute_dfbeta_mp": 0.3240563910485734,
+          "maximum_absolute_dfbeta_cbi": 0.09112162979434826
+        },
+        {
+          "period": "2021-10",
+          "leverage": 0.03195244932405254,
+          "maximum_absolute_standardized_residual": 3.46158182104798,
+          "maximum_absolute_dfbeta_mp": 0.003945251293999034,
+          "maximum_absolute_dfbeta_cbi": 0.24538176878947973
+        },
+        {
+          "period": "2021-08",
+          "leverage": 0.027598123154767104,
+          "maximum_absolute_standardized_residual": 3.305455314635706,
+          "maximum_absolute_dfbeta_mp": 0.22835282678743957,
+          "maximum_absolute_dfbeta_cbi": 0.19683917168177995
+        },
+        {
+          "period": "2022-05",
+          "leverage": 0.12548145827249083,
+          "maximum_absolute_standardized_residual": 3.2776105167413165,
+          "maximum_absolute_dfbeta_mp": 0.22727326419007093,
+          "maximum_absolute_dfbeta_cbi": 0.26246964479976903
+        },
+        {
+          "period": "2021-12",
+          "leverage": 0.05008125442476351,
+          "maximum_absolute_standardized_residual": 3.2043339742058956,
+          "maximum_absolute_dfbeta_mp": 0.05427441693109559,
+          "maximum_absolute_dfbeta_cbi": 0.21496377310391124
+        },
+        {
+          "period": "2021-07",
+          "leverage": 0.026435403601000707,
+          "maximum_absolute_standardized_residual": 3.16930918386958,
+          "maximum_absolute_dfbeta_mp": 0.016879648915509266,
+          "maximum_absolute_dfbeta_cbi": 0.2839158554577784
+        },
+        {
+          "period": "2022-07",
+          "leverage": 0.358705856447719,
+          "maximum_absolute_standardized_residual": 3.0706932410695758,
+          "maximum_absolute_dfbeta_mp": 0.8172851795276772,
+          "maximum_absolute_dfbeta_cbi": 1.0533129129168948
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 0.5156862176276555,
+          "sign_agreement_share": 0.88
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.09391760189722687,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.21005870106601066,
+          "sign_agreement_share": 0.96
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.42907435779454994,
+          "sign_agreement_share": 0.84
+        }
+      }
+    },
+    {
+      "model_id": "lp:czechia:bilateral_fx:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2020-03",
+          "leverage": 0.3103039927377442,
+          "maximum_absolute_standardized_residual": 5.225708799742047,
+          "maximum_absolute_dfbeta_mp": 1.302958606163147,
+          "maximum_absolute_dfbeta_cbi": 0.5384019916617335
+        },
+        {
+          "period": "2020-02",
+          "leverage": 0.01684375737354546,
+          "maximum_absolute_standardized_residual": 4.317528270211194,
+          "maximum_absolute_dfbeta_mp": 0.09114587407779928,
+          "maximum_absolute_dfbeta_cbi": 0.10951080549036088
+        },
+        {
+          "period": "2020-01",
+          "leverage": 0.016243299903252448,
+          "maximum_absolute_standardized_residual": 3.350695939610402,
+          "maximum_absolute_dfbeta_mp": 0.049392174540096465,
+          "maximum_absolute_dfbeta_cbi": 0.22661237971599857
+        },
+        {
+          "period": "2019-12",
+          "leverage": 0.012175756338799283,
+          "maximum_absolute_standardized_residual": 3.2465706330956627,
+          "maximum_absolute_dfbeta_mp": 0.09417097586633985,
+          "maximum_absolute_dfbeta_cbi": 0.0506398899174867
+        },
+        {
+          "period": "2022-01",
+          "leverage": 0.024516815233951605,
+          "maximum_absolute_standardized_residual": 3.0786857011853734,
+          "maximum_absolute_dfbeta_mp": 0.11726580945685207,
+          "maximum_absolute_dfbeta_cbi": 0.08294589105639819
+        },
+        {
+          "period": "2020-09",
+          "leverage": 0.016020103330147806,
+          "maximum_absolute_standardized_residual": 2.870317746244569,
+          "maximum_absolute_dfbeta_mp": 0.05298952306740572,
+          "maximum_absolute_dfbeta_cbi": 0.154902119166415
+        },
+        {
+          "period": "2019-11",
+          "leverage": 0.01102363668324672,
+          "maximum_absolute_standardized_residual": 2.8356338672136525,
+          "maximum_absolute_dfbeta_mp": 0.05615988934642388,
+          "maximum_absolute_dfbeta_cbi": 0.05539086797050829
+        },
+        {
+          "period": "2022-09",
+          "leverage": 0.11877160330759758,
+          "maximum_absolute_standardized_residual": 2.6199792344832034,
+          "maximum_absolute_dfbeta_mp": 0.45972499766602243,
+          "maximum_absolute_dfbeta_cbi": 0.5711300190989064
+        },
+        {
+          "period": "2021-12",
+          "leverage": 0.022561785631879203,
+          "maximum_absolute_standardized_residual": 2.5455893515178514,
+          "maximum_absolute_dfbeta_mp": 0.010972307150777915,
+          "maximum_absolute_dfbeta_cbi": 0.3118981724790923
+        },
+        {
+          "period": "2019-08",
+          "leverage": 0.021530742437558585,
+          "maximum_absolute_standardized_residual": 2.544071315951636,
+          "maximum_absolute_dfbeta_mp": 0.04161771994157407,
+          "maximum_absolute_dfbeta_cbi": 0.009127633091566903
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 3.428592045287158,
+          "sign_agreement_share": 0.56
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.9062420199789034,
+          "sign_agreement_share": 0.84
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 1.1487169127909542,
+          "sign_agreement_share": 0.96
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 2.6009164851153876,
+          "sign_agreement_share": 0.6
+        }
+      }
+    },
+    {
+      "model_id": "lp:czechia:domestic_policy_rate:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2021-10",
+          "leverage": 0.02709054351975973,
+          "maximum_absolute_standardized_residual": 4.815269957382094,
+          "maximum_absolute_dfbeta_mp": 0.002327662047780825,
+          "maximum_absolute_dfbeta_cbi": 0.13211504540175134
+        },
+        {
+          "period": "2020-03",
+          "leverage": 0.3404452980773898,
+          "maximum_absolute_standardized_residual": 4.247546067320822,
+          "maximum_absolute_dfbeta_mp": 1.2352907819306946,
+          "maximum_absolute_dfbeta_cbi": 0.225684751276012
+        },
+        {
+          "period": "2021-11",
+          "leverage": 0.09125698212250406,
+          "maximum_absolute_standardized_residual": 4.24448226806727,
+          "maximum_absolute_dfbeta_mp": 0.19429070577683388,
+          "maximum_absolute_dfbeta_cbi": 0.16825179405336038
+        },
+        {
+          "period": "2022-05",
+          "leverage": 0.09763827906345814,
+          "maximum_absolute_standardized_residual": 3.867428695375402,
+          "maximum_absolute_dfbeta_mp": 0.2858339626693846,
+          "maximum_absolute_dfbeta_cbi": 0.44542595856746575
+        },
+        {
+          "period": "2021-09",
+          "leverage": 0.029661402190624818,
+          "maximum_absolute_standardized_residual": 3.645672549364673,
+          "maximum_absolute_dfbeta_mp": 0.08459197875773589,
+          "maximum_absolute_dfbeta_cbi": 0.21189102132064203
+        },
+        {
+          "period": "2022-01",
+          "leverage": 0.21950466447985106,
+          "maximum_absolute_standardized_residual": 3.488555123657234,
+          "maximum_absolute_dfbeta_mp": 0.1978958195957849,
+          "maximum_absolute_dfbeta_cbi": 0.11843543588830016
+        },
+        {
+          "period": "2022-06",
+          "leverage": 0.16618755715851952,
+          "maximum_absolute_standardized_residual": 3.48208748270961,
+          "maximum_absolute_dfbeta_mp": 0.1139006032398881,
+          "maximum_absolute_dfbeta_cbi": 0.6894493004812868
+        },
+        {
+          "period": "2022-04",
+          "leverage": 0.12069848650562208,
+          "maximum_absolute_standardized_residual": 3.3698170261131826,
+          "maximum_absolute_dfbeta_mp": 0.27985677403278947,
+          "maximum_absolute_dfbeta_cbi": 0.2994811967267854
+        },
+        {
+          "period": "2021-08",
+          "leverage": 0.026887695342030463,
+          "maximum_absolute_standardized_residual": 3.2488287400696563,
+          "maximum_absolute_dfbeta_mp": 0.09810493134204856,
+          "maximum_absolute_dfbeta_cbi": 0.009108646620464858
+        },
+        {
+          "period": "2021-06",
+          "leverage": 0.02175680598164733,
+          "maximum_absolute_standardized_residual": 3.095987065831176,
+          "maximum_absolute_dfbeta_mp": 0.11697712206246406,
+          "maximum_absolute_dfbeta_cbi": 0.19757795534904427
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 0.9454724059567763,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.17324524309763234,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 1.051601127448345,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 2.3183099893508343,
+          "sign_agreement_share": 1
+        }
+      }
+    },
+    {
+      "model_id": "lp:hungary:hicp_price_level:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2022-08",
+          "leverage": 0.3422882507118816,
+          "maximum_absolute_standardized_residual": 4.57479571852943,
+          "maximum_absolute_dfbeta_mp": 0.017409349918732633,
+          "maximum_absolute_dfbeta_cbi": 0.0809127518939886
+        },
+        {
+          "period": "2022-07",
+          "leverage": 0.31300388253184497,
+          "maximum_absolute_standardized_residual": 4.0540195283535745,
+          "maximum_absolute_dfbeta_mp": 0.8935095241195082,
+          "maximum_absolute_dfbeta_cbi": 1.073037947730436
+        },
+        {
+          "period": "2023-02",
+          "leverage": 0.25293764312396017,
+          "maximum_absolute_standardized_residual": 3.796886949309174,
+          "maximum_absolute_dfbeta_mp": 0.6109922806576834,
+          "maximum_absolute_dfbeta_cbi": 0.3041895682921427
+        },
+        {
+          "period": "2022-06",
+          "leverage": 0.2010281221124008,
+          "maximum_absolute_standardized_residual": 3.476459117224511,
+          "maximum_absolute_dfbeta_mp": 0.07145738951616398,
+          "maximum_absolute_dfbeta_cbi": 0.5691710400106451
+        },
+        {
+          "period": "2022-04",
+          "leverage": 0.15347877417336545,
+          "maximum_absolute_standardized_residual": 3.45282298758123,
+          "maximum_absolute_dfbeta_mp": 0.46455834667038276,
+          "maximum_absolute_dfbeta_cbi": 0.3745992185312183
+        },
+        {
+          "period": "2022-05",
+          "leverage": 0.15726223253248275,
+          "maximum_absolute_standardized_residual": 3.35146547099371,
+          "maximum_absolute_dfbeta_mp": 0.08122818395630726,
+          "maximum_absolute_dfbeta_cbi": 0.08773819688117698
+        },
+        {
+          "period": "2022-01",
+          "leverage": 0.11763407236377371,
+          "maximum_absolute_standardized_residual": 3.2300838437675203,
+          "maximum_absolute_dfbeta_mp": 0.019245678131840905,
+          "maximum_absolute_dfbeta_cbi": 0.03938939858064125
+        },
+        {
+          "period": "2022-03",
+          "leverage": 0.13310180258338422,
+          "maximum_absolute_standardized_residual": 3.060403637261782,
+          "maximum_absolute_dfbeta_mp": 0.313974642996522,
+          "maximum_absolute_dfbeta_cbi": 0.3014111004814015
+        },
+        {
+          "period": "2022-02",
+          "leverage": 0.1390896619000605,
+          "maximum_absolute_standardized_residual": 2.8775249938778638,
+          "maximum_absolute_dfbeta_mp": 0.26106749703781323,
+          "maximum_absolute_dfbeta_cbi": 0.19307042332392924
+        },
+        {
+          "period": "2021-10",
+          "leverage": 0.13041432401414468,
+          "maximum_absolute_standardized_residual": 2.8197372859161387,
+          "maximum_absolute_dfbeta_mp": 0.21910144464472794,
+          "maximum_absolute_dfbeta_cbi": 0.19731846205970258
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 2.2509739516910083,
+          "sign_agreement_share": 0.76
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 1.0662420423871524,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 1.077267738666761,
+          "sign_agreement_share": 0.92
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 2.3758631835039203,
+          "sign_agreement_share": 1
+        }
+      }
+    },
+    {
+      "model_id": "lp:hungary:industrial_production:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2020-04",
+          "leverage": 0.3202623505743057,
+          "maximum_absolute_standardized_residual": 6.8536538057849326,
+          "maximum_absolute_dfbeta_mp": 0.5257894249139293,
+          "maximum_absolute_dfbeta_cbi": 0.2702437647903854
+        },
+        {
+          "period": "2020-02",
+          "leverage": 0.018128889690512975,
+          "maximum_absolute_standardized_residual": 6.684018053268462,
+          "maximum_absolute_dfbeta_mp": 0.16314983320049267,
+          "maximum_absolute_dfbeta_cbi": 0.18634195084933036
+        },
+        {
+          "period": "2020-03",
+          "leverage": 0.3096198597401477,
+          "maximum_absolute_standardized_residual": 6.590484059569453,
+          "maximum_absolute_dfbeta_mp": 1.330696963240882,
+          "maximum_absolute_dfbeta_cbi": 0.7834599339860917
+        },
+        {
+          "period": "2018-05",
+          "leverage": 0.011293984489862116,
+          "maximum_absolute_standardized_residual": 6.21664776222604,
+          "maximum_absolute_dfbeta_mp": 0.14452156209076367,
+          "maximum_absolute_dfbeta_cbi": 0.19654595445433246
+        },
+        {
+          "period": "2019-01",
+          "leverage": 0.022041273210892012,
+          "maximum_absolute_standardized_residual": 6.169036734645912,
+          "maximum_absolute_dfbeta_mp": 0.029655790465565917,
+          "maximum_absolute_dfbeta_cbi": 0.7894362078056919
+        },
+        {
+          "period": "2018-04",
+          "leverage": 0.01963026258752148,
+          "maximum_absolute_standardized_residual": 6.144090667364164,
+          "maximum_absolute_dfbeta_mp": 0.007942105968678876,
+          "maximum_absolute_dfbeta_cbi": 0.3986344466687488
+        },
+        {
+          "period": "2019-08",
+          "leverage": 0.023592783513399773,
+          "maximum_absolute_standardized_residual": 6.076072774816931,
+          "maximum_absolute_dfbeta_mp": 0.15205976870374663,
+          "maximum_absolute_dfbeta_cbi": 0.026735060032255738
+        },
+        {
+          "period": "2019-12",
+          "leverage": 0.015433858279961993,
+          "maximum_absolute_standardized_residual": 6.060654801130709,
+          "maximum_absolute_dfbeta_mp": 0.3618639453892684,
+          "maximum_absolute_dfbeta_cbi": 0.1394591635318744
+        },
+        {
+          "period": "2019-02",
+          "leverage": 0.020558756332563106,
+          "maximum_absolute_standardized_residual": 6.0572655190353215,
+          "maximum_absolute_dfbeta_mp": 0.37898962783911244,
+          "maximum_absolute_dfbeta_cbi": 0.25425010859377695
+        },
+        {
+          "period": "2019-10",
+          "leverage": 0.045911079221727075,
+          "maximum_absolute_standardized_residual": 6.035256864158934,
+          "maximum_absolute_dfbeta_mp": 0.1892927027253197,
+          "maximum_absolute_dfbeta_cbi": 0.08476397644521878
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 17.19506089225666,
+          "sign_agreement_share": 0.76
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 4.388613299115208,
+          "sign_agreement_share": 0.96
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 5.517258210331929,
+          "sign_agreement_share": 0.92
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 12.399662486939283,
+          "sign_agreement_share": 0.92
+        }
+      }
+    },
+    {
+      "model_id": "lp:hungary:unemployment:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2020-04",
+          "leverage": 0.31894964481648885,
+          "maximum_absolute_standardized_residual": 5.700245597140655,
+          "maximum_absolute_dfbeta_mp": 0.6813394716330486,
+          "maximum_absolute_dfbeta_cbi": 0.3691681644384335
+        },
+        {
+          "period": "2020-03",
+          "leverage": 0.3327209574704694,
+          "maximum_absolute_standardized_residual": 4.491715314505079,
+          "maximum_absolute_dfbeta_mp": 1.3129595828266187,
+          "maximum_absolute_dfbeta_cbi": 0.6710202228278039
+        },
+        {
+          "period": "2020-01",
+          "leverage": 0.036152580009301855,
+          "maximum_absolute_standardized_residual": 4.292496877495868,
+          "maximum_absolute_dfbeta_mp": 0.049329997849891616,
+          "maximum_absolute_dfbeta_cbi": 0.35795249518650996
+        },
+        {
+          "period": "2020-02",
+          "leverage": 0.0500609476220447,
+          "maximum_absolute_standardized_residual": 4.210951565956631,
+          "maximum_absolute_dfbeta_mp": 0.16925055584938362,
+          "maximum_absolute_dfbeta_cbi": 0.12092049850880557
+        },
+        {
+          "period": "2019-12",
+          "leverage": 0.03189297800655019,
+          "maximum_absolute_standardized_residual": 3.9397321300635206,
+          "maximum_absolute_dfbeta_mp": 0.14237173939838316,
+          "maximum_absolute_dfbeta_cbi": 0.1180400898247383
+        },
+        {
+          "period": "2019-11",
+          "leverage": 0.06578608190547434,
+          "maximum_absolute_standardized_residual": 3.3565864516512214,
+          "maximum_absolute_dfbeta_mp": 0.03416388412382548,
+          "maximum_absolute_dfbeta_cbi": 0.04644707027075099
+        },
+        {
+          "period": "2020-07",
+          "leverage": 0.04685778156450918,
+          "maximum_absolute_standardized_residual": 2.9615543855833475,
+          "maximum_absolute_dfbeta_mp": 0.24164662389316682,
+          "maximum_absolute_dfbeta_cbi": 0.037861588144276856
+        },
+        {
+          "period": "2019-10",
+          "leverage": 0.0520549405127267,
+          "maximum_absolute_standardized_residual": 2.9336999004201556,
+          "maximum_absolute_dfbeta_mp": 0.06437957380990944,
+          "maximum_absolute_dfbeta_cbi": 0.030298379148492302
+        },
+        {
+          "period": "2019-05",
+          "leverage": 0.02876290347130018,
+          "maximum_absolute_standardized_residual": 2.9199132792614044,
+          "maximum_absolute_dfbeta_mp": 0.1104594923966054,
+          "maximum_absolute_dfbeta_cbi": 0.10780611492984962
+        },
+        {
+          "period": "2019-06",
+          "leverage": 0.023545008380575928,
+          "maximum_absolute_standardized_residual": 2.7786626497668534,
+          "maximum_absolute_dfbeta_mp": 0.18081942518834337,
+          "maximum_absolute_dfbeta_cbi": 0.07506358110036783
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 0.6695526015138503,
+          "sign_agreement_share": 0.84
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.16416989689514003,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.20994065011187169,
+          "sign_agreement_share": 0.96
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.4709533107222237,
+          "sign_agreement_share": 0.8
+        }
+      }
+    },
+    {
+      "model_id": "lp:hungary:long_term_yield:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2022-09",
+          "leverage": 0.35443358278235204,
+          "maximum_absolute_standardized_residual": 4.871153593196287,
+          "maximum_absolute_dfbeta_mp": 1.238044391317389,
+          "maximum_absolute_dfbeta_cbi": 1.1706915277896062
+        },
+        {
+          "period": "2022-11",
+          "leverage": 0.503009337233855,
+          "maximum_absolute_standardized_residual": 3.964142059694436,
+          "maximum_absolute_dfbeta_mp": 0.10075870350558297,
+          "maximum_absolute_dfbeta_cbi": 0.21816486010632097
+        },
+        {
+          "period": "2022-03",
+          "leverage": 0.055886964011142466,
+          "maximum_absolute_standardized_residual": 3.5286986999241865,
+          "maximum_absolute_dfbeta_mp": 0.23467754809755415,
+          "maximum_absolute_dfbeta_cbi": 0.1664737425137653
+        },
+        {
+          "period": "2021-09",
+          "leverage": 0.027511408019313236,
+          "maximum_absolute_standardized_residual": 3.4120514588920776,
+          "maximum_absolute_dfbeta_mp": 0.15331348841478504,
+          "maximum_absolute_dfbeta_cbi": 0.41337600881572245
+        },
+        {
+          "period": "2022-10",
+          "leverage": 0.4470907910787402,
+          "maximum_absolute_standardized_residual": 3.3668325335549563,
+          "maximum_absolute_dfbeta_mp": 0.49672502787238093,
+          "maximum_absolute_dfbeta_cbi": 0.3631348030520044
+        },
+        {
+          "period": "2021-10",
+          "leverage": 0.0356700561595813,
+          "maximum_absolute_standardized_residual": 3.3356003319603835,
+          "maximum_absolute_dfbeta_mp": 0.04246929811595308,
+          "maximum_absolute_dfbeta_cbi": 0.30401168497490644
+        },
+        {
+          "period": "2021-08",
+          "leverage": 0.025315160800186833,
+          "maximum_absolute_standardized_residual": 3.239666707088212,
+          "maximum_absolute_dfbeta_mp": 0.2714399387175879,
+          "maximum_absolute_dfbeta_cbi": 0.05129710311819094
+        },
+        {
+          "period": "2021-07",
+          "leverage": 0.02565670168482123,
+          "maximum_absolute_standardized_residual": 3.146271794881603,
+          "maximum_absolute_dfbeta_mp": 0.01721830157534652,
+          "maximum_absolute_dfbeta_cbi": 0.10570581309244118
+        },
+        {
+          "period": "2022-02",
+          "leverage": 0.061422692102537826,
+          "maximum_absolute_standardized_residual": 3.1254495100851174,
+          "maximum_absolute_dfbeta_mp": 0.3249156162537006,
+          "maximum_absolute_dfbeta_cbi": 0.40424292759372266
+        },
+        {
+          "period": "2021-11",
+          "leverage": 0.04195346398148132,
+          "maximum_absolute_standardized_residual": 3.1193432926765303,
+          "maximum_absolute_dfbeta_mp": 0.2493151241084155,
+          "maximum_absolute_dfbeta_cbi": 0.16477651545370645
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 1.1024749293540466,
+          "sign_agreement_share": 0.96
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.1915527162188878,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.3141986635235021,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.5856416135629112,
+          "sign_agreement_share": 0.96
+        }
+      }
+    },
+    {
+      "model_id": "lp:hungary:bilateral_fx:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2022-12",
+          "leverage": 0.22259704629514404,
+          "maximum_absolute_standardized_residual": 3.7440796043892743,
+          "maximum_absolute_dfbeta_mp": 0.5423015797275628,
+          "maximum_absolute_dfbeta_cbi": 0.8404941252712932
+        },
+        {
+          "period": "2022-03",
+          "leverage": 0.030411932676436826,
+          "maximum_absolute_standardized_residual": 3.609126309102024,
+          "maximum_absolute_dfbeta_mp": 0.006482915188025264,
+          "maximum_absolute_dfbeta_cbi": 0.02759400193312048
+        },
+        {
+          "period": "2022-11",
+          "leverage": 0.233113828728997,
+          "maximum_absolute_standardized_residual": 3.461355861404833,
+          "maximum_absolute_dfbeta_mp": 0.043699539701596964,
+          "maximum_absolute_dfbeta_cbi": 0.22262421415116934
+        },
+        {
+          "period": "2023-01",
+          "leverage": 0.13372011354277835,
+          "maximum_absolute_standardized_residual": 3.3960581006530726,
+          "maximum_absolute_dfbeta_mp": 0.33647317671114485,
+          "maximum_absolute_dfbeta_cbi": 0.1203209889751168
+        },
+        {
+          "period": "2021-10",
+          "leverage": 0.01641918920474679,
+          "maximum_absolute_standardized_residual": 3.0203126418380513,
+          "maximum_absolute_dfbeta_mp": 0.016121846567467495,
+          "maximum_absolute_dfbeta_cbi": 0.1371580724433334
+        },
+        {
+          "period": "2021-07",
+          "leverage": 0.02318171586590989,
+          "maximum_absolute_standardized_residual": 2.9729287363068497,
+          "maximum_absolute_dfbeta_mp": 0.046360912221605335,
+          "maximum_absolute_dfbeta_cbi": 0.18613760221614453
+        },
+        {
+          "period": "2022-10",
+          "leverage": 0.15415960863219758,
+          "maximum_absolute_standardized_residual": 2.967834239630717,
+          "maximum_absolute_dfbeta_mp": 0.49118494602829477,
+          "maximum_absolute_dfbeta_cbi": 0.30692333374065717
+        },
+        {
+          "period": "2022-02",
+          "leverage": 0.07841713308630324,
+          "maximum_absolute_standardized_residual": 2.9375779558717348,
+          "maximum_absolute_dfbeta_mp": 0.20275365344737328,
+          "maximum_absolute_dfbeta_cbi": 0.320017921301482
+        },
+        {
+          "period": "2021-09",
+          "leverage": 0.031578581683161036,
+          "maximum_absolute_standardized_residual": 2.8810791010576997,
+          "maximum_absolute_dfbeta_mp": 0.16702894756900563,
+          "maximum_absolute_dfbeta_cbi": 0.06496435181851386
+        },
+        {
+          "period": "2021-08",
+          "leverage": 0.03450276227617878,
+          "maximum_absolute_standardized_residual": 2.8379421529885502,
+          "maximum_absolute_dfbeta_mp": 0.08997833449064242,
+          "maximum_absolute_dfbeta_cbi": 0.0592890160328499
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 2.89447122567715,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.6370430954312036,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 1.772113324116836,
+          "sign_agreement_share": 0.88
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 4.083607715001921,
+          "sign_agreement_share": 0.88
+        }
+      }
+    },
+    {
+      "model_id": "lp:hungary:domestic_policy_rate:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2022-06",
+          "leverage": 0.2822171387116001,
+          "maximum_absolute_standardized_residual": 7.8952970714399395,
+          "maximum_absolute_dfbeta_mp": 0.6604351337171096,
+          "maximum_absolute_dfbeta_cbi": 1.116558004494386
+        },
+        {
+          "period": "2022-07",
+          "leverage": 0.7215365355237888,
+          "maximum_absolute_standardized_residual": 5.0309327755646125,
+          "maximum_absolute_dfbeta_mp": 1.1265906169796258,
+          "maximum_absolute_dfbeta_cbi": 0.7336237245017622
+        },
+        {
+          "period": "2022-08",
+          "leverage": 0.7996402594223285,
+          "maximum_absolute_standardized_residual": 4.8128359935261065,
+          "maximum_absolute_dfbeta_mp": 0.04923344967596544,
+          "maximum_absolute_dfbeta_cbi": 0.2543077814806067
+        },
+        {
+          "period": "2023-04",
+          "leverage": 0.4981062607382498,
+          "maximum_absolute_standardized_residual": 4.483429141081409,
+          "maximum_absolute_dfbeta_mp": 0.6775918581334274,
+          "maximum_absolute_dfbeta_cbi": 0.36371161701937105
+        },
+        {
+          "period": "2022-10",
+          "leverage": 0.6653305372318815,
+          "maximum_absolute_standardized_residual": 4.217205847650984,
+          "maximum_absolute_dfbeta_mp": 1.1184362878886633,
+          "maximum_absolute_dfbeta_cbi": 0.27363832404688393
+        },
+        {
+          "period": "2022-09",
+          "leverage": 0.8174570021446611,
+          "maximum_absolute_standardized_residual": 3.9451215588605573,
+          "maximum_absolute_dfbeta_mp": 0.8623517586054813,
+          "maximum_absolute_dfbeta_cbi": 0.7371135637079066
+        },
+        {
+          "period": "2022-03",
+          "leverage": 0.058797149787249425,
+          "maximum_absolute_standardized_residual": 3.7714253370269772,
+          "maximum_absolute_dfbeta_mp": 0.15231469626460434,
+          "maximum_absolute_dfbeta_cbi": 0.1684363538961003
+        },
+        {
+          "period": "2022-01",
+          "leverage": 0.036677406649060745,
+          "maximum_absolute_standardized_residual": 3.4469512543047816,
+          "maximum_absolute_dfbeta_mp": 0.24476769164826725,
+          "maximum_absolute_dfbeta_cbi": 0.17989692159965887
+        },
+        {
+          "period": "2022-05",
+          "leverage": 0.16344298136713167,
+          "maximum_absolute_standardized_residual": 3.396427060037475,
+          "maximum_absolute_dfbeta_mp": 0.39964504523164057,
+          "maximum_absolute_dfbeta_cbi": 0.36469001216032787
+        },
+        {
+          "period": "2021-11",
+          "leverage": 0.039867104732124584,
+          "maximum_absolute_standardized_residual": 3.3191128570133834,
+          "maximum_absolute_dfbeta_mp": 0.218910109017833,
+          "maximum_absolute_dfbeta_cbi": 0.08790715749249112
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 1.1995194531516606,
+          "sign_agreement_share": 0.96
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.1453570552652792,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 2.0274431853051773,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 4.166322016685173,
+          "sign_agreement_share": 0.96
+        }
+      }
+    },
+    {
+      "model_id": "lp:poland:hicp_price_level:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2022-03",
+          "leverage": 0.23836643703771848,
+          "maximum_absolute_standardized_residual": 5.043242428090127,
+          "maximum_absolute_dfbeta_mp": 0.7010963540737462,
+          "maximum_absolute_dfbeta_cbi": 0.720003625249112
+        },
+        {
+          "period": "2022-09",
+          "leverage": 0.39777232040344024,
+          "maximum_absolute_standardized_residual": 3.1965766839366587,
+          "maximum_absolute_dfbeta_mp": 0.6755671059945901,
+          "maximum_absolute_dfbeta_cbi": 0.6983599462841449
+        },
+        {
+          "period": "2023-05",
+          "leverage": 0.5993403723490434,
+          "maximum_absolute_standardized_residual": 2.9108627548350228,
+          "maximum_absolute_dfbeta_mp": 0.8770909253804966,
+          "maximum_absolute_dfbeta_cbi": 0.6272355908966376
+        },
+        {
+          "period": "2021-07",
+          "leverage": 0.12919732768005804,
+          "maximum_absolute_standardized_residual": 2.779755441335982,
+          "maximum_absolute_dfbeta_mp": 0.16031110479272556,
+          "maximum_absolute_dfbeta_cbi": 0.3441824023234904
+        },
+        {
+          "period": "2021-08",
+          "leverage": 0.14708025938278085,
+          "maximum_absolute_standardized_residual": 2.672032864748064,
+          "maximum_absolute_dfbeta_mp": 0.030458454122130038,
+          "maximum_absolute_dfbeta_cbi": 0.002665760898090872
+        },
+        {
+          "period": "2023-01",
+          "leverage": 0.35266193779727334,
+          "maximum_absolute_standardized_residual": 2.6312225579835924,
+          "maximum_absolute_dfbeta_mp": 0.0326055978952163,
+          "maximum_absolute_dfbeta_cbi": 0.20315828159565363
+        },
+        {
+          "period": "2021-06",
+          "leverage": 0.12090704650804279,
+          "maximum_absolute_standardized_residual": 2.5725276164687703,
+          "maximum_absolute_dfbeta_mp": 0.17211940067107584,
+          "maximum_absolute_dfbeta_cbi": 0.2318027650396563
+        },
+        {
+          "period": "2020-04",
+          "leverage": 0.4676757505117425,
+          "maximum_absolute_standardized_residual": 2.5691928638086448,
+          "maximum_absolute_dfbeta_mp": 0.13356059877232473,
+          "maximum_absolute_dfbeta_cbi": 0.20812517087243576
+        },
+        {
+          "period": "2021-01",
+          "leverage": 0.14400024619259066,
+          "maximum_absolute_standardized_residual": 2.5112772850078313,
+          "maximum_absolute_dfbeta_mp": 0.26501725602587045,
+          "maximum_absolute_dfbeta_cbi": 0.1269204083803185
+        },
+        {
+          "period": "2021-09",
+          "leverage": 0.15838494390770594,
+          "maximum_absolute_standardized_residual": 2.489712557711549,
+          "maximum_absolute_dfbeta_mp": 0.36121863913925534,
+          "maximum_absolute_dfbeta_cbi": 0.2438265528556076
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 1.597990688152029,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.6076737605486873,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 2.318093376637299,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 5.353898379483704,
+          "sign_agreement_share": 1
+        }
+      }
+    },
+    {
+      "model_id": "lp:poland:industrial_production:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2020-02",
+          "leverage": 0.03909488891545982,
+          "maximum_absolute_standardized_residual": 6.766816887985955,
+          "maximum_absolute_dfbeta_mp": 0.19222013509354924,
+          "maximum_absolute_dfbeta_cbi": 0.1766568424048894
+        },
+        {
+          "period": "2020-03",
+          "leverage": 0.3648350030188576,
+          "maximum_absolute_standardized_residual": 6.4144007481087195,
+          "maximum_absolute_dfbeta_mp": 1.322283181094805,
+          "maximum_absolute_dfbeta_cbi": 0.5433167307098915
+        },
+        {
+          "period": "2020-04",
+          "leverage": 0.44574480262632776,
+          "maximum_absolute_standardized_residual": 6.304184188917019,
+          "maximum_absolute_dfbeta_mp": 0.03781116328922784,
+          "maximum_absolute_dfbeta_cbi": 1.0440937513065
+        },
+        {
+          "period": "2020-01",
+          "leverage": 0.0730705021336705,
+          "maximum_absolute_standardized_residual": 5.83414056418661,
+          "maximum_absolute_dfbeta_mp": 0.2418219279763245,
+          "maximum_absolute_dfbeta_cbi": 0.45806361091965897
+        },
+        {
+          "period": "2019-12",
+          "leverage": 0.06322873848368017,
+          "maximum_absolute_standardized_residual": 5.7268101000676985,
+          "maximum_absolute_dfbeta_mp": 0.2247827001822706,
+          "maximum_absolute_dfbeta_cbi": 0.3722677523008625
+        },
+        {
+          "period": "2019-11",
+          "leverage": 0.07358632163098133,
+          "maximum_absolute_standardized_residual": 5.725925552993946,
+          "maximum_absolute_dfbeta_mp": 0.20836870516077108,
+          "maximum_absolute_dfbeta_cbi": 0.15852493736315854
+        },
+        {
+          "period": "2019-08",
+          "leverage": 0.058096335109199516,
+          "maximum_absolute_standardized_residual": 5.406425684280756,
+          "maximum_absolute_dfbeta_mp": 0.07812148336387283,
+          "maximum_absolute_dfbeta_cbi": 0.08885247821347646
+        },
+        {
+          "period": "2019-05",
+          "leverage": 0.03781700726752817,
+          "maximum_absolute_standardized_residual": 5.325381614662567,
+          "maximum_absolute_dfbeta_mp": 0.2923446702590256,
+          "maximum_absolute_dfbeta_cbi": 0.1963602587827168
+        },
+        {
+          "period": "2019-10",
+          "leverage": 0.08445548164764166,
+          "maximum_absolute_standardized_residual": 5.221507106293225,
+          "maximum_absolute_dfbeta_mp": 0.3222179646134233,
+          "maximum_absolute_dfbeta_cbi": 0.12535326171518074
+        },
+        {
+          "period": "2019-06",
+          "leverage": 0.03190686920216318,
+          "maximum_absolute_standardized_residual": 5.140731016055717,
+          "maximum_absolute_dfbeta_mp": 0.28854816626220753,
+          "maximum_absolute_dfbeta_cbi": 0.41425217170523626
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 12.60473558424809,
+          "sign_agreement_share": 0.8
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 1.9884077060362495,
+          "sign_agreement_share": 0.96
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 2.9190109219295413,
+          "sign_agreement_share": 0.8
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 6.535464634996641,
+          "sign_agreement_share": 0.92
+        }
+      }
+    },
+    {
+      "model_id": "lp:poland:unemployment:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2020-02",
+          "leverage": 0.050971673921362225,
+          "maximum_absolute_standardized_residual": 3.336067481455073,
+          "maximum_absolute_dfbeta_mp": 0.1837435946244255,
+          "maximum_absolute_dfbeta_cbi": 0.12270814661883853
+        },
+        {
+          "period": "2020-01",
+          "leverage": 0.08685284128908549,
+          "maximum_absolute_standardized_residual": 3.006587931398459,
+          "maximum_absolute_dfbeta_mp": 0.12228916478995369,
+          "maximum_absolute_dfbeta_cbi": 0.3148424937736938
+        },
+        {
+          "period": "2020-11",
+          "leverage": 0.06870923587928239,
+          "maximum_absolute_standardized_residual": 2.9333064781711964,
+          "maximum_absolute_dfbeta_mp": 0.014704738009404097,
+          "maximum_absolute_dfbeta_cbi": 0.10195669365577704
+        },
+        {
+          "period": "2021-01",
+          "leverage": 0.0855450751407407,
+          "maximum_absolute_standardized_residual": 2.841186369578774,
+          "maximum_absolute_dfbeta_mp": 0.039061162452049936,
+          "maximum_absolute_dfbeta_cbi": 0.05683330833129765
+        },
+        {
+          "period": "2019-12",
+          "leverage": 0.07126990157648334,
+          "maximum_absolute_standardized_residual": 2.8212618625153025,
+          "maximum_absolute_dfbeta_mp": 0.1685708814055821,
+          "maximum_absolute_dfbeta_cbi": 0.19420416395940399
+        },
+        {
+          "period": "2020-12",
+          "leverage": 0.06493227064470047,
+          "maximum_absolute_standardized_residual": 2.777586161326454,
+          "maximum_absolute_dfbeta_mp": 0.043664929450550095,
+          "maximum_absolute_dfbeta_cbi": 0.11817381474928121
+        },
+        {
+          "period": "2020-08",
+          "leverage": 0.08952571720573109,
+          "maximum_absolute_standardized_residual": 2.7628171993068396,
+          "maximum_absolute_dfbeta_mp": 0.03576874039277592,
+          "maximum_absolute_dfbeta_cbi": 0.027311595577422156
+        },
+        {
+          "period": "2019-05",
+          "leverage": 0.03966388464202997,
+          "maximum_absolute_standardized_residual": 2.7175303219378533,
+          "maximum_absolute_dfbeta_mp": 0.18852911041354,
+          "maximum_absolute_dfbeta_cbi": 0.1545125528188283
+        },
+        {
+          "period": "2019-11",
+          "leverage": 0.08095423773776145,
+          "maximum_absolute_standardized_residual": 2.6893887849024494,
+          "maximum_absolute_dfbeta_mp": 0.05070417266396533,
+          "maximum_absolute_dfbeta_cbi": 0.04265363884710474
+        },
+        {
+          "period": "2019-06",
+          "leverage": 0.031139380994204005,
+          "maximum_absolute_standardized_residual": 2.675904087723706,
+          "maximum_absolute_dfbeta_mp": 0.15700548147000964,
+          "maximum_absolute_dfbeta_cbi": 0.2090469540807525
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 0.4286835149768812,
+          "sign_agreement_share": 0.8
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.08521523438742266,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.09071808304805322,
+          "sign_agreement_share": 0.96
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.20060537662534253,
+          "sign_agreement_share": 1
+        }
+      }
+    },
+    {
+      "model_id": "lp:poland:long_term_yield:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2022-09",
+          "leverage": 0.36462895562169956,
+          "maximum_absolute_standardized_residual": 4.724331627499207,
+          "maximum_absolute_dfbeta_mp": 1.0861359400376764,
+          "maximum_absolute_dfbeta_cbi": 0.7681551096335234
+        },
+        {
+          "period": "2022-03",
+          "leverage": 0.1086936957632211,
+          "maximum_absolute_standardized_residual": 4.68415170562784,
+          "maximum_absolute_dfbeta_mp": 0.28614060493715104,
+          "maximum_absolute_dfbeta_cbi": 0.18396314052708926
+        },
+        {
+          "period": "2022-10",
+          "leverage": 0.41257430235237,
+          "maximum_absolute_standardized_residual": 3.6518185808847847,
+          "maximum_absolute_dfbeta_mp": 0.41342382601319794,
+          "maximum_absolute_dfbeta_cbi": 0.5161117945444093
+        },
+        {
+          "period": "2021-10",
+          "leverage": 0.046602013091149266,
+          "maximum_absolute_standardized_residual": 3.637411746020165,
+          "maximum_absolute_dfbeta_mp": 0.11765735586743284,
+          "maximum_absolute_dfbeta_cbi": 0.17902575323827224
+        },
+        {
+          "period": "2021-09",
+          "leverage": 0.0395105629805354,
+          "maximum_absolute_standardized_residual": 3.625891983473602,
+          "maximum_absolute_dfbeta_mp": 0.05473630526282457,
+          "maximum_absolute_dfbeta_cbi": 0.32883217731642106
+        },
+        {
+          "period": "2022-11",
+          "leverage": 0.496850229258626,
+          "maximum_absolute_standardized_residual": 3.611791142379194,
+          "maximum_absolute_dfbeta_mp": 0.36863466483846286,
+          "maximum_absolute_dfbeta_cbi": 0.02414622695607146
+        },
+        {
+          "period": "2021-08",
+          "leverage": 0.03955659668117508,
+          "maximum_absolute_standardized_residual": 3.3556474716929556,
+          "maximum_absolute_dfbeta_mp": 0.19693626614816645,
+          "maximum_absolute_dfbeta_cbi": 0.006242219856472739
+        },
+        {
+          "period": "2022-01",
+          "leverage": 0.07821002209743767,
+          "maximum_absolute_standardized_residual": 3.3499904402809553,
+          "maximum_absolute_dfbeta_mp": 0.20571511013676477,
+          "maximum_absolute_dfbeta_cbi": 0.07079123049334543
+        },
+        {
+          "period": "2021-12",
+          "leverage": 0.07360361195137721,
+          "maximum_absolute_standardized_residual": 3.1382586293854597,
+          "maximum_absolute_dfbeta_mp": 0.09583303615975931,
+          "maximum_absolute_dfbeta_cbi": 0.017377050932141026
+        },
+        {
+          "period": "2021-11",
+          "leverage": 0.07077772491292864,
+          "maximum_absolute_standardized_residual": 3.0547578678802743,
+          "maximum_absolute_dfbeta_mp": 0.01421162195614885,
+          "maximum_absolute_dfbeta_cbi": 0.018109415390653017
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 0.6065964867019525,
+          "sign_agreement_share": 0.76
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.10819509676941008,
+          "sign_agreement_share": 0.96
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.7091696215357921,
+          "sign_agreement_share": 0.92
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 1.3888885026823605,
+          "sign_agreement_share": 0.76
+        }
+      }
+    },
+    {
+      "model_id": "lp:poland:bilateral_fx:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2022-03",
+          "leverage": 0.03107472787938717,
+          "maximum_absolute_standardized_residual": 3.3689140660038186,
+          "maximum_absolute_dfbeta_mp": 0.01026376956978174,
+          "maximum_absolute_dfbeta_cbi": 0.005600419575705537
+        },
+        {
+          "period": "2015-02",
+          "leverage": 0.017368445033166785,
+          "maximum_absolute_standardized_residual": 3.328934353545084,
+          "maximum_absolute_dfbeta_mp": 0.03610103795004388,
+          "maximum_absolute_dfbeta_cbi": 0.04369440210590413
+        },
+        {
+          "period": "2020-02",
+          "leverage": 0.018853010761038624,
+          "maximum_absolute_standardized_residual": 2.9780599938466428,
+          "maximum_absolute_dfbeta_mp": 0.055472203396206676,
+          "maximum_absolute_dfbeta_cbi": 0.010524998866192016
+        },
+        {
+          "period": "2020-10",
+          "leverage": 0.042952943537506075,
+          "maximum_absolute_standardized_residual": 2.721296069468329,
+          "maximum_absolute_dfbeta_mp": 0.2437438671570874,
+          "maximum_absolute_dfbeta_cbi": 0.31261013837915586
+        },
+        {
+          "period": "2015-03",
+          "leverage": 0.02345294238078427,
+          "maximum_absolute_standardized_residual": 2.695450687373193,
+          "maximum_absolute_dfbeta_mp": 0.03556318119459268,
+          "maximum_absolute_dfbeta_cbi": 0.043210412679828086
+        },
+        {
+          "period": "2015-04",
+          "leverage": 0.03198524224546567,
+          "maximum_absolute_standardized_residual": 2.6392913018557804,
+          "maximum_absolute_dfbeta_mp": 0.0012705195133839444,
+          "maximum_absolute_dfbeta_cbi": 0.07218162432783498
+        },
+        {
+          "period": "2020-01",
+          "leverage": 0.019304738364554125,
+          "maximum_absolute_standardized_residual": 2.6104635032512298,
+          "maximum_absolute_dfbeta_mp": 0.07389826989030031,
+          "maximum_absolute_dfbeta_cbi": 0.08958077969766874
+        },
+        {
+          "period": "2020-11",
+          "leverage": 0.04612546595453562,
+          "maximum_absolute_standardized_residual": 2.5816667720677886,
+          "maximum_absolute_dfbeta_mp": 0.03231015331463316,
+          "maximum_absolute_dfbeta_cbi": 0.11221695488716152
+        },
+        {
+          "period": "2015-10",
+          "leverage": 0.10015909428622122,
+          "maximum_absolute_standardized_residual": 2.561538667064211,
+          "maximum_absolute_dfbeta_mp": 0.3692399396962933,
+          "maximum_absolute_dfbeta_cbi": 0.32185234036217125
+        },
+        {
+          "period": "2020-03",
+          "leverage": 0.3152821387343832,
+          "maximum_absolute_standardized_residual": 2.5557208677422176,
+          "maximum_absolute_dfbeta_mp": 1.1038650478800272,
+          "maximum_absolute_dfbeta_cbi": 0.20417484811463155
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 3.3382035837197668,
+          "sign_agreement_share": 0.64
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.6980774982150377,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 1.8183377578750881,
+          "sign_agreement_share": 0.88
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 4.086880075353255,
+          "sign_agreement_share": 0.84
+        }
+      }
+    },
+    {
+      "model_id": "lp:poland:domestic_policy_rate:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2021-10",
+          "leverage": 0.0399632330654075,
+          "maximum_absolute_standardized_residual": 4.158956389197323,
+          "maximum_absolute_dfbeta_mp": 0.00031478514557363826,
+          "maximum_absolute_dfbeta_cbi": 0.12982057103717534
+        },
+        {
+          "period": "2022-03",
+          "leverage": 0.15590843756979436,
+          "maximum_absolute_standardized_residual": 3.8217560876875587,
+          "maximum_absolute_dfbeta_mp": 0.13774817888481594,
+          "maximum_absolute_dfbeta_cbi": 0.11805734874384394
+        },
+        {
+          "period": "2021-11",
+          "leverage": 0.11985464149954549,
+          "maximum_absolute_standardized_residual": 3.5430078142713506,
+          "maximum_absolute_dfbeta_mp": 0.035901937561288226,
+          "maximum_absolute_dfbeta_cbi": 0.06842930229270607
+        },
+        {
+          "period": "2021-09",
+          "leverage": 0.044233127486703064,
+          "maximum_absolute_standardized_residual": 3.473129994695804,
+          "maximum_absolute_dfbeta_mp": 0.11742256024024758,
+          "maximum_absolute_dfbeta_cbi": 0.3544776786319422
+        },
+        {
+          "period": "2022-04",
+          "leverage": 0.22854054982370958,
+          "maximum_absolute_standardized_residual": 3.3217143069497443,
+          "maximum_absolute_dfbeta_mp": 0.433146377998219,
+          "maximum_absolute_dfbeta_cbi": 0.42871138443173584
+        },
+        {
+          "period": "2022-08",
+          "leverage": 0.38813204607263313,
+          "maximum_absolute_standardized_residual": 3.239065764927958,
+          "maximum_absolute_dfbeta_mp": 0.027670853261768807,
+          "maximum_absolute_dfbeta_cbi": 0.007211451378539265
+        },
+        {
+          "period": "2023-10",
+          "leverage": 0.4419991283470422,
+          "maximum_absolute_standardized_residual": 3.2227645335021777,
+          "maximum_absolute_dfbeta_mp": 0.5441417662149842,
+          "maximum_absolute_dfbeta_cbi": 0.4332939650114673
+        },
+        {
+          "period": "2023-09",
+          "leverage": 0.558659802321132,
+          "maximum_absolute_standardized_residual": 3.0909731064850714,
+          "maximum_absolute_dfbeta_mp": 0.2548282949843691,
+          "maximum_absolute_dfbeta_cbi": 0.03484404784707692
+        },
+        {
+          "period": "2022-02",
+          "leverage": 0.2319639571479859,
+          "maximum_absolute_standardized_residual": 3.0774882745274055,
+          "maximum_absolute_dfbeta_mp": 0.0647872117138574,
+          "maximum_absolute_dfbeta_cbi": 0.40153753454518454
+        },
+        {
+          "period": "2021-08",
+          "leverage": 0.034949834280825286,
+          "maximum_absolute_standardized_residual": 3.067405442056573,
+          "maximum_absolute_dfbeta_mp": 0.16610560097707552,
+          "maximum_absolute_dfbeta_cbi": 0.04042273810894481
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 0.8730644171435471,
+          "sign_agreement_share": 0.96
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.3202801186644204,
+          "sign_agreement_share": 0.96
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.876861648905884,
+          "sign_agreement_share": 0.96
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 1.7448003465122404,
+          "sign_agreement_share": 0.88
+        }
+      }
+    },
+    {
+      "model_id": "lp:romania:hicp_price_level:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2015-06",
+          "leverage": 0.11999171428400927,
+          "maximum_absolute_standardized_residual": 5.644592167692817,
+          "maximum_absolute_dfbeta_mp": 0.07017448508971878,
+          "maximum_absolute_dfbeta_cbi": 0.17072472000853178
+        },
+        {
+          "period": "2022-03",
+          "leverage": 0.14039584824981724,
+          "maximum_absolute_standardized_residual": 3.615806182276393,
+          "maximum_absolute_dfbeta_mp": 0.38476512635091664,
+          "maximum_absolute_dfbeta_cbi": 0.447261623762004
+        },
+        {
+          "period": "2022-01",
+          "leverage": 0.11941852785841833,
+          "maximum_absolute_standardized_residual": 3.271847841356594,
+          "maximum_absolute_dfbeta_mp": 0.01022653747311469,
+          "maximum_absolute_dfbeta_cbi": 0.04463176887227701
+        },
+        {
+          "period": "2021-12",
+          "leverage": 0.12665217861203137,
+          "maximum_absolute_standardized_residual": 3.1043317060753832,
+          "maximum_absolute_dfbeta_mp": 0.2114514118045858,
+          "maximum_absolute_dfbeta_cbi": 0.32700544296367606
+        },
+        {
+          "period": "2022-02",
+          "leverage": 0.15220241856581285,
+          "maximum_absolute_standardized_residual": 3.010650937492748,
+          "maximum_absolute_dfbeta_mp": 0.2985122904941498,
+          "maximum_absolute_dfbeta_cbi": 0.21810679840537522
+        },
+        {
+          "period": "2021-05",
+          "leverage": 0.11040311567948752,
+          "maximum_absolute_standardized_residual": 2.5406433307144463,
+          "maximum_absolute_dfbeta_mp": 0.08699076648520411,
+          "maximum_absolute_dfbeta_cbi": 0.07614125807748608
+        },
+        {
+          "period": "2021-09",
+          "leverage": 0.12928678872010707,
+          "maximum_absolute_standardized_residual": 2.5264566274173363,
+          "maximum_absolute_dfbeta_mp": 0.3070609116194093,
+          "maximum_absolute_dfbeta_cbi": 0.26382720589377867
+        },
+        {
+          "period": "2021-06",
+          "leverage": 0.10995305703842091,
+          "maximum_absolute_standardized_residual": 2.465102768323571,
+          "maximum_absolute_dfbeta_mp": 0.1450636024853877,
+          "maximum_absolute_dfbeta_cbi": 0.23025047092070733
+        },
+        {
+          "period": "2022-04",
+          "leverage": 0.23310082274652746,
+          "maximum_absolute_standardized_residual": 2.447115122337826,
+          "maximum_absolute_dfbeta_mp": 0.5578397252063182,
+          "maximum_absolute_dfbeta_cbi": 0.42546779473091556
+        },
+        {
+          "period": "2016-01",
+          "leverage": 0.31321905442006015,
+          "maximum_absolute_standardized_residual": 2.3991310936249706,
+          "maximum_absolute_dfbeta_mp": 0.3302974207634925,
+          "maximum_absolute_dfbeta_cbi": 0.22758421611877833
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 1.2942059743173335,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.704806577072393,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.6640265137279967,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 1.5515914551895182,
+          "sign_agreement_share": 1
+        }
+      }
+    },
+    {
+      "model_id": "lp:romania:industrial_production:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2020-04",
+          "leverage": 0.31548661247081544,
+          "maximum_absolute_standardized_residual": 7.805857896736713,
+          "maximum_absolute_dfbeta_mp": 0.6978207562493491,
+          "maximum_absolute_dfbeta_cbi": 0.44713308796256024
+        },
+        {
+          "period": "2020-02",
+          "leverage": 0.021585197291258185,
+          "maximum_absolute_standardized_residual": 7.383019906218085,
+          "maximum_absolute_dfbeta_mp": 0.22507766523520084,
+          "maximum_absolute_dfbeta_cbi": 0.12103312034152348
+        },
+        {
+          "period": "2018-05",
+          "leverage": 0.011700159524751341,
+          "maximum_absolute_standardized_residual": 7.098912325809346,
+          "maximum_absolute_dfbeta_mp": 0.2900605667683307,
+          "maximum_absolute_dfbeta_cbi": 0.20124777616764114
+        },
+        {
+          "period": "2019-04",
+          "leverage": 0.029414922124462672,
+          "maximum_absolute_standardized_residual": 6.868975458709222,
+          "maximum_absolute_dfbeta_mp": 0.5928427391661323,
+          "maximum_absolute_dfbeta_cbi": 0.29343486623228676
+        },
+        {
+          "period": "2018-11",
+          "leverage": 0.029208225853393943,
+          "maximum_absolute_standardized_residual": 6.854896328798776,
+          "maximum_absolute_dfbeta_mp": 0.451012098881227,
+          "maximum_absolute_dfbeta_cbi": 0.13674003196808077
+        },
+        {
+          "period": "2018-08",
+          "leverage": 0.021551371076807824,
+          "maximum_absolute_standardized_residual": 6.846670659511043,
+          "maximum_absolute_dfbeta_mp": 0.27601994458626306,
+          "maximum_absolute_dfbeta_cbi": 0.16835334626483553
+        },
+        {
+          "period": "2018-10",
+          "leverage": 0.0278575640758022,
+          "maximum_absolute_standardized_residual": 6.83016831090308,
+          "maximum_absolute_dfbeta_mp": 0.06973329249269111,
+          "maximum_absolute_dfbeta_cbi": 0.6022512359129993
+        },
+        {
+          "period": "2018-12",
+          "leverage": 0.027951623466637432,
+          "maximum_absolute_standardized_residual": 6.828703965684569,
+          "maximum_absolute_dfbeta_mp": 0.5258861802095947,
+          "maximum_absolute_dfbeta_cbi": 0.009036206493436647
+        },
+        {
+          "period": "2018-06",
+          "leverage": 0.04671996372907833,
+          "maximum_absolute_standardized_residual": 6.822114424071836,
+          "maximum_absolute_dfbeta_mp": 0.8138119931958155,
+          "maximum_absolute_dfbeta_cbi": 0.777402104763186
+        },
+        {
+          "period": "2019-02",
+          "leverage": 0.03489067329631024,
+          "maximum_absolute_standardized_residual": 6.8155630196801935,
+          "maximum_absolute_dfbeta_mp": 0.4929836702326252,
+          "maximum_absolute_dfbeta_cbi": 0.13321316261210528
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 16.51053011812774,
+          "sign_agreement_share": 0.88
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 4.027365938235626,
+          "sign_agreement_share": 0.88
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 3.3236418221803388,
+          "sign_agreement_share": 0.76
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 7.471636673329047,
+          "sign_agreement_share": 0.8
+        }
+      }
+    },
+    {
+      "model_id": "lp:romania:unemployment:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2020-02",
+          "leverage": 0.040188765261686556,
+          "maximum_absolute_standardized_residual": 4.381868790032412,
+          "maximum_absolute_dfbeta_mp": 0.16685154528192286,
+          "maximum_absolute_dfbeta_cbi": 0.15407056104084527
+        },
+        {
+          "period": "2019-12",
+          "leverage": 0.08460529536800909,
+          "maximum_absolute_standardized_residual": 3.6315631919668516,
+          "maximum_absolute_dfbeta_mp": 0.09877015437185993,
+          "maximum_absolute_dfbeta_cbi": 0.31672204628526396
+        },
+        {
+          "period": "2020-01",
+          "leverage": 0.07236910812119798,
+          "maximum_absolute_standardized_residual": 3.587360524220522,
+          "maximum_absolute_dfbeta_mp": 0.08403635609153685,
+          "maximum_absolute_dfbeta_cbi": 0.31597616445862015
+        },
+        {
+          "period": "2019-11",
+          "leverage": 0.11191888981313952,
+          "maximum_absolute_standardized_residual": 3.190433146442553,
+          "maximum_absolute_dfbeta_mp": 0.0768639433704266,
+          "maximum_absolute_dfbeta_cbi": 0.11314379606732376
+        },
+        {
+          "period": "2020-04",
+          "leverage": 0.3791527727463825,
+          "maximum_absolute_standardized_residual": 3.1338019027212765,
+          "maximum_absolute_dfbeta_mp": 0.05350767894756156,
+          "maximum_absolute_dfbeta_cbi": 0.4791701956584722
+        },
+        {
+          "period": "2020-03",
+          "leverage": 0.36621426911744304,
+          "maximum_absolute_standardized_residual": 3.0208266330174705,
+          "maximum_absolute_dfbeta_mp": 1.2379511332309043,
+          "maximum_absolute_dfbeta_cbi": 0.23662017465123414
+        },
+        {
+          "period": "2019-09",
+          "leverage": 0.10645156362541049,
+          "maximum_absolute_standardized_residual": 2.880167969307797,
+          "maximum_absolute_dfbeta_mp": 0.5700422338589085,
+          "maximum_absolute_dfbeta_cbi": 0.5050541913052401
+        },
+        {
+          "period": "2019-10",
+          "leverage": 0.1108933878707419,
+          "maximum_absolute_standardized_residual": 2.809816780467175,
+          "maximum_absolute_dfbeta_mp": 0.03952686145459277,
+          "maximum_absolute_dfbeta_cbi": 0.06545004544017965
+        },
+        {
+          "period": "2019-04",
+          "leverage": 0.08024042245398984,
+          "maximum_absolute_standardized_residual": 2.606834422430231,
+          "maximum_absolute_dfbeta_mp": 0.19570040644868436,
+          "maximum_absolute_dfbeta_cbi": 0.27044080504405366
+        },
+        {
+          "period": "2019-07",
+          "leverage": 0.052694234441168566,
+          "maximum_absolute_standardized_residual": 2.6000844098879856,
+          "maximum_absolute_dfbeta_mp": 0.31505271653240924,
+          "maximum_absolute_dfbeta_cbi": 0.037115116566136
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 0.4815317900955154,
+          "sign_agreement_share": 0.8
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.06086297610823452,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.2814724140169751,
+          "sign_agreement_share": 0.88
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.6505047353470298,
+          "sign_agreement_share": 0.72
+        }
+      }
+    },
+    {
+      "model_id": "lp:romania:long_term_yield:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2022-03",
+          "leverage": 0.050941914952445363,
+          "maximum_absolute_standardized_residual": 3.997093155152881,
+          "maximum_absolute_dfbeta_mp": 0.16981058994061582,
+          "maximum_absolute_dfbeta_cbi": 0.2369834182568767
+        },
+        {
+          "period": "2022-10",
+          "leverage": 0.4113273491173051,
+          "maximum_absolute_standardized_residual": 3.9749953925682378,
+          "maximum_absolute_dfbeta_mp": 0.5507089376950052,
+          "maximum_absolute_dfbeta_cbi": 0.2270084587233683
+        },
+        {
+          "period": "2022-09",
+          "leverage": 0.41704545644913316,
+          "maximum_absolute_standardized_residual": 3.7632549992365716,
+          "maximum_absolute_dfbeta_mp": 0.945023614046519,
+          "maximum_absolute_dfbeta_cbi": 0.919540493515987
+        },
+        {
+          "period": "2022-04",
+          "leverage": 0.08977094269220419,
+          "maximum_absolute_standardized_residual": 3.699391844756026,
+          "maximum_absolute_dfbeta_mp": 0.711320672172759,
+          "maximum_absolute_dfbeta_cbi": 0.5763539298253775
+        },
+        {
+          "period": "2022-02",
+          "leverage": 0.0547816363050005,
+          "maximum_absolute_standardized_residual": 3.648150527685824,
+          "maximum_absolute_dfbeta_mp": 0.24610995423773424,
+          "maximum_absolute_dfbeta_cbi": 0.34030825139713655
+        },
+        {
+          "period": "2022-08",
+          "leverage": 0.357108579858381,
+          "maximum_absolute_standardized_residual": 3.612980840316041,
+          "maximum_absolute_dfbeta_mp": 0.04297044823910889,
+          "maximum_absolute_dfbeta_cbi": 0.013564575740677088
+        },
+        {
+          "period": "2022-05",
+          "leverage": 0.0969113618826819,
+          "maximum_absolute_standardized_residual": 3.471196907468396,
+          "maximum_absolute_dfbeta_mp": 0.38783075492467295,
+          "maximum_absolute_dfbeta_cbi": 0.4244721898559568
+        },
+        {
+          "period": "2021-10",
+          "leverage": 0.04309253248775088,
+          "maximum_absolute_standardized_residual": 3.3656229926019576,
+          "maximum_absolute_dfbeta_mp": 0.01200417758727461,
+          "maximum_absolute_dfbeta_cbi": 0.16268881925704273
+        },
+        {
+          "period": "2021-08",
+          "leverage": 0.029316651215466866,
+          "maximum_absolute_standardized_residual": 3.3468295479328414,
+          "maximum_absolute_dfbeta_mp": 0.1364203758481599,
+          "maximum_absolute_dfbeta_cbi": 0.019400841866634756
+        },
+        {
+          "period": "2021-09",
+          "leverage": 0.04267165133263982,
+          "maximum_absolute_standardized_residual": 3.3103711116750856,
+          "maximum_absolute_dfbeta_mp": 0.03256824827934744,
+          "maximum_absolute_dfbeta_cbi": 0.32289207367935374
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 0.8080632973572085,
+          "sign_agreement_share": 0.92
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.08922458774469622,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.9964208622154282,
+          "sign_agreement_share": 0.92
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 1.9487848728056993,
+          "sign_agreement_share": 0.76
+        }
+      }
+    },
+    {
+      "model_id": "lp:romania:bilateral_fx:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2024-07",
+          "leverage": 0.04147243562550257,
+          "maximum_absolute_standardized_residual": 3.4498332084187333,
+          "maximum_absolute_dfbeta_mp": 0.2351484552108999,
+          "maximum_absolute_dfbeta_cbi": 0.14693265377584278
+        },
+        {
+          "period": "2016-02",
+          "leverage": 0.3736716470431859,
+          "maximum_absolute_standardized_residual": 3.378153608353492,
+          "maximum_absolute_dfbeta_mp": 0.39937362013794575,
+          "maximum_absolute_dfbeta_cbi": 0.15117366544355962
+        },
+        {
+          "period": "2024-06",
+          "leverage": 0.03977174657973315,
+          "maximum_absolute_standardized_residual": 3.1709271996492854,
+          "maximum_absolute_dfbeta_mp": 0.135522293562551,
+          "maximum_absolute_dfbeta_cbi": 0.10719834867773449
+        },
+        {
+          "period": "2019-01",
+          "leverage": 0.04804925593720155,
+          "maximum_absolute_standardized_residual": 3.1209938631050234,
+          "maximum_absolute_dfbeta_mp": 0.10584179925158807,
+          "maximum_absolute_dfbeta_cbi": 0.43374795552533085
+        },
+        {
+          "period": "2015-07",
+          "leverage": 0.08205499617267636,
+          "maximum_absolute_standardized_residual": 2.9288654890675665,
+          "maximum_absolute_dfbeta_mp": 0.032839692651370454,
+          "maximum_absolute_dfbeta_cbi": 0.051776660629317316
+        },
+        {
+          "period": "2015-06",
+          "leverage": 0.08813241916650244,
+          "maximum_absolute_standardized_residual": 2.9020117501386853,
+          "maximum_absolute_dfbeta_mp": 0.016614807501446994,
+          "maximum_absolute_dfbeta_cbi": 0.20994780218169823
+        },
+        {
+          "period": "2016-07",
+          "leverage": 0.0889628975098655,
+          "maximum_absolute_standardized_residual": 2.8563853379778648,
+          "maximum_absolute_dfbeta_mp": 0.19538772621553463,
+          "maximum_absolute_dfbeta_cbi": 0.31333067241262935
+        },
+        {
+          "period": "2024-05",
+          "leverage": 0.07242075001068127,
+          "maximum_absolute_standardized_residual": 2.837299763746261,
+          "maximum_absolute_dfbeta_mp": 0.2155194711193521,
+          "maximum_absolute_dfbeta_cbi": 0.22085866568238746
+        },
+        {
+          "period": "2017-11",
+          "leverage": 0.036902431024444515,
+          "maximum_absolute_standardized_residual": 2.8136191033685196,
+          "maximum_absolute_dfbeta_mp": 0.07142382720413176,
+          "maximum_absolute_dfbeta_cbi": 0.059111693089045465
+        },
+        {
+          "period": "2016-04",
+          "leverage": 0.3385549819666064,
+          "maximum_absolute_standardized_residual": 2.7949407144214113,
+          "maximum_absolute_dfbeta_mp": 0.22676616805728042,
+          "maximum_absolute_dfbeta_cbi": 0.10125546587812308
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 0.7204232196045203,
+          "sign_agreement_share": 0.64
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.12379047922734898,
+          "sign_agreement_share": 0.96
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.29538277380834166,
+          "sign_agreement_share": 0.84
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.6482117383957294,
+          "sign_agreement_share": 0.68
+        }
+      }
+    },
+    {
+      "model_id": "lp:romania:domestic_policy_rate:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2022-07",
+          "leverage": 0.4733633075133664,
+          "maximum_absolute_standardized_residual": 4.725421829180698,
+          "maximum_absolute_dfbeta_mp": 1.163331252631391,
+          "maximum_absolute_dfbeta_cbi": 1.4217794176159488
+        },
+        {
+          "period": "2022-04",
+          "leverage": 0.18366950742261542,
+          "maximum_absolute_standardized_residual": 3.6228616778493445,
+          "maximum_absolute_dfbeta_mp": 0.5854412452050111,
+          "maximum_absolute_dfbeta_cbi": 0.5417326317743045
+        },
+        {
+          "period": "2022-02",
+          "leverage": 0.07896165976163327,
+          "maximum_absolute_standardized_residual": 3.464681972855482,
+          "maximum_absolute_dfbeta_mp": 0.18950117970796312,
+          "maximum_absolute_dfbeta_cbi": 0.2308857321833715
+        },
+        {
+          "period": "2020-03",
+          "leverage": 0.4124084143284806,
+          "maximum_absolute_standardized_residual": 3.1055868186797797,
+          "maximum_absolute_dfbeta_mp": 1.0026633676859287,
+          "maximum_absolute_dfbeta_cbi": 0.19564904024745813
+        },
+        {
+          "period": "2021-10",
+          "leverage": 0.038938888262686766,
+          "maximum_absolute_standardized_residual": 3.0766446633599247,
+          "maximum_absolute_dfbeta_mp": 0.05333214161041415,
+          "maximum_absolute_dfbeta_cbi": 0.16773088985473447
+        },
+        {
+          "period": "2022-05",
+          "leverage": 0.22163355767214732,
+          "maximum_absolute_standardized_residual": 3.06399311720276,
+          "maximum_absolute_dfbeta_mp": 0.10051566695525004,
+          "maximum_absolute_dfbeta_cbi": 0.20648149238325697
+        },
+        {
+          "period": "2022-01",
+          "leverage": 0.07940738490643788,
+          "maximum_absolute_standardized_residual": 2.9232115586985725,
+          "maximum_absolute_dfbeta_mp": 0.0665924655759082,
+          "maximum_absolute_dfbeta_cbi": 0.08711631812672607
+        },
+        {
+          "period": "2023-01",
+          "leverage": 0.551959266963394,
+          "maximum_absolute_standardized_residual": 2.861226159069939,
+          "maximum_absolute_dfbeta_mp": 0.5104764880908164,
+          "maximum_absolute_dfbeta_cbi": 0.6187530120133898
+        },
+        {
+          "period": "2021-09",
+          "leverage": 0.038705208966816756,
+          "maximum_absolute_standardized_residual": 2.7814095871320026,
+          "maximum_absolute_dfbeta_mp": 0.1481779853512644,
+          "maximum_absolute_dfbeta_cbi": 0.17627532331472115
+        },
+        {
+          "period": "2021-11",
+          "leverage": 0.07274526784545662,
+          "maximum_absolute_standardized_residual": 2.6888971025115946,
+          "maximum_absolute_dfbeta_mp": 0.13392656543262155,
+          "maximum_absolute_dfbeta_cbi": 0.02106018939195535
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 0.6940425785292917,
+          "sign_agreement_share": 0.96
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.18058635685392893,
+          "sign_agreement_share": 0.96
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.7674385536495414,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 1.9991492354343319,
+          "sign_agreement_share": 0.96
+        }
+      }
+    },
+    {
+      "model_id": "lp:serbia:hicp_price_level:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2015-07",
+          "leverage": 0.17227956450273185,
+          "maximum_absolute_standardized_residual": 2.8530250033938764,
+          "maximum_absolute_dfbeta_mp": 0.2398554480889024,
+          "maximum_absolute_dfbeta_cbi": 0.22367996990113848
+        },
+        {
+          "period": "2020-11",
+          "leverage": 0.24292213759574,
+          "maximum_absolute_standardized_residual": 2.718920735122925,
+          "maximum_absolute_dfbeta_mp": 0.2874970446557654,
+          "maximum_absolute_dfbeta_cbi": 0.04338262576335685
+        },
+        {
+          "period": "2016-07",
+          "leverage": 0.18016944170608196,
+          "maximum_absolute_standardized_residual": 2.612115423646534,
+          "maximum_absolute_dfbeta_mp": 0.19477988003671828,
+          "maximum_absolute_dfbeta_cbi": 0.33302769040572056
+        },
+        {
+          "period": "2020-12",
+          "leverage": 0.24869166712644852,
+          "maximum_absolute_standardized_residual": 2.489026084138163,
+          "maximum_absolute_dfbeta_mp": 0.1802754870380622,
+          "maximum_absolute_dfbeta_cbi": 0.24760881632834159
+        },
+        {
+          "period": "2020-08",
+          "leverage": 0.47983984180480876,
+          "maximum_absolute_standardized_residual": 2.480448715656977,
+          "maximum_absolute_dfbeta_mp": 0.23614256600890474,
+          "maximum_absolute_dfbeta_cbi": 0.15183022092819715
+        },
+        {
+          "period": "2016-09",
+          "leverage": 0.2729808730963165,
+          "maximum_absolute_standardized_residual": 2.469155210629313,
+          "maximum_absolute_dfbeta_mp": 0.15256595759978728,
+          "maximum_absolute_dfbeta_cbi": 0.64513115482945
+        },
+        {
+          "period": "2021-07",
+          "leverage": 0.151658144349889,
+          "maximum_absolute_standardized_residual": 2.4517441499105503,
+          "maximum_absolute_dfbeta_mp": 0.2586424880811537,
+          "maximum_absolute_dfbeta_cbi": 0.32096677887171104
+        },
+        {
+          "period": "2016-08",
+          "leverage": 0.18461440446820931,
+          "maximum_absolute_standardized_residual": 2.4195761770415154,
+          "maximum_absolute_dfbeta_mp": 0.10069592595531501,
+          "maximum_absolute_dfbeta_cbi": 0.0740421760282836
+        },
+        {
+          "period": "2022-04",
+          "leverage": 0.23345247798758972,
+          "maximum_absolute_standardized_residual": 2.4010870125095147,
+          "maximum_absolute_dfbeta_mp": 0.5040530375906671,
+          "maximum_absolute_dfbeta_cbi": 0.48609035362178926
+        },
+        {
+          "period": "2021-09",
+          "leverage": 0.1722121128635211,
+          "maximum_absolute_standardized_residual": 2.39813143095794,
+          "maximum_absolute_dfbeta_mp": 0.1783074812402863,
+          "maximum_absolute_dfbeta_cbi": 0.13432403094374915
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 1.6920442089698857,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.872141369569329,
+          "sign_agreement_share": 1
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 1.4267744887790483,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 3.044946181861798,
+          "sign_agreement_share": 0.96
+        }
+      }
+    },
+    {
+      "model_id": "lp:serbia:industrial_production:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2020-02",
+          "leverage": 0.024370167244511742,
+          "maximum_absolute_standardized_residual": 6.436952372633609,
+          "maximum_absolute_dfbeta_mp": 0.19910094496466194,
+          "maximum_absolute_dfbeta_cbi": 0.28311775977111814
+        },
+        {
+          "period": "2019-06",
+          "leverage": 0.028059351961532586,
+          "maximum_absolute_standardized_residual": 6.389151438498804,
+          "maximum_absolute_dfbeta_mp": 0.3769418882470666,
+          "maximum_absolute_dfbeta_cbi": 0.38572378402863083
+        },
+        {
+          "period": "2018-04",
+          "leverage": 0.03703173273061183,
+          "maximum_absolute_standardized_residual": 6.29012815591876,
+          "maximum_absolute_dfbeta_mp": 0.2333336634550239,
+          "maximum_absolute_dfbeta_cbi": 0.5596445310936596
+        },
+        {
+          "period": "2018-05",
+          "leverage": 0.04043327872729424,
+          "maximum_absolute_standardized_residual": 6.254587433748558,
+          "maximum_absolute_dfbeta_mp": 0.4635587160651858,
+          "maximum_absolute_dfbeta_cbi": 0.23236978329108818
+        },
+        {
+          "period": "2019-05",
+          "leverage": 0.048332995164750314,
+          "maximum_absolute_standardized_residual": 6.230796436279966,
+          "maximum_absolute_dfbeta_mp": 0.3287469945276841,
+          "maximum_absolute_dfbeta_cbi": 0.28888403699188664
+        },
+        {
+          "period": "2020-04",
+          "leverage": 0.3525283607121741,
+          "maximum_absolute_standardized_residual": 6.211306685414508,
+          "maximum_absolute_dfbeta_mp": 0.35188860995263976,
+          "maximum_absolute_dfbeta_cbi": 0.8672286521341578
+        },
+        {
+          "period": "2018-12",
+          "leverage": 0.03417722066425799,
+          "maximum_absolute_standardized_residual": 6.207660257884162,
+          "maximum_absolute_dfbeta_mp": 0.2828858665362711,
+          "maximum_absolute_dfbeta_cbi": 0.19299699731263914
+        },
+        {
+          "period": "2019-07",
+          "leverage": 0.04174896649959668,
+          "maximum_absolute_standardized_residual": 6.179396845891379,
+          "maximum_absolute_dfbeta_mp": 0.6395874679667477,
+          "maximum_absolute_dfbeta_cbi": 0.14561029928969005
+        },
+        {
+          "period": "2020-01",
+          "leverage": 0.05799203568504577,
+          "maximum_absolute_standardized_residual": 6.163835925675704,
+          "maximum_absolute_dfbeta_mp": 0.28055028777741803,
+          "maximum_absolute_dfbeta_cbi": 0.4361404438932237
+        },
+        {
+          "period": "2018-11",
+          "leverage": 0.03810052629595089,
+          "maximum_absolute_standardized_residual": 6.160077392654048,
+          "maximum_absolute_dfbeta_mp": 0.3267332081799845,
+          "maximum_absolute_dfbeta_cbi": 0.2431298724572433
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 9.940467158575464,
+          "sign_agreement_share": 0.92
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 1.794238272498018,
+          "sign_agreement_share": 0.96
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 3.0243424061086035,
+          "sign_agreement_share": 0.96
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 6.531855697672888,
+          "sign_agreement_share": 0.84
+        }
+      }
+    },
+    {
+      "model_id": "lp:serbia:bilateral_fx:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2015-06",
+          "leverage": 0.051738858460309844,
+          "maximum_absolute_standardized_residual": 4.60788819664991,
+          "maximum_absolute_dfbeta_mp": 0.28660262829766125,
+          "maximum_absolute_dfbeta_cbi": 0.6324871297383619
+        },
+        {
+          "period": "2015-04",
+          "leverage": 0.08325217158390608,
+          "maximum_absolute_standardized_residual": 4.550683500209674,
+          "maximum_absolute_dfbeta_mp": 0.17082094231697,
+          "maximum_absolute_dfbeta_cbi": 0.23033527020634423
+        },
+        {
+          "period": "2017-06",
+          "leverage": 0.06533947785834737,
+          "maximum_absolute_standardized_residual": 4.501819081687994,
+          "maximum_absolute_dfbeta_mp": 0.04832386034374077,
+          "maximum_absolute_dfbeta_cbi": 0.17819504915583545
+        },
+        {
+          "period": "2015-05",
+          "leverage": 0.03687601463328333,
+          "maximum_absolute_standardized_residual": 4.4015792980685475,
+          "maximum_absolute_dfbeta_mp": 0.051443305762200756,
+          "maximum_absolute_dfbeta_cbi": 0.10235455409169057
+        },
+        {
+          "period": "2015-03",
+          "leverage": 0.16229836319114477,
+          "maximum_absolute_standardized_residual": 4.327321587914768,
+          "maximum_absolute_dfbeta_mp": 0.15641806187906845,
+          "maximum_absolute_dfbeta_cbi": 0.17709142347089984
+        },
+        {
+          "period": "2017-05",
+          "leverage": 0.05896835174482784,
+          "maximum_absolute_standardized_residual": 4.221008122939901,
+          "maximum_absolute_dfbeta_mp": 0.017577703352376652,
+          "maximum_absolute_dfbeta_cbi": 0.041907423064150906
+        },
+        {
+          "period": "2015-12",
+          "leverage": 0.3004377239959589,
+          "maximum_absolute_standardized_residual": 4.006132267223003,
+          "maximum_absolute_dfbeta_mp": 1.228286017323237,
+          "maximum_absolute_dfbeta_cbi": 0.7268750332656727
+        },
+        {
+          "period": "2017-04",
+          "leverage": 0.06270115319867209,
+          "maximum_absolute_standardized_residual": 3.9316387692977868,
+          "maximum_absolute_dfbeta_mp": 0.031316135140347465,
+          "maximum_absolute_dfbeta_cbi": 0.07874628513832789
+        },
+        {
+          "period": "2017-07",
+          "leverage": 0.11378624304902729,
+          "maximum_absolute_standardized_residual": 3.9136187635367317,
+          "maximum_absolute_dfbeta_mp": 0.04172589697456533,
+          "maximum_absolute_dfbeta_cbi": 0.16012236265161098
+        },
+        {
+          "period": "2015-07",
+          "leverage": 0.021122254975069588,
+          "maximum_absolute_standardized_residual": 3.8413812748383616,
+          "maximum_absolute_dfbeta_mp": 0.24055983638978792,
+          "maximum_absolute_dfbeta_cbi": 0.09474186572022236
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 0.21890722074121172,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.05337485292447476,
+          "sign_agreement_share": 0.96
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.39129726798249725,
+          "sign_agreement_share": 0.92
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.8847914727845376,
+          "sign_agreement_share": 0.92
+        }
+      }
+    },
+    {
+      "model_id": "lp:serbia:domestic_policy_rate:full:jk_joint:h24",
+      "status": "diagnostic_only",
+      "automatic_deletion": false,
+      "largest_influence_observations": [
+        {
+          "period": "2022-04",
+          "leverage": 0.07432057491312222,
+          "maximum_absolute_standardized_residual": 3.984946491961512,
+          "maximum_absolute_dfbeta_mp": 0.4257782355617796,
+          "maximum_absolute_dfbeta_cbi": 0.49095292431076654
+        },
+        {
+          "period": "2015-07",
+          "leverage": 0.11313442881555658,
+          "maximum_absolute_standardized_residual": 3.2740753600478336,
+          "maximum_absolute_dfbeta_mp": 0.03057145521766711,
+          "maximum_absolute_dfbeta_cbi": 0.016273146970849375
+        },
+        {
+          "period": "2020-03",
+          "leverage": 0.3628014044429662,
+          "maximum_absolute_standardized_residual": 3.2220063585541543,
+          "maximum_absolute_dfbeta_mp": 1.0968632500509723,
+          "maximum_absolute_dfbeta_cbi": 0.2583937548260906
+        },
+        {
+          "period": "2022-03",
+          "leverage": 0.0531862955522653,
+          "maximum_absolute_standardized_residual": 3.195360629328106,
+          "maximum_absolute_dfbeta_mp": 0.09155225564857782,
+          "maximum_absolute_dfbeta_cbi": 0.11028212417999686
+        },
+        {
+          "period": "2015-11",
+          "leverage": 0.23174302287764664,
+          "maximum_absolute_standardized_residual": 3.0955982319047823,
+          "maximum_absolute_dfbeta_mp": 0.2358017263820588,
+          "maximum_absolute_dfbeta_cbi": 0.18571689623717122
+        },
+        {
+          "period": "2015-12",
+          "leverage": 0.4075657067556173,
+          "maximum_absolute_standardized_residual": 3.0355273794690127,
+          "maximum_absolute_dfbeta_mp": 0.8687973641616537,
+          "maximum_absolute_dfbeta_cbi": 0.01157159906629291
+        },
+        {
+          "period": "2022-02",
+          "leverage": 0.05925902317404791,
+          "maximum_absolute_standardized_residual": 2.8201277105439826,
+          "maximum_absolute_dfbeta_mp": 0.14719489457950505,
+          "maximum_absolute_dfbeta_cbi": 0.20995898954565437
+        },
+        {
+          "period": "2020-06",
+          "leverage": 0.44839984164999425,
+          "maximum_absolute_standardized_residual": 2.574533569060026,
+          "maximum_absolute_dfbeta_mp": 0.06729245573996606,
+          "maximum_absolute_dfbeta_cbi": 0.2635936538263276
+        },
+        {
+          "period": "2022-05",
+          "leverage": 0.1946278510458435,
+          "maximum_absolute_standardized_residual": 2.4453045882823745,
+          "maximum_absolute_dfbeta_mp": 0.299713593944421,
+          "maximum_absolute_dfbeta_cbi": 0.27707296043682156
+        },
+        {
+          "period": "2022-01",
+          "leverage": 0.047211537656547994,
+          "maximum_absolute_standardized_residual": 2.4447929936514208,
+          "maximum_absolute_dfbeta_mp": 0.14106206151584327,
+          "maximum_absolute_dfbeta_cbi": 0.08295837099194768
+        }
+      ],
+      "leave_one_largest_mp_month": {
+        "dropped_period": "2020-03",
+        "dropped_value": 0.18996661,
+        "mp": {
+          "maximum_absolute_response_difference": 0.8736385072243742,
+          "sign_agreement_share": 0.56
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.1707415484277186,
+          "sign_agreement_share": 0.92
+        }
+      },
+      "leave_one_largest_cbi_month": {
+        "dropped_period": "2023-03",
+        "dropped_value": 0.13706177,
+        "mp": {
+          "maximum_absolute_response_difference": 0.21061784413218576,
+          "sign_agreement_share": 1
+        },
+        "cbi": {
+          "maximum_absolute_response_difference": 0.4546412782619351,
+          "sign_agreement_share": 0.96
+        }
+      }
+    }
+  ]
+}

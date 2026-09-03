@@ -18,9 +18,9 @@ export function EcbIdentificationStatus() {
     <section className="editorial-panel p-5">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <p className="editorial-kicker">Monetary Policy Identification / v1.7</p>
+          <p className="editorial-kicker">Monetary Policy Identification / v1.71</p>
           <h2 className="mt-2 text-2xl font-semibold">货币政策识别</h2>
-          <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">Jarociński–Karadi 作者参考的 PC1、poor-man、确定性中位旋转与月度序列继续冻结并逐项复刻通过。v1.7 只使用两个已识别的代表性分量，激活单国联合 MP/CBI Local Projections；它们仍不是唯一结构真值。</p>
+          <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">Jarociński–Karadi 作者参考的 PC1、poor-man、确定性中位旋转与月度序列继续冻结并逐项复刻通过。v1.71 保留两个已识别代表性分量和 44 个单国 baseline，并强化路径推断与稳健性披露；它们仍不是唯一结构真值。</p>
         </div>
         <span className="rounded-full border border-[var(--success)] px-3 py-1 text-xs font-semibold text-[var(--success)]">作者参考通过 · LP 交叉验证通过</span>
       </div>
@@ -49,7 +49,7 @@ export function EcbIdentificationStatus() {
           <div><h3 className="font-semibold text-[var(--foreground)]">因子边界</h3><p className="mt-2">工作簿直接提供 {directFactors.length} 条当前规范代理。Target、Timing、Forward Guidance、QE 共 {blockedFactors.length} 项只在方法论中定义，当前附件没有可直接复用的正式因子列，因此没有从原始列静默重建。</p></div>
           <div><h3 className="font-semibold text-[var(--foreground)]">识别边界</h3><p className="mt-2">信息效应状态为 {informationEffects.records[0]?.information_effect_handling}。作者参考匹配为 {authorReference.status}，中位旋转角为 {medianValidation.rotation_angle_radians.toFixed(6)}。poor-man 仅作限制性稳健性诊断；中位分解允许同一事件同时含两类冲击。</p></div>
         </div>
-        <p className="mt-4 text-xs text-[var(--muted)]">v1.62 JK replication frozen: {authorReference.status} · identified shocks: {validation.identified_shock_count} · v1.7 Local Projections: {lpValidation.status}</p>
+        <p className="mt-4 text-xs text-[var(--muted)]">v1.62 JK replication frozen: {authorReference.status} · identified shocks: {validation.identified_shock_count} · v1.71 Local Projections: {lpValidation.status}</p>
         <div className="mt-4 flex flex-wrap gap-3">
           <a href={`${basePath}/research-data/ecb_monetary_event_data_acquisition_manifest.json`} className="text-sm font-semibold text-[var(--accent)]">Acquisition manifest</a>
           <a href={`${basePath}/research-data/ecb_policy_factor_registry.json`} className="text-sm font-semibold text-[var(--accent)]">Factor registry</a>

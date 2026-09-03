@@ -1,0 +1,36 @@
+{
+  "schema_version": "lp-inference-registry-v1.71",
+  "generated_at": "2026-09-03",
+  "records": [
+    {
+      "inference_id": "pointwise_ci",
+      "state": "active",
+      "levels": [
+        0.9,
+        0.95
+      ],
+      "method": "EHW HC1 with normal critical values",
+      "interpretation": "uncertainty at one pre-specified horizon"
+    },
+    {
+      "inference_id": "simultaneous_confidence_band",
+      "state": "active",
+      "levels": [
+        0.95
+      ],
+      "method": "plug-in sup-t from multivariate-normal draws using cross-horizon joint HC1 covariance",
+      "draw_count": 5000,
+      "interpretation": "joint coverage for the complete displayed response path"
+    },
+    {
+      "inference_id": "global_significance_test",
+      "state": "registry_only"
+    },
+    {
+      "inference_id": "significance_band",
+      "state": "registry_only",
+      "reference": "Inoue, Jorda and Kuersteiner, FRBSF Working Paper 2023-15",
+      "interpretation": "zero-path test, not a parameter confidence region"
+    }
+  ]
+}

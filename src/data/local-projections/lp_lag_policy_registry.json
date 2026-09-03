@@ -1,6 +1,6 @@
 {
-  "schema_version": "lp-lag-policy-registry-v1.7",
-  "generated_at": "2026-09-01",
+  "schema_version": "lp-lag-policy-registry-v1.71",
+  "generated_at": "2026-09-03",
   "baseline": {
     "candidate_lags": [
       1,
@@ -13,16 +13,23 @@
     "criterion": "AIC",
     "selection_frequency": "once per country × outcome × regime on a common pre-estimation sample",
     "horizon_specific_selection": false,
-    "lag_augmentation": "add one full lag relative to non-augmented LP; reported augmented order p+1"
+    "selected_base_lag_order_definition": "VAR base order p before LP augmentation",
+    "lp_lag_count_definition": "actual lag blocks used by the production LP",
+    "nonaugmented_lp_lag_count": "p-1",
+    "lag_augmented_lp_lag_count": "p",
+    "augmentation_relative_to_nonaugmented_lp": 1,
+    "removed_misleading_field": "lag_augmented_order=p+1"
   },
   "sensitivity": [
     {
       "profile": "fixed_p2",
-      "lag": 2
+      "lag": 2,
+      "state": "active_sensitivity_only"
     },
     {
       "profile": "fixed_p6",
-      "lag": 6
+      "lag": 6,
+      "state": "active_sensitivity_only"
     }
   ],
   "selections": [
@@ -71,7 +78,10 @@
           "parameter_count": 30
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 4,
+      "lp_lag_count": 4,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "austria",
@@ -118,7 +128,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 4,
+      "lp_lag_count": 4,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "austria",
@@ -165,7 +178,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 1,
+      "lp_lag_count": 1,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "austria",
@@ -212,7 +228,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 1,
+      "lp_lag_count": 1,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "germany",
@@ -259,7 +278,10 @@
           "parameter_count": 30
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 6,
+      "lp_lag_count": 6,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "germany",
@@ -306,7 +328,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 4,
+      "lp_lag_count": 4,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "germany",
@@ -353,7 +378,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 4,
+      "lp_lag_count": 4,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "germany",
@@ -400,7 +428,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 1,
+      "lp_lag_count": 1,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "slovakia",
@@ -447,7 +478,10 @@
           "parameter_count": 30
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 4,
+      "lp_lag_count": 4,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "slovakia",
@@ -494,7 +528,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 1,
+      "lp_lag_count": 1,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "slovakia",
@@ -541,7 +578,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 4,
+      "lp_lag_count": 4,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "slovakia",
@@ -588,7 +628,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 2,
+      "lp_lag_count": 2,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "slovenia",
@@ -635,7 +678,10 @@
           "parameter_count": 30
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 6,
+      "lp_lag_count": 6,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "slovenia",
@@ -682,7 +728,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 1,
+      "lp_lag_count": 1,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "slovenia",
@@ -729,7 +778,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 4,
+      "lp_lag_count": 4,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "slovenia",
@@ -776,7 +828,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 3,
+      "lp_lag_count": 3,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "croatia",
@@ -823,7 +878,10 @@
           "parameter_count": 30
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 2,
+      "lp_lag_count": 2,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "croatia",
@@ -870,7 +928,10 @@
           "parameter_count": 30
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 5,
+      "lp_lag_count": 5,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "croatia",
@@ -917,7 +978,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 1,
+      "lp_lag_count": 1,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "croatia",
@@ -964,7 +1028,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 3,
+      "lp_lag_count": 3,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "croatia",
@@ -1011,7 +1078,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 2,
+      "lp_lag_count": 2,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "croatia",
@@ -1058,7 +1128,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 1,
+      "lp_lag_count": 1,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "croatia",
@@ -1105,7 +1178,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 4,
+      "lp_lag_count": 4,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "croatia",
@@ -1152,7 +1228,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 3,
+      "lp_lag_count": 3,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "czechia",
@@ -1199,7 +1278,10 @@
           "parameter_count": 30
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 6,
+      "lp_lag_count": 6,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "czechia",
@@ -1246,7 +1328,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 1,
+      "lp_lag_count": 1,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "czechia",
@@ -1293,7 +1378,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 5,
+      "lp_lag_count": 5,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "czechia",
@@ -1340,7 +1428,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 4,
+      "lp_lag_count": 4,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "czechia",
@@ -1387,7 +1478,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 1,
+      "lp_lag_count": 1,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "czechia",
@@ -1434,7 +1528,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 3,
+      "lp_lag_count": 3,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "hungary",
@@ -1481,7 +1578,10 @@
           "parameter_count": 30
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 2,
+      "lp_lag_count": 2,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "hungary",
@@ -1528,7 +1628,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 1,
+      "lp_lag_count": 1,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "hungary",
@@ -1575,7 +1678,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 2,
+      "lp_lag_count": 2,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "hungary",
@@ -1622,7 +1728,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 4,
+      "lp_lag_count": 4,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "hungary",
@@ -1669,7 +1778,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 2,
+      "lp_lag_count": 2,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "hungary",
@@ -1716,7 +1828,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 5,
+      "lp_lag_count": 5,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "poland",
@@ -1763,7 +1878,10 @@
           "parameter_count": 30
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 4,
+      "lp_lag_count": 4,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "poland",
@@ -1810,7 +1928,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 4,
+      "lp_lag_count": 4,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "poland",
@@ -1857,7 +1978,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 4,
+      "lp_lag_count": 4,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "poland",
@@ -1904,7 +2028,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 4,
+      "lp_lag_count": 4,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "poland",
@@ -1951,7 +2078,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 1,
+      "lp_lag_count": 1,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "poland",
@@ -1998,7 +2128,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 6,
+      "lp_lag_count": 6,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "romania",
@@ -2045,7 +2178,10 @@
           "parameter_count": 30
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 2,
+      "lp_lag_count": 2,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "romania",
@@ -2092,7 +2228,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 1,
+      "lp_lag_count": 1,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "romania",
@@ -2139,7 +2278,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 4,
+      "lp_lag_count": 4,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "romania",
@@ -2186,7 +2328,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 4,
+      "lp_lag_count": 4,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "romania",
@@ -2233,7 +2378,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 4,
+      "lp_lag_count": 4,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "romania",
@@ -2280,7 +2428,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 6,
+      "lp_lag_count": 6,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "serbia",
@@ -2327,7 +2478,10 @@
           "parameter_count": 30
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 6,
+      "lp_lag_count": 6,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "serbia",
@@ -2374,7 +2528,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 4,
+      "lp_lag_count": 4,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "serbia",
@@ -2421,7 +2578,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 2,
+      "lp_lag_count": 2,
+      "augmentation_relative_to_nonaugmented_lp": 1
     },
     {
       "country": "serbia",
@@ -2468,7 +2628,10 @@
           "parameter_count": 19
         }
       ],
-      "commonSampleStartIndex": 6
+      "commonSampleStartIndex": 6,
+      "selected_base_lag_order": 5,
+      "lp_lag_count": 5,
+      "augmentation_relative_to_nonaugmented_lp": 1
     }
   ]
 }

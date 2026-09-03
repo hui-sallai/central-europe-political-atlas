@@ -1,9 +1,10 @@
 {
-  "schema_version": "lp-control-profile-registry-v1.7",
-  "generated_at": "2026-09-01",
+  "schema_version": "lp-control-profile-registry-v1.71",
+  "generated_at": "2026-09-03",
   "records": [
     {
       "profile_id": "formal_baseline",
+      "state": "active",
       "controls": [
         "constant",
         "MP_t",
@@ -19,13 +20,16 @@
       ]
     },
     {
-      "profile_id": "predetermined_sensitivity",
-      "state": "registry_only",
+      "profile_id": "predetermined_external_controls_v1",
+      "state": "active_sensitivity_only",
+      "control_lag_count": "selected base p",
       "lagged_controls": [
         "Brent",
         "European gas",
         "domestic policy rate for non-euro countries"
-      ]
+      ],
+      "contemporaneous_controls": [],
+      "baseline_replacement_allowed": false
     }
   ]
 }

@@ -723,7 +723,7 @@ check(kpssStatus().status === "not_available", "KPSS must honestly report not_av
   check(driverDictionary.records.find((item) => item.driver_id === "hicp_energy_index")?.economic_role === "domestic_price_outcome" && !shocks.records.some((item) => item.driver_id?.startsWith("hicp_energy") && item.identification_status === "identified_shock"), "HICP Energy was incorrectly marked as an external/identified shock.", "macro_driver");
   check(shocks.identified_shock_count === 2 && shocks.records.filter((item) => item.driver_id === "policy_rate").every((item) => item.identification_status !== "identified_shock"), "Author-reference shock count or policy-rate boundary failed.", "macro_driver");
   const formalLp = lp.records.filter((item) => String(item.readiness_id).includes(":jk_joint:"));
-  check(lp.method_state === "active" && lp.causal_lp_ready_count === 44 && formalLp.length === 54, "v1.7 LP activation/readiness count failed.", "macro_driver");
+  check(lp.method_state === "active" && lp.causal_lp_ready_count === 44 && lp.path_inference_ready_count === 44 && formalLp.length === 54, "v1.71 LP activation/readiness count failed.", "macro_driver");
   check(formalLp.every((item) => item.identification_status === "identified_shock" && item.shock_scope && (!item.causal_lp_ready || item.effective_n >= 96)), "LP identification/sample/scope gate failed.", "macro_driver");
   check(lp.records.filter((item) => !String(item.readiness_id).includes(":jk_joint:")).every((item) => item.causal_lp_ready === false), "Legacy proxy readiness entered formal causal LP.", "macro_driver");
   check(sourceCandidates.records.length >= 2 && sourceCandidates.records.every((item) => item.acquisition_status === "acquired" && item.identification_status === "external_innovation_proxy" && item.information_effect_status === "separated_under_jk_framework" && item.source_institution === "European Central Bank"), "Official ECB source acquisition or identification boundary is inconsistent.", "macro_driver");
@@ -739,7 +739,7 @@ check(kpssStatus().status === "not_available", "KPSS must honestly report not_av
 }
 
 const advancedValidationSummary = {
-  schema_version: "advanced-analysis-validation-summary-v1.7",
+  schema_version: "advanced-analysis-validation-summary-v1.71",
   generated_at: new Date().toISOString(),
   status: errors.length === 0 ? "passed" : "failed",
   total_tests: panelTests + networkTests + hfTests + eventTests + varTests + macroDriverTests + identifiedShockTests + localProjectionTests + authorReferenceTests,

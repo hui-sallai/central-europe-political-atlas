@@ -1,0 +1,17 @@
+{
+  "schema_version": "lp-path-inference-validation-v1.71",
+  "generated_at": "2026-09-03",
+  "status": "passed",
+  "method": "plugin_gaussian_sup_t_joint_hc1",
+  "active_model_count": 44,
+  "path_inference_ready_count": 44,
+  "production_draw_count": 5000,
+  "independent_python_draw_count": 100000,
+  "cross_language_reference_case_count": 5,
+  "maximum_independent_sup_t_critical_value_difference": 0.04132294343757481,
+  "simulation_tolerance": 0.12,
+  "pointwise_not_wider_tested": true,
+  "reference_repository": "jm4474/Confidence_Bands",
+  "reference_commit": "6cf28bbd63313ead3c06904649dbb0766e51028a",
+  "failures": []
+}

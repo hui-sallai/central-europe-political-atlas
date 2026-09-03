@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independent NumPy/SciPy/statsmodels reference for the v1.7 LP engine."""
+"""Independent NumPy/SciPy/statsmodels reference for the v1.71 LP engine."""
 
 from __future__ import annotations
 
@@ -17,6 +17,8 @@ ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "src" / "data"
 LP = DATA / "local-projections"
 HORIZONS = (0, 1, 6, 12, 18, 24)
+PATH_CHECKPOINTS = (0, 1, 6, 12, 24)
+PATH_DRAWS = 100_000
 
 
 def read(path: Path):
@@ -66,11 +68,22 @@ def transformed(kind: str, future: float, base: float) -> float:
     return 100.0 * math.log(future / base) if kind == "log" else future - base
 
 
+def sup_t_reference(covariance: np.ndarray, seed: int) -> float:
+    standard_errors = np.sqrt(np.maximum(0.0, np.diag(covariance)))
+    correlation = covariance / np.maximum(np.finfo(float).eps, np.outer(standard_errors, standard_errors))
+    correlation = (correlation + correlation.T) / 2.0
+    eigenvalues, eigenvectors = np.linalg.eigh(correlation)
+    root = eigenvectors @ np.diag(np.sqrt(np.maximum(0.0, eigenvalues)))
+    rng = np.random.default_rng(seed)
+    maxima = np.max(np.abs(rng.standard_normal((PATH_DRAWS, len(covariance))) @ root.T), axis=1)
+    return float(np.quantile(maxima, 0.95, method="inverted_cdf"))
+
+
 def reference_case(country: str, outcome: str) -> dict:
     model_id = f"lp:{country}:{outcome}:full:jk_joint:h24"
     model = models[model_id]
     prod = production[model_id]
-    p = model["lag_order"]
+    p = model["selected_base_lag_order"]
     max_h = model["maximum_horizon"]
     _, _, month_dummies, kind = specs[outcome]
     series = source_series(country, outcome)
@@ -92,10 +105,8 @@ def reference_case(country: str, outcome: str) -> dict:
         if all(value is not None and math.isfinite(value) for value in required):
             common.append(i)
 
-    output = []
-    for h in HORIZONS:
-        if h > max_h:
-            continue
+    fits = []
+    for h in range(max_h + 1):
         y, x = [], []
         for i in common:
             y.append(transformed(kind, rows[i + h]["outcome"], rows[i - 1]["outcome"]))
@@ -108,6 +119,13 @@ def reference_case(country: str, outcome: str) -> dict:
             controls.append(1.0)
             x.append(controls)
         fit = sm.OLS(np.asarray(y), np.asarray(x)).fit(cov_type="HC1")
+        fits.append(fit)
+
+    output = []
+    for h in HORIZONS:
+        if h > max_h:
+            continue
+        fit = fits[h]
         prod_h = next(row for row in prod["horizons"] if row["horizon"] == h)
         output.append({
             "horizon": h,
@@ -123,10 +141,34 @@ def reference_case(country: str, outcome: str) -> dict:
             "ci95_cbi": [float((fit.params[1] - norm.ppf(0.975) * fit.bse[1]) * 0.25), float((fit.params[1] + norm.ppf(0.975) * fit.bse[1]) * 0.25)],
             "production": {key: prod_h[key] for key in ("beta_mp_raw", "beta_cbi_raw", "standard_error_mp", "standard_error_cbi", "mp_response_25bp")},
         })
+
+    x_array = np.asarray(x)
+    xtx_inverse = np.linalg.inv(x_array.T @ x_array)
+    hc1 = len(common) / (len(common) - x_array.shape[1])
+    path_reference = {}
+    for coefficient, label, seed in ((0, "mp", 1710), (1, "cbi", 1711)):
+        covariance = np.empty((max_h + 1, max_h + 1))
+        for h, fit_h in enumerate(fits):
+            for j, fit_j in enumerate(fits):
+                weighted_x = x_array * (fit_h.resid * fit_j.resid)[:, None]
+                sandwich = xtx_inverse @ (x_array.T @ weighted_x) @ xtx_inverse * hc1
+                covariance[h, j] = sandwich[coefficient, coefficient]
+        path_reference[label] = {
+            "critical_value_95": sup_t_reference(covariance, seed),
+            "draw_count": PATH_DRAWS,
+            "seed": seed,
+            "standard_errors": {str(h): float(math.sqrt(max(0.0, covariance[h, h]))) for h in PATH_CHECKPOINTS},
+            "covariance_checkpoints": [
+                {"horizon_a": h, "horizon_b": j, "value": float(covariance[h, j])}
+                for h, j in ((0, 1), (0, 6), (1, 12), (6, 24), (12, 24))
+            ],
+            "production_critical_value_95": float(prod["simultaneous_inference"][f"{label}_critical_value_95"]),
+        }
     return {
         "case_id": f"{country}_{outcome}", "model_id": model_id, "country": country, "outcome": outcome,
-        "lag_order": p, "maximum_horizon": max_h, "effective_n": len(common),
+        "selected_base_lag_order": p, "lp_lag_count": p, "augmentation_relative_to_nonaugmented_lp": 1, "maximum_horizon": max_h, "effective_n": len(common),
         "sample_start": rows[common[0]]["period"], "sample_end": rows[common[-1]]["period"], "horizons": output,
+        "path_reference": path_reference,
     }
 
 
@@ -165,11 +207,12 @@ def synthetic_reference() -> dict:
     }
 
 payload = {
-    "schema_version": "lp-cross-language-reference-v1.7",
-    "generated_at": "2026-09-01",
+    "schema_version": "lp-cross-language-reference-v1.71",
+    "generated_at": "2026-09-03",
     "reference_runtime": {"numpy": np.__version__, "scipy": scipy.__version__, "statsmodels": sm.__version__},
-    "estimator": "statsmodels OLS with cov_type=HC1; normal critical values; joint MP/CBI; no HAC",
+    "estimator": "statsmodels OLS with cov_type=HC1; joint cross-horizon HC1 covariance; Gaussian plug-in sup-t; joint MP/CBI; no HAC",
     "tolerance": 1e-8,
+    "simulation_tolerance": 0.12,
     "synthetic": synthetic_reference(),
     "cases": [reference_case(country, outcome) for country, outcome in golden],
 }

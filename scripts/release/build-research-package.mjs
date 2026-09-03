@@ -127,6 +127,17 @@ const sourceEntries = [
   ["local-projections/lp_results.json", "src/data/local-projections/lp_results.json"],
   ["local-projections/lp_reference_cases.json", "src/data/local-projections/lp_reference_cases.json"],
   ["local-projections/lp_validation_summary.json", "src/data/local-projections/lp_validation_summary.json"],
+  ["local-projections/lp_inference_registry.json", "src/data/local-projections/lp_inference_registry.json"],
+  ["local-projections/lp_simultaneous_inference_reference_manifest.json", "src/data/local-projections/lp_simultaneous_inference_reference_manifest.json"],
+  ["local-projections/lp_path_inference_validation.json", "src/data/local-projections/lp_path_inference_validation.json"],
+  ["local-projections/lp_coefficient_invariance_manifest.json", "src/data/local-projections/lp_coefficient_invariance_manifest.json"],
+  ["local-projections/lp_lag_sensitivity_results.json", "src/data/local-projections/lp_lag_sensitivity_results.json"],
+  ["local-projections/lp_control_sensitivity_results.json", "src/data/local-projections/lp_control_sensitivity_results.json"],
+  ["local-projections/lp_shock_support_diagnostics.json", "src/data/local-projections/lp_shock_support_diagnostics.json"],
+  ["local-projections/lp_influence_diagnostics.json", "src/data/local-projections/lp_influence_diagnostics.json"],
+  ["local-projections/lp_cross_country_comparability.json", "src/data/local-projections/lp_cross_country_comparability.json"],
+  ["local-projections/lp_model_diagnostic_summary.json", "src/data/local-projections/lp_model_diagnostic_summary.json"],
+  ["local-projections/build-lp-robustness.mjs", "scripts/local-projections/build-lp-robustness.mjs"],
   ["local-projections/localProjectionEngine.mjs", "src/lib/localProjectionEngine.mjs"],
   ["local-projections/build-local-projections.mjs", "scripts/local-projections/build-local-projections.mjs"],
   ["local-projections/generate-lp-reference.py", "scripts/validation/generate-lp-reference.py"],
@@ -214,7 +225,7 @@ if (fs.existsSync(modelCardsFile)) {
   entries.push({ name: "models/formula_versions.json", data: JSON.stringify(records.map((item) => ({ model_id: item.model_id, model_version: item.model_version, formula_version: item.formula_version, calculation_logic: item.calculation_logic })), null, 2) });
 }
 
-entries.push({ name: "README.md", data: `# Central Europe Political Atlas ${researchPackageLabel()}\n\nThis package preserves public research data, dictionaries, QA records, model and scenario metadata, methodology and release provenance.\n\n- Missing and pending values are not zero.\n- Model outputs are comparative research tools, not forecasts or objective risk truths.\n- Official EA-MPD / EA-EMPD assets are schema-audited and deduplicated.\n- v1.62 shock construction remains frozen and author-reference validated.\n- v1.7 activates single-country joint MP/CBI lag-augmented Local Projections with Python cross-validation and pointwise EHW/HC1 intervals.\n- CBI is normalized by 0.25 for display; it is not described as a 25bp tightening.\n- Panel LP, state dependence, SVAR and Bayesian VAR remain unavailable.\n\nCanonical site: https://hy-central-europe-analysis.org/\n` });
+entries.push({ name: "README.md", data: `# Central Europe Political Atlas ${researchPackageLabel()}\n\nThis package preserves public research data, dictionaries, QA records, model and scenario metadata, methodology and release provenance.\n\n- Missing and pending values are not zero.\n- Model outputs are comparative research tools, not forecasts or objective risk truths.\n- Official EA-MPD / EA-EMPD assets are schema-audited and deduplicated.\n- v1.62 shock construction remains frozen and author-reference validated.\n- v1.71 preserves the single-country joint MP/CBI baselines, corrects lag metadata, and adds pointwise HC1 plus validated 95% plug-in sup-t path uncertainty.\n- Fixed-lag, predetermined-control, shock-support, influence, conditioning and cross-country comparability outputs are diagnostics, not replacement baselines.\n- CBI is normalized by 0.25 for display; it is not described as a 25bp tightening.\n- Panel LP, state dependence, SVAR and Bayesian VAR remain unavailable.\n\nCanonical site: https://hy-central-europe-analysis.org/\n` });
 entries.push({ name: "methodology/README.md", data: "Public methodology is available at /methodology/. Technical dictionaries and validation records in this archive are the authoritative downloadable companion to the interface.\n" });
 
 fs.mkdirSync(sourceDir, { recursive: true });

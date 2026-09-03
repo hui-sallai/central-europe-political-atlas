@@ -1,15 +1,15 @@
 {
-  "schema_version": "release-metadata-v1.7",
-  "platform_version": "v1.7 Local Projections & ECB Spillover Transmission",
-  "release_date": "2026-09-01",
+  "schema_version": "release-metadata-v1.71",
+  "platform_version": "v1.71 Local Projection Inference & Robustness Hardening",
+  "release_date": "2026-09-03",
   "source_commit": "local-working-tree",
   "build_context": "local",
   "workflow_run_id": null,
-  "generated_at": "2026-09-01T07:40:45.269Z",
+  "generated_at": "2026-09-03T08:45:14.250Z",
   "research_package": {
-    "filename": "research-data-v1.7.zip",
-    "sha256": "bb4d646a977a754170c8650dc1037dfad733cf074dfca03ea04fba9d50e2c0cd",
-    "generated_at": "2026-09-01T07:40:46.114Z",
+    "filename": "research-data-v1.71.zip",
+    "sha256": "55221797cd794293e4d69a6381ec1272aacc5eaaec7371653c35d75a0249e986",
+    "generated_at": "2026-09-03T08:45:15.104Z",
     "status": "built"
   },
   "data_export_version": "research-data-v0.1",
@@ -90,7 +90,7 @@
     "trade_network": "trade-network-v1.25-active",
     "event_window": "event-window-v1.31",
     "high_frequency": "high-frequency-v1.31",
-    "analysis_skill_registry": "analysis-skill-registry-v1.7",
+    "analysis_skill_registry": "analysis-skill-registry-v1.71",
     "transformation_registry": "transformation-registry-v1.41",
     "stationarity_engine": "stationarity-engine-v1.44",
     "seasonal_adf_calibration": "seasonal-adf-critical-values-v1.44",
@@ -105,10 +105,12 @@
     "identified_shocks": "monetary-policy-event-observations-v1.6",
     "ecb_shock_validation": "ecb-shock-validation-summary-v1.7",
     "information_effect_separation": "information-effect-separation-validation-v1.62",
-    "lp_readiness": "lp-readiness-registry-v1.7",
-    "lp_engine": "lp-engine-v1.7",
-    "lp_results": "lp-results-v1.7",
-    "lp_validation": "lp-validation-summary-v1.7",
+    "lp_readiness": "lp-readiness-registry-v1.71",
+    "lp_engine": "lp-engine-v1.71",
+    "lp_results": "lp-results-v1.71",
+    "lp_validation": "lp-validation-summary-v1.71",
+    "lp_inference": "lp-inference-registry-v1.71",
+    "lp_robustness": "lp-model-diagnostic-summary-v1.71",
     "driver_applicability": "driver-applicability-registry-v1.51"
   },
   "boundary_versions": [
@@ -123,9 +125,9 @@
     "note": "Historical v0.91 golden cases remain the core research regression suite."
   },
   "advanced_analysis_validation": {
-    "stage": "v1.7 advanced analysis validation",
+    "stage": "v1.71 advanced analysis validation",
     "status": "passed",
-    "total_tests": 898,
+    "total_tests": 918,
     "failure_count": 0,
     "test_counts": {
       "panel": 51,
@@ -135,7 +137,7 @@
       "var": 104,
       "macro_drivers": 35,
       "identified_shocks": 48,
-      "local_projections": 583,
+      "local_projections": 603,
       "author_reference": 16
     },
     "categories": [
@@ -153,7 +155,7 @@
     ]
   },
   "release_validation": {
-    "stage": "v1.7 release validation",
+    "stage": "v1.71 release validation",
     "status": "required_after_static_build",
     "gates": [
       "security_scan",
@@ -167,8 +169,8 @@
       "static_build",
       "package_checksum"
     ],
-    "package_checksum": "bb4d646a977a754170c8650dc1037dfad733cf074dfca03ea04fba9d50e2c0cd",
-    "package_filename": "research-data-v1.7.zip"
+    "package_checksum": "55221797cd794293e4d69a6381ec1272aacc5eaaec7371653c35d75a0249e986",
+    "package_filename": "research-data-v1.71.zip"
   },
   "legacy_validation_summary_v091": {
     "stage": "v0.91 Model & Scenario Validation",

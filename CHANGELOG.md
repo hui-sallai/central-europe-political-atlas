@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.71 Local Projection Inference & Robustness Hardening - 2026-09-03
+
+- Corrected lag-augmentation metadata while preserving the complete v1.7 coefficient and standard-error hash.
+- Added 95% plug-in Gaussian sup-t bands based on cross-horizon joint HC1 covariance and the pinned Montiel Olea–Plagborg-Møller reference implementation.
+- Added fixed-p2, fixed-p6 and predetermined-lagged-control sensitivity results on comparison-common samples.
+- Added shock-support, concentration, leverage, standardized-residual, DFBETA, leave-largest-shock, conditioning and cross-country comparability diagnostics.
+- Kept significance bands, formal cross-country difference tests, panel LP, pooled LP, state dependence, SVAR and BVAR unavailable.
+
 ## v1.7 Local Projections & ECB Spillover Transmission - 2026-09-01
 
 - Activated single-country, single-outcome, joint MP/CBI lag-augmented Local Projections while freezing the v1.62 JK shock construction, shock IDs and 2025-10 monthly endpoint.

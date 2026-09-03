@@ -47,7 +47,7 @@ jobs:
         run: pnpm macro:build
 
       - name: Build and cross-validate Local Projections
-        run: pnpm lp:build && pnpm lp:reference && pnpm lp:validate
+        run: pnpm lp:build && pnpm lp:robustness && pnpm lp:reference && pnpm lp:validate
 
       - name: Export research data
         run: pnpm export:research-data

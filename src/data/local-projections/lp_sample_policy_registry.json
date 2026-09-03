@@ -1,6 +1,6 @@
 {
-  "schema_version": "lp-sample-policy-registry-v1.7",
-  "generated_at": "2026-09-01",
+  "schema_version": "lp-sample-policy-registry-v1.71",
+  "generated_at": "2026-09-03",
   "shock_end": "2025-10",
   "candidate_horizons": [
     24,
@@ -9,6 +9,7 @@
     6
   ],
   "common_horizon_sample": true,
+  "sensitivity_comparison_common_sample": true,
   "minimum_usable_observations": 96,
   "no_event_shock_value": 0,
   "meeting_month_selection": false,

@@ -1,6 +1,6 @@
 {
-  "schema_version": "lp-readiness-registry-v1.7",
-  "generated_at": "2026-09-01",
+  "schema_version": "lp-readiness-registry-v1.71",
+  "generated_at": "2026-09-03",
   "method_state": "active",
   "readiness_unit": "joint JK shock pair × outcome × country × regime × control profile × maximum horizon",
   "minimum_usable_observations": 96,
@@ -10,6 +10,8 @@
   "sample_ready_count": 44,
   "estimator_ready_count": 44,
   "causal_lp_ready_count": 44,
+  "path_inference_ready_count": 44,
+  "robustness_diagnostics_ready_count": 44,
   "records": [
     {
       "readiness_id": "lp:austria:hicp_price_level:full:jk_joint:h24",
@@ -34,6 +36,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 111,
       "sample_start": "2015-05",
@@ -63,6 +69,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 110,
       "sample_start": "2015-05",
@@ -92,6 +102,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 113,
       "sample_start": "2015-02",
@@ -121,6 +135,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 114,
       "sample_start": "2015-02",
@@ -150,6 +168,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 109,
       "sample_start": "2015-07",
@@ -179,6 +201,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 110,
       "sample_start": "2015-05",
@@ -208,6 +234,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 110,
       "sample_start": "2015-05",
@@ -237,6 +267,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 114,
       "sample_start": "2015-02",
@@ -266,6 +300,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 111,
       "sample_start": "2015-05",
@@ -295,6 +333,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 113,
       "sample_start": "2015-02",
@@ -324,6 +366,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 110,
       "sample_start": "2015-05",
@@ -353,6 +399,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 113,
       "sample_start": "2015-03",
@@ -382,6 +432,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 109,
       "sample_start": "2015-07",
@@ -411,6 +465,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 113,
       "sample_start": "2015-02",
@@ -440,6 +498,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 110,
       "sample_start": "2015-05",
@@ -469,6 +531,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 112,
       "sample_start": "2015-04",
@@ -498,6 +564,10 @@
       "estimator_ready": false,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false,
       "causal_lp_ready": false,
       "effective_n": 0,
       "sample_start": null,
@@ -529,6 +599,10 @@
       "estimator_ready": false,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false,
       "causal_lp_ready": false,
       "effective_n": 0,
       "sample_start": null,
@@ -560,6 +634,10 @@
       "estimator_ready": false,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false,
       "causal_lp_ready": false,
       "effective_n": 0,
       "sample_start": null,
@@ -591,6 +669,10 @@
       "estimator_ready": false,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false,
       "causal_lp_ready": false,
       "effective_n": 0,
       "sample_start": null,
@@ -622,6 +704,10 @@
       "estimator_ready": false,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false,
       "causal_lp_ready": false,
       "effective_n": 0,
       "sample_start": null,
@@ -653,6 +739,10 @@
       "estimator_ready": false,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false,
       "causal_lp_ready": false,
       "effective_n": 0,
       "sample_start": null,
@@ -684,6 +774,10 @@
       "estimator_ready": false,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false,
       "causal_lp_ready": false,
       "effective_n": 0,
       "sample_start": null,
@@ -715,6 +809,10 @@
       "estimator_ready": false,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false,
       "causal_lp_ready": false,
       "effective_n": 0,
       "sample_start": null,
@@ -746,6 +844,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 109,
       "sample_start": "2015-07",
@@ -775,6 +877,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 113,
       "sample_start": "2015-02",
@@ -804,6 +910,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 109,
       "sample_start": "2015-06",
@@ -833,6 +943,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 111,
       "sample_start": "2015-05",
@@ -862,6 +976,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 114,
       "sample_start": "2015-02",
@@ -891,6 +1009,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 112,
       "sample_start": "2015-04",
@@ -920,6 +1042,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 113,
       "sample_start": "2015-03",
@@ -949,6 +1075,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 113,
       "sample_start": "2015-02",
@@ -978,6 +1108,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 112,
       "sample_start": "2015-03",
@@ -1007,6 +1141,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 111,
       "sample_start": "2015-05",
@@ -1036,6 +1174,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 113,
       "sample_start": "2015-03",
@@ -1065,6 +1207,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 110,
       "sample_start": "2015-06",
@@ -1094,6 +1240,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 111,
       "sample_start": "2015-05",
@@ -1123,6 +1273,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 110,
       "sample_start": "2015-05",
@@ -1152,6 +1306,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 110,
       "sample_start": "2015-05",
@@ -1181,6 +1339,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 111,
       "sample_start": "2015-05",
@@ -1210,6 +1372,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 114,
       "sample_start": "2015-02",
@@ -1239,6 +1405,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 109,
       "sample_start": "2015-07",
@@ -1268,6 +1438,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 113,
       "sample_start": "2015-03",
@@ -1297,6 +1471,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 113,
       "sample_start": "2015-02",
@@ -1326,6 +1504,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 110,
       "sample_start": "2015-05",
@@ -1355,6 +1537,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 111,
       "sample_start": "2015-05",
@@ -1384,6 +1570,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 111,
       "sample_start": "2015-05",
@@ -1413,6 +1603,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 109,
       "sample_start": "2015-07",
@@ -1442,6 +1636,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 109,
       "sample_start": "2015-07",
@@ -1471,6 +1669,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 110,
       "sample_start": "2015-05",
@@ -1500,6 +1702,10 @@
       "estimator_ready": false,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false,
       "causal_lp_ready": false,
       "effective_n": 0,
       "sample_start": null,
@@ -1531,6 +1737,10 @@
       "estimator_ready": false,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false,
       "causal_lp_ready": false,
       "effective_n": 0,
       "sample_start": null,
@@ -1562,6 +1772,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 113,
       "sample_start": "2015-03",
@@ -1591,6 +1805,10 @@
       "estimator_ready": true,
       "estimator_validated": true,
       "inference_validated": true,
+      "baseline_estimation_ready": true,
+      "pointwise_inference_ready": true,
+      "path_inference_ready": true,
+      "robustness_diagnostics_ready": true,
       "causal_lp_ready": true,
       "effective_n": 110,
       "sample_start": "2015-06",
@@ -1658,7 +1876,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:austria:h0-24",
@@ -1721,7 +1943,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:czechia:h0-24",
@@ -1784,7 +2010,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:czechia:h0-24",
@@ -1847,7 +2077,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:germany:h0-24",
@@ -1910,7 +2144,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:germany:h0-24",
@@ -1973,7 +2211,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:croatia:h0-24",
@@ -2036,7 +2278,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:croatia:h0-24",
@@ -2099,7 +2345,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:hungary:h0-24",
@@ -2162,7 +2412,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:hungary:h0-24",
@@ -2225,7 +2479,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:poland:h0-24",
@@ -2288,7 +2546,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:poland:h0-24",
@@ -2351,7 +2613,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:romania:h0-24",
@@ -2414,7 +2680,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:romania:h0-24",
@@ -2477,7 +2747,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:serbia:h0-24",
@@ -2540,7 +2814,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:serbia:h0-24",
@@ -2603,7 +2881,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:slovenia:h0-24",
@@ -2666,7 +2948,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:slovenia:h0-24",
@@ -2729,7 +3015,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:hicp_annual_rate:slovakia:h0-24",
@@ -2792,7 +3082,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:brent_crude_price_usd_monthly_change:industrial_production_index:slovakia:h0-24",
@@ -2855,7 +3149,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:austria:h0-24",
@@ -2918,7 +3216,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:austria:h0-24",
@@ -2981,7 +3283,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:czechia:h0-24",
@@ -3044,7 +3350,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:czechia:h0-24",
@@ -3107,7 +3417,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:germany:h0-24",
@@ -3170,7 +3484,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:germany:h0-24",
@@ -3233,7 +3551,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:croatia:h0-24",
@@ -3296,7 +3618,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:croatia:h0-24",
@@ -3359,7 +3685,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:hungary:h0-24",
@@ -3422,7 +3752,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:hungary:h0-24",
@@ -3485,7 +3819,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:poland:h0-24",
@@ -3548,7 +3886,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:poland:h0-24",
@@ -3611,7 +3953,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:romania:h0-24",
@@ -3674,7 +4020,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:romania:h0-24",
@@ -3737,7 +4087,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:serbia:h0-24",
@@ -3800,7 +4154,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:serbia:h0-24",
@@ -3863,7 +4221,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:slovenia:h0-24",
@@ -3926,7 +4288,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:slovenia:h0-24",
@@ -3989,7 +4355,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:hicp_annual_rate:slovakia:h0-24",
@@ -4052,7 +4422,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:europe_natural_gas_price_usd_monthly_change:industrial_production_index:slovakia:h0-24",
@@ -4115,7 +4489,11 @@
       "outcome_data_ready": true,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:austria:h0-24",
@@ -4176,7 +4554,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:austria:h0-24",
@@ -4237,7 +4619,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:austria:h0-24",
@@ -4298,7 +4684,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:austria:h0-24",
@@ -4359,7 +4749,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:croatia:h0-24",
@@ -4420,7 +4814,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:croatia:h0-24",
@@ -4481,7 +4879,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:croatia:h0-24",
@@ -4542,7 +4944,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:croatia:h0-24",
@@ -4603,7 +5009,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:czechia:h0-24",
@@ -4664,7 +5074,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:czechia:h0-24",
@@ -4725,7 +5139,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:czechia:h0-24",
@@ -4786,7 +5204,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:czechia:h0-24",
@@ -4847,7 +5269,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:bilateral_fx_local_per_eur:czechia:h0-24",
@@ -4908,7 +5334,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:germany:h0-24",
@@ -4969,7 +5399,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:germany:h0-24",
@@ -5030,7 +5464,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:germany:h0-24",
@@ -5091,7 +5529,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:germany:h0-24",
@@ -5152,7 +5594,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:hungary:h0-24",
@@ -5213,7 +5659,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:hungary:h0-24",
@@ -5274,7 +5724,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:hungary:h0-24",
@@ -5335,7 +5789,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:hungary:h0-24",
@@ -5396,7 +5854,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:bilateral_fx_local_per_eur:hungary:h0-24",
@@ -5457,7 +5919,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:poland:h0-24",
@@ -5518,7 +5984,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:poland:h0-24",
@@ -5579,7 +6049,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:poland:h0-24",
@@ -5640,7 +6114,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:poland:h0-24",
@@ -5701,7 +6179,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:bilateral_fx_local_per_eur:poland:h0-24",
@@ -5762,7 +6244,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:romania:h0-24",
@@ -5823,7 +6309,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:romania:h0-24",
@@ -5884,7 +6374,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:romania:h0-24",
@@ -5945,7 +6439,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:romania:h0-24",
@@ -6006,7 +6504,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:bilateral_fx_local_per_eur:romania:h0-24",
@@ -6067,7 +6569,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:serbia:h0-24",
@@ -6128,7 +6634,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:serbia:h0-24",
@@ -6189,7 +6699,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:serbia:h0-24",
@@ -6250,7 +6764,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:serbia:h0-24",
@@ -6311,7 +6829,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:bilateral_fx_local_per_eur:serbia:h0-24",
@@ -6372,7 +6894,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:slovakia:h0-24",
@@ -6433,7 +6959,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:slovakia:h0-24",
@@ -6494,7 +7024,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:slovakia:h0-24",
@@ -6555,7 +7089,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:slovakia:h0-24",
@@ -6616,7 +7154,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:hicp_annual_rate:slovenia:h0-24",
@@ -6677,7 +7219,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:industrial_production_index:slovenia:h0-24",
@@ -6738,7 +7284,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:unemployment_rate:slovenia:h0-24",
@@ -6799,7 +7349,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     },
     {
       "readiness_id": "lp:ecb_ois_1m_official_decisions_monthly_v1:long_term_government_yield:slovenia:h0-24",
@@ -6860,7 +7414,11 @@
       "outcome_data_ready": false,
       "estimator_ready": false,
       "estimator_validated": false,
-      "inference_validated": false
+      "inference_validated": false,
+      "baseline_estimation_ready": false,
+      "pointwise_inference_ready": false,
+      "path_inference_ready": false,
+      "robustness_diagnostics_ready": false
     }
   ]
 }

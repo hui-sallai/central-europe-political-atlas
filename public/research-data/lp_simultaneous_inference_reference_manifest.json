@@ -1,0 +1,22 @@
+{
+  "schema_version": "lp-simultaneous-inference-reference-manifest-v1.71",
+  "generated_at": "2026-09-03",
+  "paper": {
+    "title": "Simultaneous Confidence Bands: Theory, Implementation, and an Application to SVARs",
+    "authors": [
+      "Jose Luis Montiel Olea",
+      "Mikkel Plagborg-Moller"
+    ],
+    "doi": "10.1002/jae.2656"
+  },
+  "repository": "jm4474/Confidence_Bands",
+  "repository_url": "https://github.com/jm4474/Confidence_Bands",
+  "pinned_commit": "6cf28bbd63313ead3c06904649dbb0766e51028a",
+  "license": "BSD-3-Clause",
+  "files_sha256": {
+    "README.txt": "d1ebfccb07ef6959d7090d46da60936fd7faed019e57d9cde7b53c291725c096",
+    "LICENSE": "46b0d5dcee2e7bca97b87f5179c62b2cd94d5e7c4a47e53c4541ab1c96432d42",
+    "1SimInferenceClass/SimInference.m": "77b09a50925635260c91bc2a1d6cde1de3af9b76578eb1ad"
+  },
+  "implementation_audit": "SimInference.suptcritval_plugin converts the joint covariance to correlation, uses eigendecomposition, simulates multivariate-normal t-statistics, and takes the confidence quantile of max absolute t."
+}

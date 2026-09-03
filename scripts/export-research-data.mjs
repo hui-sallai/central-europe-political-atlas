@@ -70,6 +70,9 @@ const localProjectionFiles = [
   "lp_reference_manifest.json", "lp_specification_registry.json", "lp_outcome_specification_registry.json", "lp_sample_policy_registry.json",
   "lp_lag_policy_registry.json", "lp_control_profile_registry.json", "lp_readiness_registry.json", "lp_model_registry.json", "lp_results.json",
   "lp_reference_cases.json", "lp_validation_summary.json",
+  "lp_inference_registry.json", "lp_simultaneous_inference_reference_manifest.json", "lp_path_inference_validation.json",
+  "lp_coefficient_invariance_manifest.json", "lp_lag_sensitivity_results.json", "lp_control_sensitivity_results.json",
+  "lp_shock_support_diagnostics.json", "lp_influence_diagnostics.json", "lp_cross_country_comparability.json", "lp_model_diagnostic_summary.json",
 ];
 
 execFileSync(process.execPath, [path.join(projectRoot, "scripts", "build-spatial-data-v087.mjs")], {
@@ -82,6 +85,7 @@ execFileSync(process.execPath, [path.join(projectRoot, "scripts", "identified-sh
 });
 execFileSync("python3", [path.join(projectRoot, "scripts", "validation", "validate-jk-author-reference.py")], { cwd: projectRoot, stdio: "inherit" });
 execFileSync(process.execPath, [path.join(projectRoot, "scripts", "local-projections", "build-local-projections.mjs")], { cwd: projectRoot, stdio: "inherit" });
+execFileSync(process.execPath, [path.join(projectRoot, "scripts", "local-projections", "build-lp-robustness.mjs")], { cwd: projectRoot, stdio: "inherit" });
 execFileSync(process.execPath, [path.join(projectRoot, "scripts", "validation", "run-lp-reference.mjs")], { cwd: projectRoot, stdio: "inherit" });
 execFileSync(process.execPath, [path.join(projectRoot, "scripts", "validation", "validate-local-projections.mjs")], { cwd: projectRoot, stdio: "inherit" });
 
@@ -2120,7 +2124,7 @@ writeJson("release_manifest.json", {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.7",
+    analysis_skill_registry: "analysis-skill-registry-v1.71",
     transformation_registry: "transformation-registry-v1.41",
     stationarity_engine: "stationarity-engine-v1.44",
     seasonal_adf_calibration: "seasonal-adf-critical-values-v1.44",
@@ -2135,10 +2139,12 @@ writeJson("release_manifest.json", {
     identified_shocks: "monetary-policy-event-observations-v1.6",
     ecb_shock_validation: "ecb-shock-validation-summary-v1.7",
     information_effect_separation: "information-effect-separation-validation-v1.62",
-    lp_readiness: "lp-readiness-registry-v1.7",
-    lp_engine: "lp-engine-v1.7",
-    lp_results: "lp-results-v1.7",
-    lp_validation: "lp-validation-summary-v1.7",
+    lp_readiness: "lp-readiness-registry-v1.71",
+    lp_engine: "lp-engine-v1.71",
+    lp_results: "lp-results-v1.71",
+    lp_validation: "lp-validation-summary-v1.71",
+    lp_inference: "lp-inference-registry-v1.71",
+    lp_robustness: "lp-model-diagnostic-summary-v1.71",
     driver_applicability: "driver-applicability-registry-v1.51",
   },
   boundary_versions: ["GISCO NUTS 2024", "regional spatial QA v0.87-v0.89"],
@@ -2150,7 +2156,7 @@ writeJson("release_manifest.json", {
     note: "Historical v0.91 golden cases remain the core research regression suite.",
   },
   advanced_analysis_validation: {
-    stage: "v1.7 advanced analysis validation",
+    stage: "v1.71 advanced analysis validation",
     status: advancedValidationSummary.status,
     total_tests: advancedValidationSummary.total_tests,
     failure_count: advancedValidationSummary.failure_count,
@@ -2158,7 +2164,7 @@ writeJson("release_manifest.json", {
     categories: ["panel", "network", "high_frequency", "events", "var", "seasonal_adf_calibration", "macro_drivers", "shock_identification", "identified_shocks", "local_projections", "author_reference"],
   },
   release_validation: {
-    stage: "v1.7 release validation",
+    stage: "v1.71 release validation",
     status: "required_after_static_build",
     gates: ["security_scan", "export", "research_package", "advanced_validation", "core_validation", "ui_language_qa", "lint", "typecheck", "static_build", "package_checksum"],
   },
