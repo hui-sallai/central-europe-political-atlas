@@ -5,11 +5,11 @@
   "source_commit": "local-working-tree",
   "build_context": "local",
   "workflow_run_id": null,
-  "generated_at": "2026-09-03T08:45:14.250Z",
+  "generated_at": "2026-09-03T15:26:24.702Z",
   "research_package": {
     "filename": "research-data-v1.71.zip",
-    "sha256": "55221797cd794293e4d69a6381ec1272aacc5eaaec7371653c35d75a0249e986",
-    "generated_at": "2026-09-03T08:45:15.104Z",
+    "sha256": "9ccd7a07ef207ed8cb04135bff1d2208e4c7cad2b826a860c1bf583a658d4f1e",
+    "generated_at": "2026-09-03T15:26:25.568Z",
     "status": "built"
   },
   "data_export_version": "research-data-v0.1",
@@ -127,7 +127,7 @@
   "advanced_analysis_validation": {
     "stage": "v1.71 advanced analysis validation",
     "status": "passed",
-    "total_tests": 918,
+    "total_tests": 978,
     "failure_count": 0,
     "test_counts": {
       "panel": 51,
@@ -137,7 +137,7 @@
       "var": 104,
       "macro_drivers": 35,
       "identified_shocks": 48,
-      "local_projections": 603,
+      "local_projections": 663,
       "author_reference": 16
     },
     "categories": [
@@ -169,7 +169,7 @@
       "static_build",
       "package_checksum"
     ],
-    "package_checksum": "55221797cd794293e4d69a6381ec1272aacc5eaaec7371653c35d75a0249e986",
+    "package_checksum": "9ccd7a07ef207ed8cb04135bff1d2208e4c7cad2b826a860c1bf583a658d4f1e",
     "package_filename": "research-data-v1.71.zip"
   },
   "legacy_validation_summary_v091": {

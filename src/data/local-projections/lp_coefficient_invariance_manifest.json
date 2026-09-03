@@ -1,7 +1,10 @@
 {
   "schema_version": "lp-coefficient-invariance-v1.71",
   "generated_at": "2026-09-03",
-  "v17_hash": "4e391a9586b802551e51c910dc67eab45565a3b13eac6266ed833a388503849c",
-  "v171_hash": "4e391a9586b802551e51c910dc67eab45565a3b13eac6266ed833a388503849c",
+  "comparison_method": "SHA256 of coefficient and HC1 SE arrays rounded to 6 decimals for cross-platform stability",
+  "canonical_rounding_decimals": 6,
+  "legacy_v17_full_precision_hash": "4e391a9586b802551e51c910dc67eab45565a3b13eac6266ed833a388503849c",
+  "v17_hash": "0aa178b8dcac735bb04d06636cd6300cc63bd91a9b5b3ddbcb6d580b9bf66fcd",
+  "v171_hash": "0aa178b8dcac735bb04d06636cd6300cc63bd91a9b5b3ddbcb6d580b9bf66fcd",
   "status": "passed"
 }
