@@ -67,6 +67,10 @@ const identifiedShockFiles = [
   "identification_regime_diagnostics.json",
 ];
 const localProjectionFiles = [
+  "lp_finite_sample_bias_reference_manifest.json", "lp_bias_correction_applicability_registry.json",
+  "lp_finite_sample_simulation_registry.json", "lp_finite_sample_simulation_results.json", "lp_shock_support_status.json",
+  "lp_influence_threshold_registry.json", "lp_leave_one_shock_month_results.json", "lp_leave_one_event_results.json",
+  "lp_finite_sample_robustness_summary.json", "lp_full_path_covariance_audit.json", "lp_full_path_covariance_validation.json", "lp_finite_sample_validation.json",
   "lp_reference_manifest.json", "lp_specification_registry.json", "lp_outcome_specification_registry.json", "lp_sample_policy_registry.json",
   "lp_lag_policy_registry.json", "lp_control_profile_registry.json", "lp_readiness_registry.json", "lp_model_registry.json", "lp_results.json",
   "lp_reference_cases.json", "lp_validation_summary.json",
@@ -88,6 +92,8 @@ execFileSync(process.execPath, [path.join(projectRoot, "scripts", "local-project
 execFileSync(process.execPath, [path.join(projectRoot, "scripts", "local-projections", "build-lp-robustness.mjs")], { cwd: projectRoot, stdio: "inherit" });
 execFileSync(process.execPath, [path.join(projectRoot, "scripts", "validation", "run-lp-reference.mjs")], { cwd: projectRoot, stdio: "inherit" });
 execFileSync(process.execPath, [path.join(projectRoot, "scripts", "validation", "validate-local-projections.mjs")], { cwd: projectRoot, stdio: "inherit" });
+execFileSync(process.execPath, [path.join(projectRoot, "scripts", "validation", "validate-lp-finite-sample.mjs")], { cwd: projectRoot, stdio: "inherit" });
+execFileSync(process.execPath, [path.join(projectRoot, "scripts", "local-projections", "finalize-finite-sample.mjs")], { cwd: projectRoot, stdio: "inherit" });
 
 require.extensions[".ts"] = (module, filename) => {
   const source = fs.readFileSync(filename, "utf8");
@@ -2124,7 +2130,7 @@ writeJson("release_manifest.json", {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.71",
+    analysis_skill_registry: "analysis-skill-registry-v1.72",
     transformation_registry: "transformation-registry-v1.41",
     stationarity_engine: "stationarity-engine-v1.44",
     seasonal_adf_calibration: "seasonal-adf-critical-values-v1.44",
@@ -2139,7 +2145,7 @@ writeJson("release_manifest.json", {
     identified_shocks: "monetary-policy-event-observations-v1.6",
     ecb_shock_validation: "ecb-shock-validation-summary-v1.7",
     information_effect_separation: "information-effect-separation-validation-v1.62",
-    lp_readiness: "lp-readiness-registry-v1.71",
+    lp_readiness: "lp-readiness-registry-v1.72",
     lp_engine: "lp-engine-v1.71",
     lp_results: "lp-results-v1.71",
     lp_validation: "lp-validation-summary-v1.71",

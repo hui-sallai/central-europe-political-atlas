@@ -1,0 +1,12 @@
+import { spawnSync } from "node:child_process";
+import fs from "node:fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),"../..");
+const scripts={"finite-sample":"build-finite-sample.py","shock-support":"build-shock-support.py"};
+const script=scripts[process.argv[2]];
+if(!script) throw new Error("Unknown LP diagnostic command");
+const venv=path.join(root,".venv/bin/python"),python=fs.existsSync(venv)?venv:"python3";
+const result=spawnSync(python,[path.join(root,"scripts/local-projections",script),...process.argv.slice(3)],{cwd:root,stdio:"inherit"});
+if(result.error)throw result.error;
+process.exit(result.status??1);

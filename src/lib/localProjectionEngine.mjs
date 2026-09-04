@@ -26,7 +26,7 @@ function inverse(a) {
 
 function identity(n) { return Array.from({ length: n }, (_, i) => Array.from({ length: n }, (_, j) => Number(i === j))); }
 
-function symmetricEigen(matrix, tolerance = 1e-12, maximumIterations = 100000) {
+export function symmetricEigen(matrix, tolerance = 1e-12, maximumIterations = 100000) {
   const a = matrix.map((row) => [...row]);
   const vectors = identity(a.length);
   for (let iteration = 0; iteration < maximumIterations; iteration += 1) {
@@ -61,7 +61,7 @@ function mulberry32(seed) {
   return () => { state += 0x6d2b79f5; let t = state; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
 }
 
-function normalGenerator(seed) {
+export function normalGenerator(seed) {
   const uniform = mulberry32(seed); let spare = null;
   return () => {
     if (spare !== null) { const value = spare; spare = null; return value; }
@@ -71,7 +71,7 @@ function normalGenerator(seed) {
   };
 }
 
-function quantile(values, probability) {
+export function quantile(values, probability) {
   const sorted = [...values].sort((a, b) => a - b);
   return sorted[Math.max(0, Math.min(sorted.length - 1, Math.ceil(probability * sorted.length) - 1))];
 }
@@ -152,6 +152,7 @@ export function estimateLocalProjectionPath(rows, { maximumHorizon, lagOrder, mo
     const standardErrors = covariance.map((row, i) => Math.sqrt(Math.max(0, row[i])));
     const correlation = covariance.map((row, i) => row.map((value, j) => value / Math.max(Number.EPSILON, standardErrors[i] * standardErrors[j])));
     const eig = symmetricEigen(correlation);
+    if (Math.min(...eig.values) < -1e-8) throw new Error("materially_indefinite_joint_path_correlation");
     const normal = normalGenerator(componentSeed); const maxima = [];
     for (let draw = 0; draw < drawCount; draw += 1) {
       const independent = eig.values.map(() => normal());

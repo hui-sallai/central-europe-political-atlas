@@ -13,5 +13,12 @@
   "pointwise_not_wider_tested": true,
   "reference_repository": "jm4474/Confidence_Bands",
   "reference_commit": "6cf28bbd63313ead3c06904649dbb0766e51028a",
-  "failures": []
+  "failures": [],
+  "full_model_covariance_validation": {
+    "status": "passed",
+    "model_count": 44,
+    "negative_eigenvalue_tolerance": 1e-8,
+    "independent_seeds": 5,
+    "critical_values_are_simulation_estimates": true
+  }
 }

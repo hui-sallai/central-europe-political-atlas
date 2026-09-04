@@ -12,7 +12,8 @@ const requiredRoutes = ["", "map", "countries", "data", "news", "models", "scena
 const requiredExports = ["platform_metadata.json", "release_manifest.json", "validation_registry.json", "golden_test_cases.json", "observations.json", "sources.json", "indicators.json", "var_country_readiness.json", "stationarity_specification_registry.json", "seasonal_stationarity_results.json", "seasonal_adf_critical_values.json", "seasonal_adf_decision_comparison.json", "hegy_readiness_registry.json", "structural_break_registry.json", "persistence_diagnostics.json", "macro_driver_observations.json", "macro_driver_dictionary.json", "macro_driver_coverage.json", "shock_identification_registry.json", "lp_readiness_registry.json", "driver_applicability_registry.json", "identified_shock_source_candidates.json", "v16_identification_readiness.json", "macro_driver_runtime.json", "ecb_monetary_event_data_acquisition_manifest.json", "ea_mpd_workbook_schema.json", "ea_empd_workbook_schema.json", "monetary_policy_event_observations.json", "ecb_policy_factor_registry.json", "monetary_policy_information_effect_registry.json", "ecb_event_dataset_overlap_registry.json", "ecb_monetary_policy_monthly_series.json", "shock_applicability_registry.json", "ecb_shock_validation_summary.json", "monetary_policy_identification_method_registry.json", "jk_replication_acquisition_manifest.json", "jk_author_reference_manifest.json", "jk_author_event_exclusion_registry.json", "jk_pc1_replication_validation.json", "jk_poor_man_replication_validation.json", "jk_median_rotation_replication_validation.json", "jk_monthly_replication_validation.json", "jk_author_reference_comparison.json", "jk_cross_language_validation.json", "information_effect_input_registry.json", "information_effect_window_registry.json", "jk_event_sample_registry.json", "identification_specification_registry.json", "jk_event_level_shocks.json", "ecb_pure_monetary_policy_shock_monthly.json", "ecb_central_bank_information_shock_monthly.json", "information_effect_separation_validation.json", "identification_regime_diagnostics.json", "advanced_analysis_validation_summary.json", researchPackageFilename()];
 requiredExports.push("lp_reference_manifest.json", "lp_specification_registry.json", "lp_outcome_specification_registry.json", "lp_sample_policy_registry.json", "lp_lag_policy_registry.json", "lp_control_profile_registry.json", "lp_model_registry.json", "lp_results.json", "lp_reference_cases.json", "lp_validation_summary.json");
 requiredExports.push("lp_inference_registry.json", "lp_simultaneous_inference_reference_manifest.json", "lp_path_inference_validation.json", "lp_coefficient_invariance_manifest.json", "lp_lag_sensitivity_results.json", "lp_control_sensitivity_results.json", "lp_shock_support_diagnostics.json", "lp_influence_diagnostics.json", "lp_cross_country_comparability.json", "lp_model_diagnostic_summary.json");
-const methodologySections = ["data", "models", "events", "spatial", "validation", "citation"];
+requiredExports.push("lp_finite_sample_bias_reference_manifest.json", "lp_bias_correction_applicability_registry.json", "lp_finite_sample_simulation_registry.json", "lp_finite_sample_simulation_results.json", "lp_shock_support_status.json", "lp_influence_threshold_registry.json", "lp_leave_one_shock_month_results.json", "lp_leave_one_event_results.json", "lp_finite_sample_robustness_summary.json", "lp_full_path_covariance_audit.json", "lp_full_path_covariance_validation.json", "lp_finite_sample_validation.json");
+const methodologySections = ["data", "models", "events", "finite-sample", "spatial", "validation", "citation"];
 const stableResearchUrls = ["/map?country=hungary&layer=regional_boundary", "/models?model=fiscal_pressure&country=hungary", "/models?skill=var_svar&country=poland", "/scenarios?scenario=inflation_resurgence&country=poland&shock=2", "/countries/poland/", "/news?country=hungary&type=China"];
 const failures = [];
 let internalLinksChecked = 0;
@@ -82,6 +83,8 @@ const shockIdentification = readJson("shock_identification_registry.json");
 const lpReadiness = readJson("lp_readiness_registry.json");
 const lpValidation = readJson("lp_validation_summary.json");
 const lpResults = readJson("lp_results.json");
+const finiteSampleValidation = readJson("lp_finite_sample_validation.json");
+if (finiteSampleValidation?.status !== "passed" || finiteSampleValidation?.all_model_covariance_count !== 44) failures.push("v1.72 finite-sample diagnostic validation failed");
 const ecbAcquisition = readJson("ecb_monetary_event_data_acquisition_manifest.json");
 const ecbValidation = readJson("ecb_shock_validation_summary.json");
 const informationEffect = readJson("monetary_policy_information_effect_registry.json");
@@ -119,7 +122,7 @@ if (manifest) {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.71",
+    analysis_skill_registry: "analysis-skill-registry-v1.72",
     transformation_registry: "transformation-registry-v1.41",
     stationarity_engine: "stationarity-engine-v1.44",
     seasonal_adf_calibration: "seasonal-adf-critical-values-v1.44",
@@ -134,7 +137,7 @@ if (manifest) {
     identified_shocks: "monetary-policy-event-observations-v1.6",
     ecb_shock_validation: "ecb-shock-validation-summary-v1.7",
     information_effect_separation: "information-effect-separation-validation-v1.62",
-    lp_readiness: "lp-readiness-registry-v1.71",
+    lp_readiness: "lp-readiness-registry-v1.72",
     lp_engine: "lp-engine-v1.71",
     lp_results: "lp-results-v1.71",
     lp_validation: "lp-validation-summary-v1.71",
@@ -166,7 +169,7 @@ if (ecbAcquisition?.record_count !== 2 || ecbAcquisition?.raw_workbooks_publicly
 if (ecbValidation?.status !== "passed" || ecbValidation?.failure_count !== 0 || ecbValidation?.canonical_event_count !== 5871) failures.push("v1.6 ECB shock validation summary is incomplete or failing");
 if (shockIdentification?.identified_shock_count !== 2 || shockIdentification?.external_innovation_proxy_count !== 3) failures.push("v1.62 identification-status counts are incorrect");
 if (informationEffect?.records?.some((item) => item.information_effect_handling !== "separated_under_jk_framework" || item.identified_shock_allowed !== true)) failures.push("v1.62 information-effect separation is incomplete");
-if (lpReadiness?.schema_version !== "lp-readiness-registry-v1.71" || lpReadiness?.method_state !== "active" || lpReadiness?.causal_lp_ready_count !== 44 || lpReadiness?.path_inference_ready_count !== 44 || lpReadiness?.formal_record_count !== 54) failures.push("v1.71 causal/path LP readiness is incomplete");
+if (lpReadiness?.schema_version !== "lp-readiness-registry-v1.72" || lpReadiness?.method_state !== "active" || lpReadiness?.causal_lp_ready_count !== 44 || lpReadiness?.path_inference_ready_count !== 44 || lpReadiness?.formal_record_count !== 54) failures.push("v1.71 causal/path LP readiness is incomplete");
 if (lpReadiness?.records?.filter((item) => String(item.readiness_id).includes(":jk_joint:")).some((item) => item.identification_status !== "identified_shock" || (item.causal_lp_ready && item.effective_n < 96))) failures.push("v1.7 LP identification or sample gate was relaxed");
 if (lpValidation?.schema_version !== "lp-validation-summary-v1.71" || lpValidation?.status !== "passed" || lpValidation?.failure_count !== 0 || !(lpValidation?.maximum_cross_language_difference <= 1e-8)) failures.push("v1.71 LP cross-language/robustness validation is incomplete or failing");
 if (lpResults?.schema_version !== "lp-results-v1.71" || lpResults?.model_count !== 44 || lpResults?.horizon_record_count !== 1100 || lpResults?.records?.some((item) => "lag_augmented_order" in item || item.lp_lag_count !== item.selected_base_lag_order)) failures.push("v1.71 LP results or lag metadata are incomplete");
@@ -178,7 +181,7 @@ const changelog = fs.readFileSync(path.join(root, "CHANGELOG.md"), "utf8");
 const latestChangelogHeading = changelog.match(/^## (.+)$/m)?.[1] ?? "";
 if (!latestChangelogHeading.startsWith(expectedVersion) || !latestChangelogHeading.includes(releaseConfig.release_date)) failures.push(`CHANGELOG latest release mismatch: ${latestChangelogHeading}`);
 const skillRegistry = JSON.parse(fs.readFileSync(path.join(root, "src", "data", "analysis", "analysis_skill_registry.json"), "utf8"));
-if (skillRegistry.schema_version !== "analysis-skill-registry-v1.71") failures.push(`analysis skill registry schema mismatch: ${skillRegistry.schema_version}`);
+if (skillRegistry.schema_version !== "analysis-skill-registry-v1.72") failures.push(`analysis skill registry schema mismatch: ${skillRegistry.schema_version}`);
 if (skillRegistry.generated_at !== releaseConfig.release_date) failures.push(`analysis skill registry generated_at mismatch: ${skillRegistry.generated_at}`);
 const releaseSource = fs.readFileSync(path.join(root, "src", "lib", "releaseMetadata.ts"), "utf8");
 if (!releaseSource.includes('import releaseConfig from "../data/release.json"')) failures.push("release metadata is not reading the canonical JSON source");

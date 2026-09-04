@@ -1,0 +1,1026 @@
+{
+  "schema_version": "lp-full-path-covariance-validation-v1.72",
+  "generated_at": "2026-09-04",
+  "status": "passed",
+  "total_tests": 96856,
+  "failure_count": 0,
+  "maximum_cross_language_difference": 1.3006410881644115e-7,
+  "all_model_covariance_count": 44,
+  "loo_cross_language_policy": "first,last,largest MP deletion per type and model; all identities/counts checked",
+  "failures": [],
+  "material_negative_correlation_eigenvalue_tolerance": 1e-8,
+  "records": [
+    {
+      "model_id": "lp:austria:hicp_price_level:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00047879326980365347,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5455490707777515,
+          "independent_seed_standard_deviation": 0.01782957792611765
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0005817712922178518,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5661481844153897,
+          "independent_seed_standard_deviation": 0.023133794803067445
+        }
+      ]
+    },
+    {
+      "model_id": "lp:austria:industrial_production:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.006518123537256328,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.8409258263915653,
+          "independent_seed_standard_deviation": 0.030119142234623496
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.005561043693442408,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.851937091256445,
+          "independent_seed_standard_deviation": 0.025735489362341178
+        }
+      ]
+    },
+    {
+      "model_id": "lp:austria:unemployment:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.007110762518313742,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.8479068960062395,
+          "independent_seed_standard_deviation": 0.04852612626173079
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00823350605187879,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.8879491205443015,
+          "independent_seed_standard_deviation": 0.021664591495803354
+        }
+      ]
+    },
+    {
+      "model_id": "lp:austria:long_term_yield:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0004800249650182186,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.496986347294396,
+          "independent_seed_standard_deviation": 0.015679420223133886
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0005876454616290832,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.6195746090882617,
+          "independent_seed_standard_deviation": 0.021061485009723928
+        }
+      ]
+    },
+    {
+      "model_id": "lp:germany:hicp_price_level:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0006029196193054695,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.6041772048200014,
+          "independent_seed_standard_deviation": 0.025453051279091844
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0006835541836355354,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.618448879590597,
+          "independent_seed_standard_deviation": 0.022488124059410013
+        }
+      ]
+    },
+    {
+      "model_id": "lp:germany:industrial_production:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.001768558312568237,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.7743915208348975,
+          "independent_seed_standard_deviation": 0.016345752748618086
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.008717938947929316,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.8526033286993258,
+          "independent_seed_standard_deviation": 0.030579213400132154
+        }
+      ]
+    },
+    {
+      "model_id": "lp:germany:unemployment:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.001578171314377619,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.711820663832315,
+          "independent_seed_standard_deviation": 0.02170325814873402
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.002046698983187997,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.6982644020162576,
+          "independent_seed_standard_deviation": 0.018791763633726092
+        }
+      ]
+    },
+    {
+      "model_id": "lp:germany:long_term_yield:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0006388716542234312,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5209236068931733,
+          "independent_seed_standard_deviation": 0.016475723165024214
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0006763556750321325,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.6023081264664873,
+          "independent_seed_standard_deviation": 0.03540514863816702
+        }
+      ]
+    },
+    {
+      "model_id": "lp:slovakia:hicp_price_level:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0002856149582741899,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.515599779417166,
+          "independent_seed_standard_deviation": 0.019390182354017103
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00024680273499527944,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.434151955711428,
+          "independent_seed_standard_deviation": 0.028834398003800357
+        }
+      ]
+    },
+    {
+      "model_id": "lp:slovakia:industrial_production:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.004568220781482035,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.8545660091852527,
+          "independent_seed_standard_deviation": 0.02426054740632411
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.01665983737587542,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.968192880936103,
+          "independent_seed_standard_deviation": 0.021812093907863053
+        }
+      ]
+    },
+    {
+      "model_id": "lp:slovakia:unemployment:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0008320943213736762,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.6182258939989866,
+          "independent_seed_standard_deviation": 0.025876591872671453
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.001034496450024251,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.6146963581893723,
+          "independent_seed_standard_deviation": 0.03702249424243587
+        }
+      ]
+    },
+    {
+      "model_id": "lp:slovakia:long_term_yield:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0005522419218389401,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5878188163964753,
+          "independent_seed_standard_deviation": 0.026041898363045612
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0008430472253998865,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5707260755465455,
+          "independent_seed_standard_deviation": 0.02117715382708247
+        }
+      ]
+    },
+    {
+      "model_id": "lp:slovenia:hicp_price_level:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00039494589005029476,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5227193871614317,
+          "independent_seed_standard_deviation": 0.02694965623749808
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00032274053717593103,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.521224914701083,
+          "independent_seed_standard_deviation": 0.028022988144417383
+        }
+      ]
+    },
+    {
+      "model_id": "lp:slovenia:industrial_production:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.009180592272625973,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.9362579004157343,
+          "independent_seed_standard_deviation": 0.01405857084994486
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.016059957332955628,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.963193454330044,
+          "independent_seed_standard_deviation": 0.014109038349756919
+        }
+      ]
+    },
+    {
+      "model_id": "lp:slovenia:unemployment:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0007226167986550884,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.728508560807191,
+          "independent_seed_standard_deviation": 0.01656312065416165
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0009228266528835416,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.7383332120231163,
+          "independent_seed_standard_deviation": 0.020159074093119414
+        }
+      ]
+    },
+    {
+      "model_id": "lp:slovenia:long_term_yield:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0006867497092898289,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5525594535125316,
+          "independent_seed_standard_deviation": 0.024759111907334003
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0008529117426798521,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.6041966185015837,
+          "independent_seed_standard_deviation": 0.023461580947072097
+        }
+      ]
+    },
+    {
+      "model_id": "lp:czechia:hicp_price_level:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00040997867254246066,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.584788641833919,
+          "independent_seed_standard_deviation": 0.01631090907008005
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00031779408764246727,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5423703362930037,
+          "independent_seed_standard_deviation": 0.023581403872206298
+        }
+      ]
+    },
+    {
+      "model_id": "lp:czechia:industrial_production:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.006735504304646386,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.980169475355302,
+          "independent_seed_standard_deviation": 0.028998583620415727
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.012121209804662355,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.981085283107422,
+          "independent_seed_standard_deviation": 0.027807898862739988
+        }
+      ]
+    },
+    {
+      "model_id": "lp:czechia:unemployment:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.011922050304708446,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.852549765906053,
+          "independent_seed_standard_deviation": 0.013869527058092105
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.020003253752868478,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.8808913310867363,
+          "independent_seed_standard_deviation": 0.016463216106406435
+        }
+      ]
+    },
+    {
+      "model_id": "lp:czechia:long_term_yield:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0020156184392510716,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.709299608211615,
+          "independent_seed_standard_deviation": 0.024841049067520188
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0018538184395092234,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.7418960854200902,
+          "independent_seed_standard_deviation": 0.0318084799465047
+        }
+      ]
+    },
+    {
+      "model_id": "lp:czechia:bilateral_fx:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0011820086404802168,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.7109418143817963,
+          "independent_seed_standard_deviation": 0.03622030975440872
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0011513025787543534,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.7548336106914473,
+          "independent_seed_standard_deviation": 0.02958067913646996
+        }
+      ]
+    },
+    {
+      "model_id": "lp:czechia:domestic_policy_rate:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0004741150631137092,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5464879006240926,
+          "independent_seed_standard_deviation": 0.03705969480513445
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0009212431534059592,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5774384806372437,
+          "independent_seed_standard_deviation": 0.03025565759068687
+        }
+      ]
+    },
+    {
+      "model_id": "lp:hungary:hicp_price_level:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00006430663829776493,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.3972384077782367,
+          "independent_seed_standard_deviation": 0.037366842233493854
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00006174068278676155,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.4325436659035695,
+          "independent_seed_standard_deviation": 0.024439735161524527
+        }
+      ]
+    },
+    {
+      "model_id": "lp:hungary:industrial_production:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0073241733398212916,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.866760458171412,
+          "independent_seed_standard_deviation": 0.015296155752541184
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.01212223506865285,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.962202576230169,
+          "independent_seed_standard_deviation": 0.014950026190433771
+        }
+      ]
+    },
+    {
+      "model_id": "lp:hungary:unemployment:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.001186539799235385,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.7425201038174625,
+          "independent_seed_standard_deviation": 0.018242794701555903
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0022526709522728166,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.8507523027244046,
+          "independent_seed_standard_deviation": 0.024902175918897214
+        }
+      ]
+    },
+    {
+      "model_id": "lp:hungary:long_term_yield:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0019588899021814325,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.7251231748964235,
+          "independent_seed_standard_deviation": 0.019053480648498933
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0022769060482057996,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.750116856968777,
+          "independent_seed_standard_deviation": 0.024053524731942243
+        }
+      ]
+    },
+    {
+      "model_id": "lp:hungary:bilateral_fx:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.001774190759771512,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.677903055848094,
+          "independent_seed_standard_deviation": 0.012495002359545912
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0015831504829255181,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.7484788440091927,
+          "independent_seed_standard_deviation": 0.02998091921062604
+        }
+      ]
+    },
+    {
+      "model_id": "lp:hungary:domestic_policy_rate:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0000827657802889867,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5585161722738388,
+          "independent_seed_standard_deviation": 0.03681675761255912
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.000052199608607887204,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5761758650569195,
+          "independent_seed_standard_deviation": 0.0338532842724289
+        }
+      ]
+    },
+    {
+      "model_id": "lp:poland:hicp_price_level:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00026760695822109794,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.49113120278489,
+          "independent_seed_standard_deviation": 0.021433698477051025
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00021270759028119206,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.484734319175138,
+          "independent_seed_standard_deviation": 0.02754803330021327
+        }
+      ]
+    },
+    {
+      "model_id": "lp:poland:industrial_production:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.004246092417448268,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.785680197013227,
+          "independent_seed_standard_deviation": 0.02563323742242869
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.007361256937600239,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.8073386379791465,
+          "independent_seed_standard_deviation": 0.02974080671774976
+        }
+      ]
+    },
+    {
+      "model_id": "lp:poland:unemployment:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0007618001408254034,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.7512636586891883,
+          "independent_seed_standard_deviation": 0.011109697642939
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0017919111174705276,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.802800371978598,
+          "independent_seed_standard_deviation": 0.03276565701618646
+        }
+      ]
+    },
+    {
+      "model_id": "lp:poland:long_term_yield:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0008358528850685709,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.6587794408593184,
+          "independent_seed_standard_deviation": 0.020155444156091502
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0007806295030688748,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.656870242193998,
+          "independent_seed_standard_deviation": 0.011873844462872077
+        }
+      ]
+    },
+    {
+      "model_id": "lp:poland:bilateral_fx:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00254115842895956,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.709279967394397,
+          "independent_seed_standard_deviation": 0.0197583802408622
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0023999685323751042,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.7928708326105447,
+          "independent_seed_standard_deviation": 0.044851353388231194
+        }
+      ]
+    },
+    {
+      "model_id": "lp:poland:domestic_policy_rate:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00007438816749727688,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.447377158299129,
+          "independent_seed_standard_deviation": 0.029652764957364852
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00008798518242835619,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5438718513234058,
+          "independent_seed_standard_deviation": 0.02082112215248906
+        }
+      ]
+    },
+    {
+      "model_id": "lp:romania:hicp_price_level:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00003904044009103189,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.494698247910428,
+          "independent_seed_standard_deviation": 0.012996749510718116
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.000037257742406567374,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.530699012617167,
+          "independent_seed_standard_deviation": 0.03826044226322868
+        }
+      ]
+    },
+    {
+      "model_id": "lp:romania:industrial_production:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00546889072461967,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.980330542338069,
+          "independent_seed_standard_deviation": 0.01987031728576562
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.010684095149998647,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 3.044046090134444,
+          "independent_seed_standard_deviation": 0.020304809274022572
+        }
+      ]
+    },
+    {
+      "model_id": "lp:romania:unemployment:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.006673907082837109,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.838568648277314,
+          "independent_seed_standard_deviation": 0.017578225566610872
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.009342742928225943,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.8481524176794255,
+          "independent_seed_standard_deviation": 0.017544244477360867
+        }
+      ]
+    },
+    {
+      "model_id": "lp:romania:long_term_yield:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0014199357407268223,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.772526144109486,
+          "independent_seed_standard_deviation": 0.02411981188254285
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0016851278103024979,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.795647687875552,
+          "independent_seed_standard_deviation": 0.038363268947613834
+        }
+      ]
+    },
+    {
+      "model_id": "lp:romania:bilateral_fx:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.004167450337947111,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.696497765169954,
+          "independent_seed_standard_deviation": 0.019703569461577527
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00838806189593805,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.691734720647494,
+          "independent_seed_standard_deviation": 0.032175140841838167
+        }
+      ]
+    },
+    {
+      "model_id": "lp:romania:domestic_policy_rate:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00006796097975797472,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.443640433912412,
+          "independent_seed_standard_deviation": 0.03325567967362486
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00005612115027811846,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.447957273079744,
+          "independent_seed_standard_deviation": 0.013312344153834532
+        }
+      ]
+    },
+    {
+      "model_id": "lp:serbia:hicp_price_level:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00017132291959305956,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.577912170523055,
+          "independent_seed_standard_deviation": 0.02883054268470304
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00018619247106864816,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.518018648383893,
+          "independent_seed_standard_deviation": 0.023995969384547202
+        }
+      ]
+    },
+    {
+      "model_id": "lp:serbia:industrial_production:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.007530545376669626,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.9545054189109687,
+          "independent_seed_standard_deviation": 0.0203422562016812
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.026018240964997403,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.9497920454659097,
+          "independent_seed_standard_deviation": 0.01763330189841075
+        }
+      ]
+    },
+    {
+      "model_id": "lp:serbia:bilateral_fx:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0002566189704334272,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.4238475432844218,
+          "independent_seed_standard_deviation": 0.03076316962716069
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00045971395246357036,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.6228349974667187,
+          "independent_seed_standard_deviation": 0.013757368478149172
+        }
+      ]
+    },
+    {
+      "model_id": "lp:serbia:domestic_policy_rate:full:jk_joint:h24",
+      "components": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00007590023454553484,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.406425175026885,
+          "independent_seed_standard_deviation": 0.024348677371217597
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00017917165617337214,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5076730222187953,
+          "independent_seed_standard_deviation": 0.019173552891381708
+        }
+      ]
+    }
+  ]
+}

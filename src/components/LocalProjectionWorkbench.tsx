@@ -7,6 +7,8 @@ import lagSensitivity from "@/data/local-projections/lp_lag_sensitivity_results.
 import controlSensitivity from "@/data/local-projections/lp_control_sensitivity_results.json";
 import influenceDiagnostics from "@/data/local-projections/lp_influence_diagnostics.json";
 import shockSupport from "@/data/local-projections/lp_shock_support_diagnostics.json";
+import finiteSample from "@/data/local-projections/lp_finite_sample_robustness_summary.json";
+import finiteValidation from "@/data/local-projections/lp_finite_sample_validation.json";
 
 type ShockComponent = "mp" | "cbi";
 type Confidence = "90" | "95";
@@ -47,6 +49,7 @@ export function LocalProjectionWorkbench() {
   const controlRobustness = controlSensitivity.records.find((row) => row.model_id === model.model_id)!;
   const influence = influenceDiagnostics.records.find((row) => row.model_id === model.model_id)!;
   const support = shockSupport.records.find((row) => row.model_id === model.model_id)!;
+  const finite = finiteSample.records.find(row => row.model_id === model.model_id)!;
   const rows = model.horizons.filter((row) => row.horizon <= Math.min(chartHorizon, model.maximum_horizon));
   const chart = useMemo(() => {
     const width = 760, height = 280, left = 50, right = 18, top = 18, bottom = 36;
@@ -63,7 +66,7 @@ export function LocalProjectionWorkbench() {
   return (
     <section className="editorial-panel p-5">
       <div className="flex flex-wrap items-start justify-between gap-4">
-        <div><p className="editorial-kicker">Local Projections / v1.71</p><h2 className="mt-2 text-2xl font-semibold">本地投影：ECB 冲击与跨境传导</h2><p className="mt-3 max-w-4xl text-sm leading-7 text-[var(--muted)]">单国、单结果的联合 MP/CBI lag-augmented Local Projection。默认区间是逐 horizon 点态不确定性；95% sup-t 联合带用于整条显示路径的联合覆盖。h=0 是同一日历月反应，不是瞬时反应。</p></div>
+        <div><p className="editorial-kicker">Local Projections / v1.72</p><h2 className="mt-2 text-2xl font-semibold">本地投影：ECB 冲击与跨境传导</h2><p className="mt-3 max-w-4xl text-sm leading-7 text-[var(--muted)]">单国、单结果的联合 MP/CBI lag-augmented Local Projection。默认区间是逐 horizon 点态不确定性；95% sup-t 联合带用于整条显示路径的联合覆盖。h=0 是同一日历月反应，不是瞬时反应。</p></div>
         <span className="rounded-full border border-[var(--success)] px-3 py-1 text-xs font-semibold text-[var(--success)]">{validation.status} · {validation.causal_lp_ready_count} 个组合</span>
       </div>
       <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-6">
@@ -88,6 +91,22 @@ export function LocalProjectionWorkbench() {
       <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4"><div className="metric-card"><p className="text-xs text-[var(--muted)]">Formal baseline</p><p className="mt-1 font-semibold">AIC p={model.selected_base_lag_order}</p></div><div className="metric-card"><p className="text-xs text-[var(--muted)]">Lag sensitivity</p><p className="mt-1 font-semibold">p=2 / p=6 · N={lagRobustness.comparison_common_sample.effective_n}</p></div><div className="metric-card"><p className="text-xs text-[var(--muted)]">Control sensitivity</p><p className="mt-1 font-semibold">predetermined lags · N={controlRobustness.comparison_common_sample.effective_n}</p></div><div className="metric-card"><p className="text-xs text-[var(--muted)]">Shock support</p><p className="mt-1 font-semibold">MP {support.nonzero_mp_months} / CBI {support.nonzero_cbi_months} nonzero months</p></div></div>
       <p className="mt-4 text-xs leading-6 text-[var(--muted)]">规格敏感性仅用于比较，不替换正式 baseline，也不生成自动稳健性评分。跨国并排差异仅为描述性比较，不是正式异质性检验。</p>
       <details className="advanced-disclosure mt-5"><summary>估计边界、规格敏感性与影响诊断</summary><p className="mt-3 text-sm leading-7 text-[var(--muted)]">Pointwise CI 用于单个预先指定 horizon；simultaneous band 用于整条显示路径的联合覆盖。某一 horizon 的点态区间不含 0，不等于整条路径显著。Significance band 仍未激活。MP 与 CBI 同时进入回归；CBI 的 0.25 只是数值归一化。影响观测是诊断信号，不是无效观测，不会触发自动删除。</p><p className="mt-2 text-xs text-[var(--muted)]">最大 |MP| 月：{influence.leave_one_largest_mp_month.dropped_period}；最大 |CBI| 月：{influence.leave_one_largest_cbi_month.dropped_period}。历史事件标签仅作背景。</p><p className="mt-2 font-mono text-xs text-[var(--muted)]">{model.model_id} · sample {model.sample_start}…{model.sample_end} ({model.effective_n} months) · max h={model.maximum_horizon} · engine {model.engine_version} · sup-t draws {model.simultaneous_inference.draw_count}</p></details>
+      {finiteValidation.status === "passed" && finite && <details className="advanced-disclosure mt-5">
+        <summary>有限样本与冲击支持</summary>
+        <p className="mt-3 text-sm leading-7 text-[var(--muted)]">该响应由少数较大的 ECB 冲击月份提供较多识别信息，请结合影响诊断解读。以下是有限样本敏感性、冲击信息集中度和单一事件影响诊断，不替换 v1.71 正式 baseline，也不构成可靠性评分。</p>
+        <div className="mt-4 grid gap-3 md:grid-cols-3">
+          <div className="metric-card"><p>可用月份</p><p className="font-semibold">{finite.effective_n}</p><p className="text-xs">非零 MP / CBI：{finite.mp_support.nonzero_count} / {finite.cbi_support.nonzero_count}</p></div>
+          <div className="metric-card"><p>有效冲击支持计数</p><p className="font-semibold">MP {finite.mp_support.effective_shock_support_count.toFixed(2)} / CBI {finite.cbi_support.effective_shock_support_count.toFixed(2)}</p><p className="text-xs">集中度度量，不是推断的有效样本量</p></div>
+          <div className="metric-card"><p>前五个月平方变异占比</p><p className="font-semibold">MP {(finite.mp_support.top_5_share*100).toFixed(1)}% / CBI {(finite.cbi_support.top_5_share*100).toFixed(1)}%</p></div>
+        </div>
+        <p className="mt-4 text-sm">逐月删除最大路径变化（{model.response_unit}，0.25 归一化）：MP {finite.leave_one_month.mp.maximum_change.toFixed(3)}；CBI {finite.leave_one_month.cbi.maximum_change.toFixed(3)}。MP 变化的中位数 / 90 分位：{finite.leave_one_month.mp.median_change.toFixed(3)} / {finite.leave_one_month.mp.percentile90_change.toFixed(3)}。</p>
+        <p className="mt-2 text-sm">影响最大的 MP 月份：{finite.leave_one_month.mp.most_influential}；CBI 月份：{finite.leave_one_month.cbi.most_influential}。单一事件影响最大的 MP / CBI 事件：{finite.leave_one_event.mp.most_influential} / {finite.leave_one_event.cbi.most_influential}。</p>
+        <p className="mt-2 text-sm">偏差修正：仅登记，未启用。Fed 指定 ZIP 是无障碍论文材料，不包含可执行复现代码；当前双冲击及共同样本规格尚无通过验证的修正映射，不提供修正后置信区间。</p>
+        <p className="mt-2 text-sm">模拟覆盖审计已验证：{finiteSample.simulation.design_count} 个设计，{finiteSample.simulation.total_replications.toLocaleString()} 次重复；8 个关键设计各 10,000 次。模型是固定 p 的示意性水平差分 DGP，不能把其覆盖率当作本模型的真实覆盖率或偏差估计。</p>
+        <p className="mt-2 text-sm text-[var(--muted)]">关键设计的名义 95% sup-t 路径覆盖率：MP {(100 * Math.min(...finiteSample.simulation.key_designs.map(row => row.mp_path_coverage))).toFixed(1)}%–{(100 * Math.max(...finiteSample.simulation.key_designs.map(row => row.mp_path_coverage))).toFixed(1)}%；CBI {(100 * Math.min(...finiteSample.simulation.key_designs.map(row => row.cbi_path_coverage))).toFixed(1)}%–{(100 * Math.max(...finiteSample.simulation.key_designs.map(row => row.cbi_path_coverage))).toFixed(1)}%。这些设计存在欠覆盖；审计通过表示计算与记录检查通过，不表示有限样本推断已达到名义覆盖率。</p>
+        <p className="mt-2 text-xs text-[var(--muted)]">sup-t 临界值由模拟估计，并非精确常数。5 个独立种子的临界值标准差：{finite.sup_t_mc_diagnostics.map(row => `${row.component.toUpperCase()} ${row.independent_seed_standard_deviation.toFixed(4)}`).join(" / ")}。逐月删除后的区间分类比较使用相同 NumPy 随机方案重新估计，不是全路径显著性检验。</p>
+        <div className="mt-3 flex flex-wrap gap-4 text-sm text-[var(--accent)]"><a href="/research-data/lp_finite_sample_robustness_summary.json">下载诊断摘要</a><a href="/research-data/lp_leave_one_shock_month_results.json">下载逐月删除结果</a><a href="/research-data/lp_leave_one_event_results.json">下载逐事件结果</a><a href="/research-data/lp_finite_sample_simulation_results.json">下载模拟结果</a></div>
+      </details>}
     </section>
   );
 }

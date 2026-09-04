@@ -1,0 +1,11 @@
+{
+  "schema_version": "lp-finite-sample-validation-v1.72",
+  "generated_at": "2026-09-04",
+  "status": "passed",
+  "total_tests": 96856,
+  "failure_count": 0,
+  "maximum_cross_language_difference": 1.3006410881644115e-7,
+  "all_model_covariance_count": 44,
+  "loo_cross_language_policy": "first,last,largest MP deletion per type and model; all identities/counts checked",
+  "failures": []
+}

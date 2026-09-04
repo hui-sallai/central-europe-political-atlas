@@ -1,0 +1,3956 @@
+{
+  "schema_version": "lp-finite-sample-robustness-v1.72",
+  "generated_at": "2026-09-04",
+  "record_count": 44,
+  "records": [
+    {
+      "model_id": "lp:austria:hicp_price_level:full:jk_joint:h24",
+      "effective_n": 111,
+      "mp_support": {
+        "effective_shock_support_count": 6.664296356894276,
+        "herfindahl": 0.15005335093861646,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2958654547754014,
+        "top_3_share": 0.5823356946557147,
+        "top_5_share": 0.6631385282219272,
+        "top_10_share": 0.7862632973406036
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.64900287075794,
+        "herfindahl": 0.11562026454875794,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2916312446960012,
+        "top_3_share": 0.4384095299195193,
+        "top_5_share": 0.5746925648204637,
+        "top_10_share": 0.7752728524885856
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.17552136451598577,
+          "percentile90_change": 0.701249401644552,
+          "maximum_change": 1.3554404865362988,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 22,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.30308970924642686,
+          "percentile90_change": 1.1122697570935496,
+          "maximum_change": 2.8985562453900666,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 11,
+          "number_causing_simultaneous_band_classification_change": 1
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.11233984166614208,
+          "percentile90_change": 0.5423169250270102,
+          "maximum_change": 3.3244109906010557,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 24,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.272539985797426,
+          "percentile90_change": 1.064813752166973,
+          "maximum_change": 5.831240495305825,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 12,
+          "number_causing_simultaneous_band_classification_change": 1
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00047879326980365347,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5455490707777515,
+          "independent_seed_standard_deviation": 0.01782957792611765
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0005817712922178518,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5661481844153897,
+          "independent_seed_standard_deviation": 0.023133794803067445
+        }
+      ]
+    },
+    {
+      "model_id": "lp:austria:industrial_production:full:jk_joint:h24",
+      "effective_n": 110,
+      "mp_support": {
+        "effective_shock_support_count": 6.659883153235337,
+        "herfindahl": 0.15015278451457592,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.2959635752696718,
+        "top_3_share": 0.582528819825513,
+        "top_5_share": 0.6633584507546485,
+        "top_10_share": 0.7865240528364431
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.648935507674956,
+        "herfindahl": 0.11562116506853505,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.29163238041220113,
+        "top_3_share": 0.43841123724277214,
+        "top_5_share": 0.5746948028785172,
+        "top_10_share": 0.7752758716779007
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.38814912337519397,
+          "percentile90_change": 1.655306768091263,
+          "maximum_change": 9.813517912713234,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 31,
+          "number_causing_simultaneous_band_classification_change": 1
+        },
+        "cbi": {
+          "median_change": 0.5685781948785447,
+          "percentile90_change": 2.874036293020972,
+          "maximum_change": 5.916416328510491,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 31,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.2358938839431709,
+          "percentile90_change": 1.958461519326025,
+          "maximum_change": 8.9771317981198,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 28,
+          "number_causing_simultaneous_band_classification_change": 3
+        },
+        "cbi": {
+          "median_change": 0.5489744229456555,
+          "percentile90_change": 2.5442399109934617,
+          "maximum_change": 8.140822692734483,
+          "most_influential": "ea_mpd:2019-09-12:combined",
+          "number_causing_sign_reversal": 31,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.006518123537256328,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.8409258263915653,
+          "independent_seed_standard_deviation": 0.030119142234623496
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.005561043693442408,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.851937091256445,
+          "independent_seed_standard_deviation": 0.025735489362341178
+        }
+      ]
+    },
+    {
+      "model_id": "lp:austria:unemployment:full:jk_joint:h24",
+      "effective_n": 113,
+      "mp_support": {
+        "effective_shock_support_count": 6.660120275003469,
+        "herfindahl": 0.15014743859103644,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.2959583063155977,
+        "top_3_share": 0.5825184492331328,
+        "top_5_share": 0.6633466411756876,
+        "top_10_share": 0.7865100505758312
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.670542107002412,
+        "herfindahl": 0.11533304234718965,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.291267402969441,
+        "top_3_share": 0.4378625663029402,
+        "top_5_share": 0.5739755732812217,
+        "top_10_share": 0.7743056152040526
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.030540916254557182,
+          "percentile90_change": 0.17190717312812434,
+          "maximum_change": 1.1461753074148455,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 16,
+          "number_causing_simultaneous_band_classification_change": 3
+        },
+        "cbi": {
+          "median_change": 0.04859239756922776,
+          "percentile90_change": 0.23272400012973518,
+          "maximum_change": 1.096175243417465,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 22,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.02358288224974303,
+          "percentile90_change": 0.18466876500528306,
+          "maximum_change": 1.2219354087534164,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 14,
+          "number_causing_simultaneous_band_classification_change": 4
+        },
+        "cbi": {
+          "median_change": 0.050781459156574976,
+          "percentile90_change": 0.2085604497401088,
+          "maximum_change": 1.3340000578947693,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 24,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.007110762518313742,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.8479068960062395,
+          "independent_seed_standard_deviation": 0.04852612626173079
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00823350605187879,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.8879491205443015,
+          "independent_seed_standard_deviation": 0.021664591495803354
+        }
+      ]
+    },
+    {
+      "model_id": "lp:austria:long_term_yield:full:jk_joint:h24",
+      "effective_n": 114,
+      "mp_support": {
+        "effective_shock_support_count": 6.66453355712262,
+        "herfindahl": 0.1500480103264339,
+        "nonzero_count": 76,
+        "zero_count": 38,
+        "top_1_share": 0.2958601893143388,
+        "top_3_share": 0.5823253309384367,
+        "top_5_share": 0.6631267264720335,
+        "top_10_share": 0.7862493043626796
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.670609553853536,
+        "herfindahl": 0.11533214519567006,
+        "nonzero_count": 76,
+        "zero_count": 38,
+        "top_1_share": 0.2912662700941506,
+        "top_3_share": 0.43786086325042944,
+        "top_5_share": 0.5739733408215041,
+        "top_10_share": 0.774302603567015
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.0318232558239349,
+          "percentile90_change": 0.12583700602534964,
+          "maximum_change": 0.4283206386200442,
+          "most_influential": "2015-12",
+          "number_causing_sign_reversal": 65,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.05222902716259875,
+          "percentile90_change": 0.20446456303715158,
+          "maximum_change": 0.5704635152786182,
+          "most_influential": "2022-07",
+          "number_causing_sign_reversal": 46,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.024476956298431718,
+          "percentile90_change": 0.13754317405380379,
+          "maximum_change": 0.45637465044406744,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 60,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.05010614319355289,
+          "percentile90_change": 0.21996908112858796,
+          "maximum_change": 0.6961814315269697,
+          "most_influential": "ea_mpd:2022-07-21:combined",
+          "number_causing_sign_reversal": 46,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0004800249650182186,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.496986347294396,
+          "independent_seed_standard_deviation": 0.015679420223133886
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0005876454616290832,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.6195746090882617,
+          "independent_seed_standard_deviation": 0.021061485009723928
+        }
+      ]
+    },
+    {
+      "model_id": "lp:germany:hicp_price_level:full:jk_joint:h24",
+      "effective_n": 109,
+      "mp_support": {
+        "effective_shock_support_count": 6.6557736269663454,
+        "herfindahl": 0.1502454945204909,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.2960552276336565,
+        "top_3_share": 0.5827092141303782,
+        "top_5_share": 0.663563875932816,
+        "top_10_share": 0.786767619257438
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.613310058023142,
+        "herfindahl": 0.11609938493605233,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.29224035763760364,
+        "top_3_share": 0.4393252099889651,
+        "top_5_share": 0.5758928912088098,
+        "top_10_share": 0.776892119066884
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.2657264634228347,
+          "percentile90_change": 1.0015364518180234,
+          "maximum_change": 1.783989355339123,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 12,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.4579951635093664,
+          "percentile90_change": 1.5789578127587882,
+          "maximum_change": 4.451691061492945,
+          "most_influential": "2021-04",
+          "number_causing_sign_reversal": 22,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.1402763636141925,
+          "percentile90_change": 0.9042148687371252,
+          "maximum_change": 3.8148460268874294,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 7,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.36623626628946937,
+          "percentile90_change": 1.4805477214745089,
+          "maximum_change": 8.145122753752823,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 20,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0006029196193054695,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.6041772048200014,
+          "independent_seed_standard_deviation": 0.025453051279091844
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0006835541836355354,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.618448879590597,
+          "independent_seed_standard_deviation": 0.022488124059410013
+        }
+      ]
+    },
+    {
+      "model_id": "lp:germany:industrial_production:full:jk_joint:h24",
+      "effective_n": 110,
+      "mp_support": {
+        "effective_shock_support_count": 6.659883153235337,
+        "herfindahl": 0.15015278451457592,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.2959635752696718,
+        "top_3_share": 0.582528819825513,
+        "top_5_share": 0.6633584507546485,
+        "top_10_share": 0.7865240528364431
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.648935507674956,
+        "herfindahl": 0.11562116506853505,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.29163238041220113,
+        "top_3_share": 0.43841123724277214,
+        "top_5_share": 0.5746948028785172,
+        "top_10_share": 0.7752758716779007
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.35284938401913735,
+          "percentile90_change": 1.892618246302803,
+          "maximum_change": 12.964958012515932,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 9,
+          "number_causing_simultaneous_band_classification_change": 1
+        },
+        "cbi": {
+          "median_change": 0.674288216218371,
+          "percentile90_change": 2.867074122310644,
+          "maximum_change": 8.831053292032284,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 10,
+          "number_causing_simultaneous_band_classification_change": 20
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.33031484307385073,
+          "percentile90_change": 2.605199876540269,
+          "maximum_change": 11.679567889249448,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 8,
+          "number_causing_simultaneous_band_classification_change": 1
+        },
+        "cbi": {
+          "median_change": 0.6774013618450709,
+          "percentile90_change": 2.9644901364066625,
+          "maximum_change": 13.163422727169396,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 12,
+          "number_causing_simultaneous_band_classification_change": 23
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.001768558312568237,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.7743915208348975,
+          "independent_seed_standard_deviation": 0.016345752748618086
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.008717938947929316,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.8526033286993258,
+          "independent_seed_standard_deviation": 0.030579213400132154
+        }
+      ]
+    },
+    {
+      "model_id": "lp:germany:unemployment:full:jk_joint:h24",
+      "effective_n": 110,
+      "mp_support": {
+        "effective_shock_support_count": 6.659883153235337,
+        "herfindahl": 0.15015278451457592,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.2959635752696718,
+        "top_3_share": 0.582528819825513,
+        "top_5_share": 0.6633584507546485,
+        "top_10_share": 0.7865240528364431
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.648935507674956,
+        "herfindahl": 0.11562116506853505,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.29163238041220113,
+        "top_3_share": 0.43841123724277214,
+        "top_5_share": 0.5746948028785172,
+        "top_10_share": 0.7752758716779007
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.011220007214504252,
+          "percentile90_change": 0.051759424485661995,
+          "maximum_change": 0.16027431363511904,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 21,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.026823161614146024,
+          "percentile90_change": 0.07251932243032529,
+          "maximum_change": 0.17819817408005215,
+          "most_influential": "2022-07",
+          "number_causing_sign_reversal": 0,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.009308813300402535,
+          "percentile90_change": 0.058951216848766544,
+          "maximum_change": 0.19693283895499747,
+          "most_influential": "ea_mpd:2022-07-21:combined",
+          "number_causing_sign_reversal": 19,
+          "number_causing_simultaneous_band_classification_change": 2
+        },
+        "cbi": {
+          "median_change": 0.020922011091324855,
+          "percentile90_change": 0.09719049473237076,
+          "maximum_change": 0.2914780723848801,
+          "most_influential": "ea_mpd:2022-07-21:combined",
+          "number_causing_sign_reversal": 1,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.001578171314377619,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.711820663832315,
+          "independent_seed_standard_deviation": 0.02170325814873402
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.002046698983187997,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.6982644020162576,
+          "independent_seed_standard_deviation": 0.018791763633726092
+        }
+      ]
+    },
+    {
+      "model_id": "lp:germany:long_term_yield:full:jk_joint:h24",
+      "effective_n": 114,
+      "mp_support": {
+        "effective_shock_support_count": 6.66453355712262,
+        "herfindahl": 0.1500480103264339,
+        "nonzero_count": 76,
+        "zero_count": 38,
+        "top_1_share": 0.2958601893143388,
+        "top_3_share": 0.5823253309384367,
+        "top_5_share": 0.6631267264720335,
+        "top_10_share": 0.7862493043626796
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.670609553853536,
+        "herfindahl": 0.11533214519567006,
+        "nonzero_count": 76,
+        "zero_count": 38,
+        "top_1_share": 0.2912662700941506,
+        "top_3_share": 0.43786086325042944,
+        "top_5_share": 0.5739733408215041,
+        "top_10_share": 0.774302603567015
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.02790174558600611,
+          "percentile90_change": 0.12239819390236023,
+          "maximum_change": 0.40219448516856415,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 19,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.04982546065783894,
+          "percentile90_change": 0.1821397033319772,
+          "maximum_change": 0.5057899147636221,
+          "most_influential": "2022-07",
+          "number_causing_sign_reversal": 34,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.02377061505644995,
+          "percentile90_change": 0.12530832491385754,
+          "maximum_change": 0.427854561193396,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 18,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.04839550838775031,
+          "percentile90_change": 0.1997807188978108,
+          "maximum_change": 0.6191701562401664,
+          "most_influential": "ea_mpd:2022-07-21:combined",
+          "number_causing_sign_reversal": 33,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0006388716542234312,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5209236068931733,
+          "independent_seed_standard_deviation": 0.016475723165024214
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0006763556750321325,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.6023081264664873,
+          "independent_seed_standard_deviation": 0.03540514863816702
+        }
+      ]
+    },
+    {
+      "model_id": "lp:slovakia:hicp_price_level:full:jk_joint:h24",
+      "effective_n": 111,
+      "mp_support": {
+        "effective_shock_support_count": 6.664296356894276,
+        "herfindahl": 0.15005335093861646,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2958654547754014,
+        "top_3_share": 0.5823356946557147,
+        "top_5_share": 0.6631385282219272,
+        "top_10_share": 0.7862632973406036
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.64900287075794,
+        "herfindahl": 0.11562026454875794,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2916312446960012,
+        "top_3_share": 0.4384095299195193,
+        "top_5_share": 0.5746925648204637,
+        "top_10_share": 0.7752728524885856
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.2607584851657081,
+          "percentile90_change": 0.9454686638081707,
+          "maximum_change": 2.656062977468883,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 0,
+          "number_causing_simultaneous_band_classification_change": 3
+        },
+        "cbi": {
+          "median_change": 0.3501454387504763,
+          "percentile90_change": 1.514165089885,
+          "maximum_change": 7.288197333281974,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 0,
+          "number_causing_simultaneous_band_classification_change": 46
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.14246097384100764,
+          "percentile90_change": 0.952075188642159,
+          "maximum_change": 5.904341153938969,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 1,
+          "number_causing_simultaneous_band_classification_change": 3
+        },
+        "cbi": {
+          "median_change": 0.29491479919793306,
+          "percentile90_change": 1.4383996123356517,
+          "maximum_change": 11.622433479968786,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 1,
+          "number_causing_simultaneous_band_classification_change": 44
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": false,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0002856149582741899,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.515599779417166,
+          "independent_seed_standard_deviation": 0.019390182354017103
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00024680273499527944,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.434151955711428,
+          "independent_seed_standard_deviation": 0.028834398003800357
+        }
+      ]
+    },
+    {
+      "model_id": "lp:slovakia:industrial_production:full:jk_joint:h24",
+      "effective_n": 113,
+      "mp_support": {
+        "effective_shock_support_count": 6.660120275003469,
+        "herfindahl": 0.15014743859103644,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.2959583063155977,
+        "top_3_share": 0.5825184492331328,
+        "top_5_share": 0.6633466411756876,
+        "top_10_share": 0.7865100505758312
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.670542107002412,
+        "herfindahl": 0.11533304234718965,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.291267402969441,
+        "top_3_share": 0.4378625663029402,
+        "top_5_share": 0.5739755732812217,
+        "top_10_share": 0.7743056152040526
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.40634097900111144,
+          "percentile90_change": 1.873887659189094,
+          "maximum_change": 16.203671041265125,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 36,
+          "number_causing_simultaneous_band_classification_change": 9
+        },
+        "cbi": {
+          "median_change": 0.4668327756902034,
+          "percentile90_change": 3.4207072636347515,
+          "maximum_change": 8.651603629303915,
+          "most_influential": "2019-09",
+          "number_causing_sign_reversal": 42,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.34168217566953407,
+          "percentile90_change": 1.959047233442318,
+          "maximum_change": 16.84393553752719,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 41,
+          "number_causing_simultaneous_band_classification_change": 8
+        },
+        "cbi": {
+          "median_change": 0.5549209097150565,
+          "percentile90_change": 2.8562841535526493,
+          "maximum_change": 10.60591361789188,
+          "most_influential": "ea_mpd:2019-09-12:combined",
+          "number_causing_sign_reversal": 40,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.004568220781482035,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.8545660091852527,
+          "independent_seed_standard_deviation": 0.02426054740632411
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.01665983737587542,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.968192880936103,
+          "independent_seed_standard_deviation": 0.021812093907863053
+        }
+      ]
+    },
+    {
+      "model_id": "lp:slovakia:unemployment:full:jk_joint:h24",
+      "effective_n": 110,
+      "mp_support": {
+        "effective_shock_support_count": 6.659883153235337,
+        "herfindahl": 0.15015278451457592,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.2959635752696718,
+        "top_3_share": 0.582528819825513,
+        "top_5_share": 0.6633584507546485,
+        "top_10_share": 0.7865240528364431
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.648935507674956,
+        "herfindahl": 0.11562116506853505,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.29163238041220113,
+        "top_3_share": 0.43841123724277214,
+        "top_5_share": 0.5746948028785172,
+        "top_10_share": 0.7752758716779007
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.01764771197808812,
+          "percentile90_change": 0.128541652408064,
+          "maximum_change": 0.44441042038909667,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 8,
+          "number_causing_simultaneous_band_classification_change": 19
+        },
+        "cbi": {
+          "median_change": 0.04666306761709499,
+          "percentile90_change": 0.16075361518980322,
+          "maximum_change": 0.6491766568013759,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 0,
+          "number_causing_simultaneous_band_classification_change": 14
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.013543530931359571,
+          "percentile90_change": 0.13020082848472478,
+          "maximum_change": 0.4300486552638715,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 11,
+          "number_causing_simultaneous_band_classification_change": 19
+        },
+        "cbi": {
+          "median_change": 0.04059822966595833,
+          "percentile90_change": 0.14687046668222792,
+          "maximum_change": 0.8562800464853112,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 1,
+          "number_causing_simultaneous_band_classification_change": 12
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0008320943213736762,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.6182258939989866,
+          "independent_seed_standard_deviation": 0.025876591872671453
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.001034496450024251,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.6146963581893723,
+          "independent_seed_standard_deviation": 0.03702249424243587
+        }
+      ]
+    },
+    {
+      "model_id": "lp:slovakia:long_term_yield:full:jk_joint:h24",
+      "effective_n": 113,
+      "mp_support": {
+        "effective_shock_support_count": 6.66453355712262,
+        "herfindahl": 0.1500480103264339,
+        "nonzero_count": 76,
+        "zero_count": 37,
+        "top_1_share": 0.2958601893143388,
+        "top_3_share": 0.5823253309384367,
+        "top_5_share": 0.6631267264720335,
+        "top_10_share": 0.7862493043626796
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.670609553853536,
+        "herfindahl": 0.11533214519567006,
+        "nonzero_count": 76,
+        "zero_count": 37,
+        "top_1_share": 0.2912662700941506,
+        "top_3_share": 0.43786086325042944,
+        "top_5_share": 0.5739733408215041,
+        "top_10_share": 0.774302603567015
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.04010178330485084,
+          "percentile90_change": 0.18962458519620454,
+          "maximum_change": 0.6458212505470673,
+          "most_influential": "2022-09",
+          "number_causing_sign_reversal": 40,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.05927342100620056,
+          "percentile90_change": 0.23416789896837342,
+          "maximum_change": 0.8732710651387552,
+          "most_influential": "2022-09",
+          "number_causing_sign_reversal": 48,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.035999148313138996,
+          "percentile90_change": 0.1662907250708458,
+          "maximum_change": 0.8939534999493047,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 35,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.06606389493040699,
+          "percentile90_change": 0.25387766753000074,
+          "maximum_change": 0.8757678421146087,
+          "most_influential": "ea_mpd:2022-07-21:combined",
+          "number_causing_sign_reversal": 51,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0005522419218389401,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5878188163964753,
+          "independent_seed_standard_deviation": 0.026041898363045612
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0008430472253998865,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5707260755465455,
+          "independent_seed_standard_deviation": 0.02117715382708247
+        }
+      ]
+    },
+    {
+      "model_id": "lp:slovenia:hicp_price_level:full:jk_joint:h24",
+      "effective_n": 109,
+      "mp_support": {
+        "effective_shock_support_count": 6.6557736269663454,
+        "herfindahl": 0.1502454945204909,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.2960552276336565,
+        "top_3_share": 0.5827092141303782,
+        "top_5_share": 0.663563875932816,
+        "top_10_share": 0.786767619257438
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.613310058023142,
+        "herfindahl": 0.11609938493605233,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.29224035763760364,
+        "top_3_share": 0.4393252099889651,
+        "top_5_share": 0.5758928912088098,
+        "top_10_share": 0.776892119066884
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.2566266096572738,
+          "percentile90_change": 0.9179796129405002,
+          "maximum_change": 2.8477602670824043,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 0,
+          "number_causing_simultaneous_band_classification_change": 45
+        },
+        "cbi": {
+          "median_change": 0.3866082472346051,
+          "percentile90_change": 1.5520218547397098,
+          "maximum_change": 6.614628017779504,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 0,
+          "number_causing_simultaneous_band_classification_change": 52
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.16999079655155303,
+          "percentile90_change": 0.8624375865666691,
+          "maximum_change": 2.4282343001123365,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 0,
+          "number_causing_simultaneous_band_classification_change": 47
+        },
+        "cbi": {
+          "median_change": 0.3226677878376112,
+          "percentile90_change": 1.6645004743792078,
+          "maximum_change": 5.935079648244603,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 0,
+          "number_causing_simultaneous_band_classification_change": 52
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": false,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00039494589005029476,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5227193871614317,
+          "independent_seed_standard_deviation": 0.02694965623749808
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00032274053717593103,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.521224914701083,
+          "independent_seed_standard_deviation": 0.028022988144417383
+        }
+      ]
+    },
+    {
+      "model_id": "lp:slovenia:industrial_production:full:jk_joint:h24",
+      "effective_n": 113,
+      "mp_support": {
+        "effective_shock_support_count": 6.660120275003469,
+        "herfindahl": 0.15014743859103644,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.2959583063155977,
+        "top_3_share": 0.5825184492331328,
+        "top_5_share": 0.6633466411756876,
+        "top_10_share": 0.7865100505758312
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.670542107002412,
+        "herfindahl": 0.11533304234718965,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.291267402969441,
+        "top_3_share": 0.4378625663029402,
+        "top_5_share": 0.5739755732812217,
+        "top_10_share": 0.7743056152040526
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.32356028806806814,
+          "percentile90_change": 1.9844767718690177,
+          "maximum_change": 11.307413001221963,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 11,
+          "number_causing_simultaneous_band_classification_change": 33
+        },
+        "cbi": {
+          "median_change": 0.36567933376348805,
+          "percentile90_change": 2.303244641160523,
+          "maximum_change": 6.858632681092045,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 23,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.22310838145810585,
+          "percentile90_change": 1.8171102451296175,
+          "maximum_change": 12.23422382377357,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 11,
+          "number_causing_simultaneous_band_classification_change": 29
+        },
+        "cbi": {
+          "median_change": 0.4174566990271087,
+          "percentile90_change": 1.8194455427217688,
+          "maximum_change": 7.068475609374346,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 24,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.009180592272625973,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.9362579004157343,
+          "independent_seed_standard_deviation": 0.01405857084994486
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.016059957332955628,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.963193454330044,
+          "independent_seed_standard_deviation": 0.014109038349756919
+        }
+      ]
+    },
+    {
+      "model_id": "lp:slovenia:unemployment:full:jk_joint:h24",
+      "effective_n": 110,
+      "mp_support": {
+        "effective_shock_support_count": 6.659883153235337,
+        "herfindahl": 0.15015278451457592,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.2959635752696718,
+        "top_3_share": 0.582528819825513,
+        "top_5_share": 0.6633584507546485,
+        "top_10_share": 0.7865240528364431
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.648935507674956,
+        "herfindahl": 0.11562116506853505,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.29163238041220113,
+        "top_3_share": 0.43841123724277214,
+        "top_5_share": 0.5746948028785172,
+        "top_10_share": 0.7752758716779007
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.029358046646334457,
+          "percentile90_change": 0.12222988174205171,
+          "maximum_change": 0.4677259444350582,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 11,
+          "number_causing_simultaneous_band_classification_change": 45
+        },
+        "cbi": {
+          "median_change": 0.05211898224472848,
+          "percentile90_change": 0.20677424217169507,
+          "maximum_change": 0.7180018236159121,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 45,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.022183265861252507,
+          "percentile90_change": 0.15255814111037888,
+          "maximum_change": 0.41984525384771054,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 9,
+          "number_causing_simultaneous_band_classification_change": 51
+        },
+        "cbi": {
+          "median_change": 0.05594870559120532,
+          "percentile90_change": 0.19786968474626193,
+          "maximum_change": 0.8597359618687643,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 49,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0007226167986550884,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.728508560807191,
+          "independent_seed_standard_deviation": 0.01656312065416165
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0009228266528835416,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.7383332120231163,
+          "independent_seed_standard_deviation": 0.020159074093119414
+        }
+      ]
+    },
+    {
+      "model_id": "lp:slovenia:long_term_yield:full:jk_joint:h24",
+      "effective_n": 112,
+      "mp_support": {
+        "effective_shock_support_count": 6.664519757503505,
+        "herfindahl": 0.15004832101729637,
+        "nonzero_count": 75,
+        "zero_count": 37,
+        "top_1_share": 0.2958604956207227,
+        "top_3_share": 0.5823259338244378,
+        "top_5_share": 0.6631274130123557,
+        "top_10_share": 0.7862501183727763
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.666617023119198,
+        "herfindahl": 0.11538527632320489,
+        "nonzero_count": 75,
+        "zero_count": 37,
+        "top_1_share": 0.29133341963325343,
+        "top_3_share": 0.4379618092169807,
+        "top_5_share": 0.5741056666321137,
+        "top_10_share": 0.7744811139827209
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.04410160522381795,
+          "percentile90_change": 0.17995638450193127,
+          "maximum_change": 0.5812707472494161,
+          "most_influential": "2022-09",
+          "number_causing_sign_reversal": 39,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.11456337194155353,
+          "percentile90_change": 0.29146094457804494,
+          "maximum_change": 0.730066733445178,
+          "most_influential": "2022-09",
+          "number_causing_sign_reversal": 4,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.023986176174783047,
+          "percentile90_change": 0.1971916606813508,
+          "maximum_change": 0.6250158073964891,
+          "most_influential": "ea_mpd:2022-09-08:combined",
+          "number_causing_sign_reversal": 31,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.10996127678560108,
+          "percentile90_change": 0.4892464621244629,
+          "maximum_change": 1.3341484737375497,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 10,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0006867497092898289,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5525594535125316,
+          "independent_seed_standard_deviation": 0.024759111907334003
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0008529117426798521,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.6041966185015837,
+          "independent_seed_standard_deviation": 0.023461580947072097
+        }
+      ]
+    },
+    {
+      "model_id": "lp:czechia:hicp_price_level:full:jk_joint:h24",
+      "effective_n": 109,
+      "mp_support": {
+        "effective_shock_support_count": 6.6557736269663454,
+        "herfindahl": 0.1502454945204909,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.2960552276336565,
+        "top_3_share": 0.5827092141303782,
+        "top_5_share": 0.663563875932816,
+        "top_10_share": 0.786767619257438
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.613310058023142,
+        "herfindahl": 0.11609938493605233,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.29224035763760364,
+        "top_3_share": 0.4393252099889651,
+        "top_5_share": 0.5758928912088098,
+        "top_10_share": 0.776892119066884
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.3301429566486407,
+          "percentile90_change": 1.4778859591507705,
+          "maximum_change": 3.9283984733565185,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 2,
+          "number_causing_simultaneous_band_classification_change": 4
+        },
+        "cbi": {
+          "median_change": 0.685168162879485,
+          "percentile90_change": 2.5738176182847514,
+          "maximum_change": 8.176779140827012,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 0,
+          "number_causing_simultaneous_band_classification_change": 37
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.2241401771605842,
+          "percentile90_change": 1.0862207797269412,
+          "maximum_change": 6.800233570925169,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 2,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.4839744677215094,
+          "percentile90_change": 1.8235471560948509,
+          "maximum_change": 13.120014582395362,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 1,
+          "number_causing_simultaneous_band_classification_change": 42
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00040997867254246066,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.584788641833919,
+          "independent_seed_standard_deviation": 0.01631090907008005
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00031779408764246727,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5423703362930037,
+          "independent_seed_standard_deviation": 0.023581403872206298
+        }
+      ]
+    },
+    {
+      "model_id": "lp:czechia:industrial_production:full:jk_joint:h24",
+      "effective_n": 113,
+      "mp_support": {
+        "effective_shock_support_count": 6.660120275003469,
+        "herfindahl": 0.15014743859103644,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.2959583063155977,
+        "top_3_share": 0.5825184492331328,
+        "top_5_share": 0.6633466411756876,
+        "top_10_share": 0.7865100505758312
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.670542107002412,
+        "herfindahl": 0.11533304234718965,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.291267402969441,
+        "top_3_share": 0.4378625663029402,
+        "top_5_share": 0.5739755732812217,
+        "top_10_share": 0.7743056152040526
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.17067347288617674,
+          "percentile90_change": 1.4303409701172516,
+          "maximum_change": 12.214870376347003,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 16,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.2701447299243218,
+          "percentile90_change": 2.0344354084709853,
+          "maximum_change": 8.56115093901821,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 52,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.19496998967936247,
+          "percentile90_change": 1.3470429891896747,
+          "maximum_change": 12.772713057899828,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 18,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.3232639575616783,
+          "percentile90_change": 1.7139408527372468,
+          "maximum_change": 9.731565076312071,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 52,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.006735504304646386,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.980169475355302,
+          "independent_seed_standard_deviation": 0.028998583620415727
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.012121209804662355,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.981085283107422,
+          "independent_seed_standard_deviation": 0.027807898862739988
+        }
+      ]
+    },
+    {
+      "model_id": "lp:czechia:unemployment:full:jk_joint:h24",
+      "effective_n": 109,
+      "mp_support": {
+        "effective_shock_support_count": 6.659883153235337,
+        "herfindahl": 0.15015278451457592,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.2959635752696718,
+        "top_3_share": 0.582528819825513,
+        "top_5_share": 0.6633584507546485,
+        "top_10_share": 0.7865240528364431
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.648935507674956,
+        "herfindahl": 0.11562116506853505,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.29163238041220113,
+        "top_3_share": 0.43841123724277214,
+        "top_5_share": 0.5746948028785172,
+        "top_10_share": 0.7752758716779007
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.023493104792364217,
+          "percentile90_change": 0.07788722967840389,
+          "maximum_change": 0.3917583504135645,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 15,
+          "number_causing_simultaneous_band_classification_change": 22
+        },
+        "cbi": {
+          "median_change": 0.04660032832996813,
+          "percentile90_change": 0.14604422552049534,
+          "maximum_change": 0.2703076641434372,
+          "most_influential": "2023-09",
+          "number_causing_sign_reversal": 12,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.017103884114374968,
+          "percentile90_change": 0.11893477651893863,
+          "maximum_change": 0.455552797002411,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 17,
+          "number_causing_simultaneous_band_classification_change": 25
+        },
+        "cbi": {
+          "median_change": 0.045812900193970066,
+          "percentile90_change": 0.1322570288297103,
+          "maximum_change": 0.4823480393980461,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 24,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.011922050304708446,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.852549765906053,
+          "independent_seed_standard_deviation": 0.013869527058092105
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.020003253752868478,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.8808913310867363,
+          "independent_seed_standard_deviation": 0.016463216106406435
+        }
+      ]
+    },
+    {
+      "model_id": "lp:czechia:long_term_yield:full:jk_joint:h24",
+      "effective_n": 111,
+      "mp_support": {
+        "effective_shock_support_count": 6.664296356894276,
+        "herfindahl": 0.15005335093861646,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2958654547754014,
+        "top_3_share": 0.5823356946557147,
+        "top_5_share": 0.6631385282219272,
+        "top_10_share": 0.7862632973406036
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.64900287075794,
+        "herfindahl": 0.11562026454875794,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2916312446960012,
+        "top_3_share": 0.4384095299195193,
+        "top_5_share": 0.5746925648204637,
+        "top_10_share": 0.7752728524885856
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.042485228602029114,
+          "percentile90_change": 0.18170919970277313,
+          "maximum_change": 0.5156862176276988,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 14,
+          "number_causing_simultaneous_band_classification_change": 49
+        },
+        "cbi": {
+          "median_change": 0.09378697781674342,
+          "percentile90_change": 0.28186339729755244,
+          "maximum_change": 0.6415632596676603,
+          "most_influential": "2020-10",
+          "number_causing_sign_reversal": 24,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.03329281575886134,
+          "percentile90_change": 0.16685694511899318,
+          "maximum_change": 0.47602195848852064,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 13,
+          "number_causing_simultaneous_band_classification_change": 43
+        },
+        "cbi": {
+          "median_change": 0.09630294869776335,
+          "percentile90_change": 0.3641914060837106,
+          "maximum_change": 0.7686680812472669,
+          "most_influential": "ea_mpd:2020-10-29:combined",
+          "number_causing_sign_reversal": 28,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0020156184392510716,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.709299608211615,
+          "independent_seed_standard_deviation": 0.024841049067520188
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0018538184395092234,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.7418960854200902,
+          "independent_seed_standard_deviation": 0.0318084799465047
+        }
+      ]
+    },
+    {
+      "model_id": "lp:czechia:bilateral_fx:full:jk_joint:h24",
+      "effective_n": 114,
+      "mp_support": {
+        "effective_shock_support_count": 6.66453355712262,
+        "herfindahl": 0.1500480103264339,
+        "nonzero_count": 76,
+        "zero_count": 38,
+        "top_1_share": 0.2958601893143388,
+        "top_3_share": 0.5823253309384367,
+        "top_5_share": 0.6631267264720335,
+        "top_10_share": 0.7862493043626796
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.670609553853536,
+        "herfindahl": 0.11533214519567006,
+        "nonzero_count": 76,
+        "zero_count": 38,
+        "top_1_share": 0.2912662700941506,
+        "top_3_share": 0.43786086325042944,
+        "top_5_share": 0.5739733408215041,
+        "top_10_share": 0.774302603567015
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.10927009655942654,
+          "percentile90_change": 0.6764586794876392,
+          "maximum_change": 3.4285920452871363,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 10,
+          "number_causing_simultaneous_band_classification_change": 1
+        },
+        "cbi": {
+          "median_change": 0.19266714180468802,
+          "percentile90_change": 0.9293127264681197,
+          "maximum_change": 2.6758641441478455,
+          "most_influential": "2022-07",
+          "number_causing_sign_reversal": 34,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.10067000476312238,
+          "percentile90_change": 0.7642933646991258,
+          "maximum_change": 3.5563718921836465,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 12,
+          "number_causing_simultaneous_band_classification_change": 1
+        },
+        "cbi": {
+          "median_change": 0.18401544528951153,
+          "percentile90_change": 0.776618367453084,
+          "maximum_change": 3.2627584868914217,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 34,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0011820086404802168,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.7109418143817963,
+          "independent_seed_standard_deviation": 0.03622030975440872
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0011513025787543534,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.7548336106914473,
+          "independent_seed_standard_deviation": 0.02958067913646996
+        }
+      ]
+    },
+    {
+      "model_id": "lp:czechia:domestic_policy_rate:full:jk_joint:h24",
+      "effective_n": 112,
+      "mp_support": {
+        "effective_shock_support_count": 6.664519757503505,
+        "herfindahl": 0.15004832101729637,
+        "nonzero_count": 75,
+        "zero_count": 37,
+        "top_1_share": 0.2958604956207227,
+        "top_3_share": 0.5823259338244378,
+        "top_5_share": 0.6631274130123557,
+        "top_10_share": 0.7862501183727763
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.666617023119198,
+        "herfindahl": 0.11538527632320489,
+        "nonzero_count": 75,
+        "zero_count": 37,
+        "top_1_share": 0.29133341963325343,
+        "top_3_share": 0.4379618092169807,
+        "top_5_share": 0.5741056666321137,
+        "top_10_share": 0.7744811139827209
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.06262836011620632,
+          "percentile90_change": 0.3021859713699243,
+          "maximum_change": 1.0516011274483286,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 0,
+          "number_causing_simultaneous_band_classification_change": 6
+        },
+        "cbi": {
+          "median_change": 0.15899435406564422,
+          "percentile90_change": 0.4680594487140948,
+          "maximum_change": 2.3183099893505927,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 0,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.052572837545822315,
+          "percentile90_change": 0.35401475553682155,
+          "maximum_change": 1.3681557720976096,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 0,
+          "number_causing_simultaneous_band_classification_change": 3
+        },
+        "cbi": {
+          "median_change": 0.14240335384318925,
+          "percentile90_change": 0.7819908980999329,
+          "maximum_change": 2.743217826489029,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 0,
+          "number_causing_simultaneous_band_classification_change": 1
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": false,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0004741150631137092,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5464879006240926,
+          "independent_seed_standard_deviation": 0.03705969480513445
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0009212431534059592,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5774384806372437,
+          "independent_seed_standard_deviation": 0.03025565759068687
+        }
+      ]
+    },
+    {
+      "model_id": "lp:hungary:hicp_price_level:full:jk_joint:h24",
+      "effective_n": 113,
+      "mp_support": {
+        "effective_shock_support_count": 6.66453355712262,
+        "herfindahl": 0.1500480103264339,
+        "nonzero_count": 76,
+        "zero_count": 37,
+        "top_1_share": 0.2958601893143388,
+        "top_3_share": 0.5823253309384367,
+        "top_5_share": 0.6631267264720335,
+        "top_10_share": 0.7862493043626796
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.670609553853536,
+        "herfindahl": 0.11533214519567006,
+        "nonzero_count": 76,
+        "zero_count": 37,
+        "top_1_share": 0.2912662700941506,
+        "top_3_share": 0.43786086325042944,
+        "top_5_share": 0.5739733408215041,
+        "top_10_share": 0.774302603567015
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.3070683310916966,
+          "percentile90_change": 1.3008785087320276,
+          "maximum_change": 2.7682660851570557,
+          "most_influential": "2015-12",
+          "number_causing_sign_reversal": 55,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.45375747837654146,
+          "percentile90_change": 1.8049822127433455,
+          "maximum_change": 4.506036589678326,
+          "most_influential": "2022-07",
+          "number_causing_sign_reversal": 0,
+          "number_causing_simultaneous_band_classification_change": 1
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.1823983675939358,
+          "percentile90_change": 1.4643971740501343,
+          "maximum_change": 3.460258478225839,
+          "most_influential": "ea_mpd:2022-07-21:combined",
+          "number_causing_sign_reversal": 45,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.3259044904088846,
+          "percentile90_change": 1.7889521340817511,
+          "maximum_change": 5.935612566822725,
+          "most_influential": "ea_mpd:2022-07-21:combined",
+          "number_causing_sign_reversal": 2,
+          "number_causing_simultaneous_band_classification_change": 1
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00006430663829776493,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.3972384077782367,
+          "independent_seed_standard_deviation": 0.037366842233493854
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00006174068278676155,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.4325436659035695,
+          "independent_seed_standard_deviation": 0.024439735161524527
+        }
+      ]
+    },
+    {
+      "model_id": "lp:hungary:industrial_production:full:jk_joint:h24",
+      "effective_n": 113,
+      "mp_support": {
+        "effective_shock_support_count": 6.660120275003469,
+        "herfindahl": 0.15014743859103644,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.2959583063155977,
+        "top_3_share": 0.5825184492331328,
+        "top_5_share": 0.6633466411756876,
+        "top_10_share": 0.7865100505758312
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.670542107002412,
+        "herfindahl": 0.11533304234718965,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.291267402969441,
+        "top_3_share": 0.4378625663029402,
+        "top_5_share": 0.5739755732812217,
+        "top_10_share": 0.7743056152040526
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.32032985494119615,
+          "percentile90_change": 2.1264238457748306,
+          "maximum_change": 17.195060892256333,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 40,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.5259902416373157,
+          "percentile90_change": 3.171769647466583,
+          "maximum_change": 12.399662486941432,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 13,
+          "number_causing_simultaneous_band_classification_change": 1
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.2738853523637269,
+          "percentile90_change": 2.1118871314935816,
+          "maximum_change": 18.036072823872146,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 35,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.5577426601030178,
+          "percentile90_change": 2.5670682065990715,
+          "maximum_change": 14.260228285945013,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 12,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0073241733398212916,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.866760458171412,
+          "independent_seed_standard_deviation": 0.015296155752541184
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.01212223506865285,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.962202576230169,
+          "independent_seed_standard_deviation": 0.014950026190433771
+        }
+      ]
+    },
+    {
+      "model_id": "lp:hungary:unemployment:full:jk_joint:h24",
+      "effective_n": 112,
+      "mp_support": {
+        "effective_shock_support_count": 6.660120275003469,
+        "herfindahl": 0.15014743859103644,
+        "nonzero_count": 75,
+        "zero_count": 37,
+        "top_1_share": 0.2959583063155977,
+        "top_3_share": 0.5825184492331328,
+        "top_5_share": 0.6633466411756876,
+        "top_10_share": 0.7865100505758312
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.670542107002412,
+        "herfindahl": 0.11533304234718965,
+        "nonzero_count": 75,
+        "zero_count": 37,
+        "top_1_share": 0.291267402969441,
+        "top_3_share": 0.4378625663029402,
+        "top_5_share": 0.5739755732812217,
+        "top_10_share": 0.7743056152040526
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.023084003533869413,
+          "percentile90_change": 0.0860282954816552,
+          "maximum_change": 0.6695526015139039,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 11,
+          "number_causing_simultaneous_band_classification_change": 49
+        },
+        "cbi": {
+          "median_change": 0.029270618856413133,
+          "percentile90_change": 0.12690895470369287,
+          "maximum_change": 0.4709533107221441,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 2,
+          "number_causing_simultaneous_band_classification_change": 1
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.021632230688828906,
+          "percentile90_change": 0.11527139454147228,
+          "maximum_change": 0.7058339099877711,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 9,
+          "number_causing_simultaneous_band_classification_change": 49
+        },
+        "cbi": {
+          "median_change": 0.02809586479304972,
+          "percentile90_change": 0.10016139393806006,
+          "maximum_change": 0.5505022733922644,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 3,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.001186539799235385,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.7425201038174625,
+          "independent_seed_standard_deviation": 0.018242794701555903
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0022526709522728166,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.8507523027244046,
+          "independent_seed_standard_deviation": 0.024902175918897214
+        }
+      ]
+    },
+    {
+      "model_id": "lp:hungary:long_term_yield:full:jk_joint:h24",
+      "effective_n": 111,
+      "mp_support": {
+        "effective_shock_support_count": 6.664296356894276,
+        "herfindahl": 0.15005335093861646,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2958654547754014,
+        "top_3_share": 0.5823356946557147,
+        "top_5_share": 0.6631385282219272,
+        "top_10_share": 0.7862632973406036
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.64900287075794,
+        "herfindahl": 0.11562026454875794,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2916312446960012,
+        "top_3_share": 0.4384095299195193,
+        "top_5_share": 0.5746925648204637,
+        "top_10_share": 0.7752728524885856
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.08650965655384873,
+          "percentile90_change": 0.30320869194599814,
+          "maximum_change": 1.1024749293540492,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 9,
+          "number_causing_simultaneous_band_classification_change": 1
+        },
+        "cbi": {
+          "median_change": 0.19008809550012912,
+          "percentile90_change": 0.5613979485173473,
+          "maximum_change": 1.2736557665219954,
+          "most_influential": "2020-10",
+          "number_causing_sign_reversal": 16,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.06217188890919828,
+          "percentile90_change": 0.31828401492651487,
+          "maximum_change": 1.061630396671922,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 10,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.19241135044436997,
+          "percentile90_change": 0.741274139525011,
+          "maximum_change": 1.6304742248588155,
+          "most_influential": "ea_mpd:2020-10-29:combined",
+          "number_causing_sign_reversal": 15,
+          "number_causing_simultaneous_band_classification_change": 1
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0019588899021814325,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.7251231748964235,
+          "independent_seed_standard_deviation": 0.019053480648498933
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0022769060482057996,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.750116856968777,
+          "independent_seed_standard_deviation": 0.024053524731942243
+        }
+      ]
+    },
+    {
+      "model_id": "lp:hungary:bilateral_fx:full:jk_joint:h24",
+      "effective_n": 113,
+      "mp_support": {
+        "effective_shock_support_count": 6.66453355712262,
+        "herfindahl": 0.1500480103264339,
+        "nonzero_count": 76,
+        "zero_count": 37,
+        "top_1_share": 0.2958601893143388,
+        "top_3_share": 0.5823253309384367,
+        "top_5_share": 0.6631267264720335,
+        "top_10_share": 0.7862493043626796
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.670609553853536,
+        "herfindahl": 0.11533214519567006,
+        "nonzero_count": 76,
+        "zero_count": 37,
+        "top_1_share": 0.2912662700941506,
+        "top_3_share": 0.43786086325042944,
+        "top_5_share": 0.5739733408215041,
+        "top_10_share": 0.774302603567015
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.1878543234812533,
+          "percentile90_change": 1.1437999062456385,
+          "maximum_change": 3.4290660956447407,
+          "most_influential": "2015-12",
+          "number_causing_sign_reversal": 23,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.2733865171059384,
+          "percentile90_change": 1.54668239373096,
+          "maximum_change": 4.083607715009724,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 1,
+          "number_causing_simultaneous_band_classification_change": 1
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.20310408031675292,
+          "percentile90_change": 1.2283761890031146,
+          "maximum_change": 3.2924553098431693,
+          "most_influential": "ea_mpd:2015-12-03:combined",
+          "number_causing_sign_reversal": 23,
+          "number_causing_simultaneous_band_classification_change": 1
+        },
+        "cbi": {
+          "median_change": 0.3060420320030066,
+          "percentile90_change": 1.5154915975313628,
+          "maximum_change": 5.498022479977932,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 2,
+          "number_causing_simultaneous_band_classification_change": 1
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.001774190759771512,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.677903055848094,
+          "independent_seed_standard_deviation": 0.012495002359545912
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0015831504829255181,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.7484788440091927,
+          "independent_seed_standard_deviation": 0.02998091921062604
+        }
+      ]
+    },
+    {
+      "model_id": "lp:hungary:domestic_policy_rate:full:jk_joint:h24",
+      "effective_n": 110,
+      "mp_support": {
+        "effective_shock_support_count": 6.664296356894276,
+        "herfindahl": 0.15005335093861646,
+        "nonzero_count": 74,
+        "zero_count": 36,
+        "top_1_share": 0.2958654547754014,
+        "top_3_share": 0.5823356946557147,
+        "top_5_share": 0.6631385282219272,
+        "top_10_share": 0.7862632973406036
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.64900287075794,
+        "herfindahl": 0.11562026454875794,
+        "nonzero_count": 74,
+        "zero_count": 36,
+        "top_1_share": 0.2916312446960012,
+        "top_3_share": 0.4384095299195193,
+        "top_5_share": 0.5746925648204637,
+        "top_10_share": 0.7752728524885856
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.13940204604253226,
+          "percentile90_change": 0.6162601383084927,
+          "maximum_change": 2.0274431853055797,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 7,
+          "number_causing_simultaneous_band_classification_change": 20
+        },
+        "cbi": {
+          "median_change": 0.3052303228599853,
+          "percentile90_change": 1.1775219662483423,
+          "maximum_change": 4.166322016685095,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 5,
+          "number_causing_simultaneous_band_classification_change": 12
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.12347670171133895,
+          "percentile90_change": 0.750272841706744,
+          "maximum_change": 1.7256099484771346,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 5,
+          "number_causing_simultaneous_band_classification_change": 21
+        },
+        "cbi": {
+          "median_change": 0.3976922102959053,
+          "percentile90_change": 1.5178874488024696,
+          "maximum_change": 3.8916001028481144,
+          "most_influential": "ea_mpd:2023-09-14:combined",
+          "number_causing_sign_reversal": 5,
+          "number_causing_simultaneous_band_classification_change": 20
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0000827657802889867,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5585161722738388,
+          "independent_seed_standard_deviation": 0.03681675761255912
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.000052199608607887204,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5761758650569195,
+          "independent_seed_standard_deviation": 0.0338532842724289
+        }
+      ]
+    },
+    {
+      "model_id": "lp:poland:hicp_price_level:full:jk_joint:h24",
+      "effective_n": 111,
+      "mp_support": {
+        "effective_shock_support_count": 6.664296356894276,
+        "herfindahl": 0.15005335093861646,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2958654547754014,
+        "top_3_share": 0.5823356946557147,
+        "top_5_share": 0.6631385282219272,
+        "top_10_share": 0.7862632973406036
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.64900287075794,
+        "herfindahl": 0.11562026454875794,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2916312446960012,
+        "top_3_share": 0.4384095299195193,
+        "top_5_share": 0.5746925648204637,
+        "top_10_share": 0.7752728524885856
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.2950478198780444,
+          "percentile90_change": 1.2210569688103492,
+          "maximum_change": 2.3180933766444016,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 0,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.4538193178819778,
+          "percentile90_change": 1.9880721841776143,
+          "maximum_change": 5.353898379492923,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 0,
+          "number_causing_simultaneous_band_classification_change": 18
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.1835687279792224,
+          "percentile90_change": 1.0558528399249363,
+          "maximum_change": 5.363353550345209,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 2,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.403243915226037,
+          "percentile90_change": 1.5902090753987816,
+          "maximum_change": 10.141854924692552,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 1,
+          "number_causing_simultaneous_band_classification_change": 20
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": false,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00026760695822109794,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.49113120278489,
+          "independent_seed_standard_deviation": 0.021433698477051025
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00021270759028119206,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.484734319175138,
+          "independent_seed_standard_deviation": 0.02754803330021327
+        }
+      ]
+    },
+    {
+      "model_id": "lp:poland:industrial_production:full:jk_joint:h24",
+      "effective_n": 110,
+      "mp_support": {
+        "effective_shock_support_count": 6.659883153235337,
+        "herfindahl": 0.15015278451457592,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.2959635752696718,
+        "top_3_share": 0.582528819825513,
+        "top_5_share": 0.6633584507546485,
+        "top_10_share": 0.7865240528364431
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.648935507674956,
+        "herfindahl": 0.11562116506853505,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.29163238041220113,
+        "top_3_share": 0.43841123724277214,
+        "top_5_share": 0.5746948028785172,
+        "top_10_share": 0.7752758716779007
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.39119564611686064,
+          "percentile90_change": 2.012629701484293,
+          "maximum_change": 12.604735584249262,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 15,
+          "number_causing_simultaneous_band_classification_change": 3
+        },
+        "cbi": {
+          "median_change": 0.5913225037743928,
+          "percentile90_change": 3.0258951186038083,
+          "maximum_change": 7.529446013425485,
+          "most_influential": "2020-06",
+          "number_causing_sign_reversal": 28,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.37542255660190804,
+          "percentile90_change": 2.591912493102586,
+          "maximum_change": 10.506612128521681,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 18,
+          "number_causing_simultaneous_band_classification_change": 2
+        },
+        "cbi": {
+          "median_change": 0.5929410291635406,
+          "percentile90_change": 3.198229697020876,
+          "maximum_change": 8.846551083948128,
+          "most_influential": "ea_mpd:2019-09-12:combined",
+          "number_causing_sign_reversal": 31,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.004246092417448268,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.785680197013227,
+          "independent_seed_standard_deviation": 0.02563323742242869
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.007361256937600239,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.8073386379791465,
+          "independent_seed_standard_deviation": 0.02974080671774976
+        }
+      ]
+    },
+    {
+      "model_id": "lp:poland:unemployment:full:jk_joint:h24",
+      "effective_n": 110,
+      "mp_support": {
+        "effective_shock_support_count": 6.659883153235337,
+        "herfindahl": 0.15015278451457592,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.2959635752696718,
+        "top_3_share": 0.582528819825513,
+        "top_5_share": 0.6633584507546485,
+        "top_10_share": 0.7865240528364431
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.648935507674956,
+        "herfindahl": 0.11562116506853505,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.29163238041220113,
+        "top_3_share": 0.43841123724277214,
+        "top_5_share": 0.5746948028785172,
+        "top_10_share": 0.7752758716779007
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.02148412922092613,
+          "percentile90_change": 0.07936560262326078,
+          "maximum_change": 0.42868351497717194,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 2,
+          "number_causing_simultaneous_band_classification_change": 9
+        },
+        "cbi": {
+          "median_change": 0.03261182147954761,
+          "percentile90_change": 0.10243821922460322,
+          "maximum_change": 0.2098294216675447,
+          "most_influential": "2020-06",
+          "number_causing_sign_reversal": 2,
+          "number_causing_simultaneous_band_classification_change": 6
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.014045342043457948,
+          "percentile90_change": 0.07844180767687747,
+          "maximum_change": 0.4448933249008966,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 2,
+          "number_causing_simultaneous_band_classification_change": 7
+        },
+        "cbi": {
+          "median_change": 0.03348683267773156,
+          "percentile90_change": 0.11621620872412292,
+          "maximum_change": 0.4101123536380741,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 2,
+          "number_causing_simultaneous_band_classification_change": 4
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0007618001408254034,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.7512636586891883,
+          "independent_seed_standard_deviation": 0.011109697642939
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0017919111174705276,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.802800371978598,
+          "independent_seed_standard_deviation": 0.03276565701618646
+        }
+      ]
+    },
+    {
+      "model_id": "lp:poland:long_term_yield:full:jk_joint:h24",
+      "effective_n": 111,
+      "mp_support": {
+        "effective_shock_support_count": 6.664296356894276,
+        "herfindahl": 0.15005335093861646,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2958654547754014,
+        "top_3_share": 0.5823356946557147,
+        "top_5_share": 0.6631385282219272,
+        "top_10_share": 0.7862632973406036
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.64900287075794,
+        "herfindahl": 0.11562026454875794,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2916312446960012,
+        "top_3_share": 0.4384095299195193,
+        "top_5_share": 0.5746925648204637,
+        "top_10_share": 0.7752728524885856
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.07422273748981176,
+          "percentile90_change": 0.28717620770126423,
+          "maximum_change": 0.7091696215356991,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 30,
+          "number_causing_simultaneous_band_classification_change": 1
+        },
+        "cbi": {
+          "median_change": 0.13505720329542226,
+          "percentile90_change": 0.5265026154193453,
+          "maximum_change": 1.3888885026831053,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 22,
+          "number_causing_simultaneous_band_classification_change": 2
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.04742221259899128,
+          "percentile90_change": 0.3042381025126345,
+          "maximum_change": 1.2440675938234684,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 22,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.16954485078624804,
+          "percentile90_change": 0.6191130865900947,
+          "maximum_change": 2.7364578891081304,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 24,
+          "number_causing_simultaneous_band_classification_change": 1
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0008358528850685709,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.6587794408593184,
+          "independent_seed_standard_deviation": 0.020155444156091502
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0007806295030688748,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.656870242193998,
+          "independent_seed_standard_deviation": 0.011873844462872077
+        }
+      ]
+    },
+    {
+      "model_id": "lp:poland:bilateral_fx:full:jk_joint:h24",
+      "effective_n": 114,
+      "mp_support": {
+        "effective_shock_support_count": 6.66453355712262,
+        "herfindahl": 0.1500480103264339,
+        "nonzero_count": 76,
+        "zero_count": 38,
+        "top_1_share": 0.2958601893143388,
+        "top_3_share": 0.5823253309384367,
+        "top_5_share": 0.6631267264720335,
+        "top_10_share": 0.7862493043626796
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.670609553853536,
+        "herfindahl": 0.11533214519567006,
+        "nonzero_count": 76,
+        "zero_count": 38,
+        "top_1_share": 0.2912662700941506,
+        "top_3_share": 0.43786086325042944,
+        "top_5_share": 0.5739733408215041,
+        "top_10_share": 0.774302603567015
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.14550397554305544,
+          "percentile90_change": 0.6709804583749746,
+          "maximum_change": 3.3382035837198183,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 51,
+          "number_causing_simultaneous_band_classification_change": 5
+        },
+        "cbi": {
+          "median_change": 0.2214557598527307,
+          "percentile90_change": 1.0203262118541696,
+          "maximum_change": 4.086880075355478,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 3,
+          "number_causing_simultaneous_band_classification_change": 5
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.11112097931740172,
+          "percentile90_change": 0.8005272574008486,
+          "maximum_change": 3.3593636364065036,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 53,
+          "number_causing_simultaneous_band_classification_change": 3
+        },
+        "cbi": {
+          "median_change": 0.21609600300117826,
+          "percentile90_change": 1.1299191456691906,
+          "maximum_change": 4.743620535026341,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 3,
+          "number_causing_simultaneous_band_classification_change": 8
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00254115842895956,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.709279967394397,
+          "independent_seed_standard_deviation": 0.0197583802408622
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0023999685323751042,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.7928708326105447,
+          "independent_seed_standard_deviation": 0.044851353388231194
+        }
+      ]
+    },
+    {
+      "model_id": "lp:poland:domestic_policy_rate:full:jk_joint:h24",
+      "effective_n": 109,
+      "mp_support": {
+        "effective_shock_support_count": 6.6557736269663454,
+        "herfindahl": 0.1502454945204909,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.2960552276336565,
+        "top_3_share": 0.5827092141303782,
+        "top_5_share": 0.663563875932816,
+        "top_10_share": 0.786767619257438
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.613310058023142,
+        "herfindahl": 0.11609938493605233,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.29224035763760364,
+        "top_3_share": 0.4393252099889651,
+        "top_5_share": 0.5758928912088098,
+        "top_10_share": 0.776892119066884
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.09384410522483536,
+          "percentile90_change": 0.2881551471551394,
+          "maximum_change": 0.8768616489057712,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 22,
+          "number_causing_simultaneous_band_classification_change": 5
+        },
+        "cbi": {
+          "median_change": 0.16607139204365984,
+          "percentile90_change": 0.5486897780013498,
+          "maximum_change": 1.744800346512267,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 16,
+          "number_causing_simultaneous_band_classification_change": 1
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.061605669241834304,
+          "percentile90_change": 0.3293977621028868,
+          "maximum_change": 1.6886661897241346,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 14,
+          "number_causing_simultaneous_band_classification_change": 3
+        },
+        "cbi": {
+          "median_change": 0.21447972985699781,
+          "percentile90_change": 0.782284964466792,
+          "maximum_change": 2.9817125175862498,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 20,
+          "number_causing_simultaneous_band_classification_change": 2
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00007438816749727688,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.447377158299129,
+          "independent_seed_standard_deviation": 0.029652764957364852
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00008798518242835619,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5438718513234058,
+          "independent_seed_standard_deviation": 0.02082112215248906
+        }
+      ]
+    },
+    {
+      "model_id": "lp:romania:hicp_price_level:full:jk_joint:h24",
+      "effective_n": 113,
+      "mp_support": {
+        "effective_shock_support_count": 6.66453355712262,
+        "herfindahl": 0.1500480103264339,
+        "nonzero_count": 76,
+        "zero_count": 37,
+        "top_1_share": 0.2958601893143388,
+        "top_3_share": 0.5823253309384367,
+        "top_5_share": 0.6631267264720335,
+        "top_10_share": 0.7862493043626796
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.670609553853536,
+        "herfindahl": 0.11533214519567006,
+        "nonzero_count": 76,
+        "zero_count": 37,
+        "top_1_share": 0.2912662700941506,
+        "top_3_share": 0.43786086325042944,
+        "top_5_share": 0.5739733408215041,
+        "top_10_share": 0.774302603567015
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.23179194308076767,
+          "percentile90_change": 0.793618547371834,
+          "maximum_change": 2.5027559669528916,
+          "most_influential": "2015-12",
+          "number_causing_sign_reversal": 5,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.2563600481483117,
+          "percentile90_change": 1.23291690092873,
+          "maximum_change": 1.740103190290287,
+          "most_influential": "2023-09",
+          "number_causing_sign_reversal": 0,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.12626513146410856,
+          "percentile90_change": 0.7617201916578784,
+          "maximum_change": 2.4220448189098867,
+          "most_influential": "ea_mpd:2015-12-03:combined",
+          "number_causing_sign_reversal": 5,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.22599211238863592,
+          "percentile90_change": 1.0234912087751298,
+          "maximum_change": 3.063463113821752,
+          "most_influential": "ea_mpd:2023-09-14:combined",
+          "number_causing_sign_reversal": 0,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00003904044009103189,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.494698247910428,
+          "independent_seed_standard_deviation": 0.012996749510718116
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.000037257742406567374,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.530699012617167,
+          "independent_seed_standard_deviation": 0.03826044226322868
+        }
+      ]
+    },
+    {
+      "model_id": "lp:romania:industrial_production:full:jk_joint:h24",
+      "effective_n": 113,
+      "mp_support": {
+        "effective_shock_support_count": 6.660120275003469,
+        "herfindahl": 0.15014743859103644,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.2959583063155977,
+        "top_3_share": 0.5825184492331328,
+        "top_5_share": 0.6633466411756876,
+        "top_10_share": 0.7865100505758312
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.670542107002412,
+        "herfindahl": 0.11533304234718965,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.291267402969441,
+        "top_3_share": 0.4378625663029402,
+        "top_5_share": 0.5739755732812217,
+        "top_10_share": 0.7743056152040526
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.3410716464748869,
+          "percentile90_change": 1.923165156570835,
+          "maximum_change": 16.51053011812791,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 24,
+          "number_causing_simultaneous_band_classification_change": 8
+        },
+        "cbi": {
+          "median_change": 0.37218088954951734,
+          "percentile90_change": 2.391804182669207,
+          "maximum_change": 8.130690162433151,
+          "most_influential": "2019-09",
+          "number_causing_sign_reversal": 47,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.27431057428264904,
+          "percentile90_change": 1.7300435820940758,
+          "maximum_change": 17.125689605239508,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 15,
+          "number_causing_simultaneous_band_classification_change": 7
+        },
+        "cbi": {
+          "median_change": 0.42409373154791363,
+          "percentile90_change": 2.2620438100903284,
+          "maximum_change": 9.727250790314498,
+          "most_influential": "ea_mpd:2019-09-12:combined",
+          "number_causing_sign_reversal": 56,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00546889072461967,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.980330542338069,
+          "independent_seed_standard_deviation": 0.01987031728576562
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.010684095149998647,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 3.044046090134444,
+          "independent_seed_standard_deviation": 0.020304809274022572
+        }
+      ]
+    },
+    {
+      "model_id": "lp:romania:unemployment:full:jk_joint:h24",
+      "effective_n": 110,
+      "mp_support": {
+        "effective_shock_support_count": 6.659883153235337,
+        "herfindahl": 0.15015278451457592,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.2959635752696718,
+        "top_3_share": 0.582528819825513,
+        "top_5_share": 0.6633584507546485,
+        "top_10_share": 0.7865240528364431
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.648935507674956,
+        "herfindahl": 0.11562116506853505,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.29163238041220113,
+        "top_3_share": 0.43841123724277214,
+        "top_5_share": 0.5746948028785172,
+        "top_10_share": 0.7752758716779007
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.02435011375006995,
+          "percentile90_change": 0.10920804772232064,
+          "maximum_change": 0.48153179009555863,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 32,
+          "number_causing_simultaneous_band_classification_change": 10
+        },
+        "cbi": {
+          "median_change": 0.04958280133127135,
+          "percentile90_change": 0.14786910310114854,
+          "maximum_change": 0.6505047353471851,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 32,
+          "number_causing_simultaneous_band_classification_change": 1
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.022920849903582997,
+          "percentile90_change": 0.11970566369419752,
+          "maximum_change": 0.5223630752593992,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 35,
+          "number_causing_simultaneous_band_classification_change": 11
+        },
+        "cbi": {
+          "median_change": 0.04660430737522095,
+          "percentile90_change": 0.1732017001692896,
+          "maximum_change": 0.8509649830527443,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 29,
+          "number_causing_simultaneous_band_classification_change": 5
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.006673907082837109,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.838568648277314,
+          "independent_seed_standard_deviation": 0.017578225566610872
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.009342742928225943,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.8481524176794255,
+          "independent_seed_standard_deviation": 0.017544244477360867
+        }
+      ]
+    },
+    {
+      "model_id": "lp:romania:long_term_yield:full:jk_joint:h24",
+      "effective_n": 111,
+      "mp_support": {
+        "effective_shock_support_count": 6.664296356894276,
+        "herfindahl": 0.15005335093861646,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2958654547754014,
+        "top_3_share": 0.5823356946557147,
+        "top_5_share": 0.6631385282219272,
+        "top_10_share": 0.7862632973406036
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.64900287075794,
+        "herfindahl": 0.11562026454875794,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2916312446960012,
+        "top_3_share": 0.4384095299195193,
+        "top_5_share": 0.5746925648204637,
+        "top_10_share": 0.7752728524885856
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.07013376213124922,
+          "percentile90_change": 0.32144793991370885,
+          "maximum_change": 0.9964208622153576,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 47,
+          "number_causing_simultaneous_band_classification_change": 38
+        },
+        "cbi": {
+          "median_change": 0.13105340819654776,
+          "percentile90_change": 0.5175552669903692,
+          "maximum_change": 1.9487848728057002,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 23,
+          "number_causing_simultaneous_band_classification_change": 7
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.04838495861845854,
+          "percentile90_change": 0.2792242504909226,
+          "maximum_change": 0.9428736775932742,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 40,
+          "number_causing_simultaneous_band_classification_change": 36
+        },
+        "cbi": {
+          "median_change": 0.1272397224654651,
+          "percentile90_change": 0.5417450039613031,
+          "maximum_change": 2.2644615477483923,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 29,
+          "number_causing_simultaneous_band_classification_change": 7
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0014199357407268223,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.772526144109486,
+          "independent_seed_standard_deviation": 0.02411981188254285
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.0016851278103024979,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.795647687875552,
+          "independent_seed_standard_deviation": 0.038363268947613834
+        }
+      ]
+    },
+    {
+      "model_id": "lp:romania:bilateral_fx:full:jk_joint:h24",
+      "effective_n": 111,
+      "mp_support": {
+        "effective_shock_support_count": 6.664296356894276,
+        "herfindahl": 0.15005335093861646,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2958654547754014,
+        "top_3_share": 0.5823356946557147,
+        "top_5_share": 0.6631385282219272,
+        "top_10_share": 0.7862632973406036
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.64900287075794,
+        "herfindahl": 0.11562026454875794,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2916312446960012,
+        "top_3_share": 0.4384095299195193,
+        "top_5_share": 0.5746925648204637,
+        "top_10_share": 0.7752728524885856
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.047171048951464296,
+          "percentile90_change": 0.1913342283395203,
+          "maximum_change": 0.7307620896435869,
+          "most_influential": "2015-12",
+          "number_causing_sign_reversal": 47,
+          "number_causing_simultaneous_band_classification_change": 1
+        },
+        "cbi": {
+          "median_change": 0.08380594357685928,
+          "percentile90_change": 0.2658481720930798,
+          "maximum_change": 0.648211738390993,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 49,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.03302848163096184,
+          "percentile90_change": 0.21036639010402639,
+          "maximum_change": 0.8135451318716529,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 43,
+          "number_causing_simultaneous_band_classification_change": 3
+        },
+        "cbi": {
+          "median_change": 0.08226972568160076,
+          "percentile90_change": 0.38225990477120997,
+          "maximum_change": 1.120285970779896,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 50,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.004167450337947111,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.696497765169954,
+          "independent_seed_standard_deviation": 0.019703569461577527
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00838806189593805,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.691734720647494,
+          "independent_seed_standard_deviation": 0.032175140841838167
+        }
+      ]
+    },
+    {
+      "model_id": "lp:romania:domestic_policy_rate:full:jk_joint:h24",
+      "effective_n": 109,
+      "mp_support": {
+        "effective_shock_support_count": 6.6557736269663454,
+        "herfindahl": 0.1502454945204909,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.2960552276336565,
+        "top_3_share": 0.5827092141303782,
+        "top_5_share": 0.663563875932816,
+        "top_10_share": 0.786767619257438
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.613310058023142,
+        "herfindahl": 0.11609938493605233,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.29224035763760364,
+        "top_3_share": 0.4393252099889651,
+        "top_5_share": 0.5758928912088098,
+        "top_10_share": 0.776892119066884
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.07168860182861414,
+          "percentile90_change": 0.4084489047769627,
+          "maximum_change": 0.8440123433923601,
+          "most_influential": "2022-07",
+          "number_causing_sign_reversal": 1,
+          "number_causing_simultaneous_band_classification_change": 6
+        },
+        "cbi": {
+          "median_change": 0.1805863568543935,
+          "percentile90_change": 0.5422414704425337,
+          "maximum_change": 1.9991492354341445,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 52,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.054722456935057284,
+          "percentile90_change": 0.42407851785684547,
+          "maximum_change": 1.2942273652793312,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 2,
+          "number_causing_simultaneous_band_classification_change": 5
+        },
+        "cbi": {
+          "median_change": 0.16107874562108115,
+          "percentile90_change": 0.6514710578550325,
+          "maximum_change": 2.766950266583384,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 59,
+          "number_causing_simultaneous_band_classification_change": 1
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00006796097975797472,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.443640433912412,
+          "independent_seed_standard_deviation": 0.03325567967362486
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00005612115027811846,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.447957273079744,
+          "independent_seed_standard_deviation": 0.013312344153834532
+        }
+      ]
+    },
+    {
+      "model_id": "lp:serbia:hicp_price_level:full:jk_joint:h24",
+      "effective_n": 109,
+      "mp_support": {
+        "effective_shock_support_count": 6.6557736269663454,
+        "herfindahl": 0.1502454945204909,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.2960552276336565,
+        "top_3_share": 0.5827092141303782,
+        "top_5_share": 0.663563875932816,
+        "top_10_share": 0.786767619257438
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.613310058023142,
+        "herfindahl": 0.11609938493605233,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.29224035763760364,
+        "top_3_share": 0.4393252099889651,
+        "top_5_share": 0.5758928912088098,
+        "top_10_share": 0.776892119066884
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.28721683099485595,
+          "percentile90_change": 0.9857946707883216,
+          "maximum_change": 1.6920442086631142,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 0,
+          "number_causing_simultaneous_band_classification_change": 1
+        },
+        "cbi": {
+          "median_change": 0.4973928675937298,
+          "percentile90_change": 1.6739095421768655,
+          "maximum_change": 5.855585581847622,
+          "most_influential": "2020-10",
+          "number_causing_sign_reversal": 1,
+          "number_causing_simultaneous_band_classification_change": 1
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.2134046805143459,
+          "percentile90_change": 0.9971688502203674,
+          "maximum_change": 3.6585462373612097,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 2,
+          "number_causing_simultaneous_band_classification_change": 1
+        },
+        "cbi": {
+          "median_change": 0.37651224112351755,
+          "percentile90_change": 1.4978578247805572,
+          "maximum_change": 5.872430883925116,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 2,
+          "number_causing_simultaneous_band_classification_change": 2
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00017132291959305956,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.577912170523055,
+          "independent_seed_standard_deviation": 0.02883054268470304
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00018619247106864816,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.518018648383893,
+          "independent_seed_standard_deviation": 0.023995969384547202
+        }
+      ]
+    },
+    {
+      "model_id": "lp:serbia:industrial_production:full:jk_joint:h24",
+      "effective_n": 110,
+      "mp_support": {
+        "effective_shock_support_count": 6.659883153235337,
+        "herfindahl": 0.15015278451457592,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.2959635752696718,
+        "top_3_share": 0.582528819825513,
+        "top_5_share": 0.6633584507546485,
+        "top_10_share": 0.7865240528364431
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.648935507674956,
+        "herfindahl": 0.11562116506853505,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.29163238041220113,
+        "top_3_share": 0.43841123724277214,
+        "top_5_share": 0.5746948028785172,
+        "top_10_share": 0.7752758716779007
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.3656315096800804,
+          "percentile90_change": 1.55048915091493,
+          "maximum_change": 9.940467158575606,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 27,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.5130163555762906,
+          "percentile90_change": 2.333696947487825,
+          "maximum_change": 6.531855697678428,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 46,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.2536102271036633,
+          "percentile90_change": 1.5949745279897751,
+          "maximum_change": 8.73705062706542,
+          "most_influential": "ea_mpd:2020-03-12:combined",
+          "number_causing_sign_reversal": 27,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.5102366553105389,
+          "percentile90_change": 2.24195164358389,
+          "maximum_change": 7.1421417191599135,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 52,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.007530545376669626,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.9545054189109687,
+          "independent_seed_standard_deviation": 0.0203422562016812
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.026018240964997403,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.9497920454659097,
+          "independent_seed_standard_deviation": 0.01763330189841075
+        }
+      ]
+    },
+    {
+      "model_id": "lp:serbia:bilateral_fx:full:jk_joint:h24",
+      "effective_n": 113,
+      "mp_support": {
+        "effective_shock_support_count": 6.66453355712262,
+        "herfindahl": 0.1500480103264339,
+        "nonzero_count": 76,
+        "zero_count": 37,
+        "top_1_share": 0.2958601893143388,
+        "top_3_share": 0.5823253309384367,
+        "top_5_share": 0.6631267264720335,
+        "top_10_share": 0.7862493043626796
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.670609553853536,
+        "herfindahl": 0.11533214519567006,
+        "nonzero_count": 76,
+        "zero_count": 37,
+        "top_1_share": 0.2912662700941506,
+        "top_3_share": 0.43786086325042944,
+        "top_5_share": 0.5739733408215041,
+        "top_10_share": 0.774302603567015
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.02036836022211566,
+          "percentile90_change": 0.13444532013914506,
+          "maximum_change": 1.5218595820396856,
+          "most_influential": "2015-12",
+          "number_causing_sign_reversal": 11,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.02593862303939294,
+          "percentile90_change": 0.19000259800987693,
+          "maximum_change": 0.8847914727890416,
+          "most_influential": "2023-03",
+          "number_causing_sign_reversal": 30,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.025224977645944446,
+          "percentile90_change": 0.15832978127063171,
+          "maximum_change": 1.5573737911383791,
+          "most_influential": "ea_mpd:2015-12-03:combined",
+          "number_causing_sign_reversal": 12,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.03511380420799437,
+          "percentile90_change": 0.19092511749375898,
+          "maximum_change": 0.9215733674734772,
+          "most_influential": "ea_mpd:2023-03-16:combined",
+          "number_causing_sign_reversal": 28,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.0002566189704334272,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.4238475432844218,
+          "independent_seed_standard_deviation": 0.03076316962716069
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00045971395246357036,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.6228349974667187,
+          "independent_seed_standard_deviation": 0.013757368478149172
+        }
+      ]
+    },
+    {
+      "model_id": "lp:serbia:domestic_policy_rate:full:jk_joint:h24",
+      "effective_n": 110,
+      "mp_support": {
+        "effective_shock_support_count": 6.664296356894276,
+        "herfindahl": 0.15005335093861646,
+        "nonzero_count": 74,
+        "zero_count": 36,
+        "top_1_share": 0.2958654547754014,
+        "top_3_share": 0.5823356946557147,
+        "top_5_share": 0.6631385282219272,
+        "top_10_share": 0.7862632973406036
+      },
+      "cbi_support": {
+        "effective_shock_support_count": 8.64900287075794,
+        "herfindahl": 0.11562026454875794,
+        "nonzero_count": 74,
+        "zero_count": 36,
+        "top_1_share": 0.2916312446960012,
+        "top_3_share": 0.4384095299195193,
+        "top_5_share": 0.5746925648204637,
+        "top_10_share": 0.7752728524885856
+      },
+      "leave_one_month": {
+        "mp": {
+          "median_change": 0.058667465004516806,
+          "percentile90_change": 0.22549849849957768,
+          "maximum_change": 0.8736385072246542,
+          "most_influential": "2020-03",
+          "number_causing_sign_reversal": 3,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.1454903619645984,
+          "percentile90_change": 0.4719666373862696,
+          "maximum_change": 0.7994831240514065,
+          "most_influential": "2022-07",
+          "number_causing_sign_reversal": 32,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "leave_one_event": {
+        "mp": {
+          "median_change": 0.05140320271276333,
+          "percentile90_change": 0.3843649511781054,
+          "maximum_change": 0.9424128205990929,
+          "most_influential": "ea_mpd:2015-12-03:combined",
+          "number_causing_sign_reversal": 3,
+          "number_causing_simultaneous_band_classification_change": 0
+        },
+        "cbi": {
+          "median_change": 0.18687071568429814,
+          "percentile90_change": 0.6864758319237109,
+          "maximum_change": 1.7348956038081549,
+          "most_influential": "ea_mpd:2019-09-12:combined",
+          "number_causing_sign_reversal": 37,
+          "number_causing_simultaneous_band_classification_change": 0
+        }
+      },
+      "bias_audit_status": "partial_applicability_audit",
+      "bias_correction_status": "registry_only",
+      "finite_sample_simulation_status": "validated_stylized_diagnostic_only",
+      "baseline_replacement_allowed": false,
+      "sign_reversal_observed": true,
+      "robustness_warning": null,
+      "warning_rule": "numeric disclosure only; no validated extreme-instability cutoff or reliability rating",
+      "sup_t_mc_diagnostics": [
+        {
+          "component": "mp",
+          "raw_minimum_correlation_eigenvalue": 0.00007590023454553484,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.406425175026885,
+          "independent_seed_standard_deviation": 0.024348677371217597
+        },
+        {
+          "component": "cbi",
+          "raw_minimum_correlation_eigenvalue": 0.00017917165617337214,
+          "clipped_eigenvalue_count": 0,
+          "clipping_magnitude": 0,
+          "same_seed_reproducible": true,
+          "reconstructed_critical_value": 2.5076730222187953,
+          "independent_seed_standard_deviation": 0.019173552891381708
+        }
+      ]
+    }
+  ],
+  "simulation": {
+    "status": "validated_diagnostic_only",
+    "design_count": 386,
+    "key_design_count": 8,
+    "total_replications": 155600,
+    "key_designs": [
+      {
+        "design_id": "N96_p4_H24_rho0.9_dense_iid_seasonal0",
+        "n": 96,
+        "p": 4,
+        "h": 24,
+        "persistence": 0.9,
+        "shock_design": "dense_iid",
+        "month_dummies": false,
+        "replications": 10000,
+        "mp_path_coverage": 0.8156,
+        "cbi_path_coverage": 0.8527,
+        "mp_pointwise_coverage_min": 0.882,
+        "cbi_pointwise_coverage_min": 0.9122
+      },
+      {
+        "design_id": "N96_p4_H24_rho0.9_empirical_sparse_iid_seasonal0",
+        "n": 96,
+        "p": 4,
+        "h": 24,
+        "persistence": 0.9,
+        "shock_design": "empirical_sparse_iid",
+        "month_dummies": false,
+        "replications": 10000,
+        "mp_path_coverage": 0.6926,
+        "cbi_path_coverage": 0.7131,
+        "mp_pointwise_coverage_min": 0.8485,
+        "cbi_pointwise_coverage_min": 0.8709
+      },
+      {
+        "design_id": "N108_p4_H24_rho0.9_dense_iid_seasonal0",
+        "n": 108,
+        "p": 4,
+        "h": 24,
+        "persistence": 0.9,
+        "shock_design": "dense_iid",
+        "month_dummies": false,
+        "replications": 10000,
+        "mp_path_coverage": 0.8321,
+        "cbi_path_coverage": 0.8718,
+        "mp_pointwise_coverage_min": 0.8916,
+        "cbi_pointwise_coverage_min": 0.917
+      },
+      {
+        "design_id": "N108_p4_H24_rho0.9_empirical_sparse_iid_seasonal0",
+        "n": 108,
+        "p": 4,
+        "h": 24,
+        "persistence": 0.9,
+        "shock_design": "empirical_sparse_iid",
+        "month_dummies": false,
+        "replications": 10000,
+        "mp_path_coverage": 0.7202,
+        "cbi_path_coverage": 0.7412,
+        "mp_pointwise_coverage_min": 0.8539,
+        "cbi_pointwise_coverage_min": 0.8807
+      },
+      {
+        "design_id": "N114_p4_H24_rho0.9_dense_iid_seasonal0",
+        "n": 114,
+        "p": 4,
+        "h": 24,
+        "persistence": 0.9,
+        "shock_design": "dense_iid",
+        "month_dummies": false,
+        "replications": 10000,
+        "mp_path_coverage": 0.8358,
+        "cbi_path_coverage": 0.8758,
+        "mp_pointwise_coverage_min": 0.8886,
+        "cbi_pointwise_coverage_min": 0.9188
+      },
+      {
+        "design_id": "N114_p4_H24_rho0.9_empirical_sparse_iid_seasonal0",
+        "n": 114,
+        "p": 4,
+        "h": 24,
+        "persistence": 0.9,
+        "shock_design": "empirical_sparse_iid",
+        "month_dummies": false,
+        "replications": 10000,
+        "mp_path_coverage": 0.7324,
+        "cbi_path_coverage": 0.7425,
+        "mp_pointwise_coverage_min": 0.8624,
+        "cbi_pointwise_coverage_min": 0.8777
+      },
+      {
+        "design_id": "N108_p4_H24_rho0.9_dense_iid_seasonal1",
+        "n": 108,
+        "p": 4,
+        "h": 24,
+        "persistence": 0.9,
+        "shock_design": "dense_iid",
+        "month_dummies": true,
+        "replications": 10000,
+        "mp_path_coverage": 0.8574,
+        "cbi_path_coverage": 0.8825,
+        "mp_pointwise_coverage_min": 0.884,
+        "cbi_pointwise_coverage_min": 0.919
+      },
+      {
+        "design_id": "N108_p4_H24_rho0.9_empirical_sparse_iid_seasonal1",
+        "n": 108,
+        "p": 4,
+        "h": 24,
+        "persistence": 0.9,
+        "shock_design": "empirical_sparse_iid",
+        "month_dummies": true,
+        "replications": 10000,
+        "mp_path_coverage": 0.7797,
+        "cbi_path_coverage": 0.783,
+        "mp_pointwise_coverage_min": 0.8579,
+        "cbi_pointwise_coverage_min": 0.8939
+      }
+    ],
+    "interpretation": "Stylized fixed-p level-difference DGP; not an estimate of real-model coverage or real-data bias. Exploratory designs use 200 reps and 256 sup-t draws; key designs use 10000 reps and 5000 draws."
+  }
+}

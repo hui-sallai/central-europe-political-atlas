@@ -1,9 +1,9 @@
 {
   "name": "Central Europe Political Atlas",
-  "version": "v1.71 Local Projection Inference & Robustness Hardening",
-  "release_date": "2026-09-03",
-  "stage": "Single-country LP pointwise and simultaneous path inference active with specification and influence diagnostics",
-  "schema_version": "release-metadata-v1.71",
+  "version": "v1.72 Finite-Sample Bias & Shock-Support Robustness",
+  "release_date": "2026-09-04",
+  "stage": "Frozen single-country LP baseline with validated finite-sample simulation and shock-support diagnostics; bias correction registry-only",
+  "schema_version": "release-metadata-v1.72",
   "canonical_url": "https://hy-central-europe-analysis.org/",
   "public_contact_email": "sallaizhang@outlook.com",
   "legal_notice_updated": "2026-08-20",
@@ -29,7 +29,7 @@
     "monetary-policy-event-observations-v1.6",
     "shock-identification-registry-v1.62",
     "information-effect-separation-validation-v1.62",
-    "lp-readiness-registry-v1.71",
+    "lp-readiness-registry-v1.72",
     "lp-results-v1.71",
     "lp-validation-summary-v1.71",
     "lp-inference-registry-v1.71",
@@ -40,7 +40,7 @@
     "Serbia regional comparison remains pending while national data remain available.",
     "China Economic Exposure and China-linked Project Disruption remain subject to their published evidence gates."
   ],
-  "citation": "Central Europe Political Atlas, version v1.71 Local Projection Inference & Robustness Hardening, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
+  "citation": "Central Europe Political Atlas, version v1.72 Finite-Sample Bias & Shock-Support Robustness, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
   "data_status_enum": [
     "official",
     "verified",

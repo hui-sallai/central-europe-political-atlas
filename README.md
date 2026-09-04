@@ -4,7 +4,11 @@ Central Europe Political Atlas is a public political-economy research platform f
 
 Public site: https://hy-central-europe-analysis.org/
 
-Current release: **v1.71 Local Projection Inference & Robustness Hardening**
+Current release: **v1.72 Finite-Sample Bias & Shock-Support Robustness**
+
+v1.72 preserves the 44 v1.71 baseline models and adds finite-sample Monte Carlo diagnostics, concentration-based shock support, exhaustive eligible shock-month/event deletion audits, and independent full-path covariance checks. Bias correction remains `registry_only`: the official Fed ZIP contains accessible paper assets, not executable replication code. Simulations describe stylized fixed-p designs, not estimated coverage or bias of the real models.
+
+Offline diagnostic regeneration: `pnpm lp:finite-sample` and `pnpm lp:shock-support`, followed by `pnpm lp:loo-validate` and `pnpm export:research-data`. Release validation checks frozen-input hashes and does not silently rerun the Monte Carlo grid. Month deletion removes a regression row; event deletion removes its frozen joint shock contribution from current and lagged regressors without re-estimating the rotation.
 
 ## Research scope
 
@@ -61,7 +65,7 @@ Machine-readable files are published under `/research-data/`. See [the research-
 
 ## Citation
 
-Central Europe Political Atlas, version v1.71 Local Projection Inference & Robustness Hardening, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
+Central Europe Political Atlas, version v1.72 Finite-Sample Bias & Shock-Support Robustness, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
 
 ## Official VAR reference environment
 

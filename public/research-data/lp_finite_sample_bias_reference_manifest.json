@@ -1,0 +1,172 @@
+{
+  "schema_version": "lp-finite-sample-bias-reference-v1.72",
+  "retrieval_date": "2026-09-04",
+  "source_institution": "Board of Governors of the Federal Reserve System",
+  "paper": {
+    "title": "Bias in Local Projections",
+    "authors": [
+      "Edward P. Herbst",
+      "Benjamin K. Johannsen"
+    ],
+    "feds": "2020-010R1",
+    "feds_doi": "10.17016/FEDS.2020.010r1",
+    "journal": "Journal of Econometrics 240(1), 2024, Article 105655",
+    "journal_doi": "10.1016/j.jeconom.2024.105655"
+  },
+  "source_url": "https://www.federalreserve.gov/econres/feds/bias-in-local-projections.htm",
+  "asset_url": "https://www.federalreserve.gov/econres/feds/files/feds2020010r.zip",
+  "asset": "feds2020010r.zip",
+  "sha256": "25193d48bda56dfe6f759ed3ea70b08f1f6f1cea1f082911fa793edaeb1315d8",
+  "checksum_status": "passed",
+  "file_inventory": [
+    {
+      "path": "index.html",
+      "bytes": 207071,
+      "sha256": "eef4f062f266e2b755e57eac33a6cec0e764d6b08ee6ce83e0316a83fd0edc1d"
+    },
+    {
+      "path": "fig1.gif",
+      "bytes": 9071,
+      "sha256": "6a6c4e57b7f9fdcc2e9e330ee528921f5996e2c3c97720bf7548c8d9b1565ad8"
+    },
+    {
+      "path": "fig2.gif",
+      "bytes": 10590,
+      "sha256": "08beb274a833078393f1127832f23e7d8dd31e38682a695ba616dd65ef292f6e"
+    },
+    {
+      "path": "fig3.gif",
+      "bytes": 12484,
+      "sha256": "f89f519992e5f0e80386e73916cc487c7d4297b09ebc2a6344e8d50c68c998da"
+    },
+    {
+      "path": "fig4.gif",
+      "bytes": 9120,
+      "sha256": "f6a7998c599c4f5ce7cf83919eb46b98614eb02368ef4851c5e7efe87c170f37"
+    },
+    {
+      "path": "fig5.gif",
+      "bytes": 8712,
+      "sha256": "464de4eb5acb1af87a4a9c01a260321e615b154bb528c2bfe43ec01a6dca6eef"
+    },
+    {
+      "path": "fig6.gif",
+      "bytes": 10598,
+      "sha256": "46d7832209898d44fd4de77a4a7cdde03d725215bc0fdb32a1dd042131f75562"
+    },
+    {
+      "path": "fig7.gif",
+      "bytes": 17228,
+      "sha256": "3ee5bf9230681a74dbe48e94dae691599533c1780560076b0159ff24b0de8246"
+    },
+    {
+      "path": "fig8.gif",
+      "bytes": 11079,
+      "sha256": "a53a41d1e2edbf0b0f568b3807f3d7e3988a1dabbc50b7b26c9c59198bc2204b"
+    },
+    {
+      "path": "fig9.gif",
+      "bytes": 11275,
+      "sha256": "62e56bf8cc8ad24df6a2cf2dec6f9bd63247a0f94ea9dd4ebd4756bf9a15f1d0"
+    },
+    {
+      "path": "fig10.gif",
+      "bytes": 12549,
+      "sha256": "908f37b65ba3d429ca19e07d9251c3348b9c4e2c4942a90f3dab7e0bccaec8c9"
+    },
+    {
+      "path": "fig11.gif",
+      "bytes": 9495,
+      "sha256": "13e029389ae4212d7e7bd64473dae88ddcd31c1eb8be3f371c6aaf2739897f46"
+    },
+    {
+      "path": "fig12.gif",
+      "bytes": 8880,
+      "sha256": "29cd7e4962b525a6dda14f2cbdd7a556ead031bff26793a1acbf235ec8db49c5"
+    },
+    {
+      "path": "fig13.gif",
+      "bytes": 10275,
+      "sha256": "f4b56ad6bfaf5eb2a3a67662803743576c4e5c0ebb9407d433d08195832f9b49"
+    },
+    {
+      "path": "fig14.gif",
+      "bytes": 12174,
+      "sha256": "0b6faff5caea28d6fb127ba3cde27f143d7b2c0392598c65d66b054bc3dd8773"
+    },
+    {
+      "path": "fig15.gif",
+      "bytes": 8439,
+      "sha256": "b71f82a79fbc1f2bd3ef8b2681d4abaa41f50e855881da67820847bfb6725349"
+    },
+    {
+      "path": "fig16.gif",
+      "bytes": 8327,
+      "sha256": "8fe65e33e2cdfd3a9398760dcf9594ef1c48ded1ea802356eb895ac8326038c2"
+    },
+    {
+      "path": "fig17.gif",
+      "bytes": 11245,
+      "sha256": "199a83765b14020a39e38db9fa63bc94a0b03192630fe267942209f757eeb78c"
+    },
+    {
+      "path": "fig18.gif",
+      "bytes": 12595,
+      "sha256": "0631149609d03072950112b18d0a6abc2e7255745abc452fbfd22f9d3ca497da"
+    },
+    {
+      "path": "fig19.gif",
+      "bytes": 11517,
+      "sha256": "7952ca885f536d8ee5cbe4fd70a9153a1de525210da754f418950ae5252cfdf8"
+    },
+    {
+      "path": "fig20.gif",
+      "bytes": 10886,
+      "sha256": "b6a3603b4b7b7f3ed139fcae993940fe5636aab1283c5fcc0d2775b574efd1a2"
+    },
+    {
+      "path": "fig21.gif",
+      "bytes": 14777,
+      "sha256": "c7c77e895dd5ee8f0a5b4c8fdf29aabdf26615eb14d21f626efca86c39a436e0"
+    },
+    {
+      "path": "fig22.gif",
+      "bytes": 12583,
+      "sha256": "7db5d2172ce577666d31bf68fa5e71dd148db21d7b0c010411a7d64da332ebc0"
+    },
+    {
+      "path": "fig23.gif",
+      "bytes": 8897,
+      "sha256": "b6bc7588524255baf62f40b879c505d01a846f153272c7f00fb3c8fb440d8ccc"
+    },
+    {
+      "path": "accessible_figures.html",
+      "bytes": 108804,
+      "sha256": "757085af2927f56266d69f37e76d5d8f9f42aff0ce05de5405bb8d10cde4e5cd"
+    }
+  ],
+  "file_count": 25,
+  "replication_code_file_count": 0,
+  "asset_type": "accessible_paper_html_and_figures_not_replication_code",
+  "software_environment": "HTML browser; no executable replication environment supplied",
+  "license_reuse_status": "No explicit software license in asset. Link and cite; do not redistribute paper or figures in research package.",
+  "replication_status": "blocked",
+  "replication_blocker": "Specified official asset supplies no executable benchmark or replication program.",
+  "supplementary_code_audit": {
+    "repository": "ckwolf92/lp_var_nberma",
+    "commit": "b3315b97540f003005180b13fa78da4fc84a8b39",
+    "file": "_estim/lp_biascorr.m",
+    "license": "MIT",
+    "runtime": "MATLAB",
+    "source_url": "https://github.com/ckwolf92/lp_var_nberma/blob/b3315b97540f003005180b13fa78da4fc84a8b39/_estim/lp_biascorr.m",
+    "audited": true,
+    "replicated": false,
+    "scope": "Primer authors' scalar response-vector BCC implementation, not the Fed accessible ZIP and not a verified current-specification correction",
+    "observed_operations": [
+      "demean controls",
+      "lagged control autocovariances",
+      "1 + trace(Sigma0 inverse times Sigmaj)",
+      "recursive correction with T-h denominator"
+    ]
+  }
+}

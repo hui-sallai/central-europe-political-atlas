@@ -1,5 +1,5 @@
 {
-  "schema_version": "lp-shock-support-diagnostics-v1.71",
+  "schema_version": "lp-shock-support-diagnostics-v1.72",
   "generated_at": "2026-09-03",
   "record_count": 44,
   "records": [
@@ -67,7 +67,28 @@
         "top_1": 0.29163124469600143,
         "top_3": 0.4384095299195196,
         "top_5": 0.574692564820464
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.664296356894276,
+        "herfindahl": 0.15005335093861646,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2958654547754014,
+        "top_3_share": 0.5823356946557147,
+        "top_5_share": 0.6631385282219272,
+        "top_10_share": 0.7862632973406036
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.64900287075794,
+        "herfindahl": 0.11562026454875794,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2916312446960012,
+        "top_3_share": 0.4384095299195193,
+        "top_5_share": 0.5746925648204637,
+        "top_10_share": 0.7752728524885856
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:austria:industrial_production:full:jk_joint:h24",
@@ -133,7 +154,28 @@
         "top_1": 0.29163238041220135,
         "top_3": 0.4384112372427724,
         "top_5": 0.5746948028785176
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.659883153235337,
+        "herfindahl": 0.15015278451457592,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.2959635752696718,
+        "top_3_share": 0.582528819825513,
+        "top_5_share": 0.6633584507546485,
+        "top_10_share": 0.7865240528364431
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.648935507674956,
+        "herfindahl": 0.11562116506853505,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.29163238041220113,
+        "top_3_share": 0.43841123724277214,
+        "top_5_share": 0.5746948028785172,
+        "top_10_share": 0.7752758716779007
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:austria:unemployment:full:jk_joint:h24",
@@ -199,7 +241,28 @@
         "top_1": 0.29126740296944115,
         "top_3": 0.4378625663029405,
         "top_5": 0.5739755732812222
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.660120275003469,
+        "herfindahl": 0.15014743859103644,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.2959583063155977,
+        "top_3_share": 0.5825184492331328,
+        "top_5_share": 0.6633466411756876,
+        "top_10_share": 0.7865100505758312
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.670542107002412,
+        "herfindahl": 0.11533304234718965,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.291267402969441,
+        "top_3_share": 0.4378625663029402,
+        "top_5_share": 0.5739755732812217,
+        "top_10_share": 0.7743056152040526
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:austria:long_term_yield:full:jk_joint:h24",
@@ -265,7 +328,28 @@
         "top_1": 0.2912662700941508,
         "top_3": 0.4378608632504297,
         "top_5": 0.5739733408215044
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.66453355712262,
+        "herfindahl": 0.1500480103264339,
+        "nonzero_count": 76,
+        "zero_count": 38,
+        "top_1_share": 0.2958601893143388,
+        "top_3_share": 0.5823253309384367,
+        "top_5_share": 0.6631267264720335,
+        "top_10_share": 0.7862493043626796
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.670609553853536,
+        "herfindahl": 0.11533214519567006,
+        "nonzero_count": 76,
+        "zero_count": 38,
+        "top_1_share": 0.2912662700941506,
+        "top_3_share": 0.43786086325042944,
+        "top_5_share": 0.5739733408215041,
+        "top_10_share": 0.774302603567015
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:germany:hicp_price_level:full:jk_joint:h24",
@@ -331,7 +415,28 @@
         "top_1": 0.29224035763760375,
         "top_3": 0.4393252099889653,
         "top_5": 0.57589289120881
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.6557736269663454,
+        "herfindahl": 0.1502454945204909,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.2960552276336565,
+        "top_3_share": 0.5827092141303782,
+        "top_5_share": 0.663563875932816,
+        "top_10_share": 0.786767619257438
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.613310058023142,
+        "herfindahl": 0.11609938493605233,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.29224035763760364,
+        "top_3_share": 0.4393252099889651,
+        "top_5_share": 0.5758928912088098,
+        "top_10_share": 0.776892119066884
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:germany:industrial_production:full:jk_joint:h24",
@@ -397,7 +502,28 @@
         "top_1": 0.29163238041220135,
         "top_3": 0.4384112372427724,
         "top_5": 0.5746948028785176
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.659883153235337,
+        "herfindahl": 0.15015278451457592,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.2959635752696718,
+        "top_3_share": 0.582528819825513,
+        "top_5_share": 0.6633584507546485,
+        "top_10_share": 0.7865240528364431
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.648935507674956,
+        "herfindahl": 0.11562116506853505,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.29163238041220113,
+        "top_3_share": 0.43841123724277214,
+        "top_5_share": 0.5746948028785172,
+        "top_10_share": 0.7752758716779007
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:germany:unemployment:full:jk_joint:h24",
@@ -463,7 +589,28 @@
         "top_1": 0.29163238041220135,
         "top_3": 0.4384112372427724,
         "top_5": 0.5746948028785176
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.659883153235337,
+        "herfindahl": 0.15015278451457592,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.2959635752696718,
+        "top_3_share": 0.582528819825513,
+        "top_5_share": 0.6633584507546485,
+        "top_10_share": 0.7865240528364431
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.648935507674956,
+        "herfindahl": 0.11562116506853505,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.29163238041220113,
+        "top_3_share": 0.43841123724277214,
+        "top_5_share": 0.5746948028785172,
+        "top_10_share": 0.7752758716779007
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:germany:long_term_yield:full:jk_joint:h24",
@@ -529,7 +676,28 @@
         "top_1": 0.2912662700941508,
         "top_3": 0.4378608632504297,
         "top_5": 0.5739733408215044
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.66453355712262,
+        "herfindahl": 0.1500480103264339,
+        "nonzero_count": 76,
+        "zero_count": 38,
+        "top_1_share": 0.2958601893143388,
+        "top_3_share": 0.5823253309384367,
+        "top_5_share": 0.6631267264720335,
+        "top_10_share": 0.7862493043626796
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.670609553853536,
+        "herfindahl": 0.11533214519567006,
+        "nonzero_count": 76,
+        "zero_count": 38,
+        "top_1_share": 0.2912662700941506,
+        "top_3_share": 0.43786086325042944,
+        "top_5_share": 0.5739733408215041,
+        "top_10_share": 0.774302603567015
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:slovakia:hicp_price_level:full:jk_joint:h24",
@@ -595,7 +763,28 @@
         "top_1": 0.29163124469600143,
         "top_3": 0.4384095299195196,
         "top_5": 0.574692564820464
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.664296356894276,
+        "herfindahl": 0.15005335093861646,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2958654547754014,
+        "top_3_share": 0.5823356946557147,
+        "top_5_share": 0.6631385282219272,
+        "top_10_share": 0.7862632973406036
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.64900287075794,
+        "herfindahl": 0.11562026454875794,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2916312446960012,
+        "top_3_share": 0.4384095299195193,
+        "top_5_share": 0.5746925648204637,
+        "top_10_share": 0.7752728524885856
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:slovakia:industrial_production:full:jk_joint:h24",
@@ -661,7 +850,28 @@
         "top_1": 0.29126740296944115,
         "top_3": 0.4378625663029405,
         "top_5": 0.5739755732812222
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.660120275003469,
+        "herfindahl": 0.15014743859103644,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.2959583063155977,
+        "top_3_share": 0.5825184492331328,
+        "top_5_share": 0.6633466411756876,
+        "top_10_share": 0.7865100505758312
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.670542107002412,
+        "herfindahl": 0.11533304234718965,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.291267402969441,
+        "top_3_share": 0.4378625663029402,
+        "top_5_share": 0.5739755732812217,
+        "top_10_share": 0.7743056152040526
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:slovakia:unemployment:full:jk_joint:h24",
@@ -727,7 +937,28 @@
         "top_1": 0.29163238041220135,
         "top_3": 0.4384112372427724,
         "top_5": 0.5746948028785176
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.659883153235337,
+        "herfindahl": 0.15015278451457592,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.2959635752696718,
+        "top_3_share": 0.582528819825513,
+        "top_5_share": 0.6633584507546485,
+        "top_10_share": 0.7865240528364431
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.648935507674956,
+        "herfindahl": 0.11562116506853505,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.29163238041220113,
+        "top_3_share": 0.43841123724277214,
+        "top_5_share": 0.5746948028785172,
+        "top_10_share": 0.7752758716779007
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:slovakia:long_term_yield:full:jk_joint:h24",
@@ -793,7 +1024,28 @@
         "top_1": 0.2912662700941508,
         "top_3": 0.4378608632504297,
         "top_5": 0.5739733408215044
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.66453355712262,
+        "herfindahl": 0.1500480103264339,
+        "nonzero_count": 76,
+        "zero_count": 37,
+        "top_1_share": 0.2958601893143388,
+        "top_3_share": 0.5823253309384367,
+        "top_5_share": 0.6631267264720335,
+        "top_10_share": 0.7862493043626796
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.670609553853536,
+        "herfindahl": 0.11533214519567006,
+        "nonzero_count": 76,
+        "zero_count": 37,
+        "top_1_share": 0.2912662700941506,
+        "top_3_share": 0.43786086325042944,
+        "top_5_share": 0.5739733408215041,
+        "top_10_share": 0.774302603567015
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:slovenia:hicp_price_level:full:jk_joint:h24",
@@ -859,7 +1111,28 @@
         "top_1": 0.29224035763760375,
         "top_3": 0.4393252099889653,
         "top_5": 0.57589289120881
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.6557736269663454,
+        "herfindahl": 0.1502454945204909,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.2960552276336565,
+        "top_3_share": 0.5827092141303782,
+        "top_5_share": 0.663563875932816,
+        "top_10_share": 0.786767619257438
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.613310058023142,
+        "herfindahl": 0.11609938493605233,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.29224035763760364,
+        "top_3_share": 0.4393252099889651,
+        "top_5_share": 0.5758928912088098,
+        "top_10_share": 0.776892119066884
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:slovenia:industrial_production:full:jk_joint:h24",
@@ -925,7 +1198,28 @@
         "top_1": 0.29126740296944115,
         "top_3": 0.4378625663029405,
         "top_5": 0.5739755732812222
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.660120275003469,
+        "herfindahl": 0.15014743859103644,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.2959583063155977,
+        "top_3_share": 0.5825184492331328,
+        "top_5_share": 0.6633466411756876,
+        "top_10_share": 0.7865100505758312
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.670542107002412,
+        "herfindahl": 0.11533304234718965,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.291267402969441,
+        "top_3_share": 0.4378625663029402,
+        "top_5_share": 0.5739755732812217,
+        "top_10_share": 0.7743056152040526
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:slovenia:unemployment:full:jk_joint:h24",
@@ -991,7 +1285,28 @@
         "top_1": 0.29163238041220135,
         "top_3": 0.4384112372427724,
         "top_5": 0.5746948028785176
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.659883153235337,
+        "herfindahl": 0.15015278451457592,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.2959635752696718,
+        "top_3_share": 0.582528819825513,
+        "top_5_share": 0.6633584507546485,
+        "top_10_share": 0.7865240528364431
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.648935507674956,
+        "herfindahl": 0.11562116506853505,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.29163238041220113,
+        "top_3_share": 0.43841123724277214,
+        "top_5_share": 0.5746948028785172,
+        "top_10_share": 0.7752758716779007
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:slovenia:long_term_yield:full:jk_joint:h24",
@@ -1057,7 +1372,28 @@
         "top_1": 0.2913334196332536,
         "top_3": 0.4379618092169809,
         "top_5": 0.574105666632114
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.664519757503505,
+        "herfindahl": 0.15004832101729637,
+        "nonzero_count": 75,
+        "zero_count": 37,
+        "top_1_share": 0.2958604956207227,
+        "top_3_share": 0.5823259338244378,
+        "top_5_share": 0.6631274130123557,
+        "top_10_share": 0.7862501183727763
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.666617023119198,
+        "herfindahl": 0.11538527632320489,
+        "nonzero_count": 75,
+        "zero_count": 37,
+        "top_1_share": 0.29133341963325343,
+        "top_3_share": 0.4379618092169807,
+        "top_5_share": 0.5741056666321137,
+        "top_10_share": 0.7744811139827209
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:czechia:hicp_price_level:full:jk_joint:h24",
@@ -1123,7 +1459,28 @@
         "top_1": 0.29224035763760375,
         "top_3": 0.4393252099889653,
         "top_5": 0.57589289120881
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.6557736269663454,
+        "herfindahl": 0.1502454945204909,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.2960552276336565,
+        "top_3_share": 0.5827092141303782,
+        "top_5_share": 0.663563875932816,
+        "top_10_share": 0.786767619257438
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.613310058023142,
+        "herfindahl": 0.11609938493605233,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.29224035763760364,
+        "top_3_share": 0.4393252099889651,
+        "top_5_share": 0.5758928912088098,
+        "top_10_share": 0.776892119066884
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:czechia:industrial_production:full:jk_joint:h24",
@@ -1189,7 +1546,28 @@
         "top_1": 0.29126740296944115,
         "top_3": 0.4378625663029405,
         "top_5": 0.5739755732812222
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.660120275003469,
+        "herfindahl": 0.15014743859103644,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.2959583063155977,
+        "top_3_share": 0.5825184492331328,
+        "top_5_share": 0.6633466411756876,
+        "top_10_share": 0.7865100505758312
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.670542107002412,
+        "herfindahl": 0.11533304234718965,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.291267402969441,
+        "top_3_share": 0.4378625663029402,
+        "top_5_share": 0.5739755732812217,
+        "top_10_share": 0.7743056152040526
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:czechia:unemployment:full:jk_joint:h24",
@@ -1255,7 +1633,28 @@
         "top_1": 0.29163238041220135,
         "top_3": 0.4384112372427724,
         "top_5": 0.5746948028785176
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.659883153235337,
+        "herfindahl": 0.15015278451457592,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.2959635752696718,
+        "top_3_share": 0.582528819825513,
+        "top_5_share": 0.6633584507546485,
+        "top_10_share": 0.7865240528364431
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.648935507674956,
+        "herfindahl": 0.11562116506853505,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.29163238041220113,
+        "top_3_share": 0.43841123724277214,
+        "top_5_share": 0.5746948028785172,
+        "top_10_share": 0.7752758716779007
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:czechia:long_term_yield:full:jk_joint:h24",
@@ -1321,7 +1720,28 @@
         "top_1": 0.29163124469600143,
         "top_3": 0.4384095299195196,
         "top_5": 0.574692564820464
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.664296356894276,
+        "herfindahl": 0.15005335093861646,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2958654547754014,
+        "top_3_share": 0.5823356946557147,
+        "top_5_share": 0.6631385282219272,
+        "top_10_share": 0.7862632973406036
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.64900287075794,
+        "herfindahl": 0.11562026454875794,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2916312446960012,
+        "top_3_share": 0.4384095299195193,
+        "top_5_share": 0.5746925648204637,
+        "top_10_share": 0.7752728524885856
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:czechia:bilateral_fx:full:jk_joint:h24",
@@ -1387,7 +1807,28 @@
         "top_1": 0.2912662700941508,
         "top_3": 0.4378608632504297,
         "top_5": 0.5739733408215044
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.66453355712262,
+        "herfindahl": 0.1500480103264339,
+        "nonzero_count": 76,
+        "zero_count": 38,
+        "top_1_share": 0.2958601893143388,
+        "top_3_share": 0.5823253309384367,
+        "top_5_share": 0.6631267264720335,
+        "top_10_share": 0.7862493043626796
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.670609553853536,
+        "herfindahl": 0.11533214519567006,
+        "nonzero_count": 76,
+        "zero_count": 38,
+        "top_1_share": 0.2912662700941506,
+        "top_3_share": 0.43786086325042944,
+        "top_5_share": 0.5739733408215041,
+        "top_10_share": 0.774302603567015
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:czechia:domestic_policy_rate:full:jk_joint:h24",
@@ -1453,7 +1894,28 @@
         "top_1": 0.2913334196332536,
         "top_3": 0.4379618092169809,
         "top_5": 0.574105666632114
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.664519757503505,
+        "herfindahl": 0.15004832101729637,
+        "nonzero_count": 75,
+        "zero_count": 37,
+        "top_1_share": 0.2958604956207227,
+        "top_3_share": 0.5823259338244378,
+        "top_5_share": 0.6631274130123557,
+        "top_10_share": 0.7862501183727763
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.666617023119198,
+        "herfindahl": 0.11538527632320489,
+        "nonzero_count": 75,
+        "zero_count": 37,
+        "top_1_share": 0.29133341963325343,
+        "top_3_share": 0.4379618092169807,
+        "top_5_share": 0.5741056666321137,
+        "top_10_share": 0.7744811139827209
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:hungary:hicp_price_level:full:jk_joint:h24",
@@ -1519,7 +1981,28 @@
         "top_1": 0.2912662700941508,
         "top_3": 0.4378608632504297,
         "top_5": 0.5739733408215044
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.66453355712262,
+        "herfindahl": 0.1500480103264339,
+        "nonzero_count": 76,
+        "zero_count": 37,
+        "top_1_share": 0.2958601893143388,
+        "top_3_share": 0.5823253309384367,
+        "top_5_share": 0.6631267264720335,
+        "top_10_share": 0.7862493043626796
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.670609553853536,
+        "herfindahl": 0.11533214519567006,
+        "nonzero_count": 76,
+        "zero_count": 37,
+        "top_1_share": 0.2912662700941506,
+        "top_3_share": 0.43786086325042944,
+        "top_5_share": 0.5739733408215041,
+        "top_10_share": 0.774302603567015
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:hungary:industrial_production:full:jk_joint:h24",
@@ -1585,7 +2068,28 @@
         "top_1": 0.29126740296944115,
         "top_3": 0.4378625663029405,
         "top_5": 0.5739755732812222
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.660120275003469,
+        "herfindahl": 0.15014743859103644,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.2959583063155977,
+        "top_3_share": 0.5825184492331328,
+        "top_5_share": 0.6633466411756876,
+        "top_10_share": 0.7865100505758312
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.670542107002412,
+        "herfindahl": 0.11533304234718965,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.291267402969441,
+        "top_3_share": 0.4378625663029402,
+        "top_5_share": 0.5739755732812217,
+        "top_10_share": 0.7743056152040526
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:hungary:unemployment:full:jk_joint:h24",
@@ -1651,7 +2155,28 @@
         "top_1": 0.29126740296944115,
         "top_3": 0.4378625663029405,
         "top_5": 0.5739755732812222
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.660120275003469,
+        "herfindahl": 0.15014743859103644,
+        "nonzero_count": 75,
+        "zero_count": 37,
+        "top_1_share": 0.2959583063155977,
+        "top_3_share": 0.5825184492331328,
+        "top_5_share": 0.6633466411756876,
+        "top_10_share": 0.7865100505758312
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.670542107002412,
+        "herfindahl": 0.11533304234718965,
+        "nonzero_count": 75,
+        "zero_count": 37,
+        "top_1_share": 0.291267402969441,
+        "top_3_share": 0.4378625663029402,
+        "top_5_share": 0.5739755732812217,
+        "top_10_share": 0.7743056152040526
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:hungary:long_term_yield:full:jk_joint:h24",
@@ -1717,7 +2242,28 @@
         "top_1": 0.29163124469600143,
         "top_3": 0.4384095299195196,
         "top_5": 0.574692564820464
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.664296356894276,
+        "herfindahl": 0.15005335093861646,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2958654547754014,
+        "top_3_share": 0.5823356946557147,
+        "top_5_share": 0.6631385282219272,
+        "top_10_share": 0.7862632973406036
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.64900287075794,
+        "herfindahl": 0.11562026454875794,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2916312446960012,
+        "top_3_share": 0.4384095299195193,
+        "top_5_share": 0.5746925648204637,
+        "top_10_share": 0.7752728524885856
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:hungary:bilateral_fx:full:jk_joint:h24",
@@ -1783,7 +2329,28 @@
         "top_1": 0.2912662700941508,
         "top_3": 0.4378608632504297,
         "top_5": 0.5739733408215044
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.66453355712262,
+        "herfindahl": 0.1500480103264339,
+        "nonzero_count": 76,
+        "zero_count": 37,
+        "top_1_share": 0.2958601893143388,
+        "top_3_share": 0.5823253309384367,
+        "top_5_share": 0.6631267264720335,
+        "top_10_share": 0.7862493043626796
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.670609553853536,
+        "herfindahl": 0.11533214519567006,
+        "nonzero_count": 76,
+        "zero_count": 37,
+        "top_1_share": 0.2912662700941506,
+        "top_3_share": 0.43786086325042944,
+        "top_5_share": 0.5739733408215041,
+        "top_10_share": 0.774302603567015
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:hungary:domestic_policy_rate:full:jk_joint:h24",
@@ -1849,7 +2416,28 @@
         "top_1": 0.29163124469600143,
         "top_3": 0.4384095299195196,
         "top_5": 0.574692564820464
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.664296356894276,
+        "herfindahl": 0.15005335093861646,
+        "nonzero_count": 74,
+        "zero_count": 36,
+        "top_1_share": 0.2958654547754014,
+        "top_3_share": 0.5823356946557147,
+        "top_5_share": 0.6631385282219272,
+        "top_10_share": 0.7862632973406036
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.64900287075794,
+        "herfindahl": 0.11562026454875794,
+        "nonzero_count": 74,
+        "zero_count": 36,
+        "top_1_share": 0.2916312446960012,
+        "top_3_share": 0.4384095299195193,
+        "top_5_share": 0.5746925648204637,
+        "top_10_share": 0.7752728524885856
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:poland:hicp_price_level:full:jk_joint:h24",
@@ -1915,7 +2503,28 @@
         "top_1": 0.29163124469600143,
         "top_3": 0.4384095299195196,
         "top_5": 0.574692564820464
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.664296356894276,
+        "herfindahl": 0.15005335093861646,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2958654547754014,
+        "top_3_share": 0.5823356946557147,
+        "top_5_share": 0.6631385282219272,
+        "top_10_share": 0.7862632973406036
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.64900287075794,
+        "herfindahl": 0.11562026454875794,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2916312446960012,
+        "top_3_share": 0.4384095299195193,
+        "top_5_share": 0.5746925648204637,
+        "top_10_share": 0.7752728524885856
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:poland:industrial_production:full:jk_joint:h24",
@@ -1981,7 +2590,28 @@
         "top_1": 0.29163238041220135,
         "top_3": 0.4384112372427724,
         "top_5": 0.5746948028785176
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.659883153235337,
+        "herfindahl": 0.15015278451457592,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.2959635752696718,
+        "top_3_share": 0.582528819825513,
+        "top_5_share": 0.6633584507546485,
+        "top_10_share": 0.7865240528364431
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.648935507674956,
+        "herfindahl": 0.11562116506853505,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.29163238041220113,
+        "top_3_share": 0.43841123724277214,
+        "top_5_share": 0.5746948028785172,
+        "top_10_share": 0.7752758716779007
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:poland:unemployment:full:jk_joint:h24",
@@ -2047,7 +2677,28 @@
         "top_1": 0.29163238041220135,
         "top_3": 0.4384112372427724,
         "top_5": 0.5746948028785176
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.659883153235337,
+        "herfindahl": 0.15015278451457592,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.2959635752696718,
+        "top_3_share": 0.582528819825513,
+        "top_5_share": 0.6633584507546485,
+        "top_10_share": 0.7865240528364431
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.648935507674956,
+        "herfindahl": 0.11562116506853505,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.29163238041220113,
+        "top_3_share": 0.43841123724277214,
+        "top_5_share": 0.5746948028785172,
+        "top_10_share": 0.7752758716779007
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:poland:long_term_yield:full:jk_joint:h24",
@@ -2113,7 +2764,28 @@
         "top_1": 0.29163124469600143,
         "top_3": 0.4384095299195196,
         "top_5": 0.574692564820464
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.664296356894276,
+        "herfindahl": 0.15005335093861646,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2958654547754014,
+        "top_3_share": 0.5823356946557147,
+        "top_5_share": 0.6631385282219272,
+        "top_10_share": 0.7862632973406036
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.64900287075794,
+        "herfindahl": 0.11562026454875794,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2916312446960012,
+        "top_3_share": 0.4384095299195193,
+        "top_5_share": 0.5746925648204637,
+        "top_10_share": 0.7752728524885856
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:poland:bilateral_fx:full:jk_joint:h24",
@@ -2179,7 +2851,28 @@
         "top_1": 0.2912662700941508,
         "top_3": 0.4378608632504297,
         "top_5": 0.5739733408215044
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.66453355712262,
+        "herfindahl": 0.1500480103264339,
+        "nonzero_count": 76,
+        "zero_count": 38,
+        "top_1_share": 0.2958601893143388,
+        "top_3_share": 0.5823253309384367,
+        "top_5_share": 0.6631267264720335,
+        "top_10_share": 0.7862493043626796
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.670609553853536,
+        "herfindahl": 0.11533214519567006,
+        "nonzero_count": 76,
+        "zero_count": 38,
+        "top_1_share": 0.2912662700941506,
+        "top_3_share": 0.43786086325042944,
+        "top_5_share": 0.5739733408215041,
+        "top_10_share": 0.774302603567015
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:poland:domestic_policy_rate:full:jk_joint:h24",
@@ -2245,7 +2938,28 @@
         "top_1": 0.29224035763760375,
         "top_3": 0.4393252099889653,
         "top_5": 0.57589289120881
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.6557736269663454,
+        "herfindahl": 0.1502454945204909,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.2960552276336565,
+        "top_3_share": 0.5827092141303782,
+        "top_5_share": 0.663563875932816,
+        "top_10_share": 0.786767619257438
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.613310058023142,
+        "herfindahl": 0.11609938493605233,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.29224035763760364,
+        "top_3_share": 0.4393252099889651,
+        "top_5_share": 0.5758928912088098,
+        "top_10_share": 0.776892119066884
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:romania:hicp_price_level:full:jk_joint:h24",
@@ -2311,7 +3025,28 @@
         "top_1": 0.2912662700941508,
         "top_3": 0.4378608632504297,
         "top_5": 0.5739733408215044
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.66453355712262,
+        "herfindahl": 0.1500480103264339,
+        "nonzero_count": 76,
+        "zero_count": 37,
+        "top_1_share": 0.2958601893143388,
+        "top_3_share": 0.5823253309384367,
+        "top_5_share": 0.6631267264720335,
+        "top_10_share": 0.7862493043626796
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.670609553853536,
+        "herfindahl": 0.11533214519567006,
+        "nonzero_count": 76,
+        "zero_count": 37,
+        "top_1_share": 0.2912662700941506,
+        "top_3_share": 0.43786086325042944,
+        "top_5_share": 0.5739733408215041,
+        "top_10_share": 0.774302603567015
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:romania:industrial_production:full:jk_joint:h24",
@@ -2377,7 +3112,28 @@
         "top_1": 0.29126740296944115,
         "top_3": 0.4378625663029405,
         "top_5": 0.5739755732812222
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.660120275003469,
+        "herfindahl": 0.15014743859103644,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.2959583063155977,
+        "top_3_share": 0.5825184492331328,
+        "top_5_share": 0.6633466411756876,
+        "top_10_share": 0.7865100505758312
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.670542107002412,
+        "herfindahl": 0.11533304234718965,
+        "nonzero_count": 75,
+        "zero_count": 38,
+        "top_1_share": 0.291267402969441,
+        "top_3_share": 0.4378625663029402,
+        "top_5_share": 0.5739755732812217,
+        "top_10_share": 0.7743056152040526
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:romania:unemployment:full:jk_joint:h24",
@@ -2443,7 +3199,28 @@
         "top_1": 0.29163238041220135,
         "top_3": 0.4384112372427724,
         "top_5": 0.5746948028785176
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.659883153235337,
+        "herfindahl": 0.15015278451457592,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.2959635752696718,
+        "top_3_share": 0.582528819825513,
+        "top_5_share": 0.6633584507546485,
+        "top_10_share": 0.7865240528364431
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.648935507674956,
+        "herfindahl": 0.11562116506853505,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.29163238041220113,
+        "top_3_share": 0.43841123724277214,
+        "top_5_share": 0.5746948028785172,
+        "top_10_share": 0.7752758716779007
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:romania:long_term_yield:full:jk_joint:h24",
@@ -2509,7 +3286,28 @@
         "top_1": 0.29163124469600143,
         "top_3": 0.4384095299195196,
         "top_5": 0.574692564820464
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.664296356894276,
+        "herfindahl": 0.15005335093861646,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2958654547754014,
+        "top_3_share": 0.5823356946557147,
+        "top_5_share": 0.6631385282219272,
+        "top_10_share": 0.7862632973406036
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.64900287075794,
+        "herfindahl": 0.11562026454875794,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2916312446960012,
+        "top_3_share": 0.4384095299195193,
+        "top_5_share": 0.5746925648204637,
+        "top_10_share": 0.7752728524885856
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:romania:bilateral_fx:full:jk_joint:h24",
@@ -2575,7 +3373,28 @@
         "top_1": 0.29163124469600143,
         "top_3": 0.4384095299195196,
         "top_5": 0.574692564820464
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.664296356894276,
+        "herfindahl": 0.15005335093861646,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2958654547754014,
+        "top_3_share": 0.5823356946557147,
+        "top_5_share": 0.6631385282219272,
+        "top_10_share": 0.7862632973406036
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.64900287075794,
+        "herfindahl": 0.11562026454875794,
+        "nonzero_count": 74,
+        "zero_count": 37,
+        "top_1_share": 0.2916312446960012,
+        "top_3_share": 0.4384095299195193,
+        "top_5_share": 0.5746925648204637,
+        "top_10_share": 0.7752728524885856
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:romania:domestic_policy_rate:full:jk_joint:h24",
@@ -2641,7 +3460,28 @@
         "top_1": 0.29224035763760375,
         "top_3": 0.4393252099889653,
         "top_5": 0.57589289120881
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.6557736269663454,
+        "herfindahl": 0.1502454945204909,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.2960552276336565,
+        "top_3_share": 0.5827092141303782,
+        "top_5_share": 0.663563875932816,
+        "top_10_share": 0.786767619257438
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.613310058023142,
+        "herfindahl": 0.11609938493605233,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.29224035763760364,
+        "top_3_share": 0.4393252099889651,
+        "top_5_share": 0.5758928912088098,
+        "top_10_share": 0.776892119066884
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:serbia:hicp_price_level:full:jk_joint:h24",
@@ -2707,7 +3547,28 @@
         "top_1": 0.29224035763760375,
         "top_3": 0.4393252099889653,
         "top_5": 0.57589289120881
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.6557736269663454,
+        "herfindahl": 0.1502454945204909,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.2960552276336565,
+        "top_3_share": 0.5827092141303782,
+        "top_5_share": 0.663563875932816,
+        "top_10_share": 0.786767619257438
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.613310058023142,
+        "herfindahl": 0.11609938493605233,
+        "nonzero_count": 73,
+        "zero_count": 36,
+        "top_1_share": 0.29224035763760364,
+        "top_3_share": 0.4393252099889651,
+        "top_5_share": 0.5758928912088098,
+        "top_10_share": 0.776892119066884
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:serbia:industrial_production:full:jk_joint:h24",
@@ -2773,7 +3634,28 @@
         "top_1": 0.29163238041220135,
         "top_3": 0.4384112372427724,
         "top_5": 0.5746948028785176
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.659883153235337,
+        "herfindahl": 0.15015278451457592,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.2959635752696718,
+        "top_3_share": 0.582528819825513,
+        "top_5_share": 0.6633584507546485,
+        "top_10_share": 0.7865240528364431
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.648935507674956,
+        "herfindahl": 0.11562116506853505,
+        "nonzero_count": 73,
+        "zero_count": 37,
+        "top_1_share": 0.29163238041220113,
+        "top_3_share": 0.43841123724277214,
+        "top_5_share": 0.5746948028785172,
+        "top_10_share": 0.7752758716779007
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:serbia:bilateral_fx:full:jk_joint:h24",
@@ -2839,7 +3721,28 @@
         "top_1": 0.2912662700941508,
         "top_3": 0.4378608632504297,
         "top_5": 0.5739733408215044
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.66453355712262,
+        "herfindahl": 0.1500480103264339,
+        "nonzero_count": 76,
+        "zero_count": 37,
+        "top_1_share": 0.2958601893143388,
+        "top_3_share": 0.5823253309384367,
+        "top_5_share": 0.6631267264720335,
+        "top_10_share": 0.7862493043626796
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.670609553853536,
+        "herfindahl": 0.11533214519567006,
+        "nonzero_count": 76,
+        "zero_count": 37,
+        "top_1_share": 0.2912662700941506,
+        "top_3_share": 0.43786086325042944,
+        "top_5_share": 0.5739733408215041,
+        "top_10_share": 0.774302603567015
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     },
     {
       "model_id": "lp:serbia:domestic_policy_rate:full:jk_joint:h24",
@@ -2905,7 +3808,28 @@
         "top_1": 0.29163124469600143,
         "top_3": 0.4384095299195196,
         "top_5": 0.574692564820464
-      }
+      },
+      "effective_support_mp": {
+        "effective_shock_support_count": 6.664296356894276,
+        "herfindahl": 0.15005335093861646,
+        "nonzero_count": 74,
+        "zero_count": 36,
+        "top_1_share": 0.2958654547754014,
+        "top_3_share": 0.5823356946557147,
+        "top_5_share": 0.6631385282219272,
+        "top_10_share": 0.7862632973406036
+      },
+      "effective_support_cbi": {
+        "effective_shock_support_count": 8.64900287075794,
+        "herfindahl": 0.11562026454875794,
+        "nonzero_count": 74,
+        "zero_count": 36,
+        "top_1_share": 0.2916312446960012,
+        "top_3_share": 0.4384095299195193,
+        "top_5_share": 0.5746925648204637,
+        "top_10_share": 0.7752728524885856
+      },
+      "support_interpretation": "concentration-based effective support, not asymptotic effective sample size"
     }
   ]
 }

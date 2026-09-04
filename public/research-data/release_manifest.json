@@ -1,15 +1,15 @@
 {
-  "schema_version": "release-metadata-v1.71",
-  "platform_version": "v1.71 Local Projection Inference & Robustness Hardening",
-  "release_date": "2026-09-03",
+  "schema_version": "release-metadata-v1.72",
+  "platform_version": "v1.72 Finite-Sample Bias & Shock-Support Robustness",
+  "release_date": "2026-09-04",
   "source_commit": "local-working-tree",
   "build_context": "local",
   "workflow_run_id": null,
-  "generated_at": "2026-09-03T15:26:24.702Z",
+  "generated_at": "2026-09-04T04:59:02.032Z",
   "research_package": {
-    "filename": "research-data-v1.71.zip",
-    "sha256": "9ccd7a07ef207ed8cb04135bff1d2208e4c7cad2b826a860c1bf583a658d4f1e",
-    "generated_at": "2026-09-03T15:26:25.568Z",
+    "filename": "research-data-v1.72.zip",
+    "sha256": "129b1649cc045568b52ae662fac5479572b5e047f1c95dfdeb222a8c5533418a",
+    "generated_at": "2026-09-04T04:59:03.017Z",
     "status": "built"
   },
   "data_export_version": "research-data-v0.1",
@@ -90,7 +90,7 @@
     "trade_network": "trade-network-v1.25-active",
     "event_window": "event-window-v1.31",
     "high_frequency": "high-frequency-v1.31",
-    "analysis_skill_registry": "analysis-skill-registry-v1.71",
+    "analysis_skill_registry": "analysis-skill-registry-v1.72",
     "transformation_registry": "transformation-registry-v1.41",
     "stationarity_engine": "stationarity-engine-v1.44",
     "seasonal_adf_calibration": "seasonal-adf-critical-values-v1.44",
@@ -105,7 +105,7 @@
     "identified_shocks": "monetary-policy-event-observations-v1.6",
     "ecb_shock_validation": "ecb-shock-validation-summary-v1.7",
     "information_effect_separation": "information-effect-separation-validation-v1.62",
-    "lp_readiness": "lp-readiness-registry-v1.71",
+    "lp_readiness": "lp-readiness-registry-v1.72",
     "lp_engine": "lp-engine-v1.71",
     "lp_results": "lp-results-v1.71",
     "lp_validation": "lp-validation-summary-v1.71",
@@ -127,7 +127,7 @@
   "advanced_analysis_validation": {
     "stage": "v1.71 advanced analysis validation",
     "status": "passed",
-    "total_tests": 978,
+    "total_tests": 97834,
     "failure_count": 0,
     "test_counts": {
       "panel": 51,
@@ -137,7 +137,7 @@
       "var": 104,
       "macro_drivers": 35,
       "identified_shocks": 48,
-      "local_projections": 663,
+      "local_projections": 97519,
       "author_reference": 16
     },
     "categories": [
@@ -169,8 +169,8 @@
       "static_build",
       "package_checksum"
     ],
-    "package_checksum": "9ccd7a07ef207ed8cb04135bff1d2208e4c7cad2b826a860c1bf583a658d4f1e",
-    "package_filename": "research-data-v1.71.zip"
+    "package_checksum": "129b1649cc045568b52ae662fac5479572b5e047f1c95dfdeb222a8c5533418a",
+    "package_filename": "research-data-v1.72.zip"
   },
   "legacy_validation_summary_v091": {
     "stage": "v0.91 Model & Scenario Validation",

@@ -730,6 +730,9 @@ check(kpssStatus().status === "not_available", "KPSS must honestly report not_av
   check(v16Readiness.data_layer_complete === true && v16Readiness.all_identification_gates_passed === false && v16Readiness.identification_decision === "external_innovation_proxy_only" && v16Readiness.local_projections_state === "registry_only", "v1.6 identification readiness was overstated.", "macro_driver");
   identifiedShockTests = ecbValidation.total_tests;
   localProjectionTests = lpValidation.total_tests;
+  const finiteSample = JSON.parse(fs.readFileSync(path.join(root, "src/data/local-projections/lp_finite_sample_validation.json"), "utf8"));
+  localProjectionTests += finiteSample.total_tests;
+  if (finiteSample.status !== "passed" || finiteSample.failure_count !== 0) errors.push("v1.72 finite-sample diagnostics failed");
   authorReferenceTests = informationSeparation.total_gates;
   if (ecbValidation.status !== "passed" || ecbValidation.failure_count !== 0) errors.push("ECB identified-shock validation summary is not passing.");
   if (lpValidation.status !== "passed" || lpValidation.failure_count !== 0 || lpValidation.causal_lp_ready_count !== 44) errors.push("Local Projections validation summary is not passing.");
@@ -739,7 +742,7 @@ check(kpssStatus().status === "not_available", "KPSS must honestly report not_av
 }
 
 const advancedValidationSummary = {
-  schema_version: "advanced-analysis-validation-summary-v1.71",
+  schema_version: "advanced-analysis-validation-summary-v1.72",
   generated_at: new Date().toISOString(),
   status: errors.length === 0 ? "passed" : "failed",
   total_tests: panelTests + networkTests + hfTests + eventTests + varTests + macroDriverTests + identifiedShockTests + localProjectionTests + authorReferenceTests,

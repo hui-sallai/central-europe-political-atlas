@@ -1,6 +1,6 @@
 {
-  "schema_version": "analysis-skill-registry-v1.71",
-  "generated_at": "2026-09-03",
+  "schema_version": "analysis-skill-registry-v1.72",
+  "generated_at": "2026-09-04",
   "records": [
     {
       "skill_id": "composite_indicators",
@@ -64,7 +64,7 @@
       "state": "active",
       "readiness_reference": "local-projections/lp_readiness_registry.json",
       "gate": "identified joint JK shocks + applicable country/outcome + common-horizon N >= 96 + validated lag-augmented estimator and path inference",
-      "note": "Single-country baseline active; pointwise HC1 and validated 95% plug-in sup-t path uncertainty active; sensitivities are not replacement baselines; no panel LP or state dependence."
+      "note": "Single-country baseline active; pointwise and sup-t inference active; validated finite-sample/shock-support diagnostics only; bias correction registry_only."
     },
     {
       "skill_id": "bayesian_var",

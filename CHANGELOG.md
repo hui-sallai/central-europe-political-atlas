@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.72 Finite-Sample Bias & Shock-Support Robustness - 2026-09-04
+
+- Preserved the frozen v1.71 44-model baseline and six-decimal coefficient/HC1 checksum.
+- Audited the Fed accessible asset (25 HTML/GIF files, no replication code); bias correction remains registry-only with explicit applicability blockers.
+- Added 386 joint-shock finite-sample designs, including 8 key designs with 10,000 repetitions each; exploratory designs are separately labeled.
+- Added effective shock support, event aggregation traces, exhaustive nonzero-month and frozen-event deletion sensitivities, conventional DFBETAS thresholds and full-model covariance/seed diagnostics.
+- No automatic observation deletion, reliability score, panel LP, state dependence or replacement baseline.
+
 ## v1.71 Local Projection Inference & Robustness Hardening - 2026-09-03
 
 - Corrected lag-augmentation metadata while preserving the complete v1.7 coefficient and standard-error hash.

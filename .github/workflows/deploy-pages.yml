@@ -84,6 +84,9 @@ jobs:
       - name: Release QA
         run: pnpm release:validate
 
+      - name: Scan generated public site for secrets
+        run: node scripts/security/check-public-secrets.mjs --static
+
       - name: Add nojekyll marker
         run: touch out/.nojekyll
 
