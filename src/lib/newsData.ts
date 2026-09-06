@@ -9,6 +9,7 @@ import type {
   EventType,
 } from "../types/Event";
 import { weeklyNews20260820Additional } from "./weeklyNews/2026-08-20";
+import { weeklyNews20260905 } from "./weeklyNews/2026-09-05";
 
 export const eventTypeValues: EventType[] = [
   "fiscal",
@@ -123,6 +124,7 @@ export function toEventRecord(item: WeeklyNewsItem): EventRecord {
 }
 
 export const eventLibraryItems: WeeklyNewsItem[] = [
+  ...weeklyNews20260905,
   {
     id: "hu-2026-08-19-president-inauguration",
     countrySlug: "hungary",
@@ -756,4 +758,3 @@ export const eventLibraryItems: WeeklyNewsItem[] = [
 export function getEventSourceItemsByCountry(countrySlug: string) {
   return eventLibraryItems.filter((item) => item.countrySlug === countrySlug);
 }
-

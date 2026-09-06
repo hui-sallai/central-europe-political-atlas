@@ -2084,6 +2084,10 @@ const advancedValidationSummary = fs.existsSync(advancedValidationSummaryPath)
   ? JSON.parse(fs.readFileSync(advancedValidationSummaryPath, "utf8"))
   : { schema_version: "advanced-analysis-validation-summary-v1.6", status: "pending", total_tests: 0, failure_count: null, categories: {} };
 fs.writeFileSync(path.join(outDir, "advanced_analysis_validation_summary.json"), `${JSON.stringify(advancedValidationSummary, null, 2)}\n`);
+fs.copyFileSync(
+  path.join(canonicalDataDir, "events", "news_update_2026-09-05_audit.json"),
+  path.join(outDir, "news_update_2026-09-05_audit.json"),
+);
 const macroRuntimeRows = macroDriverPayload.records.map((item) => [
   item.observation_id, item.driver_id, item.country, item.scope, item.period, item.value,
   item.unit, item.transformation, item.economic_role ?? item.role, item.source, item.source_url,

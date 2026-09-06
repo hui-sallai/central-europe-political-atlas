@@ -111,7 +111,7 @@ export function NewsExplorer() {
     .filter((item) => item.data_status === "verified")
     .filter((item) => countryFilter === "all" || item.country_slug === countryFilter)
     .filter((item) => eventTypeFilter === "all" || item.event_type === eventTypeFilter)
-    .sort((a, b) => b.date.localeCompare(a.date)), [countryFilter, eventTypeFilter]);
+    .sort((a, b) => b.date.localeCompare(a.date) || a.event_id.localeCompare(b.event_id)), [countryFilter, eventTypeFilter]);
   const sampleCount = researchEvents.filter((item) => item.data_status === "sample").length;
 
   return (

@@ -1,0 +1,31 @@
+{
+  "window": { "start": "2026-08-20", "end": "2026-09-05", "timezone": "source publication date" },
+  "method": "Manual editorial screening with direct-source URL and publication-date verification; quality thresholds take precedence over country targets.",
+  "screened_candidate_count": 184,
+  "accepted_count": 60,
+  "rejected_count": 124,
+  "country_counts": {
+    "hungary": { "screened": 20, "accepted": 9, "rejected": 11 },
+    "poland": { "screened": 16, "accepted": 12, "rejected": 4 },
+    "czechia": { "screened": 15, "accepted": 6, "rejected": 9 },
+    "slovenia": { "screened": 14, "accepted": 12, "rejected": 2 },
+    "croatia": { "screened": 27, "accepted": 7, "rejected": 20 },
+    "austria": { "screened": 16, "accepted": 3, "rejected": 13 },
+    "germany": { "screened": 17, "accepted": 6, "rejected": 11 },
+    "romania": { "screened": 15, "accepted": 2, "rejected": 13 },
+    "slovakia": { "screened": 29, "accepted": 1, "rejected": 28 },
+    "serbia": { "screened": 15, "accepted": 2, "rejected": 13 }
+  },
+  "rejection_policy": [
+    "outside the inclusive date window",
+    "duplicate event or duplicate source URL",
+    "no stable direct original-article URL or publication date",
+    "sports, entertainment, lifestyle, local incident, or insufficient national policy relevance",
+    "core fact could not be corroborated to publication standard"
+  ],
+  "notes": [
+    "Reuters URLs may return an automated-access response while remaining canonical direct article URLs.",
+    "No item enters a causal model; news records remain descriptive event-library entries.",
+    "The existing event schema has no separate original-title, updated-at, or related-country field, so the update does not invent parallel fields."
+  ]
+}

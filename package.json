@@ -11,6 +11,7 @@
     "export:research-data": "node scripts/export-research-data.mjs",
     "package:research-data": "node scripts/release/build-research-package.mjs",
     "research:validate": "node scripts/validation/run-research-validation.mjs",
+    "news:validate": "node scripts/validation/validate-news-update.mjs",
     "analysis:validate": "node scripts/validation/validate-ecb-shocks.mjs && node scripts/validation/run-advanced-analysis-validation.mjs",
     "ecb:acquire": "python scripts/acquisition/acquire-ecb-monetary-events.py --refresh",
     "ecb:build": "python scripts/acquisition/acquire-ecb-monetary-events.py",
