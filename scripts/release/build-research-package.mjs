@@ -12,7 +12,7 @@ const groups = {
   data: ["observations.json", "observations.csv", "comparison_eligibility.json", "transmission_channels.json"],
   countries: ["countries.json", "countries.csv"],
   regions: ["regions.json", "regional_observations.json", "regional_comparison_eligibility.json", "regional_geometry_qa.json"],
-  events: ["events.json", "events.csv"],
+  events: ["events.json", "events.csv", "news_update_2026-09-05_audit.json", "news_source_verification_2026-09-05.json", "news_source_date_pattern_registry.json", "news_candidate_screening_2026-09-05.json"],
   projects: ["china_projects.json", "china_projects.csv", "china_exposure_candidates.json", "project_locations.json", "china_evidence_coverage_matrix.json"],
   models: ["model_cards.json", "model_outputs.json"],
   scenarios: ["scenario_definitions.json", "scenario_results.json", "scenario_sensitivity.json", "scenario_evidence_links.json"],

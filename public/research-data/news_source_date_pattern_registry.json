@@ -1,0 +1,9 @@
+{
+  "schema_version": "news-source-date-pattern-v1",
+  "patterns": [
+    { "id": "index-path-date", "host": "index.hu", "path_regex": "^/[^/]+/(\\d{4})/(\\d{2})/(\\d{2})/", "status": "verified_url_pattern" },
+    { "id": "notes-from-poland-path-date", "host": "notesfrompoland.com", "path_regex": "^/(\\d{4})/(\\d{2})/(\\d{2})/", "status": "verified_url_pattern" },
+    { "id": "reuters-slug-date", "host": "www.reuters.com", "path_regex": "-(\\d{4})-(\\d{2})-(\\d{2})/?$", "status": "verified_url_pattern" },
+    { "id": "gov-si-path-date", "host": "www.gov.si", "path_regex": "^/en/news/(\\d{4})-(\\d{2})-(\\d{2})-", "status": "verified_source_archive" }
+  ]
+}

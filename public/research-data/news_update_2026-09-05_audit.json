@@ -1,8 +1,8 @@
 {
   "window": { "start": "2026-08-20", "end": "2026-09-05", "timezone": "source publication date" },
-  "method": "Manual editorial screening with direct-source URL and publication-date verification; quality thresholds take precedence over country targets.",
-  "screened_candidate_count": 184,
-  "accepted_count": 60,
+  "method": "Editorial screening backed by the per-record source verification and candidate screening registries; quality thresholds take precedence over country targets.",
+  "screened_candidate_count": 193,
+  "accepted_count": 69,
   "rejected_count": 124,
   "country_counts": {
     "hungary": { "screened": 20, "accepted": 9, "rejected": 11 },
@@ -10,10 +10,10 @@
     "czechia": { "screened": 15, "accepted": 6, "rejected": 9 },
     "slovenia": { "screened": 14, "accepted": 12, "rejected": 2 },
     "croatia": { "screened": 27, "accepted": 7, "rejected": 20 },
-    "austria": { "screened": 16, "accepted": 3, "rejected": 13 },
+    "austria": { "screened": 23, "accepted": 10, "rejected": 13 },
     "germany": { "screened": 17, "accepted": 6, "rejected": 11 },
     "romania": { "screened": 15, "accepted": 2, "rejected": 13 },
-    "slovakia": { "screened": 29, "accepted": 1, "rejected": 28 },
+    "slovakia": { "screened": 31, "accepted": 3, "rejected": 28 },
     "serbia": { "screened": 15, "accepted": 2, "rejected": 13 }
   },
   "rejection_policy": [
@@ -23,6 +23,23 @@
     "sports, entertainment, lifestyle, local incident, or insufficient national policy relevance",
     "core fact could not be corroborated to publication standard"
   ],
+  "coverage": {
+    "hungary": { "coverage_below_target": true, "sources_searched": ["Index", "Hungarian government and parliament sources"], "remaining_gap": "insufficient additional direct, date-verifiable national-policy articles without party-commentary duplication" },
+    "poland": { "coverage_below_target": true, "sources_searched": ["Notes from Poland", "Reuters", "Polish government sources"], "remaining_gap": "quality threshold retained; three more items would be needed for the minimum target" },
+    "czechia": { "coverage_below_target": true, "sources_searched": ["Radio Prague International", "Czech government", "Finance Ministry", "CNB", "presidency"], "remaining_gap": "direct article and exact-date evidence constrained further inclusion" },
+    "slovenia": { "coverage_below_target": true, "sources_searched": ["GOV.SI", "Slovenian government ministries"], "remaining_gap": "three more non-duplicative national-policy items would be needed" },
+    "croatia": { "coverage_below_target": true, "sources_searched": ["HRT Voice of Croatia", "Croatian government sources"], "remaining_gap": "many candidates were roundups, local incidents, or lacked distinct direct article evidence" },
+    "austria": { "coverage_below_target": true, "sources_searched": ["ORF", "Austrian government", "OeNB", "Statistik Austria"], "remaining_gap": "systematic second pass added seven records, but fewer than fifteen met all evidence and relevance gates" },
+    "germany": { "coverage_below_target": true, "sources_searched": ["Tagesschau", "Reuters", "Bundesregierung", "Destatis", "Bundesbank"], "remaining_gap": "exact-window direct-source results remained below target" },
+    "romania": { "coverage_below_target": true, "sources_searched": ["Romania Insider", "Agerpres", "Radio Romania International", "Romanian presidency and government"], "remaining_gap": "publicly accessible direct articles with exact dates remained sparse" },
+    "slovakia": { "coverage_below_target": true, "sources_searched": ["TASR/e-TASR", "Government Office", "Finance Ministry", "Economy Ministry", "NBS", "SME", "Pravda"], "remaining_gap": "second pass added two records; indexed exact-window results remained insufficient and many candidates lacked stable evidence" },
+    "serbia": { "coverage_below_target": true, "sources_searched": ["Reuters", "N1 Serbia", "RTS", "Tanjug", "European Western Balkans", "Serbian government and presidency"], "remaining_gap": "date-verifiable, directly accessible national-policy reporting remained insufficient" }
+  },
+  "actor_field_audit": {
+    "status": "schema_debt_recorded",
+    "finding": "toEventRecord currently falls back to sourceLabel when an explicit event actor is absent, so actor may contain a publisher name.",
+    "decision": "Do not change only this refresh and create mixed semantics across the event library; source_name remains the authoritative publisher field and a future schema migration must address actor consistently."
+  },
   "notes": [
     "Reuters URLs may return an automated-access response while remaining canonical direct article URLs.",
     "No item enters a causal model; news records remain descriptive event-library entries.",

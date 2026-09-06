@@ -2088,6 +2088,9 @@ fs.copyFileSync(
   path.join(canonicalDataDir, "events", "news_update_2026-09-05_audit.json"),
   path.join(outDir, "news_update_2026-09-05_audit.json"),
 );
+for (const fileName of ["news_source_verification_2026-09-05.json", "news_source_date_pattern_registry.json", "news_candidate_screening_2026-09-05.json"]) {
+  fs.copyFileSync(path.join(canonicalDataDir, "events", fileName), path.join(outDir, fileName));
+}
 const macroRuntimeRows = macroDriverPayload.records.map((item) => [
   item.observation_id, item.driver_id, item.country, item.scope, item.period, item.value,
   item.unit, item.transformation, item.economic_role ?? item.role, item.source, item.source_url,
