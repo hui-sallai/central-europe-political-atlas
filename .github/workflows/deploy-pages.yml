@@ -43,11 +43,11 @@ jobs:
       - name: Install Local Projections reference dependencies
         run: python -m pip install -r scripts/validation/requirements-lp-reference.txt
 
-      - name: Build macro-dynamics readiness
-        run: pnpm macro:build
+      - name: Verify canonical registry and frozen outputs
+        run: pnpm analysis-registry:validate
 
-      - name: Build and cross-validate Local Projections
-        run: pnpm lp:build && pnpm lp:robustness && pnpm lp:reference && pnpm lp:validate
+      - name: Validate frozen Local Projections
+        run: pnpm lp:validate
 
       - name: Export research data
         run: pnpm export:research-data

@@ -1,0 +1,349 @@
+{
+  "starting_commit": "a4ff1545d26cd61e3e1480937b8810e8f3423b8e",
+  "records": [
+    {
+      "path": "src/data/events/event_analysis_eligibility.json",
+      "sha256": "b4b016dc32eea65873696a9f1efc97a747a073b2da6c039a5775c40859a30502"
+    },
+    {
+      "path": "src/data/events/event_overlap_registry.json",
+      "sha256": "fafbef1d742e3a2624c59bd7768b474702f600c2ecccea4b6e9080eebe428f06"
+    },
+    {
+      "path": "src/data/events/event_window_registry.json",
+      "sha256": "d78aa44d463c71c824d518365a72a220894dbb58e90db648c3d80a74d8529e91"
+    },
+    {
+      "path": "src/data/events/events.json",
+      "sha256": "6906e04063b4af8a05fc0e05b31258531bc78d2cf274dc54f71d24799947d7cb"
+    },
+    {
+      "path": "src/data/events/news_candidate_screening_2026-09-05.json",
+      "sha256": "b5313dba7b9c6406d09b8dc20fc1409b227fc4b481a4d7ac0442a42e6fa6b1c1"
+    },
+    {
+      "path": "src/data/events/news_source_date_pattern_registry.json",
+      "sha256": "330daeea8445dbd7598dd5004742af53c0c0a4bf0f2509830e5f8c065e4af3db"
+    },
+    {
+      "path": "src/data/events/news_source_verification_2026-09-05.json",
+      "sha256": "ac0ce8d3ab2dfb1470f70a3ebbe42d0ec84ea315754f7fcf4894fd60b1acffb3"
+    },
+    {
+      "path": "src/data/events/news_update_2026-09-05_audit.json",
+      "sha256": "3663261c029e171bc44c979338709a5b9f2ff9ca2198abb03a6dac10704bae9a"
+    },
+    {
+      "path": "src/data/identified-shocks/ea_empd_acquisition_manifest.json",
+      "sha256": "774ace6df7b76a911bce48d1b602ce7fd94e55bcdbd2ee11539ad0ace49074c4"
+    },
+    {
+      "path": "src/data/identified-shocks/ea_empd_workbook_schema.json",
+      "sha256": "9f94f50141507bd4f99027c0b0431604c05a6c2de9cb0805fd6cbdc45c96cf1a"
+    },
+    {
+      "path": "src/data/identified-shocks/ea_mpd_acquisition_manifest.json",
+      "sha256": "c2635e614e5bf57e192d40158827caa0080b1cd561255e38f96e00ddb42c84ec"
+    },
+    {
+      "path": "src/data/identified-shocks/ea_mpd_workbook_schema.json",
+      "sha256": "7c0f819d27b6022633662eb6f76c52ee437e31f81ac716282ba3f8593fe0d5bd"
+    },
+    {
+      "path": "src/data/identified-shocks/ecb_central_bank_information_shock_monthly.json",
+      "sha256": "c7e144edd47fb9303c5a690bb52ef5ec9c22c80a05e100c07f83b102c9f8e274"
+    },
+    {
+      "path": "src/data/identified-shocks/ecb_event_dataset_overlap_registry.json",
+      "sha256": "92939a078a3441109f6fde7cfa95de0e3fe88eff834ffc6de3e9be490b906401"
+    },
+    {
+      "path": "src/data/identified-shocks/ecb_monetary_event_data_acquisition_manifest.json",
+      "sha256": "a1acaa90516d6f6ec3c0f640224f8bb6a56bf3358b5c3970747c2d5de71cf766"
+    },
+    {
+      "path": "src/data/identified-shocks/ecb_monetary_policy_monthly_series.json",
+      "sha256": "ba7d5d4d99041f150f8284961263397a0b04f97146f351da243eb5cebd456b53"
+    },
+    {
+      "path": "src/data/identified-shocks/ecb_policy_factor_registry.json",
+      "sha256": "19e2669d7392ab9639b915e7c47eb5868f4e8bbf3b068949b878e484a38b6575"
+    },
+    {
+      "path": "src/data/identified-shocks/ecb_pure_monetary_policy_shock_monthly.json",
+      "sha256": "94253936976d942f520f66efe741850f1d9e213a45b5d1eff2c4685b2d19d8df"
+    },
+    {
+      "path": "src/data/identified-shocks/ecb_shock_validation_summary.json",
+      "sha256": "ada1c9a21c753e10f192df950873fc189f4cd3ebcba8c0b1042ff6193bde0b91"
+    },
+    {
+      "path": "src/data/identified-shocks/identification_regime_diagnostics.json",
+      "sha256": "63a2068f9c9cfcf6379a95d8261004af3302f70c5f90e0215da811c60cad92f7"
+    },
+    {
+      "path": "src/data/identified-shocks/identification_specification_registry.json",
+      "sha256": "c2264241bc2d87dff1b4b3d3ab46b53be338271b03996a646318206fcd561461"
+    },
+    {
+      "path": "src/data/identified-shocks/information_effect_input_registry.json",
+      "sha256": "e9fe42a152e92653cff816ce0e0e6295f8293d18a27ddd57d3f4aaac68f561bb"
+    },
+    {
+      "path": "src/data/identified-shocks/information_effect_separation_validation.json",
+      "sha256": "c666e99fd515bcdfbc38cc61b869351991fe17fd6ac2d4cc5dc995cf6308cbca"
+    },
+    {
+      "path": "src/data/identified-shocks/information_effect_window_registry.json",
+      "sha256": "1bdb8673ba52f5eadc1321741f22e12a94682f7296e8e4030dc0ce41d504ab43"
+    },
+    {
+      "path": "src/data/identified-shocks/jk_author_event_exclusion_registry.json",
+      "sha256": "fb422f1b0a4f37b8891716ab306f8a00bcdfe13f1ea450360caf64e902f7126e"
+    },
+    {
+      "path": "src/data/identified-shocks/jk_author_reference_comparison.json",
+      "sha256": "aa2843ced5b46b0cf0d7caff355f4c25e27dc3ed2ac9d668605163bb9eb4900c"
+    },
+    {
+      "path": "src/data/identified-shocks/jk_author_reference_manifest.json",
+      "sha256": "016a8c2e0daf641fe3563cbe334d121c3c38cae01e9d741ceaf04fede58ee541"
+    },
+    {
+      "path": "src/data/identified-shocks/jk_cross_language_validation.json",
+      "sha256": "a7cfd0f7c6b1a835078cfd87b2ab1f0268e34a852efbcf034bb1b8e8892fbcd2"
+    },
+    {
+      "path": "src/data/identified-shocks/jk_event_level_shocks.json",
+      "sha256": "0e96026c6ccae1eba9faf8249aa6f0f2f50d09a3e5b0c3bca8804a83c9084ee2"
+    },
+    {
+      "path": "src/data/identified-shocks/jk_event_sample_registry.json",
+      "sha256": "b5884817062618105a292e95cf2060e528bcaffe5614dd1b944478f0c162be0d"
+    },
+    {
+      "path": "src/data/identified-shocks/jk_median_rotation_replication_validation.json",
+      "sha256": "22bdce6a64ff9c88b2bf15f1367a4a97b790adceaac17e20a40ae32802be950c"
+    },
+    {
+      "path": "src/data/identified-shocks/jk_monthly_replication_validation.json",
+      "sha256": "dad3bddd1232c281c6a6ef133d8677e2d52af9afccf375b8d0dcc81a3ea65a06"
+    },
+    {
+      "path": "src/data/identified-shocks/jk_pc1_replication_validation.json",
+      "sha256": "910d0529251edf999f3bbf347ecbd4382da40e45aa2ddfb597e3fa32ece7a7ec"
+    },
+    {
+      "path": "src/data/identified-shocks/jk_poor_man_replication_validation.json",
+      "sha256": "468ab9d7f83367306156232056ca48b03f8bacb789d618aecbd952854e32db0e"
+    },
+    {
+      "path": "src/data/identified-shocks/jk_replication_acquisition_manifest.json",
+      "sha256": "fa1c7bc81c625a92533a18124322132562a261e0fece0a91bd446ad39000ba2b"
+    },
+    {
+      "path": "src/data/identified-shocks/monetary_policy_event_observations.json",
+      "sha256": "67a4b17ab856c24ca53c8e7f829d9fcf1f390e4ca64d0a3afb08d578e8b5075e"
+    },
+    {
+      "path": "src/data/identified-shocks/monetary_policy_identification_method_registry.json",
+      "sha256": "765effa589a062171f986fd0a7415e2b2d98215e87a784614ef7fd4f217cf8e9"
+    },
+    {
+      "path": "src/data/identified-shocks/monetary_policy_information_effect_registry.json",
+      "sha256": "7a07a589b287ee6836c8d7883d52954d333202bbc353e6ca83e797cb93ccca6c"
+    },
+    {
+      "path": "src/data/identified-shocks/shock_applicability_registry.json",
+      "sha256": "4e4c7b8b2ed7fd855087758a4b6ec00dfbcf3c8d7b45891a7ffa1d51254b0156"
+    },
+    {
+      "path": "src/data/local-projections/lp_bias_correction_applicability_registry.json",
+      "sha256": "b30d74089fd431803be8ab417b7c477d2d23a410e7053c7d6c3815a4b9c658d9"
+    },
+    {
+      "path": "src/data/local-projections/lp_coefficient_invariance_manifest.json",
+      "sha256": "519a9fd9df03b1d5c4804ed91e5103877884691450db75e3d52874aa99a7fc67"
+    },
+    {
+      "path": "src/data/local-projections/lp_control_profile_registry.json",
+      "sha256": "ea67ea3beaec663fd000579d40c48b4fdf84718eb98295c89434a872294a95f6"
+    },
+    {
+      "path": "src/data/local-projections/lp_control_sensitivity_results.json",
+      "sha256": "1e01209d9cc91c288e6bbf83028dc4e400f26cb58eba314d9278aaddc3d6632e"
+    },
+    {
+      "path": "src/data/local-projections/lp_cross_country_comparability.json",
+      "sha256": "e685aabd1838df9637874055673aca17d49ec35ca3ef1787432eb060546b475e"
+    },
+    {
+      "path": "src/data/local-projections/lp_finite_sample_bias_reference_manifest.json",
+      "sha256": "7f88f2a604a05e8b19edaa9ef1ec7ea0101ba20e21ef61569c98cc01e6b82d16"
+    },
+    {
+      "path": "src/data/local-projections/lp_finite_sample_robustness_summary.json",
+      "sha256": "eedc86560a1b255c0a92e4cefd019276a70c5595f266761d704145175f19b28f"
+    },
+    {
+      "path": "src/data/local-projections/lp_finite_sample_simulation_registry.json",
+      "sha256": "c7c16971a4bc252aba1211ef2d5ce1914e229353746345f994dfc4081adc2cc1"
+    },
+    {
+      "path": "src/data/local-projections/lp_finite_sample_simulation_results.json",
+      "sha256": "e2f2e095b1a8721e1729103477c32863102377d263ac7e9110093a7f4a0bee62"
+    },
+    {
+      "path": "src/data/local-projections/lp_finite_sample_validation.json",
+      "sha256": "eed53885d332f2a16d2daaada87e2ba44f8e622eb89857918935ac4de5413c81"
+    },
+    {
+      "path": "src/data/local-projections/lp_full_path_covariance_audit.json",
+      "sha256": "cdc6752f664aa4e40012b647fd93e5eea9119d16324db1203f77d840dc1ab03f"
+    },
+    {
+      "path": "src/data/local-projections/lp_full_path_covariance_validation.json",
+      "sha256": "0dadb155c0e14f125a08302719ab6c261444ad6ffbe8e678c507bf97030850f2"
+    },
+    {
+      "path": "src/data/local-projections/lp_inference_registry.json",
+      "sha256": "b98380244298638574e62b6dcc1af3c5bc8b2acec944833528ee397c0d61a98c"
+    },
+    {
+      "path": "src/data/local-projections/lp_influence_diagnostics.json",
+      "sha256": "ba49b26346594cf65945fa75184a59f894903f6e4596202c5d4ad4eea19bee31"
+    },
+    {
+      "path": "src/data/local-projections/lp_influence_threshold_registry.json",
+      "sha256": "f200879ce92ceeaf6ce15b8f215567945ed92d44a9f854f1143e7454825dc979"
+    },
+    {
+      "path": "src/data/local-projections/lp_lag_policy_registry.json",
+      "sha256": "1e194ef4a0e8fab68acb12ef2a4e764776301b34bb100529e51b141d343184d5"
+    },
+    {
+      "path": "src/data/local-projections/lp_lag_sensitivity_results.json",
+      "sha256": "31c40d9ce6768a9d6167e28e26ae08fdd8f3e37202c19a9d206499fdd1452f71"
+    },
+    {
+      "path": "src/data/local-projections/lp_leave_one_event_results.json",
+      "sha256": "3d670fc7315f549f1c88d925b297cfc8a884c25d1e23285e1550267833a1d659"
+    },
+    {
+      "path": "src/data/local-projections/lp_leave_one_shock_month_results.json",
+      "sha256": "8de4059ceac081b206187a2ffc3d12c145c7da79012981e891f1f46e7743f89a"
+    },
+    {
+      "path": "src/data/local-projections/lp_model_diagnostic_summary.json",
+      "sha256": "88b63e22fdf1981d7565822c46c2aa432ec3e519141461bc315029fdbadbfdfc"
+    },
+    {
+      "path": "src/data/local-projections/lp_model_registry.json",
+      "sha256": "18fc88319aeeb52ad15a6b8815113145de65befe1b27335f71c40495d497c4ed"
+    },
+    {
+      "path": "src/data/local-projections/lp_outcome_specification_registry.json",
+      "sha256": "4b168bdb2cbddf5090d6eb0ac8a4c6fded74faceb73430a2eddda5e5ba116ad4"
+    },
+    {
+      "path": "src/data/local-projections/lp_path_inference_validation.json",
+      "sha256": "b8a7c2dfa5f6519a0c0aaf985b1ecbeaf47b25c8c961c886984c89bce117d904"
+    },
+    {
+      "path": "src/data/local-projections/lp_readiness_registry.json",
+      "sha256": "5b2d0c4e8b8018a03d842a1c9c247421ea195af685aa0ab02c1ce1e6959557ac"
+    },
+    {
+      "path": "src/data/local-projections/lp_reference_cases.json",
+      "sha256": "eda5e20d100436765b4f3742d4c5b4e9098cc13099c99739ea96edf9d610ad15"
+    },
+    {
+      "path": "src/data/local-projections/lp_reference_manifest.json",
+      "sha256": "1167b1a9407815d68b2eacaca836572d518476ca2f5807a31939b4b5a001b655"
+    },
+    {
+      "path": "src/data/local-projections/lp_results.json",
+      "sha256": "319271ce5ff4682c7938c9951178b25553e5f94b925ef1f8679995eed81946fb"
+    },
+    {
+      "path": "src/data/local-projections/lp_sample_policy_registry.json",
+      "sha256": "81b335c0aae74729b75f47db9dd4184284092f242abcb9145ed27b29eb3a9064"
+    },
+    {
+      "path": "src/data/local-projections/lp_shock_support_diagnostics.json",
+      "sha256": "64a3fcfc1ba9062780b9fb5f713bb6aa5a521a39535ac0404f76b057e9f12c66"
+    },
+    {
+      "path": "src/data/local-projections/lp_shock_support_status.json",
+      "sha256": "60150b3be64714e3a107226a5bc880b6337fdaec0e3424d4275f6458f11281a5"
+    },
+    {
+      "path": "src/data/local-projections/lp_simultaneous_inference_reference_manifest.json",
+      "sha256": "3cfc1ddba9a95cc808bc0d86cb476da996297b9fa6ee3cd8bb82e1c039fde6ff"
+    },
+    {
+      "path": "src/data/local-projections/lp_specification_registry.json",
+      "sha256": "b6f158a6a0a843eb48500704e8d66fd8ce8da872736ea3615a991ca9233236a0"
+    },
+    {
+      "path": "src/data/local-projections/lp_validation_summary.json",
+      "sha256": "a7958da72126cd448a37711db4b9ca72d6214cf88fe084601530e20cc39fcca1"
+    },
+    {
+      "path": "src/data/network/network_acquisition_manifest.json",
+      "sha256": "1d9b36ed150f78465a0445896a09b32e7c41e6336e91e4c548d02f9ffc78e401"
+    },
+    {
+      "path": "src/data/network/network_coverage.json",
+      "sha256": "d8ec1c2d743aab92962c34d87aee3768388ddd23b7812ab93ad70e24016a04f9"
+    },
+    {
+      "path": "src/data/network/network_metrics.json",
+      "sha256": "3dab07494c8117696777f259ab159f53acb3b127a67da49299a7ccec1961372e"
+    },
+    {
+      "path": "src/data/network/network_nodes.json",
+      "sha256": "3f6d1a886f4b438d02ce7ce300e2839e3bdbbd9746f9106bc684c26f5482c1e9"
+    },
+    {
+      "path": "src/data/network/network_ui_pack.json",
+      "sha256": "1abf0d3bde35b091ef67a0cc64b56274f786f4b7a0bfaee8904e0c6f98380945"
+    },
+    {
+      "path": "src/data/network/trade_edges.json",
+      "sha256": "32da6dc20129283bc62a2d631712da8f77ec1f9ebab157fa316882506bcb1ea8"
+    },
+    {
+      "path": "src/data/panel/panel_coverage.json",
+      "sha256": "22bc7c9748ad170df3547a13b9c7b640b994bbe460b061e4bc7e7c9ce25af69a"
+    },
+    {
+      "path": "src/data/panel/panel_observations.json",
+      "sha256": "a769a00d11f75989f9e7a4038edf9d441c6cacb1ae0a7433ae00e57fbe9c8762"
+    },
+    {
+      "path": "src/lib/eventWindowEngine.ts",
+      "sha256": "a48ab16593db78add01778a80c168715c2842d96c68a3d51dd2570cdb03f1174"
+    },
+    {
+      "path": "src/lib/localProjectionEngine.mjs",
+      "sha256": "6783d8974ac68f12b269a332d6eaefd0b36831c3e1566311b7e6a390abbc87da"
+    },
+    {
+      "path": "src/lib/localProjectionEngine.ts",
+      "sha256": "e3177ef2e83e2e249e11e3df312ab6fff7ecdd4e7df867038009e0b148b8630e"
+    },
+    {
+      "path": "src/lib/networkEngine.ts",
+      "sha256": "a644bb71611f600a57346f0b3d0f754f68b6c67c42e685cdbe3f94c1443c84c1"
+    },
+    {
+      "path": "src/lib/panelEngine.ts",
+      "sha256": "660c0737bb8a8e284c711441f89ae71e5527e7156fdc52f7cafc979a64a81409"
+    },
+    {
+      "path": "src/lib/varEngine.ts",
+      "sha256": "0e944a52eba0a295ca7e44b5e9a801579f94a5ada03fef5a7ed9d938de8bf2ac"
+    }
+  ]
+}

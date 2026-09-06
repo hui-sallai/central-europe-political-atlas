@@ -33,10 +33,10 @@ function downloadCsv(rows: HorizonRow[], component: ShockComponent, modelId: str
   const anchor = document.createElement("a"); anchor.href = url; anchor.download = `${modelId.replaceAll(":", "-")}-${component}.csv`; anchor.click(); URL.revokeObjectURL(url);
 }
 
-export function LocalProjectionWorkbench() {
+export function LocalProjectionWorkbench({ initialCountry }: { initialCountry?: string }) {
   const active = results.records;
   const countries = [...new Set(active.map((row) => row.country))];
-  const [country, setCountry] = useState(countries.includes("poland") ? "poland" : countries[0]);
+  const [country, setCountry] = useState(initialCountry && countries.includes(initialCountry) ? initialCountry : countries.includes("poland") ? "poland" : countries[0]);
   const availableOutcomes = active.filter((row) => row.country === country).map((row) => row.outcome_id);
   const [outcome, setOutcome] = useState("hicp_price_level");
   const [component, setComponent] = useState<ShockComponent>("mp");
@@ -65,6 +65,7 @@ export function LocalProjectionWorkbench() {
 
   return (
     <section className="editorial-panel p-5">
+      {initialCountry && !countries.includes(initialCountry) ? <p role="status" className="mb-4 text-sm">所选国家暂无通过准入的 LP 输出，已展示一个可用国家。</p> : null}
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div><p className="editorial-kicker">Local Projections / v1.72</p><h2 className="mt-2 text-2xl font-semibold">本地投影：ECB 冲击与跨境传导</h2><p className="mt-3 max-w-4xl text-sm leading-7 text-[var(--muted)]">单国、单结果的联合 MP/CBI lag-augmented Local Projection。默认区间是逐 horizon 点态不确定性；95% sup-t 联合带用于整条显示路径的联合覆盖。h=0 是同一日历月反应，不是瞬时反应。</p></div>
         <span className="rounded-full border border-[var(--success)] px-3 py-1 text-xs font-semibold text-[var(--success)]">{validation.status} · {validation.causal_lp_ready_count} 个组合</span>

@@ -1,15 +1,15 @@
 {
-  "schema_version": "release-metadata-v1.72",
-  "platform_version": "v1.72 Finite-Sample Bias & Shock-Support Robustness",
-  "release_date": "2026-09-04",
+  "schema_version": "release-metadata-v1.73",
+  "platform_version": "v1.73 Analysis Registry & Workbench Convergence",
+  "release_date": "2026-09-07",
   "source_commit": "local-working-tree",
   "build_context": "local",
   "workflow_run_id": null,
-  "generated_at": "2026-09-06T09:35:12.307Z",
+  "generated_at": "2026-09-06T14:33:58.321Z",
   "research_package": {
-    "filename": "research-data-v1.72.zip",
-    "sha256": "ba493babaf06102ecf17704a8c09095c3d374245c59351fd16d5aa7c2e216644",
-    "generated_at": "2026-09-06T09:35:13.425Z",
+    "filename": "research-data-v1.73.zip",
+    "sha256": "1441e6b45b16514679be57bd1ee6272eef5cadddfbbc061de5ff804d8a609ede",
+    "generated_at": "2026-09-06T14:35:01.347Z",
     "status": "built"
   },
   "data_export_version": "research-data-v0.1",
@@ -90,7 +90,7 @@
     "trade_network": "trade-network-v1.25-active",
     "event_window": "event-window-v1.31",
     "high_frequency": "high-frequency-v1.31",
-    "analysis_skill_registry": "analysis-skill-registry-v1.72",
+    "analysis_skill_registry": "analysis-skill-registry-v1.73",
     "transformation_registry": "transformation-registry-v1.41",
     "stationarity_engine": "stationarity-engine-v1.44",
     "seasonal_adf_calibration": "seasonal-adf-critical-values-v1.44",
@@ -169,8 +169,8 @@
       "static_build",
       "package_checksum"
     ],
-    "package_checksum": "ba493babaf06102ecf17704a8c09095c3d374245c59351fd16d5aa7c2e216644",
-    "package_filename": "research-data-v1.72.zip"
+    "package_checksum": "1441e6b45b16514679be57bd1ee6272eef5cadddfbbc061de5ff804d8a609ede",
+    "package_filename": "research-data-v1.73.zip"
   },
   "legacy_validation_summary_v091": {
     "stage": "v0.91 Model & Scenario Validation",

@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 
 const tabs = [
   { id: "run", label: "运行分析" },
-  { id: "compare", label: "国家比较" },
+  { id: "compare", label: "指标与综合指数比较" },
 ] as const;
 
 type TabId = (typeof tabs)[number]["id"];

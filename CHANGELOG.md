@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.73 Analysis Registry & Workbench Convergence — 2026-09-07
+
+- Canonical analysis registry supplies states, aliases, presentation and category routing.
+- Method cards distinguish active, registered and blocked methods; macro methods have dedicated entry points.
+- Preserves v1.72 econometric outputs and documented news coverage gaps.
+
 ## v1.72 Finite-Sample Bias & Shock-Support Robustness - 2026-09-04
 
 - Preserved the frozen v1.71 44-model baseline and six-decimal coefficient/HC1 checksum.

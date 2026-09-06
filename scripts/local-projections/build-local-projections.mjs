@@ -81,7 +81,9 @@ write("lp_readiness_registry.json", readinessPayload); write("lp_model_registry.
 fs.writeFileSync(path.join(root, "src/data/macro-drivers/lp_readiness_registry.json"), `${JSON.stringify(readinessPayload, null, 2)}\n`);
 const skillsPath = path.join(root, "src/data/analysis/analysis_skill_registry.json");
 const skills = read("src/data/analysis/analysis_skill_registry.json");
+if (skills.schema_version !== "analysis-skill-registry-v1.73") {
 skills.schema_version = "analysis-skill-registry-v1.71"; skills.generated_at = generatedAt;
 skills.records = skills.records.map((row) => row.skill_id === "local_projections" ? { ...row, state: "active", gate: "identified joint JK shocks + applicable country/outcome + common-horizon N >= 96 + validated lag-augmented estimator and path inference", readiness_reference: "local-projections/lp_readiness_registry.json", note: "Single-country baseline active; pointwise HC1 and validated 95% plug-in sup-t path uncertainty active; sensitivities are not replacement baselines; no panel LP or state dependence." } : row.skill_id === "monetary_policy_identification" ? { ...row, note: "Median decomposition remains author-reference validated; v1.71 does not re-estimate the frozen JK shocks." } : row);
 fs.writeFileSync(skillsPath, `${JSON.stringify(skills, null, 2)}\n`);
+}
 console.log(`v1.71 LP build: formal=${readiness.length}; causal_ready=${readinessPayload.causal_lp_ready_count}; path_ready=${readinessPayload.path_inference_ready_count}; models=${models.length}; horizons=${results.reduce((s,r)=>s+r.horizons.length,0)}.`);

@@ -83,6 +83,8 @@ execFileSync(process.execPath, [path.join(projectRoot, "scripts", "build-spatial
   cwd: projectRoot,
   stdio: "inherit",
 });
+const frozenAnalysis = JSON.parse(fs.readFileSync(path.join(canonicalDataDir, "analysis", "analysis_skill_registry.json"), "utf8")).frozen_output_reference;
+if (!frozenAnalysis) {
 execFileSync(process.execPath, [path.join(projectRoot, "scripts", "identified-shocks", "build-information-effect-separation.mjs")], {
   cwd: projectRoot,
   stdio: "inherit",
@@ -94,6 +96,8 @@ execFileSync(process.execPath, [path.join(projectRoot, "scripts", "validation", 
 execFileSync(process.execPath, [path.join(projectRoot, "scripts", "validation", "validate-local-projections.mjs")], { cwd: projectRoot, stdio: "inherit" });
 execFileSync(process.execPath, [path.join(projectRoot, "scripts", "validation", "validate-lp-finite-sample.mjs")], { cwd: projectRoot, stdio: "inherit" });
 execFileSync(process.execPath, [path.join(projectRoot, "scripts", "local-projections", "finalize-finite-sample.mjs")], { cwd: projectRoot, stdio: "inherit" });
+}
+execFileSync(process.execPath, [path.join(projectRoot, "scripts", "validation", "validate-analysis-registry.mjs")], { cwd: projectRoot, stdio: "inherit" });
 
 require.extensions[".ts"] = (module, filename) => {
   const source = fs.readFileSync(filename, "utf8");
@@ -2077,6 +2081,7 @@ const macroDriverDictionaryPayload = JSON.parse(fs.readFileSync(path.join(macroD
 const macroShockPayload = JSON.parse(fs.readFileSync(path.join(macroDriverDir, "shock_identification_registry.json"), "utf8"));
 const macroIdentificationByDriver = new Map(macroDriverDictionaryPayload.records.map((item) => [item.driver_id, item.identification_status]));
 const macroIdentificationBySeries = new Map(macroShockPayload.records.map((item) => [`${item.driver_id}|${item.transformation}`, item.identification_status]));
+fs.copyFileSync(path.join(canonicalDataDir, "analysis", "analysis_skill_registry.json"), path.join(outDir, "analysis_skill_registry.json"));
 for (const fileName of macroDriverFiles) fs.copyFileSync(path.join(macroDriverDir, fileName), path.join(outDir, fileName));
 for (const fileName of identifiedShockFiles) fs.copyFileSync(path.join(identifiedShockDir, fileName), path.join(outDir, fileName));
 for (const fileName of localProjectionFiles) fs.copyFileSync(path.join(localProjectionDir, fileName), path.join(outDir, fileName));
@@ -2137,7 +2142,7 @@ writeJson("release_manifest.json", {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.72",
+    analysis_skill_registry: "analysis-skill-registry-v1.73",
     transformation_registry: "transformation-registry-v1.41",
     stationarity_engine: "stationarity-engine-v1.44",
     seasonal_adf_calibration: "seasonal-adf-critical-values-v1.44",

@@ -40,13 +40,13 @@ function downloadJson(value: unknown, fileName: string) {
   URL.revokeObjectURL(url);
 }
 
-export function VarWorkbench({ countries }: { countries: Country[] }) {
+export function VarWorkbench({ countries, initialCountry }: { countries: Country[]; initialCountry?: string }) {
   const [series, setSeries] = useState<HighFrequencyPoint[]>([]);
   const [baselineReadiness, setBaselineReadiness] = useState<VarCountryReadiness[]>([]);
   const [baselineV2Readiness, setBaselineV2Readiness] = useState<VarCountryReadiness[]>([]);
   const [exploratoryReadiness, setExploratoryReadiness] = useState<VarCountryReadiness[]>([]);
   const [loadState, setLoadState] = useState<"loading" | "ready" | "error">("loading");
-  const [country, setCountry] = useState("poland");
+  const [country, setCountry] = useState(initialCountry ?? "poland");
   const [selected, setSelected] = useState<Array<{ indicator: string; transformation: TransformationId }>>([
     { indicator: "hicp_monthly_index", transformation: "log_difference" },
     { indicator: "industrial_production_index", transformation: "log_difference" },

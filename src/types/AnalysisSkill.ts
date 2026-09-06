@@ -6,7 +6,35 @@ export type AnalysisSkillCategory =
   | "macro_time_series"
   | "event_analysis"
   | "network_analysis"
-  | "bayesian_analysis";
+  | "future_methods";
+
+export type AnalysisSkillState = "active" | "registry_only" | "blocked" | "deprecated_alias";
+export interface AnalysisSkillPresentation extends Omit<AnalysisSkill, "skill_id" | "calculation_mode" | "citation" | "required_data"> {
+  supports_country: boolean;
+  method_kind: string;
+}
+export interface AnalysisSkillRegistryRecord {
+  skill_id: string;
+  state: AnalysisSkillState;
+  gate?: string;
+  readiness_reference?: string;
+  note?: string;
+  reason?: string;
+  reason_zh?: string;
+  alias_of?: string;
+  hidden_reason?: string;
+  required_data?: string[];
+  presentation?: AnalysisSkillPresentation;
+}
+export interface AnalysisSkillRuntimeManifest extends AnalysisSkill {
+  state: Exclude<AnalysisSkillState, "deprecated_alias">;
+  supports_country: boolean;
+  method_kind: string;
+  gate?: string;
+  readiness_reference?: string;
+  note?: string;
+  reason_zh?: string;
+}
 
 export type AnalysisCalculationMode = "active" | "data_building" | "registry_only" | "blocked";
 

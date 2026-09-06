@@ -4,7 +4,7 @@ Central Europe Political Atlas is a public political-economy research platform f
 
 Public site: https://hy-central-europe-analysis.org/
 
-Current release: **v1.72 Finite-Sample Bias & Shock-Support Robustness**
+Current release: **v1.73 Analysis Registry & Workbench Convergence**
 
 v1.72 preserves the 44 v1.71 baseline models and adds finite-sample Monte Carlo diagnostics, concentration-based shock support, exhaustive eligible shock-month/event deletion audits, and independent full-path covariance checks. Bias correction remains `registry_only`: the official Fed ZIP contains accessible paper assets, not executable replication code. Simulations describe stylized fixed-p designs, not estimated coverage or bias of the real models.
 
@@ -65,7 +65,7 @@ Machine-readable files are published under `/research-data/`. See [the research-
 
 ## Citation
 
-Central Europe Political Atlas, version v1.72 Finite-Sample Bias & Shock-Support Robustness, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
+Central Europe Political Atlas, version v1.73 Analysis Registry & Workbench Convergence, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
 
 ## Official VAR reference environment
 

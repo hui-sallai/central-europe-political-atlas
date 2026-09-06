@@ -6,7 +6,8 @@ import { useSearchParams } from "next/navigation";
 import { BarMeter } from "@/components/ResearchCharts";
 import { EcbIdentificationStatus } from "@/components/EcbIdentificationStatus";
 import { runAnalysisSkill } from "@/lib/analysisRunner";
-import { analysisCategoryLabels, analysisSkills } from "@/lib/analysisSkills";
+import { analysisCategoryLabels, runtimeAnalysisSkills, resolveAnalysisRoute, methodStateLabels } from "@/lib/analysisSkills";
+import { AnalysisSkillCard } from "@/components/AnalysisSkillCard";
 import { analysisLabels, downloadLabels, fieldLabels, statusLabels } from "@/lib/uiLabels";
 import type { Country } from "@/types/Country";
 import type { Event } from "@/types/Event";
@@ -55,31 +56,27 @@ function outputsMatch(runtime: ModelOutput, reference: ModelOutput) {
     && runtime.missing_indicator_ids.join("|") === reference.missing_indicator_ids.join("|");
 }
 
-const skillToCategory: Record<string, AnalysisSkillCategory> = {
-  panel_econometrics: "panel_econometrics",
-  event_analysis: "event_analysis",
-  event_window_analysis: "event_analysis",
-  network_analysis: "network_analysis",
-  network_dependency: "network_analysis",
-  var_svar: "macro_time_series",
-  reduced_form_var: "macro_time_series",
-  macro_time_series: "macro_time_series",
-};
 
-export function AnalysisWorkbench({ countries, cards, outputs, events }: { countries: Country[]; cards: ModelCard[]; outputs: ModelOutput[]; events: Event[] }) {
+type WorkbenchProps = { countries: Country[]; cards: ModelCard[]; outputs: ModelOutput[]; events: Event[] };
+export function AnalysisWorkbench(props: WorkbenchProps) {
+  const query = useSearchParams();
+  return <AnalysisWorkbenchContent key={query.toString()} {...props} />;
+}
+function AnalysisWorkbenchContent({ countries, cards, outputs, events }: WorkbenchProps) {
   const searchParams = useSearchParams();
   const requestedSkill = searchParams.get("skill");
-  const skillParam = requestedSkill === "var_svar" ? "reduced_form_var" : requestedSkill;
-  const initialCategory: AnalysisSkillCategory = skillParam && skillToCategory[skillParam] ? skillToCategory[skillParam] : "composite_indicators";
-
-  const [category, setCategory] = useState<AnalysisSkillCategory>(initialCategory);
-  const [countrySlug, setCountrySlug] = useState(searchParams.get("country") ?? "poland");
+  const route = resolveAnalysisRoute(requestedSkill, searchParams.get("country"), countries.map((c) => c.slug));
+  const [selectedSkillId, setSelectedSkillId] = useState(route.skill?.skill_id ?? "composite_indicators");
+  const selectedSkill = runtimeAnalysisSkills.find((s) => s.skill_id === selectedSkillId)!;
+  const category = selectedSkill.category;
+  const setCategory = (next: AnalysisSkillCategory) => setSelectedSkillId(runtimeAnalysisSkills.find((s) => s.category === next)!.skill_id);
+  const [countrySlug, setCountrySlug] = useState(route.countrySlug ?? "poland");
   const [modelId, setModelId] = useState<ModelId>(cards[0]?.model_id ?? "household_economic_pressure");
   const [result, setResult] = useState<ModelOutput | null>(null);
   const [diagnostics, setDiagnostics] = useState<AnalysisDiagnostics | null>(null);
   const [consistency, setConsistency] = useState<ConsistencyStatus>(null);
   const [resultTab, setResultTab] = useState<ResultTab>("results");
-  const skills = analysisSkills.filter((skill) => skill.category === category);
+  const skills = runtimeAnalysisSkills.filter((skill) => skill.category === category);
   const card = cards.find((item) => item.model_id === modelId) ?? cards[0];
   const candidate = useMemo(() => outputs.find((item) => item.country_slug === countrySlug && item.model_id === modelId) ?? null, [countrySlug, modelId, outputs]);
 
@@ -94,11 +91,15 @@ export function AnalysisWorkbench({ countries, cards, outputs, events }: { count
 
   return (
     <section className="mt-8">
+      {route.notices.map((notice) => <p key={notice} role="status" className="my-4 text-sm">{notice}</p>)}
+      <div className="mb-4 flex flex-wrap gap-4 text-sm">{(["active", "registry_only", "blocked"] as const).map((state) => <button key={state} onClick={() => setSelectedSkillId(runtimeAnalysisSkills.find((s) => s.state === state)!.skill_id)}>{methodStateLabels[state]} {runtimeAnalysisSkills.filter((s) => s.state === state).length}</button>)}</div>
       <div className="research-tabs" role="tablist" aria-label="分析方法类别">
         {categories.map((item) => <button key={item} type="button" role="tab" className="research-tab" aria-selected={category === item} onClick={() => { setCategory(item); setResult(null); setDiagnostics(null); setConsistency(null); }}>{analysisCategoryLabels[item]}</button>)}
       </div>
 
-      {category === "composite_indicators" ? (
+      <div className="mt-4 flex flex-wrap gap-3">{skills.map((skill) => <button key={skill.skill_id} className="research-tab" aria-pressed={skill.skill_id === selectedSkillId} onClick={() => setSelectedSkillId(skill.skill_id)}>{skill.name}</button>)}</div>
+      <AnalysisSkillCard skill={selectedSkill} />
+      {selectedSkill.state !== "active" ? null : category === "composite_indicators" ? (
         <div className="mt-6 grid gap-6">
           <section className="editorial-panel p-5">
             <div className="grid gap-4 md:grid-cols-3">
@@ -133,22 +134,21 @@ export function AnalysisWorkbench({ countries, cards, outputs, events }: { count
       ) : category === "panel_econometrics" ? (
         <PanelEconometricsWorkbench countries={countries} />
       ) : category === "network_analysis" ? (
-        <TradeNetworkWorkbench countries={countries} />
+        <TradeNetworkWorkbench countries={countries} initialCountry={route.countrySlug} />
       ) : category === "event_analysis" ? (
         <EventWindowWorkbench
           countries={countries}
           events={events}
-          initialCountry={searchParams.get("country") ?? undefined}
+          initialCountry={route.countrySlug}
           initialEvent={searchParams.get("event") ?? undefined}
           initialOutcome={searchParams.get("outcome") ?? undefined}
         />
       ) : category === "macro_time_series" ? (
         <div className="mt-6 grid gap-6">
-          <EcbIdentificationStatus />
-          <LocalProjectionWorkbench />
-          <MacroDriverWorkbench countries={countries} />
-          <VarWorkbench countries={countries} />
-          <div className="divide-y divide-[var(--line)] border-y border-[var(--line)]">{skills.filter((skill) => skill.calculation_mode !== "active").map((skill) => <article key={skill.skill_id} className="grid gap-3 py-5 md:grid-cols-[220px_1fr_auto] md:items-start"><div><p className="editorial-kicker">{skill.calculation_mode.replaceAll("_", " ")}</p><h2 className="mt-2 text-xl font-semibold">{skill.name}</h2></div><p className="text-sm leading-7 text-[var(--muted)]">{skill.description}</p><span className="text-xs font-semibold text-[var(--warning)]">{statusLabels[skill.calculation_mode]}</span><details className="advanced-disclosure md:col-span-3"><summary>登记的需求与诊断</summary><p className="mt-3 text-xs text-[var(--muted)]">Required: {skill.required_data.join(" / ")}</p><p className="mt-2 text-xs text-[var(--muted)]">Diagnostics: {skill.diagnostics.join(" / ")}</p></details></article>)}</div>
+          {selectedSkillId === "monetary_policy_identification" ? <EcbIdentificationStatus /> : null}
+          {selectedSkillId === "local_projections" ? <LocalProjectionWorkbench initialCountry={route.countrySlug} /> : null}
+          {selectedSkillId === "macro_driver_explorer" ? <MacroDriverWorkbench countries={countries} initialCountry={route.countrySlug} /> : null}
+          {selectedSkillId === "reduced_form_var" ? <VarWorkbench countries={countries} initialCountry={route.countrySlug} /> : null}
         </div>
       ) : (
         <div className="divide-y divide-[var(--line)] border-y border-[var(--line)] mt-6">{skills.map((skill) => <article key={skill.skill_id} className="grid gap-3 py-5 md:grid-cols-[220px_1fr_auto] md:items-start"><div><p className="editorial-kicker">{skill.calculation_mode.replaceAll("_", " ")}</p><h2 className="mt-2 text-xl font-semibold">{skill.name}</h2></div><p className="text-sm leading-7 text-[var(--muted)]">{skill.description}</p><span className="text-xs font-semibold text-[var(--warning)]">{statusLabels[skill.calculation_mode]}</span><details className="advanced-disclosure md:col-span-3"><summary>登记的需求与诊断</summary><p className="mt-3 text-xs text-[var(--muted)]">Required: {skill.required_data.join(" / ")}</p><p className="mt-2 text-xs text-[var(--muted)]">Diagnostics: {skill.diagnostics.join(" / ")}</p></details></article>)}</div>

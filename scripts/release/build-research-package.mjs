@@ -187,6 +187,7 @@ const sourceEntries = [
   ["identified-shocks/validate-ecb-shocks.mjs", "scripts/validation/validate-ecb-shocks.mjs"],
   ["network/network_acquisition_manifest.json", "src/data/network/network_acquisition_manifest.json"],
   ["analysis/analysis_skill_registry.json", "src/data/analysis/analysis_skill_registry.json"],
+  ["analysis/v173_frozen_output_hashes.json", "src/data/analysis/v173_frozen_output_hashes.json"],
   ["analysis/advanced_analysis_validation_summary.json", "src/data/analysis/advanced_analysis_validation_summary.json"],
   ["analysis/var_readiness.json", "src/data/analysis/var_readiness.json"],
   ["analysis/var_reference_cases.json", "src/data/analysis/var_reference_cases.json"],

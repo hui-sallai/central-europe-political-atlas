@@ -40,13 +40,13 @@ function periodChange(rows: MacroDriverRuntimeRow[], lag: number) {
   return ((current / previous) - 1) * 100;
 }
 
-export function MacroDriverWorkbench({ countries, compact = false }: { countries: Country[]; compact?: boolean }) {
+export function MacroDriverWorkbench({ countries, compact = false, initialCountry }: { countries: Country[]; compact?: boolean; initialCountry?: string }) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const [records, setRecords] = useState<MacroDriverRuntimeRow[]>([]);
   const [dictionary, setDictionary] = useState<MacroDriverDefinition[]>([]);
   const [loadState, setLoadState] = useState<"loading" | "ready" | "error">("loading");
   const [driverId, setDriverId] = useState("policy_rate");
-  const [area, setArea] = useState("hungary");
+  const [area, setArea] = useState(initialCountry ?? "hungary");
   const [transformation, setTransformation] = useState("level");
 
   useEffect(() => {

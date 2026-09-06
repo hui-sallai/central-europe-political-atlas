@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "node scripts/security/check-public-secrets.mjs && node scripts/macro/build-var-readiness.mjs && pnpm lp:build && pnpm lp:robustness && pnpm lp:reference && pnpm lp:validate && node scripts/export-research-data.mjs && node scripts/release/build-research-package.mjs && node scripts/validation/run-research-validation.mjs && node scripts/validation/validate-ecb-shocks.mjs && node scripts/validation/run-advanced-analysis-validation.mjs && node scripts/validation/run-ui-language-qa.mjs && node scripts/build-home-country-map.mjs && next build && node scripts/release/validate-release.mjs",
+    "build": "node scripts/security/check-public-secrets.mjs && pnpm analysis-registry:validate && pnpm lp:validate && node scripts/export-research-data.mjs && node scripts/release/build-research-package.mjs && node scripts/validation/run-research-validation.mjs && node scripts/validation/validate-ecb-shocks.mjs && node scripts/validation/run-advanced-analysis-validation.mjs && node scripts/validation/run-ui-language-qa.mjs && node scripts/build-home-country-map.mjs && next build && node scripts/release/validate-release.mjs",
     "build:site": "node scripts/build-home-country-map.mjs && next build",
     "map:home": "node scripts/build-home-country-map.mjs",
     "sandbox:hungary-boundary": "node scripts/build-hungary-boundary-sandbox.mjs",
@@ -12,7 +12,8 @@
     "package:research-data": "node scripts/release/build-research-package.mjs",
     "research:validate": "node scripts/validation/run-research-validation.mjs",
     "news:validate": "node scripts/validation/validate-news-update.mjs",
-    "analysis:validate": "node scripts/validation/validate-ecb-shocks.mjs && node scripts/validation/run-advanced-analysis-validation.mjs",
+    "analysis-registry:validate": "node scripts/validation/validate-analysis-registry.mjs",
+    "analysis:validate": "node scripts/validation/validate-analysis-registry.mjs && node scripts/validation/validate-ecb-shocks.mjs && node scripts/validation/run-advanced-analysis-validation.mjs",
     "ecb:acquire": "python scripts/acquisition/acquire-ecb-monetary-events.py --refresh",
     "ecb:build": "python scripts/acquisition/acquire-ecb-monetary-events.py",
     "ecb:validate": "node scripts/validation/validate-ecb-shocks.mjs",

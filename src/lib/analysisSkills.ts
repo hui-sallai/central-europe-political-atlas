@@ -1,192 +1,43 @@
+import registry from "@/data/analysis/analysis_skill_registry.json";
 import { modelCards } from "@/lib/modelFramework";
 import { PLATFORM_BASE_URL, PLATFORM_VERSION } from "@/lib/releaseMetadata";
-import { panelGate } from "@/lib/panelData";
-import type { AnalysisSkill, AnalysisSkillCategory } from "@/types/AnalysisSkill";
+import type { AnalysisSkill, AnalysisSkillCategory, AnalysisSkillRegistryRecord, AnalysisSkillRuntimeManifest } from "@/types/AnalysisSkill";
 
-export const analysisCategoryLabels: Record<AnalysisSkillCategory, string> = {
-  composite_indicators: "综合指标 Composite Indicators",
-  panel_econometrics: "面板计量 Panel Econometrics",
-  macro_time_series: "宏观时间序列 Macro Time Series",
-  event_analysis: "事件窗口分析 Event Window Analysis",
-  network_analysis: "贸易网络分析 Trade Network Analysis",
-  bayesian_analysis: "贝叶斯分析 Bayesian Analysis",
-};
-
-const sharedOutputSchema = ["result", "drivers", "diagnostics", "data_trace", "limitations"];
-const registryCitation = `${PLATFORM_BASE_URL}methodology/ (Analysis Skills Registry, ${PLATFORM_VERSION})`;
-
+export const canonicalAnalysisRegistry = registry as { records: AnalysisSkillRegistryRecord[]; categories: Record<AnalysisSkillCategory, string> };
+export const analysisCategoryLabels = canonicalAnalysisRegistry.categories;
+export const methodStateLabels = { active: "已启用", registry_only: "已登记，当前未运行", blocked: "受限，暂不可运行", deprecated_alias: "历史别名" } as const;
+const citation = `${PLATFORM_BASE_URL}methodology/ (Analysis Skills Registry, ${PLATFORM_VERSION})`;
+export const runtimeAnalysisSkills: AnalysisSkillRuntimeManifest[] = canonicalAnalysisRegistry.records.flatMap((row) => {
+  if (row.state === "deprecated_alias" || !row.presentation) return [];
+  return [{ ...row.presentation, skill_id: row.skill_id, state: row.state, calculation_mode: row.state,
+    required_data: row.required_data ?? [], gate: row.gate, readiness_reference: row.readiness_reference,
+    note: row.note, reason_zh: row.reason_zh, citation }];
+});
+const composite = runtimeAnalysisSkills.find((row) => row.skill_id === "composite_indicators")!;
 export const activeCompositeSkills: AnalysisSkill[] = modelCards.map((card) => ({
-  skill_id: card.model_id,
-  name: card.name_zh,
-  category: "composite_indicators",
-  description: card.purpose,
-  required_data: card.inputs.map((input) => input.indicator_id),
-  optional_data: card.reserved_inputs,
-  parameters: [card.formula_version, card.weight_version],
-  minimum_observations: card.inputs.length,
-  supported_spatial_level: ["country"],
-  supported_frequency: ["annual"],
-  calculation_mode: "active",
-  output_schema: sharedOutputSchema,
-  diagnostics: ["data_completeness", "year_alignment", "observation_trace", "validation_gate"],
+  ...composite, skill_id: card.model_id, name: card.name_zh, description: card.purpose,
+  required_data: card.inputs.map((input) => input.indicator_id), optional_data: card.reserved_inputs,
+  parameters: [card.formula_version, card.weight_version], minimum_observations: card.inputs.length,
   limitations: card.limitations,
-  citation: registryCitation,
 }));
+export const analysisSkills = [...runtimeAnalysisSkills, ...activeCompositeSkills];
 
-export const futureAnalysisSkills: AnalysisSkill[] = [
-  {
-    skill_id: "panel_econometrics",
-    name: "Panel Econometrics",
-    category: "panel_econometrics",
-    description: "基于 2015–2025 官方年度面板运行 Pooled OLS、国家固定效应和国家加年份固定效应。",
-    required_data: [">=8_countries", ">=8_years", "comparable_key_variables", "traceable_official_observations"],
-    optional_data: ["country_fixed_effects", "time_fixed_effects", "clustered_standard_errors"],
-    parameters: ["estimator", "fixed_effects", "standard_error_method"],
-    minimum_observations: 64,
-    supported_spatial_level: ["country"],
-    supported_frequency: ["annual"],
-    calculation_mode: panelGate.status === "passed" ? "active" : "data_building",
-    output_schema: ["coefficients", "standard_errors", "diagnostics", "data_trace", "limitations"],
-    diagnostics: ["sample_coverage", "multicollinearity", "residual_checks", "specification_notes"],
-    limitations: ["association 不等于 causality；固定效应本身不提供因果识别。", "部分可比口径和 pending 观测不会进入估计。", "HC1 稳健标准误使用渐近正态推断；按国家聚类标准误使用聚类稳健协方差 + Student-t 参考分布（df = G − 1）。"],
-    citation: registryCitation,
-  },
-  {
-    skill_id: "reduced_form_var",
-    name: "简化式 VAR（Reduced-form VAR）",
-    category: "macro_time_series",
-    description: "单国月度简化式 VAR：变换 → 平稳性检验 → 滞后选择 → 估计 → 稳定性与残差诊断 → 正交化简化式动态响应。逐国准入：一国数据不足不阻止其他国家。",
-    required_data: ["consistent_time_series", "documented_frequency", "sufficient_lags", "stationary_transformed_series"],
-    optional_data: [],
-    parameters: ["lag_order", "information_criterion", "sample_window", "transformation", "deterministic_terms"],
-    minimum_observations: 60,
-    supported_spatial_level: ["country"],
-    supported_frequency: ["monthly"],
-    calculation_mode: "active",
-    output_schema: ["coefficient_matrices", "residual_covariance", "information_criteria", "stability", "residual_diagnostics", "orthogonalized_irf", "data_trace", "limitations"],
-    diagnostics: ["stationarity", "lag_selection", "stability", "residual_autocorrelation_h12_primary", "residual_autocorrelation_h18_h24_sensitivity", "residual_month_of_year", "parameter_count_gate"],
-    limitations: ["简化式创新不等于已识别经济冲击；动态响应不构成因果效应。", "正交化 IRF 依赖变量排序；Cholesky 排序不等于结构识别。", "readiness 按 country × variable set × window × transformation 逐国评估；未通过完整 gate 的国家显示 unavailable。"],
-    citation: registryCitation,
-  },
-  {
-    skill_id: "svar",
-    name: "SVAR（结构 VAR）",
-    category: "macro_time_series",
-    description: "结构冲击识别接口；需要显式识别策略。",
-    required_data: ["consistent_time_series", "explicit_identification_strategy"],
-    optional_data: ["short_run_restrictions", "long_run_restrictions", "sign_restrictions", "external_instruments"],
-    parameters: ["identification", "lag_order", "sample_window"],
-    minimum_observations: 60,
-    supported_spatial_level: ["country"],
-    supported_frequency: ["monthly", "quarterly"],
-    calculation_mode: "registry_only",
-    output_schema: ["structural_irf", "identification_record", "diagnostics"],
-    diagnostics: ["identification_validity", "stationarity", "stability"],
-    limitations: ["当前版本不运行（保持 registry_only）。", "Cholesky 排序不自动构成结构识别。"],
-    citation: registryCitation,
-  },
-  {
-    skill_id: "event_window_analysis",
-    name: "事件窗口分析 Event Window Analysis",
-    category: "event_analysis",
-    description: "描述性事件窗口分析：基于月度高频数据，报告已核验事件前后的指标变化（事件前均值、事件期数值、事件后均值、变化幅度），不构成因果识别。",
-    required_data: ["verified_event_date_monthly_precision", "monthly_outcome_series"],
-    optional_data: ["overlapping_event_flags"],
-    parameters: ["event_window", "outcome_indicator"],
-    minimum_observations: 18,
-    supported_spatial_level: ["country"],
-    supported_frequency: ["monthly"],
-    calculation_mode: "active",
-    output_schema: ["event_window_points", "pre_post_summary", "diagnostics", "data_trace", "limitations"],
-    diagnostics: ["window_coverage", "overlapping_events", "missing_periods"],
-    limitations: ["只描述事件时间附近的指标变化，不输出 effect / impact / 因果效应。", "完整窗口要求至少 12 个事件前月度观测与 6 个事件后观测；不足时标记为探索性短窗口。"],
-    citation: registryCitation,
-  },
-  {
-    skill_id: "event_study",
-    name: "Formal Event Study（因果事件研究）",
-    category: "event_analysis",
-    description: "事件窗口与结果变量变化分析接口；事件编码本身不构成因果识别。",
-    required_data: ["verified_event_date", "pre_post_outcome_series"],
-    optional_data: ["comparison_group", "multiple_event_controls"],
-    parameters: ["event_window", "baseline_window", "comparison_design"],
-    minimum_observations: 20,
-    supported_spatial_level: ["country", "region"],
-    supported_frequency: ["daily", "monthly", "quarterly"],
-    calculation_mode: "registry_only",
-    output_schema: ["event_time_estimates", "confidence_intervals", "diagnostics", "data_trace", "limitations"],
-    diagnostics: ["pre_trends", "overlapping_events", "window_coverage"],
-    limitations: ["当前版本不运行（保持 registry_only / blocked）。", "低置信度或待编码事件不得进入估计。"],
-    citation: registryCitation,
-  },
-  {
-    skill_id: "local_projections",
-    name: "Local Projections",
-    category: "macro_time_series",
-    description: "使用冻结的 JK 纯货币政策与央行信息月度冲击，运行单国、单结果、联合冲击的 lag-augmented Local Projection。",
-    required_data: ["consistent_monthly_outcome", "identified_joint_jk_shocks", "common_horizon_sample", "validated_reference_estimator"],
-    optional_data: ["fixed_p2_sensitivity", "fixed_p6_sensitivity"],
-    parameters: ["country", "outcome", "horizon", "shock_component", "confidence_level"],
-    minimum_observations: 96,
-    supported_spatial_level: ["country"],
-    supported_frequency: ["monthly", "quarterly"],
-    calculation_mode: "active",
-    output_schema: ["horizon_responses", "pointwise_confidence_intervals", "diagnostics", "data_trace", "limitations"],
-    diagnostics: ["shock_validity", "common_horizon_coverage", "lag_selection_once", "cross_language_reference"],
-    limitations: ["仅估计通过 country × outcome × regime 门禁的组合。", "区间是逐 horizon 点态区间；不提供 panel LP、state dependence、SVAR 或 Bayesian VAR。", "非欧元国家结果是外部 ECB spillover；CBI 的 0.25 仅为数值归一化。"],
-    citation: registryCitation,
-  },
-  {
-    skill_id: "network_dependency",
-    name: "贸易网络分析 Trade Network Analysis",
-    category: "network_analysis",
-    description: "双边货物贸易伙伴集中度分析：2015–2025 年十国完整伙伴边（UN Comtrade TOTAL goods，进/出口），输出 HHI、头部伙伴、中国份额、德国份额与多样化指标。",
-    required_data: ["directed_edges", "comparable_edge_weights", "time_reference"],
-    optional_data: ["sector_nodes", "project_links", "regional_nodes"],
-    parameters: ["network_definition", "edge_weight", "time_window"],
-    minimum_observations: 30,
-    supported_spatial_level: ["country"],
-    supported_frequency: ["annual"],
-    calculation_mode: "active",
-    output_schema: ["network_summary", "node_metrics", "diagnostics", "data_trace", "limitations"],
-    diagnostics: ["edge_coverage", "weight_comparability", "isolated_nodes"],
-    limitations: ["描述性集中度指标不是一般中心性；betweenness / eigenvector / PageRank 在完整区域图定义清楚之前暂缓。", "中心性不等于政治影响，集中度不等于风险，中国份额不等于政治依赖。"],
-    citation: registryCitation,
-  },
-  {
-    skill_id: "bayesian_var",
-    name: "Bayesian VAR",
-    category: "bayesian_analysis",
-    description: "贝叶斯宏观动态分析接口；当前不设置先验、不生成后验结果。",
-    required_data: ["consistent_time_series", "documented_vintages"],
-    optional_data: ["prior_calibration", "external_forecasts"],
-    parameters: ["prior", "lag_order", "sample_window"],
-    minimum_observations: 60,
-    supported_spatial_level: ["country"],
-    supported_frequency: ["quarterly", "monthly"],
-    calculation_mode: "blocked",
-    output_schema: ["posterior_summary", "credible_intervals", "diagnostics", "data_trace", "limitations"],
-    diagnostics: ["prior_sensitivity", "convergence", "posterior_predictive_checks"],
-    limitations: ["当前未建立可复核的先验、敏感性与后验验证方案，因此保持 blocked。", "不得把先验设定隐藏为客观事实。"],
-    citation: registryCitation,
-  },
-  {
-    skill_id: "causal_policy_analysis",
-    name: "Causal Policy Analysis",
-    category: "panel_econometrics",
-    description: "政策评估设计登记接口；只有识别假设和对照组成立时才讨论因果效应。",
-    required_data: ["verified_policy_timing", "outcome_series", "comparison_design"],
-    optional_data: ["treatment_intensity", "regional_controls"],
-    parameters: ["design", "treatment_definition", "estimation_window"],
-    minimum_observations: 50,
-    supported_spatial_level: ["country", "region"],
-    supported_frequency: ["annual", "quarterly", "monthly"],
-    calculation_mode: "registry_only",
-    output_schema: ["effect_estimates", "uncertainty", "diagnostics", "data_trace", "limitations"],
-    diagnostics: ["identification_assumptions", "pre_trends", "placebo_tests", "robustness"],
-    limitations: ["当前版本不运行（保持 registry_only / blocked）。", "事件关联与时间先后不能替代因果识别。"],
-    citation: registryCitation,
-  },
-];
-
-export const analysisSkills = [...activeCompositeSkills, ...futureAnalysisSkills];
+export function resolveAnalysisSkill(requested: string | null) {
+  const id = requested ?? "composite_indicators";
+  const record = canonicalAnalysisRegistry.records.find((row) => row.skill_id === id);
+  const target = record?.state === "deprecated_alias" ? record.alias_of : id;
+  return runtimeAnalysisSkills.find((row) => row.skill_id === target);
+}
+export function resolveAnalysisRoute(requested: string | null, country: string | null, countries: readonly string[]) {
+  const skill = resolveAnalysisSkill(requested);
+  const notices: string[] = [];
+  const alias = canonicalAnalysisRegistry.records.find((row) => row.skill_id === requested && row.state === "deprecated_alias");
+  if (alias) notices.push("历史别名已转到对应的当前方法。");
+  if (!skill) notices.push("未知分析方法，请从方法列表选择。");
+  let countrySlug: string | undefined;
+  if (country && skill?.supports_country) {
+    countrySlug = countries.includes(country) ? country : countries[0];
+    if (countrySlug !== country) notices.push("国家参数无效，已选择可用国家。");
+  } else if (country) notices.push("此方法不使用国家参数。");
+  return { skill, category: skill?.category ?? "composite_indicators", countrySlug, notices };
+}

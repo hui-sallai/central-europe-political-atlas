@@ -30,8 +30,11 @@ const oldPath=read("lp_path_inference_validation.json");oldPath.full_model_covar
 const support=read("lp_shock_support_status.json"),legacySupport=read("lp_shock_support_diagnostics.json");
 for(const row of legacySupport.records){const extra=support.records.find(s=>s.model_id===row.model_id);row.effective_support_mp=extra.mp;row.effective_support_cbi=extra.cbi;row.support_interpretation="concentration-based effective support, not asymptotic effective sample size";}
 legacySupport.schema_version="lp-shock-support-diagnostics-v1.72";write("lp_shock_support_diagnostics.json",legacySupport);
-const skillPath=path.join(root,"src/data/analysis/analysis_skill_registry.json"),skills=JSON.parse(fs.readFileSync(skillPath,"utf8"));skills.schema_version="analysis-skill-registry-v1.72";
+const skillPath=path.join(root,"src/data/analysis/analysis_skill_registry.json"),skills=JSON.parse(fs.readFileSync(skillPath,"utf8"));
+if(skills.schema_version!=="analysis-skill-registry-v1.73"){
+skills.schema_version="analysis-skill-registry-v1.72";
 for(const row of skills.records??[]){if(String(row.skill_id??row.id??"").includes("local_projection"))row.note="Single-country baseline active; pointwise and sup-t inference active; validated finite-sample/shock-support diagnostics only; bias correction registry_only.";}
 skills.generated_at=JSON.parse(fs.readFileSync(path.join(root,"src/data/release.json"),"utf8")).release_date;
 fs.writeFileSync(skillPath,`${JSON.stringify(skills,null,2)}\n`);
+}
 console.log("v1.72 audit metadata finalized; frozen baseline preserved.");

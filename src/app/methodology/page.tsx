@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { runtimeAnalysisSkills } from "@/lib/analysisSkills";
+import { AnalysisSkillCard } from "@/components/AnalysisSkillCard";
 import { CitationActions } from "@/components/CitationActions";
 import { platformStatus } from "@/lib/platformStatus";
 import { getResearchPackageFilename, platformApaCitation, platformBibtexCitation, platformCitation } from "@/lib/releaseMetadata";
@@ -19,6 +21,10 @@ export default function MethodologyPage() {
 
     <Section id="data" label="01 / Data" title="数据如何进入平台"><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">每条正式观测必须有国家或地区、时间、数值、单位、来源名称、来源链接、可靠性、状态和更新时间。official / verified 可进入相应事实层；pending 保留但不参与比较；sample 与 placeholder 不进入分析。A 级为官方统计或机构，B 级为可核验权威来源，C 级只作线索，D 级排除。</p><p className="mt-3 text-sm leading-7 text-[var(--muted)]">跨国比较只使用同定义、同单位、同层级和共同年份。计算值必须保留分子、分母、公式和来源。</p><Link href="/data" className="mt-4 inline-flex text-sm font-semibold text-[var(--accent)]">打开 Data Explorer</Link></Section>
 
+    <Section id="analysis-registry" label="Analysis Registry" title="分析方法与当前状态">
+      <p className="mt-4 text-sm">方法状态、解释边界与工作台导航共同读取同一份 canonical registry。方法已启用不表示所有数据组合均通过准入。</p>
+      <div className="grid gap-4 md:grid-cols-2">{runtimeAnalysisSkills.map((skill) => <AnalysisSkillCard key={skill.skill_id} skill={skill} />)}</div>
+    </Section>
     <Section id="models" label="02 / Analysis" title="透明分析方法">
       <p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">所有方法统一通过 Analysis Runner：输入数据 → 计算 → diagnostics → result → consistency。综合指标继续使用既有标准化与权重；Scenario 仍是条件参数预设，不改写原始数据。</p>
       <div className="mt-5 grid gap-5 md:grid-cols-2">

@@ -13,7 +13,7 @@ import { researchCountries, researchEvents } from "@/lib/researchData";
 
 export const metadata: Metadata = {
   title: "分析工作台",
-  description: "运行透明综合指标与年度面板估计，或在同年、同单位、同定义的十国横向对比中比较模型得分与核心观测。",
+  description: "分析综合指标、面板计量、宏观驱动、简化式 VAR、已识别 ECB 冲击、Local Projections、事件窗口与贸易网络；支持同年、同单位、同定义的年度指标及综合指数比较。",
 };
 
 const matrixIndicatorIds = ["real_gdp_growth", "hicp_inflation", "unemployment_rate", "gdp_per_capita_eur"] as const;
@@ -74,7 +74,7 @@ export default function ModelsPage() {
       <header className="max-w-4xl border-b border-[var(--line)] pb-8">
         <p className="editorial-kicker">分析工作台 / {platformStatus.version}</p>
         <h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">分析工作台</h1>
-        <p className="mt-5 text-base leading-8 text-[var(--muted)]">在同一入口运行透明综合指标、年度面板估计、贸易网络分析、事件窗口分析、逐国简化式 VAR 与已验证的单国 Local Projections，或切换到十国横向对比。各方法只展示通过其预注册数据、识别、样本和推断门禁的组合；SVAR 与 Bayesian VAR 仍未启用。</p>
+        <p className="mt-5 text-base leading-8 text-[var(--muted)]">在同一入口运行透明综合指标、年度面板估计、贸易网络分析、事件窗口分析、逐国简化式 VAR 与已验证的单国 Local Projections，或切换到指标与综合指数比较。各方法只展示通过其预注册数据、识别、样本和推断门禁的组合；SVAR 与 Bayesian VAR 仍未启用。</p>
         <div className="mt-5 flex flex-wrap gap-3"><Link href="/scenarios" className="rounded-lg bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-white">运行情景分析</Link><Link href="/methodology#models" className="rounded-lg border border-[var(--line)] px-4 py-2 text-sm font-semibold">查看方法说明</Link></div>
       </header>
       <Suspense fallback={<p className="mt-8 border-y border-[var(--line)] py-10 text-center text-sm text-[var(--muted)]">正在加载分析工作台…</p>}>
@@ -83,9 +83,9 @@ export default function ModelsPage() {
           compareCountries={
           <section aria-labelledby="cross-country-comparison-title">
             <header className="max-w-4xl border-b border-[var(--line)] pb-6">
-              <p className="editorial-kicker">十国横向对比</p>
-              <h2 id="cross-country-comparison-title" className="mt-3 text-3xl font-semibold">十国横向对比</h2>
-              <p className="mt-4 text-base leading-8 text-[var(--muted)]">把同一模型、同一版本、同一输入年份下的十国结果并排比较，或用矩阵同时浏览国家 × 指标。不同年份的结果不会进入同一排名；未通过比较门控的国家单独列出并说明原因。</p>
+              <p className="editorial-kicker">指标与综合指数比较</p>
+              <h2 id="cross-country-comparison-title" className="mt-3 text-3xl font-semibold">指标与综合指数比较</h2>
+              <p className="mt-4 text-base leading-8 text-[var(--muted)]">这里只比较同年份、同定义、同单位的年度指标与综合指数。LP 跨国响应仅可描述性并列，不进入排名；VAR、面板及网络结果不接入此矩阵。不同年份的结果不会进入同一排名；未通过比较门控的国家单独列出并说明原因。</p>
             </header>
             <ModelComparisonBoard comparisons={comparisons} />
             <CountryComparisonMatrix data={matrixData} />

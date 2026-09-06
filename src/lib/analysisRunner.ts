@@ -1,4 +1,4 @@
-import { analysisSkills } from "@/lib/analysisSkills";
+import { analysisSkills, resolveAnalysisSkill } from "@/lib/analysisSkills";
 import { calculateModelOutput, modelCards } from "@/lib/modelFramework";
 import { runPanelEconometrics } from "@/lib/panelEngine";
 import { researchCountries } from "@/lib/researchData";
@@ -7,15 +7,15 @@ import type { ModelOutput } from "@/types/ModelOutput";
 import type { PanelAnalysisOutput, PanelSpecification } from "@/types/PanelAnalysis";
 
 export function runAnalysisSkill(request: AnalysisRunRequest): AnalysisResult<ModelOutput | PanelAnalysisOutput> {
-  const skill = analysisSkills.find((candidate) => candidate.skill_id === request.skillId);
+  const skill = analysisSkills.find((candidate) => candidate.skill_id === request.skillId) ?? resolveAnalysisSkill(request.skillId);
   if (!skill || skill.calculation_mode !== "active") {
     return {
-      status: skill?.calculation_mode === "data_building" || skill?.calculation_mode === "blocked" || skill?.calculation_mode === "registry_only" ? skill.calculation_mode : "registry_only",
+      status: skill?.calculation_mode === "data_building" || skill?.calculation_mode === "blocked" || skill?.calculation_mode === "registry_only" ? skill.calculation_mode : "unavailable",
       estimates: null,
       diagnostics: {
         input_completeness: null,
         year_alignment: "not_run",
-        validation_gate: skill?.calculation_mode ?? "registry_only",
+        validation_gate: skill?.calculation_mode ?? "unknown_skill",
         missing_variables: skill?.required_data ?? [],
       },
       visualizations: [],
@@ -45,6 +45,14 @@ export function runAnalysisSkill(request: AnalysisRunRequest): AnalysisResult<Mo
     }
   }
 
+  if (skill.category !== "composite_indicators") {
+    return {
+      status: "unavailable", estimates: null,
+      diagnostics: { input_completeness: null, year_alignment: "not_run", validation_gate: "dedicated_workbench_required", missing_variables: skill.required_data },
+      visualizations: [], data_trace: [],
+      limitations: ["请从该方法的专用工作区查看数据、准入条件与已验证输出。", ...skill.limitations],
+    };
+  }
   const country = researchCountries.find((candidate) => candidate.slug === request.dataset.country_slug);
   const card = modelCards.find((candidate) => candidate.model_id === request.skillId);
   if (!country || !card) {

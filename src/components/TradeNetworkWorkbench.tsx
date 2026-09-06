@@ -58,10 +58,10 @@ function coverageRatioOf(group: UiPackGroup) {
   return group.coverage?.eligible_coverage_ratio ?? group.coverage?.coverage_ratio ?? null;
 }
 
-export function TradeNetworkWorkbench({ countries }: { countries: Country[] }) {
+export function TradeNetworkWorkbench({ countries, initialCountry }: { countries: Country[]; initialCountry?: string }) {
   const [pack, setPack] = useState<UiPack | null>(null);
   const [loadState, setLoadState] = useState<"loading" | "ready" | "error">("loading");
-  const [country, setCountry] = useState("hungary");
+  const [country, setCountry] = useState(initialCountry ?? "hungary");
   const [year, setYear] = useState(2024);
   const [flow, setFlow] = useState<"exports" | "imports">("imports");
   const [compareWith, setCompareWith] = useState<string>("");
