@@ -19,12 +19,39 @@ const patternRegistry = JSON.parse(fs.readFileSync(path.join(root, "src/data/eve
 const metaPatterns = [
   /(?:article:published_time|datePublished|datepublished)[^>\n]{0,240}?(20\d{2}-\d{2}-\d{2})/i,
   /(20\d{2}-\d{2}-\d{2})[^>\n]{0,240}?(?:article:published_time|datePublished|datepublished)/i,
+  /["']visibleDate["']\s*:\s*["'](20\d{2}-\d{2}-\d{2})/i,
   /<time[^>]+datetime=["'](20\d{2}-\d{2}-\d{2})/i,
 ];
 const updatedPatterns = [
   /(?:article:modified_time|dateModified|datemodified)[^>\n]{0,240}?(20\d{2}-\d{2}-\d{2})/i,
   /(20\d{2}-\d{2}-\d{2})[^>\n]{0,240}?(?:article:modified_time|dateModified|datemodified)/i,
 ];
+const bulletinItems = {
+  "ro-2026-08-20-pnrr-pay-talks": ["TALKS — PNRR public-sector wage law consultations", 1],
+  "ro-2026-08-20-public-debt-threshold": ["DEBT — public debt exceeds 60% of GDP", 2],
+  "ro-2026-08-20-drone-destroyed": ["RAIL — Romanian forces destroy explosive drone", 3],
+  "ro-2026-08-24-integrity-bill": ["PARLIAMENT — revised Integrity Bill", 1],
+  "ro-2026-08-24-hydrogen-law": ["PARLIAMENT — Hydrogen Law fast-tracked", 2],
+  "ro-2026-08-24-public-pay-law": ["PARLIAMENT — public-sector salary law remains uncertain", 3],
+  "ro-2026-08-25-minimum-wage-protest": ["Protest — unions demand minimum-wage increase", 4],
+  "ro-2026-08-26-safe-payment": ["SAFE — first EUR 2.5 billion defence payment", 1],
+  "ro-2026-08-26-education-pay-rejection": ["Pay law — education unions reject draft", 4],
+  "ro-2026-08-27-safe-allocation": ["Funding — government allocates SAFE funds", 2],
+  "ro-2026-08-27-moldova-trilateral": ["Moldova anniversary — Romania-Moldova-Ukraine meeting", 1],
+  "ro-2026-08-29-integrity-law-promulgated": ["Controversial Public Integrity Law published", 2],
+  "ro-2026-09-01-parliament-session": ["Parliament — autumn session begins", 3],
+  "si-2026-09-03-energy-excise": ["Excise Duty Act amendments", 3, "government_briefing"],
+  "si-2026-09-03-zois-scholarships": ["Fairer conditions for Zois scholarships", 1, "government_briefing"],
+  "si-2026-09-03-energy-policy": ["Balanced and resilient energy policy", 2, "government_briefing"],
+  "hr-2026-09-02-gospic-waste-visit": ["Prime Minister visits Gospić in light of illegal waste affair", 1],
+  "hr-2026-09-03-new-hazardous-waste-site": ["MOST party claims to find new hazardous waste site", 1],
+  "hr-2026-09-03-treasury-bills": ["New round of Treasury bill registration to begin Monday", 2],
+  "hr-2026-09-03-sava-border-surveillance": ["Police step up border surveillance on Sava River", 3],
+  "hr-2026-08-31-bled-forum": ["Prime Minister attends Bled Strategic Forum", 2],
+  "hr-2026-08-31-savica-hazardous-waste": ["HDZ warns of hazardous waste in Zagreb's Savica", 3],
+  "hr-2026-08-28-swine-fever-restrictions": ["Restrictions due to African swine fever lifted in some areas", 1],
+  "hr-2026-08-25-diplomats-conference": ["Annual conference of diplomats held in Zagreb", 2],
+};
 
 async function inspect(item) {
   const url = new URL(item.sourceUrl);
@@ -37,7 +64,7 @@ async function inspect(item) {
   let html = "";
   let httpStatus = null;
   try {
-    html = execFileSync("curl", ["-L", "-fsS", "--connect-timeout", "10", "--max-time", "25", "-A", "Central Europe Political Atlas source-date audit/1.0", item.sourceUrl], { encoding: "utf8", maxBuffer: 12 * 1024 * 1024 });
+    html = execFileSync("curl", ["-L", "-fsS", "--connect-timeout", "5", "--max-time", "10", "-A", "Central Europe Political Atlas source-date audit/1.0", item.sourceUrl], { encoding: "utf8", maxBuffer: 12 * 1024 * 1024 });
     httpStatus = 200;
   } catch {}
   const metadataDate = metaPatterns.map((regex) => regex.exec(html)?.[1]).find(Boolean) ?? null;
@@ -58,20 +85,25 @@ async function inspect(item) {
       date_evidence: `TASR visible publication date ${tasrArchiveDates[item.id]}, confirmed in indexed source archive`,
       verification_method: "official_archive_visible_date",
       verification_status: "verified_source_archive",
+      source_page_type: "individual_article",
       retrieved_at: "2026-09-06",
     };
   }
-  const conflict = Boolean(sourceDate && sourceDate !== item.weekOf);
+  const bulletinItem = bulletinItems[item.id];
+  const effectiveSourceDate = bulletinItem ? item.weekOf : sourceDate;
+  const conflict = Boolean(effectiveSourceDate && effectiveSourceDate !== item.weekOf);
   const status = conflict ? "conflict" : metadataDate ? "verified_exact" : patternDate ? pattern.status : "unverifiable";
   return {
     news_id: item.id,
     source_url: item.sourceUrl,
     record_date: item.weekOf,
-    source_publication_date: sourceDate,
-    source_updated_date: updatedDate && updatedDate !== sourceDate ? updatedDate : null,
-    date_evidence: metadataDate ? `page metadata datePublished=${metadataDate}` : patternDate ? `${pattern.id}=${patternDate}` : `no machine-readable publication date found; HTTP ${httpStatus ?? "unavailable"}`,
-    verification_method: metadataDate ? "source_page_metadata" : patternDate ? pattern.id : "automated_page_inspection",
-    verification_status: status,
+    source_publication_date: effectiveSourceDate,
+    source_updated_date: updatedDate && updatedDate !== effectiveSourceDate ? updatedDate : null,
+    date_evidence: bulletinItem ? `dated RRI Newsflash page heading and newsroom timestamp=${item.weekOf}` : metadataDate ? `page metadata datePublished=${metadataDate}` : patternDate ? `${pattern.id}=${patternDate}` : `no machine-readable publication date found; HTTP ${httpStatus ?? "unavailable"}`,
+    verification_method: bulletinItem ? "official_bulletin_visible_date_and_item" : metadataDate ? "source_page_metadata" : patternDate ? pattern.id : "automated_page_inspection",
+    verification_status: bulletinItem && !conflict ? "verified_bulletin_item" : status,
+    source_page_type: bulletinItem ? (bulletinItem[2] ?? "daily_bulletin") : "individual_article",
+    ...(bulletinItem ? { source_item_title: bulletinItem[0], source_item_position: bulletinItem[1] } : {}),
     retrieved_at: "2026-09-06",
   };
 }

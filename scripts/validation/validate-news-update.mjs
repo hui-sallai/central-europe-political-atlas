@@ -24,11 +24,15 @@ const allowedCountries = new Set(["hungary", "poland", "czechia", "slovakia", "g
 const allowedTopics = new Set(["政治", "经济", "欧盟", "能源", "区域", "对华经贸"]);
 const allowedEventTypes = new Set(["fiscal", "EU_funds", "macro", "energy", "industrial_policy", "FDI", "China", "election", "regional"]);
 const ids = new Set();
-const urls = new Set();
+const individualUrls = new Set();
+const sourceItems = new Set();
 const failures = [];
 const counts = {};
 const verificationById = new Map(verification.records.map((item) => [item.news_id, item]));
-const verifiedStatuses = new Set(["verified_exact", "verified_source_archive", "verified_url_pattern"]);
+const verifiedStatuses = new Set(["verified_exact", "verified_source_archive", "verified_url_pattern", "verified_bulletin_item"]);
+const allowedPageTypes = new Set(["individual_article", "daily_bulletin", "agency_roundup", "government_briefing", "official_archive_item"]);
+const sharedPageTypes = new Set(["daily_bulletin", "agency_roundup", "government_briefing"]);
+const normalizeSourceItem = (value) => value.normalize("NFKC").toLocaleLowerCase().replace(/\s+/g, " ").trim();
 
 for (const item of items) {
   if (item.weekOf < audit.window.start || item.weekOf > audit.window.end) failures.push(`${item.id}: date outside window`);
@@ -40,12 +44,22 @@ for (const item of items) {
   if (!/[\u3400-\u9fff]/u.test(item.title)) failures.push(`${item.id}: title is not Chinese`);
   if (!item.summary.includes("\n\n")) failures.push(`${item.id}: summary needs two paragraphs`);
   if (ids.has(item.id)) failures.push(`${item.id}: duplicate id`);
-  if (urls.has(item.sourceUrl)) failures.push(`${item.id}: duplicate source URL`);
   const evidence = verificationById.get(item.id);
   if (!evidence) failures.push(`${item.id}: missing source verification record`);
   else {
     if (!verifiedStatuses.has(evidence.verification_status)) failures.push(`${item.id}: source verification is ${evidence.verification_status}`);
     if (evidence.record_date !== item.weekOf || evidence.source_publication_date !== item.weekOf) failures.push(`${item.id}: record/source date mismatch`);
+    if (!allowedPageTypes.has(evidence.source_page_type)) failures.push(`${item.id}: invalid source page type`);
+    if (sharedPageTypes.has(evidence.source_page_type)) {
+      if (!evidence.source_item_title) failures.push(`${item.id}: shared source page requires source_item_title`);
+      if (!evidence.source_item_position && !evidence.source_item_anchor) failures.push(`${item.id}: shared source page requires item position or anchor`);
+      const key = `${item.sourceUrl}::${normalizeSourceItem(evidence.source_item_title ?? "")}`;
+      if (sourceItems.has(key)) failures.push(`${item.id}: duplicate source item`);
+      sourceItems.add(key);
+    } else {
+      if (individualUrls.has(item.sourceUrl)) failures.push(`${item.id}: duplicate individual source URL`);
+      individualUrls.add(item.sourceUrl);
+    }
   }
   const url = new URL(item.sourceUrl);
   const pattern = datePatterns.patterns.find((entry) => entry.host === url.host && new RegExp(entry.path_regex).test(url.pathname));
@@ -55,7 +69,6 @@ for (const item of items) {
     if (urlDate !== item.weekOf) failures.push(`${item.id}: URL date ${urlDate} != ${item.weekOf}`);
   }
   ids.add(item.id);
-  urls.add(item.sourceUrl);
   counts[item.countrySlug] = (counts[item.countrySlug] ?? 0) + 1;
 }
 
