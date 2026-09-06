@@ -2261,6 +2261,10 @@ writeCanonicalCollection("events", canonicalEventRecords, {
   event_types: eventTypeValues,
   model_boundary: "Coded events only record indicator and future-model associations. All current records keep enters_model=false and generate no scores or forecasts.",
 });
+fs.copyFileSync(
+  path.join(canonicalDataDir, "events", "events.json"),
+  path.join(outDir, "events.json"),
+);
 writeCanonicalCollection("projects", canonicalProjectRecords, {
   schema_version: "china-exposure-database-v0.40",
   generated_at: chinaExposureDatabaseUpdatedAt,
