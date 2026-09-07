@@ -25,7 +25,7 @@
     "lp:build": "node scripts/local-projections/build-local-projections.mjs",
     "lp:robustness": "node scripts/local-projections/build-lp-robustness.mjs",
     "lp:reference": "node scripts/validation/run-lp-reference.mjs",
-    "lp:validate": "node scripts/validation/validate-local-projections.mjs",
+    "lp:validate": "node scripts/validation/validate-local-projections.mjs --read-only",
     "lp:path-reference": "node scripts/validation/run-lp-reference.mjs",
     "lp:path-validate": "node scripts/validation/validate-local-projections.mjs",
     "lp:finite-sample": "node scripts/local-projections/run-python-diagnostic.mjs finite-sample",

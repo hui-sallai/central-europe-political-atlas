@@ -91,7 +91,9 @@ const summary = {
   robustness_model_count: diagnostics.record_count, path_inference_ready_count: readiness.path_inference_ready_count,
   boundaries: { panel_lp: false, state_dependent_lp: false, svar: "registry_only", bayesian_var: "blocked", intervals: "pointwise_90_95_and_simultaneous_sup_t_95", significance_band: "registry_only", cross_country_difference_test: false, hac: false }, failures,
 };
+if (!process.argv.includes("--read-only")) {
 fs.writeFileSync(path.join(dir, "lp_validation_summary.json"), `${JSON.stringify(summary, null, 2)}\n`);
 fs.writeFileSync(path.join(dir, "lp_path_inference_validation.json"), `${JSON.stringify({ schema_version: "lp-path-inference-validation-v1.71", generated_at: "2026-09-03", status: failures.length ? "failed" : "passed", method: "plugin_gaussian_sup_t_joint_hc1", active_model_count: results.records.length, path_inference_ready_count: failures.length ? 0 : results.records.length, production_draw_count: 5000, independent_python_draw_count: reference.cases[0]?.path_reference?.mp?.draw_count, cross_language_reference_case_count: reference.cases.length, maximum_independent_sup_t_critical_value_difference: maximumCriticalValueDifference, simulation_tolerance: reference.simulation_tolerance, pointwise_not_wider_tested: true, reference_repository: "jm4474/Confidence_Bands", reference_commit: "6cf28bbd63313ead3c06904649dbb0766e51028a", failures }, null, 2)}\n`);
+}
 if (failures.length) { console.error(JSON.stringify(summary, null, 2)); process.exit(1); }
 console.log(`LP validation passed: ${tests} tests; ${summary.checkpoint_count} real checkpoints; max diff=${maximumDifference}.`);
