@@ -1,0 +1,35 @@
+{
+  "schema_version": "panel-lp-parameterization-validation-v1.8",
+  "generated_at": "2026-09-09",
+  "records": [
+    {
+      "outcome_id": "hicp_price_level",
+      "status": "pass",
+      "maximum_absolute_error": 7.451816941284051e-13,
+      "tests": 150,
+      "sample_identity": true
+    },
+    {
+      "outcome_id": "industrial_production",
+      "status": "pass",
+      "maximum_absolute_error": 2.41229258790554e-12,
+      "tests": 150,
+      "sample_identity": true
+    },
+    {
+      "outcome_id": "unemployment",
+      "status": "pass",
+      "maximum_absolute_error": 2.475797344914099e-14,
+      "tests": 150,
+      "sample_identity": true
+    },
+    {
+      "outcome_id": "long_term_yield",
+      "status": "pass",
+      "maximum_absolute_error": 9.769962616701378e-14,
+      "tests": 150,
+      "sample_identity": true
+    }
+  ],
+  "status": "pass"
+}

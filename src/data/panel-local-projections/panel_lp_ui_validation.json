@@ -1,0 +1,18 @@
+{
+  "schema_version": "panel-lp-ui-validation-v1.8",
+  "generated_at": "2026-09-09",
+  "status": "pass",
+  "route": "/models?skill=panel_local_projections",
+  "browser": "Chromium-based in-app browser, local release candidate",
+  "live_selector_combinations": 32,
+  "structural_selector_combinations": 32,
+  "checked_outcomes": ["hicp_price_level", "industrial_production", "unemployment", "long_term_yield"],
+  "checked_shocks": ["MP", "CBI"],
+  "checked_confidence_levels": [90, 95],
+  "checked_views": ["group_responses", "group_difference"],
+  "desktop_visual_inspection": "pass",
+  "narrow_viewport": {"width": 390, "height": 844, "status": "pass", "chart_horizontal_scroll": true},
+  "console_errors_or_warnings": 0,
+  "publication_gate_test": "inactive readiness hides chart even when component mounted directly",
+  "country_ranking_matrix_changed": false
+}

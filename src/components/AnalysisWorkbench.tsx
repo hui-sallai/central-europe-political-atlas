@@ -15,6 +15,7 @@ import type { AnalysisDiagnostics, AnalysisSkillCategory } from "@/types/Analysi
 import type { ModelCard, ModelId, ModelOutput } from "@/types/ModelOutput";
 
 const categories = Object.keys(analysisCategoryLabels) as AnalysisSkillCategory[];
+const PanelLocalProjectionWorkbench = dynamic(() => import("@/components/PanelLocalProjectionWorkbench").then(module => module.PanelLocalProjectionWorkbench));
 
 const PanelEconometricsWorkbench = dynamic(() => import("@/components/PanelEconometricsWorkbench").then((module) => module.PanelEconometricsWorkbench), {
   loading: () => <p className="mt-6 border-y border-[var(--line)] py-10 text-center text-sm text-[var(--muted)]">正在加载面板工作区…</p>,
@@ -132,7 +133,7 @@ function AnalysisWorkbenchContent({ countries, cards, outputs, events }: Workben
           )}
         </div>
       ) : category === "panel_econometrics" ? (
-        <PanelEconometricsWorkbench countries={countries} />
+        selectedSkillId === "panel_local_projections" ? <PanelLocalProjectionWorkbench /> : <PanelEconometricsWorkbench countries={countries} />
       ) : category === "network_analysis" ? (
         <TradeNetworkWorkbench countries={countries} initialCountry={route.countrySlug} />
       ) : category === "event_analysis" ? (

@@ -1,0 +1,113 @@
+{
+  "schema_version": "panel-lp-reference-manifest-v1.8",
+  "retrieval_date": "2026-09-09",
+  "repository": "TinchoAlmuzara/PanelLocalProjections",
+  "commit": "4fd72b97edc9fe6dc65dd34c32e96e7100a1b873",
+  "files": [
+    {
+      "path": "README.md",
+      "blob_sha": "b639407a3a912af9ae493440c0674e4832916ecc",
+      "sha256": "4081bf94db74c3fbeca415a5ff1093765358a65e1b95971c18aaf231da8f4ba6"
+    },
+    {
+      "path": "R_code/panel_LP.R",
+      "blob_sha": "933fc92f76eced89fd2c3dae76ae30300fc94062",
+      "sha256": "0e678ddcdc78f94beadc29c5068475035e7fb8d3eb41cdd1286e1aa9f1e4298c"
+    },
+    {
+      "path": "R_code/usage_example.R",
+      "blob_sha": "58a4592362bf8ba91d5077ddf4bc2ad32b9ac4b5",
+      "sha256": "aad87b0bc85a5514f0b5974453e8d21ad6d1322250ac0e3593a5fe448544d6b5"
+    },
+    {
+      "path": "matlab_code/panel_LP.m",
+      "blob_sha": "dd3589dac3002d2b621ea61e992047102e8c2711",
+      "sha256": "3055c75431f551050972b112677a01ca28809e163bcd3ad1c0b45b23424465dd"
+    },
+    {
+      "path": "matlab_code/usage_example.m",
+      "blob_sha": "2590d607d446dbbb014ed356f205eb7ee4510c6a",
+      "sha256": "15fa475adb8e9b768da0040c6c3f9cb647cff48b845db9b8d9bfc54c682f624a"
+    }
+  ],
+  "paper": "Micro Responses to Macro Shocks",
+  "paper_revision": "August 2026",
+  "doi": "10.59576/sr.1090",
+  "license": "no_root_license_file; external audit only; author source excluded from repository and research package",
+  "r_state": "executed_unmodified_author_source",
+  "r_runtime": "R version 4.6.1 (2026-06-24)",
+  "r_packages": {
+    "pracma": "2.4.6",
+    "fixest": "0.14.2",
+    "tidyverse": "2.0.0",
+    "lubridate": "1.9.5",
+    "jsonlite": "2.0.0"
+  },
+  "matlab_state": "source_audited_runtime_unavailable_not_numerically_executed",
+  "fixture_sha256": "f36a1a8bdaff10607b64d9beb306dc5710e401a97a2894a90564883535db414d",
+  "multi_x_asymptotic": "pass",
+  "small_sample_joint_shock": "unsupported_reference_configuration",
+  "interaction_order": "shock outer, characteristic inner",
+  "reference_checks": [
+    {
+      "case_id": "single_shock_no_fe",
+      "status": "pass",
+      "maximum_absolute_errors": {
+        "estimate": 6.217248937900877e-15,
+        "se": 1.6653345369377348e-15,
+        "p_value": 1.6653345369377348e-15,
+        "ci90": 1.0436096431476471e-14,
+        "ci95": 6.217248937900877e-15,
+        "ci99": 8.881784197001252e-15
+      }
+    },
+    {
+      "case_id": "single_shock_heterogeneous_country_fe",
+      "status": "pass",
+      "maximum_absolute_errors": {
+        "estimate": 3.9968028886505635e-15,
+        "se": 1.4988010832439613e-15,
+        "p_value": 3.5388358909926865e-16,
+        "ci90": 5.551115123125783e-15,
+        "ci95": 8.43769498715119e-15,
+        "ci99": 5.329070518200751e-15
+      }
+    },
+    {
+      "case_id": "joint_two_shocks_two_characteristics",
+      "status": "pass",
+      "maximum_absolute_errors": {
+        "estimate": 7.764622278472189e-15,
+        "se": 2.220446049250313e-15,
+        "p_value": 1.9095836023552692e-14,
+        "ci90": 9.2148511043888e-15,
+        "ci95": 1.1546319456101628e-14,
+        "ci99": 9.43689570931383e-15
+      }
+    },
+    {
+      "case_id": "joint_contrast_country_time_fe",
+      "status": "pass",
+      "maximum_absolute_errors": {
+        "estimate": 1.4432899320127035e-15,
+        "se": 9.992007221626409e-16,
+        "p_value": 2.3314683517128287e-15,
+        "ci90": 5.329070518200751e-15,
+        "ci95": 6.439293542825908e-15,
+        "ci99": 4.884981308350689e-15
+      }
+    },
+    {
+      "case_id": "joint_country_fe_month_dummies",
+      "status": "pass",
+      "maximum_absolute_errors": {
+        "estimate": 1.2878587085651816e-14,
+        "se": 2.9976021664879227e-15,
+        "p_value": 1.021405182655144e-14,
+        "ci90": 1.2878587085651816e-14,
+        "ci95": 8.881784197001252e-15,
+        "ci99": 1.4210854715202004e-14
+      }
+    }
+  ]
+}

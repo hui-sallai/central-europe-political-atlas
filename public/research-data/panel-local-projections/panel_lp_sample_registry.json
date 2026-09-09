@@ -1,0 +1,3981 @@
+{
+  "schema_version": "panel-lp-sample-registry-v1.8",
+  "generated_at": "2026-09-09",
+  "records": [
+    {
+      "outcome_id": "hicp_price_level",
+      "calendar_start": "2015-01",
+      "calendar_end": "2025-10",
+      "policy": "author_exact_horizon_specific_available_cumulative_and_lags",
+      "requested_horizon": 24,
+      "eligible_horizon": 24,
+      "fallback_attempts": [
+        {
+          "horizon": 24,
+          "minimum_time_clusters": 100,
+          "balanced": true,
+          "status": "pass"
+        }
+      ],
+      "horizons": [
+        {
+          "horizon": 0,
+          "df": "Inf",
+          "effective_time_clusters": 129,
+          "panel_rows": 1032,
+          "country_count": 8,
+          "p_h": 0,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 15,
+          "columns": 15,
+          "condition_number": 22.677516004143943,
+          "sample_start_index": 1,
+          "sample_end_index": 129,
+          "sample_start": "2015-02",
+          "sample_end": "2025-10",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.32144425579962976,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 86,
+              "zero_months": 43,
+              "largest_squared_shock_share": 0.2861013283470606,
+              "top_three_squared_shock_share": 0.5631175018772762,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 86,
+              "zero_months": 43,
+              "largest_squared_shock_share": 0.28071041596137397,
+              "top_three_squared_shock_share": 0.42199223760617216,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 1,
+          "df": "Inf",
+          "effective_time_clusters": 127,
+          "panel_rows": 1016,
+          "country_count": 8,
+          "p_h": 1,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 20,
+          "columns": 20,
+          "condition_number": 51.356695351974345,
+          "sample_start_index": 2,
+          "sample_end_index": 128,
+          "sample_start": "2015-03",
+          "sample_end": "2025-09",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3204974100211158,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 85,
+              "zero_months": 42,
+              "largest_squared_shock_share": 0.2863588813045337,
+              "top_three_squared_shock_share": 0.5636244291916346,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 85,
+              "zero_months": 42,
+              "largest_squared_shock_share": 0.2813078268318335,
+              "top_three_squared_shock_share": 0.42289032594084286,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 2,
+          "df": "Inf",
+          "effective_time_clusters": 125,
+          "panel_rows": 1000,
+          "country_count": 8,
+          "p_h": 2,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 25,
+          "columns": 25,
+          "condition_number": 61.32533243479481,
+          "sample_start_index": 3,
+          "sample_end_index": 127,
+          "sample_start": "2015-04",
+          "sample_end": "2025-08",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.32138048738303776,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 83,
+              "zero_months": 42,
+              "largest_squared_shock_share": 0.2869074304587733,
+              "top_three_squared_shock_share": 0.5647041083080404,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 83,
+              "zero_months": 42,
+              "largest_squared_shock_share": 0.28138532707559655,
+              "top_three_squared_shock_share": 0.4230068321316395,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 3,
+          "df": "Inf",
+          "effective_time_clusters": 123,
+          "panel_rows": 984,
+          "country_count": 8,
+          "p_h": 3,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 30,
+          "columns": 30,
+          "condition_number": 71.58567176232309,
+          "sample_start_index": 4,
+          "sample_end_index": 126,
+          "sample_start": "2015-05",
+          "sample_end": "2025-07",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3212668117413719,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 82,
+              "zero_months": 41,
+              "largest_squared_shock_share": 0.28691209401336626,
+              "top_three_squared_shock_share": 0.564713287325934,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 82,
+              "zero_months": 41,
+              "largest_squared_shock_share": 0.28166315018231314,
+              "top_three_squared_shock_share": 0.4234244838744881,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 4,
+          "df": "Inf",
+          "effective_time_clusters": 121,
+          "panel_rows": 968,
+          "country_count": 8,
+          "p_h": 4,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 35,
+          "columns": 35,
+          "condition_number": 82.6036535392345,
+          "sample_start_index": 5,
+          "sample_end_index": 125,
+          "sample_start": "2015-06",
+          "sample_end": "2025-06",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.32123714117712726,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 81,
+              "zero_months": 40,
+              "largest_squared_shock_share": 0.2882274361276383,
+              "top_three_squared_shock_share": 0.5673022028328355,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 81,
+              "zero_months": 40,
+              "largest_squared_shock_share": 0.28166792955682873,
+              "top_three_squared_shock_share": 0.42343166871278237,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 5,
+          "df": "Inf",
+          "effective_time_clusters": 119,
+          "panel_rows": 952,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 40,
+          "columns": 40,
+          "condition_number": 95.60051415608544,
+          "sample_start_index": 6,
+          "sample_end_index": 124,
+          "sample_start": "2015-07",
+          "sample_end": "2025-05",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.31979394531472566,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 79,
+              "zero_months": 40,
+              "largest_squared_shock_share": 0.28970541847374454,
+              "top_three_squared_shock_share": 0.5702112341587875,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 79,
+              "zero_months": 40,
+              "largest_squared_shock_share": 0.28240690427777515,
+              "top_three_squared_shock_share": 0.42454257011969515,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 6,
+          "df": "Inf",
+          "effective_time_clusters": 118,
+          "panel_rows": 944,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 40,
+          "columns": 40,
+          "condition_number": 95.8160962273782,
+          "sample_start_index": 6,
+          "sample_end_index": 123,
+          "sample_start": "2015-07",
+          "sample_end": "2025-04",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3199263885980195,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 79,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.28970541847374454,
+              "top_three_squared_shock_share": 0.5702112341587875,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 79,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.28240690427777515,
+              "top_three_squared_shock_share": 0.42454257011969515,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 7,
+          "df": "Inf",
+          "effective_time_clusters": 117,
+          "panel_rows": 936,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 40,
+          "columns": 40,
+          "condition_number": 96.11910528364874,
+          "sample_start_index": 6,
+          "sample_end_index": 122,
+          "sample_start": "2015-07",
+          "sample_end": "2025-03",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.334624393948379,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 78,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.2922054241014182,
+              "top_three_squared_shock_share": 0.5751318576730795,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 78,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.2849894053178555,
+              "top_three_squared_shock_share": 0.42842484641069584,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 8,
+          "df": "Inf",
+          "effective_time_clusters": 116,
+          "panel_rows": 928,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 40,
+          "columns": 40,
+          "condition_number": 96.06687459154304,
+          "sample_start_index": 6,
+          "sample_end_index": 121,
+          "sample_start": "2015-07",
+          "sample_end": "2025-02",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.334482351388525,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 77,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.2922143226821048,
+              "top_three_squared_shock_share": 0.5751493722598011,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 77,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.28799567494427214,
+              "top_three_squared_shock_share": 0.432944174424066,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 9,
+          "df": "Inf",
+          "effective_time_clusters": 115,
+          "panel_rows": 920,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 40,
+          "columns": 40,
+          "condition_number": 96.3986634517606,
+          "sample_start_index": 6,
+          "sample_end_index": 120,
+          "sample_start": "2015-07",
+          "sample_end": "2025-01",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.33463611059997406,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 77,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.2922143226821048,
+              "top_three_squared_shock_share": 0.5751493722598011,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 77,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.28799567494427214,
+              "top_three_squared_shock_share": 0.432944174424066,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 10,
+          "df": "Inf",
+          "effective_time_clusters": 114,
+          "panel_rows": 912,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 40,
+          "columns": 40,
+          "condition_number": 96.63427384191976,
+          "sample_start_index": 6,
+          "sample_end_index": 119,
+          "sample_start": "2015-07",
+          "sample_end": "2024-12",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3367119317293021,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 76,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.29239687937058556,
+              "top_three_squared_shock_share": 0.575508688544567,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 76,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.28828143885593255,
+              "top_three_squared_shock_share": 0.4333737635866045,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 11,
+          "df": "Inf",
+          "effective_time_clusters": 113,
+          "panel_rows": 904,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 40,
+          "columns": 40,
+          "condition_number": 96.991172729204,
+          "sample_start_index": 6,
+          "sample_end_index": 118,
+          "sample_start": "2015-07",
+          "sample_end": "2024-11",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.33807366627592494,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 75,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.2924847831186559,
+              "top_three_squared_shock_share": 0.5756817046549955,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 75,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.2903926636678494,
+              "top_three_squared_shock_share": 0.4365475698717017,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 12,
+          "df": "Inf",
+          "effective_time_clusters": 112,
+          "panel_rows": 896,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 40,
+          "columns": 40,
+          "condition_number": 97.51671222856314,
+          "sample_start_index": 6,
+          "sample_end_index": 117,
+          "sample_start": "2015-07",
+          "sample_end": "2024-10",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.33823022537220093,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 75,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.2924847831186559,
+              "top_three_squared_shock_share": 0.5756817046549955,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 75,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.2903926636678494,
+              "top_three_squared_shock_share": 0.4365475698717017,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 13,
+          "df": "Inf",
+          "effective_time_clusters": 111,
+          "panel_rows": 888,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 40,
+          "columns": 40,
+          "condition_number": 98.07085845088,
+          "sample_start_index": 6,
+          "sample_end_index": 116,
+          "sample_start": "2015-07",
+          "sample_end": "2024-09",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.34386796319091756,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 74,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.29350265131703407,
+              "top_three_squared_shock_share": 0.5776851186217273,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 74,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.2910593231180531,
+              "top_three_squared_shock_share": 0.4375497596627334,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 14,
+          "df": "Inf",
+          "effective_time_clusters": 110,
+          "panel_rows": 880,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 40,
+          "columns": 40,
+          "condition_number": 98.15921935906088,
+          "sample_start_index": 6,
+          "sample_end_index": 115,
+          "sample_start": "2015-07",
+          "sample_end": "2024-08",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3399370880548147,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 73,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.2960552276336566,
+              "top_three_squared_shock_share": 0.5827092141303784,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 73,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.29224035763760364,
+              "top_three_squared_shock_share": 0.4393252099889651,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 15,
+          "df": "Inf",
+          "effective_time_clusters": 109,
+          "panel_rows": 872,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 40,
+          "columns": 40,
+          "condition_number": 98.17593948495309,
+          "sample_start_index": 6,
+          "sample_end_index": 114,
+          "sample_start": "2015-07",
+          "sample_end": "2024-07",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3401165913564404,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 73,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.2960552276336566,
+              "top_three_squared_shock_share": 0.5827092141303784,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 73,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.29224035763760364,
+              "top_three_squared_shock_share": 0.4393252099889651,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 16,
+          "df": "Inf",
+          "effective_time_clusters": 108,
+          "panel_rows": 864,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 40,
+          "columns": 40,
+          "condition_number": 98.16497569902862,
+          "sample_start_index": 6,
+          "sample_end_index": 113,
+          "sample_start": "2015-07",
+          "sample_end": "2024-06",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.34056386184333715,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 72,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.2961534740613183,
+              "top_three_squared_shock_share": 0.5829025871679412,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 72,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.2922414981029739,
+              "top_three_squared_shock_share": 0.4393269244516503,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 17,
+          "df": "Inf",
+          "effective_time_clusters": 107,
+          "panel_rows": 856,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 40,
+          "columns": 40,
+          "condition_number": 98.14189175640577,
+          "sample_start_index": 6,
+          "sample_end_index": 112,
+          "sample_start": "2015-07",
+          "sample_end": "2024-05",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3406238824251244,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 71,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.29669464741066404,
+              "top_three_squared_shock_share": 0.5839677488934276,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 71,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.2922572050955417,
+              "top_three_squared_shock_share": 0.43935053678864555,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 18,
+          "df": "Inf",
+          "effective_time_clusters": 106,
+          "panel_rows": 848,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 40,
+          "columns": 40,
+          "condition_number": 98.11545379126085,
+          "sample_start_index": 6,
+          "sample_end_index": 111,
+          "sample_start": "2015-07",
+          "sample_end": "2024-04",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3408089862974787,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 71,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.29669464741066404,
+              "top_three_squared_shock_share": 0.5839677488934276,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 71,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.2922572050955417,
+              "top_three_squared_shock_share": 0.43935053678864555,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 19,
+          "df": "Inf",
+          "effective_time_clusters": 105,
+          "panel_rows": 840,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 40,
+          "columns": 40,
+          "condition_number": 98.1362643281128,
+          "sample_start_index": 6,
+          "sample_end_index": 110,
+          "sample_start": "2015-07",
+          "sample_end": "2024-03",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.34042796380969353,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 70,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.2968103644400651,
+              "top_three_squared_shock_share": 0.5841955083550752,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 70,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.29251057596422164,
+              "top_three_squared_shock_share": 0.4397314294585961,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 20,
+          "df": "Inf",
+          "effective_time_clusters": 104,
+          "panel_rows": 832,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 40,
+          "columns": 40,
+          "condition_number": 98.43265115063907,
+          "sample_start_index": 6,
+          "sample_end_index": 109,
+          "sample_start": "2015-07",
+          "sample_end": "2024-02",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3362862967103884,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 69,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.2983083707878609,
+              "top_three_squared_shock_share": 0.5871439518217333,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 69,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.29455406255652405,
+              "top_three_squared_shock_share": 0.4428034048131642,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 21,
+          "df": "Inf",
+          "effective_time_clusters": 103,
+          "panel_rows": 824,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 40,
+          "columns": 40,
+          "condition_number": 98.65169211511439,
+          "sample_start_index": 6,
+          "sample_end_index": 108,
+          "sample_start": "2015-07",
+          "sample_end": "2024-01",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3364774287180101,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 69,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.29830837078786093,
+              "top_three_squared_shock_share": 0.5871439518217334,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 69,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.2945540625565239,
+              "top_three_squared_shock_share": 0.44280340481316405,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 22,
+          "df": "Inf",
+          "effective_time_clusters": 102,
+          "panel_rows": 816,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 40,
+          "columns": 40,
+          "condition_number": 98.87199201346327,
+          "sample_start_index": 6,
+          "sample_end_index": 107,
+          "sample_start": "2015-07",
+          "sample_end": "2023-12",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3391813895152628,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 68,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.30295496889056267,
+              "top_three_squared_shock_share": 0.5962895951885024,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 68,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.294615508780632,
+              "top_three_squared_shock_share": 0.4428957769808124,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 23,
+          "df": "Inf",
+          "effective_time_clusters": 101,
+          "panel_rows": 808,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 40,
+          "columns": 40,
+          "condition_number": 99.01014324619848,
+          "sample_start_index": 6,
+          "sample_end_index": 106,
+          "sample_start": "2015-07",
+          "sample_end": "2023-11",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.33796719122393687,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 67,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.3057290488560764,
+              "top_three_squared_shock_share": 0.6017496641410411,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 67,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.29473964155774346,
+              "top_three_squared_shock_share": 0.4430823859037273,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 24,
+          "df": "Inf",
+          "effective_time_clusters": 100,
+          "panel_rows": 800,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 40,
+          "columns": 40,
+          "condition_number": 99.0188575943679,
+          "sample_start_index": 6,
+          "sample_end_index": 105,
+          "sample_start": "2015-07",
+          "sample_end": "2023-10",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.338178942223718,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 67,
+              "zero_months": 33,
+              "largest_squared_shock_share": 0.3057290488560764,
+              "top_three_squared_shock_share": 0.6017496641410411,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 67,
+              "zero_months": 33,
+              "largest_squared_shock_share": 0.29473964155774346,
+              "top_three_squared_shock_share": 0.4430823859037273,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "outcome_id": "industrial_production",
+      "calendar_start": "2015-01",
+      "calendar_end": "2025-10",
+      "policy": "author_exact_horizon_specific_available_cumulative_and_lags",
+      "requested_horizon": 24,
+      "eligible_horizon": 24,
+      "fallback_attempts": [
+        {
+          "horizon": 24,
+          "minimum_time_clusters": 100,
+          "balanced": true,
+          "status": "pass"
+        }
+      ],
+      "horizons": [
+        {
+          "horizon": 0,
+          "df": "Inf",
+          "effective_time_clusters": 129,
+          "panel_rows": 1032,
+          "country_count": 8,
+          "p_h": 0,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 4,
+          "columns": 4,
+          "condition_number": 1.5868032518624167,
+          "sample_start_index": 1,
+          "sample_end_index": 129,
+          "sample_start": "2015-02",
+          "sample_end": "2025-10",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.32144425579962976,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 86,
+              "zero_months": 43,
+              "largest_squared_shock_share": 0.2861013283470606,
+              "top_three_squared_shock_share": 0.5631175018772762,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 86,
+              "zero_months": 43,
+              "largest_squared_shock_share": 0.28071041596137397,
+              "top_three_squared_shock_share": 0.42199223760617216,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 1,
+          "df": "Inf",
+          "effective_time_clusters": 127,
+          "panel_rows": 1016,
+          "country_count": 8,
+          "p_h": 1,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 9,
+          "columns": 9,
+          "condition_number": 286.08454287212845,
+          "sample_start_index": 2,
+          "sample_end_index": 128,
+          "sample_start": "2015-03",
+          "sample_end": "2025-09",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3204974100211158,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 85,
+              "zero_months": 42,
+              "largest_squared_shock_share": 0.2863588813045337,
+              "top_three_squared_shock_share": 0.5636244291916346,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 85,
+              "zero_months": 42,
+              "largest_squared_shock_share": 0.2813078268318335,
+              "top_three_squared_shock_share": 0.42289032594084286,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 2,
+          "df": "Inf",
+          "effective_time_clusters": 125,
+          "panel_rows": 1000,
+          "country_count": 8,
+          "p_h": 2,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 14,
+          "columns": 14,
+          "condition_number": 305.94807626660435,
+          "sample_start_index": 3,
+          "sample_end_index": 127,
+          "sample_start": "2015-04",
+          "sample_end": "2025-08",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.32138048738303776,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 83,
+              "zero_months": 42,
+              "largest_squared_shock_share": 0.2869074304587733,
+              "top_three_squared_shock_share": 0.5647041083080404,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 83,
+              "zero_months": 42,
+              "largest_squared_shock_share": 0.28138532707559655,
+              "top_three_squared_shock_share": 0.4230068321316395,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 3,
+          "df": "Inf",
+          "effective_time_clusters": 123,
+          "panel_rows": 984,
+          "country_count": 8,
+          "p_h": 3,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 19,
+          "columns": 19,
+          "condition_number": 369.6988272740211,
+          "sample_start_index": 4,
+          "sample_end_index": 126,
+          "sample_start": "2015-05",
+          "sample_end": "2025-07",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3212668117413719,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 82,
+              "zero_months": 41,
+              "largest_squared_shock_share": 0.28691209401336626,
+              "top_three_squared_shock_share": 0.564713287325934,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 82,
+              "zero_months": 41,
+              "largest_squared_shock_share": 0.28166315018231314,
+              "top_three_squared_shock_share": 0.4234244838744881,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 4,
+          "df": "Inf",
+          "effective_time_clusters": 121,
+          "panel_rows": 968,
+          "country_count": 8,
+          "p_h": 4,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 24,
+          "columns": 24,
+          "condition_number": 410.840240198178,
+          "sample_start_index": 5,
+          "sample_end_index": 125,
+          "sample_start": "2015-06",
+          "sample_end": "2025-06",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.32123714117712726,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 81,
+              "zero_months": 40,
+              "largest_squared_shock_share": 0.2882274361276383,
+              "top_three_squared_shock_share": 0.5673022028328355,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 81,
+              "zero_months": 40,
+              "largest_squared_shock_share": 0.28166792955682873,
+              "top_three_squared_shock_share": 0.42343166871278237,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 5,
+          "df": "Inf",
+          "effective_time_clusters": 119,
+          "panel_rows": 952,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 454.65787294815186,
+          "sample_start_index": 6,
+          "sample_end_index": 124,
+          "sample_start": "2015-07",
+          "sample_end": "2025-05",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.31979394531472566,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 79,
+              "zero_months": 40,
+              "largest_squared_shock_share": 0.28970541847374454,
+              "top_three_squared_shock_share": 0.5702112341587875,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 79,
+              "zero_months": 40,
+              "largest_squared_shock_share": 0.28240690427777515,
+              "top_three_squared_shock_share": 0.42454257011969515,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 6,
+          "df": "Inf",
+          "effective_time_clusters": 118,
+          "panel_rows": 944,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 456.1563974741713,
+          "sample_start_index": 6,
+          "sample_end_index": 123,
+          "sample_start": "2015-07",
+          "sample_end": "2025-04",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3199263885980195,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 79,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.28970541847374454,
+              "top_three_squared_shock_share": 0.5702112341587875,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 79,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.28240690427777515,
+              "top_three_squared_shock_share": 0.42454257011969515,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 7,
+          "df": "Inf",
+          "effective_time_clusters": 117,
+          "panel_rows": 936,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 456.85466119643326,
+          "sample_start_index": 6,
+          "sample_end_index": 122,
+          "sample_start": "2015-07",
+          "sample_end": "2025-03",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.334624393948379,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 78,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.2922054241014182,
+              "top_three_squared_shock_share": 0.5751318576730795,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 78,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.2849894053178555,
+              "top_three_squared_shock_share": 0.42842484641069584,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 8,
+          "df": "Inf",
+          "effective_time_clusters": 116,
+          "panel_rows": 928,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 456.53010779652374,
+          "sample_start_index": 6,
+          "sample_end_index": 121,
+          "sample_start": "2015-07",
+          "sample_end": "2025-02",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.334482351388525,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 77,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.2922143226821048,
+              "top_three_squared_shock_share": 0.5751493722598011,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 77,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.28799567494427214,
+              "top_three_squared_shock_share": 0.432944174424066,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 9,
+          "df": "Inf",
+          "effective_time_clusters": 115,
+          "panel_rows": 920,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 458.1989000062976,
+          "sample_start_index": 6,
+          "sample_end_index": 120,
+          "sample_start": "2015-07",
+          "sample_end": "2025-01",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.33463611059997406,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 77,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.2922143226821048,
+              "top_three_squared_shock_share": 0.5751493722598011,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 77,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.28799567494427214,
+              "top_three_squared_shock_share": 0.432944174424066,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 10,
+          "df": "Inf",
+          "effective_time_clusters": 114,
+          "panel_rows": 912,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 459.6311666187962,
+          "sample_start_index": 6,
+          "sample_end_index": 119,
+          "sample_start": "2015-07",
+          "sample_end": "2024-12",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3367119317293021,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 76,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.29239687937058556,
+              "top_three_squared_shock_share": 0.575508688544567,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 76,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.28828143885593255,
+              "top_three_squared_shock_share": 0.4333737635866045,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 11,
+          "df": "Inf",
+          "effective_time_clusters": 113,
+          "panel_rows": 904,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 460.82057934448744,
+          "sample_start_index": 6,
+          "sample_end_index": 118,
+          "sample_start": "2015-07",
+          "sample_end": "2024-11",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.33807366627592494,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 75,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.2924847831186559,
+              "top_three_squared_shock_share": 0.5756817046549955,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 75,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.2903926636678494,
+              "top_three_squared_shock_share": 0.4365475698717017,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 12,
+          "df": "Inf",
+          "effective_time_clusters": 112,
+          "panel_rows": 896,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 462.6467530334788,
+          "sample_start_index": 6,
+          "sample_end_index": 117,
+          "sample_start": "2015-07",
+          "sample_end": "2024-10",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.33823022537220093,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 75,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.2924847831186559,
+              "top_three_squared_shock_share": 0.5756817046549955,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 75,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.2903926636678494,
+              "top_three_squared_shock_share": 0.4365475698717017,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 13,
+          "df": "Inf",
+          "effective_time_clusters": 111,
+          "panel_rows": 888,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 465.15227187466155,
+          "sample_start_index": 6,
+          "sample_end_index": 116,
+          "sample_start": "2015-07",
+          "sample_end": "2024-09",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.34386796319091756,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 74,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.29350265131703407,
+              "top_three_squared_shock_share": 0.5776851186217273,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 74,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.2910593231180531,
+              "top_three_squared_shock_share": 0.4375497596627334,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 14,
+          "df": "Inf",
+          "effective_time_clusters": 110,
+          "panel_rows": 880,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 465.58531037593144,
+          "sample_start_index": 6,
+          "sample_end_index": 115,
+          "sample_start": "2015-07",
+          "sample_end": "2024-08",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3399370880548147,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 73,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.2960552276336566,
+              "top_three_squared_shock_share": 0.5827092141303784,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 73,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.29224035763760364,
+              "top_three_squared_shock_share": 0.4393252099889651,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 15,
+          "df": "Inf",
+          "effective_time_clusters": 109,
+          "panel_rows": 872,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 465.286855380649,
+          "sample_start_index": 6,
+          "sample_end_index": 114,
+          "sample_start": "2015-07",
+          "sample_end": "2024-07",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3401165913564404,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 73,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.2960552276336566,
+              "top_three_squared_shock_share": 0.5827092141303784,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 73,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.29224035763760364,
+              "top_three_squared_shock_share": 0.4393252099889651,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 16,
+          "df": "Inf",
+          "effective_time_clusters": 108,
+          "panel_rows": 864,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 464.54714691445747,
+          "sample_start_index": 6,
+          "sample_end_index": 113,
+          "sample_start": "2015-07",
+          "sample_end": "2024-06",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.34056386184333715,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 72,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.2961534740613183,
+              "top_three_squared_shock_share": 0.5829025871679412,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 72,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.2922414981029739,
+              "top_three_squared_shock_share": 0.4393269244516503,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 17,
+          "df": "Inf",
+          "effective_time_clusters": 107,
+          "panel_rows": 856,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 464.1055810435545,
+          "sample_start_index": 6,
+          "sample_end_index": 112,
+          "sample_start": "2015-07",
+          "sample_end": "2024-05",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3406238824251244,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 71,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.29669464741066404,
+              "top_three_squared_shock_share": 0.5839677488934276,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 71,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.2922572050955417,
+              "top_three_squared_shock_share": 0.43935053678864555,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 18,
+          "df": "Inf",
+          "effective_time_clusters": 106,
+          "panel_rows": 848,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 464.6542138787154,
+          "sample_start_index": 6,
+          "sample_end_index": 111,
+          "sample_start": "2015-07",
+          "sample_end": "2024-04",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3408089862974787,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 71,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.29669464741066404,
+              "top_three_squared_shock_share": 0.5839677488934276,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 71,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.2922572050955417,
+              "top_three_squared_shock_share": 0.43935053678864555,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 19,
+          "df": "Inf",
+          "effective_time_clusters": 105,
+          "panel_rows": 840,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 464.96604046484447,
+          "sample_start_index": 6,
+          "sample_end_index": 110,
+          "sample_start": "2015-07",
+          "sample_end": "2024-03",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.34042796380969353,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 70,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.2968103644400651,
+              "top_three_squared_shock_share": 0.5841955083550752,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 70,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.29251057596422164,
+              "top_three_squared_shock_share": 0.4397314294585961,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 20,
+          "df": "Inf",
+          "effective_time_clusters": 104,
+          "panel_rows": 832,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 467.6604185342498,
+          "sample_start_index": 6,
+          "sample_end_index": 109,
+          "sample_start": "2015-07",
+          "sample_end": "2024-02",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3362862967103884,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 69,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.2983083707878609,
+              "top_three_squared_shock_share": 0.5871439518217333,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 69,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.29455406255652405,
+              "top_three_squared_shock_share": 0.4428034048131642,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 21,
+          "df": "Inf",
+          "effective_time_clusters": 103,
+          "panel_rows": 824,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 468.52112562522296,
+          "sample_start_index": 6,
+          "sample_end_index": 108,
+          "sample_start": "2015-07",
+          "sample_end": "2024-01",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3364774287180101,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 69,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.29830837078786093,
+              "top_three_squared_shock_share": 0.5871439518217334,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 69,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.2945540625565239,
+              "top_three_squared_shock_share": 0.44280340481316405,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 22,
+          "df": "Inf",
+          "effective_time_clusters": 102,
+          "panel_rows": 816,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 470.11617752450985,
+          "sample_start_index": 6,
+          "sample_end_index": 107,
+          "sample_start": "2015-07",
+          "sample_end": "2023-12",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3391813895152628,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 68,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.30295496889056267,
+              "top_three_squared_shock_share": 0.5962895951885024,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 68,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.294615508780632,
+              "top_three_squared_shock_share": 0.4428957769808124,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 23,
+          "df": "Inf",
+          "effective_time_clusters": 101,
+          "panel_rows": 808,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 471.804214060144,
+          "sample_start_index": 6,
+          "sample_end_index": 106,
+          "sample_start": "2015-07",
+          "sample_end": "2023-11",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.33796719122393687,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 67,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.3057290488560764,
+              "top_three_squared_shock_share": 0.6017496641410411,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 67,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.29473964155774346,
+              "top_three_squared_shock_share": 0.4430823859037273,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 24,
+          "df": "Inf",
+          "effective_time_clusters": 100,
+          "panel_rows": 800,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 473.74073475745547,
+          "sample_start_index": 6,
+          "sample_end_index": 105,
+          "sample_start": "2015-07",
+          "sample_end": "2023-10",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.338178942223718,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 67,
+              "zero_months": 33,
+              "largest_squared_shock_share": 0.3057290488560764,
+              "top_three_squared_shock_share": 0.6017496641410411,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 67,
+              "zero_months": 33,
+              "largest_squared_shock_share": 0.29473964155774346,
+              "top_three_squared_shock_share": 0.4430823859037273,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "outcome_id": "unemployment",
+      "calendar_start": "2015-01",
+      "calendar_end": "2025-10",
+      "policy": "author_exact_horizon_specific_available_cumulative_and_lags",
+      "requested_horizon": 24,
+      "eligible_horizon": 24,
+      "fallback_attempts": [
+        {
+          "horizon": 24,
+          "minimum_time_clusters": 100,
+          "balanced": true,
+          "status": "pass"
+        }
+      ],
+      "horizons": [
+        {
+          "horizon": 0,
+          "df": "Inf",
+          "effective_time_clusters": 129,
+          "panel_rows": 1032,
+          "country_count": 8,
+          "p_h": 0,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 4,
+          "columns": 4,
+          "condition_number": 1.5868032518624167,
+          "sample_start_index": 1,
+          "sample_end_index": 129,
+          "sample_start": "2015-02",
+          "sample_end": "2025-10",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.32144425579962976,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 86,
+              "zero_months": 43,
+              "largest_squared_shock_share": 0.2861013283470606,
+              "top_three_squared_shock_share": 0.5631175018772762,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 86,
+              "zero_months": 43,
+              "largest_squared_shock_share": 0.28071041596137397,
+              "top_three_squared_shock_share": 0.42199223760617216,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 1,
+          "df": "Inf",
+          "effective_time_clusters": 127,
+          "panel_rows": 1016,
+          "country_count": 8,
+          "p_h": 1,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 9,
+          "columns": 9,
+          "condition_number": 14.542022319359873,
+          "sample_start_index": 2,
+          "sample_end_index": 128,
+          "sample_start": "2015-03",
+          "sample_end": "2025-09",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3204974100211158,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 85,
+              "zero_months": 42,
+              "largest_squared_shock_share": 0.2863588813045337,
+              "top_three_squared_shock_share": 0.5636244291916346,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 85,
+              "zero_months": 42,
+              "largest_squared_shock_share": 0.2813078268318335,
+              "top_three_squared_shock_share": 0.42289032594084286,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 2,
+          "df": "Inf",
+          "effective_time_clusters": 125,
+          "panel_rows": 1000,
+          "country_count": 8,
+          "p_h": 2,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 14,
+          "columns": 14,
+          "condition_number": 15.59406469019733,
+          "sample_start_index": 3,
+          "sample_end_index": 127,
+          "sample_start": "2015-04",
+          "sample_end": "2025-08",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.32138048738303776,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 83,
+              "zero_months": 42,
+              "largest_squared_shock_share": 0.2869074304587733,
+              "top_three_squared_shock_share": 0.5647041083080404,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 83,
+              "zero_months": 42,
+              "largest_squared_shock_share": 0.28138532707559655,
+              "top_three_squared_shock_share": 0.4230068321316395,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 3,
+          "df": "Inf",
+          "effective_time_clusters": 123,
+          "panel_rows": 984,
+          "country_count": 8,
+          "p_h": 3,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 19,
+          "columns": 19,
+          "condition_number": 17.458143765434887,
+          "sample_start_index": 4,
+          "sample_end_index": 126,
+          "sample_start": "2015-05",
+          "sample_end": "2025-07",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3212668117413719,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 82,
+              "zero_months": 41,
+              "largest_squared_shock_share": 0.28691209401336626,
+              "top_three_squared_shock_share": 0.564713287325934,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 82,
+              "zero_months": 41,
+              "largest_squared_shock_share": 0.28166315018231314,
+              "top_three_squared_shock_share": 0.4234244838744881,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 4,
+          "df": "Inf",
+          "effective_time_clusters": 121,
+          "panel_rows": 968,
+          "country_count": 8,
+          "p_h": 4,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 24,
+          "columns": 24,
+          "condition_number": 19.052815742505807,
+          "sample_start_index": 5,
+          "sample_end_index": 125,
+          "sample_start": "2015-06",
+          "sample_end": "2025-06",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.32123714117712726,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 81,
+              "zero_months": 40,
+              "largest_squared_shock_share": 0.2882274361276383,
+              "top_three_squared_shock_share": 0.5673022028328355,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 81,
+              "zero_months": 40,
+              "largest_squared_shock_share": 0.28166792955682873,
+              "top_three_squared_shock_share": 0.42343166871278237,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 5,
+          "df": "Inf",
+          "effective_time_clusters": 119,
+          "panel_rows": 952,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 21.1074710490522,
+          "sample_start_index": 6,
+          "sample_end_index": 124,
+          "sample_start": "2015-07",
+          "sample_end": "2025-05",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.31979394531472566,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 79,
+              "zero_months": 40,
+              "largest_squared_shock_share": 0.28970541847374454,
+              "top_three_squared_shock_share": 0.5702112341587875,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 79,
+              "zero_months": 40,
+              "largest_squared_shock_share": 0.28240690427777515,
+              "top_three_squared_shock_share": 0.42454257011969515,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 6,
+          "df": "Inf",
+          "effective_time_clusters": 118,
+          "panel_rows": 944,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 21.129286429534314,
+          "sample_start_index": 6,
+          "sample_end_index": 123,
+          "sample_start": "2015-07",
+          "sample_end": "2025-04",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3199263885980195,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 79,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.28970541847374454,
+              "top_three_squared_shock_share": 0.5702112341587875,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 79,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.28240690427777515,
+              "top_three_squared_shock_share": 0.42454257011969515,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 7,
+          "df": "Inf",
+          "effective_time_clusters": 117,
+          "panel_rows": 936,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 21.12785742347033,
+          "sample_start_index": 6,
+          "sample_end_index": 122,
+          "sample_start": "2015-07",
+          "sample_end": "2025-03",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.334624393948379,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 78,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.2922054241014182,
+              "top_three_squared_shock_share": 0.5751318576730795,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 78,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.2849894053178555,
+              "top_three_squared_shock_share": 0.42842484641069584,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 8,
+          "df": "Inf",
+          "effective_time_clusters": 116,
+          "panel_rows": 928,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 21.101221775755366,
+          "sample_start_index": 6,
+          "sample_end_index": 121,
+          "sample_start": "2015-07",
+          "sample_end": "2025-02",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.334482351388525,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 77,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.2922143226821048,
+              "top_three_squared_shock_share": 0.5751493722598011,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 77,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.28799567494427214,
+              "top_three_squared_shock_share": 0.432944174424066,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 9,
+          "df": "Inf",
+          "effective_time_clusters": 115,
+          "panel_rows": 920,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 21.199153849029706,
+          "sample_start_index": 6,
+          "sample_end_index": 120,
+          "sample_start": "2015-07",
+          "sample_end": "2025-01",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.33463611059997406,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 77,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.2922143226821048,
+              "top_three_squared_shock_share": 0.5751493722598011,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 77,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.28799567494427214,
+              "top_three_squared_shock_share": 0.432944174424066,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 10,
+          "df": "Inf",
+          "effective_time_clusters": 114,
+          "panel_rows": 912,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 21.271662429851236,
+          "sample_start_index": 6,
+          "sample_end_index": 119,
+          "sample_start": "2015-07",
+          "sample_end": "2024-12",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3367119317293021,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 76,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.29239687937058556,
+              "top_three_squared_shock_share": 0.575508688544567,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 76,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.28828143885593255,
+              "top_three_squared_shock_share": 0.4333737635866045,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 11,
+          "df": "Inf",
+          "effective_time_clusters": 113,
+          "panel_rows": 904,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 21.29738174922816,
+          "sample_start_index": 6,
+          "sample_end_index": 118,
+          "sample_start": "2015-07",
+          "sample_end": "2024-11",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.33807366627592494,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 75,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.2924847831186559,
+              "top_three_squared_shock_share": 0.5756817046549955,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 75,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.2903926636678494,
+              "top_three_squared_shock_share": 0.4365475698717017,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 12,
+          "df": "Inf",
+          "effective_time_clusters": 112,
+          "panel_rows": 896,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 21.359570609000528,
+          "sample_start_index": 6,
+          "sample_end_index": 117,
+          "sample_start": "2015-07",
+          "sample_end": "2024-10",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.33823022537220093,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 75,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.2924847831186559,
+              "top_three_squared_shock_share": 0.5756817046549955,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 75,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.2903926636678494,
+              "top_three_squared_shock_share": 0.4365475698717017,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 13,
+          "df": "Inf",
+          "effective_time_clusters": 111,
+          "panel_rows": 888,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 21.40433960757598,
+          "sample_start_index": 6,
+          "sample_end_index": 116,
+          "sample_start": "2015-07",
+          "sample_end": "2024-09",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.34386796319091756,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 74,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.29350265131703407,
+              "top_three_squared_shock_share": 0.5776851186217273,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 74,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.2910593231180531,
+              "top_three_squared_shock_share": 0.4375497596627334,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 14,
+          "df": "Inf",
+          "effective_time_clusters": 110,
+          "panel_rows": 880,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 21.336915217203927,
+          "sample_start_index": 6,
+          "sample_end_index": 115,
+          "sample_start": "2015-07",
+          "sample_end": "2024-08",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3399370880548147,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 73,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.2960552276336566,
+              "top_three_squared_shock_share": 0.5827092141303784,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 73,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.29224035763760364,
+              "top_three_squared_shock_share": 0.4393252099889651,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 15,
+          "df": "Inf",
+          "effective_time_clusters": 109,
+          "panel_rows": 872,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 21.2552158587013,
+          "sample_start_index": 6,
+          "sample_end_index": 114,
+          "sample_start": "2015-07",
+          "sample_end": "2024-07",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3401165913564404,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 73,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.2960552276336566,
+              "top_three_squared_shock_share": 0.5827092141303784,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 73,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.29224035763760364,
+              "top_three_squared_shock_share": 0.4393252099889651,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 16,
+          "df": "Inf",
+          "effective_time_clusters": 108,
+          "panel_rows": 864,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 21.209779497960103,
+          "sample_start_index": 6,
+          "sample_end_index": 113,
+          "sample_start": "2015-07",
+          "sample_end": "2024-06",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.34056386184333715,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 72,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.2961534740613183,
+              "top_three_squared_shock_share": 0.5829025871679412,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 72,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.2922414981029739,
+              "top_three_squared_shock_share": 0.4393269244516503,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 17,
+          "df": "Inf",
+          "effective_time_clusters": 107,
+          "panel_rows": 856,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 21.235665059639324,
+          "sample_start_index": 6,
+          "sample_end_index": 112,
+          "sample_start": "2015-07",
+          "sample_end": "2024-05",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3406238824251244,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 71,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.29669464741066404,
+              "top_three_squared_shock_share": 0.5839677488934276,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 71,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.2922572050955417,
+              "top_three_squared_shock_share": 0.43935053678864555,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 18,
+          "df": "Inf",
+          "effective_time_clusters": 106,
+          "panel_rows": 848,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 21.2742732436418,
+          "sample_start_index": 6,
+          "sample_end_index": 111,
+          "sample_start": "2015-07",
+          "sample_end": "2024-04",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3408089862974787,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 71,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.29669464741066404,
+              "top_three_squared_shock_share": 0.5839677488934276,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 71,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.2922572050955417,
+              "top_three_squared_shock_share": 0.43935053678864555,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 19,
+          "df": "Inf",
+          "effective_time_clusters": 105,
+          "panel_rows": 840,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 21.29679090382597,
+          "sample_start_index": 6,
+          "sample_end_index": 110,
+          "sample_start": "2015-07",
+          "sample_end": "2024-03",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.34042796380969353,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 70,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.2968103644400651,
+              "top_three_squared_shock_share": 0.5841955083550752,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 70,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.29251057596422164,
+              "top_three_squared_shock_share": 0.4397314294585961,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 20,
+          "df": "Inf",
+          "effective_time_clusters": 104,
+          "panel_rows": 832,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 21.391547683998464,
+          "sample_start_index": 6,
+          "sample_end_index": 109,
+          "sample_start": "2015-07",
+          "sample_end": "2024-02",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3362862967103884,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 69,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.2983083707878609,
+              "top_three_squared_shock_share": 0.5871439518217333,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 69,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.29455406255652405,
+              "top_three_squared_shock_share": 0.4428034048131642,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 21,
+          "df": "Inf",
+          "effective_time_clusters": 103,
+          "panel_rows": 824,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 21.396297729209266,
+          "sample_start_index": 6,
+          "sample_end_index": 108,
+          "sample_start": "2015-07",
+          "sample_end": "2024-01",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3364774287180101,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 69,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.29830837078786093,
+              "top_three_squared_shock_share": 0.5871439518217334,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 69,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.2945540625565239,
+              "top_three_squared_shock_share": 0.44280340481316405,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 22,
+          "df": "Inf",
+          "effective_time_clusters": 102,
+          "panel_rows": 816,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 21.418274781648613,
+          "sample_start_index": 6,
+          "sample_end_index": 107,
+          "sample_start": "2015-07",
+          "sample_end": "2023-12",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3391813895152628,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 68,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.30295496889056267,
+              "top_three_squared_shock_share": 0.5962895951885024,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 68,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.294615508780632,
+              "top_three_squared_shock_share": 0.4428957769808124,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 23,
+          "df": "Inf",
+          "effective_time_clusters": 101,
+          "panel_rows": 808,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 21.458701659160877,
+          "sample_start_index": 6,
+          "sample_end_index": 106,
+          "sample_start": "2015-07",
+          "sample_end": "2023-11",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.33796719122393687,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 67,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.3057290488560764,
+              "top_three_squared_shock_share": 0.6017496641410411,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 67,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.29473964155774346,
+              "top_three_squared_shock_share": 0.4430823859037273,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 24,
+          "df": "Inf",
+          "effective_time_clusters": 100,
+          "panel_rows": 800,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 21.46932840832535,
+          "sample_start_index": 6,
+          "sample_end_index": 105,
+          "sample_start": "2015-07",
+          "sample_end": "2023-10",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.338178942223718,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 67,
+              "zero_months": 33,
+              "largest_squared_shock_share": 0.3057290488560764,
+              "top_three_squared_shock_share": 0.6017496641410411,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 67,
+              "zero_months": 33,
+              "largest_squared_shock_share": 0.29473964155774346,
+              "top_three_squared_shock_share": 0.4430823859037273,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "outcome_id": "long_term_yield",
+      "calendar_start": "2015-01",
+      "calendar_end": "2025-10",
+      "policy": "author_exact_horizon_specific_available_cumulative_and_lags",
+      "requested_horizon": 24,
+      "eligible_horizon": 24,
+      "fallback_attempts": [
+        {
+          "horizon": 24,
+          "minimum_time_clusters": 100,
+          "balanced": true,
+          "status": "pass"
+        }
+      ],
+      "horizons": [
+        {
+          "horizon": 0,
+          "df": "Inf",
+          "effective_time_clusters": 129,
+          "panel_rows": 1032,
+          "country_count": 8,
+          "p_h": 0,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 4,
+          "columns": 4,
+          "condition_number": 1.5868032518624167,
+          "sample_start_index": 1,
+          "sample_end_index": 129,
+          "sample_start": "2015-02",
+          "sample_end": "2025-10",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.32144425579962976,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 86,
+              "zero_months": 43,
+              "largest_squared_shock_share": 0.2861013283470606,
+              "top_three_squared_shock_share": 0.5631175018772762,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 86,
+              "zero_months": 43,
+              "largest_squared_shock_share": 0.28071041596137397,
+              "top_three_squared_shock_share": 0.42199223760617216,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 1,
+          "df": "Inf",
+          "effective_time_clusters": 127,
+          "panel_rows": 1016,
+          "country_count": 8,
+          "p_h": 1,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 9,
+          "columns": 9,
+          "condition_number": 19.867478904952005,
+          "sample_start_index": 2,
+          "sample_end_index": 128,
+          "sample_start": "2015-03",
+          "sample_end": "2025-09",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3204974100211158,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 85,
+              "zero_months": 42,
+              "largest_squared_shock_share": 0.2863588813045337,
+              "top_three_squared_shock_share": 0.5636244291916346,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 85,
+              "zero_months": 42,
+              "largest_squared_shock_share": 0.2813078268318335,
+              "top_three_squared_shock_share": 0.42289032594084286,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 2,
+          "df": "Inf",
+          "effective_time_clusters": 125,
+          "panel_rows": 1000,
+          "country_count": 8,
+          "p_h": 2,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 14,
+          "columns": 14,
+          "condition_number": 23.25468159426413,
+          "sample_start_index": 3,
+          "sample_end_index": 127,
+          "sample_start": "2015-04",
+          "sample_end": "2025-08",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.32138048738303776,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 83,
+              "zero_months": 42,
+              "largest_squared_shock_share": 0.2869074304587733,
+              "top_three_squared_shock_share": 0.5647041083080404,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 83,
+              "zero_months": 42,
+              "largest_squared_shock_share": 0.28138532707559655,
+              "top_three_squared_shock_share": 0.4230068321316395,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 3,
+          "df": "Inf",
+          "effective_time_clusters": 123,
+          "panel_rows": 984,
+          "country_count": 8,
+          "p_h": 3,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 19,
+          "columns": 19,
+          "condition_number": 25.887369548369026,
+          "sample_start_index": 4,
+          "sample_end_index": 126,
+          "sample_start": "2015-05",
+          "sample_end": "2025-07",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3212668117413719,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 82,
+              "zero_months": 41,
+              "largest_squared_shock_share": 0.28691209401336626,
+              "top_three_squared_shock_share": 0.564713287325934,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 82,
+              "zero_months": 41,
+              "largest_squared_shock_share": 0.28166315018231314,
+              "top_three_squared_shock_share": 0.4234244838744881,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 4,
+          "df": "Inf",
+          "effective_time_clusters": 121,
+          "panel_rows": 968,
+          "country_count": 8,
+          "p_h": 4,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 24,
+          "columns": 24,
+          "condition_number": 28.018942116975193,
+          "sample_start_index": 5,
+          "sample_end_index": 125,
+          "sample_start": "2015-06",
+          "sample_end": "2025-06",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.32123714117712726,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 81,
+              "zero_months": 40,
+              "largest_squared_shock_share": 0.2882274361276383,
+              "top_three_squared_shock_share": 0.5673022028328355,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 81,
+              "zero_months": 40,
+              "largest_squared_shock_share": 0.28166792955682873,
+              "top_three_squared_shock_share": 0.42343166871278237,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 5,
+          "df": "Inf",
+          "effective_time_clusters": 119,
+          "panel_rows": 952,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 31.65465700272962,
+          "sample_start_index": 6,
+          "sample_end_index": 124,
+          "sample_start": "2015-07",
+          "sample_end": "2025-05",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.31979394531472566,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 79,
+              "zero_months": 40,
+              "largest_squared_shock_share": 0.28970541847374454,
+              "top_three_squared_shock_share": 0.5702112341587875,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 79,
+              "zero_months": 40,
+              "largest_squared_shock_share": 0.28240690427777515,
+              "top_three_squared_shock_share": 0.42454257011969515,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 6,
+          "df": "Inf",
+          "effective_time_clusters": 118,
+          "panel_rows": 944,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 31.774255846972153,
+          "sample_start_index": 6,
+          "sample_end_index": 123,
+          "sample_start": "2015-07",
+          "sample_end": "2025-04",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3199263885980195,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 79,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.28970541847374454,
+              "top_three_squared_shock_share": 0.5702112341587875,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 79,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.28240690427777515,
+              "top_three_squared_shock_share": 0.42454257011969515,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 7,
+          "df": "Inf",
+          "effective_time_clusters": 117,
+          "panel_rows": 936,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 31.84462891479923,
+          "sample_start_index": 6,
+          "sample_end_index": 122,
+          "sample_start": "2015-07",
+          "sample_end": "2025-03",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.334624393948379,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 78,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.2922054241014182,
+              "top_three_squared_shock_share": 0.5751318576730795,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 78,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.2849894053178555,
+              "top_three_squared_shock_share": 0.42842484641069584,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 8,
+          "df": "Inf",
+          "effective_time_clusters": 116,
+          "panel_rows": 928,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 31.845863346415296,
+          "sample_start_index": 6,
+          "sample_end_index": 121,
+          "sample_start": "2015-07",
+          "sample_end": "2025-02",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.334482351388525,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 77,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.2922143226821048,
+              "top_three_squared_shock_share": 0.5751493722598011,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 77,
+              "zero_months": 39,
+              "largest_squared_shock_share": 0.28799567494427214,
+              "top_three_squared_shock_share": 0.432944174424066,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 9,
+          "df": "Inf",
+          "effective_time_clusters": 115,
+          "panel_rows": 920,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 31.939769389185834,
+          "sample_start_index": 6,
+          "sample_end_index": 120,
+          "sample_start": "2015-07",
+          "sample_end": "2025-01",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.33463611059997406,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 77,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.2922143226821048,
+              "top_three_squared_shock_share": 0.5751493722598011,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 77,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.28799567494427214,
+              "top_three_squared_shock_share": 0.432944174424066,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 10,
+          "df": "Inf",
+          "effective_time_clusters": 114,
+          "panel_rows": 912,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 32.03510281580437,
+          "sample_start_index": 6,
+          "sample_end_index": 119,
+          "sample_start": "2015-07",
+          "sample_end": "2024-12",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3367119317293021,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 76,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.29239687937058556,
+              "top_three_squared_shock_share": 0.575508688544567,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 76,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.28828143885593255,
+              "top_three_squared_shock_share": 0.4333737635866045,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 11,
+          "df": "Inf",
+          "effective_time_clusters": 113,
+          "panel_rows": 904,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 32.076266695152064,
+          "sample_start_index": 6,
+          "sample_end_index": 118,
+          "sample_start": "2015-07",
+          "sample_end": "2024-11",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.33807366627592494,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 75,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.2924847831186559,
+              "top_three_squared_shock_share": 0.5756817046549955,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 75,
+              "zero_months": 38,
+              "largest_squared_shock_share": 0.2903926636678494,
+              "top_three_squared_shock_share": 0.4365475698717017,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 12,
+          "df": "Inf",
+          "effective_time_clusters": 112,
+          "panel_rows": 896,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 32.16810247921568,
+          "sample_start_index": 6,
+          "sample_end_index": 117,
+          "sample_start": "2015-07",
+          "sample_end": "2024-10",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.33823022537220093,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 75,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.2924847831186559,
+              "top_three_squared_shock_share": 0.5756817046549955,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 75,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.2903926636678494,
+              "top_three_squared_shock_share": 0.4365475698717017,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 13,
+          "df": "Inf",
+          "effective_time_clusters": 111,
+          "panel_rows": 888,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 32.299043106802706,
+          "sample_start_index": 6,
+          "sample_end_index": 116,
+          "sample_start": "2015-07",
+          "sample_end": "2024-09",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.34386796319091756,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 74,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.29350265131703407,
+              "top_three_squared_shock_share": 0.5776851186217273,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 74,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.2910593231180531,
+              "top_three_squared_shock_share": 0.4375497596627334,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 14,
+          "df": "Inf",
+          "effective_time_clusters": 110,
+          "panel_rows": 880,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 32.35759425683801,
+          "sample_start_index": 6,
+          "sample_end_index": 115,
+          "sample_start": "2015-07",
+          "sample_end": "2024-08",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3399370880548147,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 73,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.2960552276336566,
+              "top_three_squared_shock_share": 0.5827092141303784,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 73,
+              "zero_months": 37,
+              "largest_squared_shock_share": 0.29224035763760364,
+              "top_three_squared_shock_share": 0.4393252099889651,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 15,
+          "df": "Inf",
+          "effective_time_clusters": 109,
+          "panel_rows": 872,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 32.36212735271326,
+          "sample_start_index": 6,
+          "sample_end_index": 114,
+          "sample_start": "2015-07",
+          "sample_end": "2024-07",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3401165913564404,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 73,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.2960552276336566,
+              "top_three_squared_shock_share": 0.5827092141303784,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 73,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.29224035763760364,
+              "top_three_squared_shock_share": 0.4393252099889651,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 16,
+          "df": "Inf",
+          "effective_time_clusters": 108,
+          "panel_rows": 864,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 32.32978217383175,
+          "sample_start_index": 6,
+          "sample_end_index": 113,
+          "sample_start": "2015-07",
+          "sample_end": "2024-06",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.34056386184333715,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 72,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.2961534740613183,
+              "top_three_squared_shock_share": 0.5829025871679412,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 72,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.2922414981029739,
+              "top_three_squared_shock_share": 0.4393269244516503,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 17,
+          "df": "Inf",
+          "effective_time_clusters": 107,
+          "panel_rows": 856,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 32.34450888274008,
+          "sample_start_index": 6,
+          "sample_end_index": 112,
+          "sample_start": "2015-07",
+          "sample_end": "2024-05",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3406238824251244,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 71,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.29669464741066404,
+              "top_three_squared_shock_share": 0.5839677488934276,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 71,
+              "zero_months": 36,
+              "largest_squared_shock_share": 0.2922572050955417,
+              "top_three_squared_shock_share": 0.43935053678864555,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 18,
+          "df": "Inf",
+          "effective_time_clusters": 106,
+          "panel_rows": 848,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 32.34362257441162,
+          "sample_start_index": 6,
+          "sample_end_index": 111,
+          "sample_start": "2015-07",
+          "sample_end": "2024-04",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3408089862974787,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 71,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.29669464741066404,
+              "top_three_squared_shock_share": 0.5839677488934276,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 71,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.2922572050955417,
+              "top_three_squared_shock_share": 0.43935053678864555,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 19,
+          "df": "Inf",
+          "effective_time_clusters": 105,
+          "panel_rows": 840,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 32.253879354799246,
+          "sample_start_index": 6,
+          "sample_end_index": 110,
+          "sample_start": "2015-07",
+          "sample_end": "2024-03",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.34042796380969353,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 70,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.2968103644400651,
+              "top_three_squared_shock_share": 0.5841955083550752,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 70,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.29251057596422164,
+              "top_three_squared_shock_share": 0.4397314294585961,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 20,
+          "df": "Inf",
+          "effective_time_clusters": 104,
+          "panel_rows": 832,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 32.2361811504662,
+          "sample_start_index": 6,
+          "sample_end_index": 109,
+          "sample_start": "2015-07",
+          "sample_end": "2024-02",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3362862967103884,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 69,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.2983083707878609,
+              "top_three_squared_shock_share": 0.5871439518217333,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 69,
+              "zero_months": 35,
+              "largest_squared_shock_share": 0.29455406255652405,
+              "top_three_squared_shock_share": 0.4428034048131642,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 21,
+          "df": "Inf",
+          "effective_time_clusters": 103,
+          "panel_rows": 824,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 32.01213704720721,
+          "sample_start_index": 6,
+          "sample_end_index": 108,
+          "sample_start": "2015-07",
+          "sample_end": "2024-01",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3364774287180101,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 69,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.29830837078786093,
+              "top_three_squared_shock_share": 0.5871439518217334,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 69,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.2945540625565239,
+              "top_three_squared_shock_share": 0.44280340481316405,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 22,
+          "df": "Inf",
+          "effective_time_clusters": 102,
+          "panel_rows": 816,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 32.01507184229743,
+          "sample_start_index": 6,
+          "sample_end_index": 107,
+          "sample_start": "2015-07",
+          "sample_end": "2023-12",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.3391813895152628,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 68,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.30295496889056267,
+              "top_three_squared_shock_share": 0.5962895951885024,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 68,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.294615508780632,
+              "top_three_squared_shock_share": 0.4428957769808124,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 23,
+          "df": "Inf",
+          "effective_time_clusters": 101,
+          "panel_rows": 808,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 32.12034381881661,
+          "sample_start_index": 6,
+          "sample_end_index": 106,
+          "sample_start": "2015-07",
+          "sample_end": "2023-11",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.33796719122393687,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 67,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.3057290488560764,
+              "top_three_squared_shock_share": 0.6017496641410411,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 67,
+              "zero_months": 34,
+              "largest_squared_shock_share": 0.29473964155774346,
+              "top_three_squared_shock_share": 0.4430823859037273,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        },
+        {
+          "horizon": 24,
+          "df": "Inf",
+          "effective_time_clusters": 100,
+          "panel_rows": 800,
+          "country_count": 8,
+          "p_h": 5,
+          "p_max": 5,
+          "T_eff": 130,
+          "rank": 29,
+          "columns": 29,
+          "condition_number": 32.22837809281162,
+          "sample_start_index": 6,
+          "sample_end_index": 105,
+          "sample_start": "2015-07",
+          "sample_end": "2023-10",
+          "balanced_panel": true,
+          "group_sizes": {
+            "euro": 4,
+            "non_euro": 4
+          },
+          "shock_correlation": -0.338178942223718,
+          "shock_support": {
+            "MP": {
+              "nonzero_months": 67,
+              "zero_months": 33,
+              "largest_squared_shock_share": 0.3057290488560764,
+              "top_three_squared_shock_share": 0.6017496641410411,
+              "support_unit": "month_not_country_row"
+            },
+            "CBI": {
+              "nonzero_months": 67,
+              "zero_months": 33,
+              "largest_squared_shock_share": 0.29473964155774346,
+              "top_three_squared_shock_share": 0.4430823859037273,
+              "support_unit": "month_not_country_row"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "minimum_time_clusters": 96,
+  "no_event_shock_value": 0,
+  "meeting_month_selection": false
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": "panel-lp-country-registry-v1.8",
+  "generated_at": "2026-09-09",
+  "fixed_composition": true,
+  "records": [
+    {
+      "code": "AT",
+      "country": "austria",
+      "group": "euro",
+      "euro_dummy": 1,
+      "non_euro_dummy": 0,
+      "contrast": 0.5
+    },
+    {
+      "code": "DE",
+      "country": "germany",
+      "group": "euro",
+      "euro_dummy": 1,
+      "non_euro_dummy": 0,
+      "contrast": 0.5
+    },
+    {
+      "code": "SK",
+      "country": "slovakia",
+      "group": "euro",
+      "euro_dummy": 1,
+      "non_euro_dummy": 0,
+      "contrast": 0.5
+    },
+    {
+      "code": "SI",
+      "country": "slovenia",
+      "group": "euro",
+      "euro_dummy": 1,
+      "non_euro_dummy": 0,
+      "contrast": 0.5
+    },
+    {
+      "code": "CZ",
+      "country": "czechia",
+      "group": "non_euro",
+      "euro_dummy": 0,
+      "non_euro_dummy": 1,
+      "contrast": -0.5
+    },
+    {
+      "code": "HU",
+      "country": "hungary",
+      "group": "non_euro",
+      "euro_dummy": 0,
+      "non_euro_dummy": 1,
+      "contrast": -0.5
+    },
+    {
+      "code": "PL",
+      "country": "poland",
+      "group": "non_euro",
+      "euro_dummy": 0,
+      "non_euro_dummy": 1,
+      "contrast": -0.5
+    },
+    {
+      "code": "RO",
+      "country": "romania",
+      "group": "non_euro",
+      "euro_dummy": 0,
+      "non_euro_dummy": 1,
+      "contrast": -0.5
+    }
+  ],
+  "excluded": [
+    {
+      "code": "HR",
+      "reason": "2023-01 euro adoption monetary regime break"
+    },
+    {
+      "code": "RS",
+      "reason": "insufficient common monthly outcome coverage"
+    }
+  ]
+}

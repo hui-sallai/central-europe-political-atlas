@@ -2085,6 +2085,14 @@ fs.copyFileSync(path.join(canonicalDataDir, "analysis", "analysis_skill_registry
 for (const fileName of macroDriverFiles) fs.copyFileSync(path.join(macroDriverDir, fileName), path.join(outDir, fileName));
 for (const fileName of identifiedShockFiles) fs.copyFileSync(path.join(identifiedShockDir, fileName), path.join(outDir, fileName));
 for (const fileName of localProjectionFiles) fs.copyFileSync(path.join(localProjectionDir, fileName), path.join(outDir, fileName));
+const panelLpDir = path.join(canonicalDataDir, "panel-local-projections");
+const panelLpExportDir = path.join(outDir, "panel-local-projections");
+fs.mkdirSync(panelLpExportDir, { recursive: true });
+for (const name of fs.readdirSync(panelLpDir).filter(name => name.endsWith(".json"))) {
+  fs.copyFileSync(path.join(panelLpDir, name), path.join(panelLpExportDir, name));
+}
+// Method cards use a flat readiness link. Keep comparability extensions namespaced.
+fs.copyFileSync(path.join(panelLpDir, "panel_lp_readiness_registry.json"), path.join(outDir, "panel_lp_readiness_registry.json"));
 const advancedValidationSummary = fs.existsSync(advancedValidationSummaryPath)
   ? JSON.parse(fs.readFileSync(advancedValidationSummaryPath, "utf8"))
   : { schema_version: "advanced-analysis-validation-summary-v1.6", status: "pending", total_tests: 0, failure_count: null, categories: {} };
@@ -2142,7 +2150,7 @@ writeJson("release_manifest.json", {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.73",
+    analysis_skill_registry: "analysis-skill-registry-v1.8",
     transformation_registry: "transformation-registry-v1.41",
     stationarity_engine: "stationarity-engine-v1.44",
     seasonal_adf_calibration: "seasonal-adf-critical-values-v1.44",

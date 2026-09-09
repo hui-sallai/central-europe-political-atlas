@@ -49,6 +49,18 @@ jobs:
       - name: Validate frozen Local Projections
         run: pnpm lp:validate
 
+      - name: Validate aggregate-shock panel reference and production
+        run: |
+          pnpm panel-lp:reference
+          pnpm panel-lp:validate
+          pnpm panel-lp:ui-validate
+
+      - name: Validate news and identified shocks
+        run: |
+          pnpm news:validate
+          pnpm jk:validate
+          pnpm information-effect:validate
+
       - name: Export research data
         run: pnpm export:research-data
         env:

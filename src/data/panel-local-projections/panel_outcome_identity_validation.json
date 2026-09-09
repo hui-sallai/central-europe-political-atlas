@@ -1,0 +1,35 @@
+{
+  "schema_version": "panel-outcome-identity-validation-v1.8",
+  "generated_at": "2026-09-09",
+  "records": [
+    {
+      "outcome_id": "hicp_price_level",
+      "country_date_horizon_checks": 23400,
+      "maximum_absolute_error": 0.0,
+      "status": "pass",
+      "registered_definition": "100 * [log(P[t+h]) - log(P[t-1])]"
+    },
+    {
+      "outcome_id": "industrial_production",
+      "country_date_horizon_checks": 23400,
+      "maximum_absolute_error": 0.0,
+      "status": "pass",
+      "registered_definition": "100 * [log(IPI[t+h]) - log(IPI[t-1])]"
+    },
+    {
+      "outcome_id": "unemployment",
+      "country_date_horizon_checks": 23400,
+      "maximum_absolute_error": 0.0,
+      "status": "pass",
+      "registered_definition": "U[t+h] - U[t-1]"
+    },
+    {
+      "outcome_id": "long_term_yield",
+      "country_date_horizon_checks": 23400,
+      "maximum_absolute_error": 8.881784197001252e-16,
+      "status": "pass",
+      "registered_definition": "Yield[t+h] - Yield[t-1]"
+    }
+  ],
+  "status": "pass"
+}

@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.8 Aggregate-Shock Panel Local Projections & Euro / Non-Euro Transmission Heterogeneity — 2026-09-09
+
+- Adds a fixed AT/DE/SK/SI versus CZ/HU/PL/RO joint JK MP/CBI panel, four common outcomes, country fixed effects and reference-exact lag augmentation with time-clustered asymptotic inference.
+- Validates five numerical cases against unmodified pinned author R code; the MATLAB source is audited, not numerically executed. Author source is excluded from redistribution because the pinned repository has no root license.
+- Separates group responses from direct pointwise group-difference inference and adds contrast-only country/time fixed-effects sensitivity.
+- Keeps IK small-sample refinement, panel simultaneous bands, country-pair formal tests and state dependence unactivated. Preserves all v1.73 frozen single-country hashes and the read-only LP validation hotfix.
+- Includes independent Python implementation, numerical fixtures, sample/diagnostic registries and publication checks in the versioned research package.
+
 ## v1.73 Analysis Registry & Workbench Convergence — 2026-09-07
 
 - Canonical analysis registry supplies states, aliases, presentation and category routing.

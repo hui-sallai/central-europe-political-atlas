@@ -1,0 +1,75 @@
+{
+  "schema_version": "panel-lp-readiness-registry-v1.8",
+  "generated_at": "2026-09-09",
+  "records": [
+    {
+      "outcome_id": "hicp_price_level",
+      "state": "active",
+      "publication_ready": true,
+      "requested_horizon": 24,
+      "eligible_horizon": 24,
+      "attempts": [
+        {
+          "horizon": 24,
+          "minimum_time_clusters": 100,
+          "balanced": true,
+          "status": "pass"
+        }
+      ],
+      "missing_countries": [],
+      "blockers": []
+    },
+    {
+      "outcome_id": "industrial_production",
+      "state": "active",
+      "publication_ready": true,
+      "requested_horizon": 24,
+      "eligible_horizon": 24,
+      "attempts": [
+        {
+          "horizon": 24,
+          "minimum_time_clusters": 100,
+          "balanced": true,
+          "status": "pass"
+        }
+      ],
+      "missing_countries": [],
+      "blockers": []
+    },
+    {
+      "outcome_id": "unemployment",
+      "state": "active",
+      "publication_ready": true,
+      "requested_horizon": 24,
+      "eligible_horizon": 24,
+      "attempts": [
+        {
+          "horizon": 24,
+          "minimum_time_clusters": 100,
+          "balanced": true,
+          "status": "pass"
+        }
+      ],
+      "missing_countries": [],
+      "blockers": []
+    },
+    {
+      "outcome_id": "long_term_yield",
+      "state": "active",
+      "publication_ready": true,
+      "requested_horizon": 24,
+      "eligible_horizon": 24,
+      "attempts": [
+        {
+          "horizon": 24,
+          "minimum_time_clusters": 100,
+          "balanced": true,
+          "status": "pass"
+        }
+      ],
+      "missing_countries": [],
+      "blockers": []
+    }
+  ],
+  "state": "active"
+}

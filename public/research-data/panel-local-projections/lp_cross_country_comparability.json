@@ -1,0 +1,14 @@
+{
+  "schema_version": "lp-cross-country-comparability-v1.8",
+  "generated_at": "2026-09-09",
+  "frozen_single_country_reference": "local-projections/lp_cross_country_comparability.json",
+  "reason_for_additive_extension": "Original file is protected by v1.73 raw-byte frozen hashes.",
+  "formal_difference_test": false,
+  "formal_group_difference_available": true,
+  "group_difference_outcomes": [
+    "hicp_price_level",
+    "industrial_production",
+    "unemployment",
+    "long_term_yield"
+  ]
+}

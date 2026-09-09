@@ -1,0 +1,10 @@
+import fs from "node:fs";
+import path from "node:path";
+import { spawnSync } from "node:child_process";
+const root = path.resolve(import.meta.dirname, "../..");
+const task = process.argv[2];
+if (!["reference", "build", "validate"].includes(task)) throw new Error("Unknown panel LP task");
+const local = path.join(root, ".venv/bin/python");
+const result = spawnSync(fs.existsSync(local) ? local : "python3", [path.join(import.meta.dirname, `${task}.py`), ...process.argv.slice(3)], {cwd: root, stdio: "inherit"});
+if (result.error) throw result.error;
+process.exit(result.status ?? 1);

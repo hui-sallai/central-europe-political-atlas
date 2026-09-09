@@ -1,15 +1,15 @@
 {
-  "schema_version": "release-metadata-v1.73",
-  "platform_version": "v1.73 Analysis Registry & Workbench Convergence",
-  "release_date": "2026-09-07",
+  "schema_version": "release-metadata-v1.8",
+  "platform_version": "v1.8 Aggregate-Shock Panel Local Projections & Euro / Non-Euro Transmission Heterogeneity",
+  "release_date": "2026-09-09",
   "source_commit": "local-working-tree",
   "build_context": "local",
   "workflow_run_id": null,
-  "generated_at": "2026-09-07T10:36:59.252Z",
+  "generated_at": "2026-09-08T18:39:43.908Z",
   "research_package": {
-    "filename": "research-data-v1.73.zip",
-    "sha256": "3c80c8030535608e40f013b14b47c02e72177e58eb2f1b0784b0f0adfe36d992",
-    "generated_at": "2026-09-07T10:37:10.441Z",
+    "filename": "research-data-v1.8.zip",
+    "sha256": "647130144ef429a5bdc66cfd9581efe6ce42cbae43dc0857df8a1246e08af338",
+    "generated_at": "2026-09-08T18:39:45.851Z",
     "status": "built"
   },
   "data_export_version": "research-data-v0.1",
@@ -90,7 +90,7 @@
     "trade_network": "trade-network-v1.25-active",
     "event_window": "event-window-v1.31",
     "high_frequency": "high-frequency-v1.31",
-    "analysis_skill_registry": "analysis-skill-registry-v1.73",
+    "analysis_skill_registry": "analysis-skill-registry-v1.8",
     "transformation_registry": "transformation-registry-v1.41",
     "stationarity_engine": "stationarity-engine-v1.44",
     "seasonal_adf_calibration": "seasonal-adf-critical-values-v1.44",
@@ -169,8 +169,8 @@
       "static_build",
       "package_checksum"
     ],
-    "package_checksum": "3c80c8030535608e40f013b14b47c02e72177e58eb2f1b0784b0f0adfe36d992",
-    "package_filename": "research-data-v1.73.zip"
+    "package_checksum": "647130144ef429a5bdc66cfd9581efe6ce42cbae43dc0857df8a1246e08af338",
+    "package_filename": "research-data-v1.8.zip"
   },
   "legacy_validation_summary_v091": {
     "stage": "v0.91 Model & Scenario Validation",

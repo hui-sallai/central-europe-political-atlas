@@ -21,6 +21,12 @@ export default function MethodologyPage() {
 
     <Section id="data" label="01 / Data" title="数据如何进入平台"><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">每条正式观测必须有国家或地区、时间、数值、单位、来源名称、来源链接、可靠性、状态和更新时间。official / verified 可进入相应事实层；pending 保留但不参与比较；sample 与 placeholder 不进入分析。A 级为官方统计或机构，B 级为可核验权威来源，C 级只作线索，D 级排除。</p><p className="mt-3 text-sm leading-7 text-[var(--muted)]">跨国比较只使用同定义、同单位、同层级和共同年份。计算值必须保留分子、分母、公式和来源。</p><Link href="/data" className="mt-4 inline-flex text-sm font-semibold text-[var(--accent)]">打开 Data Explorer</Link></Section>
 
+    <Section id="panel-local-projections" label="Aggregate-Shock Panel LP" title="共同冲击、时间聚类与组间异质性">
+      <p className="mt-4 text-sm leading-7">Panel LP 采用独立离线实现，依据 Almuzara–Sancibrián 的 t-LAHR 方法，联合估计冻结的 JK MP 与 CBI。主设计使用国家固定效应、滞后增广和按月份聚类的得分协方差；HICP 加入 11 个月份季节项，不加入会吸收共同冲击的完整时间固定效应。</p>
+      <p className="mt-3 text-sm leading-7">固定欧元组为 AT、DE、SK、SI，固定非欧元组为 CZ、HU、PL、RO。8 国不等于 8 次独立冲击；面板行数不等于独立冲击观测数；时间聚类不等于国家聚类。两组都不代表其所在整个地区，面板估计也不是单国 LP 结果的简单平均。</p>
+      <p className="mt-3 text-sm leading-7">每期直接检验欧元组减非欧元组的差异，只提供点态区间，不作整条路径显著不同的结论。国家加时间固定效应的对比项回归仅作为组间差异敏感性分析。IK 小样本修正、面板同时置信带和国家对国家正式检验保持 registry_only。</p>
+      <p className="mt-3 text-sm leading-7">克罗地亚因 2023 年加入欧元的制度断点排除；塞尔维亚因共同月度覆盖不足排除。固定 8 国不得因缺测改为 7 国；每期至少 96 个有效月份，预测期从 24 个月依次尝试 18、12、6，缩短必须公开说明。</p>
+    </Section>
     <Section id="analysis-registry" label="Analysis Registry" title="分析方法与当前状态">
       <p className="mt-4 text-sm">方法状态、解释边界与工作台导航共同读取同一份 canonical registry。方法已启用不表示所有数据组合均通过准入。</p>
       <div className="grid gap-4 md:grid-cols-2">{runtimeAnalysisSkills.map((skill) => <AnalysisSkillCard key={skill.skill_id} skill={skill} />)}</div>

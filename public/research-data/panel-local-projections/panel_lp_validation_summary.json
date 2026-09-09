@@ -1,0 +1,42 @@
+{
+  "schema_version": "panel-lp-validation-summary-v1.8",
+  "generated_at": "2026-09-09",
+  "state": "active",
+  "reference": "pass",
+  "production": "pass",
+  "candidate_outcomes": 4,
+  "unavailable_outcomes": [],
+  "input_sha256": {
+    "src/data/high-frequency/high_frequency_observations.json": "0621d6dbafb98e47ee1bb4c4de04183fd7e9d440cea60764babd8665e5e07ae0",
+    "src/data/macro-drivers/macro_driver_observations.json": "a085c6b082af9420ea5c71bf755d3cc020afc8b8abdd0313f2057420d6f55daa",
+    "src/data/identified-shocks/ecb_pure_monetary_policy_shock_monthly.json": "94253936976d942f520f66efe741850f1d9e213a45b5d1eff2c4685b2d19d8df",
+    "src/data/identified-shocks/ecb_central_bank_information_shock_monthly.json": "c7e144edd47fb9303c5a690bb52ef5ec9c22c80a05e100c07f83b102c9f8e274"
+  },
+  "status": "pass",
+  "checks": 3669,
+  "reference_cases": 5,
+  "explicit_dummy_qr_covariance": "pass",
+  "pseudo_replication_invariance": "pass",
+  "calendar_gap_and_row_order": "pass",
+  "publication_state": "active",
+  "pending_gates": [
+    "release workflow verification"
+  ],
+  "validated_files_sha256": {
+    "panel_lp_model_registry.json": "51f29ad1fb5afb5c7a50b29d30ccbfbefe6b716dcd7e6b027e733e11c2578d1e",
+    "panel_lp_parameterization_validation.json": "8acd639443e183437cd29589ea796fdc895015b88ea0212504a88a4080cc1d5c",
+    "panel_lp_outcome_registry.json": "c96ef2117991c78d4b7ce47fcdd0acb7344c16c744df54b41f70e37461491276",
+    "panel_lp_country_registry.json": "7fb3b1db70ffc9ee90a0c7b4d7879ba291f3de6dd15a9b412664d9af29d5bd1f",
+    "lp_cross_country_comparability.json": "841f6eec19543934b3f4323c1c4834ac9ecd1fca28d6e03fd4fd24930e439a3c",
+    "panel_lp_reference_cases.json": "f36a1a8bdaff10607b64d9beb306dc5710e401a97a2894a90564883535db414d",
+    "panel_lp_results.json": "10e7b4f8761523e7b136b9707ac87da1d753a5914e0d11a3f8b980571ab53bdc",
+    "panel_lp_small_sample_method_registry.json": "ae59bc5aee2cfd47ec3a6aa57b522c07316febbe1a5063e22c2daa2d86642536",
+    "panel_lp_method_registry.json": "06e1b48d8c938771dad9f1ce4f0a4fb6b31380f2422fe8178edecdc9e81387b9",
+    "panel_lp_ui_validation.json": "59c723b2de571a723fbc7941b48ef7a718dc40775aff6d941127ffa065cfb9c8",
+    "panel_lp_reference_manifest.json": "747b2e6e3b1ac790d6c5093a9d8089c4f1a88c4c3f1218462a5eec9f797f3222",
+    "panel_lp_readiness_registry.json": "2a0ba4a31dd2d65ef3724bb45613b8726d16dcefe759049ddc1554305cf2f2aa",
+    "panel_outcome_identity_validation.json": "4b6254ef0861e1c1e1277568c44b878666562d4e9e3f2da6f38aaf4e6261b003",
+    "panel_lp_sample_registry.json": "96f4e8ca2a0976c5d75131fb1c1ba23a940f0e2739df7452b914f6651002e13e"
+  },
+  "real_data_qr_checks": 1200
+}

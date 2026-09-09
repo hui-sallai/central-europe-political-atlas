@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "panel-lp:reference": "node scripts/panel-local-projections/run.mjs reference",
+    "panel-lp:build": "node scripts/panel-local-projections/run.mjs build",
+    "panel-lp:validate": "node scripts/panel-local-projections/run.mjs validate",
+    "panel-lp:ui-validate": "node scripts/panel-local-projections/validate-ui.mjs",
     "dev": "next dev --webpack",
     "build": "node scripts/security/check-public-secrets.mjs && pnpm analysis-registry:validate && pnpm lp:validate && node scripts/export-research-data.mjs && node scripts/release/build-research-package.mjs && node scripts/validation/run-research-validation.mjs && node scripts/validation/validate-ecb-shocks.mjs && node scripts/validation/run-advanced-analysis-validation.mjs && node scripts/validation/run-ui-language-qa.mjs && node scripts/build-home-country-map.mjs && next build && node scripts/release/validate-release.mjs",
     "build:site": "node scripts/build-home-country-map.mjs && next build",

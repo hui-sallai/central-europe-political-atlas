@@ -4,7 +4,7 @@ Central Europe Political Atlas is a public political-economy research platform f
 
 Public site: https://hy-central-europe-analysis.org/
 
-Current release: **v1.73 Analysis Registry & Workbench Convergence**
+Current release: **v1.8 Aggregate-Shock Panel Local Projections & Euro / Non-Euro Transmission Heterogeneity**
 
 v1.72 preserves the 44 v1.71 baseline models and adds finite-sample Monte Carlo diagnostics, concentration-based shock support, exhaustive eligible shock-month/event deletion audits, and independent full-path covariance checks. Bias correction remains `registry_only`: the official Fed ZIP contains accessible paper assets, not executable replication code. Simulations describe stylized fixed-p designs, not estimated coverage or bias of the real models.
 
@@ -20,7 +20,7 @@ Offline diagnostic regeneration: `pnpm lp:finite-sample` and `pnpm lp:shock-supp
 - A per-country monthly reduced-form VAR workbench with constant-only and seasonal-control formal baselines, profile-mapped stationarity gates, descriptive persistence and structural-break readiness diagnostics, strict `estimable` versus `dynamic_response_ready` states, h=12/18/24 residual sensitivity diagnostics, and ordering-dependent orthogonalized point responses. SVAR, seasonal-unit-root tests, structural-break estimators, residual LM and uncertainty intervals remain unavailable.
 - A separate monthly macro-driver layer for policy rates, long-term government yields, bilateral and effective exchange rates, HICP Energy, Brent and European natural gas, with source checksums, timing conventions and machine-readable identification status.
 - An audited ECB high-frequency monetary-policy layer built from EA-MPD and EA-EMPD. The frozen v1.62 Jarociński–Karadi construction continues to reproduce PC1, poor-man, deterministic median-rotation and monthly series at published precision.
-- v1.71 preserves all 44 single-country joint MP/CBI baselines, corrects the lag metadata, adds validated 95% plug-in sup-t path bands, and publishes fixed-lag, predetermined-control, shock-support, influence, conditioning and comparability diagnostics. Significance bands, cross-country difference tests, panel LP, state dependence, SVAR and Bayesian VAR remain unavailable.
+- v1.71 preserves all 44 single-country joint MP/CBI baselines, corrects the lag metadata, adds validated 95% plug-in sup-t path bands, and publishes fixed-lag, predetermined-control, shock-support, influence, conditioning and comparability diagnostics. Single-country significance bands, country-pair formal difference tests, state dependence, SVAR and Bayesian VAR remain unavailable. v1.8 separately adds fixed-eight-country aggregate-shock Panel LP group-difference inference.
 - 4 conditional scenarios with baseline, shock assumption, adjusted input and result traces.
 - Coded political-economy events and verified China-related project records.
 - Deterministic validation, golden cases and a release QA gate.
@@ -65,7 +65,7 @@ Machine-readable files are published under `/research-data/`. See [the research-
 
 ## Citation
 
-Central Europe Political Atlas, version v1.73 Analysis Registry & Workbench Convergence, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
+Central Europe Political Atlas, version v1.8 Aggregate-Shock Panel Local Projections & Euro / Non-Euro Transmission Heterogeneity, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
 
 ## Official VAR reference environment
 

@@ -57,6 +57,12 @@ const source = fs.readFileSync(path.join(root, "src/components/AnalysisWorkbench
 check(!source.includes("skillToCategory"), "no duplicate routing dictionary");
 check(source.includes('selectedSkill.state !== "active"'), "inactive UI cannot mount runnable workbench");
 const publicFile = path.join(root, "public/research-data/analysis_skill_registry.json");
+const panel = skills.find(s => s.skill_id === "panel_local_projections");
+if (panel) {
+  check(resolveAnalysisRoute("panel_local_projections", "hungary", ["hungary"]).category === "panel_econometrics", "panel LP category routing");
+  check(resolveAnalysisRoute("panel_local_projections", "hungary", ["hungary"]).countrySlug === undefined, "fixed panel ignores individual country selector");
+  check(panel.limitations.some(s => s.includes("registry_only")), "panel inference boundaries");
+}
 const frozen = JSON.parse(fs.readFileSync(path.join(root, "src/data/analysis/v173_frozen_output_hashes.json"), "utf8"));
 for (const record of frozen.records) check(createHash("sha256").update(fs.readFileSync(path.join(root, record.path))).digest("hex") === record.sha256, `frozen output ${record.path}`);
 if (process.argv.includes("--export")) check(fs.readFileSync(publicFile, "utf8") === fs.readFileSync(path.join(root, "src/data/analysis/analysis_skill_registry.json"), "utf8"), "canonical public equality");

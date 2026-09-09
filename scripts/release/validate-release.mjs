@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { researchPackageFilename } from "./research-package-name.mjs";
@@ -16,6 +17,23 @@ requiredExports.push("lp_finite_sample_bias_reference_manifest.json", "lp_bias_c
 const methodologySections = ["data", "models", "events", "finite-sample", "spatial", "validation", "citation"];
 const stableResearchUrls = ["/map?country=hungary&layer=regional_boundary", "/models?model=fiscal_pressure&country=hungary", "/models?skill=var_svar&country=poland", "/scenarios?scenario=inflation_resurgence&country=poland&shock=2", "/countries/poland/", "/news?country=hungary&type=China"];
 const failures = [];
+const panelDir = path.join(root, "src/data/panel-local-projections");
+for (const name of fs.readdirSync(panelDir).filter(name => name.endsWith(".json"))) {
+  requiredExports.push(`panel-local-projections/${name}`);
+  const published = path.join(researchOut,"panel-local-projections",name);
+  if (!fs.existsSync(published) || fs.readFileSync(published,"utf8") !== fs.readFileSync(path.join(panelDir,name),"utf8")) failures.push(`panel canonical export mismatch: ${name}`);
+}
+const panelRead = name => JSON.parse(fs.readFileSync(path.join(panelDir,`${name}.json`),"utf8"));
+const panelReady = panelRead("panel_lp_readiness_registry");
+const panelResults = panelRead("panel_lp_results");
+const panelValidation = panelRead("panel_lp_validation_summary");
+if (panelRead("panel_lp_ui_validation").status !== "pass" || panelRead("panel_lp_ui_validation").live_selector_combinations !== 32) failures.push("panel browser QA incomplete");
+if (panelReady.state !== "active" || panelReady.records.length !== 4 || panelReady.records.some(r => !r.publication_ready || r.state !== "active" || r.blockers.length)) failures.push("panel release readiness incomplete");
+if (panelResults.publication_state !== "active" || panelResults.records.length !== 4 || panelResults.small_sample !== false) failures.push("panel results publication/inference boundary");
+if (panelValidation.production !== "pass" || panelValidation.real_data_qr_checks !== 1200) failures.push("panel independent real-data validation missing");
+for (const [file,sha] of Object.entries(panelValidation.input_sha256)) if (createHash("sha256").update(fs.readFileSync(path.join(root,file))).digest("hex") !== sha) failures.push(`panel input changed: ${file}`);
+if (panelRead("panel_lp_small_sample_method_registry").state !== "registry_only" || panelRead("panel_lp_method_registry").panel_simultaneous_bands !== "registry_only") failures.push("panel unsupported inference activated");
+if (panelRead("lp_cross_country_comparability").formal_difference_test !== false || panelRead("lp_cross_country_comparability").formal_group_difference_available !== true) failures.push("panel group/pairwise comparability boundary");
 let internalLinksChecked = 0;
 
 const cnameFile = path.join(out, "CNAME");
@@ -122,7 +140,7 @@ if (manifest) {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.73",
+    analysis_skill_registry: "analysis-skill-registry-v1.8",
     transformation_registry: "transformation-registry-v1.41",
     stationarity_engine: "stationarity-engine-v1.44",
     seasonal_adf_calibration: "seasonal-adf-critical-values-v1.44",
@@ -182,7 +200,7 @@ const latestChangelogHeading = changelog.match(/^## (.+)$/m)?.[1] ?? "";
 if (!latestChangelogHeading.startsWith(expectedVersion) || !latestChangelogHeading.includes(releaseConfig.release_date)) failures.push(`CHANGELOG latest release mismatch: ${latestChangelogHeading}`);
 const skillRegistry = JSON.parse(fs.readFileSync(path.join(root, "src", "data", "analysis", "analysis_skill_registry.json"), "utf8"));
 if (JSON.stringify(skillRegistry) !== JSON.stringify(JSON.parse(fs.readFileSync(path.join(out, "research-data", "analysis_skill_registry.json"), "utf8")))) failures.push("public analysis manifest differs from canonical registry");
-if (skillRegistry.schema_version !== "analysis-skill-registry-v1.73") failures.push(`analysis skill registry schema mismatch: ${skillRegistry.schema_version}`);
+if (skillRegistry.schema_version !== "analysis-skill-registry-v1.8") failures.push(`analysis skill registry schema mismatch: ${skillRegistry.schema_version}`);
 if (skillRegistry.generated_at !== releaseConfig.release_date) failures.push(`analysis skill registry generated_at mismatch: ${skillRegistry.generated_at}`);
 const releaseSource = fs.readFileSync(path.join(root, "src", "lib", "releaseMetadata.ts"), "utf8");
 if (!releaseSource.includes('import releaseConfig from "../data/release.json"')) failures.push("release metadata is not reading the canonical JSON source");

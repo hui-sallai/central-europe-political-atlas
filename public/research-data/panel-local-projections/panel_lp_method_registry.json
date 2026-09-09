@@ -1,0 +1,30 @@
+{
+  "schema_version": "panel-lp-method-registry-v1.8",
+  "generated_at": "2026-09-09",
+  "state": "active",
+  "activation_gate": "reference + production + UI + full regression + release validation",
+  "method": "aggregate-shock time-clustered lag-augmented heteroskedasticity-robust (t-LAHR)",
+  "implementation": "independent Python NumPy/SciPy offline estimator",
+  "small_sample": false,
+  "df": "Inf",
+  "covariance": "inverse(Xresid'Xresid) sum_t(score_t score_t') inverse(Xresid'Xresid)",
+  "score": "sum_i Xresid_it * residual_it",
+  "clustering": "time",
+  "hc1_correction": false,
+  "country_fe": true,
+  "baseline_time_fe": false,
+  "shock_normalization": 0.25,
+  "joint_shocks": [
+    "ecb_pure_monetary_policy_shock_jk_median_v1",
+    "ecb_central_bank_information_shock_jk_median_v1"
+  ],
+  "lag_policy": "p_max=ceil((T_eff-H)^(1/3)); p_h=min(h,p_max); lag y and every shock-characteristic interaction",
+  "interval_levels": [
+    90,
+    95,
+    99
+  ],
+  "panel_simultaneous_bands": "registry_only",
+  "country_specific_formal_tests": "registry_only",
+  "interpretation": "fixed four-country euro group and fixed four-country non-euro group, not entire regions; panel rows are not independent shock observations"
+}

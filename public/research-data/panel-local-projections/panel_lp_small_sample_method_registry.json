@@ -1,0 +1,15 @@
+{
+  "schema_version": "panel-lp-small-sample-method-registry-v1.8",
+  "generated_at": "2026-09-09",
+  "method": "Imbens-Kolesar",
+  "state": "registry_only",
+  "applicability": "blocked_for_validated_joint_shock_extension",
+  "author_recommendation": "finite-sample refinement",
+  "issue": "n_s=ncol(s)*ncol(X)=4; small_sample TRUE accesses s[,i_s] although s has only 2 columns",
+  "required_extension": "derive shock-specific heterogeneity instrument and projection for each interaction; no modulo substitution",
+  "required_validation": [
+    "mathematical derivation",
+    "independent R/Python/Matlab joint-shock numerical validation"
+  ],
+  "negative_reference_test": "unsupported_reference_configuration: subscript out of bounds"
+}

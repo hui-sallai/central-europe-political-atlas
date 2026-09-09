@@ -1,8 +1,39 @@
 {
-  "schema_version": "analysis-skill-registry-v1.73",
+  "schema_version": "analysis-skill-registry-v1.8",
   "frozen_output_reference": "analysis/v173_frozen_output_hashes.json",
-  "generated_at": "2026-09-07",
+  "generated_at": "2026-09-09",
   "records": [
+    {
+      "skill_id": "panel_local_projections",
+      "state": "active",
+      "gate": "identified joint JK shocks; fixed balanced 8 countries; common outcome identities; >=96 time clusters; author-reference multi-shock validation; production validation; UI and full release gates",
+      "readiness_reference": "panel-local-projections/panel_lp_readiness_registry.json",
+      "note": "Aggregate ECB shocks are common across countries; panel rows are not independent shock replications. Fixed-eight-country t-LAHR pointwise group inference; IK and panel path inference are not active.",
+      "reason_zh": "固定 8 国、四项共同结果通过数值准入；只提供组间点态差异推断。",
+      "required_data": ["identified joint JK MP / CBI shocks", "fixed AT DE SK SI CZ HU PL RO monthly panel", "registered common outcomes"],
+      "presentation": {
+        "name": "Panel Local Projections",
+        "category": "panel_econometrics",
+        "description": "使用共同 ECB MP / CBI 冲击、滞后增广和按月份聚类的推断，估计固定四国欧元组与固定四国非欧元组的动态响应及点态差异。",
+        "optional_data": [],
+        "parameters": ["outcome", "shock", "confidence"],
+        "minimum_observations": 96,
+        "supported_spatial_level": ["fixed_country_groups"],
+        "supported_frequency": ["monthly"],
+        "output_schema": ["group_responses", "pointwise_group_difference", "time_cluster_diagnostics", "data_trace"],
+        "diagnostics": ["fixed_eight_country_balance", "time_cluster_count", "reference_alignment", "parameterization_identity", "outcome_identity", "rank_and_condition", "shock_support"],
+        "limitations": [
+          "8 个国家不等于 8 次独立冲击；面板行数不是独立冲击观测数。",
+          "仅代表本平台固定四国欧元组与固定四国非欧元组，不代表整个地区。",
+          "仅提供逐预测期点态推断；面板同时置信带和国家对国家正式差异检验保持 registry_only。",
+          "IK 小样本修正因作者双冲击分支的适用性限制保持 registry_only。",
+          "克罗地亚因 2023 年欧元加入的制度断点排除，塞尔维亚因共同月度覆盖不足排除。",
+          "不进入指标与综合指数国家排名矩阵；不替代冻结的单国 LP。"
+        ],
+        "supports_country": false,
+        "method_kind": "估计方法"
+      }
+    },
     {
       "skill_id": "composite_indicators",
       "state": "active",
@@ -559,7 +590,7 @@
       "state": "active",
       "gate": "pinned author-reference replication",
       "readiness_reference": "identified-shocks/jk_author_reference_comparison.json",
-      "note": "Median decomposition remains author-reference validated; v1.71 does not re-estimate the frozen JK shocks.",
+      "note": "当前发布版本不重新估计冻结的 JK shocks。",
       "presentation": {
         "name": "货币政策冲击识别",
         "category": "macro_time_series",

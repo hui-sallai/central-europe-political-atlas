@@ -146,6 +146,8 @@ const sourceEntries = [
   ["local-projections/generate-lp-reference.py", "scripts/validation/generate-lp-reference.py"],
   ["local-projections/run-lp-reference.mjs", "scripts/validation/run-lp-reference.mjs"],
   ["local-projections/requirements-lp-reference.txt", "scripts/validation/requirements-lp-reference.txt"],
+  ...fs.readdirSync(path.join(root, "src/data/panel-local-projections")).filter(name => name.endsWith(".json")).sort().map(name => [`panel-local-projections/${name}`, `src/data/panel-local-projections/${name}`]),
+  ...["estimator.py", "build.py", "reference.py", "reference.R", "validate.py", "run.mjs", "README.md"].map(name => [`panel-local-projections/implementation/${name}`, `scripts/panel-local-projections/${name}`]),
   ["local-projections/validate-local-projections.mjs", "scripts/validation/validate-local-projections.mjs"],
   ["identified-shocks/ecb_monetary_event_data_acquisition_manifest.json", "src/data/identified-shocks/ecb_monetary_event_data_acquisition_manifest.json"],
   ["identified-shocks/ea_mpd_acquisition_manifest.json", "src/data/identified-shocks/ea_mpd_acquisition_manifest.json"],

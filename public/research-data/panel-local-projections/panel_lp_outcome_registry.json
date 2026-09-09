@@ -1,0 +1,46 @@
+{
+  "schema_version": "panel-lp-outcome-registry-v1.8",
+  "generated_at": "2026-09-09",
+  "records": [
+    {
+      "id": "hicp_price_level",
+      "source": "high_frequency",
+      "field": "hicp_monthly_index",
+      "response": "100 * [log(P[t+h]) - log(P[t-1])]",
+      "unit": "cumulative_percent",
+      "adjustment": "NSA",
+      "monthDummies": true
+    },
+    {
+      "id": "industrial_production",
+      "source": "high_frequency",
+      "field": "industrial_production_index",
+      "response": "100 * [log(IPI[t+h]) - log(IPI[t-1])]",
+      "unit": "cumulative_percent",
+      "adjustment": "SCA",
+      "monthDummies": false
+    },
+    {
+      "id": "unemployment",
+      "source": "high_frequency",
+      "field": "unemployment_rate_monthly",
+      "response": "U[t+h] - U[t-1]",
+      "unit": "percentage_points",
+      "adjustment": "SA",
+      "monthDummies": false
+    },
+    {
+      "id": "long_term_yield",
+      "source": "macro_driver",
+      "field": "long_term_government_yield",
+      "response": "Yield[t+h] - Yield[t-1]",
+      "unit": "percentage_points",
+      "adjustment": "source_monthly",
+      "monthDummies": false
+    }
+  ],
+  "excluded_outcomes": [
+    "bilateral_fx",
+    "domestic_policy_rate"
+  ]
+}
