@@ -2,6 +2,7 @@
 import { useState } from "react";
 import data from "@/data/panel-local-projections/panel_lp_results.json";
 import readiness from "@/data/panel-local-projections/panel_lp_readiness_registry.json";
+import { PanelCompositionDiagnostics } from "./PanelCompositionDiagnostics";
 
 const names = { euro: "固定四国欧元组", non_euro: "固定四国非欧元组", difference: "欧元组 − 非欧元组" };
 const colors = { euro: "#2563eb", non_euro: "#c2410c", difference: "#7c3aed" };
@@ -11,6 +12,7 @@ export function PanelLocalProjectionWorkbench() {
   const [shock,setShock] = useState("MP");
   const [confidence,setConfidence] = useState<90|95>(95);
   const [difference,setDifference] = useState(false);
+  const [advanced,setAdvanced] = useState(false);
   const model = data.records.find(r => r.outcome_id === selected);
   const gate = readiness.records.find(r => r.outcome_id === selected);
   // Protect direct mounting as well as the canonical route.
@@ -42,5 +44,7 @@ export function PanelLocalProjectionWorkbench() {
     <p className="mt-5 text-sm leading-7">联合估计 MP 与 CBI，按月份聚类的 t-LAHR 推断。各期有效月份 {Math.min(...rows.map(r => r.effective_time_clusters))}–{Math.max(...rows.map(r => r.effective_time_clusters))}；面板行数 {Math.min(...rows.map(r => r.panel_rows))}–{Math.max(...rows.map(r => r.panel_rows))}。8 国不等于 8 次独立冲击；面板行数不是独立冲击观测数。</p>
     <p className="mt-3 text-sm leading-7">欧元组：奥地利、德国、斯洛伐克、斯洛文尼亚；非欧元组：捷克、匈牙利、波兰、罗马尼亚。不代表整个地区。克罗地亚因 2023 年制度断点排除，塞尔维亚因覆盖不足排除。仅点态推断；整条路径异质性检验、面板同时置信带、国家对国家正式检验及 IK 小样本修正均未启用。</p>
     <details className="mt-5"><summary>逐期数值与样本诊断</summary><div className="overflow-x-auto"><table className="research-data-table w-full text-left text-sm"><thead><tr>{["月数","欧元组","非欧元组","差异","差异 p 值","有效月份","行数","滞后数","样本"].map(v => <th className="p-2" key={v}>{v}</th>)}</tr></thead><tbody>{rows.map(r => <tr key={r.horizon}><td className="p-2">{r.horizon}</td><td>{r.euro_estimate.toFixed(3)}</td><td>{r.non_euro_estimate.toFixed(3)}</td><td>{r.difference_estimate.toFixed(3)}</td><td>{r.difference_p_value.toFixed(4)}</td><td>{r.effective_time_clusters}</td><td>{r.panel_rows}</td><td>{r.p_h}</td><td className="whitespace-nowrap">{r.sample_start}–{r.sample_end}</td></tr>)}</tbody></table></div></details>
+    <button type="button" aria-expanded={advanced} onClick={() => setAdvanced(!advanced)} className="mt-5 border px-4 py-3">{advanced ? "收起" : "展开"}组成与规格敏感性</button>
+    {advanced && <PanelCompositionDiagnostics outcome={selected} shock={shock} unit={unit}/>}
   </section>;
 }

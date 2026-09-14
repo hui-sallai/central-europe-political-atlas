@@ -75,3 +75,17 @@ by the v1.73 byte-level hash manifest. New group-comparison metadata lives in
 `panel-local-projections/lp_cross_country_comparability.json` as an additive
 extension; no original hash is updated or bypassed. Group-difference availability
 is true; the country-pair formal-test flag remains false.
+# v1.81 additive diagnostics
+
+Run `pnpm panel-lp:composition` to build diagnostics only, then
+`pnpm panel-lp:robustness-validate` for read-only full numerical replay.
+Do not run the historical `panel-lp:build` for this release: formal v1.8
+results and the estimator are anchored to commit e18ecca and must not change.
+
+LOCO conditions on seven fixed countries, retaining every baseline horizon's
+calendar. Unequal-group contrasts are +n_N/N and -n_E/N. Absolute changes are
+primary; relative changes are null below max(1e-10, 0.1 baseline SE). This is
+only a ratio-display rule, not a pre-registered stability threshold. Warning
+counts count sign or pointwise zero-classification changes, never a score.
+The plotted LOCO min/max range is not a confidence interval. Time-FE
+concordance is secondary heterogeneity-only sensitivity, not model selection.

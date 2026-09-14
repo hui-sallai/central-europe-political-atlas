@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { researchPackageFilename } from "./research-package-name.mjs";
+import { validatePanelPublication } from "../panel-local-projections/publication-validation.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const out = path.join(root, "out");
@@ -125,6 +126,7 @@ if (metadata) {
 }
 
 if (manifest) {
+  failures.push(...validatePanelPublication(manifest, readJson("analysis_validation_index.json"), researchOut));
   if (manifest.platform_version !== expectedVersion) failures.push(`release manifest version mismatch: ${manifest.platform_version}`);
   if (manifest.release_date !== releaseConfig.release_date) failures.push(`release manifest date mismatch: ${manifest.release_date}`);
   if (manifest.schema_version !== releaseConfig.schema_version) failures.push(`release manifest schema mismatch: ${manifest.schema_version}`);
@@ -140,7 +142,7 @@ if (manifest) {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.8",
+    analysis_skill_registry: "analysis-skill-registry-v1.81",
     transformation_registry: "transformation-registry-v1.41",
     stationarity_engine: "stationarity-engine-v1.44",
     seasonal_adf_calibration: "seasonal-adf-critical-values-v1.44",
@@ -200,7 +202,7 @@ const latestChangelogHeading = changelog.match(/^## (.+)$/m)?.[1] ?? "";
 if (!latestChangelogHeading.startsWith(expectedVersion) || !latestChangelogHeading.includes(releaseConfig.release_date)) failures.push(`CHANGELOG latest release mismatch: ${latestChangelogHeading}`);
 const skillRegistry = JSON.parse(fs.readFileSync(path.join(root, "src", "data", "analysis", "analysis_skill_registry.json"), "utf8"));
 if (JSON.stringify(skillRegistry) !== JSON.stringify(JSON.parse(fs.readFileSync(path.join(out, "research-data", "analysis_skill_registry.json"), "utf8")))) failures.push("public analysis manifest differs from canonical registry");
-if (skillRegistry.schema_version !== "analysis-skill-registry-v1.8") failures.push(`analysis skill registry schema mismatch: ${skillRegistry.schema_version}`);
+if (skillRegistry.schema_version !== "analysis-skill-registry-v1.81") failures.push(`analysis skill registry schema mismatch: ${skillRegistry.schema_version}`);
 if (skillRegistry.generated_at !== releaseConfig.release_date) failures.push(`analysis skill registry generated_at mismatch: ${skillRegistry.generated_at}`);
 const releaseSource = fs.readFileSync(path.join(root, "src", "lib", "releaseMetadata.ts"), "utf8");
 if (!releaseSource.includes('import releaseConfig from "../data/release.json"')) failures.push("release metadata is not reading the canonical JSON source");

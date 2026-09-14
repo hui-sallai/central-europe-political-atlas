@@ -1,15 +1,15 @@
 {
-  "schema_version": "release-metadata-v1.8",
-  "platform_version": "v1.8 Aggregate-Shock Panel Local Projections & Euro / Non-Euro Transmission Heterogeneity",
-  "release_date": "2026-09-09",
+  "schema_version": "release-metadata-v1.81",
+  "platform_version": "v1.81 Panel LP Composition & Publication Robustness",
+  "release_date": "2026-09-14",
   "source_commit": "local-working-tree",
   "build_context": "local",
   "workflow_run_id": null,
-  "generated_at": "2026-09-08T18:39:43.908Z",
+  "generated_at": "2026-09-14T11:56:03.976Z",
   "research_package": {
-    "filename": "research-data-v1.8.zip",
-    "sha256": "647130144ef429a5bdc66cfd9581efe6ce42cbae43dc0857df8a1246e08af338",
-    "generated_at": "2026-09-08T18:39:45.851Z",
+    "filename": "research-data-v1.81.zip",
+    "sha256": "b3bf4850d4200ad1e399944c56a2a54d4cb73caa9312bcdb2a20305b7a19728b",
+    "generated_at": "2026-09-14T11:56:06.000Z",
     "status": "built"
   },
   "data_export_version": "research-data-v0.1",
@@ -90,7 +90,15 @@
     "trade_network": "trade-network-v1.25-active",
     "event_window": "event-window-v1.31",
     "high_frequency": "high-frequency-v1.31",
-    "analysis_skill_registry": "analysis-skill-registry-v1.8",
+    "analysis_skill_registry": "analysis-skill-registry-v1.81",
+    "panel_lp_method": "panel-lp-method-registry-v1.8",
+    "panel_lp_results": "panel-lp-results-v1.8",
+    "panel_lp_readiness": "panel-lp-readiness-registry-v1.8",
+    "panel_lp_validation": "panel-lp-validation-summary-v1.8",
+    "panel_lp_reference": "panel-lp-reference-manifest-v1.8",
+    "panel_lp_small_sample": "panel-lp-small-sample-method-registry-v1.8",
+    "panel_lp_parameterization": "panel-lp-parameterization-validation-v1.8",
+    "panel_lp_ui_validation": "panel-lp-ui-validation-v1.8",
     "transformation_registry": "transformation-registry-v1.41",
     "stationarity_engine": "stationarity-engine-v1.44",
     "seasonal_adf_calibration": "seasonal-adf-critical-values-v1.44",
@@ -125,7 +133,9 @@
     "note": "Historical v0.91 golden cases remain the core research regression suite."
   },
   "advanced_analysis_validation": {
-    "stage": "v1.71 advanced analysis validation",
+    "stage": "v1.81 advanced analysis validation",
+    "legacy_summary_reference": "advanced_analysis_validation_summary.json",
+    "validation_index": "analysis_validation_index.json",
     "status": "passed",
     "total_tests": 97834,
     "failure_count": 0,
@@ -154,8 +164,25 @@
       "author_reference"
     ]
   },
+  "panel_local_projections_validation": {
+    "status": "pass",
+    "checks": 3669,
+    "reference_cases": 5,
+    "reference_commit": "4fd72b97edc9fe6dc65dd34c32e96e7100a1b873",
+    "reference_status": "pass",
+    "production_status": "pass",
+    "ui_status": "pass",
+    "active_outcomes": [
+      "hicp_price_level",
+      "industrial_production",
+      "unemployment",
+      "long_term_yield"
+    ],
+    "publication_state": "active",
+    "validation_index": "analysis_validation_index.json"
+  },
   "release_validation": {
-    "stage": "v1.71 release validation",
+    "stage": "v1.81 release validation",
     "status": "required_after_static_build",
     "gates": [
       "security_scan",
@@ -167,10 +194,14 @@
       "lint",
       "typecheck",
       "static_build",
-      "package_checksum"
+      "package_checksum",
+      "panel-lp:reference",
+      "panel-lp:validate",
+      "panel-lp:ui-validate",
+      "panel-lp:robustness-validate"
     ],
-    "package_checksum": "647130144ef429a5bdc66cfd9581efe6ce42cbae43dc0857df8a1246e08af338",
-    "package_filename": "research-data-v1.8.zip"
+    "package_checksum": "b3bf4850d4200ad1e399944c56a2a54d4cb73caa9312bcdb2a20305b7a19728b",
+    "package_filename": "research-data-v1.81.zip"
   },
   "legacy_validation_summary_v091": {
     "stage": "v0.91 Model & Scenario Validation",

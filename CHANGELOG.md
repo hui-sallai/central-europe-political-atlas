@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.81 Panel LP Composition & Publication Robustness — 2026-09-14
+
+- Preserves the complete v1.8 formal results and estimator bytes, anchored to e18ecca; preserves the 86 v1.73 frozen artifacts and single-country LP outputs.
+- Adds 32 fixed-calendar joint-shock leave-one-country-out models (1,600 horizon/shock records), centered unequal-group contrasts, time-cluster conditioning and shock-calendar audits. These are fixed-composition diagnostics, not country causal contributions or jackknife inference.
+- Adds windowed influence summaries and baseline/time-FE concordance, with separate workbench diagnostics and explicit pointwise classification warnings. LOCO envelopes are diagnostic ranges, not confidence intervals.
+- Repairs stale release stages at their generator, registers the eight Panel LP schema versions, adds the validation index and validates actual CI SHA/run provenance.
+- Keeps IK, panel path inference, country-pair tests and state dependence unactivated. No new estimand, weighting or estimator family.
+
 ## v1.8 Aggregate-Shock Panel Local Projections & Euro / Non-Euro Transmission Heterogeneity — 2026-09-09
 
 - Adds a fixed AT/DE/SK/SI versus CZ/HU/PL/RO joint JK MP/CBI panel, four common outcomes, country fixed effects and reference-exact lag augmentation with time-clustered asymptotic inference.

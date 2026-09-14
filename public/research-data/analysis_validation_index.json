@@ -1,0 +1,49 @@
+{
+  "schema_version": "analysis-validation-index-v1.81",
+  "platform_version": "v1.81",
+  "interpretation": "Additive current-release index; legacy validation artifacts retain their original versions and are not relabelled as panel tests.",
+  "records": [
+    {
+      "id": "legacy_advanced",
+      "artifact": "advanced_analysis_validation_summary.json",
+      "gate": "analysis:validate"
+    },
+    {
+      "id": "single_country_lp",
+      "artifact": "lp_validation_summary.json",
+      "gate": "lp:validate"
+    },
+    {
+      "id": "panel_lp",
+      "artifact": "panel-local-projections/panel_lp_validation_summary.json",
+      "gate": "panel-lp:validate"
+    },
+    {
+      "id": "panel_composition",
+      "artifact": "panel-local-projections/panel_lp_composition_robustness_summary.json",
+      "gate": "panel-lp:robustness-validate",
+      "artifact_role": "diagnostic_results_not_validation_status"
+    },
+    {
+      "id": "analysis_registry",
+      "artifact": "analysis_skill_registry.json",
+      "gate": "analysis-registry:validate",
+      "artifact_role": "registry_validated_by_gate"
+    },
+    {
+      "id": "news",
+      "artifact": "news_update_2026-09-05_audit.json",
+      "gate": "news:validate"
+    },
+    {
+      "id": "identified_shocks",
+      "artifact": "information_effect_separation_validation.json",
+      "gate": "information-effect:validate"
+    },
+    {
+      "id": "ui",
+      "artifact": "panel-local-projections/panel_lp_ui_validation.json",
+      "gate": "panel-lp:ui-validate"
+    }
+  ]
+}

@@ -1,14 +1,14 @@
 {
-  "schema_version": "analysis-skill-registry-v1.8",
+  "schema_version": "analysis-skill-registry-v1.81",
   "frozen_output_reference": "analysis/v173_frozen_output_hashes.json",
-  "generated_at": "2026-09-09",
+  "generated_at": "2026-09-14",
   "records": [
     {
       "skill_id": "panel_local_projections",
       "state": "active",
       "gate": "identified joint JK shocks; fixed balanced 8 countries; common outcome identities; >=96 time clusters; author-reference multi-shock validation; production validation; UI and full release gates",
       "readiness_reference": "panel-local-projections/panel_lp_readiness_registry.json",
-      "note": "Aggregate ECB shocks are common across countries; panel rows are not independent shock replications. Fixed-eight-country t-LAHR pointwise group inference; IK and panel path inference are not active.",
+      "note": "Aggregate ECB shocks are common across countries; panel rows are not independent shock replications. Fixed-eight-country t-LAHR pointwise group inference. Composition diagnostics active; time-FE sensitivity concordance active; path-level inference registry_only; IK registry_only.",
       "reason_zh": "固定 8 国、四项共同结果通过数值准入；只提供组间点态差异推断。",
       "required_data": ["identified joint JK MP / CBI shocks", "fixed AT DE SK SI CZ HU PL RO monthly panel", "registered common outcomes"],
       "presentation": {

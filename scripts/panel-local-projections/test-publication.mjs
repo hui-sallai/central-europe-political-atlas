@@ -1,0 +1,14 @@
+import fs from "node:fs";
+import assert from "node:assert/strict";
+import { validatePanelPublication as validate } from "./publication-validation.mjs";
+const directory = "public/research-data";
+const manifest = JSON.parse(fs.readFileSync(`${directory}/release_manifest.json`, "utf8"));
+const index = JSON.parse(fs.readFileSync(`${directory}/analysis_validation_index.json`, "utf8"));
+assert.deepEqual(validate(manifest,index,directory), []);
+const local = {...manifest,build_context:"local",source_commit:"local-working-tree",workflow_run_id:null};
+assert.deepEqual(validate(local,index,directory,{}), []);
+const environment = {GITHUB_ACTIONS:"true",GITHUB_SHA:"a".repeat(40),GITHUB_RUN_ID:"12345"};
+const ci = {...manifest,build_context:"github-actions",source_commit:environment.GITHUB_SHA,workflow_run_id:environment.GITHUB_RUN_ID};
+assert.deepEqual(validate(ci,index,directory,environment), []);
+for (const bad of [{...ci,source_commit:"local-working-tree"},{...ci,workflow_run_id:null},{...ci,source_commit:"b".repeat(40)},{...ci,workflow_run_id:"6789"},{...ci,build_context:"local"},{...ci,advanced_analysis_versions:{}},{...ci,panel_local_projections_validation:{status:"fail"}},{...ci,release_validation:{...ci.release_validation,stage:"v1.71 release validation"}}]) assert.ok(validate(bad,index,directory,environment).length);
+console.log("Publication provenance and linkage PASS: actual artifact + local/CI positive cases + 8 negative cases.");

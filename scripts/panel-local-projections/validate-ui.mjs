@@ -11,7 +11,7 @@ const resolve = Module._resolveFilename, load = Module._load;
 let state = [], cursor = 0, publicationReady = false;
 Module._resolveFilename = function (request, ...args) { return resolve.call(this, request.startsWith("@/") ? path.join(root,"src",request.slice(2)) : request, ...args); };
 Module._load = function (request, ...args) {
-  if (request === "react") return { ...React, useState: () => [state[cursor++], () => {}] };
+  if (request === "react") return { ...React, useState: initial => [cursor < state.length ? state[cursor++] : initial, () => {}] };
   const result = load.call(this, request, ...args);
   // Exercise the released branch only in memory: never change canonical readiness.
   if (request.endsWith("panel_lp_readiness_registry.json")) return { ...result, records: result.records.map(r => ({...r,publication_ready:publicationReady})) };
@@ -43,3 +43,11 @@ for (const outcome of ["hicp_price_level","industrial_production","unemployment"
   combinations++;
 }
 console.log(`Panel LP UI structural validation passed: ${combinations} selector/view combinations and publication gate. Browser visual QA remains separate.`);
+for (const outcome of ["hicp_price_level","industrial_production","unemployment","long_term_yield"]) for (const shock of ["MP","CBI"]) for (const view of ["composition","time_fe"]) {
+  state = [outcome,shock,95,false,true,view];
+  const html = render();
+  assert.doesNotMatch(html,/NaN|Infinity|undefined/);
+  assert.match(html,/组成与规格敏感性/);
+  assert.match(html,view === "composition" ? /不是置信区间/ : /time-FE 次要规格差异/);
+}
+console.log("Panel diagnostics UI: 16 outcome/shock/advanced-view combinations passed.");

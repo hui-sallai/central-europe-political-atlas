@@ -20,6 +20,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0 # v1.81 invariance checks read the anchored v1.8 commit.
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v6
@@ -54,6 +56,7 @@ jobs:
           pnpm panel-lp:reference
           pnpm panel-lp:validate
           pnpm panel-lp:ui-validate
+          pnpm panel-lp:robustness-validate
 
       - name: Validate news and identified shocks
         run: |
@@ -67,7 +70,9 @@ jobs:
           RELEASE_COMMIT_SHA: ${{ github.sha }}
 
       - name: Build versioned research package
-        run: pnpm package:research-data
+        run: |
+          node scripts/panel-local-projections/test-publication.mjs
+          pnpm package:research-data
 
       - name: Lint
         run: pnpm lint

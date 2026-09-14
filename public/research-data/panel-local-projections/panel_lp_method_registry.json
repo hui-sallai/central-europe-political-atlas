@@ -1,5 +1,6 @@
 {
   "schema_version": "panel-lp-method-registry-v1.8",
+  "country_weighting": "equal_country_weight_in_balanced_panel",
   "generated_at": "2026-09-09",
   "state": "active",
   "activation_gate": "reference + production + UI + full regression + release validation",

@@ -17,7 +17,15 @@
         }
       ],
       "missing_countries": [],
-      "blockers": []
+      "blockers": [],
+      "composition_robustness_audited": true,
+      "time_fe_sensitivity_audited": true,
+      "publication_metadata_ready": true,
+      "composition_warning": true,
+      "composition_warning_count": 87,
+      "specification_sensitivity_warning": true,
+      "specification_sensitivity_warning_count": 11,
+      "warning_policy": "Factual sign or 95% zero-classification changes; non-blocking, no magnitude-based robustness threshold."
     },
     {
       "outcome_id": "industrial_production",
@@ -34,7 +42,15 @@
         }
       ],
       "missing_countries": [],
-      "blockers": []
+      "blockers": [],
+      "composition_robustness_audited": true,
+      "time_fe_sensitivity_audited": true,
+      "publication_metadata_ready": true,
+      "composition_warning": true,
+      "composition_warning_count": 104,
+      "specification_sensitivity_warning": true,
+      "specification_sensitivity_warning_count": 2,
+      "warning_policy": "Factual sign or 95% zero-classification changes; non-blocking, no magnitude-based robustness threshold."
     },
     {
       "outcome_id": "unemployment",
@@ -51,7 +67,15 @@
         }
       ],
       "missing_countries": [],
-      "blockers": []
+      "blockers": [],
+      "composition_robustness_audited": true,
+      "time_fe_sensitivity_audited": true,
+      "publication_metadata_ready": true,
+      "composition_warning": true,
+      "composition_warning_count": 113,
+      "specification_sensitivity_warning": true,
+      "specification_sensitivity_warning_count": 1,
+      "warning_policy": "Factual sign or 95% zero-classification changes; non-blocking, no magnitude-based robustness threshold."
     },
     {
       "outcome_id": "long_term_yield",
@@ -68,7 +92,15 @@
         }
       ],
       "missing_countries": [],
-      "blockers": []
+      "blockers": [],
+      "composition_robustness_audited": true,
+      "time_fe_sensitivity_audited": true,
+      "publication_metadata_ready": true,
+      "composition_warning": true,
+      "composition_warning_count": 34,
+      "specification_sensitivity_warning": true,
+      "specification_sensitivity_warning_count": 9,
+      "warning_policy": "Factual sign or 95% zero-classification changes; non-blocking, no magnitude-based robustness threshold."
     }
   ],
   "state": "active"

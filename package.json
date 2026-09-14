@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "panel-lp:composition": "node scripts/panel-local-projections/run.mjs composition",
+    "panel-lp:robustness-validate": "node scripts/panel-local-projections/run.mjs robustness-validate",
     "panel-lp:reference": "node scripts/panel-local-projections/run.mjs reference",
     "panel-lp:build": "node scripts/panel-local-projections/run.mjs build",
     "panel-lp:validate": "node scripts/panel-local-projections/run.mjs validate",
