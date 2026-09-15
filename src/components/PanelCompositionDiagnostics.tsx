@@ -4,6 +4,7 @@ import summary from "@/data/panel-local-projections/panel_lp_composition_robustn
 import timeFe from "@/data/panel-local-projections/panel_lp_time_fe_sensitivity_summary.json";
 import influence from "@/data/panel-local-projections/panel_lp_country_influence.json";
 import ui from "@/data/panel-local-projections/panel_lp_composition_ui_data.json";
+import pathReadiness from "@/data/panel-local-projections/panel_lp_path_readiness_registry.json";
 
 const countryNames: Record<string,string> = {AT:"奥地利",DE:"德国",SK:"斯洛伐克",SI:"斯洛文尼亚",CZ:"捷克",HU:"匈牙利",PL:"波兰",RO:"罗马尼亚"};
 const rate = (v:number) => `${(v*100).toFixed(1)}%`;
@@ -43,6 +44,6 @@ export function PanelCompositionDiagnostics({outcome,shock,unit}:{outcome:string
       <div className="mt-4 overflow-x-auto"><table className="research-data-table w-full text-left text-sm"><caption>分预测期窗口诊断</caption><thead><tr>{["月份","最大变化","中位变化","第90百分位","符号一致率","含零分类一致率"].map(k => <th key={k}>{k}</th>)}</tr></thead><tbody>{group.windows.map(r => <tr key={r.horizon_start}><td>{r.horizon_start}–{r.horizon_end}</td><td>{r.maximum_absolute_change.toFixed(3)}</td><td>{r.median_absolute_change.toFixed(3)}</td><td>{r.p90_absolute_change.toFixed(3)}</td><td>{rate(r.sign_agreement_rate)}</td><td>{rate(r.zero_classification_agreement_rate)}</td></tr>)}</tbody></table></div>
       <details className="mt-4"><summary>各国组成影响与逐期诊断范围</summary><ul>{influence.records.filter(r => r.outcome === outcome && r.shock === shock).map(r => <li key={r.country}>{countryNames[r.country]}（{r.group === "euro" ? "欧元组" : "非欧元组"}）：最大变化 {r.maximum_difference_shift.toFixed(3)}，h={r.horizon_of_max_shift}；符号反转 {r.sign_reversal_count} 期；含零分类改变 {r.pointwise_classification_change_count} 期。</li>)}</ul><div className="overflow-x-auto"><table className="research-data-table w-full text-left text-sm"><thead><tr><th>h</th><th>LOCO 最小值</th><th>LOCO 最大值</th></tr></thead><tbody>{envelope.records.map(r => <tr key={r.horizon}><td>{r.horizon}</td><td>{r.minimum.toFixed(3)}</td><td>{r.maximum.toFixed(3)}</td></tr>)}</tbody></table></div></details>
     </> : <div className="mt-4 overflow-x-auto"><table className="research-data-table w-full text-left text-sm"><thead><tr>{["h","基准差异","time-FE 差异","基准95%点态区间","time-FE 95%点态区间","规格敏感性"].map(k => <th key={k}>{k}</th>)}</tr></thead><tbody>{sensitivity.records.map(r => <tr key={r.horizon}><td>{r.horizon}</td><td>{r.baseline_difference.toFixed(3)}</td><td>{r.time_fe_difference.toFixed(3)}</td><td>{r.baseline_ci95.map(v => v.toFixed(3)).join("，")}</td><td>{r.time_fe_ci95.map(v => v.toFixed(3)).join("，")}</td><td>{r.classification_same ? "含零分类一致" : !r.baseline_ci95_contains_zero && r.time_fe_ci95_contains_zero ? "规格敏感：该预测期组间差异对 time-FE sensitivity 不稳健。" : "规格敏感：95% 点态含零分类不一致。"}</td></tr>)}</tbody></table></div>}
-    <p className="mt-4 text-sm">仅逐预测期点态解释。Panel path inference、IK 和国家对国家正式检验保持 registry_only；不生成稳健性评分。</p>
+    <p className="mt-4 text-sm">组成与 time-FE 敏感性仍仅作逐预测期诊断，不计算 LOCO 同时置信带，也不将基准协方差套到 time-FE 估计上。{pathReadiness.simultaneous_inference_ready ? "正式基准的路径推断见上方独立区间选择器。" : "Panel path inference 保持 registry_only。"}IK 和国家对国家正式检验保持 registry_only；不生成稳健性评分。</p>
   </section>;
 }

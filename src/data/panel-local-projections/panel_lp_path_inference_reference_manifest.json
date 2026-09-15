@@ -1,0 +1,24 @@
+{
+  "schema_version": "panel-lp-path-inference-reference-manifest-v1.82",
+  "retrieval_date": "2026-09-15",
+  "paper": "Simultaneous Confidence Bands: Theory, Implementation, and an Application to SVARs",
+  "authors": ["José Luis Montiel Olea", "Mikkel Plagborg-Møller"],
+  "journal": "Journal of Applied Econometrics 34(1), 2019, 1–17",
+  "doi": "10.1002/jae.2656",
+  "official_source": "https://joseluismontielolea.com/papers.html",
+  "reference_implementation_source": "https://github.com/jm4474/Confidence_Bands",
+  "commit": "6cf28bbd63313ead3c06904649dbb0766e51028a",
+  "file": "1SimInferenceClass/SimInference.m",
+  "sha256": "77b09a50925635260c91bc2a1d6cde1de3fb94a0f5612901e3af9b76578eb1ad",
+  "source_review": "suptcritval_plugin reviewed; author MATLAB not executed in this adaptation",
+  "license": "BSD-3-Clause; no author source copied into project",
+  "method_scope": "general simultaneous inference for parameter vectors; NOT an aggregate-shock Panel LP coefficient reference",
+  "current_adaptation": "month-key-aligned time-clustered estimating equations; independent NumPy/SciPy implementation; Gaussian max-absolute-t simulation and full-path joint zero test",
+  "coefficient_reference": "Almuzara–Sancibrián; unchanged pinned PanelLocalProjections reference",
+  "background": [
+    {"paper": "Local Projections for Applied Economics", "author": "Òscar Jordà", "doi": "10.1146/annurev-economics-082222-065846", "official_source": "https://www.annualreviews.org/content/journals/10.1146/annurev-economics-082222-065846"},
+    {"paper": "Local Projection Inference Is Simpler and More Robust Than You Think", "authors": ["José Luis Montiel Olea", "Mikkel Plagborg-Møller"], "doi": "10.3982/ECTA18756", "official_source": "https://joseluismontielolea.com/lp_inference_ecta.pdf"},
+    {"paper": "Significance Bands for Local Projections", "authors": ["Atsushi Inoue", "Òscar Jordà", "Guido M. Kuersteiner"], "reference": "FRBSF WP 2023-15", "doi": "10.24148/wp2023-15", "official_source": "https://www.frbsf.org/research-and-insights/publications/working-papers/2023/05/significance-bands-for-local-projections/", "state": "registry_only", "reason": "no independent aggregate-shock panel LM adaptation; Gaussian sup-t is a confidence band, not this significance band"}
+  ],
+  "preregistered_numerics": {"psd_absolute_tolerance": 1e-12, "psd_relative_tolerance": 1e-10, "diagonal_se_absolute_tolerance": 1e-8, "independent_covariance_absolute_tolerance": 1e-8, "critical_value_monte_carlo_tolerance": 0.10, "global_p_value_monte_carlo_tolerance": 0.025, "production_draws": 10000, "reference_draws": 100000, "production_seeds": [182001,182002,182003,182004,182005], "reference_seed": 982001}
+}

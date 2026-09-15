@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "panel-lp:path-build": "node scripts/panel-local-projections/run.mjs path-build",
+    "panel-lp:path-reference": "node scripts/panel-local-projections/run.mjs path-reference",
+    "panel-lp:path-validate": "node scripts/panel-local-projections/run.mjs path-validate",
+    "panel-lp:path-simulate": "node scripts/panel-local-projections/run.mjs path-simulate",
     "panel-lp:composition": "node scripts/panel-local-projections/run.mjs composition",
     "panel-lp:robustness-validate": "node scripts/panel-local-projections/run.mjs robustness-validate",
     "panel-lp:reference": "node scripts/panel-local-projections/run.mjs reference",

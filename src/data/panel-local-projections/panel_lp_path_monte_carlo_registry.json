@@ -1,0 +1,52 @@
+{
+  "schema_version": "panel-lp-path-monte-carlo-registry-v1.82",
+  "state": "preregistered_before_results",
+  "replications_per_design": 10000,
+  "horizons": [
+    6,
+    12,
+    24
+  ],
+  "sample_months": 130,
+  "countries": 8,
+  "dgp": "stationary AR(1) outcome increments rho=.4; 100 burn-in; correlated common joint shocks; fixed country intercepts; common, group and individual Gaussian innovations",
+  "null_group_coefficients": {
+    "MP": [
+      1,
+      1
+    ],
+    "CBI": [
+      0.4,
+      0.4
+    ]
+  },
+  "alternative_group_coefficients": {
+    "MP": [
+      1.2,
+      0.8
+    ],
+    "CBI": [
+      0.25,
+      0.55
+    ]
+  },
+  "seeds": {
+    "null": 1821001,
+    "alternative": 1821002,
+    "inner_gaussian": 1821003
+  },
+  "batch_size": 10,
+  "inner_gaussian_draws": 10000,
+  "fit": "full re-estimation of country-FE t-LAHR current interactions and outcome/interaction lags; p_max=5 for H=6,12,24 at T=130",
+  "coverage_tolerance": [
+    0.935,
+    0.965
+  ],
+  "size_tolerance": [
+    0.035,
+    0.065
+  ],
+  "power_requirement": "difference-path alternative rejection exceeds null rejection by at least .05",
+  "no_post_result_tolerance_change": true,
+  "activation_requires_all_key_designs": true
+}

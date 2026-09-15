@@ -1,0 +1,51 @@
+{
+  "hashes": {
+    "research/panel-path-calibration/stress-preregistration.md": "faccc51a66bfa509391470f0440d3e9a3252b64f537b97c159e9090bfb6ce188",
+    "research/panel-path-calibration/stress-study.py": "e049d99862d12caa1acf12a07092e30ce74d300e6e58e468392f8337f0d6359e",
+    "research/panel-path-calibration/calibration-study.py": "a526516841149d428ca61443a0e540f932103baab346f9e5696bf0512f9126f2",
+    "scripts/panel-local-projections/path-simulate.py": "b707412a5f08528d33de24fd762c9d17f7b4c97a582c9863a89f69f9c74a741f",
+    "scripts/panel-local-projections/path_core.py": "4f2f660d7647e0c552a56c2e804620453df64c8667a9a2997328a792c6082bbb",
+    "research/panel-path-calibration/calibration-locked-critical-values.json": "f490abdf471818ea088b047b7060f163d826c51039424e0866445d48503931c0"
+  },
+  "frozen": {
+    "src/data/panel-local-projections/panel_lp_results.json": "10e7b4f8761523e7b136b9707ac87da1d753a5914e0d11a3f8b980571ab53bdc",
+    "src/data/panel-local-projections/panel_lp_leave_one_country_out.json": "d30cee8ac121a83d39f1953a8b8394d8f4ce284e1045c8e96ca7e3548a683250",
+    "src/data/panel-local-projections/panel_lp_composition_robustness_summary.json": "f193e3abd130146428f3524b45b77c3da81ce08a8e9edc57070ce828f591d517",
+    "src/data/panel-local-projections/panel_lp_country_influence.json": "19edf914e7cb10f84c7e510a630c68b083d2d3f36764beb3ce99b76c23d93646",
+    "src/data/panel-local-projections/panel_lp_time_fe_sensitivity_summary.json": "3518b401e29c2757cdf6fe2805a8823826e259877cfb5374618525c69f191652",
+    "src/data/panel-local-projections/panel_lp_composition_ui_data.json": "0be1dc0313e0caff499347e4e22ce736d8959a0a78adcee8e08e9cb585f942ef"
+  },
+  "designs": [
+    [
+      "rho_zero",
+      130,
+      0.0,
+      "normal"
+    ],
+    [
+      "rho_high",
+      130,
+      0.8,
+      "normal"
+    ],
+    [
+      "short_sample",
+      80,
+      0.4,
+      "normal"
+    ],
+    [
+      "heavy_tail",
+      130,
+      0.4,
+      "t5"
+    ],
+    [
+      "heteroskedastic",
+      130,
+      0.4,
+      "hetero"
+    ]
+  ],
+  "panels": 100000
+}

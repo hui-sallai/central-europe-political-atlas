@@ -1,0 +1,19 @@
+{
+  "status": "started",
+  "hashes": {
+    "research/panel-path-calibration/calibration-preregistration.md": "781645e7d6e8fff21d2a349c889d157dcddfcefa3817a0ebfa82269992302ad1",
+    "research/panel-path-calibration/calibration-study.py": "a526516841149d428ca61443a0e540f932103baab346f9e5696bf0512f9126f2",
+    "scripts/panel-local-projections/path-simulate.py": "b707412a5f08528d33de24fd762c9d17f7b4c97a582c9863a89f69f9c74a741f",
+    "scripts/panel-local-projections/path_core.py": "4f2f660d7647e0c552a56c2e804620453df64c8667a9a2997328a792c6082bbb"
+  },
+  "frozen": {
+    "src/data/panel-local-projections/panel_lp_results.json": "10e7b4f8761523e7b136b9707ac87da1d753a5914e0d11a3f8b980571ab53bdc",
+    "src/data/panel-local-projections/panel_lp_leave_one_country_out.json": "d30cee8ac121a83d39f1953a8b8394d8f4ce284e1045c8e96ca7e3548a683250",
+    "src/data/panel-local-projections/panel_lp_composition_robustness_summary.json": "f193e3abd130146428f3524b45b77c3da81ce08a8e9edc57070ce828f591d517",
+    "src/data/panel-local-projections/panel_lp_country_influence.json": "19edf914e7cb10f84c7e510a630c68b083d2d3f36764beb3ce99b76c23d93646",
+    "src/data/panel-local-projections/panel_lp_time_fe_sensitivity_summary.json": "3518b401e29c2757cdf6fe2805a8823826e259877cfb5374618525c69f191652",
+    "src/data/panel-local-projections/panel_lp_composition_ui_data.json": "0be1dc0313e0caff499347e4e22ce736d8959a0a78adcee8e08e9cb585f942ef"
+  },
+  "numpy": "2.5.2",
+  "reps_per_design_per_stage": 10000
+}

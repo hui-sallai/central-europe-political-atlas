@@ -1,0 +1,799 @@
+{
+  "schema_version": "panel-lp-global-path-tests-v1.82",
+  "state": "candidate_not_activated",
+  "primary": "difference full 0..24 max-t; window tests secondary, not multiplicity-adjusted across windows",
+  "records": [
+    {
+      "outcome": "hicp_price_level",
+      "shock": "MP",
+      "path_type": "euro",
+      "observed_max_t": 2.4341057099104457,
+      "global_p_value": 0.07019298070192981,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.34206579342065796
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.027997200279972004
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.04989501049895011
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "hicp_price_level",
+      "shock": "MP",
+      "path_type": "non_euro",
+      "observed_max_t": 2.509533746321419,
+      "global_p_value": 0.051394860513948606,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.5697430256974303
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.029097090290970903
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.026297370262973702
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "hicp_price_level",
+      "shock": "MP",
+      "path_type": "difference",
+      "observed_max_t": 2.2338718688908275,
+      "global_p_value": 0.13108689131086892,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.40815918408159185
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.12718728127187282
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.05549445055494451
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "hicp_price_level",
+      "shock": "CBI",
+      "path_type": "euro",
+      "observed_max_t": 3.7796890816169286,
+      "global_p_value": 0.000999900009999,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.0017998200179982
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.00019998000199980003
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.008599140085991401
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "hicp_price_level",
+      "shock": "CBI",
+      "path_type": "non_euro",
+      "observed_max_t": 3.5131114517659854,
+      "global_p_value": 0.0024997500249975004,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.029497050294970503
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.0011998800119988001
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.0008999100089991
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "hicp_price_level",
+      "shock": "CBI",
+      "path_type": "difference",
+      "observed_max_t": 3.0011775208860056,
+      "global_p_value": 0.0178982101789821,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.012698730126987301
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.030996900309969003
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.007399260073992601
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "industrial_production",
+      "shock": "MP",
+      "path_type": "euro",
+      "observed_max_t": 2.882721420161918,
+      "global_p_value": 0.0392960703929607,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.0173982601739826
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.18958104189581043
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.9108089191080891
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "industrial_production",
+      "shock": "MP",
+      "path_type": "non_euro",
+      "observed_max_t": 3.0445492316986797,
+      "global_p_value": 0.025597440255974404,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.0105989401059894
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.06209379062093791
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.42225777422257776
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "industrial_production",
+      "shock": "MP",
+      "path_type": "difference",
+      "observed_max_t": 4.886648231027129,
+      "global_p_value": 9.999000099990002e-05,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.17628237176282371
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.026497350264973504
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 9.999000099990002e-05
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "industrial_production",
+      "shock": "CBI",
+      "path_type": "euro",
+      "observed_max_t": 1.166812216289716,
+      "global_p_value": 0.9153084691530847,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.7458254174582541
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.5671432856714329
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.7723227677232277
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "industrial_production",
+      "shock": "CBI",
+      "path_type": "non_euro",
+      "observed_max_t": 1.8821943978818905,
+      "global_p_value": 0.4727527247275273,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.46215378462153783
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.1912808719128087
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.28647135286471354
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "industrial_production",
+      "shock": "CBI",
+      "path_type": "difference",
+      "observed_max_t": 3.4397467785211164,
+      "global_p_value": 0.010798920107989201,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.39446055394460555
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.07749225077492251
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.0058994100589941
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "unemployment",
+      "shock": "MP",
+      "path_type": "euro",
+      "observed_max_t": 3.0902052748581954,
+      "global_p_value": 0.013098690130986902,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.07079292070792921
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.0044995500449955
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.030396960303969604
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "unemployment",
+      "shock": "MP",
+      "path_type": "non_euro",
+      "observed_max_t": 2.4694543696195566,
+      "global_p_value": 0.05349465053494651,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.09519048095190481
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.0244975502449755
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.13308669133086692
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "unemployment",
+      "shock": "MP",
+      "path_type": "difference",
+      "observed_max_t": 1.9297893833855948,
+      "global_p_value": 0.29817018298170184,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.21547845215478453
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.34256574342565743
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.5852414758524147
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "unemployment",
+      "shock": "CBI",
+      "path_type": "euro",
+      "observed_max_t": 1.4662857670917169,
+      "global_p_value": 0.6455354464553544,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.46025397460253975
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.35876412358764126
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.9063093690630937
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "unemployment",
+      "shock": "CBI",
+      "path_type": "non_euro",
+      "observed_max_t": 1.1280363085979193,
+      "global_p_value": 0.7522247775222478,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.792020797920208
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.3815618438156184
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.8132186781321867
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "unemployment",
+      "shock": "CBI",
+      "path_type": "difference",
+      "observed_max_t": 2.0948932123582744,
+      "global_p_value": 0.22777722227777222,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.13788621137886212
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.8406159384061593
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.9443055694430557
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "long_term_yield",
+      "shock": "MP",
+      "path_type": "euro",
+      "observed_max_t": 1.1116837614635036,
+      "global_p_value": 0.7101289871012899,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.5929407059294071
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.7303269673032696
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.8562143785621438
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "long_term_yield",
+      "shock": "MP",
+      "path_type": "non_euro",
+      "observed_max_t": 4.187038536700458,
+      "global_p_value": 0.00029997000299970003,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.0098990100989901
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 9.999000099990002e-05
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.0015998400159984002
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "long_term_yield",
+      "shock": "MP",
+      "path_type": "difference",
+      "observed_max_t": 3.6282074276648433,
+      "global_p_value": 0.0022997700229977,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.0017998200179982
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.0004999500049995
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.008799120087991202
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "long_term_yield",
+      "shock": "CBI",
+      "path_type": "euro",
+      "observed_max_t": 1.5939194550415337,
+      "global_p_value": 0.4266573342665733,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.9313068693130687
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.1723827617238276
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.24467553244675533
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "long_term_yield",
+      "shock": "CBI",
+      "path_type": "non_euro",
+      "observed_max_t": 3.5480560816528985,
+      "global_p_value": 0.0030996900309969004,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.0022997700229977
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.0025997400259974
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.04709529047095291
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    },
+    {
+      "outcome": "long_term_yield",
+      "shock": "CBI",
+      "path_type": "difference",
+      "observed_max_t": 3.3411808164275683,
+      "global_p_value": 0.005599440055994401,
+      "windows": [
+        {
+          "start": 0,
+          "end": 6,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.0040995900409959
+        },
+        {
+          "start": 7,
+          "end": 12,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.0837916208379162
+        },
+        {
+          "start": 13,
+          "end": 24,
+          "secondary": true,
+          "multiplicity_adjusted_across_windows": false,
+          "p_value": 0.36306369363063695
+        }
+      ],
+      "draw_count": 10000,
+      "seed": 182001,
+      "p_value_rule": "(1 + exceedances)/(draws + 1)"
+    }
+  ]
+}

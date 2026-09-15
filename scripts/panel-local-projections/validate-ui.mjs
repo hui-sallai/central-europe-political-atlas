@@ -8,13 +8,14 @@ const root = path.resolve(import.meta.dirname, "../..");
 const React = require("react");
 const { renderToStaticMarkup } = require("react-dom/server");
 const resolve = Module._resolveFilename, load = Module._load;
-let state = [], cursor = 0, publicationReady = false;
+let state = [], cursor = 0, publicationReady = false, pathReady = false;
 Module._resolveFilename = function (request, ...args) { return resolve.call(this, request.startsWith("@/") ? path.join(root,"src",request.slice(2)) : request, ...args); };
 Module._load = function (request, ...args) {
   if (request === "react") return { ...React, useState: initial => [cursor < state.length ? state[cursor++] : initial, () => {}] };
   const result = load.call(this, request, ...args);
   // Exercise the released branch only in memory: never change canonical readiness.
   if (request.endsWith("panel_lp_readiness_registry.json")) return { ...result, records: result.records.map(r => ({...r,publication_ready:publicationReady})) };
+  if (request.endsWith("panel_lp_path_readiness_registry.json")) return {...result,simultaneous_inference_ready:pathReady,global_path_test_ready:pathReady};
   return result;
 };
 require.extensions[".tsx"] = (module,filename) => module._compile(ts.transpileModule(fs.readFileSync(filename,"utf8"),{compilerOptions:{module:ts.ModuleKind.CommonJS,jsx:ts.JsxEmit.ReactJSX,target:ts.ScriptTarget.ES2020,esModuleInterop:true}}).outputText,filename);
@@ -51,3 +52,14 @@ for (const outcome of ["hicp_price_level","industrial_production","unemployment"
   assert.match(html,view === "composition" ? /不是置信区间/ : /time-FE 次要规格差异/);
 }
 console.log("Panel diagnostics UI: 16 outcome/shock/advanced-view combinations passed.");
+pathReady=true;
+for (const outcome of ["hicp_price_level","industrial_production","unemployment","long_term_yield"]) for (const shock of ["MP","CBI"]) for (const difference of [false,true]) {
+  state=[outcome,shock,"simultaneous",difference,false];
+  const html=render();
+  assert.match(html,/同时置信带（0–24期联合覆盖）/);
+  assert.match(html,/稳健性摘要/);
+  assert.equal((html.match(/<polygon/g)??[]).length,difference?1:2,"only one uncertainty layer per path");
+  if(difference)assert.match(html,/Global path test/);
+  assert.doesNotMatch(html,/NaN|Infinity|undefined/);
+}
+console.log("Candidate simultaneous UI: 16 in-memory activated combinations passed; this does not activate production.");

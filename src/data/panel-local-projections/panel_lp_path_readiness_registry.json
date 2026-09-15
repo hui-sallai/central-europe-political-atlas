@@ -1,0 +1,15 @@
+{
+  "schema_version": "panel-lp-path-readiness-registry-v1.82",
+  "state": "registry_only",
+  "baseline_estimation_ready": true,
+  "pointwise_inference_ready": true,
+  "composition_robustness_ready": true,
+  "specification_sensitivity_ready": true,
+  "path_covariance_ready": true,
+  "simultaneous_inference_ready": false,
+  "global_path_test_ready": false,
+  "significance_band_ready": false,
+  "blockers": ["monte_carlo_coverage_and_size_failed_at_T130", "full_release_validation_not_authorized_after_failed_statistical_gate"],
+  "monte_carlo_status": "fail",
+  "activation_decision": "retain registry_only; do not change frozen standard errors or widen tolerances after observing results"
+}

@@ -30,6 +30,12 @@ export default function MethodologyPage() {
       <p className="mt-3 text-sm leading-7">每期直接检验欧元组减非欧元组的差异，只提供点态区间，不作整条路径显著不同的结论。国家加时间固定效应的对比项回归仅作为组间差异敏感性分析。IK 小样本修正、面板同时置信带和国家对国家正式检验保持 registry_only。</p>
       <p className="mt-3 text-sm leading-7">克罗地亚因 2023 年加入欧元的制度断点排除；塞尔维亚因共同月度覆盖不足排除。固定 8 国不得因缺测改为 7 国；每期至少 96 个有效月份，预测期从 24 个月依次尝试 18、12、6，缩短必须公开说明。</p>
     </Section>
+    <Section id="panel-response-path" label="Panel Response-Path Inference" title="路径联合推断与稳健性披露">
+      <p className="mt-4 text-sm leading-7">路径推断须通过独立协方差、模拟覆盖率及发布门禁后才能启用。候选实现先将各预测期国家残差得分按实际年月汇总，再以年月键对齐；不在该预测期样本内的月份对应零得分块，因此与堆叠估计方程一致，而不是按数组位置相乘。每个25维协方差的对角线须复现冻结点态标准误。</p>
+      <p className="mt-3 text-sm leading-7">Pointwise CI 只针对指定预测期；95% simultaneous confidence band 为同一结果变量、同一冲击、同一路径类型联合覆盖0–24期，不联合覆盖所有结果或两组。Global max-t 检验考察整条组间差异路径均为零的假设，不等于最小点态p值。0–6、7–12、13–24的次要窗口存在多重检验问题，不能挑最小p值代替主检验。</p>
+      <p className="mt-3 text-sm leading-7">一般同时推断参考为 <a className="underline" href="https://doi.org/10.1002/jae.2656">Montiel Olea–Plagborg-Møller（2019）</a>；它不是 Panel LP 系数参考。系数实现仍遵循 Almuzara–Sancibrián。高斯 sup-t 同时置信带不是 <a className="underline" href="https://www.frbsf.org/research-and-insights/publications/working-papers/2023/05/significance-bands-for-local-projections/">Inoue–Jordà–Kuersteiner significance bands</a>，后者未作本面板适配、保持未启用。</p>
+      <p className="mt-3 text-sm leading-7">默认稳健性摘要展示组成和规格一致率，不作风险评分。LOCO 范围不是置信区间；time-FE 是敏感性规格，不是自动选择的替代模型。共同样本路径仅作次要诊断，不改作者精确的各预测期样本及正式基准。</p>
+    </Section>
     <Section id="analysis-registry" label="Analysis Registry" title="分析方法与当前状态">
       <p className="mt-4 text-sm">方法状态、解释边界与工作台导航共同读取同一份 canonical registry。方法已启用不表示所有数据组合均通过准入。</p>
       <div className="grid gap-4 md:grid-cols-2">{runtimeAnalysisSkills.map((skill) => <AnalysisSkillCard key={skill.skill_id} skill={skill} />)}</div>

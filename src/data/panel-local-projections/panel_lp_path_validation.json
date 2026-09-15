@@ -1,0 +1,25 @@
+{
+  "schema_version": "panel-lp-path-validation-v1.82",
+  "status": "blocked",
+  "numerical_candidate_checks": 245,
+  "covariance": "pass",
+  "independent_reference": "pass",
+  "monte_carlo_status": "fail",
+  "activation_eligible": false,
+  "baseline_invariance": "pass",
+  "v181_robustness_invariance": "pass",
+  "blockers": [
+    "preregistered Monte Carlo coverage/size/power gate not passed"
+  ],
+  "artifact_sha256": {
+    "panel_lp_path_monte_carlo_registry.json": "2ccb0e435cf8c4e60a2a178c926e79288997a5f94c24eca7ce2bc2634d284b38",
+    "panel_lp_path_covariance.json": "eb7c7b414024ba187381e15c4bc630471b43744ce0cf952a706a6a542430e469",
+    "panel_lp_path_score_audit.json": "2e188ee9c1e28c185742e78ed25fe81cd04587d601ee52482cf73815adde432f",
+    "panel_lp_path_monte_carlo_results.json": "10177aa3ab31084e10b9d9448eb0cfa0f58b9e9151288a07fbeb190f073b24a9",
+    "panel_lp_path_readiness_registry.json": "8575efd5725e9a7e5527f7d3ee3b604f71ae176a26716a1e39078127bae93c76",
+    "panel_lp_path_inference_reference_manifest.json": "a17440d874f3e4b3cbe7b4169d2fca3fda5458efe173273264598aa5d3814242",
+    "panel_lp_path_reference_cases.json": "8d85890708eeeb01718c9b9f26e0e6d5a4c7c85e4cafb0b0eee869ba2be09a88",
+    "panel_lp_path_inference_registry.json": "a278bae7ef94a88a5a393e412fc135eadfe0a4a45c36ade2421b6bbababd4b1f",
+    "panel_lp_path_covariance_validation.json": "37e0bfe56c2649d0bc16cb24a7b5009bab4cf53f6a94d38fad98550946e2ae74"
+  }
+}
