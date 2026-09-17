@@ -3,6 +3,8 @@ import { useState } from "react";
 import data from "@/data/panel-local-projections/panel_lp_results.json";
 import readiness from "@/data/panel-local-projections/panel_lp_readiness_registry.json";
 import { PanelCompositionDiagnostics } from "./PanelCompositionDiagnostics";
+import composition from "@/data/panel-local-projections/panel_lp_composition_robustness_summary.json";
+import specification from "@/data/panel-local-projections/panel_lp_time_fe_sensitivity_summary.json";
 
 const names = { euro: "固定四国欧元组", non_euro: "固定四国非欧元组", difference: "欧元组 − 非欧元组" };
 const colors = { euro: "#2563eb", non_euro: "#c2410c", difference: "#7c3aed" };
@@ -18,6 +20,8 @@ export function PanelLocalProjectionWorkbench() {
   // Protect direct mounting as well as the canonical route.
   if (!gate?.publication_ready || !model) return <section className="mt-6 border p-6"><h2>Panel Local Projections 尚未发布</h2><p>离线数值验证通过不等于发布批准；完成全部发布门禁前不展示正式结果。</p></section>;
   const rows = model.records.filter(r => r.shock === shock);
+  const compositionSummary = composition.records.find(r => r.outcome === selected && r.shock === shock);
+  const specificationSummary = specification.records.find(r => r.outcome === selected && r.shock === shock);
   const series: (keyof typeof names)[] = difference ? ["difference"] : ["euro","non_euro"];
   const values = rows.flatMap(r => series.flatMap(s => r[`${s}_ci${confidence}`]));
   const lower = Math.min(0,...values), upper = Math.max(0,...values);
@@ -43,6 +47,13 @@ export function PanelLocalProjectionWorkbench() {
     </svg><figcaption className="flex flex-wrap gap-4 text-sm">{series.map(s => <span key={s} style={{color:colors[s]}}>━ {names[s]}</span>)}<span>阴影为 {confidence}% 点态区间，虚线为零响应。</span></figcaption></figure>
     <p className="mt-5 text-sm leading-7">联合估计 MP 与 CBI，按月份聚类的 t-LAHR 推断。各期有效月份 {Math.min(...rows.map(r => r.effective_time_clusters))}–{Math.max(...rows.map(r => r.effective_time_clusters))}；面板行数 {Math.min(...rows.map(r => r.panel_rows))}–{Math.max(...rows.map(r => r.panel_rows))}。8 国不等于 8 次独立冲击；面板行数不是独立冲击观测数。</p>
     <p className="mt-3 text-sm leading-7">欧元组：奥地利、德国、斯洛伐克、斯洛文尼亚；非欧元组：捷克、匈牙利、波兰、罗马尼亚。不代表整个地区。克罗地亚因 2023 年制度断点排除，塞尔维亚因覆盖不足排除。仅点态推断；整条路径异质性检验、面板同时置信带、国家对国家正式检验及 IK 小样本修正均未启用。</p>
+    <aside aria-label="稳健性摘要" className="mt-4 border p-4 text-sm leading-7">
+      <h3 className="font-semibold">稳健性摘要（非评分）</h3>
+      {compositionSummary && <p>组间差异的组成诊断：逐一剔除国家后，95% 点态区间含零分类与基准的一致率为 {(100*compositionSummary.zero_classification_agreement_rate).toFixed(1)}%（{compositionSummary.valid_count} 条有效国家 × 预测期记录）。诊断范围不是置信区间。</p>}
+      {specificationSummary && <p>组间差异的规格比较：基准与 time-FE 符号一致率为 {(100*specificationSummary.sign_agreement_rate).toFixed(1)}%，95% 点态区间含零分类一致率为 {(100*specificationSummary.zero_classification_agreement_rate).toFixed(1)}%。这不是模型正确率，也不是路径显著性检验。</p>}
+      <p>发布边界：本次仅展示已验证的点态结果与诊断。新的统计方法仍在研究中；不能从逐期 p 值挑选整条路径结论，也不能解释为欧元成员身份的因果效应。</p>
+      <button type="button" aria-expanded={advanced} className="underline" onClick={() => setAdvanced(true)}>查看组成与规格敏感性详情</button>
+    </aside>
     <details className="mt-5"><summary>逐期数值与样本诊断</summary><div className="overflow-x-auto"><table className="research-data-table w-full text-left text-sm"><thead><tr>{["月数","欧元组","非欧元组","差异","差异 p 值","有效月份","行数","滞后数","样本"].map(v => <th className="p-2" key={v}>{v}</th>)}</tr></thead><tbody>{rows.map(r => <tr key={r.horizon}><td className="p-2">{r.horizon}</td><td>{r.euro_estimate.toFixed(3)}</td><td>{r.non_euro_estimate.toFixed(3)}</td><td>{r.difference_estimate.toFixed(3)}</td><td>{r.difference_p_value.toFixed(4)}</td><td>{r.effective_time_clusters}</td><td>{r.panel_rows}</td><td>{r.p_h}</td><td className="whitespace-nowrap">{r.sample_start}–{r.sample_end}</td></tr>)}</tbody></table></div></details>
     <button type="button" aria-expanded={advanced} onClick={() => setAdvanced(!advanced)} className="mt-5 border px-4 py-3">{advanced ? "收起" : "展开"}组成与规格敏感性</button>
     {advanced && <PanelCompositionDiagnostics outcome={selected} shock={shock} unit={unit}/>}

@@ -40,6 +40,10 @@ for (const outcome of ["hicp_price_level","industrial_production","unemployment"
   assert.match(html,/stroke-dasharray="5 4"/);
   assert.doesNotMatch(html,/NaN|Infinity|undefined/);
   assert.match(html,/IK 小样本修正均未启用/);
+  assert.match(html,/稳健性摘要（非评分）/);
+  assert.match(html,/新的统计方法仍在研究中/);
+  assert.match(html,/这不是模型正确率/);
+  assert.doesNotMatch(html,/同时置信带可用|全路径 max-t p=/);
   combinations++;
 }
 console.log(`Panel LP UI structural validation passed: ${combinations} selector/view combinations and publication gate. Browser visual QA remains separate.`);
