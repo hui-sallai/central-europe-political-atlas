@@ -1,0 +1,1659 @@
+{
+ "schema_version": "panel-lp-model-comparison-v1",
+ "status": "descriptive_model_comparison_no_inference",
+ "generated": "2026-09-26",
+ "model": {
+  "name": "联合 GVAR 型 ARX13 辅助模型",
+  "summary": "两类 ECB 冲击与八国结果联合建模：各变量 13 阶自身滞后，冲击当期及 13 阶滞后进入各国方程，另加其他七国平均的 1–2 阶滞后（跨国溢出），国家间当期相关由联合创新协方差刻画，周期均值，严格平稳，按精确高斯准似然估计。",
+  "curve_definition": "模型曲线是该拟合模型下冻结 LP 估计量的总体投影值（population projection），与图中 LP 估计量对象相同；它不是结构脉冲响应，也不是预测。"
+ },
+ "records": [
+  {
+   "outcome_id": "hicp_price_level",
+   "spectral_radius": 0.9817698669776093,
+   "starts_agree": true,
+   "start_objective_difference": 1.7053025658242404e-12,
+   "converged_all_starts": true,
+   "fit_seconds": [
+    521,
+    526
+   ],
+   "path_fit_check": {
+    "label": "post_hoc_familywise",
+    "calibrated_min_p": 0.48848848848848847,
+    "passes": true,
+    "per_path_predictive_p": {
+     "MP:euro": 0.226,
+     "MP:non_euro": 0.291,
+     "MP:difference": 0.761,
+     "CBI:euro": 0.644,
+     "CBI:non_euro": 0.658,
+     "CBI:difference": 0.891
+    },
+    "registered_all_paths_gate": "FAIL"
+   },
+   "gap_in_frozen_se_units": {
+    "MP:euro": {
+     "max_abs_z": 2.694746698347677,
+     "gaussian_joint_critical": 2.58831947599596
+    },
+    "MP:non_euro": {
+     "max_abs_z": 2.6516050572646606,
+     "gaussian_joint_critical": 2.5205309192583387
+    },
+    "MP:difference": {
+     "max_abs_z": 1.4988301546289564,
+     "gaussian_joint_critical": 2.634054845933344
+    },
+    "CBI:euro": {
+     "max_abs_z": 1.6651758896826532,
+     "gaussian_joint_critical": 2.6074160433201925
+    },
+    "CBI:non_euro": {
+     "max_abs_z": 1.6743879282781393,
+     "gaussian_joint_critical": 2.56913093241469
+    },
+    "CBI:difference": {
+     "max_abs_z": 1.2500671822281835,
+     "gaussian_joint_critical": 2.6289503642300764
+    }
+   },
+   "warning": null,
+   "series": [
+    {
+     "shock": "MP",
+     "horizon": 0,
+     "model_euro": -0.054429115277168816,
+     "model_non_euro": -0.16760524057922396,
+     "model_difference": 0.11317612530205515
+    },
+    {
+     "shock": "MP",
+     "horizon": 1,
+     "model_euro": -0.7595559602361481,
+     "model_non_euro": -0.34528017476352424,
+     "model_difference": -0.4142757854726239
+    },
+    {
+     "shock": "MP",
+     "horizon": 2,
+     "model_euro": -0.5700591040382242,
+     "model_non_euro": -0.7881173293995735,
+     "model_difference": 0.21805822536134922
+    },
+    {
+     "shock": "MP",
+     "horizon": 3,
+     "model_euro": -0.7665509528600063,
+     "model_non_euro": -1.4716933444515203,
+     "model_difference": 0.705142391591514
+    },
+    {
+     "shock": "MP",
+     "horizon": 4,
+     "model_euro": -1.3758575834321871,
+     "model_non_euro": -1.0975381805905604,
+     "model_difference": -0.2783194028416267
+    },
+    {
+     "shock": "MP",
+     "horizon": 5,
+     "model_euro": -1.8827531498954009,
+     "model_non_euro": -1.8520091431311323,
+     "model_difference": -0.030744006764268583
+    },
+    {
+     "shock": "MP",
+     "horizon": 6,
+     "model_euro": -2.1310929806681824,
+     "model_non_euro": -2.2923364731734033,
+     "model_difference": 0.16124349250522085
+    },
+    {
+     "shock": "MP",
+     "horizon": 7,
+     "model_euro": -2.616428225385601,
+     "model_non_euro": -3.0123150854882317,
+     "model_difference": 0.39588686010263086
+    },
+    {
+     "shock": "MP",
+     "horizon": 8,
+     "model_euro": -3.2111248921721622,
+     "model_non_euro": -3.956480484496735,
+     "model_difference": 0.7453555923245729
+    },
+    {
+     "shock": "MP",
+     "horizon": 9,
+     "model_euro": -3.6847132427124367,
+     "model_non_euro": -5.154003743082188,
+     "model_difference": 1.4692905003697514
+    },
+    {
+     "shock": "MP",
+     "horizon": 10,
+     "model_euro": -4.396685397938449,
+     "model_non_euro": -5.78845483756118,
+     "model_difference": 1.3917694396227311
+    },
+    {
+     "shock": "MP",
+     "horizon": 11,
+     "model_euro": -4.797476823848983,
+     "model_non_euro": -6.201922101400088,
+     "model_difference": 1.4044452775511047
+    },
+    {
+     "shock": "MP",
+     "horizon": 12,
+     "model_euro": -4.961394787074673,
+     "model_non_euro": -6.749439561212971,
+     "model_difference": 1.7880447741382977
+    },
+    {
+     "shock": "MP",
+     "horizon": 13,
+     "model_euro": -5.545959333004984,
+     "model_non_euro": -7.174515745609699,
+     "model_difference": 1.6285564126047145
+    },
+    {
+     "shock": "MP",
+     "horizon": 14,
+     "model_euro": -5.909121721749387,
+     "model_non_euro": -8.06561464796477,
+     "model_difference": 2.1564929262153827
+    },
+    {
+     "shock": "MP",
+     "horizon": 15,
+     "model_euro": -6.268182666402182,
+     "model_non_euro": -9.241500564242386,
+     "model_difference": 2.9733178978402046
+    },
+    {
+     "shock": "MP",
+     "horizon": 16,
+     "model_euro": -7.11672095212242,
+     "model_non_euro": -9.949883255688743,
+     "model_difference": 2.833162303566323
+    },
+    {
+     "shock": "MP",
+     "horizon": 17,
+     "model_euro": -7.620660596402654,
+     "model_non_euro": -10.784874081472736,
+     "model_difference": 3.164213485070082
+    },
+    {
+     "shock": "MP",
+     "horizon": 18,
+     "model_euro": -8.030870233368216,
+     "model_non_euro": -11.471634059920264,
+     "model_difference": 3.4407638265520486
+    },
+    {
+     "shock": "MP",
+     "horizon": 19,
+     "model_euro": -8.36569117578988,
+     "model_non_euro": -11.9272100195175,
+     "model_difference": 3.561518843727619
+    },
+    {
+     "shock": "MP",
+     "horizon": 20,
+     "model_euro": -8.608500652414897,
+     "model_non_euro": -12.552912591542146,
+     "model_difference": 3.9444119391272494
+    },
+    {
+     "shock": "MP",
+     "horizon": 21,
+     "model_euro": -8.859503886044333,
+     "model_non_euro": -13.218841887752072,
+     "model_difference": 4.359338001707739
+    },
+    {
+     "shock": "MP",
+     "horizon": 22,
+     "model_euro": -9.489379337778447,
+     "model_non_euro": -13.75456870802439,
+     "model_difference": 4.265189370245944
+    },
+    {
+     "shock": "MP",
+     "horizon": 23,
+     "model_euro": -9.830333521409873,
+     "model_non_euro": -14.337210317277224,
+     "model_difference": 4.506876795867351
+    },
+    {
+     "shock": "MP",
+     "horizon": 24,
+     "model_euro": -10.03265329815709,
+     "model_non_euro": -15.08817442833422,
+     "model_difference": 5.05552113017713
+    },
+    {
+     "shock": "CBI",
+     "horizon": 0,
+     "model_euro": 0.4455862749934197,
+     "model_non_euro": -0.1930506677075406,
+     "model_difference": 0.6386369427009603
+    },
+    {
+     "shock": "CBI",
+     "horizon": 1,
+     "model_euro": -0.10505585258941015,
+     "model_non_euro": -1.1981314062831339,
+     "model_difference": 1.0930755536937238
+    },
+    {
+     "shock": "CBI",
+     "horizon": 2,
+     "model_euro": 0.08437897928234789,
+     "model_non_euro": -2.858705445808759,
+     "model_difference": 2.9430844250911066
+    },
+    {
+     "shock": "CBI",
+     "horizon": 3,
+     "model_euro": -1.9910178423999578,
+     "model_non_euro": -4.684983941746974,
+     "model_difference": 2.6939660993470156
+    },
+    {
+     "shock": "CBI",
+     "horizon": 4,
+     "model_euro": -3.3769396895138244,
+     "model_non_euro": -4.537920531720837,
+     "model_difference": 1.1609808422070125
+    },
+    {
+     "shock": "CBI",
+     "horizon": 5,
+     "model_euro": -4.883188857123957,
+     "model_non_euro": -6.301702594877962,
+     "model_difference": 1.4185137377540045
+    },
+    {
+     "shock": "CBI",
+     "horizon": 6,
+     "model_euro": -5.302874496490329,
+     "model_non_euro": -6.505953442551679,
+     "model_difference": 1.2030789460613498
+    },
+    {
+     "shock": "CBI",
+     "horizon": 7,
+     "model_euro": -5.994838751597309,
+     "model_non_euro": -7.949691076257327,
+     "model_difference": 1.9548523246600178
+    },
+    {
+     "shock": "CBI",
+     "horizon": 8,
+     "model_euro": -6.748004160930211,
+     "model_non_euro": -9.522167426725144,
+     "model_difference": 2.7741632657949324
+    },
+    {
+     "shock": "CBI",
+     "horizon": 9,
+     "model_euro": -7.74125265737692,
+     "model_non_euro": -11.667124713986368,
+     "model_difference": 3.925872056609448
+    },
+    {
+     "shock": "CBI",
+     "horizon": 10,
+     "model_euro": -8.814525415252534,
+     "model_non_euro": -12.510985509941634,
+     "model_difference": 3.6964600946890993
+    },
+    {
+     "shock": "CBI",
+     "horizon": 11,
+     "model_euro": -9.433496285679382,
+     "model_non_euro": -13.701331778109303,
+     "model_difference": 4.267835492429921
+    },
+    {
+     "shock": "CBI",
+     "horizon": 12,
+     "model_euro": -9.835186649381352,
+     "model_non_euro": -14.79147129769828,
+     "model_difference": 4.956284648316927
+    },
+    {
+     "shock": "CBI",
+     "horizon": 13,
+     "model_euro": -10.143078674486482,
+     "model_non_euro": -15.796974551358462,
+     "model_difference": 5.65389587687198
+    },
+    {
+     "shock": "CBI",
+     "horizon": 14,
+     "model_euro": -10.762048518886044,
+     "model_non_euro": -17.165135868155176,
+     "model_difference": 6.403087349269132
+    },
+    {
+     "shock": "CBI",
+     "horizon": 15,
+     "model_euro": -11.589083734628613,
+     "model_non_euro": -18.012822925388274,
+     "model_difference": 6.423739190759662
+    },
+    {
+     "shock": "CBI",
+     "horizon": 16,
+     "model_euro": -12.857607384694068,
+     "model_non_euro": -18.579653444010066,
+     "model_difference": 5.722046059315998
+    },
+    {
+     "shock": "CBI",
+     "horizon": 17,
+     "model_euro": -13.176325728966438,
+     "model_non_euro": -19.28675860550841,
+     "model_difference": 6.110432876541973
+    },
+    {
+     "shock": "CBI",
+     "horizon": 18,
+     "model_euro": -13.55354018612859,
+     "model_non_euro": -19.704365226212182,
+     "model_difference": 6.150825040083593
+    },
+    {
+     "shock": "CBI",
+     "horizon": 19,
+     "model_euro": -13.499283500135999,
+     "model_non_euro": -20.25277505267238,
+     "model_difference": 6.7534915525363814
+    },
+    {
+     "shock": "CBI",
+     "horizon": 20,
+     "model_euro": -13.761243203258624,
+     "model_non_euro": -20.966261628138223,
+     "model_difference": 7.205018424879599
+    },
+    {
+     "shock": "CBI",
+     "horizon": 21,
+     "model_euro": -13.970795659711609,
+     "model_non_euro": -21.47392417458552,
+     "model_difference": 7.503128514873911
+    },
+    {
+     "shock": "CBI",
+     "horizon": 22,
+     "model_euro": -14.751146867893445,
+     "model_non_euro": -21.937140449756015,
+     "model_difference": 7.18599358186257
+    },
+    {
+     "shock": "CBI",
+     "horizon": 23,
+     "model_euro": -14.974539093215954,
+     "model_non_euro": -22.575069153869666,
+     "model_difference": 7.600530060653712
+    },
+    {
+     "shock": "CBI",
+     "horizon": 24,
+     "model_euro": -15.05273720981039,
+     "model_non_euro": -23.230866389139234,
+     "model_difference": 8.178129179328844
+    }
+   ]
+  },
+  {
+   "outcome_id": "industrial_production",
+   "spectral_radius": 0.9498971548179844,
+   "starts_agree": true,
+   "start_objective_difference": 5.7411853049416095e-11,
+   "converged_all_starts": true,
+   "fit_seconds": [
+    191,
+    572
+   ],
+   "path_fit_check": {
+    "label": "post_hoc_familywise",
+    "calibrated_min_p": 0.0920920920920921,
+    "passes": true,
+    "per_path_predictive_p": {
+     "MP:euro": 0.887,
+     "MP:non_euro": 0.985,
+     "MP:difference": 0.024,
+     "CBI:euro": 0.999,
+     "CBI:non_euro": 0.985,
+     "CBI:difference": 0.198
+    },
+    "registered_all_paths_gate": "FAIL"
+   },
+   "gap_in_frozen_se_units": {
+    "MP:euro": {
+     "max_abs_z": 1.5335523237948028,
+     "gaussian_joint_critical": 2.8050524894882716
+    },
+    "MP:non_euro": {
+     "max_abs_z": 1.2004719028717465,
+     "gaussian_joint_critical": 2.8311606516826533
+    },
+    "MP:difference": {
+     "max_abs_z": 3.8905606292537644,
+     "gaussian_joint_critical": 2.9031008325541428
+    },
+    "CBI:euro": {
+     "max_abs_z": 0.7855488878668321,
+     "gaussian_joint_critical": 2.874196884253707
+    },
+    "CBI:non_euro": {
+     "max_abs_z": 1.2065877711973025,
+     "gaussian_joint_critical": 2.8999542243047456
+    },
+    "CBI:difference": {
+     "max_abs_z": 3.046451864689908,
+     "gaussian_joint_critical": 2.915301566389005
+    }
+   },
+   "warning": "模型未能复现工业生产 MP 组间差异路径的长期部分（h≈18–21 的差距约 3.9 个标准误）；该路径的模型曲线仅供参考。",
+   "series": [
+    {
+     "shock": "MP",
+     "horizon": 0,
+     "model_euro": -7.724943333484771,
+     "model_non_euro": -7.647002919393174,
+     "model_difference": -0.07794041409159735
+    },
+    {
+     "shock": "MP",
+     "horizon": 1,
+     "model_euro": -15.194872973358727,
+     "model_non_euro": -19.946452929247975,
+     "model_difference": 4.751579955889248
+    },
+    {
+     "shock": "MP",
+     "horizon": 2,
+     "model_euro": -8.461746831475716,
+     "model_non_euro": -11.612228701759987,
+     "model_difference": 3.1504818702842705
+    },
+    {
+     "shock": "MP",
+     "horizon": 3,
+     "model_euro": -8.855613786436685,
+     "model_non_euro": -10.62750407295458,
+     "model_difference": 1.7718902865178947
+    },
+    {
+     "shock": "MP",
+     "horizon": 4,
+     "model_euro": -6.175916374873621,
+     "model_non_euro": -6.272169444567824,
+     "model_difference": 0.09625306969420322
+    },
+    {
+     "shock": "MP",
+     "horizon": 5,
+     "model_euro": -6.241928892165818,
+     "model_non_euro": -6.613965007660772,
+     "model_difference": 0.37203611549495363
+    },
+    {
+     "shock": "MP",
+     "horizon": 6,
+     "model_euro": -4.150598371912397,
+     "model_non_euro": -7.291098257869694,
+     "model_difference": 3.140499885957297
+    },
+    {
+     "shock": "MP",
+     "horizon": 7,
+     "model_euro": -7.854768945625467,
+     "model_non_euro": -10.76908528805938,
+     "model_difference": 2.9143163424339127
+    },
+    {
+     "shock": "MP",
+     "horizon": 8,
+     "model_euro": -5.8180128209589705,
+     "model_non_euro": -9.29931190943018,
+     "model_difference": 3.48129908847121
+    },
+    {
+     "shock": "MP",
+     "horizon": 9,
+     "model_euro": -8.513245838335003,
+     "model_non_euro": -11.898285548234362,
+     "model_difference": 3.3850397098993597
+    },
+    {
+     "shock": "MP",
+     "horizon": 10,
+     "model_euro": -7.346238946168288,
+     "model_non_euro": -11.453362513276662,
+     "model_difference": 4.107123567108374
+    },
+    {
+     "shock": "MP",
+     "horizon": 11,
+     "model_euro": -6.2304593045401395,
+     "model_non_euro": -8.33112715101665,
+     "model_difference": 2.1006678464765107
+    },
+    {
+     "shock": "MP",
+     "horizon": 12,
+     "model_euro": -3.5663775191887988,
+     "model_non_euro": -4.402075210369362,
+     "model_difference": 0.8356976911805631
+    },
+    {
+     "shock": "MP",
+     "horizon": 13,
+     "model_euro": -4.532947685974761,
+     "model_non_euro": -4.549571843261244,
+     "model_difference": 0.016624157286483587
+    },
+    {
+     "shock": "MP",
+     "horizon": 14,
+     "model_euro": -5.521291941051233,
+     "model_non_euro": -8.453930636802799,
+     "model_difference": 2.9326386957515655
+    },
+    {
+     "shock": "MP",
+     "horizon": 15,
+     "model_euro": -5.137305267302208,
+     "model_non_euro": -7.604315188473931,
+     "model_difference": 2.467009921171723
+    },
+    {
+     "shock": "MP",
+     "horizon": 16,
+     "model_euro": -6.585756782489081,
+     "model_non_euro": -8.912196903901853,
+     "model_difference": 2.326440121412772
+    },
+    {
+     "shock": "MP",
+     "horizon": 17,
+     "model_euro": -6.8608755252943805,
+     "model_non_euro": -9.126483044255426,
+     "model_difference": 2.265607518961046
+    },
+    {
+     "shock": "MP",
+     "horizon": 18,
+     "model_euro": -6.283875787964952,
+     "model_non_euro": -7.393759153255076,
+     "model_difference": 1.1098833652901243
+    },
+    {
+     "shock": "MP",
+     "horizon": 19,
+     "model_euro": -5.752249687743334,
+     "model_non_euro": -7.61172101069945,
+     "model_difference": 1.8594713229561162
+    },
+    {
+     "shock": "MP",
+     "horizon": 20,
+     "model_euro": -6.682982615329249,
+     "model_non_euro": -7.87292063596829,
+     "model_difference": 1.1899380206390413
+    },
+    {
+     "shock": "MP",
+     "horizon": 21,
+     "model_euro": -4.852401889937988,
+     "model_non_euro": -6.200376310087884,
+     "model_difference": 1.347974420149896
+    },
+    {
+     "shock": "MP",
+     "horizon": 22,
+     "model_euro": -4.342252057215651,
+     "model_non_euro": -5.930876213557389,
+     "model_difference": 1.588624156341738
+    },
+    {
+     "shock": "MP",
+     "horizon": 23,
+     "model_euro": -5.24264304844975,
+     "model_non_euro": -7.080773961749337,
+     "model_difference": 1.8381309132995867
+    },
+    {
+     "shock": "MP",
+     "horizon": 24,
+     "model_euro": -7.662723297508157,
+     "model_non_euro": -8.654226462707353,
+     "model_difference": 0.9915031651991955
+    },
+    {
+     "shock": "CBI",
+     "horizon": 0,
+     "model_euro": 4.3129872673400635,
+     "model_non_euro": 5.850310954198792,
+     "model_difference": -1.5373236868587288
+    },
+    {
+     "shock": "CBI",
+     "horizon": 1,
+     "model_euro": 2.225069214372542,
+     "model_non_euro": 3.0460461558232583,
+     "model_difference": -0.8209769414507164
+    },
+    {
+     "shock": "CBI",
+     "horizon": 2,
+     "model_euro": 3.154989119109946,
+     "model_non_euro": 2.3029264585366125,
+     "model_difference": 0.8520626605733335
+    },
+    {
+     "shock": "CBI",
+     "horizon": 3,
+     "model_euro": -1.4560593171153933,
+     "model_non_euro": -2.0083425567873108,
+     "model_difference": 0.5522832396719175
+    },
+    {
+     "shock": "CBI",
+     "horizon": 4,
+     "model_euro": -2.5028883611091914,
+     "model_non_euro": -5.0358917731749555,
+     "model_difference": 2.533003412065764
+    },
+    {
+     "shock": "CBI",
+     "horizon": 5,
+     "model_euro": -4.8105974385094195,
+     "model_non_euro": -5.513230671223344,
+     "model_difference": 0.7026332327139242
+    },
+    {
+     "shock": "CBI",
+     "horizon": 6,
+     "model_euro": -3.068341803635963,
+     "model_non_euro": -6.676326001596455,
+     "model_difference": 3.607984197960492
+    },
+    {
+     "shock": "CBI",
+     "horizon": 7,
+     "model_euro": -6.596917698108126,
+     "model_non_euro": -14.069704103907297,
+     "model_difference": 7.47278640579917
+    },
+    {
+     "shock": "CBI",
+     "horizon": 8,
+     "model_euro": -3.8572289727184867,
+     "model_non_euro": -9.491163514876778,
+     "model_difference": 5.633934542158292
+    },
+    {
+     "shock": "CBI",
+     "horizon": 9,
+     "model_euro": -5.262528253810378,
+     "model_non_euro": -8.454556405724722,
+     "model_difference": 3.192028151914344
+    },
+    {
+     "shock": "CBI",
+     "horizon": 10,
+     "model_euro": -3.450649831203502,
+     "model_non_euro": -6.153626940536197,
+     "model_difference": 2.7029771093326955
+    },
+    {
+     "shock": "CBI",
+     "horizon": 11,
+     "model_euro": -4.481762232781759,
+     "model_non_euro": -5.712379986729568,
+     "model_difference": 1.2306177539478087
+    },
+    {
+     "shock": "CBI",
+     "horizon": 12,
+     "model_euro": -2.823771780241686,
+     "model_non_euro": -3.1282105185923075,
+     "model_difference": 0.3044387383506213
+    },
+    {
+     "shock": "CBI",
+     "horizon": 13,
+     "model_euro": -1.4072264555577452,
+     "model_non_euro": -0.8247846701081458,
+     "model_difference": -0.5824417854495993
+    },
+    {
+     "shock": "CBI",
+     "horizon": 14,
+     "model_euro": -0.5932303169559021,
+     "model_non_euro": -3.148175454314298,
+     "model_difference": 2.554945137358396
+    },
+    {
+     "shock": "CBI",
+     "horizon": 15,
+     "model_euro": -1.0951510291748323,
+     "model_non_euro": -3.686820998545704,
+     "model_difference": 2.5916699693708716
+    },
+    {
+     "shock": "CBI",
+     "horizon": 16,
+     "model_euro": -1.153556555074089,
+     "model_non_euro": -2.6354303926205582,
+     "model_difference": 1.4818738375464693
+    },
+    {
+     "shock": "CBI",
+     "horizon": 17,
+     "model_euro": -2.844931004236783,
+     "model_non_euro": -3.0249824002819903,
+     "model_difference": 0.18005139604520748
+    },
+    {
+     "shock": "CBI",
+     "horizon": 18,
+     "model_euro": -3.58682963607638,
+     "model_non_euro": -3.630614165575573,
+     "model_difference": 0.04378452949919298
+    },
+    {
+     "shock": "CBI",
+     "horizon": 19,
+     "model_euro": -2.1970552494895914,
+     "model_non_euro": -1.9205516755895762,
+     "model_difference": -0.27650357390001523
+    },
+    {
+     "shock": "CBI",
+     "horizon": 20,
+     "model_euro": -3.238101500014396,
+     "model_non_euro": -3.555961933653119,
+     "model_difference": 0.3178604336387232
+    },
+    {
+     "shock": "CBI",
+     "horizon": 21,
+     "model_euro": -3.470959457219478,
+     "model_non_euro": -4.348329694947778,
+     "model_difference": 0.8773702377283001
+    },
+    {
+     "shock": "CBI",
+     "horizon": 22,
+     "model_euro": -3.403711764882333,
+     "model_non_euro": -4.889847370906631,
+     "model_difference": 1.4861356060242983
+    },
+    {
+     "shock": "CBI",
+     "horizon": 23,
+     "model_euro": -2.595709557123759,
+     "model_non_euro": -3.8921975826829125,
+     "model_difference": 1.2964880255591535
+    },
+    {
+     "shock": "CBI",
+     "horizon": 24,
+     "model_euro": -4.677650265652361,
+     "model_non_euro": -4.844123376203895,
+     "model_difference": 0.16647311055153402
+    }
+   ]
+  },
+  {
+   "outcome_id": "unemployment",
+   "spectral_radius": 0.9686183649569987,
+   "starts_agree": true,
+   "start_objective_difference": 2.3646862246096134e-11,
+   "converged_all_starts": true,
+   "fit_seconds": [
+    108,
+    104
+   ],
+   "path_fit_check": {
+    "label": "post_hoc_familywise",
+    "calibrated_min_p": 0.991991991991992,
+    "passes": true,
+    "per_path_predictive_p": {
+     "MP:euro": 1.0,
+     "MP:non_euro": 0.866,
+     "MP:difference": 0.722,
+     "CBI:euro": 0.947,
+     "CBI:non_euro": 0.889,
+     "CBI:difference": 0.984
+    },
+    "registered_all_paths_gate": "FAIL"
+   },
+   "gap_in_frozen_se_units": {
+    "MP:euro": {
+     "max_abs_z": 0.37340372774429326,
+     "gaussian_joint_critical": 2.616715048185172
+    },
+    "MP:non_euro": {
+     "max_abs_z": 1.182864471519043,
+     "gaussian_joint_critical": 2.5060289885779143
+    },
+    "MP:difference": {
+     "max_abs_z": 1.6623691143992885,
+     "gaussian_joint_critical": 2.7311722294939087
+    },
+    "CBI:euro": {
+     "max_abs_z": 1.0774535249981785,
+     "gaussian_joint_critical": 2.7738845207930076
+    },
+    "CBI:non_euro": {
+     "max_abs_z": 1.2398588385358182,
+     "gaussian_joint_critical": 2.6525008075710854
+    },
+    "CBI:difference": {
+     "max_abs_z": 0.9923639841173088,
+     "gaussian_joint_critical": 2.7599842075532393
+    }
+   },
+   "warning": null,
+   "series": [
+    {
+     "shock": "MP",
+     "horizon": 0,
+     "model_euro": 0.1572686138960629,
+     "model_non_euro": 0.06210914598312998,
+     "model_difference": 0.09515946791293292
+    },
+    {
+     "shock": "MP",
+     "horizon": 1,
+     "model_euro": 0.5248626645238093,
+     "model_non_euro": 0.2361555879918691,
+     "model_difference": 0.28870707653194017
+    },
+    {
+     "shock": "MP",
+     "horizon": 2,
+     "model_euro": 0.607347655295664,
+     "model_non_euro": 0.4365218522571566,
+     "model_difference": 0.17082580303850742
+    },
+    {
+     "shock": "MP",
+     "horizon": 3,
+     "model_euro": 0.641388701859148,
+     "model_non_euro": 0.5684464669016317,
+     "model_difference": 0.07294223495751628
+    },
+    {
+     "shock": "MP",
+     "horizon": 4,
+     "model_euro": 0.6664704507783327,
+     "model_non_euro": 0.5509083285552091,
+     "model_difference": 0.11556212222312356
+    },
+    {
+     "shock": "MP",
+     "horizon": 5,
+     "model_euro": 0.7243906990195627,
+     "model_non_euro": 0.4757317679502638,
+     "model_difference": 0.24865893106929887
+    },
+    {
+     "shock": "MP",
+     "horizon": 6,
+     "model_euro": 0.6630464519879152,
+     "model_non_euro": 0.5686007258388655,
+     "model_difference": 0.09444572614904978
+    },
+    {
+     "shock": "MP",
+     "horizon": 7,
+     "model_euro": 0.7607392780874679,
+     "model_non_euro": 0.759790055271867,
+     "model_difference": 0.0009492228156008364
+    },
+    {
+     "shock": "MP",
+     "horizon": 8,
+     "model_euro": 0.9306725954662873,
+     "model_non_euro": 0.8190838360721406,
+     "model_difference": 0.1115887593941467
+    },
+    {
+     "shock": "MP",
+     "horizon": 9,
+     "model_euro": 1.2145201476593115,
+     "model_non_euro": 1.0353674670675752,
+     "model_difference": 0.17915268059173628
+    },
+    {
+     "shock": "MP",
+     "horizon": 10,
+     "model_euro": 1.3058096529321208,
+     "model_non_euro": 1.09394921938741,
+     "model_difference": 0.21186043354471074
+    },
+    {
+     "shock": "MP",
+     "horizon": 11,
+     "model_euro": 1.342731111547097,
+     "model_non_euro": 1.1353242637134775,
+     "model_difference": 0.2074068478336195
+    },
+    {
+     "shock": "MP",
+     "horizon": 12,
+     "model_euro": 1.227877223084065,
+     "model_non_euro": 1.2088587591100954,
+     "model_difference": 0.019018463973969668
+    },
+    {
+     "shock": "MP",
+     "horizon": 13,
+     "model_euro": 1.1520216393402583,
+     "model_non_euro": 1.1573064374403546,
+     "model_difference": -0.0052847981000963
+    },
+    {
+     "shock": "MP",
+     "horizon": 14,
+     "model_euro": 1.0384770966724566,
+     "model_non_euro": 1.1052131005983032,
+     "model_difference": -0.06673600392584667
+    },
+    {
+     "shock": "MP",
+     "horizon": 15,
+     "model_euro": 1.1338021776077363,
+     "model_non_euro": 1.0355866611604365,
+     "model_difference": 0.09821551644729976
+    },
+    {
+     "shock": "MP",
+     "horizon": 16,
+     "model_euro": 1.1746821365479374,
+     "model_non_euro": 1.1007229169004265,
+     "model_difference": 0.07395921964751095
+    },
+    {
+     "shock": "MP",
+     "horizon": 17,
+     "model_euro": 1.2147724759135237,
+     "model_non_euro": 1.1007077478042393,
+     "model_difference": 0.11406472810928436
+    },
+    {
+     "shock": "MP",
+     "horizon": 18,
+     "model_euro": 1.2078557632626206,
+     "model_non_euro": 1.0304947158713118,
+     "model_difference": 0.17736104739130876
+    },
+    {
+     "shock": "MP",
+     "horizon": 19,
+     "model_euro": 1.1447982859816888,
+     "model_non_euro": 0.9257023736886952,
+     "model_difference": 0.21909591229299352
+    },
+    {
+     "shock": "MP",
+     "horizon": 20,
+     "model_euro": 1.0687041627690574,
+     "model_non_euro": 0.8618940336496771,
+     "model_difference": 0.20681012911938035
+    },
+    {
+     "shock": "MP",
+     "horizon": 21,
+     "model_euro": 0.9449049906167164,
+     "model_non_euro": 0.7500351510662614,
+     "model_difference": 0.194869839550455
+    },
+    {
+     "shock": "MP",
+     "horizon": 22,
+     "model_euro": 0.8775003916716555,
+     "model_non_euro": 0.7150879047289486,
+     "model_difference": 0.16241248694270694
+    },
+    {
+     "shock": "MP",
+     "horizon": 23,
+     "model_euro": 0.8006332921421443,
+     "model_non_euro": 0.6326388862160803,
+     "model_difference": 0.16799440592606396
+    },
+    {
+     "shock": "MP",
+     "horizon": 24,
+     "model_euro": 0.8271386570395399,
+     "model_non_euro": 0.5709196906854843,
+     "model_difference": 0.2562189663540556
+    },
+    {
+     "shock": "CBI",
+     "horizon": 0,
+     "model_euro": -0.12816155127818943,
+     "model_non_euro": 0.09589863775140933,
+     "model_difference": -0.22406018902959876
+    },
+    {
+     "shock": "CBI",
+     "horizon": 1,
+     "model_euro": 0.09060942855159843,
+     "model_non_euro": 0.1827235107398626,
+     "model_difference": -0.09211408218826417
+    },
+    {
+     "shock": "CBI",
+     "horizon": 2,
+     "model_euro": 0.017060303689274962,
+     "model_non_euro": 0.32370014889213117,
+     "model_difference": -0.3066398452028562
+    },
+    {
+     "shock": "CBI",
+     "horizon": 3,
+     "model_euro": 0.15156807126475136,
+     "model_non_euro": 0.35212955878569047,
+     "model_difference": -0.2005614875209391
+    },
+    {
+     "shock": "CBI",
+     "horizon": 4,
+     "model_euro": 0.21585076517829557,
+     "model_non_euro": 0.46754135764689475,
+     "model_difference": -0.25169059246859915
+    },
+    {
+     "shock": "CBI",
+     "horizon": 5,
+     "model_euro": 0.40885598162824366,
+     "model_non_euro": 0.4645803358633045,
+     "model_difference": -0.055724354235060836
+    },
+    {
+     "shock": "CBI",
+     "horizon": 6,
+     "model_euro": 0.4490322962074637,
+     "model_non_euro": 0.5527148955265977,
+     "model_difference": -0.10368259931913398
+    },
+    {
+     "shock": "CBI",
+     "horizon": 7,
+     "model_euro": 0.5106807179937217,
+     "model_non_euro": 0.6083217632677215,
+     "model_difference": -0.09764104527399975
+    },
+    {
+     "shock": "CBI",
+     "horizon": 8,
+     "model_euro": 0.5355089415255228,
+     "model_non_euro": 0.647666185460854,
+     "model_difference": -0.11215724393533122
+    },
+    {
+     "shock": "CBI",
+     "horizon": 9,
+     "model_euro": 0.6695354222131495,
+     "model_non_euro": 0.663436176686129,
+     "model_difference": 0.006099245527020569
+    },
+    {
+     "shock": "CBI",
+     "horizon": 10,
+     "model_euro": 0.3740205846268177,
+     "model_non_euro": 0.6107138884024763,
+     "model_difference": -0.23669330377565861
+    },
+    {
+     "shock": "CBI",
+     "horizon": 11,
+     "model_euro": 0.30849719883229837,
+     "model_non_euro": 0.47033030002973736,
+     "model_difference": -0.161833101197439
+    },
+    {
+     "shock": "CBI",
+     "horizon": 12,
+     "model_euro": 0.3401587910221841,
+     "model_non_euro": 0.4039857053775783,
+     "model_difference": -0.06382691435539417
+    },
+    {
+     "shock": "CBI",
+     "horizon": 13,
+     "model_euro": 0.22640101501608964,
+     "model_non_euro": 0.23268905198703202,
+     "model_difference": -0.006288036970942379
+    },
+    {
+     "shock": "CBI",
+     "horizon": 14,
+     "model_euro": 0.24213925282939244,
+     "model_non_euro": 0.2403645643093399,
+     "model_difference": 0.001774688520052553
+    },
+    {
+     "shock": "CBI",
+     "horizon": 15,
+     "model_euro": 0.161259927639536,
+     "model_non_euro": 0.15018154625212193,
+     "model_difference": 0.011078381387414071
+    },
+    {
+     "shock": "CBI",
+     "horizon": 16,
+     "model_euro": 0.03889264709034012,
+     "model_non_euro": 0.07262274660958805,
+     "model_difference": -0.03373009951924793
+    },
+    {
+     "shock": "CBI",
+     "horizon": 17,
+     "model_euro": -0.14776567147196445,
+     "model_non_euro": -0.0011978778152330258,
+     "model_difference": -0.14656779365673142
+    },
+    {
+     "shock": "CBI",
+     "horizon": 18,
+     "model_euro": -0.27894450153270045,
+     "model_non_euro": -0.1872352775198752,
+     "model_difference": -0.09170922401282525
+    },
+    {
+     "shock": "CBI",
+     "horizon": 19,
+     "model_euro": -0.3923426283938989,
+     "model_non_euro": -0.43566140951570276,
+     "model_difference": 0.04331878112180387
+    },
+    {
+     "shock": "CBI",
+     "horizon": 20,
+     "model_euro": -0.43356425995262426,
+     "model_non_euro": -0.48232009121373165,
+     "model_difference": 0.048755831261107385
+    },
+    {
+     "shock": "CBI",
+     "horizon": 21,
+     "model_euro": -0.5084306136587352,
+     "model_non_euro": -0.6444720887132179,
+     "model_difference": 0.13604147505448272
+    },
+    {
+     "shock": "CBI",
+     "horizon": 22,
+     "model_euro": -0.47116418960460077,
+     "model_non_euro": -0.6316087716457429,
+     "model_difference": 0.16044458204114215
+    },
+    {
+     "shock": "CBI",
+     "horizon": 23,
+     "model_euro": -0.6011855599015751,
+     "model_non_euro": -0.6683404682649381,
+     "model_difference": 0.06715490836336302
+    },
+    {
+     "shock": "CBI",
+     "horizon": 24,
+     "model_euro": -0.693099023638193,
+     "model_non_euro": -0.7080215371086738,
+     "model_difference": 0.014922513470480792
+    }
+   ]
+  },
+  {
+   "outcome_id": "long_term_yield",
+   "spectral_radius": 0.9733236048320835,
+   "starts_agree": true,
+   "start_objective_difference": 3.183231456205249e-12,
+   "converged_all_starts": true,
+   "fit_seconds": [
+    627,
+    625
+   ],
+   "path_fit_check": {
+    "label": "post_hoc_familywise",
+    "calibrated_min_p": 0.7397397397397397,
+    "passes": true,
+    "per_path_predictive_p": {
+     "MP:euro": 0.721,
+     "MP:non_euro": 0.286,
+     "MP:difference": 0.914,
+     "CBI:euro": 0.809,
+     "CBI:non_euro": 0.751,
+     "CBI:difference": 0.97
+    },
+    "registered_all_paths_gate": "FAIL"
+   },
+   "gap_in_frozen_se_units": {
+    "MP:euro": {
+     "max_abs_z": 1.5607021657405247,
+     "gaussian_joint_critical": 2.6193452845039302
+    },
+    "MP:non_euro": {
+     "max_abs_z": 2.6819920093149254,
+     "gaussian_joint_critical": 2.7425154034272126
+    },
+    "MP:difference": {
+     "max_abs_z": 1.1628519115844194,
+     "gaussian_joint_critical": 2.6830947119078963
+    },
+    "CBI:euro": {
+     "max_abs_z": 1.4611111348266272,
+     "gaussian_joint_critical": 2.6583794027297216
+    },
+    "CBI:non_euro": {
+     "max_abs_z": 1.6669363628155196,
+     "gaussian_joint_critical": 2.7140912393806502
+    },
+    "CBI:difference": {
+     "max_abs_z": 0.9266137585386776,
+     "gaussian_joint_critical": 2.678389796364706
+    }
+   },
+   "warning": null,
+   "series": [
+    {
+     "shock": "MP",
+     "horizon": 0,
+     "model_euro": 0.08816439115553157,
+     "model_non_euro": 0.16818255092681123,
+     "model_difference": -0.08001815977127966
+    },
+    {
+     "shock": "MP",
+     "horizon": 1,
+     "model_euro": 0.2985243651310862,
+     "model_non_euro": 0.3015739158972793,
+     "model_difference": -0.0030495507661930654
+    },
+    {
+     "shock": "MP",
+     "horizon": 2,
+     "model_euro": 0.5920042297386706,
+     "model_non_euro": -0.020597741754405884,
+     "model_difference": 0.6126019714930765
+    },
+    {
+     "shock": "MP",
+     "horizon": 3,
+     "model_euro": 0.727252887084399,
+     "model_non_euro": 0.03911977262984862,
+     "model_difference": 0.6881331144545503
+    },
+    {
+     "shock": "MP",
+     "horizon": 4,
+     "model_euro": 0.766595323181647,
+     "model_non_euro": -0.2944356761813418,
+     "model_difference": 1.061030999362989
+    },
+    {
+     "shock": "MP",
+     "horizon": 5,
+     "model_euro": 0.5176683718756346,
+     "model_non_euro": -0.7101909391212275,
+     "model_difference": 1.227859310996862
+    },
+    {
+     "shock": "MP",
+     "horizon": 6,
+     "model_euro": 0.5793807273144497,
+     "model_non_euro": -0.8076161975079768,
+     "model_difference": 1.3869969248224265
+    },
+    {
+     "shock": "MP",
+     "horizon": 7,
+     "model_euro": 0.7618121790552962,
+     "model_non_euro": -0.49909239489454954,
+     "model_difference": 1.2609045739498457
+    },
+    {
+     "shock": "MP",
+     "horizon": 8,
+     "model_euro": 0.7030073739179448,
+     "model_non_euro": -0.6489929263205781,
+     "model_difference": 1.3520003002385228
+    },
+    {
+     "shock": "MP",
+     "horizon": 9,
+     "model_euro": 0.672291175772727,
+     "model_non_euro": -0.8617171384314691,
+     "model_difference": 1.534008314204196
+    },
+    {
+     "shock": "MP",
+     "horizon": 10,
+     "model_euro": 0.8307933502263186,
+     "model_non_euro": -0.908522161229559,
+     "model_difference": 1.7393155114558776
+    },
+    {
+     "shock": "MP",
+     "horizon": 11,
+     "model_euro": 1.0622322698839646,
+     "model_non_euro": -0.8257046228633298,
+     "model_difference": 1.8879368927472944
+    },
+    {
+     "shock": "MP",
+     "horizon": 12,
+     "model_euro": 1.0065916721998165,
+     "model_non_euro": -0.8528915425997596,
+     "model_difference": 1.8594832147995761
+    },
+    {
+     "shock": "MP",
+     "horizon": 13,
+     "model_euro": 1.1003195818374198,
+     "model_non_euro": -0.8194062041829171,
+     "model_difference": 1.919725786020337
+    },
+    {
+     "shock": "MP",
+     "horizon": 14,
+     "model_euro": 1.1400538177821364,
+     "model_non_euro": -0.6360304558720409,
+     "model_difference": 1.7760842736541773
+    },
+    {
+     "shock": "MP",
+     "horizon": 15,
+     "model_euro": 1.0625787443756274,
+     "model_non_euro": -0.6098114355341373,
+     "model_difference": 1.6723901799097647
+    },
+    {
+     "shock": "MP",
+     "horizon": 16,
+     "model_euro": 0.8639016612467942,
+     "model_non_euro": -0.781592246668824,
+     "model_difference": 1.6454939079156183
+    },
+    {
+     "shock": "MP",
+     "horizon": 17,
+     "model_euro": 0.8029859782610264,
+     "model_non_euro": -1.0144926925850386,
+     "model_difference": 1.8174786708460648
+    },
+    {
+     "shock": "MP",
+     "horizon": 18,
+     "model_euro": 0.9144651534353176,
+     "model_non_euro": -0.8126097662371587,
+     "model_difference": 1.7270749196724764
+    },
+    {
+     "shock": "MP",
+     "horizon": 19,
+     "model_euro": 1.0078729027958169,
+     "model_non_euro": -0.5846336743257696,
+     "model_difference": 1.5925065771215865
+    },
+    {
+     "shock": "MP",
+     "horizon": 20,
+     "model_euro": 0.9789994786817849,
+     "model_non_euro": -0.4750628035620855,
+     "model_difference": 1.4540622822438705
+    },
+    {
+     "shock": "MP",
+     "horizon": 21,
+     "model_euro": 0.9490187675668383,
+     "model_non_euro": -0.42796852637745586,
+     "model_difference": 1.3769872939442942
+    },
+    {
+     "shock": "MP",
+     "horizon": 22,
+     "model_euro": 0.9157846930858046,
+     "model_non_euro": -0.38411745311614737,
+     "model_difference": 1.299902146201952
+    },
+    {
+     "shock": "MP",
+     "horizon": 23,
+     "model_euro": 0.7380341020950769,
+     "model_non_euro": -0.5966442557279208,
+     "model_difference": 1.3346783578229977
+    },
+    {
+     "shock": "MP",
+     "horizon": 24,
+     "model_euro": 0.5652355565598483,
+     "model_non_euro": -0.7552224289599807,
+     "model_difference": 1.320457985519829
+    },
+    {
+     "shock": "CBI",
+     "horizon": 0,
+     "model_euro": -0.13637050701986153,
+     "model_non_euro": -0.06405710772062859,
+     "model_difference": -0.07231339929923294
+    },
+    {
+     "shock": "CBI",
+     "horizon": 1,
+     "model_euro": -0.08292801975797712,
+     "model_non_euro": 0.07890476619026697,
+     "model_difference": -0.16183278594824407
+    },
+    {
+     "shock": "CBI",
+     "horizon": 2,
+     "model_euro": 0.1159481176422885,
+     "model_non_euro": -0.25294667620927475,
+     "model_difference": 0.36889479385156326
+    },
+    {
+     "shock": "CBI",
+     "horizon": 3,
+     "model_euro": 0.49777892229196397,
+     "model_non_euro": -0.18997023285159476,
+     "model_difference": 0.6877491551435587
+    },
+    {
+     "shock": "CBI",
+     "horizon": 4,
+     "model_euro": 0.6984752569263813,
+     "model_non_euro": -0.973869952000427,
+     "model_difference": 1.6723452089268083
+    },
+    {
+     "shock": "CBI",
+     "horizon": 5,
+     "model_euro": 0.5565917419933939,
+     "model_non_euro": -1.408557750790518,
+     "model_difference": 1.965149492783912
+    },
+    {
+     "shock": "CBI",
+     "horizon": 6,
+     "model_euro": 0.3462559498819284,
+     "model_non_euro": -1.6222371215678126,
+     "model_difference": 1.968493071449741
+    },
+    {
+     "shock": "CBI",
+     "horizon": 7,
+     "model_euro": 0.658969744267151,
+     "model_non_euro": -0.9366685840549073,
+     "model_difference": 1.5956383283220583
+    },
+    {
+     "shock": "CBI",
+     "horizon": 8,
+     "model_euro": 0.5513588007510936,
+     "model_non_euro": -1.2781606252591293,
+     "model_difference": 1.829519426010223
+    },
+    {
+     "shock": "CBI",
+     "horizon": 9,
+     "model_euro": 0.10341016530885887,
+     "model_non_euro": -1.8092539313698286,
+     "model_difference": 1.9126640966786874
+    },
+    {
+     "shock": "CBI",
+     "horizon": 10,
+     "model_euro": -0.18421040198763453,
+     "model_non_euro": -2.132311327515515,
+     "model_difference": 1.9481009255278807
+    },
+    {
+     "shock": "CBI",
+     "horizon": 11,
+     "model_euro": -0.346606163048537,
+     "model_non_euro": -2.341658566296521,
+     "model_difference": 1.9950524032479842
+    },
+    {
+     "shock": "CBI",
+     "horizon": 12,
+     "model_euro": -0.2569949457707153,
+     "model_non_euro": -2.1655225277307233,
+     "model_difference": 1.908527581960008
+    },
+    {
+     "shock": "CBI",
+     "horizon": 13,
+     "model_euro": -0.0771207217612347,
+     "model_non_euro": -1.486629105893579,
+     "model_difference": 1.4095083841323444
+    },
+    {
+     "shock": "CBI",
+     "horizon": 14,
+     "model_euro": 0.003953575582988783,
+     "model_non_euro": -1.1662075160430496,
+     "model_difference": 1.1701610916260383
+    },
+    {
+     "shock": "CBI",
+     "horizon": 15,
+     "model_euro": -0.0855750529345649,
+     "model_non_euro": -1.1903126960628632,
+     "model_difference": 1.1047376431282983
+    },
+    {
+     "shock": "CBI",
+     "horizon": 16,
+     "model_euro": -0.49961085359695884,
+     "model_non_euro": -1.6421243963728576,
+     "model_difference": 1.1425135427758988
+    },
+    {
+     "shock": "CBI",
+     "horizon": 17,
+     "model_euro": -0.8302177989270968,
+     "model_non_euro": -1.9573593419219846,
+     "model_difference": 1.1271415429948877
+    },
+    {
+     "shock": "CBI",
+     "horizon": 18,
+     "model_euro": -0.6513805192300685,
+     "model_non_euro": -1.6840775627963986,
+     "model_difference": 1.0326970435663303
+    },
+    {
+     "shock": "CBI",
+     "horizon": 19,
+     "model_euro": -0.555411501018038,
+     "model_non_euro": -1.2801771506842863,
+     "model_difference": 0.7247656496662482
+    },
+    {
+     "shock": "CBI",
+     "horizon": 20,
+     "model_euro": -0.6834312528517145,
+     "model_non_euro": -1.0477498785278392,
+     "model_difference": 0.3643186256761247
+    },
+    {
+     "shock": "CBI",
+     "horizon": 21,
+     "model_euro": -0.8514417247836732,
+     "model_non_euro": -0.9684055295692704,
+     "model_difference": 0.1169638047855972
+    },
+    {
+     "shock": "CBI",
+     "horizon": 22,
+     "model_euro": -0.8457498207538438,
+     "model_non_euro": -0.9546397456836846,
+     "model_difference": 0.10888992492984084
+    },
+    {
+     "shock": "CBI",
+     "horizon": 23,
+     "model_euro": -0.9241093279903825,
+     "model_non_euro": -1.115062750261255,
+     "model_difference": 0.19095342227087242
+    },
+    {
+     "shock": "CBI",
+     "horizon": 24,
+     "model_euro": -0.9090310943365396,
+     "model_non_euro": -1.0166709564639647,
+     "model_difference": 0.10763986212742505
+    }
+   ]
+  }
+ ],
+ "joint_inference": {
+  "status": "not_available",
+  "reason": "整条路径（跨预测期）联合置信带经研究检验后不提供。",
+  "evidence": {
+   "frozen_gaussian_joint_critical_range": [
+    2.5060289885779143,
+    2.915301566389005
+   ],
+   "bootstrap_required_joint_critical_range": [
+    3.7058536798915216,
+    5.1767351834092885
+   ],
+   "best_bootstrap_joint_coverage": 0.9002719109838316,
+   "best_bootstrap_joint_coverage_90ci": [
+    0.8861683580336781,
+    0.9143754639339852
+   ],
+   "nominal": 0.95,
+   "r2_verdict": "NOT CONFIRMED; no path activated",
+   "study": "reduced-scope R2, 2026-09-25/26"
+  }
+ },
+ "provenance": {
+  "gvar-realdata-results.json": "ad50c6bc65db843872b70d151a2123a2a59ae356cacf5f93951d138d6f55ac8f",
+  "realdata-fit-results.json": "f9c37c8bc8c59f7d5fab97cd5047c91e2fcba5785ed9b006ef9c65de137add71",
+  "gate-revision-familywise.json": "9986d61361d1df414864de1adb91994806aad6f4527d6aea8b230d162fdc6f21",
+  "r2-analysis-results.json": "a978cd365b6e192ece2455af27eaf50460593185b0372f75b256f7a0ab3b507c",
+  "r2-final-verdict.json": "ae0a51c0ebfc16ecea7147d2ef41e1ff50c80de557b1d82f957b127a31b9f9ae",
+  "studentizer-results.json": "c8c9e9d152506017b7153daff0d9c5a4f73b9b90e3470436662e99c4854b135a",
+  "workbench-model-build.py": "1702e13c546a08f3bef003aa2eb3a74ce88abc53ae8f36d0e5b8c666455a5a8e"
+ }
+}

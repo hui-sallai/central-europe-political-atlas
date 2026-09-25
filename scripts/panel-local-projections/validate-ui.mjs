@@ -41,14 +41,33 @@ for (const outcome of ["hicp_price_level","industrial_production","unemployment"
   assert.doesNotMatch(html,/NaN|Infinity|undefined/);
   assert.match(html,/IK 小样本修正均未启用/);
   assert.match(html,/稳健性摘要（非评分）/);
-  assert.match(html,/新的统计方法仍在研究中/);
+  assert.match(html,/整条路径推断：研究结论/);
+  assert.match(html,/本页不提供联合置信带/);
+  assert.doesNotMatch(html,/拟合模型（描述性，研究版）/);
   assert.match(html,/这不是模型正确率/);
   assert.doesNotMatch(html,/同时置信带可用|全路径 max-t p=/);
   combinations++;
 }
-console.log(`Panel LP UI structural validation passed: ${combinations} selector/view combinations and publication gate. Browser visual QA remains separate.`);
+let modelCombinations = 0;
+for (const outcome of ["hicp_price_level","industrial_production","unemployment","long_term_yield"]) for (const shock of ["MP","CBI"]) for (const difference of [false,true]) {
+  state = [outcome,shock,95,difference,false,true];
+  const html = render();
+  assert.equal((html.match(/<polyline/g) ?? []).length,difference ? 2 : 4);
+  assert.equal((html.match(/<polygon/g) ?? []).length,difference ? 1 : 2);
+  assert.equal((html.match(/stroke-dasharray="2 4"/g) ?? []).length,difference ? 1 : 2);
+  assert.doesNotMatch(html,/NaN|Infinity|undefined/);
+  assert.match(html,/拟合模型（描述性，研究版）/);
+  assert.match(html,/点线为拟合模型的总体投影路径/);
+  assert.match(html,/不是结构脉冲响应/);
+  assert.match(html,/不用于推断/);
+  assert.match(html,/最大逐期差距（以冻结标准误为单位）：欧元组 \d+\.\d{2}，非欧元组 \d+\.\d{2}，组间差异 \d+\.\d{2}/);
+  if (outcome === "industrial_production") assert.match(html,/模型未能复现工业生产 MP 组间差异路径/); else assert.doesNotMatch(html,/模型未能复现/);
+  assert.doesNotMatch(html,/同时置信带可用|全路径 max-t p=/);
+  modelCombinations++;
+}
+console.log(`Panel LP UI structural validation passed: ${combinations} selector/view combinations, ${modelCombinations} model-overlay combinations and publication gate. Browser visual QA remains separate.`);
 for (const outcome of ["hicp_price_level","industrial_production","unemployment","long_term_yield"]) for (const shock of ["MP","CBI"]) for (const view of ["composition","time_fe"]) {
-  state = [outcome,shock,95,false,true,view];
+  state = [outcome,shock,95,false,true,false,view];
   const html = render();
   assert.doesNotMatch(html,/NaN|Infinity|undefined/);
   assert.match(html,/组成与规格敏感性/);
