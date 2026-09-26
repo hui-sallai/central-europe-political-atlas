@@ -14,8 +14,15 @@
   },
   "earliest_definition_compatible_common_start": null,
   "cleared_outcomes": [
-    "hicp"
+    "hicp",
+    "yield"
   ],
+  "outcome_states": {
+    "hicp": "cleared",
+    "ipi": "blocked_for_historical_extension",
+    "unemployment": "blocked_for_historical_extension",
+    "yield": "cleared_with_preserved_quality_flags"
+  },
   "design_A": {
     "status": "candidate_only",
     "earliest_regime_permitted_start": "2009-01",
@@ -32,10 +39,9 @@
   },
   "state_dependent_LP": "not_started",
   "blockers": [
-    "IPI: PL 2021 statistical-unit transition, RO historical scope, and national adjustment history not cleared.",
-    "Unemployment: 2009 break flags, HU method revision, and IESS back-correction history not resolved for a common window.",
-    "Yield: country-specific bond-basket/source transitions remain open, despite known RO/SI concept exclusions.",
-    "No historical Panel LP preregistration or owner approval."
+    "IPI: PL 2021 LEU-to-KAU transition lacks an official B-D SCA bridge; RO has no exact pre-2015 comparable floor.",
+    "Unemployment: SK 2011-09 d, PL 2009-12 d, HU 2009-2010/2011+ method relationship, and RO documented/API flag discrepancy remain unresolved.",
+    "No all-eight four-outcome definition-cleared Design A window; no historical Panel LP preregistration or owner approval."
   ],
   "owner_approval_required": true,
   "push": false,

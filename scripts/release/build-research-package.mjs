@@ -223,6 +223,8 @@ const sourceEntries = [
   ["macro-dynamics/lag_selection_registry.json", "src/data/macro/lag_selection_registry.json"],
   ["macro-dynamics/var_model_registry.json", "src/data/macro/var_model_registry.json"],
   ["historical-extension/README.md", "docs/historical-monthly-extension-audit.md"],
+  ["historical-extension/definition-resolution-round3.md", "docs/historical-definition-resolution-round3.md"],
+  ["historical-extension/historical_definition_evidence_registry.json", "src/data/historical-extension-audit/historical_definition_evidence_registry.json"],
   ...[
     "historical_extension_source_manifest.json",
     "historical_hicp_extension_audit.json",

@@ -8,7 +8,7 @@
       "source_query_id": "unemployment",
       "earliest_available": "1995-01",
       "earliest_pre_2015_available": "1995-01",
-      "earliest_definition_compatible": null,
+      "earliest_definition_compatible": "2004-01",
       "latest": "2026-07",
       "seasonal_adjustment": "SA",
       "classification": "age 15-74; total sex",
@@ -27,8 +27,8 @@
           "flag": "b"
         }
       ],
-      "extension_ready": false,
-      "blocker": "Country-specific LFS and 2021 IESS break-correction review required.",
+      "extension_ready": true,
+      "blocker": null,
       "country_specific_note": null,
       "vintage": "latest_revised_not_real_time"
     },
@@ -38,7 +38,7 @@
       "source_query_id": "unemployment",
       "earliest_available": "1991-01",
       "earliest_pre_2015_available": "1991-01",
-      "earliest_definition_compatible": null,
+      "earliest_definition_compatible": "2009-01",
       "latest": "2026-07",
       "seasonal_adjustment": "SA",
       "classification": "age 15-74; total sex",
@@ -61,8 +61,8 @@
           "flag": "b"
         }
       ],
-      "extension_ready": false,
-      "blocker": "Country-specific LFS and 2021 IESS break-correction review required.",
+      "extension_ready": true,
+      "blocker": null,
       "country_specific_note": null,
       "vintage": "latest_revised_not_real_time"
     },
@@ -96,7 +96,7 @@
         }
       ],
       "extension_ready": false,
-      "blocker": "Country-specific LFS and 2021 IESS break-correction review required.",
+      "blocker": "2011-09 definition-difference flag; registered counts are auxiliary, not the outcome.",
       "country_specific_note": null,
       "vintage": "latest_revised_not_real_time"
     },
@@ -106,7 +106,7 @@
       "source_query_id": "unemployment",
       "earliest_available": "1996-01",
       "earliest_pre_2015_available": "1996-01",
-      "earliest_definition_compatible": null,
+      "earliest_definition_compatible": "2009-01",
       "latest": "2026-07",
       "seasonal_adjustment": "SA",
       "classification": "age 15-74; total sex",
@@ -125,8 +125,8 @@
           "flag": "b"
         }
       ],
-      "extension_ready": false,
-      "blocker": "Country-specific LFS and 2021 IESS break-correction review required.",
+      "extension_ready": true,
+      "blocker": null,
       "country_specific_note": null,
       "vintage": "latest_revised_not_real_time"
     },
@@ -180,7 +180,7 @@
         }
       ],
       "extension_ready": false,
-      "blocker": "Country-specific LFS and 2021 IESS break-correction review required.",
+      "blocker": "Method relationship between 2009-2010 and 2011+; a revision floor is not automatically a comparable start.",
       "country_specific_note": null,
       "vintage": "latest_revised_not_real_time"
     },
@@ -214,7 +214,7 @@
         }
       ],
       "extension_ready": false,
-      "blocker": "Country-specific LFS and 2021 IESS break-correction review required.",
+      "blocker": "2009-12 definition-difference flag; registered counts are auxiliary, not the outcome.",
       "country_specific_note": null,
       "vintage": "latest_revised_not_real_time"
     },
@@ -239,7 +239,7 @@
       ],
       "break_flags": [],
       "extension_ready": false,
-      "blocker": "Country-specific LFS and 2021 IESS break-correction review required.",
+      "blocker": "Reconcile document and exact-series flag history before declaring a date.",
       "country_specific_note": null,
       "vintage": "latest_revised_not_real_time"
     }

@@ -32,7 +32,7 @@ export default function HistoricalExtensionPage() {
     <section className="max-w-5xl border-b border-[var(--line)] py-10">
       <p className="editorial-kicker">01 / Definitions</p>
       <h2 className="mt-3 text-3xl font-semibold">数据存在，不等于定义兼容</h2>
-      <p className="mt-4 text-sm leading-7 text-[var(--muted)]">Eurostat 最新修订序列在 2015 年前已有月度值。HICP 总指数已核清八国历史序列；工业生产指数核清六国；失业率仅核清捷克。收益率的国家债券篮子与来源转换仍待核清。未核清的单元保留为待审，不以插值或相邻国家数据填补。</p>
+      <p className="mt-4 text-sm leading-7 text-[var(--muted)]">Eurostat 最新修订序列在 2015 年前已有月度值。HICP 总指数已核清八国历史序列；工业生产指数核清六国；失业率核清奥地利、德国、斯洛文尼亚和捷克；长期收益率核清八国，其中斯洛文尼亚从 2003-11、罗马尼亚从 2006-01 才符合二级市场口径。其余未核清单元明确保留为受阻，不以插值或相邻国家数据填补。</p>
       <div className="mt-6 overflow-x-auto"><table className="min-w-full text-left text-sm"><thead><tr className="border-b border-[var(--line)]"><th className="py-3 pr-5">指标</th><th className="py-3 pr-5">国家</th><th className="py-3 pr-5">最早有值</th><th className="py-3 pr-5">已核清起点</th></tr></thead><tbody>{outcomes.flatMap((outcome) => countries.map((country) => {
         const record = outcome.records.find((item) => item.country === country);
         return <tr key={`${outcome.label}-${country}`} className="border-b border-[var(--line)]"><td className="py-2 pr-5">{outcome.label}</td><td className="py-2 pr-5">{country}</td><td className="py-2 pr-5">{record?.earliest_available ?? "—"}</td><td className="py-2 pr-5">{record?.earliest_definition_compatible ?? "待核清"}</td></tr>;
@@ -50,7 +50,7 @@ export default function HistoricalExtensionPage() {
     <section className="max-w-5xl py-10">
       <p className="editorial-kicker">03 / Open questions</p>
       <h2 className="mt-3 text-3xl font-semibold">下一步仍需核查</h2>
-      <p className="mt-4 text-sm leading-7 text-[var(--muted)]">波兰工业生产统计单位转换、罗马尼亚工业生产早期可比性、多国失业率断点及 IESS 修订、各国长期债券收益率的来源与篮子转换。完成这些核查后，才可判断是否存在定义兼容的 Design A 时间窗；新的历史 Panel LP 研究需要另行预注册和负责人决定。</p>
+      <p className="mt-4 text-sm leading-7 text-[var(--muted)]">本轮仍受阻于波兰工业生产统计单位转换、罗马尼亚工业生产早期可比性，以及斯洛伐克、匈牙利、波兰和罗马尼亚失业率的断点或历史方法关系。收益率在当前 Eurostat 统一口径下已核清，但不能弥补另外两项指标的缺口。八国四指标的 Design A 时间窗仍为空；新的历史 Panel LP 研究需要另行预注册和负责人决定。</p>
       <div className="mt-6 flex flex-wrap gap-4 text-sm font-semibold text-[var(--accent)]"><Link href="/methodology">正式方法与推断边界</Link><a href={`${basePath}/research-data/research-data-v1.82.zip`}>下载研究数据包与审计记录</a><a href="https://ec.europa.eu/eurostat/cache/metadata/en/une_rt_m_esms.htm">Eurostat 失业率元数据</a></div>
     </section>
   </main>;
