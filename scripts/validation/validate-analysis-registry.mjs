@@ -18,6 +18,7 @@ const { canonicalAnalysisRegistry: registry, runtimeAnalysisSkills: skills, reso
 const { runAnalysisSkill } = require("../../src/lib/analysisRunner.ts");
 let checks = 0;
 function check(value, message) { checks++; assert.ok(value, message); }
+check(registry.schema_version === "analysis-skill-registry-v1.84", "v1.84 registry schema");
 check(new Set(registry.records.map(r => r.skill_id)).size === registry.records.length, "unique canonical IDs");
 for (const row of registry.records) {
   const ui = skills.find(s => s.skill_id === row.skill_id);
@@ -48,6 +49,13 @@ for (const [id, category] of Object.entries(expected)) {
   check(route.skill.skill_id === id && route.category === category, `deep link ${id}`);
 }
 check(resolveAnalysisRoute("var_svar", null, []).skill.skill_id === "reduced_form_var", "legacy alias");
+const reducedFormVar = skills.find(s => s.skill_id === "reduced_form_var");
+check(reducedFormVar.state === "active", "reduced-form VAR estimator remains active");
+check(reducedFormVar.readiness_reference === "var_country_readiness.json", "VAR readiness uses public flat layout");
+check(fs.existsSync(path.join(root, "public/research-data", reducedFormVar.readiness_reference)), "VAR readiness reference exists in public export");
+check(reducedFormVar.capability_reference === "var_capability_status.json" && fs.existsSync(path.join(root, "public/research-data", reducedFormVar.capability_reference)), "VAR capability reference exists in public export");
+check(reducedFormVar.output_schema.includes("conditional_orthogonalized_irf") && !reducedFormVar.output_schema.includes("orthogonalized_irf"), "IRF output is conditional");
+check(reducedFormVar.limitations.some(x => x.includes("country count = 0")), "zero formal dynamic-ready disclosure");
 check(resolveAnalysisRoute("unknown", null, []).notices.length > 0, "unknown notice");
 check(runAnalysisSkill({ skillId: "unknown", dataset: {} }).status === "unavailable", "unknown runner");
 check(resolveAnalysisRoute("local_projections", "hungary", ["poland", "hungary"]).countrySlug === "hungary", "country retained");
@@ -63,7 +71,7 @@ if (panel) {
   check(resolveAnalysisRoute("panel_local_projections", "hungary", ["hungary"]).category === "panel_econometrics", "panel LP category routing");
   check(resolveAnalysisRoute("panel_local_projections", "hungary", ["hungary"]).countrySlug === undefined, "fixed panel ignores individual country selector");
   check(panel.state === "active", "Panel LP estimation remains active");
-  check(panel.note.includes("baseline definition warnings") && panel.note.includes("historical extension is closed and blocked"), "v1.83 Panel baseline and historical closure note");
+  check(panel.note.includes("baseline definition warnings") && panel.note.includes("historical extension is closed and blocked"), "Panel baseline and historical closure note");
   check(panel.limitations.some(s => s.includes("registry_only")), "panel inference boundaries");
   check(pathInference.schema_version === "panel-lp-path-inference-registry-v1.82" && pathInference.state === "blocked" && pathInference.research_closed === true && pathInference.activated_paths === 0, "whole-path research is closed and not activated");
 }

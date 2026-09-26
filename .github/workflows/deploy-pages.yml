@@ -49,6 +49,7 @@ jobs:
         run: |
           pnpm panel-lp:closure-validate:pre-export
           pnpm analysis-registry:validate
+          pnpm var:readiness-validate
 
       - name: Validate frozen Local Projections
         run: pnpm lp:validate

@@ -271,8 +271,9 @@ fs.writeFileSync(path.join(outDir, "series_dictionary.json"), JSON.stringify({
 
 console.log(`total observations: ${observations.length}; coverage rows: ${coverage.length}`);
 
-// VAR readiness recalculation (v1.31, §37): readiness is computed on the corrected
-// high-frequency data only. VAR / SVAR itself remains blocked.
+// Historical v1.31 input-layer readiness snapshot. This is preserved for
+// provenance only and must never overwrite the current v1.44 country readiness
+// or v1.84 capability authority.
 const varReadinessIndicators = SERIES.map((series) => {
   const rows = coverage.filter((entry) => entry.indicator === series.indicator && entry.definition_status === "defined");
   const effective = rows.filter((entry) => entry.observations >= 60);
@@ -293,10 +294,13 @@ const varReadinessIndicators = SERIES.map((series) => {
 const analysisDir = path.join(root, "src", "data", "analysis");
 fs.mkdirSync(analysisDir, { recursive: true });
 fs.writeFileSync(path.join(analysisDir, "var_readiness.json"), JSON.stringify({
-  schema_version: "var-readiness-v1.31",
+  schema_version: "var-readiness-legacy-v1.31",
   generated_at: generatedAt,
   skill_id: "reduced_form_var",
-  state: "blocked",
+  state: "superseded",
+  superseded_by: "var_country_readiness.json",
+  not_runtime_authority: true,
+  original_v1_31_decision: "blocked",
   gates: {
     min_effective_monthly_observations: 60,
     definition_consistency: "single unit per indicator across all countries",
@@ -305,9 +309,9 @@ fs.writeFileSync(path.join(analysisDir, "var_readiness.json"), JSON.stringify({
   },
   indicators: varReadinessIndicators,
   overall_readiness_met: varReadinessIndicators.every((entry) => entry.readiness_met),
-  note: "Readiness recomputed on the corrected v1.31 high-frequency layer. VAR / SVAR remains blocked: activation additionally requires stationarity, lag-selection, stability and residual diagnostics plus a full readiness audit.",
+  note: "Historical v1.31 input-layer decision retained for provenance. It is superseded and is not the runtime or publication authority; current capability and country readiness are defined by var_capability_status.json and var_country_readiness.json.",
 }, null, 2));
-console.log(`VAR readiness: overall=${varReadinessIndicators.every((entry) => entry.readiness_met)} (state stays blocked)`);
+console.log(`Legacy v1.31 input-layer readiness: overall=${varReadinessIndicators.every((entry) => entry.readiness_met)} (superseded; not runtime authority)`);
 
 // Compact runtime rows for client workbenches (fetched at runtime). Field order:
 // 0 observation_id, 1 country, 2 period, 3 indicator, 4 value, 5 transformation,

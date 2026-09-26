@@ -2084,6 +2084,7 @@ const macroShockPayload = JSON.parse(fs.readFileSync(path.join(macroDriverDir, "
 const macroIdentificationByDriver = new Map(macroDriverDictionaryPayload.records.map((item) => [item.driver_id, item.identification_status]));
 const macroIdentificationBySeries = new Map(macroShockPayload.records.map((item) => [`${item.driver_id}|${item.transformation}`, item.identification_status]));
 fs.copyFileSync(path.join(canonicalDataDir, "analysis", "analysis_skill_registry.json"), path.join(outDir, "analysis_skill_registry.json"));
+fs.copyFileSync(path.join(canonicalDataDir, "macro", "var_capability_status.json"), path.join(outDir, "var_capability_status.json"));
 fs.copyFileSync(path.join(canonicalDataDir, "high-frequency", "high_frequency_definition_registry.json"), path.join(outDir, "high_frequency_definition_registry.json"));
 fs.copyFileSync(path.join(canonicalDataDir, "historical-extension-audit", "historical_extension_research_conclusion.json"), path.join(outDir, "historical_extension_research_conclusion.json"));
 fs.copyFileSync(path.join(canonicalDataDir, "historical-extension-audit", "historical_extension_readiness.json"), path.join(outDir, "historical_extension_readiness.json"));
@@ -2102,7 +2103,7 @@ const panelJson = name => JSON.parse(fs.readFileSync(path.join(panelLpDir, `${na
 const panelValidation = panelJson("panel_lp_validation_summary");
 const currentReleaseVersion = /^v[\d.]+/.exec(platformRelease.version)?.[0];
 const validationIndex = {
-  schema_version: "analysis-validation-index-v1.83",
+  schema_version: "analysis-validation-index-v1.84",
   platform_version: currentReleaseVersion,
   interpretation: "Additive current-release index; legacy validation artifacts retain their original versions and are not relabelled as panel tests.",
   records: [
@@ -2112,6 +2113,7 @@ const validationIndex = {
     { id: "panel_composition", artifact: "panel-local-projections/panel_lp_composition_robustness_summary.json", gate: "panel-lp:robustness-validate", artifact_role: "diagnostic_results_not_validation_status" },
     { id: "panel_joint_inference_closure", artifact: "panel-local-projections/panel_lp_joint_inference_research_conclusion.json", gate: "panel-lp:closure-validate", artifact_role: "closed_research_conclusion_not_inference_output" },
     { id: "analysis_registry", artifact: "analysis_skill_registry.json", gate: "analysis-registry:validate", artifact_role: "registry_validated_by_gate" },
+    { id: "var_readiness", artifact: "var_capability_status.json", gate: "var:readiness-validate", artifact_role: "capability_and_publication_boundary" },
     { id: "news", artifact: "news_update_2026-09-05_audit.json", gate: "news:validate" },
     { id: "identified_shocks", artifact: "information_effect_separation_validation.json", gate: "information-effect:validate" },
     { id: "ui", artifact: "panel-local-projections/panel_lp_ui_validation.json", gate: "panel-lp:ui-validate" },
@@ -2175,7 +2177,7 @@ writeJson("release_manifest.json", {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.83",
+    analysis_skill_registry: "analysis-skill-registry-v1.84",
     high_frequency_definition_registry: "high-frequency-definition-registry-v1.83",
     historical_extension_research_conclusion: "historical-extension-research-conclusion-v1.83",
     panel_lp_path_inference_registry: panelJson("panel_lp_path_inference_registry").schema_version,
@@ -2190,6 +2192,7 @@ writeJson("release_manifest.json", {
     var_engine: "var-engine-v1.44",
     var_specification_profiles: "var-specification-profiles-v1.44",
     var_country_readiness: "var-country-readiness-v1.44",
+    var_capability_status: "var-capability-status-v1.84",
     macro_drivers: "macro-driver-observations-v1.51",
     shock_identification: "shock-identification-registry-v1.62",
     identified_shocks: "monetary-policy-event-observations-v1.6",

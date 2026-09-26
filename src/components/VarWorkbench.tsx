@@ -197,6 +197,7 @@ export function VarWorkbench({ countries, initialCountry }: { countries: Country
         <p className="editorial-kicker">{varLabels.workbenchKicker}</p>
         <h2 className="mt-2 text-2xl font-semibold">{varLabels.workbenchTitle}</h2>
         <p className="mt-2 max-w-3xl text-sm leading-7 text-[var(--muted)]">单国月度简化式 VAR：变换 → 平稳性检验 → 滞后选择 → 估计 → 稳定性与残差诊断 → 动态响应。简化式创新不等于已识别经济冲击；SVAR 保持未开放，已识别冲击的 Local Projections 在上方独立工作台运行。</p>
+        <p className="mt-3 border-l-4 border-[var(--warning)] bg-amber-50 px-4 py-3 text-sm leading-7">VAR 系数估计功能已启用；当前正式 v1/v2 baseline 的动态响应可发布国家均为 0。只有通过完整 horizon-specific 诊断门的结果才会显示响应曲线。</p>
 
         <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <label className="text-xs font-semibold text-[var(--muted)]">国家
@@ -266,6 +267,7 @@ export function VarWorkbench({ countries, initialCountry }: { countries: Country
               {record.blocking_reasons.length ? <p className="mt-1 text-xs leading-6 text-[var(--muted)]">{record.blocking_reasons.join("；")}</p> : null}
               <p className="mt-2 text-xs leading-6 text-[var(--muted)]">{record.variables.map((entry) => `${indicatorLabels[entry.indicator] ?? entry.indicator} · ${transformationLabels[entry.transformation]}`).join("；")}</p>
               <p className="mt-1 text-xs text-[var(--muted)]">季节控制：{deterministic === "constant_month_dummies" ? "月度虚拟变量（11）" : "无"}</p>
+              {kind === "exploratory_fallback" ? <p className="mt-1 text-xs font-semibold text-[var(--warning)]">探索性规格不能替代正式基线，也不能据此激活正式 IRF。</p> : null}
               <button type="button" onClick={() => loadProfile(record, kind, id, deterministic)} className="mt-2 rounded-full border border-[var(--line)] px-3 py-1.5 text-xs font-semibold">{action}</button>
             </div>
           ) : null)}
@@ -372,7 +374,7 @@ export function VarWorkbench({ countries, initialCountry }: { countries: Country
                   </div>
                 </>
               ) : (
-                <p className="border-l-4 border-[var(--warning)] bg-amber-50 px-4 py-3 text-sm" role="alert">{result.irf_blocked_reason ?? "动态响应不可用。"}</p>
+                <p className="border-l-4 border-[var(--warning)] bg-amber-50 px-4 py-3 text-sm" role="alert"><strong>动态响应未通过当前诊断门。</strong> {result.irf_blocked_reason ?? "当前规格不生成响应曲线。"}</p>
               )}
             </div>
           ) : null}

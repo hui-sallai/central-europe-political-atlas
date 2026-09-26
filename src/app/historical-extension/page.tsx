@@ -6,6 +6,7 @@ import unemployment from "@/data/historical-extension-audit/historical_unemploym
 import yieldAudit from "@/data/historical-extension-audit/historical_yield_extension_audit.json";
 import baselineDefinition from "@/data/historical-extension-audit/baseline_definition_integrity_audit.json";
 import conclusion from "@/data/historical-extension-audit/historical_extension_research_conclusion.json";
+import { getResearchPackageFilename, PLATFORM_VERSION } from "@/lib/releaseMetadata";
 
 export const metadata: Metadata = {
   title: "历史月度数据延伸审计",
@@ -26,7 +27,7 @@ export default function HistoricalExtensionPage() {
     <header className="max-w-5xl border-b border-[var(--line)] pb-8">
       <p className="editorial-kicker">Research conclusion / 2026-09-27</p>
       <h1 className="mt-4 text-4xl font-semibold tracking-[-0.04em] md:text-5xl">历史月度数据延伸：研究结论</h1>
-      <p className="mt-5 max-w-4xl text-base leading-8 text-[var(--muted)]">这是已结束的研究审计，不是新的 Panel LP 估计，也不是历史样本获准启用的声明。当前正式 v1.83 继续保留 2015-01 至 2025-10 的固定八国样本、系数、标准误、区间和联合推断结案状态。</p>
+      <p className="mt-5 max-w-4xl text-base leading-8 text-[var(--muted)]">这是已结束的研究审计，不是新的 Panel LP 估计，也不是历史样本获准启用的声明。当前正式 {PLATFORM_VERSION} 继续保留 2015-01 至 2025-10 的固定八国样本、系数、标准误、区间和联合推断结案状态。</p>
       <p className="mt-3 text-sm font-semibold">当前四指标历史扩展：已结束；固定 8 国四指标设计受阻。</p>
       <p className="mt-2 text-sm leading-7 text-[var(--muted)]">正式样本定义核查：{baselineDefinition.state === "nonblocking_warning" ? "有非阻断性方法警示" : baselineDefinition.state}。波兰工业生产指数在 2021 年由 LEU 转为 KAU；当前样本保留，但不宣称两种统计单位完全一致。</p>
     </header>
@@ -55,7 +56,7 @@ export default function HistoricalExtensionPage() {
       <p className="mt-4 text-sm leading-7 text-[var(--muted)]">HICP 与长期收益率已经核清；工业生产和失业率仍有终局性定义证据缺口。尚无获准的八国四指标历史共同起点，固定组 Design A 不会启动，当前 2015 基线继续保持。</p>
       <ul className="mt-4 list-disc space-y-2 pl-5 text-sm leading-7 text-[var(--muted)]"><li>A：继续使用当前 2015 四指标基线。</li><li>B：缩减结果变量的历史研究必须形成新的研究问题，经负责人批准并重新预注册。</li><li>C：只有出现新的官方协调桥接或来源时才重新评估；这不是当前待办。</li></ul>
       <p className="mt-4 text-xs leading-6 text-[var(--muted)]">机器可读结论：{conclusion.formal_result_decision}；Design A = {conclusion.Design_A_status}；start = null。任何 B / C 方案都不是当前研究计划。</p>
-      <div className="mt-6 flex flex-wrap gap-4 text-sm font-semibold text-[var(--accent)]"><Link href="/methodology">正式方法与推断边界</Link><a href={`${basePath}/research-data/research-data-v1.83.zip`}>下载研究数据包与审计记录</a><a href="https://ec.europa.eu/eurostat/cache/metadata/en/une_rt_m_esms.htm">Eurostat 失业率元数据</a></div>
+      <div className="mt-6 flex flex-wrap gap-4 text-sm font-semibold text-[var(--accent)]"><Link href="/methodology">正式方法与推断边界</Link><a href={`${basePath}/research-data/${getResearchPackageFilename()}`}>下载研究数据包与审计记录</a><a href="https://ec.europa.eu/eurostat/cache/metadata/en/une_rt_m_esms.htm">Eurostat 失业率元数据</a></div>
     </section>
   </main>;
 }

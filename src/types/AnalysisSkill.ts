@@ -18,6 +18,7 @@ export interface AnalysisSkillRegistryRecord {
   state: AnalysisSkillState;
   gate?: string;
   readiness_reference?: string;
+  capability_reference?: string;
   note?: string;
   reason?: string;
   reason_zh?: string;
@@ -32,6 +33,7 @@ export interface AnalysisSkillRuntimeManifest extends AnalysisSkill {
   method_kind: string;
   gate?: string;
   readiness_reference?: string;
+  capability_reference?: string;
   note?: string;
   reason_zh?: string;
 }

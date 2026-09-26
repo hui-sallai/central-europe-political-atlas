@@ -4,7 +4,7 @@ Central Europe Political Atlas is a public political-economy research platform f
 
 Public site: https://hy-central-europe-analysis.org/
 
-Current release: **v1.83 Historical Extension Research Closure & Baseline Definition Disclosure**
+Current release: **v1.84 VAR Readiness & Publication Boundary Convergence**
 
 v1.72 preserves the 44 v1.71 baseline models and adds finite-sample Monte Carlo diagnostics, concentration-based shock support, exhaustive eligible shock-month/event deletion audits, and independent full-path covariance checks. Bias correction remains `registry_only`: the official Fed ZIP contains accessible paper assets, not executable replication code. Simulations describe stylized fixed-p designs, not estimated coverage or bias of the real models.
 
@@ -17,12 +17,13 @@ Offline diagnostic regeneration: `pnpm lp:finite-sample` and `pnpm lp:shock-supp
 - 4 transparent, rule-based models with input traces, published weights, completeness and confidence; formal cross-country comparisons require the same model version, formula, weight and input year.
 - An annual 2015–2025 econometric panel with cluster-robust Student-t (G−1) inference, small-cluster gates and offline Python reference validation.
 - An activated bilateral goods trade network (UN Comtrade, complete partner edges, 0.95 coverage gate) with deterministic descriptive concentration metrics.
-- A per-country monthly reduced-form VAR workbench with constant-only and seasonal-control formal baselines, profile-mapped stationarity gates, descriptive persistence and structural-break readiness diagnostics, strict `estimable` versus `dynamic_response_ready` states, h=12/18/24 residual sensitivity diagnostics, and ordering-dependent orthogonalized point responses. SVAR, seasonal-unit-root tests, structural-break estimators, residual LM and uncertainty intervals remain unavailable.
+- A per-country monthly reduced-form VAR workbench with constant-only and seasonal-control formal baselines, profile-mapped stationarity gates, descriptive persistence and structural-break readiness diagnostics, and strict `estimable` versus `dynamic_response_ready` states. It implements ordering-dependent orthogonalized reduced-form responses, exposed only when the horizon-specific diagnostic gate passes. The v1.44 formal baselines currently have zero dynamic-response-ready countries; SVAR, seasonal-unit-root tests, structural-break estimators, residual LM and uncertainty intervals remain unavailable.
 - A separate monthly macro-driver layer for policy rates, long-term government yields, bilateral and effective exchange rates, HICP Energy, Brent and European natural gas, with source checksums, timing conventions and machine-readable identification status.
 - An audited ECB high-frequency monetary-policy layer built from EA-MPD and EA-EMPD. The frozen v1.62 Jarociński–Karadi construction continues to reproduce PC1, poor-man, deterministic median-rotation and monthly series at published precision.
 - v1.71 preserves all 44 single-country joint MP/CBI baselines, corrects the lag metadata, adds validated 95% plug-in sup-t path bands, and publishes fixed-lag, predetermined-control, shock-support, influence, conditioning and comparability diagnostics. Single-country significance bands, country-pair formal difference tests, state dependence, SVAR and Bayesian VAR remain unavailable. v1.8 separately adds fixed-eight-country aggregate-shock Panel LP group-difference inference.
 - v1.82 records that fixed-eight-country Panel LP whole-path inference was studied but not activated: the best observed joint coverage was about 90% (90% interval 88.6–91.4%) against nominal 95%. Panel LP pointwise inference and diagnostics remain active; no Panel simultaneous confidence band or global path significance test is published. The fitted-model overlay remains descriptive and has no interval or inferential p-value.
 - v1.83 closes the current fixed-eight-country four-outcome historical-extension research program. HICP and yield histories are definition-cleared, while IPI and unemployment prevent a common pre-2015 Design A window. The 2015-01 to 2025-10 formal Panel baseline remains active, with machine-readable disclosures for Poland IPI, Hungary unemployment and Slovenia yield.
+- v1.84 separates active reduced-form VAR estimation capability from formal dynamic-response publication readiness. Formal baseline v1 is estimable for Poland and Romania; v2 is estimable for Czechia, Germany and Hungary; neither baseline currently has a country passing the complete h=12 dynamic-response gate, so formal IRF publication remains unavailable.
 - 4 conditional scenarios with baseline, shock assumption, adjusted input and result traces.
 - Coded political-economy events and verified China-related project records.
 - Deterministic validation, golden cases and a release QA gate.
@@ -67,7 +68,7 @@ Machine-readable files are published under `/research-data/`. See [the research-
 
 ## Citation
 
-Central Europe Political Atlas, version v1.83 Historical Extension Research Closure & Baseline Definition Disclosure, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
+Central Europe Political Atlas, version v1.84 VAR Readiness & Publication Boundary Convergence, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
 
 ## Official VAR reference environment
 

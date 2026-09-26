@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.84 VAR Readiness & Publication Boundary Convergence — 2026-09-27
+
+- Converges the canonical reduced-form VAR readiness reference, analysis registry, workbench, methodology and research package without changing the estimator, lag selection, ADF calibration, stability, Portmanteau or IRF calculations.
+- Publishes a machine-readable capability boundary: coefficient estimation and the conditional orthogonalized-response framework are available, while formal dynamic-response-ready country count is zero and formal IRF publication, uncertainty inference and structural identification remain unavailable.
+- Marks the v1.31 input-layer readiness artifact as superseded rather than rewriting its historical decision, and keeps diagnostic higher-lag alternatives sensitivity-only.
+- Preserves all v1.83 Panel, historical-closure, identified-shock, single-country LP, news and high-frequency observation outputs; no VAR coefficient or IRF was rerun.
+
 ## v1.83 Historical Extension Research Closure & Baseline Definition Disclosure — 2026-09-27
 
 - Closes the current fixed-eight-country, four-outcome historical-extension program: HICP and long-term yield are definition-cleared, while IPI and unemployment prevent a common pre-2015 Design A window.

@@ -1,15 +1,15 @@
 {
-  "schema_version": "release-metadata-v1.83",
-  "platform_version": "v1.83 Historical Extension Research Closure & Baseline Definition Disclosure",
+  "schema_version": "release-metadata-v1.84",
+  "platform_version": "v1.84 VAR Readiness & Publication Boundary Convergence",
   "release_date": "2026-09-27",
   "source_commit": "local-working-tree",
   "build_context": "local",
   "workflow_run_id": null,
-  "generated_at": "2026-09-26T20:38:36.726Z",
+  "generated_at": "2026-09-26T21:07:15.770Z",
   "research_package": {
-    "filename": "research-data-v1.83.zip",
-    "sha256": "6e78e699510c07fdf14587c4fa2c8a7c10b01ea7a45748da7816c89f5b4e37d5",
-    "generated_at": "2026-09-26T20:38:38.699Z",
+    "filename": "research-data-v1.84.zip",
+    "sha256": "289a3fbd415a712b4260931fc8f10dd0329068499f51750673662e9b9ceedee3",
+    "generated_at": "2026-09-26T21:07:16.791Z",
     "status": "built"
   },
   "data_export_version": "research-data-v0.1",
@@ -90,7 +90,7 @@
     "trade_network": "trade-network-v1.25-active",
     "event_window": "event-window-v1.31",
     "high_frequency": "high-frequency-v1.31",
-    "analysis_skill_registry": "analysis-skill-registry-v1.83",
+    "analysis_skill_registry": "analysis-skill-registry-v1.84",
     "high_frequency_definition_registry": "high-frequency-definition-registry-v1.83",
     "historical_extension_research_conclusion": "historical-extension-research-conclusion-v1.83",
     "panel_lp_path_inference_registry": "panel-lp-path-inference-registry-v1.82",
@@ -112,6 +112,7 @@
     "var_engine": "var-engine-v1.44",
     "var_specification_profiles": "var-specification-profiles-v1.44",
     "var_country_readiness": "var-country-readiness-v1.44",
+    "var_capability_status": "var-capability-status-v1.84",
     "macro_drivers": "macro-driver-observations-v1.51",
     "shock_identification": "shock-identification-registry-v1.62",
     "identified_shocks": "monetary-policy-event-observations-v1.6",
@@ -137,7 +138,7 @@
     "note": "Historical v0.91 golden cases remain the core research regression suite."
   },
   "advanced_analysis_validation": {
-    "stage": "v1.83 advanced analysis validation",
+    "stage": "v1.84 advanced analysis validation",
     "legacy_summary_reference": "advanced_analysis_validation_summary.json",
     "validation_index": "analysis_validation_index.json",
     "status": "passed",
@@ -190,7 +191,7 @@
     "validation_index": "analysis_validation_index.json"
   },
   "release_validation": {
-    "stage": "v1.83 release validation",
+    "stage": "v1.84 release validation",
     "status": "required_after_static_build",
     "gates": [
       "security_scan",
@@ -212,8 +213,8 @@
       "panel-lp:ui-validate",
       "panel-lp:robustness-validate"
     ],
-    "package_checksum": "6e78e699510c07fdf14587c4fa2c8a7c10b01ea7a45748da7816c89f5b4e37d5",
-    "package_filename": "research-data-v1.83.zip"
+    "package_checksum": "289a3fbd415a712b4260931fc8f10dd0329068499f51750673662e9b9ceedee3",
+    "package_filename": "research-data-v1.84.zip"
   },
   "legacy_validation_summary_v091": {
     "stage": "v0.91 Model & Scenario Validation",
@@ -252,6 +253,7 @@
     "Serbia regional comparison remains pending while national data remain available.",
     "China Economic Exposure and China-linked Project Disruption remain subject to their published evidence gates.",
     "Fixed-eight-country Panel LP publishes pointwise inference only; whole-path simultaneous inference was studied and remains blocked after the current program did not confirm 95% joint coverage.",
-    "The fixed-eight-country four-outcome historical extension is closed and blocked under current official definition evidence; the 2015 baseline is retained."
+    "The fixed-eight-country four-outcome historical extension is closed and blocked under current official definition evidence; the 2015 baseline is retained.",
+    "Reduced-form VAR coefficient estimation is active, but the current formal baselines have zero dynamic-response-ready countries; no formal orthogonalized IRF is currently publishable."
   ]
 }

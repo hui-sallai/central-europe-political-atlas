@@ -1,0 +1,54 @@
+{
+  "schema_version": "var-capability-status-v1.84",
+  "generated_at": "2026-09-27",
+  "method_id": "reduced_form_var",
+  "method_state": "active",
+  "readiness_reference": "var_country_readiness.json",
+  "estimator_available": true,
+  "formal_baseline_v1_available": true,
+  "formal_baseline_v2_available": true,
+  "coefficient_estimation_available": true,
+  "dynamic_response_framework_available": true,
+  "formal_dynamic_response_ready_country_count": 0,
+  "formal_dynamic_response_ready_countries": [],
+  "formal_dynamic_response_ready_6m_countries": [],
+  "formal_dynamic_response_ready_12m_countries": [],
+  "formal_dynamic_response_ready_18m_countries": [],
+  "formal_dynamic_response_ready_24m_countries": [],
+  "exploratory_profile_available": true,
+  "orthogonalized_irf_method_available": true,
+  "formal_irf_publication_available": false,
+  "irf_uncertainty_available": false,
+  "structural_identification_available": false,
+  "residual_lm_available": false,
+  "structural_break_estimation_available": false,
+  "seasonal_unit_root_test_available": false,
+  "diagnostic_lag_refinement_state": "sensitivity_diagnostic_only",
+  "formal_profiles": {
+    "baseline_monthly_macro_v1": {
+      "estimable_countries": ["poland", "romania"],
+      "dynamic_response_ready_countries": []
+    },
+    "baseline_monthly_macro_v2_seasonal_controls": {
+      "estimable_countries": ["czechia", "germany", "hungary"],
+      "dynamic_response_ready_countries": []
+    }
+  },
+  "exploratory_profile": {
+    "profile_id": "exploratory_monthly_macro_fallback_v1",
+    "estimable_countries": ["austria", "czechia", "poland", "romania", "slovenia"],
+    "dynamic_response_ready_countries": [],
+    "publication_role": "exploratory_not_formal_baseline"
+  },
+  "publication_boundary": "The reduced-form VAR estimator is active, but no country in either prespecified formal baseline passes the complete h=12 dynamic-response gate. No formal orthogonalized IRF is currently publishable.",
+  "identification_boundary": "Reduced-form innovations are not structural shocks. Cholesky ordering is not structural identification.",
+  "future_uncertainty_gate": "IRF uncertainty research requires at least one country in a prespecified formal profile to pass the formal dynamic-response gate before a publication target exists.",
+  "provenance": {
+    "baseline_v1": "var_baseline_v1_readiness.json",
+    "baseline_v2": "var_baseline_v2_readiness.json",
+    "exploratory": "var_exploratory_readiness.json",
+    "combined_readiness": "var_country_readiness.json",
+    "lag_diagnostic_grid": "var_lag_diagnostic_grid.json",
+    "reference_cases": "analysis/var_reference_cases.json"
+  }
+}

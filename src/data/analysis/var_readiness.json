@@ -1,8 +1,11 @@
 {
-  "schema_version": "var-readiness-v1.31",
+  "schema_version": "var-readiness-legacy-v1.31",
   "generated_at": "2026-08-22",
   "skill_id": "reduced_form_var",
-  "state": "blocked",
+  "state": "superseded",
+  "superseded_by": "var_country_readiness.json",
+  "not_runtime_authority": true,
+  "original_v1_31_decision": "blocked",
   "gates": {
     "min_effective_monthly_observations": 60,
     "definition_consistency": "single unit per indicator across all countries",
@@ -48,5 +51,5 @@
     }
   ],
   "overall_readiness_met": false,
-  "note": "Readiness recomputed on the corrected v1.31 high-frequency layer. VAR / SVAR remains blocked: activation additionally requires stationarity, lag-selection, stability and residual diagnostics plus a full readiness audit."
+  "note": "Historical v1.31 input-layer decision retained for provenance. It is superseded and is not the runtime or publication authority; current capability and country readiness are defined by var_capability_status.json and var_country_readiness.json."
 }

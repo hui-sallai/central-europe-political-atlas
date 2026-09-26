@@ -10,7 +10,7 @@ const citation = `${PLATFORM_BASE_URL}methodology/ (Analysis Skills Registry, ${
 export const runtimeAnalysisSkills: AnalysisSkillRuntimeManifest[] = canonicalAnalysisRegistry.records.flatMap((row) => {
   if (row.state === "deprecated_alias" || !row.presentation) return [];
   return [{ ...row.presentation, skill_id: row.skill_id, state: row.state, calculation_mode: row.state,
-    required_data: row.required_data ?? [], gate: row.gate, readiness_reference: row.readiness_reference,
+    required_data: row.required_data ?? [], gate: row.gate, readiness_reference: row.readiness_reference, capability_reference: row.capability_reference,
     note: row.note, reason_zh: row.reason_zh, citation }];
 });
 const composite = runtimeAnalysisSkills.find((row) => row.skill_id === "composite_indicators")!;

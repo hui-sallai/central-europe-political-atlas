@@ -1,9 +1,9 @@
 {
   "name": "Central Europe Political Atlas",
-  "version": "v1.83 Historical Extension Research Closure & Baseline Definition Disclosure",
+  "version": "v1.84 VAR Readiness & Publication Boundary Convergence",
   "release_date": "2026-09-27",
-  "stage": "Fixed-eight-country Panel LP with active pointwise inference, explicit baseline-definition disclosures, closed whole-path inference research, and closed four-outcome historical-extension research",
-  "schema_version": "release-metadata-v1.83",
+  "stage": "Validated analysis registry with closed Panel research programs and explicit Reduced-form VAR estimation-versus-dynamic-response readiness boundaries",
+  "schema_version": "release-metadata-v1.84",
   "canonical_url": "https://hy-central-europe-analysis.org/",
   "public_contact_email": "sallaizhang@outlook.com",
   "legal_notice_updated": "2026-08-20",
@@ -27,6 +27,7 @@
     "transformation-registry-v1.41",
     "seasonal-adf-critical-values-v1.44",
     "var-engine-v1.44",
+    "var-capability-status-v1.84",
     "macro-driver-observations-v1.51",
     "monetary-policy-event-observations-v1.6",
     "shock-identification-registry-v1.62",
@@ -36,7 +37,7 @@
     "lp-validation-summary-v1.71",
     "lp-inference-registry-v1.71",
     "lp-model-diagnostic-summary-v1.71",
-    "analysis-skill-registry-v1.83",
+    "analysis-skill-registry-v1.84",
     "panel-lp-model-comparison-v1",
     "panel-lp-path-inference-registry-v1.82",
     "panel-lp-joint-inference-research-conclusion-v1.82"
@@ -46,9 +47,10 @@
     "Serbia regional comparison remains pending while national data remain available.",
     "China Economic Exposure and China-linked Project Disruption remain subject to their published evidence gates.",
     "Fixed-eight-country Panel LP publishes pointwise inference only; whole-path simultaneous inference was studied and remains blocked after the current program did not confirm 95% joint coverage.",
-    "The fixed-eight-country four-outcome historical extension is closed and blocked under current official definition evidence; the 2015 baseline is retained."
+    "The fixed-eight-country four-outcome historical extension is closed and blocked under current official definition evidence; the 2015 baseline is retained.",
+    "Reduced-form VAR coefficient estimation is active, but the current formal baselines have zero dynamic-response-ready countries; no formal orthogonalized IRF is currently publishable."
   ],
-  "citation": "Central Europe Political Atlas, version v1.83 Historical Extension Research Closure & Baseline Definition Disclosure, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
+  "citation": "Central Europe Political Atlas, version v1.84 VAR Readiness & Publication Boundary Convergence, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
   "data_status_enum": [
     "official",
     "verified",
