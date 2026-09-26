@@ -11,6 +11,8 @@ import { missingMonths, monthDistance, monthSequence } from "./lib/months.mjs";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const cacheDir = path.join(root, ".tmp-eurostat");
 fs.mkdirSync(cacheDir, { recursive: true });
+const definitionRegistry = JSON.parse(fs.readFileSync(path.join(root, "src/data/high-frequency/high_frequency_definition_registry.json"), "utf8"));
+const definitionOverrides = new Map(definitionRegistry.records.map((row) => [`${row.country}:${row.indicator}`, row]));
 
 const PLATFORM_START = "2015-01";
 const GEOS = { DE: "germany", PL: "poland", HU: "hungary", RO: "romania", CZ: "czechia", SK: "slovakia", SI: "slovenia", RS: "serbia", AT: "austria", HR: "croatia" };
@@ -218,6 +220,7 @@ for (const country of Object.values(GEOS)) {
     const withValue = rows.filter((row) => row.value !== null);
     const latestAvailable = withValue.length ? withValue.map((row) => row.period).sort().at(-1) : null;
     const lagMonths = latestAvailable && expectedLatest ? monthDistance(latestAvailable, expectedLatest) : null;
+    const definitionOverride = definitionOverrides.get(key);
     coverage.push({
       country,
       indicator: series.indicator,
@@ -232,12 +235,9 @@ for (const country of Object.values(GEOS)) {
       expected_latest_period: expectedLatest,
       publication_lag_status: lagMonths === null ? "no_data" : lagMonths <= 2 ? "normal_publication_lag" : "stale_series",
       definition_status: rows.length ? "defined" : "not_available_for_country",
-      series_break_status: country === "poland" && series.indicator === "industrial_production_index"
-        ? "known_methodological_transition_nonblocking"
-        : country === "hungary" && series.indicator === "unemployment_rate_monthly"
-          ? "known_methodological_transition_back_revised"
-        : rows.some((row) => row.series_break_status !== "none_recorded") ? "unit_change_recorded" : "none_recorded",
-      analysis_eligible: withValue.length >= 24,
+      series_break_status: definitionOverride?.series_break_status ?? (rows.some((row) => row.series_break_status !== "none_recorded") ? "unit_change_recorded" : "none_recorded"),
+      definition_registry_status: definitionOverride ? "manual_override_merged" : "observation_derived",
+      analysis_eligible: withValue.length >= 24 && (definitionOverride?.analysis_eligible ?? true),
     });
   }
 }

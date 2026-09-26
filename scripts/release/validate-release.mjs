@@ -14,6 +14,7 @@ const releaseConfig = JSON.parse(fs.readFileSync(path.join(root, "src", "data", 
 const requiredRoutes = ["", "map", "countries", "data", "news", "models", "scenarios", "methodology", "historical-extension", "legal", "privacy", ...["poland", "hungary", "czechia", "slovakia", "germany", "austria", "romania", "slovenia", "croatia", "serbia"].map((country) => `countries/${country}`)];
 const requiredExports = ["platform_metadata.json", "release_manifest.json", "validation_registry.json", "golden_test_cases.json", "observations.json", "sources.json", "indicators.json", "var_country_readiness.json", "stationarity_specification_registry.json", "seasonal_stationarity_results.json", "seasonal_adf_critical_values.json", "seasonal_adf_decision_comparison.json", "hegy_readiness_registry.json", "structural_break_registry.json", "persistence_diagnostics.json", "macro_driver_observations.json", "macro_driver_dictionary.json", "macro_driver_coverage.json", "shock_identification_registry.json", "lp_readiness_registry.json", "driver_applicability_registry.json", "identified_shock_source_candidates.json", "v16_identification_readiness.json", "macro_driver_runtime.json", "ecb_monetary_event_data_acquisition_manifest.json", "ea_mpd_workbook_schema.json", "ea_empd_workbook_schema.json", "monetary_policy_event_observations.json", "ecb_policy_factor_registry.json", "monetary_policy_information_effect_registry.json", "ecb_event_dataset_overlap_registry.json", "ecb_monetary_policy_monthly_series.json", "shock_applicability_registry.json", "ecb_shock_validation_summary.json", "monetary_policy_identification_method_registry.json", "jk_replication_acquisition_manifest.json", "jk_author_reference_manifest.json", "jk_author_event_exclusion_registry.json", "jk_pc1_replication_validation.json", "jk_poor_man_replication_validation.json", "jk_median_rotation_replication_validation.json", "jk_monthly_replication_validation.json", "jk_author_reference_comparison.json", "jk_cross_language_validation.json", "information_effect_input_registry.json", "information_effect_window_registry.json", "jk_event_sample_registry.json", "identification_specification_registry.json", "jk_event_level_shocks.json", "ecb_pure_monetary_policy_shock_monthly.json", "ecb_central_bank_information_shock_monthly.json", "information_effect_separation_validation.json", "identification_regime_diagnostics.json", "advanced_analysis_validation_summary.json", researchPackageFilename()];
 requiredExports.push("lp_reference_manifest.json", "lp_specification_registry.json", "lp_outcome_specification_registry.json", "lp_sample_policy_registry.json", "lp_lag_policy_registry.json", "lp_control_profile_registry.json", "lp_model_registry.json", "lp_results.json", "lp_reference_cases.json", "lp_validation_summary.json");
+requiredExports.push("high_frequency_definition_registry.json", "historical_extension_research_conclusion.json", "historical_extension_readiness.json");
 requiredExports.push("lp_inference_registry.json", "lp_simultaneous_inference_reference_manifest.json", "lp_path_inference_validation.json", "lp_coefficient_invariance_manifest.json", "lp_lag_sensitivity_results.json", "lp_control_sensitivity_results.json", "lp_shock_support_diagnostics.json", "lp_influence_diagnostics.json", "lp_cross_country_comparability.json", "lp_model_diagnostic_summary.json");
 requiredExports.push("lp_finite_sample_bias_reference_manifest.json", "lp_bias_correction_applicability_registry.json", "lp_finite_sample_simulation_registry.json", "lp_finite_sample_simulation_results.json", "lp_shock_support_status.json", "lp_influence_threshold_registry.json", "lp_leave_one_shock_month_results.json", "lp_leave_one_event_results.json", "lp_finite_sample_robustness_summary.json", "lp_full_path_covariance_audit.json", "lp_full_path_covariance_validation.json", "lp_finite_sample_validation.json");
 const methodologySections = ["data", "panel-lp-whole-path-inference", "models", "events", "finite-sample", "spatial", "validation", "citation"];
@@ -60,7 +61,7 @@ for (const route of requiredRoutes) {
   if (!fs.existsSync(file)) failures.push(`missing route: /${route}`);
 }
 const historicalPage = fs.readFileSync(path.join(out, "historical-extension", "index.html"), "utf8");
-if (!historicalPage.includes("部分完成") || !historicalPage.includes("不是新的 Panel LP 估计") || !historicalPage.includes("尚无获准的八国四指标历史共同起点")) failures.push("historical-extension audit boundary missing from public page");
+if (!historicalPage.includes("已结束；固定 8 国四指标设计受阻") || !historicalPage.includes("不是新的 Panel LP 估计") || !historicalPage.includes("尚无获准的八国四指标历史共同起点") || historicalPage.includes("下一步仍需核查")) failures.push("historical-extension closure boundary missing from public page");
 
 for (const fileName of requiredExports) {
   const file = path.join(researchOut, fileName);
@@ -146,7 +147,9 @@ if (manifest) {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.82",
+    analysis_skill_registry: "analysis-skill-registry-v1.83",
+    high_frequency_definition_registry: "high-frequency-definition-registry-v1.83",
+    historical_extension_research_conclusion: "historical-extension-research-conclusion-v1.83",
     panel_lp_path_inference_registry: "panel-lp-path-inference-registry-v1.82",
     panel_lp_joint_inference_conclusion: "panel-lp-joint-inference-research-conclusion-v1.82",
     transformation_registry: "transformation-registry-v1.41",
@@ -208,7 +211,7 @@ const latestChangelogHeading = changelog.match(/^## (.+)$/m)?.[1] ?? "";
 if (!latestChangelogHeading.startsWith(expectedVersion) || !latestChangelogHeading.includes(releaseConfig.release_date)) failures.push(`CHANGELOG latest release mismatch: ${latestChangelogHeading}`);
 const skillRegistry = JSON.parse(fs.readFileSync(path.join(root, "src", "data", "analysis", "analysis_skill_registry.json"), "utf8"));
 if (JSON.stringify(skillRegistry) !== JSON.stringify(JSON.parse(fs.readFileSync(path.join(out, "research-data", "analysis_skill_registry.json"), "utf8")))) failures.push("public analysis manifest differs from canonical registry");
-if (skillRegistry.schema_version !== "analysis-skill-registry-v1.82") failures.push(`analysis skill registry schema mismatch: ${skillRegistry.schema_version}`);
+if (skillRegistry.schema_version !== "analysis-skill-registry-v1.83") failures.push(`analysis skill registry schema mismatch: ${skillRegistry.schema_version}`);
 if (skillRegistry.generated_at !== releaseConfig.release_date) failures.push(`analysis skill registry generated_at mismatch: ${skillRegistry.generated_at}`);
 const releaseSource = fs.readFileSync(path.join(root, "src", "lib", "releaseMetadata.ts"), "utf8");
 if (!releaseSource.includes('import releaseConfig from "../data/release.json"')) failures.push("release metadata is not reading the canonical JSON source");
@@ -230,6 +233,7 @@ if (!methodology.includes("High-Frequency Monetary Policy Identification") || !m
 if (!methodology.includes("Jarociński–Karadi") || !methodology.includes("OIS_1M") || !methodology.includes("OIS_1Y") || !methodology.includes("STOXX50") || !methodology.includes("poor-man") || !methodology.includes("中位旋转") || !methodology.includes("不是唯一结构真值") || !methodology.includes("registry_only")) failures.push("v1.62 author-reference methodology boundary is incomplete");
 if (!methodology.includes("Lag-Augmented Local Projections") || !methodology.includes("p−1") || !methodology.includes("sup-t") || !methodology.includes("simultaneous confidence band") || !methodology.includes("Pointwise CI") || !methodology.includes("DFBETAs") || !methodology.includes("描述性比较") || !methodology.includes("25bp tightening") || !methodology.includes("state-dependent LP")) failures.push("v1.71 Local Projections inference/robustness methodology boundary is incomplete");
 if (!methodology.includes("Panel LP Whole-Path Inference Research Outcome") || !methodology.includes("跨预测期联合推断已经研究") || !methodology.includes("未达到 95% 联合覆盖门槛") || !methodology.includes("2.51–2.92") || !methodology.includes("3.71–5.18") || !methodology.includes("90.0%") || !methodology.includes("88.6–91.4%") || !methodology.includes("NOT CONFIRMED")) failures.push("v1.82 Panel LP whole-path closure boundary is incomplete");
+if (!methodology.includes("Baseline Data Definition Notes") || !methodology.includes("LEU") || !methodology.includes("KAU") || !methodology.includes("state-space") || !methodology.includes("estimated-value flag") || !methodology.includes("不是 alternative specifications") || !methodology.includes("历史扩展研究已结案")) failures.push("v1.83 baseline-definition and historical-closure disclosure is incomplete");
 
 for (const stableUrl of stableResearchUrls) {
   const route = stableUrl.split(/[?#]/)[0].replace(/^\//, "").replace(/\/$/, "");

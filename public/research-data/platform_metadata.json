@@ -1,9 +1,9 @@
 {
   "name": "Central Europe Political Atlas",
-  "version": "v1.82 Panel Joint-Inference Research Closure & Method Boundary Hardening",
-  "release_date": "2026-09-26",
-  "stage": "Fixed-eight-country Panel LP with active pointwise inference, composition and specification diagnostics, descriptive fitted-model comparison, and closed non-activated whole-path inference research",
-  "schema_version": "release-metadata-v1.82",
+  "version": "v1.83 Historical Extension Research Closure & Baseline Definition Disclosure",
+  "release_date": "2026-09-27",
+  "stage": "Fixed-eight-country Panel LP with active pointwise inference, explicit baseline-definition disclosures, closed whole-path inference research, and closed four-outcome historical-extension research",
+  "schema_version": "release-metadata-v1.83",
   "canonical_url": "https://hy-central-europe-analysis.org/",
   "public_contact_email": "sallaizhang@outlook.com",
   "legal_notice_updated": "2026-08-20",
@@ -21,6 +21,8 @@
     "comparison-gates-v1.25",
     "panel-inference-v1.25",
     "high-frequency-v1.31",
+    "high-frequency-definition-registry-v1.83",
+    "historical-extension-research-conclusion-v1.83",
     "event-window-v1.31",
     "transformation-registry-v1.41",
     "seasonal-adf-critical-values-v1.44",
@@ -34,7 +36,7 @@
     "lp-validation-summary-v1.71",
     "lp-inference-registry-v1.71",
     "lp-model-diagnostic-summary-v1.71",
-    "analysis-skill-registry-v1.82",
+    "analysis-skill-registry-v1.83",
     "panel-lp-model-comparison-v1",
     "panel-lp-path-inference-registry-v1.82",
     "panel-lp-joint-inference-research-conclusion-v1.82"
@@ -43,9 +45,10 @@
     "No election forecasts, investment advice, probability forecasts, or causal claims outside the preregistered identified-shock Local Projection profile.",
     "Serbia regional comparison remains pending while national data remain available.",
     "China Economic Exposure and China-linked Project Disruption remain subject to their published evidence gates.",
-    "Fixed-eight-country Panel LP publishes pointwise inference only; whole-path simultaneous inference was studied and remains blocked after the current program did not confirm 95% joint coverage."
+    "Fixed-eight-country Panel LP publishes pointwise inference only; whole-path simultaneous inference was studied and remains blocked after the current program did not confirm 95% joint coverage.",
+    "The fixed-eight-country four-outcome historical extension is closed and blocked under current official definition evidence; the 2015 baseline is retained."
   ],
-  "citation": "Central Europe Political Atlas, version v1.82 Panel Joint-Inference Research Closure & Method Boundary Hardening, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
+  "citation": "Central Europe Political Atlas, version v1.83 Historical Extension Research Closure & Baseline Definition Disclosure, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
   "data_status_enum": [
     "official",
     "verified",

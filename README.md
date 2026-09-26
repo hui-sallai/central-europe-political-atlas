@@ -4,7 +4,7 @@ Central Europe Political Atlas is a public political-economy research platform f
 
 Public site: https://hy-central-europe-analysis.org/
 
-Current release: **v1.82 Panel Joint-Inference Research Closure & Method Boundary Hardening**
+Current release: **v1.83 Historical Extension Research Closure & Baseline Definition Disclosure**
 
 v1.72 preserves the 44 v1.71 baseline models and adds finite-sample Monte Carlo diagnostics, concentration-based shock support, exhaustive eligible shock-month/event deletion audits, and independent full-path covariance checks. Bias correction remains `registry_only`: the official Fed ZIP contains accessible paper assets, not executable replication code. Simulations describe stylized fixed-p designs, not estimated coverage or bias of the real models.
 
@@ -22,6 +22,7 @@ Offline diagnostic regeneration: `pnpm lp:finite-sample` and `pnpm lp:shock-supp
 - An audited ECB high-frequency monetary-policy layer built from EA-MPD and EA-EMPD. The frozen v1.62 Jarociński–Karadi construction continues to reproduce PC1, poor-man, deterministic median-rotation and monthly series at published precision.
 - v1.71 preserves all 44 single-country joint MP/CBI baselines, corrects the lag metadata, adds validated 95% plug-in sup-t path bands, and publishes fixed-lag, predetermined-control, shock-support, influence, conditioning and comparability diagnostics. Single-country significance bands, country-pair formal difference tests, state dependence, SVAR and Bayesian VAR remain unavailable. v1.8 separately adds fixed-eight-country aggregate-shock Panel LP group-difference inference.
 - v1.82 records that fixed-eight-country Panel LP whole-path inference was studied but not activated: the best observed joint coverage was about 90% (90% interval 88.6–91.4%) against nominal 95%. Panel LP pointwise inference and diagnostics remain active; no Panel simultaneous confidence band or global path significance test is published. The fitted-model overlay remains descriptive and has no interval or inferential p-value.
+- v1.83 closes the current fixed-eight-country four-outcome historical-extension research program. HICP and yield histories are definition-cleared, while IPI and unemployment prevent a common pre-2015 Design A window. The 2015-01 to 2025-10 formal Panel baseline remains active, with machine-readable disclosures for Poland IPI, Hungary unemployment and Slovenia yield.
 - 4 conditional scenarios with baseline, shock assumption, adjusted input and result traces.
 - Coded political-economy events and verified China-related project records.
 - Deterministic validation, golden cases and a release QA gate.
@@ -66,7 +67,7 @@ Machine-readable files are published under `/research-data/`. See [the research-
 
 ## Citation
 
-Central Europe Political Atlas, version v1.82 Panel Joint-Inference Research Closure & Method Boundary Hardening, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
+Central Europe Political Atlas, version v1.83 Historical Extension Research Closure & Baseline Definition Disclosure, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
 
 ## Official VAR reference environment
 

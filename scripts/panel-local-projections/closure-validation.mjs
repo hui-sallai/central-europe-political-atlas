@@ -45,11 +45,11 @@ export function validatePanelClosure({root,preExport=false}) {
   check(formal.publication_state==="active","frozen pointwise Panel LP must remain active");
   check(lpSkill?.state==="active","analysis registry must keep Panel LP active");
   check(!lpSkill?.presentation?.output_schema?.some(key=>/simultaneous.*band|global.*path.*p.?value/i.test(key)),"Panel LP registry must not expose joint-inference outputs");
-  check(skill.schema_version==="analysis-skill-registry-v1.82","analysis registry schema must be v1.82");
+  check(skill.schema_version==="analysis-skill-registry-v1.83","analysis registry schema must be v1.83");
   check(lpSkill?.presentation?.limitations?.some(text=>text.includes("跨预测期联合推断已经研究")&&text.includes("不提供联合置信带")),"analysis registry must state the tested-but-unavailable boundary");
   check(lpSkill?.presentation?.limitations?.some(text=>text.includes("registry_only")),"IK/country-pair registry-only boundary must be retained");
-  check(release.version.startsWith("v1.82 ")&&release.schema_version==="release-metadata-v1.82","release metadata must identify v1.82");
-  check(release.citation_key==="central_europe_political_atlas_v1_82","v1.82 citation key mismatch");
+  check(release.version.startsWith("v1.83 ")&&release.schema_version==="release-metadata-v1.83","release metadata must identify v1.83");
+  check(release.citation_key==="central_europe_political_atlas_v1_83","v1.83 citation key mismatch");
   const baselineManifest=readJson(path.join(panel,"panel_lp_baseline_invariance_manifest.json"));
   check(digest(path.join(panel,"panel_lp_results.json"))==="10e7b4f8761523e7b136b9707ac87da1d753a5914e0d11a3f8b980571ab53bdc","frozen Panel LP results hash changed");
   check(baselineManifest.formal_baseline_sha256==="fc49e0d559266aea6600bceed2009d4246d4bc426da4f081cc4f08e4c5ef26d0","v1.8 baseline anchor changed");

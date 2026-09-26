@@ -1,0 +1,44 @@
+{
+  "schema_version": "high-frequency-definition-registry-v1.83",
+  "generated_at": "2026-09-27",
+  "merge_key": ["country", "indicator"],
+  "policy": "Manual methodological determinations override observation-derived break status during acquisition refresh. Coverage counts never erase this registry.",
+  "records": [
+    {
+      "country": "poland",
+      "indicator": "industrial_production_index",
+      "registered_definition": "Eurostat sts_inpr_m / PRD / NACE Rev.2 B-D / SCA / I21",
+      "methodological_transitions": [{ "period": "2021-01", "from": "LEU approximation", "to": "KAU", "interpretation": "retained with non-blocking methodological warning; strict unit invariance is not claimed" }],
+      "series_break_status": "known_methodological_transition_nonblocking",
+      "quality_flag_policy": "Preserve Eurostat flags; do not infer numerical continuity from their absence.",
+      "analysis_eligible": true,
+      "evidence": ["baseline_definition_integrity_audit.json:PL/industrial_production"],
+      "review_date": "2026-09-27",
+      "notes": "The 2021 LEU-to-KAU transition is retained as a non-blocking baseline warning; strict unit invariance is not claimed."
+    },
+    {
+      "country": "hungary",
+      "indicator": "unemployment_rate_monthly",
+      "registered_definition": "Eurostat une_rt_m / SA / age TOTAL / sex T / PC_ACT",
+      "methodological_transitions": [{ "period": "2023-01", "from": "prior monthly construction", "to": "state-space monthly estimation", "interpretation": "2011-01 through 2022-12 back-revised; latest-revised semantics only" }],
+      "series_break_status": "known_methodological_transition_back_revised",
+      "quality_flag_policy": "Latest revised series is eligible; no real-time-vintage equivalence claim.",
+      "analysis_eligible": true,
+      "evidence": ["baseline_definition_integrity_audit.json:HU/unemployment"],
+      "review_date": "2026-09-27",
+      "notes": "The 2023 method transition is treated under latest-revised semantics because 2011-01 through 2022-12 was back-revised."
+    },
+    {
+      "country": "slovenia",
+      "indicator": "long_term_government_yield",
+      "registered_definition": "Eurostat irt_lt_mcby_m / MCBY / monthly percent per annum",
+      "methodological_transitions": [],
+      "series_break_status": "none_recorded",
+      "quality_flag_policy": "The 2025 e flag is an estimated-value quality flag, not a definition break; disclose it without changing eligibility.",
+      "analysis_eligible": true,
+      "evidence": ["baseline_definition_integrity_audit.json:SI/long_term_yield"],
+      "review_date": "2026-09-27",
+      "notes": "Estimated-value flags are preserved in the audit and do not change formal-sample eligibility."
+    }
+  ]
+}

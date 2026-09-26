@@ -6,6 +6,7 @@ import { PanelCompositionDiagnostics } from "./PanelCompositionDiagnostics";
 import composition from "@/data/panel-local-projections/panel_lp_composition_robustness_summary.json";
 import specification from "@/data/panel-local-projections/panel_lp_time_fe_sensitivity_summary.json";
 import modelComparison from "@/data/panel-local-projections/panel_lp_model_comparison.json";
+import definitionRegistry from "@/data/high-frequency/high_frequency_definition_registry.json";
 
 const names = { euro: "固定四国欧元组", non_euro: "固定四国非欧元组", difference: "欧元组 − 非欧元组" };
 const colors = { euro: "#2563eb", non_euro: "#c2410c", difference: "#7c3aed" };
@@ -26,6 +27,8 @@ export function PanelLocalProjectionWorkbench() {
   const specificationSummary = specification.records.find(r => r.outcome === selected && r.shock === shock);
   const series: (keyof typeof names)[] = difference ? ["difference"] : ["euro","non_euro"];
   const fitted = modelComparison.records.find(r => r.outcome_id === selected);
+  const definitionIndicator = selected === "industrial_production" ? "industrial_production_index" : selected === "unemployment" ? "unemployment_rate_monthly" : selected === "long_term_yield" ? "long_term_government_yield" : null;
+  const definitionNote = definitionIndicator ? definitionRegistry.records.find(r => r.indicator === definitionIndicator) : null;
   const modelRows = (fitted?.series ?? []).filter(r => r.shock === shock);
   const joint = modelComparison.joint_inference.evidence;
   const values = [...rows.flatMap(r => series.flatMap(s => r[`${s}_ci${confidence}`])),...(showModel ? modelRows.flatMap(r => series.map(s => r[`model_${s}`])) : [])];
@@ -52,6 +55,7 @@ export function PanelLocalProjectionWorkbench() {
     </svg><figcaption className="flex flex-wrap gap-4 text-sm">{series.map(s => <span key={s} style={{color:colors[s]}}>━ {names[s]}</span>)}<span>阴影为 {confidence}% 点态区间，虚线为零响应。</span>{showModel && <span>点线为拟合模型的总体投影路径（描述性，无区间）。</span>}</figcaption></figure>
     <p className="mt-5 text-sm leading-7">联合估计 MP 与 CBI，按月份聚类的 t-LAHR 推断。各期有效月份 {Math.min(...rows.map(r => r.effective_time_clusters))}–{Math.max(...rows.map(r => r.effective_time_clusters))}；面板行数 {Math.min(...rows.map(r => r.panel_rows))}–{Math.max(...rows.map(r => r.panel_rows))}。8 国不等于 8 次独立冲击；面板行数不是独立冲击观测数。</p>
     <p className="mt-3 text-sm leading-7">欧元组：奥地利、德国、斯洛伐克、斯洛文尼亚；非欧元组：捷克、匈牙利、波兰、罗马尼亚。不代表整个地区。克罗地亚因 2023 年制度断点排除，塞尔维亚因覆盖不足排除。仅点态推断；整条路径异质性检验、面板同时置信带、国家对国家正式检验及 IK 小样本修正均未启用。</p>
+    {definitionNote && <aside aria-label="数据定义说明" className="mt-4 border-l-2 border-[var(--accent)] pl-4 text-sm leading-7"><h3 className="font-semibold">数据定义说明</h3>{selected === "industrial_production" && <p>波兰工业生产序列在 2021 年从 LEU 统计单位切换到 KAU。官方资料认为部分 aggregate 可能存在轻微断点；当前 formal sample 保留，并将其视为非阻断方法学警示，不宣称完全可比。</p>}{selected === "unemployment" && <p>匈牙利月度失业率从 2023 年采用 state-space 估计方法；Eurostat 已将 2011–2022 历史数据回溯修订，当前 formal sample 按 latest-revised series 解释。</p>}{selected === "long_term_yield" && <p>斯洛文尼亚当前 Eurostat 2025 observations 带 estimated-value flag；这是质量标记，不是定义断点。</p>}</aside>}
     <aside aria-label="稳健性摘要" className="mt-4 border p-4 text-sm leading-7">
       <h3 className="font-semibold">稳健性摘要（非评分）</h3>
       {compositionSummary && <p>组间差异的组成诊断：逐一剔除国家后，95% 点态区间含零分类与基准的一致率为 {(100*compositionSummary.zero_classification_agreement_rate).toFixed(1)}%（{compositionSummary.valid_count} 条有效国家 × 预测期记录）。诊断范围不是置信区间。</p>}

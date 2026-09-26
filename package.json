@@ -5,6 +5,7 @@
   "scripts": {
     "historical-extension:audit": "node scripts/historical-monthly-extension/audit.mjs",
     "historical-extension:validate": "node scripts/historical-monthly-extension/validate.mjs",
+    "historical-extension:closure-validate": "node scripts/historical-monthly-extension/closure-validate.mjs",
     "baseline-definition:validate": "node scripts/historical-monthly-extension/validate-baseline-definition.mjs",
     "panel-lp:composition": "node scripts/panel-local-projections/run.mjs composition",
     "panel-lp:closure-validate": "node scripts/panel-local-projections/closure-validate.mjs",

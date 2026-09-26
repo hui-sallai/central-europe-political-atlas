@@ -10,6 +10,8 @@ const check = (condition, message) => { if (!condition) throw new Error(message)
 const audit = read('src/data/historical-extension-audit/baseline_definition_integrity_audit.json');
 const coverage = read('src/data/high-frequency/high_frequency_coverage.json');
 const yieldAudit = read('src/data/historical-extension-audit/historical_yield_extension_audit.json');
+const definitionRegistry = read('src/data/high-frequency/high_frequency_definition_registry.json');
+const acquisitionSource = fs.readFileSync(path.join(root, 'scripts/acquire-eurostat-monthly.mjs'), 'utf8');
 const sourceIds = new Set(audit.sources.map((source) => source.id));
 const coverageIndicators = { industrial_production: 'industrial_production_index', unemployment: 'unemployment_rate_monthly' };
 const countryNames = { PL: 'poland', HU: 'hungary' };
@@ -32,11 +34,15 @@ check(pl?.transition_date === '2021-01' && pl.compatibility_decision === 'curren
 check(pl.overlap_audit.status === 'not_available_as_matched_official_pair' && Object.entries(pl.overlap_audit).filter(([key]) => ['level_difference', 'growth_difference', 'correlation', 'mean_absolute_difference', 'maximum_difference'].includes(key)).every(([, value]) => value === null), 'unverified LEU/KAU overlap statistics');
 const plCoverage = coverage.records.find((r) => r.country === 'poland' && r.indicator === 'industrial_production_index');
 check(plCoverage?.series_break_status === 'known_methodological_transition_nonblocking' && plCoverage.definition_status === 'defined' && plCoverage.analysis_eligible, 'in-sample PL unit transition missing from coverage metadata');
+check(definitionRegistry.records.find((r) => r.country === 'poland' && r.indicator === 'industrial_production_index')?.series_break_status === 'known_methodological_transition_nonblocking', 'PL transition missing from override registry');
 check(hu?.transition_date === '2023-01' && hu.compatibility_decision === 'current_baseline_definition_cleared' && hu.formal_result_action === 'none', 'HU back-revision judgment');
 const huCoverage = coverage.records.find((r) => r.country === 'hungary' && r.indicator === 'unemployment_rate_monthly');
 check(huCoverage?.series_break_status === 'known_methodological_transition_back_revised' && huCoverage.analysis_eligible, 'HU back-revision missing from coverage metadata');
+check(definitionRegistry.records.find((r) => r.country === 'hungary' && r.indicator === 'unemployment_rate_monthly')?.series_break_status === 'known_methodological_transition_back_revised', 'HU revision missing from override registry');
 check(si?.compatibility_decision === 'current_baseline_definition_warning' && yieldAudit.records.find((r) => r.country === 'SI')?.flags.some((f) => f.period === '2025-01' && f.flag === 'e'), 'SI estimated-value disclosure');
-check(read('src/data/release.json').version.startsWith('v1.82 '), 'formal version changed');
+check(definitionRegistry.records.find((r) => r.country === 'slovenia' && r.indicator === 'long_term_government_yield')?.quality_flag_policy.includes('not a definition break'), 'SI quality-note semantics missing');
+check(acquisitionSource.includes('high_frequency_definition_registry.json') && acquisitionSource.includes('definitionOverride?.series_break_status') && acquisitionSource.includes('definitionOverride?.analysis_eligible'), 'acquisition refresh does not preserve definition registry overrides');
+check(read('src/data/release.json').version.startsWith('v1.83 '), 'formal version changed');
 const panelSha = crypto.createHash('sha256').update(fs.readFileSync(path.join(root, 'src/data/panel-local-projections/panel_lp_results.json'))).digest('hex');
 check(panelSha === '10e7b4f8761523e7b136b9707ac87da1d753a5914e0d11a3f8b980571ab53bdc', 'frozen Panel SHA changed');
 const changed = execFileSync('git', ['diff', '--name-only', '9b163c03de75a9a9d0f9e53f8d0b9d4bbd8775d0', '--', 'src/data/high-frequency/high_frequency_observations.json', 'src/data/panel-local-projections', 'src/data/identified-shocks'], { cwd: root, encoding: 'utf8' }).trim();

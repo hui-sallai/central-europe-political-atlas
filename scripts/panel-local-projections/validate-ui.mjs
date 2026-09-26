@@ -48,6 +48,10 @@ for (const outcome of ["hicp_price_level","industrial_production","unemployment"
   assert.doesNotMatch(html,/拟合模型（描述性，研究版）/);
   assert.match(html,/这不是模型正确率/);
   assert.doesNotMatch(html,/同时置信带可用|全路径 max-t p=/);
+  if (outcome === "industrial_production") assert.match(html,/2021 年从 LEU 统计单位切换到 KAU.*非阻断方法学警示/s);
+  if (outcome === "unemployment") assert.match(html,/2023 年采用 state-space.*2011–2022.*latest-revised series/s);
+  if (outcome === "long_term_yield") assert.match(html,/estimated-value flag.*不是定义断点/s);
+  if (outcome === "hicp_price_level") assert.doesNotMatch(html,/数据定义说明/);
   combinations++;
 }
 let modelCombinations = 0;

@@ -1,15 +1,15 @@
 {
-  "schema_version": "analysis-skill-registry-v1.82",
+  "schema_version": "analysis-skill-registry-v1.83",
   "frozen_output_reference": "analysis/v173_frozen_output_hashes.json",
-  "generated_at": "2026-09-26",
+  "generated_at": "2026-09-27",
   "records": [
     {
       "skill_id": "panel_local_projections",
       "state": "active",
       "gate": "identified joint JK shocks; fixed balanced 8 countries; common outcome identities; >=96 time clusters; author-reference multi-shock validation; production validation; UI and full release gates",
       "readiness_reference": "panel-local-projections/panel_lp_readiness_registry.json",
-      "note": "Aggregate ECB shocks are common across countries; panel rows are not independent shock replications. Fixed-eight-country t-LAHR pointwise group inference. Composition diagnostics active; time-FE sensitivity concordance active; whole-path inference research is closed and blocked after failing its current validation program; IK and country-pair formal tests remain registry_only.",
-      "reason_zh": "固定 8 国、四项共同结果通过数值准入；Panel LP 整体仍启用，只提供组间点态差异推断；跨期联合推断研究已结案且未通过当前覆盖验证。",
+      "note": "Aggregate ECB shocks are common across countries; panel rows are not independent shock replications. Fixed-eight-country t-LAHR pointwise group inference remains active. Current baseline definition warnings are disclosed; the four-outcome historical extension is closed and blocked. Whole-path inference remains closed and blocked; IK and country-pair formal tests remain registry_only.",
+      "reason_zh": "固定 8 国、四项共同结果的 2015–2025 正式样本继续启用点态推断；基线定义警示已经公开；四指标历史扩展及跨期联合推断研究均已结案且未启用。",
       "required_data": ["identified joint JK MP / CBI shocks", "fixed AT DE SK SI CZ HU PL RO monthly panel", "registered common outcomes"],
       "presentation": {
         "name": "Panel Local Projections",

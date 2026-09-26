@@ -8,7 +8,7 @@ import { getResearchPackageFilename, platformApaCitation, platformBibtexCitation
 
 export const metadata: Metadata = { title: "研究方法", description: "数据、模型、事件、空间、验证和引用规则。" };
 
-const sections = [["data", "Data"], ["panel-lp-whole-path-inference", "Panel LP whole-path boundary"], ["models", "Analysis"], ["events", "Events"], ["macro-drivers", "Macro Drivers"], ["spatial", "Spatial"], ["validation", "Validation"], ["citation", "Citation"]] as const;
+const sections = [["data", "Data"], ["baseline-data-definitions", "Baseline definitions"], ["panel-lp-whole-path-inference", "Panel LP whole-path boundary"], ["models", "Analysis"], ["events", "Events"], ["macro-drivers", "Macro Drivers"], ["spatial", "Spatial"], ["validation", "Validation"], ["citation", "Citation"]] as const;
 
 function Section({ id, label, title, children }: { id: string; label: string; title: string; children: React.ReactNode }) {
   return <section id={id} className="scroll-mt-24 border-t border-[var(--line)] py-10"><p className="editorial-kicker">{label}</p><h2 className="mt-3 text-3xl font-semibold">{title}</h2>{children}</section>;
@@ -20,6 +20,13 @@ export default function MethodologyPage() {
     <header className="max-w-4xl border-b border-[var(--line)] pb-8"><p className="editorial-kicker">Research / {platformStatus.version}</p><h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">研究方法与边界</h1><p className="mt-5 text-base leading-8 text-[var(--muted)]">本页说明公开研究流程和不能说明什么。完整字典、QA、版本记录与技术字段保留在研究数据包，不再占据主要页面。</p><nav className="mt-5 flex flex-wrap gap-3">{sections.map(([id, label]) => <a key={id} href={`#${id}`} className="text-sm font-semibold text-[var(--accent)]">{label}</a>)}</nav></header>
 
     <Section id="data" label="01 / Data" title="数据如何进入平台"><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">每条正式观测必须有国家或地区、时间、数值、单位、来源名称、来源链接、可靠性、状态和更新时间。official / verified 可进入相应事实层；pending 保留但不参与比较；sample 与 placeholder 不进入分析。A 级为官方统计或机构，B 级为可核验权威来源，C 级只作线索，D 级排除。</p><p className="mt-3 text-sm leading-7 text-[var(--muted)]">跨国比较只使用同定义、同单位、同层级和共同年份。计算值必须保留分子、分母、公式和来源。</p><Link href="/data" className="mt-4 inline-flex text-sm font-semibold text-[var(--accent)]">打开 Data Explorer</Link></Section>
+
+    <Section id="baseline-data-definitions" label="01b / Baseline Data Definition Notes" title="正式基线的数据定义说明">
+      <p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">波兰工业生产指数在 2021 年由 LEU 统计单位切换到 KAU。官方材料允许部分 aggregate 出现轻微断点；当前 2015–2025 formal sample 继续保留并保持 analysis-eligible，但只表述为非阻断方法学警示，不宣称完全可比。</p>
+      <p className="mt-3 max-w-4xl text-sm leading-7 text-[var(--muted)]">匈牙利月度失业率从 2023 年采用 state-space 估计，Eurostat 说明 2011–2022 已回溯修订。因此当前基线按 latest-revised series 解释，不扩展为实时历史版本一致性的主张。</p>
+      <p className="mt-3 max-w-4xl text-sm leading-7 text-[var(--muted)]">斯洛文尼亚长期收益率的 2025 年观测带 estimated-value flag。这是质量标记，不是定义断点，也不自动改变分析准入。</p>
+      <p className="mt-3 max-w-4xl text-sm leading-7 text-[var(--muted)]">这些记录属于 data-definition / revision transparency，不是 alternative specifications，也不是 causal robustness tests。固定八国四指标的<Link href="/historical-extension" className="text-[var(--accent)] underline">历史扩展研究已结案</Link>：审计完成，但 Design A 因 IPI 与失业率定义证据缺口而受阻，未运行历史 Panel LP。</p>
+    </Section>
 
     <Section id="panel-local-projections" label="Aggregate-Shock Panel LP" title="共同冲击、时间聚类与组间异质性">
       <p className="mt-4 text-sm leading-7">v1.81 保持等国家权重的正式平衡八国面板不变。逐一删去一国仅作固定组成诊断，保留基准各预测期月份日历和冲击支持；3 对 4 或 4 对 3 的对比编码为欧元组 +n_N/N、非欧元组 −n_E/N，横截面均值为零且两组编码之差为一。</p>
@@ -36,7 +43,7 @@ export default function MethodologyPage() {
       <p className="mt-3 max-w-4xl text-sm leading-7">冻结标准误下的高斯联合临界值约为 2.51–2.92；拟合模型模拟所需的联合临界值约为 3.71–5.18。最佳 bootstrap 联合覆盖约为 90.0%（90% 区间 88.6–91.4%），低于名义 95%。R2 裁决为 NOT CONFIRMED，没有路径获准启用；缩减范围及其负责人确认发生在结果已知之后，仍标记为事后事项。</p>
       <p className="mt-3 max-w-4xl text-sm leading-7">Panel LP 估计、点态推断、组成诊断、time-FE 敏感性和无推断的描述性拟合模型对照继续有效。拟合模型路径默认关闭，不是结构脉冲响应或预测，也不附带区间或推断 p 值。完整研究来源以文件名和 SHA-256 登记在 <a className="text-[var(--accent)] underline" href={`${basePath}/research-data/panel-local-projections/panel_lp_joint_inference_research_conclusion.json`}>联合推断研究结论记录</a>；研究档案中的模拟数组、checkpoint 和 solver 日志不随包公开。</p>
       <p className="mt-3 max-w-4xl text-sm leading-7">重新开启这条研究线需要新的方法依据、事前注册、未使用过的随机种子命名空间和负责人批准，并将新研究保存在独立档案中。可能方向仅作未来研究登记，不是当前待办事项。</p>
-      <p className="mt-3 max-w-4xl text-sm leading-7">另有独立的<Link href="/historical-extension" className="text-[var(--accent)] underline">历史月度数据延伸可行性审计</Link>：它只报告来源、定义和潜在时间支持，状态仍为部分完成，没有重新估计 Panel LP。</p>
+      <p className="mt-3 max-w-4xl text-sm leading-7">另有独立的<Link href="/historical-extension" className="text-[var(--accent)] underline">历史月度数据延伸研究结论</Link>：审计已经完成，固定八国四指标扩展受阻；当前研究程序关闭，没有重新估计 Panel LP。</p>
     </Section>
     <Section id="analysis-registry" label="Analysis Registry" title="分析方法与当前状态">
       <p className="mt-4 text-sm">方法状态、解释边界与工作台导航共同读取同一份 canonical registry。方法已启用不表示所有数据组合均通过准入。</p>

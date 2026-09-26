@@ -1,0 +1,127 @@
+{
+  "schema_version": "historical-extension-research-conclusion-v1.83",
+  "study_period": "2026-09-18..2026-09-27",
+  "formal_release": "v1.83 Historical Extension Research Closure & Baseline Definition Disclosure",
+  "research_question": "Can the fixed eight-country, four-outcome Panel LP be extended before 2015 under the existing official-evidence and definition-compatibility standard?",
+  "baseline_window": "2015-01..2025-10",
+  "mathematical_availability": {
+    "all_four_start": "2005-04",
+    "interpretation": "calendar availability only; not definition-cleared"
+  },
+  "mathematical_common_floors": {
+    "hicp": "1996-12",
+    "ipi": "2000-01",
+    "unemployment": "1998-01",
+    "yield": "2005-04",
+    "all_four": "2005-04",
+    "interpretation": "calendar availability only; not definition-cleared"
+  },
+  "definition_cleared_outcomes": [
+    "hicp",
+    "yield"
+  ],
+  "blocked_outcomes": [
+    "ipi",
+    "unemployment"
+  ],
+  "country_level_clearances": {
+    "hicp": "all eight from 1996-12 common floor",
+    "yield": "all eight from 2006-01 common floor; Slovenia 2025 e flags preserved",
+    "unemployment": {
+      "AT": "2004-01",
+      "DE": "2009-01",
+      "SI": "2009-01",
+      "CZ": "1993-01",
+      "HU": "2011-01 latest-revised",
+      "RO": "2009-01 latest-revised"
+    }
+  },
+  "country_clearance_summary": {
+    "hicp": "all eight from 1996-12 common floor",
+    "yield": "all eight from 2006-01 common floor; Slovenia 2025 e flags preserved",
+    "unemployment": "AT 2004-01; DE 2009-01; SI 2009-01; CZ 1993-01; HU 2011-01 latest-revised; RO 2009-01 latest-revised"
+  },
+  "country_level_blockers": {
+    "ipi": {
+      "PL": "no official pre-2021 KAU B-D/SCA bridge",
+      "RO": "no exact official pre-2015 comparability floor"
+    },
+    "unemployment": {
+      "SK": "2011-09 d flag unexplained",
+      "PL": "2009-12 d flag unexplained"
+    }
+  },
+  "country_blocker_summary": {
+    "ipi": "PL lacks an official pre-2021 KAU B-D/SCA bridge; RO lacks an exact official pre-2015 comparability floor.",
+    "unemployment": "SK 2011-09 d and PL 2009-12 d remain unexplained by official documentation."
+  },
+  "euro_regime_floor": "2009-01",
+  "fixed_euro_regime_floor": "2009-01",
+  "Design_A_status": "blocked",
+  "Design_A_start": null,
+  "potential_information_gain": {
+    "window": "2009-01 mathematical preflight versus 2015-01 baseline",
+    "calendar_months": 72,
+    "h24_time_clusters": {
+      "baseline": 100,
+      "potential": 171
+    },
+    "h24_MP_nonzero_months": {
+      "baseline": 67,
+      "potential": 136
+    },
+    "h24_CBI_nonzero_months": {
+      "baseline": 67,
+      "potential": 136
+    },
+    "boundary": "Not definition-cleared gain, not new estimation support, and not evidence that any inference gate would pass."
+  },
+  "potential_information_support": {
+    "status": "potential_mathematical_preflight_not_definition_cleared_not_estimable_sample",
+    "window": "2009-01 mathematical preflight versus 2015-01 baseline",
+    "h24_time_clusters": {
+      "current": 100,
+      "mathematical_preflight_2009": 171,
+      "potential_gain": 71
+    },
+    "h24_MP_nonzero_months": {
+      "current": 67,
+      "mathematical_preflight_2009": 136,
+      "potential_gain": 69
+    },
+    "h24_CBI_nonzero_months": {
+      "current": 67,
+      "mathematical_preflight_2009": 136,
+      "potential_gain": 69
+    },
+    "r2_boundary": "Potential information cannot overturn, repair, or reinterpret the v1.82 whole-path inference research closure."
+  },
+  "baseline_definition_integrity": "nonblocking_warning",
+  "formal_result_decision": "retain_2015_formal_baseline",
+  "formal_decision": "retain_2015_four_outcome_baseline",
+  "historical_four_outcome_activation": false,
+  "historical_panel_estimation": "not_run",
+  "historical_panel_preregistration": "not_open",
+  "future_options": [
+    "Continue the current 2015 four-outcome baseline.",
+    "A reduced-outcome historical study requires a new research question, owner approval and preregistration.",
+    "Reassess only if a new official harmonised bridge or source appears; this is not current backlog work."
+  ],
+  "future_reopen_conditions": [
+    "A new official harmonised bridge or source resolves the present definition blockers.",
+    "The owner approves a new research question and preregistration before any reduced-outcome or historical Panel estimation."
+  ],
+  "research_closed": true,
+  "current_program_closed": true,
+  "remaining_blockers_are_terminal_under_current_evidence": true,
+  "provenance": {
+    "starting_commit": "0f5f272d82a7498db9116d18e1695943f1fc0fe4",
+    "round4_registry": "historical_definition_resolution_round4.json",
+    "definition_evidence_registry": "historical_definition_evidence_registry.json",
+    "source_manifest": "historical_extension_source_manifest.json",
+    "panel_lp_results_sha256": "10e7b4f8761523e7b136b9707ac87da1d753a5914e0d11a3f8b980571ab53bdc",
+    "panel_estimates_run": 0,
+    "research_simulations_run": 0
+  },
+  "Design_A_detail_status": "blocked_for_pre2015_extension"
+}

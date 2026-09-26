@@ -63,6 +63,7 @@ if (panel) {
   check(resolveAnalysisRoute("panel_local_projections", "hungary", ["hungary"]).category === "panel_econometrics", "panel LP category routing");
   check(resolveAnalysisRoute("panel_local_projections", "hungary", ["hungary"]).countrySlug === undefined, "fixed panel ignores individual country selector");
   check(panel.state === "active", "Panel LP estimation remains active");
+  check(panel.note.includes("baseline definition warnings") && panel.note.includes("historical extension is closed and blocked"), "v1.83 Panel baseline and historical closure note");
   check(panel.limitations.some(s => s.includes("registry_only")), "panel inference boundaries");
   check(pathInference.schema_version === "panel-lp-path-inference-registry-v1.82" && pathInference.state === "blocked" && pathInference.research_closed === true && pathInference.activated_paths === 0, "whole-path research is closed and not activated");
 }

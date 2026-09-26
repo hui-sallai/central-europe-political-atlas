@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.83 Historical Extension Research Closure & Baseline Definition Disclosure — 2026-09-27
+
+- Closes the current fixed-eight-country, four-outcome historical-extension program: HICP and long-term yield are definition-cleared, while IPI and unemployment prevent a common pre-2015 Design A window.
+- Retains the formal 2015-01 to 2025-10 Panel baseline and publishes the Poland IPI LEU-to-KAU warning, Hungary unemployment back-revision semantics and Slovenia yield estimated-value flags in the interface and machine-readable metadata.
+- Adds a refresh-safe high-frequency definition override registry, a final historical research conclusion artifact and a closure validator.
+- Preserves all formal Panel coefficients, standard errors, intervals, shocks, lag policy and the frozen Panel result SHA-256. No historical Panel estimate or new simulation was run.
+
 ## v1.82 Panel Joint-Inference Research Closure & Method Boundary Hardening — 2026-09-26
 
 - Closes the current fixed-eight-country whole-path inference research program after the R2 verdict `NOT CONFIRMED`; no Panel simultaneous band or global path test is activated.

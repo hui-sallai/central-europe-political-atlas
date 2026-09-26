@@ -149,18 +149,17 @@ check(baseline.horizons[0].MP.nonzero_months === 86 && baseline.horizons[24].MP.
 check(baseline.horizons[0].CBI.nonzero_months === 86 && baseline.horizons[24].CBI.nonzero_months === 67, 'frozen baseline CBI support');
 const regime = load('historical_monetary_regime_registry.json').records;
 check(regime.some((r) => r.country === 'SI' && r.period_start === '2007-01' && r.euro_member) && regime.some((r) => r.country === 'SK' && r.period_start === '2009-01' && r.euro_member), 'euro-adoption regime dates');
-check(readiness.state === 'partial' && readiness.no_new_panel_estimates && readiness.no_joint_inference_reopening && readiness.no_interpolation && readiness.owner_approval_required, 'research boundary');
-check(readiness.cleared_outcomes.join(',') === 'hicp,yield' && readiness.design_A.definition_compatible_start === null && readiness.outcome_states.ipi === 'blocked_for_historical_extension' && readiness.outcome_states.unemployment === 'blocked_for_historical_extension', 'partial readiness overstated');
+check(readiness.state === 'closed_current_four_outcome_extension_program' && readiness.historical_audit === 'completed' && readiness.four_outcome_historical_extension === 'blocked' && readiness.research_closed && readiness.no_new_panel_estimates && readiness.no_joint_inference_reopening && readiness.no_interpolation && readiness.owner_approval_required_for_any_new_research, 'research closure boundary');
+check(readiness.cleared_outcomes.join(',') === 'hicp,yield' && readiness.design_A.definition_compatible_start === null && readiness.outcome_states.ipi === 'blocked_for_historical_extension' && readiness.outcome_states.unemployment === 'blocked_for_historical_extension', 'historical closure overstated');
 check(readiness.baseline_definition_integrity === 'nonblocking_warning' && readiness.design_A.status === 'blocked_for_pre2015_extension', 'baseline warning or Design A block missing');
-check(JSON.parse(fs.readFileSync(path.join(root, 'src/data/release.json'), 'utf8')).version.startsWith('v1.82 '), 'formal release version changed');
-check(readiness.design_B.status === 'registered_future_candidate_only' && readiness.design_C.status === 'registered_future_candidate_only' && readiness.state_dependent_LP === 'not_started', 'prohibited designs activated');
+check(JSON.parse(fs.readFileSync(path.join(root, 'src/data/release.json'), 'utf8')).version.startsWith('v1.83 '), 'formal release version');
+check(readiness.future_reduced_outcome_research === 'not_started' && readiness.state_dependent_LP === 'not_started', 'prohibited designs activated');
 
 const frozen = [
   'src/data/panel-local-projections',
   'src/data/high-frequency/high_frequency_observations.json',
   'src/data/identified-shocks/ecb_pure_monetary_policy_shock_monthly.json',
   'src/data/identified-shocks/ecb_central_bank_information_shock_monthly.json',
-  'public/research-data',
 ];
 const changed = execFileSync('git', ['diff', '--name-only', '996450ef79c8db22abed491691b36d0e7ed3fc36', '--', ...frozen], { cwd: root, encoding: 'utf8' }).trim();
 check(changed === '', `frozen paths modified: ${changed}`);
@@ -168,4 +167,4 @@ const untracked = execFileSync('git', ['ls-files', '--others', '--exclude-standa
 check(!untracked.some((p) => frozen.some((f) => p === f || p.startsWith(`${f}/`))), 'untracked file in frozen paths');
 const actualPanel = hash(fs.readFileSync(path.join(root, 'src/data/panel-local-projections/panel_lp_results.json')));
 check(actualPanel === '10e7b4f8761523e7b136b9707ac87da1d753a5914e0d11a3f8b980571ab53bdc', 'frozen Panel LP SHA256 mismatch');
-console.log(JSON.stringify({ historical_extension_audit: 'valid_partial', official_sources: 5, countries: 8, outcomes: 4, months: matrix.records.length, baseline_h0: 129, baseline_h24: 100, interpolation: false, panel_estimation: false, frozen_panel_sha256: actualPanel }, null, 2));
+console.log(JSON.stringify({ historical_extension_audit: 'completed_closed', four_outcome_extension: 'blocked', official_sources: 5, countries: 8, outcomes: 4, months: matrix.records.length, baseline_h0: 129, baseline_h24: 100, interpolation: false, panel_estimation: false, frozen_panel_sha256: actualPanel }, null, 2));

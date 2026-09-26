@@ -2084,6 +2084,9 @@ const macroShockPayload = JSON.parse(fs.readFileSync(path.join(macroDriverDir, "
 const macroIdentificationByDriver = new Map(macroDriverDictionaryPayload.records.map((item) => [item.driver_id, item.identification_status]));
 const macroIdentificationBySeries = new Map(macroShockPayload.records.map((item) => [`${item.driver_id}|${item.transformation}`, item.identification_status]));
 fs.copyFileSync(path.join(canonicalDataDir, "analysis", "analysis_skill_registry.json"), path.join(outDir, "analysis_skill_registry.json"));
+fs.copyFileSync(path.join(canonicalDataDir, "high-frequency", "high_frequency_definition_registry.json"), path.join(outDir, "high_frequency_definition_registry.json"));
+fs.copyFileSync(path.join(canonicalDataDir, "historical-extension-audit", "historical_extension_research_conclusion.json"), path.join(outDir, "historical_extension_research_conclusion.json"));
+fs.copyFileSync(path.join(canonicalDataDir, "historical-extension-audit", "historical_extension_readiness.json"), path.join(outDir, "historical_extension_readiness.json"));
 for (const fileName of macroDriverFiles) fs.copyFileSync(path.join(macroDriverDir, fileName), path.join(outDir, fileName));
 for (const fileName of identifiedShockFiles) fs.copyFileSync(path.join(identifiedShockDir, fileName), path.join(outDir, fileName));
 for (const fileName of localProjectionFiles) fs.copyFileSync(path.join(localProjectionDir, fileName), path.join(outDir, fileName));
@@ -2099,7 +2102,7 @@ const panelJson = name => JSON.parse(fs.readFileSync(path.join(panelLpDir, `${na
 const panelValidation = panelJson("panel_lp_validation_summary");
 const currentReleaseVersion = /^v[\d.]+/.exec(platformRelease.version)?.[0];
 const validationIndex = {
-  schema_version: "analysis-validation-index-v1.82",
+  schema_version: "analysis-validation-index-v1.83",
   platform_version: currentReleaseVersion,
   interpretation: "Additive current-release index; legacy validation artifacts retain their original versions and are not relabelled as panel tests.",
   records: [
@@ -2172,7 +2175,9 @@ writeJson("release_manifest.json", {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.82",
+    analysis_skill_registry: "analysis-skill-registry-v1.83",
+    high_frequency_definition_registry: "high-frequency-definition-registry-v1.83",
+    historical_extension_research_conclusion: "historical-extension-research-conclusion-v1.83",
     panel_lp_path_inference_registry: panelJson("panel_lp_path_inference_registry").schema_version,
     panel_lp_joint_inference_conclusion: panelJson("panel_lp_joint_inference_research_conclusion").schema_version,
     ...Object.fromEntries(Object.entries({panel_lp_method:"panel_lp_method_registry",panel_lp_results:"panel_lp_results",panel_lp_readiness:"panel_lp_readiness_registry",panel_lp_validation:"panel_lp_validation_summary",panel_lp_reference:"panel_lp_reference_manifest",panel_lp_small_sample:"panel_lp_small_sample_method_registry",panel_lp_parameterization:"panel_lp_parameterization_validation",panel_lp_ui_validation:"panel_lp_ui_validation"}).map(([key,file]) => [key,panelJson(file).schema_version])),
@@ -2235,7 +2240,7 @@ writeJson("release_manifest.json", {
   release_validation: {
     stage: `${currentReleaseVersion} release validation`,
     status: "required_after_static_build",
-    gates: ["security_scan", "panel-lp:closure-validate", "export", "research_package", "advanced_validation", "core_validation", "ui_language_qa", "lint", "typecheck", "static_build", "package_checksum", "panel-lp:reference", "panel-lp:validate", "panel-lp:ui-validate", "panel-lp:robustness-validate"],
+    gates: ["security_scan", "baseline-definition:validate", "historical-extension:validate", "historical-extension:closure-validate", "panel-lp:closure-validate", "export", "research_package", "advanced_validation", "core_validation", "ui_language_qa", "lint", "typecheck", "static_build", "package_checksum", "panel-lp:reference", "panel-lp:validate", "panel-lp:ui-validate", "panel-lp:robustness-validate"],
   },
   legacy_validation_summary_v091: validationSummary,
   public_display_boundaries: platformRelease.limitations,
