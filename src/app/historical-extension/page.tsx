@@ -52,7 +52,7 @@ export default function HistoricalExtensionPage() {
     <section className="max-w-5xl py-10">
       <p className="editorial-kicker">03 / Open questions</p>
       <h2 className="mt-3 text-3xl font-semibold">下一步仍需核查</h2>
-      <p className="mt-4 text-sm leading-7 text-[var(--muted)]">最终历史核查仍受阻于波兰工业生产的 LEU→KAU 桥接、罗马尼亚工业生产缺少精确的官方历史起点，以及斯洛伐克、波兰失业率未获解释的定义差异标记。匈牙利失业率从 2011-01、罗马尼亚从 2009-01 的当前修订历史已获得官方依据，但不能弥补其余缺口。八国四指标的 Design A 时间窗仍为空；新的历史 Panel LP 研究需要另行预注册和负责人决定。</p>
+      <p className="mt-4 text-sm leading-7 text-[var(--muted)]">最终历史核查仍受阻于波兰工业生产的 LEU→KAU 桥接、罗马尼亚工业生产缺少精确的官方历史起点，以及斯洛伐克、波兰失业率未获解释的定义差异标记。匈牙利失业率从 2011-01、罗马尼亚从 2009-01 的当前修订历史已获得官方依据，但不能弥补其余缺口。尚无获准的八国四指标历史共同起点；Design A 时间窗仍为空。新的历史 Panel LP 研究需要另行预注册和负责人决定。</p>
       <div className="mt-6 flex flex-wrap gap-4 text-sm font-semibold text-[var(--accent)]"><Link href="/methodology">正式方法与推断边界</Link><a href={`${basePath}/research-data/research-data-v1.82.zip`}>下载研究数据包与审计记录</a><a href="https://ec.europa.eu/eurostat/cache/metadata/en/une_rt_m_esms.htm">Eurostat 失业率元数据</a></div>
     </section>
   </main>;
