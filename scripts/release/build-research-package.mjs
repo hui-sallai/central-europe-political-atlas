@@ -222,6 +222,21 @@ const sourceEntries = [
   ["macro-dynamics/stationarity_results.json", "src/data/macro/stationarity_results.json"],
   ["macro-dynamics/lag_selection_registry.json", "src/data/macro/lag_selection_registry.json"],
   ["macro-dynamics/var_model_registry.json", "src/data/macro/var_model_registry.json"],
+  ["historical-extension/README.md", "docs/historical-monthly-extension-audit.md"],
+  ...[
+    "historical_extension_source_manifest.json",
+    "historical_hicp_extension_audit.json",
+    "historical_ipi_extension_audit.json",
+    "historical_unemployment_extension_audit.json",
+    "historical_yield_extension_audit.json",
+    "historical_country_definition_review.json",
+    "historical_common_sample_matrix.json",
+    "historical_definition_break_registry.json",
+    "historical_extension_support_gain.json",
+    "historical_monetary_regime_registry.json",
+    "historical_macro_regime_context.json",
+    "historical_extension_readiness.json",
+  ].map((name) => [`historical-extension/${name}`, `src/data/historical-extension-audit/${name}`]),
 ];
 for (const [archivePath, sourcePath] of sourceEntries) {
   const file = path.join(root, sourcePath);
@@ -236,7 +251,7 @@ if (fs.existsSync(modelCardsFile)) {
   entries.push({ name: "models/formula_versions.json", data: JSON.stringify(records.map((item) => ({ model_id: item.model_id, model_version: item.model_version, formula_version: item.formula_version, calculation_logic: item.calculation_logic })), null, 2) });
 }
 
-entries.push({ name: "README.md", data: `# Central Europe Political Atlas ${researchPackageLabel()}\n\nThis package preserves public research data, dictionaries, QA records, model and scenario metadata, methodology and release provenance.\n\n- Missing and pending values are not zero.\n- Model outputs are comparative research tools, not forecasts or objective risk truths.\n- Official EA-MPD / EA-EMPD assets are schema-audited and deduplicated.\n- v1.62 shock construction remains frozen and author-reference validated.\n- v1.71 preserves the single-country joint MP/CBI baselines, corrects lag metadata, and adds pointwise HC1 plus validated 95% plug-in sup-t path uncertainty.\n- Fixed-lag, predetermined-control, shock-support, influence, conditioning and cross-country comparability outputs are diagnostics, not replacement baselines.\n- CBI is normalized by 0.25 for display; it is not described as a 25bp tightening.\n- Panel LP, state dependence, SVAR and Bayesian VAR remain unavailable.\n\nCanonical site: https://hy-central-europe-analysis.org/\n` });
+entries.push({ name: "README.md", data: `# Central Europe Political Atlas ${researchPackageLabel()}\n\nThis package preserves public research data, dictionaries, QA records, model and scenario metadata, methodology and release provenance.\n\n- Missing and pending values are not zero.\n- Model outputs are comparative research tools, not forecasts or objective risk truths.\n- Official EA-MPD / EA-EMPD assets are schema-audited and deduplicated.\n- v1.62 shock construction remains frozen and author-reference validated.\n- v1.71 preserves the single-country joint MP/CBI baselines, corrects lag metadata, and adds pointwise HC1 plus validated 95% plug-in sup-t path uncertainty.\n- Fixed-lag, predetermined-control, shock-support, influence, conditioning and cross-country comparability outputs are diagnostics, not replacement baselines.\n- CBI is normalized by 0.25 for display; it is not described as a 25bp tightening.\n- Fixed-eight-country Panel LP pointwise inference is active; whole-path joint inference remains blocked.\n- The historical-extension audit is partial and does not activate historical Panel LP or alter the 2015 baseline.\n- State dependence, SVAR and Bayesian VAR remain unavailable.\n\nCanonical site: https://hy-central-europe-analysis.org/\n` });
 entries.push({ name: "methodology/README.md", data: "Public methodology is available at /methodology/. Technical dictionaries and validation records in this archive are the authoritative downloadable companion to the interface.\n" });
 
 fs.mkdirSync(sourceDir, { recursive: true });

@@ -36,6 +36,7 @@ export default function MethodologyPage() {
       <p className="mt-3 max-w-4xl text-sm leading-7">冻结标准误下的高斯联合临界值约为 2.51–2.92；拟合模型模拟所需的联合临界值约为 3.71–5.18。最佳 bootstrap 联合覆盖约为 90.0%（90% 区间 88.6–91.4%），低于名义 95%。R2 裁决为 NOT CONFIRMED，没有路径获准启用；缩减范围及其负责人确认发生在结果已知之后，仍标记为事后事项。</p>
       <p className="mt-3 max-w-4xl text-sm leading-7">Panel LP 估计、点态推断、组成诊断、time-FE 敏感性和无推断的描述性拟合模型对照继续有效。拟合模型路径默认关闭，不是结构脉冲响应或预测，也不附带区间或推断 p 值。完整研究来源以文件名和 SHA-256 登记在 <a className="text-[var(--accent)] underline" href={`${basePath}/research-data/panel-local-projections/panel_lp_joint_inference_research_conclusion.json`}>联合推断研究结论记录</a>；研究档案中的模拟数组、checkpoint 和 solver 日志不随包公开。</p>
       <p className="mt-3 max-w-4xl text-sm leading-7">重新开启这条研究线需要新的方法依据、事前注册、未使用过的随机种子命名空间和负责人批准，并将新研究保存在独立档案中。可能方向仅作未来研究登记，不是当前待办事项。</p>
+      <p className="mt-3 max-w-4xl text-sm leading-7">另有独立的<Link href="/historical-extension" className="text-[var(--accent)] underline">历史月度数据延伸可行性审计</Link>：它只报告来源、定义和潜在时间支持，状态仍为部分完成，没有重新估计 Panel LP。</p>
     </Section>
     <Section id="analysis-registry" label="Analysis Registry" title="分析方法与当前状态">
       <p className="mt-4 text-sm">方法状态、解释边界与工作台导航共同读取同一份 canonical registry。方法已启用不表示所有数据组合均通过准入。</p>

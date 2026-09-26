@@ -22,6 +22,7 @@ const routes = [
   "models/",
   "scenarios/",
   "methodology/",
+  "historical-extension/",
   "legal/",
   "privacy/",
 ] as const;

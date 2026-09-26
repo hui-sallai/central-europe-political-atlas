@@ -66,6 +66,9 @@ jobs:
           pnpm jk:validate
           pnpm information-effect:validate
 
+      - name: Validate historical-extension audit boundary
+        run: pnpm historical-extension:validate
+
       - name: Export research data
         run: pnpm export:research-data
         env:
