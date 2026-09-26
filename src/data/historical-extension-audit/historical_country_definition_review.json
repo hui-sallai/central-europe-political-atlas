@@ -1,0 +1,358 @@
+{
+  "schema_version": "historical-country-definition-review-v1",
+  "evidence_scope": "official Eurostat metadata and monthly-method annex; no LP estimates",
+  "records": [
+    {
+      "outcome": "hicp",
+      "country": "AT",
+      "documented_comparability_start": "1996-01",
+      "disposition": "cleared_revised_all_items_backseries",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/prc_hicp_esms.htm",
+        "src/data/high-frequency/hicp_migration_manifest.json",
+        "historical_hicp_extension_audit.json"
+      ],
+      "note": "Current ECOICOP-2 all-items back-series used directly; full legacy overlap within 0.05 index point; no splice or rebasing."
+    },
+    {
+      "outcome": "hicp",
+      "country": "DE",
+      "documented_comparability_start": "1996-01",
+      "disposition": "cleared_revised_all_items_backseries",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/prc_hicp_esms.htm",
+        "src/data/high-frequency/hicp_migration_manifest.json",
+        "historical_hicp_extension_audit.json"
+      ],
+      "note": "Current ECOICOP-2 all-items back-series used directly; full legacy overlap within 0.05 index point; no splice or rebasing."
+    },
+    {
+      "outcome": "hicp",
+      "country": "SK",
+      "documented_comparability_start": "1996-12",
+      "disposition": "cleared_revised_all_items_backseries",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/prc_hicp_esms.htm",
+        "src/data/high-frequency/hicp_migration_manifest.json",
+        "historical_hicp_extension_audit.json"
+      ],
+      "note": "Current ECOICOP-2 all-items back-series used directly; full legacy overlap within 0.05 index point; no splice or rebasing."
+    },
+    {
+      "outcome": "hicp",
+      "country": "SI",
+      "documented_comparability_start": "1996-01",
+      "disposition": "cleared_revised_all_items_backseries",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/prc_hicp_esms.htm",
+        "src/data/high-frequency/hicp_migration_manifest.json",
+        "historical_hicp_extension_audit.json"
+      ],
+      "note": "Current ECOICOP-2 all-items back-series used directly; full legacy overlap within 0.05 index point; no splice or rebasing."
+    },
+    {
+      "outcome": "hicp",
+      "country": "CZ",
+      "documented_comparability_start": "1996-01",
+      "disposition": "cleared_revised_all_items_backseries",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/prc_hicp_esms.htm",
+        "src/data/high-frequency/hicp_migration_manifest.json",
+        "historical_hicp_extension_audit.json"
+      ],
+      "note": "Current ECOICOP-2 all-items back-series used directly; full legacy overlap within 0.05 index point; no splice or rebasing."
+    },
+    {
+      "outcome": "hicp",
+      "country": "HU",
+      "documented_comparability_start": "1996-01",
+      "disposition": "cleared_revised_all_items_backseries",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/prc_hicp_esms.htm",
+        "src/data/high-frequency/hicp_migration_manifest.json",
+        "historical_hicp_extension_audit.json"
+      ],
+      "note": "Current ECOICOP-2 all-items back-series used directly; full legacy overlap within 0.05 index point; no splice or rebasing."
+    },
+    {
+      "outcome": "hicp",
+      "country": "PL",
+      "documented_comparability_start": "1996-01",
+      "disposition": "cleared_revised_all_items_backseries",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/prc_hicp_esms.htm",
+        "src/data/high-frequency/hicp_migration_manifest.json",
+        "historical_hicp_extension_audit.json"
+      ],
+      "note": "Current ECOICOP-2 all-items back-series used directly; full legacy overlap within 0.05 index point; no splice or rebasing."
+    },
+    {
+      "outcome": "hicp",
+      "country": "RO",
+      "documented_comparability_start": "1996-01",
+      "disposition": "cleared_revised_all_items_backseries",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/prc_hicp_esms.htm",
+        "src/data/high-frequency/hicp_migration_manifest.json",
+        "historical_hicp_extension_audit.json"
+      ],
+      "note": "Current ECOICOP-2 all-items back-series used directly; full legacy overlap within 0.05 index point; no splice or rebasing."
+    },
+    {
+      "outcome": "ipi",
+      "country": "AT",
+      "documented_comparability_start": "2000-01",
+      "disposition": "cleared_current_revised_nace_rev2_series",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/EN/sts_ind_prod_esms_at.htm"
+      ],
+      "note": "National metadata documents NACE Rev.2 back-series from 2000 and no series break; API has earlier values that are not covered by that claim."
+    },
+    {
+      "outcome": "ipi",
+      "country": "DE",
+      "documented_comparability_start": "1991-01",
+      "disposition": "cleared_current_revised_nace_rev2_series",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/EN/sts_ind_prod_esms_de.htm"
+      ],
+      "note": "National metadata describes consistent whole-Germany series from 1991 with no time-series breaks."
+    },
+    {
+      "outcome": "ipi",
+      "country": "SK",
+      "documented_comparability_start": "2008-01",
+      "disposition": "cleared_current_revised_nace_rev2_series",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/EN/sts_ind_prod_esms_sk.htm"
+      ],
+      "note": "National metadata says time series are comparable from reference year 2008."
+    },
+    {
+      "outcome": "ipi",
+      "country": "SI",
+      "documented_comparability_start": "2000-01",
+      "disposition": "cleared_current_revised_nace_rev2_series",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/EN/sts_ind_prod_esms_si.htm"
+      ],
+      "note": "National metadata describes recalculated comparable series from 2000; API has earlier values not covered by that statement."
+    },
+    {
+      "outcome": "ipi",
+      "country": "CZ",
+      "documented_comparability_start": "2000-01",
+      "disposition": "cleared_current_revised_nace_rev2_series",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/EN/sts_ind_prod_esms_cz.htm"
+      ],
+      "note": "National metadata says relevant monthly series start in 2000."
+    },
+    {
+      "outcome": "ipi",
+      "country": "HU",
+      "documented_comparability_start": "2000-01",
+      "disposition": "cleared_current_revised_nace_rev2_series",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/EN/sts_ind_prod_esms_hu.htm"
+      ],
+      "note": "National metadata says 2000–2008 series were recalculated to the current NACE Rev.2-aligned classification."
+    },
+    {
+      "outcome": "ipi",
+      "country": "PL",
+      "documented_comparability_start": "2000-01",
+      "disposition": "documented_floor_not_full_clearance",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/EN/sts_ind_prod_esms_pl.htm"
+      ],
+      "note": "National metadata gives NACE Rev.2 series from 2000 but notes a 2021 statistical-unit change (LEU to KAU); bridge assessment remains open."
+    },
+    {
+      "outcome": "ipi",
+      "country": "RO",
+      "documented_comparability_start": null,
+      "disposition": "documented_floor_not_full_clearance",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/EN/sts_ind_prod_esms_ro.htm"
+      ],
+      "note": "National metadata only says no major methodological changes over the last 15 years; no precise pre-2015 comparable start is certified."
+    },
+    {
+      "outcome": "unemployment",
+      "country": "AT",
+      "documented_comparability_start": null,
+      "disposition": "historical_break_review_open",
+      "source_mode_in_current_method_annex": "monthly_LFS",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/une_rt_m_esms.htm",
+        "https://ec.europa.eu/eurostat/cache/metadata/Annexes/une_rt_m_esms_an_Sources_and_methods_for_MUR.pdf#page=18"
+      ],
+      "note": "Current methods annex identifies construction, not historical equivalence. API break/definition flags and IESS back-corrections require country-period resolution."
+    },
+    {
+      "outcome": "unemployment",
+      "country": "DE",
+      "documented_comparability_start": null,
+      "disposition": "historical_break_review_open",
+      "source_mode_in_current_method_annex": "monthly_LFS_trend_labelled_SA",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/une_rt_m_esms.htm",
+        "https://ec.europa.eu/eurostat/cache/metadata/Annexes/une_rt_m_esms_an_Sources_and_methods_for_MUR.pdf#page=9"
+      ],
+      "note": "Current methods annex identifies construction, not historical equivalence. API break/definition flags and IESS back-corrections require country-period resolution."
+    },
+    {
+      "outcome": "unemployment",
+      "country": "SK",
+      "documented_comparability_start": null,
+      "disposition": "historical_break_review_open",
+      "source_mode_in_current_method_annex": "quarterly_LFS_benchmarked_registered_counts",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/une_rt_m_esms.htm",
+        "https://ec.europa.eu/eurostat/cache/metadata/Annexes/une_rt_m_esms_an_Sources_and_methods_for_MUR.pdf#page=49"
+      ],
+      "note": "Current methods annex identifies construction, not historical equivalence. API break/definition flags and IESS back-corrections require country-period resolution."
+    },
+    {
+      "outcome": "unemployment",
+      "country": "SI",
+      "documented_comparability_start": null,
+      "disposition": "historical_break_review_open",
+      "source_mode_in_current_method_annex": "quarterly_LFS_benchmarked_registered_counts",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/une_rt_m_esms.htm",
+        "https://ec.europa.eu/eurostat/cache/metadata/Annexes/une_rt_m_esms_an_Sources_and_methods_for_MUR.pdf#page=61"
+      ],
+      "note": "Current methods annex identifies construction, not historical equivalence. API break/definition flags and IESS back-corrections require country-period resolution."
+    },
+    {
+      "outcome": "unemployment",
+      "country": "CZ",
+      "documented_comparability_start": "1993-01",
+      "disposition": "cleared_latest_revised_ilo_series",
+      "source_mode_in_current_method_annex": "monthly_LFS",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/une_rt_m_esms.htm",
+        "https://ec.europa.eu/eurostat/cache/metadata/Annexes/une_rt_m_esms_an_Sources_and_methods_for_MUR.pdf#page=6"
+      ],
+      "note": "Official methods annex states ILO concept from onset; no Eurostat API flags in this series; latest revised series only."
+    },
+    {
+      "outcome": "unemployment",
+      "country": "HU",
+      "documented_comparability_start": null,
+      "disposition": "historical_break_review_open",
+      "source_mode_in_current_method_annex": "monthly_LFS_state_space_from_2023_revised_back_to_2011",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/une_rt_m_esms.htm",
+        "https://ec.europa.eu/eurostat/cache/metadata/Annexes/une_rt_m_esms_an_Sources_and_methods_for_MUR.pdf#page=14"
+      ],
+      "note": "Current methods annex identifies construction, not historical equivalence. API break/definition flags and IESS back-corrections require country-period resolution."
+    },
+    {
+      "outcome": "unemployment",
+      "country": "PL",
+      "documented_comparability_start": null,
+      "disposition": "historical_break_review_open",
+      "source_mode_in_current_method_annex": "quarterly_LFS_benchmarked_registered_counts",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/une_rt_m_esms.htm",
+        "https://ec.europa.eu/eurostat/cache/metadata/Annexes/une_rt_m_esms_an_Sources_and_methods_for_MUR.pdf#page=47"
+      ],
+      "note": "Current methods annex identifies construction, not historical equivalence. API break/definition flags and IESS back-corrections require country-period resolution."
+    },
+    {
+      "outcome": "unemployment",
+      "country": "RO",
+      "documented_comparability_start": null,
+      "disposition": "historical_break_review_open",
+      "source_mode_in_current_method_annex": "monthly_LFS",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/une_rt_m_esms.htm",
+        "https://ec.europa.eu/eurostat/cache/metadata/Annexes/une_rt_m_esms_an_Sources_and_methods_for_MUR.pdf#page=22"
+      ],
+      "note": "Current methods annex identifies construction, not historical equivalence. API break/definition flags and IESS back-corrections require country-period resolution."
+    },
+    {
+      "outcome": "yield",
+      "country": "AT",
+      "documented_comparability_start": "1985-01",
+      "disposition": "harmonised_concept_floor_bond_history_open",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/irt_lt_mcby_esms.htm"
+      ],
+      "note": "Official harmonised MCBY series; country-specific bond basket/source transitions not independently cleared."
+    },
+    {
+      "outcome": "yield",
+      "country": "DE",
+      "documented_comparability_start": "1980-01",
+      "disposition": "harmonised_concept_floor_bond_history_open",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/irt_lt_mcby_esms.htm"
+      ],
+      "note": "Official harmonised MCBY series; country-specific bond basket/source transitions not independently cleared."
+    },
+    {
+      "outcome": "yield",
+      "country": "SK",
+      "documented_comparability_start": "2001-01",
+      "disposition": "harmonised_concept_floor_bond_history_open",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/irt_lt_mcby_esms.htm"
+      ],
+      "note": "Official harmonised MCBY series; country-specific bond basket/source transitions not independently cleared."
+    },
+    {
+      "outcome": "yield",
+      "country": "SI",
+      "documented_comparability_start": "2003-11",
+      "disposition": "harmonised_concept_floor_bond_history_open",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/irt_lt_mcby_esms.htm"
+      ],
+      "note": "Primary-market yields through 2003-10 cannot satisfy registered secondary-market concept."
+    },
+    {
+      "outcome": "yield",
+      "country": "CZ",
+      "documented_comparability_start": "2000-04",
+      "disposition": "harmonised_concept_floor_bond_history_open",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/irt_lt_mcby_esms.htm"
+      ],
+      "note": "Official harmonised MCBY series; country-specific bond basket/source transitions not independently cleared."
+    },
+    {
+      "outcome": "yield",
+      "country": "HU",
+      "documented_comparability_start": "2001-01",
+      "disposition": "harmonised_concept_floor_bond_history_open",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/irt_lt_mcby_esms.htm"
+      ],
+      "note": "Official harmonised MCBY series; country-specific bond basket/source transitions not independently cleared."
+    },
+    {
+      "outcome": "yield",
+      "country": "PL",
+      "documented_comparability_start": "2001-01",
+      "disposition": "harmonised_concept_floor_bond_history_open",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/irt_lt_mcby_esms.htm"
+      ],
+      "note": "Official harmonised MCBY series; country-specific bond basket/source transitions not independently cleared."
+    },
+    {
+      "outcome": "yield",
+      "country": "RO",
+      "documented_comparability_start": "2006-01",
+      "disposition": "harmonised_concept_floor_bond_history_open",
+      "evidence": [
+        "https://ec.europa.eu/eurostat/cache/metadata/en/irt_lt_mcby_esms.htm"
+      ],
+      "note": "Primary-market yields through 2005-12 cannot satisfy registered secondary-market concept."
+    }
+  ]
+}

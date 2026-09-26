@@ -18,6 +18,7 @@ const support = load('historical_extension_support_gain.json');
 
 check(manifest.sources.length === 5, 'expected four official series plus HICP legacy');
 const sourceById = Object.fromEntries(manifest.sources.map((s) => [s.id, s]));
+const compatibleStarts = {};
 const decoded = {};
 for (const source of manifest.sources) {
   check(source.source === 'Eurostat official dissemination API', `non-official source: ${source.id}`);
@@ -44,12 +45,16 @@ for (const source of manifest.sources) {
 
 for (const id of outcomes) {
   const audit = load(`historical_${id}_extension_audit.json`);
+  compatibleStarts[id] = Object.fromEntries(audit.records.map((r) => [r.country, r.earliest_definition_compatible]));
   check(audit.records.length === 8, `country count: ${id}`);
   check(new Set(audit.records.map((r) => r.country)).size === 8 && geos.every((g) => audit.records.some((r) => r.country === g)), `country identity: ${id}`);
   for (const row of audit.records) {
     check(row.source_dataset === sourceById[id].dataset, `series identity: ${id}/${row.country}`);
     check(row.earliest_available <= row.latest && row.latest >= '2025-10', `monthly continuity endpoint: ${id}/${row.country}`);
-    check(row.earliest_definition_compatible === null && row.extension_ready === false, `premature compatibility: ${id}/${row.country}`);
+    if (id === 'hicp') check(row.earliest_definition_compatible === row.earliest_available && row.extension_ready === true && row.overlap_n >= 300 && row.overlap_max_abs_difference <= 0.05000001, `HICP overlap clearance: ${row.country}`);
+    else if (id === 'ipi' && ['AT', 'DE', 'SK', 'SI', 'CZ', 'HU'].includes(row.country)) check(row.extension_ready && row.earliest_definition_compatible !== null, `IPI national metadata clearance: ${row.country}`);
+    else if (id === 'unemployment' && row.country === 'CZ') check(row.extension_ready && row.earliest_definition_compatible === row.earliest_available, 'CZ unemployment ILO clearance');
+    else check(row.earliest_definition_compatible === null && row.extension_ready === false, `premature compatibility: ${id}/${row.country}`);
     check(row.vintage === 'latest_revised_not_real_time', `vintage claim: ${id}/${row.country}`);
   }
 }
@@ -73,12 +78,20 @@ for (const row of matrix.records) {
       check(cell.value_present === (official.value != null) && cell.eurostat_flag === official.flag, `raw/matrix mismatch: ${row.period}/${id}/${geo}`);
       check(['available', 'missing', 'definition_incompatible', 'break_affected', 'pending_review'].includes(cell.status), `unknown status: ${row.period}/${id}/${geo}`);
       check(cell.status !== 'missing' || !cell.value_present, `missing treated as zero: ${row.period}/${id}/${geo}`);
-      check(row.period >= '2015-01' || cell.status !== 'available', `uncleared pre-2015 value: ${row.period}/${id}/${geo}`);
+      check(row.period >= '2015-01' || cell.status !== 'available' || (compatibleStarts[id][geo] !== null && row.period >= compatibleStarts[id][geo]), `uncleared pre-2015 value: ${row.period}/${id}/${geo}`);
     }
     check(outcome.outcome_common_month === geos.every((g) => outcome.countries[g].status === 'available'), `outcome common-month mismatch: ${row.period}/${id}`);
   }
   check(row.all_four_outcomes_common_month === outcomes.every((id) => row.outcomes[id].outcome_common_month), `all-four common-month mismatch: ${row.period}`);
 }
+const review = load('historical_country_definition_review.json');
+check(review.records.length === 32, 'country-definition review must cover 8 x 4 cells');
+check(review.records.filter((r) => r.outcome === 'hicp' && r.disposition === 'cleared_revised_all_items_backseries').length === 8, 'HICP review clearance mismatch');
+check(review.records.filter((r) => r.outcome === 'ipi' && r.disposition === 'cleared_current_revised_nace_rev2_series').length === 6, 'IPI review clearance count');
+check(review.records.find((r) => r.outcome === 'unemployment' && r.country === 'CZ').disposition === 'cleared_latest_revised_ilo_series', 'CZ unemployment review status');
+check(review.records.find((r) => r.outcome === 'ipi' && r.country === 'SK').documented_comparability_start === '2008-01', 'Slovakia IPI comparability floor');
+check(review.records.find((r) => r.outcome === 'yield' && r.country === 'RO').documented_comparability_start === '2006-01', 'Romania yield concept floor');
+check(matrix.definition_compatible_pre_2015_common_starts.hicp === '1996-12' && matrix.definition_compatible_pre_2015_common_starts.all_four === null, 'historical common-start gate');
 
 const mp = JSON.parse(fs.readFileSync(path.join(root, 'src/data/identified-shocks/ecb_pure_monetary_policy_shock_monthly.json')));
 const cbi = JSON.parse(fs.readFileSync(path.join(root, 'src/data/identified-shocks/ecb_central_bank_information_shock_monthly.json')));
