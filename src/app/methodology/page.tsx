@@ -8,7 +8,7 @@ import { getResearchPackageFilename, platformApaCitation, platformBibtexCitation
 
 export const metadata: Metadata = { title: "研究方法", description: "数据、模型、事件、空间、验证和引用规则。" };
 
-const sections = [["data", "Data"], ["models", "Analysis"], ["events", "Events"], ["macro-drivers", "Macro Drivers"], ["spatial", "Spatial"], ["validation", "Validation"], ["citation", "Citation"]] as const;
+const sections = [["data", "Data"], ["panel-lp-whole-path-inference", "Panel LP whole-path boundary"], ["models", "Analysis"], ["events", "Events"], ["macro-drivers", "Macro Drivers"], ["spatial", "Spatial"], ["validation", "Validation"], ["citation", "Citation"]] as const;
 
 function Section({ id, label, title, children }: { id: string; label: string; title: string; children: React.ReactNode }) {
   return <section id={id} className="scroll-mt-24 border-t border-[var(--line)] py-10"><p className="editorial-kicker">{label}</p><h2 className="mt-3 text-3xl font-semibold">{title}</h2>{children}</section>;
@@ -24,11 +24,18 @@ export default function MethodologyPage() {
     <Section id="panel-local-projections" label="Aggregate-Shock Panel LP" title="共同冲击、时间聚类与组间异质性">
       <p className="mt-4 text-sm leading-7">v1.81 保持等国家权重的正式平衡八国面板不变。逐一删去一国仅作固定组成诊断，保留基准各预测期月份日历和冲击支持；3 对 4 或 4 对 3 的对比编码为欧元组 +n_N/N、非欧元组 −n_E/N，横截面均值为零且两组编码之差为一。</p>
       <p className="mt-3 text-sm leading-7">LOCO 范围不是置信区间，不计算国家 jackknife 标准误，不表示某国因果贡献。报告 h=0–6、7–12、13–24 的绝对变化及符号、95% 点态含零分类一致率；基准绝对值小于 max(10⁻¹⁰, 0.1×基准标准误) 时不报告相对变化，该规则仅避免不稳定比例，不是稳健性判定阈值。</p>
-      <p className="mt-3 text-sm leading-7">基准与 time-FE 的含零分类不同称为“规格敏感”，不自动宣布结果无效，也不替换国家固定效应基准。整条路径相关系数只是描述统计，不是路径显著性检验；未来需单独验证跨预测期时间聚类协方差、模拟及独立参考实现。</p>
+      <p className="mt-3 text-sm leading-7">基准与 time-FE 的含零分类不同称为“规格敏感”，不自动宣布结果无效，也不替换国家固定效应基准。整条路径相关系数只是描述统计，不是路径显著性检验；跨预测期联合推断研究已按 v1.82 正式结案，当前不发布联合带或全路径检验。</p>
       <p className="mt-4 text-sm leading-7">Panel LP 采用独立离线实现，依据 Almuzara–Sancibrián 的 t-LAHR 方法，联合估计冻结的 JK MP 与 CBI。主设计使用国家固定效应、滞后增广和按月份聚类的得分协方差；HICP 加入 11 个月份季节项，不加入会吸收共同冲击的完整时间固定效应。</p>
       <p className="mt-3 text-sm leading-7">固定欧元组为 AT、DE、SK、SI，固定非欧元组为 CZ、HU、PL、RO。8 国不等于 8 次独立冲击；面板行数不等于独立冲击观测数；时间聚类不等于国家聚类。两组都不代表其所在整个地区，面板估计也不是单国 LP 结果的简单平均。</p>
-      <p className="mt-3 text-sm leading-7">每期直接检验欧元组减非欧元组的差异，只提供点态区间，不作整条路径显著不同的结论。国家加时间固定效应的对比项回归仅作为组间差异敏感性分析。IK 小样本修正、面板同时置信带和国家对国家正式检验保持 registry_only。</p>
+      <p className="mt-3 text-sm leading-7">每期直接检验欧元组减非欧元组的差异，只提供点态区间，不作整条路径显著不同的结论。国家加时间固定效应的对比项回归仅作为组间差异敏感性分析。面板跨预测期联合置信带已研究但未达到 95% 联合覆盖门槛，当前被阻断；IK 小样本修正和国家对国家正式检验保持 registry_only。</p>
       <p className="mt-3 text-sm leading-7">克罗地亚因 2023 年加入欧元的制度断点排除；塞尔维亚因共同月度覆盖不足排除。固定 8 国不得因缺测改为 7 国；每期至少 96 个有效月份，预测期从 24 个月依次尝试 18、12、6，缩短必须公开说明。</p>
+    </Section>
+    <Section id="panel-lp-whole-path-inference" label="Panel LP / v1.82" title="Panel LP Whole-Path Inference Research Outcome">
+      <p className="mt-4 max-w-4xl text-sm leading-7">逐期（点态）区间回答某一个预测期的响应范围；把整条 0–24 个月路径作为一个整体判断，需要联合置信带并控制整条路径的覆盖。本页只提供已验证的逐期区间，点态区间不能合起来当整条路径置信带。</p>
+      <p className="mt-3 max-w-4xl text-sm leading-7">跨预测期联合推断已经研究，但当前验证程序未达到 95% 联合覆盖门槛，因此不发布联合置信带，也不提供全路径显著性检验。这是当前固定八国 Panel LP、当前研究程序及已完成验证范围内的结论，不表示联合推断在数学上不可能。</p>
+      <p className="mt-3 max-w-4xl text-sm leading-7">冻结标准误下的高斯联合临界值约为 2.51–2.92；拟合模型模拟所需的联合临界值约为 3.71–5.18。最佳 bootstrap 联合覆盖约为 90.0%（90% 区间 88.6–91.4%），低于名义 95%。R2 裁决为 NOT CONFIRMED，没有路径获准启用；缩减范围及其负责人确认发生在结果已知之后，仍标记为事后事项。</p>
+      <p className="mt-3 max-w-4xl text-sm leading-7">Panel LP 估计、点态推断、组成诊断、time-FE 敏感性和无推断的描述性拟合模型对照继续有效。拟合模型路径默认关闭，不是结构脉冲响应或预测，也不附带区间或推断 p 值。完整研究来源以文件名和 SHA-256 登记在 <a className="text-[var(--accent)] underline" href={`${basePath}/research-data/panel-local-projections/panel_lp_joint_inference_research_conclusion.json`}>联合推断研究结论记录</a>；研究档案中的模拟数组、checkpoint 和 solver 日志不随包公开。</p>
+      <p className="mt-3 max-w-4xl text-sm leading-7">重新开启这条研究线需要新的方法依据、事前注册、未使用过的随机种子命名空间和负责人批准，并将新研究保存在独立档案中。可能方向仅作未来研究登记，不是当前待办事项。</p>
     </Section>
     <Section id="analysis-registry" label="Analysis Registry" title="分析方法与当前状态">
       <p className="mt-4 text-sm">方法状态、解释边界与工作台导航共同读取同一份 canonical registry。方法已启用不表示所有数据组合均通过准入。</p>

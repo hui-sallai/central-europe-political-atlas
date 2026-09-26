@@ -46,7 +46,9 @@ jobs:
         run: python -m pip install -r scripts/validation/requirements-lp-reference.txt
 
       - name: Verify canonical registry and frozen outputs
-        run: pnpm analysis-registry:validate
+        run: |
+          pnpm panel-lp:closure-validate:pre-export
+          pnpm analysis-registry:validate
 
       - name: Validate frozen Local Projections
         run: pnpm lp:validate
@@ -68,6 +70,7 @@ jobs:
         run: pnpm export:research-data
         env:
           RELEASE_COMMIT_SHA: ${{ github.sha }}
+          REUSE_FROZEN_RESEARCH_OUTPUTS: "1"
 
       - name: Build versioned research package
         run: |

@@ -1,9 +1,49 @@
 {
-  "schema_version": "panel-lp-path-inference-registry-v1.81",
-  "state": "registry_only",
-  "required_work": [
-    "joint cross-horizon time-clustered covariance",
-    "simulation validation",
-    "reference / independent implementation"
-  ]
+  "schema_version": "panel-lp-path-inference-registry-v1.82",
+  "state": "blocked",
+  "decision": "closed_current_research_program",
+  "decision_date": "2026-09-26",
+  "owner_decision": "The project owner closed the current whole-path inference research program after R2; no path is activated.",
+  "reason": "coverage_validation_failed_current_research_program",
+  "research_program": {
+    "status": "closed_current_research_program",
+    "scope": "fixed_eight_country_panel_lp_current_model_and_validated_procedure_family",
+    "conclusion": "No tested procedure met the registered 95% joint-coverage requirement within the completed validation scope.",
+    "not_a_claim": "This does not establish that joint inference is mathematically impossible."
+  },
+  "nominal_coverage": 0.95,
+  "best_observed_joint_coverage": 0.9002719109838316,
+  "best_observed_joint_coverage_interval": {
+    "level": 0.90,
+    "lower": 0.8861683580336781,
+    "upper": 0.9143754639339852
+  },
+  "frozen_gaussian_critical_range": [2.5060289885779143, 2.915301566389005],
+  "simulation_required_critical_range": [3.7058536798915216, 5.1767351834092885],
+  "r2_verdict": "NOT CONFIRMED",
+  "activated_paths": 0,
+  "research_closed": true,
+  "reopen_requires_new_preregistration": true,
+  "reopen_requires_unused_seeds": true,
+  "reopen_requires_owner_approval": true,
+  "public_joint_bands": false,
+  "public_global_path_test": false,
+  "archive_only_outputs": [
+    "r2-display-bands-research-only.json",
+    "bootstrap simultaneous-band research outputs",
+    "Gaussian simultaneous-band research outputs",
+    "R2 research-use real-data bands"
+  ],
+  "preserved_active_capabilities": [
+    "Panel LP estimation",
+    "pointwise inference",
+    "composition robustness diagnostics",
+    "time-FE sensitivity",
+    "descriptive fitted-model comparison without inference"
+  ],
+  "other_unavailable_methods": {
+    "IK_small_sample_refinement": "registry_only",
+    "country_pair_formal_tests": "registry_only"
+  },
+  "public_reference": "research-data/panel-local-projections/panel_lp_joint_inference_research_conclusion.json"
 }

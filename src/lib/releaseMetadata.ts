@@ -23,15 +23,17 @@ export const platformRelease = {
   transparent_models: 4,
   scenarios: 4,
   validation_status: "active",
-  data_schema_versions: ["data-foundation-v0.76", "regional-data-v0.89", "model-scenario-validation-v0.91", "panel-observations-v1.2", "trade-network-v1.3", "comparison-gates-v1.25", "panel-inference-v1.25", "high-frequency-v1.31", "event-window-v1.31", "transformation-registry-v1.41", "seasonal-adf-critical-values-v1.44", "var-engine-v1.44", "macro-driver-observations-v1.51", "monetary-policy-event-observations-v1.6", "shock-identification-registry-v1.62", "information-effect-separation-validation-v1.62", "lp-readiness-registry-v1.72", "lp-results-v1.71", "lp-validation-summary-v1.71", "lp-inference-registry-v1.71", "lp-model-diagnostic-summary-v1.71"],
+  data_schema_versions: ["data-foundation-v0.76", "regional-data-v0.89", "model-scenario-validation-v0.91", "panel-observations-v1.2", "trade-network-v1.3", "comparison-gates-v1.25", "panel-inference-v1.25", "high-frequency-v1.31", "event-window-v1.31", "transformation-registry-v1.41", "seasonal-adf-critical-values-v1.44", "var-engine-v1.44", "macro-driver-observations-v1.51", "monetary-policy-event-observations-v1.6", "shock-identification-registry-v1.62", "information-effect-separation-validation-v1.62", "lp-readiness-registry-v1.72", "lp-results-v1.71", "lp-validation-summary-v1.71", "lp-inference-registry-v1.71", "lp-model-diagnostic-summary-v1.71", "analysis-skill-registry-v1.82", "panel-lp-model-comparison-v1", "panel-lp-path-inference-registry-v1.82", "panel-lp-joint-inference-research-conclusion-v1.82"],
   limitations: [
     "No election forecasts, investment advice, probability forecasts, or causal claims outside the preregistered identified-shock Local Projection profile.",
     "Serbia regional comparison remains pending while national data remain available.",
     "China Economic Exposure and China-linked Project Disruption remain subject to their published evidence gates.",
+    "Fixed-eight-country Panel LP publishes pointwise inference only; whole-path simultaneous inference was studied and remains blocked after the current program did not confirm 95% joint coverage.",
   ],
 } as const;
 
 export const releaseChangelog = [
+  ["v1.82 Panel Joint-Inference Research Closure & Method Boundary Hardening", "Recorded the completed fixed-eight-country whole-path inference research conclusion and kept all Panel paths inactive after the R2 NOT CONFIRMED verdict.", "Published the critical-value and coverage summary with provenance hashes while preserving pointwise inference, composition/time-FE diagnostics and the descriptive fitted-model overlay.", "No new inferential capability; reopening requires new rationale, preregistration, unused seed namespace and owner approval."],
   ["v0.30 Data Foundation", "Separated countries, indicators, observations and sources into canonical research records.", "Introduced stable record identifiers and source/status fields.", "No breaking public-route change."],
   ["v0.35 Event Database", "Converted the news layer into a coded political economy event library.", "Events remain explanatory records and do not directly change scores.", "UI label changed from News to Events; /news remains stable."],
   ["v0.40 China Projects", "Standardized China-related project verification and project-to-indicator links.", "Unverified amounts remain missing; evidence gates control quantification.", "No China Exposure score was enabled."],

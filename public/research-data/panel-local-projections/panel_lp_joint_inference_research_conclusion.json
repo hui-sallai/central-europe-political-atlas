@@ -1,0 +1,174 @@
+{
+  "schema_version": "panel-lp-joint-inference-research-conclusion-v1.82",
+  "artifact_role": "research_conclusion_summary_not_inference_output",
+  "study_period": "2026-09-25/26",
+  "owner_decision_date": "2026-09-26",
+  "research_question": "Does a validated procedure provide 95% simultaneous coverage for all horizons of the fixed-eight-country Panel LP paths under the completed research program?",
+  "scope": {
+    "panel": "fixed_eight_country_panel_lp",
+    "horizons": "0-24 months",
+    "current_research_program": "current fitted dynamic model and tested Gaussian/bootstrap/studentization procedure family",
+    "general_impossibility_claim": false
+  },
+  "formal_baseline_reference": {
+    "status": "frozen_active_pointwise_baseline",
+    "panel_lp_results_sha256": "10e7b4f8761523e7b136b9707ac87da1d753a5914e0d11a3f8b980571ab53bdc",
+    "v1_8_formal_baseline_sha256": "fc49e0d559266aea6600bceed2009d4246d4bc426da4f081cc4f08e4c5ef26d0",
+    "v1_81_composition_and_time_fe_outputs": "retained_unchanged"
+  },
+  "v1_81_output_sha256": {
+    "panel_lp_baseline_invariance_manifest.json": "98e7b7f8cd2983277ca696917a0d51d51741ae573476660bbff8f1fb76e9751f",
+    "panel_lp_composition_robustness_summary.json": "f193e3abd130146428f3524b45b77c3da81ce08a8e9edc57070ce828f591d517",
+    "panel_lp_country_influence.json": "19edf914e7cb10f84c7e510a630c68b083d2d3f36764beb3ce99b76c23d93646",
+    "panel_lp_leave_one_country_out.json": "d30cee8ac121a83d39f1953a8b8394d8f4ce284e1045c8e96ca7e3548a683250",
+    "panel_lp_time_fe_sensitivity_summary.json": "3518b401e29c2757cdf6fe2805a8823826e259877cfb5374618525c69f191652",
+    "panel_lp_model_comparison.json": "0c6e13675c44533d8e48cc2f2d63500d7a3319afa18e0d7717eac0e02416fff1"
+  },
+  "methods_attempted": [
+    {
+      "method": "Frozen-standard-error Gaussian max-t joint critical values",
+      "critical_value_range": [2.5060289885779143, 2.915301566389005],
+      "status": "not_activated"
+    },
+    {
+      "method": "Fitted GVAR-type joint model residual bootstrap-t pathwise simultaneous bands",
+      "simulation_required_critical_value_range": [3.7058536798915216, 5.1767351834092885],
+      "status": "not_confirmed"
+    },
+    {
+      "method": "R2 reduced-scope per-path bootstrap-t confirmation with post-hoc family-wise applicability gate",
+      "status": "not_confirmed_no_path_activated"
+    }
+  ],
+  "best_method": "GVAR-type joint model residual bootstrap-t pathwise simultaneous band; best observed pooled result remains below nominal coverage and is not activated.",
+  "coverage_target": 0.95,
+  "coverage_result": 0.9002719109838316,
+  "coverage_interval": {
+    "level": 0.90,
+    "lower": 0.8861683580336781,
+    "upper": 0.9143754639339852
+  },
+  "critical_value_comparison": {
+    "frozen_gaussian_range": [2.5060289885779143, 2.915301566389005],
+    "fitted_simulation_required_range": [3.7058536798915216, 5.1767351834092885]
+  },
+  "r2_outcome_summary": {
+    "verdict": "NOT CONFIRMED",
+    "activated_paths": 0,
+    "minimum_covered_count_for_250": 238,
+    "outcomes": [
+      {
+        "outcome": "HICP",
+        "outer_panels_completed": 150,
+        "stop": "invalid_stop_at_registered_futility_boundary",
+        "eligible_path_coverage_range": [0.868, 0.907],
+        "result_gate": 0.892,
+        "activated": false
+      },
+      {
+        "outcome": "Unemployment",
+        "outer_panels_completed": 148,
+        "available": 135,
+        "unavailable": 13,
+        "stop": "solver_availability_curtailment",
+        "eligible_path_coverage_range": [0.838, 0.872],
+        "result_gate": 0.856,
+        "activated": false
+      },
+      {
+        "outcome": "Industrial Production",
+        "outer_panels_completed": 250,
+        "eligible_path_coverage_range": [0.916, 0.928],
+        "all_six_paths_coverage_range": [0.916, 0.944],
+        "result_gate": 0.921,
+        "activated": false
+      },
+      {
+        "outcome": "Long-Term Yield",
+        "outer_panels_completed": 250,
+        "eligible_path_coverage_range": [0.896, 0.948],
+        "all_six_paths_coverage_range": [0.896, 0.956],
+        "result_gate": 0.927,
+        "activated": false
+      }
+    ],
+    "pooled_secondary_endpoint": {
+      "coverage": 0.9002719109838316,
+      "interval_level": 0.90,
+      "interval": [0.8861683580336781, 0.9143754639339852],
+      "established": false
+    },
+    "cn_lookup_review": "The locked c(n) lookup covers n=150-250; at unemployment n=148 the analysis returned no value while independent review computed 142. This post-hoc review discrepancy does not change any activation decision or the NOT CONFIRMED verdict."
+  },
+  "solver_limitations": [
+    "HICP stopped at the registered invalid-stop boundary after 150 completed outer panels.",
+    "Unemployment ended at 148 outer panels with 13 unavailable solver fits.",
+    "Across R2 there were 17 unavailable fits: 15 Newton iteration-limit and 2 Newton-budget cases; unavailable results counted against coverage.",
+    "Convergence and numerical availability were evaluated separately from statistical coverage."
+  ],
+  "model_fit_limitations": [
+    "The fitted GVAR-type ARX13 model did not reproduce the Industrial Production monetary-policy group-difference path at horizons about 18-21; the gap is about 3.9 frozen standard errors.",
+    "The fit is a descriptive population-projection comparison, not a structural impulse response or forecast.",
+    "Model applicability and coverage adequacy are separate gates."
+  ],
+  "post_hoc_decisions": [
+    "R2 used 250 outer panels per outcome instead of the original 10000-per-design target.",
+    "R2 used a one-sided per-path rule u=.92, an outcome guard .935 and partial activation instead of the original two-sided [.935,.965] rule.",
+    "Null-difference size and power designs were omitted; difference paths were ineligible.",
+    "The t5, seasonal-dependence and heterogeneous-dynamics stress designs were not tested.",
+    "Independent second bootstrap implementation was replaced by independent recomputation of stored statistics plus a determinism rerun.",
+    "Fresh-seed solver validation was replaced by availability measured during confirmation, with unavailable fits counted as non-coverage.",
+    "B=999 and solver v4 were retained after the S4 pilot; these were post-hoc scope choices.",
+    "The .90 futility threshold, difference-path ineligibility and Industrial Production MP adequacy warning were set after S4 results were observed.",
+    "The per-outcome family-wise calibrated applicability gate was post hoc."
+  ],
+  "research_discipline": {
+    "owner_decisions_recorded": true,
+    "post_hoc_changes_labelled": true,
+    "failed_designs_retained": true,
+    "outcomes_or_countries_removed_to_obtain_passage": false,
+    "solver_convergence_separated_from_coverage": true,
+    "model_applicability_separated_from_coverage": true,
+    "r2_is_equivalent_to_c4_standard": false
+  },
+  "final_verdict": "NOT CONFIRMED",
+  "public_release_decision": {
+    "panel_estimation": "active",
+    "pointwise_inference": "active",
+    "composition_robustness": "active",
+    "time_fe_sensitivity": "active",
+    "descriptive_fitted_model_comparison": "active_without_inference",
+    "simultaneous_whole_path_inference": "blocked",
+    "global_whole_path_significance_test": "blocked",
+    "joint_bands_public": false,
+    "global_path_test_public": false
+  },
+  "future_reopening_conditions": [
+    "Cite the R2 NOT CONFIRMED result and the current closure decision.",
+    "Provide a new methodological rationale.",
+    "Register a new preregistration before research begins.",
+    "Use an unused seed namespace.",
+    "Obtain explicit project-owner approval.",
+    "Store reopened research in separate research files."
+  ],
+  "possible_research_directions_not_backlog": [
+    "bootstrap-after-bootstrap persistence correction",
+    "double-bootstrap nominal calibration",
+    "independently justified alternative calibrated critical-value approach",
+    "another independently justified inference framework"
+  ],
+  "provenance": [
+    {"file_name":"gvar-realdata-results.json","sha256":"ad50c6bc65db843872b70d151a2123a2a59ae356cacf5f93951d138d6f55ac8f","role":"GVAR real-data applicability and model fit audit","archive_location":"restricted_research_archive_not_redistributed"},
+    {"file_name":"realdata-fit-results.json","sha256":"f9c37c8bc8c59f7d5fab97cd5047c91e2fcba5785ed9b006ef9c65de137add71","role":"real-data fit diagnostics and applicability gate","archive_location":"restricted_research_archive_not_redistributed"},
+    {"file_name":"gate-revision-familywise.json","sha256":"9986d61361d1df414864de1adb91994806aad6f4527d6aea8b230d162fdc6f21","role":"post-hoc family-wise applicability gate","archive_location":"restricted_research_archive_not_redistributed"},
+    {"file_name":"r2-analysis-results.json","sha256":"a978cd365b6e192ece2455af27eaf50460593185b0372f75b256f7a0ab3b507c","role":"R2 outcome coverage, availability and pooled endpoint results","archive_location":"restricted_research_archive_not_redistributed"},
+    {"file_name":"r2-final-verdict.json","sha256":"ae0a51c0ebfc16ecea7147d2ef41e1ff50c80de557b1d82f957b127a31b9f9ae","role":"R2 activation decisions and NOT CONFIRMED verdict","archive_location":"restricted_research_archive_not_redistributed"},
+    {"file_name":"studentizer-results.json","sha256":"c8c9e9d152506017b7153daff0d9c5a4f73b9b90e3470436662e99c4854b135a","role":"studentizer assessment","archive_location":"restricted_research_archive_not_redistributed"},
+    {"file_name":"workbench-model-build.py","sha256":"1702e13c546a08f3bef003aa2eb3a74ce88abc53ae8f36d0e5b8c666455a5a8e","role":"frozen-data descriptive model comparison builder","archive_location":"restricted_research_archive_not_redistributed"},
+    {"file_name":"r2-report.md","sha256":"df58b1cb25c98bed2695b401e87b3c9cff3e55cf204e580b9153c22a3cf76e03","role":"human-readable R2 research report","archive_location":"restricted_research_archive_not_redistributed"},
+    {"file_name":"r2-owner-confirmation.md","sha256":"f139b0c7d465a14f779cf5bc0a08e5f9364e1fb5cfb45057817436b7bcbb011e","role":"owner confirmation of post-hoc reduced scope","archive_location":"restricted_research_archive_not_redistributed"},
+    {"file_name":"r2-preregistration.md","sha256":"78ccd6c7ff89a850fb1f6dd246359036c7e6a9ad273f89cf0dd89cfea5e0e58d","role":"R2 preregistration and correction record","archive_location":"restricted_research_archive_not_redistributed"},
+    {"file_name":"r2-L1-lock.json","sha256":"d21a243fd23b42a49d22e1fb985c10b01fd137be99feb714fe7a4534ae740109","role":"locked R2 critical-value and method configuration","archive_location":"restricted_research_archive_not_redistributed"}
+  ],
+  "public_reference": "research-data/panel-local-projections/panel_lp_joint_inference_research_conclusion.json"
+}

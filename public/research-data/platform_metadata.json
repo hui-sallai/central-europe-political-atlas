@@ -1,9 +1,9 @@
 {
   "name": "Central Europe Political Atlas",
-  "version": "v1.81 Panel LP Composition & Publication Robustness",
-  "release_date": "2026-09-14",
-  "stage": "Fixed-eight-country joint-shock panel LP with time-clustered pointwise group inference; single-country outputs remain frozen",
-  "schema_version": "release-metadata-v1.81",
+  "version": "v1.82 Panel Joint-Inference Research Closure & Method Boundary Hardening",
+  "release_date": "2026-09-26",
+  "stage": "Fixed-eight-country Panel LP with active pointwise inference, composition and specification diagnostics, descriptive fitted-model comparison, and closed non-activated whole-path inference research",
+  "schema_version": "release-metadata-v1.82",
   "canonical_url": "https://hy-central-europe-analysis.org/",
   "public_contact_email": "sallaizhang@outlook.com",
   "legal_notice_updated": "2026-08-20",
@@ -33,14 +33,19 @@
     "lp-results-v1.71",
     "lp-validation-summary-v1.71",
     "lp-inference-registry-v1.71",
-    "lp-model-diagnostic-summary-v1.71"
+    "lp-model-diagnostic-summary-v1.71",
+    "analysis-skill-registry-v1.82",
+    "panel-lp-model-comparison-v1",
+    "panel-lp-path-inference-registry-v1.82",
+    "panel-lp-joint-inference-research-conclusion-v1.82"
   ],
   "limitations": [
     "No election forecasts, investment advice, probability forecasts, or causal claims outside the preregistered identified-shock Local Projection profile.",
     "Serbia regional comparison remains pending while national data remain available.",
-    "China Economic Exposure and China-linked Project Disruption remain subject to their published evidence gates."
+    "China Economic Exposure and China-linked Project Disruption remain subject to their published evidence gates.",
+    "Fixed-eight-country Panel LP publishes pointwise inference only; whole-path simultaneous inference was studied and remains blocked after the current program did not confirm 95% joint coverage."
   ],
-  "citation": "Central Europe Political Atlas, version v1.81 Panel LP Composition & Publication Robustness, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
+  "citation": "Central Europe Political Atlas, version v1.82 Panel Joint-Inference Research Closure & Method Boundary Hardening, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
   "data_status_enum": [
     "official",
     "verified",

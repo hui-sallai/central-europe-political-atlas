@@ -3,10 +3,13 @@ import crypto from "node:crypto";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { researchPackageFilename, researchPackageLabel } from "./research-package-name.mjs";
+import { validatePanelClosure } from "../panel-local-projections/closure-validation.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const sourceDir = path.join(root, "public", "research-data");
 const outputFile = path.join(sourceDir, researchPackageFilename());
+const closureFailures = validatePanelClosure({ root, preExport: false });
+if (closureFailures.length) throw new Error(`Panel LP closure gate failed before package build:\n${closureFailures.join("\n")}`);
 
 const groups = {
   data: ["observations.json", "observations.csv", "comparison_eligibility.json", "transmission_channels.json"],

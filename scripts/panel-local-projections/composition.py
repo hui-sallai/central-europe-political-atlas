@@ -225,7 +225,11 @@ def main():
              "minimum": min(v["LOCO_difference"] for v in rows if v["status"] == "valid" and (v["outcome"],v["shock"],v["horizon"]) == (path["outcome"],path["shock"],r["horizon"])),
              "maximum": max(v["LOCO_difference"] for v in rows if v["status"] == "valid" and (v["outcome"],v["shock"],v["horizon"]) == (path["outcome"],path["shock"],r["horizon"]))} for r in path["records"]]})
     emit("panel_lp_composition_ui_data", envelope="diagnostic range, not confidence interval", records=ui)
-    emit("panel_lp_path_inference_registry", state="registry_only", required_work=["joint cross-horizon time-clustered covariance", "simulation validation", "reference / independent implementation"])
+    # v1.82 closes the whole-path research program. Composition diagnostics may
+    # be regenerated independently, but must never downgrade this decision.
+    path_registry = read("panel_lp_path_inference_registry")
+    assert path_registry["schema_version"] == "panel-lp-path-inference-registry-v1.82"
+    assert path_registry["state"] == "blocked" and path_registry["research_closed"] is True
     assert (ROOT/RESULT).read_bytes() == anchor_bytes
 
 

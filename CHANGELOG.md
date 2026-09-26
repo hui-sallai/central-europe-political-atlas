@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.82 Panel Joint-Inference Research Closure & Method Boundary Hardening — 2026-09-26
+
+- Closes the current fixed-eight-country whole-path inference research program after the R2 verdict `NOT CONFIRMED`; no Panel simultaneous band or global path test is activated.
+- Records the pooled secondary best bootstrap coverage of 0.900 (90% interval 0.886–0.914) against nominal 0.95, and the frozen-Gaussian versus fitted-simulation critical-value ranges, with private research provenance represented by filenames and SHA-256 only.
+- Keeps Panel LP estimation, pointwise inference, composition and time-FE diagnostics, and descriptive fitted-model comparison active. The fitted path remains optional, descriptive, and without confidence intervals or inferential p-values.
+- Preserves the v1.8 formal Panel LP outputs and v1.81 robustness outputs. This release formalizes a negative research result and adds no inferential capability.
+- Future reopening requires a new methodological rationale, preregistration, unused seed namespace, owner approval, and separate research files; possible directions are not backlog work.
+
 ## v1.81 Panel LP Composition & Publication Robustness — 2026-09-14
 
 - Preserves the complete v1.8 formal results and estimator bytes, anchored to e18ecca; preserves the 86 v1.73 frozen artifacts and single-country LP outputs.

@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import ts from "typescript";
+import { validatePanelClosure } from "./panel-local-projections/closure-validation.mjs";
 
 const require = createRequire(import.meta.url);
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -18,6 +19,9 @@ const eventLibraryUpdatedAt = "2026-08-20";
 const macroDriverDir = path.join(canonicalDataDir, "macro-drivers");
 const identifiedShockDir = path.join(canonicalDataDir, "identified-shocks");
 const localProjectionDir = path.join(canonicalDataDir, "local-projections");
+const reuseFrozenResearchOutputs = process.env.REUSE_FROZEN_RESEARCH_OUTPUTS === "1";
+const closureFailures = validatePanelClosure({ root: projectRoot, preExport: true });
+if (closureFailures.length) throw new Error(`Panel LP closure gate failed before export:\n${closureFailures.join("\n")}`);
 const advancedValidationSummaryPath = path.join(canonicalDataDir, "analysis", "advanced_analysis_validation_summary.json");
 const macroDriverFiles = [
   "macro_driver_observations.json",
@@ -79,23 +83,21 @@ const localProjectionFiles = [
   "lp_shock_support_diagnostics.json", "lp_influence_diagnostics.json", "lp_cross_country_comparability.json", "lp_model_diagnostic_summary.json",
 ];
 
-execFileSync(process.execPath, [path.join(projectRoot, "scripts", "build-spatial-data-v087.mjs")], {
-  cwd: projectRoot,
-  stdio: "inherit",
-});
 const frozenAnalysis = JSON.parse(fs.readFileSync(path.join(canonicalDataDir, "analysis", "analysis_skill_registry.json"), "utf8")).frozen_output_reference;
-if (!frozenAnalysis) {
-execFileSync(process.execPath, [path.join(projectRoot, "scripts", "identified-shocks", "build-information-effect-separation.mjs")], {
-  cwd: projectRoot,
-  stdio: "inherit",
-});
-execFileSync("python3", [path.join(projectRoot, "scripts", "validation", "validate-jk-author-reference.py")], { cwd: projectRoot, stdio: "inherit" });
-execFileSync(process.execPath, [path.join(projectRoot, "scripts", "local-projections", "build-local-projections.mjs")], { cwd: projectRoot, stdio: "inherit" });
-execFileSync(process.execPath, [path.join(projectRoot, "scripts", "local-projections", "build-lp-robustness.mjs")], { cwd: projectRoot, stdio: "inherit" });
-execFileSync(process.execPath, [path.join(projectRoot, "scripts", "validation", "run-lp-reference.mjs")], { cwd: projectRoot, stdio: "inherit" });
-execFileSync(process.execPath, [path.join(projectRoot, "scripts", "validation", "validate-local-projections.mjs")], { cwd: projectRoot, stdio: "inherit" });
-execFileSync(process.execPath, [path.join(projectRoot, "scripts", "validation", "validate-lp-finite-sample.mjs")], { cwd: projectRoot, stdio: "inherit" });
-execFileSync(process.execPath, [path.join(projectRoot, "scripts", "local-projections", "finalize-finite-sample.mjs")], { cwd: projectRoot, stdio: "inherit" });
+if (reuseFrozenResearchOutputs) {
+  console.log("Reusing frozen canonical research outputs; no model, robustness, or simulation builders were run.");
+} else {
+  execFileSync(process.execPath, [path.join(projectRoot, "scripts", "build-spatial-data-v087.mjs")], { cwd: projectRoot, stdio: "inherit" });
+}
+if (!frozenAnalysis && !reuseFrozenResearchOutputs) {
+  execFileSync(process.execPath, [path.join(projectRoot, "scripts", "identified-shocks", "build-information-effect-separation.mjs")], { cwd: projectRoot, stdio: "inherit" });
+  execFileSync("python3", [path.join(projectRoot, "scripts", "validation", "validate-jk-author-reference.py")], { cwd: projectRoot, stdio: "inherit" });
+  execFileSync(process.execPath, [path.join(projectRoot, "scripts", "local-projections", "build-local-projections.mjs")], { cwd: projectRoot, stdio: "inherit" });
+  execFileSync(process.execPath, [path.join(projectRoot, "scripts", "local-projections", "build-lp-robustness.mjs")], { cwd: projectRoot, stdio: "inherit" });
+  execFileSync(process.execPath, [path.join(projectRoot, "scripts", "validation", "run-lp-reference.mjs")], { cwd: projectRoot, stdio: "inherit" });
+  execFileSync(process.execPath, [path.join(projectRoot, "scripts", "validation", "validate-local-projections.mjs")], { cwd: projectRoot, stdio: "inherit" });
+  execFileSync(process.execPath, [path.join(projectRoot, "scripts", "validation", "validate-lp-finite-sample.mjs")], { cwd: projectRoot, stdio: "inherit" });
+  execFileSync(process.execPath, [path.join(projectRoot, "scripts", "local-projections", "finalize-finite-sample.mjs")], { cwd: projectRoot, stdio: "inherit" });
 }
 execFileSync(process.execPath, [path.join(projectRoot, "scripts", "validation", "validate-analysis-registry.mjs")], { cwd: projectRoot, stdio: "inherit" });
 
@@ -2097,7 +2099,7 @@ const panelJson = name => JSON.parse(fs.readFileSync(path.join(panelLpDir, `${na
 const panelValidation = panelJson("panel_lp_validation_summary");
 const currentReleaseVersion = /^v[\d.]+/.exec(platformRelease.version)?.[0];
 const validationIndex = {
-  schema_version: "analysis-validation-index-v1.81",
+  schema_version: "analysis-validation-index-v1.82",
   platform_version: currentReleaseVersion,
   interpretation: "Additive current-release index; legacy validation artifacts retain their original versions and are not relabelled as panel tests.",
   records: [
@@ -2105,6 +2107,7 @@ const validationIndex = {
     { id: "single_country_lp", artifact: "lp_validation_summary.json", gate: "lp:validate" },
     { id: "panel_lp", artifact: "panel-local-projections/panel_lp_validation_summary.json", gate: "panel-lp:validate" },
     { id: "panel_composition", artifact: "panel-local-projections/panel_lp_composition_robustness_summary.json", gate: "panel-lp:robustness-validate", artifact_role: "diagnostic_results_not_validation_status" },
+    { id: "panel_joint_inference_closure", artifact: "panel-local-projections/panel_lp_joint_inference_research_conclusion.json", gate: "panel-lp:closure-validate", artifact_role: "closed_research_conclusion_not_inference_output" },
     { id: "analysis_registry", artifact: "analysis_skill_registry.json", gate: "analysis-registry:validate", artifact_role: "registry_validated_by_gate" },
     { id: "news", artifact: "news_update_2026-09-05_audit.json", gate: "news:validate" },
     { id: "identified_shocks", artifact: "information_effect_separation_validation.json", gate: "information-effect:validate" },
@@ -2169,7 +2172,9 @@ writeJson("release_manifest.json", {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.81",
+    analysis_skill_registry: "analysis-skill-registry-v1.82",
+    panel_lp_path_inference_registry: panelJson("panel_lp_path_inference_registry").schema_version,
+    panel_lp_joint_inference_conclusion: panelJson("panel_lp_joint_inference_research_conclusion").schema_version,
     ...Object.fromEntries(Object.entries({panel_lp_method:"panel_lp_method_registry",panel_lp_results:"panel_lp_results",panel_lp_readiness:"panel_lp_readiness_registry",panel_lp_validation:"panel_lp_validation_summary",panel_lp_reference:"panel_lp_reference_manifest",panel_lp_small_sample:"panel_lp_small_sample_method_registry",panel_lp_parameterization:"panel_lp_parameterization_validation",panel_lp_ui_validation:"panel_lp_ui_validation"}).map(([key,file]) => [key,panelJson(file).schema_version])),
     transformation_registry: "transformation-registry-v1.41",
     stationarity_engine: "stationarity-engine-v1.44",
@@ -2221,12 +2226,16 @@ writeJson("release_manifest.json", {
     ui_status: panelJson("panel_lp_ui_validation").status,
     active_outcomes: panelJson("panel_lp_readiness_registry").records.filter(r => r.publication_ready).map(r => r.outcome_id),
     publication_state: panelJson("panel_lp_results").publication_state,
+    baseline_pointwise_inference: "pass_active",
+    joint_path_inference: "not_activated",
+    joint_research: "completed",
+    research_verdict: panelJson("panel_lp_joint_inference_research_conclusion").final_verdict,
     validation_index: "analysis_validation_index.json",
   },
   release_validation: {
     stage: `${currentReleaseVersion} release validation`,
     status: "required_after_static_build",
-    gates: ["security_scan", "export", "research_package", "advanced_validation", "core_validation", "ui_language_qa", "lint", "typecheck", "static_build", "package_checksum", "panel-lp:reference", "panel-lp:validate", "panel-lp:ui-validate", "panel-lp:robustness-validate"],
+    gates: ["security_scan", "panel-lp:closure-validate", "export", "research_package", "advanced_validation", "core_validation", "ui_language_qa", "lint", "typecheck", "static_build", "package_checksum", "panel-lp:reference", "panel-lp:validate", "panel-lp:ui-validate", "panel-lp:robustness-validate"],
   },
   legacy_validation_summary_v091: validationSummary,
   public_display_boundaries: platformRelease.limitations,

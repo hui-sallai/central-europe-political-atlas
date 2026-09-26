@@ -43,6 +43,8 @@ for (const outcome of ["hicp_price_level","industrial_production","unemployment"
   assert.match(html,/稳健性摘要（非评分）/);
   assert.match(html,/整条路径推断：研究结论/);
   assert.match(html,/本页不提供联合置信带/);
+  assert.match(html,/不能合起来当作整条反应路径/);
+  assert.match(html,/不提供整条路径的显著性检验/);
   assert.doesNotMatch(html,/拟合模型（描述性，研究版）/);
   assert.match(html,/这不是模型正确率/);
   assert.doesNotMatch(html,/同时置信带可用|全路径 max-t p=/);

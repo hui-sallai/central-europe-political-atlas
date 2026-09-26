@@ -1,6 +1,6 @@
 {
-  "schema_version": "analysis-validation-index-v1.81",
-  "platform_version": "v1.81",
+  "schema_version": "analysis-validation-index-v1.82",
+  "platform_version": "v1.82",
   "interpretation": "Additive current-release index; legacy validation artifacts retain their original versions and are not relabelled as panel tests.",
   "records": [
     {
@@ -23,6 +23,12 @@
       "artifact": "panel-local-projections/panel_lp_composition_robustness_summary.json",
       "gate": "panel-lp:robustness-validate",
       "artifact_role": "diagnostic_results_not_validation_status"
+    },
+    {
+      "id": "panel_joint_inference_closure",
+      "artifact": "panel-local-projections/panel_lp_joint_inference_research_conclusion.json",
+      "gate": "panel-lp:closure-validate",
+      "artifact_role": "closed_research_conclusion_not_inference_output"
     },
     {
       "id": "analysis_registry",

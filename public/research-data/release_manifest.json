@@ -1,15 +1,15 @@
 {
-  "schema_version": "release-metadata-v1.81",
-  "platform_version": "v1.81 Panel LP Composition & Publication Robustness",
-  "release_date": "2026-09-14",
+  "schema_version": "release-metadata-v1.82",
+  "platform_version": "v1.82 Panel Joint-Inference Research Closure & Method Boundary Hardening",
+  "release_date": "2026-09-26",
   "source_commit": "local-working-tree",
   "build_context": "local",
   "workflow_run_id": null,
-  "generated_at": "2026-09-14T11:56:03.976Z",
+  "generated_at": "2026-09-25T20:58:17.596Z",
   "research_package": {
-    "filename": "research-data-v1.81.zip",
-    "sha256": "b3bf4850d4200ad1e399944c56a2a54d4cb73caa9312bcdb2a20305b7a19728b",
-    "generated_at": "2026-09-14T11:56:06.000Z",
+    "filename": "research-data-v1.82.zip",
+    "sha256": "44588289775806ea417a39579fa6ea65437a3215c884267c5385db5104a927c8",
+    "generated_at": "2026-09-25T20:58:18.717Z",
     "status": "built"
   },
   "data_export_version": "research-data-v0.1",
@@ -90,7 +90,9 @@
     "trade_network": "trade-network-v1.25-active",
     "event_window": "event-window-v1.31",
     "high_frequency": "high-frequency-v1.31",
-    "analysis_skill_registry": "analysis-skill-registry-v1.81",
+    "analysis_skill_registry": "analysis-skill-registry-v1.82",
+    "panel_lp_path_inference_registry": "panel-lp-path-inference-registry-v1.82",
+    "panel_lp_joint_inference_conclusion": "panel-lp-joint-inference-research-conclusion-v1.82",
     "panel_lp_method": "panel-lp-method-registry-v1.8",
     "panel_lp_results": "panel-lp-results-v1.8",
     "panel_lp_readiness": "panel-lp-readiness-registry-v1.8",
@@ -133,7 +135,7 @@
     "note": "Historical v0.91 golden cases remain the core research regression suite."
   },
   "advanced_analysis_validation": {
-    "stage": "v1.81 advanced analysis validation",
+    "stage": "v1.82 advanced analysis validation",
     "legacy_summary_reference": "advanced_analysis_validation_summary.json",
     "validation_index": "analysis_validation_index.json",
     "status": "passed",
@@ -179,13 +181,18 @@
       "long_term_yield"
     ],
     "publication_state": "active",
+    "baseline_pointwise_inference": "pass_active",
+    "joint_path_inference": "not_activated",
+    "joint_research": "completed",
+    "research_verdict": "NOT CONFIRMED",
     "validation_index": "analysis_validation_index.json"
   },
   "release_validation": {
-    "stage": "v1.81 release validation",
+    "stage": "v1.82 release validation",
     "status": "required_after_static_build",
     "gates": [
       "security_scan",
+      "panel-lp:closure-validate",
       "export",
       "research_package",
       "advanced_validation",
@@ -200,8 +207,8 @@
       "panel-lp:ui-validate",
       "panel-lp:robustness-validate"
     ],
-    "package_checksum": "b3bf4850d4200ad1e399944c56a2a54d4cb73caa9312bcdb2a20305b7a19728b",
-    "package_filename": "research-data-v1.81.zip"
+    "package_checksum": "44588289775806ea417a39579fa6ea65437a3215c884267c5385db5104a927c8",
+    "package_filename": "research-data-v1.82.zip"
   },
   "legacy_validation_summary_v091": {
     "stage": "v0.91 Model & Scenario Validation",
@@ -238,6 +245,7 @@
   "public_display_boundaries": [
     "No election forecasts, investment advice, probability forecasts, or causal claims outside the preregistered identified-shock Local Projection profile.",
     "Serbia regional comparison remains pending while national data remain available.",
-    "China Economic Exposure and China-linked Project Disruption remain subject to their published evidence gates."
+    "China Economic Exposure and China-linked Project Disruption remain subject to their published evidence gates.",
+    "Fixed-eight-country Panel LP publishes pointwise inference only; whole-path simultaneous inference was studied and remains blocked after the current program did not confirm 95% joint coverage."
   ]
 }

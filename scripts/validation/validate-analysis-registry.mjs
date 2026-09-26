@@ -59,9 +59,12 @@ check(source.includes('selectedSkill.state !== "active"'), "inactive UI cannot m
 const publicFile = path.join(root, "public/research-data/analysis_skill_registry.json");
 const panel = skills.find(s => s.skill_id === "panel_local_projections");
 if (panel) {
+  const pathInference = JSON.parse(fs.readFileSync(path.join(root,"src/data/panel-local-projections/panel_lp_path_inference_registry.json"),"utf8"));
   check(resolveAnalysisRoute("panel_local_projections", "hungary", ["hungary"]).category === "panel_econometrics", "panel LP category routing");
   check(resolveAnalysisRoute("panel_local_projections", "hungary", ["hungary"]).countrySlug === undefined, "fixed panel ignores individual country selector");
+  check(panel.state === "active", "Panel LP estimation remains active");
   check(panel.limitations.some(s => s.includes("registry_only")), "panel inference boundaries");
+  check(pathInference.schema_version === "panel-lp-path-inference-registry-v1.82" && pathInference.state === "blocked" && pathInference.research_closed === true && pathInference.activated_paths === 0, "whole-path research is closed and not activated");
 }
 const frozen = JSON.parse(fs.readFileSync(path.join(root, "src/data/analysis/v173_frozen_output_hashes.json"), "utf8"));
 for (const record of frozen.records) check(createHash("sha256").update(fs.readFileSync(path.join(root, record.path))).digest("hex") === record.sha256, `frozen output ${record.path}`);
