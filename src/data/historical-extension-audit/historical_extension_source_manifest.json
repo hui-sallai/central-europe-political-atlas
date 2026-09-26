@@ -1,0 +1,208 @@
+{
+  "schema_version": "historical-extension-audit-v1",
+  "frozen_endpoint": "2025-10",
+  "sources": [
+    {
+      "id": "hicp",
+      "source": "Eurostat official dissemination API",
+      "dataset": "prc_hicp_minr",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_minr?format=JSON&lang=en&unit=I15&coicop18=TOTAL&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO",
+      "retrieved_at": "2026-09-26T08:32:30.469Z",
+      "http_status": 200,
+      "dataset_updated_at": "2026-09-17T11:00:00+0200",
+      "dimensions": {
+        "freq": [
+          "M"
+        ],
+        "unit": [
+          "I15"
+        ],
+        "coicop18": [
+          "TOTAL"
+        ],
+        "geo": [
+          "CZ",
+          "DE",
+          "HU",
+          "AT",
+          "PL",
+          "RO",
+          "SI",
+          "SK"
+        ]
+      },
+      "time_axis_start": "1996-01",
+      "time_axis_end": "2026-08",
+      "raw_row_count": 2933,
+      "raw_status_count": 0,
+      "sha256": "96108e015f12754241971c46f5c9b124806760f025cf12b250567908755dd3f8",
+      "raw_file": "raw/prc_hicp_minr.json",
+      "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/prc_hicp_esms.htm"
+    },
+    {
+      "id": "ipi",
+      "source": "Eurostat official dissemination API",
+      "dataset": "sts_inpr_m",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/sts_inpr_m?format=JSON&lang=en&indic_bt=PRD&nace_r2=B-D&s_adj=SCA&unit=I21&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO",
+      "retrieved_at": "2026-09-26T08:32:30.744Z",
+      "http_status": 200,
+      "dataset_updated_at": "2026-09-17T11:00:00+0200",
+      "dimensions": {
+        "freq": [
+          "M"
+        ],
+        "indic_bt": [
+          "PRD"
+        ],
+        "nace_r2": [
+          "B-D"
+        ],
+        "s_adj": [
+          "SCA"
+        ],
+        "unit": [
+          "I21"
+        ],
+        "geo": [
+          "CZ",
+          "DE",
+          "HU",
+          "AT",
+          "PL",
+          "RO",
+          "SI",
+          "SK"
+        ]
+      },
+      "time_axis_start": "1953-01",
+      "time_axis_end": "2026-07",
+      "raw_row_count": 2732,
+      "raw_status_count": 10,
+      "sha256": "063e4b6c5fd98dec2ed395deb44c1d43e8ec94be17eaf035019d9fde5a4e7a3f",
+      "raw_file": "raw/sts_inpr_m.json",
+      "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/sts_ind_prod_esms.htm"
+    },
+    {
+      "id": "unemployment",
+      "source": "Eurostat official dissemination API",
+      "dataset": "une_rt_m",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/une_rt_m?format=JSON&lang=en&s_adj=SA&age=TOTAL&sex=T&unit=PC_ACT&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO",
+      "retrieved_at": "2026-09-26T08:32:30.848Z",
+      "http_status": 200,
+      "dataset_updated_at": "2026-09-22T11:00:00+0200",
+      "dimensions": {
+        "freq": [
+          "M"
+        ],
+        "s_adj": [
+          "SA"
+        ],
+        "age": [
+          "TOTAL"
+        ],
+        "unit": [
+          "PC_ACT"
+        ],
+        "sex": [
+          "T"
+        ],
+        "geo": [
+          "CZ",
+          "DE",
+          "HU",
+          "AT",
+          "PL",
+          "RO",
+          "SI",
+          "SK"
+        ]
+      },
+      "time_axis_start": "1983-01",
+      "time_axis_end": "2026-08",
+      "raw_row_count": 2996,
+      "raw_status_count": 11,
+      "sha256": "ca84c6538b8f38a9469d49fcac6cf48fd7a8cdd54773202aefa2afb84b401dc6",
+      "raw_file": "raw/une_rt_m.json",
+      "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/une_rt_m_esms.htm"
+    },
+    {
+      "id": "yield",
+      "source": "Eurostat official dissemination API",
+      "dataset": "irt_lt_mcby_m",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/irt_lt_mcby_m?format=JSON&lang=en&int_rt=MCBY&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO",
+      "retrieved_at": "2026-09-26T08:32:30.968Z",
+      "http_status": 200,
+      "dataset_updated_at": "2026-09-11T11:00:00+0200",
+      "dimensions": {
+        "freq": [
+          "M"
+        ],
+        "int_rt": [
+          "MCBY"
+        ],
+        "geo": [
+          "CZ",
+          "DE",
+          "HU",
+          "AT",
+          "PL",
+          "RO",
+          "SI",
+          "SK"
+        ]
+      },
+      "time_axis_start": "1980-01",
+      "time_axis_end": "2026-08",
+      "raw_row_count": 2852,
+      "raw_status_count": 20,
+      "sha256": "3fe6ae045cdf08bba755fb2fafb9351cb0a1939ebef69eec24dc64f33803795f",
+      "raw_file": "raw/irt_lt_mcby_m.json",
+      "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/irt_lt_mcby_esms.htm"
+    },
+    {
+      "id": "hicp_legacy",
+      "source": "Eurostat official dissemination API",
+      "dataset": "prc_hicp_midx",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_midx?format=JSON&lang=en&unit=I15&coicop=CP00&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO",
+      "retrieved_at": "2026-09-26T08:32:31.084Z",
+      "http_status": 200,
+      "dataset_updated_at": "2026-02-06T23:00:00+0100",
+      "dimensions": {
+        "freq": [
+          "M"
+        ],
+        "unit": [
+          "I15"
+        ],
+        "coicop": [
+          "CP00"
+        ],
+        "geo": [
+          "CZ",
+          "DE",
+          "HU",
+          "AT",
+          "PL",
+          "RO",
+          "SI",
+          "SK"
+        ]
+      },
+      "time_axis_start": "1996-01",
+      "time_axis_end": "2025-12",
+      "raw_row_count": 2880,
+      "raw_status_count": 96,
+      "sha256": "9d25157dc0ea61d07af2eaf1364a47a09503c41123274c342079701a6ebc0678",
+      "raw_file": "raw/prc_hicp_midx.json",
+      "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/prc_hicp_esms.htm"
+    }
+  ],
+  "official_metadata": [
+    "https://ec.europa.eu/eurostat/cache/metadata/en/prc_hicp_esms.htm",
+    "https://ec.europa.eu/eurostat/cache/metadata/en/sts_ind_prod_esms.htm",
+    "https://ec.europa.eu/eurostat/cache/metadata/en/une_rt_m_esms.htm",
+    "https://ec.europa.eu/eurostat/cache/metadata/en/irt_lt_mcby_esms.htm",
+    "https://ec.europa.eu/eurostat/cache/metadata/en/prc_hicp_esms.htm"
+  ],
+  "vintage_limitation": "Eurostat latest revised series only; no first-publication vintage claims"
+}

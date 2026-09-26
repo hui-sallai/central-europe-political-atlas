@@ -1,0 +1,691 @@
+{
+  "shock_series_ids": {
+    "MP": "ecb_pure_monetary_policy_shock_jk_median_v1",
+    "CBI": "ecb_central_bank_information_shock_jk_median_v1"
+  },
+  "shock_calendar_end": "2025-10",
+  "support_unit": "month_not_country_row",
+  "support_is_potential_only": true,
+  "current_registry_h0": {
+    "horizon": 0,
+    "df": "Inf",
+    "effective_time_clusters": 129,
+    "panel_rows": 1032,
+    "country_count": 8,
+    "p_h": 0,
+    "p_max": 5,
+    "T_eff": 130,
+    "rank": 15,
+    "columns": 15,
+    "condition_number": 22.677516004143943,
+    "sample_start_index": 1,
+    "sample_end_index": 129,
+    "sample_start": "2015-02",
+    "sample_end": "2025-10",
+    "balanced_panel": true,
+    "group_sizes": {
+      "euro": 4,
+      "non_euro": 4
+    },
+    "shock_correlation": -0.32144425579962976,
+    "shock_support": {
+      "MP": {
+        "nonzero_months": 86,
+        "zero_months": 43,
+        "largest_squared_shock_share": 0.2861013283470606,
+        "top_three_squared_shock_share": 0.5631175018772762,
+        "support_unit": "month_not_country_row"
+      },
+      "CBI": {
+        "nonzero_months": 86,
+        "zero_months": 43,
+        "largest_squared_shock_share": 0.28071041596137397,
+        "top_three_squared_shock_share": 0.42199223760617216,
+        "support_unit": "month_not_country_row"
+      }
+    }
+  },
+  "current_registry_h24": {
+    "horizon": 24,
+    "df": "Inf",
+    "effective_time_clusters": 100,
+    "panel_rows": 800,
+    "country_count": 8,
+    "p_h": 5,
+    "p_max": 5,
+    "T_eff": 130,
+    "rank": 40,
+    "columns": 40,
+    "condition_number": 99.0188575943679,
+    "sample_start_index": 6,
+    "sample_end_index": 105,
+    "sample_start": "2015-07",
+    "sample_end": "2023-10",
+    "balanced_panel": true,
+    "group_sizes": {
+      "euro": 4,
+      "non_euro": 4
+    },
+    "shock_correlation": -0.338178942223718,
+    "shock_support": {
+      "MP": {
+        "nonzero_months": 67,
+        "zero_months": 33,
+        "largest_squared_shock_share": 0.3057290488560764,
+        "top_three_squared_shock_share": 0.6017496641410411,
+        "support_unit": "month_not_country_row"
+      },
+      "CBI": {
+        "nonzero_months": 67,
+        "zero_months": 33,
+        "largest_squared_shock_share": 0.29473964155774346,
+        "top_three_squared_shock_share": 0.4430823859037273,
+        "support_unit": "month_not_country_row"
+      }
+    }
+  },
+  "candidate_windows": [
+    {
+      "start": "2005-04",
+      "endpoint": "2025-10",
+      "calendar_months": 247,
+      "label": "mathematical_availability_only_not_definition_cleared",
+      "estimand_regime_eligible": false,
+      "horizons": {
+        "0": {
+          "potential_all_four_time_clusters": 246,
+          "p_h": 0,
+          "p_max": 7,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 246,
+            "nonzero_months": 202,
+            "largest_squared_shock_share": 0.14040892138702601,
+            "top_three_squared_shock_share": 0.3267015409929964,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 246,
+            "nonzero_months": 202,
+            "largest_squared_shock_share": 0.10952749926259354,
+            "top_three_squared_shock_share": 0.2602440581462475,
+            "support_unit": "month_not_country_row"
+          }
+        },
+        "6": {
+          "potential_all_four_time_clusters": 234,
+          "p_h": 6,
+          "p_max": 7,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 234,
+            "nonzero_months": 192,
+            "largest_squared_shock_share": 0.14161572741950595,
+            "top_three_squared_shock_share": 0.3295095206184796,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 234,
+            "nonzero_months": 192,
+            "largest_squared_shock_share": 0.11074141100291134,
+            "top_three_squared_shock_share": 0.2631283869190087,
+            "support_unit": "month_not_country_row"
+          }
+        },
+        "12": {
+          "potential_all_four_time_clusters": 227,
+          "p_h": 7,
+          "p_max": 7,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 227,
+            "nonzero_months": 187,
+            "largest_squared_shock_share": 0.14266835880457654,
+            "top_three_squared_shock_share": 0.3319587688015935,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 227,
+            "nonzero_months": 187,
+            "largest_squared_shock_share": 0.1121128004745102,
+            "top_three_squared_shock_share": 0.2663868924431078,
+            "support_unit": "month_not_country_row"
+          }
+        },
+        "18": {
+          "potential_all_four_time_clusters": 221,
+          "p_h": 7,
+          "p_max": 7,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 221,
+            "nonzero_months": 183,
+            "largest_squared_shock_share": 0.1436626800936437,
+            "top_three_squared_shock_share": 0.33427234185785937,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 221,
+            "nonzero_months": 183,
+            "largest_squared_shock_share": 0.11238962374063877,
+            "top_three_squared_shock_share": 0.2670446415075129,
+            "support_unit": "month_not_country_row"
+          }
+        },
+        "24": {
+          "potential_all_four_time_clusters": 215,
+          "p_h": 7,
+          "p_max": 7,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 215,
+            "nonzero_months": 179,
+            "largest_squared_shock_share": 0.14574813078512527,
+            "top_three_squared_shock_share": 0.33912473975281887,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 215,
+            "nonzero_months": 179,
+            "largest_squared_shock_share": 0.11275482791044565,
+            "top_three_squared_shock_share": 0.26791238902153774,
+            "support_unit": "month_not_country_row"
+          }
+        }
+      }
+    },
+    {
+      "start": "2009-01",
+      "endpoint": "2025-10",
+      "calendar_months": 202,
+      "label": "mathematical_availability_only_not_definition_cleared",
+      "estimand_regime_eligible": true,
+      "horizons": {
+        "0": {
+          "potential_all_four_time_clusters": 201,
+          "p_h": 0,
+          "p_max": 6,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 201,
+            "nonzero_months": 158,
+            "largest_squared_shock_share": 0.1789179871885497,
+            "top_three_squared_shock_share": 0.3701832885488297,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 201,
+            "nonzero_months": 158,
+            "largest_squared_shock_share": 0.12654456871653613,
+            "top_three_squared_shock_share": 0.30067765922603634,
+            "support_unit": "month_not_country_row"
+          }
+        },
+        "6": {
+          "potential_all_four_time_clusters": 189,
+          "p_h": 6,
+          "p_max": 6,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 189,
+            "nonzero_months": 148,
+            "largest_squared_shock_share": 0.18289007628617912,
+            "top_three_squared_shock_share": 0.37840158469487256,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 189,
+            "nonzero_months": 148,
+            "largest_squared_shock_share": 0.13790355950566507,
+            "top_three_squared_shock_share": 0.3276673182551488,
+            "support_unit": "month_not_country_row"
+          }
+        },
+        "12": {
+          "potential_all_four_time_clusters": 183,
+          "p_h": 6,
+          "p_max": 6,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 183,
+            "nonzero_months": 144,
+            "largest_squared_shock_share": 0.18399384753310485,
+            "top_three_squared_shock_share": 0.38068529957683145,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 183,
+            "nonzero_months": 144,
+            "largest_squared_shock_share": 0.13978061754461366,
+            "top_three_squared_shock_share": 0.33212732331982064,
+            "support_unit": "month_not_country_row"
+          }
+        },
+        "18": {
+          "potential_all_four_time_clusters": 177,
+          "p_h": 6,
+          "p_max": 6,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 177,
+            "nonzero_months": 140,
+            "largest_squared_shock_share": 0.18565097395386623,
+            "top_three_squared_shock_share": 0.3841139124156967,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 177,
+            "nonzero_months": 140,
+            "largest_squared_shock_share": 0.1402111945314815,
+            "top_three_squared_shock_share": 0.3331504006580352,
+            "support_unit": "month_not_country_row"
+          }
+        },
+        "24": {
+          "potential_all_four_time_clusters": 171,
+          "p_h": 6,
+          "p_max": 6,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 171,
+            "nonzero_months": 136,
+            "largest_squared_shock_share": 0.18914843554292313,
+            "top_three_squared_shock_share": 0.39135019901244844,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 171,
+            "nonzero_months": 136,
+            "largest_squared_shock_share": 0.14078004504297206,
+            "top_three_squared_shock_share": 0.33450202437432164,
+            "support_unit": "month_not_country_row"
+          }
+        }
+      }
+    },
+    {
+      "start": "2010-01",
+      "endpoint": "2025-10",
+      "calendar_months": 190,
+      "label": "mathematical_availability_only_not_definition_cleared",
+      "estimand_regime_eligible": true,
+      "horizons": {
+        "0": {
+          "potential_all_four_time_clusters": 189,
+          "p_h": 0,
+          "p_max": 6,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 189,
+            "nonzero_months": 146,
+            "largest_squared_shock_share": 0.18366050735776335,
+            "top_three_squared_shock_share": 0.379995615078071,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 189,
+            "nonzero_months": 146,
+            "largest_squared_shock_share": 0.139449759805663,
+            "top_three_squared_shock_share": 0.3313411850327848,
+            "support_unit": "month_not_country_row"
+          }
+        },
+        "6": {
+          "potential_all_four_time_clusters": 177,
+          "p_h": 6,
+          "p_max": 6,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 177,
+            "nonzero_months": 136,
+            "largest_squared_shock_share": 0.1873308648624202,
+            "top_three_squared_shock_share": 0.38758962523084506,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 177,
+            "nonzero_months": 136,
+            "largest_squared_shock_share": 0.14349817053462105,
+            "top_three_squared_shock_share": 0.340960457309064,
+            "support_unit": "month_not_country_row"
+          }
+        },
+        "12": {
+          "potential_all_four_time_clusters": 171,
+          "p_h": 6,
+          "p_max": 6,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 171,
+            "nonzero_months": 132,
+            "largest_squared_shock_share": 0.18848905834662227,
+            "top_three_squared_shock_share": 0.3899859403218813,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 171,
+            "nonzero_months": 132,
+            "largest_squared_shock_share": 0.14553174163474106,
+            "top_three_squared_shock_share": 0.34579234700970746,
+            "support_unit": "month_not_country_row"
+          }
+        },
+        "18": {
+          "potential_all_four_time_clusters": 165,
+          "p_h": 6,
+          "p_max": 6,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 165,
+            "nonzero_months": 128,
+            "largest_squared_shock_share": 0.19022852817865613,
+            "top_three_squared_shock_share": 0.3935849225867286,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 165,
+            "nonzero_months": 128,
+            "largest_squared_shock_share": 0.1459985379331894,
+            "top_three_squared_shock_share": 0.34690148365441975,
+            "support_unit": "month_not_country_row"
+          }
+        },
+        "24": {
+          "potential_all_four_time_clusters": 159,
+          "p_h": 6,
+          "p_max": 6,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 159,
+            "nonzero_months": 124,
+            "largest_squared_shock_share": 0.1939022948059368,
+            "top_three_squared_shock_share": 0.4011859862518062,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 159,
+            "nonzero_months": 124,
+            "largest_squared_shock_share": 0.14661542053361915,
+            "top_three_squared_shock_share": 0.3483672345609638,
+            "support_unit": "month_not_country_row"
+          }
+        }
+      }
+    },
+    {
+      "start": "2012-01",
+      "endpoint": "2025-10",
+      "calendar_months": 166,
+      "label": "mathematical_availability_only_not_definition_cleared",
+      "estimand_regime_eligible": true,
+      "horizons": {
+        "0": {
+          "potential_all_four_time_clusters": 165,
+          "p_h": 0,
+          "p_max": 6,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 165,
+            "nonzero_months": 122,
+            "largest_squared_shock_share": 0.22042492024667729,
+            "top_three_squared_shock_share": 0.45267840399939907,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 165,
+            "nonzero_months": 122,
+            "largest_squared_shock_share": 0.18918148355743503,
+            "top_three_squared_shock_share": 0.35847352208942945,
+            "support_unit": "month_not_country_row"
+          }
+        },
+        "6": {
+          "potential_all_four_time_clusters": 153,
+          "p_h": 6,
+          "p_max": 6,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 153,
+            "nonzero_months": 112,
+            "largest_squared_shock_share": 0.2268894751852381,
+            "top_three_squared_shock_share": 0.46595441838506496,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 153,
+            "nonzero_months": 112,
+            "largest_squared_shock_share": 0.21685584358913576,
+            "top_three_squared_shock_share": 0.3344305053415666,
+            "support_unit": "month_not_country_row"
+          }
+        },
+        "12": {
+          "potential_all_four_time_clusters": 147,
+          "p_h": 6,
+          "p_max": 6,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 147,
+            "nonzero_months": 108,
+            "largest_squared_shock_share": 0.22859068750360292,
+            "top_three_squared_shock_share": 0.46944813441444894,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 147,
+            "nonzero_months": 108,
+            "largest_squared_shock_share": 0.22153391252764176,
+            "top_three_squared_shock_share": 0.34164492453006395,
+            "support_unit": "month_not_country_row"
+          }
+        },
+        "18": {
+          "potential_all_four_time_clusters": 141,
+          "p_h": 6,
+          "p_max": 6,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 141,
+            "nonzero_months": 104,
+            "largest_squared_shock_share": 0.23115408057929965,
+            "top_three_squared_shock_share": 0.47471247877728645,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 141,
+            "nonzero_months": 104,
+            "largest_squared_shock_share": 0.22261739147568693,
+            "top_three_squared_shock_share": 0.34331584289742056,
+            "support_unit": "month_not_country_row"
+          }
+        },
+        "24": {
+          "potential_all_four_time_clusters": 135,
+          "p_h": 6,
+          "p_max": 6,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 135,
+            "nonzero_months": 100,
+            "largest_squared_shock_share": 0.2366012587826418,
+            "top_three_squared_shock_share": 0.4858991446616599,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 135,
+            "nonzero_months": 100,
+            "largest_squared_shock_share": 0.22405482494946655,
+            "top_three_squared_shock_share": 0.34553262246431937,
+            "support_unit": "month_not_country_row"
+          }
+        }
+      }
+    },
+    {
+      "start": "2015-01",
+      "endpoint": "2025-10",
+      "calendar_months": 130,
+      "label": "frozen_baseline_calendar_preflight",
+      "estimand_regime_eligible": true,
+      "horizons": {
+        "0": {
+          "potential_all_four_time_clusters": 129,
+          "p_h": 0,
+          "p_max": 5,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 129,
+            "nonzero_months": 86,
+            "largest_squared_shock_share": 0.28610132834706065,
+            "top_three_squared_shock_share": 0.5631175018772763,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 129,
+            "nonzero_months": 86,
+            "largest_squared_shock_share": 0.28071041596137425,
+            "top_three_squared_shock_share": 0.42199223760617255,
+            "support_unit": "month_not_country_row"
+          }
+        },
+        "6": {
+          "potential_all_four_time_clusters": 118,
+          "p_h": 5,
+          "p_max": 5,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 118,
+            "nonzero_months": 79,
+            "largest_squared_shock_share": 0.28970541847374465,
+            "top_three_squared_shock_share": 0.5702112341587876,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 118,
+            "nonzero_months": 79,
+            "largest_squared_shock_share": 0.2824069042777754,
+            "top_three_squared_shock_share": 0.4245425701196955,
+            "support_unit": "month_not_country_row"
+          }
+        },
+        "12": {
+          "potential_all_four_time_clusters": 112,
+          "p_h": 5,
+          "p_max": 5,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 112,
+            "nonzero_months": 75,
+            "largest_squared_shock_share": 0.29248478311865594,
+            "top_three_squared_shock_share": 0.5756817046549956,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 112,
+            "nonzero_months": 75,
+            "largest_squared_shock_share": 0.2903926636678495,
+            "top_three_squared_shock_share": 0.43654756987170185,
+            "support_unit": "month_not_country_row"
+          }
+        },
+        "18": {
+          "potential_all_four_time_clusters": 106,
+          "p_h": 5,
+          "p_max": 5,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 106,
+            "nonzero_months": 71,
+            "largest_squared_shock_share": 0.2966946474106641,
+            "top_three_squared_shock_share": 0.5839677488934277,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 106,
+            "nonzero_months": 71,
+            "largest_squared_shock_share": 0.29225720509554187,
+            "top_three_squared_shock_share": 0.4393505367886458,
+            "support_unit": "month_not_country_row"
+          }
+        },
+        "24": {
+          "potential_all_four_time_clusters": 100,
+          "p_h": 5,
+          "p_max": 5,
+          "MP": {
+            "calendar_months_with_identified_shock_record": 100,
+            "nonzero_months": 67,
+            "largest_squared_shock_share": 0.30572904885607644,
+            "top_three_squared_shock_share": 0.6017496641410413,
+            "support_unit": "month_not_country_row"
+          },
+          "CBI": {
+            "calendar_months_with_identified_shock_record": 100,
+            "nonzero_months": 67,
+            "largest_squared_shock_share": 0.2947396415577438,
+            "top_three_squared_shock_share": 0.4430823859037277,
+            "support_unit": "month_not_country_row"
+          }
+        }
+      }
+    }
+  ],
+  "gains": [
+    {
+      "start": "2005-04",
+      "eligibility": "mathematical_availability_only_not_definition_cleared",
+      "delta_calendar_months": 117,
+      "delta_h24_potential_clusters": 115,
+      "MP": {
+        "delta_nonzero_h24_months": 112,
+        "delta_largest_share": -0.15998091807095116,
+        "delta_top_three_share": -0.2626249243882224
+      },
+      "CBI": {
+        "delta_nonzero_h24_months": 112,
+        "delta_largest_share": -0.18198481364729813,
+        "delta_top_three_share": -0.17516999688218998
+      }
+    },
+    {
+      "start": "2009-01",
+      "eligibility": "mathematical_availability_only_not_definition_cleared",
+      "delta_calendar_months": 72,
+      "delta_h24_potential_clusters": 71,
+      "MP": {
+        "delta_nonzero_h24_months": 69,
+        "delta_largest_share": -0.11658061331315331,
+        "delta_top_three_share": -0.2103994651285928
+      },
+      "CBI": {
+        "delta_nonzero_h24_months": 69,
+        "delta_largest_share": -0.15395959651477173,
+        "delta_top_three_share": -0.10858036152940609
+      }
+    },
+    {
+      "start": "2010-01",
+      "eligibility": "mathematical_availability_only_not_definition_cleared",
+      "delta_calendar_months": 60,
+      "delta_h24_potential_clusters": 59,
+      "MP": {
+        "delta_nonzero_h24_months": 57,
+        "delta_largest_share": -0.11182675405013964,
+        "delta_top_three_share": -0.20056367788923507
+      },
+      "CBI": {
+        "delta_nonzero_h24_months": 57,
+        "delta_largest_share": -0.14812422102412465,
+        "delta_top_three_share": -0.09471515134276393
+      }
+    },
+    {
+      "start": "2012-01",
+      "eligibility": "mathematical_availability_only_not_definition_cleared",
+      "delta_calendar_months": 36,
+      "delta_h24_potential_clusters": 35,
+      "MP": {
+        "delta_nonzero_h24_months": 33,
+        "delta_largest_share": -0.06912779007343464,
+        "delta_top_three_share": -0.11585051947938135
+      },
+      "CBI": {
+        "delta_nonzero_h24_months": 33,
+        "delta_largest_share": -0.07068481660827725,
+        "delta_top_three_share": -0.09754976343940835
+      }
+    },
+    {
+      "start": "2015-01",
+      "eligibility": "frozen_baseline_calendar_preflight",
+      "delta_calendar_months": 0,
+      "delta_h24_potential_clusters": 0,
+      "MP": {
+        "delta_nonzero_h24_months": 0,
+        "delta_largest_share": 0,
+        "delta_top_three_share": 0
+      },
+      "CBI": {
+        "delta_nonzero_h24_months": 0,
+        "delta_largest_share": 0,
+        "delta_top_three_share": 0
+      }
+    }
+  ]
+}

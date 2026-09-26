@@ -1,0 +1,247 @@
+{
+  "outcome": "unemployment",
+  "country_count": 8,
+  "records": [
+    {
+      "country": "AT",
+      "source_dataset": "une_rt_m",
+      "source_query_id": "unemployment",
+      "earliest_available": "1995-01",
+      "earliest_pre_2015_available": "1995-01",
+      "earliest_definition_compatible": null,
+      "latest": "2026-07",
+      "seasonal_adjustment": "SA",
+      "classification": "age 15-74; total sex",
+      "index_reference": "% active population",
+      "observed_months": 379,
+      "missing_months_to_frozen_end": 0,
+      "flags": [
+        {
+          "period": "2004-01",
+          "flag": "b"
+        }
+      ],
+      "break_flags": [
+        {
+          "period": "2004-01",
+          "flag": "b"
+        }
+      ],
+      "extension_ready": false,
+      "blocker": "Country-specific LFS and 2021 IESS break-correction review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    },
+    {
+      "country": "DE",
+      "source_dataset": "une_rt_m",
+      "source_query_id": "unemployment",
+      "earliest_available": "1991-01",
+      "earliest_pre_2015_available": "1991-01",
+      "earliest_definition_compatible": null,
+      "latest": "2026-07",
+      "seasonal_adjustment": "SA",
+      "classification": "age 15-74; total sex",
+      "index_reference": "% active population",
+      "observed_months": 427,
+      "missing_months_to_frozen_end": 0,
+      "flags": [
+        {
+          "period": "2005-03",
+          "flag": "d"
+        },
+        {
+          "period": "2009-01",
+          "flag": "b"
+        }
+      ],
+      "break_flags": [
+        {
+          "period": "2009-01",
+          "flag": "b"
+        }
+      ],
+      "extension_ready": false,
+      "blocker": "Country-specific LFS and 2021 IESS break-correction review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    },
+    {
+      "country": "SK",
+      "source_dataset": "une_rt_m",
+      "source_query_id": "unemployment",
+      "earliest_available": "1998-01",
+      "earliest_pre_2015_available": "1998-01",
+      "earliest_definition_compatible": null,
+      "latest": "2026-07",
+      "seasonal_adjustment": "SA",
+      "classification": "age 15-74; total sex",
+      "index_reference": "% active population",
+      "observed_months": 343,
+      "missing_months_to_frozen_end": 0,
+      "flags": [
+        {
+          "period": "2009-01",
+          "flag": "b"
+        },
+        {
+          "period": "2011-09",
+          "flag": "d"
+        }
+      ],
+      "break_flags": [
+        {
+          "period": "2009-01",
+          "flag": "b"
+        }
+      ],
+      "extension_ready": false,
+      "blocker": "Country-specific LFS and 2021 IESS break-correction review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    },
+    {
+      "country": "SI",
+      "source_dataset": "une_rt_m",
+      "source_query_id": "unemployment",
+      "earliest_available": "1996-01",
+      "earliest_pre_2015_available": "1996-01",
+      "earliest_definition_compatible": null,
+      "latest": "2026-07",
+      "seasonal_adjustment": "SA",
+      "classification": "age 15-74; total sex",
+      "index_reference": "% active population",
+      "observed_months": 367,
+      "missing_months_to_frozen_end": 0,
+      "flags": [
+        {
+          "period": "2009-01",
+          "flag": "b"
+        }
+      ],
+      "break_flags": [
+        {
+          "period": "2009-01",
+          "flag": "b"
+        }
+      ],
+      "extension_ready": false,
+      "blocker": "Country-specific LFS and 2021 IESS break-correction review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    },
+    {
+      "country": "CZ",
+      "source_dataset": "une_rt_m",
+      "source_query_id": "unemployment",
+      "earliest_available": "1993-01",
+      "earliest_pre_2015_available": "1993-01",
+      "earliest_definition_compatible": null,
+      "latest": "2026-07",
+      "seasonal_adjustment": "SA",
+      "classification": "age 15-74; total sex",
+      "index_reference": "% active population",
+      "observed_months": 403,
+      "missing_months_to_frozen_end": 0,
+      "flags": [],
+      "break_flags": [],
+      "extension_ready": false,
+      "blocker": "Country-specific LFS and 2021 IESS break-correction review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    },
+    {
+      "country": "HU",
+      "source_dataset": "une_rt_m",
+      "source_query_id": "unemployment",
+      "earliest_available": "1996-01",
+      "earliest_pre_2015_available": "1996-01",
+      "earliest_definition_compatible": null,
+      "latest": "2026-07",
+      "seasonal_adjustment": "SA",
+      "classification": "age 15-74; total sex",
+      "index_reference": "% active population",
+      "observed_months": 367,
+      "missing_months_to_frozen_end": 0,
+      "flags": [
+        {
+          "period": "2008-01",
+          "flag": "d"
+        },
+        {
+          "period": "2009-01",
+          "flag": "b"
+        }
+      ],
+      "break_flags": [
+        {
+          "period": "2009-01",
+          "flag": "b"
+        }
+      ],
+      "extension_ready": false,
+      "blocker": "Country-specific LFS and 2021 IESS break-correction review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    },
+    {
+      "country": "PL",
+      "source_dataset": "une_rt_m",
+      "source_query_id": "unemployment",
+      "earliest_available": "1997-01",
+      "earliest_pre_2015_available": "1997-01",
+      "earliest_definition_compatible": null,
+      "latest": "2026-07",
+      "seasonal_adjustment": "SA",
+      "classification": "age 15-74; total sex",
+      "index_reference": "% active population",
+      "observed_months": 355,
+      "missing_months_to_frozen_end": 0,
+      "flags": [
+        {
+          "period": "2009-01",
+          "flag": "b"
+        },
+        {
+          "period": "2009-12",
+          "flag": "d"
+        }
+      ],
+      "break_flags": [
+        {
+          "period": "2009-01",
+          "flag": "b"
+        }
+      ],
+      "extension_ready": false,
+      "blocker": "Country-specific LFS and 2021 IESS break-correction review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    },
+    {
+      "country": "RO",
+      "source_dataset": "une_rt_m",
+      "source_query_id": "unemployment",
+      "earliest_available": "1997-01",
+      "earliest_pre_2015_available": "1997-01",
+      "earliest_definition_compatible": null,
+      "latest": "2026-07",
+      "seasonal_adjustment": "SA",
+      "classification": "age 15-74; total sex",
+      "index_reference": "% active population",
+      "observed_months": 355,
+      "missing_months_to_frozen_end": 0,
+      "flags": [
+        {
+          "period": "2003-12",
+          "flag": "d"
+        }
+      ],
+      "break_flags": [],
+      "extension_ready": false,
+      "blocker": "Country-specific LFS and 2021 IESS break-correction review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    }
+  ]
+}

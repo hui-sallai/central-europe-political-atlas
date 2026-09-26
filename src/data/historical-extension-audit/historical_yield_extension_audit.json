@@ -1,0 +1,247 @@
+{
+  "outcome": "yield",
+  "country_count": 8,
+  "records": [
+    {
+      "country": "AT",
+      "source_dataset": "irt_lt_mcby_m",
+      "source_query_id": "yield",
+      "earliest_available": "1985-01",
+      "earliest_pre_2015_available": "1985-01",
+      "earliest_definition_compatible": null,
+      "latest": "2026-08",
+      "seasonal_adjustment": "monthly average",
+      "classification": "Maastricht criterion bond yield",
+      "index_reference": "% p.a.",
+      "observed_months": 500,
+      "missing_months_to_frozen_end": 0,
+      "flags": [],
+      "break_flags": [],
+      "extension_ready": false,
+      "blocker": "Country-specific bond-basket/source-transition review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    },
+    {
+      "country": "DE",
+      "source_dataset": "irt_lt_mcby_m",
+      "source_query_id": "yield",
+      "earliest_available": "1980-01",
+      "earliest_pre_2015_available": "1980-01",
+      "earliest_definition_compatible": null,
+      "latest": "2026-08",
+      "seasonal_adjustment": "monthly average",
+      "classification": "Maastricht criterion bond yield",
+      "index_reference": "% p.a.",
+      "observed_months": 560,
+      "missing_months_to_frozen_end": 0,
+      "flags": [],
+      "break_flags": [],
+      "extension_ready": false,
+      "blocker": "Country-specific bond-basket/source-transition review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    },
+    {
+      "country": "SK",
+      "source_dataset": "irt_lt_mcby_m",
+      "source_query_id": "yield",
+      "earliest_available": "2001-01",
+      "earliest_pre_2015_available": "2001-01",
+      "earliest_definition_compatible": null,
+      "latest": "2026-08",
+      "seasonal_adjustment": "monthly average",
+      "classification": "Maastricht criterion bond yield",
+      "index_reference": "% p.a.",
+      "observed_months": 308,
+      "missing_months_to_frozen_end": 0,
+      "flags": [],
+      "break_flags": [],
+      "extension_ready": false,
+      "blocker": "Country-specific bond-basket/source-transition review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    },
+    {
+      "country": "SI",
+      "source_dataset": "irt_lt_mcby_m",
+      "source_query_id": "yield",
+      "earliest_available": "2002-03",
+      "earliest_pre_2015_available": "2002-03",
+      "earliest_definition_compatible": null,
+      "latest": "2026-08",
+      "seasonal_adjustment": "monthly average",
+      "classification": "Maastricht criterion bond yield",
+      "index_reference": "% p.a.",
+      "observed_months": 294,
+      "missing_months_to_frozen_end": 0,
+      "flags": [
+        {
+          "period": "2025-01",
+          "flag": "e"
+        },
+        {
+          "period": "2025-02",
+          "flag": "e"
+        },
+        {
+          "period": "2025-03",
+          "flag": "e"
+        },
+        {
+          "period": "2025-04",
+          "flag": "e"
+        },
+        {
+          "period": "2025-05",
+          "flag": "e"
+        },
+        {
+          "period": "2025-06",
+          "flag": "e"
+        },
+        {
+          "period": "2025-07",
+          "flag": "e"
+        },
+        {
+          "period": "2025-08",
+          "flag": "e"
+        },
+        {
+          "period": "2025-09",
+          "flag": "e"
+        },
+        {
+          "period": "2025-10",
+          "flag": "e"
+        },
+        {
+          "period": "2025-11",
+          "flag": "e"
+        },
+        {
+          "period": "2025-12",
+          "flag": "e"
+        },
+        {
+          "period": "2026-01",
+          "flag": "e"
+        },
+        {
+          "period": "2026-02",
+          "flag": "e"
+        },
+        {
+          "period": "2026-03",
+          "flag": "e"
+        },
+        {
+          "period": "2026-04",
+          "flag": "e"
+        },
+        {
+          "period": "2026-05",
+          "flag": "e"
+        },
+        {
+          "period": "2026-06",
+          "flag": "e"
+        },
+        {
+          "period": "2026-07",
+          "flag": "e"
+        },
+        {
+          "period": "2026-08",
+          "flag": "e"
+        }
+      ],
+      "break_flags": [],
+      "extension_ready": false,
+      "blocker": "Country-specific bond-basket/source-transition review required.",
+      "country_specific_note": "Primary-market yields through 2003-10 per Eurostat metadata.",
+      "vintage": "latest_revised_not_real_time"
+    },
+    {
+      "country": "CZ",
+      "source_dataset": "irt_lt_mcby_m",
+      "source_query_id": "yield",
+      "earliest_available": "2000-04",
+      "earliest_pre_2015_available": "2000-04",
+      "earliest_definition_compatible": null,
+      "latest": "2026-08",
+      "seasonal_adjustment": "monthly average",
+      "classification": "Maastricht criterion bond yield",
+      "index_reference": "% p.a.",
+      "observed_months": 317,
+      "missing_months_to_frozen_end": 0,
+      "flags": [],
+      "break_flags": [],
+      "extension_ready": false,
+      "blocker": "Country-specific bond-basket/source-transition review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    },
+    {
+      "country": "HU",
+      "source_dataset": "irt_lt_mcby_m",
+      "source_query_id": "yield",
+      "earliest_available": "2001-01",
+      "earliest_pre_2015_available": "2001-01",
+      "earliest_definition_compatible": null,
+      "latest": "2026-08",
+      "seasonal_adjustment": "monthly average",
+      "classification": "Maastricht criterion bond yield",
+      "index_reference": "% p.a.",
+      "observed_months": 308,
+      "missing_months_to_frozen_end": 0,
+      "flags": [],
+      "break_flags": [],
+      "extension_ready": false,
+      "blocker": "Country-specific bond-basket/source-transition review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    },
+    {
+      "country": "PL",
+      "source_dataset": "irt_lt_mcby_m",
+      "source_query_id": "yield",
+      "earliest_available": "2001-01",
+      "earliest_pre_2015_available": "2001-01",
+      "earliest_definition_compatible": null,
+      "latest": "2026-08",
+      "seasonal_adjustment": "monthly average",
+      "classification": "Maastricht criterion bond yield",
+      "index_reference": "% p.a.",
+      "observed_months": 308,
+      "missing_months_to_frozen_end": 0,
+      "flags": [],
+      "break_flags": [],
+      "extension_ready": false,
+      "blocker": "Country-specific bond-basket/source-transition review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    },
+    {
+      "country": "RO",
+      "source_dataset": "irt_lt_mcby_m",
+      "source_query_id": "yield",
+      "earliest_available": "2005-04",
+      "earliest_pre_2015_available": "2005-04",
+      "earliest_definition_compatible": null,
+      "latest": "2026-08",
+      "seasonal_adjustment": "monthly average",
+      "classification": "Maastricht criterion bond yield",
+      "index_reference": "% p.a.",
+      "observed_months": 257,
+      "missing_months_to_frozen_end": 0,
+      "flags": [],
+      "break_flags": [],
+      "extension_ready": false,
+      "blocker": "Country-specific bond-basket/source-transition review required.",
+      "country_specific_note": "Primary-market yields through 2005-12 per Eurostat metadata.",
+      "vintage": "latest_revised_not_real_time"
+    }
+  ]
+}

@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "historical-extension:audit": "node scripts/historical-monthly-extension/audit.mjs",
+    "historical-extension:validate": "node scripts/historical-monthly-extension/validate.mjs",
     "panel-lp:composition": "node scripts/panel-local-projections/run.mjs composition",
     "panel-lp:closure-validate": "node scripts/panel-local-projections/closure-validate.mjs",
     "panel-lp:closure-validate:pre-export": "node scripts/panel-local-projections/closure-validate.mjs --pre-export",

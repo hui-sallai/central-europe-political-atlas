@@ -1,0 +1,209 @@
+{
+  "outcome": "ipi",
+  "country_count": 8,
+  "records": [
+    {
+      "country": "AT",
+      "source_dataset": "sts_inpr_m",
+      "source_query_id": "ipi",
+      "earliest_available": "1996-01",
+      "earliest_pre_2015_available": "1996-01",
+      "earliest_definition_compatible": null,
+      "latest": "2026-07",
+      "seasonal_adjustment": "SCA",
+      "classification": "NACE Rev.2 B-D",
+      "index_reference": "2021=100",
+      "observed_months": 367,
+      "missing_months_to_frozen_end": 0,
+      "flags": [
+        {
+          "period": "2026-07",
+          "flag": "p"
+        }
+      ],
+      "break_flags": [],
+      "extension_ready": false,
+      "blocker": "Country-specific NACE Rev.2 backcast and adjustment-history review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    },
+    {
+      "country": "DE",
+      "source_dataset": "sts_inpr_m",
+      "source_query_id": "ipi",
+      "earliest_available": "1991-01",
+      "earliest_pre_2015_available": "1991-01",
+      "earliest_definition_compatible": null,
+      "latest": "2026-07",
+      "seasonal_adjustment": "SCA",
+      "classification": "NACE Rev.2 B-D",
+      "index_reference": "2021=100",
+      "observed_months": 427,
+      "missing_months_to_frozen_end": 0,
+      "flags": [],
+      "break_flags": [],
+      "extension_ready": false,
+      "blocker": "Country-specific NACE Rev.2 backcast and adjustment-history review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    },
+    {
+      "country": "SK",
+      "source_dataset": "sts_inpr_m",
+      "source_query_id": "ipi",
+      "earliest_available": "2000-01",
+      "earliest_pre_2015_available": "2000-01",
+      "earliest_definition_compatible": null,
+      "latest": "2026-07",
+      "seasonal_adjustment": "SCA",
+      "classification": "NACE Rev.2 B-D",
+      "index_reference": "2021=100",
+      "observed_months": 319,
+      "missing_months_to_frozen_end": 0,
+      "flags": [],
+      "break_flags": [],
+      "extension_ready": false,
+      "blocker": "Country-specific NACE Rev.2 backcast and adjustment-history review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    },
+    {
+      "country": "SI",
+      "source_dataset": "sts_inpr_m",
+      "source_query_id": "ipi",
+      "earliest_available": "1998-01",
+      "earliest_pre_2015_available": "1998-01",
+      "earliest_definition_compatible": null,
+      "latest": "2026-07",
+      "seasonal_adjustment": "SCA",
+      "classification": "NACE Rev.2 B-D",
+      "index_reference": "2021=100",
+      "observed_months": 343,
+      "missing_months_to_frozen_end": 0,
+      "flags": [
+        {
+          "period": "2026-02",
+          "flag": "p"
+        },
+        {
+          "period": "2026-03",
+          "flag": "p"
+        },
+        {
+          "period": "2026-04",
+          "flag": "p"
+        },
+        {
+          "period": "2026-05",
+          "flag": "p"
+        },
+        {
+          "period": "2026-06",
+          "flag": "p"
+        },
+        {
+          "period": "2026-07",
+          "flag": "p"
+        }
+      ],
+      "break_flags": [],
+      "extension_ready": false,
+      "blocker": "Country-specific NACE Rev.2 backcast and adjustment-history review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    },
+    {
+      "country": "CZ",
+      "source_dataset": "sts_inpr_m",
+      "source_query_id": "ipi",
+      "earliest_available": "2000-01",
+      "earliest_pre_2015_available": "2000-01",
+      "earliest_definition_compatible": null,
+      "latest": "2026-07",
+      "seasonal_adjustment": "SCA",
+      "classification": "NACE Rev.2 B-D",
+      "index_reference": "2021=100",
+      "observed_months": 319,
+      "missing_months_to_frozen_end": 0,
+      "flags": [],
+      "break_flags": [],
+      "extension_ready": false,
+      "blocker": "Country-specific NACE Rev.2 backcast and adjustment-history review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    },
+    {
+      "country": "HU",
+      "source_dataset": "sts_inpr_m",
+      "source_query_id": "ipi",
+      "earliest_available": "2000-01",
+      "earliest_pre_2015_available": "2000-01",
+      "earliest_definition_compatible": null,
+      "latest": "2026-07",
+      "seasonal_adjustment": "SCA",
+      "classification": "NACE Rev.2 B-D",
+      "index_reference": "2021=100",
+      "observed_months": 319,
+      "missing_months_to_frozen_end": 0,
+      "flags": [],
+      "break_flags": [],
+      "extension_ready": false,
+      "blocker": "Country-specific NACE Rev.2 backcast and adjustment-history review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    },
+    {
+      "country": "PL",
+      "source_dataset": "sts_inpr_m",
+      "source_query_id": "ipi",
+      "earliest_available": "2000-01",
+      "earliest_pre_2015_available": "2000-01",
+      "earliest_definition_compatible": null,
+      "latest": "2026-07",
+      "seasonal_adjustment": "SCA",
+      "classification": "NACE Rev.2 B-D",
+      "index_reference": "2021=100",
+      "observed_months": 319,
+      "missing_months_to_frozen_end": 0,
+      "flags": [],
+      "break_flags": [],
+      "extension_ready": false,
+      "blocker": "Country-specific NACE Rev.2 backcast and adjustment-history review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    },
+    {
+      "country": "RO",
+      "source_dataset": "sts_inpr_m",
+      "source_query_id": "ipi",
+      "earliest_available": "2000-01",
+      "earliest_pre_2015_available": "2000-01",
+      "earliest_definition_compatible": null,
+      "latest": "2026-07",
+      "seasonal_adjustment": "SCA",
+      "classification": "NACE Rev.2 B-D",
+      "index_reference": "2021=100",
+      "observed_months": 319,
+      "missing_months_to_frozen_end": 0,
+      "flags": [
+        {
+          "period": "2024-12",
+          "flag": "p"
+        },
+        {
+          "period": "2025-12",
+          "flag": "p"
+        },
+        {
+          "period": "2026-07",
+          "flag": "p"
+        }
+      ],
+      "break_flags": [],
+      "extension_ready": false,
+      "blocker": "Country-specific NACE Rev.2 backcast and adjustment-history review required.",
+      "country_specific_note": null,
+      "vintage": "latest_revised_not_real_time"
+    }
+  ]
+}

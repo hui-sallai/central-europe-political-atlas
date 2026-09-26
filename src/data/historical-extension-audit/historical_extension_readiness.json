@@ -1,0 +1,39 @@
+{
+  "state": "partial",
+  "no_new_panel_estimates": true,
+  "no_joint_inference_reopening": true,
+  "no_interpolation": true,
+  "current_canonical_observations_modified": false,
+  "current_panel_results_modified": false,
+  "earliest_mathematically_common": {
+    "hicp": "1996-12",
+    "ipi": "2000-01",
+    "unemployment": "1998-01",
+    "yield": "2005-04",
+    "all_four": "2005-04"
+  },
+  "earliest_definition_compatible_common_start": null,
+  "design_A": {
+    "status": "candidate_only",
+    "earliest_regime_permitted_start": "2009-01",
+    "definition_compatible_start": null,
+    "requires_owner_review": true
+  },
+  "design_B": {
+    "status": "registered_future_candidate_only",
+    "definition": "time-varying euro membership"
+  },
+  "design_C": {
+    "status": "registered_future_candidate_only",
+    "definition": "country-specific historical LP"
+  },
+  "state_dependent_LP": "not_started",
+  "blockers": [
+    "Country-level historical methodological review is not complete.",
+    "API flags and definition breaks need source-specific resolution.",
+    "No historical Panel LP preregistration or owner approval."
+  ],
+  "owner_approval_required": true,
+  "push": false,
+  "deploy": false
+}
