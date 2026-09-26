@@ -1,0 +1,51 @@
+{
+  "schema_version": "historical-definition-resolution-round4-v1",
+  "review_date": "2026-09-27",
+  "prior_evidence_registry": "historical_definition_evidence_registry.json",
+  "prior_adverse_records_preserved": true,
+  "scope": "Final official-source resolution of pre-2015 extension; distinct from current v1.82 baseline integrity",
+  "records": [
+    {
+      "outcome": "ipi", "country": "PL", "status": "blocked", "supports_start_date": null,
+      "pre2015_extension_status": "blocked_for_pre2015_extension", "disposition": "blocked_no_KAU_bridge",
+      "evidence_summary": "Eurostat documents the LEU-to-KAU change inside the 2015+ baseline and only possible insignificant aggregate breaks; the Statistics Poland KAU method report documents real differences in NACE allocation. Neither supplies a pre-2021 KAU B-D SCA bridge.",
+      "evidence_urls": ["https://ec.europa.eu/eurostat/cache/metadata/EN/sts_ind_prod_esms_pl.htm", "https://stat.gov.pl/files/gfx/portalinformacyjny/en/defaultaktualnosci/3317/31/1/1/short-term_statistics_by_european_concept_of_the_kind_of_activity_unit.pdf"],
+      "break_periods": ["2021-01 statistical-unit transition"], "remaining_uncertainty": "The exact B-D SCA unit-change magnitude is not quantified; baseline warning does not establish pre-2015 KAU compatibility."
+    },
+    {
+      "outcome": "ipi", "country": "RO", "status": "blocked", "supports_start_date": null,
+      "pre2015_extension_status": "blocked_insufficient_official_date", "disposition": "blocked_insufficient_official_date",
+      "evidence_summary": "Romanian national metadata documents current CANE Rev.2/SCA methods and no major change over the last 15 years, but does not certify an exact pre-2015 comparable monthly floor; the seasonal-adjustment annex likewise gives no date.",
+      "evidence_urls": ["https://ec.europa.eu/eurostat/cache/metadata/EN/sts_ind_prod_esms_ro.htm", "https://ec.europa.eu/eurostat/cache/metadata/Annexes/sts_ind_prod_esms_ro_an_1.doc"],
+      "break_periods": [], "remaining_uncertainty": "An update-relative phrase cannot be converted into an exact 2011 or 2000 start date."
+    },
+    {
+      "outcome": "unemployment", "country": "SK", "status": "blocked", "supports_start_date": null,
+      "pre2015_extension_status": "blocked_for_pre2015_extension", "disposition": "blocked_unexplained_d_flag",
+      "evidence_summary": "Eurostat documents the 2009 IESS-corrected boundary, but the exact monthly series retains 2011-09 d (definition differs). No official interpretation establishing a later clean start was located.",
+      "evidence_urls": ["https://ec.europa.eu/eurostat/cache/metadata/en/une_rt_m_esms.htm", "https://ec.europa.eu/eurostat/cache/metadata/Annexes/une_rt_m_esms_an_Sources_and_methods_for_MUR.pdf"],
+      "break_periods": ["2009-01:b", "2011-09:d"], "remaining_uncertainty": "Do not infer that 2011-10 is compatible merely because d occurs once."
+    },
+    {
+      "outcome": "unemployment", "country": "HU", "status": "verified", "supports_start_date": "2011-01",
+      "pre2015_extension_status": "cleared_latest_revised_from_2011", "disposition": "cleared_latest_revised_from_2011",
+      "evidence_summary": "Eurostat's Hungary monthly-method row places state-space estimation from January 2023 and says the data were revised from January 2011 through December 2022. This establishes a documented current-revised segment from 2011 for the same harmonised monthly unemployment indicator, while 2009-2010 remains outside the clearance.",
+      "evidence_urls": ["https://ec.europa.eu/eurostat/cache/metadata/Annexes/une_rt_m_esms_an_Sources_and_methods_for_MUR.pdf", "https://ec.europa.eu/eurostat/cache/metadata/en/une_rt_m_esms.htm"],
+      "break_periods": ["2008-01:d", "2009-01:b", "2011-01 revised-method floor"], "remaining_uncertainty": "The 2009-2010 relationship to the 2011+ revised monthly method remains unresolved; no real-time vintage claim."
+    },
+    {
+      "outcome": "unemployment", "country": "PL", "status": "blocked", "supports_start_date": null,
+      "pre2015_extension_status": "blocked_for_pre2015_extension", "disposition": "blocked_unexplained_d_flag",
+      "evidence_summary": "Eurostat documents the 2009 IESS-corrected boundary and quarterly-LFS monthly benchmarking, but the exact series has a 2009-12 d definition-difference flag without an official explanation of the post-flag comparison floor.",
+      "evidence_urls": ["https://ec.europa.eu/eurostat/cache/metadata/en/une_rt_m_esms.htm", "https://ec.europa.eu/eurostat/cache/metadata/Annexes/une_rt_m_esms_an_Sources_and_methods_for_MUR.pdf", "https://stat.gov.pl/obszary-tematyczne/rynek-pracy/zasady-metodyczne-rocznik-pracy/jak-liczymy-bezrobocie,2,1.html"],
+      "break_periods": ["2009-01:b", "2009-12:d"], "remaining_uncertainty": "2010 onward is not certified solely because a d flag is isolated; registered counts remain auxiliary, not the outcome."
+    },
+    {
+      "outcome": "unemployment", "country": "RO", "status": "verified", "supports_start_date": "2009-01",
+      "pre2015_extension_status": "cleared_latest_revised_from_2009", "disposition": "cleared_latest_revised_from_2009",
+      "evidence_summary": "Eurostat's EU-LFS correction document explicitly places Romania's IESS-derived monthly portion from 2009-01 and says historical une_rt_m data were overwritten with corrected values. The exact SA/TOTAL API query lacks the listed 2009 b flag, but that flag discrepancy does not invalidate the documented revised-method floor.",
+      "evidence_urls": ["https://ec.europa.eu/eurostat/statistics-explained/SEPDF/cache/94764.pdf", "https://ec.europa.eu/eurostat/cache/metadata/en/une_rt_m_esms.htm"],
+      "break_periods": ["2003-12:d", "2009-01 documented IESS boundary; exact API b absent"], "remaining_uncertainty": "Document/API flag discrepancy is preserved; no claim that pre-2009 data share the current derivation."
+    }
+  ]
+}

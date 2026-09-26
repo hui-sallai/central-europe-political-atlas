@@ -302,9 +302,11 @@
       "official_metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/irt_lt_mcby_esms.htm"
     }
   ],
-  "additional_pending_review": [
-    "IPI NACE Rev.2 national comparability floors, PL statistical-unit transition, and SCA continuity",
-    "Unemployment LFS/IESS 2021 revisions and pre-2015 flags by country",
-    "Yield bond-basket and source transitions by country"
-  ]
+  "final_unresolved_pre2015": [
+    "IPI PL: no official pre-2021 KAU B-D SCA bridge",
+    "IPI RO: no exact official pre-2015 comparable floor",
+    "Unemployment SK: 2011-09 d unexplained",
+    "Unemployment PL: 2009-12 d unexplained"
+  ],
+  "further_general_source_hunting": false
 }

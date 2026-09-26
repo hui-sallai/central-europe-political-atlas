@@ -16,8 +16,17 @@ const matrix = load('historical_common_sample_matrix.json');
 const readiness = load('historical_extension_readiness.json');
 const support = load('historical_extension_support_gain.json');
 const evidence = load('historical_definition_evidence_registry.json');
+const resolution = load('historical_definition_resolution_round4.json');
 check(evidence.records.length === 17, 'round-3 evidence must cover 2 IPI, 7 unemployment and 8 yield cells');
 const evidenceByCell = new Map(evidence.records.map((r) => [`${r.outcome}/${r.country}`, r]));
+check(resolution.prior_adverse_records_preserved && resolution.records.length === 6, 'round-4 final resolution must preserve the earlier adverse registry');
+const resolutionByCell = new Map(resolution.records.map((r) => [`${r.outcome}/${r.country}`, r]));
+check(resolutionByCell.size === 6, 'duplicate round-4 resolution cell');
+for (const row of resolution.records) {
+  check(evidenceByCell.has(`${row.outcome}/${row.country}`) && row.evidence_urls?.length && row.remaining_uncertainty, `round-4 cell lacks prior evidence or official source: ${row.outcome}/${row.country}`);
+  check((row.status === 'verified') === (row.supports_start_date !== null), `round-4 unsupported clearance: ${row.outcome}/${row.country}`);
+  check(row.status === 'verified' || row.pre2015_extension_status.startsWith('blocked'), `unresolved round-4 cell: ${row.outcome}/${row.country}`);
+}
 check(evidenceByCell.size === 17, 'duplicate country-outcome evidence cell');
 const sourceIds = new Set(evidence.sources.map((s) => s.id));
 check(sourceIds.size === evidence.sources.length, 'duplicate evidence source');
@@ -68,11 +77,12 @@ for (const id of outcomes) {
     else if (id === 'ipi' && ['AT', 'DE', 'SK', 'SI', 'CZ', 'HU'].includes(row.country)) check(row.extension_ready && row.earliest_definition_compatible !== null, `IPI national metadata clearance: ${row.country}`);
     else if (id === 'unemployment' && row.country === 'CZ') check(row.extension_ready && row.earliest_definition_compatible === row.earliest_available, 'CZ unemployment ILO clearance');
     else {
-      const decision = evidenceByCell.get(`${id}/${row.country}`);
+      const decision = resolutionByCell.get(`${id}/${row.country}`) ?? evidenceByCell.get(`${id}/${row.country}`);
       check(decision && row.earliest_definition_compatible === decision.supports_start_date && row.extension_ready === (decision.status === 'verified'), `round-3 clearance mismatch: ${id}/${row.country}`);
       if (!row.extension_ready) check(row.blocker && decision.remaining_uncertainty, `null start without blocker: ${id}/${row.country}`);
     }
     check(row.vintage === 'latest_revised_not_real_time', `vintage claim: ${id}/${row.country}`);
+    check(row.earliest_known_compatible === row.earliest_definition_compatible && row.earliest_pre2015_compatible === row.earliest_definition_compatible && row.current_baseline_compatible !== 'blocked' && ['cleared', 'blocked_for_pre2015_extension', 'blocked_insufficient_official_date'].includes(row.pre2015_extension_status), `baseline/extension schema separation: ${id}/${row.country}`);
   }
 }
 
@@ -113,12 +123,19 @@ for (const geo of geos) {
   check(row?.earliest_available && row.earliest_definition_compatible === compatibleStarts.unemployment[geo] && row.current_methodology && row.historical_methodology && row.back_revision_status && row.IESS_status && row.vintage_limitation && row.evidence.length >= 2, `incomplete unemployment country review: ${geo}`);
 }
 for (const decision of evidence.records) {
+  if (resolutionByCell.has(`${decision.outcome}/${decision.country}`)) continue;
   const row = review.records.find((r) => r.outcome === decision.outcome && r.country === decision.country);
   check(row?.disposition === decision.disposition && row.remaining_uncertainty === decision.remaining_uncertainty, `review/evidence mismatch: ${decision.outcome}/${decision.country}`);
+}
+for (const decision of resolution.records) {
+  const row = review.records.find((r) => r.outcome === decision.outcome && r.country === decision.country);
+  check(row?.disposition === decision.disposition && row.remaining_uncertainty === decision.remaining_uncertainty, `review/resolution mismatch: ${decision.outcome}/${decision.country}`);
 }
 check(matrix.definition_compatible_pre_2015_common_starts.hicp === '1996-12' && matrix.definition_compatible_pre_2015_common_starts.yield === '2006-01' && matrix.definition_compatible_pre_2015_common_starts.ipi === null && matrix.definition_compatible_pre_2015_common_starts.unemployment === null && matrix.definition_compatible_pre_2015_common_starts.all_four === null, 'historical common-start gate');
 check(evidenceByCell.get('ipi/PL').status === 'conflict' && evidenceByCell.get('ipi/RO').status === 'insufficient', 'IPI adverse evidence preserved');
 check(evidenceByCell.get('unemployment/RO').status === 'conflict' && evidenceByCell.get('unemployment/HU').status === 'insufficient', 'unemployment adverse evidence preserved');
+check(resolutionByCell.get('unemployment/HU').supports_start_date === '2011-01' && resolutionByCell.get('unemployment/RO').supports_start_date === '2009-01', 'documented revised-history floors');
+check(['ipi/PL', 'ipi/RO', 'unemployment/SK', 'unemployment/PL'].every((key) => resolutionByCell.get(key)?.status === 'blocked'), 'remaining historical blockers not closed');
 
 const mp = JSON.parse(fs.readFileSync(path.join(root, 'src/data/identified-shocks/ecb_pure_monetary_policy_shock_monthly.json')));
 const cbi = JSON.parse(fs.readFileSync(path.join(root, 'src/data/identified-shocks/ecb_central_bank_information_shock_monthly.json')));
@@ -134,6 +151,7 @@ const regime = load('historical_monetary_regime_registry.json').records;
 check(regime.some((r) => r.country === 'SI' && r.period_start === '2007-01' && r.euro_member) && regime.some((r) => r.country === 'SK' && r.period_start === '2009-01' && r.euro_member), 'euro-adoption regime dates');
 check(readiness.state === 'partial' && readiness.no_new_panel_estimates && readiness.no_joint_inference_reopening && readiness.no_interpolation && readiness.owner_approval_required, 'research boundary');
 check(readiness.cleared_outcomes.join(',') === 'hicp,yield' && readiness.design_A.definition_compatible_start === null && readiness.outcome_states.ipi === 'blocked_for_historical_extension' && readiness.outcome_states.unemployment === 'blocked_for_historical_extension', 'partial readiness overstated');
+check(readiness.baseline_definition_integrity === 'nonblocking_warning' && readiness.design_A.status === 'blocked_for_pre2015_extension', 'baseline warning or Design A block missing');
 check(JSON.parse(fs.readFileSync(path.join(root, 'src/data/release.json'), 'utf8')).version.startsWith('v1.82 '), 'formal release version changed');
 check(readiness.design_B.status === 'registered_future_candidate_only' && readiness.design_C.status === 'registered_future_candidate_only' && readiness.state_dependent_LP === 'not_started', 'prohibited designs activated');
 

@@ -232,7 +232,11 @@ for (const country of Object.values(GEOS)) {
       expected_latest_period: expectedLatest,
       publication_lag_status: lagMonths === null ? "no_data" : lagMonths <= 2 ? "normal_publication_lag" : "stale_series",
       definition_status: rows.length ? "defined" : "not_available_for_country",
-      series_break_status: rows.some((row) => row.series_break_status !== "none_recorded") ? "unit_change_recorded" : "none_recorded",
+      series_break_status: country === "poland" && series.indicator === "industrial_production_index"
+        ? "known_methodological_transition_nonblocking"
+        : country === "hungary" && series.indicator === "unemployment_rate_monthly"
+          ? "known_methodological_transition_back_revised"
+        : rows.some((row) => row.series_break_status !== "none_recorded") ? "unit_change_recorded" : "none_recorded",
       analysis_eligible: withValue.length >= 24,
     });
   }
@@ -273,7 +277,7 @@ const varReadinessIndicators = SERIES.map((series) => {
   const rows = coverage.filter((entry) => entry.indicator === series.indicator && entry.definition_status === "defined");
   const effective = rows.filter((entry) => entry.observations >= 60);
   const definitionConsistent = acquisition.find((entry) => entry.indicator === series.indicator)?.units.length === 1;
-  const unresolvedBreaks = rows.some((entry) => entry.series_break_status !== "none_recorded");
+  const unresolvedBreaks = rows.some((entry) => !["none_recorded", "known_methodological_transition_nonblocking", "known_methodological_transition_back_revised"].includes(entry.series_break_status));
   const missingGate = rows.every((entry) => entry.expected_periods === 0 || entry.missing_periods / entry.expected_periods <= 0.05);
   const readinessMet = effective.length === rows.length && rows.length === Object.keys(GEOS).length && definitionConsistent && !unresolvedBreaks && missingGate;
   return {

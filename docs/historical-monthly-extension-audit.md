@@ -1,5 +1,7 @@
 # Historical Monthly Extension — feasibility audit (research-only)
 
+This document preserves the initial/round-2 audit and mathematical preflights. For the current baseline-integrity and final pre-2015 decisions, see `docs/baseline-definition-integrity-and-final-extension.md`. Earlier pending language below is historical, not the current disposition.
+
 Status: **partial; not ready for owner approval of a new estimation plan**. Starting commit `996450ef79c8db22abed491691b36d0e7ed3fc36` (formal v1.82). The v1.82 whole-path joint-inference program remains `closed_current_research_program`, with no activated path, public joint band, or global path test. This audit ran **zero** research simulations and **zero** new Panel LP estimates. It does not revisit R2.
 
 The existing acquisition script explicitly sets `PLATFORM_START = "2015-01"`. Five official Eurostat JSON-stat API queries without that cutoff, retrieved on 2026-09-26, show that 2015 is **not** the raw source minimum. Raw responses, exact URLs, UTC acquisition timestamps, HTTP statuses, dataset update timestamps, dimensions, row counts and SHA-256 checksums are in `src/data/historical-extension-audit/`. Eurostat supplies latest-revised history, not a real-time vintage.

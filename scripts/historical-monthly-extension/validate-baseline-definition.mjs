@@ -1,0 +1,44 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+const read = (p) => JSON.parse(fs.readFileSync(path.join(root, p), 'utf8'));
+const check = (condition, message) => { if (!condition) throw new Error(message); };
+const audit = read('src/data/historical-extension-audit/baseline_definition_integrity_audit.json');
+const coverage = read('src/data/high-frequency/high_frequency_coverage.json');
+const yieldAudit = read('src/data/historical-extension-audit/historical_yield_extension_audit.json');
+const sourceIds = new Set(audit.sources.map((source) => source.id));
+const coverageIndicators = { industrial_production: 'industrial_production_index', unemployment: 'unemployment_rate_monthly' };
+const countryNames = { PL: 'poland', HU: 'hungary' };
+check(audit.state === 'nonblocking_warning' && audit.no_panel_estimation && audit.no_production_observation_change, 'baseline audit boundary');
+check(audit.records.length === 3 && sourceIds.size === audit.sources.length, 'required baseline cells or sources missing');
+for (const source of audit.sources) check(source.url.startsWith('https://') && /^[a-f0-9]{64}$/.test(source.sha256), `unverified official source: ${source.id}`);
+for (const row of audit.records) {
+  check(row.inside_formal_sample && row.sample_period === '2015-01..2025-10', `transition outside formal sample: ${row.country}/${row.outcome}`);
+  check(row.official_evidence.length && row.official_evidence.every((id) => sourceIds.has(id)), `missing official basis: ${row.country}/${row.outcome}`);
+  check(['current_baseline_definition_cleared', 'current_baseline_definition_warning', 'current_baseline_definition_blocked'].includes(row.compatibility_decision), `invalid decision: ${row.country}/${row.outcome}`);
+  check(['none', 'metadata_warning_only', 'block_pending_owner_review'].includes(row.formal_result_action), `forbidden formal action: ${row.country}/${row.outcome}`);
+  check(row.compatibility_decision !== 'current_baseline_definition_blocked' || row.formal_result_action === 'block_pending_owner_review', `blocked without release stop: ${row.country}/${row.outcome}`);
+  const coverageRow = coverage.records.find((entry) => entry.country === countryNames[row.country] && entry.indicator === coverageIndicators[row.outcome]);
+  if (coverageRow) check(coverageRow.series_break_status !== 'none_recorded', `in-sample method transition omitted from coverage: ${row.country}/${row.outcome}`);
+}
+const pl = audit.records.find((r) => r.country === 'PL' && r.outcome === 'industrial_production');
+const hu = audit.records.find((r) => r.country === 'HU' && r.outcome === 'unemployment');
+const si = audit.records.find((r) => r.country === 'SI' && r.outcome === 'long_term_yield');
+check(pl?.transition_date === '2021-01' && pl.compatibility_decision === 'current_baseline_definition_warning', 'PL IPI baseline judgment');
+check(pl.overlap_audit.status === 'not_available_as_matched_official_pair' && Object.entries(pl.overlap_audit).filter(([key]) => ['level_difference', 'growth_difference', 'correlation', 'mean_absolute_difference', 'maximum_difference'].includes(key)).every(([, value]) => value === null), 'unverified LEU/KAU overlap statistics');
+const plCoverage = coverage.records.find((r) => r.country === 'poland' && r.indicator === 'industrial_production_index');
+check(plCoverage?.series_break_status === 'known_methodological_transition_nonblocking' && plCoverage.definition_status === 'defined' && plCoverage.analysis_eligible, 'in-sample PL unit transition missing from coverage metadata');
+check(hu?.transition_date === '2023-01' && hu.compatibility_decision === 'current_baseline_definition_cleared' && hu.formal_result_action === 'none', 'HU back-revision judgment');
+const huCoverage = coverage.records.find((r) => r.country === 'hungary' && r.indicator === 'unemployment_rate_monthly');
+check(huCoverage?.series_break_status === 'known_methodological_transition_back_revised' && huCoverage.analysis_eligible, 'HU back-revision missing from coverage metadata');
+check(si?.compatibility_decision === 'current_baseline_definition_warning' && yieldAudit.records.find((r) => r.country === 'SI')?.flags.some((f) => f.period === '2025-01' && f.flag === 'e'), 'SI estimated-value disclosure');
+check(read('src/data/release.json').version.startsWith('v1.82 '), 'formal version changed');
+const panelSha = crypto.createHash('sha256').update(fs.readFileSync(path.join(root, 'src/data/panel-local-projections/panel_lp_results.json'))).digest('hex');
+check(panelSha === '10e7b4f8761523e7b136b9707ac87da1d753a5914e0d11a3f8b980571ab53bdc', 'frozen Panel SHA changed');
+const changed = execFileSync('git', ['diff', '--name-only', '9b163c03de75a9a9d0f9e53f8d0b9d4bbd8775d0', '--', 'src/data/high-frequency/high_frequency_observations.json', 'src/data/panel-local-projections', 'src/data/identified-shocks'], { cwd: root, encoding: 'utf8' }).trim();
+check(!changed, `frozen observation, Panel or shock output changed: ${changed}`);
+console.log(JSON.stringify({ baseline_definition_integrity: 'nonblocking_warning', records: audit.records.length, pl_coverage_transition_recorded: true, hu_back_revision: 'documented', si_estimated_flag: 'preserved', frozen_panel_sha256: panelSha, panel_estimation: false }, null, 2));

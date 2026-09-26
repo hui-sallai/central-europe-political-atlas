@@ -224,7 +224,10 @@ const sourceEntries = [
   ["macro-dynamics/var_model_registry.json", "src/data/macro/var_model_registry.json"],
   ["historical-extension/README.md", "docs/historical-monthly-extension-audit.md"],
   ["historical-extension/definition-resolution-round3.md", "docs/historical-definition-resolution-round3.md"],
+  ["historical-extension/baseline-definition-integrity-and-final-extension.md", "docs/baseline-definition-integrity-and-final-extension.md"],
   ["historical-extension/historical_definition_evidence_registry.json", "src/data/historical-extension-audit/historical_definition_evidence_registry.json"],
+  ["historical-extension/baseline_definition_integrity_audit.json", "src/data/historical-extension-audit/baseline_definition_integrity_audit.json"],
+  ["historical-extension/historical_definition_resolution_round4.json", "src/data/historical-extension-audit/historical_definition_resolution_round4.json"],
   ...[
     "historical_extension_source_manifest.json",
     "historical_hicp_extension_audit.json",

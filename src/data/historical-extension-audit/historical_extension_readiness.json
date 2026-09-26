@@ -1,5 +1,6 @@
 {
   "state": "partial",
+  "baseline_definition_integrity": "nonblocking_warning",
   "no_new_panel_estimates": true,
   "no_joint_inference_reopening": true,
   "no_interpolation": true,
@@ -24,7 +25,7 @@
     "yield": "cleared_with_preserved_quality_flags"
   },
   "design_A": {
-    "status": "candidate_only",
+    "status": "blocked_for_pre2015_extension",
     "earliest_regime_permitted_start": "2009-01",
     "definition_compatible_start": null,
     "requires_owner_review": true
@@ -39,8 +40,8 @@
   },
   "state_dependent_LP": "not_started",
   "blockers": [
-    "IPI: PL 2021 LEU-to-KAU transition lacks an official B-D SCA bridge; RO has no exact pre-2015 comparable floor.",
-    "Unemployment: SK 2011-09 d, PL 2009-12 d, HU 2009-2010/2011+ method relationship, and RO documented/API flag discrepancy remain unresolved.",
+    "IPI: PL 2021 LEU-to-KAU transition lacks an official B-D SCA pre-2021 bridge; RO has no exact pre-2015 comparable floor.",
+    "Unemployment: SK 2011-09 d and PL 2009-12 d remain unexplained by official documentation; HU 2011+ and RO 2009+ are cleared only for latest revised histories.",
     "No all-eight four-outcome definition-cleared Design A window; no historical Panel LP preregistration or owner approval."
   ],
   "owner_approval_required": true,
