@@ -1,0 +1,15 @@
+{
+  "schema_version": "var-residual-diagnostic-reference-validation-v1.85",
+  "status": "pass",
+  "case_count": 4,
+  "maximum_numerical_discrepancy": 8.256506589532364e-12,
+  "registered_absolute_tolerance": 1e-08,
+  "fallback_tolerance_used": false,
+  "case_4_all_tests_reject_at_0_05": {
+    "pt_adjusted": true,
+    "bg_lm": true,
+    "edgerton_shukur_f": true
+  },
+  "actual_country_data_read": false,
+  "production_engine_changed": false
+}

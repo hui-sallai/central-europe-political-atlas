@@ -1,6 +1,7 @@
 {
   "schema_version": "var-residual-diagnostic-preregistration-v1.85",
   "preregistered_at": "2026-09-27T10:31:45Z",
+  "amendments": ["var_residual_diagnostic_preregistration_amendment_001.json"],
   "starting_commit": "1b13fc1c8eaa804ef3b5ea5173c8ef01081afb3b",
   "research_question": "Is the current adjusted multivariate Portmanteau h=12 gate size-calibrated in the platform's finite-sample VAR setting, and, only if it is not, does a preregistered multivariate BG LM or Edgerton-Shukur small-sample F diagnostic satisfy the same calibration gate?",
   "existing_real_data_result_known": true,
@@ -164,7 +165,7 @@
     "src/data/macro/var_country_readiness.json": "4b8173f8202c72359758b0bf4b05ef08a6c089f2ab47f79b7be359468c97e6b1",
     "src/data/macro/var_baseline_v1_readiness.json": "f210b02ec3042c5cf95f975bccbd94f7fead0f403314d59a1e760a2046c5912e",
     "src/data/macro/var_baseline_v2_readiness.json": "b7fd4bec330ebd4db588ed63bce4de988773556b8cdc572c27f640239a2a1675",
-    "src/data/macro/var_exploratory_readiness.json": "9774fa8bc87f5d84cc867e4e60bb7b1ca1aa432d3d81979d275caca6c3ac08",
+    "src/data/macro/var_exploratory_readiness.json": "9774fa8bc87f5d84cc867e4e60bb7b1ca1a1aa432d3d81979d275caca6c3ac08",
     "src/data/macro/var_lag_diagnostic_grid.json": "2d1753188a9b5b7c8bb6f322eb53fd4241205f2d8789904498024e3a6ecd19d9",
     "src/data/panel-local-projections/panel_lp_results.json": "10e7b4f8761523e7b136b9707ac87da1d753a5914e0d11a3f8b980571ab53bdc"
   }

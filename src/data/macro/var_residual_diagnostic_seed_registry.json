@@ -25,7 +25,7 @@
     "independent_validation": [5, "implementation_index", "case_or_design_index"]
   },
   "reservations": [
-    {"purpose": "reference_fixture", "prefix": [0], "status": "reserved_unused"},
+    {"purpose": "reference_fixture", "prefix": [0], "status": "partially_used_cases_1_through_4"},
     {"purpose": "screening", "prefix": [1], "status": "reserved_unused"},
     {"purpose": "primary_confirmatory", "prefix": [2], "status": "reserved_unused"},
     {"purpose": "secondary_null_stress", "prefix": [3], "status": "reserved_unused"},
@@ -34,6 +34,11 @@
   ],
   "parallel_rng_policy": "Spawn keys are deterministic functions of immutable design indices and chunk indices. Worker processes construct their own generators from SeedSequence; inherited fork state and ad hoc integer offsets are prohibited.",
   "reuse_policy": "No seed or spawn key may be reused across purposes. Failed and completed chunks retain their original spawn keys and are never silently regenerated under a new seed.",
-  "used_spawn_keys": [],
-  "unused_prefixes": [[0], [1], [2], [3], [4], [5]]
+  "used_spawn_keys": [
+    {"spawn_key": [0, 1], "purpose": "reference_case_1", "status": "used"},
+    {"spawn_key": [0, 2], "purpose": "reference_case_2", "status": "used"},
+    {"spawn_key": [0, 3], "purpose": "reference_case_3", "status": "used"},
+    {"spawn_key": [0, 4], "purpose": "reference_case_4_and_preserved_failed_fixture_attempt", "status": "used_same_seed_no_seed_shopping"}
+  ],
+  "unused_prefixes": [[1], [2], [3], [4], [5]]
 }
