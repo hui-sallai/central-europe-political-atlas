@@ -1,0 +1,39 @@
+{
+  "schema_version": "var-residual-diagnostic-seed-registry-v1.85",
+  "registered_at": "2026-09-27T10:31:45Z",
+  "namespace": "var_residual_diagnostic_v185",
+  "base_entropy": [185, 20260927, 1],
+  "generator": "numpy.random.PCG64DXSM",
+  "derivation": "numpy.random.SeedSequence(base_entropy, spawn_key=registered_spawn_key)",
+  "duplicate_seed_audit": {
+    "repository_literal_search_for_base_entropy_token_1850927001": "no_match",
+    "known_prior_namespaces_reviewed": [
+      "VAR reference seeds 42, 7, 143",
+      "seasonal ADF seed 144043",
+      "LP reference seeds 1701, 1710, 1711",
+      "LP finite-sample base seed 172004",
+      "Panel joint-inference namespaces including 2210001 through 2210004"
+    ],
+    "duplicate_found": false
+  },
+  "spawn_key_schema": {
+    "reference_fixture": [0, "case_index"],
+    "screening": [1, "layer_index", "design_index", "chunk_index"],
+    "primary_confirmatory": [2, "layer_index", "design_index", "chunk_index"],
+    "secondary_null_stress": [3, "layer_index", "design_index", "chunk_index"],
+    "power": [4, "layer_index", "design_index", "chunk_index"],
+    "independent_validation": [5, "implementation_index", "case_or_design_index"]
+  },
+  "reservations": [
+    {"purpose": "reference_fixture", "prefix": [0], "status": "reserved_unused"},
+    {"purpose": "screening", "prefix": [1], "status": "reserved_unused"},
+    {"purpose": "primary_confirmatory", "prefix": [2], "status": "reserved_unused"},
+    {"purpose": "secondary_null_stress", "prefix": [3], "status": "reserved_unused"},
+    {"purpose": "power", "prefix": [4], "status": "reserved_unused"},
+    {"purpose": "independent_validation", "prefix": [5], "status": "reserved_unused"}
+  ],
+  "parallel_rng_policy": "Spawn keys are deterministic functions of immutable design indices and chunk indices. Worker processes construct their own generators from SeedSequence; inherited fork state and ad hoc integer offsets are prohibited.",
+  "reuse_policy": "No seed or spawn key may be reused across purposes. Failed and completed chunks retain their original spawn keys and are never silently regenerated under a new seed.",
+  "used_spawn_keys": [],
+  "unused_prefixes": [[0], [1], [2], [3], [4], [5]]
+}

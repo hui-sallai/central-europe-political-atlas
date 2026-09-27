@@ -1,0 +1,171 @@
+{
+  "schema_version": "var-residual-diagnostic-preregistration-v1.85",
+  "preregistered_at": "2026-09-27T10:31:45Z",
+  "starting_commit": "1b13fc1c8eaa804ef3b5ea5173c8ef01081afb3b",
+  "research_question": "Is the current adjusted multivariate Portmanteau h=12 gate size-calibrated in the platform's finite-sample VAR setting, and, only if it is not, does a preregistered multivariate BG LM or Edgerton-Shukur small-sample F diagnostic satisfy the same calibration gate?",
+  "existing_real_data_result_known": true,
+  "existing_real_data_result": "formal_dynamic_response_ready_country_count_is_zero",
+  "post_result_research_program": true,
+  "anti_test_shopping_statement": "Actual-country pass counts, actual-country p-values, IRF availability, and higher-lag diagnostic alternatives are prohibited inputs to test selection. The candidate list, thresholds, tie-breaker, designs, and seed namespace are frozen before simulation.",
+  "candidate_tests": [
+    {
+      "test_id": "pt_adjusted",
+      "role": "current_primary",
+      "definition": "Q_h_star = T^2 * sum_{j=1}^h trace(C_j' C_0^-1 C_j C_0^-1)/(T-j)",
+      "reference_distribution": "chi_square",
+      "degrees_of_freedom": "K^2*(h-p)",
+      "implementation_policy": "Preserve the current production definition exactly; research code may independently reproduce it but may not alter src/lib/varEngine.ts.",
+      "references": [
+        "Lutkepohl 2005, New Introduction to Multiple Time Series Analysis, section 4.4.3",
+        "statsmodels 0.14.6 VARResults.test_whiteness(adjusted=True)",
+        "R vars 1.6-1 serial.test(type='PT.adjusted')"
+      ]
+    },
+    {
+      "test_id": "bg_lm",
+      "role": "replacement_candidate_only_if_current_pt_fails",
+      "definition": "LM_h = T * (K - trace(Sigma_R^-1 Sigma_e)), where Sigma_R and Sigma_e are restricted and residual-lag-augmented auxiliary-system covariance estimates using a common auxiliary sample.",
+      "reference_distribution": "chi_square",
+      "degrees_of_freedom": "h*K^2",
+      "references": [
+        "Breusch 1978",
+        "Godfrey 1978",
+        "Lutkepohl multivariate VAR diagnostic framework",
+        "R vars 1.6-1 serial.test(type='BG')"
+      ]
+    },
+    {
+      "test_id": "edgerton_shukur_f",
+      "role": "replacement_candidate_only_if_current_pt_fails",
+      "definition": "R_r^2=1-|Sigma_e|/|Sigma_R|; m=K*h; q=K*m/2-1; N=T-n-m-(K-m+1)/2; r=sqrt((K^2*m^2-4)/(K^2+m^2-5)); F=((1-(1-R_r^2)^(1/r))/(1-R_r^2)^(1/r))*((N*r-q)/(K*m)).",
+      "reference_distribution": "F",
+      "degrees_of_freedom": [
+        "df1=h*K^2",
+        "df2=floor(N*r-q)"
+      ],
+      "references": [
+        "Edgerton and Shukur 1999, Testing autocorrelation in a system perspective",
+        "R vars 1.6-1 serial.test(type='ES')"
+      ]
+    }
+  ],
+  "candidate_list_frozen": true,
+  "fourth_test_prohibited": true,
+  "null_DGPs": [
+    "stable K=3 VAR(p) with iid multivariate Gaussian innovations",
+    "stable K=3 VAR(p) with iid multivariate t(5) innovations scaled to the Gaussian covariance"
+  ],
+  "alternative_DGPs": [
+    "common residual AR(1) persistence rho_u in {0.10,0.20,0.35}",
+    "single-equation-dominant residual AR(1) persistence rho_u in {0.10,0.20,0.35}"
+  ],
+  "sample_sizes": [96, 108, 120, 132, 144],
+  "primary_sample_sizes": [120, 132, 144],
+  "VAR_dimensions": [3],
+  "secondary_stress_dimensions": [],
+  "true_lag_orders": [1, 2, 3],
+  "primary_true_lag_orders": [1, 2],
+  "persistence_targets": [0.5, 0.8, 0.95],
+  "deterministic_specs": [
+    "constant",
+    "constant_plus_11_month_dummies"
+  ],
+  "innovation_distributions": [
+    "gaussian_iid_primary",
+    "multivariate_t5_same_covariance_stress"
+  ],
+  "simulation_layers": {
+    "A": "true lag p is fixed and estimated at the same p; isolates diagnostic-statistic calibration",
+    "B": "current common-sample BIC, maximum-lag policy, and parameter-ratio gate are applied before the diagnostic; evaluates the joint platform procedure"
+  },
+  "simulation_replications": {
+    "primary_confirmatory_per_cell": 10000,
+    "secondary_null_stress_per_cell": 2000,
+    "serial_alternative_power_per_cell": 2000,
+    "screening_per_cell": 2000,
+    "screening_status": "optional_cost_and_bug_screen_only_not_selection_evidence",
+    "selection_requires_confirmatory_primary": true
+  },
+  "random_seed_namespace": {
+    "registry": "var_residual_diagnostic_seed_registry.json",
+    "base_entropy": [185, 20260927, 1],
+    "generator": "numpy.random.SeedSequence_spawn_plus_PCG64DXSM",
+    "parallel_policy": "Each design and replication range receives an explicit SeedSequence spawn key; fork-inherited RNG is prohibited."
+  },
+  "test_lag_horizons": {
+    "primary": 12,
+    "sensitivity": [18, 24],
+    "post_result_changes_prohibited": true
+  },
+  "nominal_alpha": 0.05,
+  "monte_carlo_reporting": {
+    "required": [
+      "empirical_rejection_rate",
+      "Monte_Carlo_standard_error",
+      "95_percent_Clopper_Pearson_binomial_interval"
+    ]
+  },
+  "size_acceptance_rule": {
+    "primary_key_cell_definition": "T in {120,132,144}; K=3; true p in {1,2}; deterministic spec in {constant,constant_plus_11_month_dummies}; Gaussian iid innovations; persistence target in {0.5,0.8,0.95}; evaluated separately for Layer A and Layer B",
+    "cell_size_acceptable_interval": [0.035, 0.065],
+    "system_maximum_allowed_rejection_rate": 0.075,
+    "minimum_fraction_primary_cells_inside_strict_interval": 0.9,
+    "eligible_for_gate_selection_requires_both": [
+      "every primary key cell rejection rate <= 0.075",
+      "at least 90 percent of primary key cells within 0.035 to 0.065"
+    ],
+    "threshold_changes_require_new_preregistration_and_owner_approval": true
+  },
+  "power_reporting_rule": {
+    "role": "secondary_only",
+    "serial_correlation_strengths": [0.1, 0.2, 0.35],
+    "patterns": [
+      "common_residual_persistence",
+      "single_equation_dominant"
+    ],
+    "cannot_override_size_failure": true,
+    "cannot_select_method": true
+  },
+  "selection_rule": [
+    "If current pt_adjusted passes the system-level size gate, retain it regardless of BG or ES real-data implications or power.",
+    "Only if pt_adjusted fails the system-level size gate may BG and ES be evaluated as replacement candidates.",
+    "A replacement candidate must pass the identical system-level size gate.",
+    "If both BG and ES pass, select the test with smaller worst-case absolute size distortion from 0.05.",
+    "If that worst-case distortion difference is less than 0.005, choose ES as the preregistered small-sample-correction tie-breaker.",
+    "If no eligible replacement exists, retain formal dynamic-response unavailability and make no production change."
+  ],
+  "real_data_application_rule": "Phase A stops after reference validation, synthetic simulation calibration, method decision, and owner report. No new diagnostic may be applied to actual-country baselines without explicit owner approval for Phase B.",
+  "research_stop_rule": "Stop after the preregistered Phase A method decision and owner report. Do not modify production readiness, activate IRFs, refit country models, change BIC lags, add tests, or begin IRF uncertainty research.",
+  "country_calibrated_stress_rule": "May be considered only after the selection decision is frozen; it is not planned for Phase A and cannot alter method selection.",
+  "reference_policy": {
+    "python_stack": "repository-pinned numpy 2.5.2, scipy 1.18.1, statsmodels 0.14.6",
+    "R_stack": "R plus vars 1.6-1 and recorded dependency versions",
+    "R_role": "reference fixtures and cross-language verification only",
+    "public_source_copying": "prohibited",
+    "numerical_statistic_tolerance": 1e-8,
+    "fallback_tolerance": 1e-7,
+    "fallback_requires_recorded_reason": true
+  },
+  "phase_A_prohibitions": [
+    "actual-country new diagnostic application",
+    "actual-country readiness changes",
+    "production VAR engine decision-path changes",
+    "lag reselection to obtain a diagnostic pass",
+    "new VAR specification research",
+    "IRF uncertainty",
+    "SVAR activation",
+    "BVAR activation",
+    "push",
+    "deploy",
+    "release version bump"
+  ],
+  "frozen_input_sha256": {
+    "src/lib/varEngine.ts": "0e944a52eba0a295ca7e44b5e9a801579f94a5ada03fef5a7ed9d938de8bf2ac",
+    "src/data/macro/var_country_readiness.json": "4b8173f8202c72359758b0bf4b05ef08a6c089f2ab47f79b7be359468c97e6b1",
+    "src/data/macro/var_baseline_v1_readiness.json": "f210b02ec3042c5cf95f975bccbd94f7fead0f403314d59a1e760a2046c5912e",
+    "src/data/macro/var_baseline_v2_readiness.json": "b7fd4bec330ebd4db588ed63bce4de988773556b8cdc572c27f640239a2a1675",
+    "src/data/macro/var_exploratory_readiness.json": "9774fa8bc87f5d84cc867e4e60bb7b1ca1aa432d3d81979d275caca6c3ac08",
+    "src/data/macro/var_lag_diagnostic_grid.json": "2d1753188a9b5b7c8bb6f322eb53fd4241205f2d8789904498024e3a6ecd19d9",
+    "src/data/panel-local-projections/panel_lp_results.json": "10e7b4f8761523e7b136b9707ac87da1d753a5914e0d11a3f8b980571ab53bdc"
+  }
+}
