@@ -1,0 +1,143 @@
+{
+  "schema_version": "var-selection-bootstrap-calibration-summary-v1.86",
+  "generated_at": "2026-09-28",
+  "preregistration_sha256": "c37a32d53f01e2444c990807780a0aa53781f3c88c706f65035ce0345c790b6f",
+  "actual_country_data_read": false,
+  "estimand": "selected_model_adequacy",
+  "nominal_alpha": 0.05,
+  "strict_interval": [
+    0.035,
+    0.065
+  ],
+  "maximum_allowed_rate": 0.075,
+  "support_minimum": 2500,
+  "families": {
+    "recursive_iid_residual": {
+      "family_id": "recursive_iid_residual",
+      "gate_A_fixed_true_lag": {
+        "cell_count": 36,
+        "cells_inside_strict_interval": 36,
+        "fraction_inside_strict_interval": 1.0,
+        "minimum_rate": 0.044,
+        "maximum_rate": 0.0568,
+        "worst_case_absolute_distortion": 0.0068000000000000005,
+        "every_cell_at_or_below_0_075": true,
+        "at_least_90_percent_inside": true,
+        "passed": true
+      },
+      "gate_C_adequacy_conditional": {
+        "cell_count": 18,
+        "cells_inside_strict_interval": 18,
+        "fraction_inside_strict_interval": 1.0,
+        "minimum_rate": 0.0446,
+        "maximum_rate": 0.055,
+        "worst_case_absolute_distortion": 0.005400000000000002,
+        "every_cell_at_or_below_0_075": true,
+        "at_least_90_percent_inside": true,
+        "support_cells": [
+          "primary_T120_p1_r0.50_det-constant",
+          "primary_T120_p1_r0.50_det-constant_plus_11_month_dummies",
+          "primary_T120_p1_r0.80_det-constant",
+          "primary_T120_p1_r0.80_det-constant_plus_11_month_dummies",
+          "primary_T120_p1_r0.95_det-constant",
+          "primary_T120_p1_r0.95_det-constant_plus_11_month_dummies",
+          "primary_T132_p1_r0.50_det-constant",
+          "primary_T132_p1_r0.50_det-constant_plus_11_month_dummies",
+          "primary_T132_p1_r0.80_det-constant",
+          "primary_T132_p1_r0.80_det-constant_plus_11_month_dummies",
+          "primary_T132_p1_r0.95_det-constant",
+          "primary_T132_p1_r0.95_det-constant_plus_11_month_dummies",
+          "primary_T144_p1_r0.50_det-constant",
+          "primary_T144_p1_r0.50_det-constant_plus_11_month_dummies",
+          "primary_T144_p1_r0.80_det-constant",
+          "primary_T144_p1_r0.80_det-constant_plus_11_month_dummies",
+          "primary_T144_p1_r0.95_det-constant",
+          "primary_T144_p1_r0.95_det-constant_plus_11_month_dummies"
+        ],
+        "support_cell_count": 18,
+        "passed": true
+      },
+      "gate_failure_rate": {
+        "maximum_failure_rate": 0.002,
+        "passed": true
+      },
+      "eligible": true,
+      "worst_case_absolute_distortion_gate_union": 0.0068000000000000005,
+      "full_procedure_D_report_only": {
+        "cell_count": 36,
+        "cells_inside_strict_interval": 18,
+        "fraction_inside_strict_interval": 0.5,
+        "minimum_rate": 0.0446,
+        "maximum_rate": 0.19847939175670268,
+        "worst_case_absolute_distortion": 0.14847939175670266,
+        "every_cell_at_or_below_0_075": false,
+        "at_least_90_percent_inside": false,
+        "label": "selection-aware procedure rejection rate (not diagnostic test size)"
+      }
+    },
+    "recursive_wild_rademacher": {
+      "family_id": "recursive_wild_rademacher",
+      "gate_A_fixed_true_lag": {
+        "cell_count": 36,
+        "cells_inside_strict_interval": 36,
+        "fraction_inside_strict_interval": 1.0,
+        "minimum_rate": 0.0436,
+        "maximum_rate": 0.0564,
+        "worst_case_absolute_distortion": 0.006400000000000003,
+        "every_cell_at_or_below_0_075": true,
+        "at_least_90_percent_inside": true,
+        "passed": true
+      },
+      "gate_C_adequacy_conditional": {
+        "cell_count": 18,
+        "cells_inside_strict_interval": 18,
+        "fraction_inside_strict_interval": 1.0,
+        "minimum_rate": 0.0442,
+        "maximum_rate": 0.0578,
+        "worst_case_absolute_distortion": 0.0077999999999999944,
+        "every_cell_at_or_below_0_075": true,
+        "at_least_90_percent_inside": true,
+        "support_cells": [
+          "primary_T120_p1_r0.50_det-constant",
+          "primary_T120_p1_r0.50_det-constant_plus_11_month_dummies",
+          "primary_T120_p1_r0.80_det-constant",
+          "primary_T120_p1_r0.80_det-constant_plus_11_month_dummies",
+          "primary_T120_p1_r0.95_det-constant",
+          "primary_T120_p1_r0.95_det-constant_plus_11_month_dummies",
+          "primary_T132_p1_r0.50_det-constant",
+          "primary_T132_p1_r0.50_det-constant_plus_11_month_dummies",
+          "primary_T132_p1_r0.80_det-constant",
+          "primary_T132_p1_r0.80_det-constant_plus_11_month_dummies",
+          "primary_T132_p1_r0.95_det-constant",
+          "primary_T132_p1_r0.95_det-constant_plus_11_month_dummies",
+          "primary_T144_p1_r0.50_det-constant",
+          "primary_T144_p1_r0.50_det-constant_plus_11_month_dummies",
+          "primary_T144_p1_r0.80_det-constant",
+          "primary_T144_p1_r0.80_det-constant_plus_11_month_dummies",
+          "primary_T144_p1_r0.95_det-constant",
+          "primary_T144_p1_r0.95_det-constant_plus_11_month_dummies"
+        ],
+        "support_cell_count": 18,
+        "passed": true
+      },
+      "gate_failure_rate": {
+        "maximum_failure_rate": 0.002,
+        "passed": true
+      },
+      "eligible": true,
+      "worst_case_absolute_distortion_gate_union": 0.0077999999999999944,
+      "full_procedure_D_report_only": {
+        "cell_count": 36,
+        "cells_inside_strict_interval": 18,
+        "fraction_inside_strict_interval": 0.5,
+        "minimum_rate": 0.0442,
+        "maximum_rate": 0.19827931172468988,
+        "worst_case_absolute_distortion": 0.1482793117246899,
+        "every_cell_at_or_below_0_075": false,
+        "at_least_90_percent_inside": false,
+        "label": "selection-aware procedure rejection rate (not diagnostic test size)"
+      }
+    }
+  },
+  "secondary_and_power_used_for_selection": false
+}

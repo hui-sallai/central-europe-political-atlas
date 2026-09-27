@@ -1,0 +1,22 @@
+{
+  "schema_version": "var-selection-bootstrap-method-decision-v1.86",
+  "generated_at": "2026-09-28",
+  "preregistration_sha256": "c37a32d53f01e2444c990807780a0aa53781f3c88c706f65035ce0345c790b6f",
+  "actual_country_data_read": false,
+  "disposition": "synthetic_gate_passed_phase_B_requires_owner_approval",
+  "selected_family": "recursive_iid_residual",
+  "eligible_families": [
+    "recursive_iid_residual",
+    "recursive_wild_rademacher"
+  ],
+  "family_eligibility": {
+    "recursive_iid_residual": true,
+    "recursive_wild_rademacher": true
+  },
+  "phase_B_run": false,
+  "phase_B_requires_owner_approval": true,
+  "production_method_changed": false,
+  "actual_country_diagnostics_applied": false,
+  "actual_country_readiness_changed": false,
+  "formal_irf_publication_available": false
+}
