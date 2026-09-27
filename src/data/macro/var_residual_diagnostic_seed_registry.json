@@ -2,7 +2,11 @@
   "schema_version": "var-residual-diagnostic-seed-registry-v1.85",
   "registered_at": "2026-09-27T10:31:45Z",
   "namespace": "var_residual_diagnostic_v185",
-  "base_entropy": [185, 20260927, 1],
+  "base_entropy": [
+    185,
+    20260927,
+    1
+  ],
   "generator": "numpy.random.PCG64DXSM",
   "derivation": "numpy.random.SeedSequence(base_entropy, spawn_key=registered_spawn_key)",
   "duplicate_seed_audit": {
@@ -17,28 +21,185 @@
     "duplicate_found": false
   },
   "spawn_key_schema": {
-    "reference_fixture": [0, "case_index"],
-    "screening": [1, "layer_index", "design_index", "chunk_index"],
-    "primary_confirmatory": [2, "layer_index", "design_index", "chunk_index"],
-    "secondary_null_stress": [3, "layer_index", "design_index", "chunk_index"],
-    "power": [4, "layer_index", "design_index", "chunk_index"],
-    "independent_validation": [5, "implementation_index", "case_or_design_index"]
+    "reference_fixture": [
+      0,
+      "case_index"
+    ],
+    "screening": [
+      1,
+      "layer_index",
+      "design_index",
+      "chunk_index"
+    ],
+    "primary_confirmatory": [
+      2,
+      "layer_index",
+      "design_index",
+      "chunk_index"
+    ],
+    "secondary_null_stress": [
+      3,
+      "layer_index",
+      "design_index",
+      "chunk_index"
+    ],
+    "power": [
+      4,
+      "layer_index",
+      "design_index",
+      "chunk_index"
+    ],
+    "independent_validation": [
+      5,
+      "implementation_index",
+      "case_or_design_index"
+    ]
   },
   "reservations": [
-    {"purpose": "reference_fixture", "prefix": [0], "status": "partially_used_cases_1_through_4"},
-    {"purpose": "screening", "prefix": [1], "status": "reserved_unused"},
-    {"purpose": "primary_confirmatory", "prefix": [2], "status": "reserved_unused"},
-    {"purpose": "secondary_null_stress", "prefix": [3], "status": "reserved_unused"},
-    {"purpose": "power", "prefix": [4], "status": "reserved_unused"},
-    {"purpose": "independent_validation", "prefix": [5], "status": "reserved_unused"}
+    {
+      "purpose": "reference_fixture",
+      "prefix": [
+        0
+      ],
+      "status": "partially_used_cases_1_through_4"
+    },
+    {
+      "purpose": "screening",
+      "prefix": [
+        1
+      ],
+      "status": "reserved_unused"
+    },
+    {
+      "purpose": "primary_confirmatory",
+      "prefix": [
+        2
+      ],
+      "status": "used_complete_72_cells_40_chunks_each_10000_replications_each"
+    },
+    {
+      "purpose": "secondary_null_stress",
+      "prefix": [
+        3
+      ],
+      "status": "used_complete_288_cells_8_chunks_each_2000_replications_each"
+    },
+    {
+      "purpose": "power",
+      "prefix": [
+        4
+      ],
+      "status": "used_complete_432_cells_8_chunks_each_2000_replications_each"
+    },
+    {
+      "purpose": "independent_validation",
+      "prefix": [
+        5
+      ],
+      "status": "reserved_unused"
+    }
   ],
   "parallel_rng_policy": "Spawn keys are deterministic functions of immutable design indices and chunk indices. Worker processes construct their own generators from SeedSequence; inherited fork state and ad hoc integer offsets are prohibited.",
   "reuse_policy": "No seed or spawn key may be reused across purposes. Failed and completed chunks retain their original spawn keys and are never silently regenerated under a new seed.",
   "used_spawn_keys": [
-    {"spawn_key": [0, 1], "purpose": "reference_case_1", "status": "used"},
-    {"spawn_key": [0, 2], "purpose": "reference_case_2", "status": "used"},
-    {"spawn_key": [0, 3], "purpose": "reference_case_3", "status": "used"},
-    {"spawn_key": [0, 4], "purpose": "reference_case_4_and_preserved_failed_fixture_attempt", "status": "used_same_seed_no_seed_shopping"}
+    {
+      "spawn_key": [
+        0,
+        1
+      ],
+      "purpose": "reference_case_1",
+      "status": "used"
+    },
+    {
+      "spawn_key": [
+        0,
+        2
+      ],
+      "purpose": "reference_case_2",
+      "status": "used"
+    },
+    {
+      "spawn_key": [
+        0,
+        3
+      ],
+      "purpose": "reference_case_3",
+      "status": "used"
+    },
+    {
+      "spawn_key": [
+        0,
+        4
+      ],
+      "purpose": "reference_case_4_and_preserved_failed_fixture_attempt",
+      "status": "used_same_seed_no_seed_shopping"
+    }
   ],
-  "unused_prefixes": [[1], [2], [3], [4], [5]]
+  "unused_prefixes": [
+    [
+      1
+    ],
+    [
+      5
+    ]
+  ],
+  "used_spawn_key_ranges": [
+    {
+      "prefix": [
+        2
+      ],
+      "purpose": "primary_confirmatory",
+      "cell_indices": [
+        0,
+        71
+      ],
+      "chunk_indices": [
+        0,
+        39
+      ],
+      "replication_indices_per_cell": [
+        0,
+        9999
+      ],
+      "status": "used_complete"
+    },
+    {
+      "prefix": [
+        3
+      ],
+      "purpose": "secondary_null_stress",
+      "cell_indices": [
+        0,
+        287
+      ],
+      "chunk_indices": [
+        0,
+        7
+      ],
+      "replication_indices_per_cell": [
+        0,
+        1999
+      ],
+      "status": "used_complete"
+    },
+    {
+      "prefix": [
+        4
+      ],
+      "purpose": "power",
+      "cell_indices": [
+        0,
+        431
+      ],
+      "chunk_indices": [
+        0,
+        7
+      ],
+      "replication_indices_per_cell": [
+        0,
+        1999
+      ],
+      "status": "used_complete"
+    }
+  ]
 }

@@ -1,0 +1,64 @@
+{
+  "schema_version": "var-residual-diagnostic-method-decision-v1.85",
+  "generated_at": "2026-09-27T11:05:56Z",
+  "phase": "A_synthetic_calibration_complete",
+  "formal_release_version": "v1.84_unchanged",
+  "disposition": "no_eligible_replacement",
+  "selected_method_for_possible_phase_B_evaluation": "none",
+  "selection_rationale": [
+    "Current adjusted Portmanteau failed the system-level size gate.",
+    "Neither preregistered replacement candidate passed the identical gate."
+  ],
+  "primary_method_metrics": {
+    "pt_adjusted": {
+      "test_id": "pt_adjusted",
+      "primary_cell_count": 72,
+      "minimum_rejection_rate": 0.0406,
+      "maximum_rejection_rate": 0.4523,
+      "maximum_rate_cell_id": "primary_LB_T120_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "worst_case_absolute_size_distortion": 0.4023,
+      "worst_case_cell_id": "primary_LB_T120_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "cells_inside_strict_interval": 27,
+      "fraction_inside_strict_interval": 0.375,
+      "every_primary_cell_at_or_below_0_075": false,
+      "at_least_90_percent_inside_0_035_to_0_065": false,
+      "system_level_eligible": false
+    },
+    "bg_lm": {
+      "test_id": "bg_lm",
+      "primary_cell_count": 72,
+      "minimum_rejection_rate": 0.0306,
+      "maximum_rejection_rate": 0.3781,
+      "maximum_rate_cell_id": "primary_LB_T120_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "worst_case_absolute_size_distortion": 0.3281,
+      "worst_case_cell_id": "primary_LB_T120_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "cells_inside_strict_interval": 22,
+      "fraction_inside_strict_interval": 0.3055555555555556,
+      "every_primary_cell_at_or_below_0_075": false,
+      "at_least_90_percent_inside_0_035_to_0_065": false,
+      "system_level_eligible": false
+    },
+    "edgerton_shukur_f": {
+      "test_id": "edgerton_shukur_f",
+      "primary_cell_count": 72,
+      "minimum_rejection_rate": 0.0353,
+      "maximum_rejection_rate": 0.1288,
+      "maximum_rate_cell_id": "primary_LB_T144_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "worst_case_absolute_size_distortion": 0.0788,
+      "worst_case_cell_id": "primary_LB_T144_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "cells_inside_strict_interval": 57,
+      "fraction_inside_strict_interval": 0.7916666666666666,
+      "every_primary_cell_at_or_below_0_075": false,
+      "at_least_90_percent_inside_0_035_to_0_065": false,
+      "system_level_eligible": false
+    }
+  },
+  "production_method_changed": false,
+  "actual_country_diagnostics_applied": false,
+  "actual_country_readiness_changed": false,
+  "dynamic_responses_activated": false,
+  "country_calibrated_stress_run": false,
+  "owner_approval_required_before_phase_B": true,
+  "push_or_deploy_performed": false,
+  "research_stop_rule_applied": true
+}

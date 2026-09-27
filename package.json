@@ -29,6 +29,8 @@
     "var:residual-reference": ".venv/bin/python scripts/var-residual-diagnostics/generate_reference.py",
     "var:residual-reference-validate": ".venv/bin/python scripts/var-residual-diagnostics/validate_reference.py",
     "var:residual-simulate": ".venv/bin/python scripts/var-residual-diagnostics/simulate.py",
+    "var:residual-calibrate": ".venv/bin/python scripts/var-residual-diagnostics/calibrate.py",
+    "var:residual-validate": ".venv/bin/python scripts/var-residual-diagnostics/validate.py",
     "analysis:validate": "node scripts/validation/validate-analysis-registry.mjs && node scripts/validation/validate-ecb-shocks.mjs && node scripts/validation/run-advanced-analysis-validation.mjs",
     "ecb:acquire": "python scripts/acquisition/acquire-ecb-monetary-events.py --refresh",
     "ecb:build": "python scripts/acquisition/acquire-ecb-monetary-events.py",
