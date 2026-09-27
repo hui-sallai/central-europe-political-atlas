@@ -1,0 +1,261 @@
+{
+  "schema_version": "var-selection-bootstrap-preregistration-v1.86",
+  "study_id": "var_selection_aware_bootstrap_v186",
+  "study_title": "v1.86 Selection-Aware Bootstrap Calibration Research",
+  "preregistered_at": "2026-09-28",
+  "starting_commit": "7420fd78e63f1a93a65a7bde389ee6297197f059",
+  "status": "preregistered_before_confirmatory_simulation",
+  "prior_releases_immutable": [
+    "v1.85",
+    "v1.851"
+  ],
+  "research_question": "Can a selection-aware bootstrap, which reruns the current production BIC lag-selection policy inside every bootstrap sample, provide a calibrated test of residual whiteness for the VAR model actually selected by that policy, using the existing h=12 adjusted Portmanteau statistic and leaving lag selection unchanged?",
+  "known_information_disclosure": {
+    "v1_85_synthetic_results_known": true,
+    "v1_851_selection_decomposition_known": true,
+    "known_facts": [
+      "Under the v1.85 primary DGPs, BIC selects the true lag in ~100% of true-p1 replications and underselects in ~99.7-99.8% of true-p2 replications.",
+      "The asymptotic chi-square adjusted Portmanteau over-rejects with 11 month dummies even at the correct lag (v1.85 Layer A up to 0.25)."
+    ],
+    "actual_country_result_known": "formal dynamic-response-ready country count = 0 (v1.84-v1.851)",
+    "actual_country_results_used_for_design": false,
+    "engineering_benchmark": "A timing-only benchmark of a prototype inner loop used throwaway entropy SeedSequence(0) on 24 synthetic samples; only elapsed seconds were printed. No rejection rate, p-value or selection outcome was inspected. The benchmark informed replication counts only.",
+    "gate_estimand_chosen_by_owner": "selected_model_adequacy (owner decision 2026-09-28, recorded before any confirmatory simulation)"
+  },
+  "target_estimand": {
+    "estimand_id": "selected_model_adequacy",
+    "null_hypothesis": "The VAR selected by the production BIC policy is correctly specified or overfitted relative to the DGP (selected lag >= true lag), so its innovations are serially uncorrelated.",
+    "calibration_target": "Rejection probability of the bootstrap-calibrated h=12 adjusted Portmanteau test at nominal 0.05 when the selected model's residual-whiteness null holds: (A) in a fixed-true-lag procedure and (C_adequate) conditional on selected lag >= true lag in the selection-aware procedure.",
+    "not_the_calibration_target": [
+      "Full selection-aware procedure rejection rate D over all replications (reported, labelled 'selection-aware procedure rejection rate', not gated, never called diagnostic test size).",
+      "Rejection after underselection (selected lag < true lag): the selected model is misspecified, so these rejections are reported as detection of an inadequate selected model, not as Type-I errors."
+    ],
+    "known_limitation": "In the true-p2 primary DGPs BIC almost never selects p>=2, so selection-aware adequacy-conditional size for true VAR(2) DGPs is essentially unidentified by this design; those cells enter the gate only through the fixed-true-lag procedure (A)."
+  },
+  "target_procedure": [
+    "Generate synthetic data from the preregistered DGP.",
+    "Apply the current production BIC policy: candidate lags 1..min(12, floor((T-4)/(4K+1))) on a common sample (statsmodels select_order convention), free parameters p*K^2 + K*deterministic_count.",
+    "Estimate the selected VAR by OLS on the full available sample.",
+    "Compute the adjusted Portmanteau statistic at h=12 and its asymptotic chi-square p-value tau (df = K^2*(12-p)).",
+    "Build B bootstrap samples under the whiteness null from the fitted VAR (see bootstrap_families).",
+    "Rerun the same BIC lag selection inside EACH bootstrap sample.",
+    "Re-estimate the bootstrap-selected VAR and recompute tau*.",
+    "Bootstrap p-value = (1 + #{tau*_b <= tau}) / (B + 1); reject iff bootstrap p-value <= 0.05."
+  ],
+  "lag_selection_rerun_inside_each_bootstrap_replication": true,
+  "lag_selection_policy_changed": false,
+  "bootstrap_statistic": "tau = asymptotic chi-square p-value of the adjusted Portmanteau at h=12 for the model's own lag (prepivoting), so that bootstrap samples selecting different lags are compared on a common scale.",
+  "candidate_diagnostics": [
+    {
+      "test_id": "pt_adjusted_h12",
+      "role": "only candidate statistic (current production diagnostic)",
+      "definition": "Q_h* = T^2 sum_{j=1..h} trace(C_j' C_0^-1 C_j C_0^-1)/(T-j), h=12",
+      "implementation": "frozen v1.85 pt_batch (reference-validated against statsmodels 0.14.6 and R vars 1.6-1)"
+    }
+  ],
+  "other_diagnostics_prohibited": "BG, ES and any other statistic are not candidates in v1.86.",
+  "bootstrap_families": [
+    {
+      "family_id": "recursive_iid_residual",
+      "description": "Recursive-design residual bootstrap: y*_t = D_t b_hat + sum_i A_hat_i y*_{t-i} + u*_t, u*_t drawn iid with replacement from the centred OLS residual vectors of the fitted VAR; initial values = the first p observations of the original sample; same calendar months.",
+      "rationale": "Standard VAR residual bootstrap (e.g. Kilian 1998, Review of Economics and Statistics 80(2)); matches iid-innovation null DGPs."
+    },
+    {
+      "family_id": "recursive_wild_rademacher",
+      "description": "Recursive-design wild bootstrap: u*_t = u_hat_t * eta_t, eta_t iid Rademacher, one sign per time period shared across the K equations; otherwise identical to recursive_iid_residual.",
+      "rationale": "Wild bootstrap tests for VAR error autocorrelation, Ahlgren and Catani (2017), Statistical Papers 58, 1189-1216, doi:10.1007/s00362-016-0744-0; robust to conditional heteroskedasticity."
+    }
+  ],
+  "bootstrap_family_count_frozen": 2,
+  "additional_bootstrap_families_prohibited": true,
+  "bootstrap_replications_B": 199,
+  "bootstrap_replications_rationale": "alpha*(B+1)=10 is an integer, so the bootstrap test is exact under exchangeability of the null; Davidson and MacKinnon (2000), Econometric Reviews 19, 55-68.",
+  "procedures": [
+    {
+      "procedure_id": "selection_aware",
+      "original_lag": "BIC-selected",
+      "bootstrap_lag": "BIC rerun in every bootstrap sample"
+    },
+    {
+      "procedure_id": "fixed_true_lag",
+      "original_lag": "true lag",
+      "bootstrap_lag": "held at true lag",
+      "role": "decomposition component A (conditional-on-correct-lag behaviour)"
+    }
+  ],
+  "deterministic_components": [
+    "constant",
+    "constant_plus_11_month_dummies (December omitted)"
+  ],
+  "dgp": {
+    "reuse": "v1.85 primary DGP definitions unchanged: K=3, coefficient templates, spectral-radius scaling, innovation covariance, intercept (0.05,-0.03,0.02), month-effect functions, burn-in 300.",
+    "family": "stable Gaussian VAR(p) with deterministic terms",
+    "source_functions_sha256": {
+      "scripts/var-residual-diagnostics/common.py": "79f81ecd312e305f6df63234d5482a880887336649e49c05fcd573fd204fb8d5",
+      "scripts/var-residual-diagnostics/simulate.py": "c43722366fb1db375149a119e58e51eaf4cbfdfc0dc2af7fbfe10256440ac2ab"
+    }
+  },
+  "sample_sizes": [
+    120,
+    132,
+    144
+  ],
+  "lag_order_grid": [
+    1,
+    2
+  ],
+  "persistence_grid": [
+    0.5,
+    0.8,
+    0.95
+  ],
+  "innovation_distributions": {
+    "primary": "gaussian_iid",
+    "secondary_report_only": "multivariate_t5_scaled_to_covariance"
+  },
+  "cells": {
+    "primary": {
+      "count": 36,
+      "grid": "T x true lag x persistence x deterministic spec, gaussian_iid",
+      "replications_per_cell": 5000,
+      "procedures": [
+        "selection_aware",
+        "fixed_true_lag"
+      ],
+      "families": [
+        "recursive_iid_residual",
+        "recursive_wild_rademacher"
+      ]
+    },
+    "secondary_t5_report_only": {
+      "count": 36,
+      "grid": "same as primary with multivariate_t5 innovations",
+      "replications_per_cell": 1000
+    },
+    "power_report_only": {
+      "count": 36,
+      "grid": "same as primary with common AR(1) innovation serial correlation rho=0.2 (v1.85 power pattern 'common')",
+      "replications_per_cell": 1000,
+      "procedures": [
+        "selection_aware"
+      ]
+    }
+  },
+  "total_monte_carlo_replications": {
+    "primary": 180000,
+    "secondary_t5": 36000,
+    "power": 36000,
+    "total": 252000
+  },
+  "total_bootstrap_draws_upper_bound": "primary 180000 reps x 2 procedures x 2 families x 199 + secondary 36000 x 2 x 2 x 199 + power 36000 x 1 x 2 x 199",
+  "random_seed_namespace": {
+    "namespace": "var_selection_aware_bootstrap_v186",
+    "base_entropy": [
+      186,
+      20260928,
+      1
+    ],
+    "generator": "numpy PCG64DXSM via SeedSequence(base_entropy, spawn_key)",
+    "spawn_key_schema": {
+      "data": "(phase_code, cell_index, chunk_index, 0)",
+      "bootstrap": "(phase_code, cell_index, chunk_index, 1 + 2*family_index + procedure_index)"
+    },
+    "phase_codes": {
+      "0": "reference fixtures",
+      "1": "engineering smoke test (outputs not used, rates not inspected)",
+      "2": "primary",
+      "3": "secondary_t5",
+      "4": "power"
+    },
+    "chunk_size": 50,
+    "common_random_numbers": "Both families and both procedures use the same synthetic data sets within a chunk.",
+    "reuse_policy": "No spawn key is ever reused or re-drawn; no alternative seeds are run."
+  },
+  "failure_handling": {
+    "original_fit_unstable_or_nonfinite": "replication recorded as computational failure for that procedure; excluded from rejection denominators; counted in the failure rate",
+    "bootstrap_nonfinite": "same",
+    "singular_design": "least-squares fallback as in v1.85"
+  },
+  "calibration_metrics": [
+    "empirical rejection rate",
+    "absolute distortion |rate-0.05|",
+    "fraction of cells inside [0.035,0.065]",
+    "worst-case distortion",
+    "original selected-lag frequencies",
+    "bootstrap selected-lag frequencies",
+    "Monte Carlo standard error and Clopper-Pearson 95% interval",
+    "computational failure rate"
+  ],
+  "required_decomposition": {
+    "A": "fixed_true_lag procedure rejection rate, and selection_aware rejection conditional on selected lag == true lag",
+    "B": "lag-selection error: correct / under / over selection frequencies, plus bootstrap-selected lag distribution",
+    "C": "selection_aware rejection conditional on selected-lag category (correct / under / over) and on each selected lag, from replication-level records",
+    "D": "full selection_aware procedure rejection rate over all non-failed replications, labelled 'selection-aware procedure rejection rate', never 'diagnostic test size'"
+  },
+  "acceptance_rule": {
+    "evaluated_per_family": true,
+    "gate_A_fixed_true_lag": "In all 36 primary cells: fixed_true_lag rejection rate <= 0.075, and at least 90% of the 36 cells (>= 33) inside [0.035, 0.065].",
+    "gate_C_adequacy_conditional": "Support cells = primary cells with >= 2500 non-failed selection_aware replications whose selected lag >= true lag. Requires >= 12 support cells (otherwise the gate fails). In every support cell the rejection rate conditional on selected lag >= true lag is <= 0.075, and at least 90% of support cells are inside [0.035, 0.065].",
+    "gate_failure_rate": "Computational failure rate <= 0.01 in every primary cell for both procedures.",
+    "family_eligible_requires": [
+      "gate_A_fixed_true_lag",
+      "gate_C_adequacy_conditional",
+      "gate_failure_rate"
+    ],
+    "full_procedure_D": "reported, not gated",
+    "power_and_secondary": "report only; never used for selection",
+    "selection_rule": [
+      "If no family is eligible: disposition = no_eligible_selection_aware_bootstrap.",
+      "If exactly one is eligible: select it.",
+      "If both are eligible: select the one with the smaller worst-case absolute distortion over the union of gate-A and gate-C cells; if the difference is < 0.005, select recursive_iid_residual (simpler; matches the iid primary null).",
+      "Any selection gives disposition = synthetic_gate_passed_phase_B_requires_owner_approval."
+    ],
+    "thresholds_frozen": true
+  },
+  "real_data_application_rule": "No actual-country data are read in v1.86 Phase A. Phase B (actual-country evaluation) requires a passed gate AND explicit owner approval, and is never run automatically.",
+  "stopping_rule": "Run every preregistered primary, secondary and power chunk to completion; no early stopping for success or futility. Stop after the method decision and owner report. Retain all failed runs and checkpoints.",
+  "prohibited_post_hoc_modifications": [
+    "changing thresholds, the support threshold or the gate composition",
+    "changing B, replication counts, chunking or seeds",
+    "adding or removing bootstrap families, procedures or statistics",
+    "changing the DGP grid or dropping cells",
+    "changing the BIC policy or switching to AIC/HQIC",
+    "using actual-country outcomes for any design choice",
+    "relabelling D as diagnostic test size",
+    "activating SVAR, BVAR, formal IRFs or any production change",
+    "rewriting v1.85 or v1.851 artifacts"
+  ],
+  "production_boundary": {
+    "production_changed": false,
+    "bic_policy_changed": false,
+    "readiness_thresholds_changed": false,
+    "formal_irf_publication": false,
+    "svar_bvar_activated": false
+  },
+  "references": [
+    "Kilian, L. (1998). Small-sample confidence intervals for impulse response functions. Review of Economics and Statistics 80(2), 218-230.",
+    "Ahlgren, N. and Catani, P. (2017). Wild bootstrap tests for autocorrelation in vector autoregressive models. Statistical Papers 58, 1189-1216.",
+    "Leeb, H. and Poetscher, B. M. (2005). Model selection and inference: facts and fiction. Econometric Theory 21(1), 21-59.",
+    "Davidson, R. and MacKinnon, J. G. (2000). Bootstrap tests: how many bootstraps? Econometric Reviews 19, 55-68.",
+    "Luetkepohl, H. (2005). New Introduction to Multiple Time Series Analysis, sec. 4.4.3."
+  ],
+  "frozen_input_sha256": {
+    "src/lib/varEngine.ts": "0e944a52eba0a295ca7e44b5e9a801579f94a5ada03fef5a7ed9d938de8bf2ac",
+    "src/data/macro/var_country_readiness.json": "4b8173f8202c72359758b0bf4b05ef08a6c089f2ab47f79b7be359468c97e6b1",
+    "src/data/macro/var_baseline_v1_readiness.json": "f210b02ec3042c5cf95f975bccbd94f7fead0f403314d59a1e760a2046c5912e",
+    "src/data/macro/var_baseline_v2_readiness.json": "b7fd4bec330ebd4db588ed63bce4de988773556b8cdc572c27f640239a2a1675",
+    "src/data/macro/var_exploratory_readiness.json": "9774fa8bc87f5d84cc867e4e60bb7b1ca1a1aa432d3d81979d275caca6c3ac08",
+    "src/data/macro/var_lag_diagnostic_grid.json": "2d1753188a9b5b7c8bb6f322eb53fd4241205f2d8789904498024e3a6ecd19d9",
+    "src/data/panel-local-projections/panel_lp_results.json": "10e7b4f8761523e7b136b9707ac87da1d753a5914e0d11a3f8b980571ab53bdc",
+    "src/data/macro/var_residual_diagnostic_preregistration.json": "f9ddab6a8ff77026b83caeca1024bf8b0379a470792fb5410e3d99607818bb0b",
+    "src/data/macro/var_residual_diagnostic_simulation_results.json": "04cc4ad5f8395f894a4c9c164fc8374841b6eb20c97dc4a8c4d7098dc6912a7e",
+    "src/data/macro/var_residual_diagnostic_calibration_summary.json": "ca917656b7c0109cf0e286573effaae03dd4f8143a042524c8f24ee350073cca",
+    "src/data/macro/var_residual_diagnostic_method_decision.json": "729c69430e6431e88f477ae24cc73bb3025e2b70fd30d118c671dbf63f40fe5c",
+    "src/data/macro/var_residual_diagnostic_research_conclusion.json": "5d60d16a0d78b6d41df72c34e4e7028f8d50c9844bd1df9e3dbaca56d4720021",
+    "src/data/macro/var_residual_diagnostic_research_conclusion_amendment_001.json": "43d8ff9a9b3b1bae5552a5d98f3dbb5ad00aa045077098bf0087252f21323e73",
+    "src/data/macro/var_residual_diagnostic_layerB_selection_decomposition.json": "6f6e1caededf43f1776a4d83aa9e26a1f55ee31cda71b6aac079080c05333602",
+    "scripts/var-residual-diagnostics/common.py": "79f81ecd312e305f6df63234d5482a880887336649e49c05fcd573fd204fb8d5",
+    "scripts/var-residual-diagnostics/simulate.py": "c43722366fb1db375149a119e58e51eaf4cbfdfc0dc2af7fbfe10256440ac2ab",
+    "scripts/var-selection-aware-bootstrap/engine.py": "2318f72e6f29037bc721e39d7f5b885021e700dc49480da2d19396c3b8f6e84a"
+  }
+}

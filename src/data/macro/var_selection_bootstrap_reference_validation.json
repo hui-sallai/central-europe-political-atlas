@@ -1,0 +1,451 @@
+{
+  "schema_version": "var-selection-bootstrap-reference-validation-v1.86",
+  "tolerance": 1e-08,
+  "checks": {
+    "dgp_matches_v1_85_generator": {
+      "cases": [
+        {
+          "cell_id": "ref_T120_p1_r0.80_constant",
+          "max_abs_difference": 0.0,
+          "months_identical": true
+        },
+        {
+          "cell_id": "ref_T132_p2_r0.95_months",
+          "max_abs_difference": 0.0,
+          "months_identical": true
+        },
+        {
+          "cell_id": "ref_T144_p2_r0.50_constant",
+          "max_abs_difference": 0.0,
+          "months_identical": true
+        },
+        {
+          "cell_id": "ref_T120_p1_r0.95_months_t5",
+          "max_abs_difference": 0.0,
+          "months_identical": true
+        },
+        {
+          "cell_id": "ref_serial_common",
+          "max_abs_difference": 0.0,
+          "months_identical": true
+        }
+      ],
+      "pass": true
+    },
+    "higher_lag_paths": {
+      "cases": [
+        {
+          "generating_lag": 2,
+          "family": "recursive_iid_residual",
+          "lag_rule": "bic_rerun",
+          "bootstrap_lags": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            2,
+            2,
+            2,
+            2,
+            1
+          ],
+          "bootstrap_lags_identical": true,
+          "max_abs_tau_difference": 2.1649348980190553e-15
+        },
+        {
+          "generating_lag": 2,
+          "family": "recursive_iid_residual",
+          "lag_rule": "fixed",
+          "bootstrap_lags": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "bootstrap_lags_identical": true,
+          "max_abs_tau_difference": 2.1649348980190553e-15
+        },
+        {
+          "generating_lag": 2,
+          "family": "recursive_wild_rademacher",
+          "lag_rule": "bic_rerun",
+          "bootstrap_lags": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "bootstrap_lags_identical": true,
+          "max_abs_tau_difference": 2.1094237467877974e-15
+        },
+        {
+          "generating_lag": 2,
+          "family": "recursive_wild_rademacher",
+          "lag_rule": "fixed",
+          "bootstrap_lags": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2
+          ],
+          "bootstrap_lags_identical": true,
+          "max_abs_tau_difference": 2.1094237467877974e-15
+        },
+        {
+          "generating_lag": 3,
+          "family": "recursive_iid_residual",
+          "lag_rule": "bic_rerun",
+          "bootstrap_lags": [
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            1,
+            3,
+            3,
+            1,
+            3
+          ],
+          "bootstrap_lags_identical": true,
+          "max_abs_tau_difference": 2.55351295663786e-15
+        },
+        {
+          "generating_lag": 3,
+          "family": "recursive_iid_residual",
+          "lag_rule": "fixed",
+          "bootstrap_lags": [
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "bootstrap_lags_identical": true,
+          "max_abs_tau_difference": 2.55351295663786e-15
+        },
+        {
+          "generating_lag": 3,
+          "family": "recursive_wild_rademacher",
+          "lag_rule": "bic_rerun",
+          "bootstrap_lags": [
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            1,
+            3,
+            1
+          ],
+          "bootstrap_lags_identical": true,
+          "max_abs_tau_difference": 4.107825191113079e-15
+        },
+        {
+          "generating_lag": 3,
+          "family": "recursive_wild_rademacher",
+          "lag_rule": "fixed",
+          "bootstrap_lags": [
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "bootstrap_lags_identical": true,
+          "max_abs_tau_difference": 4.107825191113079e-15
+        }
+      ],
+      "pass": true
+    },
+    "identity_replay": {
+      "cases": [
+        {
+          "cell_id": "ref_T120_p1_r0.80_constant",
+          "selected_lag": 1,
+          "max_abs_difference": 8.881784197001252e-16
+        },
+        {
+          "cell_id": "ref_T132_p2_r0.95_months",
+          "selected_lag": 1,
+          "max_abs_difference": 5.329070518200751e-15
+        },
+        {
+          "cell_id": "ref_T144_p2_r0.50_constant",
+          "selected_lag": 1,
+          "max_abs_difference": 4.440892098500626e-16
+        },
+        {
+          "cell_id": "ref_T120_p1_r0.95_months_t5",
+          "selected_lag": 1,
+          "max_abs_difference": 1.7763568394002505e-15
+        }
+      ],
+      "pass": true
+    },
+    "independent_slow_implementation": {
+      "cases": [
+        {
+          "cell_id": "ref_T120_p1_r0.80_constant",
+          "family": "recursive_iid_residual",
+          "draws": 12,
+          "bootstrap_lags_identical": true,
+          "max_abs_tau_difference": 3.219646771412954e-15,
+          "bootstrap_lags": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "cell_id": "ref_T120_p1_r0.80_constant",
+          "family": "recursive_wild_rademacher",
+          "draws": 12,
+          "bootstrap_lags_identical": true,
+          "max_abs_tau_difference": 2.248201624865942e-15,
+          "bootstrap_lags": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "cell_id": "ref_T132_p2_r0.95_months",
+          "family": "recursive_iid_residual",
+          "draws": 12,
+          "bootstrap_lags_identical": true,
+          "max_abs_tau_difference": 6.827871601444713e-15,
+          "bootstrap_lags": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "cell_id": "ref_T132_p2_r0.95_months",
+          "family": "recursive_wild_rademacher",
+          "draws": 12,
+          "bootstrap_lags_identical": true,
+          "max_abs_tau_difference": 2.475797344914099e-14,
+          "bootstrap_lags": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "cell_id": "ref_T144_p2_r0.50_constant",
+          "family": "recursive_iid_residual",
+          "draws": 12,
+          "bootstrap_lags_identical": true,
+          "max_abs_tau_difference": 2.831068712794149e-15,
+          "bootstrap_lags": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "cell_id": "ref_T144_p2_r0.50_constant",
+          "family": "recursive_wild_rademacher",
+          "draws": 12,
+          "bootstrap_lags_identical": true,
+          "max_abs_tau_difference": 3.2751579226442118e-15,
+          "bootstrap_lags": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "cell_id": "ref_T120_p1_r0.95_months_t5",
+          "family": "recursive_iid_residual",
+          "draws": 12,
+          "bootstrap_lags_identical": true,
+          "max_abs_tau_difference": 1.8318679906315083e-15,
+          "bootstrap_lags": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "cell_id": "ref_T120_p1_r0.95_months_t5",
+          "family": "recursive_wild_rademacher",
+          "draws": 12,
+          "bootstrap_lags_identical": true,
+          "max_abs_tau_difference": 2.609024107869118e-15,
+          "bootstrap_lags": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "pass": true
+    },
+    "statsmodels_bic_agreement": {
+      "cases": [
+        {
+          "cell_id": "ref_T120_p1_r0.80_constant",
+          "platform_bic_lag": 1,
+          "statsmodels_bic_lag": 1,
+          "independent_bic_lag": 1
+        },
+        {
+          "cell_id": "ref_T144_p2_r0.50_constant",
+          "platform_bic_lag": 1,
+          "statsmodels_bic_lag": 1,
+          "independent_bic_lag": 1
+        }
+      ],
+      "pass": true
+    },
+    "p_value_arithmetic": {
+      "pass": true
+    },
+    "same_seed_determinism": {
+      "cases": [
+        {
+          "cell_id": "ref_T120_p1_r0.80_constant",
+          "identical": true
+        },
+        {
+          "cell_id": "ref_T132_p2_r0.95_months",
+          "identical": true
+        },
+        {
+          "cell_id": "ref_T144_p2_r0.50_constant",
+          "identical": true
+        },
+        {
+          "cell_id": "ref_T120_p1_r0.95_months_t5",
+          "identical": true
+        }
+      ],
+      "pass": true
+    }
+  },
+  "actual_country_data_read": false,
+  "maximum_numerical_discrepancy": 2.475797344914099e-14,
+  "status": "pass"
+}

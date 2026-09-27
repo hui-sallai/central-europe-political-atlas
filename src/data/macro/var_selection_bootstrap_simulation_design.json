@@ -1,0 +1,99 @@
+{
+  "schema_version": "var-selection-bootstrap-simulation-design-v1.86",
+  "registered_at": "2026-09-28",
+  "preregistration_reference": "var_selection_bootstrap_preregistration.json",
+  "preregistration_sha256": "c37a32d53f01e2444c990807780a0aa53781f3c88c706f65035ce0345c790b6f",
+  "baseline_design": "v1.85 primary DGP grid (var_residual_diagnostic_simulation_design.json), reused unchanged",
+  "v1_85_design_modified": false,
+  "v1_86_design_extensions": [
+    "Only Layer-B-type (BIC-selected) and fixed-true-lag procedures are run; v1.85 Layer A/B split is replaced by the two v1.86 procedures on common data.",
+    "Bootstrap layer with two preregistered families and B=199.",
+    "Replication-level records retained (selected lag x decision), enabling decomposition C that v1.85 aggregates could not support.",
+    "Secondary t5 stress (36 cells) and power (common AR(1) innovation serial correlation rho=0.2, 36 cells) are report-only.",
+    "Replications per primary cell = 5000 (v1.85 used 10000 without a bootstrap layer)."
+  ],
+  "dimension": 3,
+  "sample_sizes": [
+    120,
+    132,
+    144
+  ],
+  "true_lags": [
+    1,
+    2
+  ],
+  "persistence_targets": [
+    0.5,
+    0.8,
+    0.95
+  ],
+  "deterministic_specs": [
+    "constant",
+    "constant_plus_11_month_dummies"
+  ],
+  "cell_order": "itertools.product(T, true_lag, persistence, deterministic_spec)",
+  "phases": {
+    "primary": {
+      "phase_code": 2,
+      "cells": 36,
+      "replications_per_cell": 5000,
+      "chunks_per_cell": 100,
+      "procedures": [
+        "selection_aware",
+        "fixed_true_lag"
+      ],
+      "families": [
+        "recursive_iid_residual",
+        "recursive_wild_rademacher"
+      ]
+    },
+    "secondary_t5": {
+      "phase_code": 3,
+      "cells": 36,
+      "replications_per_cell": 1000,
+      "chunks_per_cell": 20,
+      "procedures": [
+        "selection_aware",
+        "fixed_true_lag"
+      ],
+      "families": [
+        "recursive_iid_residual",
+        "recursive_wild_rademacher"
+      ],
+      "role": "report_only"
+    },
+    "power": {
+      "phase_code": 4,
+      "cells": 36,
+      "replications_per_cell": 1000,
+      "chunks_per_cell": 20,
+      "procedures": [
+        "selection_aware"
+      ],
+      "families": [
+        "recursive_iid_residual",
+        "recursive_wild_rademacher"
+      ],
+      "serial_pattern": "common",
+      "serial_rho": 0.2,
+      "role": "report_only"
+    }
+  },
+  "chunk_size": 50,
+  "bootstrap_replications": 199,
+  "nominal_alpha": 0.05,
+  "diagnostic_horizon": 12,
+  "lag_candidate_policy": "1..min(12, floor((T-4)/(4K+1))), common-sample BIC, rerun inside every bootstrap sample for selection_aware",
+  "checkpoint_policy": {
+    "atomic_write_per_chunk": true,
+    "resume_skips_completed_chunks": true,
+    "completed_chunks_never_recomputed": true,
+    "location": "outside the repository (VAR_SELECTION_BOOTSTRAP_CHECKPOINT_DIR)"
+  },
+  "code_sha256": {
+    "scripts/var-selection-aware-bootstrap/engine.py": "2318f72e6f29037bc721e39d7f5b885021e700dc49480da2d19396c3b8f6e84a",
+    "scripts/var-selection-aware-bootstrap/simulate.py": "039cd9b9e3a304b8bdee3a9b88b57a98eaaf90fe6a7c726745e4ec7f7a0a1ef9",
+    "scripts/var-selection-aware-bootstrap/reference.py": "2c86dab6ad6f1ab5ee1b21887a74016c7a5c1708b615833f916c0e70ba67470c"
+  },
+  "planned_monte_carlo_replications": 252000
+}
