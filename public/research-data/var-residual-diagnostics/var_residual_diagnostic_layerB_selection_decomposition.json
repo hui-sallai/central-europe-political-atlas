@@ -1,0 +1,2168 @@
+{
+  "schema_version": "var-residual-diagnostic-layerB-selection-decomposition-v1.851",
+  "classification": "derived_from_frozen_v1_85_simulation",
+  "not_new_research_draws": true,
+  "generated_at": "2026-09-28",
+  "source": {
+    "path": "src/data/macro/var_residual_diagnostic_simulation_results.json",
+    "source_sha256": "04cc4ad5f8395f894a4c9c164fc8374841b6eb20c97dc4a8c4d7098dc6912a7e",
+    "schema_version": "var-residual-diagnostic-simulation-results-v1.85"
+  },
+  "derivation_script": "scripts/var-residual-diagnostics/decompose_selection.py",
+  "derivation_command": "pnpm var:residual-decompose",
+  "new_random_draws": 0,
+  "simulation_reruns": 0,
+  "var_reestimations": 0,
+  "actual_country_data_read": false,
+  "diagnostic_horizon": 12,
+  "selection_categories": {
+    "correct": "selected lag == true lag",
+    "underselection": "selected lag < true lag",
+    "overselection": "selected lag > true lag"
+  },
+  "replication_level_joint_crosstab_available": false,
+  "conditional_rejection_rates_reconstructable": false,
+  "joint_distribution_note": "Cell-level selected-lag frequencies and overall rejection rates are observed, but their replication-level joint distribution was not retained; conditional rejection rates cannot be reconstructed from the frozen aggregate artifact.",
+  "metric_semantics": {
+    "layer_A": "conditional_diagnostic_size",
+    "layer_B": "selection_plus_specification_plus_diagnostic_procedure_rejection",
+    "layer_B_pure_size_identified": false,
+    "reason": "Layer A estimates the true lag, so under the null DGP each rejection is a Type-I error of the diagnostic. Layer B first selects the lag by BIC; when the selected lag is below the true lag the fitted VAR is underfitted and residual whiteness need not hold, so Layer B rejections are not all Type-I errors."
+  },
+  "layer_A_summary": {
+    "pt_adjusted": {
+      "cell_count": 36,
+      "cells_inside_0_035_to_0_065": 18,
+      "minimum_rejection_rate": 0.0406,
+      "maximum_rejection_rate": 0.25,
+      "all_cells_at_or_below_0_075": false,
+      "layer_A_gate_components_met": false
+    },
+    "bg_lm": {
+      "cell_count": 36,
+      "cells_inside_0_035_to_0_065": 14,
+      "minimum_rejection_rate": 0.0306,
+      "maximum_rejection_rate": 0.362,
+      "all_cells_at_or_below_0_075": false,
+      "layer_A_gate_components_met": false
+    },
+    "edgerton_shukur_f": {
+      "cell_count": 36,
+      "cells_inside_0_035_to_0_065": 36,
+      "minimum_rejection_rate": 0.0353,
+      "maximum_rejection_rate": 0.0599,
+      "all_cells_at_or_below_0_075": true,
+      "layer_A_gate_components_met": true
+    }
+  },
+  "layer_B_cell_count": 36,
+  "layer_B_cells": [
+    {
+      "cell_id": "primary_LB_T120_p1_r0.50_det-constant_innov-gaussian_iid",
+      "sample_size": 120,
+      "true_lag": 1,
+      "persistence": 0.5,
+      "deterministic_spec": "constant",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 10000
+      },
+      "correct_selection_count": 10000,
+      "underselection_count": 0,
+      "overselection_count": 0,
+      "correct_selection_rate": 1.0,
+      "underselection_rate": 0.0,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 468,
+          "tested": 10000,
+          "rate": 0.0468
+        },
+        "bg_lm": {
+          "rejections": 335,
+          "tested": 10000,
+          "rate": 0.0335
+        },
+        "edgerton_shukur_f": {
+          "rejections": 375,
+          "tested": 10000,
+          "rate": 0.0375
+        }
+      },
+      "pt_h12_rejection_rate": 0.0468,
+      "bg_h12_rejection_rate": 0.0335,
+      "es_h12_rejection_rate": 0.0375
+    },
+    {
+      "cell_id": "primary_LB_T120_p1_r0.50_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "sample_size": 120,
+      "true_lag": 1,
+      "persistence": 0.5,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9999,
+        "2": 1
+      },
+      "correct_selection_count": 9999,
+      "underselection_count": 0,
+      "overselection_count": 1,
+      "correct_selection_rate": 0.9999,
+      "underselection_rate": 0.0,
+      "overselection_rate": 0.0001,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 2167,
+          "tested": 10000,
+          "rate": 0.2167
+        },
+        "bg_lm": {
+          "rejections": 2448,
+          "tested": 10000,
+          "rate": 0.2448
+        },
+        "edgerton_shukur_f": {
+          "rejections": 522,
+          "tested": 10000,
+          "rate": 0.0522
+        }
+      },
+      "pt_h12_rejection_rate": 0.2167,
+      "bg_h12_rejection_rate": 0.2448,
+      "es_h12_rejection_rate": 0.0522
+    },
+    {
+      "cell_id": "primary_LB_T120_p1_r0.80_det-constant_innov-gaussian_iid",
+      "sample_size": 120,
+      "true_lag": 1,
+      "persistence": 0.8,
+      "deterministic_spec": "constant",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 10000
+      },
+      "correct_selection_count": 10000,
+      "underselection_count": 0,
+      "overselection_count": 0,
+      "correct_selection_rate": 1.0,
+      "underselection_rate": 0.0,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 468,
+          "tested": 10000,
+          "rate": 0.0468
+        },
+        "bg_lm": {
+          "rejections": 337,
+          "tested": 10000,
+          "rate": 0.0337
+        },
+        "edgerton_shukur_f": {
+          "rejections": 366,
+          "tested": 10000,
+          "rate": 0.0366
+        }
+      },
+      "pt_h12_rejection_rate": 0.0468,
+      "bg_h12_rejection_rate": 0.0337,
+      "es_h12_rejection_rate": 0.0366
+    },
+    {
+      "cell_id": "primary_LB_T120_p1_r0.80_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "sample_size": 120,
+      "true_lag": 1,
+      "persistence": 0.8,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9999,
+        "2": 1
+      },
+      "correct_selection_count": 9999,
+      "underselection_count": 0,
+      "overselection_count": 1,
+      "correct_selection_rate": 0.9999,
+      "underselection_rate": 0.0,
+      "overselection_rate": 0.0001,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 2303,
+          "tested": 10000,
+          "rate": 0.2303
+        },
+        "bg_lm": {
+          "rejections": 2506,
+          "tested": 10000,
+          "rate": 0.2506
+        },
+        "edgerton_shukur_f": {
+          "rejections": 500,
+          "tested": 10000,
+          "rate": 0.05
+        }
+      },
+      "pt_h12_rejection_rate": 0.2303,
+      "bg_h12_rejection_rate": 0.2506,
+      "es_h12_rejection_rate": 0.05
+    },
+    {
+      "cell_id": "primary_LB_T120_p1_r0.95_det-constant_innov-gaussian_iid",
+      "sample_size": 120,
+      "true_lag": 1,
+      "persistence": 0.95,
+      "deterministic_spec": "constant",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 10000
+      },
+      "correct_selection_count": 10000,
+      "underselection_count": 0,
+      "overselection_count": 0,
+      "correct_selection_rate": 1.0,
+      "underselection_rate": 0.0,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 604,
+          "tested": 10000,
+          "rate": 0.0604
+        },
+        "bg_lm": {
+          "rejections": 340,
+          "tested": 10000,
+          "rate": 0.034
+        },
+        "edgerton_shukur_f": {
+          "rejections": 381,
+          "tested": 10000,
+          "rate": 0.0381
+        }
+      },
+      "pt_h12_rejection_rate": 0.0604,
+      "bg_h12_rejection_rate": 0.034,
+      "es_h12_rejection_rate": 0.0381
+    },
+    {
+      "cell_id": "primary_LB_T120_p1_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "sample_size": 120,
+      "true_lag": 1,
+      "persistence": 0.95,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 10000
+      },
+      "correct_selection_count": 10000,
+      "underselection_count": 0,
+      "overselection_count": 0,
+      "correct_selection_rate": 1.0,
+      "underselection_rate": 0.0,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 2481,
+          "tested": 10000,
+          "rate": 0.2481
+        },
+        "bg_lm": {
+          "rejections": 2553,
+          "tested": 10000,
+          "rate": 0.2553
+        },
+        "edgerton_shukur_f": {
+          "rejections": 568,
+          "tested": 10000,
+          "rate": 0.0568
+        }
+      },
+      "pt_h12_rejection_rate": 0.2481,
+      "bg_h12_rejection_rate": 0.2553,
+      "es_h12_rejection_rate": 0.0568
+    },
+    {
+      "cell_id": "primary_LB_T120_p2_r0.50_det-constant_innov-gaussian_iid",
+      "sample_size": 120,
+      "true_lag": 2,
+      "persistence": 0.5,
+      "deterministic_spec": "constant",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9999,
+        "2": 1
+      },
+      "correct_selection_count": 1,
+      "underselection_count": 9999,
+      "overselection_count": 0,
+      "correct_selection_rate": 0.0001,
+      "underselection_rate": 0.9999,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 844,
+          "tested": 10000,
+          "rate": 0.0844
+        },
+        "bg_lm": {
+          "rejections": 481,
+          "tested": 10000,
+          "rate": 0.0481
+        },
+        "edgerton_shukur_f": {
+          "rejections": 534,
+          "tested": 10000,
+          "rate": 0.0534
+        }
+      },
+      "pt_h12_rejection_rate": 0.0844,
+      "bg_h12_rejection_rate": 0.0481,
+      "es_h12_rejection_rate": 0.0534
+    },
+    {
+      "cell_id": "primary_LB_T120_p2_r0.50_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "sample_size": 120,
+      "true_lag": 2,
+      "persistence": 0.5,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9996,
+        "2": 4
+      },
+      "correct_selection_count": 4,
+      "underselection_count": 9996,
+      "overselection_count": 0,
+      "correct_selection_rate": 0.0004,
+      "underselection_rate": 0.9996,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 2923,
+          "tested": 10000,
+          "rate": 0.2923
+        },
+        "bg_lm": {
+          "rejections": 2769,
+          "tested": 10000,
+          "rate": 0.2769
+        },
+        "edgerton_shukur_f": {
+          "rejections": 658,
+          "tested": 10000,
+          "rate": 0.0658
+        }
+      },
+      "pt_h12_rejection_rate": 0.2923,
+      "bg_h12_rejection_rate": 0.2769,
+      "es_h12_rejection_rate": 0.0658
+    },
+    {
+      "cell_id": "primary_LB_T120_p2_r0.80_det-constant_innov-gaussian_iid",
+      "sample_size": 120,
+      "true_lag": 2,
+      "persistence": 0.8,
+      "deterministic_spec": "constant",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9989,
+        "2": 11
+      },
+      "correct_selection_count": 11,
+      "underselection_count": 9989,
+      "overselection_count": 0,
+      "correct_selection_rate": 0.0011,
+      "underselection_rate": 0.9989,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 1425,
+          "tested": 10000,
+          "rate": 0.1425
+        },
+        "bg_lm": {
+          "rejections": 660,
+          "tested": 10000,
+          "rate": 0.066
+        },
+        "edgerton_shukur_f": {
+          "rejections": 736,
+          "tested": 10000,
+          "rate": 0.0736
+        }
+      },
+      "pt_h12_rejection_rate": 0.1425,
+      "bg_h12_rejection_rate": 0.066,
+      "es_h12_rejection_rate": 0.0736
+    },
+    {
+      "cell_id": "primary_LB_T120_p2_r0.80_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "sample_size": 120,
+      "true_lag": 2,
+      "persistence": 0.8,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9977,
+        "2": 23
+      },
+      "correct_selection_count": 23,
+      "underselection_count": 9977,
+      "overselection_count": 0,
+      "correct_selection_rate": 0.0023,
+      "underselection_rate": 0.9977,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 3823,
+          "tested": 10000,
+          "rate": 0.3823
+        },
+        "bg_lm": {
+          "rejections": 3375,
+          "tested": 10000,
+          "rate": 0.3375
+        },
+        "edgerton_shukur_f": {
+          "rejections": 897,
+          "tested": 10000,
+          "rate": 0.0897
+        }
+      },
+      "pt_h12_rejection_rate": 0.3823,
+      "bg_h12_rejection_rate": 0.3375,
+      "es_h12_rejection_rate": 0.0897
+    },
+    {
+      "cell_id": "primary_LB_T120_p2_r0.95_det-constant_innov-gaussian_iid",
+      "sample_size": 120,
+      "true_lag": 2,
+      "persistence": 0.95,
+      "deterministic_spec": "constant",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9953,
+        "2": 47
+      },
+      "correct_selection_count": 47,
+      "underselection_count": 9953,
+      "overselection_count": 0,
+      "correct_selection_rate": 0.0047,
+      "underselection_rate": 0.9953,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 1953,
+          "tested": 10000,
+          "rate": 0.1953
+        },
+        "bg_lm": {
+          "rejections": 888,
+          "tested": 10000,
+          "rate": 0.0888
+        },
+        "edgerton_shukur_f": {
+          "rejections": 962,
+          "tested": 10000,
+          "rate": 0.0962
+        }
+      },
+      "pt_h12_rejection_rate": 0.1953,
+      "bg_h12_rejection_rate": 0.0888,
+      "es_h12_rejection_rate": 0.0962
+    },
+    {
+      "cell_id": "primary_LB_T120_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "sample_size": 120,
+      "true_lag": 2,
+      "persistence": 0.95,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9929,
+        "2": 71
+      },
+      "correct_selection_count": 71,
+      "underselection_count": 9929,
+      "overselection_count": 0,
+      "correct_selection_rate": 0.0071,
+      "underselection_rate": 0.9929,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 4523,
+          "tested": 10000,
+          "rate": 0.4523
+        },
+        "bg_lm": {
+          "rejections": 3781,
+          "tested": 10000,
+          "rate": 0.3781
+        },
+        "edgerton_shukur_f": {
+          "rejections": 1057,
+          "tested": 10000,
+          "rate": 0.1057
+        }
+      },
+      "pt_h12_rejection_rate": 0.4523,
+      "bg_h12_rejection_rate": 0.3781,
+      "es_h12_rejection_rate": 0.1057
+    },
+    {
+      "cell_id": "primary_LB_T132_p1_r0.50_det-constant_innov-gaussian_iid",
+      "sample_size": 132,
+      "true_lag": 1,
+      "persistence": 0.5,
+      "deterministic_spec": "constant",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 10000
+      },
+      "correct_selection_count": 10000,
+      "underselection_count": 0,
+      "overselection_count": 0,
+      "correct_selection_rate": 1.0,
+      "underselection_rate": 0.0,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 455,
+          "tested": 10000,
+          "rate": 0.0455
+        },
+        "bg_lm": {
+          "rejections": 348,
+          "tested": 10000,
+          "rate": 0.0348
+        },
+        "edgerton_shukur_f": {
+          "rejections": 392,
+          "tested": 10000,
+          "rate": 0.0392
+        }
+      },
+      "pt_h12_rejection_rate": 0.0455,
+      "bg_h12_rejection_rate": 0.0348,
+      "es_h12_rejection_rate": 0.0392
+    },
+    {
+      "cell_id": "primary_LB_T132_p1_r0.50_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "sample_size": 132,
+      "true_lag": 1,
+      "persistence": 0.5,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 10000
+      },
+      "correct_selection_count": 10000,
+      "underselection_count": 0,
+      "overselection_count": 0,
+      "correct_selection_rate": 1.0,
+      "underselection_rate": 0.0,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 1957,
+          "tested": 10000,
+          "rate": 0.1957
+        },
+        "bg_lm": {
+          "rejections": 2089,
+          "tested": 10000,
+          "rate": 0.2089
+        },
+        "edgerton_shukur_f": {
+          "rejections": 507,
+          "tested": 10000,
+          "rate": 0.0507
+        }
+      },
+      "pt_h12_rejection_rate": 0.1957,
+      "bg_h12_rejection_rate": 0.2089,
+      "es_h12_rejection_rate": 0.0507
+    },
+    {
+      "cell_id": "primary_LB_T132_p1_r0.80_det-constant_innov-gaussian_iid",
+      "sample_size": 132,
+      "true_lag": 1,
+      "persistence": 0.8,
+      "deterministic_spec": "constant",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 10000
+      },
+      "correct_selection_count": 10000,
+      "underselection_count": 0,
+      "overselection_count": 0,
+      "correct_selection_rate": 1.0,
+      "underselection_rate": 0.0,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 534,
+          "tested": 10000,
+          "rate": 0.0534
+        },
+        "bg_lm": {
+          "rejections": 374,
+          "tested": 10000,
+          "rate": 0.0374
+        },
+        "edgerton_shukur_f": {
+          "rejections": 415,
+          "tested": 10000,
+          "rate": 0.0415
+        }
+      },
+      "pt_h12_rejection_rate": 0.0534,
+      "bg_h12_rejection_rate": 0.0374,
+      "es_h12_rejection_rate": 0.0415
+    },
+    {
+      "cell_id": "primary_LB_T132_p1_r0.80_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "sample_size": 132,
+      "true_lag": 1,
+      "persistence": 0.8,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9999,
+        "2": 1
+      },
+      "correct_selection_count": 9999,
+      "underselection_count": 0,
+      "overselection_count": 1,
+      "correct_selection_rate": 0.9999,
+      "underselection_rate": 0.0,
+      "overselection_rate": 0.0001,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 2068,
+          "tested": 10000,
+          "rate": 0.2068
+        },
+        "bg_lm": {
+          "rejections": 2197,
+          "tested": 10000,
+          "rate": 0.2197
+        },
+        "edgerton_shukur_f": {
+          "rejections": 521,
+          "tested": 10000,
+          "rate": 0.0521
+        }
+      },
+      "pt_h12_rejection_rate": 0.2068,
+      "bg_h12_rejection_rate": 0.2197,
+      "es_h12_rejection_rate": 0.0521
+    },
+    {
+      "cell_id": "primary_LB_T132_p1_r0.95_det-constant_innov-gaussian_iid",
+      "sample_size": 132,
+      "true_lag": 1,
+      "persistence": 0.95,
+      "deterministic_spec": "constant",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 10000
+      },
+      "correct_selection_count": 10000,
+      "underselection_count": 0,
+      "overselection_count": 0,
+      "correct_selection_rate": 1.0,
+      "underselection_rate": 0.0,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 635,
+          "tested": 10000,
+          "rate": 0.0635
+        },
+        "bg_lm": {
+          "rejections": 388,
+          "tested": 10000,
+          "rate": 0.0388
+        },
+        "edgerton_shukur_f": {
+          "rejections": 425,
+          "tested": 10000,
+          "rate": 0.0425
+        }
+      },
+      "pt_h12_rejection_rate": 0.0635,
+      "bg_h12_rejection_rate": 0.0388,
+      "es_h12_rejection_rate": 0.0425
+    },
+    {
+      "cell_id": "primary_LB_T132_p1_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "sample_size": 132,
+      "true_lag": 1,
+      "persistence": 0.95,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9998,
+        "2": 2
+      },
+      "correct_selection_count": 9998,
+      "underselection_count": 0,
+      "overselection_count": 2,
+      "correct_selection_rate": 0.9998,
+      "underselection_rate": 0.0,
+      "overselection_rate": 0.0002,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 2307,
+          "tested": 10000,
+          "rate": 0.2307
+        },
+        "bg_lm": {
+          "rejections": 2235,
+          "tested": 10000,
+          "rate": 0.2235
+        },
+        "edgerton_shukur_f": {
+          "rejections": 592,
+          "tested": 10000,
+          "rate": 0.0592
+        }
+      },
+      "pt_h12_rejection_rate": 0.2307,
+      "bg_h12_rejection_rate": 0.2235,
+      "es_h12_rejection_rate": 0.0592
+    },
+    {
+      "cell_id": "primary_LB_T132_p2_r0.50_det-constant_innov-gaussian_iid",
+      "sample_size": 132,
+      "true_lag": 2,
+      "persistence": 0.5,
+      "deterministic_spec": "constant",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9999,
+        "2": 1
+      },
+      "correct_selection_count": 1,
+      "underselection_count": 9999,
+      "overselection_count": 0,
+      "correct_selection_rate": 0.0001,
+      "underselection_rate": 0.9999,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 872,
+          "tested": 10000,
+          "rate": 0.0872
+        },
+        "bg_lm": {
+          "rejections": 507,
+          "tested": 10000,
+          "rate": 0.0507
+        },
+        "edgerton_shukur_f": {
+          "rejections": 559,
+          "tested": 10000,
+          "rate": 0.0559
+        }
+      },
+      "pt_h12_rejection_rate": 0.0872,
+      "bg_h12_rejection_rate": 0.0507,
+      "es_h12_rejection_rate": 0.0559
+    },
+    {
+      "cell_id": "primary_LB_T132_p2_r0.50_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "sample_size": 132,
+      "true_lag": 2,
+      "persistence": 0.5,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9997,
+        "2": 3
+      },
+      "correct_selection_count": 3,
+      "underselection_count": 9997,
+      "overselection_count": 0,
+      "correct_selection_rate": 0.0003,
+      "underselection_rate": 0.9997,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 2728,
+          "tested": 10000,
+          "rate": 0.2728
+        },
+        "bg_lm": {
+          "rejections": 2528,
+          "tested": 10000,
+          "rate": 0.2528
+        },
+        "edgerton_shukur_f": {
+          "rejections": 724,
+          "tested": 10000,
+          "rate": 0.0724
+        }
+      },
+      "pt_h12_rejection_rate": 0.2728,
+      "bg_h12_rejection_rate": 0.2528,
+      "es_h12_rejection_rate": 0.0724
+    },
+    {
+      "cell_id": "primary_LB_T132_p2_r0.80_det-constant_innov-gaussian_iid",
+      "sample_size": 132,
+      "true_lag": 2,
+      "persistence": 0.8,
+      "deterministic_spec": "constant",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9986,
+        "2": 14
+      },
+      "correct_selection_count": 14,
+      "underselection_count": 9986,
+      "overselection_count": 0,
+      "correct_selection_rate": 0.0014,
+      "underselection_rate": 0.9986,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 1521,
+          "tested": 10000,
+          "rate": 0.1521
+        },
+        "bg_lm": {
+          "rejections": 781,
+          "tested": 10000,
+          "rate": 0.0781
+        },
+        "edgerton_shukur_f": {
+          "rejections": 840,
+          "tested": 10000,
+          "rate": 0.084
+        }
+      },
+      "pt_h12_rejection_rate": 0.1521,
+      "bg_h12_rejection_rate": 0.0781,
+      "es_h12_rejection_rate": 0.084
+    },
+    {
+      "cell_id": "primary_LB_T132_p2_r0.80_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "sample_size": 132,
+      "true_lag": 2,
+      "persistence": 0.8,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9967,
+        "2": 33
+      },
+      "correct_selection_count": 33,
+      "underselection_count": 9967,
+      "overselection_count": 0,
+      "correct_selection_rate": 0.0033,
+      "underselection_rate": 0.9967,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 3646,
+          "tested": 10000,
+          "rate": 0.3646
+        },
+        "bg_lm": {
+          "rejections": 3042,
+          "tested": 10000,
+          "rate": 0.3042
+        },
+        "edgerton_shukur_f": {
+          "rejections": 959,
+          "tested": 10000,
+          "rate": 0.0959
+        }
+      },
+      "pt_h12_rejection_rate": 0.3646,
+      "bg_h12_rejection_rate": 0.3042,
+      "es_h12_rejection_rate": 0.0959
+    },
+    {
+      "cell_id": "primary_LB_T132_p2_r0.95_det-constant_innov-gaussian_iid",
+      "sample_size": 132,
+      "true_lag": 2,
+      "persistence": 0.95,
+      "deterministic_spec": "constant",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9958,
+        "2": 42
+      },
+      "correct_selection_count": 42,
+      "underselection_count": 9958,
+      "overselection_count": 0,
+      "correct_selection_rate": 0.0042,
+      "underselection_rate": 0.9958,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 2059,
+          "tested": 10000,
+          "rate": 0.2059
+        },
+        "bg_lm": {
+          "rejections": 1032,
+          "tested": 10000,
+          "rate": 0.1032
+        },
+        "edgerton_shukur_f": {
+          "rejections": 1105,
+          "tested": 10000,
+          "rate": 0.1105
+        }
+      },
+      "pt_h12_rejection_rate": 0.2059,
+      "bg_h12_rejection_rate": 0.1032,
+      "es_h12_rejection_rate": 0.1105
+    },
+    {
+      "cell_id": "primary_LB_T132_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "sample_size": 132,
+      "true_lag": 2,
+      "persistence": 0.95,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9941,
+        "2": 59
+      },
+      "correct_selection_count": 59,
+      "underselection_count": 9941,
+      "overselection_count": 0,
+      "correct_selection_rate": 0.0059,
+      "underselection_rate": 0.9941,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 4477,
+          "tested": 10000,
+          "rate": 0.4477
+        },
+        "bg_lm": {
+          "rejections": 3650,
+          "tested": 10000,
+          "rate": 0.365
+        },
+        "edgerton_shukur_f": {
+          "rejections": 1234,
+          "tested": 10000,
+          "rate": 0.1234
+        }
+      },
+      "pt_h12_rejection_rate": 0.4477,
+      "bg_h12_rejection_rate": 0.365,
+      "es_h12_rejection_rate": 0.1234
+    },
+    {
+      "cell_id": "primary_LB_T144_p1_r0.50_det-constant_innov-gaussian_iid",
+      "sample_size": 144,
+      "true_lag": 1,
+      "persistence": 0.5,
+      "deterministic_spec": "constant",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 10000
+      },
+      "correct_selection_count": 10000,
+      "underselection_count": 0,
+      "overselection_count": 0,
+      "correct_selection_rate": 1.0,
+      "underselection_rate": 0.0,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 433,
+          "tested": 10000,
+          "rate": 0.0433
+        },
+        "bg_lm": {
+          "rejections": 373,
+          "tested": 10000,
+          "rate": 0.0373
+        },
+        "edgerton_shukur_f": {
+          "rejections": 400,
+          "tested": 10000,
+          "rate": 0.04
+        }
+      },
+      "pt_h12_rejection_rate": 0.0433,
+      "bg_h12_rejection_rate": 0.0373,
+      "es_h12_rejection_rate": 0.04
+    },
+    {
+      "cell_id": "primary_LB_T144_p1_r0.50_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "sample_size": 144,
+      "true_lag": 1,
+      "persistence": 0.5,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 10000
+      },
+      "correct_selection_count": 10000,
+      "underselection_count": 0,
+      "overselection_count": 0,
+      "correct_selection_rate": 1.0,
+      "underselection_rate": 0.0,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 1787,
+          "tested": 10000,
+          "rate": 0.1787
+        },
+        "bg_lm": {
+          "rejections": 1831,
+          "tested": 10000,
+          "rate": 0.1831
+        },
+        "edgerton_shukur_f": {
+          "rejections": 504,
+          "tested": 10000,
+          "rate": 0.0504
+        }
+      },
+      "pt_h12_rejection_rate": 0.1787,
+      "bg_h12_rejection_rate": 0.1831,
+      "es_h12_rejection_rate": 0.0504
+    },
+    {
+      "cell_id": "primary_LB_T144_p1_r0.80_det-constant_innov-gaussian_iid",
+      "sample_size": 144,
+      "true_lag": 1,
+      "persistence": 0.8,
+      "deterministic_spec": "constant",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 10000
+      },
+      "correct_selection_count": 10000,
+      "underselection_count": 0,
+      "overselection_count": 0,
+      "correct_selection_rate": 1.0,
+      "underselection_rate": 0.0,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 525,
+          "tested": 10000,
+          "rate": 0.0525
+        },
+        "bg_lm": {
+          "rejections": 395,
+          "tested": 10000,
+          "rate": 0.0395
+        },
+        "edgerton_shukur_f": {
+          "rejections": 435,
+          "tested": 10000,
+          "rate": 0.0435
+        }
+      },
+      "pt_h12_rejection_rate": 0.0525,
+      "bg_h12_rejection_rate": 0.0395,
+      "es_h12_rejection_rate": 0.0435
+    },
+    {
+      "cell_id": "primary_LB_T144_p1_r0.80_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "sample_size": 144,
+      "true_lag": 1,
+      "persistence": 0.8,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9999,
+        "2": 1
+      },
+      "correct_selection_count": 9999,
+      "underselection_count": 0,
+      "overselection_count": 1,
+      "correct_selection_rate": 0.9999,
+      "underselection_rate": 0.0,
+      "overselection_rate": 0.0001,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 1824,
+          "tested": 10000,
+          "rate": 0.1824
+        },
+        "bg_lm": {
+          "rejections": 1888,
+          "tested": 10000,
+          "rate": 0.1888
+        },
+        "edgerton_shukur_f": {
+          "rejections": 514,
+          "tested": 10000,
+          "rate": 0.0514
+        }
+      },
+      "pt_h12_rejection_rate": 0.1824,
+      "bg_h12_rejection_rate": 0.1888,
+      "es_h12_rejection_rate": 0.0514
+    },
+    {
+      "cell_id": "primary_LB_T144_p1_r0.95_det-constant_innov-gaussian_iid",
+      "sample_size": 144,
+      "true_lag": 1,
+      "persistence": 0.95,
+      "deterministic_spec": "constant",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 10000
+      },
+      "correct_selection_count": 10000,
+      "underselection_count": 0,
+      "overselection_count": 0,
+      "correct_selection_rate": 1.0,
+      "underselection_rate": 0.0,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 595,
+          "tested": 10000,
+          "rate": 0.0595
+        },
+        "bg_lm": {
+          "rejections": 391,
+          "tested": 10000,
+          "rate": 0.0391
+        },
+        "edgerton_shukur_f": {
+          "rejections": 434,
+          "tested": 10000,
+          "rate": 0.0434
+        }
+      },
+      "pt_h12_rejection_rate": 0.0595,
+      "bg_h12_rejection_rate": 0.0391,
+      "es_h12_rejection_rate": 0.0434
+    },
+    {
+      "cell_id": "primary_LB_T144_p1_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "sample_size": 144,
+      "true_lag": 1,
+      "persistence": 0.95,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9999,
+        "2": 1
+      },
+      "correct_selection_count": 9999,
+      "underselection_count": 0,
+      "overselection_count": 1,
+      "correct_selection_rate": 0.9999,
+      "underselection_rate": 0.0,
+      "overselection_rate": 0.0001,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 2008,
+          "tested": 10000,
+          "rate": 0.2008
+        },
+        "bg_lm": {
+          "rejections": 1970,
+          "tested": 10000,
+          "rate": 0.197
+        },
+        "edgerton_shukur_f": {
+          "rejections": 578,
+          "tested": 10000,
+          "rate": 0.0578
+        }
+      },
+      "pt_h12_rejection_rate": 0.2008,
+      "bg_h12_rejection_rate": 0.197,
+      "es_h12_rejection_rate": 0.0578
+    },
+    {
+      "cell_id": "primary_LB_T144_p2_r0.50_det-constant_innov-gaussian_iid",
+      "sample_size": 144,
+      "true_lag": 2,
+      "persistence": 0.5,
+      "deterministic_spec": "constant",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9998,
+        "2": 2
+      },
+      "correct_selection_count": 2,
+      "underselection_count": 9998,
+      "overselection_count": 0,
+      "correct_selection_rate": 0.0002,
+      "underselection_rate": 0.9998,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 893,
+          "tested": 10000,
+          "rate": 0.0893
+        },
+        "bg_lm": {
+          "rejections": 564,
+          "tested": 10000,
+          "rate": 0.0564
+        },
+        "edgerton_shukur_f": {
+          "rejections": 611,
+          "tested": 10000,
+          "rate": 0.0611
+        }
+      },
+      "pt_h12_rejection_rate": 0.0893,
+      "bg_h12_rejection_rate": 0.0564,
+      "es_h12_rejection_rate": 0.0611
+    },
+    {
+      "cell_id": "primary_LB_T144_p2_r0.50_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "sample_size": 144,
+      "true_lag": 2,
+      "persistence": 0.5,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9995,
+        "2": 5
+      },
+      "correct_selection_count": 5,
+      "underselection_count": 9995,
+      "overselection_count": 0,
+      "correct_selection_rate": 0.0005,
+      "underselection_rate": 0.9995,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 2601,
+          "tested": 10000,
+          "rate": 0.2601
+        },
+        "bg_lm": {
+          "rejections": 2361,
+          "tested": 10000,
+          "rate": 0.2361
+        },
+        "edgerton_shukur_f": {
+          "rejections": 767,
+          "tested": 10000,
+          "rate": 0.0767
+        }
+      },
+      "pt_h12_rejection_rate": 0.2601,
+      "bg_h12_rejection_rate": 0.2361,
+      "es_h12_rejection_rate": 0.0767
+    },
+    {
+      "cell_id": "primary_LB_T144_p2_r0.80_det-constant_innov-gaussian_iid",
+      "sample_size": 144,
+      "true_lag": 2,
+      "persistence": 0.8,
+      "deterministic_spec": "constant",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9987,
+        "2": 13
+      },
+      "correct_selection_count": 13,
+      "underselection_count": 9987,
+      "overselection_count": 0,
+      "correct_selection_rate": 0.0013,
+      "underselection_rate": 0.9987,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 1604,
+          "tested": 10000,
+          "rate": 0.1604
+        },
+        "bg_lm": {
+          "rejections": 856,
+          "tested": 10000,
+          "rate": 0.0856
+        },
+        "edgerton_shukur_f": {
+          "rejections": 901,
+          "tested": 10000,
+          "rate": 0.0901
+        }
+      },
+      "pt_h12_rejection_rate": 0.1604,
+      "bg_h12_rejection_rate": 0.0856,
+      "es_h12_rejection_rate": 0.0901
+    },
+    {
+      "cell_id": "primary_LB_T144_p2_r0.80_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "sample_size": 144,
+      "true_lag": 2,
+      "persistence": 0.8,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9982,
+        "2": 18
+      },
+      "correct_selection_count": 18,
+      "underselection_count": 9982,
+      "overselection_count": 0,
+      "correct_selection_rate": 0.0018,
+      "underselection_rate": 0.9982,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 3554,
+          "tested": 10000,
+          "rate": 0.3554
+        },
+        "bg_lm": {
+          "rejections": 2868,
+          "tested": 10000,
+          "rate": 0.2868
+        },
+        "edgerton_shukur_f": {
+          "rejections": 988,
+          "tested": 10000,
+          "rate": 0.0988
+        }
+      },
+      "pt_h12_rejection_rate": 0.3554,
+      "bg_h12_rejection_rate": 0.2868,
+      "es_h12_rejection_rate": 0.0988
+    },
+    {
+      "cell_id": "primary_LB_T144_p2_r0.95_det-constant_innov-gaussian_iid",
+      "sample_size": 144,
+      "true_lag": 2,
+      "persistence": 0.95,
+      "deterministic_spec": "constant",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9958,
+        "2": 42
+      },
+      "correct_selection_count": 42,
+      "underselection_count": 9958,
+      "overselection_count": 0,
+      "correct_selection_rate": 0.0042,
+      "underselection_rate": 0.9958,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 2133,
+          "tested": 10000,
+          "rate": 0.2133
+        },
+        "bg_lm": {
+          "rejections": 1101,
+          "tested": 10000,
+          "rate": 0.1101
+        },
+        "edgerton_shukur_f": {
+          "rejections": 1187,
+          "tested": 10000,
+          "rate": 0.1187
+        }
+      },
+      "pt_h12_rejection_rate": 0.2133,
+      "bg_h12_rejection_rate": 0.1101,
+      "es_h12_rejection_rate": 0.1187
+    },
+    {
+      "cell_id": "primary_LB_T144_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "sample_size": 144,
+      "true_lag": 2,
+      "persistence": 0.95,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "replications": 10000,
+      "selected_lag_counts": {
+        "1": 9942,
+        "2": 58
+      },
+      "correct_selection_count": 58,
+      "underselection_count": 9942,
+      "overselection_count": 0,
+      "correct_selection_rate": 0.0058,
+      "underselection_rate": 0.9942,
+      "overselection_rate": 0.0,
+      "parameter_gate_passed": 10000,
+      "h12_rejection": {
+        "pt_adjusted": {
+          "rejections": 4321,
+          "tested": 10000,
+          "rate": 0.4321
+        },
+        "bg_lm": {
+          "rejections": 3405,
+          "tested": 10000,
+          "rate": 0.3405
+        },
+        "edgerton_shukur_f": {
+          "rejections": 1288,
+          "tested": 10000,
+          "rate": 0.1288
+        }
+      },
+      "pt_h12_rejection_rate": 0.4321,
+      "bg_h12_rejection_rate": 0.3405,
+      "es_h12_rejection_rate": 0.1288
+    }
+  ],
+  "layer_B_by_true_lag": {
+    "1": {
+      "cell_count": 18,
+      "replications": 180000,
+      "pooled_correct_selection_rate": 0.9999611111111111,
+      "pooled_underselection_rate": 0.0,
+      "pooled_overselection_rate": 3.888888888888889e-05,
+      "cell_correct_selection_rate_range": [
+        0.9998,
+        1.0
+      ],
+      "cell_underselection_rate_range": [
+        0.0,
+        0.0
+      ],
+      "cell_overselection_rate_range": [
+        0.0,
+        0.0002
+      ],
+      "h12_rejection_rate_range": {
+        "pt_adjusted": [
+          0.0433,
+          0.2481
+        ],
+        "bg_lm": [
+          0.0335,
+          0.2553
+        ],
+        "edgerton_shukur_f": [
+          0.0366,
+          0.0592
+        ]
+      },
+      "h12_cells_inside_0_035_to_0_065": {
+        "pt_adjusted": 9,
+        "bg_lm": 5,
+        "edgerton_shukur_f": 18
+      },
+      "by_deterministic_spec": {
+        "constant": {
+          "cell_count": 9,
+          "replications": 90000,
+          "pooled_correct_selection_rate": 1.0,
+          "pooled_underselection_rate": 0.0,
+          "pooled_overselection_rate": 0.0,
+          "cell_correct_selection_rate_range": [
+            1.0,
+            1.0
+          ],
+          "cell_underselection_rate_range": [
+            0.0,
+            0.0
+          ],
+          "cell_overselection_rate_range": [
+            0.0,
+            0.0
+          ],
+          "h12_rejection_rate_range": {
+            "pt_adjusted": [
+              0.0433,
+              0.0635
+            ],
+            "bg_lm": [
+              0.0335,
+              0.0395
+            ],
+            "edgerton_shukur_f": [
+              0.0366,
+              0.0435
+            ]
+          },
+          "h12_cells_inside_0_035_to_0_065": {
+            "pt_adjusted": 9,
+            "bg_lm": 5,
+            "edgerton_shukur_f": 9
+          }
+        },
+        "constant_plus_11_month_dummies": {
+          "cell_count": 9,
+          "replications": 90000,
+          "pooled_correct_selection_rate": 0.9999222222222223,
+          "pooled_underselection_rate": 0.0,
+          "pooled_overselection_rate": 7.777777777777778e-05,
+          "cell_correct_selection_rate_range": [
+            0.9998,
+            1.0
+          ],
+          "cell_underselection_rate_range": [
+            0.0,
+            0.0
+          ],
+          "cell_overselection_rate_range": [
+            0.0,
+            0.0002
+          ],
+          "h12_rejection_rate_range": {
+            "pt_adjusted": [
+              0.1787,
+              0.2481
+            ],
+            "bg_lm": [
+              0.1831,
+              0.2553
+            ],
+            "edgerton_shukur_f": [
+              0.05,
+              0.0592
+            ]
+          },
+          "h12_cells_inside_0_035_to_0_065": {
+            "pt_adjusted": 0,
+            "bg_lm": 0,
+            "edgerton_shukur_f": 9
+          }
+        }
+      },
+      "by_sample_size": {
+        "120": {
+          "cell_count": 6,
+          "replications": 60000,
+          "pooled_correct_selection_rate": 0.9999666666666667,
+          "pooled_underselection_rate": 0.0,
+          "pooled_overselection_rate": 3.3333333333333335e-05,
+          "cell_correct_selection_rate_range": [
+            0.9999,
+            1.0
+          ],
+          "cell_underselection_rate_range": [
+            0.0,
+            0.0
+          ],
+          "cell_overselection_rate_range": [
+            0.0,
+            0.0001
+          ],
+          "h12_rejection_rate_range": {
+            "pt_adjusted": [
+              0.0468,
+              0.2481
+            ],
+            "bg_lm": [
+              0.0335,
+              0.2553
+            ],
+            "edgerton_shukur_f": [
+              0.0366,
+              0.0568
+            ]
+          },
+          "h12_cells_inside_0_035_to_0_065": {
+            "pt_adjusted": 3,
+            "bg_lm": 0,
+            "edgerton_shukur_f": 6
+          }
+        },
+        "132": {
+          "cell_count": 6,
+          "replications": 60000,
+          "pooled_correct_selection_rate": 0.99995,
+          "pooled_underselection_rate": 0.0,
+          "pooled_overselection_rate": 5e-05,
+          "cell_correct_selection_rate_range": [
+            0.9998,
+            1.0
+          ],
+          "cell_underselection_rate_range": [
+            0.0,
+            0.0
+          ],
+          "cell_overselection_rate_range": [
+            0.0,
+            0.0002
+          ],
+          "h12_rejection_rate_range": {
+            "pt_adjusted": [
+              0.0455,
+              0.2307
+            ],
+            "bg_lm": [
+              0.0348,
+              0.2235
+            ],
+            "edgerton_shukur_f": [
+              0.0392,
+              0.0592
+            ]
+          },
+          "h12_cells_inside_0_035_to_0_065": {
+            "pt_adjusted": 3,
+            "bg_lm": 2,
+            "edgerton_shukur_f": 6
+          }
+        },
+        "144": {
+          "cell_count": 6,
+          "replications": 60000,
+          "pooled_correct_selection_rate": 0.9999666666666667,
+          "pooled_underselection_rate": 0.0,
+          "pooled_overselection_rate": 3.3333333333333335e-05,
+          "cell_correct_selection_rate_range": [
+            0.9999,
+            1.0
+          ],
+          "cell_underselection_rate_range": [
+            0.0,
+            0.0
+          ],
+          "cell_overselection_rate_range": [
+            0.0,
+            0.0001
+          ],
+          "h12_rejection_rate_range": {
+            "pt_adjusted": [
+              0.0433,
+              0.2008
+            ],
+            "bg_lm": [
+              0.0373,
+              0.197
+            ],
+            "edgerton_shukur_f": [
+              0.04,
+              0.0578
+            ]
+          },
+          "h12_cells_inside_0_035_to_0_065": {
+            "pt_adjusted": 3,
+            "bg_lm": 3,
+            "edgerton_shukur_f": 6
+          }
+        }
+      },
+      "by_persistence": {
+        "0.5": {
+          "cell_count": 6,
+          "replications": 60000,
+          "pooled_correct_selection_rate": 0.9999833333333333,
+          "pooled_underselection_rate": 0.0,
+          "pooled_overselection_rate": 1.6666666666666667e-05,
+          "cell_correct_selection_rate_range": [
+            0.9999,
+            1.0
+          ],
+          "cell_underselection_rate_range": [
+            0.0,
+            0.0
+          ],
+          "cell_overselection_rate_range": [
+            0.0,
+            0.0001
+          ],
+          "h12_rejection_rate_range": {
+            "pt_adjusted": [
+              0.0433,
+              0.2167
+            ],
+            "bg_lm": [
+              0.0335,
+              0.2448
+            ],
+            "edgerton_shukur_f": [
+              0.0375,
+              0.0522
+            ]
+          },
+          "h12_cells_inside_0_035_to_0_065": {
+            "pt_adjusted": 3,
+            "bg_lm": 1,
+            "edgerton_shukur_f": 6
+          }
+        },
+        "0.8": {
+          "cell_count": 6,
+          "replications": 60000,
+          "pooled_correct_selection_rate": 0.99995,
+          "pooled_underselection_rate": 0.0,
+          "pooled_overselection_rate": 5e-05,
+          "cell_correct_selection_rate_range": [
+            0.9999,
+            1.0
+          ],
+          "cell_underselection_rate_range": [
+            0.0,
+            0.0
+          ],
+          "cell_overselection_rate_range": [
+            0.0,
+            0.0001
+          ],
+          "h12_rejection_rate_range": {
+            "pt_adjusted": [
+              0.0468,
+              0.2303
+            ],
+            "bg_lm": [
+              0.0337,
+              0.2506
+            ],
+            "edgerton_shukur_f": [
+              0.0366,
+              0.0521
+            ]
+          },
+          "h12_cells_inside_0_035_to_0_065": {
+            "pt_adjusted": 3,
+            "bg_lm": 2,
+            "edgerton_shukur_f": 6
+          }
+        },
+        "0.95": {
+          "cell_count": 6,
+          "replications": 60000,
+          "pooled_correct_selection_rate": 0.99995,
+          "pooled_underselection_rate": 0.0,
+          "pooled_overselection_rate": 5e-05,
+          "cell_correct_selection_rate_range": [
+            0.9998,
+            1.0
+          ],
+          "cell_underselection_rate_range": [
+            0.0,
+            0.0
+          ],
+          "cell_overselection_rate_range": [
+            0.0,
+            0.0002
+          ],
+          "h12_rejection_rate_range": {
+            "pt_adjusted": [
+              0.0595,
+              0.2481
+            ],
+            "bg_lm": [
+              0.034,
+              0.2553
+            ],
+            "edgerton_shukur_f": [
+              0.0381,
+              0.0592
+            ]
+          },
+          "h12_cells_inside_0_035_to_0_065": {
+            "pt_adjusted": 3,
+            "bg_lm": 2,
+            "edgerton_shukur_f": 6
+          }
+        }
+      }
+    },
+    "2": {
+      "cell_count": 18,
+      "replications": 180000,
+      "pooled_correct_selection_rate": 0.0024833333333333335,
+      "pooled_underselection_rate": 0.9975166666666667,
+      "pooled_overselection_rate": 0.0,
+      "cell_correct_selection_rate_range": [
+        0.0001,
+        0.0071
+      ],
+      "cell_underselection_rate_range": [
+        0.9929,
+        0.9999
+      ],
+      "cell_overselection_rate_range": [
+        0.0,
+        0.0
+      ],
+      "h12_rejection_rate_range": {
+        "pt_adjusted": [
+          0.0844,
+          0.4523
+        ],
+        "bg_lm": [
+          0.0481,
+          0.3781
+        ],
+        "edgerton_shukur_f": [
+          0.0534,
+          0.1288
+        ]
+      },
+      "h12_cells_inside_0_035_to_0_065": {
+        "pt_adjusted": 0,
+        "bg_lm": 3,
+        "edgerton_shukur_f": 3
+      },
+      "by_deterministic_spec": {
+        "constant": {
+          "cell_count": 9,
+          "replications": 90000,
+          "pooled_correct_selection_rate": 0.0019222222222222223,
+          "pooled_underselection_rate": 0.9980777777777777,
+          "pooled_overselection_rate": 0.0,
+          "cell_correct_selection_rate_range": [
+            0.0001,
+            0.0047
+          ],
+          "cell_underselection_rate_range": [
+            0.9953,
+            0.9999
+          ],
+          "cell_overselection_rate_range": [
+            0.0,
+            0.0
+          ],
+          "h12_rejection_rate_range": {
+            "pt_adjusted": [
+              0.0844,
+              0.2133
+            ],
+            "bg_lm": [
+              0.0481,
+              0.1101
+            ],
+            "edgerton_shukur_f": [
+              0.0534,
+              0.1187
+            ]
+          },
+          "h12_cells_inside_0_035_to_0_065": {
+            "pt_adjusted": 0,
+            "bg_lm": 3,
+            "edgerton_shukur_f": 3
+          }
+        },
+        "constant_plus_11_month_dummies": {
+          "cell_count": 9,
+          "replications": 90000,
+          "pooled_correct_selection_rate": 0.0030444444444444442,
+          "pooled_underselection_rate": 0.9969555555555556,
+          "pooled_overselection_rate": 0.0,
+          "cell_correct_selection_rate_range": [
+            0.0003,
+            0.0071
+          ],
+          "cell_underselection_rate_range": [
+            0.9929,
+            0.9997
+          ],
+          "cell_overselection_rate_range": [
+            0.0,
+            0.0
+          ],
+          "h12_rejection_rate_range": {
+            "pt_adjusted": [
+              0.2601,
+              0.4523
+            ],
+            "bg_lm": [
+              0.2361,
+              0.3781
+            ],
+            "edgerton_shukur_f": [
+              0.0658,
+              0.1288
+            ]
+          },
+          "h12_cells_inside_0_035_to_0_065": {
+            "pt_adjusted": 0,
+            "bg_lm": 0,
+            "edgerton_shukur_f": 0
+          }
+        }
+      },
+      "by_sample_size": {
+        "120": {
+          "cell_count": 6,
+          "replications": 60000,
+          "pooled_correct_selection_rate": 0.002616666666666667,
+          "pooled_underselection_rate": 0.9973833333333333,
+          "pooled_overselection_rate": 0.0,
+          "cell_correct_selection_rate_range": [
+            0.0001,
+            0.0071
+          ],
+          "cell_underselection_rate_range": [
+            0.9929,
+            0.9999
+          ],
+          "cell_overselection_rate_range": [
+            0.0,
+            0.0
+          ],
+          "h12_rejection_rate_range": {
+            "pt_adjusted": [
+              0.0844,
+              0.4523
+            ],
+            "bg_lm": [
+              0.0481,
+              0.3781
+            ],
+            "edgerton_shukur_f": [
+              0.0534,
+              0.1057
+            ]
+          },
+          "h12_cells_inside_0_035_to_0_065": {
+            "pt_adjusted": 0,
+            "bg_lm": 1,
+            "edgerton_shukur_f": 1
+          }
+        },
+        "132": {
+          "cell_count": 6,
+          "replications": 60000,
+          "pooled_correct_selection_rate": 0.002533333333333333,
+          "pooled_underselection_rate": 0.9974666666666666,
+          "pooled_overselection_rate": 0.0,
+          "cell_correct_selection_rate_range": [
+            0.0001,
+            0.0059
+          ],
+          "cell_underselection_rate_range": [
+            0.9941,
+            0.9999
+          ],
+          "cell_overselection_rate_range": [
+            0.0,
+            0.0
+          ],
+          "h12_rejection_rate_range": {
+            "pt_adjusted": [
+              0.0872,
+              0.4477
+            ],
+            "bg_lm": [
+              0.0507,
+              0.365
+            ],
+            "edgerton_shukur_f": [
+              0.0559,
+              0.1234
+            ]
+          },
+          "h12_cells_inside_0_035_to_0_065": {
+            "pt_adjusted": 0,
+            "bg_lm": 1,
+            "edgerton_shukur_f": 1
+          }
+        },
+        "144": {
+          "cell_count": 6,
+          "replications": 60000,
+          "pooled_correct_selection_rate": 0.0023,
+          "pooled_underselection_rate": 0.9977,
+          "pooled_overselection_rate": 0.0,
+          "cell_correct_selection_rate_range": [
+            0.0002,
+            0.0058
+          ],
+          "cell_underselection_rate_range": [
+            0.9942,
+            0.9998
+          ],
+          "cell_overselection_rate_range": [
+            0.0,
+            0.0
+          ],
+          "h12_rejection_rate_range": {
+            "pt_adjusted": [
+              0.0893,
+              0.4321
+            ],
+            "bg_lm": [
+              0.0564,
+              0.3405
+            ],
+            "edgerton_shukur_f": [
+              0.0611,
+              0.1288
+            ]
+          },
+          "h12_cells_inside_0_035_to_0_065": {
+            "pt_adjusted": 0,
+            "bg_lm": 1,
+            "edgerton_shukur_f": 1
+          }
+        }
+      },
+      "by_persistence": {
+        "0.5": {
+          "cell_count": 6,
+          "replications": 60000,
+          "pooled_correct_selection_rate": 0.0002666666666666667,
+          "pooled_underselection_rate": 0.9997333333333334,
+          "pooled_overselection_rate": 0.0,
+          "cell_correct_selection_rate_range": [
+            0.0001,
+            0.0005
+          ],
+          "cell_underselection_rate_range": [
+            0.9995,
+            0.9999
+          ],
+          "cell_overselection_rate_range": [
+            0.0,
+            0.0
+          ],
+          "h12_rejection_rate_range": {
+            "pt_adjusted": [
+              0.0844,
+              0.2923
+            ],
+            "bg_lm": [
+              0.0481,
+              0.2769
+            ],
+            "edgerton_shukur_f": [
+              0.0534,
+              0.0767
+            ]
+          },
+          "h12_cells_inside_0_035_to_0_065": {
+            "pt_adjusted": 0,
+            "bg_lm": 3,
+            "edgerton_shukur_f": 3
+          }
+        },
+        "0.8": {
+          "cell_count": 6,
+          "replications": 60000,
+          "pooled_correct_selection_rate": 0.0018666666666666666,
+          "pooled_underselection_rate": 0.9981333333333333,
+          "pooled_overselection_rate": 0.0,
+          "cell_correct_selection_rate_range": [
+            0.0011,
+            0.0033
+          ],
+          "cell_underselection_rate_range": [
+            0.9967,
+            0.9989
+          ],
+          "cell_overselection_rate_range": [
+            0.0,
+            0.0
+          ],
+          "h12_rejection_rate_range": {
+            "pt_adjusted": [
+              0.1425,
+              0.3823
+            ],
+            "bg_lm": [
+              0.066,
+              0.3375
+            ],
+            "edgerton_shukur_f": [
+              0.0736,
+              0.0988
+            ]
+          },
+          "h12_cells_inside_0_035_to_0_065": {
+            "pt_adjusted": 0,
+            "bg_lm": 0,
+            "edgerton_shukur_f": 0
+          }
+        },
+        "0.95": {
+          "cell_count": 6,
+          "replications": 60000,
+          "pooled_correct_selection_rate": 0.005316666666666667,
+          "pooled_underselection_rate": 0.9946833333333334,
+          "pooled_overselection_rate": 0.0,
+          "cell_correct_selection_rate_range": [
+            0.0042,
+            0.0071
+          ],
+          "cell_underselection_rate_range": [
+            0.9929,
+            0.9958
+          ],
+          "cell_overselection_rate_range": [
+            0.0,
+            0.0
+          ],
+          "h12_rejection_rate_range": {
+            "pt_adjusted": [
+              0.1953,
+              0.4523
+            ],
+            "bg_lm": [
+              0.0888,
+              0.3781
+            ],
+            "edgerton_shukur_f": [
+              0.0962,
+              0.1288
+            ]
+          },
+          "h12_cells_inside_0_035_to_0_065": {
+            "pt_adjusted": 0,
+            "bg_lm": 0,
+            "edgerton_shukur_f": 0
+          }
+        }
+      }
+    }
+  },
+  "worst_layer_B_es_cell": {
+    "cell_id": "primary_LB_T144_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+    "selected_lag_counts": {
+      "1": 9942,
+      "2": 58
+    },
+    "underselection_rate": 0.9942,
+    "es_h12_rejection_rate": 0.1288,
+    "interpretation": "该 cell 的高 rejection frequency 与几乎完全的 lag underselection 同时出现。No share of ES rejections can be attributed to underselection because the replication-level joint distribution was not retained."
+  },
+  "decision_boundary": {
+    "v1_85_method_decision_changed": false,
+    "disposition": "no_eligible_replacement",
+    "phase_B_authorized": false,
+    "es_activated": false,
+    "note": "The preregistered selection rule requires the joint Layer A + Layer B procedure gate. This decomposition clarifies interpretation only and cannot change eligibility."
+  }
+}

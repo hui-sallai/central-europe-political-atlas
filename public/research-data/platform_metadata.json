@@ -1,9 +1,9 @@
 {
   "name": "Central Europe Political Atlas",
-  "version": "v1.85 VAR Residual Diagnostic Research Closure & Dynamic-Response Gate Boundary Hardening",
-  "release_date": "2026-09-27",
-  "stage": "Validated Reduced-form VAR estimation with completed finite-sample residual-diagnostic calibration research, no eligible diagnostic replacement, and formal dynamic responses remaining unavailable.",
-  "schema_version": "release-metadata-v1.85",
+  "version": "v1.851 VAR Layer-B Selection Decomposition & Interpretation Correction",
+  "release_date": "2026-09-28",
+  "stage": "Validated Reduced-form VAR estimation; residual-diagnostic research closed with no eligible replacement, Layer-B results interpreted as joint lag-selection/diagnostic procedure behavior, and formal dynamic responses remaining unavailable.",
+  "schema_version": "release-metadata-v1.851",
   "canonical_url": "https://hy-central-europe-analysis.org/",
   "public_contact_email": "sallaizhang@outlook.com",
   "legal_notice_updated": "2026-08-20",
@@ -27,8 +27,9 @@
     "transformation-registry-v1.41",
     "seasonal-adf-critical-values-v1.44",
     "var-engine-v1.44",
-    "var-capability-status-v1.85",
+    "var-capability-status-v1.851",
     "var-residual-diagnostic-research-conclusion-v1.85",
+    "var-residual-diagnostic-layerB-selection-decomposition-v1.851",
     "macro-driver-observations-v1.51",
     "monetary-policy-event-observations-v1.6",
     "shock-identification-registry-v1.62",
@@ -38,7 +39,7 @@
     "lp-validation-summary-v1.71",
     "lp-inference-registry-v1.71",
     "lp-model-diagnostic-summary-v1.71",
-    "analysis-skill-registry-v1.85",
+    "analysis-skill-registry-v1.851",
     "panel-lp-model-comparison-v1",
     "panel-lp-path-inference-registry-v1.82",
     "panel-lp-joint-inference-research-conclusion-v1.82"
@@ -50,9 +51,9 @@
     "Fixed-eight-country Panel LP publishes pointwise inference only; whole-path simultaneous inference was studied and remains blocked after the current program did not confirm 95% joint coverage.",
     "The fixed-eight-country four-outcome historical extension is closed and blocked under current official definition evidence; the 2015 baseline is retained.",
     "Reduced-form VAR coefficient estimation is active, but the current formal baselines have zero dynamic-response-ready countries; no formal orthogonalized IRF is currently publishable.",
-    "The v1.85 residual-diagnostic calibration research is closed with no eligible replacement: the h=12 adjusted Portmanteau gate is retained but not size-validated for the full lag-selection procedure, and Edgerton–Shukur is not an authorized gate."
+    "The v1.85 residual-diagnostic calibration research is closed with no eligible replacement: the h=12 adjusted Portmanteau gate is retained, the current lag-selection + residual-diagnostic procedure failed the preregistered joint gate (Layer-B rejection rates are procedure rates, not pure diagnostic size), and Edgerton–Shukur is not an authorized gate."
   ],
-  "citation": "Central Europe Political Atlas, version v1.85 VAR Residual Diagnostic Research Closure & Dynamic-Response Gate Boundary Hardening, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
+  "citation": "Central Europe Political Atlas, version v1.851 VAR Layer-B Selection Decomposition & Interpretation Correction, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
   "data_status_enum": [
     "official",
     "verified",

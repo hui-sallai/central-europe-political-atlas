@@ -1,6 +1,6 @@
 {
-  "schema_version": "analysis-validation-index-v1.85",
-  "platform_version": "v1.85",
+  "schema_version": "analysis-validation-index-v1.851",
+  "platform_version": "v1.851",
   "interpretation": "Additive current-release index; legacy validation artifacts retain their original versions and are not relabelled as panel tests.",
   "records": [
     {
@@ -52,6 +52,14 @@
       "replacement": "none_eligible",
       "publication_boundary": "enforced",
       "formal_irf_publication_available": false
+    },
+    {
+      "id": "var_residual_layerB_selection_decomposition",
+      "title": "VAR Layer-B selection decomposition",
+      "artifact": "var-residual-diagnostics/var_residual_diagnostic_layerB_selection_decomposition.json",
+      "gate": "var:residual-decomposition-validate",
+      "artifact_role": "derived_interpretation_not_new_research_draws",
+      "research_decision_changed": false
     },
     {
       "id": "news",

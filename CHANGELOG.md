@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.851 VAR Layer-B Selection Decomposition & Interpretation Correction — 2026-09-28
+
+- VAR residual-diagnostic research remains closed with no eligible replacement; Layer-B results are now explicitly decomposed as lag-selection/specification/diagnostic procedure behavior rather than pure conditional test size.
+- Adds `var_residual_diagnostic_layerB_selection_decomposition.json`, derived deterministically by `scripts/var-residual-diagnostics/decompose_selection.py` from the frozen v1.85 simulation results (SHA256 `04cc4ad5…`): per-cell BIC correct/under/over-selection counts and h=12 PT/BG/ES rejection rates for all 36 Layer B primary cells. The replication-level joint distribution of selected lag and rejection was not retained, so no conditional rejection rates are reported.
+- Adds research-conclusion amendment 001 (post-release interpretation clarification): Layer A = conditional diagnostic size; Layer B = selection-plus-specification-plus-diagnostic procedure rejection, whose pure size is not identified.
+- Updates the capability registry and analysis registry to v1.851, the methodology outcome section, the workbench notice and the Phase A report; adds `pnpm var:residual-decompose` and `pnpm var:residual-decomposition-validate`.
+- No new random draws, simulation reruns, country data, VAR re-estimation, threshold, method-decision, gate or readiness change.
+
 ## v1.85 VAR Residual Diagnostic Research Closure & Dynamic-Response Gate Boundary Hardening — 2026-09-27
 
 - Closes the preregistered v1.85 finite-sample calibration of h=12 VAR residual autocorrelation diagnostics as a negative method result: across 72 primary cells (Layer A fixed true lag, Layer B platform BIC lag selection) the adjusted Portmanteau (37.5% of cells in [0.035, 0.065], max size 45.23%), BG LM (30.56%, 37.81%) and Edgerton–Shukur F (79.17%, 12.88%) all fail the joint platform gate; no replacement is eligible.

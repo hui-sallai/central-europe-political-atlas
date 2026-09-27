@@ -1,0 +1,110 @@
+{
+  "schema_version": "var-residual-diagnostic-research-conclusion-amendment-v1.851",
+  "amendment_id": "001",
+  "amends": "var_residual_diagnostic_research_conclusion.json",
+  "amended_conclusion_sha256": "5d60d16a0d78b6d41df72c34e4e7028f8d50c9844bd1df9e3dbaca56d4720021",
+  "amended_at": "2026-09-28",
+  "release": "v1.851 VAR Layer-B Selection Decomposition & Interpretation Correction",
+  "classification": "post_release_interpretation_clarification",
+  "research_decision_changed": false,
+  "simulation_changed": false,
+  "threshold_changed": false,
+  "selected_method_changed": false,
+  "production_changed": false,
+  "new_random_draws": 0,
+  "simulation_reruns": 0,
+  "var_reestimations": 0,
+  "actual_country_data_read": false,
+  "decision_still_valid": {
+    "disposition": "no_eligible_replacement",
+    "selected_replacement": "none",
+    "phase_B_authorized": false,
+    "formal_irf_publication_available": false,
+    "reason": "The preregistered selection rule requires the complete Layer A + Layer B procedure to pass the gate. That rule is not modified after the fact, so the v1.85 decision stands."
+  },
+  "clarification": {
+    "layer_A_metric_semantics": "conditional_diagnostic_size",
+    "layer_A_explanation": "Layer A estimates the VAR at the known true lag. Under the null DGP and correct specification, rejection frequency is the finite-sample size of the diagnostic.",
+    "layer_B_metric_semantics": "selection_plus_specification_plus_diagnostic_procedure_rejection",
+    "layer_B_explanation": "Layer B selects the lag by the platform BIC rule before the diagnostic. When the selected lag is below the true lag the selected VAR is underfitted and residual whiteness need not hold, so Layer B rejections are not all Type-I errors and are not a pure diagnostic test size.",
+    "layer_B_pure_size_identified": false,
+    "preferred_layer_B_wording": "joint procedure gate failure",
+    "avoid_layer_B_wording": [
+      "diagnostic test size failure",
+      "size distortion (unqualified)",
+      "ES has 12.88% size"
+    ],
+    "lag_underselection_detected": true,
+    "replication_level_joint_crosstab_available": false,
+    "joint_distribution_note": "Cell-level selected-lag frequencies and overall rejection rates are observed, but their replication-level joint distribution was not retained; conditional rejection rates cannot be reconstructed from the frozen aggregate artifact."
+  },
+  "superseded_wording": [
+    {
+      "location": "var_residual_diagnostic_research_conclusion.json layer_B_result.interpretation",
+      "original": "No candidate is sufficiently calibrated under the full selection-plus-diagnostic procedure",
+      "clarified": "No candidate satisfied the preregistered joint procedure gate under the full selection-plus-diagnostic procedure; Layer B rejection frequencies are procedure rejection rates, not pure diagnostic size."
+    },
+    {
+      "location": "analysis_skill_registry.json reduced_form_var diagnostic_calibration note_zh (v1.85)",
+      "original": "显示其在平台完整 lag-selection procedure 下存在显著 size distortion",
+      "clarified": "当前 lag-selection + residual-diagnostic 联合流程未通过预注册有限样本门；Layer B 拒绝率不是纯粹的诊断 size。"
+    },
+    {
+      "location": "methodology VAR Residual Diagnostic Calibration Research Outcome (v1.85)",
+      "original": "它在平台完整 lag-selection 流程下未通过 size 校准",
+      "clarified": "当前 lag-selection + residual-diagnostic 联合流程未通过预注册的有限样本门（joint procedure gate failure）"
+    }
+  ],
+  "interpretation_summary": {
+    "edgerton_shukur_f": "Conditional fixed-lag calibration strong (Layer A); the full BIC-selection procedure did not satisfy the preregistered activation gate. Not a validated replacement; not activated.",
+    "pt_adjusted": "Failed the current preregistered platform-level gate and also performed poorly in fixed-lag Layer A relative to ES. This does not mean the PT statistic is invalid.",
+    "bg_lm": "Failed the preregistered platform-level gate and performed poorly in fixed-lag Layer A relative to ES.",
+    "bic": "No claim is made that BIC is invalid or should be replaced; lag-selection behaviour is a subject for a future preregistered program."
+  },
+  "selection_decomposition_reference": "var_residual_diagnostic_layerB_selection_decomposition.json",
+  "selection_decomposition_sha256": "6f6e1caededf43f1776a4d83aa9e26a1f55ee31cda71b6aac079080c05333602",
+  "unchanged_artifact_sha256": {
+    "var_residual_diagnostic_simulation_results.json": "04cc4ad5f8395f894a4c9c164fc8374841b6eb20c97dc4a8c4d7098dc6912a7e",
+    "var_residual_diagnostic_calibration_summary.json": "ca917656b7c0109cf0e286573effaae03dd4f8143a042524c8f24ee350073cca",
+    "var_residual_diagnostic_method_decision.json": "729c69430e6431e88f477ae24cc73bb3025e2b70fd30d118c671dbf63f40fe5c",
+    "var_residual_diagnostic_preregistration.json": "f9ddab6a8ff77026b83caeca1024bf8b0379a470792fb5410e3d99607818bb0b",
+    "var_residual_diagnostic_reference_validation.json": "684e49a070c932385fba823e95358e812129c840a72afc000a776634f7853026",
+    "var_residual_diagnostic_reference_cases.json": "0c2609797aeafcba66b1a656d4537c2f8e4fc631ba61d97a2138515be379d1f0",
+    "var_residual_diagnostic_research_conclusion.json": "5d60d16a0d78b6d41df72c34e4e7028f8d50c9844bd1df9e3dbaca56d4720021"
+  },
+  "future_candidate": {
+    "candidate_id": "var_lag_selection_residual_diagnostic_joint_procedure_research",
+    "title": "VAR Lag-Selection × Residual-Diagnostic Joint Procedure Research",
+    "proposed_release": "v1.86",
+    "state": "not_started",
+    "owner_approval_required": true,
+    "new_preregistration_required": true,
+    "first_questions": [
+      "lag-order recovery",
+      "underselection",
+      "overselection",
+      "post-selection residual-whiteness adequacy",
+      "parameter cost"
+    ],
+    "candidate_lag_selectors_registered_only": [
+      "BIC",
+      "HQIC",
+      "AIC"
+    ],
+    "comparison_metrics_registered_only": [
+      "exact lag recovery",
+      "underselection rate",
+      "overselection rate",
+      "post-selection residual adequacy",
+      "parameter burden"
+    ],
+    "not_objective": "searching for a lag rule that makes real countries pass",
+    "prohibited_in_v1_851": [
+      "AIC synthetic experiment",
+      "HQIC synthetic experiment",
+      "diagnostic-aware lag selection",
+      "bootstrap-calibrated test",
+      "real-data lag changes"
+    ]
+  }
+}

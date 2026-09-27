@@ -1,15 +1,15 @@
 {
-  "schema_version": "release-metadata-v1.85",
-  "platform_version": "v1.85 VAR Residual Diagnostic Research Closure & Dynamic-Response Gate Boundary Hardening",
-  "release_date": "2026-09-27",
+  "schema_version": "release-metadata-v1.851",
+  "platform_version": "v1.851 VAR Layer-B Selection Decomposition & Interpretation Correction",
+  "release_date": "2026-09-28",
   "source_commit": "local-working-tree",
   "build_context": "local",
   "workflow_run_id": null,
-  "generated_at": "2026-09-27T11:46:17.395Z",
+  "generated_at": "2026-09-27T15:32:53.655Z",
   "research_package": {
-    "filename": "research-data-v1.85.zip",
-    "sha256": "75443d333a652959dea6c23b4a8c4ca2d37fc596e1736ab412e17f2be9a83595",
-    "generated_at": "2026-09-27T11:46:18.310Z",
+    "filename": "research-data-v1.851.zip",
+    "sha256": "1f1f85e547d164682d317a3e402330caa64559c4633345f449a45a666ef3c882",
+    "generated_at": "2026-09-27T15:32:54.518Z",
     "status": "built"
   },
   "data_export_version": "research-data-v0.1",
@@ -90,7 +90,7 @@
     "trade_network": "trade-network-v1.25-active",
     "event_window": "event-window-v1.31",
     "high_frequency": "high-frequency-v1.31",
-    "analysis_skill_registry": "analysis-skill-registry-v1.85",
+    "analysis_skill_registry": "analysis-skill-registry-v1.851",
     "high_frequency_definition_registry": "high-frequency-definition-registry-v1.83",
     "historical_extension_research_conclusion": "historical-extension-research-conclusion-v1.83",
     "panel_lp_path_inference_registry": "panel-lp-path-inference-registry-v1.82",
@@ -112,7 +112,7 @@
     "var_engine": "var-engine-v1.44",
     "var_specification_profiles": "var-specification-profiles-v1.44",
     "var_country_readiness": "var-country-readiness-v1.44",
-    "var_capability_status": "var-capability-status-v1.85",
+    "var_capability_status": "var-capability-status-v1.851",
     "var_residual_diagnostic_preregistration": "var-residual-diagnostic-preregistration-v1.85",
     "var_residual_diagnostic_reference": "var-residual-diagnostic-reference-manifest-v1.85",
     "var_residual_diagnostic_validation": "var-residual-diagnostic-reference-validation-v1.85",
@@ -120,6 +120,8 @@
     "var_residual_diagnostic_calibration": "var-residual-diagnostic-calibration-summary-v1.85",
     "var_residual_diagnostic_method_decision": "var-residual-diagnostic-method-decision-v1.85",
     "var_residual_diagnostic_research_conclusion": "var-residual-diagnostic-research-conclusion-v1.85",
+    "var_residual_diagnostic_conclusion_amendment": "var-residual-diagnostic-research-conclusion-amendment-v1.851",
+    "var_residual_diagnostic_layerB_selection_decomposition": "var-residual-diagnostic-layerB-selection-decomposition-v1.851",
     "macro_drivers": "macro-driver-observations-v1.51",
     "shock_identification": "shock-identification-registry-v1.62",
     "identified_shocks": "monetary-policy-event-observations-v1.6",
@@ -145,7 +147,7 @@
     "note": "Historical v0.91 golden cases remain the core research regression suite."
   },
   "advanced_analysis_validation": {
-    "stage": "v1.85 advanced analysis validation",
+    "stage": "v1.851 advanced analysis validation",
     "legacy_summary_reference": "advanced_analysis_validation_summary.json",
     "validation_index": "analysis_validation_index.json",
     "status": "passed",
@@ -198,7 +200,7 @@
     "validation_index": "analysis_validation_index.json"
   },
   "release_validation": {
-    "stage": "v1.85 release validation",
+    "stage": "v1.851 release validation",
     "status": "required_after_static_build",
     "gates": [
       "security_scan",
@@ -220,8 +222,8 @@
       "panel-lp:ui-validate",
       "panel-lp:robustness-validate"
     ],
-    "package_checksum": "75443d333a652959dea6c23b4a8c4ca2d37fc596e1736ab412e17f2be9a83595",
-    "package_filename": "research-data-v1.85.zip"
+    "package_checksum": "1f1f85e547d164682d317a3e402330caa64559c4633345f449a45a666ef3c882",
+    "package_filename": "research-data-v1.851.zip"
   },
   "legacy_validation_summary_v091": {
     "stage": "v0.91 Model & Scenario Validation",
@@ -262,6 +264,6 @@
     "Fixed-eight-country Panel LP publishes pointwise inference only; whole-path simultaneous inference was studied and remains blocked after the current program did not confirm 95% joint coverage.",
     "The fixed-eight-country four-outcome historical extension is closed and blocked under current official definition evidence; the 2015 baseline is retained.",
     "Reduced-form VAR coefficient estimation is active, but the current formal baselines have zero dynamic-response-ready countries; no formal orthogonalized IRF is currently publishable.",
-    "The v1.85 residual-diagnostic calibration research is closed with no eligible replacement: the h=12 adjusted Portmanteau gate is retained but not size-validated for the full lag-selection procedure, and Edgerton–Shukur is not an authorized gate."
+    "The v1.85 residual-diagnostic calibration research is closed with no eligible replacement: the h=12 adjusted Portmanteau gate is retained, the current lag-selection + residual-diagnostic procedure failed the preregistered joint gate (Layer-B rejection rates are procedure rates, not pure diagnostic size), and Edgerton–Shukur is not an authorized gate."
   ]
 }

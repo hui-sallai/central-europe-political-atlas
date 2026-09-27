@@ -1,7 +1,7 @@
 {
-  "schema_version": "analysis-skill-registry-v1.85",
+  "schema_version": "analysis-skill-registry-v1.851",
   "frozen_output_reference": "analysis/v173_frozen_output_hashes.json",
-  "generated_at": "2026-09-27",
+  "generated_at": "2026-09-28",
   "records": [
     {
       "skill_id": "panel_local_projections",
@@ -258,13 +258,16 @@
       "readiness_reference": "var_country_readiness.json",
       "capability_reference": "var_capability_status.json",
       "research_conclusion_reference": "var_residual_diagnostic_research_conclusion.json",
-      "note": "Reduced-form VAR estimation workbench and coefficient diagnostics are active; active does not mean formal dynamic-response publication. Estimable does not imply horizon-specific dynamic-response-ready. The current formal v1/v2 baselines have zero countries passing the complete h=12 dynamic-response gate, so no formal orthogonalized dynamic response is currently publishable. v1.85 residual diagnostic calibration research is completed: no replacement diagnostic is eligible and formal dynamic response remains unavailable. Exploratory search never replaces either formal baseline.",
+      "note": "Reduced-form VAR estimation workbench and coefficient diagnostics are active; active does not mean formal dynamic-response publication. Estimable does not imply horizon-specific dynamic-response-ready. The current formal v1/v2 baselines have zero countries passing the complete h=12 dynamic-response gate, so no formal orthogonalized dynamic response is currently publishable. v1.85 residual diagnostic research found no eligible replacement. Layer B failure reflects the joint lag-selection/specification/diagnostic procedure; it is not interpreted as pure diagnostic Type-I error. Formal dynamic response remains unavailable. Exploratory search never replaces either formal baseline.",
       "diagnostic_calibration": {
         "residual_autocorrelation_h12_primary": {
           "production_diagnostic": "adjusted_portmanteau",
           "calibration_status": "not_size_validated_for_full_platform_procedure",
           "replacement": "none_eligible",
-          "note_zh": "当前 h=12 adjusted Portmanteau 作为既有 production gate 保留，但 v1.85 synthetic calibration 显示其在平台完整 lag-selection procedure 下存在显著 size distortion；由于没有候选 replacement 通过同一预注册门，本版本不替换 gate，也不激活正式 IRF。"
+          "layer_A_metric_semantics": "conditional_diagnostic_size",
+          "layer_B_metric_semantics": "selection_plus_specification_plus_diagnostic_procedure_rejection",
+          "selection_decomposition_reference": "var_residual_diagnostic_layerB_selection_decomposition.json",
+          "note_zh": "当前 h=12 adjusted Portmanteau 作为既有 production gate 保留，但 v1.85 synthetic study 显示当前 lag-selection + residual-diagnostic 联合流程未通过预注册有限样本门（Layer B 拒绝率是选滞后、设定与诊断的联合流程拒绝率，不是纯粹的诊断 size）；由于没有候选 replacement 通过同一预注册门，本版本不替换 gate，也不激活正式 IRF。"
         }
       },
       "presentation": {
@@ -309,7 +312,7 @@
           "简化式创新不等于已识别经济冲击；动态响应不构成因果效应。",
           "正交化 IRF 依赖变量排序；Cholesky 排序不等于结构识别。",
           "当前 formal baseline dynamic-response-ready country count = 0；正式 IRF publication unavailable。",
-          "当前 h=12 adjusted Portmanteau 作为既有 production gate 保留，但 v1.85 synthetic calibration 显示其在平台完整 lag-selection procedure 下存在显著 size distortion；由于没有候选 replacement 通过同一预注册门，本版本不替换 gate，也不激活正式 IRF。",
+          "当前 h=12 adjusted Portmanteau 作为既有 production gate 保留，但 v1.85 synthetic study 显示当前 lag-selection + residual-diagnostic 联合流程未通过预注册有限样本门（Layer B 拒绝率是选滞后、设定与诊断的联合流程拒绝率，不是纯粹的诊断 size）；由于没有候选 replacement 通过同一预注册门，本版本不替换 gate，也不激活正式 IRF。",
           "正交化简化式响应只在 only_when_dynamic_response_ready 条件满足时输出。",
           "readiness 按 country × variable set × window × transformation 逐国评估；未通过完整 gate 的国家显示 unavailable。"
         ],

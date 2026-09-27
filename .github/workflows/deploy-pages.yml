@@ -51,6 +51,7 @@ jobs:
           pnpm analysis-registry:validate
           pnpm var:readiness-validate
           pnpm var:residual-closure-validate
+          pnpm var:residual-decomposition-validate
 
       - name: Validate frozen Local Projections
         run: pnpm lp:validate
