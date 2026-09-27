@@ -1,0 +1,104 @@
+{
+  "schema_version": "var-residual-diagnostic-simulation-design-v1.85",
+  "registered_at": "2026-09-27T10:31:45Z",
+  "starting_commit": "1b13fc1c8eaa804ef3b5ea5173c8ef01081afb3b",
+  "preregistration_reference": "var_residual_diagnostic_preregistration.json",
+  "dimension": 3,
+  "coefficient_template": {
+    "lag_1": [[0.6, 0.1, 0.05], [0.05, 0.5, 0.08], [0.02, 0.06, 0.4]],
+    "lag_2": [[-0.1, 0.03, 0.0], [0.02, -0.08, 0.02], [0.0, 0.02, -0.06]],
+    "lag_3": [[0.05, 0.0, 0.01], [0.0, 0.04, 0.0], [0.01, 0.0, 0.03]],
+    "scaling_rule": "For each p and target spectral radius, multiply all included lag matrices by one positive scalar found by deterministic bisection until the companion spectral radius is within 1e-10 of the target. Reject, rather than clip, any unstable construction.",
+    "country_coefficients_used": false
+  },
+  "innovation_covariance": [[1.0, 0.3, 0.2], [0.3, 1.0, 0.25], [0.2, 0.25, 1.0]],
+  "deterministic_effects": {
+    "constant": [0.05, -0.03, 0.02],
+    "month_dummy_generation": "January through November use fixed sine/cosine coefficient functions by variable; December is the omitted reference. The identical 11-dummy structure is included at estimation.",
+    "month_dummy_amplitudes": [0.15, 0.12, 0.1],
+    "seasonal_adjustment_claim": false
+  },
+  "burn_in": 300,
+  "sample_sizes": [96, 108, 120, 132, 144],
+  "true_lags": [1, 2, 3],
+  "persistence_targets": [0.5, 0.8, 0.95],
+  "deterministic_specs": ["constant", "constant_plus_11_month_dummies"],
+  "null_innovations": ["gaussian_iid", "multivariate_t5_scaled_to_covariance"],
+  "alternative_serial_strengths": [0.1, 0.2, 0.35],
+  "alternative_serial_patterns": ["common", "single_equation_dominant"],
+  "layers": {
+    "conditional_fixed_lag": {
+      "layer_id": "A",
+      "estimated_lag": "true_lag",
+      "purpose": "diagnostic statistic calibration"
+    },
+    "full_platform": {
+      "layer_id": "B",
+      "lag_candidate_minimum": 1,
+      "lag_candidate_maximum_policy": "min(12,floor((T-4)/(4*K+1)))",
+      "information_criterion": "common_sample_BIC",
+      "parameter_ratio_minimum": 4,
+      "purpose": "joint selection and diagnostic procedure calibration"
+    }
+  },
+  "diagnostic_horizons": [12, 18, 24],
+  "primary_horizon": 12,
+  "primary_null_cells": {
+    "sample_sizes": [120, 132, 144],
+    "true_lags": [1, 2],
+    "persistence_targets": [0.5, 0.8, 0.95],
+    "deterministic_specs": ["constant", "constant_plus_11_month_dummies"],
+    "innovation": "gaussian_iid",
+    "layers": ["A", "B"],
+    "cell_count": 72,
+    "replications_per_cell": 10000,
+    "total_replications": 720000
+  },
+  "secondary_null_stress_cells": {
+    "definition": "Full five-sample-size by three-lag by three-persistence by two-deterministic by two-innovation grid in both layers, excluding primary cells.",
+    "cell_count": 288,
+    "replications_per_cell": 2000,
+    "total_replications": 576000,
+    "selection_role": "report_only"
+  },
+  "power_cells": {
+    "sample_sizes": [120, 132, 144],
+    "true_lags": [1, 2],
+    "persistence_targets": [0.5, 0.8, 0.95],
+    "deterministic_specs": ["constant", "constant_plus_11_month_dummies"],
+    "innovation": "gaussian",
+    "serial_strengths": [0.1, 0.2, 0.35],
+    "serial_patterns": ["common", "single_equation_dominant"],
+    "layers": ["A", "B"],
+    "cell_count": 432,
+    "replications_per_cell": 2000,
+    "total_replications": 864000,
+    "selection_role": "secondary_report_only"
+  },
+  "planned_total_confirmatory_replications": 2160000,
+  "checkpoint_policy": {
+    "replication_chunk_size": 250,
+    "atomic_checkpoint_after_each_chunk": true,
+    "resume_uses_registered_spawn_key_and_next_replication_index": true,
+    "completed_chunks_are_never_recomputed": true
+  },
+  "result_precision": {
+    "statistics": "float64",
+    "counts": "integer",
+    "reported_rates_decimals": 6
+  },
+  "method_selection_inputs": [
+    "primary null h=12 empirical rejection rates only",
+    "preregistered system-level size gate",
+    "preregistered worst-case-size tie rule"
+  ],
+  "prohibited_selection_inputs": [
+    "actual-country readiness",
+    "actual-country p-values",
+    "actual-country pass counts",
+    "power",
+    "h18 or h24 sensitivity",
+    "t5 or T96/T108 stress cells",
+    "country-calibrated stress"
+  ]
+}

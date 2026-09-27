@@ -1,6 +1,6 @@
 {
-  "schema_version": "analysis-validation-index-v1.84",
-  "platform_version": "v1.84",
+  "schema_version": "analysis-validation-index-v1.85",
+  "platform_version": "v1.85",
   "interpretation": "Additive current-release index; legacy validation artifacts retain their original versions and are not relabelled as panel tests.",
   "records": [
     {
@@ -41,6 +41,17 @@
       "artifact": "var_capability_status.json",
       "gate": "var:readiness-validate",
       "artifact_role": "capability_and_publication_boundary"
+    },
+    {
+      "id": "var_residual_diagnostic_research_closure",
+      "title": "VAR residual diagnostic research closure",
+      "artifact": "var-residual-diagnostics/var_residual_diagnostic_research_conclusion.json",
+      "gate": "var:residual-closure-validate",
+      "artifact_role": "closed_research_conclusion_not_method_pass",
+      "research_state": "completed",
+      "replacement": "none_eligible",
+      "publication_boundary": "enforced",
+      "formal_irf_publication_available": false
     },
     {
       "id": "news",

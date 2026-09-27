@@ -4,7 +4,7 @@ Central Europe Political Atlas is a public political-economy research platform f
 
 Public site: https://hy-central-europe-analysis.org/
 
-Current release: **v1.84 VAR Readiness & Publication Boundary Convergence**
+Current release: **v1.85 VAR Residual Diagnostic Research Closure & Dynamic-Response Gate Boundary Hardening**
 
 v1.72 preserves the 44 v1.71 baseline models and adds finite-sample Monte Carlo diagnostics, concentration-based shock support, exhaustive eligible shock-month/event deletion audits, and independent full-path covariance checks. Bias correction remains `registry_only`: the official Fed ZIP contains accessible paper assets, not executable replication code. Simulations describe stylized fixed-p designs, not estimated coverage or bias of the real models.
 
@@ -24,6 +24,7 @@ Offline diagnostic regeneration: `pnpm lp:finite-sample` and `pnpm lp:shock-supp
 - v1.82 records that fixed-eight-country Panel LP whole-path inference was studied but not activated: the best observed joint coverage was about 90% (90% interval 88.6–91.4%) against nominal 95%. Panel LP pointwise inference and diagnostics remain active; no Panel simultaneous confidence band or global path significance test is published. The fitted-model overlay remains descriptive and has no interval or inferential p-value.
 - v1.83 closes the current fixed-eight-country four-outcome historical-extension research program. HICP and yield histories are definition-cleared, while IPI and unemployment prevent a common pre-2015 Design A window. The 2015-01 to 2025-10 formal Panel baseline remains active, with machine-readable disclosures for Poland IPI, Hungary unemployment and Slovenia yield.
 - v1.84 separates active reduced-form VAR estimation capability from formal dynamic-response publication readiness. Formal baseline v1 is estimable for Poland and Romania; v2 is estimable for Czechia, Germany and Hungary; neither baseline currently has a country passing the complete h=12 dynamic-response gate, so formal IRF publication remains unavailable.
+- v1.85 closes the preregistered synthetic calibration of the h=12 residual diagnostic: the adjusted Portmanteau gate failed the joint platform size gate and neither BG nor Edgerton–Shukur passed the identical replacement gate. The existing gate is retained, no replacement is authorized, and formal dynamic responses remain unavailable. Coefficient estimation is unaffected.
 - 4 conditional scenarios with baseline, shock assumption, adjusted input and result traces.
 - Coded political-economy events and verified China-related project records.
 - Deterministic validation, golden cases and a release QA gate.
@@ -68,7 +69,7 @@ Machine-readable files are published under `/research-data/`. See [the research-
 
 ## Citation
 
-Central Europe Political Atlas, version v1.84 VAR Readiness & Publication Boundary Convergence, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
+Central Europe Political Atlas, version v1.85 VAR Residual Diagnostic Research Closure & Dynamic-Response Gate Boundary Hardening, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
 
 ## Official VAR reference environment
 

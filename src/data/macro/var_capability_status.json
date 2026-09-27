@@ -1,5 +1,5 @@
 {
-  "schema_version": "var-capability-status-v1.84",
+  "schema_version": "var-capability-status-v1.85",
   "generated_at": "2026-09-27",
   "method_id": "reduced_form_var",
   "method_state": "active",
@@ -24,6 +24,16 @@
   "structural_break_estimation_available": false,
   "seasonal_unit_root_test_available": false,
   "diagnostic_lag_refinement_state": "sensitivity_diagnostic_only",
+  "residual_diagnostic_calibration_research": "completed",
+  "residual_diagnostic_replacement": "none_eligible",
+  "current_production_diagnostic": "adjusted_portmanteau",
+  "current_production_diagnostic_horizon": 12,
+  "current_production_diagnostic_calibration": "failed_preregistered_joint_platform_gate",
+  "fixed_lag_es_calibration": "passed_primary_layer_A",
+  "full_procedure_es_calibration": "failed_joint_layer_A_B",
+  "phase_B_real_country_comparison": "not_authorized",
+  "residual_diagnostic_research_conclusion": "var_residual_diagnostic_research_conclusion.json",
+  "residual_diagnostic_boundary": "The residual diagnostic governs the dynamic-response publication gate only; it does not invalidate reduced-form coefficient estimates. Edgerton–Shukur is not an active or validated replacement gate.",
   "formal_profiles": {
     "baseline_monthly_macro_v1": {
       "estimable_countries": ["poland", "romania"],
@@ -40,7 +50,7 @@
     "dynamic_response_ready_countries": [],
     "publication_role": "exploratory_not_formal_baseline"
   },
-  "publication_boundary": "The reduced-form VAR estimator is active, but no country in either prespecified formal baseline passes the complete h=12 dynamic-response gate. No formal orthogonalized IRF is currently publishable.",
+  "publication_boundary": "Reduced-form VAR coefficient estimation remains active. No formal baseline country is currently dynamic-response-ready. The existing adjusted Portmanteau diagnostic failed the preregistered finite-sample joint platform calibration, but neither BG nor Edgerton–Shukur passed the identical replacement gate. No replacement diagnostic is authorized and no formal orthogonalized IRF is publishable.",
   "identification_boundary": "Reduced-form innovations are not structural shocks. Cholesky ordering is not structural identification.",
   "future_uncertainty_gate": "IRF uncertainty research requires at least one country in a prespecified formal profile to pass the formal dynamic-response gate before a publication target exists.",
   "provenance": {
@@ -49,6 +59,8 @@
     "exploratory": "var_exploratory_readiness.json",
     "combined_readiness": "var_country_readiness.json",
     "lag_diagnostic_grid": "var_lag_diagnostic_grid.json",
-    "reference_cases": "analysis/var_reference_cases.json"
+    "reference_cases": "analysis/var_reference_cases.json",
+    "residual_diagnostic_research_conclusion": "var_residual_diagnostic_research_conclusion.json",
+    "residual_diagnostic_method_decision": "var_residual_diagnostic_method_decision.json"
   }
 }

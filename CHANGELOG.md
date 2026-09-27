@@ -1,5 +1,13 @@
 # Changelog
 
+## v1.85 VAR Residual Diagnostic Research Closure & Dynamic-Response Gate Boundary Hardening — 2026-09-27
+
+- Closes the preregistered v1.85 finite-sample calibration of h=12 VAR residual autocorrelation diagnostics as a negative method result: across 72 primary cells (Layer A fixed true lag, Layer B platform BIC lag selection) the adjusted Portmanteau (37.5% of cells in [0.035, 0.065], max size 45.23%), BG LM (30.56%, 37.81%) and Edgerton–Shukur F (79.17%, 12.88%) all fail the joint platform gate; no replacement is eligible.
+- Edgerton–Shukur is well calibrated at the fixed true lag (Layer A) but not under the full lag-selection plus diagnostic procedure (Layer B); it is not a validated replacement and is not a formal gate.
+- Publishes the preregistration (with clerical amendment 001), reference manifest, attempts, cases and validation, seed registry, simulation design, calibration summary, immutable method decision and a new research conclusion; the full 2,160,000-replication cell-level results ship in the research package with their SHA256.
+- Upgrades the VAR capability registry and analysis skill registry to v1.85, adds `pnpm var:residual-closure-validate`, and reconciles the Phase A owner report with the actual deployment of commit 961f869.
+- No new simulation, no estimator, lag, threshold, readiness or country-diagnostic change; formal dynamic-response-ready count remains zero and no formal orthogonalized IRF is publishable.
+
 ## v1.84 VAR Readiness & Publication Boundary Convergence — 2026-09-27
 
 - Converges the canonical reduced-form VAR readiness reference, analysis registry, workbench, methodology and research package without changing the estimator, lag selection, ADF calibration, stability, Portmanteau or IRF calculations.

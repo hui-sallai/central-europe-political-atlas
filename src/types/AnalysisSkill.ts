@@ -19,6 +19,8 @@ export interface AnalysisSkillRegistryRecord {
   gate?: string;
   readiness_reference?: string;
   capability_reference?: string;
+  research_conclusion_reference?: string;
+  diagnostic_calibration?: Record<string, { production_diagnostic: string; calibration_status: string; replacement: string; note_zh: string }>;
   note?: string;
   reason?: string;
   reason_zh?: string;

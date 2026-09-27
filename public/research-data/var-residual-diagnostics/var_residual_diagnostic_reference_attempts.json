@@ -1,0 +1,29 @@
+{
+  "schema_version": "var-residual-diagnostic-reference-attempts-v1.85",
+  "attempts": [
+    {
+      "attempt_id": "reference_case4_attempt_1",
+      "run_at": "2026-09-27T10:40:31Z",
+      "purpose": "implementation_fixture_only_not_calibration_or_method_selection",
+      "design": {
+        "sample_size": 132,
+        "true_lag": 2,
+        "persistence": 0.8,
+        "deterministic_spec": "constant",
+        "innovation_serial_pattern": "common_ar1",
+        "innovation_serial_rho": 0.65,
+        "spawn_key": [0, 4],
+        "lag_horizon": 12
+      },
+      "results": {
+        "pt_adjusted": {"statistic": 90.10140825484388, "df": 90, "p_value": 0.4771659598103101, "rejected_at_0_05": false},
+        "bg_lm": {"statistic": 116.5063309772125, "df": 108, "p_value": 0.2711495408293101, "rejected_at_0_05": false},
+        "edgerton_shukur_f": {"statistic": 1.0189440401537397, "df1": 108, "df2": 255, "p_value": 0.4453195802924618, "rejected_at_0_05": false}
+      },
+      "numerical_alignment_maximum_discrepancy": 8.256506589532364e-12,
+      "status": "failed_fixture_detection_requirement_preserved",
+      "interpretation": "Cross-language arithmetic aligned, but the DGP did not create a clear enough omitted residual process after fitting VAR(2). It cannot be used as power, calibration, or selection evidence.",
+      "next_registered_fixture": "same seed and VAR design with common MA(1) innovation coefficient 0.8, chosen as an implementation-only clear misspecification rather than a method-selection cell"
+    }
+  ]
+}

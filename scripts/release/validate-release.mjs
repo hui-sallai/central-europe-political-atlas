@@ -16,9 +16,11 @@ const requiredExports = ["platform_metadata.json", "release_manifest.json", "val
 requiredExports.push("lp_reference_manifest.json", "lp_specification_registry.json", "lp_outcome_specification_registry.json", "lp_sample_policy_registry.json", "lp_lag_policy_registry.json", "lp_control_profile_registry.json", "lp_model_registry.json", "lp_results.json", "lp_reference_cases.json", "lp_validation_summary.json");
 requiredExports.push("high_frequency_definition_registry.json", "historical_extension_research_conclusion.json", "historical_extension_readiness.json");
 requiredExports.push("var_capability_status.json");
+const varResidualPublished = ["preregistration", "preregistration_amendment_001", "reference_manifest", "reference_attempts", "reference_cases", "reference_validation", "seed_registry", "simulation_design", "calibration_summary", "method_decision", "research_conclusion"].map((name) => `var_residual_diagnostic_${name}.json`);
+requiredExports.push(...varResidualPublished.map((name) => `var-residual-diagnostics/${name}`));
 requiredExports.push("lp_inference_registry.json", "lp_simultaneous_inference_reference_manifest.json", "lp_path_inference_validation.json", "lp_coefficient_invariance_manifest.json", "lp_lag_sensitivity_results.json", "lp_control_sensitivity_results.json", "lp_shock_support_diagnostics.json", "lp_influence_diagnostics.json", "lp_cross_country_comparability.json", "lp_model_diagnostic_summary.json");
 requiredExports.push("lp_finite_sample_bias_reference_manifest.json", "lp_bias_correction_applicability_registry.json", "lp_finite_sample_simulation_registry.json", "lp_finite_sample_simulation_results.json", "lp_shock_support_status.json", "lp_influence_threshold_registry.json", "lp_leave_one_shock_month_results.json", "lp_leave_one_event_results.json", "lp_finite_sample_robustness_summary.json", "lp_full_path_covariance_audit.json", "lp_full_path_covariance_validation.json", "lp_finite_sample_validation.json");
-const methodologySections = ["data", "panel-lp-whole-path-inference", "models", "events", "finite-sample", "spatial", "validation", "citation"];
+const methodologySections = ["data", "panel-lp-whole-path-inference", "models", "var-residual-diagnostic-calibration", "events", "finite-sample", "spatial", "validation", "citation"];
 const stableResearchUrls = ["/map?country=hungary&layer=regional_boundary", "/models?model=fiscal_pressure&country=hungary", "/models?skill=var_svar&country=poland", "/scenarios?scenario=inflation_resurgence&country=poland&shock=2", "/countries/poland/", "/news?country=hungary&type=China"];
 const failures = [];
 failures.push(...validatePanelClosure({root,preExport:false}));
@@ -149,7 +151,7 @@ if (manifest) {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.84",
+    analysis_skill_registry: "analysis-skill-registry-v1.85",
     high_frequency_definition_registry: "high-frequency-definition-registry-v1.83",
     historical_extension_research_conclusion: "historical-extension-research-conclusion-v1.83",
     panel_lp_path_inference_registry: "panel-lp-path-inference-registry-v1.82",
@@ -163,7 +165,14 @@ if (manifest) {
     var_engine: "var-engine-v1.44",
     var_specification_profiles: "var-specification-profiles-v1.44",
     var_country_readiness: "var-country-readiness-v1.44",
-    var_capability_status: "var-capability-status-v1.84",
+    var_capability_status: "var-capability-status-v1.85",
+    var_residual_diagnostic_preregistration: "var-residual-diagnostic-preregistration-v1.85",
+    var_residual_diagnostic_reference: "var-residual-diagnostic-reference-manifest-v1.85",
+    var_residual_diagnostic_validation: "var-residual-diagnostic-reference-validation-v1.85",
+    var_residual_diagnostic_simulation: "var-residual-diagnostic-simulation-design-v1.85",
+    var_residual_diagnostic_calibration: "var-residual-diagnostic-calibration-summary-v1.85",
+    var_residual_diagnostic_method_decision: "var-residual-diagnostic-method-decision-v1.85",
+    var_residual_diagnostic_research_conclusion: "var-residual-diagnostic-research-conclusion-v1.85",
     macro_drivers: "macro-driver-observations-v1.51",
     shock_identification: "shock-identification-registry-v1.62",
     identified_shocks: "monetary-policy-event-observations-v1.6",
@@ -192,7 +201,19 @@ if (goldenExport?.records?.some((item) => item.status === "failed" || item.resul
 if (varReadiness?.schema_version !== "var-country-readiness-v1.44" || varReadiness?.records?.length !== 10) failures.push("v1.44 VAR country readiness export is incomplete");
 if (varReadiness?.records?.some((item) => !item.country || !item.readiness_state || !Array.isArray(item.variables) || typeof item.estimable !== "boolean" || typeof item.dynamic_response_ready !== "boolean" || !item.dynamic_response_ready_horizons)) failures.push("v1.44 VAR country readiness records are malformed");
 if (!varReadiness?.baseline_profile_readiness || !varReadiness?.baseline_v2_profile_readiness || !varReadiness?.exploratory_profile_readiness || varReadiness?.ready_countries || varReadiness?.irf_ready_countries) failures.push("v1.44 dual-baseline/exploratory readiness boundary is incomplete");
-if (varCapability?.schema_version !== "var-capability-status-v1.84" || varCapability?.estimator_available !== true || varCapability?.formal_dynamic_response_ready_country_count !== 0 || varCapability?.formal_irf_publication_available !== false || varCapability?.irf_uncertainty_available !== false || varCapability?.structural_identification_available !== false) failures.push("v1.84 VAR capability boundary is incomplete or overstated");
+if (varCapability?.schema_version !== "var-capability-status-v1.85" || varCapability?.estimator_available !== true || varCapability?.formal_dynamic_response_ready_country_count !== 0 || varCapability?.formal_irf_publication_available !== false || varCapability?.irf_uncertainty_available !== false || varCapability?.structural_identification_available !== false) failures.push("v1.85 VAR capability boundary is incomplete or overstated");
+if (varCapability?.residual_diagnostic_calibration_research !== "completed" || varCapability?.residual_diagnostic_replacement !== "none_eligible" || varCapability?.current_production_diagnostic !== "adjusted_portmanteau" || varCapability?.phase_B_real_country_comparison !== "not_authorized") failures.push("v1.85 residual-diagnostic research boundary is incomplete");
+for (const name of varResidualPublished) {
+  const published = path.join(researchOut, "var-residual-diagnostics", name);
+  if (!fs.existsSync(published) || fs.readFileSync(published, "utf8") !== fs.readFileSync(path.join(root, "src", "data", "macro", name), "utf8")) failures.push(`VAR residual research export mismatch: ${name}`);
+}
+const researchPackagePath = path.join(researchOut, researchPackageFilename());
+if (fs.existsSync(researchPackagePath)) {
+  const packageBytes = fs.readFileSync(researchPackagePath);
+  for (const name of [...varResidualPublished, "var_residual_diagnostic_simulation_results.json"]) if (!packageBytes.includes(Buffer.from(`var-residual-diagnostics/${name}`))) failures.push(`research package is missing var-residual-diagnostics/${name}`);
+}
+const residualIndex = readJson("analysis_validation_index.json")?.records?.find((r) => r.id === "var_residual_diagnostic_research_closure");
+if (residualIndex?.gate !== "var:residual-closure-validate" || residualIndex?.artifact_role !== "closed_research_conclusion_not_method_pass" || residualIndex?.replacement !== "none_eligible") failures.push("validation index lacks the VAR residual research closure entry");
 if (seasonalCalibration?.schema_version !== "seasonal-adf-critical-values-v1.44" || seasonalCalibration?.state !== "active_after_validation" || seasonalCalibration?.records?.length !== 9 || seasonalCalibration?.records?.some((item) => item.replications < 50_000)) failures.push("v1.44 seasonal ADF calibration fixture is incomplete or inactive");
 if (!seasonalCalibration?.validation?.same_seed_reproducible || !seasonalCalibration?.validation?.different_seed_within_mc_tolerance || !seasonalCalibration?.validation?.null_size_test?.passed || !seasonalCalibration?.validation?.stationary_ar_power_sanity?.passed) failures.push("v1.44 seasonal ADF Monte Carlo validation evidence is incomplete");
 if (seasonalDecisionComparison?.schema_version !== "seasonal-adf-decision-comparison-v1.44" || !seasonalDecisionComparison?.records?.length || seasonalDecisionComparison?.records?.some((item) => typeof item.decision_changed !== "boolean" || item.mc_5pct === null || item.mackinnon_5pct === null)) failures.push("v1.44 seasonal ADF decision comparison is incomplete");
@@ -215,7 +236,7 @@ const latestChangelogHeading = changelog.match(/^## (.+)$/m)?.[1] ?? "";
 if (!latestChangelogHeading.startsWith(expectedVersion) || !latestChangelogHeading.includes(releaseConfig.release_date)) failures.push(`CHANGELOG latest release mismatch: ${latestChangelogHeading}`);
 const skillRegistry = JSON.parse(fs.readFileSync(path.join(root, "src", "data", "analysis", "analysis_skill_registry.json"), "utf8"));
 if (JSON.stringify(skillRegistry) !== JSON.stringify(JSON.parse(fs.readFileSync(path.join(out, "research-data", "analysis_skill_registry.json"), "utf8")))) failures.push("public analysis manifest differs from canonical registry");
-if (skillRegistry.schema_version !== "analysis-skill-registry-v1.84") failures.push(`analysis skill registry schema mismatch: ${skillRegistry.schema_version}`);
+if (skillRegistry.schema_version !== "analysis-skill-registry-v1.85") failures.push(`analysis skill registry schema mismatch: ${skillRegistry.schema_version}`);
 if (skillRegistry.generated_at !== releaseConfig.release_date) failures.push(`analysis skill registry generated_at mismatch: ${skillRegistry.generated_at}`);
 const releaseSource = fs.readFileSync(path.join(root, "src", "lib", "releaseMetadata.ts"), "utf8");
 if (!releaseSource.includes('import releaseConfig from "../data/release.json"')) failures.push("release metadata is not reading the canonical JSON source");
@@ -233,6 +254,8 @@ for (const section of methodologySections) {
 if (!methodology.includes("Validation ≠ scientific proof") || !methodology.includes("Historical reconstruction readiness")) failures.push("methodology validation boundary is incomplete");
 if (!methodology.includes("Reduced-form VAR") || !methodology.includes("Finite-Sample Stationarity Calibration") || !methodology.includes("50,000") || !methodology.includes("asymptotic equivalence") || !methodology.includes("残差 LM") || !methodology.includes("预注册正式基线") || !methodology.includes("月份虚拟变量") || !methodology.includes("seasonality") || !methodology.includes("seasonal unit root") || !methodology.includes("structural break") || !methodology.includes("不是结构冲击或因果效应")) failures.push("v1.44 VAR methodology boundary is incomplete");
 if (!methodology.includes("Estimation vs Dynamic-Response Readiness") || !methodology.includes("VAR estimation active") || !methodology.includes("formal dynamic-response currently unavailable") || !methodology.includes("dynamic-response-ready 国家为 0") || !methodology.includes("Cholesky ordering ≠ structural identification")) failures.push("v1.84 VAR publication boundary is incomplete");
+if (!methodology.includes("VAR Residual Diagnostic Calibration Research Outcome") || !methodology.includes("Layer A") || !methodology.includes("Layer B") || !methodology.includes("45.23%") || !methodology.includes("37.81%") || !methodology.includes("12.88%") || !methodology.includes("ES 不是经过验证的替代诊断") || !methodology.includes("残差诊断结果不否定 VAR 系数估计")) failures.push("v1.85 VAR residual diagnostic research outcome is incomplete");
+if (/ES is (a )?validated replacement|Portmanteau invalidates VAR coefficients/i.test(methodology)) failures.push("methodology overstates the v1.85 residual diagnostic result");
 if (!methodology.includes("宏观驱动与冲击识别边界") || !methodology.includes("Observed driver") || !methodology.includes("identified_shock") || !methodology.includes("causal_lp_ready") || !methodology.includes("时间对齐") || !methodology.includes("共同序列")) failures.push("v1.51 macro-driver temporal/scope methodology boundary is incomplete");
 if (!methodology.includes("High-Frequency Monetary Policy Identification") || !methodology.includes("EA-MPD") || !methodology.includes("EA-EMPD") || !methodology.includes("central-bank information effect") || !methodology.includes("monthly_sum_of_event_surprises") || !methodology.includes("external ECB spillover")) failures.push("v1.6 ECB identification methodology boundary is incomplete");
 if (!methodology.includes("Jarociński–Karadi") || !methodology.includes("OIS_1M") || !methodology.includes("OIS_1Y") || !methodology.includes("STOXX50") || !methodology.includes("poor-man") || !methodology.includes("中位旋转") || !methodology.includes("不是唯一结构真值") || !methodology.includes("registry_only")) failures.push("v1.62 author-reference methodology boundary is incomplete");

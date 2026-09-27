@@ -2,9 +2,11 @@
 
 Phase A is complete. This is a research-only result. It does not change the formal v1.84 release, the production VAR path, country readiness, or dynamic-response availability.
 
+> **Deployment status superseded.** Items 2–3 and 55–57 below record the status at the time this report was written. Afterwards, commit `961f869` entered `main` and was deployed. See [Deployment reconciliation](#deployment-reconciliation) at the end of this report. The original wording is kept unchanged as a historical record.
+
 1. **Starting commit:** `1b13fc1c8eaa804ef3b5ea5173c8ef01081afb3b`.
-2. **Formal version:** v1.84 remains unchanged; v1.85 is a research-program label only.
-3. **Current deployed SHA:** `1b13fc1c8eaa804ef3b5ea5173c8ef01081afb3b`, verified from the live release manifest and GitHub `main` after Phase A.
+2. *(Superseded — see Deployment reconciliation.)* **Formal version:** v1.84 remains unchanged; v1.85 is a research-program label only.
+3. *(Superseded deployment status — see Deployment reconciliation.)* **Current deployed SHA:** `1b13fc1c8eaa804ef3b5ea5173c8ef01081afb3b`, verified from the live release manifest and GitHub `main` after Phase A.
 4. **Research preregistration file:** `src/data/macro/var_residual_diagnostic_preregistration.json`; clerical hash correction preserved in `var_residual_diagnostic_preregistration_amendment_001.json`.
 5. **Preregistration hash:** `f9ddab6a8ff77026b83caeca1024bf8b0379a470792fb5410e3d99607818bb0b`.
 6. **Candidate tests frozen:** adjusted Portmanteau, multivariate BG LM, and Edgerton–Shukur F only; no fourth test was added.
@@ -56,9 +58,9 @@ Phase A is complete. This is a research-only result. It does not change the form
 52. **Unresolved methodological issues:** all three candidates fail the preregistered joint platform gate. The large Layer B distortions show that diagnostic calibration cannot be separated from lag-selection/finite-sample interaction. ES is well calibrated when the true lag is fixed in this design, but that conditional result cannot be promoted to a platform replacement.
 53. **Owner decision required:** accept Phase A closure and preserve the no-real-data-application boundary. Any Phase B or new research design requires explicit owner approval and a new preregistration where applicable.
 54. **Recommended Phase B decision:** do not authorize Phase B real-country comparison, because no alternative is eligible. Keep formal IRFs unavailable and treat a new lag-selection/diagnostic joint-calibration design as a separate future program rather than extending this stopped Phase A.
-55. **Commit status:** research artifacts are committed locally on `research/v185-var-residual-diagnostics`; they are not merged into `main`.
-56. **Push status:** not pushed. GitHub `main` remains at the v1.84 SHA.
-57. **Deploy status:** not deployed. The live release manifest remains v1.84 at the v1.84 SHA.
+55. *(Superseded deployment status — see Deployment reconciliation.)* **Commit status:** research artifacts are committed locally on `research/v185-var-residual-diagnostics`; they are not merged into `main`.
+56. *(Superseded deployment status — see Deployment reconciliation.)* **Push status:** not pushed. GitHub `main` remains at the v1.84 SHA.
+57. *(Superseded deployment status — see Deployment reconciliation.)* **Deploy status:** not deployed. The live release manifest remains v1.84 at the v1.84 SHA.
 
 ## Research artifacts
 
@@ -69,3 +71,14 @@ Phase A is complete. This is a research-only result. It does not change the form
 - Seed registry: `src/data/macro/var_residual_diagnostic_seed_registry.json`
 
 The formal dynamic-response-ready country count remains zero. No threshold, seed, candidate list, or selection rule was changed after results were observed.
+
+## Deployment reconciliation
+
+This section was added in the v1.85 closure release. It corrects the deployment facts in items 2–3 and 55–57 without deleting them.
+
+- **What was prepared:** Phase A was prepared as research-only work under the owner push/deploy boundary. It was committed on `research/v185-var-residual-diagnostics` as a separate owner decision point.
+- **What actually happened:** commit `961f86972e55358e4f72bec1dddf29e781c79dd3` ("Complete v1.85 VAR residual calibration research") then entered `main`. GitHub Pages workflow run `36315057237` deployed it successfully. The live release manifest reported `source_commit` `961f869…` and `workflow_run_id` `36315057237`, while the formal release metadata still read v1.84 "VAR Readiness & Publication Boundary Convergence".
+- **Effect of that deployment:** the research artifacts in `src/data/macro/` and the scripts became public in the repository. No production path changed: `src/lib/varEngine.ts`, country readiness, the lag policy, the capability registry and the site UI were all identical to v1.84. The formal dynamic-response-ready count stayed at zero, and no formal IRF was published.
+- **Superseded statements:** item 3 (deployed SHA `1b13fc1c…`), item 55 ("not merged into `main`"), item 56 ("not pushed; GitHub `main` remains at the v1.84 SHA") and item 57 ("not deployed") were accurate when written, but became outdated once `961f869` was deployed. Item 2 ("v1.85 is a research-program label only") is superseded by the formal v1.85 closure release.
+- **Formal closure:** v1.85 "VAR Residual Diagnostic Research Closure & Dynamic-Response Gate Boundary Hardening" publishes the research conclusion (`var_residual_diagnostic_research_conclusion.json`). The method decision, thresholds, simulation results and production engine are unchanged, and no new research was run.
+

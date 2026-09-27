@@ -1,0 +1,18 @@
+{
+  "schema_version": "var-residual-diagnostic-preregistration-amendment-v1.85",
+  "amendment_id": "001",
+  "amended_at": "2026-09-27T10:43:00Z",
+  "simulation_started": false,
+  "reference_fixture_generation_started": true,
+  "change_type": "clerical_frozen_input_hash_correction_only",
+  "field": "frozen_input_sha256.src/data/macro/var_exploratory_readiness.json",
+  "previous_value": "9774fa8bc87f5d84cc867e4e60bb7b1ca1aa432d3d81979d275caca6c3ac08",
+  "correct_value": "9774fa8bc87f5d84cc867e4e60bb7b1ca1a1aa432d3d81979d275caca6c3ac08",
+  "evidence": "shasum -a 256 on the unchanged starting-commit file",
+  "research_design_changed": false,
+  "candidate_tests_changed": false,
+  "thresholds_changed": false,
+  "seed_namespace_changed": false,
+  "replication_counts_changed": false,
+  "selection_rule_changed": false
+}

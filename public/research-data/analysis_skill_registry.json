@@ -1,5 +1,5 @@
 {
-  "schema_version": "analysis-skill-registry-v1.84",
+  "schema_version": "analysis-skill-registry-v1.85",
   "frozen_output_reference": "analysis/v173_frozen_output_hashes.json",
   "generated_at": "2026-09-27",
   "records": [
@@ -257,7 +257,16 @@
       "gate": "formal baseline v1/v2 and exploratory fallback are separate; >=60 continuous monthly observations, profile-mapped ADF gate, common-sample BIC lag selection, parameter ratio >=4, companion-root stability and horizon-specific residual diagnostics",
       "readiness_reference": "var_country_readiness.json",
       "capability_reference": "var_capability_status.json",
-      "note": "Reduced-form VAR estimator and workbench are active. Estimable does not imply horizon-specific dynamic-response-ready. The current formal v1/v2 baselines have zero countries passing the complete h=12 dynamic-response gate, so no formal orthogonalized dynamic response is currently publishable. Exploratory search never replaces either formal baseline.",
+      "research_conclusion_reference": "var_residual_diagnostic_research_conclusion.json",
+      "note": "Reduced-form VAR estimation workbench and coefficient diagnostics are active; active does not mean formal dynamic-response publication. Estimable does not imply horizon-specific dynamic-response-ready. The current formal v1/v2 baselines have zero countries passing the complete h=12 dynamic-response gate, so no formal orthogonalized dynamic response is currently publishable. v1.85 residual diagnostic calibration research is completed: no replacement diagnostic is eligible and formal dynamic response remains unavailable. Exploratory search never replaces either formal baseline.",
+      "diagnostic_calibration": {
+        "residual_autocorrelation_h12_primary": {
+          "production_diagnostic": "adjusted_portmanteau",
+          "calibration_status": "not_size_validated_for_full_platform_procedure",
+          "replacement": "none_eligible",
+          "note_zh": "当前 h=12 adjusted Portmanteau 作为既有 production gate 保留，但 v1.85 synthetic calibration 显示其在平台完整 lag-selection procedure 下存在显著 size distortion；由于没有候选 replacement 通过同一预注册门，本版本不替换 gate，也不激活正式 IRF。"
+        }
+      },
       "presentation": {
         "name": "简化式 VAR（Reduced-form VAR）",
         "category": "macro_time_series",
@@ -300,6 +309,7 @@
           "简化式创新不等于已识别经济冲击；动态响应不构成因果效应。",
           "正交化 IRF 依赖变量排序；Cholesky 排序不等于结构识别。",
           "当前 formal baseline dynamic-response-ready country count = 0；正式 IRF publication unavailable。",
+          "当前 h=12 adjusted Portmanteau 作为既有 production gate 保留，但 v1.85 synthetic calibration 显示其在平台完整 lag-selection procedure 下存在显著 size distortion；由于没有候选 replacement 通过同一预注册门，本版本不替换 gate，也不激活正式 IRF。",
           "正交化简化式响应只在 only_when_dynamic_response_ready 条件满足时输出。",
           "readiness 按 country × variable set × window × transformation 逐国评估；未通过完整 gate 的国家显示 unavailable。"
         ],

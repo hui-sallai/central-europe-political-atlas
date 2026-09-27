@@ -1,0 +1,333 @@
+{
+  "schema_version": "var-residual-diagnostic-calibration-summary-v1.85",
+  "generated_at": "2026-09-27T11:05:56Z",
+  "preregistration_sha256": "f9ddab6a8ff77026b83caeca1024bf8b0379a470792fb5410e3d99607818bb0b",
+  "primary_horizon": 12,
+  "nominal_alpha": 0.05,
+  "strict_interval": [
+    0.035,
+    0.065
+  ],
+  "maximum_allowed_rate": 0.075,
+  "minimum_fraction_inside_strict_interval": 0.9,
+  "primary_method_metrics": {
+    "pt_adjusted": {
+      "test_id": "pt_adjusted",
+      "primary_cell_count": 72,
+      "minimum_rejection_rate": 0.0406,
+      "maximum_rejection_rate": 0.4523,
+      "maximum_rate_cell_id": "primary_LB_T120_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "worst_case_absolute_size_distortion": 0.4023,
+      "worst_case_cell_id": "primary_LB_T120_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "cells_inside_strict_interval": 27,
+      "fraction_inside_strict_interval": 0.375,
+      "every_primary_cell_at_or_below_0_075": false,
+      "at_least_90_percent_inside_0_035_to_0_065": false,
+      "system_level_eligible": false
+    },
+    "bg_lm": {
+      "test_id": "bg_lm",
+      "primary_cell_count": 72,
+      "minimum_rejection_rate": 0.0306,
+      "maximum_rejection_rate": 0.3781,
+      "maximum_rate_cell_id": "primary_LB_T120_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "worst_case_absolute_size_distortion": 0.3281,
+      "worst_case_cell_id": "primary_LB_T120_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "cells_inside_strict_interval": 22,
+      "fraction_inside_strict_interval": 0.3055555555555556,
+      "every_primary_cell_at_or_below_0_075": false,
+      "at_least_90_percent_inside_0_035_to_0_065": false,
+      "system_level_eligible": false
+    },
+    "edgerton_shukur_f": {
+      "test_id": "edgerton_shukur_f",
+      "primary_cell_count": 72,
+      "minimum_rejection_rate": 0.0353,
+      "maximum_rejection_rate": 0.1288,
+      "maximum_rate_cell_id": "primary_LB_T144_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "worst_case_absolute_size_distortion": 0.0788,
+      "worst_case_cell_id": "primary_LB_T144_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+      "cells_inside_strict_interval": 57,
+      "fraction_inside_strict_interval": 0.7916666666666666,
+      "every_primary_cell_at_or_below_0_075": false,
+      "at_least_90_percent_inside_0_035_to_0_065": false,
+      "system_level_eligible": false
+    }
+  },
+  "primary_layer_breakdown": {
+    "A": {
+      "pt_adjusted": {
+        "test_id": "pt_adjusted",
+        "primary_cell_count": 36,
+        "minimum_rejection_rate": 0.0406,
+        "maximum_rejection_rate": 0.25,
+        "maximum_rate_cell_id": "primary_LA_T120_p1_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+        "worst_case_absolute_size_distortion": 0.2,
+        "worst_case_cell_id": "primary_LA_T120_p1_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+        "cells_inside_strict_interval": 18,
+        "fraction_inside_strict_interval": 0.5,
+        "every_primary_cell_at_or_below_0_075": false,
+        "at_least_90_percent_inside_0_035_to_0_065": false,
+        "system_level_eligible": false
+      },
+      "bg_lm": {
+        "test_id": "bg_lm",
+        "primary_cell_count": 36,
+        "minimum_rejection_rate": 0.0306,
+        "maximum_rejection_rate": 0.362,
+        "maximum_rate_cell_id": "primary_LA_T120_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+        "worst_case_absolute_size_distortion": 0.312,
+        "worst_case_cell_id": "primary_LA_T120_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+        "cells_inside_strict_interval": 14,
+        "fraction_inside_strict_interval": 0.3888888888888889,
+        "every_primary_cell_at_or_below_0_075": false,
+        "at_least_90_percent_inside_0_035_to_0_065": false,
+        "system_level_eligible": false
+      },
+      "edgerton_shukur_f": {
+        "test_id": "edgerton_shukur_f",
+        "primary_cell_count": 36,
+        "minimum_rejection_rate": 0.0353,
+        "maximum_rejection_rate": 0.0599,
+        "maximum_rate_cell_id": "primary_LA_T144_p1_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+        "worst_case_absolute_size_distortion": 0.014700000000000005,
+        "worst_case_cell_id": "primary_LA_T120_p1_r0.80_det-constant_innov-gaussian_iid",
+        "cells_inside_strict_interval": 36,
+        "fraction_inside_strict_interval": 1.0,
+        "every_primary_cell_at_or_below_0_075": true,
+        "at_least_90_percent_inside_0_035_to_0_065": true,
+        "system_level_eligible": true
+      }
+    },
+    "B": {
+      "pt_adjusted": {
+        "test_id": "pt_adjusted",
+        "primary_cell_count": 36,
+        "minimum_rejection_rate": 0.0433,
+        "maximum_rejection_rate": 0.4523,
+        "maximum_rate_cell_id": "primary_LB_T120_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+        "worst_case_absolute_size_distortion": 0.4023,
+        "worst_case_cell_id": "primary_LB_T120_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+        "cells_inside_strict_interval": 9,
+        "fraction_inside_strict_interval": 0.25,
+        "every_primary_cell_at_or_below_0_075": false,
+        "at_least_90_percent_inside_0_035_to_0_065": false,
+        "system_level_eligible": false
+      },
+      "bg_lm": {
+        "test_id": "bg_lm",
+        "primary_cell_count": 36,
+        "minimum_rejection_rate": 0.0335,
+        "maximum_rejection_rate": 0.3781,
+        "maximum_rate_cell_id": "primary_LB_T120_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+        "worst_case_absolute_size_distortion": 0.3281,
+        "worst_case_cell_id": "primary_LB_T120_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+        "cells_inside_strict_interval": 8,
+        "fraction_inside_strict_interval": 0.2222222222222222,
+        "every_primary_cell_at_or_below_0_075": false,
+        "at_least_90_percent_inside_0_035_to_0_065": false,
+        "system_level_eligible": false
+      },
+      "edgerton_shukur_f": {
+        "test_id": "edgerton_shukur_f",
+        "primary_cell_count": 36,
+        "minimum_rejection_rate": 0.0366,
+        "maximum_rejection_rate": 0.1288,
+        "maximum_rate_cell_id": "primary_LB_T144_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+        "worst_case_absolute_size_distortion": 0.0788,
+        "worst_case_cell_id": "primary_LB_T144_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+        "cells_inside_strict_interval": 21,
+        "fraction_inside_strict_interval": 0.5833333333333334,
+        "every_primary_cell_at_or_below_0_075": false,
+        "at_least_90_percent_inside_0_035_to_0_065": false,
+        "system_level_eligible": false
+      }
+    }
+  },
+  "secondary_null_stress": {
+    "phase": "secondary",
+    "diagnostics": {
+      "pt_adjusted": {
+        "12": {
+          "cell_count": 288,
+          "tested_cell_count": 288,
+          "minimum_rate": 0.032,
+          "median_rate": 0.1735,
+          "maximum_rate": 0.4955,
+          "mean_rate": 0.17428125,
+          "selection_role": "report_only"
+        },
+        "18": {
+          "cell_count": 288,
+          "tested_cell_count": 288,
+          "minimum_rate": 0.03,
+          "median_rate": 0.181,
+          "maximum_rate": 0.514,
+          "mean_rate": 0.18001562499999998,
+          "selection_role": "report_only"
+        },
+        "24": {
+          "cell_count": 288,
+          "tested_cell_count": 288,
+          "minimum_rate": 0.034,
+          "median_rate": 0.20224999999999999,
+          "maximum_rate": 0.5825,
+          "mean_rate": 0.21822222222222223,
+          "selection_role": "report_only"
+        }
+      },
+      "bg_lm": {
+        "12": {
+          "cell_count": 288,
+          "tested_cell_count": 288,
+          "minimum_rate": 0.026,
+          "median_rate": 0.15975,
+          "maximum_rate": 0.7115,
+          "mean_rate": 0.2086111111111111,
+          "selection_role": "report_only"
+        },
+        "18": {
+          "cell_count": 288,
+          "tested_cell_count": 288,
+          "minimum_rate": 0.009,
+          "median_rate": 0.16599999999999998,
+          "maximum_rate": 0.9145,
+          "mean_rate": 0.22890104166666664,
+          "selection_role": "report_only"
+        },
+        "24": {
+          "cell_count": 288,
+          "tested_cell_count": 282,
+          "minimum_rate": 0.0,
+          "median_rate": 0.094,
+          "maximum_rate": 0.993,
+          "mean_rate": 0.2789131205673759,
+          "selection_role": "report_only"
+        }
+      },
+      "edgerton_shukur_f": {
+        "12": {
+          "cell_count": 288,
+          "tested_cell_count": 288,
+          "minimum_rate": 0.0305,
+          "median_rate": 0.0545,
+          "maximum_rate": 0.135,
+          "mean_rate": 0.057057291666666655,
+          "selection_role": "report_only"
+        },
+        "18": {
+          "cell_count": 288,
+          "tested_cell_count": 288,
+          "minimum_rate": 0.018,
+          "median_rate": 0.04,
+          "maximum_rate": 0.09,
+          "mean_rate": 0.04153124999999999,
+          "selection_role": "report_only"
+        },
+        "24": {
+          "cell_count": 288,
+          "tested_cell_count": 282,
+          "minimum_rate": 0.018,
+          "median_rate": 0.036,
+          "maximum_rate": 0.077,
+          "mean_rate": 0.03750531914893617,
+          "selection_role": "report_only"
+        }
+      }
+    }
+  },
+  "serial_alternative_power": {
+    "phase": "power",
+    "diagnostics": {
+      "pt_adjusted": {
+        "12": {
+          "cell_count": 432,
+          "tested_cell_count": 432,
+          "minimum_rate": 0.031,
+          "median_rate": 0.23075,
+          "maximum_rate": 0.8565,
+          "mean_rate": 0.26461574074074073,
+          "selection_role": "report_only"
+        },
+        "18": {
+          "cell_count": 432,
+          "tested_cell_count": 432,
+          "minimum_rate": 0.033,
+          "median_rate": 0.23875,
+          "maximum_rate": 0.857,
+          "mean_rate": 0.2632789351851852,
+          "selection_role": "report_only"
+        },
+        "24": {
+          "cell_count": 432,
+          "tested_cell_count": 432,
+          "minimum_rate": 0.0345,
+          "median_rate": 0.2845,
+          "maximum_rate": 0.872,
+          "mean_rate": 0.2923425925925926,
+          "selection_role": "report_only"
+        }
+      },
+      "bg_lm": {
+        "12": {
+          "cell_count": 432,
+          "tested_cell_count": 432,
+          "minimum_rate": 0.0315,
+          "median_rate": 0.22275,
+          "maximum_rate": 0.6975,
+          "mean_rate": 0.22258101851851853,
+          "selection_role": "report_only"
+        },
+        "18": {
+          "cell_count": 432,
+          "tested_cell_count": 432,
+          "minimum_rate": 0.019,
+          "median_rate": 0.198,
+          "maximum_rate": 0.6095,
+          "mean_rate": 0.19889583333333333,
+          "selection_role": "report_only"
+        },
+        "24": {
+          "cell_count": 432,
+          "tested_cell_count": 432,
+          "minimum_rate": 0.004,
+          "median_rate": 0.17350000000000002,
+          "maximum_rate": 0.6405,
+          "mean_rate": 0.21354976851851853,
+          "selection_role": "report_only"
+        }
+      },
+      "edgerton_shukur_f": {
+        "12": {
+          "cell_count": 432,
+          "tested_cell_count": 432,
+          "minimum_rate": 0.034,
+          "median_rate": 0.07225,
+          "maximum_rate": 0.468,
+          "mean_rate": 0.10341435185185184,
+          "selection_role": "report_only"
+        },
+        "18": {
+          "cell_count": 432,
+          "tested_cell_count": 432,
+          "minimum_rate": 0.0195,
+          "median_rate": 0.053,
+          "maximum_rate": 0.2905,
+          "mean_rate": 0.06969212962962963,
+          "selection_role": "report_only"
+        },
+        "24": {
+          "cell_count": 432,
+          "tested_cell_count": 432,
+          "minimum_rate": 0.02,
+          "median_rate": 0.04525,
+          "maximum_rate": 0.193,
+          "mean_rate": 0.053707175925925936,
+          "selection_role": "report_only"
+        }
+      }
+    }
+  },
+  "power_used_for_selection": false,
+  "sensitivity_h18_h24_used_for_selection": false
+}

@@ -1,0 +1,250 @@
+{
+  "schema_version": "var-residual-diagnostic-research-conclusion-v1.85",
+  "study_id": "var_residual_diagnostic_calibration_v185",
+  "study_title": "VAR Residual Diagnostic Finite-Sample Calibration (Phase A, synthetic only)",
+  "study_period": {
+    "preregistered_at": "2026-09-27T10:31:45Z",
+    "results_generated_at": "2026-09-27T11:05:56Z",
+    "closed_at": "2026-09-27",
+    "closed_by_release": "v1.85"
+  },
+  "starting_commit": "1b13fc1c8eaa804ef3b5ea5173c8ef01081afb3b",
+  "completion_commit": "961f86972e55358e4f72bec1dddf29e781c79dd3",
+  "completion_deployment": {
+    "workflow_run_id": "36315057237",
+    "conclusion": "success",
+    "formal_release_at_deployment": "v1.84 VAR Readiness & Publication Boundary Convergence",
+    "note": "Phase A artifacts were first prepared as research-only; commit 961f869 then entered main and was deployed by the GitHub Pages workflow while formal release metadata remained v1.84. See docs/var-residual-diagnostic-phase-a-v1.85.md, Deployment reconciliation."
+  },
+  "preregistration_file": "var_residual_diagnostic_preregistration.json",
+  "preregistration_hash": "f9ddab6a8ff77026b83caeca1024bf8b0379a470792fb5410e3d99607818bb0b",
+  "preregistration_amendments": [
+    {
+      "amendment_id": "001",
+      "file": "var_residual_diagnostic_preregistration_amendment_001.json",
+      "sha256": "fafab2a5b74677be20b537101efbb44e3f3e0c925ad33cb89f5878a32ac91006",
+      "change_type": "clerical_frozen_input_hash_correction_only",
+      "research_design_changed": false,
+      "made_before_simulation": true
+    }
+  ],
+  "existing_real_data_known": true,
+  "existing_real_data_result": "formal_dynamic_response_ready_country_count_is_zero",
+  "candidate_tests": [
+    {
+      "test_id": "pt_adjusted",
+      "role": "current_primary"
+    },
+    {
+      "test_id": "bg_lm",
+      "role": "replacement_candidate_only_if_current_pt_fails"
+    },
+    {
+      "test_id": "edgerton_shukur_f",
+      "role": "replacement_candidate_only_if_current_pt_fails"
+    }
+  ],
+  "candidate_list_frozen": true,
+  "fourth_test_added": false,
+  "reference_validation_status": "pass",
+  "reference_case_count": 4,
+  "reference_maximum_numerical_discrepancy": 8.256506589532364e-12,
+  "reference_registered_tolerance": 1e-08,
+  "reference_implementations": [
+    "statsmodels 0.14.6",
+    "R vars 1.6-1"
+  ],
+  "simulation_replications": {
+    "total": 2160000,
+    "primary": 720000,
+    "secondary_null_stress": 576000,
+    "power": 864000,
+    "checkpoints": 8640
+  },
+  "primary_cell_count": 72,
+  "primary_horizon": 12,
+  "nominal_alpha": 0.05,
+  "selection_thresholds": {
+    "strict_interval": [
+      0.035,
+      0.065
+    ],
+    "maximum_allowed_rate": 0.075,
+    "minimum_fraction_inside_strict_interval": 0.9,
+    "rule": "Eligible only if every primary cell rejection rate <= 0.075 AND at least 90% of primary cells lie in [0.035, 0.065]; evaluated jointly over Layer A and Layer B primary cells.",
+    "thresholds_changed_after_results": false
+  },
+  "pt_result": {
+    "primary_cell_count": 72,
+    "minimum_rejection_rate": 0.0406,
+    "maximum_rejection_rate": 0.4523,
+    "worst_case_absolute_size_distortion": 0.4023,
+    "worst_case_cell_id": "primary_LB_T120_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+    "cells_inside_strict_interval": 27,
+    "fraction_inside_strict_interval": 0.375,
+    "every_primary_cell_at_or_below_0_075": false,
+    "at_least_90_percent_inside_0_035_to_0_065": false,
+    "system_level_eligible": false,
+    "layer_A_eligible": false,
+    "layer_B_eligible": false
+  },
+  "bg_result": {
+    "primary_cell_count": 72,
+    "minimum_rejection_rate": 0.0306,
+    "maximum_rejection_rate": 0.3781,
+    "worst_case_absolute_size_distortion": 0.3281,
+    "worst_case_cell_id": "primary_LB_T120_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+    "cells_inside_strict_interval": 22,
+    "fraction_inside_strict_interval": 0.3055555555555556,
+    "every_primary_cell_at_or_below_0_075": false,
+    "at_least_90_percent_inside_0_035_to_0_065": false,
+    "system_level_eligible": false,
+    "layer_A_eligible": false,
+    "layer_B_eligible": false
+  },
+  "es_result": {
+    "primary_cell_count": 72,
+    "minimum_rejection_rate": 0.0353,
+    "maximum_rejection_rate": 0.1288,
+    "worst_case_absolute_size_distortion": 0.0788,
+    "worst_case_cell_id": "primary_LB_T144_p2_r0.95_det-constant_plus_11_month_dummies_innov-gaussian_iid",
+    "cells_inside_strict_interval": 57,
+    "fraction_inside_strict_interval": 0.7916666666666666,
+    "every_primary_cell_at_or_below_0_075": false,
+    "at_least_90_percent_inside_0_035_to_0_065": false,
+    "system_level_eligible": false,
+    "layer_A_eligible": true,
+    "layer_B_eligible": false
+  },
+  "layer_A_result": {
+    "definition": "Conditional fixed lag: VAR estimated at the true lag order (diagnostic statistic calibration).",
+    "primary_cell_count": 36,
+    "by_test": {
+      "pt_adjusted": {
+        "maximum_rejection_rate": 0.25,
+        "fraction_inside_strict_interval": 0.5,
+        "system_level_eligible": false
+      },
+      "bg_lm": {
+        "maximum_rejection_rate": 0.362,
+        "fraction_inside_strict_interval": 0.3888888888888889,
+        "system_level_eligible": false
+      },
+      "edgerton_shukur_f": {
+        "maximum_rejection_rate": 0.0599,
+        "fraction_inside_strict_interval": 1.0,
+        "system_level_eligible": true
+      }
+    },
+    "interpretation": "Edgerton-Shukur F is well calibrated at the fixed true lag in this design (36/36 cells inside [0.035,0.065], max 0.0599); PT and BG are not."
+  },
+  "layer_B_result": {
+    "definition": "Full platform procedure: lag chosen by the platform's common-sample BIC rule (1..min(12,floor((T-4)/(4K+1))), parameter ratio >= 4), then the diagnostic (joint selection + diagnostic calibration).",
+    "primary_cell_count": 36,
+    "by_test": {
+      "pt_adjusted": {
+        "maximum_rejection_rate": 0.4523,
+        "fraction_inside_strict_interval": 0.25,
+        "system_level_eligible": false
+      },
+      "bg_lm": {
+        "maximum_rejection_rate": 0.3781,
+        "fraction_inside_strict_interval": 0.2222222222222222,
+        "system_level_eligible": false
+      },
+      "edgerton_shukur_f": {
+        "maximum_rejection_rate": 0.1288,
+        "fraction_inside_strict_interval": 0.5833333333333334,
+        "system_level_eligible": false
+      }
+    },
+    "interpretation": "No candidate is sufficiently calibrated under the full selection-plus-diagnostic procedure; the ES maximum is 0.1288 and 21/36 cells lie inside the strict interval."
+  },
+  "es_layer_A_status": "passed_primary_layer_A",
+  "es_layer_B_status": "failed_primary_layer_B",
+  "es_joint_status": "failed_joint_layer_A_B",
+  "method_decision": {
+    "file": "var_residual_diagnostic_method_decision.json",
+    "sha256": "729c69430e6431e88f477ae24cc73bb3025e2b70fd30d118c671dbf63f40fe5c",
+    "disposition": "no_eligible_replacement",
+    "selected_method": "none",
+    "decision_immutable": true
+  },
+  "selected_replacement": "none",
+  "phase_B_authorized": false,
+  "production_method_changed": false,
+  "current_production_diagnostic": "adjusted_portmanteau_h12",
+  "current_production_diagnostic_calibration": "failed_preregistered_joint_platform_gate",
+  "actual_country_diagnostics_applied": false,
+  "actual_country_readiness_changed": false,
+  "formal_dynamic_response_ready_count": 0,
+  "formal_irf_publication_available": false,
+  "interpretation_boundary": [
+    "The residual diagnostic governs the dynamic-response publication gate; it does not invalidate reduced-form VAR coefficient estimates.",
+    "ES is not a validated replacement: its fixed-lag (Layer A) calibration does not extend to the full platform lag-selection procedure (Layer B).",
+    "Power and h=18/h=24 results are report-only and were not used for selection."
+  ],
+  "research_closed": true,
+  "current_diagnostic_replacement_program_closed": true,
+  "future_research_boundary": {
+    "reopening_requires": [
+      "new owner-approved research program",
+      "new preregistration",
+      "unused seed namespace",
+      "no reuse of v1.85 results for selection"
+    ],
+    "registered_future_candidates": [
+      {
+        "candidate_id": "var_lag_selection_residual_diagnostic_joint_calibration",
+        "title": "VAR Lag-Selection × Residual-Diagnostic Joint Calibration",
+        "state": "not_started",
+        "owner_approval_required": true,
+        "new_preregistration_required": true,
+        "rationale": "Layer B distortion indicates that diagnostic calibration cannot be separated from lag-selection / finite-sample interaction."
+      }
+    ],
+    "prohibited_without_new_program": [
+      "fourth residual diagnostic",
+      "threshold changes",
+      "lag policy changes",
+      "real-country ES/BG diagnostics",
+      "real-country readiness recomputation",
+      "IRF uncertainty",
+      "SVAR",
+      "BVAR",
+      "activating ES as a formal gate"
+    ]
+  },
+  "full_results_artifact": {
+    "canonical_path": "src/data/macro/var_residual_diagnostic_simulation_results.json",
+    "public_repository_url": "https://github.com/hui-sallai/central-europe-political-atlas/blob/main/src/data/macro/var_residual_diagnostic_simulation_results.json",
+    "sha256": "04cc4ad5f8395f894a4c9c164fc8374841b6eb20c97dc4a8c4d7098dc6912a7e",
+    "bytes": 3375883,
+    "cell_record_count": 792,
+    "cell_records_by_phase": {
+      "primary": 72,
+      "secondary": 288,
+      "power": 432
+    },
+    "total_replications": 2160000,
+    "generation_command": "pnpm var:residual-simulate && pnpm var:residual-calibrate",
+    "verification_command": "pnpm var:residual-validate",
+    "package_policy": "A_included_in_research_package",
+    "package_path": "var-residual-diagnostics/var_residual_diagnostic_simulation_results.json",
+    "regenerated_for_v1_85_release": false
+  },
+  "provenance": {
+    "var_residual_diagnostic_preregistration.json": "f9ddab6a8ff77026b83caeca1024bf8b0379a470792fb5410e3d99607818bb0b",
+    "var_residual_diagnostic_preregistration_amendment_001.json": "fafab2a5b74677be20b537101efbb44e3f3e0c925ad33cb89f5878a32ac91006",
+    "var_residual_diagnostic_reference_manifest.json": "06460e94a2db421adbd754655b75e54812f888b972904ca58e5955850b85933e",
+    "var_residual_diagnostic_reference_attempts.json": "5f7e236b42aa001d7bfffca5dc2eb33aea1116f474bd8b9dfd8948e01d8abada",
+    "var_residual_diagnostic_reference_cases.json": "0c2609797aeafcba66b1a656d4537c2f8e4fc631ba61d97a2138515be379d1f0",
+    "var_residual_diagnostic_reference_inputs.csv": "024fbeaa6dd49b5cd72de66dc70039938117c481c3d4f32433cf00116a3fcc45",
+    "var_residual_diagnostic_reference_validation.json": "684e49a070c932385fba823e95358e812129c840a72afc000a776634f7853026",
+    "var_residual_diagnostic_seed_registry.json": "433f9fdec41d0410b103a35888f4dd894693d3da9ae675df9cf32c2c1225fdd2",
+    "var_residual_diagnostic_simulation_design.json": "57c741524c37c452f318ce7e9aeff48c9ed547118977393acfdce4bd4a146b73",
+    "var_residual_diagnostic_simulation_results.json": "04cc4ad5f8395f894a4c9c164fc8374841b6eb20c97dc4a8c4d7098dc6912a7e",
+    "var_residual_diagnostic_calibration_summary.json": "ca917656b7c0109cf0e286573effaae03dd4f8143a042524c8f24ee350073cca",
+    "var_residual_diagnostic_method_decision.json": "729c69430e6431e88f477ae24cc73bb3025e2b70fd30d118c671dbf63f40fe5c"
+  }
+}

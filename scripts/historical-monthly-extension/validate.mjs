@@ -152,7 +152,7 @@ check(regime.some((r) => r.country === 'SI' && r.period_start === '2007-01' && r
 check(readiness.state === 'closed_current_four_outcome_extension_program' && readiness.historical_audit === 'completed' && readiness.four_outcome_historical_extension === 'blocked' && readiness.research_closed && readiness.no_new_panel_estimates && readiness.no_joint_inference_reopening && readiness.no_interpolation && readiness.owner_approval_required_for_any_new_research, 'research closure boundary');
 check(readiness.cleared_outcomes.join(',') === 'hicp,yield' && readiness.design_A.definition_compatible_start === null && readiness.outcome_states.ipi === 'blocked_for_historical_extension' && readiness.outcome_states.unemployment === 'blocked_for_historical_extension', 'historical closure overstated');
 check(readiness.baseline_definition_integrity === 'nonblocking_warning' && readiness.design_A.status === 'blocked_for_pre2015_extension', 'baseline warning or Design A block missing');
-check(JSON.parse(fs.readFileSync(path.join(root, 'src/data/release.json'), 'utf8')).version.startsWith('v1.84 '), 'formal release version');
+check(JSON.parse(fs.readFileSync(path.join(root, 'src/data/release.json'), 'utf8')).version.startsWith('v1.85 '), 'formal release version');
 check(readiness.future_reduced_outcome_research === 'not_started' && readiness.state_dependent_LP === 'not_started', 'prohibited designs activated');
 
 const frozen = [
