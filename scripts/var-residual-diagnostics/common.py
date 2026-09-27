@@ -7,6 +7,7 @@ used only for preregistered synthetic fixtures and simulations.
 from __future__ import annotations
 
 from dataclasses import dataclass
+from functools import lru_cache
 from math import floor, sqrt
 
 import numpy as np
@@ -50,7 +51,8 @@ def spectral_radius(coefs: list[np.ndarray]) -> float:
     return float(np.max(np.abs(np.linalg.eigvals(companion_matrix(coefs)))))
 
 
-def scaled_coefficients(p: int, target_radius: float) -> list[np.ndarray]:
+@lru_cache(maxsize=None)
+def scaled_coefficients(p: int, target_radius: float) -> tuple[np.ndarray, ...]:
     if p not in (1, 2, 3):
         raise ValueError(f"unsupported p={p}")
     templates = COEFFICIENT_TEMPLATES[:p]
@@ -69,7 +71,7 @@ def scaled_coefficients(p: int, target_radius: float) -> list[np.ndarray]:
     coefs = [((lower + upper) / 2.0) * matrix for matrix in templates]
     if abs(spectral_radius(coefs) - target_radius) > 1e-10:
         raise RuntimeError("spectral-radius construction missed preregistered tolerance")
-    return coefs
+    return tuple(coefs)
 
 
 def month_dummy_row(month_index: int) -> np.ndarray:
