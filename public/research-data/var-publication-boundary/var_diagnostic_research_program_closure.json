@@ -1,0 +1,143 @@
+{
+  "schema_version": "var-diagnostic-research-program-closure-v1.91",
+  "generated_at": "2026-09-29",
+  "program": "reduced-form VAR dynamic-response publication gate research (v1.85-v1.90)",
+  "chain": [
+    {
+      "release": "v1.85",
+      "question": "Is the production h=12 adjusted Portmanteau finite-sample calibrated under the platform lag-selection procedure, and is BG or Edgerton-Shukur an eligible replacement?",
+      "finding": "PT, BG and ES all failed the preregistered joint Layer A+B gate",
+      "disposition": "no_eligible_replacement",
+      "production_impact": "none",
+      "artifacts": {
+        "var_residual_diagnostic_preregistration.json": "f9ddab6a8ff77026b83caeca1024bf8b0379a470792fb5410e3d99607818bb0b",
+        "var_residual_diagnostic_preregistration_amendment_001.json": "fafab2a5b74677be20b537101efbb44e3f3e0c925ad33cb89f5878a32ac91006",
+        "var_residual_diagnostic_reference_attempts.json": "5f7e236b42aa001d7bfffca5dc2eb33aea1116f474bd8b9dfd8948e01d8abada",
+        "var_residual_diagnostic_reference_cases.json": "0c2609797aeafcba66b1a656d4537c2f8e4fc631ba61d97a2138515be379d1f0",
+        "var_residual_diagnostic_reference_inputs.csv": "024fbeaa6dd49b5cd72de66dc70039938117c481c3d4f32433cf00116a3fcc45",
+        "var_residual_diagnostic_reference_manifest.json": "06460e94a2db421adbd754655b75e54812f888b972904ca58e5955850b85933e",
+        "var_residual_diagnostic_reference_validation.json": "684e49a070c932385fba823e95358e812129c840a72afc000a776634f7853026",
+        "var_residual_diagnostic_seed_registry.json": "433f9fdec41d0410b103a35888f4dd894693d3da9ae675df9cf32c2c1225fdd2",
+        "var_residual_diagnostic_simulation_design.json": "57c741524c37c452f318ce7e9aeff48c9ed547118977393acfdce4bd4a146b73",
+        "var_residual_diagnostic_simulation_results.json": "04cc4ad5f8395f894a4c9c164fc8374841b6eb20c97dc4a8c4d7098dc6912a7e",
+        "var_residual_diagnostic_calibration_summary.json": "ca917656b7c0109cf0e286573effaae03dd4f8143a042524c8f24ee350073cca",
+        "var_residual_diagnostic_method_decision.json": "729c69430e6431e88f477ae24cc73bb3025e2b70fd30d118c671dbf63f40fe5c",
+        "var_residual_diagnostic_research_conclusion.json": "5d60d16a0d78b6d41df72c34e4e7028f8d50c9844bd1df9e3dbaca56d4720021"
+      }
+    },
+    {
+      "release": "v1.851",
+      "question": "How should Layer-B rejection rates be interpreted?",
+      "finding": "Layer-B rates are joint lag-selection/specification/diagnostic procedure behaviour, not pure test size; BIC underselects true VAR(2) in the v1.85 designs",
+      "disposition": "interpretation_clarification; decision unchanged",
+      "production_impact": "none",
+      "artifacts": {
+        "var_residual_diagnostic_research_conclusion_amendment_001.json": "43d8ff9a9b3b1bae5552a5d98f3dbb5ad00aa045077098bf0087252f21323e73",
+        "var_residual_diagnostic_layerB_selection_decomposition.json": "6f6e1caededf43f1776a4d83aa9e26a1f55ee31cda71b6aac079080c05333602"
+      }
+    },
+    {
+      "release": "v1.86",
+      "question": "Can a selection-aware bootstrap calibrate the residual test of the selected model?",
+      "finding": "both families passed the selected-model-adequacy synthetic gate; iid residual selected by tie rule; true-VAR(2) selection-aware size untested",
+      "disposition": "synthetic_gate_passed_phase_B_requires_owner_approval",
+      "production_impact": "none",
+      "artifacts": {
+        "var_selection_bootstrap_calibration_summary.json": "370109106140aec28a16f41db44c088d357ce43c354cb917b6f1842c9c7467e4",
+        "var_selection_bootstrap_method_decision.json": "117188dbc77429ea2329df745ce04f39be9a5768e4869186b6c73f449454a1fb",
+        "var_selection_bootstrap_preregistration.json": "c37a32d53f01e2444c990807780a0aa53781f3c88c706f65035ce0345c790b6f",
+        "var_selection_bootstrap_reference_validation.json": "a1d9d453f5b0374f58f84a3079ca873283d05f2668e06de441682c4578a040f3",
+        "var_selection_bootstrap_research_conclusion.json": "e1f137948427aaec6d4bdad26e95df70a20bf8c8787e7df059d97c492634e68f",
+        "var_selection_bootstrap_seed_registry.json": "6209b349123191ae4b99de572bac359f6d47a196bebf5a0f3c93996440ab99fd",
+        "var_selection_bootstrap_selection_decomposition.json": "5908403a40736498de6de186be4159425f8b7087e81280cffa0a5ddf052d7d8a",
+        "var_selection_bootstrap_simulation_design.json": "ee4beaf27640b97874a30c9fada95f3682f700f80b1e8bb39c59a45f3507f35f",
+        "var_selection_bootstrap_simulation_results.json": "ea93e0aebec28b3b17f50dacc0a8a6578f556f53ee9dfe468e8c02ab8bb44704"
+      }
+    },
+    {
+      "release": "v1.87",
+      "question": "How does BIC recover the true lag in finite samples?",
+      "finding": "recovery of lag 2 is governed by lag-2 information relative to the BIC penalty; underselection concentrated where psi(T) < 1",
+      "disposition": "descriptive",
+      "production_impact": "none",
+      "artifacts": {
+        "var_lag_characterization_adequacy_decomposition.json": "ade91683ea4e99ceaf5d5ddccb0b3eedc5491c9658e585122ae3d25166310088",
+        "var_lag_characterization_lag_selection_results.json": "0f8ca85922a83c92dd720b5d9179b3fde1cc68d269d4e13cf92f032d7725da06",
+        "var_lag_characterization_mc_uncertainty_summary.json": "f35dbe41018d6685d125a56abfe745133a0bbea2ab11ccca671f167d21822b3c",
+        "var_lag_characterization_preregistration.json": "956f4114416cd88a221adc991b079df127c8b9dea6e88f1027d050f458dc3a7a",
+        "var_lag_characterization_reference_validation.json": "99f8244e100d8748babc06c8e0df7b2ad542508a3c632f32d7e7ee378bd425a2",
+        "var_lag_characterization_research_conclusion.json": "565ee1f5c54edbc074186212af6ffd6ab683ccb1be5757fdc821998961bdda6e",
+        "var_lag_characterization_signal_strength_decomposition.json": "71eb1d064352371186a04cbb33521e489a32b40d3e93b280737a2d3a2c3cee09",
+        "var_lag_characterization_simulation_design.json": "7df5b8b4f931e191489c5a7c8f1c84d873102bc0df03b0b84044e1053f98513a"
+      }
+    },
+    {
+      "release": "v1.88",
+      "question": "How much lag-2 evidence do the five formal country VARs have, and what does the bootstrap say?",
+      "finding": "four units select lag 2 in the intermediate region and narrowly reject the asymptotic test; the bootstrap rejects none",
+      "disposition": "research_evidence_only",
+      "production_impact": "none",
+      "artifacts": {
+        "var_country_lag_identifiability_design.json": "5d2890111f28a19252ffc1c562398bae449cff3c8ab863cd1faf03317570a360",
+        "var_country_lag_identifiability_metric_definition.json": "59f4af84123c2b85b8255f342c16f0c0906b9dfb7e3c2778cd9145141d4ad230",
+        "var_country_lag_identifiability_phase_a_authorization.json": "9748e066cce86c58939a2b34aa8c6ac849ee8dd53d3de73509de5a4c3e258b0e",
+        "var_country_lag_identifiability_preregistration.json": "b0ecb06288210546cdebff23e05281703ab04b2df3eb873ca63f296ae5715f8f",
+        "var_country_lag_identifiability_results.json": "b7d876ca7d2ada83a493d6390dcb685c11516b0a8a2268045e29e5b85adf7d70",
+        "var_phase_b_authorization.json": "ade42d8ba588cedce28f32d253a7eb8db01e63cdd4cb9f7b53c09c5f16fe045c",
+        "var_phase_b_bootstrap_protocol.json": "d504c9e0478b6ccfd74b99e9a73b3a84d712a25e72e659e8343aee72605dbf57",
+        "var_phase_b_bootstrap_results.json": "489f85dc0be9d90539c88a6bbc5ffa5432b5ac575e0df88ddbea657ab10187a8"
+      }
+    },
+    {
+      "release": "v1.89",
+      "question": "Is the bootstrap calibrated with useful power in the country-matched region?",
+      "finding": "materially conservative (0.7-4.1% at psi 0.75-1.25) with weak power (outcome C)",
+      "disposition": "country_matched_calibration_does_not_support_production_adoption",
+      "production_impact": "none",
+      "artifacts": {
+        "var_country_matched_bootstrap_calibration_summary.json": "ac9f2b7bab03dfbbafb07cac543b6a030ee2c2f69efd4be99a8af8ffd9cf80a1",
+        "var_country_matched_bootstrap_null_results.json": "c3a7d724947e95f88485cdd5d4810d05e568090e56b576b6036818b8193037c9",
+        "var_country_matched_bootstrap_power_results.json": "c55862111b7eb357841762f63a1ea5fbc9d647c9fa778b0f7c716e5e4d263373",
+        "var_country_matched_bootstrap_preregistration.json": "ac42c4e568f39e582d8720967bb45a1bf88af93ba70f5e52f54c9fef23a5863a",
+        "var_country_matched_bootstrap_reference_validation.json": "d9f905a546d66e42274b3038993a08955c332b0010454b98b8d74c8a86ee034f",
+        "var_country_matched_bootstrap_research_conclusion.json": "12b93d3d5144f2aa1ca3cd44713ce591870335051d9d88eb48196744bb15c1a7",
+        "var_country_matched_bootstrap_seed_registry.json": "451f5362bac00a20cbfe44764f893ac886cc222c6d92978ee0e332a6026362fd",
+        "var_country_matched_bootstrap_simulation_design.json": "f7e0bca8926c06d08e8baba50c6e9eff0c2025f29dd24007e346de4b6412cc0a"
+      }
+    },
+    {
+      "release": "v1.90",
+      "question": "What residual dependence remains in the five formal VARs and could it indicate misspecification?",
+      "finding": "weak, diffuse dependence; 2020-2021 concentration; modest HICP seasonal dynamics; no probe removes it; no justified extension identified",
+      "disposition": "descriptive_attribution",
+      "production_impact": "none",
+      "artifacts": {
+        "var_residual_attribution_authorization.json": "19c32b78a9ec831e57727aeab1fd33cef510d9884bf88a032275ee8048fdde84",
+        "var_residual_attribution_design.json": "13b5adcdf7fe9d81df78851aeb186533d4e78720ddac551035fd3c546d981e9b",
+        "var_residual_attribution_preregistration.json": "865a568f8e517b619eeee978f31edc6c0a637d493a169facc3b357714d25725f",
+        "var_residual_attribution_research_conclusion.json": "8ada3eb4c4c796af91cb529300772f778bcb57ce68573083d8dfb9f586b8ba5b",
+        "var_residual_acf_results.json": "5693449766c9f8d02749359e993b423b2bcfb0cfd4145a251a653924a9f2c3ff",
+        "var_residual_cross_lag_results.json": "b5daaf4c07bffe09271462bb0c945ae12285f2310c8fda7b0bb76af6465a90f9",
+        "var_portmanteau_attribution.json": "12fa1d6425e8d5d32a673259291def3f696c8b4174a86c795be25ab6a6e4cc76",
+        "var_residual_seasonal_results.json": "381c9bb4839542ef40891061e3a3ec9aedd8336fb8abac4555941470170f062e",
+        "var_residual_variance_stability.json": "4750b8b9bf7fc21a0fe1ed2c283eb585fb004552f1120b7d444f712f7be8d76c",
+        "var_residual_period_concentration.json": "f86db83203cb63951c06b0dbed2d30c6c8c5a001c5285ca29fc1e029113f68ff",
+        "var_residual_specification_probe_results.json": "3ad0f1b89f63ef515e693eaf7350878ad4102fdd2b325b07fcaaca7d0fad1610"
+      }
+    }
+  ],
+  "why_no_gate_is_eligible": {
+    "asymptotic_portmanteau": "not finite-sample calibrated under the platform procedure (v1.85, v1.89)",
+    "investigated_bootstrap": "conservative with weak power where the countries are (v1.89); v1.88 non-rejections are weak evidence",
+    "bg_and_es": "not eligible (v1.85)"
+  },
+  "evidence_not_collapsed": "the record keeps the conflicting signals side by side (asymptotic rejections vs bootstrap non-rejections vs weak diffuse attribution) and does not convert them into a pass/fail verdict",
+  "program_state": "frozen",
+  "reopening_requires": [
+    "genuinely new methodological evidence or a separately preregistered research question",
+    "owner approval"
+  ],
+  "production_changed": false,
+  "production_change_authorized": false,
+  "artifact_count": 59
+}

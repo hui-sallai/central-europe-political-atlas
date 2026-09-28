@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.91 VAR Dynamic-Response Publication-Gate Consolidation — 2026-09-29
+
+- Governance release: consolidates the reduced-form VAR dynamic-response publication boundary. Coefficient estimation stays available; the residual publication gate is `unresolved_no_validated_finite_sample_diagnostic`; formal dynamic responses, IRF uncertainty and structural identification remain unavailable.
+- Adds `var_dynamic_response_publication_boundary.json`, which separates each country's observed historical diagnostic from gate validity, records that no model is conclusively misspecified, and lists independent blockers (borderline ADF stationarity for Romania, Czechia and Hungary).
+- Adds `var_diagnostic_research_program_closure.json`, a hash-locked record of the v1.85–v1.90 chain (59 artifacts), and freezes the program unless new evidence or a separately preregistered question justifies reopening.
+- Updates Workbench and Methodology wording; adds `pnpm var:publication-boundary-validate` and `pnpm var:research-program-closure-validate`. No simulation, estimation, diagnostic, BIC, readiness or capability change.
+
 ## v1.90 VAR Residual Dependence Attribution Research — 2026-09-29
 
 - Preregisters (before any attribution output) and runs, with owner approval, a residual-dependence attribution for the five formal estimable country VARs at their production lags: equation ACF/PACF (lags 1–24), Ljung–Box, cross-lag correlations, an exact ordering-invariant decomposition of the production h=12 Portmanteau, seasonal mean versus seasonal dynamic dependence, variance stability, fixed-period concentration (pre-2020, 2020–2021, 2022+) and three diagnostic-only probes.

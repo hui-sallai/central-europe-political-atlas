@@ -1,15 +1,15 @@
 {
-  "schema_version": "release-metadata-v1.90",
-  "platform_version": "v1.90 VAR Residual Dependence Attribution Research",
+  "schema_version": "release-metadata-v1.91",
+  "platform_version": "v1.91 VAR Dynamic-Response Publication-Gate Consolidation",
   "release_date": "2026-09-29",
   "source_commit": "local-working-tree",
   "build_context": "local",
   "workflow_run_id": null,
-  "generated_at": "2026-09-28T19:32:52.779Z",
+  "generated_at": "2026-09-28T19:43:25.469Z",
   "research_package": {
-    "filename": "research-data-v1.90.zip",
-    "sha256": "51a1845af7310757d525b98d6eec093733afa1da147b157e69d6a5f4b4a91968",
-    "generated_at": "2026-09-28T19:32:54.706Z",
+    "filename": "research-data-v1.91.zip",
+    "sha256": "5c0921011e2f2309d8eb342c5dca3d3279e1c3e0dfcc8ab87ae076f3d9c7f92a",
+    "generated_at": "2026-09-28T19:43:27.305Z",
     "status": "built"
   },
   "data_export_version": "research-data-v0.1",
@@ -90,7 +90,7 @@
     "trade_network": "trade-network-v1.25-active",
     "event_window": "event-window-v1.31",
     "high_frequency": "high-frequency-v1.31",
-    "analysis_skill_registry": "analysis-skill-registry-v1.90",
+    "analysis_skill_registry": "analysis-skill-registry-v1.91",
     "high_frequency_definition_registry": "high-frequency-definition-registry-v1.83",
     "historical_extension_research_conclusion": "historical-extension-research-conclusion-v1.83",
     "panel_lp_path_inference_registry": "panel-lp-path-inference-registry-v1.82",
@@ -144,6 +144,8 @@
     "var_residual_attribution_preregistration": "var-residual-attribution-preregistration-v1.90",
     "var_portmanteau_attribution": "var-portmanteau-attribution-v1.90",
     "var_residual_attribution_conclusion": "var-residual-attribution-research-conclusion-v1.90",
+    "var_dynamic_response_publication_boundary": "var-dynamic-response-publication-boundary-v1.91",
+    "var_diagnostic_research_program_closure": "var-diagnostic-research-program-closure-v1.91",
     "macro_drivers": "macro-driver-observations-v1.51",
     "shock_identification": "shock-identification-registry-v1.62",
     "identified_shocks": "monetary-policy-event-observations-v1.6",
@@ -169,7 +171,7 @@
     "note": "Historical v0.91 golden cases remain the core research regression suite."
   },
   "advanced_analysis_validation": {
-    "stage": "v1.90 advanced analysis validation",
+    "stage": "v1.91 advanced analysis validation",
     "legacy_summary_reference": "advanced_analysis_validation_summary.json",
     "validation_index": "analysis_validation_index.json",
     "status": "passed",
@@ -222,7 +224,7 @@
     "validation_index": "analysis_validation_index.json"
   },
   "release_validation": {
-    "stage": "v1.90 release validation",
+    "stage": "v1.91 release validation",
     "status": "required_after_static_build",
     "gates": [
       "security_scan",
@@ -244,8 +246,8 @@
       "panel-lp:ui-validate",
       "panel-lp:robustness-validate"
     ],
-    "package_checksum": "51a1845af7310757d525b98d6eec093733afa1da147b157e69d6a5f4b4a91968",
-    "package_filename": "research-data-v1.90.zip"
+    "package_checksum": "5c0921011e2f2309d8eb342c5dca3d3279e1c3e0dfcc8ab87ae076f3d9c7f92a",
+    "package_filename": "research-data-v1.91.zip"
   },
   "legacy_validation_summary_v091": {
     "stage": "v0.91 Model & Scenario Validation",
@@ -286,6 +288,7 @@
     "Fixed-eight-country Panel LP publishes pointwise inference only; whole-path simultaneous inference was studied and remains blocked after the current program did not confirm 95% joint coverage.",
     "The fixed-eight-country four-outcome historical extension is closed and blocked under current official definition evidence; the 2015 baseline is retained.",
     "Reduced-form VAR coefficient estimation is active, but the current formal baselines have zero dynamic-response-ready countries; no formal orthogonalized IRF is currently publishable.",
+    "The VAR dynamic-response residual publication gate is unresolved (no validated finite-sample diagnostic after v1.85-v1.90); historical asymptotic Portmanteau results are retained as evidence, not as proof of misspecification, and the research program is frozen.",
     "The v1.85 residual-diagnostic calibration research is closed with no eligible replacement: the h=12 adjusted Portmanteau gate is retained, the current lag-selection + residual-diagnostic procedure failed the preregistered joint gate (Layer-B rejection rates are procedure rates, not pure diagnostic size), and Edgerton–Shukur is not an authorized gate.",
     "The v1.86 selection-aware bootstrap calibration passed a preregistered synthetic gate only; it is research-only, has not been evaluated on real-country data, and does not change the production diagnostic or IRF availability.",
     "The v1.88 country lag-identifiability audit and Phase-B bootstrap results are research evidence for the five formal estimable country models; they do not change readiness, the production diagnostic or IRF availability.",

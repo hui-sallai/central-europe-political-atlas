@@ -1,0 +1,240 @@
+{
+  "schema_version": "var-dynamic-response-publication-boundary-v1.91",
+  "generated_at": "2026-09-29",
+  "role": "current publication-boundary registry; supplements (does not relabel) var_capability_status.json, which keeps its historical v1.88 schema",
+  "estimator_available": true,
+  "coefficient_estimation_available": true,
+  "country_estimability": "five formal country/profile units estimable (unchanged)",
+  "bic_lag_selection": "production_bic_unchanged",
+  "historical_diagnostic_results": "retained_unchanged",
+  "production_residual_diagnostic": "adjusted_portmanteau_h12_asymptotic",
+  "production_residual_diagnostic_role": "historical observed diagnostic; not a validated finite-sample publication decision rule",
+  "residual_publication_gate_status": "unresolved_no_validated_finite_sample_diagnostic",
+  "validated_residual_publication_gate_available": false,
+  "investigated_candidates": {
+    "adjusted_portmanteau_asymptotic": "failed preregistered finite-sample joint calibration (v1.85); over-rejects ~21% with month dummies at the correct lag (v1.89)",
+    "bg_lm": "not eligible (v1.85)",
+    "edgerton_shukur_f": "not eligible (v1.85)",
+    "selection_aware_recursive_iid_bootstrap": "passed an earlier synthetic gate (v1.86) but materially conservative with weak power in the country-matched region (v1.89); research only"
+  },
+  "misspecification_interpretation": "historical asymptotic rejections are not conclusive evidence of misspecification: the asymptotic test is miscalibrated (v1.85/v1.89), the bootstrap did not reject (v1.88) but is conservative (v1.89), and attribution found weak diffuse dependence with no probe-removable misspecification (v1.90)",
+  "formal_dynamic_response_publication_available": false,
+  "formal_dynamic_response_ready_country_count": 0,
+  "formal_irf_publication_available": false,
+  "structural_identification_available": false,
+  "irf_uncertainty_publication_available": false,
+  "svar_available": false,
+  "bvar_available": false,
+  "production_changed": false,
+  "bic_changed": false,
+  "production_change_authorized": false,
+  "new_capabilities_activated": false,
+  "units": [
+    {
+      "unit_id": "baseline_monthly_macro_v1::poland",
+      "country": "poland",
+      "profile_id": "baseline_monthly_macro_v1",
+      "estimable": true,
+      "production_selected_lag": 2,
+      "existing_readiness_state": "residual_diagnostics_failed",
+      "existing_blocking_reasons_zh": [
+        "主残差 Portmanteau 诊断 h=12 未通过；动态响应暂不可用"
+      ],
+      "stationarity_status": "stationary",
+      "diagnostic_observed_result": {
+        "diagnostic": "asymptotic adjusted Portmanteau h=12 (production)",
+        "p_value": 0.021435024050539764,
+        "observed_at_0_05": "rejects",
+        "source": "var_country_lag_identifiability_results.json (v1.88, reproduces production readiness residual_status)",
+        "existing_readiness_residual_status": "failed"
+      },
+      "diagnostic_publication_gate_validity": "not_validated_finite_sample",
+      "research_bootstrap_observation": {
+        "p_value": 0.0715,
+        "status": "research_only_not_eligible_as_gate (v1.89 conservative, weak power)"
+      },
+      "residual_attribution_labels_v190": [
+        "cross_equation_lag_dependence",
+        "break_outlier_concentrated"
+      ],
+      "conclusively_misspecified": false,
+      "other_publication_blockers": [],
+      "blockers_independent_of_residual_gate": false,
+      "dynamic_response_publication_eligible": false,
+      "reason_codes": [
+        "residual_publication_gate_unresolved"
+      ]
+    },
+    {
+      "unit_id": "baseline_monthly_macro_v1::romania",
+      "country": "romania",
+      "profile_id": "baseline_monthly_macro_v1",
+      "estimable": true,
+      "production_selected_lag": 1,
+      "existing_readiness_state": "estimable_with_warning",
+      "existing_blocking_reasons_zh": [
+        "至少一个变量的 ADF 结果为 borderline；可估计但不开放动态响应"
+      ],
+      "stationarity_status": "borderline",
+      "diagnostic_observed_result": {
+        "diagnostic": "asymptotic adjusted Portmanteau h=12 (production)",
+        "p_value": 0.2711237291735522,
+        "observed_at_0_05": "does_not_reject",
+        "source": "var_country_lag_identifiability_results.json (v1.88, reproduces production readiness residual_status)",
+        "existing_readiness_residual_status": "passed"
+      },
+      "diagnostic_publication_gate_validity": "not_validated_finite_sample",
+      "research_bootstrap_observation": {
+        "p_value": 0.296,
+        "status": "research_only_not_eligible_as_gate (v1.89 conservative, weak power)"
+      },
+      "residual_attribution_labels_v190": [
+        "little_residual_dependence",
+        "cross_equation_lag_dependence",
+        "break_outlier_concentrated"
+      ],
+      "conclusively_misspecified": false,
+      "other_publication_blockers": [
+        "borderline_adf_stationarity"
+      ],
+      "blockers_independent_of_residual_gate": true,
+      "dynamic_response_publication_eligible": false,
+      "reason_codes": [
+        "residual_publication_gate_unresolved",
+        "borderline_adf_stationarity"
+      ]
+    },
+    {
+      "unit_id": "baseline_monthly_macro_v2_seasonal_controls::czechia",
+      "country": "czechia",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "estimable": true,
+      "production_selected_lag": 2,
+      "existing_readiness_state": "estimable_with_warning",
+      "existing_blocking_reasons_zh": [
+        "至少一个变量的 ADF 结果为 borderline；可估计但不开放动态响应"
+      ],
+      "stationarity_status": "borderline",
+      "diagnostic_observed_result": {
+        "diagnostic": "asymptotic adjusted Portmanteau h=12 (production)",
+        "p_value": 0.03154374673832039,
+        "observed_at_0_05": "rejects",
+        "source": "var_country_lag_identifiability_results.json (v1.88, reproduces production readiness residual_status)",
+        "existing_readiness_residual_status": "failed"
+      },
+      "diagnostic_publication_gate_validity": "not_validated_finite_sample",
+      "research_bootstrap_observation": {
+        "p_value": 0.3535,
+        "status": "research_only_not_eligible_as_gate (v1.89 conservative, weak power)"
+      },
+      "residual_attribution_labels_v190": [
+        "seasonal_dynamic_dependence",
+        "break_outlier_concentrated"
+      ],
+      "conclusively_misspecified": false,
+      "other_publication_blockers": [
+        "borderline_adf_stationarity"
+      ],
+      "blockers_independent_of_residual_gate": true,
+      "dynamic_response_publication_eligible": false,
+      "reason_codes": [
+        "residual_publication_gate_unresolved",
+        "borderline_adf_stationarity"
+      ]
+    },
+    {
+      "unit_id": "baseline_monthly_macro_v2_seasonal_controls::germany",
+      "country": "germany",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "estimable": true,
+      "production_selected_lag": 2,
+      "existing_readiness_state": "residual_diagnostics_failed",
+      "existing_blocking_reasons_zh": [
+        "主残差 Portmanteau 诊断 h=12 未通过；动态响应暂不可用"
+      ],
+      "stationarity_status": "stationary",
+      "diagnostic_observed_result": {
+        "diagnostic": "asymptotic adjusted Portmanteau h=12 (production)",
+        "p_value": 0.025594065606767358,
+        "observed_at_0_05": "rejects",
+        "source": "var_country_lag_identifiability_results.json (v1.88, reproduces production readiness residual_status)",
+        "existing_readiness_residual_status": "failed"
+      },
+      "diagnostic_publication_gate_validity": "not_validated_finite_sample",
+      "research_bootstrap_observation": {
+        "p_value": 0.2995,
+        "status": "research_only_not_eligible_as_gate (v1.89 conservative, weak power)"
+      },
+      "residual_attribution_labels_v190": [
+        "cross_equation_lag_dependence",
+        "break_outlier_concentrated"
+      ],
+      "conclusively_misspecified": false,
+      "other_publication_blockers": [],
+      "blockers_independent_of_residual_gate": false,
+      "dynamic_response_publication_eligible": false,
+      "reason_codes": [
+        "residual_publication_gate_unresolved"
+      ]
+    },
+    {
+      "unit_id": "baseline_monthly_macro_v2_seasonal_controls::hungary",
+      "country": "hungary",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "estimable": true,
+      "production_selected_lag": 2,
+      "existing_readiness_state": "estimable_with_warning",
+      "existing_blocking_reasons_zh": [
+        "至少一个变量的 ADF 结果为 borderline；可估计但不开放动态响应"
+      ],
+      "stationarity_status": "borderline",
+      "diagnostic_observed_result": {
+        "diagnostic": "asymptotic adjusted Portmanteau h=12 (production)",
+        "p_value": 0.04983323425256225,
+        "observed_at_0_05": "rejects",
+        "source": "var_country_lag_identifiability_results.json (v1.88, reproduces production readiness residual_status)",
+        "existing_readiness_residual_status": "failed"
+      },
+      "diagnostic_publication_gate_validity": "not_validated_finite_sample",
+      "research_bootstrap_observation": {
+        "p_value": 0.3905,
+        "status": "research_only_not_eligible_as_gate (v1.89 conservative, weak power)"
+      },
+      "residual_attribution_labels_v190": [
+        "cross_equation_lag_dependence",
+        "break_outlier_concentrated"
+      ],
+      "conclusively_misspecified": false,
+      "other_publication_blockers": [
+        "borderline_adf_stationarity"
+      ],
+      "blockers_independent_of_residual_gate": true,
+      "dynamic_response_publication_eligible": false,
+      "reason_codes": [
+        "residual_publication_gate_unresolved",
+        "borderline_adf_stationarity"
+      ]
+    }
+  ],
+  "program_status": {
+    "state": "frozen_after_v1_91",
+    "reopening_requires": [
+      "genuinely new methodological evidence or a separately preregistered research question",
+      "owner approval"
+    ],
+    "registered_future_directions_not_authorized": [
+      "pandemic-period variance/outlier handling",
+      "HICP seasonal dynamics"
+    ]
+  },
+  "references": {
+    "var_capability_status.json": "2a7f762a7535ef13040fb0ece34218587a9341432a1cf673425dfb66bc2375d0",
+    "var_country_readiness.json": "4b8173f8202c72359758b0bf4b05ef08a6c089f2ab47f79b7be359468c97e6b1",
+    "var_baseline_v1_readiness.json": "f210b02ec3042c5cf95f975bccbd94f7fead0f403314d59a1e760a2046c5912e",
+    "var_baseline_v2_readiness.json": "b7fd4bec330ebd4db588ed63bce4de988773556b8cdc572c27f640239a2a1675",
+    "var_country_lag_identifiability_results.json": "b7d876ca7d2ada83a493d6390dcb685c11516b0a8a2268045e29e5b85adf7d70",
+    "var_phase_b_bootstrap_results.json": "489f85dc0be9d90539c88a6bbc5ffa5432b5ac575e0df88ddbea657ab10187a8",
+    "var_country_matched_bootstrap_research_conclusion.json": "12b93d3d5144f2aa1ca3cd44713ce591870335051d9d88eb48196744bb15c1a7",
+    "var_residual_attribution_research_conclusion.json": "8ada3eb4c4c796af91cb529300772f778bcb57ce68573083d8dfb9f586b8ba5b"
+  }
+}

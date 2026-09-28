@@ -17,6 +17,7 @@ Current release: **v1.61 Information-Effect Separation & Monetary Shock Calibrat
 - `validation_registry` and `golden_test_cases`: executable validation evidence.
 - `network_ui_pack`, `network_metrics` and `network_coverage`: activated bilateral goods trade network (UN Comtrade 2015–2025), descriptive concentration metrics and per-group coverage gates.
 - `var_country_readiness`: public baseline and exploratory readiness summary; `estimable` is distinct from `dynamic_response_ready`.
+- `var-publication-boundary/`: v1.91 dynamic-response publication-boundary registry and the hash-locked v1.85–v1.90 research-program closure record.
 - `var-residual-attribution/`: v1.90 residual-dependence attribution (preregistration, design, authorization, ACF, cross-lag, Portmanteau attribution, seasonal, variance, period and diagnostic-only probe results, research conclusion). Descriptive only.
 - `var-country-matched-bootstrap/`: v1.89 country-matched bootstrap calibration (preregistration, design, seed registry, reference validation, null and power results, calibration summary, research conclusion). Outcome C; does not support production adoption.
 - `var-country-identifiability/`: v1.88 country lag-identifiability preregistration, design, metric definitions, Phase-B protocol, authorizations, Phase A audit results and Phase B bootstrap results. Research evidence only; not production readiness.

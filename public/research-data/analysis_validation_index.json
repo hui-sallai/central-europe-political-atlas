@@ -1,6 +1,6 @@
 {
-  "schema_version": "analysis-validation-index-v1.90",
-  "platform_version": "v1.90",
+  "schema_version": "analysis-validation-index-v1.91",
+  "platform_version": "v1.91",
   "interpretation": "Additive current-release index; legacy validation artifacts retain their original versions and are not relabelled as panel tests.",
   "records": [
     {
@@ -52,6 +52,21 @@
       "replacement": "none_eligible",
       "publication_boundary": "enforced",
       "formal_irf_publication_available": false
+    },
+    {
+      "id": "var_publication_boundary",
+      "title": "VAR dynamic-response publication boundary (v1.91)",
+      "artifact": "var-publication-boundary/var_dynamic_response_publication_boundary.json",
+      "gate": "var:publication-boundary-validate",
+      "artifact_role": "governance_boundary_not_a_diagnostic",
+      "residual_publication_gate_status": "unresolved_no_validated_finite_sample_diagnostic"
+    },
+    {
+      "id": "var_diagnostic_research_program_closure",
+      "title": "VAR diagnostic research program closure (v1.85-v1.90)",
+      "artifact": "var-publication-boundary/var_diagnostic_research_program_closure.json",
+      "gate": "var:research-program-closure-validate",
+      "artifact_role": "hash_locked_research_chain"
     },
     {
       "id": "var_residual_attribution",

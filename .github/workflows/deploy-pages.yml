@@ -63,6 +63,8 @@ jobs:
           pnpm var:residual-attribution-preregister-validate
           pnpm var:residual-attribution-validate
           pnpm var:residual-attribution-closure-validate
+          pnpm var:publication-boundary-validate
+          pnpm var:research-program-closure-validate
 
       - name: Validate frozen Local Projections
         run: pnpm lp:validate

@@ -4,6 +4,7 @@ import { runtimeAnalysisSkills } from "@/lib/analysisSkills";
 import { AnalysisSkillCard } from "@/components/AnalysisSkillCard";
 import { CitationActions } from "@/components/CitationActions";
 import { platformStatus } from "@/lib/platformStatus";
+import publicationBoundary from "@/data/macro/var_dynamic_response_publication_boundary.json";
 import residualAttribution from "@/data/macro/var_portmanteau_attribution.json";
 import residualPeriods from "@/data/macro/var_residual_period_concentration.json";
 import residualProbes from "@/data/macro/var_residual_specification_probe_results.json";
@@ -36,7 +37,7 @@ const lagRange = (design: keyof typeof lagRecovery) => `${pct(lagRecovery[design
 const bootstrapIid = selectionBootstrapSummary.families.recursive_iid_residual;
 const bootstrapWild = selectionBootstrapSummary.families.recursive_wild_rademacher;
 
-const sections = [["data", "Data"], ["baseline-data-definitions", "Baseline definitions"], ["panel-lp-whole-path-inference", "Panel LP whole-path boundary"], ["models", "Analysis"], ["var-residual-diagnostic-calibration", "VAR residual diagnostics"], ["var-selection-aware-bootstrap", "VAR bootstrap research"], ["var-lag-selection-characterization", "VAR lag-selection research"], ["var-country-identifiability", "VAR country audit"], ["var-country-matched-bootstrap", "VAR bootstrap calibration"], ["var-residual-attribution", "VAR residual attribution"], ["events", "Events"], ["macro-drivers", "Macro Drivers"], ["spatial", "Spatial"], ["validation", "Validation"], ["citation", "Citation"]] as const;
+const sections = [["data", "Data"], ["baseline-data-definitions", "Baseline definitions"], ["panel-lp-whole-path-inference", "Panel LP whole-path boundary"], ["models", "Analysis"], ["var-residual-diagnostic-calibration", "VAR residual diagnostics"], ["var-selection-aware-bootstrap", "VAR bootstrap research"], ["var-lag-selection-characterization", "VAR lag-selection research"], ["var-country-identifiability", "VAR country audit"], ["var-country-matched-bootstrap", "VAR bootstrap calibration"], ["var-residual-attribution", "VAR residual attribution"], ["var-publication-boundary", "VAR publication boundary"], ["events", "Events"], ["macro-drivers", "Macro Drivers"], ["spatial", "Spatial"], ["validation", "Validation"], ["citation", "Citation"]] as const;
 
 function Section({ id, label, title, children }: { id: string; label: string; title: string; children: React.ReactNode }) {
   return <section id={id} className="scroll-mt-24 border-t border-[var(--line)] py-10"><p className="editorial-kicker">{label}</p><h2 className="mt-3 text-3xl font-semibold">{title}</h2>{children}</section>;
@@ -127,6 +128,11 @@ export default function MethodologyPage() {
       <p className="mt-4 max-w-4xl text-sm leading-7"><strong>研究结果，只作描述。</strong>v1.90 事前注册并经负责人批准，对五个正式可估计国家 VAR 在生产滞后下的残差相依结构做了归因：逐方程自相关、跨方程滞后相关，以及对生产 h=12 Portmanteau 统计量的精确分解（与变量排序无关），还包括季节性、方差稳定性，以及按预设时段（2020 年前、2020–2021、2022 年后）的集中度。</p>
       <p className="mt-3 max-w-4xl text-sm leading-7">剩余相依较弱且分散：统计量分布在多个滞后上（前三个滞后合计只占 {pct(Math.min(...attributionTop3), 0)}–{pct(Math.max(...attributionTop3), 0)}），经多重检验校正后，没有任何单一方程或跨方程滞后分量显著。2020–2021 年只占约 18% 的观测，却占残差马氏距离总量的 {pct(Math.min(...pandemicMass), 0)}–{pct(Math.max(...pandemicMass), 0)}；HICP 在三个国家有约 0.2 的 12 阶残差自相关。三个仅作诊断用途的对照拟合（多一阶滞后、加入 12 阶滞后项、只用 2020 年前样本）最多只使统计量下降 {pct(maxProbeReduction, 0)}，都不构成新的设定或生产基线。</p>
       <p className="mt-3 max-w-4xl text-sm leading-7">跨方程份额的预注册标签规则低于白噪声基准 0.67，因此已在研究结论中以事后说明标注，标签本身保持不变。本版本不引入新诊断、不改变 BIC、生产残差诊断、国家就绪状态和正式 IRF 不可发布的状态。完整记录见 <a className="text-[var(--accent)] underline" href={`${basePath}/research-data/var-residual-attribution/var_residual_attribution_research_conclusion.json`}>v1.90 研究结论记录</a>。</p>
+    </Section>
+    <Section id="var-publication-boundary" label="VAR / v1.91" title="VAR Dynamic-Response Publication Boundary">
+      <p className="mt-4 max-w-4xl text-sm leading-7">五件事需要分开理解：<strong>估计器可用</strong>（简化式 VAR 与系数估计均已启用）；<strong>国家可估计</strong>（五个正式国家模型可估计）；<strong>是否存在设定错误的证据</strong>；<strong>诊断门是否经过验证</strong>；<strong>正式动态响应是否可发布</strong>。当前状态：残差发布门为“未解决：没有经过有限样本验证的诊断”，正式 dynamic-response-ready 国家为 {publicationBoundary.formal_dynamic_response_ready_country_count}，正式 IRF、IRF 不确定性与结构识别均不可发布。</p>
+      <p className="mt-3 max-w-4xl text-sm leading-7">v1.85–v1.90 的研究表明：现行渐近 Portmanteau 在平台流程下未通过有限样本校准；BG 与 Edgerton–Shukur 不合格；研究过的 selection-aware bootstrap 在国家所处区间明显保守且检验力弱；残差归因只发现较弱、分散的相依。因此，历史上的渐近拒绝保留为诊断证据，但不能据此认定这些国家模型已被证明设定错误；bootstrap 的不拒绝也不能据此认定模型已通过。罗马尼亚、捷克与匈牙利另有 ADF 平稳性 borderline 的独立阻碍。</p>
+      <p className="mt-3 max-w-4xl text-sm leading-7">系数估计器本身没有失败。目前没有获准的替代诊断或模型扩展；这一研究项目在 v1.91 后冻结，只有出现新的方法证据或另行事前注册的研究问题时才会重新开启。机器可读记录见 <a className="text-[var(--accent)] underline" href={`${basePath}/research-data/var-publication-boundary/var_dynamic_response_publication_boundary.json`}>发布边界登记</a> 与 <a className="text-[var(--accent)] underline" href={`${basePath}/research-data/var-publication-boundary/var_diagnostic_research_program_closure.json`}>研究项目结案记录</a>。</p>
     </Section>
     <Section id="events" label="03 / Events" title="事件编码"><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">Source → Event → Coding → Affected Indicator / Project → Research context。date、actor、event_type、direction 和 confidence 用于检索与解释；它们不自动构成因果关系，也不直接改变模型分数。未完整编码、低置信度或结构样例保持 enters_model=false。</p><Link href="/news" className="mt-4 inline-flex text-sm font-semibold text-[var(--accent)]">进入 Event Library</Link></Section>
 
