@@ -60,6 +60,7 @@
     "var:country-matched-bootstrap-summarize": ".venv/bin/python scripts/var-country-matched-bootstrap/summarize.py",
     "var:country-matched-bootstrap-validate": "python3 scripts/var-country-matched-bootstrap/validate.py",
     "var:country-matched-bootstrap-closure-validate": "node scripts/var-country-matched-bootstrap/closure_validate.mjs",
+    "var:residual-attribution-preregister-validate": "python3 scripts/var-residual-attribution/preregister_validate.py",
     "analysis:validate": "node scripts/validation/validate-analysis-registry.mjs && node scripts/validation/validate-ecb-shocks.mjs && node scripts/validation/run-advanced-analysis-validation.mjs",
     "ecb:acquire": "python scripts/acquisition/acquire-ecb-monetary-events.py --refresh",
     "ecb:build": "python scripts/acquisition/acquire-ecb-monetary-events.py",
