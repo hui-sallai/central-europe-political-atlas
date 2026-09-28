@@ -1,4 +1,4 @@
-// v1.91 VAR dynamic-response publication-boundary validator (governance; reads committed artifacts only).
+// v2.0 VAR dynamic-response publication-boundary validator (governance; reads committed artifacts only).
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import fs from "node:fs";
@@ -12,7 +12,7 @@ let checks = 0;
 const check = (condition, message) => { checks += 1; assert.ok(condition, message); };
 
 const b = read("src/data/macro/var_dynamic_response_publication_boundary.json");
-check(b.schema_version === "var-dynamic-response-publication-boundary-v1.91", "boundary schema");
+check(b.schema_version === "var-dynamic-response-publication-boundary-v2.0", "boundary schema");
 check(b.estimator_available === true && b.coefficient_estimation_available === true, "estimation remains available");
 check(b.residual_publication_gate_status === "unresolved_no_validated_finite_sample_diagnostic" && b.validated_residual_publication_gate_available === false, "publication gate must stay unresolved");
 check(b.formal_dynamic_response_ready_country_count === 0 && b.formal_irf_publication_available === false && b.formal_dynamic_response_publication_available === false, "no formal dynamic responses");

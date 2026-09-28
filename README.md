@@ -4,7 +4,7 @@ Central Europe Political Atlas is a public political-economy research platform f
 
 Public site: https://hy-central-europe-analysis.org/
 
-Current release: **v1.91 VAR Dynamic-Response Publication-Gate Consolidation**
+Current release: **v2.0 VAR Dynamic-Response Publication-Gate Consolidation** (renamed from v1.91)
 
 v1.72 preserves the 44 v1.71 baseline models and adds finite-sample Monte Carlo diagnostics, concentration-based shock support, exhaustive eligible shock-month/event deletion audits, and independent full-path covariance checks. Bias correction remains `registry_only`: the official Fed ZIP contains accessible paper assets, not executable replication code. Simulations describe stylized fixed-p designs, not estimated coverage or bias of the real models.
 
@@ -31,7 +31,7 @@ Offline diagnostic regeneration: `pnpm lp:finite-sample` and `pnpm lp:shock-supp
 - v1.88 is a research release: a preregistered country audit measured lag-2 evidence for the five formal estimable country VARs and evaluated the research bootstrap diagnostic on them; the results are research evidence only and do not change readiness or the production diagnostic.
 - v1.89 is a research release: a preregistered country-matched calibration found the research bootstrap diagnostic materially conservative with weak power in the intermediate lag-2 region, so it does not support production adoption; nothing in production changed.
 - v1.90 is a research release attributing the remaining residual dependence in the five formal country VARs: it is weak and diffuse, concentrated in 2020–2021, with modest HICP seasonal dynamics; no production change.
-- v1.91 consolidates the VAR publication boundary: coefficient estimation is available, the residual publication gate is unresolved after the v1.85–v1.90 finite-sample research, formal dynamic responses remain unavailable, and the research program is frozen.
+- v2.0 consolidates the VAR publication boundary: coefficient estimation is available, the residual publication gate is unresolved after the v1.85–v1.90 finite-sample research, formal dynamic responses remain unavailable, and the research program is frozen.
 - 4 conditional scenarios with baseline, shock assumption, adjusted input and result traces.
 - Coded political-economy events and verified China-related project records.
 - Deterministic validation, golden cases and a release QA gate.
@@ -76,7 +76,7 @@ Machine-readable files are published under `/research-data/`. See [the research-
 
 ## Citation
 
-Central Europe Political Atlas, version v1.91 VAR Dynamic-Response Publication-Gate Consolidation, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
+Central Europe Political Atlas, version v2.0 VAR Dynamic-Response Publication-Gate Consolidation, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
 
 ## Official VAR reference environment
 

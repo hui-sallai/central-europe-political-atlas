@@ -163,7 +163,7 @@ if (manifest) {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.91",
+    analysis_skill_registry: "analysis-skill-registry-v2.0",
     high_frequency_definition_registry: "high-frequency-definition-registry-v1.83",
     historical_extension_research_conclusion: "historical-extension-research-conclusion-v1.83",
     panel_lp_path_inference_registry: "panel-lp-path-inference-registry-v1.82",
@@ -209,8 +209,8 @@ if (manifest) {
     var_residual_attribution_preregistration: "var-residual-attribution-preregistration-v1.90",
     var_portmanteau_attribution: "var-portmanteau-attribution-v1.90",
     var_residual_attribution_conclusion: "var-residual-attribution-research-conclusion-v1.90",
-    var_dynamic_response_publication_boundary: "var-dynamic-response-publication-boundary-v1.91",
-    var_diagnostic_research_program_closure: "var-diagnostic-research-program-closure-v1.91",
+    var_dynamic_response_publication_boundary: "var-dynamic-response-publication-boundary-v2.0",
+    var_diagnostic_research_program_closure: "var-diagnostic-research-program-closure-v2.0",
     macro_drivers: "macro-driver-observations-v1.51",
     shock_identification: "shock-identification-registry-v1.62",
     identified_shocks: "monetary-policy-event-observations-v1.6",
@@ -275,7 +275,7 @@ const latestChangelogHeading = changelog.match(/^## (.+)$/m)?.[1] ?? "";
 if (!latestChangelogHeading.startsWith(expectedVersion) || !latestChangelogHeading.includes(releaseConfig.release_date)) failures.push(`CHANGELOG latest release mismatch: ${latestChangelogHeading}`);
 const skillRegistry = JSON.parse(fs.readFileSync(path.join(root, "src", "data", "analysis", "analysis_skill_registry.json"), "utf8"));
 if (JSON.stringify(skillRegistry) !== JSON.stringify(JSON.parse(fs.readFileSync(path.join(out, "research-data", "analysis_skill_registry.json"), "utf8")))) failures.push("public analysis manifest differs from canonical registry");
-if (skillRegistry.schema_version !== "analysis-skill-registry-v1.91") failures.push(`analysis skill registry schema mismatch: ${skillRegistry.schema_version}`);
+if (skillRegistry.schema_version !== "analysis-skill-registry-v2.0") failures.push(`analysis skill registry schema mismatch: ${skillRegistry.schema_version}`);
 if (skillRegistry.generated_at !== releaseConfig.release_date) failures.push(`analysis skill registry generated_at mismatch: ${skillRegistry.generated_at}`);
 const releaseSource = fs.readFileSync(path.join(root, "src", "lib", "releaseMetadata.ts"), "utf8");
 if (!releaseSource.includes('import releaseConfig from "../data/release.json"')) failures.push("release metadata is not reading the canonical JSON source");
@@ -299,9 +299,9 @@ if (!methodology.includes("conditional diagnostic size") || !methodology.include
 if (/未通过 size 校准|显著 size distortion|BIC (is )?invalid|ES passed/i.test(methodology)) failures.push("methodology uses superseded Layer-B size wording");
 for (const name of varBoundaryPublished) {
   const published = path.join(researchOut, "var-publication-boundary", name);
-  if (!fs.existsSync(published) || fs.readFileSync(published, "utf8") !== fs.readFileSync(path.join(root, "src", "data", "macro", name), "utf8")) failures.push(`v1.91 export mismatch: ${name}`);
+  if (!fs.existsSync(published) || fs.readFileSync(published, "utf8") !== fs.readFileSync(path.join(root, "src", "data", "macro", name), "utf8")) failures.push(`v2.0 export mismatch: ${name}`);
 }
-if (!methodology.includes("VAR Dynamic-Response Publication Boundary") || !methodology.includes("系数估计器本身没有失败") || !methodology.includes("不能据此认定这些国家模型已被证明设定错误")) failures.push("v1.91 methodology publication boundary incomplete");
+if (!methodology.includes("VAR Dynamic-Response Publication Boundary") || !methodology.includes("系数估计器本身没有失败") || !methodology.includes("不能据此认定这些国家模型已被证明设定错误")) failures.push("v2.0 methodology publication boundary incomplete");
 if (/(residual|publication) gate passed|country model validated|IRF ready|残差门已通过|模型已验证/i.test(methodology)) failures.push("methodology claims a validated gate or IRF readiness");
 for (const name of varAttributionPublished) {
   const published = path.join(researchOut, "var-residual-attribution", name);

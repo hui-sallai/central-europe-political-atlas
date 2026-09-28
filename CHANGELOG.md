@@ -1,7 +1,8 @@
 # Changelog
 
-## v1.91 VAR Dynamic-Response Publication-Gate Consolidation — 2026-09-29
+## v2.0 VAR Dynamic-Response Publication-Gate Consolidation — 2026-09-29
 
+- Version renamed from v1.91 to v2.0 on 2026-09-29 to mark the first major milestone; the content is identical to the release first published as v1.91 (research package research-data-v1.91.zip).
 - Governance release: consolidates the reduced-form VAR dynamic-response publication boundary. Coefficient estimation stays available; the residual publication gate is `unresolved_no_validated_finite_sample_diagnostic`; formal dynamic responses, IRF uncertainty and structural identification remain unavailable.
 - Adds `var_dynamic_response_publication_boundary.json`, which separates each country's observed historical diagnostic from gate validity, records that no model is conclusively misspecified, and lists independent blockers (borderline ADF stationarity for Romania, Czechia and Hungary).
 - Adds `var_diagnostic_research_program_closure.json`, a hash-locked record of the v1.85–v1.90 chain (59 artifacts), and freezes the program unless new evidence or a separately preregistered question justifies reopening.

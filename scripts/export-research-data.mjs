@@ -2140,7 +2140,7 @@ const panelJson = name => JSON.parse(fs.readFileSync(path.join(panelLpDir, `${na
 const panelValidation = panelJson("panel_lp_validation_summary");
 const currentReleaseVersion = /^v[\d.]+/.exec(platformRelease.version)?.[0];
 const validationIndex = {
-  schema_version: "analysis-validation-index-v1.91",
+  schema_version: "analysis-validation-index-v2.0",
   platform_version: currentReleaseVersion,
   interpretation: "Additive current-release index; legacy validation artifacts retain their original versions and are not relabelled as panel tests.",
   records: [
@@ -2152,7 +2152,7 @@ const validationIndex = {
     { id: "analysis_registry", artifact: "analysis_skill_registry.json", gate: "analysis-registry:validate", artifact_role: "registry_validated_by_gate" },
     { id: "var_readiness", artifact: "var_capability_status.json", gate: "var:readiness-validate", artifact_role: "capability_and_publication_boundary" },
     { id: "var_residual_diagnostic_research_closure", title: "VAR residual diagnostic research closure", artifact: "var-residual-diagnostics/var_residual_diagnostic_research_conclusion.json", gate: "var:residual-closure-validate", artifact_role: "closed_research_conclusion_not_method_pass", research_state: "completed", replacement: "none_eligible", publication_boundary: "enforced", formal_irf_publication_available: false },
-    { id: "var_publication_boundary", title: "VAR dynamic-response publication boundary (v1.91)", artifact: "var-publication-boundary/var_dynamic_response_publication_boundary.json", gate: "var:publication-boundary-validate", artifact_role: "governance_boundary_not_a_diagnostic", residual_publication_gate_status: "unresolved_no_validated_finite_sample_diagnostic" },
+    { id: "var_publication_boundary", title: "VAR dynamic-response publication boundary (v2.0)", artifact: "var-publication-boundary/var_dynamic_response_publication_boundary.json", gate: "var:publication-boundary-validate", artifact_role: "governance_boundary_not_a_diagnostic", residual_publication_gate_status: "unresolved_no_validated_finite_sample_diagnostic" },
     { id: "var_diagnostic_research_program_closure", title: "VAR diagnostic research program closure (v1.85-v1.90)", artifact: "var-publication-boundary/var_diagnostic_research_program_closure.json", gate: "var:research-program-closure-validate", artifact_role: "hash_locked_research_chain" },
     { id: "var_residual_attribution", title: "VAR residual dependence attribution (v1.90)", artifact: "var-residual-attribution/var_residual_attribution_research_conclusion.json", gate: "var:residual-attribution-closure-validate", artifact_role: "descriptive_attribution_not_a_diagnostic", production_change_authorized: false },
     { id: "var_country_matched_bootstrap_calibration", title: "Country-matched bootstrap calibration (v1.89)", artifact: "var-country-matched-bootstrap/var_country_matched_bootstrap_research_conclusion.json", gate: "var:country-matched-bootstrap-closure-validate", artifact_role: "negative_calibration_result_not_production_method", production_change_authorized: false },
@@ -2223,7 +2223,7 @@ writeJson("release_manifest.json", {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.91",
+    analysis_skill_registry: "analysis-skill-registry-v2.0",
     high_frequency_definition_registry: "high-frequency-definition-registry-v1.83",
     historical_extension_research_conclusion: "historical-extension-research-conclusion-v1.83",
     panel_lp_path_inference_registry: panelJson("panel_lp_path_inference_registry").schema_version,
@@ -2245,8 +2245,8 @@ writeJson("release_manifest.json", {
     ...Object.fromEntries(Object.entries({ var_country_identifiability_preregistration: "var_country_lag_identifiability_preregistration", var_country_identifiability_results: "var_country_lag_identifiability_results", var_phase_b_protocol: "var_phase_b_bootstrap_protocol", var_phase_b_results: "var_phase_b_bootstrap_results" }).map(([key, name]) => [key, varCountryJson(name).schema_version])),
     ...Object.fromEntries(Object.entries({ var_country_matched_preregistration: "preregistration", var_country_matched_null: "null_results", var_country_matched_power: "power_results", var_country_matched_summary: "calibration_summary", var_country_matched_conclusion: "research_conclusion" }).map(([key, name]) => [key, varMatchedJson(name).schema_version])),
     ...Object.fromEntries(Object.entries({ var_residual_attribution_preregistration: "var_residual_attribution_preregistration", var_portmanteau_attribution: "var_portmanteau_attribution", var_residual_attribution_conclusion: "var_residual_attribution_research_conclusion" }).map(([key, name]) => [key, varAttributionJson(name).schema_version])),
-    var_dynamic_response_publication_boundary: "var-dynamic-response-publication-boundary-v1.91",
-    var_diagnostic_research_program_closure: "var-diagnostic-research-program-closure-v1.91",
+    var_dynamic_response_publication_boundary: "var-dynamic-response-publication-boundary-v2.0",
+    var_diagnostic_research_program_closure: "var-diagnostic-research-program-closure-v2.0",
     macro_drivers: "macro-driver-observations-v1.51",
     shock_identification: "shock-identification-registry-v1.62",
     identified_shocks: "monetary-policy-event-observations-v1.6",
