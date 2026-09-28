@@ -4,6 +4,7 @@ import { runtimeAnalysisSkills } from "@/lib/analysisSkills";
 import { AnalysisSkillCard } from "@/components/AnalysisSkillCard";
 import { CitationActions } from "@/components/CitationActions";
 import { platformStatus } from "@/lib/platformStatus";
+import selectionBootstrapSummary from "@/data/macro/var_selection_bootstrap_calibration_summary.json";
 import layerBDecomposition from "@/data/macro/var_residual_diagnostic_layerB_selection_decomposition.json";
 import { getResearchPackageFilename, platformApaCitation, platformBibtexCitation, platformCitation } from "@/lib/releaseMetadata";
 
@@ -17,7 +18,10 @@ const layerAEs = layerBDecomposition.layer_A_summary.edgerton_shukur_f;
 const p2Under = layerBByLag["2"].by_deterministic_spec;
 const p1MonthRanges = layerBByLag["1"].by_deterministic_spec.constant_plus_11_month_dummies.h12_rejection_rate_range;
 
-const sections = [["data", "Data"], ["baseline-data-definitions", "Baseline definitions"], ["panel-lp-whole-path-inference", "Panel LP whole-path boundary"], ["models", "Analysis"], ["var-residual-diagnostic-calibration", "VAR residual diagnostics"], ["events", "Events"], ["macro-drivers", "Macro Drivers"], ["spatial", "Spatial"], ["validation", "Validation"], ["citation", "Citation"]] as const;
+const bootstrapIid = selectionBootstrapSummary.families.recursive_iid_residual;
+const bootstrapWild = selectionBootstrapSummary.families.recursive_wild_rademacher;
+
+const sections = [["data", "Data"], ["baseline-data-definitions", "Baseline definitions"], ["panel-lp-whole-path-inference", "Panel LP whole-path boundary"], ["models", "Analysis"], ["var-residual-diagnostic-calibration", "VAR residual diagnostics"], ["var-selection-aware-bootstrap", "VAR bootstrap research"], ["events", "Events"], ["macro-drivers", "Macro Drivers"], ["spatial", "Spatial"], ["validation", "Validation"], ["citation", "Citation"]] as const;
 
 function Section({ id, label, title, children }: { id: string; label: string; title: string; children: React.ReactNode }) {
   return <section id={id} className="scroll-mt-24 border-t border-[var(--line)] py-10"><p className="editorial-kicker">{label}</p><h2 className="mt-3 text-3xl font-semibold">{title}</h2>{children}</section>;
@@ -83,6 +87,12 @@ export default function MethodologyPage() {
       <p className="mt-3 max-w-4xl text-sm leading-7">adjusted Portmanteau 未通过当前预注册的平台级门槛；在固定滞后的 Layer A 中，它的表现也明显不如 ES（Layer A 最大拒绝率 {pct(layerBDecomposition.layer_A_summary.pt_adjusted.maximum_rejection_rate)}）。在真实滞后为 1、BIC 几乎全部选对的 Layer B 单元中，PT 与 BG 的拒绝率在月份虚拟变量设定下仍达 {pct(Math.min(p1MonthRanges.pt_adjusted[0], p1MonthRanges.bg_lm[0]))}–{pct(Math.max(p1MonthRanges.pt_adjusted[1], p1MonthRanges.bg_lm[1]))}，因此这部分超额拒绝不能归因于滞后欠选。</p>
       <p className="mt-3 max-w-4xl text-sm leading-7">处置结论为 no_eligible_replacement：现行 h=12 adjusted Portmanteau 仍保留为既有 production gate，但当前 lag-selection + residual-diagnostic 联合流程未通过预注册的有限样本门（joint procedure gate failure）；预注册选择规则要求 Layer A 与 Layer B 一起通过，这一规则不因事后分解而改变，v1.85 决定仍为 no_eligible_replacement；没有替代诊断获准，Phase B 真实国家比较未获授权，国家就绪状态和生产引擎均未改变。残差诊断结果不否定 VAR 系数估计，它影响的只是动态响应发布门。正式 dynamic-response-ready 国家仍为 0，正式正交化 IRF 不可发布。</p>
       <p className="mt-3 max-w-4xl text-sm leading-7">事前注册、第 001 号笔误修正（只更正一个冻结输入的哈希，研究设计未改）、参照验证（4 个案例，最大数值差异 8.3×10⁻¹²）、种子登记、模拟设计、校准汇总、方法决定和研究结论均公开于 <a className="text-[var(--accent)] underline" href={`${basePath}/research-data/var-residual-diagnostics/var_residual_diagnostic_research_conclusion.json`}>残差诊断研究结论记录</a>。完整的逐单元模拟结果随研究数据包发布，并以 SHA-256 登记。逐单元选滞后分解见 <a className="text-[var(--accent)] underline" href={`${basePath}/research-data/var-residual-diagnostics/var_residual_diagnostic_layerB_selection_decomposition.json`}>Layer B 选滞后分解</a>，解释修正见 <a className="text-[var(--accent)] underline" href={`${basePath}/research-data/var-residual-diagnostics/var_residual_diagnostic_research_conclusion_amendment_001.json`}>研究结论修正 001</a>。未来的“VAR Lag-Selection × Residual-Diagnostic Joint Procedure Research”尚未开始，需要负责人批准和新的事前注册；它应首先研究滞后阶数恢复、欠选、过选、残差白噪声充分性与参数成本之间的关系，而不是寻找能让真实国家通过的新滞后规则。</p>
+    </Section>
+    <Section id="var-selection-aware-bootstrap" label="VAR / v1.86 research" title="Selection-Aware Bootstrap Calibration Research">
+      <p className="mt-4 max-w-4xl text-sm leading-7"><strong>研究状态，不是生产方法。</strong>v1.86 事前注册并运行了一项合成数据研究：用 bootstrap 为现行 h=12 adjusted Portmanteau 构造参照分布，并在每个 bootstrap 样本内重新执行平台的 BIC 滞后选择（selection-aware bootstrap）。沿用 v1.85 的 36 个 DGP 单元，共 252,000 次 Monte Carlo 重复，每次 199 个 bootstrap 样本；研究两种预注册方案（递归残差重抽样、递归 wild bootstrap）。</p>
+      <p className="mt-3 max-w-4xl text-sm leading-7">负责人事先选定的检验目标是“被选模型是否充分”（selected-model adequacy）：固定真实滞后时的拒绝率，以及 BIC 选出的滞后不低于真实滞后时的拒绝率。两种方案都通过了预注册门：固定真实滞后 {bootstrapIid.gate_A_fixed_true_lag.cells_inside_strict_interval}/{bootstrapIid.gate_A_fixed_true_lag.cell_count} 个单元落在 3.5%–6.5%（残差重抽样 {pct(bootstrapIid.gate_A_fixed_true_lag.minimum_rate)}–{pct(bootstrapIid.gate_A_fixed_true_lag.maximum_rate)}，wild {pct(bootstrapWild.gate_A_fixed_true_lag.minimum_rate)}–{pct(bootstrapWild.gate_A_fixed_true_lag.maximum_rate)}）；被选模型充分的条件拒绝率 {bootstrapIid.gate_C_adequacy_conditional.cells_inside_strict_interval}/{bootstrapIid.gate_C_adequacy_conditional.support_cell_count} 个支持单元落在区间内。按预注册的平局规则选定残差重抽样方案。</p>
+      <p className="mt-3 max-w-4xl text-sm leading-7">整个流程的拒绝率（selection-aware procedure rejection rate）为 {pct(bootstrapIid.full_procedure_D_report_only.minimum_rate)}–{pct(bootstrapIid.full_procedure_D_report_only.maximum_rate)}，只作报告，不称为检验 size：高值出现在真实滞后为 2、BIC 几乎总是选成 1 阶的设计中，被选模型确实欠拟合，拒绝反映的是模型不充分。限制：由于 BIC 在该设计下几乎不选 2 阶，真实 VAR(2) 过程下 selection-aware 的 size 仍未经检验。</p>
+      <p className="mt-3 max-w-4xl text-sm leading-7">这项结果只来自合成数据。尚未对真实国家数据做评估（Phase B 未运行，需负责人批准）；生产残差诊断、BIC 滞后选择、国家就绪状态均未改变，正式 dynamic-response-ready 国家仍为 0，正式 IRF 仍不可发布。完整记录见 <a className="text-[var(--accent)] underline" href={`${basePath}/research-data/var-selection-bootstrap/var_selection_bootstrap_research_conclusion.json`}>v1.86 研究结论记录</a>。</p>
     </Section>
     <Section id="events" label="03 / Events" title="事件编码"><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">Source → Event → Coding → Affected Indicator / Project → Research context。date、actor、event_type、direction 和 confidence 用于检索与解释；它们不自动构成因果关系，也不直接改变模型分数。未完整编码、低置信度或结构样例保持 enters_model=false。</p><Link href="/news" className="mt-4 inline-flex text-sm font-semibold text-[var(--accent)]">进入 Event Library</Link></Section>
 

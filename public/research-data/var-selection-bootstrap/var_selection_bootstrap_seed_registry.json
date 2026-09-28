@@ -1,0 +1,47 @@
+{
+  "schema_version": "var-selection-bootstrap-seed-registry-v1.86",
+  "registered_at": "2026-09-28",
+  "namespace": "var_selection_aware_bootstrap_v186",
+  "base_entropy": [
+    186,
+    20260928,
+    1
+  ],
+  "generator": "numpy.random.PCG64DXSM(SeedSequence(base_entropy, spawn_key))",
+  "distinct_from": {
+    "v1_85_base_entropy": [
+      185,
+      20260927,
+      1
+    ]
+  },
+  "spawn_key_schema": {
+    "data": "(phase_code, cell_index, chunk_index, 0)",
+    "bootstrap": "(phase_code, cell_index, chunk_index, 1 + 2*family_index + procedure_index)",
+    "family_index": {
+      "recursive_iid_residual": 0,
+      "recursive_wild_rademacher": 1
+    },
+    "procedure_index": {
+      "selection_aware": 0,
+      "fixed_true_lag": 1
+    }
+  },
+  "phase_codes": {
+    "0": "reference fixtures (reference.py)",
+    "1": "engineering smoke test, 2 cells x 10 reps; outputs not used and rejection outcomes not inspected",
+    "2": "primary",
+    "3": "secondary_t5",
+    "4": "power"
+  },
+  "reference_fixture_keys_used": [
+    "(0, 0..3, 0, 0) data",
+    "(0, 0..3, 1, 0) replay draws",
+    "(0, 0..3, 2, 0) determinism",
+    "(0, 10..11, 0, 0) and (0, 10..11, 1, 0) higher-lag fixtures",
+    "v1.85 entropy with keys (0, 99, 0..4) for generator-equivalence only (v1.85 never used purpose 0 with cell 99)"
+  ],
+  "engineering_benchmark": "SeedSequence(0), outside the namespace, timing only",
+  "reuse_policy": "No spawn key is reused or re-drawn; no alternative seeds; completed chunks are never recomputed.",
+  "duplicate_seed_audit": "Spawn keys are unique by construction (phase_code, cell_index, chunk_index, stream)."
+}

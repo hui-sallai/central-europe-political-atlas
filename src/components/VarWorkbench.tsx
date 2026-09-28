@@ -199,7 +199,7 @@ export function VarWorkbench({ countries, initialCountry }: { countries: Country
         <h2 className="mt-2 text-2xl font-semibold">{varLabels.workbenchTitle}</h2>
         <p className="mt-2 max-w-3xl text-sm leading-7 text-[var(--muted)]">单国月度简化式 VAR：变换 → 平稳性检验 → 滞后选择 → 估计 → 稳定性与残差诊断 → 动态响应。简化式创新不等于已识别经济冲击；SVAR 保持未开放，已识别冲击的 Local Projections 在上方独立工作台运行。</p>
         <p className="mt-3 border-l-4 border-[var(--warning)] bg-amber-50 px-4 py-3 text-sm leading-7">VAR 系数估计功能已启用；当前正式 v1/v2 baseline 的动态响应可发布国家均为 0。只有通过完整 horizon-specific 诊断门的结果才会显示响应曲线。</p>
-        <p className="mt-3 border-l-4 border-[var(--line)] px-4 py-2 text-sm leading-7 text-[var(--muted)]"><strong className="text-[var(--ink)]">正式动态响应当前不可发布。</strong> v1.85 合成数据研究已结案：当前 lag-selection + residual-diagnostic procedure 未通过预注册有限样本门，也没有替代诊断通过同一门槛，因此不替换诊断、不发布正式 IRF。系数估计不受影响。<Link className="ml-1 text-[var(--accent)] underline" href="/methodology#var-residual-diagnostic-calibration">方法说明</Link></p>
+        <p className="mt-3 border-l-4 border-[var(--line)] px-4 py-2 text-sm leading-7 text-[var(--muted)]"><strong className="text-[var(--ink)]">正式动态响应当前不可发布。</strong> v1.85 合成数据研究已结案：当前 lag-selection + residual-diagnostic procedure 未通过预注册有限样本门，也没有替代诊断通过同一门槛，因此不替换诊断、不发布正式 IRF。系数估计不受影响。v1.86 的 selection-aware bootstrap 校准仅为研究结果，未用于本工作台。<Link className="ml-1 text-[var(--accent)] underline" href="/methodology#var-residual-diagnostic-calibration">方法说明</Link></p>
 
         <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <label className="text-xs font-semibold text-[var(--muted)]">国家

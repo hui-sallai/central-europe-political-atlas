@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.86 Selection-Aware Bootstrap Calibration Research — 2026-09-28
+
+- Preregisters (before any confirmatory draw) and runs a selection-aware bootstrap calibration of the production h=12 adjusted Portmanteau: BIC lag selection is rerun inside every bootstrap sample; two families (recursive iid residual, recursive wild Rademacher), B=199; the v1.85 36-cell DGP grid; 252,000 Monte Carlo replications in 5,040 checkpoints.
+- Gate estimand (owner decision): selected-model adequacy. Both families pass (fixed-true-lag 36/36 cells and adequacy-conditional 18/18 support cells inside 3.5–6.5%; failures ≤ 0.2%); the iid residual family is selected by the preregistered tie rule. Disposition: `synthetic_gate_passed_phase_B_requires_owner_approval`.
+- The selection-aware procedure rejection rate (4.5–19.9%) is reported, not gated, and is not called test size; rejection after BIC underselection in true-VAR(2) designs (7.6–19.9%) reflects underfitted selected models. Selection-aware size for true VAR(2) processes remains untested.
+- Research only: Phase B (real-country evaluation) was not run by owner decision; no production diagnostic, BIC, readiness, formal IRF, v1.85 or v1.851 artifact changed.
+
 ## v1.851 VAR Layer-B Selection Decomposition & Interpretation Correction — 2026-09-28
 
 - VAR residual-diagnostic research remains closed with no eligible replacement; Layer-B results are now explicitly decomposed as lag-selection/specification/diagnostic procedure behavior rather than pure conditional test size.

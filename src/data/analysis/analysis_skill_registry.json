@@ -1,5 +1,5 @@
 {
-  "schema_version": "analysis-skill-registry-v1.851",
+  "schema_version": "analysis-skill-registry-v1.86",
   "frozen_output_reference": "analysis/v173_frozen_output_hashes.json",
   "generated_at": "2026-09-28",
   "records": [
@@ -258,7 +258,7 @@
       "readiness_reference": "var_country_readiness.json",
       "capability_reference": "var_capability_status.json",
       "research_conclusion_reference": "var_residual_diagnostic_research_conclusion.json",
-      "note": "Reduced-form VAR estimation workbench and coefficient diagnostics are active; active does not mean formal dynamic-response publication. Estimable does not imply horizon-specific dynamic-response-ready. The current formal v1/v2 baselines have zero countries passing the complete h=12 dynamic-response gate, so no formal orthogonalized dynamic response is currently publishable. v1.85 residual diagnostic research found no eligible replacement. Layer B failure reflects the joint lag-selection/specification/diagnostic procedure; it is not interpreted as pure diagnostic Type-I error. Formal dynamic response remains unavailable. Exploratory search never replaces either formal baseline.",
+      "note": "Reduced-form VAR estimation workbench and coefficient diagnostics are active; active does not mean formal dynamic-response publication. Estimable does not imply horizon-specific dynamic-response-ready. The current formal v1/v2 baselines have zero countries passing the complete h=12 dynamic-response gate, so no formal orthogonalized dynamic response is currently publishable. v1.85 residual diagnostic research found no eligible replacement. Layer B failure reflects the joint lag-selection/specification/diagnostic procedure; it is not interpreted as pure diagnostic Type-I error. Formal dynamic response remains unavailable. v1.86 research: a selection-aware bootstrap calibration of the h=12 Portmanteau passed its preregistered synthetic gate, but it is not used in production and has not been evaluated on real-country data. Exploratory search never replaces either formal baseline.",
       "diagnostic_calibration": {
         "residual_autocorrelation_h12_primary": {
           "production_diagnostic": "adjusted_portmanteau",

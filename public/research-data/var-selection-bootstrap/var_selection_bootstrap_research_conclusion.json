@@ -1,0 +1,93 @@
+{
+  "schema_version": "var-selection-bootstrap-research-conclusion-v1.86",
+  "study_id": "var_selection_aware_bootstrap_v186",
+  "preregistration_sha256": "c37a32d53f01e2444c990807780a0aa53781f3c88c706f65035ce0345c790b6f",
+  "starting_commit": "7420fd78e63f1a93a65a7bde389ee6297197f059",
+  "estimand": "selected_model_adequacy",
+  "reference_validation_status": "pass",
+  "reference_maximum_numerical_discrepancy": 2.475797344914099e-14,
+  "monte_carlo_replications": 252000,
+  "bootstrap_replications": 199,
+  "families": {
+    "recursive_iid_residual": {
+      "eligible": true,
+      "gate_A_fixed_true_lag": {
+        "passed": true,
+        "cells_inside_strict_interval": 36,
+        "cell_count": 36,
+        "minimum_rate": 0.044,
+        "maximum_rate": 0.0568,
+        "worst_case_absolute_distortion": 0.0068000000000000005
+      },
+      "gate_C_adequacy_conditional": {
+        "passed": true,
+        "support_cell_count": 18,
+        "cells_inside_strict_interval": 18,
+        "minimum_rate": 0.0446,
+        "maximum_rate": 0.055,
+        "worst_case_absolute_distortion": 0.005400000000000002
+      },
+      "gate_failure_rate": {
+        "maximum_failure_rate": 0.002,
+        "passed": true
+      },
+      "full_procedure_D_report_only": {
+        "label": "selection-aware procedure rejection rate (not diagnostic test size)",
+        "cells_inside_strict_interval": 18,
+        "minimum_rate": 0.0446,
+        "maximum_rate": 0.19847939175670268
+      }
+    },
+    "recursive_wild_rademacher": {
+      "eligible": true,
+      "gate_A_fixed_true_lag": {
+        "passed": true,
+        "cells_inside_strict_interval": 36,
+        "cell_count": 36,
+        "minimum_rate": 0.0436,
+        "maximum_rate": 0.0564,
+        "worst_case_absolute_distortion": 0.006400000000000003
+      },
+      "gate_C_adequacy_conditional": {
+        "passed": true,
+        "support_cell_count": 18,
+        "cells_inside_strict_interval": 18,
+        "minimum_rate": 0.0442,
+        "maximum_rate": 0.0578,
+        "worst_case_absolute_distortion": 0.0077999999999999944
+      },
+      "gate_failure_rate": {
+        "maximum_failure_rate": 0.002,
+        "passed": true
+      },
+      "full_procedure_D_report_only": {
+        "label": "selection-aware procedure rejection rate (not diagnostic test size)",
+        "cells_inside_strict_interval": 18,
+        "minimum_rate": 0.0442,
+        "maximum_rate": 0.19827931172468988
+      }
+    }
+  },
+  "disposition": "synthetic_gate_passed_phase_B_requires_owner_approval",
+  "selected_family": "recursive_iid_residual",
+  "phase_B_run": false,
+  "phase_B_authorized": false,
+  "phase_B_requires_owner_approval": true,
+  "production_method_changed": false,
+  "bic_policy_changed": false,
+  "actual_country_data_read": false,
+  "formal_irf_publication_available": false,
+  "new_random_draws_after_decision": 0,
+  "v1_85_and_v1_851_modified": false,
+  "d_label": "selection-aware procedure rejection rate; not diagnostic test size",
+  "provenance": {
+    "var_selection_bootstrap_preregistration.json": "c37a32d53f01e2444c990807780a0aa53781f3c88c706f65035ce0345c790b6f",
+    "var_selection_bootstrap_simulation_design.json": "ee4beaf27640b97874a30c9fada95f3682f700f80b1e8bb39c59a45f3507f35f",
+    "var_selection_bootstrap_seed_registry.json": "6209b349123191ae4b99de572bac359f6d47a196bebf5a0f3c93996440ab99fd",
+    "var_selection_bootstrap_reference_validation.json": "a1d9d453f5b0374f58f84a3079ca873283d05f2668e06de441682c4578a040f3",
+    "var_selection_bootstrap_simulation_results.json": "ea93e0aebec28b3b17f50dacc0a8a6578f556f53ee9dfe468e8c02ab8bb44704",
+    "var_selection_bootstrap_calibration_summary.json": "370109106140aec28a16f41db44c088d357ce43c354cb917b6f1842c9c7467e4",
+    "var_selection_bootstrap_selection_decomposition.json": "5908403a40736498de6de186be4159425f8b7087e81280cffa0a5ddf052d7d8a",
+    "var_selection_bootstrap_method_decision.json": "117188dbc77429ea2329df745ce04f39be9a5768e4869186b6c73f449454a1fb"
+  }
+}

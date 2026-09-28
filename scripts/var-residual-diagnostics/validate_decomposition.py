@@ -108,7 +108,7 @@ require(amendment["future_candidate"]["state"] == "not_started" and amendment["f
 decision = load("var_residual_diagnostic_method_decision.json")
 require(decision["disposition"] == "no_eligible_replacement" and decision["selected_method_for_possible_phase_B_evaluation"] == "none", "method decision unchanged")
 capability = load("var_capability_status.json")
-require(capability["schema_version"] == "var-capability-status-v1.851", "capability schema")
+require(capability["schema_version"] == "var-capability-status-v1.86", "capability schema")
 require(capability["residual_diagnostic_replacement"] == "none_eligible" and capability["current_production_diagnostic"] == "adjusted_portmanteau", "production diagnostic unchanged")
 require(capability["current_production_diagnostic_calibration"] == "failed_preregistered_joint_platform_gate", "joint platform gate status retained")
 require(capability["formal_dynamic_response_ready_country_count"] == 0 and capability["formal_irf_publication_available"] is False and capability["phase_B_real_country_comparison"] == "not_authorized", "publication boundary")

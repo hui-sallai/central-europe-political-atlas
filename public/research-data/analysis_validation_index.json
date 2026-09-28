@@ -1,6 +1,6 @@
 {
-  "schema_version": "analysis-validation-index-v1.851",
-  "platform_version": "v1.851",
+  "schema_version": "analysis-validation-index-v1.86",
+  "platform_version": "v1.86",
   "interpretation": "Additive current-release index; legacy validation artifacts retain their original versions and are not relabelled as panel tests.",
   "records": [
     {
@@ -52,6 +52,16 @@
       "replacement": "none_eligible",
       "publication_boundary": "enforced",
       "formal_irf_publication_available": false
+    },
+    {
+      "id": "var_selection_aware_bootstrap_research",
+      "title": "VAR selection-aware bootstrap research (v1.86)",
+      "artifact": "var-selection-bootstrap/var_selection_bootstrap_research_conclusion.json",
+      "gate": "var:selection-bootstrap-closure-validate",
+      "artifact_role": "synthetic_research_result_not_production_method",
+      "disposition": "synthetic_gate_passed_phase_B_requires_owner_approval",
+      "phase_B_run": false,
+      "production_method_changed": false
     },
     {
       "id": "var_residual_layerB_selection_decomposition",
