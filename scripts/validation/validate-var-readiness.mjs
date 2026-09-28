@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
+import { frozenInputSha } from "../lib/frozen-inputs.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const read = (relative) => JSON.parse(fs.readFileSync(path.join(root, relative), "utf8"));
@@ -66,9 +67,9 @@ const frozenPaths = [
   "src/data/macro/var_exploratory_readiness.json",
   "src/data/macro/var_country_readiness.json",
   "src/data/macro/var_lag_diagnostic_grid.json",
-  "src/data/high-frequency/high_frequency_observations.json",
 ];
 const changed = execFileSync("git", ["diff", "--name-only", "0aad2ffd979ebacd9c8143dd856158b77ad02270", "--", ...frozenPaths], { cwd: root, encoding: "utf8" }).trim();
 check(changed === "", `frozen VAR estimator/readiness/data changed: ${changed}`);
+check(frozenInputSha(root, "src/data/high-frequency/high_frequency_observations.json") === "0621d6dbafb98e47ee1bb4c4de04183fd7e9d440cea60764babd8665e5e07ae0", "research snapshot of high-frequency observations changed");
 
 console.log(JSON.stringify({ status: "pass", checks, estimator_changed: false, coefficients_rerun: 0, irfs_rerun: 0, formal_estimable: { v1: v1.estimable_countries, v2: v2.estimable_countries }, exploratory_estimable: exploratory.estimable_countries, formal_dynamic_response_ready: [], formal_irf_publication_available: false }, null, 2));

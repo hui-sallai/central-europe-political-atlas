@@ -3,6 +3,10 @@
 import hashlib
 import json
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+from frozen_inputs import frozen_input_sha  # noqa: E402  (live-data refresh uses the archived research snapshot)
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "src/data/macro"
@@ -25,7 +29,7 @@ for key in ("design_reference", "metric_definition_reference", "phase_b_protocol
     ref = prereg[key]
     require(sha(DATA / ref["file"]) == ref["sha256"], f"{ref['file']} changed")
 for relative, expected in prereg["frozen_input_sha256"].items():
-    require(sha(ROOT / relative) == expected, f"frozen input changed: {relative}")
+    require(frozen_input_sha(ROOT, relative, expected) == expected, f"frozen input changed: {relative}")
 require(prereg["production_boundary"] == {"production_changed": False, "bic_policy_changed": False, "readiness_changed": False, "formal_irf_publication": False, "svar_bvar_activated": False, "phase_A_run": False, "phase_B_run": False}, "production boundary / phases not run")
 require(prereg["country_result_files_created"] is False, "result flag")
 authorization = DATA / "var_country_lag_identifiability_phase_a_authorization.json"

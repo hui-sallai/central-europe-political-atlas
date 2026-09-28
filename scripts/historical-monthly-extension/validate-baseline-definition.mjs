@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
+import { frozenInputSha } from '../lib/frozen-inputs.mjs';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -45,6 +46,7 @@ check(acquisitionSource.includes('high_frequency_definition_registry.json') && a
 check(read('src/data/release.json').version.startsWith('v1.91 '), 'formal release version');
 const panelSha = crypto.createHash('sha256').update(fs.readFileSync(path.join(root, 'src/data/panel-local-projections/panel_lp_results.json'))).digest('hex');
 check(panelSha === '10e7b4f8761523e7b136b9707ac87da1d753a5914e0d11a3f8b980571ab53bdc', 'frozen Panel SHA changed');
-const changed = execFileSync('git', ['diff', '--name-only', '9b163c03de75a9a9d0f9e53f8d0b9d4bbd8775d0', '--', 'src/data/high-frequency/high_frequency_observations.json', 'src/data/panel-local-projections', 'src/data/identified-shocks'], { cwd: root, encoding: 'utf8' }).trim();
+const changed = execFileSync('git', ['diff', '--name-only', '9b163c03de75a9a9d0f9e53f8d0b9d4bbd8775d0', '--', 'src/data/panel-local-projections', 'src/data/identified-shocks'], { cwd: root, encoding: 'utf8' }).trim();
+check(frozenInputSha(root, 'src/data/high-frequency/high_frequency_observations.json') === '0621d6dbafb98e47ee1bb4c4de04183fd7e9d440cea60764babd8665e5e07ae0', 'research snapshot of high-frequency observations changed');
 check(!changed, `frozen observation, Panel or shock output changed: ${changed}`);
 console.log(JSON.stringify({ baseline_definition_integrity: 'nonblocking_warning', records: audit.records.length, pl_coverage_transition_recorded: true, hu_back_revision: 'documented', si_estimated_flag: 'preserved', frozen_panel_sha256: panelSha, panel_estimation: false }, null, 2));

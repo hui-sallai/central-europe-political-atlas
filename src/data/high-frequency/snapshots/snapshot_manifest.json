@@ -1,0 +1,24 @@
+{
+  "schema_version": "high-frequency-research-snapshot-manifest-v1",
+  "purpose": "Research-frozen copy of the high-frequency observations used by published analyses. The live file may be refreshed (pnpm hf:acquire); frozen-input checks and research reproduction use this snapshot instead of the live file.",
+  "snapshots": [
+    {
+      "live_path": "src/data/high-frequency/high_frequency_observations.json",
+      "snapshot_path": "src/data/high-frequency/snapshots/high_frequency_observations.2026-06.json",
+      "sha256": "0621d6dbafb98e47ee1bb4c4de04183fd7e9d440cea60764babd8665e5e07ae0",
+      "latest_period": "2026-06",
+      "frozen_by": [
+        "v1.72-v1.83 Local Projection and Panel LP outputs",
+        "v1.84+ VAR readiness",
+        "v1.83 historical-extension audit",
+        "v1.88 country lag-identifiability audit and Phase B",
+        "v1.90 residual attribution"
+      ],
+      "created": "2026-09-29",
+      "immutable": true
+    }
+  ],
+  "rule": "Published research outputs remain tied to this snapshot until a deliberate re-estimation release replaces them; a live-data refresh alone does not change any frozen output or invalidate any published study.",
+  "reproduction": "Scripts that read the live file directly and are themselves hash-frozen by a preregistration (e.g. scripts/var-country-identifiability/extract_production.mjs, frozen by the v1.90 design) must be re-run from a checkout of the corresponding release commit, where the live file equals this snapshot; build-time provenance checks use scripts/lib/frozen-inputs.mjs and scripts/lib/frozen_inputs.py.",
+  "refresh_procedure": "pnpm hf:acquire refreshes the live file; frozen outputs and published studies are unaffected; re-estimating LP, Panel LP or VAR outputs on refreshed data is a separate, deliberate release"
+}

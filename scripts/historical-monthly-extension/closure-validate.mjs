@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
+import { frozenInputSha } from '../lib/frozen-inputs.mjs';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -35,6 +36,7 @@ check(readiness.formal_decision === 'retain_2015_four_outcome_baseline' && readi
 const panelPath = path.join(root, 'src/data/panel-local-projections/panel_lp_results.json');
 const panelSha = crypto.createHash('sha256').update(fs.readFileSync(panelPath)).digest('hex');
 check(panelSha === '10e7b4f8761523e7b136b9707ac87da1d753a5914e0d11a3f8b980571ab53bdc', 'frozen Panel SHA changed');
-const changed = execFileSync('git', ['diff', '--name-only', '0f5f272d82a7498db9116d18e1695943f1fc0fe4', '--', 'src/data/panel-local-projections', 'src/data/high-frequency/high_frequency_observations.json', 'src/data/identified-shocks'], { cwd: root, encoding: 'utf8' }).trim();
+const changed = execFileSync('git', ['diff', '--name-only', '0f5f272d82a7498db9116d18e1695943f1fc0fe4', '--', 'src/data/panel-local-projections', 'src/data/identified-shocks'], { cwd: root, encoding: 'utf8' }).trim();
+check(frozenInputSha(root, 'src/data/high-frequency/high_frequency_observations.json') === '0621d6dbafb98e47ee1bb4c4de04183fd7e9d440cea60764babd8665e5e07ae0', 'research snapshot of high-frequency observations changed');
 check(!changed, `formal observations, Panel results or shocks changed: ${changed}`);
 console.log(JSON.stringify({ historical_research: 'closed', design_A: 'blocked', design_A_start: null, panel_estimation: false, formal_sample_changed: false, panel_result_changed: false, frozen_panel_sha256: panelSha }, null, 2));

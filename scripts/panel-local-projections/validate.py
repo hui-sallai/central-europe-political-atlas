@@ -3,12 +3,15 @@ import json
 import argparse
 import hashlib
 from pathlib import Path
+import sys
 import numpy as np
 from scipy.stats import norm
 from estimator import estimate, PanelGateError
 from reference import synthetic, compare
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "scripts" / "lib"))
+from frozen_inputs import frozen_input_path  # noqa: E402  (frozen inputs resolve to the archived research snapshot)
 
 
 def real_data_check(results, data):
@@ -16,8 +19,8 @@ def real_data_check(results, data):
     read = lambda p: json.loads((ROOT/p).read_text())
     source_hashes = read("src/data/panel-local-projections/panel_lp_validation_summary.json")["input_sha256"]
     for name,digest in source_hashes.items():
-        assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest() == digest
-    hf = read("src/data/high-frequency/high_frequency_observations.json")["records"]
+        assert hashlib.sha256(frozen_input_path(ROOT, name, digest).read_bytes()).hexdigest() == digest
+    hf = json.loads(frozen_input_path(ROOT, "src/data/high-frequency/high_frequency_observations.json").read_text())["records"]
     macro = read("src/data/macro-drivers/macro_driver_observations.json")["records"]
     mp = {r["period"]:r["value"] for r in read("src/data/identified-shocks/ecb_pure_monetary_policy_shock_monthly.json")["records"]}
     cbi = {r["period"]:r["value"] for r in read("src/data/identified-shocks/ecb_central_bank_information_shock_monthly.json")["records"]}

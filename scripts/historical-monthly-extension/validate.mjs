@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { execFileSync } from 'node:child_process';
+import { frozenInputSha } from '../lib/frozen-inputs.mjs';
 import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
@@ -157,12 +158,12 @@ check(readiness.future_reduced_outcome_research === 'not_started' && readiness.s
 
 const frozen = [
   'src/data/panel-local-projections',
-  'src/data/high-frequency/high_frequency_observations.json',
   'src/data/identified-shocks/ecb_pure_monetary_policy_shock_monthly.json',
   'src/data/identified-shocks/ecb_central_bank_information_shock_monthly.json',
 ];
 const changed = execFileSync('git', ['diff', '--name-only', '996450ef79c8db22abed491691b36d0e7ed3fc36', '--', ...frozen], { cwd: root, encoding: 'utf8' }).trim();
 check(changed === '', `frozen paths modified: ${changed}`);
+check(frozenInputSha(root, 'src/data/high-frequency/high_frequency_observations.json') === '0621d6dbafb98e47ee1bb4c4de04183fd7e9d440cea60764babd8665e5e07ae0', 'research snapshot of high-frequency observations changed');
 const untracked = execFileSync('git', ['ls-files', '--others', '--exclude-standard'], { cwd: root, encoding: 'utf8' }).trim().split('\n').filter(Boolean);
 check(!untracked.some((p) => frozen.some((f) => p === f || p.startsWith(`${f}/`))), 'untracked file in frozen paths');
 const actualPanel = hash(fs.readFileSync(path.join(root, 'src/data/panel-local-projections/panel_lp_results.json')));

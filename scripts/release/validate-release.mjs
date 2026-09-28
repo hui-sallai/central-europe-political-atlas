@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { researchPackageFilename } from "./research-package-name.mjs";
 import { validatePanelPublication } from "../panel-local-projections/publication-validation.mjs";
 import { validatePanelClosure } from "../panel-local-projections/closure-validation.mjs";
+import { frozenInputSha } from "../lib/frozen-inputs.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const out = path.join(root, "out");
@@ -50,7 +51,7 @@ if (panelRead("panel_lp_ui_validation").status !== "pass" || panelRead("panel_lp
 if (panelReady.state !== "active" || panelReady.records.length !== 4 || panelReady.records.some(r => !r.publication_ready || r.state !== "active" || r.blockers.length)) failures.push("panel release readiness incomplete");
 if (panelResults.publication_state !== "active" || panelResults.records.length !== 4 || panelResults.small_sample !== false) failures.push("panel results publication/inference boundary");
 if (panelValidation.production !== "pass" || panelValidation.real_data_qr_checks !== 1200) failures.push("panel independent real-data validation missing");
-for (const [file,sha] of Object.entries(panelValidation.input_sha256)) if (createHash("sha256").update(fs.readFileSync(path.join(root,file))).digest("hex") !== sha) failures.push(`panel input changed: ${file}`);
+for (const [file,sha] of Object.entries(panelValidation.input_sha256)) if (frozenInputSha(root, file, sha) !== sha) failures.push(`panel input changed: ${file}`);
 if (panelRead("panel_lp_small_sample_method_registry").state !== "registry_only" || panelRead("panel_lp_method_registry").panel_simultaneous_bands !== "registry_only") failures.push("panel unsupported inference activated");
 if (panelRead("lp_cross_country_comparability").formal_difference_test !== false || panelRead("lp_cross_country_comparability").formal_group_difference_available !== true) failures.push("panel group/pairwise comparability boundary");
 let internalLinksChecked = 0;

@@ -4,6 +4,10 @@ authorization record tied to this preregistration exists."""
 import hashlib
 import json
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "lib"))
+from frozen_inputs import frozen_input_sha  # noqa: E402  (live-data refresh uses the archived research snapshot)
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "src/data/macro"
@@ -27,7 +31,7 @@ require(sha(path) == PREREG_SHA256, "preregistration changed after freezing")
 prereg = json.loads(path.read_text())
 require(sha(DATA / prereg["design_reference"]["file"]) == prereg["design_reference"]["sha256"], "design changed")
 for relative, expected in prereg["frozen_input_sha256"].items():
-    require(sha(ROOT / relative) == expected, f"frozen input changed: {relative}")
+    require(frozen_input_sha(ROOT, relative, expected) == expected, f"frozen input changed: {relative}")
 design = json.loads((DATA / "var_residual_attribution_design.json").read_text())
 v188 = json.loads((DATA / "var_country_lag_identifiability_design.json").read_text())
 v188r = {u["unit_id"]: u["selected_bic_lag"] for u in json.loads((DATA / "var_country_lag_identifiability_results.json").read_text())["units"]}
