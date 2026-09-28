@@ -1,0 +1,1127 @@
+{
+ "schema_version": "var-country-lag-identifiability-results-v1.88",
+ "phase": "A",
+ "generated_at": "2026-09-28",
+ "preregistration_sha256": "b0ecb06288210546cdebff23e05281703ab04b2df3eb873ca63f296ae5715f8f",
+ "production_agreement": {
+  "tolerance": 1e-08,
+  "maximum_difference": 4.808953235624358e-11,
+  "passed": true
+ },
+ "units": [
+  {
+   "unit_id": "baseline_monthly_macro_v1::poland",
+   "state": "ok",
+   "country": "poland",
+   "profile_id": "baseline_monthly_macro_v1",
+   "deterministic_terms": "constant",
+   "sample_structure": {
+    "T_eff": 137,
+    "K": 3,
+    "pmax": 10,
+    "n_common": 127,
+    "start_period": "2015-02",
+    "end_period": "2026-06"
+   },
+   "bic_grid": [
+    {
+     "lag": 1,
+     "bic": -3.7638453001785837
+    },
+    {
+     "lag": 2,
+     "bic": -3.9120977479699324
+    },
+    {
+     "lag": 3,
+     "bic": -3.6632259388117787
+    },
+    {
+     "lag": 4,
+     "bic": -3.4809031080194694
+    },
+    {
+     "lag": 5,
+     "bic": -3.2082684507707557
+    },
+    {
+     "lag": 6,
+     "bic": -2.946950472596301
+    },
+    {
+     "lag": 7,
+     "bic": -2.664075429322001
+    },
+    {
+     "lag": 8,
+     "bic": -2.390063676435606
+    },
+    {
+     "lag": 9,
+     "bic": -2.1144469686530347
+    },
+    {
+     "lag": 10,
+     "bic": -1.9097366036649301
+    }
+   ],
+   "selected_bic_lag": 2,
+   "delta_bic_2_vs_1": -0.1482524477913496,
+   "log_likelihood_improvement_2_vs_1": {
+    "lr": 62.425744647628726,
+    "df": 9,
+    "descriptive_asymptotic_p_value": 4.5579063835844993e-10,
+    "label": "descriptive, not a gate"
+   },
+   "incremental_parameter_count": 9,
+   "lag2_block": {
+    "frobenius_norm": 2.3061441043152255,
+    "spectral_norm": 2.29584907693624,
+    "wald": 75.76979745509755,
+    "wald_descriptive_p_value": 1.1134588271339248e-12
+   },
+   "lag2_partial_contribution": {
+    "system_share": 0.38831711739247854,
+    "per_equation_partial_r2": [
+     0.047328491071670586,
+     0.05609789474658666,
+     0.30280123045653873
+    ]
+   },
+   "by_lag": {
+    "1": {
+     "parameters_per_equation": 4,
+     "observations_per_parameter": 34.0,
+     "fit_observations": 136,
+     "sigma_u": [
+      [
+       0.182198370205894,
+       0.16175208599047905,
+       0.001201121905575218
+      ],
+      [
+       0.16175208599047905,
+       9.057304555635392,
+       -0.01346491995444045
+      ],
+      [
+       0.001201121905575218,
+       -0.01346491995444045,
+       0.008795064937379745
+      ]
+     ],
+     "correlation": [
+      [
+       0.9999999999999999,
+       0.12591520026881925,
+       0.030005116576449182
+      ],
+      [
+       0.12591520026881925,
+       1.0,
+       -0.04770729196213748
+      ],
+      [
+       0.030005116576449182,
+       -0.04770729196213748,
+       1.0
+      ]
+     ],
+     "stability": {
+      "stable": true,
+      "max_root_modulus": 0.9669262593800045
+     },
+     "portmanteau_h12": {
+      "lags": 12,
+      "statistic": 195.30045724407336,
+      "degrees_of_freedom": 99,
+      "p_value": 2.7695818638484582e-08,
+      "status": "failed"
+     }
+    },
+    "2": {
+     "parameters_per_equation": 7,
+     "observations_per_parameter": 19.285714285714285,
+     "fit_observations": 135,
+     "sigma_u": [
+      [
+       0.17768579428811518,
+       0.15178138606283775,
+       0.00319424255048859
+      ],
+      [
+       0.15178138606283775,
+       8.830343996355428,
+       -0.031792808287683404
+      ],
+      [
+       0.00319424255048859,
+       -0.031792808287683404,
+       0.006326829283326195
+      ]
+     ],
+     "correlation": [
+      [
+       0.9999999999999999,
+       0.1211722994082296,
+       0.09526831381971086
+      ],
+      [
+       0.1211722994082296,
+       1.0,
+       -0.13450766142363552
+      ],
+      [
+       0.09526831381971086,
+       -0.13450766142363552,
+       0.9999999999999999
+      ]
+     ],
+     "stability": {
+      "stable": true,
+      "max_root_modulus": 0.962701109180425
+     },
+     "portmanteau_h12": {
+      "lags": 12,
+      "statistic": 119.1830383947372,
+      "degrees_of_freedom": 90,
+      "p_value": 0.021435024050539764,
+      "status": "failed"
+     }
+    }
+   },
+   "empirical_lag_identifiability_index": {
+    "eli_raw": 1.4318592007162392,
+    "eli_bias_adjusted": 1.2254262157484632,
+    "noncentrality_90": [
+     32.02923759167114,
+     82.31174614447818
+    ],
+    "eli_90": [
+     0.7346545691434188,
+     1.887984383834938
+    ],
+    "note": "empirical index, not true psi; eli_raw > 1 iff BIC prefers lag 2 over lag 1; no cutoff"
+   },
+   "v187_reference_mapping": {
+    "most_similar_region": "intermediate",
+    "regions_overlapped_by_90_interval": [
+     "intermediate",
+     "strong"
+    ],
+    "nearest_v187_designs": [
+     {
+      "sample_size": 132,
+      "design": "p2_psi1.00",
+      "persistence": 0.8,
+      "psi_at_T": 1.0000000000000002,
+      "synthetic_bic_exact_recovery": 0.7603
+     },
+     {
+      "sample_size": 144,
+      "design": "p2_psi1.00",
+      "persistence": 0.8,
+      "psi_at_T": 1.070378477039086,
+      "synthetic_bic_exact_recovery": 0.8142
+     }
+    ],
+    "label": "descriptive synthetic context only; not a gate or probability"
+   },
+   "selected_model_adequacy_category": "C_fail",
+   "selected_model_parameter_ratio_ok": true,
+   "adequacy_caveat": "asymptotic production Portmanteau; v1.85 showed it is not size-calibrated in these designs"
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v1::romania",
+   "state": "ok",
+   "country": "romania",
+   "profile_id": "baseline_monthly_macro_v1",
+   "deterministic_terms": "constant",
+   "sample_structure": {
+    "T_eff": 137,
+    "K": 3,
+    "pmax": 10,
+    "n_common": 127,
+    "start_period": "2015-02",
+    "end_period": "2026-06"
+   },
+   "bic_grid": [
+    {
+     "lag": 1,
+     "bic": -1.7673175990034458
+    },
+    {
+     "lag": 2,
+     "bic": -1.6443961462807595
+    },
+    {
+     "lag": 3,
+     "bic": -1.459557131304591
+    },
+    {
+     "lag": 4,
+     "bic": -1.323236162336927
+    },
+    {
+     "lag": 5,
+     "bic": -1.1610019759377823
+    },
+    {
+     "lag": 6,
+     "bic": -0.8878417025255243
+    },
+    {
+     "lag": 7,
+     "bic": -0.6912712530813612
+    },
+    {
+     "lag": 8,
+     "bic": -0.4029156084005039
+    },
+    {
+     "lag": 9,
+     "bic": -0.14685466221558308
+    },
+    {
+     "lag": 10,
+     "bic": 0.05685853781814609
+    }
+   ],
+   "selected_bic_lag": 1,
+   "delta_bic_2_vs_1": 0.12292145272268495,
+   "log_likelihood_improvement_2_vs_1": {
+    "lr": 27.986659282346338,
+    "df": 9,
+    "descriptive_asymptotic_p_value": 0.0009587753578860948,
+    "label": "descriptive, not a gate"
+   },
+   "incremental_parameter_count": 9,
+   "lag2_block": {
+    "frobenius_norm": 1.7989189413491544,
+    "spectral_norm": 1.7981523736959724,
+    "wald": 28.09534970739105,
+    "wald_descriptive_p_value": 0.0009194935092216441
+   },
+   "lag2_partial_contribution": {
+    "system_share": 0.19777599001754875,
+    "per_equation_partial_r2": [
+     0.02776935533834335,
+     0.08292296323024873,
+     0.0754336256615511
+    ]
+   },
+   "by_lag": {
+    "1": {
+     "parameters_per_equation": 4,
+     "observations_per_parameter": 34.0,
+     "fit_observations": 136,
+     "sigma_u": [
+      [
+       0.2231946774125328,
+       -0.13601254015889386,
+       0.007731478516825842
+      ],
+      [
+       -0.13601254015889386,
+       20.874265748314418,
+       -0.22198012456374192
+      ],
+      [
+       0.007731478516825842,
+       -0.22198012456374192,
+       0.03667173121987382
+      ]
+     ],
+     "correlation": [
+      [
+       1.0,
+       -0.06301318486600636,
+       0.08545843399452434
+      ],
+      [
+       -0.06301318486600636,
+       0.9999999999999998,
+       -0.25371303485311486
+      ],
+      [
+       0.08545843399452434,
+       -0.25371303485311486,
+       1.0
+      ]
+     ],
+     "stability": {
+      "stable": true,
+      "max_root_modulus": 0.9494406380873761
+     },
+     "portmanteau_h12": {
+      "lags": 12,
+      "statistic": 107.12492127101935,
+      "degrees_of_freedom": 99,
+      "p_value": 0.2711237291735522,
+      "status": "passed"
+     }
+    },
+    "2": {
+     "parameters_per_equation": 7,
+     "observations_per_parameter": 19.285714285714285,
+     "fit_observations": 135,
+     "sigma_u": [
+      [
+       0.22857150618121228,
+       -0.11516627194630015,
+       0.007695829501120657
+      ],
+      [
+       -0.11516627194630015,
+       19.673516088147743,
+       -0.2561780905305491
+      ],
+      [
+       0.007695829501120657,
+       -0.2561780905305491,
+       0.03469780017996709
+      ]
+     ],
+     "correlation": [
+      [
+       1.0,
+       -0.05430918318920001,
+       0.08641585308385427
+      ],
+      [
+       -0.05430918318920001,
+       1.0000000000000002,
+       -0.3100630544753595
+      ],
+      [
+       0.08641585308385427,
+       -0.3100630544753595,
+       1.0000000000000002
+      ]
+     ],
+     "stability": {
+      "stable": true,
+      "max_root_modulus": 0.9569591061598781
+     },
+     "portmanteau_h12": {
+      "lags": 12,
+      "statistic": 95.90302968828351,
+      "degrees_of_freedom": 90,
+      "p_value": 0.31555340246067964,
+      "status": "passed"
+     }
+    }
+   },
+   "empirical_lag_identifiability_index": {
+    "eli_raw": 0.6419299572145405,
+    "eli_bias_adjusted": 0.4354969722467647,
+    "noncentrality_90": [
+     6.691868025950911,
+     38.88435117098079
+    ],
+    "eli_90": [
+     0.15349136573416267,
+     0.8918902978623104
+    ],
+    "note": "empirical index, not true psi; eli_raw > 1 iff BIC prefers lag 2 over lag 1; no cutoff"
+   },
+   "v187_reference_mapping": {
+    "most_similar_region": "weak",
+    "regions_overlapped_by_90_interval": [
+     "intermediate",
+     "weak"
+    ],
+    "nearest_v187_designs": [
+     {
+      "sample_size": 132,
+      "design": "p2_psi0.50",
+      "persistence": 0.95,
+      "psi_at_T": 0.49999999999999356,
+      "synthetic_bic_exact_recovery": 0.1503
+     },
+     {
+      "sample_size": 144,
+      "design": "p2_psi0.50",
+      "persistence": 0.95,
+      "psi_at_T": 0.535189238519536,
+      "synthetic_bic_exact_recovery": 0.1795
+     }
+    ],
+    "label": "descriptive synthetic context only; not a gate or probability"
+   },
+   "selected_model_adequacy_category": "A",
+   "selected_model_parameter_ratio_ok": true,
+   "adequacy_caveat": "asymptotic production Portmanteau; v1.85 showed it is not size-calibrated in these designs"
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v2_seasonal_controls::czechia",
+   "state": "ok",
+   "country": "czechia",
+   "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+   "deterministic_terms": "constant_month_dummies",
+   "sample_structure": {
+    "T_eff": 137,
+    "K": 3,
+    "pmax": 10,
+    "n_common": 127,
+    "start_period": "2015-02",
+    "end_period": "2026-06"
+   },
+   "bic_grid": [
+    {
+     "lag": 1,
+     "bic": -0.046714807055027396
+    },
+    {
+     "lag": 2,
+     "bic": -0.04905287864973884
+    },
+    {
+     "lag": 3,
+     "bic": 0.17852780930639334
+    },
+    {
+     "lag": 4,
+     "bic": 0.41423515147119083
+    },
+    {
+     "lag": 5,
+     "bic": 0.5578032056452153
+    },
+    {
+     "lag": 6,
+     "bic": 0.8611022447712937
+    },
+    {
+     "lag": 7,
+     "bic": 1.1147428588207644
+    },
+    {
+     "lag": 8,
+     "bic": 1.3952701937256506
+    },
+    {
+     "lag": 9,
+     "bic": 1.646152223905382
+    },
+    {
+     "lag": 10,
+     "bic": 1.8865306238493869
+    }
+   ],
+   "selected_bic_lag": 2,
+   "delta_bic_2_vs_1": -0.002338071594711666,
+   "log_likelihood_improvement_2_vs_1": {
+    "lr": 43.894618870655734,
+    "df": 9,
+    "descriptive_asymptotic_p_value": 1.4759600165483348e-06,
+    "label": "descriptive, not a gate"
+   },
+   "incremental_parameter_count": 9,
+   "lag2_block": {
+    "frobenius_norm": 2.199514738956981,
+    "spectral_norm": 2.159657725773237,
+    "wald": 43.20139960425989,
+    "wald_descriptive_p_value": 1.9796513464760094e-06
+   },
+   "lag2_partial_contribution": {
+    "system_share": 0.29222350506066364,
+    "per_equation_partial_r2": [
+     0.11570984014018515,
+     0.09382619867920738,
+     0.12397125212674764
+    ]
+   },
+   "by_lag": {
+    "1": {
+     "parameters_per_equation": 15,
+     "observations_per_parameter": 9.066666666666666,
+     "fit_observations": 136,
+     "sigma_u": [
+      [
+       0.4290582702004885,
+       0.2909387144967022,
+       0.015087238144069435
+      ],
+      [
+       0.2909387144967022,
+       11.885698035069996,
+       0.021476282911365566
+      ],
+      [
+       0.015087238144069435,
+       0.021476282911365566,
+       0.044582181060970165
+      ]
+     ],
+     "correlation": [
+      [
+       0.9999999999999999,
+       0.1288341601130585,
+       0.1090864857528832
+      ],
+      [
+       0.1288341601130585,
+       0.9999999999999999,
+       0.02950299559746233
+      ],
+      [
+       0.1090864857528832,
+       0.02950299559746233,
+       1.0
+      ]
+     ],
+     "stability": {
+      "stable": true,
+      "max_root_modulus": 0.9195995923044848
+     },
+     "portmanteau_h12": {
+      "lags": 12,
+      "statistic": 167.19312061579646,
+      "degrees_of_freedom": 99,
+      "p_value": 2.2112967028697916e-05,
+      "status": "failed"
+     }
+    },
+    "2": {
+     "parameters_per_equation": 18,
+     "observations_per_parameter": 7.5,
+     "fit_observations": 135,
+     "sigma_u": [
+      [
+       0.3906187150685886,
+       0.30450630739328133,
+       0.004592388181248164
+      ],
+      [
+       0.30450630739328133,
+       11.145587946889275,
+       0.03520200457091889
+      ],
+      [
+       0.004592388181248164,
+       0.03520200457091889,
+       0.04077037686306256
+      ]
+     ],
+     "correlation": [
+      [
+       1.0000000000000002,
+       0.1459379622062824,
+       0.03639064088323562
+      ],
+      [
+       0.1459379622062824,
+       1.0,
+       0.05222080237402372
+      ],
+      [
+       0.03639064088323562,
+       0.05222080237402372,
+       1.0000000000000002
+      ]
+     ],
+     "stability": {
+      "stable": true,
+      "max_root_modulus": 0.9332147038398375
+     },
+     "portmanteau_h12": {
+      "lags": 12,
+      "statistic": 116.51476059553274,
+      "degrees_of_freedom": 90,
+      "p_value": 0.03154374673832039,
+      "status": "failed"
+     }
+    }
+   },
+   "empirical_lag_identifiability_index": {
+    "eli_raw": 1.0068107997213693,
+    "eli_bias_adjusted": 0.8003778147535935,
+    "noncentrality_90": [
+     17.886617468533437,
+     59.428829375622136
+    ],
+    "eli_90": [
+     0.4102653150006799,
+     1.363118960127813
+    ],
+    "note": "empirical index, not true psi; eli_raw > 1 iff BIC prefers lag 2 over lag 1; no cutoff"
+   },
+   "v187_reference_mapping": {
+    "most_similar_region": "intermediate",
+    "regions_overlapped_by_90_interval": [
+     "intermediate",
+     "weak"
+    ],
+    "nearest_v187_designs": [
+     {
+      "sample_size": 132,
+      "design": "p2_psi1.00",
+      "persistence": 0.95,
+      "psi_at_T": 0.999999999999997,
+      "synthetic_bic_exact_recovery": 0.7592
+     },
+     {
+      "sample_size": 144,
+      "design": "p2_psi0.50",
+      "persistence": 0.8,
+      "psi_at_T": 0.5351892385195473,
+      "synthetic_bic_exact_recovery": 0.1864
+     }
+    ],
+    "label": "descriptive synthetic context only; not a gate or probability"
+   },
+   "selected_model_adequacy_category": "C_fail",
+   "selected_model_parameter_ratio_ok": true,
+   "adequacy_caveat": "asymptotic production Portmanteau; v1.85 showed it is not size-calibrated in these designs"
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v2_seasonal_controls::germany",
+   "state": "ok",
+   "country": "germany",
+   "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+   "deterministic_terms": "constant_month_dummies",
+   "sample_structure": {
+    "T_eff": 137,
+    "K": 3,
+    "pmax": 10,
+    "n_common": 127,
+    "start_period": "2015-02",
+    "end_period": "2026-06"
+   },
+   "bic_grid": [
+    {
+     "lag": 1,
+     "bic": -3.472191762295326
+    },
+    {
+     "lag": 2,
+     "bic": -3.4943538896115234
+    },
+    {
+     "lag": 3,
+     "bic": -3.3674005617487324
+    },
+    {
+     "lag": 4,
+     "bic": -3.219095667593284
+    },
+    {
+     "lag": 5,
+     "bic": -2.9474395464264402
+    },
+    {
+     "lag": 6,
+     "bic": -2.6643719440152487
+    },
+    {
+     "lag": 7,
+     "bic": -2.3835301210388717
+    },
+    {
+     "lag": 8,
+     "bic": -2.1686683942268203
+    },
+    {
+     "lag": 9,
+     "bic": -2.0287368201355704
+    },
+    {
+     "lag": 10,
+     "bic": -1.8299402230333017
+    }
+   ],
+   "selected_bic_lag": 2,
+   "delta_bic_2_vs_1": -0.022162127316199154,
+   "log_likelihood_improvement_2_vs_1": {
+    "lr": 46.412273947284675,
+    "df": 9,
+    "descriptive_asymptotic_p_value": 5.048523526513727e-07,
+    "label": "descriptive, not a gate"
+   },
+   "incremental_parameter_count": 9,
+   "lag2_block": {
+    "frobenius_norm": 1.3471964790802606,
+    "spectral_norm": 1.237408500542696,
+    "wald": 40.40363705770187,
+    "wald_descriptive_p_value": 6.419959025581906e-06
+   },
+   "lag2_partial_contribution": {
+    "system_share": 0.3061163445430626,
+    "per_equation_partial_r2": [
+     0.09645025844872646,
+     0.09834558693894846,
+     0.14308255545600723
+    ]
+   },
+   "by_lag": {
+    "1": {
+     "parameters_per_equation": 15,
+     "observations_per_parameter": 9.066666666666666,
+     "fit_observations": 136,
+     "sigma_u": [
+      [
+       0.21861633984548673,
+       0.013695010722562228,
+       0.0011896989062752735
+      ],
+      [
+       0.013695010722562228,
+       9.327560885609358,
+       -0.0014452263665882194
+      ],
+      [
+       0.0011896989062752735,
+       -0.0014452263665882194,
+       0.003445954244300878
+      ]
+     ],
+     "correlation": [
+      [
+       1.0,
+       0.009590406616272874,
+       0.04334519884399883
+      ],
+      [
+       0.009590406616272874,
+       1.0,
+       -0.008061151376503121
+      ],
+      [
+       0.04334519884399883,
+       -0.008061151376503121,
+       0.9999999999999999
+      ]
+     ],
+     "stability": {
+      "stable": true,
+      "max_root_modulus": 0.971004883146912
+     },
+     "portmanteau_h12": {
+      "lags": 12,
+      "statistic": 207.12134828358035,
+      "degrees_of_freedom": 99,
+      "p_value": 1.2333830623489916e-09,
+      "status": "failed"
+     }
+    },
+    "2": {
+     "parameters_per_equation": 18,
+     "observations_per_parameter": 7.5,
+     "fit_observations": 135,
+     "sigma_u": [
+      [
+       0.2040837005019482,
+       -0.014721534226240226,
+       0.0019301619302062366
+      ],
+      [
+       -0.014721534226240226,
+       8.760591376941449,
+       -0.009070589385782882
+      ],
+      [
+       0.0019301619302062366,
+       -0.009070589385782882,
+       0.0031592822970011275
+      ]
+     ],
+     "correlation": [
+      [
+       0.9999999999999999,
+       -0.0110098702488907,
+       0.07601431186749105
+      ],
+      [
+       -0.0110098702488907,
+       1.0,
+       -0.05452235152808909
+      ],
+      [
+       0.07601431186749105,
+       -0.05452235152808909,
+       1.0
+      ]
+     ],
+     "stability": {
+      "stable": true,
+      "max_root_modulus": 0.9590931969951608
+     },
+     "portmanteau_h12": {
+      "lags": 12,
+      "statistic": 117.97431254912523,
+      "degrees_of_freedom": 90,
+      "p_value": 0.025594065606767358,
+      "status": "failed"
+     }
+    }
+   },
+   "empirical_lag_identifiability_index": {
+    "eli_raw": 1.064558250008901,
+    "eli_bias_adjusted": 0.8581252650411253,
+    "noncentrality_90": [
+     19.75457885555856,
+     62.58929877343588
+    ],
+    "eli_90": [
+     0.453110742214918,
+     1.435610641426702
+    ],
+    "note": "empirical index, not true psi; eli_raw > 1 iff BIC prefers lag 2 over lag 1; no cutoff"
+   },
+   "v187_reference_mapping": {
+    "most_similar_region": "intermediate",
+    "regions_overlapped_by_90_interval": [
+     "intermediate",
+     "weak"
+    ],
+    "nearest_v187_designs": [
+     {
+      "sample_size": 132,
+      "design": "p2_psi1.00",
+      "persistence": 0.95,
+      "psi_at_T": 0.999999999999997,
+      "synthetic_bic_exact_recovery": 0.7592
+     },
+     {
+      "sample_size": 144,
+      "design": "p2_psi1.00",
+      "persistence": 0.95,
+      "psi_at_T": 1.0703784770390827,
+      "synthetic_bic_exact_recovery": 0.8153
+     }
+    ],
+    "label": "descriptive synthetic context only; not a gate or probability"
+   },
+   "selected_model_adequacy_category": "C_fail",
+   "selected_model_parameter_ratio_ok": true,
+   "adequacy_caveat": "asymptotic production Portmanteau; v1.85 showed it is not size-calibrated in these designs"
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v2_seasonal_controls::hungary",
+   "state": "ok",
+   "country": "hungary",
+   "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+   "deterministic_terms": "constant_month_dummies",
+   "sample_structure": {
+    "T_eff": 137,
+    "K": 3,
+    "pmax": 10,
+    "n_common": 127,
+    "start_period": "2015-02",
+    "end_period": "2026-06"
+   },
+   "bic_grid": [
+    {
+     "lag": 1,
+     "bic": -1.5665844514265388
+    },
+    {
+     "lag": 2,
+     "bic": -1.6160368532971119
+    },
+    {
+     "lag": 3,
+     "bic": -1.46741576784903
+    },
+    {
+     "lag": 4,
+     "bic": -1.1894513937205433
+    },
+    {
+     "lag": 5,
+     "bic": -1.0944905768523974
+    },
+    {
+     "lag": 6,
+     "bic": -0.8792572429910694
+    },
+    {
+     "lag": 7,
+     "bic": -0.5464517263727391
+    },
+    {
+     "lag": 8,
+     "bic": -0.30850008723825084
+    },
+    {
+     "lag": 9,
+     "bic": -0.04993790824362865
+    },
+    {
+     "lag": 10,
+     "bic": 0.18792212063223612
+    }
+   ],
+   "selected_bic_lag": 2,
+   "delta_bic_2_vs_1": -0.04945240187057354,
+   "log_likelihood_improvement_2_vs_1": {
+    "lr": 49.87813881569019,
+    "df": 9,
+    "descriptive_asymptotic_p_value": 1.1355888754147611e-07,
+    "label": "descriptive, not a gate"
+   },
+   "incremental_parameter_count": 9,
+   "lag2_block": {
+    "frobenius_norm": 6.007919481526322,
+    "spectral_norm": 6.005643020561023,
+    "wald": 50.44866330644912,
+    "wald_descriptive_p_value": 8.8693982545931e-08
+   },
+   "lag2_partial_contribution": {
+    "system_share": 0.32479656647561106,
+    "per_equation_partial_r2": [
+     0.035170139460846905,
+     0.09749390148638493,
+     0.12100797398149321
+    ]
+   },
+   "by_lag": {
+    "1": {
+     "parameters_per_equation": 15,
+     "observations_per_parameter": 9.066666666666666,
+     "fit_observations": 136,
+     "sigma_u": [
+      [
+       0.1763516883042514,
+       0.39512180148704745,
+       -0.0067169747799944056
+      ],
+      [
+       0.39512180148704745,
+       20.297976420162723,
+       -0.16040217145315047
+      ],
+      [
+       -0.0067169747799944056,
+       -0.16040217145315047,
+       0.015995136884143318
+      ]
+     ],
+     "correlation": [
+      [
+       1.0,
+       0.20884054146494996,
+       -0.12647070114502526
+      ],
+      [
+       0.20884054146494996,
+       0.9999999999999998,
+       -0.2815074487769521
+      ],
+      [
+       -0.12647070114502526,
+       -0.2815074487769521,
+       1.0000000000000002
+      ]
+     ],
+     "stability": {
+      "stable": true,
+      "max_root_modulus": 0.93325356731392
+     },
+     "portmanteau_h12": {
+      "lags": 12,
+      "statistic": 136.86556261085553,
+      "degrees_of_freedom": 99,
+      "p_value": 0.007050505418217168,
+      "status": "failed"
+     }
+    },
+    "2": {
+     "parameters_per_equation": 18,
+     "observations_per_parameter": 7.5,
+     "fit_observations": 135,
+     "sigma_u": [
+      [
+       0.17597205257082882,
+       0.34341349757316636,
+       -0.008922328627690133
+      ],
+      [
+       0.34341349757316636,
+       18.841553278330874,
+       -0.2228030198733838
+      ],
+      [
+       -0.008922328627690133,
+       -0.2228030198733838,
+       0.014661480287901941
+      ]
+     ],
+     "correlation": [
+      [
+       1.0000000000000002,
+       0.18859803325188315,
+       -0.17565780634228173
+      ],
+      [
+       0.18859803325188315,
+       1.0,
+       -0.4239101459699759
+      ],
+      [
+       -0.17565780634228173,
+       -0.4239101459699759,
+       1.0
+      ]
+     ],
+     "stability": {
+      "stable": true,
+      "max_root_modulus": 0.9291607081378465
+     },
+     "portmanteau_h12": {
+      "lags": 12,
+      "statistic": 113.17055424759009,
+      "degrees_of_freedom": 90,
+      "p_value": 0.04983323425256225,
+      "status": "failed"
+     }
+    }
+   },
+   "empirical_lag_identifiability_index": {
+    "eli_raw": 1.1440547867066677,
+    "eli_bias_adjusted": 0.9376218017388918,
+    "noncentrality_90": [
+     22.35739775259514,
+     66.90997819123362
+    ],
+    "eli_90": [
+     0.5128115949088953,
+     1.5347140580161263
+    ],
+    "note": "empirical index, not true psi; eli_raw > 1 iff BIC prefers lag 2 over lag 1; no cutoff"
+   },
+   "v187_reference_mapping": {
+    "most_similar_region": "intermediate",
+    "regions_overlapped_by_90_interval": [
+     "intermediate",
+     "strong"
+    ],
+    "nearest_v187_designs": [
+     {
+      "sample_size": 132,
+      "design": "p2_psi1.00",
+      "persistence": 0.95,
+      "psi_at_T": 0.999999999999997,
+      "synthetic_bic_exact_recovery": 0.7592
+     },
+     {
+      "sample_size": 144,
+      "design": "p2_psi1.00",
+      "persistence": 0.95,
+      "psi_at_T": 1.0703784770390827,
+      "synthetic_bic_exact_recovery": 0.8153
+     }
+    ],
+    "label": "descriptive synthetic context only; not a gate or probability"
+   },
+   "selected_model_adequacy_category": "C_fail",
+   "selected_model_parameter_ratio_ok": true,
+   "adequacy_caveat": "asymptotic production Portmanteau; v1.85 showed it is not size-calibrated in these designs"
+  }
+ ],
+ "phase_B_run": false,
+ "production_changed": false,
+ "readiness_changed": false,
+ "interpretation": "Descriptive lag-identifiability evidence; not production readiness, not a model-selection override, not a probability that any country's true lag is 1 or 2."
+}
