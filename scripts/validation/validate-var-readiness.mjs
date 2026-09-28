@@ -20,7 +20,7 @@ const skill = registry.records.find((row) => row.skill_id === "reduced_form_var"
 const svar = registry.records.find((row) => row.skill_id === "svar");
 const bvar = registry.records.find((row) => row.skill_id === "bayesian_var");
 
-check(registry.schema_version === "analysis-skill-registry-v1.86", "analysis registry version");
+check(registry.schema_version === "analysis-skill-registry-v1.87", "analysis registry version");
 check(skill?.state === "active", "reduced-form VAR estimator must remain active");
 check(skill.readiness_reference === "var_country_readiness.json", "canonical flat readiness reference");
 check(skill.capability_reference === "var_capability_status.json", "capability reference");
@@ -38,7 +38,7 @@ for (const payload of [v1, v2]) {
   check(payload.records.every((row) => row.dynamic_response_ready_horizons[12] === false && row.irf_available === false), `${payload.profile.profile_id} h=12/IRF publication gate`);
 }
 check(combined.schema_version === "var-country-readiness-v1.44" && combined.records.length === 10, "combined current readiness authority");
-check(capability.schema_version === "var-capability-status-v1.86" && capability.estimator_available && capability.coefficient_estimation_available, "active estimator capability");
+check(capability.schema_version === "var-capability-status-v1.87" && capability.estimator_available && capability.coefficient_estimation_available, "active estimator capability");
 check(capability.formal_baseline_v1_available && capability.formal_baseline_v2_available && capability.dynamic_response_framework_available && capability.orthogonalized_irf_method_available, "implemented VAR capabilities");
 check(capability.formal_dynamic_response_ready_country_count === 0 && capability.formal_dynamic_response_ready_countries.length === 0, "zero formal dynamic-response-ready countries");
 check([6, 12, 18, 24].every((horizon) => capability[`formal_dynamic_response_ready_${horizon}m_countries`].length === 0), "zero horizon-specific formal readiness");

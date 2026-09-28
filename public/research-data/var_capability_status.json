@@ -1,5 +1,5 @@
 {
-  "schema_version": "var-capability-status-v1.86",
+  "schema_version": "var-capability-status-v1.87",
   "generated_at": "2026-09-28",
   "method_id": "reduced_form_var",
   "method_state": "active",
@@ -45,6 +45,10 @@
   "selection_aware_bootstrap_phase_B": "not_run_owner_deferred",
   "selection_aware_bootstrap_known_gap": "selection-aware size for true VAR(2) DGPs untested because BIC almost never selects p=2 in the design",
   "selection_aware_bootstrap_research_conclusion": "var_selection_bootstrap_research_conclusion.json",
+  "lag_selection_characterization_research": "completed_descriptive",
+  "lag_selection_policy": "bic_unchanged",
+  "alternative_lag_criteria_in_production": false,
+  "lag_selection_characterization_conclusion": "var_lag_characterization_research_conclusion.json",
   "residual_diagnostic_research_conclusion": "var_residual_diagnostic_research_conclusion.json",
   "residual_diagnostic_boundary": "The residual diagnostic governs the dynamic-response publication gate only; it does not invalidate reduced-form coefficient estimates. Edgerton–Shukur is not an active or validated replacement gate.",
   "formal_profiles": {

@@ -1,15 +1,15 @@
 {
-  "schema_version": "release-metadata-v1.86",
-  "platform_version": "v1.86 Selection-Aware Bootstrap Calibration Research",
+  "schema_version": "release-metadata-v1.87",
+  "platform_version": "v1.87 VAR Lag-Selection Finite-Sample Characterization",
   "release_date": "2026-09-28",
   "source_commit": "local-working-tree",
   "build_context": "local",
   "workflow_run_id": null,
-  "generated_at": "2026-09-28T00:10:38.111Z",
+  "generated_at": "2026-09-28T01:52:55.534Z",
   "research_package": {
-    "filename": "research-data-v1.86.zip",
-    "sha256": "67d6b1bb4a7cd049c9b1f4a3bda5bf60233db9b8974eb973cbe6bee509885224",
-    "generated_at": "2026-09-28T00:10:38.967Z",
+    "filename": "research-data-v1.87.zip",
+    "sha256": "ec517985c171742c020502e92c81cd2df63635ab57fe6117ec93e1c43cb9fcc1",
+    "generated_at": "2026-09-28T01:52:56.496Z",
     "status": "built"
   },
   "data_export_version": "research-data-v0.1",
@@ -90,7 +90,7 @@
     "trade_network": "trade-network-v1.25-active",
     "event_window": "event-window-v1.31",
     "high_frequency": "high-frequency-v1.31",
-    "analysis_skill_registry": "analysis-skill-registry-v1.86",
+    "analysis_skill_registry": "analysis-skill-registry-v1.87",
     "high_frequency_definition_registry": "high-frequency-definition-registry-v1.83",
     "historical_extension_research_conclusion": "historical-extension-research-conclusion-v1.83",
     "panel_lp_path_inference_registry": "panel-lp-path-inference-registry-v1.82",
@@ -112,7 +112,7 @@
     "var_engine": "var-engine-v1.44",
     "var_specification_profiles": "var-specification-profiles-v1.44",
     "var_country_readiness": "var-country-readiness-v1.44",
-    "var_capability_status": "var-capability-status-v1.86",
+    "var_capability_status": "var-capability-status-v1.87",
     "var_residual_diagnostic_preregistration": "var-residual-diagnostic-preregistration-v1.85",
     "var_residual_diagnostic_reference": "var-residual-diagnostic-reference-manifest-v1.85",
     "var_residual_diagnostic_validation": "var-residual-diagnostic-reference-validation-v1.85",
@@ -127,6 +127,11 @@
     "var_selection_bootstrap_calibration": "var-selection-bootstrap-calibration-summary-v1.86",
     "var_selection_bootstrap_method_decision": "var-selection-bootstrap-method-decision-v1.86",
     "var_selection_bootstrap_research_conclusion": "var-selection-bootstrap-research-conclusion-v1.86",
+    "var_lag_characterization_preregistration": "var-lag-characterization-preregistration-v1.87",
+    "var_lag_characterization_results": "var-lag-characterization-lag-selection-results-v1.87",
+    "var_lag_characterization_signal": "var-lag-characterization-signal-strength-decomposition-v1.87",
+    "var_lag_characterization_adequacy": "var-lag-characterization-adequacy-decomposition-v1.87",
+    "var_lag_characterization_research_conclusion": "var-lag-characterization-research-conclusion-v1.87",
     "macro_drivers": "macro-driver-observations-v1.51",
     "shock_identification": "shock-identification-registry-v1.62",
     "identified_shocks": "monetary-policy-event-observations-v1.6",
@@ -152,7 +157,7 @@
     "note": "Historical v0.91 golden cases remain the core research regression suite."
   },
   "advanced_analysis_validation": {
-    "stage": "v1.86 advanced analysis validation",
+    "stage": "v1.87 advanced analysis validation",
     "legacy_summary_reference": "advanced_analysis_validation_summary.json",
     "validation_index": "analysis_validation_index.json",
     "status": "passed",
@@ -205,7 +210,7 @@
     "validation_index": "analysis_validation_index.json"
   },
   "release_validation": {
-    "stage": "v1.86 release validation",
+    "stage": "v1.87 release validation",
     "status": "required_after_static_build",
     "gates": [
       "security_scan",
@@ -227,8 +232,8 @@
       "panel-lp:ui-validate",
       "panel-lp:robustness-validate"
     ],
-    "package_checksum": "67d6b1bb4a7cd049c9b1f4a3bda5bf60233db9b8974eb973cbe6bee509885224",
-    "package_filename": "research-data-v1.86.zip"
+    "package_checksum": "ec517985c171742c020502e92c81cd2df63635ab57fe6117ec93e1c43cb9fcc1",
+    "package_filename": "research-data-v1.87.zip"
   },
   "legacy_validation_summary_v091": {
     "stage": "v0.91 Model & Scenario Validation",

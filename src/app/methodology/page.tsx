@@ -4,6 +4,7 @@ import { runtimeAnalysisSkills } from "@/lib/analysisSkills";
 import { AnalysisSkillCard } from "@/components/AnalysisSkillCard";
 import { CitationActions } from "@/components/CitationActions";
 import { platformStatus } from "@/lib/platformStatus";
+import lagCharacterization from "@/data/macro/var_lag_characterization_research_conclusion.json";
 import selectionBootstrapSummary from "@/data/macro/var_selection_bootstrap_calibration_summary.json";
 import layerBDecomposition from "@/data/macro/var_residual_diagnostic_layerB_selection_decomposition.json";
 import { getResearchPackageFilename, platformApaCitation, platformBibtexCitation, platformCitation } from "@/lib/releaseMetadata";
@@ -18,10 +19,12 @@ const layerAEs = layerBDecomposition.layer_A_summary.edgerton_shukur_f;
 const p2Under = layerBByLag["2"].by_deterministic_spec;
 const p1MonthRanges = layerBByLag["1"].by_deterministic_spec.constant_plus_11_month_dummies.h12_rejection_rate_range;
 
+const lagRecovery = lagCharacterization.true_lag_2_bic_exact_recovery_range_by_design_primary;
+const lagRange = (design: keyof typeof lagRecovery) => `${pct(lagRecovery[design][0], 1)}–${pct(lagRecovery[design][1], 1)}`;
 const bootstrapIid = selectionBootstrapSummary.families.recursive_iid_residual;
 const bootstrapWild = selectionBootstrapSummary.families.recursive_wild_rademacher;
 
-const sections = [["data", "Data"], ["baseline-data-definitions", "Baseline definitions"], ["panel-lp-whole-path-inference", "Panel LP whole-path boundary"], ["models", "Analysis"], ["var-residual-diagnostic-calibration", "VAR residual diagnostics"], ["var-selection-aware-bootstrap", "VAR bootstrap research"], ["events", "Events"], ["macro-drivers", "Macro Drivers"], ["spatial", "Spatial"], ["validation", "Validation"], ["citation", "Citation"]] as const;
+const sections = [["data", "Data"], ["baseline-data-definitions", "Baseline definitions"], ["panel-lp-whole-path-inference", "Panel LP whole-path boundary"], ["models", "Analysis"], ["var-residual-diagnostic-calibration", "VAR residual diagnostics"], ["var-selection-aware-bootstrap", "VAR bootstrap research"], ["var-lag-selection-characterization", "VAR lag-selection research"], ["events", "Events"], ["macro-drivers", "Macro Drivers"], ["spatial", "Spatial"], ["validation", "Validation"], ["citation", "Citation"]] as const;
 
 function Section({ id, label, title, children }: { id: string; label: string; title: string; children: React.ReactNode }) {
   return <section id={id} className="scroll-mt-24 border-t border-[var(--line)] py-10"><p className="editorial-kicker">{label}</p><h2 className="mt-3 text-3xl font-semibold">{title}</h2>{children}</section>;
@@ -93,6 +96,10 @@ export default function MethodologyPage() {
       <p className="mt-3 max-w-4xl text-sm leading-7">负责人事先选定的检验目标是“被选模型是否充分”（selected-model adequacy）：固定真实滞后时的拒绝率，以及 BIC 选出的滞后不低于真实滞后时的拒绝率。两种方案都通过了预注册门：固定真实滞后 {bootstrapIid.gate_A_fixed_true_lag.cells_inside_strict_interval}/{bootstrapIid.gate_A_fixed_true_lag.cell_count} 个单元落在 3.5%–6.5%（残差重抽样 {pct(bootstrapIid.gate_A_fixed_true_lag.minimum_rate)}–{pct(bootstrapIid.gate_A_fixed_true_lag.maximum_rate)}，wild {pct(bootstrapWild.gate_A_fixed_true_lag.minimum_rate)}–{pct(bootstrapWild.gate_A_fixed_true_lag.maximum_rate)}）；被选模型充分的条件拒绝率 {bootstrapIid.gate_C_adequacy_conditional.cells_inside_strict_interval}/{bootstrapIid.gate_C_adequacy_conditional.support_cell_count} 个支持单元落在区间内。按预注册的平局规则选定残差重抽样方案。</p>
       <p className="mt-3 max-w-4xl text-sm leading-7">整个流程的拒绝率（selection-aware procedure rejection rate）为 {pct(bootstrapIid.full_procedure_D_report_only.minimum_rate)}–{pct(bootstrapIid.full_procedure_D_report_only.maximum_rate)}，只作报告，不称为检验 size：高值出现在真实滞后为 2、BIC 几乎总是选成 1 阶的设计中，被选模型确实欠拟合，拒绝反映的是模型不充分。限制：由于 BIC 在该设计下几乎不选 2 阶，真实 VAR(2) 过程下 selection-aware 的 size 仍未经检验。</p>
       <p className="mt-3 max-w-4xl text-sm leading-7">这项结果只来自合成数据。尚未对真实国家数据做评估（Phase B 未运行，需负责人批准）；生产残差诊断、BIC 滞后选择、国家就绪状态均未改变，正式 dynamic-response-ready 国家仍为 0，正式 IRF 仍不可发布。完整记录见 <a className="text-[var(--accent)] underline" href={`${basePath}/research-data/var-selection-bootstrap/var_selection_bootstrap_research_conclusion.json`}>v1.86 研究结论记录</a>。</p>
+    </Section>
+    <Section id="var-lag-selection-characterization" label="VAR / v1.87 research" title="VAR Lag-Selection Finite-Sample Characterization">
+      <p className="mt-4 max-w-4xl text-sm leading-7"><strong>研究状态，只作描述。</strong>v1.87 事前注册了一项合成数据研究，描述平台现行 BIC 滞后选择在有限样本下能否识别真实的第二阶滞后，共 {lagCharacterization.total_replications.toLocaleString("en-US")} 次模拟。新增维度是第二阶滞后信号强度 ψ（总体第二阶信息与 BIC 多一阶惩罚之比，ψ &gt; 1 时 BIC 渐近倾向选 2 阶）。真实滞后为 1 时，BIC 选对的比例为 {pct(lagCharacterization.true_lag_1_bic_exact_recovery_range_primary[0], 1)}–{pct(lagCharacterization.true_lag_1_bic_exact_recovery_range_primary[1], 1)}。真实滞后为 2 时，选对比例随信号强度变化：v1.85 原设计 {lagRange("p2_v185")}，ψ=0.25 为 {lagRange("p2_psi0.25")}，ψ=0.5 为 {lagRange("p2_psi0.50")}，ψ=1 为 {lagRange("p2_psi1.00")}，ψ=2 为 {lagRange("p2_psi2.00")}（跨样本长度、持续性与确定性项的范围）。</p>
+      <p className="mt-3 max-w-4xl text-sm leading-7">没能选出真实滞后，与“选出的低阶模型是否仍是充分近似”是两回事：研究按设计层面的可检出性，把欠选区分为充分的低阶近似与不充分的低阶模型，并报告 v1.86 bootstrap 诊断在各类情形下的拒绝率。有 {lagCharacterization.infeasible_combinations} 个（信号强度, 持续性）组合在保持平稳的前提下无法达到，已如实登记。AIC 与 HQIC 只作对照，不据此推荐替换准则；BIC 仍是生产准则，残差诊断、国家就绪状态和正式 IRF 不可发布的状态均未改变，也未运行真实国家评估。完整记录见 <a className="text-[var(--accent)] underline" href={`${basePath}/research-data/var-lag-characterization/var_lag_characterization_research_conclusion.json`}>v1.87 研究结论记录</a>。</p>
     </Section>
     <Section id="events" label="03 / Events" title="事件编码"><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">Source → Event → Coding → Affected Indicator / Project → Research context。date、actor、event_type、direction 和 confidence 用于检索与解释；它们不自动构成因果关系，也不直接改变模型分数。未完整编码、低置信度或结构样例保持 enters_model=false。</p><Link href="/news" className="mt-4 inline-flex text-sm font-semibold text-[var(--accent)]">进入 Event Library</Link></Section>
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.87 VAR Lag-Selection Finite-Sample Characterization — 2026-09-28
+
+- Preregisters (before any confirmatory draw) and runs a descriptive finite-sample characterization of the production BIC lag-selection rule: 3.36M synthetic replications over T 96–240, persistence, deterministic terms, K=2/3, innovation covariance and t5 innovations.
+- Adds a lag-2 signal-strength dimension ψ (population lag-2 information relative to the BIC penalty; weak 0.25/0.5, moderate 1, strong 2, plus the frozen v1.85 designs); 102 unattainable (ψ, persistence) combinations are recorded, not substituted.
+- Publishes lag-recovery matrices, the signal-strength decomposition, the adequacy decomposition (correct / over / adequate lower-order approximation / inadequate lower-order model) with bootstrap diagnostic behaviour by category, and a Monte Carlo uncertainty summary. AIC/HQIC are report-only benchmarks.
+- Research only: no gate, no criterion change, no real-country Phase B, no production diagnostic, readiness or formal IRF change; v1.85, v1.851 and v1.86 artifacts are untouched.
+
 ## v1.86 Selection-Aware Bootstrap Calibration Research — 2026-09-28
 
 - Preregisters (before any confirmatory draw) and runs a selection-aware bootstrap calibration of the production h=12 adjusted Portmanteau: BIC lag selection is rerun inside every bootstrap sample; two families (recursive iid residual, recursive wild Rademacher), B=199; the v1.85 36-cell DGP grid; 252,000 Monte Carlo replications in 5,040 checkpoints.

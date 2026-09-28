@@ -1,0 +1,226 @@
+{
+  "schema_version": "var-lag-characterization-preregistration-v1.87",
+  "study_id": "var_lag_selection_characterization_v187",
+  "study_title": "v1.87 VAR Lag-Selection Finite-Sample Characterization",
+  "preregistered_at": "2026-09-28",
+  "starting_commit": "edd998a3be3de34588c9568ad8d3285560325e19",
+  "status": "preregistered_before_confirmatory_simulation",
+  "prior_releases_immutable": [
+    "v1.85",
+    "v1.851",
+    "v1.86"
+  ],
+  "research_question": "How does the CURRENT production BIC lag-selection procedure behave in finite samples under platform-relevant VAR designs: how often does it recover the true lag, how does recovery depend on lag-2 signal strength, sample size, persistence, deterministic terms, dimension, innovation covariance and distribution, and are underselected models adequate lower-order approximations or inadequate models?",
+  "research_type": "descriptive characterization; no method selection, no gate, no production decision",
+  "known_information_disclosure": {
+    "v1_85_v1_851_v1_86_synthetic_results_known": true,
+    "known_facts": [
+      "In the v1.85/v1.86 primary grid, BIC underselects true VAR(2) designs in ~99.4-100% of replications.",
+      "Design-level (pre-simulation, deterministic) population algebra computed while building this design shows the v1.85 lag-2 template has psi 0.06-0.18 and that psi > ~0.29 is unattainable at persistence 0.5 with the v1.85 lag-2 direction."
+    ],
+    "actual_country_results_used_for_design": false,
+    "engineering_smoke_test": "phase code 1, 3 cells x 10 replications; checked determinism and timing only; selection outcomes not inspected"
+  },
+  "primary_estimand": "exact lag-recovery probability P(selected BIC lag = true lag) per cell",
+  "secondary_estimands": [
+    "underselection probability P(selected < true)",
+    "overselection probability P(selected > true)",
+    "full selected-lag distribution (recovery matrix) per cell",
+    "distribution of BIC(1) - BIC(2) and of BIC(true lag) - min BIC",
+    "for true VAR(2): recovery as a function of lag-2 signal strength psi, never aggregated across psi",
+    "adequacy decomposition (below)",
+    "bootstrap diagnostic rejection conditional on correct / under / over selection (bootstrap_adequacy phase)"
+  ],
+  "candidate_lag_set": "identical to production: 1..min(12, floor((T-4)/(4K+1))), common sample, free parameters p*K^2 + K*deterministic_count (varEngine.selectLagOrder / maximumAllowedVarLag)",
+  "lag_selection_policy_changed": false,
+  "report_only_benchmarks": {
+    "criteria": [
+      "AIC",
+      "HQIC"
+    ],
+    "role": "descriptive benchmarks computed on the same replications; no criterion-selection gate; no conclusion that another criterion should replace BIC"
+  },
+  "dgp": {
+    "family": "stable VAR(p) with deterministic terms; v1.85 templates, intercept, month effects and burn-in 300",
+    "designs": {
+      "p1": "frozen v1.85 VAR(1) construction",
+      "p2_v185": "frozen v1.85 VAR(2) construction (weak lag-2 signal, psi 0.06-0.18)",
+      "p2_psi{0.25,0.50,1.00,2.00}": "v1.87 lag-identification-strength extension"
+    },
+    "signal_strength_dimension": {
+      "definition": "psi(T) = delta/(K^2 ln n/n), n = T - pmax(T); delta = population log-det one-step loss from dropping lag 2",
+      "targets_at_T_ref_132": {
+        "weak": [
+          0.25,
+          0.5
+        ],
+        "moderate": [
+          1.0
+        ],
+        "strong": [
+          2.0
+        ]
+      },
+      "construction": "A1=a*T1, A2=b*T2 (v1.85 directions); b solves psi(132)=target, a solves spectral radius=rho",
+      "stationarity": "every design has spectral radius exactly rho < 1",
+      "infeasible_policy": "combinations whose psi target is unattainable at rho are recorded as infeasible with psi_max; never substituted or re-parameterised",
+      "purpose": "map how lag-2 signal strength affects finite-sample recoverability; not to manufacture BIC success"
+    }
+  },
+  "sample_size_grid": {
+    "primary": [
+      96,
+      120,
+      132,
+      144,
+      180,
+      240
+    ],
+    "secondary_and_bootstrap": [
+      120,
+      132,
+      144
+    ]
+  },
+  "variable_dimension_grid": {
+    "primary": 3,
+    "secondary": 2
+  },
+  "deterministic_specifications": [
+    "constant",
+    "constant_plus_11_month_dummies"
+  ],
+  "persistence_grid": [
+    0.5,
+    0.8,
+    0.95
+  ],
+  "innovation_covariance_structures": {
+    "v185": "v1.85 covariance",
+    "high_correlation": "[[1,.7,.6],[.7,1,.65],[.6,.65,1]] (secondary)"
+  },
+  "innovation_distributions": {
+    "primary": "gaussian_iid",
+    "secondary": "multivariate_t5_scaled_to_covariance"
+  },
+  "phases": {
+    "lag_selection_primary": {
+      "cells_feasible": 180,
+      "cells_infeasible_recorded": 36,
+      "replications_per_cell": 10000
+    },
+    "lag_selection_secondary": {
+      "variants": [
+        "k2",
+        "high_correlation",
+        "t5"
+      ],
+      "cells_feasible": 276,
+      "cells_infeasible_recorded": 48,
+      "replications_per_cell": 5000
+    },
+    "bootstrap_adequacy": {
+      "cells_feasible": 90,
+      "cells_infeasible_recorded": 18,
+      "replications_per_cell": 2000,
+      "bootstrap": "frozen v1.86 engine, recursive_iid_residual family (v1.86 selected), selection-aware (BIC rerun inside each bootstrap sample), B=199, h=12 adjusted Portmanteau, reject iff bootstrap p <= 0.05"
+    }
+  },
+  "total_replications": {
+    "lag_selection_primary": 1800000,
+    "lag_selection_secondary": 1380000,
+    "bootstrap_adequacy": 180000,
+    "total": 3360000
+  },
+  "adequacy_decomposition": {
+    "chain": "true_process -> lag_signal_strength -> selected_lag -> model_adequacy -> diagnostic_result",
+    "categories": {
+      "correct_recovery": "selected = true lag (correctly specified)",
+      "overselection": "selected > true lag (correctly specified, over-parameterised)",
+      "underselection_adequate_approximation": "selected < true lag AND design-level approximate power of the nominal h=12 Portmanteau against the pseudo-true VAR(selected) residual autocorrelation <= 0.10",
+      "underselection_inadequate_model": "selected < true lag AND that power > 0.10"
+    },
+    "distinction": "failure to recover the true lag (any underselection) is reported separately from whether the selected lower-order model is an adequate approximation or an inadequate model; the adequacy classification is a design-level population property, and the bootstrap diagnostic result is its sample counterpart"
+  },
+  "random_seed_namespace": {
+    "namespace": "var_lag_selection_characterization_v187",
+    "base_entropy": [
+      187,
+      20260928,
+      1
+    ],
+    "generator": "PCG64DXSM via SeedSequence(base_entropy, spawn_key)",
+    "spawn_key_schema": {
+      "data": "(phase_code, cell_index, chunk_index, 0)",
+      "bootstrap": "(phase_code, cell_index, chunk_index, 1)"
+    },
+    "phase_codes": {
+      "0": "reference fixtures",
+      "1": "engineering smoke",
+      "2": "lag_selection_primary",
+      "3": "lag_selection_secondary",
+      "4": "bootstrap_adequacy"
+    },
+    "reuse_policy": "no spawn key reused; no alternative seeds; completed chunks never recomputed"
+  },
+  "monte_carlo_uncertainty_reporting": "every proportion with its Monte Carlo standard error and Wilson 95% interval; BIC-difference quantiles with the underlying replication count; the uncertainty summary reports the maximum standard error per phase",
+  "decision_rule": "none: v1.87 is descriptive. No gate, no criterion choice, no production decision. Allowed conclusions are descriptive statements about BIC recoverability versus signal strength, sample size and other design factors.",
+  "stopping_rule": "run every preregistered feasible chunk in all three phases to completion; no early stopping; stop after summaries and the owner report; retain every checkpoint",
+  "prohibited_post_hoc_modifications": [
+    "changing signal levels, reference T, construction or infeasibility handling",
+    "changing grids, replication counts, chunking or seeds",
+    "dropping cells",
+    "adding a criterion-selection gate or recommending a BIC replacement",
+    "using actual-country outcomes",
+    "running Phase B",
+    "changing production BIC, readiness, IRF availability or the production diagnostic",
+    "modifying v1.85/v1.851/v1.86 artifacts"
+  ],
+  "production_boundary": {
+    "production_changed": false,
+    "bic_policy_changed": false,
+    "readiness_thresholds_changed": false,
+    "formal_irf_publication": false,
+    "phase_B_run": false
+  },
+  "frozen_input_sha256": {
+    "src/lib/varEngine.ts": "0e944a52eba0a295ca7e44b5e9a801579f94a5ada03fef5a7ed9d938de8bf2ac",
+    "src/data/macro/var_country_readiness.json": "4b8173f8202c72359758b0bf4b05ef08a6c089f2ab47f79b7be359468c97e6b1",
+    "src/data/macro/var_baseline_v1_readiness.json": "f210b02ec3042c5cf95f975bccbd94f7fead0f403314d59a1e760a2046c5912e",
+    "src/data/macro/var_baseline_v2_readiness.json": "b7fd4bec330ebd4db588ed63bce4de988773556b8cdc572c27f640239a2a1675",
+    "src/data/macro/var_exploratory_readiness.json": "9774fa8bc87f5d84cc867e4e60bb7b1ca1a1aa432d3d81979d275caca6c3ac08",
+    "src/data/macro/var_lag_diagnostic_grid.json": "2d1753188a9b5b7c8bb6f322eb53fd4241205f2d8789904498024e3a6ecd19d9",
+    "src/data/panel-local-projections/panel_lp_results.json": "10e7b4f8761523e7b136b9707ac87da1d753a5914e0d11a3f8b980571ab53bdc",
+    "src/data/macro/var_residual_diagnostic_calibration_summary.json": "ca917656b7c0109cf0e286573effaae03dd4f8143a042524c8f24ee350073cca",
+    "src/data/macro/var_residual_diagnostic_layerB_selection_decomposition.json": "6f6e1caededf43f1776a4d83aa9e26a1f55ee31cda71b6aac079080c05333602",
+    "src/data/macro/var_residual_diagnostic_method_decision.json": "729c69430e6431e88f477ae24cc73bb3025e2b70fd30d118c671dbf63f40fe5c",
+    "src/data/macro/var_residual_diagnostic_preregistration.json": "f9ddab6a8ff77026b83caeca1024bf8b0379a470792fb5410e3d99607818bb0b",
+    "src/data/macro/var_residual_diagnostic_preregistration_amendment_001.json": "fafab2a5b74677be20b537101efbb44e3f3e0c925ad33cb89f5878a32ac91006",
+    "src/data/macro/var_residual_diagnostic_reference_attempts.json": "5f7e236b42aa001d7bfffca5dc2eb33aea1116f474bd8b9dfd8948e01d8abada",
+    "src/data/macro/var_residual_diagnostic_reference_cases.json": "0c2609797aeafcba66b1a656d4537c2f8e4fc631ba61d97a2138515be379d1f0",
+    "src/data/macro/var_residual_diagnostic_reference_inputs.csv": "024fbeaa6dd49b5cd72de66dc70039938117c481c3d4f32433cf00116a3fcc45",
+    "src/data/macro/var_residual_diagnostic_reference_manifest.json": "06460e94a2db421adbd754655b75e54812f888b972904ca58e5955850b85933e",
+    "src/data/macro/var_residual_diagnostic_reference_validation.json": "684e49a070c932385fba823e95358e812129c840a72afc000a776634f7853026",
+    "src/data/macro/var_residual_diagnostic_research_conclusion.json": "5d60d16a0d78b6d41df72c34e4e7028f8d50c9844bd1df9e3dbaca56d4720021",
+    "src/data/macro/var_residual_diagnostic_research_conclusion_amendment_001.json": "43d8ff9a9b3b1bae5552a5d98f3dbb5ad00aa045077098bf0087252f21323e73",
+    "src/data/macro/var_residual_diagnostic_seed_registry.json": "433f9fdec41d0410b103a35888f4dd894693d3da9ae675df9cf32c2c1225fdd2",
+    "src/data/macro/var_residual_diagnostic_simulation_design.json": "57c741524c37c452f318ce7e9aeff48c9ed547118977393acfdce4bd4a146b73",
+    "src/data/macro/var_residual_diagnostic_simulation_results.json": "04cc4ad5f8395f894a4c9c164fc8374841b6eb20c97dc4a8c4d7098dc6912a7e",
+    "src/data/macro/var_selection_bootstrap_calibration_summary.json": "370109106140aec28a16f41db44c088d357ce43c354cb917b6f1842c9c7467e4",
+    "src/data/macro/var_selection_bootstrap_method_decision.json": "117188dbc77429ea2329df745ce04f39be9a5768e4869186b6c73f449454a1fb",
+    "src/data/macro/var_selection_bootstrap_preregistration.json": "c37a32d53f01e2444c990807780a0aa53781f3c88c706f65035ce0345c790b6f",
+    "src/data/macro/var_selection_bootstrap_reference_validation.json": "a1d9d453f5b0374f58f84a3079ca873283d05f2668e06de441682c4578a040f3",
+    "src/data/macro/var_selection_bootstrap_research_conclusion.json": "e1f137948427aaec6d4bdad26e95df70a20bf8c8787e7df059d97c492634e68f",
+    "src/data/macro/var_selection_bootstrap_seed_registry.json": "6209b349123191ae4b99de572bac359f6d47a196bebf5a0f3c93996440ab99fd",
+    "src/data/macro/var_selection_bootstrap_selection_decomposition.json": "5908403a40736498de6de186be4159425f8b7087e81280cffa0a5ddf052d7d8a",
+    "src/data/macro/var_selection_bootstrap_simulation_design.json": "ee4beaf27640b97874a30c9fada95f3682f700f80b1e8bb39c59a45f3507f35f",
+    "src/data/macro/var_selection_bootstrap_simulation_results.json": "ea93e0aebec28b3b17f50dacc0a8a6578f556f53ee9dfe468e8c02ab8bb44704",
+    "scripts/var-residual-diagnostics/common.py": "79f81ecd312e305f6df63234d5482a880887336649e49c05fcd573fd204fb8d5",
+    "scripts/var-residual-diagnostics/simulate.py": "c43722366fb1db375149a119e58e51eaf4cbfdfc0dc2af7fbfe10256440ac2ab",
+    "scripts/var-selection-aware-bootstrap/engine.py": "2318f72e6f29037bc721e39d7f5b885021e700dc49480da2d19396c3b8f6e84a",
+    "scripts/var-lag-selection-characterization/lagchar.py": "54f7883ac784cfca504fb1eee98fd5d600a6d2dce1414d91843fe6a50b8acb38",
+    "scripts/var-lag-selection-characterization/build_design.py": "fa9d5b723f333ff7acbd9b0789d7b5909919e5ec82989196c7453d05adee18f6",
+    "src/data/macro/var_lag_characterization_simulation_design.json": "7df5b8b4f931e191489c5a7c8f1c84d873102bc0df03b0b84044e1053f98513a",
+    "src/data/macro/var_lag_characterization_reference_validation.json": "99f8244e100d8748babc06c8e0df7b2ad542508a3c632f32d7e7ee378bd425a2"
+  }
+}

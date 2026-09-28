@@ -42,7 +42,7 @@ check(definitionRegistry.records.find((r) => r.country === 'hungary' && r.indica
 check(si?.compatibility_decision === 'current_baseline_definition_warning' && yieldAudit.records.find((r) => r.country === 'SI')?.flags.some((f) => f.period === '2025-01' && f.flag === 'e'), 'SI estimated-value disclosure');
 check(definitionRegistry.records.find((r) => r.country === 'slovenia' && r.indicator === 'long_term_government_yield')?.quality_flag_policy.includes('not a definition break'), 'SI quality-note semantics missing');
 check(acquisitionSource.includes('high_frequency_definition_registry.json') && acquisitionSource.includes('definitionOverride?.series_break_status') && acquisitionSource.includes('definitionOverride?.analysis_eligible'), 'acquisition refresh does not preserve definition registry overrides');
-check(read('src/data/release.json').version.startsWith('v1.86 '), 'formal release version');
+check(read('src/data/release.json').version.startsWith('v1.87 '), 'formal release version');
 const panelSha = crypto.createHash('sha256').update(fs.readFileSync(path.join(root, 'src/data/panel-local-projections/panel_lp_results.json'))).digest('hex');
 check(panelSha === '10e7b4f8761523e7b136b9707ac87da1d753a5914e0d11a3f8b980571ab53bdc', 'frozen Panel SHA changed');
 const changed = execFileSync('git', ['diff', '--name-only', '9b163c03de75a9a9d0f9e53f8d0b9d4bbd8775d0', '--', 'src/data/high-frequency/high_frequency_observations.json', 'src/data/panel-local-projections', 'src/data/identified-shocks'], { cwd: root, encoding: 'utf8' }).trim();

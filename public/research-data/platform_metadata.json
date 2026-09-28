@@ -1,9 +1,9 @@
 {
   "name": "Central Europe Political Atlas",
-  "version": "v1.86 Selection-Aware Bootstrap Calibration Research",
+  "version": "v1.87 VAR Lag-Selection Finite-Sample Characterization",
   "release_date": "2026-09-28",
-  "stage": "Validated Reduced-form VAR estimation; a preregistered synthetic study found a selection-aware bootstrap calibration of the residual diagnostic that passes its gate, but it is research-only: no real-country evaluation, no production change, and formal dynamic responses remain unavailable.",
-  "schema_version": "release-metadata-v1.86",
+  "stage": "Validated Reduced-form VAR estimation; preregistered synthetic research characterizes when the production BIC rule can recover a true second lag. Research only: BIC, the residual diagnostic, readiness and formal dynamic-response unavailability are unchanged.",
+  "schema_version": "release-metadata-v1.87",
   "canonical_url": "https://hy-central-europe-analysis.org/",
   "public_contact_email": "sallaizhang@outlook.com",
   "legal_notice_updated": "2026-08-20",
@@ -27,7 +27,8 @@
     "transformation-registry-v1.41",
     "seasonal-adf-critical-values-v1.44",
     "var-engine-v1.44",
-    "var-capability-status-v1.86",
+    "var-capability-status-v1.87",
+    "var-lag-characterization-research-conclusion-v1.87",
     "var-selection-bootstrap-research-conclusion-v1.86",
     "var-residual-diagnostic-research-conclusion-v1.85",
     "var-residual-diagnostic-layerB-selection-decomposition-v1.851",
@@ -40,7 +41,7 @@
     "lp-validation-summary-v1.71",
     "lp-inference-registry-v1.71",
     "lp-model-diagnostic-summary-v1.71",
-    "analysis-skill-registry-v1.86",
+    "analysis-skill-registry-v1.87",
     "panel-lp-model-comparison-v1",
     "panel-lp-path-inference-registry-v1.82",
     "panel-lp-joint-inference-research-conclusion-v1.82"
@@ -55,7 +56,7 @@
     "The v1.85 residual-diagnostic calibration research is closed with no eligible replacement: the h=12 adjusted Portmanteau gate is retained, the current lag-selection + residual-diagnostic procedure failed the preregistered joint gate (Layer-B rejection rates are procedure rates, not pure diagnostic size), and Edgerton–Shukur is not an authorized gate.",
     "The v1.86 selection-aware bootstrap calibration passed a preregistered synthetic gate only; it is research-only, has not been evaluated on real-country data, and does not change the production diagnostic or IRF availability."
   ],
-  "citation": "Central Europe Political Atlas, version v1.86 Selection-Aware Bootstrap Calibration Research, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
+  "citation": "Central Europe Political Atlas, version v1.87 VAR Lag-Selection Finite-Sample Characterization, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
   "data_status_enum": [
     "official",
     "verified",

@@ -1,6 +1,6 @@
 {
-  "schema_version": "analysis-validation-index-v1.86",
-  "platform_version": "v1.86",
+  "schema_version": "analysis-validation-index-v1.87",
+  "platform_version": "v1.87",
   "interpretation": "Additive current-release index; legacy validation artifacts retain their original versions and are not relabelled as panel tests.",
   "records": [
     {
@@ -52,6 +52,14 @@
       "replacement": "none_eligible",
       "publication_boundary": "enforced",
       "formal_irf_publication_available": false
+    },
+    {
+      "id": "var_lag_selection_characterization",
+      "title": "VAR lag-selection finite-sample characterization (v1.87)",
+      "artifact": "var-lag-characterization/var_lag_characterization_research_conclusion.json",
+      "gate": "var:lag-characterization-closure-validate",
+      "artifact_role": "descriptive_research_result_no_gate",
+      "production_method_changed": false
     },
     {
       "id": "var_selection_aware_bootstrap_research",

@@ -1,0 +1,32 @@
+{
+  "schema_version": "var-lag-characterization-mc-uncertainty-v1.87",
+  "generated_at": "2026-09-28",
+  "preregistration_sha256": "956f4114416cd88a221adc991b079df127c8b9dea6e88f1027d050f458dc3a7a",
+  "actual_country_data_read": false,
+  "production_changed": false,
+  "method": "binomial standard error sqrt(p(1-p)/n) and Wilson 95% interval per proportion",
+  "phases": {
+    "lag_selection_primary": {
+      "cells": 180,
+      "replications_per_cell": 10000,
+      "max_mcse_bic_rates": 0.004998511378400574,
+      "max_wilson_width_bic_exact": 0.019590044440870757,
+      "max_mcse_bootstrap_rejection": 0.0
+    },
+    "lag_selection_secondary": {
+      "cells": 276,
+      "replications_per_cell": 5000,
+      "max_mcse_bic_rates": 0.006907257053273753,
+      "max_wilson_width_bic_exact": 0.027066053598544526,
+      "max_mcse_bootstrap_rejection": 0.0
+    },
+    "bootstrap_adequacy": {
+      "cells": 90,
+      "replications_per_cell": 2000,
+      "max_mcse_bic_rates": 0.010557929484515418,
+      "max_wilson_width_bic_exact": 0.0413514444701133,
+      "max_mcse_bootstrap_rejection": 0.024450620727542078
+    }
+  },
+  "note": "bootstrap rejection standard errors are reported only for categories with at least 100 non-failed replications; smaller categories keep their Wilson intervals in the adequacy decomposition"
+}

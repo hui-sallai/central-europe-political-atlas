@@ -54,6 +54,8 @@ jobs:
           pnpm var:residual-decomposition-validate
           pnpm var:selection-bootstrap-preregister-validate
           pnpm var:selection-bootstrap-closure-validate
+          pnpm var:lag-characterization-preregister-validate
+          pnpm var:lag-characterization-closure-validate
 
       - name: Validate frozen Local Projections
         run: pnpm lp:validate

@@ -1,0 +1,1098 @@
+{
+  "schema_version": "var-lag-characterization-research-conclusion-v1.87",
+  "study_id": "var_lag_selection_characterization_v187",
+  "preregistration_sha256": "956f4114416cd88a221adc991b079df127c8b9dea6e88f1027d050f458dc3a7a",
+  "research_type": "descriptive characterization; no gate, no criterion selection, no production decision",
+  "total_replications": 3360000,
+  "true_lag_1_bic_exact_recovery_range_primary": [
+    0.9996,
+    1.0
+  ],
+  "true_lag_1_bic_overselection_max_primary": 0.0004,
+  "true_lag_2_bic_exact_recovery_range_by_design_primary": {
+    "p2_psi0.25": [
+      0.0085,
+      0.0534
+    ],
+    "p2_psi0.50": [
+      0.0789,
+      0.5338
+    ],
+    "p2_psi1.00": [
+      0.5175,
+      0.9937
+    ],
+    "p2_psi2.00": [
+      0.9683,
+      1.0
+    ],
+    "p2_v185": [
+      0.0,
+      0.0132
+    ]
+  },
+  "recovery_thresholds_by_T_det_rho": [
+    {
+      "sample_size": 96,
+      "deterministic_spec": "constant",
+      "persistence": 0.5,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": null,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": null,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.04381657197193929,
+          "bic_exact_recovery": 0.0004
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.19393345590250793,
+          "bic_exact_recovery": 0.0097
+        }
+      ]
+    },
+    {
+      "sample_size": 96,
+      "deterministic_spec": "constant",
+      "persistence": 0.8,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 0.776,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 1.551,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.09853332172033875,
+          "bic_exact_recovery": 0.0017
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.19393345590250793,
+          "bic_exact_recovery": 0.0085
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.3878669118050183,
+          "bic_exact_recovery": 0.0789
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 0.7757338236100305,
+          "bic_exact_recovery": 0.5175
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 1.551467647220063,
+          "bic_exact_recovery": 0.9734
+        }
+      ]
+    },
+    {
+      "sample_size": 96,
+      "deterministic_spec": "constant",
+      "persistence": 0.95,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 0.776,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 1.551,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.13758998844136672,
+          "bic_exact_recovery": 0.0038
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.19393345590250766,
+          "bic_exact_recovery": 0.0102
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.38786691180501015,
+          "bic_exact_recovery": 0.0869
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 0.7757338236100281,
+          "bic_exact_recovery": 0.5241
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 1.551467647220037,
+          "bic_exact_recovery": 0.9787
+        }
+      ]
+    },
+    {
+      "sample_size": 96,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "persistence": 0.5,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": null,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": null,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.04381657197193929,
+          "bic_exact_recovery": 0.0008
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.19393345590250793,
+          "bic_exact_recovery": 0.0156
+        }
+      ]
+    },
+    {
+      "sample_size": 96,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "persistence": 0.8,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 0.776,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 1.551,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.09853332172033875,
+          "bic_exact_recovery": 0.0037
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.19393345590250793,
+          "bic_exact_recovery": 0.0177
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.3878669118050183,
+          "bic_exact_recovery": 0.1054
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 0.7757338236100305,
+          "bic_exact_recovery": 0.5318
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 1.551467647220063,
+          "bic_exact_recovery": 0.9683
+        }
+      ]
+    },
+    {
+      "sample_size": 96,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "persistence": 0.95,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 0.776,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 1.551,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.13758998844136672,
+          "bic_exact_recovery": 0.0061
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.19393345590250766,
+          "bic_exact_recovery": 0.0184
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.38786691180501015,
+          "bic_exact_recovery": 0.1127
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 0.7757338236100281,
+          "bic_exact_recovery": 0.5523
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 1.551467647220037,
+          "bic_exact_recovery": 0.9698
+        }
+      ]
+    },
+    {
+      "sample_size": 120,
+      "deterministic_spec": "constant",
+      "persistence": 0.5,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": null,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": null,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.052453803107917384,
+          "bic_exact_recovery": 0.0
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.2321620988164652,
+          "bic_exact_recovery": 0.0105
+        }
+      ]
+    },
+    {
+      "sample_size": 120,
+      "deterministic_spec": "constant",
+      "persistence": 0.8,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 0.929,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 1.857,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.11795645401921608,
+          "bic_exact_recovery": 0.0012
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.2321620988164652,
+          "bic_exact_recovery": 0.0119
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.4643241976329333,
+          "bic_exact_recovery": 0.1327
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 0.9286483952658594,
+          "bic_exact_recovery": 0.6924
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 1.857296790531721,
+          "bic_exact_recovery": 0.9979
+        }
+      ]
+    },
+    {
+      "sample_size": 120,
+      "deterministic_spec": "constant",
+      "persistence": 0.95,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 0.929,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 1.857,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.1647120675699143,
+          "bic_exact_recovery": 0.003
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.23216209881646488,
+          "bic_exact_recovery": 0.0124
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.4643241976329236,
+          "bic_exact_recovery": 0.1291
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 0.9286483952658564,
+          "bic_exact_recovery": 0.6902
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 1.85729679053169,
+          "bic_exact_recovery": 0.9958
+        }
+      ]
+    },
+    {
+      "sample_size": 120,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "persistence": 0.5,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": null,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": null,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.052453803107917384,
+          "bic_exact_recovery": 0.0002
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.2321620988164652,
+          "bic_exact_recovery": 0.0171
+        }
+      ]
+    },
+    {
+      "sample_size": 120,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "persistence": 0.8,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 0.929,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 1.857,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.11795645401921608,
+          "bic_exact_recovery": 0.0025
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.2321620988164652,
+          "bic_exact_recovery": 0.0188
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.4643241976329333,
+          "bic_exact_recovery": 0.1483
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 0.9286483952658594,
+          "bic_exact_recovery": 0.6701
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 1.857296790531721,
+          "bic_exact_recovery": 0.9932
+        }
+      ]
+    },
+    {
+      "sample_size": 120,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "persistence": 0.95,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 0.929,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 1.857,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.1647120675699143,
+          "bic_exact_recovery": 0.0047
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.23216209881646488,
+          "bic_exact_recovery": 0.0166
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.4643241976329236,
+          "bic_exact_recovery": 0.1515
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 0.9286483952658564,
+          "bic_exact_recovery": 0.695
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 1.85729679053169,
+          "bic_exact_recovery": 0.9939
+        }
+      ]
+    },
+    {
+      "sample_size": 132,
+      "deterministic_spec": "constant",
+      "persistence": 0.5,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": null,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": null,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.05648402923573737,
+          "bic_exact_recovery": 0.0001
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.25000000000000044,
+          "bic_exact_recovery": 0.0124
+        }
+      ]
+    },
+    {
+      "sample_size": 132,
+      "deterministic_spec": "constant",
+      "persistence": 0.8,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 1.0,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 2.0,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.1270194991134904,
+          "bic_exact_recovery": 0.001
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.25000000000000044,
+          "bic_exact_recovery": 0.0118
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.500000000000004,
+          "bic_exact_recovery": 0.1554
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 1.0000000000000002,
+          "bic_exact_recovery": 0.7603
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 2.0000000000000027,
+          "bic_exact_recovery": 0.9988
+        }
+      ]
+    },
+    {
+      "sample_size": 132,
+      "deterministic_spec": "constant",
+      "persistence": 0.95,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 1.0,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 2.0,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.17736752511456128,
+          "bic_exact_recovery": 0.0047
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.25000000000000006,
+          "bic_exact_recovery": 0.0141
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.49999999999999356,
+          "bic_exact_recovery": 0.1503
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 0.999999999999997,
+          "bic_exact_recovery": 0.765
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 1.9999999999999694,
+          "bic_exact_recovery": 0.9988
+        }
+      ]
+    },
+    {
+      "sample_size": 132,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "persistence": 0.5,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": null,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": null,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.05648402923573737,
+          "bic_exact_recovery": 0.0001
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.25000000000000044,
+          "bic_exact_recovery": 0.0172
+        }
+      ]
+    },
+    {
+      "sample_size": 132,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "persistence": 0.8,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 1.0,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 2.0,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.1270194991134904,
+          "bic_exact_recovery": 0.0018
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.25000000000000044,
+          "bic_exact_recovery": 0.0173
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.500000000000004,
+          "bic_exact_recovery": 0.1633
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 1.0000000000000002,
+          "bic_exact_recovery": 0.7452
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 2.0000000000000027,
+          "bic_exact_recovery": 0.9971
+        }
+      ]
+    },
+    {
+      "sample_size": 132,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "persistence": 0.95,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 1.0,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 2.0,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.17736752511456128,
+          "bic_exact_recovery": 0.0056
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.25000000000000006,
+          "bic_exact_recovery": 0.0192
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.49999999999999356,
+          "bic_exact_recovery": 0.1789
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 0.999999999999997,
+          "bic_exact_recovery": 0.7592
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 1.9999999999999694,
+          "bic_exact_recovery": 0.9983
+        }
+      ]
+    },
+    {
+      "sample_size": 144,
+      "deterministic_spec": "constant",
+      "persistence": 0.5,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": null,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": null,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.060459289190379774,
+          "bic_exact_recovery": 0.0
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.26759461925977196,
+          "bic_exact_recovery": 0.0164
+        }
+      ]
+    },
+    {
+      "sample_size": 144,
+      "deterministic_spec": "constant",
+      "persistence": 0.8,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 1.07,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 2.141,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.13595893801536535,
+          "bic_exact_recovery": 0.0014
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.26759461925977196,
+          "bic_exact_recovery": 0.0152
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.5351892385195473,
+          "bic_exact_recovery": 0.1892
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 1.070378477039086,
+          "bic_exact_recovery": 0.8142
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 2.140756954078175,
+          "bic_exact_recovery": 0.9992
+        }
+      ]
+    },
+    {
+      "sample_size": 144,
+      "deterministic_spec": "constant",
+      "persistence": 0.95,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 1.07,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 2.141,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.18985038140831592,
+          "bic_exact_recovery": 0.0036
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.26759461925977157,
+          "bic_exact_recovery": 0.0126
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.535189238519536,
+          "bic_exact_recovery": 0.1795
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 1.0703784770390827,
+          "bic_exact_recovery": 0.8124
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 2.1407569540781393,
+          "bic_exact_recovery": 0.9996
+        }
+      ]
+    },
+    {
+      "sample_size": 144,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "persistence": 0.5,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": null,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": null,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.060459289190379774,
+          "bic_exact_recovery": 0.0004
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.26759461925977196,
+          "bic_exact_recovery": 0.018
+        }
+      ]
+    },
+    {
+      "sample_size": 144,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "persistence": 0.8,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 1.07,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 2.141,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.13595893801536535,
+          "bic_exact_recovery": 0.0022
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.26759461925977196,
+          "bic_exact_recovery": 0.018
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.5351892385195473,
+          "bic_exact_recovery": 0.1864
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 1.070378477039086,
+          "bic_exact_recovery": 0.8058
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 2.140756954078175,
+          "bic_exact_recovery": 0.9993
+        }
+      ]
+    },
+    {
+      "sample_size": 144,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "persistence": 0.95,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 1.07,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 2.141,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.18985038140831592,
+          "bic_exact_recovery": 0.0056
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.26759461925977157,
+          "bic_exact_recovery": 0.0192
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.535189238519536,
+          "bic_exact_recovery": 0.1998
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 1.0703784770390827,
+          "bic_exact_recovery": 0.8153
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 2.1407569540781393,
+          "bic_exact_recovery": 0.9991
+        }
+      ]
+    },
+    {
+      "sample_size": 180,
+      "deterministic_spec": "constant",
+      "persistence": 0.5,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": null,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": null,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.07245461085052389,
+          "bic_exact_recovery": 0.0
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.3206862711056477,
+          "bic_exact_recovery": 0.021
+        }
+      ]
+    },
+    {
+      "sample_size": 180,
+      "deterministic_spec": "constant",
+      "persistence": 0.8,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 1.283,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 1.283,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.1629336381136491,
+          "bic_exact_recovery": 0.0012
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.3206862711056477,
+          "bic_exact_recovery": 0.0224
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.6413725422112994,
+          "bic_exact_recovery": 0.2926
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 1.2827450844225887,
+          "bic_exact_recovery": 0.933
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 2.5654901688451806,
+          "bic_exact_recovery": 1.0
+        }
+      ]
+    },
+    {
+      "sample_size": 180,
+      "deterministic_spec": "constant",
+      "persistence": 0.95,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 1.283,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 1.283,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.22751732097690347,
+          "bic_exact_recovery": 0.0052
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.3206862711056472,
+          "bic_exact_recovery": 0.0251
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.6413725422112859,
+          "bic_exact_recovery": 0.2905
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 1.2827450844225845,
+          "bic_exact_recovery": 0.9322
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 2.5654901688451375,
+          "bic_exact_recovery": 1.0
+        }
+      ]
+    },
+    {
+      "sample_size": 180,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "persistence": 0.5,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": null,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": null,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.07245461085052389,
+          "bic_exact_recovery": 0.0002
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.3206862711056477,
+          "bic_exact_recovery": 0.0266
+        }
+      ]
+    },
+    {
+      "sample_size": 180,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "persistence": 0.8,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 1.283,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 1.283,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.1629336381136491,
+          "bic_exact_recovery": 0.0013
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.3206862711056477,
+          "bic_exact_recovery": 0.026
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.6413725422112994,
+          "bic_exact_recovery": 0.2869
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 1.2827450844225887,
+          "bic_exact_recovery": 0.9169
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 2.5654901688451806,
+          "bic_exact_recovery": 0.9998
+        }
+      ]
+    },
+    {
+      "sample_size": 180,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "persistence": 0.95,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 1.283,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 1.283,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.22751732097690347,
+          "bic_exact_recovery": 0.0064
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.3206862711056472,
+          "bic_exact_recovery": 0.0255
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.6413725422112859,
+          "bic_exact_recovery": 0.3021
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 1.2827450844225845,
+          "bic_exact_recovery": 0.9265
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 2.5654901688451375,
+          "bic_exact_recovery": 1.0
+        }
+      ]
+    },
+    {
+      "sample_size": 240,
+      "deterministic_spec": "constant",
+      "persistence": 0.5,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": null,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": null,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.0928004692162129,
+          "bic_exact_recovery": 0.0
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.4107376477557409,
+          "bic_exact_recovery": 0.0482
+        }
+      ]
+    },
+    {
+      "sample_size": 240,
+      "deterministic_spec": "constant",
+      "persistence": 0.8,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 0.821,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 1.643,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.20868676113994944,
+          "bic_exact_recovery": 0.0018
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.4107376477557409,
+          "bic_exact_recovery": 0.0501
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.8214752955114869,
+          "bic_exact_recovery": 0.5274
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 1.642950591022961,
+          "bic_exact_recovery": 0.9937
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 3.285901182045926,
+          "bic_exact_recovery": 1.0
+        }
+      ]
+    },
+    {
+      "sample_size": 240,
+      "deterministic_spec": "constant",
+      "persistence": 0.95,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 0.821,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 1.643,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.2914060802152483,
+          "bic_exact_recovery": 0.01
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.4107376477557403,
+          "bic_exact_recovery": 0.0483
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.8214752955114697,
+          "bic_exact_recovery": 0.5338
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 1.6429505910229558,
+          "bic_exact_recovery": 0.9923
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 3.2859011820458712,
+          "bic_exact_recovery": 1.0
+        }
+      ]
+    },
+    {
+      "sample_size": 240,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "persistence": 0.5,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": null,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": null,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.0928004692162129,
+          "bic_exact_recovery": 0.0002
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.4107376477557409,
+          "bic_exact_recovery": 0.0488
+        }
+      ]
+    },
+    {
+      "sample_size": 240,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "persistence": 0.8,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 0.821,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 1.643,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.20868676113994944,
+          "bic_exact_recovery": 0.0024
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.4107376477557409,
+          "bic_exact_recovery": 0.0507
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.8214752955114869,
+          "bic_exact_recovery": 0.5122
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 1.642950591022961,
+          "bic_exact_recovery": 0.9899
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 3.285901182045926,
+          "bic_exact_recovery": 1.0
+        }
+      ]
+    },
+    {
+      "sample_size": 240,
+      "deterministic_spec": "constant_plus_11_month_dummies",
+      "persistence": 0.95,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_5": 0.821,
+      "smallest_design_psi_at_T_with_bic_recovery_ge_0_9": 1.643,
+      "designs": [
+        {
+          "design": "p2_v185",
+          "psi_at_T": 0.2914060802152483,
+          "bic_exact_recovery": 0.0132
+        },
+        {
+          "design": "p2_psi0.25",
+          "psi_at_T": 0.4107376477557403,
+          "bic_exact_recovery": 0.0534
+        },
+        {
+          "design": "p2_psi0.50",
+          "psi_at_T": 0.8214752955114697,
+          "bic_exact_recovery": 0.5241
+        },
+        {
+          "design": "p2_psi1.00",
+          "psi_at_T": 1.6429505910229558,
+          "bic_exact_recovery": 0.9901
+        },
+        {
+          "design": "p2_psi2.00",
+          "psi_at_T": 3.2859011820458712,
+          "bic_exact_recovery": 1.0
+        }
+      ]
+    }
+  ],
+  "share_of_primary_underselection_in_designs_with_psi_at_T_below_1": 0.9819564164751083,
+  "infeasible_combinations": 102,
+  "aic_hqic_role": "report-only benchmarks; no criterion is recommended or selected",
+  "production_changed": false,
+  "bic_policy_changed": false,
+  "phase_B_run": false,
+  "formal_irf_publication_available": false,
+  "actual_country_data_read": false,
+  "v1_85_v1_851_v1_86_modified": false,
+  "provenance": {
+    "var_lag_characterization_preregistration.json": "956f4114416cd88a221adc991b079df127c8b9dea6e88f1027d050f458dc3a7a",
+    "var_lag_characterization_simulation_design.json": "7df5b8b4f931e191489c5a7c8f1c84d873102bc0df03b0b84044e1053f98513a",
+    "var_lag_characterization_reference_validation.json": "99f8244e100d8748babc06c8e0df7b2ad542508a3c632f32d7e7ee378bd425a2",
+    "var_lag_characterization_lag_selection_results.json": "0f8ca85922a83c92dd720b5d9179b3fde1cc68d269d4e13cf92f032d7725da06",
+    "var_lag_characterization_signal_strength_decomposition.json": "71eb1d064352371186a04cbb33521e489a32b40d3e93b280737a2d3a2c3cee09",
+    "var_lag_characterization_adequacy_decomposition.json": "ade91683ea4e99ceaf5d5ddccb0b3eedc5491c9658e585122ae3d25166310088",
+    "var_lag_characterization_mc_uncertainty_summary.json": "f35dbe41018d6685d125a56abfe745133a0bbea2ab11ccca671f167d21822b3c"
+  }
+}
