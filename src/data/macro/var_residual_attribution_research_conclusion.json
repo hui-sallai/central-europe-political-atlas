@@ -1,0 +1,130 @@
+{
+  "schema_version": "var-residual-attribution-research-conclusion-v1.90",
+  "generated_at": "2026-09-29",
+  "preregistration_sha256": "865a568f8e517b619eeee978f31edc6c0a637d493a169facc3b357714d25725f",
+  "production_agreement_max_difference": 2.6547652964836743e-12,
+  "production_change_authorized": false,
+  "readiness_changed": false,
+  "formal_irf_publication_available": false,
+  "unit_labels": [
+    {
+      "unit_id": "baseline_monthly_macro_v1::poland",
+      "country": "poland",
+      "labels": [
+        "cross_equation_lag_dependence",
+        "break_outlier_concentrated"
+      ],
+      "probe_q_star_reduction": {
+        "A_plus_one_lag": 0.12615201230401407,
+        "B_seasonal_lag_term": 0.18958809402228538
+      },
+      "variance_instability_equations": [],
+      "p2_mahalanobis_share": 0.33822350612838153,
+      "p2_observation_share": 0.17777777777777778,
+      "events_total": 5,
+      "events_in_p2": 3
+    },
+    {
+      "unit_id": "baseline_monthly_macro_v1::romania",
+      "country": "romania",
+      "labels": [
+        "little_residual_dependence",
+        "cross_equation_lag_dependence",
+        "break_outlier_concentrated"
+      ],
+      "probe_q_star_reduction": {
+        "A_plus_one_lag": 0.10475519094519814,
+        "B_seasonal_lag_term": -0.06735577133038428
+      },
+      "variance_instability_equations": [],
+      "p2_mahalanobis_share": 0.3896219925790148,
+      "p2_observation_share": 0.17647058823529413,
+      "events_total": 6,
+      "events_in_p2": 5
+    },
+    {
+      "unit_id": "baseline_monthly_macro_v2_seasonal_controls::czechia",
+      "country": "czechia",
+      "labels": [
+        "seasonal_dynamic_dependence",
+        "break_outlier_concentrated"
+      ],
+      "probe_q_star_reduction": {
+        "A_plus_one_lag": 0.006877154553937892,
+        "B_seasonal_lag_term": 0.0767675712799506
+      },
+      "variance_instability_equations": [],
+      "p2_mahalanobis_share": 0.3292453855094913,
+      "p2_observation_share": 0.17777777777777778,
+      "events_total": 6,
+      "events_in_p2": 3
+    },
+    {
+      "unit_id": "baseline_monthly_macro_v2_seasonal_controls::germany",
+      "country": "germany",
+      "labels": [
+        "cross_equation_lag_dependence",
+        "break_outlier_concentrated"
+      ],
+      "probe_q_star_reduction": {
+        "A_plus_one_lag": 0.09086369580186593,
+        "B_seasonal_lag_term": 0.10976885825223481
+      },
+      "variance_instability_equations": [],
+      "p2_mahalanobis_share": 0.39075736287603396,
+      "p2_observation_share": 0.17777777777777778,
+      "events_total": 6,
+      "events_in_p2": 3
+    },
+    {
+      "unit_id": "baseline_monthly_macro_v2_seasonal_controls::hungary",
+      "country": "hungary",
+      "labels": [
+        "cross_equation_lag_dependence",
+        "break_outlier_concentrated"
+      ],
+      "probe_q_star_reduction": {
+        "A_plus_one_lag": 0.09507141560026833,
+        "B_seasonal_lag_term": 0.013683550781762865
+      },
+      "variance_instability_equations": [],
+      "p2_mahalanobis_share": 0.3434815073300189,
+      "p2_observation_share": 0.17777777777777778,
+      "events_total": 3,
+      "events_in_p2": 2
+    }
+  ],
+  "platform_questions": {
+    "Q1_test_calibration_issue": {
+      "units_consistent_with_calibration_issue": [
+        "baseline_monthly_macro_v1::romania"
+      ],
+      "calibration_evidence": "v1.85/v1.89: asymptotic h=12 Portmanteau over-rejects (~21%) with month dummies at the correct lag; bootstrap is conservative in the intermediate lag-2 region"
+    },
+    "Q2_genuine_misspecification": {
+      "units_with_evidence": [],
+      "rule": "misspecification-consistent label AND probe A or B reduces Q*_12 by >= 30%"
+    },
+    "Q3_justified_future_extension": {
+      "candidates": [
+        "none identified by the preregistered rule"
+      ],
+      "authorized_in_v1_90": false
+    }
+  },
+  "result_files": {
+    "var_residual_acf_results.json": "5693449766c9f8d02749359e993b423b2bcfb0cfd4145a251a653924a9f2c3ff",
+    "var_residual_cross_lag_results.json": "b5daaf4c07bffe09271462bb0c945ae12285f2310c8fda7b0bb76af6465a90f9",
+    "var_portmanteau_attribution.json": "12fa1d6425e8d5d32a673259291def3f696c8b4174a86c795be25ab6a6e4cc76",
+    "var_residual_seasonal_results.json": "381c9bb4839542ef40891061e3a3ec9aedd8336fb8abac4555941470170f062e",
+    "var_residual_variance_stability.json": "4750b8b9bf7fc21a0fe1ed2c283eb585fb004552f1120b7d444f712f7be8d76c",
+    "var_residual_period_concentration.json": "f86db83203cb63951c06b0dbed2d30c6c8c5a001c5285ca29fc1e029113f68ff",
+    "var_residual_specification_probe_results.json": "3ad0f1b89f63ef515e693eaf7350878ad4102fdd2b325b07fcaaca7d0fad1610"
+  },
+  "post_hoc_interpretation_notes": {
+    "status": "post-hoc; added after the preregistered labels were computed; labels unchanged",
+    "white_noise_baselines": "under residual white noise every one of the K^2 = 9 whitened cells has equal expectation, so the expected cross-equation share of Q*_12 is 6/9 = 0.67, the own-equation share 1/3, the lags 1-3 share 3/12 = 0.25, the lag-12 share 1/12 = 0.083 and the lags 11-13 share 0.25. The preregistered cross_equation_lag_dependence rule (cross share >= 0.50) therefore does not indicate excess cross dependence: observed cross shares (0.49-0.59) are at or below the white-noise baseline, and no cross-lag pair has a BH q-value below 0.05.",
+    "observed_pattern": "Q*_12 is spread across lags (top-3-lag share 0.37-0.52); no equation Ljung-Box(12) or ARCH-LM(12) BH q-value is below 0.05; HICP shows own lag-12 autocorrelation of about 0.21-0.25 in Poland, Romania and Czechia (above the +-0.17 band), including the v2 Czechia model with month dummies (seasonal dynamic rather than seasonal mean dependence); the v1 models retain HICP month-of-year mean effects (equal-means F p < 0.01) because they have no seasonal controls; the 2020-2021 window (18% of observations) carries 33-39% of the Mahalanobis residual mass and 41-49% of the lag-product mass, with IPI residuals of about -7 to -8 standard deviations in 2020-04; residual covariance log determinants differ by about 2-4 between the pre-2020 and 2020-2021 periods.",
+    "reading": "The remaining dependence is weak and diffuse rather than concentrated in a specific lag structure; the probes (extra lag, lag-12 block, pre-2020 sample) reduce Q*_12 by at most 19% and never by the preregistered 30%. The pattern is consistent with a mix of test-calibration issues (v1.85/v1.89), pandemic-period variance instability and outliers, and modest HICP seasonal dynamics; it does not show a clear misspecification that one additional lag or a lag-12 block would fix. Probe C for v2 models has observations per parameter 3.2 (below the production gate of 4) and is diagnostic only."
+  }
+}

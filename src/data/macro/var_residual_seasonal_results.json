@@ -1,0 +1,921 @@
+{
+ "schema_version": "var-residual-seasonal-results-v1.90",
+ "generated_at": "2026-09-29",
+ "preregistration_sha256": "865a568f8e517b619eeee978f31edc6c0a637d493a169facc3b357714d25725f",
+ "production_agreement_max_difference": 2.6547652964836743e-12,
+ "production_change_authorized": false,
+ "readiness_changed": false,
+ "formal_irf_publication_available": false,
+ "units": [
+  {
+   "unit_id": "baseline_monthly_macro_v1::poland",
+   "country": "poland",
+   "deterministic_terms": "constant",
+   "seasonal_mean_effects": {
+    "residual_month_means": {
+     "hicp_monthly_index": [
+      0.3573843968935384,
+      -0.12690903259872188,
+      0.20527104678482164,
+      0.23192134192321281,
+      -0.2397607439089617,
+      -0.17451104886311555,
+      -0.184518689401669,
+      -0.20197261659613136,
+      0.09374891035397005,
+      0.27588970943756136,
+      -0.09799010924240834,
+      -0.12197585106856552
+     ],
+     "industrial_production_index": [
+      0.1304825540878083,
+      0.05691834586418802,
+      -0.5663047821009588,
+      -2.221330918364371,
+      0.9796395193426308,
+      0.011301957338149796,
+      0.38930519643610656,
+      0.2550414304297759,
+      0.12235758766355213,
+      0.1891987952824133,
+      0.7089880867141413,
+      0.05625581291416532
+     ],
+     "unemployment_rate_monthly": [
+      -0.011787293875109047,
+      -0.014288218372914739,
+      0.03597364620982651,
+      0.015477267928561855,
+      -0.004446504325260318,
+      0.017274009229993448,
+      0.0040211087973497876,
+      0.013589563914130333,
+      -0.011066423621137987,
+      -0.018276536560418742,
+      0.0019404484433619923,
+      -0.030984228935058426
+     ]
+    },
+    "equal_month_means_F": {
+     "hicp_monthly_index": {
+      "F": 3.8035850383237815,
+      "p_value": 0.00010313787405843724
+     },
+     "industrial_production_index": {
+      "F": 0.8860204792465713,
+      "p_value": 0.5559722489240838
+     },
+     "unemployment_rate_monthly": {
+      "F": 0.6198470241838038,
+      "p_value": 0.8090608563274939
+     }
+    },
+    "note": "zero by construction when month dummies are in the model"
+   },
+   "seasonal_dynamic_dependence": {
+    "own_acf": {
+     "hicp_monthly_index": {
+      "lag12": 0.25254623410198923,
+      "lag24": 0.14562622476383916
+     },
+     "industrial_production_index": {
+      "lag12": -0.042512528807665775,
+      "lag24": -0.08161538065605468
+     },
+     "unemployment_rate_monthly": {
+      "lag12": -0.12222288450900017,
+      "lag24": 0.006762093403661731
+     }
+    },
+    "cross_corr": [
+     {
+      "i": "hicp_monthly_index",
+      "j_lagged": "industrial_production_index",
+      "k": 12,
+      "corr": -0.011650743110626425,
+      "fisher_z_p_value": 0.8984391996500048,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "hicp_monthly_index",
+      "j_lagged": "industrial_production_index",
+      "k": 24,
+      "corr": -0.22082975702961613,
+      "fisher_z_p_value": 0.019628950482985005,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "hicp_monthly_index",
+      "j_lagged": "unemployment_rate_monthly",
+      "k": 12,
+      "corr": 0.04510597438820612,
+      "fisher_z_p_value": 0.6209907394615048,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "hicp_monthly_index",
+      "j_lagged": "unemployment_rate_monthly",
+      "k": 24,
+      "corr": 0.145058246722087,
+      "fisher_z_p_value": 0.12896435789417757,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "industrial_production_index",
+      "j_lagged": "hicp_monthly_index",
+      "k": 12,
+      "corr": -0.1317007989443261,
+      "fisher_z_p_value": 0.14674110745421032,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "industrial_production_index",
+      "j_lagged": "hicp_monthly_index",
+      "k": 24,
+      "corr": -0.13343459129919136,
+      "fisher_z_p_value": 0.16301224250719237,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "industrial_production_index",
+      "j_lagged": "unemployment_rate_monthly",
+      "k": 12,
+      "corr": 0.00775079356416521,
+      "fisher_z_p_value": 0.932335016822614,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "industrial_production_index",
+      "j_lagged": "unemployment_rate_monthly",
+      "k": 24,
+      "corr": 0.02276528872270823,
+      "fisher_z_p_value": 0.8129479537386641,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "unemployment_rate_monthly",
+      "j_lagged": "hicp_monthly_index",
+      "k": 12,
+      "corr": 0.08601081927581529,
+      "fisher_z_p_value": 0.34489626853385835,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "unemployment_rate_monthly",
+      "j_lagged": "hicp_monthly_index",
+      "k": 24,
+      "corr": -0.0033895467195372555,
+      "fisher_z_p_value": 0.971900058203165,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "unemployment_rate_monthly",
+      "j_lagged": "industrial_production_index",
+      "k": 12,
+      "corr": 0.02942453312500669,
+      "fisher_z_p_value": 0.7471325018689494,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "unemployment_rate_monthly",
+      "j_lagged": "industrial_production_index",
+      "k": 24,
+      "corr": 0.015152594625098045,
+      "fisher_z_p_value": 0.8748646492162879,
+      "bh_q_value": 0.9991737023230072
+     }
+    ],
+    "lag_12_share_of_q": 0.1395738384338803,
+    "lags_11_13_share_of_q": 0.20080183276284183
+   }
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v1::romania",
+   "country": "romania",
+   "deterministic_terms": "constant",
+   "seasonal_mean_effects": {
+    "residual_month_means": {
+     "hicp_monthly_index": [
+      0.3176221908204004,
+      -0.04094875061830578,
+      0.1608659518314823,
+      0.09754189140300064,
+      0.03441980300125757,
+      -0.522924177034133,
+      -0.01598771794673779,
+      -0.03182330326439058,
+      0.05654882902585619,
+      0.27855384520508136,
+      -0.2377948847716726,
+      -0.07515581121562466
+     ],
+     "industrial_production_index": [
+      0.09277185118067405,
+      0.03112228218863851,
+      -0.7624602286734167,
+      -2.9935930982134225,
+      0.14872601591234058,
+      1.4415572495226936,
+      0.41721772712728206,
+      1.0271780859482096,
+      -0.4568358889818589,
+      0.26455135726178064,
+      0.6373400366232181,
+      0.3493127975085829
+     ],
+     "unemployment_rate_monthly": [
+      0.035726492095512506,
+      0.006664604666318978,
+      0.0022553870241108034,
+      -0.047480820014395464,
+      0.07067701431732869,
+      -0.056452234728473716,
+      0.0033946096190721905,
+      -0.036586989485563735,
+      0.013113873159710627,
+      -0.006262696011322061,
+      0.01638907513070825,
+      0.0013799254453084457
+     ]
+    },
+    "equal_month_means_F": {
+     "hicp_monthly_index": {
+      "F": 3.150426830511195,
+      "p_value": 0.0008721362997744929
+     },
+     "industrial_production_index": {
+      "F": 0.7051801965512398,
+      "p_value": 0.7316834166700572
+     },
+     "unemployment_rate_monthly": {
+      "F": 0.385283212847064,
+      "p_value": 0.9597161471472131
+     }
+    },
+    "note": "zero by construction when month dummies are in the model"
+   },
+   "seasonal_dynamic_dependence": {
+    "own_acf": {
+     "hicp_monthly_index": {
+      "lag12": 0.21337408065226224,
+      "lag24": 0.12352842617793681
+     },
+     "industrial_production_index": {
+      "lag12": -0.07130846633799719,
+      "lag24": 0.045298574116077864
+     },
+     "unemployment_rate_monthly": {
+      "lag12": -0.10138145009043674,
+      "lag24": -0.20825099171851383
+     }
+    },
+    "cross_corr": [
+     {
+      "i": "hicp_monthly_index",
+      "j_lagged": "industrial_production_index",
+      "k": 12,
+      "corr": -0.035436169779453554,
+      "fisher_z_p_value": 0.6965652750730027,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "hicp_monthly_index",
+      "j_lagged": "industrial_production_index",
+      "k": 24,
+      "corr": -0.23060826844508445,
+      "fisher_z_p_value": 0.014217681806683872,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "hicp_monthly_index",
+      "j_lagged": "unemployment_rate_monthly",
+      "k": 12,
+      "corr": -0.04697599718338808,
+      "fisher_z_p_value": 0.6050747841320747,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "hicp_monthly_index",
+      "j_lagged": "unemployment_rate_monthly",
+      "k": 24,
+      "corr": 0.124349786895558,
+      "fisher_z_p_value": 0.1918914100952146,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "industrial_production_index",
+      "j_lagged": "hicp_monthly_index",
+      "k": 12,
+      "corr": -0.10008779584588415,
+      "fisher_z_p_value": 0.2693050593076297,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "industrial_production_index",
+      "j_lagged": "hicp_monthly_index",
+      "k": 24,
+      "corr": 0.007826186263124936,
+      "fisher_z_p_value": 0.9348777621868714,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "industrial_production_index",
+      "j_lagged": "unemployment_rate_monthly",
+      "k": 12,
+      "corr": 0.01394775748045493,
+      "fisher_z_p_value": 0.8780550228305065,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "industrial_production_index",
+      "j_lagged": "unemployment_rate_monthly",
+      "k": 24,
+      "corr": 0.01515126601998701,
+      "fisher_z_p_value": 0.8743023814583746,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "unemployment_rate_monthly",
+      "j_lagged": "hicp_monthly_index",
+      "k": 12,
+      "corr": 0.15916185213805864,
+      "fisher_z_p_value": 0.07743056531697483,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "unemployment_rate_monthly",
+      "j_lagged": "hicp_monthly_index",
+      "k": 24,
+      "corr": 0.14007944170408732,
+      "fisher_z_p_value": 0.14097978320249413,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "unemployment_rate_monthly",
+      "j_lagged": "industrial_production_index",
+      "k": 12,
+      "corr": 0.04098708606396611,
+      "fisher_z_p_value": 0.6519097856375436,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "unemployment_rate_monthly",
+      "j_lagged": "industrial_production_index",
+      "k": 24,
+      "corr": 0.08309702168109992,
+      "fisher_z_p_value": 0.3845389623916795,
+      "bh_q_value": 0.9991737023230072
+     }
+    ],
+    "lag_12_share_of_q": 0.12873979320840737,
+    "lags_11_13_share_of_q": 0.18583647345750173
+   }
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v2_seasonal_controls::czechia",
+   "country": "czechia",
+   "deterministic_terms": "constant_month_dummies",
+   "seasonal_mean_effects": {
+    "residual_month_means": {
+     "hicp_monthly_index": [
+      2.220446049250313e-15,
+      -8.074349270001139e-17,
+      4.54182146437564e-16,
+      4.718447854656915e-16,
+      -4.810966440042345e-16,
+      -2.590520390792032e-16,
+      -1.2111523905001707e-16,
+      7.065055611250996e-17,
+      -3.0278809762504267e-16,
+      -2.8260222445003984e-16,
+      1.312081756375185e-16,
+      5.0464682937507114e-17
+     ],
+     "industrial_production_index": [
+      3.7142006642005236e-15,
+      -2.8260222445003984e-16,
+      3.2297397080004555e-16,
+      -1.0362081563168128e-15,
+      -1.6283271027835629e-15,
+      2.812564995717063e-15,
+      2.4223047810003414e-16,
+      -1.574498107650222e-15,
+      -2.4223047810003414e-16,
+      -4.844609562000683e-16,
+      -4.0371746350005693e-17,
+      -2.0185873175002848e-15
+     ],
+     "unemployment_rate_monthly": [
+      1.0092936587501424e-15,
+      8.074349270001139e-17,
+      -4.844609562000683e-16,
+      0.0,
+      2.590520390792032e-16,
+      -2.7755575615628914e-16,
+      -1.8167285857502563e-16,
+      -3.6334571715005125e-16,
+      -1.2111523905001707e-16,
+      -2.8260222445003984e-16,
+      -4.844609562000683e-16,
+      -7.266914343001025e-16
+     ]
+    },
+    "equal_month_means_F": {
+     "hicp_monthly_index": {
+      "F": 1.519691526133812e-29,
+      "p_value": 1.0
+     },
+     "industrial_production_index": {
+      "F": 3.1698971978626726e-30,
+      "p_value": 1.0
+     },
+     "unemployment_rate_monthly": {
+      "F": 5.769550677529515e-29,
+      "p_value": 1.0
+     }
+    },
+    "note": "zero by construction when month dummies are in the model"
+   },
+   "seasonal_dynamic_dependence": {
+    "own_acf": {
+     "hicp_monthly_index": {
+      "lag12": 0.21707650267082962,
+      "lag24": -0.09092265010707312
+     },
+     "industrial_production_index": {
+      "lag12": -0.15287149219408647,
+      "lag24": -0.06712849630062497
+     },
+     "unemployment_rate_monthly": {
+      "lag12": -0.14721784001217006,
+      "lag24": -0.04292894212563662
+     }
+    },
+    "cross_corr": [
+     {
+      "i": "hicp_monthly_index",
+      "j_lagged": "industrial_production_index",
+      "k": 12,
+      "corr": 0.01639014462014637,
+      "fisher_z_p_value": 0.8574971312937327,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "hicp_monthly_index",
+      "j_lagged": "industrial_production_index",
+      "k": 24,
+      "corr": -0.05093345149295646,
+      "fisher_z_p_value": 0.5962683645350553,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "hicp_monthly_index",
+      "j_lagged": "unemployment_rate_monthly",
+      "k": 12,
+      "corr": 0.09640901050830106,
+      "fisher_z_p_value": 0.28941845397687893,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "hicp_monthly_index",
+      "j_lagged": "unemployment_rate_monthly",
+      "k": 24,
+      "corr": 0.07044129323016865,
+      "fisher_z_p_value": 0.4633987622672291,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "industrial_production_index",
+      "j_lagged": "hicp_monthly_index",
+      "k": 12,
+      "corr": -0.07530663592715285,
+      "fisher_z_p_value": 0.40851618939308454,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "industrial_production_index",
+      "j_lagged": "hicp_monthly_index",
+      "k": 24,
+      "corr": -0.0342216128879684,
+      "fisher_z_p_value": 0.7220050555489218,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "industrial_production_index",
+      "j_lagged": "unemployment_rate_monthly",
+      "k": 12,
+      "corr": -0.11171781918251979,
+      "fisher_z_p_value": 0.2190953311803161,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "industrial_production_index",
+      "j_lagged": "unemployment_rate_monthly",
+      "k": 24,
+      "corr": 0.03750281078869299,
+      "fisher_z_p_value": 0.6965931050621103,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "unemployment_rate_monthly",
+      "j_lagged": "hicp_monthly_index",
+      "k": 12,
+      "corr": -0.029366247026726622,
+      "fisher_z_p_value": 0.7476166095465742,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "unemployment_rate_monthly",
+      "j_lagged": "hicp_monthly_index",
+      "k": 24,
+      "corr": 0.03939265690606462,
+      "fisher_z_p_value": 0.682104934071206,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "unemployment_rate_monthly",
+      "j_lagged": "industrial_production_index",
+      "k": 12,
+      "corr": -0.06815641726772366,
+      "fisher_z_p_value": 0.45459560578361036,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "unemployment_rate_monthly",
+      "j_lagged": "industrial_production_index",
+      "k": 24,
+      "corr": 0.08449520087696691,
+      "fisher_z_p_value": 0.37875173366149395,
+      "bh_q_value": 0.9991737023230072
+     }
+    ],
+    "lag_12_share_of_q": 0.15935895808892164,
+    "lags_11_13_share_of_q": 0.25466722502562367
+   }
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v2_seasonal_controls::germany",
+   "country": "germany",
+   "deterministic_terms": "constant_month_dummies",
+   "seasonal_mean_effects": {
+    "residual_month_means": {
+     "hicp_monthly_index": [
+      -7.711003552851087e-15,
+      7.670631806501082e-16,
+      -1.2111523905001707e-16,
+      4.440892098500626e-16,
+      -4.440892098500626e-16,
+      -3.7007434154171886e-16,
+      -1.6552416003502333e-15,
+      2.0185873175002846e-16,
+      -4.0371746350005693e-17,
+      -1.4130111222501992e-15,
+      -3.6334571715005125e-16,
+      -3.2297397080004555e-16
+     ],
+     "industrial_production_index": [
+      5.399721074313261e-15,
+      3.219646771412954e-15,
+      -2.886579864025407e-15,
+      1.5913196686293911e-15,
+      2.590520390792032e-16,
+      3.1548837616431533e-15,
+      1.2868494149064315e-16,
+      -7.266914343001025e-16,
+      -1.7864497759877518e-15,
+      -7.065055611250996e-16,
+      1.0597583416876494e-15,
+      -1.1909665173251679e-15
+     ],
+     "unemployment_rate_monthly": [
+      -2.0185873175002846e-16,
+      6.863196879500968e-16,
+      1.3726393759001935e-15,
+      -2.220446049250313e-16,
+      3.7007434154171886e-16,
+      -3.3306690738754696e-16,
+      2.0185873175002848e-15,
+      1.2918958832001822e-15,
+      -1.2111523905001707e-16,
+      1.3322676295501878e-15,
+      1.4130111222501992e-15,
+      0.0
+     ]
+    },
+    "equal_month_means_F": {
+     "hicp_monthly_index": {
+      "F": 2.8685927362147245e-28,
+      "p_value": 1.0
+     },
+     "industrial_production_index": {
+      "F": 7.57938520985424e-30,
+      "p_value": 1.0
+     },
+     "unemployment_rate_monthly": {
+      "F": 2.5143898281927416e-27,
+      "p_value": 1.0
+     }
+    },
+    "note": "zero by construction when month dummies are in the model"
+   },
+   "seasonal_dynamic_dependence": {
+    "own_acf": {
+     "hicp_monthly_index": {
+      "lag12": 0.07263380158900025,
+      "lag24": -0.06418024357719757
+     },
+     "industrial_production_index": {
+      "lag12": -0.1294851878930261,
+      "lag24": -0.06612416958231697
+     },
+     "unemployment_rate_monthly": {
+      "lag12": -0.04008591601064772,
+      "lag24": -0.13881673173401396
+     }
+    },
+    "cross_corr": [
+     {
+      "i": "hicp_monthly_index",
+      "j_lagged": "industrial_production_index",
+      "k": 12,
+      "corr": 0.07085709528462059,
+      "fisher_z_p_value": 0.4368617426282887,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "hicp_monthly_index",
+      "j_lagged": "industrial_production_index",
+      "k": 24,
+      "corr": -0.0715952224379349,
+      "fisher_z_p_value": 0.45608156559939894,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "hicp_monthly_index",
+      "j_lagged": "unemployment_rate_monthly",
+      "k": 12,
+      "corr": 0.203533054215654,
+      "fisher_z_p_value": 0.023748792748384536,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "hicp_monthly_index",
+      "j_lagged": "unemployment_rate_monthly",
+      "k": 24,
+      "corr": 0.07619101010255827,
+      "fisher_z_p_value": 0.42758108929315775,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "industrial_production_index",
+      "j_lagged": "hicp_monthly_index",
+      "k": 12,
+      "corr": -0.06050771484616004,
+      "fisher_z_p_value": 0.5069210692446935,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "industrial_production_index",
+      "j_lagged": "hicp_monthly_index",
+      "k": 24,
+      "corr": 0.11242198171787451,
+      "fisher_z_p_value": 0.24068225649850283,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "industrial_production_index",
+      "j_lagged": "unemployment_rate_monthly",
+      "k": 12,
+      "corr": 0.13582290229916885,
+      "fisher_z_p_value": 0.13436274309830776,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "industrial_production_index",
+      "j_lagged": "unemployment_rate_monthly",
+      "k": 24,
+      "corr": 0.07008267617207836,
+      "fisher_z_p_value": 0.4656858008541285,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "unemployment_rate_monthly",
+      "j_lagged": "hicp_monthly_index",
+      "k": 12,
+      "corr": 0.06975160025799615,
+      "fisher_z_p_value": 0.44407309939027584,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "unemployment_rate_monthly",
+      "j_lagged": "hicp_monthly_index",
+      "k": 24,
+      "corr": 0.003168231053569733,
+      "fisher_z_p_value": 0.9737341308569307,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "unemployment_rate_monthly",
+      "j_lagged": "industrial_production_index",
+      "k": 12,
+      "corr": 0.036893344204520354,
+      "fisher_z_p_value": 0.6859701775246698,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "unemployment_rate_monthly",
+      "j_lagged": "industrial_production_index",
+      "k": 24,
+      "corr": 0.10039551241333519,
+      "fisher_z_p_value": 0.2951606976889576,
+      "bh_q_value": 0.9991737023230072
+     }
+    ],
+    "lag_12_share_of_q": 0.122425526627533,
+    "lags_11_13_share_of_q": 0.19644492087334675
+   }
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v2_seasonal_controls::hungary",
+   "country": "hungary",
+   "deterministic_terms": "constant_month_dummies",
+   "seasonal_mean_effects": {
+    "residual_month_means": {
+     "hicp_monthly_index": [
+      5.934646713450837e-15,
+      -1.4130111222501992e-16,
+      3.6334571715005125e-16,
+      4.255854927729767e-16,
+      0.0,
+      5.551115123125783e-17,
+      1.2111523905001707e-16,
+      4.844609562000683e-16,
+      4.743680196125669e-16,
+      1.6148698540002277e-16,
+      2.8260222445003984e-16,
+      1.715799219875242e-16
+     ],
+     "industrial_production_index": [
+      3.552713678800501e-14,
+      -2.5837917664003644e-15,
+      0.0,
+      6.809367884367627e-15,
+      -2.960594732333751e-15,
+      8.881784197001252e-16,
+      -3.2297397080004553e-15,
+      6.459479416000911e-16,
+      4.844609562000683e-15,
+      3.2297397080004555e-16,
+      9.689219124001365e-16,
+      5.490557503600774e-15
+     ],
+     "unemployment_rate_monthly": [
+      -3.9968028886505635e-15,
+      -4.440892098500626e-16,
+      -6.459479416000911e-16,
+      -6.661338147750939e-16,
+      -2.9605947323337506e-16,
+      -3.7007434154171886e-16,
+      -5.24832702550074e-16,
+      -8.074349270001138e-16,
+      2.0185873175002846e-16,
+      -2.8260222445003984e-16,
+      4.844609562000683e-16,
+      -1.6148698540002277e-16
+     ]
+    },
+    "equal_month_means_F": {
+     "hicp_monthly_index": {
+      "F": 1.8200044651632382e-28,
+      "p_value": 1.0
+     },
+     "industrial_production_index": {
+      "F": 6.774692786009515e-29,
+      "p_value": 1.0
+     },
+     "unemployment_rate_monthly": {
+      "F": 9.954524967926449e-28,
+      "p_value": 1.0
+     }
+    },
+    "note": "zero by construction when month dummies are in the model"
+   },
+   "seasonal_dynamic_dependence": {
+    "own_acf": {
+     "hicp_monthly_index": {
+      "lag12": 0.07114783668416681,
+      "lag24": -0.02092550070144606
+     },
+     "industrial_production_index": {
+      "lag12": -0.05770764690764868,
+      "lag24": -0.15125295377968048
+     },
+     "unemployment_rate_monthly": {
+      "lag12": -0.04735596760328315,
+      "lag24": -0.11925511334160613
+     }
+    },
+    "cross_corr": [
+     {
+      "i": "hicp_monthly_index",
+      "j_lagged": "industrial_production_index",
+      "k": 12,
+      "corr": -0.0006201828197891862,
+      "fisher_z_p_value": 0.9945794028716727,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "hicp_monthly_index",
+      "j_lagged": "industrial_production_index",
+      "k": 24,
+      "corr": 0.033983893081280754,
+      "fisher_z_p_value": 0.7238582752754132,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "hicp_monthly_index",
+      "j_lagged": "unemployment_rate_monthly",
+      "k": 12,
+      "corr": -0.005697883729931264,
+      "fisher_z_p_value": 0.95023006890973,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "hicp_monthly_index",
+      "j_lagged": "unemployment_rate_monthly",
+      "k": 24,
+      "corr": 0.21646273097376237,
+      "fisher_z_p_value": 0.022271594006966714,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "industrial_production_index",
+      "j_lagged": "hicp_monthly_index",
+      "k": 12,
+      "corr": -0.07464113090979317,
+      "fisher_z_p_value": 0.4126859026503751,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "industrial_production_index",
+      "j_lagged": "hicp_monthly_index",
+      "k": 24,
+      "corr": -0.07429388965928038,
+      "fisher_z_p_value": 0.4392206123312352,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "industrial_production_index",
+      "j_lagged": "unemployment_rate_monthly",
+      "k": 12,
+      "corr": 0.10380405356642991,
+      "fisher_z_p_value": 0.2537753488936405,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "industrial_production_index",
+      "j_lagged": "unemployment_rate_monthly",
+      "k": 24,
+      "corr": 0.20732902442228587,
+      "fisher_z_p_value": 0.028792173002916418,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "unemployment_rate_monthly",
+      "j_lagged": "hicp_monthly_index",
+      "k": 12,
+      "corr": 0.05767947856906904,
+      "fisher_z_p_value": 0.527028112703201,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "unemployment_rate_monthly",
+      "j_lagged": "hicp_monthly_index",
+      "k": 24,
+      "corr": -0.010664827534461263,
+      "fisher_z_p_value": 0.9117461268411339,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "unemployment_rate_monthly",
+      "j_lagged": "industrial_production_index",
+      "k": 12,
+      "corr": -0.0742749680564724,
+      "fisher_z_p_value": 0.4149906288017958,
+      "bh_q_value": 0.9991737023230072
+     },
+     {
+      "i": "unemployment_rate_monthly",
+      "j_lagged": "industrial_production_index",
+      "k": 24,
+      "corr": 0.11242643684146891,
+      "fisher_z_p_value": 0.2406634589854395,
+      "bh_q_value": 0.9991737023230072
+     }
+    ],
+    "lag_12_share_of_q": 0.052291529857181336,
+    "lags_11_13_share_of_q": 0.10844652743697601
+   }
+  }
+ ]
+}

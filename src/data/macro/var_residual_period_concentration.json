@@ -1,0 +1,391 @@
+{
+ "schema_version": "var-residual-period-concentration-v1.90",
+ "generated_at": "2026-09-29",
+ "preregistration_sha256": "865a568f8e517b619eeee978f31edc6c0a637d493a169facc3b357714d25725f",
+ "production_agreement_max_difference": 2.6547652964836743e-12,
+ "production_change_authorized": false,
+ "readiness_changed": false,
+ "formal_irf_publication_available": false,
+ "units": [
+  {
+   "unit_id": "baseline_monthly_macro_v1::poland",
+   "country": "poland",
+   "periods": {
+    "P1_pre_2020": {
+     "observation_share": 0.4222222222222222,
+     "squared_standardized_share": {
+      "hicp_monthly_index": 0.16156691453641384,
+      "industrial_production_index": 0.12590615876965405,
+      "unemployment_rate_monthly": 0.4205141041037354
+     },
+     "mahalanobis_share": 0.24622197073836113,
+     "events_abs_z_gt_3": [],
+     "lag_product_mass": 15.019598978020953,
+     "lag_product_mass_share_normalized": 0.11866643391470563,
+     "lag_product_mass_over_full_q": 0.12602127937262103
+    },
+    "P2_pandemic_aftermath": {
+     "observation_share": 0.17777777777777778,
+     "squared_standardized_share": {
+      "hicp_monthly_index": 0.09302604476583222,
+      "industrial_production_index": 0.7098449840650357,
+      "unemployment_rate_monthly": 0.24224151197462454
+     },
+     "mahalanobis_share": 0.33822350612838153,
+     "events_abs_z_gt_3": [
+      {
+       "date": "2020-03",
+       "equation": "industrial_production_index",
+       "z": -3.625835836984093
+      },
+      {
+       "date": "2020-04",
+       "equation": "industrial_production_index",
+       "z": -7.402867962852001
+      },
+      {
+       "date": "2021-01",
+       "equation": "unemployment_rate_monthly",
+       "z": 3.308789973806935
+      }
+     ],
+     "lag_product_mass": 62.28814199716533,
+     "lag_product_mass_share_normalized": 0.49212443666391137,
+     "lag_product_mass_over_full_q": 0.5226258940543672
+    },
+    "P3_post_2022": {
+     "observation_share": 0.4,
+     "squared_standardized_share": {
+      "hicp_monthly_index": 0.7454070406977539,
+      "industrial_production_index": 0.1642488571653103,
+      "unemployment_rate_monthly": 0.33724438392163997
+     },
+     "mahalanobis_share": 0.4155545231332574,
+     "events_abs_z_gt_3": [
+      {
+       "date": "2022-03",
+       "equation": "hicp_monthly_index",
+       "z": 5.70627701842567
+      },
+      {
+       "date": "2023-01",
+       "equation": "hicp_monthly_index",
+       "z": 3.682119944714041
+      }
+     ],
+     "lag_product_mass": 49.26216158729108,
+     "lag_product_mass_share_normalized": 0.3892091294213829,
+     "lag_product_mass_over_full_q": 0.41333198289620465
+    }
+   },
+   "events_total": 5,
+   "full_sample_q_star": 119.18303839473687,
+   "note": "period shares of the lag-product mass are approximate because cross-period terms do not add; events are not causal explanations"
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v1::romania",
+   "country": "romania",
+   "periods": {
+    "P1_pre_2020": {
+     "observation_share": 0.4264705882352941,
+     "squared_standardized_share": {
+      "hicp_monthly_index": 0.514486250168162,
+      "industrial_production_index": 0.10631453676379748,
+      "unemployment_rate_monthly": 0.4264130841173
+     },
+     "mahalanobis_share": 0.353912764918041,
+     "events_abs_z_gt_3": [
+      {
+       "date": "2015-06",
+       "equation": "hicp_monthly_index",
+       "z": -5.972004746469526
+      }
+     ],
+     "lag_product_mass": 35.11570983102482,
+     "lag_product_mass_share_normalized": 0.3169316150640506,
+     "lag_product_mass_over_full_q": 0.3278014995426146
+    },
+    "P2_pandemic_aftermath": {
+     "observation_share": 0.17647058823529413,
+     "squared_standardized_share": {
+      "hicp_monthly_index": 0.088852838640333,
+      "industrial_production_index": 0.8153726466898469,
+      "unemployment_rate_monthly": 0.2796631222684556
+     },
+     "mahalanobis_share": 0.3896219925790148,
+     "events_abs_z_gt_3": [
+      {
+       "date": "2020-03",
+       "equation": "industrial_production_index",
+       "z": -3.066837638258956
+      },
+      {
+       "date": "2020-04",
+       "equation": "industrial_production_index",
+       "z": -7.976630984180714
+      },
+      {
+       "date": "2020-04",
+       "equation": "unemployment_rate_monthly",
+       "z": 3.303646145886271
+      },
+      {
+       "date": "2020-05",
+       "equation": "industrial_production_index",
+       "z": 4.08304967944929
+      },
+      {
+       "date": "2020-06",
+       "equation": "industrial_production_index",
+       "z": 3.3516486648204507
+      }
+     ],
+     "lag_product_mass": 54.44906436058586,
+     "lag_product_mass_share_normalized": 0.49142193022909186,
+     "lag_product_mass_over_full_q": 0.5082763535744675
+    },
+    "P3_post_2022": {
+     "observation_share": 0.39705882352941174,
+     "squared_standardized_share": {
+      "hicp_monthly_index": 0.396660911191505,
+      "industrial_production_index": 0.07831281654635557,
+      "unemployment_rate_monthly": 0.29392379361424437
+     },
+     "mahalanobis_share": 0.2564652425029442,
+     "events_abs_z_gt_3": [],
+     "lag_product_mass": 21.23423784108942,
+     "lag_product_mass_share_normalized": 0.1916464547068575,
+     "lag_product_mass_over_full_q": 0.1982194020695524
+    }
+   },
+   "events_total": 6,
+   "full_sample_q_star": 107.1249212710198,
+   "note": "period shares of the lag-product mass are approximate because cross-period terms do not add; events are not causal explanations"
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v2_seasonal_controls::czechia",
+   "country": "czechia",
+   "periods": {
+    "P1_pre_2020": {
+     "observation_share": 0.4222222222222222,
+     "squared_standardized_share": {
+      "hicp_monthly_index": 0.15972560448900605,
+      "industrial_production_index": 0.15321379441213723,
+      "unemployment_rate_monthly": 0.3966979179070259
+     },
+     "mahalanobis_share": 0.23945236074161735,
+     "events_abs_z_gt_3": [],
+     "lag_product_mass": 17.4051669777573,
+     "lag_product_mass_share_normalized": 0.1549018424633101,
+     "lag_product_mass_over_full_q": 0.14938164820316013
+    },
+    "P2_pandemic_aftermath": {
+     "observation_share": 0.17777777777777778,
+     "squared_standardized_share": {
+      "hicp_monthly_index": 0.058643990083382995,
+      "industrial_production_index": 0.6999169328462396,
+      "unemployment_rate_monthly": 0.23731825985299876
+     },
+     "mahalanobis_share": 0.3292453855094913,
+     "events_abs_z_gt_3": [
+      {
+       "date": "2020-03",
+       "equation": "industrial_production_index",
+       "z": -3.3767336304480535
+      },
+      {
+       "date": "2020-04",
+       "equation": "industrial_production_index",
+       "z": -7.164184718560027
+      },
+      {
+       "date": "2020-05",
+       "equation": "industrial_production_index",
+       "z": 3.2649485076115465
+      }
+     ],
+     "lag_product_mass": 46.06610167690105,
+     "lag_product_mass_share_normalized": 0.40997733799239927,
+     "lag_product_mass_over_full_q": 0.3953670886113227
+    },
+    "P3_post_2022": {
+     "observation_share": 0.4,
+     "squared_standardized_share": {
+      "hicp_monthly_index": 0.7816304054276111,
+      "industrial_production_index": 0.1468692727416232,
+      "unemployment_rate_monthly": 0.3659838222399754
+     },
+     "mahalanobis_share": 0.4313022537488914,
+     "events_abs_z_gt_3": [
+      {
+       "date": "2022-01",
+       "equation": "hicp_monthly_index",
+       "z": 4.221409996470951
+      },
+      {
+       "date": "2022-11",
+       "equation": "unemployment_rate_monthly",
+       "z": 3.42241638728104
+      },
+      {
+       "date": "2023-01",
+       "equation": "hicp_monthly_index",
+       "z": 6.6751111096762585
+      }
+     ],
+     "lag_product_mass": 48.89128753559402,
+     "lag_product_mass_share_normalized": 0.43512081954429066,
+     "lag_product_mass_over_full_q": 0.4196145388421159
+    }
+   },
+   "events_total": 6,
+   "full_sample_q_star": 116.51476059553276,
+   "note": "period shares of the lag-product mass are approximate because cross-period terms do not add; events are not causal explanations"
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v2_seasonal_controls::germany",
+   "country": "germany",
+   "periods": {
+    "P1_pre_2020": {
+     "observation_share": 0.4222222222222222,
+     "squared_standardized_share": {
+      "hicp_monthly_index": 0.2567804225001729,
+      "industrial_production_index": 0.12484711359959633,
+      "unemployment_rate_monthly": 0.3768812351041017
+     },
+     "mahalanobis_share": 0.2533275990620975,
+     "events_abs_z_gt_3": [],
+     "lag_product_mass": 24.02167045515469,
+     "lag_product_mass_share_normalized": 0.1808116320601602,
+     "lag_product_mass_over_full_q": 0.2036178040465565
+    },
+    "P2_pandemic_aftermath": {
+     "observation_share": 0.17777777777777778,
+     "squared_standardized_share": {
+      "hicp_monthly_index": 0.21985400995987123,
+      "industrial_production_index": 0.7051909533822344,
+      "unemployment_rate_monthly": 0.2496253913022707
+     },
+     "mahalanobis_share": 0.39075736287603396,
+     "events_abs_z_gt_3": [
+      {
+       "date": "2020-03",
+       "equation": "industrial_production_index",
+       "z": -3.223385053722429
+      },
+      {
+       "date": "2020-04",
+       "equation": "industrial_production_index",
+       "z": -7.703713800774583
+      },
+      {
+       "date": "2021-01",
+       "equation": "hicp_monthly_index",
+       "z": 4.0779390140093685
+      }
+     ],
+     "lag_product_mass": 64.58400546921901,
+     "lag_product_mass_share_normalized": 0.48612520331057896,
+     "lag_product_mass_over_full_q": 0.5474412528772027
+    },
+    "P3_post_2022": {
+     "observation_share": 0.4,
+     "squared_standardized_share": {
+      "hicp_monthly_index": 0.523365567539956,
+      "industrial_production_index": 0.16996193301816928,
+      "unemployment_rate_monthly": 0.3734933735936276
+     },
+     "mahalanobis_share": 0.3559150380618685,
+     "events_abs_z_gt_3": [
+      {
+       "date": "2022-03",
+       "equation": "hicp_monthly_index",
+       "z": 3.0363992493547776
+      },
+      {
+       "date": "2022-09",
+       "equation": "hicp_monthly_index",
+       "z": 4.383694685648184
+      },
+      {
+       "date": "2022-12",
+       "equation": "hicp_monthly_index",
+       "z": -4.494545768427563
+      }
+     ],
+     "lag_product_mass": 44.248998199479836,
+     "lag_product_mass_share_normalized": 0.3330631646292609,
+     "lag_product_mass_over_full_q": 0.37507315993941337
+    }
+   },
+   "events_total": 6,
+   "full_sample_q_star": 117.97431254912375,
+   "note": "period shares of the lag-product mass are approximate because cross-period terms do not add; events are not causal explanations"
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v2_seasonal_controls::hungary",
+   "country": "hungary",
+   "periods": {
+    "P1_pre_2020": {
+     "observation_share": 0.4222222222222222,
+     "squared_standardized_share": {
+      "hicp_monthly_index": 0.28272159625364196,
+      "industrial_production_index": 0.15229849265238524,
+      "unemployment_rate_monthly": 0.4167968857127742
+     },
+     "mahalanobis_share": 0.31197781835405863,
+     "events_abs_z_gt_3": [],
+     "lag_product_mass": 23.69375457185695,
+     "lag_product_mass_share_normalized": 0.20976574876233142,
+     "lag_product_mass_over_full_q": 0.2093632458494507
+    },
+    "P2_pandemic_aftermath": {
+     "observation_share": 0.17777777777777778,
+     "squared_standardized_share": {
+      "hicp_monthly_index": 0.1415506065863416,
+      "industrial_production_index": 0.6698081494163086,
+      "unemployment_rate_monthly": 0.3329979893659692
+     },
+     "mahalanobis_share": 0.3434815073300189,
+     "events_abs_z_gt_3": [
+      {
+       "date": "2020-04",
+       "equation": "industrial_production_index",
+       "z": -7.686317485863117
+      },
+      {
+       "date": "2020-04",
+       "equation": "unemployment_rate_monthly",
+       "z": 5.401365134975233
+      }
+     ],
+     "lag_product_mass": 53.90866736500299,
+     "lag_product_mass_share_normalized": 0.47726467075129564,
+     "lag_product_mass_over_full_q": 0.4763488853033572
+    },
+    "P3_post_2022": {
+     "observation_share": 0.4,
+     "squared_standardized_share": {
+      "hicp_monthly_index": 0.5757277971600163,
+      "industrial_production_index": 0.1778933579313064,
+      "unemployment_rate_monthly": 0.25020512492125657
+     },
+     "mahalanobis_share": 0.34454067431592245,
+     "events_abs_z_gt_3": [
+      {
+       "date": "2022-08",
+       "equation": "hicp_monthly_index",
+       "z": 4.65822912232729
+      }
+     ],
+     "lag_product_mass": 35.350978280553164,
+     "lag_product_mass_share_normalized": 0.3129695804863729,
+     "lag_product_mass_over_full_q": 0.3123690478992748
+    }
+   },
+   "events_total": 3,
+   "full_sample_q_star": 113.1705542475908,
+   "note": "period shares of the lag-product mass are approximate because cross-period terms do not add; events are not causal explanations"
+  }
+ ]
+}
