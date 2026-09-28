@@ -1,0 +1,512 @@
+{
+  "schema_version": "var-country-matched-bootstrap-calibration-summary-v1.89",
+  "generated_at": "2026-09-28",
+  "preregistration_sha256": "ac42c4e568f39e582d8720967bb45a1bf88af93ba70f5e52f54c9fef23a5863a",
+  "actual_country_data_read": false,
+  "production_changed": false,
+  "classification": {
+    "evaluable_null_cells": 72,
+    "non_evaluable_null_cells": [
+      "null_p2_psi0.50_r0.92_v185_positive_constant",
+      "null_p2_psi0.50_r0.92_envelope_mixed_sign_constant",
+      "null_p2_psi0.50_r0.95_v185_positive_constant",
+      "null_p2_psi0.50_r0.95_envelope_mixed_sign_constant",
+      "null_p2_psi0.50_r0.97_v185_positive_constant",
+      "null_p2_psi0.50_r0.97_envelope_mixed_sign_constant",
+      "null_p2_psi0.50_r0.92_v185_positive_constant_plus_11_month_dummies",
+      "null_p2_psi0.50_r0.92_envelope_mixed_sign_constant_plus_11_month_dummies",
+      "null_p2_psi0.50_r0.95_v185_positive_constant_plus_11_month_dummies",
+      "null_p2_psi0.50_r0.95_envelope_mixed_sign_constant_plus_11_month_dummies",
+      "null_p2_psi0.50_r0.97_v185_positive_constant_plus_11_month_dummies",
+      "null_p2_psi0.50_r0.97_envelope_mixed_sign_constant_plus_11_month_dummies"
+    ],
+    "primary_size_inside_interval": 33,
+    "primary_size_fraction_inside": 0.4583333333333333,
+    "primary_size_range": [
+      0.006578947368421052,
+      0.063
+    ],
+    "primary_size_max_abs_distortion": 0.04342105263157895,
+    "intermediate_evaluable_cells": 36,
+    "intermediate_materially_conservative_cells": [
+      "null_p2_psi0.75_r0.92_v185_positive_constant",
+      "null_p2_psi1.00_r0.92_v185_positive_constant",
+      "null_p2_psi1.25_r0.92_v185_positive_constant",
+      "null_p2_psi0.75_r0.92_envelope_mixed_sign_constant",
+      "null_p2_psi1.00_r0.92_envelope_mixed_sign_constant",
+      "null_p2_psi1.25_r0.92_envelope_mixed_sign_constant",
+      "null_p2_psi0.75_r0.95_v185_positive_constant",
+      "null_p2_psi1.00_r0.95_v185_positive_constant",
+      "null_p2_psi1.25_r0.95_v185_positive_constant",
+      "null_p2_psi0.75_r0.95_envelope_mixed_sign_constant",
+      "null_p2_psi1.00_r0.95_envelope_mixed_sign_constant",
+      "null_p2_psi1.25_r0.95_envelope_mixed_sign_constant",
+      "null_p2_psi0.75_r0.97_v185_positive_constant",
+      "null_p2_psi1.00_r0.97_v185_positive_constant",
+      "null_p2_psi1.25_r0.97_v185_positive_constant",
+      "null_p2_psi0.75_r0.97_envelope_mixed_sign_constant",
+      "null_p2_psi1.00_r0.97_envelope_mixed_sign_constant",
+      "null_p2_psi1.25_r0.97_envelope_mixed_sign_constant",
+      "null_p2_psi0.75_r0.92_v185_positive_constant_plus_11_month_dummies",
+      "null_p2_psi1.00_r0.92_v185_positive_constant_plus_11_month_dummies",
+      "null_p2_psi1.25_r0.92_v185_positive_constant_plus_11_month_dummies",
+      "null_p2_psi0.75_r0.92_envelope_mixed_sign_constant_plus_11_month_dummies",
+      "null_p2_psi1.00_r0.92_envelope_mixed_sign_constant_plus_11_month_dummies",
+      "null_p2_psi1.25_r0.92_envelope_mixed_sign_constant_plus_11_month_dummies",
+      "null_p2_psi0.75_r0.95_v185_positive_constant_plus_11_month_dummies",
+      "null_p2_psi1.00_r0.95_v185_positive_constant_plus_11_month_dummies",
+      "null_p2_psi1.25_r0.95_v185_positive_constant_plus_11_month_dummies",
+      "null_p2_psi0.75_r0.95_envelope_mixed_sign_constant_plus_11_month_dummies",
+      "null_p2_psi1.00_r0.95_envelope_mixed_sign_constant_plus_11_month_dummies",
+      "null_p2_psi1.25_r0.95_envelope_mixed_sign_constant_plus_11_month_dummies",
+      "null_p2_psi0.75_r0.97_v185_positive_constant_plus_11_month_dummies",
+      "null_p2_psi1.00_r0.97_v185_positive_constant_plus_11_month_dummies",
+      "null_p2_psi1.25_r0.97_v185_positive_constant_plus_11_month_dummies",
+      "null_p2_psi0.75_r0.97_envelope_mixed_sign_constant_plus_11_month_dummies",
+      "null_p2_psi1.00_r0.97_envelope_mixed_sign_constant_plus_11_month_dummies"
+    ],
+    "size_status": "materially_conservative",
+    "power_median_bootstrap_rejection": {
+      "common_ar1@0.1": 0.07507214428857716,
+      "common_ar1@0.2": 0.06318712273641851,
+      "common_ar1@0.3": 0.081,
+      "seasonal_ar12@0.1": 0.1285241935483871,
+      "seasonal_ar12@0.2": 0.2851290322580645,
+      "seasonal_ar12@0.3": 0.5491967871485943
+    },
+    "power_status": "weak",
+    "outcome": "C",
+    "disposition": "country_matched_calibration_does_not_support_production_adoption",
+    "production_change_authorized": false
+  },
+  "null_by_design_primary_size": [
+    {
+      "design": "p1",
+      "cells": 12,
+      "cells_with_n_ge_200": 12,
+      "bootstrap_range": [
+        0.04618473895582329,
+        0.063
+      ],
+      "asymptotic_range": [
+        0.053,
+        0.2243365047571357
+      ],
+      "bic_exact_recovery_range": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "design": "p2_psi0.50",
+      "cells": 12,
+      "cells_with_n_ge_200": 12,
+      "bootstrap_range": [
+        0.0,
+        0.00964630225080386
+      ],
+      "asymptotic_range": [
+        0.030303030303030304,
+        0.2430167597765363
+      ],
+      "bic_exact_recovery_range": [
+        0.142,
+        0.179
+      ]
+    },
+    {
+      "design": "p2_psi0.75",
+      "cells": 12,
+      "cells_with_n_ge_200": 12,
+      "bootstrap_range": [
+        0.006578947368421052,
+        0.01829924650161464
+      ],
+      "asymptotic_range": [
+        0.03969128996692393,
+        0.21237993596584845
+      ],
+      "bic_exact_recovery_range": [
+        0.4535,
+        0.4905
+      ]
+    },
+    {
+      "design": "p2_psi1.00",
+      "cells": 12,
+      "cells_with_n_ge_200": 12,
+      "bootstrap_range": [
+        0.017116524028966424,
+        0.026885245901639345
+      ],
+      "asymptotic_range": [
+        0.04739960500329164,
+        0.22346736980883322
+      ],
+      "bic_exact_recovery_range": [
+        0.752,
+        0.7685
+      ]
+    },
+    {
+      "design": "p2_psi1.25",
+      "cells": 12,
+      "cells_with_n_ge_200": 12,
+      "bootstrap_range": [
+        0.024255788313120176,
+        0.040637012630422846
+      ],
+      "asymptotic_range": [
+        0.04565217391304348,
+        0.2336655592469546
+      ],
+      "bic_exact_recovery_range": [
+        0.9065,
+        0.92
+      ]
+    },
+    {
+      "design": "p2_psi1.50",
+      "cells": 12,
+      "cells_with_n_ge_200": 12,
+      "bootstrap_range": [
+        0.028836251287332648,
+        0.04392764857881137
+      ],
+      "asymptotic_range": [
+        0.04841997961264016,
+        0.22993267736923872
+      ],
+      "bic_exact_recovery_range": [
+        0.967,
+        0.981
+      ]
+    },
+    {
+      "design": "p2_psi2.00",
+      "cells": 12,
+      "cells_with_n_ge_200": 12,
+      "bootstrap_range": [
+        0.040160642570281124,
+        0.05260521042084168
+      ],
+      "asymptotic_range": [
+        0.05368790767686904,
+        0.22937625754527163
+      ],
+      "bic_exact_recovery_range": [
+        0.9965,
+        0.9995
+      ]
+    }
+  ],
+  "null_by_design_correct_recovery": [
+    {
+      "design": "p1",
+      "cells": 12,
+      "cells_with_n_ge_200": 12,
+      "bootstrap_range": [
+        0.04618473895582329,
+        0.063
+      ],
+      "asymptotic_range": [
+        0.053,
+        0.2243365047571357
+      ],
+      "bic_exact_recovery_range": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "design": "p2_psi0.50",
+      "cells": 12,
+      "cells_with_n_ge_200": 12,
+      "bootstrap_range": [
+        0.0,
+        0.00964630225080386
+      ],
+      "asymptotic_range": [
+        0.030303030303030304,
+        0.2430167597765363
+      ],
+      "bic_exact_recovery_range": [
+        0.142,
+        0.179
+      ]
+    },
+    {
+      "design": "p2_psi0.75",
+      "cells": 12,
+      "cells_with_n_ge_200": 12,
+      "bootstrap_range": [
+        0.006578947368421052,
+        0.01829924650161464
+      ],
+      "asymptotic_range": [
+        0.03969128996692393,
+        0.21237993596584845
+      ],
+      "bic_exact_recovery_range": [
+        0.4535,
+        0.4905
+      ]
+    },
+    {
+      "design": "p2_psi1.00",
+      "cells": 12,
+      "cells_with_n_ge_200": 12,
+      "bootstrap_range": [
+        0.017116524028966424,
+        0.026885245901639345
+      ],
+      "asymptotic_range": [
+        0.04739960500329164,
+        0.22346736980883322
+      ],
+      "bic_exact_recovery_range": [
+        0.752,
+        0.7685
+      ]
+    },
+    {
+      "design": "p2_psi1.25",
+      "cells": 12,
+      "cells_with_n_ge_200": 12,
+      "bootstrap_range": [
+        0.024255788313120176,
+        0.04065934065934066
+      ],
+      "asymptotic_range": [
+        0.04565217391304348,
+        0.2336655592469546
+      ],
+      "bic_exact_recovery_range": [
+        0.9065,
+        0.92
+      ]
+    },
+    {
+      "design": "p2_psi1.50",
+      "cells": 12,
+      "cells_with_n_ge_200": 12,
+      "bootstrap_range": [
+        0.028836251287332648,
+        0.04392764857881137
+      ],
+      "asymptotic_range": [
+        0.04841997961264016,
+        0.22993267736923872
+      ],
+      "bic_exact_recovery_range": [
+        0.967,
+        0.981
+      ]
+    },
+    {
+      "design": "p2_psi2.00",
+      "cells": 12,
+      "cells_with_n_ge_200": 12,
+      "bootstrap_range": [
+        0.040160642570281124,
+        0.05260521042084168
+      ],
+      "asymptotic_range": [
+        0.05368790767686904,
+        0.22937625754527163
+      ],
+      "bic_exact_recovery_range": [
+        0.9965,
+        0.9995
+      ]
+    }
+  ],
+  "null_by_design_procedure_rate": [
+    {
+      "design": "p1",
+      "cells": 12,
+      "cells_with_n_ge_200": 12,
+      "bootstrap_range": [
+        0.04618473895582329,
+        0.063
+      ],
+      "asymptotic_range": [
+        0.053,
+        0.2243365047571357
+      ],
+      "bic_exact_recovery_range": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "design": "p2_psi0.50",
+      "cells": 12,
+      "cells_with_n_ge_200": 12,
+      "bootstrap_range": [
+        0.34285714285714286,
+        0.429
+      ],
+      "asymptotic_range": [
+        0.4275,
+        0.6619718309859155
+      ],
+      "bic_exact_recovery_range": [
+        0.142,
+        0.179
+      ]
+    },
+    {
+      "design": "p2_psi0.75",
+      "cells": 12,
+      "cells_with_n_ge_200": 12,
+      "bootstrap_range": [
+        0.27506297229219145,
+        0.3425
+      ],
+      "asymptotic_range": [
+        0.3572503763171099,
+        0.5505
+      ],
+      "bic_exact_recovery_range": [
+        0.4535,
+        0.4905
+      ]
+    },
+    {
+      "design": "p2_psi1.00",
+      "cells": 12,
+      "cells_with_n_ge_200": 12,
+      "bootstrap_range": [
+        0.15407703851925963,
+        0.1936619718309859
+      ],
+      "asymptotic_range": [
+        0.2055,
+        0.3805
+      ],
+      "bic_exact_recovery_range": [
+        0.752,
+        0.7685
+      ]
+    },
+    {
+      "design": "p2_psi1.25",
+      "cells": 12,
+      "cells_with_n_ge_200": 12,
+      "bootstrap_range": [
+        0.08152994464016104,
+        0.097
+      ],
+      "asymptotic_range": [
+        0.102,
+        0.29512317747611866
+      ],
+      "bic_exact_recovery_range": [
+        0.9065,
+        0.92
+      ]
+    },
+    {
+      "design": "p2_psi1.50",
+      "cells": 12,
+      "cells_with_n_ge_200": 12,
+      "bootstrap_range": [
+        0.0495,
+        0.06306760847628658
+      ],
+      "asymptotic_range": [
+        0.0635,
+        0.25
+      ],
+      "bic_exact_recovery_range": [
+        0.967,
+        0.981
+      ]
+    },
+    {
+      "design": "p2_psi2.00",
+      "cells": 12,
+      "cells_with_n_ge_200": 12,
+      "bootstrap_range": [
+        0.041082164328657314,
+        0.053526763381690844
+      ],
+      "asymptotic_range": [
+        0.05416248746238716,
+        0.23053741838272224
+      ],
+      "bic_exact_recovery_range": [
+        0.9965,
+        0.9995
+      ]
+    }
+  ],
+  "power_by_alternative": [
+    {
+      "alternative": "common_ar1",
+      "strength": 0.1,
+      "bootstrap_rejection_range": [
+        0.032,
+        0.152
+      ],
+      "bootstrap_median": 0.07507214428857716,
+      "asymptotic_median": 0.19121242484969941
+    },
+    {
+      "alternative": "common_ar1",
+      "strength": 0.2,
+      "bootstrap_rejection_range": [
+        0.04008016032064128,
+        0.24493927125506074
+      ],
+      "bootstrap_median": 0.06318712273641851,
+      "asymptotic_median": 0.239
+    },
+    {
+      "alternative": "common_ar1",
+      "strength": 0.3,
+      "bootstrap_rejection_range": [
+        0.052,
+        0.436
+      ],
+      "bootstrap_median": 0.081,
+      "asymptotic_median": 0.2732725450901804
+    },
+    {
+      "alternative": "seasonal_ar12",
+      "strength": 0.1,
+      "bootstrap_rejection_range": [
+        0.030120481927710843,
+        0.4142857142857143
+      ],
+      "bootstrap_median": 0.1285241935483871,
+      "asymptotic_median": 0.263
+    },
+    {
+      "alternative": "seasonal_ar12",
+      "strength": 0.2,
+      "bootstrap_rejection_range": [
+        0.088,
+        0.5070422535211268
+      ],
+      "bootstrap_median": 0.2851290322580645,
+      "asymptotic_median": 0.412
+    },
+    {
+      "alternative": "seasonal_ar12",
+      "strength": 0.3,
+      "bootstrap_rejection_range": [
+        0.194,
+        0.8036437246963563
+      ],
+      "bootstrap_median": 0.5491967871485943,
+      "asymptotic_median": 0.7436899383983573
+    }
+  ],
+  "computational_failures": {
+    "null": 313,
+    "power": 539
+  },
+  "max_mcse_primary_size": 0.0055423685557716585
+}

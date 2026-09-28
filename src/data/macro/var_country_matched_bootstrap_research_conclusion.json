@@ -1,0 +1,27 @@
+{
+  "schema_version": "var-country-matched-bootstrap-research-conclusion-v1.89",
+  "study_id": "var_country_matched_bootstrap_v189",
+  "preregistration_sha256": "ac42c4e568f39e582d8720967bb45a1bf88af93ba70f5e52f54c9fef23a5863a",
+  "size_status": "materially_conservative",
+  "power_status": "weak",
+  "outcome": "C",
+  "disposition": "country_matched_calibration_does_not_support_production_adoption",
+  "production_change_authorized": false,
+  "production_changed": false,
+  "readiness_changed": false,
+  "formal_irf_publication_available": false,
+  "phase_B_rerun": false,
+  "actual_country_data_read": false,
+  "prior_releases_modified": false,
+  "monte_carlo_replications": 312000,
+  "bootstrap_draws": 62088000,
+  "provenance": {
+    "var_country_matched_bootstrap_preregistration.json": "ac42c4e568f39e582d8720967bb45a1bf88af93ba70f5e52f54c9fef23a5863a",
+    "var_country_matched_bootstrap_simulation_design.json": "f7e0bca8926c06d08e8baba50c6e9eff0c2025f29dd24007e346de4b6412cc0a",
+    "var_country_matched_bootstrap_seed_registry.json": "451f5362bac00a20cbfe44764f893ac886cc222c6d92978ee0e332a6026362fd",
+    "var_country_matched_bootstrap_reference_validation.json": "d9f905a546d66e42274b3038993a08955c332b0010454b98b8d74c8a86ee034f",
+    "var_country_matched_bootstrap_null_results.json": "c3a7d724947e95f88485cdd5d4810d05e568090e56b576b6036818b8193037c9",
+    "var_country_matched_bootstrap_power_results.json": "c55862111b7eb357841762f63a1ea5fbc9d647c9fa778b0f7c716e5e4d263373",
+    "var_country_matched_bootstrap_calibration_summary.json": "ac9f2b7bab03dfbbafb07cac543b6a030ee2c2f69efd4be99a8af8ffd9cf80a1"
+  }
+}
