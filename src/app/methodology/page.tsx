@@ -4,6 +4,7 @@ import { runtimeAnalysisSkills } from "@/lib/analysisSkills";
 import { AnalysisSkillCard } from "@/components/AnalysisSkillCard";
 import { CitationActions } from "@/components/CitationActions";
 import { platformStatus } from "@/lib/platformStatus";
+import countryMatched from "@/data/macro/var_country_matched_bootstrap_calibration_summary.json";
 import countryAudit from "@/data/macro/var_country_lag_identifiability_results.json";
 import countryPhaseB from "@/data/macro/var_phase_b_bootstrap_results.json";
 import lagCharacterization from "@/data/macro/var_lag_characterization_research_conclusion.json";
@@ -21,13 +22,15 @@ const layerAEs = layerBDecomposition.layer_A_summary.edgerton_shukur_f;
 const p2Under = layerBByLag["2"].by_deterministic_spec;
 const p1MonthRanges = layerBByLag["1"].by_deterministic_spec.constant_plus_11_month_dummies.h12_rejection_rate_range;
 
+const matchedSize = (design: string) => countryMatched.null_by_design_primary_size.find((row) => row.design === design)?.bootstrap_range ?? [0, 0];
+const matchedPower = (alternative: string, strength: number) => countryMatched.power_by_alternative.find((row) => row.alternative === alternative && row.strength === strength)?.bootstrap_median ?? 0;
 const countryNames: Record<string, string> = { poland: "波兰", romania: "罗马尼亚", czechia: "捷克", germany: "德国", hungary: "匈牙利" };
 const lagRecovery = lagCharacterization.true_lag_2_bic_exact_recovery_range_by_design_primary;
 const lagRange = (design: keyof typeof lagRecovery) => `${pct(lagRecovery[design][0], 1)}–${pct(lagRecovery[design][1], 1)}`;
 const bootstrapIid = selectionBootstrapSummary.families.recursive_iid_residual;
 const bootstrapWild = selectionBootstrapSummary.families.recursive_wild_rademacher;
 
-const sections = [["data", "Data"], ["baseline-data-definitions", "Baseline definitions"], ["panel-lp-whole-path-inference", "Panel LP whole-path boundary"], ["models", "Analysis"], ["var-residual-diagnostic-calibration", "VAR residual diagnostics"], ["var-selection-aware-bootstrap", "VAR bootstrap research"], ["var-lag-selection-characterization", "VAR lag-selection research"], ["var-country-identifiability", "VAR country audit"], ["events", "Events"], ["macro-drivers", "Macro Drivers"], ["spatial", "Spatial"], ["validation", "Validation"], ["citation", "Citation"]] as const;
+const sections = [["data", "Data"], ["baseline-data-definitions", "Baseline definitions"], ["panel-lp-whole-path-inference", "Panel LP whole-path boundary"], ["models", "Analysis"], ["var-residual-diagnostic-calibration", "VAR residual diagnostics"], ["var-selection-aware-bootstrap", "VAR bootstrap research"], ["var-lag-selection-characterization", "VAR lag-selection research"], ["var-country-identifiability", "VAR country audit"], ["var-country-matched-bootstrap", "VAR bootstrap calibration"], ["events", "Events"], ["macro-drivers", "Macro Drivers"], ["spatial", "Spatial"], ["validation", "Validation"], ["citation", "Citation"]] as const;
 
 function Section({ id, label, title, children }: { id: string; label: string; title: string; children: React.ReactNode }) {
   return <section id={id} className="scroll-mt-24 border-t border-[var(--line)] py-10"><p className="editorial-kicker">{label}</p><h2 className="mt-3 text-3xl font-semibold">{title}</h2>{children}</section>;
@@ -108,6 +111,11 @@ export default function MethodologyPage() {
       <p className="mt-4 max-w-4xl text-sm leading-7"><strong>研究证据，不是就绪状态。</strong>v1.88 在查看任何国家结果之前完成事前注册，然后经负责人批准，对五个正式可估计的国家 VAR 做了滞后可识别性审计（Phase A），并用 v1.86 的 selection-aware bootstrap 做了国家层面的诊断评估（Phase B，B={countryPhaseB.bootstrap_replications_B}）。审计完全复现生产流程（最大差异 {countryAudit.production_agreement.maximum_difference.toExponential(1)}）。</p>
       <div className="mt-4 max-w-4xl overflow-x-auto"><table className="w-full text-left text-sm"><thead><tr className="text-[var(--muted)]"><th className="py-2 pr-4 font-semibold">国家</th><th className="py-2 pr-4 font-semibold">BIC 滞后</th><th className="py-2 pr-4 font-semibold">经验滞后可识别性指数（90% 区间）</th><th className="py-2 pr-4 font-semibold">渐近 Portmanteau p</th><th className="py-2 font-semibold">bootstrap p</th></tr></thead><tbody>{countryAudit.units.map((unit) => { const eli = unit.empirical_lag_identifiability_index; const boot = countryPhaseB.units.find((row) => row.unit_id === unit.unit_id); return <tr key={unit.unit_id} className="border-t border-[var(--line)]"><td className="py-2 pr-4">{countryNames[unit.country] ?? unit.country}</td><td className="py-2 pr-4">{unit.selected_bic_lag}</td><td className="py-2 pr-4">{eli.eli_bias_adjusted.toFixed(2)}（{eli.eli_90[0].toFixed(2)}–{eli.eli_90[1].toFixed(2)}）</td><td className="py-2 pr-4">{unit.by_lag[String(unit.selected_bic_lag) as keyof typeof unit.by_lag]?.portmanteau_h12.p_value.toFixed(4)}</td><td className="py-2">{boot?.bootstrap_p_value?.toFixed(4)}</td></tr>; })}</tbody></table></div>
       <p className="mt-3 max-w-4xl text-sm leading-7">经验滞后可识别性指数是描述性指标，不是 v1.87 的真实 ψ，也不是“真实滞后为 2”的概率，ψ=1 不作门槛。现行渐近 Portmanteau 对四个 2 阶模型给出接近 5% 的拒绝；经过 bootstrap 校准后，五个国家在 0.05 水平下均不拒绝。这些结果只是研究证据：v1.87 显示在中等第二阶信号区间 bootstrap 可能偏保守，且 v1.86 未检验真实 VAR(2) 下的 selection-aware size。国家就绪状态、生产残差诊断、BIC 与正式 IRF 不可发布的状态均未改变；若要改动生产诊断，需要另行事前注册和负责人决定。完整记录见 <a className="text-[var(--accent)] underline" href={`${basePath}/research-data/var-country-identifiability/var_phase_b_bootstrap_results.json`}>v1.88 Phase B 结果</a>。</p>
+    </Section>
+    <Section id="var-country-matched-bootstrap" label="VAR / v1.89 research" title="Country-Matched Bootstrap Calibration">
+      <p className="mt-4 max-w-4xl text-sm leading-7"><strong>研究结果：不支持生产采用。</strong>v1.89 事前注册了一项与平台国家环境匹配的合成校准（T=137、K=3、候选滞后 1–10，持续性、协方差与第二阶信号范围取自 v1.88 的合并区间，不针对单个国家调参），检验 v1.86 selection-aware bootstrap 的有限样本 size 与 power，并在每次重复中同时记录现行渐近诊断。</p>
+      <p className="mt-3 max-w-4xl text-sm leading-7">真实滞后为 1 时，bootstrap 的 size 接近名义水平（{pct(matchedSize("p1")[0], 1)}–{pct(matchedSize("p1")[1], 1)}）。但在 v1.88 四个 2 阶国家所处的中等第二阶信号区间，bootstrap 明显保守：被选模型设定充分时的拒绝率在 ψ=0.75 为 {pct(matchedSize("p2_psi0.75")[0], 1)}–{pct(matchedSize("p2_psi0.75")[1], 1)}，ψ=1 为 {pct(matchedSize("p2_psi1.00")[0], 1)}–{pct(matchedSize("p2_psi1.00")[1], 1)}，ψ=1.25 为 {pct(matchedSize("p2_psi1.25")[0], 1)}–{pct(matchedSize("p2_psi1.25")[1], 1)}（名义 5%）。检验力也弱：对强度 0.3 的残差 AR(1) 相依，中位拒绝率仅 {pct(matchedPower("common_ar1", 0.3), 1)}；对季节性 AR(12) 相依为 {pct(matchedPower("seasonal_ar12", 0.3), 1)}。预注册结论为 C（明显保守且检验力弱），因此 v1.88 中 bootstrap 在该区间的不拒绝只是较弱的充分性证据。</p>
+      <p className="mt-3 max-w-4xl text-sm leading-7">现行渐近诊断在仅含常数项时接近名义水平，但含月份虚拟变量时约为 21%，与 v1.85 一致。本版本不授权任何生产改动：BIC、生产残差诊断、国家就绪状态和正式 IRF 不可发布的状态均未改变。完整记录见 <a className="text-[var(--accent)] underline" href={`${basePath}/research-data/var-country-matched-bootstrap/var_country_matched_bootstrap_research_conclusion.json`}>v1.89 研究结论记录</a>。</p>
     </Section>
     <Section id="events" label="03 / Events" title="事件编码"><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">Source → Event → Coding → Affected Indicator / Project → Research context。date、actor、event_type、direction 和 confidence 用于检索与解释；它们不自动构成因果关系，也不直接改变模型分数。未完整编码、低置信度或结构样例保持 enters_model=false。</p><Link href="/news" className="mt-4 inline-flex text-sm font-semibold text-[var(--accent)]">进入 Event Library</Link></Section>
 

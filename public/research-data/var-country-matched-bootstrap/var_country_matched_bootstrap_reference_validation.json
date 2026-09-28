@@ -1,0 +1,27 @@
+{
+ "schema_version": "var-country-matched-bootstrap-reference-validation-v1.89",
+ "checks": {
+  "iid_matches_v1_87": {
+   "max_abs_difference": 0.0,
+   "pass": true
+  },
+  "common_ar1_matches_v1_85": {
+   "max_abs_difference": 0.0,
+   "pass": true
+  },
+  "seasonal_ar12_independent": {
+   "max_abs_difference": 4.440892098500626e-15,
+   "pass": true
+  },
+  "design_targets": {
+   "max_psi_error": 2.0872192862952943e-14,
+   "max_radius_error": 1.2212453270876722e-15,
+   "pass": true
+  },
+  "replicate_determinism_and_engine_identity": {
+   "pass": true
+  }
+ },
+ "actual_country_data_read": false,
+ "status": "pass"
+}

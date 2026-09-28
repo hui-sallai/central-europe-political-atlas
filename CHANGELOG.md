@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.89 Country-Matched Selection-Aware Bootstrap Calibration — 2026-09-29
+
+- Preregisters (before any confirmatory draw) a country-matched calibration of the v1.86 recursive iid-residual selection-aware bootstrap: T=137, K=3, candidate lags 1–10, persistence 0.92/0.95/0.97, two innovation covariance structures and lag-2 signal ψ(137) 0.5–2.0 from the pooled v1.88 envelope (no per-country tuning); 84 null cells × 2,000 and 288 power cells × 500 replications (62.1M bootstrap draws).
+- Outcome C (materially conservative, weak power): size given an adequate selected model is 4.6–6.3% for true VAR(1) but 0.7–1.8% at ψ=0.75, 1.7–2.7% at ψ=1.0 and 2.4–4.1% at ψ=1.25; median power 8% against residual AR(1) (0.3) and 55% against seasonal AR(12) (0.3). The asymptotic diagnostic is near nominal with a constant but ~21% with month dummies.
+- Disposition `country_matched_calibration_does_not_support_production_adoption`; `production_change_authorized = false`. The v1.88 bootstrap non-rejections in the intermediate region are therefore weak evidence of adequacy. No BIC, diagnostic, readiness, capability or formal IRF change.
+
 ## v1.88 Country VAR Lag-Identifiability Audit and Phase-B Bootstrap Evaluation — 2026-09-28
 
 - Preregisters, before any country result, a lag-identifiability audit and Phase-B bootstrap protocol for the five formal estimable country VARs (v1: Poland, Romania; v2: Czechia, Germany, Hungary; 2015-02 to 2026-06, 137 observations, candidate lags 1–10).

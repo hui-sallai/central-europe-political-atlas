@@ -1,9 +1,9 @@
 {
   "name": "Central Europe Political Atlas",
-  "version": "v1.88 Country VAR Lag-Identifiability Audit and Phase-B Bootstrap Evaluation",
-  "release_date": "2026-09-28",
-  "stage": "Validated Reduced-form VAR estimation; a preregistered country audit measures lag-2 evidence and evaluates the research bootstrap diagnostic on the five formal estimable country models. Research only: BIC, the production residual diagnostic, readiness and formal dynamic-response unavailability are unchanged.",
-  "schema_version": "release-metadata-v1.88",
+  "version": "v1.89 Country-Matched Selection-Aware Bootstrap Calibration",
+  "release_date": "2026-09-29",
+  "stage": "Validated Reduced-form VAR estimation; a preregistered country-matched calibration finds the research bootstrap diagnostic materially conservative with weak power in the platform-relevant intermediate lag-2 region, so it does not support production adoption. BIC, the production diagnostic, readiness and formal dynamic-response unavailability are unchanged.",
+  "schema_version": "release-metadata-v1.89",
   "canonical_url": "https://hy-central-europe-analysis.org/",
   "public_contact_email": "sallaizhang@outlook.com",
   "legal_notice_updated": "2026-08-20",
@@ -30,6 +30,7 @@
     "var-capability-status-v1.88",
     "var-country-lag-identifiability-results-v1.88",
     "var-phase-b-bootstrap-results-v1.88",
+    "var-country-matched-bootstrap-research-conclusion-v1.89",
     "var-lag-characterization-research-conclusion-v1.87",
     "var-selection-bootstrap-research-conclusion-v1.86",
     "var-residual-diagnostic-research-conclusion-v1.85",
@@ -43,7 +44,7 @@
     "lp-validation-summary-v1.71",
     "lp-inference-registry-v1.71",
     "lp-model-diagnostic-summary-v1.71",
-    "analysis-skill-registry-v1.88",
+    "analysis-skill-registry-v1.89",
     "panel-lp-model-comparison-v1",
     "panel-lp-path-inference-registry-v1.82",
     "panel-lp-joint-inference-research-conclusion-v1.82"
@@ -57,9 +58,10 @@
     "Reduced-form VAR coefficient estimation is active, but the current formal baselines have zero dynamic-response-ready countries; no formal orthogonalized IRF is currently publishable.",
     "The v1.85 residual-diagnostic calibration research is closed with no eligible replacement: the h=12 adjusted Portmanteau gate is retained, the current lag-selection + residual-diagnostic procedure failed the preregistered joint gate (Layer-B rejection rates are procedure rates, not pure diagnostic size), and Edgerton–Shukur is not an authorized gate.",
     "The v1.86 selection-aware bootstrap calibration passed a preregistered synthetic gate only; it is research-only, has not been evaluated on real-country data, and does not change the production diagnostic or IRF availability.",
-    "The v1.88 country lag-identifiability audit and Phase-B bootstrap results are research evidence for the five formal estimable country models; they do not change readiness, the production diagnostic or IRF availability."
+    "The v1.88 country lag-identifiability audit and Phase-B bootstrap results are research evidence for the five formal estimable country models; they do not change readiness, the production diagnostic or IRF availability.",
+    "The v1.89 country-matched calibration found the research bootstrap diagnostic materially conservative with weak power in the intermediate lag-2 region; it does not support production adoption, and no production change is authorized."
   ],
-  "citation": "Central Europe Political Atlas, version v1.88 Country VAR Lag-Identifiability Audit and Phase-B Bootstrap Evaluation, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
+  "citation": "Central Europe Political Atlas, version v1.89 Country-Matched Selection-Aware Bootstrap Calibration, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
   "data_status_enum": [
     "official",
     "verified",

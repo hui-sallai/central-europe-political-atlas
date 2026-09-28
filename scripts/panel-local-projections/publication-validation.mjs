@@ -7,12 +7,12 @@ export function validatePanelPublication(manifest, index, directory, environment
   const failures = [];
   const check = (condition, message) => { if (!condition) failures.push(message); };
   const load = name => JSON.parse(fs.readFileSync(path.join(directory, "panel-local-projections", `${name}.json`), "utf8"));
-  check(/^v1\.88(?:\s|$)/.test(manifest.platform_version), "v1.88 platform version");
+  check(/^v1\.89(?:\s|$)/.test(manifest.platform_version), "v1.89 platform version");
   for (const [key, file] of Object.entries({panel_lp_method:"panel_lp_method_registry",panel_lp_results:"panel_lp_results",panel_lp_readiness:"panel_lp_readiness_registry",panel_lp_validation:"panel_lp_validation_summary",panel_lp_reference:"panel_lp_reference_manifest",panel_lp_small_sample:"panel_lp_small_sample_method_registry",panel_lp_parameterization:"panel_lp_parameterization_validation",panel_lp_ui_validation:"panel_lp_ui_validation",panel_lp_path_inference_registry:"panel_lp_path_inference_registry",panel_lp_joint_inference_conclusion:"panel_lp_joint_inference_research_conclusion"})) {
     check(manifest.advanced_analysis_versions?.[key] === load(file).schema_version, `panel version linkage: ${key}`);
   }
-  check(manifest.advanced_analysis_validation?.stage === "v1.88 advanced analysis validation", "current advanced validation stage");
-  check(manifest.release_validation?.stage === "v1.88 release validation", "current release validation stage");
+  check(manifest.advanced_analysis_validation?.stage === "v1.89 advanced analysis validation", "current advanced validation stage");
+  check(manifest.release_validation?.stage === "v1.89 release validation", "current release validation stage");
   const section = manifest.panel_local_projections_validation;
   const validation = load("panel_lp_validation_summary");
   check(section?.status === "pass" && section?.status === validation.status, "panel validation pass linkage");
@@ -21,7 +21,7 @@ export function validatePanelPublication(manifest, index, directory, environment
   check(section?.production_status === "pass" && section?.ui_status === "pass" && section?.publication_state === "active", "panel production and UI gates");
   check(JSON.stringify(section?.active_outcomes) === JSON.stringify(load("panel_lp_readiness_registry").records.filter(r => r.publication_ready).map(r => r.outcome_id)), "panel active outcomes linkage");
   for (const gate of ["panel-lp:closure-validate","panel-lp:reference","panel-lp:validate","panel-lp:ui-validate","panel-lp:robustness-validate"]) check(manifest.release_validation?.gates?.includes(gate), `panel release gate: ${gate}`);
-  check(index?.schema_version === "analysis-validation-index-v1.88", "validation index schema");
+  check(index?.schema_version === "analysis-validation-index-v1.89", "validation index schema");
   for (const id of ["legacy_advanced","single_country_lp","panel_lp","panel_joint_inference_closure","analysis_registry","var_readiness","news","identified_shocks","ui"]) check(index?.records?.some(r => r.id === id), `validation index entry: ${id}`);
   const closure=load("panel_lp_path_inference_registry");
   check(closure.state==="blocked"&&closure.research_closed===true&&closure.activated_paths===0&&closure.public_joint_bands===false&&closure.public_global_path_test===false,"panel path research closure linkage");

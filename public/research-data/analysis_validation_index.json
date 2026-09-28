@@ -1,6 +1,6 @@
 {
-  "schema_version": "analysis-validation-index-v1.88",
-  "platform_version": "v1.88",
+  "schema_version": "analysis-validation-index-v1.89",
+  "platform_version": "v1.89",
   "interpretation": "Additive current-release index; legacy validation artifacts retain their original versions and are not relabelled as panel tests.",
   "records": [
     {
@@ -52,6 +52,14 @@
       "replacement": "none_eligible",
       "publication_boundary": "enforced",
       "formal_irf_publication_available": false
+    },
+    {
+      "id": "var_country_matched_bootstrap_calibration",
+      "title": "Country-matched bootstrap calibration (v1.89)",
+      "artifact": "var-country-matched-bootstrap/var_country_matched_bootstrap_research_conclusion.json",
+      "gate": "var:country-matched-bootstrap-closure-validate",
+      "artifact_role": "negative_calibration_result_not_production_method",
+      "production_change_authorized": false
     },
     {
       "id": "var_country_lag_identifiability",

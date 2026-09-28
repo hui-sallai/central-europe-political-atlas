@@ -1,0 +1,234 @@
+{
+  "schema_version": "var-country-matched-bootstrap-preregistration-v1.89",
+  "study_id": "var_country_matched_bootstrap_v189",
+  "study_title": "v1.89 Country-Matched Selection-Aware Bootstrap Calibration",
+  "preregistered_at": "2026-09-28",
+  "starting_commit": "f7964049263cb06d402ddc82f6fc7168c4271196",
+  "status": "preregistered_before_confirmatory_simulation",
+  "research_type": "calibration study; not a production-method decision",
+  "prior_releases_immutable": [
+    "v1.85",
+    "v1.851",
+    "v1.86",
+    "v1.87",
+    "v1.88"
+  ],
+  "research_question": "Does the v1.86 recursive iid-residual selection-aware bootstrap have acceptable finite-sample size and power in synthetic designs matched to the platform's country VAR environment, especially the intermediate lag-2 identification region of the four v1.88 lag-2 units; is it materially conservative there?",
+  "known_information_disclosure": {
+    "known": [
+      "v1.85-v1.88 results including the v1.88 country bootstrap and asymptotic p-values",
+      "v1.87 descriptive finding: bootstrap rejection given correct recovery was ~1.9% in psi=1 designs"
+    ],
+    "envelope_use": "v1.88 used only for pooled envelope ranges (persistence, correlations, ELI range); no cell tuned to a country; country pass/fail outcomes not used for any parameter",
+    "smoke": "phase code 1 checked determinism and timing only"
+  },
+  "design_reference": {
+    "file": "var_country_matched_bootstrap_simulation_design.json",
+    "sha256": "f7e0bca8926c06d08e8baba50c6e9eff0c2025f29dd24007e346de4b6412cc0a"
+  },
+  "seed_registry_reference": {
+    "file": "var_country_matched_bootstrap_seed_registry.json",
+    "sha256": "451f5362bac00a20cbfe44764f893ac886cc222c6d92978ee0e332a6026362fd"
+  },
+  "envelope": {
+    "T": 137,
+    "K": 3,
+    "candidate_lags": "1..10 production policy",
+    "true_lags": [
+      1,
+      2
+    ],
+    "deterministic": [
+      "constant",
+      "constant + 11 month dummies"
+    ],
+    "persistence": [
+      0.92,
+      0.95,
+      0.97
+    ],
+    "covariances": [
+      "v185_positive",
+      "envelope_mixed_sign (|rho|<=0.40)"
+    ],
+    "psi_at_137": [
+      0.5,
+      0.75,
+      1.0,
+      1.25,
+      1.5,
+      2.0
+    ],
+    "intermediate_region": [
+      0.75,
+      1.0,
+      1.25
+    ],
+    "innovations": "Gaussian iid (null); preregistered serial alternatives (power)"
+  },
+  "null_designs": "84 correctly specified stable VAR(1) / VAR(2) cells (2 det x 3 persistence x 2 covariances x 7 designs); all feasible",
+  "alternatives": {
+    "families": {
+      "common_ar1": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "seasonal_ar12": [
+        0.1,
+        0.2,
+        0.3
+      ]
+    },
+    "base_designs": [
+      "p1",
+      "p2_psi0.75",
+      "p2_psi1.00",
+      "p2_psi1.25"
+    ],
+    "cells": 288,
+    "note": "residual dependence outside any finite VAR in the candidate set; seasonal AR(12) cannot be absorbed by lags <= 10"
+  },
+  "bootstrap": {
+    "engine": "frozen v1.86 engine.run_procedure unmodified",
+    "family": "recursive_iid_residual",
+    "B": 199,
+    "bic_rerun_inside_every_bootstrap_sample": true,
+    "p_value": "(1 + #{tau*_b <= tau}) / (B+1); reject iff <= 0.05",
+    "B_note": "B=199 matches the v1.86 synthetic calibration; v1.88 Phase B used B=1999 on single series. The bootstrap test's size is exact under exchangeability for any B with alpha(B+1) integer; B affects p-value Monte Carlo noise and slightly power (Davidson and MacKinnon 2000)."
+  },
+  "asymptotic_comparison": "every replication also records the asymptotic chi-square h=12 adjusted Portmanteau p-value at the BIC-selected lag (production diagnostic)",
+  "replications": {
+    "null_per_cell": 2000,
+    "power_per_cell": 500,
+    "total_monte_carlo": 312000,
+    "total_bootstrap_draws": 62088000
+  },
+  "alpha": 0.05,
+  "estimands": {
+    "primary_size": "S_adequate = P(bootstrap reject | selected lag >= true lag), null cells; evaluable when >= 500 such replications (v1.86 selected-model-adequacy estimand)",
+    "conservatism_focus": "S_correct = P(bootstrap reject | selected lag = true lag) for true-p2 cells, reported with Wilson 95% intervals",
+    "procedure_rate": "S_procedure = unconditional bootstrap rejection rate (labelled selection-aware procedure rejection rate, not size)",
+    "power": "P(bootstrap reject) under each alternative cell, all cells reported",
+    "comparisons": [
+      "asymptotic analogue of every estimand",
+      "BIC exact-recovery rate",
+      "bootstrap-selected-lag distribution",
+      "computational failure rate",
+      "Monte Carlo SE and Wilson 95% interval"
+    ]
+  },
+  "acceptable_size_interval": {
+    "interval": [
+      0.035,
+      0.065
+    ],
+    "maximum": 0.075,
+    "fraction_inside_required": 0.9,
+    "rationale": "identical interval philosophy to v1.85/v1.86"
+  },
+  "classification_rules": {
+    "materially_conservative_cell": "S_adequate < 0.035 AND Wilson 95% upper bound < 0.05",
+    "size_status": {
+      "approximately_nominal": "every evaluable null cell S_adequate <= 0.075 AND >= 90% inside [0.035, 0.065]",
+      "materially_conservative": "not approximately_nominal, no evaluable cell > 0.075, and >= 25% of evaluable intermediate-region (psi 0.75/1.00/1.25) cells materially conservative",
+      "poorly_calibrated": "otherwise"
+    },
+    "power_status": {
+      "useful": "for both alternative families, the median bootstrap rejection across all 72 base cells is >= 0.80 at strength 0.3 AND >= 0.50 at strength 0.2",
+      "weak": "otherwise"
+    },
+    "outcome": {
+      "A": "approximately_nominal and useful power",
+      "B": "materially_conservative and useful power",
+      "C": "materially_conservative and weak power",
+      "D": "poorly_calibrated",
+      "E": "approximately_nominal but weak power (added so every combination is covered)"
+    },
+    "disposition": {
+      "A_or_B": "country_matched_calibration_supports_future_production_decision_research",
+      "C_D_or_E": "country_matched_calibration_does_not_support_production_adoption"
+    },
+    "production_change_authorized": false
+  },
+  "failure_handling": "engine states other than 'ok' are counted as computational failures, excluded from rejection denominators and reported per cell; no retries or replacement draws",
+  "stopping_rule": "run every preregistered null and power chunk to completion; no early stopping; stop after calibration summary and owner report; retain all checkpoints",
+  "interpretation_rules": [
+    "no outcome authorizes a production change; production_change_authorized = false",
+    "S_procedure is never called size",
+    "power is reported for every cell including low-power cells",
+    "country outcomes are not re-evaluated or re-run"
+  ],
+  "prohibited": [
+    "changing bootstrap family, B, BIC, candidate lags, transformations or deterministic specifications",
+    "tuning cells to individual countries or using country pass/fail for parameters",
+    "changing thresholds, envelope, alternatives, replications or seeds after any confirmatory draw",
+    "rerunning Phase B",
+    "modifying v1.85-v1.88 artifacts",
+    "IRF, SVAR, BVAR or readiness changes"
+  ],
+  "production_boundary": {
+    "production_changed": false,
+    "production_change_authorized": false,
+    "bic_policy_changed": false,
+    "readiness_changed": false,
+    "formal_irf_publication": false
+  },
+  "frozen_input_sha256": {
+    "src/lib/varEngine.ts": "0e944a52eba0a295ca7e44b5e9a801579f94a5ada03fef5a7ed9d938de8bf2ac",
+    "src/data/macro/var_country_readiness.json": "4b8173f8202c72359758b0bf4b05ef08a6c089f2ab47f79b7be359468c97e6b1",
+    "src/data/macro/var_baseline_v1_readiness.json": "f210b02ec3042c5cf95f975bccbd94f7fead0f403314d59a1e760a2046c5912e",
+    "src/data/macro/var_baseline_v2_readiness.json": "b7fd4bec330ebd4db588ed63bce4de988773556b8cdc572c27f640239a2a1675",
+    "src/data/macro/var_capability_status.json": "2a7f762a7535ef13040fb0ece34218587a9341432a1cf673425dfb66bc2375d0",
+    "src/data/panel-local-projections/panel_lp_results.json": "10e7b4f8761523e7b136b9707ac87da1d753a5914e0d11a3f8b980571ab53bdc",
+    "src/data/macro/var_country_lag_identifiability_design.json": "5d2890111f28a19252ffc1c562398bae449cff3c8ab863cd1faf03317570a360",
+    "src/data/macro/var_country_lag_identifiability_metric_definition.json": "59f4af84123c2b85b8255f342c16f0c0906b9dfb7e3c2778cd9145141d4ad230",
+    "src/data/macro/var_country_lag_identifiability_phase_a_authorization.json": "9748e066cce86c58939a2b34aa8c6ac849ee8dd53d3de73509de5a4c3e258b0e",
+    "src/data/macro/var_country_lag_identifiability_preregistration.json": "b0ecb06288210546cdebff23e05281703ab04b2df3eb873ca63f296ae5715f8f",
+    "src/data/macro/var_country_lag_identifiability_results.json": "b7d876ca7d2ada83a493d6390dcb685c11516b0a8a2268045e29e5b85adf7d70",
+    "src/data/macro/var_lag_characterization_adequacy_decomposition.json": "ade91683ea4e99ceaf5d5ddccb0b3eedc5491c9658e585122ae3d25166310088",
+    "src/data/macro/var_lag_characterization_lag_selection_results.json": "0f8ca85922a83c92dd720b5d9179b3fde1cc68d269d4e13cf92f032d7725da06",
+    "src/data/macro/var_lag_characterization_mc_uncertainty_summary.json": "f35dbe41018d6685d125a56abfe745133a0bbea2ab11ccca671f167d21822b3c",
+    "src/data/macro/var_lag_characterization_preregistration.json": "956f4114416cd88a221adc991b079df127c8b9dea6e88f1027d050f458dc3a7a",
+    "src/data/macro/var_lag_characterization_reference_validation.json": "99f8244e100d8748babc06c8e0df7b2ad542508a3c632f32d7e7ee378bd425a2",
+    "src/data/macro/var_lag_characterization_research_conclusion.json": "565ee1f5c54edbc074186212af6ffd6ab683ccb1be5757fdc821998961bdda6e",
+    "src/data/macro/var_lag_characterization_signal_strength_decomposition.json": "71eb1d064352371186a04cbb33521e489a32b40d3e93b280737a2d3a2c3cee09",
+    "src/data/macro/var_lag_characterization_simulation_design.json": "7df5b8b4f931e191489c5a7c8f1c84d873102bc0df03b0b84044e1053f98513a",
+    "src/data/macro/var_phase_b_authorization.json": "ade42d8ba588cedce28f32d253a7eb8db01e63cdd4cb9f7b53c09c5f16fe045c",
+    "src/data/macro/var_phase_b_bootstrap_protocol.json": "d504c9e0478b6ccfd74b99e9a73b3a84d712a25e72e659e8343aee72605dbf57",
+    "src/data/macro/var_phase_b_bootstrap_results.json": "489f85dc0be9d90539c88a6bbc5ffa5432b5ac575e0df88ddbea657ab10187a8",
+    "src/data/macro/var_residual_diagnostic_calibration_summary.json": "ca917656b7c0109cf0e286573effaae03dd4f8143a042524c8f24ee350073cca",
+    "src/data/macro/var_residual_diagnostic_layerB_selection_decomposition.json": "6f6e1caededf43f1776a4d83aa9e26a1f55ee31cda71b6aac079080c05333602",
+    "src/data/macro/var_residual_diagnostic_method_decision.json": "729c69430e6431e88f477ae24cc73bb3025e2b70fd30d118c671dbf63f40fe5c",
+    "src/data/macro/var_residual_diagnostic_preregistration.json": "f9ddab6a8ff77026b83caeca1024bf8b0379a470792fb5410e3d99607818bb0b",
+    "src/data/macro/var_residual_diagnostic_preregistration_amendment_001.json": "fafab2a5b74677be20b537101efbb44e3f3e0c925ad33cb89f5878a32ac91006",
+    "src/data/macro/var_residual_diagnostic_reference_attempts.json": "5f7e236b42aa001d7bfffca5dc2eb33aea1116f474bd8b9dfd8948e01d8abada",
+    "src/data/macro/var_residual_diagnostic_reference_cases.json": "0c2609797aeafcba66b1a656d4537c2f8e4fc631ba61d97a2138515be379d1f0",
+    "src/data/macro/var_residual_diagnostic_reference_inputs.csv": "024fbeaa6dd49b5cd72de66dc70039938117c481c3d4f32433cf00116a3fcc45",
+    "src/data/macro/var_residual_diagnostic_reference_manifest.json": "06460e94a2db421adbd754655b75e54812f888b972904ca58e5955850b85933e",
+    "src/data/macro/var_residual_diagnostic_reference_validation.json": "684e49a070c932385fba823e95358e812129c840a72afc000a776634f7853026",
+    "src/data/macro/var_residual_diagnostic_research_conclusion.json": "5d60d16a0d78b6d41df72c34e4e7028f8d50c9844bd1df9e3dbaca56d4720021",
+    "src/data/macro/var_residual_diagnostic_research_conclusion_amendment_001.json": "43d8ff9a9b3b1bae5552a5d98f3dbb5ad00aa045077098bf0087252f21323e73",
+    "src/data/macro/var_residual_diagnostic_seed_registry.json": "433f9fdec41d0410b103a35888f4dd894693d3da9ae675df9cf32c2c1225fdd2",
+    "src/data/macro/var_residual_diagnostic_simulation_design.json": "57c741524c37c452f318ce7e9aeff48c9ed547118977393acfdce4bd4a146b73",
+    "src/data/macro/var_residual_diagnostic_simulation_results.json": "04cc4ad5f8395f894a4c9c164fc8374841b6eb20c97dc4a8c4d7098dc6912a7e",
+    "src/data/macro/var_selection_bootstrap_calibration_summary.json": "370109106140aec28a16f41db44c088d357ce43c354cb917b6f1842c9c7467e4",
+    "src/data/macro/var_selection_bootstrap_method_decision.json": "117188dbc77429ea2329df745ce04f39be9a5768e4869186b6c73f449454a1fb",
+    "src/data/macro/var_selection_bootstrap_preregistration.json": "c37a32d53f01e2444c990807780a0aa53781f3c88c706f65035ce0345c790b6f",
+    "src/data/macro/var_selection_bootstrap_reference_validation.json": "a1d9d453f5b0374f58f84a3079ca873283d05f2668e06de441682c4578a040f3",
+    "src/data/macro/var_selection_bootstrap_research_conclusion.json": "e1f137948427aaec6d4bdad26e95df70a20bf8c8787e7df059d97c492634e68f",
+    "src/data/macro/var_selection_bootstrap_seed_registry.json": "6209b349123191ae4b99de572bac359f6d47a196bebf5a0f3c93996440ab99fd",
+    "src/data/macro/var_selection_bootstrap_selection_decomposition.json": "5908403a40736498de6de186be4159425f8b7087e81280cffa0a5ddf052d7d8a",
+    "src/data/macro/var_selection_bootstrap_simulation_design.json": "ee4beaf27640b97874a30c9fada95f3682f700f80b1e8bb39c59a45f3507f35f",
+    "src/data/macro/var_selection_bootstrap_simulation_results.json": "ea93e0aebec28b3b17f50dacc0a8a6578f556f53ee9dfe468e8c02ab8bb44704",
+    "scripts/var-residual-diagnostics/common.py": "79f81ecd312e305f6df63234d5482a880887336649e49c05fcd573fd204fb8d5",
+    "scripts/var-residual-diagnostics/simulate.py": "c43722366fb1db375149a119e58e51eaf4cbfdfc0dc2af7fbfe10256440ac2ab",
+    "scripts/var-selection-aware-bootstrap/engine.py": "2318f72e6f29037bc721e39d7f5b885021e700dc49480da2d19396c3b8f6e84a",
+    "scripts/var-lag-selection-characterization/lagchar.py": "54f7883ac784cfca504fb1eee98fd5d600a6d2dce1414d91843fe6a50b8acb38",
+    "scripts/var-country-matched-bootstrap/cmb.py": "7641a3d4e6996a2e300afc399956526216667a97fd954d3b43ea962fa261336f",
+    "scripts/var-country-matched-bootstrap/build_design.py": "71e49f9df60ccd0649f8be0ee1224afca8d2b0314b19d3ee941158486bccec94",
+    "scripts/var-country-matched-bootstrap/reference.py": "5c4b56d34d81b3297ae4113d603b2772d18815c5965967455b97aba21ff7e3bb",
+    "src/data/macro/var_country_matched_bootstrap_simulation_design.json": "f7e0bca8926c06d08e8baba50c6e9eff0c2025f29dd24007e346de4b6412cc0a",
+    "src/data/macro/var_country_matched_bootstrap_reference_validation.json": "d9f905a546d66e42274b3038993a08955c332b0010454b98b8d74c8a86ee034f"
+  }
+}
