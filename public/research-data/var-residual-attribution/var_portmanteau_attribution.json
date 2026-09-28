@@ -1,0 +1,736 @@
+{
+ "schema_version": "var-portmanteau-attribution-v1.90",
+ "generated_at": "2026-09-29",
+ "preregistration_sha256": "865a568f8e517b619eeee978f31edc6c0a637d493a169facc3b357714d25725f",
+ "production_agreement_max_difference": 2.6547652964836743e-12,
+ "production_change_authorized": false,
+ "readiness_changed": false,
+ "formal_irf_publication_available": false,
+ "units": [
+  {
+   "unit_id": "baseline_monthly_macro_v1::poland",
+   "country": "poland",
+   "production_statistic": 119.1830383947372,
+   "production_asymptotic_p_value": 0.021435024050539764,
+   "statistic": 119.18303839473687,
+   "lags": [
+    {
+     "lag": 1,
+     "contribution": 1.9503684564006007,
+     "own": 0.29057004326907665,
+     "cross": 1.659798413131524,
+     "share": 0.016364480069227107,
+     "cumulative_share": 0.016364480069227107
+    },
+    {
+     "lag": 2,
+     "contribution": 6.9009179343844345,
+     "own": 3.2140689686496278,
+     "cross": 3.6868489657348067,
+     "share": 0.057901845995303805,
+     "cumulative_share": 0.0742663260645309
+    },
+    {
+     "lag": 3,
+     "contribution": 13.60320496961838,
+     "own": 8.237749877039077,
+     "cross": 5.365455092579303,
+     "share": 0.11413708823703808,
+     "cumulative_share": 0.188403414301569
+    },
+    {
+     "lag": 4,
+     "contribution": 13.894492368795955,
+     "own": 5.513323447093001,
+     "cross": 8.381168921702955,
+     "share": 0.11658112224641469,
+     "cumulative_share": 0.30498453654798374
+    },
+    {
+     "lag": 5,
+     "contribution": 8.706570204402748,
+     "own": 4.9171607455785615,
+     "cross": 3.7894094588241867,
+     "share": 0.07305209131828301,
+     "cumulative_share": 0.3780366278662668
+    },
+    {
+     "lag": 6,
+     "contribution": 11.386442674345727,
+     "own": 5.605640375917394,
+     "cross": 5.780802298428332,
+     "share": 0.09553744247259056,
+     "cumulative_share": 0.4735740703388574
+    },
+    {
+     "lag": 7,
+     "contribution": 3.837619439802794,
+     "own": 0.5591443031041555,
+     "cross": 3.2784751366986384,
+     "share": 0.032199375779400026,
+     "cumulative_share": 0.5057734461182574
+    },
+    {
+     "lag": 8,
+     "contribution": 9.900371264551652,
+     "own": 1.8993803726243157,
+     "cross": 8.000990891927335,
+     "share": 0.0830686261895875,
+     "cumulative_share": 0.5888420723078449
+    },
+    {
+     "lag": 9,
+     "contribution": 12.724359980724278,
+     "own": 1.4976621892547721,
+     "cross": 11.226697791469507,
+     "share": 0.10676317831888893,
+     "cumulative_share": 0.6956052506267338
+    },
+    {
+     "lag": 10,
+     "contribution": 12.34651855780299,
+     "own": 2.8226957094443366,
+     "cross": 9.523822848358652,
+     "share": 0.10359291661042443,
+     "cumulative_share": 0.7991981672371583
+    },
+    {
+     "lag": 11,
+     "contribution": 7.297338398941354,
+     "own": 1.3116727575373286,
+     "cross": 5.985665641404025,
+     "share": 0.06122799432896153,
+     "cumulative_share": 0.8604261615661197
+    },
+    {
+     "lag": 12,
+     "contribution": 16.634834144965957,
+     "own": 13.561351163257054,
+     "cross": 3.073482981708903,
+     "share": 0.1395738384338803,
+     "cumulative_share": 1.0000000000000002
+    }
+   ],
+   "own_share": 0.4147437472524744,
+   "cross_share": 0.5852562527475256,
+   "lags_1_3_share": 0.18840341430156898,
+   "lags_11_13_share": 0.20080183276284183,
+   "lag_12_share": 0.1395738384338803,
+   "top_3_lag_share": 0.3702920489173331,
+   "herfindahl": 0.09799965265216914,
+   "top_5_cells": [
+    {
+     "lag": 12,
+     "i": "hicp_monthly_index",
+     "j": "hicp_monthly_index",
+     "contribution": 10.817119080197832
+    },
+    {
+     "lag": 9,
+     "i": "unemployment_rate_monthly",
+     "j": "industrial_production_index",
+     "contribution": 8.04242712526562
+    },
+    {
+     "lag": 10,
+     "i": "unemployment_rate_monthly",
+     "j": "industrial_production_index",
+     "contribution": 6.341553404422203
+    },
+    {
+     "lag": 6,
+     "i": "hicp_monthly_index",
+     "j": "hicp_monthly_index",
+     "contribution": 5.097879180903238
+    },
+    {
+     "lag": 4,
+     "i": "unemployment_rate_monthly",
+     "j": "unemployment_rate_monthly",
+     "contribution": 4.7748046631204915
+    }
+   ],
+   "decomposition": "symmetric square root C_0^{-1/2}; ordering-invariant; exact sum"
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v1::romania",
+   "country": "romania",
+   "production_statistic": 107.12492127101935,
+   "production_asymptotic_p_value": 0.2711237291735522,
+   "statistic": 107.1249212710198,
+   "lags": [
+    {
+     "lag": 1,
+     "contribution": 7.128043399683446,
+     "own": 6.213145117300626,
+     "cross": 0.9148982823828202,
+     "share": 0.06653954388120308,
+     "cumulative_share": 0.06653954388120308
+    },
+    {
+     "lag": 2,
+     "contribution": 25.79312157169931,
+     "own": 15.726406412645089,
+     "cross": 10.06671515905422,
+     "share": 0.24077610761033108,
+     "cumulative_share": 0.30731565149153417
+    },
+    {
+     "lag": 3,
+     "contribution": 16.41788128959219,
+     "own": 3.9387939446888485,
+     "cross": 12.479087344903343,
+     "share": 0.15325921452073613,
+     "cumulative_share": 0.4605748660122703
+    },
+    {
+     "lag": 4,
+     "contribution": 4.25096528745659,
+     "own": 0.6030466628234674,
+     "cross": 3.6479186246331228,
+     "share": 0.03968231889479663,
+     "cumulative_share": 0.5002571849070669
+    },
+    {
+     "lag": 5,
+     "contribution": 4.748262584436759,
+     "own": 2.12725813523969,
+     "cross": 2.621004449197069,
+     "share": 0.04432453744749022,
+     "cumulative_share": 0.5445817223545572
+    },
+    {
+     "lag": 6,
+     "contribution": 5.244067069767579,
+     "own": 3.1580939354748274,
+     "cross": 2.085973134292751,
+     "share": 0.048952820758676636,
+     "cumulative_share": 0.5935345431132338
+    },
+    {
+     "lag": 7,
+     "contribution": 12.11276729165857,
+     "own": 5.121285137406253,
+     "cross": 6.991482154252316,
+     "share": 0.11307142304463379,
+     "cumulative_share": 0.7066059661578675
+    },
+    {
+     "lag": 8,
+     "contribution": 4.1367868725466455,
+     "own": 0.40096614473229636,
+     "cross": 3.735820727814349,
+     "share": 0.03861647526517958,
+     "cumulative_share": 0.7452224414230472
+    },
+    {
+     "lag": 9,
+     "contribution": 4.071653311681978,
+     "own": 0.5618395701447699,
+     "cross": 3.5098137415372084,
+     "share": 0.038008460247834705,
+     "cumulative_share": 0.7832309016708819
+    },
+    {
+     "lag": 10,
+     "contribution": 3.313655004077899,
+     "own": 0.5606540048777144,
+     "cross": 2.753000999200185,
+     "share": 0.03093262487161643,
+     "cumulative_share": 0.8141635265424984
+    },
+    {
+     "lag": 11,
+     "contribution": 6.116477376520826,
+     "own": 0.5397072358022131,
+     "cross": 5.5767701407186125,
+     "share": 0.057096680249094374,
+     "cumulative_share": 0.8712602067915928
+    },
+    {
+     "lag": 12,
+     "contribution": 13.791240211898009,
+     "own": 8.61704337483599,
+     "cross": 5.174196837062018,
+     "share": 0.12873979320840737,
+     "cumulative_share": 1.0000000000000002
+    }
+   ],
+   "own_share": 0.4440445706898296,
+   "cross_share": 0.5559554293101704,
+   "lags_1_3_share": 0.46057486601227027,
+   "lags_11_13_share": 0.18583647345750173,
+   "lag_12_share": 0.12873979320840737,
+   "top_3_lag_share": 0.5227751153394746,
+   "herfindahl": 0.12833657589836167,
+   "top_5_cells": [
+    {
+     "lag": 2,
+     "i": "industrial_production_index",
+     "j": "industrial_production_index",
+     "contribution": 10.907774924092712
+    },
+    {
+     "lag": 2,
+     "i": "unemployment_rate_monthly",
+     "j": "industrial_production_index",
+     "contribution": 7.378127528910228
+    },
+    {
+     "lag": 3,
+     "i": "hicp_monthly_index",
+     "j": "unemployment_rate_monthly",
+     "contribution": 6.810869195057514
+    },
+    {
+     "lag": 12,
+     "i": "hicp_monthly_index",
+     "j": "hicp_monthly_index",
+     "contribution": 6.269750763851678
+    },
+    {
+     "lag": 1,
+     "i": "unemployment_rate_monthly",
+     "j": "unemployment_rate_monthly",
+     "contribution": 6.187435293037442
+    }
+   ],
+   "decomposition": "symmetric square root C_0^{-1/2}; ordering-invariant; exact sum"
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v2_seasonal_controls::czechia",
+   "country": "czechia",
+   "production_statistic": 116.51476059553274,
+   "production_asymptotic_p_value": 0.03154374673832039,
+   "statistic": 116.51476059553276,
+   "lags": [
+    {
+     "lag": 1,
+     "contribution": 1.754898921873632,
+     "own": 1.1168979728940576,
+     "cross": 0.6380009489795744,
+     "share": 0.015061601748172976,
+     "cumulative_share": 0.015061601748172976
+    },
+    {
+     "lag": 2,
+     "contribution": 5.318886408131677,
+     "own": 1.8384222885000354,
+     "cross": 3.4804641196316415,
+     "share": 0.045649893463675074,
+     "cumulative_share": 0.06071149521184805
+    },
+    {
+     "lag": 3,
+     "contribution": 24.70742730957288,
+     "own": 18.852035903802175,
+     "cross": 5.855391405770703,
+     "share": 0.2120540537807205,
+     "cumulative_share": 0.27276554899256855
+    },
+    {
+     "lag": 4,
+     "contribution": 6.872052612751526,
+     "own": 3.0991026382756495,
+     "cross": 3.7729499744758765,
+     "share": 0.058980103272983975,
+     "cumulative_share": 0.33174565226555247
+    },
+    {
+     "lag": 5,
+     "contribution": 6.675369762609147,
+     "own": 2.6378926862783505,
+     "cross": 4.037477076330797,
+     "share": 0.05729205234160765,
+     "cumulative_share": 0.3890377046071601
+    },
+    {
+     "lag": 6,
+     "contribution": 10.500301289335823,
+     "own": 3.7270109722266853,
+     "cross": 6.773290317109138,
+     "share": 0.09011992330985753,
+     "cumulative_share": 0.47915762791701766
+    },
+    {
+     "lag": 7,
+     "contribution": 3.5811733649255886,
+     "own": 1.045288410123193,
+     "cross": 2.5358849548023956,
+     "share": 0.03073579129907162,
+     "cumulative_share": 0.5098934192160893
+    },
+    {
+     "lag": 8,
+     "contribution": 5.0546669090625755,
+     "own": 2.18677866990513,
+     "cross": 2.8678882391574456,
+     "share": 0.04338220224825638,
+     "cumulative_share": 0.5532756214643456
+    },
+    {
+     "lag": 9,
+     "contribution": 7.5472981660366765,
+     "own": 0.4565965136696162,
+     "cross": 7.09070165236706,
+     "share": 0.06477546816781636,
+     "cumulative_share": 0.618051089632162
+    },
+    {
+     "lag": 10,
+     "contribution": 14.83019509584403,
+     "own": 6.733785153990771,
+     "cross": 8.096409941853258,
+     "share": 0.1272816853422143,
+     "cumulative_share": 0.7453327749743763
+    },
+    {
+     "lag": 11,
+     "contribution": 11.104819904904964,
+     "own": 3.3307590329531482,
+     "cross": 7.774060871951816,
+     "share": 0.095308266936702,
+     "cumulative_share": 0.8406410419110784
+    },
+    {
+     "lag": 12,
+     "contribution": 18.567670850484244,
+     "own": 13.949472986830811,
+     "cross": 4.6181978636534335,
+     "share": 0.15935895808892164,
+     "cumulative_share": 1.0
+    }
+   ],
+   "own_share": 0.5061508338344448,
+   "cross_share": 0.4938491661655552,
+   "lags_1_3_share": 0.27276554899256855,
+   "lags_11_13_share": 0.25466722502562367,
+   "lag_12_share": 0.15935895808892164,
+   "top_3_lag_share": 0.49869469721185644,
+   "herfindahl": 0.1198624550745494,
+   "top_5_cells": [
+    {
+     "lag": 3,
+     "i": "unemployment_rate_monthly",
+     "j": "unemployment_rate_monthly",
+     "contribution": 10.664538094400713
+    },
+    {
+     "lag": 12,
+     "i": "hicp_monthly_index",
+     "j": "hicp_monthly_index",
+     "contribution": 7.577614277447754
+    },
+    {
+     "lag": 10,
+     "i": "industrial_production_index",
+     "j": "industrial_production_index",
+     "contribution": 4.854713659518486
+    },
+    {
+     "lag": 3,
+     "i": "hicp_monthly_index",
+     "j": "hicp_monthly_index",
+     "contribution": 4.5237872824635845
+    },
+    {
+     "lag": 10,
+     "i": "unemployment_rate_monthly",
+     "j": "hicp_monthly_index",
+     "contribution": 3.7867133115144975
+    }
+   ],
+   "decomposition": "symmetric square root C_0^{-1/2}; ordering-invariant; exact sum"
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v2_seasonal_controls::germany",
+   "country": "germany",
+   "production_statistic": 117.97431254912523,
+   "production_asymptotic_p_value": 0.025594065606767358,
+   "statistic": 117.97431254912375,
+   "lags": [
+    {
+     "lag": 1,
+     "contribution": 2.904640757017459,
+     "own": 1.6693488752545078,
+     "cross": 1.2352918817629512,
+     "share": 0.024620959378830753,
+     "cumulative_share": 0.024620959378830753
+    },
+    {
+     "lag": 2,
+     "contribution": 9.051137156440806,
+     "own": 4.980571206069115,
+     "cross": 4.070565950371691,
+     "share": 0.07672125364300783,
+     "cumulative_share": 0.10134221302183859
+    },
+    {
+     "lag": 3,
+     "contribution": 16.62743563236142,
+     "own": 14.230806447801653,
+     "cross": 2.3966291845597656,
+     "share": 0.1409411529771607,
+     "cumulative_share": 0.24228336599899927
+    },
+    {
+     "lag": 4,
+     "contribution": 11.363938801811276,
+     "own": 1.6615252096744517,
+     "cross": 9.702413592136825,
+     "share": 0.0963255352480177,
+     "cumulative_share": 0.338608901247017
+    },
+    {
+     "lag": 5,
+     "contribution": 7.33402829426765,
+     "own": 5.6815987615728964,
+     "cross": 1.6524295326947538,
+     "share": 0.06216631515622358,
+     "cumulative_share": 0.4007752164032406
+    },
+    {
+     "lag": 6,
+     "contribution": 5.988575641055801,
+     "own": 3.647971752587991,
+     "cross": 2.34060388846781,
+     "share": 0.05076169135176945,
+     "cumulative_share": 0.45153690775501004
+    },
+    {
+     "lag": 7,
+     "contribution": 3.0109146700214113,
+     "own": 1.570269076486668,
+     "cross": 1.4406455935347433,
+     "share": 0.025521781860501927,
+     "cumulative_share": 0.477058689615512
+    },
+    {
+     "lag": 8,
+     "contribution": 7.747805368947324,
+     "own": 6.107284585772435,
+     "cross": 1.640520783174889,
+     "share": 0.06567366405056344,
+     "cumulative_share": 0.5427323536660754
+    },
+    {
+     "lag": 9,
+     "contribution": 18.274963536286474,
+     "own": 1.8973533405828023,
+     "cross": 16.37761019570367,
+     "share": 0.15490629393307034,
+     "cumulative_share": 0.6976386475991458
+    },
+    {
+     "lag": 10,
+     "contribution": 12.495418197114034,
+     "own": 6.5123323099855135,
+     "cross": 5.983085887128521,
+     "share": 0.1059164315275075,
+     "cumulative_share": 0.8035550791266532
+    },
+    {
+     "lag": 11,
+     "contribution": 8.732387151452441,
+     "own": 3.9313082732577813,
+     "cross": 4.80107887819466,
+     "share": 0.07401939424581373,
+     "cumulative_share": 0.8775744733724671
+    },
+    {
+     "lag": 12,
+     "contribution": 14.443067342347652,
+     "own": 3.5818645201683084,
+     "cross": 10.861202822179344,
+     "share": 0.122425526627533,
+     "cumulative_share": 1.0
+    }
+   ],
+   "own_share": 0.47020604028623464,
+   "cross_share": 0.5297939597137653,
+   "lags_1_3_share": 0.24228336599899927,
+   "lags_11_13_share": 0.19644492087334675,
+   "lag_12_share": 0.122425526627533,
+   "top_3_lag_share": 0.41827297353776405,
+   "herfindahl": 0.10272228195493979,
+   "top_5_cells": [
+    {
+     "lag": 9,
+     "i": "hicp_monthly_index",
+     "j": "industrial_production_index",
+     "contribution": 10.426606603798392
+    },
+    {
+     "lag": 12,
+     "i": "hicp_monthly_index",
+     "j": "unemployment_rate_monthly",
+     "contribution": 6.225876835363817
+    },
+    {
+     "lag": 9,
+     "i": "unemployment_rate_monthly",
+     "j": "industrial_production_index",
+     "contribution": 5.877557967820811
+    },
+    {
+     "lag": 3,
+     "i": "hicp_monthly_index",
+     "j": "hicp_monthly_index",
+     "contribution": 5.833419078114367
+    },
+    {
+     "lag": 10,
+     "i": "hicp_monthly_index",
+     "j": "hicp_monthly_index",
+     "contribution": 5.219801845132283
+    }
+   ],
+   "decomposition": "symmetric square root C_0^{-1/2}; ordering-invariant; exact sum"
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v2_seasonal_controls::hungary",
+   "country": "hungary",
+   "production_statistic": 113.17055424759009,
+   "production_asymptotic_p_value": 0.04983323425256225,
+   "statistic": 113.1705542475908,
+   "lags": [
+    {
+     "lag": 1,
+     "contribution": 2.019084610386658,
+     "own": 0.07843843242376505,
+     "cross": 1.940646177962893,
+     "share": 0.017841077335093467,
+     "cumulative_share": 0.017841077335093467
+    },
+    {
+     "lag": 2,
+     "contribution": 12.412259991743872,
+     "own": 8.879742668760521,
+     "cross": 3.5325173229833506,
+     "share": 0.10967746932288358,
+     "cumulative_share": 0.12751854665797704
+    },
+    {
+     "lag": 3,
+     "contribution": 5.5813729421200255,
+     "own": 1.9085638554031217,
+     "cross": 3.672809086716904,
+     "share": 0.04931824341788839,
+     "cumulative_share": 0.17683679007586545
+    },
+    {
+     "lag": 4,
+     "contribution": 18.402570594671847,
+     "own": 4.651834792488184,
+     "cross": 13.750735802183662,
+     "share": 0.16260917618562962,
+     "cumulative_share": 0.3394459662614951
+    },
+    {
+     "lag": 5,
+     "contribution": 16.432393304974333,
+     "own": 10.451330505933274,
+     "cross": 5.981062799041059,
+     "share": 0.1452002547325525,
+     "cumulative_share": 0.4846462209940476
+    },
+    {
+     "lag": 6,
+     "contribution": 5.217645600129831,
+     "own": 1.105583533917396,
+     "cross": 4.112062066212435,
+     "share": 0.04610426833038953,
+     "cumulative_share": 0.5307504893244371
+    },
+    {
+     "lag": 7,
+     "contribution": 7.78876975471284,
+     "own": 3.569013175709964,
+     "cross": 4.219756579002876,
+     "share": 0.06882328894204076,
+     "cumulative_share": 0.599573778266478
+    },
+    {
+     "lag": 8,
+     "contribution": 7.357180671837185,
+     "own": 1.5055214925278342,
+     "cross": 5.85165917930935,
+     "share": 0.0650096725314377,
+     "cumulative_share": 0.6645834507979157
+    },
+    {
+     "lag": 9,
+     "contribution": 15.660594093514675,
+     "own": 9.078187278188464,
+     "cross": 6.582406815326211,
+     "share": 0.13838046652358832,
+     "cumulative_share": 0.802963917321504
+    },
+    {
+     "lag": 10,
+     "contribution": 10.0257290672304,
+     "own": 4.652138639803385,
+     "cross": 5.373590427427014,
+     "share": 0.08858955524152017,
+     "cumulative_share": 0.8915534725630242
+    },
+    {
+     "lag": 11,
+     "contribution": 6.355092199877483,
+     "own": 1.8301230875089778,
+     "cross": 4.524969112368506,
+     "share": 0.056154997579794676,
+     "cumulative_share": 0.9477084701428189
+    },
+    {
+     "lag": 12,
+     "contribution": 5.917861416391655,
+     "own": 1.9959855741501382,
+     "cross": 3.9218758422415165,
+     "share": 0.052291529857181336,
+     "cumulative_share": 1.0000000000000002
+    }
+   ],
+   "own_share": 0.43921728021291534,
+   "cross_share": 0.5607827197870847,
+   "lags_1_3_share": 0.17683679007586545,
+   "lags_11_13_share": 0.10844652743697601,
+   "lag_12_share": 0.052291529857181336,
+   "top_3_lag_share": 0.4461898974417704,
+   "herfindahl": 0.1062781554484347,
+   "top_5_cells": [
+    {
+     "lag": 2,
+     "i": "unemployment_rate_monthly",
+     "j": "unemployment_rate_monthly",
+     "contribution": 8.706872273567784
+    },
+    {
+     "lag": 9,
+     "i": "hicp_monthly_index",
+     "j": "hicp_monthly_index",
+     "contribution": 8.15258137414556
+    },
+    {
+     "lag": 5,
+     "i": "hicp_monthly_index",
+     "j": "hicp_monthly_index",
+     "contribution": 8.006251478465199
+    },
+    {
+     "lag": 10,
+     "i": "hicp_monthly_index",
+     "j": "hicp_monthly_index",
+     "contribution": 4.247578360416881
+    },
+    {
+     "lag": 9,
+     "i": "hicp_monthly_index",
+     "j": "unemployment_rate_monthly",
+     "contribution": 3.7082253848061018
+    }
+   ],
+   "decomposition": "symmetric square root C_0^{-1/2}; ordering-invariant; exact sum"
+  }
+ ]
+}

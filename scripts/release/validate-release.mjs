@@ -26,9 +26,11 @@ const varCountryPublished = ["var_country_lag_identifiability_preregistration", 
 requiredExports.push(...varCountryPublished.map((name) => `var-country-identifiability/${name}`));
 const varMatchedPublished = ["preregistration", "simulation_design", "seed_registry", "reference_validation", "null_results", "power_results", "calibration_summary", "research_conclusion"].map((name) => `var_country_matched_bootstrap_${name}.json`);
 requiredExports.push(...varMatchedPublished.map((name) => `var-country-matched-bootstrap/${name}`));
+const varAttributionPublished = ["var_residual_attribution_preregistration", "var_residual_attribution_design", "var_residual_attribution_authorization", "var_residual_acf_results", "var_residual_cross_lag_results", "var_portmanteau_attribution", "var_residual_seasonal_results", "var_residual_variance_stability", "var_residual_period_concentration", "var_residual_specification_probe_results", "var_residual_attribution_research_conclusion"].map((name) => `${name}.json`);
+requiredExports.push(...varAttributionPublished.map((name) => `var-residual-attribution/${name}`));
 requiredExports.push("lp_inference_registry.json", "lp_simultaneous_inference_reference_manifest.json", "lp_path_inference_validation.json", "lp_coefficient_invariance_manifest.json", "lp_lag_sensitivity_results.json", "lp_control_sensitivity_results.json", "lp_shock_support_diagnostics.json", "lp_influence_diagnostics.json", "lp_cross_country_comparability.json", "lp_model_diagnostic_summary.json");
 requiredExports.push("lp_finite_sample_bias_reference_manifest.json", "lp_bias_correction_applicability_registry.json", "lp_finite_sample_simulation_registry.json", "lp_finite_sample_simulation_results.json", "lp_shock_support_status.json", "lp_influence_threshold_registry.json", "lp_leave_one_shock_month_results.json", "lp_leave_one_event_results.json", "lp_finite_sample_robustness_summary.json", "lp_full_path_covariance_audit.json", "lp_full_path_covariance_validation.json", "lp_finite_sample_validation.json");
-const methodologySections = ["data", "panel-lp-whole-path-inference", "models", "var-residual-diagnostic-calibration", "var-selection-aware-bootstrap", "var-lag-selection-characterization", "var-country-identifiability", "var-country-matched-bootstrap", "events", "finite-sample", "spatial", "validation", "citation"];
+const methodologySections = ["data", "panel-lp-whole-path-inference", "models", "var-residual-diagnostic-calibration", "var-selection-aware-bootstrap", "var-lag-selection-characterization", "var-country-identifiability", "var-country-matched-bootstrap", "var-residual-attribution", "events", "finite-sample", "spatial", "validation", "citation"];
 const stableResearchUrls = ["/map?country=hungary&layer=regional_boundary", "/models?model=fiscal_pressure&country=hungary", "/models?skill=var_svar&country=poland", "/scenarios?scenario=inflation_resurgence&country=poland&shock=2", "/countries/poland/", "/news?country=hungary&type=China"];
 const failures = [];
 failures.push(...validatePanelClosure({root,preExport:false}));
@@ -159,7 +161,7 @@ if (manifest) {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.89",
+    analysis_skill_registry: "analysis-skill-registry-v1.90",
     high_frequency_definition_registry: "high-frequency-definition-registry-v1.83",
     historical_extension_research_conclusion: "historical-extension-research-conclusion-v1.83",
     panel_lp_path_inference_registry: "panel-lp-path-inference-registry-v1.82",
@@ -202,6 +204,9 @@ if (manifest) {
     var_country_matched_power: "var-country-matched-bootstrap-power-results-v1.89",
     var_country_matched_summary: "var-country-matched-bootstrap-calibration-summary-v1.89",
     var_country_matched_conclusion: "var-country-matched-bootstrap-research-conclusion-v1.89",
+    var_residual_attribution_preregistration: "var-residual-attribution-preregistration-v1.90",
+    var_portmanteau_attribution: "var-portmanteau-attribution-v1.90",
+    var_residual_attribution_conclusion: "var-residual-attribution-research-conclusion-v1.90",
     macro_drivers: "macro-driver-observations-v1.51",
     shock_identification: "shock-identification-registry-v1.62",
     identified_shocks: "monetary-policy-event-observations-v1.6",
@@ -266,7 +271,7 @@ const latestChangelogHeading = changelog.match(/^## (.+)$/m)?.[1] ?? "";
 if (!latestChangelogHeading.startsWith(expectedVersion) || !latestChangelogHeading.includes(releaseConfig.release_date)) failures.push(`CHANGELOG latest release mismatch: ${latestChangelogHeading}`);
 const skillRegistry = JSON.parse(fs.readFileSync(path.join(root, "src", "data", "analysis", "analysis_skill_registry.json"), "utf8"));
 if (JSON.stringify(skillRegistry) !== JSON.stringify(JSON.parse(fs.readFileSync(path.join(out, "research-data", "analysis_skill_registry.json"), "utf8")))) failures.push("public analysis manifest differs from canonical registry");
-if (skillRegistry.schema_version !== "analysis-skill-registry-v1.89") failures.push(`analysis skill registry schema mismatch: ${skillRegistry.schema_version}`);
+if (skillRegistry.schema_version !== "analysis-skill-registry-v1.90") failures.push(`analysis skill registry schema mismatch: ${skillRegistry.schema_version}`);
 if (skillRegistry.generated_at !== releaseConfig.release_date) failures.push(`analysis skill registry generated_at mismatch: ${skillRegistry.generated_at}`);
 const releaseSource = fs.readFileSync(path.join(root, "src", "lib", "releaseMetadata.ts"), "utf8");
 if (!releaseSource.includes('import releaseConfig from "../data/release.json"')) failures.push("release metadata is not reading the canonical JSON source");
@@ -288,6 +293,11 @@ if (!methodology.includes("VAR Residual Diagnostic Calibration Research Outcome"
 if (/ES is (a )?validated replacement|Portmanteau invalidates VAR coefficients/i.test(methodology)) failures.push("methodology overstates the v1.85 residual diagnostic result");
 if (!methodology.includes("conditional diagnostic size") || !methodology.includes("selection-plus-diagnostic procedure rejection rate") || !methodology.includes("BIC 几乎总是选择 VAR(1)") || !methodology.includes("不能把全部超额拒绝解释为诊断统计量本身的 size distortion") || !methodology.includes("该 cell 的高 rejection frequency 与几乎完全的 lag underselection 同时出现") || !methodology.includes("joint procedure gate failure")) failures.push("v1.851 Layer-B interpretation boundary is incomplete");
 if (/未通过 size 校准|显著 size distortion|BIC (is )?invalid|ES passed/i.test(methodology)) failures.push("methodology uses superseded Layer-B size wording");
+for (const name of varAttributionPublished) {
+  const published = path.join(researchOut, "var-residual-attribution", name);
+  if (!fs.existsSync(published) || fs.readFileSync(published, "utf8") !== fs.readFileSync(path.join(root, "src", "data", "macro", name), "utf8")) failures.push(`v1.90 export mismatch: ${name}`);
+}
+if (!methodology.includes("VAR Residual Dependence Attribution") || !methodology.includes("研究结果，只作描述") || !methodology.includes("本版本不引入新诊断")) failures.push("v1.90 methodology research boundary incomplete");
 for (const name of varMatchedPublished) {
   const published = path.join(researchOut, "var-country-matched-bootstrap", name);
   if (!fs.existsSync(published) || fs.readFileSync(published, "utf8") !== fs.readFileSync(path.join(root, "src", "data", "macro", name), "utf8")) failures.push(`v1.89 export mismatch: ${name}`);

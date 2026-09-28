@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.90 VAR Residual Dependence Attribution Research — 2026-09-29
+
+- Preregisters (before any attribution output) and runs, with owner approval, a residual-dependence attribution for the five formal estimable country VARs at their production lags: equation ACF/PACF (lags 1–24), Ljung–Box, cross-lag correlations, an exact ordering-invariant decomposition of the production h=12 Portmanteau, seasonal mean versus seasonal dynamic dependence, variance stability, fixed-period concentration (pre-2020, 2020–2021, 2022+) and three diagnostic-only probes.
+- The statistic is spread across lags (top-3-lag share 0.37–0.52); no equation Ljung–Box(12), ARCH-LM(12) or cross-lag pair is significant after Benjamini–Hochberg control; 2020–2021 (18% of observations) carries 33–39% of residual mass; HICP shows lag-12 autocorrelation of about 0.21–0.25 in three countries. Probes (extra lag, lag-12 block, pre-2020 sample) reduce the statistic by at most 19%.
+- Preregistered labels are kept unchanged; a post-hoc note documents that the cross-equation-share rule sits below its white-noise baseline (0.67). No test replacement, specification, readiness, capability or formal IRF change.
+
 ## v1.89 Country-Matched Selection-Aware Bootstrap Calibration — 2026-09-29
 
 - Preregisters (before any confirmatory draw) a country-matched calibration of the v1.86 recursive iid-residual selection-aware bootstrap: T=137, K=3, candidate lags 1–10, persistence 0.92/0.95/0.97, two innovation covariance structures and lag-2 signal ψ(137) 0.5–2.0 from the pooled v1.88 envelope (no per-country tuning); 84 null cells × 2,000 and 288 power cells × 500 replications (62.1M bootstrap draws).

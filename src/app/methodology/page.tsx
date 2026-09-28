@@ -4,6 +4,9 @@ import { runtimeAnalysisSkills } from "@/lib/analysisSkills";
 import { AnalysisSkillCard } from "@/components/AnalysisSkillCard";
 import { CitationActions } from "@/components/CitationActions";
 import { platformStatus } from "@/lib/platformStatus";
+import residualAttribution from "@/data/macro/var_portmanteau_attribution.json";
+import residualPeriods from "@/data/macro/var_residual_period_concentration.json";
+import residualProbes from "@/data/macro/var_residual_specification_probe_results.json";
 import countryMatched from "@/data/macro/var_country_matched_bootstrap_calibration_summary.json";
 import countryAudit from "@/data/macro/var_country_lag_identifiability_results.json";
 import countryPhaseB from "@/data/macro/var_phase_b_bootstrap_results.json";
@@ -22,6 +25,9 @@ const layerAEs = layerBDecomposition.layer_A_summary.edgerton_shukur_f;
 const p2Under = layerBByLag["2"].by_deterministic_spec;
 const p1MonthRanges = layerBByLag["1"].by_deterministic_spec.constant_plus_11_month_dummies.h12_rejection_rate_range;
 
+const attributionTop3 = residualAttribution.units.map((unit) => unit.top_3_lag_share);
+const pandemicMass = residualPeriods.units.map((unit) => unit.periods.P2_pandemic_aftermath.mahalanobis_share);
+const maxProbeReduction = Math.max(...residualProbes.units.flatMap((unit) => Object.values(unit.probes).map((probe) => probe.change_vs_production.q_star_12_reduction)));
 const matchedSize = (design: string) => countryMatched.null_by_design_primary_size.find((row) => row.design === design)?.bootstrap_range ?? [0, 0];
 const matchedPower = (alternative: string, strength: number) => countryMatched.power_by_alternative.find((row) => row.alternative === alternative && row.strength === strength)?.bootstrap_median ?? 0;
 const countryNames: Record<string, string> = { poland: "波兰", romania: "罗马尼亚", czechia: "捷克", germany: "德国", hungary: "匈牙利" };
@@ -30,7 +36,7 @@ const lagRange = (design: keyof typeof lagRecovery) => `${pct(lagRecovery[design
 const bootstrapIid = selectionBootstrapSummary.families.recursive_iid_residual;
 const bootstrapWild = selectionBootstrapSummary.families.recursive_wild_rademacher;
 
-const sections = [["data", "Data"], ["baseline-data-definitions", "Baseline definitions"], ["panel-lp-whole-path-inference", "Panel LP whole-path boundary"], ["models", "Analysis"], ["var-residual-diagnostic-calibration", "VAR residual diagnostics"], ["var-selection-aware-bootstrap", "VAR bootstrap research"], ["var-lag-selection-characterization", "VAR lag-selection research"], ["var-country-identifiability", "VAR country audit"], ["var-country-matched-bootstrap", "VAR bootstrap calibration"], ["events", "Events"], ["macro-drivers", "Macro Drivers"], ["spatial", "Spatial"], ["validation", "Validation"], ["citation", "Citation"]] as const;
+const sections = [["data", "Data"], ["baseline-data-definitions", "Baseline definitions"], ["panel-lp-whole-path-inference", "Panel LP whole-path boundary"], ["models", "Analysis"], ["var-residual-diagnostic-calibration", "VAR residual diagnostics"], ["var-selection-aware-bootstrap", "VAR bootstrap research"], ["var-lag-selection-characterization", "VAR lag-selection research"], ["var-country-identifiability", "VAR country audit"], ["var-country-matched-bootstrap", "VAR bootstrap calibration"], ["var-residual-attribution", "VAR residual attribution"], ["events", "Events"], ["macro-drivers", "Macro Drivers"], ["spatial", "Spatial"], ["validation", "Validation"], ["citation", "Citation"]] as const;
 
 function Section({ id, label, title, children }: { id: string; label: string; title: string; children: React.ReactNode }) {
   return <section id={id} className="scroll-mt-24 border-t border-[var(--line)] py-10"><p className="editorial-kicker">{label}</p><h2 className="mt-3 text-3xl font-semibold">{title}</h2>{children}</section>;
@@ -116,6 +122,11 @@ export default function MethodologyPage() {
       <p className="mt-4 max-w-4xl text-sm leading-7"><strong>研究结果：不支持生产采用。</strong>v1.89 事前注册了一项与平台国家环境匹配的合成校准（T=137、K=3、候选滞后 1–10，持续性、协方差与第二阶信号范围取自 v1.88 的合并区间，不针对单个国家调参），检验 v1.86 selection-aware bootstrap 的有限样本 size 与 power，并在每次重复中同时记录现行渐近诊断。</p>
       <p className="mt-3 max-w-4xl text-sm leading-7">真实滞后为 1 时，bootstrap 的 size 接近名义水平（{pct(matchedSize("p1")[0], 1)}–{pct(matchedSize("p1")[1], 1)}）。但在 v1.88 四个 2 阶国家所处的中等第二阶信号区间，bootstrap 明显保守：被选模型设定充分时的拒绝率在 ψ=0.75 为 {pct(matchedSize("p2_psi0.75")[0], 1)}–{pct(matchedSize("p2_psi0.75")[1], 1)}，ψ=1 为 {pct(matchedSize("p2_psi1.00")[0], 1)}–{pct(matchedSize("p2_psi1.00")[1], 1)}，ψ=1.25 为 {pct(matchedSize("p2_psi1.25")[0], 1)}–{pct(matchedSize("p2_psi1.25")[1], 1)}（名义 5%）。检验力也弱：对强度 0.3 的残差 AR(1) 相依，中位拒绝率仅 {pct(matchedPower("common_ar1", 0.3), 1)}；对季节性 AR(12) 相依为 {pct(matchedPower("seasonal_ar12", 0.3), 1)}。预注册结论为 C（明显保守且检验力弱），因此 v1.88 中 bootstrap 在该区间的不拒绝只是较弱的充分性证据。</p>
       <p className="mt-3 max-w-4xl text-sm leading-7">现行渐近诊断在仅含常数项时接近名义水平，但含月份虚拟变量时约为 21%，与 v1.85 一致。本版本不授权任何生产改动：BIC、生产残差诊断、国家就绪状态和正式 IRF 不可发布的状态均未改变。完整记录见 <a className="text-[var(--accent)] underline" href={`${basePath}/research-data/var-country-matched-bootstrap/var_country_matched_bootstrap_research_conclusion.json`}>v1.89 研究结论记录</a>。</p>
+    </Section>
+    <Section id="var-residual-attribution" label="VAR / v1.90 research" title="VAR Residual Dependence Attribution">
+      <p className="mt-4 max-w-4xl text-sm leading-7"><strong>研究结果，只作描述。</strong>v1.90 事前注册并经负责人批准，对五个正式可估计国家 VAR 在生产滞后下的残差相依结构做了归因：逐方程自相关、跨方程滞后相关，以及对生产 h=12 Portmanteau 统计量的精确分解（与变量排序无关），还包括季节性、方差稳定性，以及按预设时段（2020 年前、2020–2021、2022 年后）的集中度。</p>
+      <p className="mt-3 max-w-4xl text-sm leading-7">剩余相依较弱且分散：统计量分布在多个滞后上（前三个滞后合计只占 {pct(Math.min(...attributionTop3), 0)}–{pct(Math.max(...attributionTop3), 0)}），经多重检验校正后，没有任何单一方程或跨方程滞后分量显著。2020–2021 年只占约 18% 的观测，却占残差马氏距离总量的 {pct(Math.min(...pandemicMass), 0)}–{pct(Math.max(...pandemicMass), 0)}；HICP 在三个国家有约 0.2 的 12 阶残差自相关。三个仅作诊断用途的对照拟合（多一阶滞后、加入 12 阶滞后项、只用 2020 年前样本）最多只使统计量下降 {pct(maxProbeReduction, 0)}，都不构成新的设定或生产基线。</p>
+      <p className="mt-3 max-w-4xl text-sm leading-7">跨方程份额的预注册标签规则低于白噪声基准 0.67，因此已在研究结论中以事后说明标注，标签本身保持不变。本版本不引入新诊断、不改变 BIC、生产残差诊断、国家就绪状态和正式 IRF 不可发布的状态。完整记录见 <a className="text-[var(--accent)] underline" href={`${basePath}/research-data/var-residual-attribution/var_residual_attribution_research_conclusion.json`}>v1.90 研究结论记录</a>。</p>
     </Section>
     <Section id="events" label="03 / Events" title="事件编码"><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">Source → Event → Coding → Affected Indicator / Project → Research context。date、actor、event_type、direction 和 confidence 用于检索与解释；它们不自动构成因果关系，也不直接改变模型分数。未完整编码、低置信度或结构样例保持 enters_model=false。</p><Link href="/news" className="mt-4 inline-flex text-sm font-semibold text-[var(--accent)]">进入 Event Library</Link></Section>
 

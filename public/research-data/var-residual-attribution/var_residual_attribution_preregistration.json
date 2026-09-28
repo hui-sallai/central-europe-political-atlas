@@ -1,0 +1,203 @@
+{
+  "schema_version": "var-residual-attribution-preregistration-v1.90",
+  "study_id": "var_residual_attribution_v190",
+  "study_title": "v1.90 VAR Residual Dependence Attribution Research",
+  "preregistered_at": "2026-09-29",
+  "starting_commit": "a68da869fa56a7345949d0299bbf994d1db5443f",
+  "status": "phase_0_preregistration_only",
+  "research_type": "attribution / specification-diagnostic study; not a diagnostic-selection study",
+  "prior_releases_immutable": [
+    "v1.85",
+    "v1.851",
+    "v1.86",
+    "v1.87",
+    "v1.88",
+    "v1.89"
+  ],
+  "primary_question": "What residual dependence patterns are present in the five formal estimable VARs, and what classes of model misspecification could plausibly generate them?",
+  "design_reference": {
+    "file": "var_residual_attribution_design.json",
+    "sha256": "13b5adcdf7fe9d81df78851aeb186533d4e78720ddac551035fd3c546d981e9b"
+  },
+  "known_information_disclosure": {
+    "known": [
+      "v1.88 per-unit production selected lags, asymptotic h=12 Portmanteau p-values, ELI and Phase B bootstrap p-values",
+      "v1.85/v1.89 finding that the asymptotic Portmanteau over-rejects (~21%) with month dummies at the correct lag"
+    ],
+    "not_yet_computed": "no residual ACF, cross-lag, attribution, seasonal, variance, period or probe output of v1.90 has been computed or inspected"
+  },
+  "metrics": {
+    "equation_acf": {
+      "lags": "1..24",
+      "definition": "r_k = sum_t (e_t - ebar)(e_{t-k} - ebar) / sum_t (e_t - ebar)^2 per equation",
+      "reference_band": "+-1.96/sqrt(n) reported for orientation only"
+    },
+    "equation_pacf": {
+      "lags": "1..24",
+      "method": "Durbin-Levinson recursion on the ACF"
+    },
+    "ljung_box": {
+      "m": [
+        6,
+        12,
+        24
+      ],
+      "definition": "n(n+2) sum_{k<=m} r_k^2/(n-k), descriptive chi-square(m) p-value",
+      "role": "descriptive decomposition only; never a gate"
+    },
+    "cross_lag": {
+      "k": "1..12 and 24",
+      "definition": "corr(e_i,t, e_j,t-k) = C_k[i,j]/sqrt(C_0[i,i] C_0[j,j]) with C_k = sum_t e_t e_{t-k}'/n, for all ordered pairs i != j"
+    },
+    "portmanteau_attribution": {
+      "statistic": "production adjusted Portmanteau Q*_h = n^2 sum_{k=1..h} tr(C_k' C_0^-1 C_k C_0^-1)/(n-k), h=12 (must equal the production portmanteauTest statistic to 1e-8)",
+      "exact_decomposition": "with the symmetric square root W = C_0^{-1/2} (ordering-invariant) and R_k = W C_k W: tr(C_k' C_0^-1 C_k C_0^-1) = sum_{i,j} R_k[i,j]^2, so Q*_h = sum_k sum_{i,j} n^2 R_k[i,j]^2/(n-k) exactly",
+      "reported": [
+        "lag contribution q_k and share",
+        "cumulative share",
+        "own-equation share (i=j) and cross-equation share (i!=j)",
+        "top 5 (k,i,j) contributions",
+        "concentration: top-3-lag share and Herfindahl index across lags"
+      ],
+      "note": "no trimmed or reweighted Portmanteau statistic is constructed"
+    },
+    "seasonal": {
+      "lags": [
+        12,
+        24
+      ],
+      "band": "lags 11-13 share of Q*_12",
+      "seasonal_mean_vs_dynamic": "seasonal mean effects: residual month-of-year means and a descriptive F statistic for equal month means (exactly zero by construction for v2 models with month dummies); seasonal dynamic dependence: own and cross correlations at lags 12 and 24 and the lag-12 share of Q*_12",
+      "support_note": "lag 24 reported for all units (n >= 135); flagged 'low support' is not needed because n - 24 >= 111"
+    },
+    "variance_stability": {
+      "rolling_variance": "24-month rolling residual variance per equation; max/min ratio",
+      "squared_residual_acf": "lags 1..12 of e_t^2 per equation",
+      "arch_lm": "Engle LM n*R^2 from regressing e_t^2 on its lags, q in {4,12}, descriptive chi-square(q) p-value",
+      "covariance_by_period": "residual covariance per period P1/P2/P3; log det ratios and per-equation variance ratios relative to full sample",
+      "inference": "no GARCH structure is inferred"
+    },
+    "period_concentration": {
+      "periods": "P1 pre-2020, P2 2020-01..2021-12, P3 2022-01..2026-06, full",
+      "per_period": [
+        "observation share",
+        "share of summed squared standardized residuals per equation",
+        "share of summed squared Mahalanobis residuals (full-sample C_0)",
+        "count and dates of |standardized residual| > 3",
+        "period-restricted whitened lag products: share of sum_k sum_ij n^2 R_k[i,j]^2/(n-k) mass using only products with t in the period (reported as descriptive shares; cross terms make shares approximate, documented)"
+      ],
+      "causal_boundary": "large residuals near dated events are not interpreted as causal explanations"
+    }
+  },
+  "sensitivity_probes": {
+    "label": "diagnostic-only attribution probes; never baselines, never readiness, never IRFs",
+    "A_plus_one_lag": "production selected lag + 1 ordinary lag, full effective sample",
+    "B_seasonal_lag_term": "production model + the lag-12 block y_{t-12} of all variables (sample starts where lag 12 is available)",
+    "C_stable_subsample": "production lag estimated on P1 only (first residual month .. 2019-12)",
+    "reported_per_probe": [
+      "Q*_12 with components (lag shares, own/cross shares, lag-12 share)",
+      "equation Ljung-Box m=12,24",
+      "ARCH-LM q=12",
+      "change versus production for each component"
+    ],
+    "no_other_probes": "no search over lag combinations; exactly these three probes"
+  },
+  "multiplicity_reporting": {
+    "policy": "every metric is reported for every unit, equation, lag and pair; descriptive p-values are accompanied by Benjamini-Hochberg q-values within each metric family (Ljung-Box, ARCH-LM, cross-lag at k=1..12,24 via Fisher z approximation)",
+    "no_gates": true
+  },
+  "attribution_rules": {
+    "labels_computed_on_production_model": {
+      "little_residual_dependence": "production asymptotic Portmanteau p >= 0.10 AND no equation Ljung-Box(12) BH q-value < 0.05",
+      "short_lag_own_equation_dependence": "own-equation share of Q*_12 >= 0.50 AND lags 1-3 share >= 0.40",
+      "cross_equation_lag_dependence": "cross-equation share of Q*_12 >= 0.50",
+      "seasonal_dynamic_dependence": "lags 11-13 share of Q*_12 >= 0.25",
+      "variance_instability_dominated": "any equation ARCH-LM(12) BH q-value < 0.05 AND that equation's rolling-variance max/min ratio >= 4",
+      "break_outlier_concentrated": "P2 share of squared Mahalanobis mass >= 2 x P2 observation share, OR >= 50% of |standardized residual| > 3 events in P2",
+      "diffuse_unexplained_dependence": "none of the other labels except possibly break_outlier_concentrated applies, AND top-3-lag share < 0.40"
+    },
+    "multiple_labels_allowed": true,
+    "role": "descriptive labels only, not readiness gates"
+  },
+  "platform_questions": {
+    "Q1_test_calibration_issue": "answered descriptively from (i) v1.85/v1.89 calibration evidence and (ii) units whose labels are little_residual_dependence or diffuse_unexplained_dependence with no probe reducing Q*_12 by >= 30%",
+    "Q2_genuine_misspecification": "evidence counted when a unit's label is short_lag_own_equation, cross_equation_lag or seasonal_dynamic AND probe A or B reduces Q*_12 by >= 30% relative to production",
+    "Q3_justified_future_extension": "named descriptively from the most frequent misspecification-consistent label (e.g. seasonal lag terms, higher-order or cross-lag structure, heteroskedasticity-robust inference, break-aware samples); never authorized in v1.90"
+  },
+  "interpretation_boundaries": [
+    "no new pass/fail diagnostic; descriptive p-values are not gates",
+    "probes are diagnostic-only fits, not specifications",
+    "no deletion or winsorisation of observations",
+    "events near large residuals are not causal explanations",
+    "production_change_authorized = false; readiness_changed = false; formal_irf_publication_available = false"
+  ],
+  "failure_handling": "if production agreement fails or a probe is not estimable (singular or insufficient observations), the item is reported as unavailable with its reason; no substitute specification",
+  "stopping_rule": "run once for the five units after explicit owner approval; stop after the attribution report",
+  "production_boundary": {
+    "production_change_authorized": false,
+    "readiness_changed": false,
+    "formal_irf_publication_available": false,
+    "bic_changed": false,
+    "production_lag_selection_changed": false,
+    "diagnostic_replaced": false,
+    "analysis_run": false
+  },
+  "frozen_input_sha256": {
+    "src/lib/varEngine.ts": "0e944a52eba0a295ca7e44b5e9a801579f94a5ada03fef5a7ed9d938de8bf2ac",
+    "src/lib/timeSeriesTransforms.ts": "4a147b33d05e1da41e80b5907810380e50c5de267555f8fb535e9288d8cb6681",
+    "src/lib/varSpecifications.ts": "9ab8780c31644b93000ceb27faae4e09c2c6879df2d537a8e4455d944fde7eae",
+    "src/data/high-frequency/high_frequency_observations.json": "0621d6dbafb98e47ee1bb4c4de04183fd7e9d440cea60764babd8665e5e07ae0",
+    "scripts/var-country-identifiability/extract_production.mjs": "2821a4cdae630461e7e16784d65b5542f688fa3d4639155ad7627ca6446ad44e",
+    "src/data/macro/var_country_lag_identifiability_design.json": "5d2890111f28a19252ffc1c562398bae449cff3c8ab863cd1faf03317570a360",
+    "src/data/macro/var_country_lag_identifiability_results.json": "b7d876ca7d2ada83a493d6390dcb685c11516b0a8a2268045e29e5b85adf7d70",
+    "src/data/macro/var_country_readiness.json": "4b8173f8202c72359758b0bf4b05ef08a6c089f2ab47f79b7be359468c97e6b1",
+    "src/data/macro/var_capability_status.json": "2a7f762a7535ef13040fb0ece34218587a9341432a1cf673425dfb66bc2375d0",
+    "scripts/var-residual-diagnostics/common.py": "79f81ecd312e305f6df63234d5482a880887336649e49c05fcd573fd204fb8d5",
+    "src/data/macro/var_country_lag_identifiability_metric_definition.json": "59f4af84123c2b85b8255f342c16f0c0906b9dfb7e3c2778cd9145141d4ad230",
+    "src/data/macro/var_country_lag_identifiability_phase_a_authorization.json": "9748e066cce86c58939a2b34aa8c6ac849ee8dd53d3de73509de5a4c3e258b0e",
+    "src/data/macro/var_country_lag_identifiability_preregistration.json": "b0ecb06288210546cdebff23e05281703ab04b2df3eb873ca63f296ae5715f8f",
+    "src/data/macro/var_country_matched_bootstrap_calibration_summary.json": "ac9f2b7bab03dfbbafb07cac543b6a030ee2c2f69efd4be99a8af8ffd9cf80a1",
+    "src/data/macro/var_country_matched_bootstrap_null_results.json": "c3a7d724947e95f88485cdd5d4810d05e568090e56b576b6036818b8193037c9",
+    "src/data/macro/var_country_matched_bootstrap_power_results.json": "c55862111b7eb357841762f63a1ea5fbc9d647c9fa778b0f7c716e5e4d263373",
+    "src/data/macro/var_country_matched_bootstrap_preregistration.json": "ac42c4e568f39e582d8720967bb45a1bf88af93ba70f5e52f54c9fef23a5863a",
+    "src/data/macro/var_country_matched_bootstrap_reference_validation.json": "d9f905a546d66e42274b3038993a08955c332b0010454b98b8d74c8a86ee034f",
+    "src/data/macro/var_country_matched_bootstrap_research_conclusion.json": "12b93d3d5144f2aa1ca3cd44713ce591870335051d9d88eb48196744bb15c1a7",
+    "src/data/macro/var_country_matched_bootstrap_seed_registry.json": "451f5362bac00a20cbfe44764f893ac886cc222c6d92978ee0e332a6026362fd",
+    "src/data/macro/var_country_matched_bootstrap_simulation_design.json": "f7e0bca8926c06d08e8baba50c6e9eff0c2025f29dd24007e346de4b6412cc0a",
+    "src/data/macro/var_lag_characterization_adequacy_decomposition.json": "ade91683ea4e99ceaf5d5ddccb0b3eedc5491c9658e585122ae3d25166310088",
+    "src/data/macro/var_lag_characterization_lag_selection_results.json": "0f8ca85922a83c92dd720b5d9179b3fde1cc68d269d4e13cf92f032d7725da06",
+    "src/data/macro/var_lag_characterization_mc_uncertainty_summary.json": "f35dbe41018d6685d125a56abfe745133a0bbea2ab11ccca671f167d21822b3c",
+    "src/data/macro/var_lag_characterization_preregistration.json": "956f4114416cd88a221adc991b079df127c8b9dea6e88f1027d050f458dc3a7a",
+    "src/data/macro/var_lag_characterization_reference_validation.json": "99f8244e100d8748babc06c8e0df7b2ad542508a3c632f32d7e7ee378bd425a2",
+    "src/data/macro/var_lag_characterization_research_conclusion.json": "565ee1f5c54edbc074186212af6ffd6ab683ccb1be5757fdc821998961bdda6e",
+    "src/data/macro/var_lag_characterization_signal_strength_decomposition.json": "71eb1d064352371186a04cbb33521e489a32b40d3e93b280737a2d3a2c3cee09",
+    "src/data/macro/var_lag_characterization_simulation_design.json": "7df5b8b4f931e191489c5a7c8f1c84d873102bc0df03b0b84044e1053f98513a",
+    "src/data/macro/var_phase_b_authorization.json": "ade42d8ba588cedce28f32d253a7eb8db01e63cdd4cb9f7b53c09c5f16fe045c",
+    "src/data/macro/var_phase_b_bootstrap_protocol.json": "d504c9e0478b6ccfd74b99e9a73b3a84d712a25e72e659e8343aee72605dbf57",
+    "src/data/macro/var_phase_b_bootstrap_results.json": "489f85dc0be9d90539c88a6bbc5ffa5432b5ac575e0df88ddbea657ab10187a8",
+    "src/data/macro/var_residual_diagnostic_calibration_summary.json": "ca917656b7c0109cf0e286573effaae03dd4f8143a042524c8f24ee350073cca",
+    "src/data/macro/var_residual_diagnostic_layerB_selection_decomposition.json": "6f6e1caededf43f1776a4d83aa9e26a1f55ee31cda71b6aac079080c05333602",
+    "src/data/macro/var_residual_diagnostic_method_decision.json": "729c69430e6431e88f477ae24cc73bb3025e2b70fd30d118c671dbf63f40fe5c",
+    "src/data/macro/var_residual_diagnostic_preregistration.json": "f9ddab6a8ff77026b83caeca1024bf8b0379a470792fb5410e3d99607818bb0b",
+    "src/data/macro/var_residual_diagnostic_preregistration_amendment_001.json": "fafab2a5b74677be20b537101efbb44e3f3e0c925ad33cb89f5878a32ac91006",
+    "src/data/macro/var_residual_diagnostic_reference_attempts.json": "5f7e236b42aa001d7bfffca5dc2eb33aea1116f474bd8b9dfd8948e01d8abada",
+    "src/data/macro/var_residual_diagnostic_reference_cases.json": "0c2609797aeafcba66b1a656d4537c2f8e4fc631ba61d97a2138515be379d1f0",
+    "src/data/macro/var_residual_diagnostic_reference_inputs.csv": "024fbeaa6dd49b5cd72de66dc70039938117c481c3d4f32433cf00116a3fcc45",
+    "src/data/macro/var_residual_diagnostic_reference_manifest.json": "06460e94a2db421adbd754655b75e54812f888b972904ca58e5955850b85933e",
+    "src/data/macro/var_residual_diagnostic_reference_validation.json": "684e49a070c932385fba823e95358e812129c840a72afc000a776634f7853026",
+    "src/data/macro/var_residual_diagnostic_research_conclusion.json": "5d60d16a0d78b6d41df72c34e4e7028f8d50c9844bd1df9e3dbaca56d4720021",
+    "src/data/macro/var_residual_diagnostic_research_conclusion_amendment_001.json": "43d8ff9a9b3b1bae5552a5d98f3dbb5ad00aa045077098bf0087252f21323e73",
+    "src/data/macro/var_residual_diagnostic_seed_registry.json": "433f9fdec41d0410b103a35888f4dd894693d3da9ae675df9cf32c2c1225fdd2",
+    "src/data/macro/var_residual_diagnostic_simulation_design.json": "57c741524c37c452f318ce7e9aeff48c9ed547118977393acfdce4bd4a146b73",
+    "src/data/macro/var_residual_diagnostic_simulation_results.json": "04cc4ad5f8395f894a4c9c164fc8374841b6eb20c97dc4a8c4d7098dc6912a7e",
+    "src/data/macro/var_selection_bootstrap_calibration_summary.json": "370109106140aec28a16f41db44c088d357ce43c354cb917b6f1842c9c7467e4",
+    "src/data/macro/var_selection_bootstrap_method_decision.json": "117188dbc77429ea2329df745ce04f39be9a5768e4869186b6c73f449454a1fb",
+    "src/data/macro/var_selection_bootstrap_preregistration.json": "c37a32d53f01e2444c990807780a0aa53781f3c88c706f65035ce0345c790b6f",
+    "src/data/macro/var_selection_bootstrap_reference_validation.json": "a1d9d453f5b0374f58f84a3079ca873283d05f2668e06de441682c4578a040f3",
+    "src/data/macro/var_selection_bootstrap_research_conclusion.json": "e1f137948427aaec6d4bdad26e95df70a20bf8c8787e7df059d97c492634e68f",
+    "src/data/macro/var_selection_bootstrap_seed_registry.json": "6209b349123191ae4b99de572bac359f6d47a196bebf5a0f3c93996440ab99fd",
+    "src/data/macro/var_selection_bootstrap_selection_decomposition.json": "5908403a40736498de6de186be4159425f8b7087e81280cffa0a5ddf052d7d8a",
+    "src/data/macro/var_selection_bootstrap_simulation_design.json": "ee4beaf27640b97874a30c9fada95f3682f700f80b1e8bb39c59a45f3507f35f",
+    "src/data/macro/var_selection_bootstrap_simulation_results.json": "ea93e0aebec28b3b17f50dacc0a8a6578f556f53ee9dfe468e8c02ab8bb44704"
+  }
+}

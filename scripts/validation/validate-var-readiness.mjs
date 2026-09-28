@@ -20,7 +20,7 @@ const skill = registry.records.find((row) => row.skill_id === "reduced_form_var"
 const svar = registry.records.find((row) => row.skill_id === "svar");
 const bvar = registry.records.find((row) => row.skill_id === "bayesian_var");
 
-check(registry.schema_version === "analysis-skill-registry-v1.89", "analysis registry version");
+check(registry.schema_version === "analysis-skill-registry-v1.90", "analysis registry version");
 check(skill?.state === "active", "reduced-form VAR estimator must remain active");
 check(skill.readiness_reference === "var_country_readiness.json", "canonical flat readiness reference");
 check(skill.capability_reference === "var_capability_status.json", "capability reference");

@@ -1,6 +1,6 @@
 {
-  "schema_version": "analysis-validation-index-v1.89",
-  "platform_version": "v1.89",
+  "schema_version": "analysis-validation-index-v1.90",
+  "platform_version": "v1.90",
   "interpretation": "Additive current-release index; legacy validation artifacts retain their original versions and are not relabelled as panel tests.",
   "records": [
     {
@@ -52,6 +52,14 @@
       "replacement": "none_eligible",
       "publication_boundary": "enforced",
       "formal_irf_publication_available": false
+    },
+    {
+      "id": "var_residual_attribution",
+      "title": "VAR residual dependence attribution (v1.90)",
+      "artifact": "var-residual-attribution/var_residual_attribution_research_conclusion.json",
+      "gate": "var:residual-attribution-closure-validate",
+      "artifact_role": "descriptive_attribution_not_a_diagnostic",
+      "production_change_authorized": false
     },
     {
       "id": "var_country_matched_bootstrap_calibration",

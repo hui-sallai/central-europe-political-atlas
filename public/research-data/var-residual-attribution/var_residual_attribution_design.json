@@ -1,0 +1,113 @@
+{
+  "schema_version": "var-residual-attribution-design-v1.90",
+  "registered_at": "2026-09-29",
+  "units": [
+    {
+      "unit_id": "baseline_monthly_macro_v1::poland",
+      "unit_index": 0,
+      "country": "poland",
+      "profile_id": "baseline_monthly_macro_v1",
+      "deterministic_terms": "constant",
+      "start_period": "2015-02",
+      "end_period": "2026-06",
+      "effective_observations": 137,
+      "production_selected_lag": 2,
+      "residual_observations": 135
+    },
+    {
+      "unit_id": "baseline_monthly_macro_v1::romania",
+      "unit_index": 1,
+      "country": "romania",
+      "profile_id": "baseline_monthly_macro_v1",
+      "deterministic_terms": "constant",
+      "start_period": "2015-02",
+      "end_period": "2026-06",
+      "effective_observations": 137,
+      "production_selected_lag": 1,
+      "residual_observations": 136
+    },
+    {
+      "unit_id": "baseline_monthly_macro_v2_seasonal_controls::czechia",
+      "unit_index": 2,
+      "country": "czechia",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "deterministic_terms": "constant_month_dummies",
+      "start_period": "2015-02",
+      "end_period": "2026-06",
+      "effective_observations": 137,
+      "production_selected_lag": 2,
+      "residual_observations": 135
+    },
+    {
+      "unit_id": "baseline_monthly_macro_v2_seasonal_controls::germany",
+      "unit_index": 3,
+      "country": "germany",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "deterministic_terms": "constant_month_dummies",
+      "start_period": "2015-02",
+      "end_period": "2026-06",
+      "effective_observations": 137,
+      "production_selected_lag": 2,
+      "residual_observations": 135
+    },
+    {
+      "unit_id": "baseline_monthly_macro_v2_seasonal_controls::hungary",
+      "unit_index": 4,
+      "country": "hungary",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "deterministic_terms": "constant_month_dummies",
+      "start_period": "2015-02",
+      "end_period": "2026-06",
+      "effective_observations": 137,
+      "production_selected_lag": 2,
+      "residual_observations": 135
+    }
+  ],
+  "unit_rule": "exactly the five formal estimable VARs of v1.88; no addition or removal based on results",
+  "production_lag_source": "v1.88 Phase A results (production BIC selection, reproduced to 4.8e-11); not re-selected",
+  "sample": {
+    "start": "2015-02",
+    "end_cutoff": "2026-06",
+    "data_snapshot_sha256": "0621d6dbafb98e47ee1bb4c4de04183fd7e9d440cea60764babd8665e5e07ae0",
+    "rule": "identical to v1.88 effective samples; the audit refuses to run if the snapshot hash differs"
+  },
+  "residual_extraction": {
+    "method": "production varEngine estimateVarModel at the production selected lag on the full effective sample (via the v1.88 extract_production.mjs path); residual rows dated periods[p:]; Python OLS recomputation must match production residuals to 1e-8",
+    "variable_order": [
+      "hicp_monthly_index",
+      "industrial_production_index",
+      "unemployment_rate_monthly"
+    ]
+  },
+  "periods": {
+    "P1_pre_2020": [
+      "first residual month",
+      "2019-12"
+    ],
+    "P2_pandemic_aftermath": [
+      "2020-01",
+      "2021-12"
+    ],
+    "P3_post_2022": [
+      "2022-01",
+      "2026-06"
+    ],
+    "full": [
+      "first residual month",
+      "2026-06"
+    ],
+    "rule": "fixed calendar segmentation registered before inspecting residuals; lagged products are assigned to the period of their later date t"
+  },
+  "frozen_input_sha256": {
+    "src/lib/varEngine.ts": "0e944a52eba0a295ca7e44b5e9a801579f94a5ada03fef5a7ed9d938de8bf2ac",
+    "src/lib/timeSeriesTransforms.ts": "4a147b33d05e1da41e80b5907810380e50c5de267555f8fb535e9288d8cb6681",
+    "src/lib/varSpecifications.ts": "9ab8780c31644b93000ceb27faae4e09c2c6879df2d537a8e4455d944fde7eae",
+    "src/data/high-frequency/high_frequency_observations.json": "0621d6dbafb98e47ee1bb4c4de04183fd7e9d440cea60764babd8665e5e07ae0",
+    "scripts/var-country-identifiability/extract_production.mjs": "2821a4cdae630461e7e16784d65b5542f688fa3d4639155ad7627ca6446ad44e",
+    "src/data/macro/var_country_lag_identifiability_design.json": "5d2890111f28a19252ffc1c562398bae449cff3c8ab863cd1faf03317570a360",
+    "src/data/macro/var_country_lag_identifiability_results.json": "b7d876ca7d2ada83a493d6390dcb685c11516b0a8a2268045e29e5b85adf7d70",
+    "src/data/macro/var_country_readiness.json": "4b8173f8202c72359758b0bf4b05ef08a6c089f2ab47f79b7be359468c97e6b1",
+    "src/data/macro/var_capability_status.json": "2a7f762a7535ef13040fb0ece34218587a9341432a1cf673425dfb66bc2375d0",
+    "scripts/var-residual-diagnostics/common.py": "79f81ecd312e305f6df63234d5482a880887336649e49c05fcd573fd204fb8d5"
+  }
+}

@@ -1,0 +1,1853 @@
+{
+ "schema_version": "var-residual-specification-probe-results-v1.90",
+ "generated_at": "2026-09-29",
+ "preregistration_sha256": "865a568f8e517b619eeee978f31edc6c0a637d493a169facc3b357714d25725f",
+ "production_agreement_max_difference": 2.6547652964836743e-12,
+ "production_change_authorized": false,
+ "readiness_changed": false,
+ "formal_irf_publication_available": false,
+ "units": [
+  {
+   "unit_id": "baseline_monthly_macro_v1::poland",
+   "country": "poland",
+   "label": "diagnostic-only attribution probes; not baselines, not readiness, no IRFs",
+   "production_reference": {
+    "residual_observations": 135,
+    "q_star_12": 119.18303839473687,
+    "lag_shares": [
+     0.016364480069227107,
+     0.057901845995303805,
+     0.11413708823703808,
+     0.11658112224641469,
+     0.07305209131828301,
+     0.09553744247259056,
+     0.032199375779400026,
+     0.0830686261895875,
+     0.10676317831888893,
+     0.10359291661042443,
+     0.06122799432896153,
+     0.1395738384338803
+    ],
+    "own_share": 0.4147437472524744,
+    "cross_share": 0.5852562527475256,
+    "lag_12_share": 0.1395738384338803,
+    "lags_11_13_share": 0.20080183276284183,
+    "ljung_box": {
+     "hicp_monthly_index": {
+      "m12": {
+       "m": 12,
+       "statistic": 21.23104223421254,
+       "p_value": 0.04709785001961606
+      },
+      "m24": {
+       "m": 24,
+       "statistic": 37.13623373589336,
+       "p_value": 0.04240931442759726
+      }
+     },
+     "industrial_production_index": {
+      "m12": {
+       "m": 12,
+       "statistic": 6.829622091540749,
+       "p_value": 0.8686643277359302
+      },
+      "m24": {
+       "m": 24,
+       "statistic": 13.972555291679468,
+       "p_value": 0.9472678034003976
+      }
+     },
+     "unemployment_rate_monthly": {
+      "m12": {
+       "m": 12,
+       "statistic": 20.141054058985937,
+       "p_value": 0.06446429982462656
+      },
+      "m24": {
+       "m": 24,
+       "statistic": 27.252110512323927,
+       "p_value": 0.29283938542869514
+      }
+     }
+    },
+    "arch_lm_12": {
+     "hicp_monthly_index": {
+      "q": 12,
+      "statistic": 17.30687734262855,
+      "p_value": 0.1384136792901046
+     },
+     "industrial_production_index": {
+      "q": 12,
+      "statistic": 18.68949927108523,
+      "p_value": 0.0963023559291032
+     },
+     "unemployment_rate_monthly": {
+      "q": 12,
+      "statistic": 6.377222641818868,
+      "p_value": 0.8958858065377383
+     }
+    }
+   },
+   "probes": {
+    "A_plus_one_lag": {
+     "lags": [
+      1,
+      2,
+      3
+     ],
+     "residual_observations": 134,
+     "q_star_12": 104.14785826873424,
+     "lag_shares": [
+      0.005079970471341093,
+      0.0663029253530615,
+      0.05134119018831461,
+      0.10693115057573097,
+      0.06802560172161871,
+      0.08990105899093648,
+      0.04970505515095778,
+      0.10276326021404,
+      0.10023478395093792,
+      0.12285948138460451,
+      0.07637095487150244,
+      0.16048456712695403
+     ],
+     "own_share": 0.3938239523906153,
+     "cross_share": 0.6061760476093848,
+     "lag_12_share": 0.16048456712695403,
+     "lags_11_13_share": 0.23685552199845647,
+     "ljung_box": {
+      "hicp_monthly_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 18.476949097916922,
+        "p_value": 0.1019574713871516
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 31.673501597008297,
+        "p_value": 0.13529775382467563
+       }
+      },
+      "industrial_production_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 3.578847710226867,
+        "p_value": 0.989894666010148
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 15.067249537021482,
+        "p_value": 0.9187754989356222
+       }
+      },
+      "unemployment_rate_monthly": {
+       "m12": {
+        "m": 12,
+        "statistic": 17.33663746707739,
+        "p_value": 0.13736688365657418
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 24.15637617544292,
+        "p_value": 0.45268488384782424
+       }
+      }
+     },
+     "arch_lm_12": {
+      "hicp_monthly_index": {
+       "q": 12,
+       "statistic": 14.911597936934564,
+       "p_value": 0.24630656929639486
+      },
+      "industrial_production_index": {
+       "q": 12,
+       "statistic": 18.994782898388586,
+       "p_value": 0.08865442977255099
+      },
+      "unemployment_rate_monthly": {
+       "q": 12,
+       "statistic": 6.979857765741707,
+       "p_value": 0.8589417608948842
+      }
+     },
+     "change_vs_production": {
+      "q_star_12_ratio": 0.8738479876959859,
+      "q_star_12_reduction": 0.12615201230401407,
+      "own_share_delta": -0.02091979486185913,
+      "lag_12_share_delta": 0.020910728693073727,
+      "ljung_box_12_statistic_delta": {
+       "hicp_monthly_index": -2.7540931362956194,
+       "industrial_production_index": -3.2507743813138816,
+       "unemployment_rate_monthly": -2.804416591908545
+      }
+     }
+    },
+    "B_seasonal_lag_term": {
+     "lags": [
+      1,
+      2,
+      12
+     ],
+     "residual_observations": 125,
+     "q_star_12": 96.58735330569385,
+     "lag_shares": [
+      0.014540859127297056,
+      0.0768460714210836,
+      0.12857858733634633,
+      0.08564136715530125,
+      0.0849376984801663,
+      0.11143201336296737,
+      0.056786622090961164,
+      0.09816499562284416,
+      0.11617217837028344,
+      0.12713342172946818,
+      0.05780424880806257,
+      0.04196193649521848
+     ],
+     "own_share": 0.3571981769600633,
+     "cross_share": 0.6428018230399366,
+     "lag_12_share": 0.04196193649521848,
+     "lags_11_13_share": 0.09976618530328105,
+     "ljung_box": {
+      "hicp_monthly_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 12.261124009810594,
+        "p_value": 0.42494293808188704
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 23.086650531611152,
+        "p_value": 0.5146876927588699
+       }
+      },
+      "industrial_production_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 7.4013931072901356,
+        "p_value": 0.8299887670266388
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 14.7237629040563,
+        "p_value": 0.9285816731544743
+       }
+      },
+      "unemployment_rate_monthly": {
+       "m12": {
+        "m": 12,
+        "statistic": 16.066622461843203,
+        "p_value": 0.1882036546256702
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 23.849185271584638,
+        "p_value": 0.47024804069223114
+       }
+      }
+     },
+     "arch_lm_12": {
+      "hicp_monthly_index": {
+       "q": 12,
+       "statistic": 12.530557514285752,
+       "p_value": 0.4040635762138023
+      },
+      "industrial_production_index": {
+       "q": 12,
+       "statistic": 17.465568413020527,
+       "p_value": 0.13290737538729633
+      },
+      "unemployment_rate_monthly": {
+       "q": 12,
+       "statistic": 7.106640678428821,
+       "p_value": 0.8504865168418222
+      }
+     },
+     "change_vs_production": {
+      "q_star_12_ratio": 0.8104119059777146,
+      "q_star_12_reduction": 0.18958809402228538,
+      "own_share_delta": -0.05754557029241114,
+      "lag_12_share_delta": -0.09761190193866182,
+      "ljung_box_12_statistic_delta": {
+       "hicp_monthly_index": -8.969918224401948,
+       "industrial_production_index": 0.5717710157493867,
+       "unemployment_rate_monthly": -4.074431597142734
+      }
+     }
+    },
+    "C_stable_subsample": {
+     "lags": [
+      1,
+      2
+     ],
+     "sample": [
+      "2015-02",
+      "2019-12"
+     ],
+     "parameters_per_equation": 7,
+     "observations_per_parameter": 8.142857142857142,
+     "below_production_parameter_ratio_4": false,
+     "residual_observations": 57,
+     "q_star_12": 123.67677033106676,
+     "lag_shares": [
+      0.022046312447594585,
+      0.029126270674492336,
+      0.10349728103978167,
+      0.05508754649309883,
+      0.06735892183873975,
+      0.11995186466505472,
+      0.14852655810787593,
+      0.06042590985099925,
+      0.07228149086268278,
+      0.068764197399436,
+      0.14388784590958845,
+      0.1090458007106557
+     ],
+     "own_share": 0.3502424734367239,
+     "cross_share": 0.6497575265632762,
+     "lag_12_share": 0.1090458007106557,
+     "lags_11_13_share": 0.25293364662024415,
+     "ljung_box": {
+      "hicp_monthly_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 25.453003443663107,
+        "p_value": 0.0128162360590366
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 49.984885238127326,
+        "p_value": 0.0014222551904615425
+       }
+      },
+      "industrial_production_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 6.380334770590268,
+        "p_value": 0.8957095075521538
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 17.275986738167056,
+        "p_value": 0.8366548836535856
+       }
+      },
+      "unemployment_rate_monthly": {
+       "m12": {
+        "m": 12,
+        "statistic": 11.944873740131728,
+        "p_value": 0.45011702428791933
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 21.04330315245715,
+        "p_value": 0.6361693202575549
+       }
+      }
+     },
+     "arch_lm_12": {
+      "hicp_monthly_index": {
+       "q": 12,
+       "statistic": 8.564386772707056,
+       "p_value": 0.7396180673288516
+      },
+      "industrial_production_index": {
+       "q": 12,
+       "statistic": 10.915591766117906,
+       "p_value": 0.5361660385990559
+      },
+      "unemployment_rate_monthly": {
+       "q": 12,
+       "statistic": 8.859424489563928,
+       "p_value": 0.7148882615744123
+      }
+     },
+     "change_vs_production": {
+      "q_star_12_ratio": 1.037704458594574,
+      "q_star_12_reduction": -0.03770445859457405,
+      "own_share_delta": -0.06450127381575055,
+      "lag_12_share_delta": -0.0305280377232246,
+      "ljung_box_12_statistic_delta": {
+       "hicp_monthly_index": 4.221961209450566,
+       "industrial_production_index": -0.4492873209504804,
+       "unemployment_rate_monthly": -8.196180318854209
+      }
+     }
+    }
+   }
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v1::romania",
+   "country": "romania",
+   "label": "diagnostic-only attribution probes; not baselines, not readiness, no IRFs",
+   "production_reference": {
+    "residual_observations": 136,
+    "q_star_12": 107.1249212710198,
+    "lag_shares": [
+     0.06653954388120308,
+     0.24077610761033108,
+     0.15325921452073613,
+     0.03968231889479663,
+     0.04432453744749022,
+     0.048952820758676636,
+     0.11307142304463379,
+     0.03861647526517958,
+     0.038008460247834705,
+     0.03093262487161643,
+     0.057096680249094374,
+     0.12873979320840737
+    ],
+    "own_share": 0.4440445706898296,
+    "cross_share": 0.5559554293101704,
+    "lag_12_share": 0.12873979320840737,
+    "lags_11_13_share": 0.18583647345750173,
+    "ljung_box": {
+     "hicp_monthly_index": {
+      "m12": {
+       "m": 12,
+       "statistic": 16.052113443774456,
+       "p_value": 0.18886081544862723
+      },
+      "m24": {
+       "m": 24,
+       "statistic": 24.650292032441033,
+       "p_value": 0.4249586668173493
+      }
+     },
+     "industrial_production_index": {
+      "m12": {
+       "m": 12,
+       "statistic": 15.172424371954634,
+       "p_value": 0.23214223828313052
+      },
+      "m24": {
+       "m": 24,
+       "statistic": 21.732361072199637,
+       "p_value": 0.5952375109617984
+      }
+     },
+     "unemployment_rate_monthly": {
+      "m12": {
+       "m": 12,
+       "statistic": 20.003810305612486,
+       "p_value": 0.0670139190306354
+      },
+      "m24": {
+       "m": 24,
+       "statistic": 56.43181613592634,
+       "p_value": 0.0002000999116990832
+      }
+     }
+    },
+    "arch_lm_12": {
+     "hicp_monthly_index": {
+      "q": 12,
+      "statistic": 12.86693002788679,
+      "p_value": 0.37878657585663744
+     },
+     "industrial_production_index": {
+      "q": 12,
+      "statistic": 19.446031567096,
+      "p_value": 0.07831798218632513
+     },
+     "unemployment_rate_monthly": {
+      "q": 12,
+      "statistic": 14.094257755624273,
+      "p_value": 0.29472970102542323
+     }
+    }
+   },
+   "probes": {
+    "A_plus_one_lag": {
+     "lags": [
+      1,
+      2
+     ],
+     "residual_observations": 135,
+     "q_star_12": 95.9030296882848,
+     "lag_shares": [
+      0.011437611976102893,
+      0.07285677384918794,
+      0.2554331400594609,
+      0.06360502184692751,
+      0.0835621205390916,
+      0.06808697239084852,
+      0.12467591358690365,
+      0.048411647560630655,
+      0.058538623960555355,
+      0.029797039166927032,
+      0.06419099547786301,
+      0.1194041395855009
+     ],
+     "own_share": 0.3969824417464626,
+     "cross_share": 0.6030175582535374,
+     "lag_12_share": 0.1194041395855009,
+     "lags_11_13_share": 0.18359513506336392,
+     "ljung_box": {
+      "hicp_monthly_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 15.477184297514025,
+        "p_value": 0.21637167201385699
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 24.142707554202126,
+        "p_value": 0.4534614893425962
+       }
+      },
+      "industrial_production_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 8.600940240452765,
+        "p_value": 0.7365843534659855
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 17.668980664157306,
+        "p_value": 0.8187646567437351
+       }
+      },
+      "unemployment_rate_monthly": {
+       "m12": {
+        "m": 12,
+        "statistic": 12.23397505257363,
+        "p_value": 0.4270765529765203
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 38.26395372829166,
+        "p_value": 0.0325737387052055
+       }
+      }
+     },
+     "arch_lm_12": {
+      "hicp_monthly_index": {
+       "q": 12,
+       "statistic": 12.601428298586363,
+       "p_value": 0.3986632816421624
+      },
+      "industrial_production_index": {
+       "q": 12,
+       "statistic": 10.300409930154059,
+       "p_value": 0.5896241003600227
+      },
+      "unemployment_rate_monthly": {
+       "q": 12,
+       "statistic": 16.773181441455872,
+       "p_value": 0.15833050288142134
+      }
+     },
+     "change_vs_production": {
+      "q_star_12_ratio": 0.8952448090548019,
+      "q_star_12_reduction": 0.10475519094519814,
+      "own_share_delta": -0.04706212894336703,
+      "lag_12_share_delta": -0.009335653622906462,
+      "ljung_box_12_statistic_delta": {
+       "hicp_monthly_index": -0.5749291462604305,
+       "industrial_production_index": -6.571484131501869,
+       "unemployment_rate_monthly": -7.769835253038856
+      }
+     }
+    },
+    "B_seasonal_lag_term": {
+     "lags": [
+      1,
+      12
+     ],
+     "residual_observations": 125,
+     "q_star_12": 114.34040297193603,
+     "lag_shares": [
+      0.09141596239189197,
+      0.2743916348750151,
+      0.10364614979791972,
+      0.04811109145494743,
+      0.04141805936786875,
+      0.05664900317672295,
+      0.1375200418643961,
+      0.04837781774142166,
+      0.0476256714587058,
+      0.04534944661357168,
+      0.055940177303851986,
+      0.04955494395368684
+     ],
+     "own_share": 0.4422267170638551,
+     "cross_share": 0.5577732829361449,
+     "lag_12_share": 0.04955494395368684,
+     "lags_11_13_share": 0.10549512125753882,
+     "ljung_box": {
+      "hicp_monthly_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 14.36831985883187,
+        "p_value": 0.27780892386270195
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 30.946642162702783,
+        "p_value": 0.15532714376718182
+       }
+      },
+      "industrial_production_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 14.344922700927517,
+        "p_value": 0.27922655222609755
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 21.157297828444847,
+        "p_value": 0.6294292223287838
+       }
+      },
+      "unemployment_rate_monthly": {
+       "m12": {
+        "m": 12,
+        "statistic": 24.47004533086861,
+        "p_value": 0.01754373556842132
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 54.444779618551955,
+        "p_value": 0.0003717109131448005
+       }
+      }
+     },
+     "arch_lm_12": {
+      "hicp_monthly_index": {
+       "q": 12,
+       "statistic": 11.995130280770566,
+       "p_value": 0.4460708154760519
+      },
+      "industrial_production_index": {
+       "q": 12,
+       "statistic": 14.10134820140898,
+       "p_value": 0.2942832534373839
+      },
+      "unemployment_rate_monthly": {
+       "q": 12,
+       "statistic": 11.533757015804074,
+       "p_value": 0.48381188264488495
+      }
+     },
+     "change_vs_production": {
+      "q_star_12_ratio": 1.0673557713303843,
+      "q_star_12_reduction": -0.06735577133038428,
+      "own_share_delta": -0.0018178536259745304,
+      "lag_12_share_delta": -0.07918484925472052,
+      "ljung_box_12_statistic_delta": {
+       "hicp_monthly_index": -1.6837935849425865,
+       "industrial_production_index": -0.8275016710271164,
+       "unemployment_rate_monthly": 4.466235025256125
+      }
+     }
+    },
+    "C_stable_subsample": {
+     "lags": [
+      1
+     ],
+     "sample": [
+      "2015-02",
+      "2019-12"
+     ],
+     "parameters_per_equation": 4,
+     "observations_per_parameter": 14.5,
+     "below_production_parameter_ratio_4": false,
+     "residual_observations": 58,
+     "q_star_12": 129.00666840626275,
+     "lag_shares": [
+      0.15961139859256623,
+      0.07110545801402246,
+      0.12213889193470251,
+      0.04580391960808364,
+      0.021495648165442645,
+      0.06647104242889308,
+      0.06100481659230846,
+      0.025008373018878757,
+      0.13219364292917993,
+      0.07277717308766564,
+      0.10127936587430839,
+      0.12111026975394824
+     ],
+     "own_share": 0.3905369722974283,
+     "cross_share": 0.6094630277025718,
+     "lag_12_share": 0.12111026975394824,
+     "lags_11_13_share": 0.22238963562825664,
+     "ljung_box": {
+      "hicp_monthly_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 13.188853718029735,
+        "p_value": 0.3554647933915861
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 19.23259725244256,
+        "p_value": 0.7394739027617574
+       }
+      },
+      "industrial_production_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 11.633244760524498,
+        "p_value": 0.4755652537474756
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 20.331972825197237,
+        "p_value": 0.6777494706844978
+       }
+      },
+      "unemployment_rate_monthly": {
+       "m12": {
+        "m": 12,
+        "statistic": 31.097954980888673,
+        "p_value": 0.001903376146264263
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 64.58083553194966,
+        "p_value": 1.4020505053762914e-05
+       }
+      }
+     },
+     "arch_lm_12": {
+      "hicp_monthly_index": {
+       "q": 12,
+       "statistic": 3.4617307245781803,
+       "p_value": 0.991313198775598
+      },
+      "industrial_production_index": {
+       "q": 12,
+       "statistic": 3.967815481034057,
+       "p_value": 0.9840101675103792
+      },
+      "unemployment_rate_monthly": {
+       "q": 12,
+       "statistic": 11.13170003323313,
+       "p_value": 0.5176669986880893
+      }
+     },
+     "change_vs_production": {
+      "q_star_12_ratio": 1.2042638339951113,
+      "q_star_12_reduction": -0.20426383399511128,
+      "own_share_delta": -0.05350759839240132,
+      "lag_12_share_delta": -0.007629523454459122,
+      "ljung_box_12_statistic_delta": {
+       "hicp_monthly_index": -2.8632597257447205,
+       "industrial_production_index": -3.5391796114301357,
+       "unemployment_rate_monthly": 11.094144675276187
+      }
+     }
+    }
+   }
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v2_seasonal_controls::czechia",
+   "country": "czechia",
+   "label": "diagnostic-only attribution probes; not baselines, not readiness, no IRFs",
+   "production_reference": {
+    "residual_observations": 135,
+    "q_star_12": 116.51476059553276,
+    "lag_shares": [
+     0.015061601748172976,
+     0.045649893463675074,
+     0.2120540537807205,
+     0.058980103272983975,
+     0.05729205234160765,
+     0.09011992330985753,
+     0.03073579129907162,
+     0.04338220224825638,
+     0.06477546816781636,
+     0.1272816853422143,
+     0.095308266936702,
+     0.15935895808892164
+    ],
+    "own_share": 0.5061508338344448,
+    "cross_share": 0.4938491661655552,
+    "lag_12_share": 0.15935895808892164,
+    "lags_11_13_share": 0.25466722502562367,
+    "ljung_box": {
+     "hicp_monthly_index": {
+      "m12": {
+       "m": 12,
+       "statistic": 19.781280682393668,
+       "p_value": 0.07133817226600832
+      },
+      "m24": {
+       "m": 24,
+       "statistic": 25.180359004502638,
+       "p_value": 0.39601320980606064
+      }
+     },
+     "industrial_production_index": {
+      "m12": {
+       "m": 12,
+       "statistic": 18.165581678774366,
+       "p_value": 0.1107546088120875
+      },
+      "m24": {
+       "m": 24,
+       "statistic": 26.637720390531747,
+       "p_value": 0.3216208964203549
+      }
+     },
+     "unemployment_rate_monthly": {
+      "m12": {
+       "m": 12,
+       "statistic": 20.41050787151102,
+       "p_value": 0.05970821545169695
+      },
+      "m24": {
+       "m": 24,
+       "statistic": 33.555785979642415,
+       "p_value": 0.09287888261126777
+      }
+     }
+    },
+    "arch_lm_12": {
+     "hicp_monthly_index": {
+      "q": 12,
+      "statistic": 17.530600577642133,
+      "p_value": 0.13070413933340683
+     },
+     "industrial_production_index": {
+      "q": 12,
+      "statistic": 20.39645282843539,
+      "p_value": 0.059948338007353136
+     },
+     "unemployment_rate_monthly": {
+      "q": 12,
+      "statistic": 6.304887861025805,
+      "p_value": 0.8999394644084808
+     }
+    }
+   },
+   "probes": {
+    "A_plus_one_lag": {
+     "lags": [
+      1,
+      2,
+      3
+     ],
+     "residual_observations": 134,
+     "q_star_12": 115.71347057910221,
+     "lag_shares": [
+      0.0030673792292338384,
+      0.02950830054532947,
+      0.11278294440196057,
+      0.10603143299382468,
+      0.06499485791751136,
+      0.11205894444337589,
+      0.03219383205463408,
+      0.062292421881615025,
+      0.06553095613632429,
+      0.12239037737570717,
+      0.10565599006043976,
+      0.18349256296004382
+     ],
+     "own_share": 0.48840394195005143,
+     "cross_share": 0.5115960580499485,
+     "lag_12_share": 0.18349256296004382,
+     "lags_11_13_share": 0.2891485530204836,
+     "ljung_box": {
+      "hicp_monthly_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 19.101732754668035,
+        "p_value": 0.0861027423037269
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 25.685829129660135,
+        "p_value": 0.3692962384274431
+       }
+      },
+      "industrial_production_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 18.446720020483838,
+        "p_value": 0.10278446496244577
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 29.595717728548333,
+        "p_value": 0.1985142513809463
+       }
+      },
+      "unemployment_rate_monthly": {
+       "m12": {
+        "m": 12,
+        "statistic": 17.592129800874126,
+        "p_value": 0.1286477201363493
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 22.442906809194323,
+        "p_value": 0.5528495207263728
+       }
+      }
+     },
+     "arch_lm_12": {
+      "hicp_monthly_index": {
+       "q": 12,
+       "statistic": 24.148010207839896,
+       "p_value": 0.01941824797147371
+      },
+      "industrial_production_index": {
+       "q": 12,
+       "statistic": 16.419766830136695,
+       "p_value": 0.17275737223722498
+      },
+      "unemployment_rate_monthly": {
+       "q": 12,
+       "statistic": 7.812593450226023,
+       "p_value": 0.7995987328753072
+      }
+     },
+     "change_vs_production": {
+      "q_star_12_ratio": 0.9931228454460621,
+      "q_star_12_reduction": 0.006877154553937892,
+      "own_share_delta": -0.01774689188439338,
+      "lag_12_share_delta": 0.024133604871122177,
+      "ljung_box_12_statistic_delta": {
+       "hicp_monthly_index": -0.6795479277256327,
+       "industrial_production_index": 0.2811383417094717,
+       "unemployment_rate_monthly": -2.818378070636893
+      }
+     }
+    },
+    "B_seasonal_lag_term": {
+     "lags": [
+      1,
+      2,
+      12
+     ],
+     "residual_observations": 125,
+     "q_star_12": 107.57020540634882,
+     "lag_shares": [
+      0.03283028225215105,
+      0.06935464176884595,
+      0.21401593516302492,
+      0.06084299670637135,
+      0.05711383648781225,
+      0.0870907368710166,
+      0.02636770552782737,
+      0.059453404193845615,
+      0.06313467011301743,
+      0.13882942827308586,
+      0.10545334059693169,
+      0.08551302204606999
+     ],
+     "own_share": 0.5076547946117358,
+     "cross_share": 0.4923452053882642,
+     "lag_12_share": 0.08551302204606999,
+     "lags_11_13_share": 0.19096636264300168,
+     "ljung_box": {
+      "hicp_monthly_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 15.627806625464522,
+        "p_value": 0.20888391629467487
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 24.470938087557883,
+        "p_value": 0.43494826594715214
+       }
+      },
+      "industrial_production_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 15.261525461752106,
+        "p_value": 0.22744502348860648
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 27.089575140059388,
+        "p_value": 0.30029511398593933
+       }
+      },
+      "unemployment_rate_monthly": {
+       "m12": {
+        "m": 12,
+        "statistic": 23.606573180570837,
+        "p_value": 0.02299612445475902
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 37.351327700722855,
+        "p_value": 0.04035177518717185
+       }
+      }
+     },
+     "arch_lm_12": {
+      "hicp_monthly_index": {
+       "q": 12,
+       "statistic": 24.437797246948932,
+       "p_value": 0.017723533707784518
+      },
+      "industrial_production_index": {
+       "q": 12,
+       "statistic": 20.554055520436197,
+       "p_value": 0.05730454154186123
+      },
+      "unemployment_rate_monthly": {
+       "q": 12,
+       "statistic": 4.724556421515656,
+       "p_value": 0.9665519650903296
+      }
+     },
+     "change_vs_production": {
+      "q_star_12_ratio": 0.9232324287200494,
+      "q_star_12_reduction": 0.0767675712799506,
+      "own_share_delta": 0.0015039607772909802,
+      "lag_12_share_delta": -0.07384593604285165,
+      "ljung_box_12_statistic_delta": {
+       "hicp_monthly_index": -4.153474056929145,
+       "industrial_production_index": -2.9040562170222604,
+       "unemployment_rate_monthly": 3.1960653090598186
+      }
+     }
+    },
+    "C_stable_subsample": {
+     "lags": [
+      1,
+      2
+     ],
+     "sample": [
+      "2015-02",
+      "2019-12"
+     ],
+     "parameters_per_equation": 18,
+     "observations_per_parameter": 3.1666666666666665,
+     "below_production_parameter_ratio_4": true,
+     "residual_observations": 57,
+     "q_star_12": 124.59518726645156,
+     "lag_shares": [
+      0.020201647396564187,
+      0.05334834478342064,
+      0.13781376295007128,
+      0.10984489060869897,
+      0.06202351165980066,
+      0.09510876870524092,
+      0.14065113988658864,
+      0.04162975227977187,
+      0.09725719293505906,
+      0.09904530999484286,
+      0.027703982754920392,
+      0.11537169604502051
+     ],
+     "own_share": 0.36320240043144303,
+     "cross_share": 0.636797599568557,
+     "lag_12_share": 0.11537169604502051,
+     "lags_11_13_share": 0.1430756787999409,
+     "ljung_box": {
+      "hicp_monthly_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 12.42652796336458,
+        "p_value": 0.41206061816135287
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 28.598301319278878,
+        "p_value": 0.235615716127687
+       }
+      },
+      "industrial_production_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 13.950531999765722,
+        "p_value": 0.3038783754065352
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 25.91232487973932,
+        "p_value": 0.35762863799594924
+       }
+      },
+      "unemployment_rate_monthly": {
+       "m12": {
+        "m": 12,
+        "statistic": 19.68502991604305,
+        "p_value": 0.07328368223217879
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 27.18233619662024,
+        "p_value": 0.2960259039963533
+       }
+      }
+     },
+     "arch_lm_12": {
+      "hicp_monthly_index": {
+       "q": 12,
+       "statistic": 15.35614668980151,
+       "p_value": 0.22253517464320927
+      },
+      "industrial_production_index": {
+       "q": 12,
+       "statistic": 12.107844852628535,
+       "p_value": 0.4370578313259672
+      },
+      "unemployment_rate_monthly": {
+       "q": 12,
+       "statistic": 6.358222927245704,
+       "p_value": 0.8969587402481128
+      }
+     },
+     "change_vs_production": {
+      "q_star_12_ratio": 1.0693510987759658,
+      "q_star_12_reduction": -0.06935109877596579,
+      "own_share_delta": -0.14294843340300178,
+      "lag_12_share_delta": -0.04398726204390113,
+      "ljung_box_12_statistic_delta": {
+       "hicp_monthly_index": -7.354752719029088,
+       "industrial_production_index": -4.215049679008644,
+       "unemployment_rate_monthly": -0.7254779554679693
+      }
+     }
+    }
+   }
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v2_seasonal_controls::germany",
+   "country": "germany",
+   "label": "diagnostic-only attribution probes; not baselines, not readiness, no IRFs",
+   "production_reference": {
+    "residual_observations": 135,
+    "q_star_12": 117.97431254912375,
+    "lag_shares": [
+     0.024620959378830753,
+     0.07672125364300783,
+     0.1409411529771607,
+     0.0963255352480177,
+     0.06216631515622358,
+     0.05076169135176945,
+     0.025521781860501927,
+     0.06567366405056344,
+     0.15490629393307034,
+     0.1059164315275075,
+     0.07401939424581373,
+     0.122425526627533
+    ],
+    "own_share": 0.47020604028623464,
+    "cross_share": 0.5297939597137653,
+    "lag_12_share": 0.122425526627533,
+    "lags_11_13_share": 0.19644492087334675,
+    "ljung_box": {
+     "hicp_monthly_index": {
+      "m12": {
+       "m": 12,
+       "statistic": 19.54080718768708,
+       "p_value": 0.07628636998565996
+      },
+      "m24": {
+       "m": 24,
+       "statistic": 44.635512754572105,
+       "p_value": 0.006430692289223688
+      }
+     },
+     "industrial_production_index": {
+      "m12": {
+       "m": 12,
+       "statistic": 12.656630777596234,
+       "p_value": 0.3944841389009979
+      },
+      "m24": {
+       "m": 24,
+       "statistic": 21.692494456160603,
+       "p_value": 0.5976148521062075
+      }
+     },
+     "unemployment_rate_monthly": {
+      "m12": {
+       "m": 12,
+       "statistic": 22.686050614475437,
+       "p_value": 0.030512643641227834
+      },
+      "m24": {
+       "m": 24,
+       "statistic": 32.991989351012855,
+       "p_value": 0.10424261005836748
+      }
+     }
+    },
+    "arch_lm_12": {
+     "hicp_monthly_index": {
+      "q": 12,
+      "statistic": 13.225896625899912,
+      "p_value": 0.35283766679928596
+     },
+     "industrial_production_index": {
+      "q": 12,
+      "statistic": 7.978305002755942,
+      "p_value": 0.7868234728807599
+     },
+     "unemployment_rate_monthly": {
+      "q": 12,
+      "statistic": 12.460616503312774,
+      "p_value": 0.4094310484315772
+     }
+    }
+   },
+   "probes": {
+    "A_plus_one_lag": {
+     "lags": [
+      1,
+      2,
+      3
+     ],
+     "residual_observations": 134,
+     "q_star_12": 107.25473050122592,
+     "lag_shares": [
+      0.012461538345248532,
+      0.019320031130639584,
+      0.05904153443045902,
+      0.11993124990979087,
+      0.08412120084283034,
+      0.05314719002546343,
+      0.030553596520454748,
+      0.08841955957391245,
+      0.1522783422514562,
+      0.1402614202369234,
+      0.11454107670015647,
+      0.12592326003266496
+     ],
+     "own_share": 0.4434717156182787,
+     "cross_share": 0.5565282843817213,
+     "lag_12_share": 0.12592326003266496,
+     "lags_11_13_share": 0.24046433673282142,
+     "ljung_box": {
+      "hicp_monthly_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 20.150145249456987,
+        "p_value": 0.06429849421236902
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 44.61453449103382,
+        "p_value": 0.006467286857741229
+       }
+      },
+      "industrial_production_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 13.44706444294186,
+        "p_value": 0.33740020479950317
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 23.849375440113583,
+        "p_value": 0.4702370999793556
+       }
+      },
+      "unemployment_rate_monthly": {
+       "m12": {
+        "m": 12,
+        "statistic": 13.771448240312086,
+        "p_value": 0.3155407408093447
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 26.316486984163628,
+        "p_value": 0.3373040829370274
+       }
+      }
+     },
+     "arch_lm_12": {
+      "hicp_monthly_index": {
+       "q": 12,
+       "statistic": 12.607371636187624,
+       "p_value": 0.3982121852332485
+      },
+      "industrial_production_index": {
+       "q": 12,
+       "statistic": 8.445397219653405,
+       "p_value": 0.749427910523099
+      },
+      "unemployment_rate_monthly": {
+       "q": 12,
+       "statistic": 17.147933595942327,
+       "p_value": 0.14411677224326783
+      }
+     },
+     "change_vs_production": {
+      "q_star_12_ratio": 0.9091363041981341,
+      "q_star_12_reduction": 0.09086369580186593,
+      "own_share_delta": -0.026734324667955944,
+      "lag_12_share_delta": 0.0034977334051319586,
+      "ljung_box_12_statistic_delta": {
+       "hicp_monthly_index": 0.6093380617699076,
+       "industrial_production_index": 0.7904336653456259,
+       "unemployment_rate_monthly": -8.914602374163351
+      }
+     }
+    },
+    "B_seasonal_lag_term": {
+     "lags": [
+      1,
+      2,
+      12
+     ],
+     "residual_observations": 125,
+     "q_star_12": 105.02440695751415,
+     "lag_shares": [
+      0.010676601618777945,
+      0.06835111237606699,
+      0.11726112200915292,
+      0.13399445524595935,
+      0.05146958441841336,
+      0.0984793723844953,
+      0.017613714453509854,
+      0.07065450346788608,
+      0.15427899097414388,
+      0.1279221939205168,
+      0.056278153192497946,
+      0.09302019593857956
+     ],
+     "own_share": 0.4188733791943588,
+     "cross_share": 0.5811266208056411,
+     "lag_12_share": 0.09302019593857956,
+     "lags_11_13_share": 0.1492983491310775,
+     "ljung_box": {
+      "hicp_monthly_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 22.14625253604615,
+        "p_value": 0.03591299150153857
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 44.28700470649332,
+        "p_value": 0.0070645397602861005
+       }
+      },
+      "industrial_production_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 12.036812975849795,
+        "p_value": 0.4427276868330222
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 22.348398178344105,
+        "p_value": 0.5584806960082813
+       }
+      },
+      "unemployment_rate_monthly": {
+       "m12": {
+        "m": 12,
+        "statistic": 9.647176901350997,
+        "p_value": 0.6468824666297963
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 20.31279891713203,
+        "p_value": 0.6788560088897342
+       }
+      }
+     },
+     "arch_lm_12": {
+      "hicp_monthly_index": {
+       "q": 12,
+       "statistic": 11.855707325707929,
+       "p_value": 0.457336546993239
+      },
+      "industrial_production_index": {
+       "q": 12,
+       "statistic": 7.052567252426845,
+       "p_value": 0.8541202078170508
+      },
+      "unemployment_rate_monthly": {
+       "q": 12,
+       "statistic": 14.63505519547806,
+       "p_value": 0.2620033228435803
+      }
+     },
+     "change_vs_production": {
+      "q_star_12_ratio": 0.8902311417477652,
+      "q_star_12_reduction": 0.10976885825223481,
+      "own_share_delta": -0.05133266109187584,
+      "lag_12_share_delta": -0.029405330688953443,
+      "ljung_box_12_statistic_delta": {
+       "hicp_monthly_index": 2.605445348359069,
+       "industrial_production_index": -0.6198178017464393,
+       "unemployment_rate_monthly": -13.03887371312444
+      }
+     }
+    },
+    "C_stable_subsample": {
+     "lags": [
+      1,
+      2
+     ],
+     "sample": [
+      "2015-02",
+      "2019-12"
+     ],
+     "parameters_per_equation": 18,
+     "observations_per_parameter": 3.1666666666666665,
+     "below_production_parameter_ratio_4": true,
+     "residual_observations": 57,
+     "q_star_12": 125.90508946073011,
+     "lag_shares": [
+      0.0011348928131264683,
+      0.012786391864291953,
+      0.0490541428703164,
+      0.08099575916922325,
+      0.050828949417627195,
+      0.07868987810381099,
+      0.12300325116140878,
+      0.06198128262241056,
+      0.07927310608852263,
+      0.09390955606481821,
+      0.11257198702407956,
+      0.25577080280036407
+     ],
+     "own_share": 0.41874554138801673,
+     "cross_share": 0.5812544586119834,
+     "lag_12_share": 0.25577080280036407,
+     "lags_11_13_share": 0.36834278982444363,
+     "ljung_box": {
+      "hicp_monthly_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 20.445504575018887,
+        "p_value": 0.05911404395479288
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 32.65869580094092,
+        "p_value": 0.11148221284907792
+       }
+      },
+      "industrial_production_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 14.836916662340462,
+        "p_value": 0.2504764482212337
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 35.55753041860829,
+        "p_value": 0.06055095610184673
+       }
+      },
+      "unemployment_rate_monthly": {
+       "m12": {
+        "m": 12,
+        "statistic": 15.85006995857701,
+        "p_value": 0.19820005088994505
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 31.489075549968863,
+        "p_value": 0.14017587509688367
+       }
+      }
+     },
+     "arch_lm_12": {
+      "hicp_monthly_index": {
+       "q": 12,
+       "statistic": 9.0843882279002,
+       "p_value": 0.6957061517985361
+      },
+      "industrial_production_index": {
+       "q": 12,
+       "statistic": 9.68427389096569,
+       "p_value": 0.643637107334313
+      },
+      "unemployment_rate_monthly": {
+       "q": 12,
+       "statistic": 5.654538943367264,
+       "p_value": 0.9324859457572096
+      }
+     },
+     "change_vs_production": {
+      "q_star_12_ratio": 1.0672246079696717,
+      "q_star_12_reduction": -0.06722460796967167,
+      "own_share_delta": -0.05146049889821791,
+      "lag_12_share_delta": 0.13334527617283107,
+      "ljung_box_12_statistic_delta": {
+       "hicp_monthly_index": 0.904697387331808,
+       "industrial_production_index": 2.1802858847442277,
+       "unemployment_rate_monthly": -6.835980655898428
+      }
+     }
+    }
+   }
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v2_seasonal_controls::hungary",
+   "country": "hungary",
+   "label": "diagnostic-only attribution probes; not baselines, not readiness, no IRFs",
+   "production_reference": {
+    "residual_observations": 135,
+    "q_star_12": 113.1705542475908,
+    "lag_shares": [
+     0.017841077335093467,
+     0.10967746932288358,
+     0.04931824341788839,
+     0.16260917618562962,
+     0.1452002547325525,
+     0.04610426833038953,
+     0.06882328894204076,
+     0.0650096725314377,
+     0.13838046652358832,
+     0.08858955524152017,
+     0.056154997579794676,
+     0.052291529857181336
+    ],
+    "own_share": 0.43921728021291534,
+    "cross_share": 0.5607827197870847,
+    "lag_12_share": 0.052291529857181336,
+    "lags_11_13_share": 0.10844652743697601,
+    "ljung_box": {
+     "hicp_monthly_index": {
+      "m12": {
+       "m": 12,
+       "statistic": 25.179021634677234,
+       "p_value": 0.013996960172666773
+      },
+      "m24": {
+       "m": 24,
+       "statistic": 37.298853650198886,
+       "p_value": 0.04084540315416821
+      }
+     },
+     "industrial_production_index": {
+      "m12": {
+       "m": 12,
+       "statistic": 8.026478519213011,
+       "p_value": 0.7830577682205446
+      },
+      "m24": {
+       "m": 24,
+       "statistic": 15.469893610957293,
+       "p_value": 0.9062537762355326
+      }
+     },
+     "unemployment_rate_monthly": {
+      "m12": {
+       "m": 12,
+       "statistic": 9.784718611196983,
+       "p_value": 0.6348407127551765
+      },
+      "m24": {
+       "m": 24,
+       "statistic": 20.395253326854192,
+       "p_value": 0.674091390266361
+      }
+     }
+    },
+    "arch_lm_12": {
+     "hicp_monthly_index": {
+      "q": 12,
+      "statistic": 6.7420336009086625,
+      "p_value": 0.8741796250424205
+     },
+     "industrial_production_index": {
+      "q": 12,
+      "statistic": 7.674941397734317,
+      "p_value": 0.8099889335000947
+     },
+     "unemployment_rate_monthly": {
+      "q": 12,
+      "statistic": 1.4997538683392386,
+      "p_value": 0.999869560455661
+     }
+    }
+   },
+   "probes": {
+    "A_plus_one_lag": {
+     "lags": [
+      1,
+      2,
+      3
+     ],
+     "residual_observations": 134,
+     "q_star_12": 102.41126945100538,
+     "lag_shares": [
+      0.004892999214631599,
+      0.026718128765614028,
+      0.08898766876576389,
+      0.13792713044907373,
+      0.1309793427818071,
+      0.06662249951248608,
+      0.0817360314841979,
+      0.09269922695958956,
+      0.14835549146364577,
+      0.06970333608834464,
+      0.076380578675217,
+      0.07499756583962866
+     ],
+     "own_share": 0.4238789418097642,
+     "cross_share": 0.5761210581902357,
+     "lag_12_share": 0.07499756583962866,
+     "lags_11_13_share": 0.15137814451484566,
+     "ljung_box": {
+      "hicp_monthly_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 24.354420745091275,
+        "p_value": 0.01819640985785759
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 34.51385645177816,
+        "p_value": 0.0759419945874681
+       }
+      },
+      "industrial_production_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 7.097996778608026,
+        "p_value": 0.8510700967097726
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 14.43895657550193,
+        "p_value": 0.9361070672394481
+       }
+      },
+      "unemployment_rate_monthly": {
+       "m12": {
+        "m": 12,
+        "statistic": 3.783002654155407,
+        "p_value": 0.9870412959895367
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 11.60941629163527,
+        "p_value": 0.9839607242405095
+       }
+      }
+     },
+     "arch_lm_12": {
+      "hicp_monthly_index": {
+       "q": 12,
+       "statistic": 8.371632237568376,
+       "p_value": 0.755456193247075
+      },
+      "industrial_production_index": {
+       "q": 12,
+       "statistic": 7.370250856537395,
+       "p_value": 0.8322078371773781
+      },
+      "unemployment_rate_monthly": {
+       "q": 12,
+       "statistic": 1.9373900505009962,
+       "p_value": 0.9994959476431754
+      }
+     },
+     "change_vs_production": {
+      "q_star_12_ratio": 0.9049285843997317,
+      "q_star_12_reduction": 0.09507141560026833,
+      "own_share_delta": -0.01533833840315113,
+      "lag_12_share_delta": 0.022706035982447324,
+      "ljung_box_12_statistic_delta": {
+       "hicp_monthly_index": -0.8246008895859589,
+       "industrial_production_index": -0.928481740604985,
+       "unemployment_rate_monthly": -6.001715957041576
+      }
+     }
+    },
+    "B_seasonal_lag_term": {
+     "lags": [
+      1,
+      2,
+      12
+     ],
+     "residual_observations": 125,
+     "q_star_12": 111.62197922154364,
+     "lag_shares": [
+      0.023135901022220812,
+      0.09832812889511729,
+      0.05899689730912444,
+      0.16171850313015,
+      0.11366070642177374,
+      0.06066290794593134,
+      0.054026962422441836,
+      0.08855330353948032,
+      0.14922359371809565,
+      0.09323754765237277,
+      0.0707003700287168,
+      0.027755177914575036
+     ],
+     "own_share": 0.35633763146482894,
+     "cross_share": 0.6436623685351712,
+     "lag_12_share": 0.027755177914575036,
+     "lags_11_13_share": 0.09845554794329184,
+     "ljung_box": {
+      "hicp_monthly_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 21.21548361356395,
+        "p_value": 0.04731268149614587
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 34.90490809007523,
+        "p_value": 0.06982335239999037
+       }
+      },
+      "industrial_production_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 4.92794787370215,
+        "p_value": 0.9603422947551453
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 14.416388528746348,
+        "p_value": 0.9366801379527747
+       }
+      },
+      "unemployment_rate_monthly": {
+       "m12": {
+        "m": 12,
+        "statistic": 8.493705123232521,
+        "p_value": 0.7454576712183785
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 17.861997808417648,
+        "p_value": 0.8096510933764451
+       }
+      }
+     },
+     "arch_lm_12": {
+      "hicp_monthly_index": {
+       "q": 12,
+       "statistic": 7.438039412872328,
+       "p_value": 0.8273619302995256
+      },
+      "industrial_production_index": {
+       "q": 12,
+       "statistic": 4.788177240446201,
+       "p_value": 0.964682192121754
+      },
+      "unemployment_rate_monthly": {
+       "q": 12,
+       "statistic": 1.275172211564004,
+       "p_value": 0.9999458054698328
+      }
+     },
+     "change_vs_production": {
+      "q_star_12_ratio": 0.9863164492182371,
+      "q_star_12_reduction": 0.013683550781762865,
+      "own_share_delta": -0.0828796487480864,
+      "lag_12_share_delta": -0.0245363519426063,
+      "ljung_box_12_statistic_delta": {
+       "hicp_monthly_index": -3.9635380211132833,
+       "industrial_production_index": -3.098530645510861,
+       "unemployment_rate_monthly": -1.2910134879644612
+      }
+     }
+    },
+    "C_stable_subsample": {
+     "lags": [
+      1,
+      2
+     ],
+     "sample": [
+      "2015-02",
+      "2019-12"
+     ],
+     "parameters_per_equation": 18,
+     "observations_per_parameter": 3.1666666666666665,
+     "below_production_parameter_ratio_4": true,
+     "residual_observations": 57,
+     "q_star_12": 116.97652506797043,
+     "lag_shares": [
+      0.004914461406678857,
+      0.0896608972734441,
+      0.10795777900890764,
+      0.13982045903052914,
+      0.07966031617892011,
+      0.12828635372569067,
+      0.06554678529778024,
+      0.04892801712295289,
+      0.08268018827904325,
+      0.06529689777228201,
+      0.08041562378927682,
+      0.10683222111449428
+     ],
+     "own_share": 0.32088696045424253,
+     "cross_share": 0.6791130395457575,
+     "lag_12_share": 0.10683222111449428,
+     "lags_11_13_share": 0.1872478449037711,
+     "ljung_box": {
+      "hicp_monthly_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 16.100516550590395,
+        "p_value": 0.18667548155535724
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 36.777005397674955,
+        "p_value": 0.046052811152448074
+       }
+      },
+      "industrial_production_index": {
+       "m12": {
+        "m": 12,
+        "statistic": 9.521199059639065,
+        "p_value": 0.6578855419506637
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 15.017030074942266,
+        "p_value": 0.9202593943238123
+       }
+      },
+      "unemployment_rate_monthly": {
+       "m12": {
+        "m": 12,
+        "statistic": 14.126533103247171,
+        "p_value": 0.29270121452547615
+       },
+       "m24": {
+        "m": 24,
+        "statistic": 26.39558516682256,
+        "p_value": 0.333402953770311
+       }
+      }
+     },
+     "arch_lm_12": {
+      "hicp_monthly_index": {
+       "q": 12,
+       "statistic": 8.231893467998193,
+       "p_value": 0.7667562460880168
+      },
+      "industrial_production_index": {
+       "q": 12,
+       "statistic": 18.57298153052995,
+       "p_value": 0.0993680363229342
+      },
+      "unemployment_rate_monthly": {
+       "q": 12,
+       "statistic": 10.762709964803182,
+       "p_value": 0.5493565552283235
+      }
+     },
+     "change_vs_production": {
+      "q_star_12_ratio": 1.0336303983459607,
+      "q_star_12_reduction": -0.03363039834596071,
+      "own_share_delta": -0.11833031975867281,
+      "lag_12_share_delta": 0.054540691257312944,
+      "ljung_box_12_statistic_delta": {
+       "hicp_monthly_index": -9.078505084086839,
+       "industrial_production_index": 1.4947205404260533,
+       "unemployment_rate_monthly": 4.341814492050188
+      }
+     }
+    }
+   }
+  }
+ ]
+}

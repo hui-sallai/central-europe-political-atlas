@@ -1,0 +1,3166 @@
+{
+ "schema_version": "var-residual-cross-lag-results-v1.90",
+ "generated_at": "2026-09-29",
+ "preregistration_sha256": "865a568f8e517b619eeee978f31edc6c0a637d493a169facc3b357714d25725f",
+ "production_agreement_max_difference": 2.6547652964836743e-12,
+ "production_change_authorized": false,
+ "readiness_changed": false,
+ "formal_irf_publication_available": false,
+ "units": [
+  {
+   "unit_id": "baseline_monthly_macro_v1::poland",
+   "country": "poland",
+   "definition": "corr(e_i,t, e_j,t-k)",
+   "pairs": [
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 1,
+     "corr": 0.00430685400160066,
+     "fisher_z_p_value": 0.9606846010134275,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 2,
+     "corr": 0.0397787486762847,
+     "fisher_z_p_value": 0.6499821645409265,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 3,
+     "corr": 0.042878617469327265,
+     "fisher_z_p_value": 0.6260413025012801,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 4,
+     "corr": 0.11815349627732338,
+     "fisher_z_p_value": 0.17926312843344894,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 5,
+     "corr": 0.03654961409611751,
+     "fisher_z_p_value": 0.6802831385496256,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 6,
+     "corr": 0.043506989087082386,
+     "fisher_z_p_value": 0.6250730613792329,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 7,
+     "corr": 0.05154997840557463,
+     "fisher_z_p_value": 0.5640356396477467,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 8,
+     "corr": 0.151016395216597,
+     "fisher_z_p_value": 0.0901496009041729,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 9,
+     "corr": -0.10412673559646542,
+     "fisher_z_p_value": 0.24644705640198183,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 10,
+     "corr": 0.05591074799941951,
+     "fisher_z_p_value": 0.5364441031692275,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 11,
+     "corr": -0.022492572593300928,
+     "fisher_z_p_value": 0.8045522168931016,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 12,
+     "corr": -0.011650743110626425,
+     "fisher_z_p_value": 0.8984391996500048,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 24,
+     "corr": -0.22082975702961613,
+     "fisher_z_p_value": 0.019628950482985005,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 1,
+     "corr": 0.008117609287470216,
+     "fisher_z_p_value": 0.9259732135096972,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 2,
+     "corr": 0.0956293838897465,
+     "fisher_z_p_value": 0.27409323772026906,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 3,
+     "corr": -0.08535324811437847,
+     "fisher_z_p_value": 0.3311545151653781,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 4,
+     "corr": -0.15658866225214332,
+     "fisher_z_p_value": 0.07405147679307424,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 5,
+     "corr": 0.040047662883604514,
+     "fisher_z_p_value": 0.6515890557372304,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 6,
+     "corr": 0.08431461591278674,
+     "fisher_z_p_value": 0.34278260629841406,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 7,
+     "corr": 0.054632705524254165,
+     "fisher_z_p_value": 0.5409208962966272,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 8,
+     "corr": 0.08810487895357401,
+     "fisher_z_p_value": 0.32529015428823016,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 9,
+     "corr": -0.07575366536861218,
+     "fisher_z_p_value": 0.39992149681773637,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 10,
+     "corr": 0.04109454108634303,
+     "fisher_z_p_value": 0.649713805181958,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 11,
+     "corr": -0.1548268608400482,
+     "fisher_z_p_value": 0.08599687548460548,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 12,
+     "corr": 0.04510597438820612,
+     "fisher_z_p_value": 0.6209907394615048,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 24,
+     "corr": 0.145058246722087,
+     "fisher_z_p_value": 0.12896435789417757,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 1,
+     "corr": 0.028928899363796824,
+     "fisher_z_p_value": 0.7404943272406745,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 2,
+     "corr": 0.032357344574221576,
+     "fisher_z_p_value": 0.7120835034846502,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 3,
+     "corr": -0.12660036863542007,
+     "fisher_z_p_value": 0.14827242426767456,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 4,
+     "corr": -0.044884334171783155,
+     "fisher_z_p_value": 0.6113483654147877,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 5,
+     "corr": 0.008159353145139913,
+     "fisher_z_p_value": 0.9267351588326385,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 6,
+     "corr": -0.005712236172949483,
+     "fisher_z_p_value": 0.9488743668353411,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 7,
+     "corr": 0.027596057648105396,
+     "fisher_z_p_value": 0.7576169499562739,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 8,
+     "corr": 0.12314212869006425,
+     "fisher_z_p_value": 0.16812682967145776,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 9,
+     "corr": -0.002507972801122605,
+     "fisher_z_p_value": 0.9778098441101714,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 10,
+     "corr": 0.04918451574116689,
+     "fisher_z_p_value": 0.586648317783225,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 11,
+     "corr": -0.022250000484856338,
+     "fisher_z_p_value": 0.8066187227212904,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 12,
+     "corr": -0.1317007989443261,
+     "fisher_z_p_value": 0.14674110745421032,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 24,
+     "corr": -0.13343459129919136,
+     "fisher_z_p_value": 0.16301224250719237,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 1,
+     "corr": -0.08970249098339761,
+     "fisher_z_p_value": 0.30326399911243074,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 2,
+     "corr": 0.12583939641841227,
+     "fisher_z_p_value": 0.14917935211722894,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 3,
+     "corr": -0.06428242639974101,
+     "fisher_z_p_value": 0.4647081956104766,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 4,
+     "corr": 0.13861630431091787,
+     "fisher_z_p_value": 0.11446769911371597,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 5,
+     "corr": -0.10915954847051204,
+     "fisher_z_p_value": 0.2167981240189809,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 6,
+     "corr": 0.10474694894623862,
+     "fisher_z_p_value": 0.23795634317371928,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 7,
+     "corr": -0.07234575962818203,
+     "fisher_z_p_value": 0.41778743860970824,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 8,
+     "corr": 0.07468305834141843,
+     "fisher_z_p_value": 0.4047394414326949,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 9,
+     "corr": -0.04610372642184564,
+     "fisher_z_p_value": 0.6088765259942794,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 10,
+     "corr": 0.06676372007835438,
+     "fisher_z_p_value": 0.4601936574962866,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 11,
+     "corr": -0.007824606965416883,
+     "fisher_z_p_value": 0.9314088373774231,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 12,
+     "corr": 0.00775079356416521,
+     "fisher_z_p_value": 0.932335016822614,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 24,
+     "corr": 0.02276528872270823,
+     "fisher_z_p_value": 0.8129479537386641,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 1,
+     "corr": -0.010044790555247608,
+     "fisher_z_p_value": 0.9084675140312292,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 2,
+     "corr": -0.025324859726714544,
+     "fisher_z_p_value": 0.7727271004860521,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 3,
+     "corr": -0.03861203041521749,
+     "fisher_z_p_value": 0.6608307356028449,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 4,
+     "corr": -0.002400666404392344,
+     "fisher_z_p_value": 0.9783317268249633,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 5,
+     "corr": -0.009609374055604566,
+     "fisher_z_p_value": 0.9137613085322285,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 6,
+     "corr": 0.06287226406939446,
+     "fisher_z_p_value": 0.47977062188291186,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 7,
+     "corr": 0.0681391553116436,
+     "fisher_z_p_value": 0.4454626568823653,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 8,
+     "corr": -0.054262550181131075,
+     "fisher_z_p_value": 0.545287781851346,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 9,
+     "corr": -0.007695621076916461,
+     "fisher_z_p_value": 0.9319829423998426,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 10,
+     "corr": -0.12149073532623776,
+     "fisher_z_p_value": 0.17747502038674712,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 11,
+     "corr": -0.00933381550694289,
+     "fisher_z_p_value": 0.9182209537033154,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 12,
+     "corr": 0.08601081927581529,
+     "fisher_z_p_value": 0.34489626853385835,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 24,
+     "corr": -0.0033895467195372555,
+     "fisher_z_p_value": 0.971900058203165,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 1,
+     "corr": -0.01791155969968015,
+     "fisher_z_p_value": 0.837549390208394,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 2,
+     "corr": 0.02161276967842351,
+     "fisher_z_p_value": 0.8053247187416752,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 3,
+     "corr": -0.06508656393800545,
+     "fisher_z_p_value": 0.45912538414869974,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 4,
+     "corr": 0.04601405681247168,
+     "fisher_z_p_value": 0.6023963734397162,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 5,
+     "corr": 0.08861586006808837,
+     "fisher_z_p_value": 0.3166931663418483,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 6,
+     "corr": 0.15679055383921287,
+     "fisher_z_p_value": 0.07596262320589538,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 7,
+     "corr": 0.04580067462647134,
+     "fisher_z_p_value": 0.6083531673549654,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 8,
+     "corr": -0.004171048642807054,
+     "fisher_z_p_value": 0.9629538955605147,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 9,
+     "corr": -0.2483270774623564,
+     "fisher_z_p_value": 0.004909945119660474,
+     "bh_q_value": 0.9574392983337924
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 10,
+     "corr": -0.21085166585517454,
+     "fisher_z_p_value": 0.01805943529055104,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 11,
+     "corr": -0.12596569075095054,
+     "fisher_z_p_value": 0.16361317029199074,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 12,
+     "corr": 0.02942453312500669,
+     "fisher_z_p_value": 0.7471325018689494,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 24,
+     "corr": 0.015152594625098045,
+     "fisher_z_p_value": 0.8748646492162879,
+     "bh_q_value": 0.9991737023230072
+    }
+   ]
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v1::romania",
+   "country": "romania",
+   "definition": "corr(e_i,t, e_j,t-k)",
+   "pairs": [
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 1,
+     "corr": 0.003657120780257205,
+     "fisher_z_p_value": 0.966484901965181,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 2,
+     "corr": 0.016638473333765395,
+     "fisher_z_p_value": 0.8489536933127231,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 3,
+     "corr": 0.0208737583524376,
+     "fisher_z_p_value": 0.8118562452462508,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 4,
+     "corr": 0.04909100455574516,
+     "fisher_z_p_value": 0.5768340198806969,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 5,
+     "corr": 0.04522091264161993,
+     "fisher_z_p_value": 0.6086752307128614,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 6,
+     "corr": 0.00401164399630563,
+     "fisher_z_p_value": 0.963940581635042,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 7,
+     "corr": 0.08016996857956371,
+     "fisher_z_p_value": 0.36714128362605425,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 8,
+     "corr": -0.04909317658777846,
+     "fisher_z_p_value": 0.5827858664035128,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 9,
+     "corr": -0.06586227418477535,
+     "fisher_z_p_value": 0.4626596032575654,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 10,
+     "corr": 0.023456662684127643,
+     "fisher_z_p_value": 0.7947135908816009,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 11,
+     "corr": 0.015889573817645133,
+     "fisher_z_p_value": 0.8606703876006643,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 12,
+     "corr": -0.035436169779453554,
+     "fisher_z_p_value": 0.6965652750730027,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 24,
+     "corr": -0.23060826844508445,
+     "fisher_z_p_value": 0.014217681806683872,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 1,
+     "corr": -0.03391991258486675,
+     "fisher_z_p_value": 0.6966403023278108,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 2,
+     "corr": 0.004051824179988267,
+     "fisher_z_p_value": 0.9630109627025558,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 3,
+     "corr": 0.20068811736007391,
+     "fisher_z_p_value": 0.020358162918489443,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 4,
+     "corr": 0.01637578914397939,
+     "fisher_z_p_value": 0.8524370450541686,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 5,
+     "corr": 0.017863045725581356,
+     "fisher_z_p_value": 0.839823857153302,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 6,
+     "corr": 0.04632868338454122,
+     "fisher_z_p_value": 0.6013419020812684,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 7,
+     "corr": 0.053138498254400236,
+     "fisher_z_p_value": 0.5504803133437819,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 8,
+     "corr": 0.040244842565777504,
+     "fisher_z_p_value": 0.6525704356121806,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 9,
+     "corr": -0.03152931009167639,
+     "fisher_z_p_value": 0.7254293466329563,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 10,
+     "corr": 0.05080758287847406,
+     "fisher_z_p_value": 0.5727752530369108,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 11,
+     "corr": -0.021197885598244533,
+     "fisher_z_p_value": 0.8148503811723422,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 12,
+     "corr": -0.04697599718338808,
+     "fisher_z_p_value": 0.6050747841320747,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 24,
+     "corr": 0.124349786895558,
+     "fisher_z_p_value": 0.1918914100952146,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 1,
+     "corr": -0.00647087289293867,
+     "fisher_z_p_value": 0.9407353086246744,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 2,
+     "corr": 0.05618865799065342,
+     "fisher_z_p_value": 0.5197137786267418,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 3,
+     "corr": -0.04633815897679003,
+     "fisher_z_p_value": 0.5970032107469134,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 4,
+     "corr": -0.03604528380155849,
+     "fisher_z_p_value": 0.6821190828451087,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 5,
+     "corr": -0.014540312988206142,
+     "fisher_z_p_value": 0.869324592169689,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 6,
+     "corr": -0.00954460262182335,
+     "fisher_z_p_value": 0.9143403847277429,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 7,
+     "corr": -0.002635426780468593,
+     "fisher_z_p_value": 0.9763998939947373,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 8,
+     "corr": 0.03184085589601274,
+     "fisher_z_p_value": 0.7217567128351992,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 9,
+     "corr": 0.03626198774789792,
+     "fisher_z_p_value": 0.6862321810713412,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 10,
+     "corr": 0.05939781934200359,
+     "fisher_z_p_value": 0.5095554595761647,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 11,
+     "corr": -0.004768933624419275,
+     "fisher_z_p_value": 0.957990864150905,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 12,
+     "corr": -0.10008779584588415,
+     "fisher_z_p_value": 0.2693050593076297,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 24,
+     "corr": 0.007826186263124936,
+     "fisher_z_p_value": 0.9348777621868714,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 1,
+     "corr": 0.0744845087695676,
+     "fisher_z_p_value": 0.39125164077303665,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 2,
+     "corr": -0.05610028979605221,
+     "fisher_z_p_value": 0.5203720204735826,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 3,
+     "corr": 0.16917412836072285,
+     "fisher_z_p_value": 0.051462138222786086,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 4,
+     "corr": 0.1345228846881652,
+     "fisher_z_p_value": 0.12424334533666577,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 5,
+     "corr": -0.05909036781914711,
+     "fisher_z_p_value": 0.5032971572970755,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 6,
+     "corr": 0.05224733044286714,
+     "fisher_z_p_value": 0.5556371380186409,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 7,
+     "corr": -0.10080323255380813,
+     "fisher_z_p_value": 0.2562205072343896,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 8,
+     "corr": 0.08507775703123989,
+     "fisher_z_p_value": 0.34033514783068153,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 9,
+     "corr": -0.1195108957842457,
+     "fisher_z_p_value": 0.18115480818488194,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 10,
+     "corr": 0.07692694355246221,
+     "fisher_z_p_value": 0.3926341886633692,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 11,
+     "corr": -0.10243340658423944,
+     "fisher_z_p_value": 0.25620934451745636,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 12,
+     "corr": 0.01394775748045493,
+     "fisher_z_p_value": 0.8780550228305065,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 24,
+     "corr": 0.01515126601998701,
+     "fisher_z_p_value": 0.8743023814583746,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 1,
+     "corr": 0.015024727114873454,
+     "fisher_z_p_value": 0.8629391537843227,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 2,
+     "corr": -0.027971330858614904,
+     "fisher_z_p_value": 0.7487939468525522,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 3,
+     "corr": 0.017135828467030233,
+     "fisher_z_p_value": 0.8450816703790298,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 4,
+     "corr": 0.05061535303396784,
+     "fisher_z_p_value": 0.5650400148543222,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 5,
+     "corr": -0.07167708372104029,
+     "fisher_z_p_value": 0.41660420530022524,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 6,
+     "corr": -0.08195238215989979,
+     "fisher_z_p_value": 0.35463704460608814,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 7,
+     "corr": 0.1659699420307911,
+     "fisher_z_p_value": 0.06005323764729152,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 8,
+     "corr": -0.05040634469822873,
+     "fisher_z_p_value": 0.5727282079224114,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 9,
+     "corr": 0.03367205403944069,
+     "fisher_z_p_value": 0.7075876358509681,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 10,
+     "corr": -0.010823345174880324,
+     "fisher_z_p_value": 0.9044503586680758,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 11,
+     "corr": -0.13548355904098283,
+     "fisher_z_p_value": 0.1321382271803636,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 12,
+     "corr": 0.15916185213805864,
+     "fisher_z_p_value": 0.07743056531697483,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 24,
+     "corr": 0.14007944170408732,
+     "fisher_z_p_value": 0.14097978320249413,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 1,
+     "corr": -0.006978566361327355,
+     "fisher_z_p_value": 0.9360949516904583,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 2,
+     "corr": -0.15706552063700718,
+     "fisher_z_p_value": 0.069877702809518,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 3,
+     "corr": -0.08795057496822087,
+     "fisher_z_p_value": 0.31470979608721483,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 4,
+     "corr": 0.024773799420472743,
+     "fisher_z_p_value": 0.7783776522828012,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 5,
+     "corr": 0.07955577588992317,
+     "fisher_z_p_value": 0.36706909239221486,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 6,
+     "corr": 0.025042452497158075,
+     "fisher_z_p_value": 0.7777340921233667,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 7,
+     "corr": 0.019583493490572153,
+     "fisher_z_p_value": 0.8259862039454948,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 8,
+     "corr": -0.10443134489034947,
+     "fisher_z_p_value": 0.2412571151019306,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 9,
+     "corr": -0.05066272244519773,
+     "fisher_z_p_value": 0.5723189101023243,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 10,
+     "corr": -0.05938034142872148,
+     "fisher_z_p_value": 0.5096803387063132,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 11,
+     "corr": -0.03530007072290321,
+     "fisher_z_p_value": 0.6964891499749172,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 12,
+     "corr": 0.04098708606396611,
+     "fisher_z_p_value": 0.6519097856375436,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 24,
+     "corr": 0.08309702168109992,
+     "fisher_z_p_value": 0.3845389623916795,
+     "bh_q_value": 0.9991737023230072
+    }
+   ]
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v2_seasonal_controls::czechia",
+   "country": "czechia",
+   "definition": "corr(e_i,t, e_j,t-k)",
+   "pairs": [
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 1,
+     "corr": -0.03464758709728109,
+     "fisher_z_p_value": 0.691575013221281,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 2,
+     "corr": -0.03340223060735086,
+     "fisher_z_p_value": 0.703213817420485,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 3,
+     "corr": -0.06227344721128755,
+     "fisher_z_p_value": 0.4788168328131024,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 4,
+     "corr": -0.05636625501594333,
+     "fisher_z_p_value": 0.5232211156976222,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 5,
+     "corr": 0.04884990343680943,
+     "fisher_z_p_value": 0.5816686509847768,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 6,
+     "corr": 0.09641456839304212,
+     "fisher_z_p_value": 0.27764576392459495,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 7,
+     "corr": -0.0825331046867563,
+     "fisher_z_p_value": 0.3550429326206155,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 8,
+     "corr": 0.012746765503051703,
+     "fisher_z_p_value": 0.887119767043423,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 9,
+     "corr": -0.017745622928641163,
+     "fisher_z_p_value": 0.8439612454712078,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 10,
+     "corr": 0.06693818168026831,
+     "fisher_z_p_value": 0.45901871345347456,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 11,
+     "corr": -0.1109776042505609,
+     "fisher_z_p_value": 0.22027296031390164,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 12,
+     "corr": 0.01639014462014637,
+     "fisher_z_p_value": 0.8574971312937327,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 24,
+     "corr": -0.05093345149295646,
+     "fisher_z_p_value": 0.5962683645350553,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 1,
+     "corr": 0.04315755315965671,
+     "fisher_z_p_value": 0.6211170653481428,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 2,
+     "corr": 0.1074119887821645,
+     "fisher_z_p_value": 0.2189114367438464,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 3,
+     "corr": -0.06809015750571133,
+     "fisher_z_p_value": 0.43860323313900906,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 4,
+     "corr": -0.1106857687154309,
+     "fisher_z_p_value": 0.20860216014413435,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 5,
+     "corr": 0.029827992683518916,
+     "fisher_z_p_value": 0.7366867624972488,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 6,
+     "corr": -0.1361957395815679,
+     "fisher_z_p_value": 0.12396240669912306,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 7,
+     "corr": -0.011027474319866306,
+     "fisher_z_p_value": 0.9018727802885894,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 8,
+     "corr": -0.07712789089014747,
+     "fisher_z_p_value": 0.38947547366125457,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 9,
+     "corr": 0.12153025954122151,
+     "fisher_z_p_value": 0.17556706897134466,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 10,
+     "corr": -0.06996007739589834,
+     "fisher_z_p_value": 0.4389315480178788,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 11,
+     "corr": 0.10892620749480927,
+     "fisher_z_p_value": 0.22899137093514643,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 12,
+     "corr": 0.09640901050830106,
+     "fisher_z_p_value": 0.28941845397687893,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 24,
+     "corr": 0.07044129323016865,
+     "fisher_z_p_value": 0.4633987622672291,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 1,
+     "corr": 0.023296990083058758,
+     "fisher_z_p_value": 0.7897043923596778,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 2,
+     "corr": 0.03470773349440357,
+     "fisher_z_p_value": 0.6921876061957857,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 3,
+     "corr": -0.06089145499086346,
+     "fisher_z_p_value": 0.488654368859064,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 4,
+     "corr": -0.009098688447871255,
+     "fisher_z_p_value": 0.9180084086117393,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 5,
+     "corr": -0.010112192750973852,
+     "fisher_z_p_value": 0.909267512964409,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 6,
+     "corr": -0.05790465003763206,
+     "fisher_z_p_value": 0.5152362910683275,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 7,
+     "corr": -0.019192946080942002,
+     "fisher_z_p_value": 0.830071384932952,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 8,
+     "corr": -0.05519268126945952,
+     "fisher_z_p_value": 0.5384062046073483,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 9,
+     "corr": 0.0983552634992207,
+     "fisher_z_p_value": 0.27380123322812244,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 10,
+     "corr": -0.05002701379877073,
+     "fisher_z_p_value": 0.5802441747720409,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 11,
+     "corr": 0.020903719073815073,
+     "fisher_z_p_value": 0.8181116541430113,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 12,
+     "corr": -0.07530663592715285,
+     "fisher_z_p_value": 0.40851618939308454,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 24,
+     "corr": -0.0342216128879684,
+     "fisher_z_p_value": 0.7220050555489218,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 1,
+     "corr": 0.006955784077753118,
+     "fisher_z_p_value": 0.936544362269367,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 2,
+     "corr": 0.07894420082081359,
+     "fisher_z_p_value": 0.36706788022627346,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 3,
+     "corr": 0.14212284082405258,
+     "fisher_z_p_value": 0.10411841405688461,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 4,
+     "corr": 0.007789643555303318,
+     "fisher_z_p_value": 0.9297721293329645,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 5,
+     "corr": -0.07477459921296635,
+     "fisher_z_p_value": 0.3985337729766347,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 6,
+     "corr": -0.03615371038242635,
+     "fisher_z_p_value": 0.6847416101215837,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 7,
+     "corr": -0.07628697639918577,
+     "fisher_z_p_value": 0.3927866409717994,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 8,
+     "corr": -0.09966464912681632,
+     "fisher_z_p_value": 0.26548720461452835,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 9,
+     "corr": 0.06752796944773352,
+     "fisher_z_p_value": 0.45321682115264894,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 10,
+     "corr": 0.1018364922728867,
+     "fisher_z_p_value": 0.2590102391707607,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 11,
+     "corr": -0.03454628170007011,
+     "fisher_z_p_value": 0.7038263671375657,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 12,
+     "corr": -0.11171781918251979,
+     "fisher_z_p_value": 0.2190953311803161,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 24,
+     "corr": 0.03750281078869299,
+     "fisher_z_p_value": 0.6965931050621103,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 1,
+     "corr": -0.029801938955313693,
+     "fisher_z_p_value": 0.732953159706466,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 2,
+     "corr": 0.06866950875135346,
+     "fisher_z_p_value": 0.4329303751259924,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 3,
+     "corr": 0.04333409845322921,
+     "fisher_z_p_value": 0.6223735733811631,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 4,
+     "corr": -0.09502566410070208,
+     "fisher_z_p_value": 0.2808792444551014,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 5,
+     "corr": 0.028804227562730933,
+     "fisher_z_p_value": 0.7454104223919655,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 6,
+     "corr": -0.04250194868457947,
+     "fisher_z_p_value": 0.6330981227591104,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 7,
+     "corr": 0.0003183081547666351,
+     "fisher_z_p_value": 0.9971604996213826,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 8,
+     "corr": 0.016185560592123692,
+     "fisher_z_p_value": 0.8569559016177148,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 9,
+     "corr": 9.337787596760119e-05,
+     "fisher_z_p_value": 0.9991737023230072,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 10,
+     "corr": 0.15159360321724868,
+     "fisher_z_p_value": 0.0915241230395075,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 11,
+     "corr": -0.05945668788494875,
+     "fisher_z_p_value": 0.5125991806542972,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 12,
+     "corr": -0.029366247026726622,
+     "fisher_z_p_value": 0.7476166095465742,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 24,
+     "corr": 0.03939265690606462,
+     "fisher_z_p_value": 0.682104934071206,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 1,
+     "corr": -0.007494513733546424,
+     "fisher_z_p_value": 0.9316411176055239,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 2,
+     "corr": -0.03464427153606748,
+     "fisher_z_p_value": 0.6927221423145009,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 3,
+     "corr": -0.08458428746148408,
+     "fisher_z_p_value": 0.3355506294987901,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 4,
+     "corr": -0.06102598761227953,
+     "fisher_z_p_value": 0.4893837870309866,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 5,
+     "corr": 0.13459618866691364,
+     "fisher_z_p_value": 0.12698931168778077,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 6,
+     "corr": -0.11328254287709896,
+     "fisher_z_p_value": 0.20157574004456136,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 7,
+     "corr": -0.06588133185190437,
+     "fisher_z_p_value": 0.4607307302361098,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 8,
+     "corr": 0.04149566996850606,
+     "fisher_z_p_value": 0.643836290038641,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 9,
+     "corr": -0.14428837246337053,
+     "fisher_z_p_value": 0.10707482680473832,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 10,
+     "corr": -0.05420955956425304,
+     "fisher_z_p_value": 0.5489383671999137,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 11,
+     "corr": -0.16946243476413267,
+     "fisher_z_p_value": 0.059802802372728336,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 12,
+     "corr": -0.06815641726772366,
+     "fisher_z_p_value": 0.45459560578361036,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 24,
+     "corr": 0.08449520087696691,
+     "fisher_z_p_value": 0.37875173366149395,
+     "bh_q_value": 0.9991737023230072
+    }
+   ]
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v2_seasonal_controls::germany",
+   "country": "germany",
+   "definition": "corr(e_i,t, e_j,t-k)",
+   "pairs": [
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 1,
+     "corr": 0.012445997130072195,
+     "fisher_z_p_value": 0.8867180118210005,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 2,
+     "corr": 0.06876991965486498,
+     "fisher_z_p_value": 0.4322558193237652,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 3,
+     "corr": 0.058813970706211485,
+     "fisher_z_p_value": 0.5036421291683257,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 4,
+     "corr": 0.14157222958516064,
+     "fisher_z_p_value": 0.10684484501846175,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 5,
+     "corr": -0.02155949952456603,
+     "fisher_z_p_value": 0.8080047195658833,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 6,
+     "corr": 0.01605652466984751,
+     "fisher_z_p_value": 0.8569566729808965,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 7,
+     "corr": 0.007678898453313534,
+     "fisher_z_p_value": 0.9315821753006167,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 8,
+     "corr": 0.004624630871249788,
+     "fisher_z_p_value": 0.9589286341135828,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 9,
+     "corr": -0.2708150865005811,
+     "fisher_z_p_value": 0.002067774575641526,
+     "bh_q_value": 0.8064320845001951
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 10,
+     "corr": -0.10389947943921313,
+     "fisher_z_p_value": 0.24941817697541968,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 11,
+     "corr": 0.10736587703015192,
+     "fisher_z_p_value": 0.2357825323464301,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 12,
+     "corr": 0.07085709528462059,
+     "fisher_z_p_value": 0.4368617426282887,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 24,
+     "corr": -0.0715952224379349,
+     "fisher_z_p_value": 0.45608156559939894,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 1,
+     "corr": 0.04515611261503363,
+     "fisher_z_p_value": 0.6050255904813033,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 2,
+     "corr": -0.10449026667233353,
+     "fisher_z_p_value": 0.23179926372890103,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 3,
+     "corr": 0.005993458724516341,
+     "fisher_z_p_value": 0.9457271885117942,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 4,
+     "corr": 0.024139503208169096,
+     "fisher_z_p_value": 0.784729942692494,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 5,
+     "corr": -0.038029924465526325,
+     "fisher_z_p_value": 0.6680816790600226,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 6,
+     "corr": 0.04535473476516303,
+     "fisher_z_p_value": 0.6104332263708635,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 7,
+     "corr": -0.07837441506178913,
+     "fisher_z_p_value": 0.3799147500593064,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 8,
+     "corr": 0.04735554280984092,
+     "fisher_z_p_value": 0.5976911037461755,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 9,
+     "corr": -0.007232343604455778,
+     "fisher_z_p_value": 0.9360686706842937,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 10,
+     "corr": 0.10026589411369045,
+     "fisher_z_p_value": 0.26647935340703566,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 11,
+     "corr": -0.03000673809813734,
+     "fisher_z_p_value": 0.7412690659690542,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 12,
+     "corr": 0.203533054215654,
+     "fisher_z_p_value": 0.023748792748384536,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 24,
+     "corr": 0.07619101010255827,
+     "fisher_z_p_value": 0.42758108929315775,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 1,
+     "corr": -0.05224181247607739,
+     "fisher_z_p_value": 0.5495198808408251,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 2,
+     "corr": 0.01134879873737152,
+     "fisher_z_p_value": 0.8970397472934493,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 3,
+     "corr": 0.08194078061147396,
+     "fisher_z_p_value": 0.3509440408247866,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 4,
+     "corr": -0.09035158544074526,
+     "fisher_z_p_value": 0.30535998800441577,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 5,
+     "corr": 0.025932264981064893,
+     "fisher_z_p_value": 0.7700516624728937,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 6,
+     "corr": 0.027153417777986036,
+     "fisher_z_p_value": 0.7604641740475082,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 7,
+     "corr": -0.013876807844564373,
+     "fisher_z_p_value": 0.8766972407583038,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 8,
+     "corr": 0.028903687311292402,
+     "fisher_z_p_value": 0.7474924565675789,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 9,
+     "corr": -0.002852861993054374,
+     "fisher_z_p_value": 0.9747592588620414,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 10,
+     "corr": 0.014731703314334727,
+     "fisher_z_p_value": 0.8707320062072589,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 11,
+     "corr": 0.032538627130611536,
+     "fisher_z_p_value": 0.7203049247144524,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 12,
+     "corr": -0.06050771484616004,
+     "fisher_z_p_value": 0.5069210692446935,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 24,
+     "corr": 0.11242198171787451,
+     "fisher_z_p_value": 0.24068225649850283,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 1,
+     "corr": 0.0006182333301658858,
+     "fisher_z_p_value": 0.9943542121404884,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 2,
+     "corr": -0.0738041818235671,
+     "fisher_z_p_value": 0.3992116371258142,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 3,
+     "corr": -0.01893155993511377,
+     "fisher_z_p_value": 0.8297307676606844,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 4,
+     "corr": -0.027291799392863976,
+     "fisher_z_p_value": 0.7574370331429643,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 5,
+     "corr": 0.01624973744263252,
+     "fisher_z_p_value": 0.85468710268354,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 6,
+     "corr": -0.02418130545412881,
+     "fisher_z_p_value": 0.7860161855248506,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 7,
+     "corr": 0.04234942490239045,
+     "fisher_z_p_value": 0.6356679750297075,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 8,
+     "corr": 0.09634917867383308,
+     "fisher_z_p_value": 0.2818209952093096,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 9,
+     "corr": -0.002513488436971043,
+     "fisher_z_p_value": 0.9777610550365919,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 10,
+     "corr": 0.027662537808615658,
+     "fisher_z_p_value": 0.7598934670025628,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 11,
+     "corr": 0.014364962991954973,
+     "fisher_z_p_value": 0.8744367341245265,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 12,
+     "corr": 0.13582290229916885,
+     "fisher_z_p_value": 0.13436274309830776,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 24,
+     "corr": 0.07008267617207836,
+     "fisher_z_p_value": 0.4656858008541285,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 1,
+     "corr": 0.061760379678165084,
+     "fisher_z_p_value": 0.4790814668153822,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 2,
+     "corr": 0.08404640490970984,
+     "fisher_z_p_value": 0.3367822905519787,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 3,
+     "corr": -0.07175645814092536,
+     "fisher_z_p_value": 0.4142714889682656,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 4,
+     "corr": -0.1622182326717882,
+     "fisher_z_p_value": 0.06407649322925074,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 5,
+     "corr": -0.07971052253401863,
+     "fisher_z_p_value": 0.36801288605185045,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 6,
+     "corr": -0.06587696907447564,
+     "fisher_z_p_value": 0.45897261474266937,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 7,
+     "corr": 0.004435812161767609,
+     "fisher_z_p_value": 0.960445758374657,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 8,
+     "corr": 0.015509896506760186,
+     "fisher_z_p_value": 0.8628677892698096,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 9,
+     "corr": 0.008865095720335545,
+     "fisher_z_p_value": 0.9216772100669329,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 10,
+     "corr": 0.021307693131879885,
+     "fisher_z_p_value": 0.813908537610234,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 11,
+     "corr": -0.13078515694539297,
+     "fisher_z_p_value": 0.14791808145974858,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 12,
+     "corr": 0.06975160025799615,
+     "fisher_z_p_value": 0.44407309939027584,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 24,
+     "corr": 0.003168231053569733,
+     "fisher_z_p_value": 0.9737341308569307,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 1,
+     "corr": -0.025604968089507997,
+     "fisher_z_p_value": 0.7694255954146869,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 2,
+     "corr": -0.03234820721245252,
+     "fisher_z_p_value": 0.7121612389559319,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 3,
+     "corr": -0.04215246569664241,
+     "fisher_z_p_value": 0.6319074412304262,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 4,
+     "corr": -0.08532791823372457,
+     "fisher_z_p_value": 0.33318003020608533,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 5,
+     "corr": 0.0009319101993492507,
+     "fisher_z_p_value": 0.9916206924794976,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 6,
+     "corr": 0.09513209939823375,
+     "fisher_z_p_value": 0.28412708568958167,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 7,
+     "corr": -0.03898987721219608,
+     "fisher_z_p_value": 0.6627343025578027,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 8,
+     "corr": -0.009295392515506646,
+     "fisher_z_p_value": 0.9175565532264288,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 9,
+     "corr": -0.22296705549636808,
+     "fisher_z_p_value": 0.0119008753653015,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 10,
+     "corr": -0.15827959444520304,
+     "fisher_z_p_value": 0.07788732430055874,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 11,
+     "corr": -0.017545274813384373,
+     "fisher_z_p_value": 0.8469450038964539,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 12,
+     "corr": 0.036893344204520354,
+     "fisher_z_p_value": 0.6859701775246698,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 24,
+     "corr": 0.10039551241333519,
+     "fisher_z_p_value": 0.2951606976889576,
+     "bh_q_value": 0.9991737023230072
+    }
+   ]
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v2_seasonal_controls::hungary",
+   "country": "hungary",
+   "definition": "corr(e_i,t, e_j,t-k)",
+   "pairs": [
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 1,
+     "corr": -0.05244995177197343,
+     "fisher_z_p_value": 0.547927550210829,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 2,
+     "corr": 0.02023536367871299,
+     "fisher_z_p_value": 0.8175089165478957,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 3,
+     "corr": -0.11277606161742246,
+     "fisher_z_p_value": 0.19831676739046256,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 4,
+     "corr": 0.1360684603610844,
+     "fisher_z_p_value": 0.12137052655919887,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 5,
+     "corr": 0.1199314979805049,
+     "fisher_z_p_value": 0.17443324744663435,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 6,
+     "corr": 0.027632485772553325,
+     "fisher_z_p_value": 0.7563686723480485,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 7,
+     "corr": 0.022719169836501723,
+     "fisher_z_p_value": 0.7994555729226414,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 8,
+     "corr": 0.0023350741256984667,
+     "fisher_z_p_value": 0.9792554782041247,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 9,
+     "corr": 0.039447966072143806,
+     "fisher_z_p_value": 0.6615847333503653,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 10,
+     "corr": -0.08900113105713697,
+     "fisher_z_p_value": 0.32430112575756675,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 11,
+     "corr": -0.05362122518518558,
+     "fisher_z_p_value": 0.5549226729927361,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 12,
+     "corr": -0.0006201828197891862,
+     "fisher_z_p_value": 0.9945794028716727,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "industrial_production_index",
+     "k": 24,
+     "corr": 0.033983893081280754,
+     "fisher_z_p_value": 0.7238582752754132,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 1,
+     "corr": -0.06404586635440616,
+     "fisher_z_p_value": 0.46292241170817516,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 2,
+     "corr": 0.07700214345145684,
+     "fisher_z_p_value": 0.3790213328568438,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 3,
+     "corr": 0.14298098976824025,
+     "fisher_z_p_value": 0.1020163317845761,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 4,
+     "corr": -0.14928203785252472,
+     "fisher_z_p_value": 0.08882100534721644,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 5,
+     "corr": -0.09221310075625902,
+     "fisher_z_p_value": 0.29734237888815174,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 6,
+     "corr": 0.02798284950954285,
+     "fisher_z_p_value": 0.7533777008058203,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 7,
+     "corr": -0.051103230308150414,
+     "fisher_z_p_value": 0.5674238480952997,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 8,
+     "corr": 0.12261377376629753,
+     "fisher_z_p_value": 0.16997816417178413,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 9,
+     "corr": -0.15222484886115326,
+     "fisher_z_p_value": 0.08885290603682165,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 10,
+     "corr": 0.08769494057078733,
+     "fisher_z_p_value": 0.33149010364879894,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 11,
+     "corr": -0.05483085611603294,
+     "fisher_z_p_value": 0.5460132305224775,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 12,
+     "corr": -0.005697883729931264,
+     "fisher_z_p_value": 0.95023006890973,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "hicp_monthly_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 24,
+     "corr": 0.21646273097376237,
+     "fisher_z_p_value": 0.022271594006966714,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 1,
+     "corr": -0.001488285498278161,
+     "fisher_z_p_value": 0.9864093171611549,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 2,
+     "corr": 0.012518561834321614,
+     "fisher_z_p_value": 0.8864947172024161,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 3,
+     "corr": 0.0007494915437025528,
+     "fisher_z_p_value": 0.993208018566716,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 4,
+     "corr": 0.022159346936316413,
+     "fisher_z_p_value": 0.8020109275081785,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 5,
+     "corr": -0.1085586315347013,
+     "fisher_z_p_value": 0.21935921176061401,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 6,
+     "corr": -0.063952514053641,
+     "fisher_z_p_value": 0.47223564508064564,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 7,
+     "corr": -0.052529347023410916,
+     "fisher_z_p_value": 0.5566416852686707,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 8,
+     "corr": 0.11618998364308819,
+     "fisher_z_p_value": 0.19370146662020393,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 9,
+     "corr": -0.02811714003930984,
+     "fisher_z_p_value": 0.7551040713879097,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 10,
+     "corr": 0.13299082869158385,
+     "fisher_z_p_value": 0.1394921354459522,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 11,
+     "corr": -0.025801509688085113,
+     "fisher_z_p_value": 0.7765026410238441,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 12,
+     "corr": -0.07464113090979317,
+     "fisher_z_p_value": 0.4126859026503751,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "hicp_monthly_index",
+     "k": 24,
+     "corr": -0.07429388965928038,
+     "fisher_z_p_value": 0.4392206123312352,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 1,
+     "corr": -0.00902909844414008,
+     "fisher_z_p_value": 0.9176887146158567,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 2,
+     "corr": 0.00690455353991385,
+     "fisher_z_p_value": 0.9372511423511144,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 3,
+     "corr": -0.00965519508084307,
+     "fisher_z_p_value": 0.9126747863104907,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 4,
+     "corr": 0.1841095787598575,
+     "fisher_z_p_value": 0.03511865562205283,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 5,
+     "corr": 0.10457852116140405,
+     "fisher_z_p_value": 0.23686268295350033,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 6,
+     "corr": 0.05060173683610483,
+     "fisher_z_p_value": 0.5697032234398708,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 7,
+     "corr": 0.01519306368641061,
+     "fisher_z_p_value": 0.8651071152399323,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 8,
+     "corr": -0.10311874336144973,
+     "fisher_z_p_value": 0.24916578952225177,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 9,
+     "corr": -0.09346314543355061,
+     "fisher_z_p_value": 0.2985301570775105,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 10,
+     "corr": 0.028521436307841038,
+     "fisher_z_p_value": 0.7526743208832352,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 11,
+     "corr": -0.1167151622676226,
+     "fisher_z_p_value": 0.19713931473742174,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 12,
+     "corr": 0.10380405356642991,
+     "fisher_z_p_value": 0.2537753488936405,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "industrial_production_index",
+     "j_lagged": "unemployment_rate_monthly",
+     "k": 24,
+     "corr": 0.20732902442228587,
+     "fisher_z_p_value": 0.028792173002916418,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 1,
+     "corr": -0.03603360400936827,
+     "fisher_z_p_value": 0.6798981715958947,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 2,
+     "corr": -0.11775235543707675,
+     "fisher_z_p_value": 0.17738810368620284,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 3,
+     "corr": 0.039882976972580315,
+     "fisher_z_p_value": 0.6503874877044302,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 4,
+     "corr": 0.01906144260186161,
+     "fisher_z_p_value": 0.829235843760413,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 5,
+     "corr": 0.09706496560728341,
+     "fisher_z_p_value": 0.272500880829027,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 6,
+     "corr": -0.054710874792731005,
+     "fisher_z_p_value": 0.5387251830963632,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 7,
+     "corr": -0.12694782707683994,
+     "fisher_z_p_value": 0.15357444493925543,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 8,
+     "corr": -0.054645113454893285,
+     "fisher_z_p_value": 0.5424521934198527,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 9,
+     "corr": 0.04915009220738185,
+     "fisher_z_p_value": 0.5853818555684838,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 10,
+     "corr": -0.023794350609585044,
+     "fisher_z_p_value": 0.7926532391881105,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 11,
+     "corr": 0.001332277350905265,
+     "fisher_z_p_value": 0.9883073728034034,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 12,
+     "corr": 0.05767947856906904,
+     "fisher_z_p_value": 0.527028112703201,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "hicp_monthly_index",
+     "k": 24,
+     "corr": -0.010664827534461263,
+     "fisher_z_p_value": 0.9117461268411339,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 1,
+     "corr": -0.014977984081849726,
+     "fisher_z_p_value": 0.8638749077604863,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 2,
+     "corr": -0.0157412640699697,
+     "fisher_z_p_value": 0.8575507303619049,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 3,
+     "corr": 0.04472608373707125,
+     "fisher_z_p_value": 0.6112220750461654,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 4,
+     "corr": -0.10874718689456309,
+     "fisher_z_p_value": 0.21674914549779856,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 5,
+     "corr": -0.0074027345956895925,
+     "fisher_z_p_value": 0.9335127312479057,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 6,
+     "corr": -0.09486417319294599,
+     "fisher_z_p_value": 0.2854937519301528,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 7,
+     "corr": -0.05913483233738594,
+     "fisher_z_p_value": 0.5080226167486781,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 8,
+     "corr": -0.10070598043656963,
+     "fisher_z_p_value": 0.26049218151820075,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 9,
+     "corr": 0.07101971009611041,
+     "fisher_z_p_value": 0.43012664561102876,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 10,
+     "corr": -0.025927032039701793,
+     "fisher_z_p_value": 0.7745429625433895,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 11,
+     "corr": 0.022856731766535233,
+     "fisher_z_p_value": 0.801452418022716,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 12,
+     "corr": -0.0742749680564724,
+     "fisher_z_p_value": 0.4149906288017958,
+     "bh_q_value": 0.9991737023230072
+    },
+    {
+     "i": "unemployment_rate_monthly",
+     "j_lagged": "industrial_production_index",
+     "k": 24,
+     "corr": 0.11242643684146891,
+     "fisher_z_p_value": 0.2406634589854395,
+     "bh_q_value": 0.9991737023230072
+    }
+   ]
+  }
+ ]
+}
