@@ -1,20 +1,4 @@
-/**
- * Central UI language registry (v1.3). Chinese is the primary interaction language;
- * English is kept for the brand name, standard method names, statistical abbreviations,
- * dataset names, source names and technical identifiers. Internal enums stay in English
- * in data and exports; every user-facing surface must map through this registry.
- */
 
-export const navigationLabels = {
-  overview: "总览",
-  countries: "国家",
-  data: "数据",
-  analysis: "分析",
-  scenarios: "情景",
-  events: "事件",
-  map: "地图",
-  research: "研究方法",
-} as const;
 
 export const actionLabels = {
   runAnalysis: "运行分析",
@@ -169,28 +153,3 @@ export const analysisLabels = {
   missingVariables: "缺失变量",
   advancedMetadata: "高级模型信息与限制",
 } as const;
-
-export const emptyStates = {
-  noScore: "暂不可计算：当前缺少同一年份的完整模型输入。",
-  noTimeSeries: "暂不可运行：当前月度时间序列不足。",
-  noData: "暂无数据：当前来源尚未发布该时期数据。",
-  noNetworkGroup: "数据覆盖不足，当前组合不可用于正式网络指标。",
-  noEventWindow: "数据窗口不足，无法运行完整事件窗口分析。",
-} as const;
-
-export const tooltipLabels = {
-  hhi: "HHI（赫芬达尔指数）：伙伴份额平方和，越高越集中。",
-  withinR2: "Within R²：剔除固定效应后的解释力。",
-  clusterSe: "聚类标准误：按国家聚类时，聚类数量较少可能导致标准误与 p 值不稳定。",
-  hicp: "HICP：欧盟统一消费者价格指数。",
-  comparisonYear: "共同年份：正式比较只在所有国家都有合法输入的年份进行。",
-  commonYearGate: "共同年份门控：不同年份的数值不会进入同一排名或同一列。",
-  eligibleCoverage: "有效覆盖率：仅 network_eligible 伙伴额 / World 总额，不含聚合记录。",
-} as const;
-
-export const datasetLabels = {
-  coreAnnual: "年度核心数据",
-  highFrequency: "高频数据",
-} as const;
-
-export const brandZhSubtitle = "中欧政治经济分析平台";

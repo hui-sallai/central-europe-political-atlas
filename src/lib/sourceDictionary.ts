@@ -42,18 +42,3 @@ export const sourceDictionaryRows: SourceDictionaryRecord[] = [
   { sourceId: "pending_sources", nameZh: "待接入来源", nameEn: "Pending sources", sourceType: "待接入来源", coverage: "待定", indicatorCoverage: "缺失字段", url: "https://hy-central-europe-analysis.org/data/", reliabilityLevel: "D", sourceStatus: "pending", updateFrequency: "待定", canBeOfficialData: false, canBeEventBasis: false, supplementalOnly: false, excludedFromAnalysis: true, lastCheckedAt, note: "字段预留但来源尚未接入；不进入正式数据、事件库或后续分析。" },
   { sourceId: "sample_sources", nameZh: "结构样例来源", nameEn: "Structural sample sources", sourceType: "结构样例来源", coverage: "平台结构测试", indicatorCoverage: "页面结构、地图样例、新闻样例", url: "https://hy-central-europe-analysis.org/methodology/", reliabilityLevel: "D", sourceStatus: "sample", updateFrequency: "不更新", canBeOfficialData: false, canBeEventBasis: false, supplementalOnly: false, excludedFromAnalysis: true, lastCheckedAt, note: "只用于验证结构，不进入正式数据、事件库、模型或分析。" },
 ];
-
-export function sourceReliabilityRule(level: SourceReliabilityLevel) {
-  const rules: Record<SourceReliabilityLevel, string> = {
-    A: "官方统计、官方机构、正式数据库；用于宏观数据和正式观测值。",
-    B: "权威媒体、智库、企业公告、年报；用于事件、项目和背景核验。",
-    C: "地方媒体、行业网站、二级转述；只作补充线索。",
-    D: "无法核验、结构样例、占位内容；不进入正式分析。",
-  };
-
-  return rules[level];
-}
-
-export function getSourceDictionaryRecord(sourceId: string) {
-  return sourceDictionaryRows.find((source) => source.sourceId === sourceId);
-}

@@ -87,36 +87,6 @@ export type ChinaProjectRecord = {
   sourceUpgradeNote?: string | null;
 };
 
-export type CountryTableRecord = {
-  countryCode: string;
-  countrySlug: string;
-  nameZh: string;
-  nameEn: string;
-  euMember: boolean;
-  eurozoneMember: boolean;
-  regionalGroup: string;
-  priority: number;
-  notes: string;
-};
-
-export type SourceTableRecord = {
-  sourceId: string;
-  sourceName: string;
-  sourceType: string;
-  reliabilityLevel: "A" | "B" | "C" | "D";
-  url: string;
-  updateFrequency: string;
-  usageNotes: string;
-};
-
-export const extendedIndicatorLabels: Record<ExtendedCategory, string> = {
-  fiscal: "财政数据",
-  external: "外部经济数据",
-  investment: "投资数据",
-  energy: "能源数据",
-  industry: "产业数据",
-};
-
 function isExtendedCategory(category: IndicatorCategory): category is ExtendedCategory {
   return category === "fiscal" || category === "external" || category === "investment" || category === "energy" || category === "industry";
 }
@@ -159,34 +129,7 @@ export const v4TemplateIndicatorIds = [
   "manufacturing_share_gdp",
   "automotive_export_share",
 ] as const;
-
-export const v4TemplateYears = ["2021", "2022", "2023", "2024", "2025"] as const;
 export const coreExtendedIndicatorIds = v4TemplateIndicatorIds;
-export const coreExtendedYears = v4TemplateYears;
-
-export const countryTableRecords: CountryTableRecord[] = [
-  { countryCode: "PL", countrySlug: "poland", nameZh: "波兰", nameEn: "Poland", euMember: true, eurozoneMember: false, regionalGroup: "V4", priority: 1, notes: "V4 最大经济体；财政、外部、能源和对华物流数据优先补。" },
-  { countryCode: "HU", countrySlug: "hungary", nameZh: "匈牙利", nameEn: "Hungary", euMember: true, eurozoneMember: false, regionalGroup: "V4", priority: 2, notes: "对华制造业、汽车和电池供应链项目优先补。" },
-  { countryCode: "CZ", countrySlug: "czechia", nameZh: "捷克", nameEn: "Czechia", euMember: true, eurozoneMember: false, regionalGroup: "V4", priority: 3, notes: "工业、汽车、能源和贸易结构优先补。" },
-  { countryCode: "SK", countrySlug: "slovakia", nameZh: "斯洛伐克", nameEn: "Slovakia", euMember: true, eurozoneMember: true, regionalGroup: "V4", priority: 4, notes: "欧元区身份、汽车产业链和区域外部风险优先补。" },
-  { countryCode: "DE", countrySlug: "germany", nameZh: "德国", nameEn: "Germany", euMember: true, eurozoneMember: true, regionalGroup: "Adjacent EU", priority: 5, notes: "v0.75 接入与 V4 同口径的财政、外部、能源、产业和 transmission 数据；对德出口依赖对德国自身不适用。" },
-  { countryCode: "AT", countrySlug: "austria", nameZh: "奥地利", nameEn: "Austria", euMember: true, eurozoneMember: true, regionalGroup: "Adjacent EU", priority: 6, notes: "v0.75 接入统一扩展序列；Eurostat 未发布的年份继续保留待接入。" },
-  { countryCode: "RO", countrySlug: "romania", nameZh: "罗马尼亚", nameEn: "Romania", euMember: true, eurozoneMember: false, regionalGroup: "Central Europe", priority: 7, notes: "v0.75 接入统一扩展序列；FDI 缺口保持待接入，不做插值。" },
-  { countryCode: "SI", countrySlug: "slovenia", nameZh: "斯洛文尼亚", nameEn: "Slovenia", euMember: true, eurozoneMember: true, regionalGroup: "Central Europe", priority: 8, notes: "v0.75 接入统一扩展序列和 transmission 数据。" },
-  { countryCode: "HR", countrySlug: "croatia", nameZh: "克罗地亚", nameEn: "Croatia", euMember: true, eurozoneMember: true, regionalGroup: "Central Europe", priority: 9, notes: "v0.75 接入统一扩展序列；汽车出口占比缺失年份保持待接入。" },
-  { countryCode: "RS", countrySlug: "serbia", nameZh: "塞尔维亚", nameEn: "Serbia", euMember: false, eurozoneMember: false, regionalGroup: "Western Balkans", priority: 10, notes: "v0.75 接入 Eurostat/UN Comtrade 可得序列；同口径财政与经常账户缺失，明确保留待接入。" },
-];
-
-export const sourceTableRecords: SourceTableRecord[] = [
-  { sourceId: "eurostat", sourceName: "Eurostat", sourceType: "官方统计", reliabilityLevel: "A", url: "https://ec.europa.eu/eurostat/databrowser/", updateFrequency: "按指标更新", usageNotes: "V4 跨国可比数据主来源；用于财政、国民账户、能源和经常账户指标。" },
-  { sourceId: "stat_pl", sourceName: "Statistics Poland", sourceType: "国家统计部门", reliabilityLevel: "A", url: "https://stat.gov.pl/en/", updateFrequency: "按指标更新", usageNotes: "波兰国别统计主源，用于交叉核验。" },
-  { sourceId: "stat_hu", sourceName: "Hungarian Central Statistical Office", sourceType: "国家统计部门", reliabilityLevel: "A", url: "https://www.ksh.hu/?lang=en", updateFrequency: "按指标更新", usageNotes: "匈牙利国别统计主源，用于交叉核验。" },
-  { sourceId: "stat_cz", sourceName: "Czech Statistical Office", sourceType: "国家统计部门", reliabilityLevel: "A", url: "https://www.czso.cz/csu/czso/home", updateFrequency: "按指标更新", usageNotes: "捷克国别统计主源，用于交叉核验。" },
-  { sourceId: "stat_sk", sourceName: "Statistical Office of the Slovak Republic", sourceType: "国家统计部门", reliabilityLevel: "A", url: "https://slovak.statistics.sk/", updateFrequency: "按指标更新", usageNotes: "斯洛伐克国别统计主源，用于交叉核验。" },
-  { sourceId: "hu_gov_v4_summit_2026", sourceName: "匈牙利政府", sourceType: "政府公告", reliabilityLevel: "A", url: "https://kormany.hu/en/news/v4-csucs-godollon-orszagainkat-sokkal-tobb-koti-ossze-mint-ami-elvalasztja", updateFrequency: "事件更新", usageNotes: "2026 年 6 月 24 日格德勒 V4 峰会公告；用于四国正式事件记录，中文摘要由人工整理。" },
-  { sourceId: "news_pending", sourceName: "新闻来源待接入", sourceType: "新闻", reliabilityLevel: "D", url: "https://hy-central-europe-analysis.org/news/", updateFrequency: "周度候选", usageNotes: "结构样例新闻使用；不进入模型。" },
-  { sourceId: "project_pending", sourceName: "项目级来源待接入", sourceType: "对华经贸", reliabilityLevel: "D", url: "https://hy-central-europe-analysis.org/data/", updateFrequency: "不定期", usageNotes: "项目表初版入口；金额、主体和合同来源需后续逐条补。" },
-];
 
 const eurostatUpdatedFiscal = "2026-04-22";
 const eurostatUpdatedNationalAccounts = "2026-07-02";
@@ -340,55 +283,6 @@ export const extendedObservations: ExtendedObservation[] = [
   ...legacyExtendedObservations.filter((item) => !parityObservationKeys.has(`${item.countrySlug}:${item.indicatorId}:${item.date}`)),
   ...crossCountryExtendedObservations,
 ];
-
-export function getExtendedTemplateCoverage(countrySlug: string) {
-  const existingIndicatorIds = new Set(
-    extendedObservations
-      .filter((observation) => observation.countrySlug === countrySlug)
-      .map((observation) => observation.indicatorId),
-  );
-  const present = v4TemplateIndicatorIds.filter((indicatorId) => existingIndicatorIds.has(indicatorId));
-  const missing = v4TemplateIndicatorIds.filter((indicatorId) => !existingIndicatorIds.has(indicatorId));
-
-  return {
-    total: v4TemplateIndicatorIds.length,
-    present,
-    missing,
-    complete: missing.length === 0,
-  };
-}
-
-export function getExtendedObservationCoverage(countrySlug: string) {
-  const observations = getExtendedObservations(countrySlug);
-  const cells = v4TemplateIndicatorIds.flatMap((indicatorId) =>
-    v4TemplateYears.map((year) => observations.find((observation) => observation.indicatorId === indicatorId && observation.date === year)),
-  );
-  const expected = v4TemplateIndicatorIds.length * v4TemplateYears.length;
-  const pendingCells = cells.filter((observation) => !observation || observation.status === "pending" || observation.value === null).length;
-  const officialCells = cells.filter((observation) => observation?.status === "official" && observation.value !== null).length;
-  const manualCells = cells.filter((observation) => observation?.status === "manual" && observation.value !== null).length;
-  const sampleCells = cells.filter((observation) => observation?.status === "sample" && observation.value !== null).length;
-  const computedCells = cells.filter((observation) => {
-    if (!observation || observation.value === null) {
-      return false;
-    }
-    return /computed|计算/i.test(observation.note ?? "");
-  }).length;
-
-  return {
-    expected,
-    present: expected - pendingCells,
-    pending: pendingCells,
-    official: officialCells,
-    manual: manualCells,
-    sample: sampleCells,
-    computed: computedCells,
-    years: v4TemplateYears,
-  };
-}
-
-export const getV4TemplateCoverage = getExtendedTemplateCoverage;
-export const getV4ObservationCoverage = getExtendedObservationCoverage;
 
 export function getLatestExtendedObservation(countrySlug: string, indicatorId: string) {
   const observations = extendedObservations
@@ -790,14 +684,6 @@ export function getExtendedObservations(countrySlug: string, category?: Extended
 
 export function getExtendedIndicator(indicatorId: string) {
   return extendedIndicators.find((indicator) => indicator.id === indicatorId);
-}
-
-export function getChinaProjectRecords(countrySlug: string) {
-  return chinaProjectRecords.filter((project) => project.countrySlug === countrySlug);
-}
-
-export function getCountryTableRecord(countrySlug: string) {
-  return countryTableRecords.find((country) => country.countrySlug === countrySlug);
 }
 
 function countrySlugToGeo(countrySlug: string) {

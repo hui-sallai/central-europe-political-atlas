@@ -1,39 +1,9 @@
 import { chinaProjectRecords } from "./extendedData";
-import { projectLocationReadiness, factualMapCountries, mapLayerReadinessV087 } from "./spatialDataV087";
-import { regionIndicatorRecords } from "./regionIndicators";
+import { projectLocationReadiness, factualMapCountries } from "./spatialDataV087";
 import { regionMetadataRecords } from "./regions";
 import { regionObservationRecords } from "./regionObservations";
 
-export const spatialResearchLayerIds = [
-  "regional_boundary",
-  "regional_population",
-  "regional_gdp",
-  "regional_gdp_per_capita",
-  "regional_unemployment_rate",
-  "regional_manufacturing_share",
-  "china_project_locations",
-] as const;
-
-export type SpatialResearchLayerId = (typeof spatialResearchLayerIds)[number];
-
-const indicatorById = new Map(regionIndicatorRecords.map((indicator) => [indicator.region_indicator_id, indicator]));
 const projectById = new Map(chinaProjectRecords.map((project) => [project.projectId, project]));
-
-export const spatialResearchLayersV088 = spatialResearchLayerIds.map((layerId) => {
-  const indicator = indicatorById.get(layerId);
-  return {
-    layer_id: layerId,
-    name_zh: layerId === "regional_boundary"
-      ? "行政边界"
-      : layerId === "china_project_locations"
-        ? "对华项目位置"
-        : indicator?.name_zh ?? layerId,
-    unit: indicator?.unit ?? "不适用",
-    layer_type: layerId === "regional_boundary" ? "boundary" : layerId === "china_project_locations" ? "point" : "choropleth",
-    comparison_allowed: !["regional_boundary", "china_project_locations"].includes(layerId),
-    definition: indicator?.notes ?? (layerId === "china_project_locations" ? "经来源核验的城市或区域参考位置；不代表项目影响。" : "已核验行政边界。"),
-  };
-});
 
 export const spatialResearchCountriesV088 = factualMapCountries.map((country) => {
   const region = regionMetadataRecords.find((item) => item.country_id === country.country_id);
@@ -96,25 +66,6 @@ export const spatialResearchProjectsV088 = projectLocationReadiness
     };
   });
 
-export const spatialComparisonEligibilityV088 = mapLayerReadinessV087.map((record) => {
-  const country = spatialResearchCountriesV088.find((item) => item.country_id === record.country_id);
-  const years = [...new Set(spatialResearchObservationsV088
-    .filter((observation) => observation.country_id === record.country_id && observation.region_indicator_id === record.layer_id)
-    .map((observation) => observation.year))].sort();
-  const comparable = record.is_ready_for_display && record.layer_type === "choropleth" && years.length > 0;
-  return {
-    country_id: record.country_id,
-    layer_id: record.layer_id,
-    admin_level: country?.admin_level ?? "unavailable",
-    definition: spatialResearchLayersV088.find((layer) => layer.layer_id === record.layer_id)?.definition ?? "",
-    unit: record.unit,
-    available_years: years,
-    latest_available_year: years.at(-1) ?? "unavailable",
-    comparison_eligible: comparable,
-    blocker: comparable ? "" : record.blocker || "该图层不参与跨国数值比较。",
-  };
-});
-
 export const regionalRankingsV088 = spatialResearchObservationsV088.flatMap((observation) => {
   const peers = spatialResearchObservationsV088
     .filter((item) => item.country_id === observation.country_id && item.region_indicator_id === observation.region_indicator_id && item.year === observation.year)
@@ -133,13 +84,3 @@ export const regionalRankingsV088 = spatialResearchObservationsV088.flatMap((obs
     interpretation_boundary: "仅表示同国同年同指标的事实位置，不代表风险或政策优劣。",
   }];
 });
-
-export const spatialV088Summary = {
-  country_count: spatialResearchCountriesV088.length,
-  public_country_count: spatialResearchCountriesV088.filter((country) => country.approved_layers.includes("regional_boundary")).length,
-  observation_count: spatialResearchObservationsV088.length,
-  ranking_count: regionalRankingsV088.length,
-  comparison_eligible_count: spatialComparisonEligibilityV088.filter((record) => record.comparison_eligible).length,
-  project_location_count: spatialResearchProjectsV088.length,
-  reviewed_at: "2026-08-15",
-};

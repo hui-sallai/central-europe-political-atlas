@@ -4,8 +4,6 @@ import { projectLocationRecords } from "./projectLocations";
 import { regionMetadataRecords } from "./regions";
 import { regionObservationRecords } from "./regionObservations";
 
-export type SpatialBoundaryManifestRecord = (typeof boundaryManifest.records)[number];
-
 const p0Indicators = ["regional_population", "regional_gdp", "regional_gdp_per_capita"];
 const p1Indicators = ["regional_unemployment_rate", "regional_employment_rate", "regional_manufacturing_share"];
 const factualObservations = regionObservationRecords.filter((record) => record.value !== null && !record.is_pending);
@@ -169,22 +167,3 @@ export const regionalCoverageMatrixV086: RegionalCoverageV086Record[] = countrie
     ].filter((item): item is string => Boolean(item)),
   };
 });
-
-export const spatialV086Summary = {
-  country_count: countries.length,
-  region_count: regionMetadataRecords.length,
-  geometry_mapped_country_count: boundaryManifest.records.filter((record) => record.region_id_one_to_one_match).length,
-  boundary_display_ready_country_count: regionalCoverageMatrixV086.filter((record) => record.boundary_ready).length,
-  p0_data_country_count: regionalCoverageMatrixV086.filter((record) => record.p0_indicator_count === 3).length,
-  mapped_project_count: projectLocationRecords.filter((record) => record.is_mapped_to_region).length,
-  display_eligible_project_count: projectLocationRecords.filter((record) => record.is_ready_for_map_layer).length,
-  factual_observation_count: factualObservations.length,
-  pending_observation_count: regionObservationRecords.length - factualObservations.length,
-};
-
-export function getRegionProfile(regionId: string) {
-  const region = regionMetadataRecords.find((record) => record.region_id === regionId);
-  if (!region) return null;
-  const latest = factualObservations.filter((record) => record.region_id === regionId).sort((a, b) => b.year.localeCompare(a.year));
-  return { region, observations: latest };
-}

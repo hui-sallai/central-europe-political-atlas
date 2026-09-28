@@ -322,10 +322,6 @@ export const countryMetadataRecords: CountryMetadataRecord[] = countries.map((co
   };
 });
 
-export function getCountryMetadata(countryId: string) {
-  return countryMetadataRecords.find((country) => country.country_id === countryId);
-}
-
 export const researchDataLayerFiles = [
   { id: "countries", label: "countries", description: "十国国家元数据表，作为所有观测值、项目和派生比较的 country_id 关联表。" },
   { id: "regions", label: "regions", description: "v0.86 十国 173 个区域主键；记录 NUTS/ADM 分类、官方代码匹配和层级差异。" },
@@ -344,28 +340,4 @@ export const researchDataLayerFiles = [
   { id: "china_projects", label: "china_projects", description: "对华项目核验表。" },
   { id: "china_exposure_candidates", label: "china_exposure_candidates", description: "china_exposure_candidates（暴露变量候选库）：不等于指数。" },
   { id: "methodology_rules", label: "methodology_rules", description: "方法论边界、数据状态、来源等级和分析准入规则。" },
-];
-
-export const spatialAuditExportFiles = [
-  { id: "spatial_display_gate", label: "spatial_display_gate", description: "十国公开空间展示闸门审计；记录逐国通过项、阻断项和最终决定。" },
-  { id: "map_layer_readiness", label: "map_layer_readiness", description: "逐国、逐图层展示资格；边界、统计与项目参考互不连带放行。" },
-  { id: "regional_geometry_qa", label: "regional_geometry_qa", description: "十国通用几何 QA；记录要素、代码、空几何、坐标范围、重叠与缝隙证据。" },
-  { id: "regional_coverage_matrix", label: "regional_coverage_matrix", description: "十国区域层覆盖、共同年份、数据缺口与公开图层数量。" },
-  { id: "project_location_readiness", label: "project_location_readiness", description: "项目位置精度、置信度、区域参考资格与多地点记录。" },
-  { id: "regional_rankings", label: "regional_rankings", description: "同国同年同指标的事实区域排名；不表示风险或政策优劣。" },
-  { id: "regional_indicator_gap_audit", label: "regional_indicator_gap_audit", description: "逐国区域指标缺口、层级错配与优先补齐清单。" },
-  { id: "regional_derived_comparisons", label: "regional_derived_comparisons", description: "2021–2024 人口、人均 GDP 与失业率事实变化。" },
-  { id: "regional_comparison_eligibility", label: "regional_comparison_eligibility", description: "同层级、同定义、同单位、同年份的正式比较资格。" },
-  { id: "regional_project_counts", label: "regional_project_counts", description: "当前数据库内已核验项目的区域记录计数，不表示影响或不存在活动。" },
-  { id: "regional_boundary_continuity", label: "regional_boundary_continuity", description: "历史观测到当前区域代码的连续性记录及其限制。" },
-  { id: "comparison_eligibility", label: "comparison_eligibility", description: "逐国逐指标的年份、单位、层级和跨国比较资格。" },
-];
-
-export const scenarioExportFiles = [
-  { id: "scenario_definitions", label: "scenario_definitions", description: "情景参数、范围、直接变量、背景变量、假设与限制。" },
-  { id: "transmission_channels", label: "transmission_channels", description: "Shock → Variable → Model → Context 的透明传导记录，不是新分数。" },
-  { id: "scenario_results", label: "scenario_results", description: "默认参数下可复现的十国基线、情景与差值。" },
-  { id: "scenario_evidence_links", label: "scenario_evidence_links", description: "情景到已核验事件和项目的证据关系；不进入分数。" },
-  { id: "scenario_sensitivity", label: "scenario_sensitivity", description: "固定公式下的参数响应表，不是预测概率。" },
-  { id: "backtest_registry", label: "backtest_registry", description: "历史回测准备结构；证据不足时保持 structure_only。" },
 ];

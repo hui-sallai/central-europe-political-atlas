@@ -184,25 +184,6 @@ export const scenarioSensitivity: ScenarioSensitivityPoint[] = researchCountries
   })
 )));
 
-export const scenarioTransmissionInputs = [...new Set(transmissionChannels.map((channel) => channel.affected_indicator))].map((indicatorId) => {
-  const channels = transmissionChannels.filter((channel) => channel.affected_indicator === indicatorId);
-  const nationalTraces = modelOutputs.flatMap((output) => output.inputs.filter((input) => input.indicator_id === indicatorId));
-  const regionalFacts = spatialResearchObservationsV089.filter((record) => record.region_indicator_id === indicatorId);
-  const countryCount = new Set([
-    ...modelOutputs.filter((output) => output.inputs.some((input) => input.indicator_id === indicatorId)).map((output) => output.country_slug),
-    ...regionalFacts.map((record) => record.country_id),
-  ]).size;
-  return {
-    indicator_id: indicatorId,
-    role: [...new Set(channels.map((channel) => channel.direct_or_indirect))].join(" / "),
-    scenario_usage: [...new Set(channels.map((channel) => channel.scenario_id))],
-    model_usage: [...new Set(channels.map((channel) => channel.affected_model))],
-    availability: `${countryCount} / 10 countries`,
-    source: [...new Set([...nationalTraces.map((trace) => trace.source_name), ...regionalFacts.map((record) => record.source_name)])].join(" / ") || "待接入",
-    enters_recalculation: channels.some((channel) => channel.direct_or_indirect === "direct" && scenarioDefinitions.some((definition) => definition.scenario_id === channel.scenario_id && definition.adjusted_indicator_id === indicatorId)),
-  };
-});
-
 const activeProjectPattern = /运营|在建|施工|投产|生产|工厂|控股|收购/;
 const excludedProjectPattern = /终止|取消|退出|暂停/;
 export const chinaProjectDisruptionDecision = {

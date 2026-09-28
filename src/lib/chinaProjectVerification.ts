@@ -82,14 +82,3 @@ export function verifyChinaProject(project: ChinaProjectRecord): ChinaProjectVer
     hasClearEvent: clearEvent,
   };
 }
-
-export function chinaProjectVerificationLabel(value: ChinaProjectVerificationConclusion) {
-  const labels: Record<ChinaProjectVerificationConclusion, string> = {
-    quantifiable: "可量化",
-    partially_quantifiable: "部分可量化",
-    background_only: "仅作背景",
-    excluded: "不进入分析",
-  };
-
-  return labels[value];
-}

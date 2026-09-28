@@ -382,21 +382,6 @@ export function recalculateModelOutputs() {
 
 export const modelOutputs: ModelOutput[] = recalculateModelOutputs();
 
-export function getModelCard(modelId: ModelId) {
-  return modelCards.find((card) => card.model_id === modelId);
-}
-
 export function getModelOutputsForCountry(countrySlug: string) {
   return modelOutputs.filter((output) => output.country_slug === countrySlug);
 }
-
-export function getModelOutput(countrySlug: string, modelId: ModelId) {
-  return modelOutputs.find((output) => output.country_slug === countrySlug && output.model_id === modelId);
-}
-
-export const modelAvailabilitySummary = modelCards.map((card) => ({
-  model_id: card.model_id,
-  sufficient: modelOutputs.filter((output) => output.model_id === card.model_id && output.availability === "sufficient").length,
-  partial: modelOutputs.filter((output) => output.model_id === card.model_id && output.availability === "partial").length,
-  insufficient: modelOutputs.filter((output) => output.model_id === card.model_id && output.availability === "insufficient").length,
-}));

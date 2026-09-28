@@ -754,7 +754,3 @@ export const eventLibraryItems: WeeklyNewsItem[] = [
     dataStatus: "sample",
   },
 ];
-
-export function getEventSourceItemsByCountry(countrySlug: string) {
-  return eventLibraryItems.filter((item) => item.countrySlug === countrySlug);
-}

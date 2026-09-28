@@ -232,15 +232,6 @@ export const regionalCoverageMatrixV087 = regionalCoverageMatrixV086.map((record
   };
 });
 
-export type RegionalCoverageV087Record = (typeof regionalCoverageMatrixV087)[number];
-
-export const factualMapObservations = factualObservations.filter((record) => {
-  const readiness = mapLayerReadinessV087.find(
-    (layer) => layer.country_id === record.country_id && layer.layer_id === record.region_indicator_id,
-  );
-  return readiness?.is_ready_for_display && record.year === readiness.latest_available_year;
-});
-
 export const factualMapCountries = countries.map((country) => {
   const boundary = regionalCoverageMatrixV087.find((record) => record.country_id === country.slug);
   const manifestRecord = geometryQaFile.records.find((record) => record.country_id === country.slug);

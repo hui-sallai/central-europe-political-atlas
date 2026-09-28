@@ -30,12 +30,3 @@ export function BarMeter({ value, max = 100, label }: { value: number; max?: num
     </div>
   );
 }
-
-export function ChartPlaceholder({ type, note }: { type: "coefficient" | "distribution" | "network"; note: string }) {
-  return (
-    <div className={`chart-placeholder chart-placeholder-${type}`}>
-      <span>{type}</span>
-      <p>{note}</p>
-    </div>
-  );
-}

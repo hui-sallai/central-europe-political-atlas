@@ -2,19 +2,6 @@ import parityJson from "../data/observations/v075-cross-country-parity.json";
 import type { Observation } from "../types/Observation";
 import type { DataStatus, SourceReliability } from "../types/DataStatus";
 
-export const crossCountryParityCountrySlugs = [
-  "poland",
-  "hungary",
-  "czechia",
-  "slovakia",
-  "germany",
-  "austria",
-  "romania",
-  "slovenia",
-  "croatia",
-  "serbia",
-] as const;
-
 export const coreExtendedIndicatorIds = [
   "fiscal_balance_gdp",
   "government_debt_gdp",
@@ -192,29 +179,3 @@ export const crossCountryExtendedCanonicalObservations: Observation[] = records
     notes: record.notes,
     ...parityMetadata(record),
   }));
-
-export const crossCountryParitySummary = {
-  version: parityJson.schema_version,
-  generatedAt: parityJson.generated_at,
-  countries: crossCountryParityCountrySlugs,
-  expectedExtendedCells: crossCountryParityCountrySlugs.length * coreExtendedIndicatorIds.length * 5,
-  expectedTransmissionCells: crossCountryParityCountrySlugs.length * coreTransmissionIndicatorIds.length * 2,
-  presentExtendedCells: crossCountryExtendedObservations.filter((record) => record.value !== null).length,
-  pendingExtendedCells: crossCountryExtendedObservations.filter((record) => record.value === null).length,
-  presentTransmissionCells: crossCountryTransmissionObservations.filter((record) => record.value !== null).length,
-  pendingTransmissionCells: crossCountryTransmissionObservations.filter((record) => record.value === null).length,
-  sourcePolicy: parityJson.source_policy,
-};
-
-export function getCrossCountryParitySummary(countrySlug: string) {
-  const extended = crossCountryExtendedObservations.filter((record) => record.countrySlug === countrySlug);
-  const transmission = crossCountryTransmissionObservations.filter((record) => record.country_slug === countrySlug);
-  return {
-    extendedExpected: coreExtendedIndicatorIds.length * 5,
-    extendedPresent: extended.filter((record) => record.value !== null).length,
-    extendedPending: extended.filter((record) => record.value === null).length,
-    transmissionExpected: coreTransmissionIndicatorIds.length * 2,
-    transmissionPresent: transmission.filter((record) => record.value !== null).length,
-    transmissionPending: transmission.filter((record) => record.value === null).length,
-  };
-}

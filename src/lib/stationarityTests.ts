@@ -2,7 +2,6 @@ import type {
   AdfTestResult,
   KpssStatus,
   PersistenceDiagnostics,
-  StationaritySpecificationId,
   StationarityStatus,
 } from "@/types/MacroDynamics";
 import { inverse, matMul, normalCdf, transpose, zeros, type Matrix } from "@/lib/numericLinAlg";
@@ -477,10 +476,6 @@ export function persistenceDiagnostics(values: number[], maxLag = 24): Persisten
     approximate_significance_band_95: { lower: -band, upper: band, formula: "plus_minus_1.96_over_sqrt_n" },
     interpretation_boundary: "ACF/PACF are descriptive. A large lag-12 autocorrelation is a seasonal-persistence warning, not confirmation of a seasonal unit root.",
   };
-}
-
-export function stationaritySpecification(id: StationaritySpecificationId) {
-  return STATIONARITY_SPECIFICATION_REGISTRY.find((item) => item.specification_id === id) ?? null;
 }
 
 /** KPSS is deliberately not implemented in v1.4; the status is honest. */

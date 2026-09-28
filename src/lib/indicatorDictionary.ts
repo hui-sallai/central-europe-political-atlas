@@ -331,7 +331,3 @@ export const indicatorDictionaryRecords: IndicatorDictionaryRecord[] = [
     updatedAt: dictionaryUpdatedAt,
   },
 ];
-
-export function getIndicatorDictionaryRecord(indicatorId: string) {
-  return indicatorDictionaryRecords.find((indicator) => indicator.indicatorId === indicatorId);
-}

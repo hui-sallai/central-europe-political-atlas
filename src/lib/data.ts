@@ -293,16 +293,6 @@ export function getCountry(slug: string) {
   return countries.find((country) => country.slug === slug);
 }
 
-export function getRegion(regionSlug: string) {
-  for (const country of countries) {
-    const region = country.regions.find((item) => item.slug === regionSlug);
-    if (region) {
-      return { country, region };
-    }
-  }
-  return null;
-}
-
 export const weeklyNews = [
   {
     country: "匈牙利",

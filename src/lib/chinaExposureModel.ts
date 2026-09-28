@@ -552,7 +552,3 @@ export const chinaExposureRankingGate = {
   status: chinaExposureOutputs.filter((output) => output.overall_decision === "available").length >= 7 ? "ranking_available" : "ranking_unavailable",
   rule: "Cross-country China Exposure ranking requires at least 7 of 10 countries with comparable overall scores; country-level evidence may still be shown without ranking.",
 };
-
-export function getChinaExposureOutput(countrySlug: string) {
-  return chinaExposureOutputs.find((output) => output.country_slug === countrySlug);
-}

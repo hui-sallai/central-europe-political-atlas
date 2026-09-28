@@ -112,6 +112,3 @@ export const regionObservationRecords: RegionObservationRecord[] = [
   ...baseObservationRecords,
   ...v089Records.filter((record) => derivedIndicatorIds.has(record.region_indicator_id)),
 ];
-
-export const regionalObservationYears = years;
-export const regionalFactualObservationCount = factualRecords.length;

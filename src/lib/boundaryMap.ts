@@ -1,21 +1,5 @@
 export type BoundaryFeatureMap = Record<string, Record<string, string>>;
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-const withBasePath = (path: string) => `${basePath}${path}`;
-
-export const countryGeoJsonFiles: Record<string, string> = {
-  germany: withBasePath("/geo/adm1/germany.geojson"),
-  poland: withBasePath("/geo/adm1/poland.geojson"),
-  hungary: withBasePath("/geo/adm1/hungary.geojson"),
-  romania: withBasePath("/geo/adm1/romania.geojson"),
-  czechia: withBasePath("/geo/adm1/czechia.geojson"),
-  slovakia: withBasePath("/geo/adm1/slovakia.geojson"),
-  slovenia: withBasePath("/geo/adm1/slovenia.geojson"),
-  serbia: withBasePath("/geo/adm1/serbia.geojson"),
-  austria: withBasePath("/geo/adm1/austria.geojson"),
-  croatia: withBasePath("/geo/adm1/croatia.geojson"),
-};
-
 export const boundaryFeatureToRegionSlug: BoundaryFeatureMap = {
   germany: {
     "Baden-Württemberg": "baden-wurttemberg",
@@ -210,13 +194,3 @@ export const boundaryFeatureToRegionSlug: BoundaryFeatureMap = {
     "Dubrovnik-Neretva": "dubrovnik-neretva",
   },
 };
-
-export const supplementalRegionMarkers = [
-  {
-    countrySlug: "hungary",
-    regionSlug: "budapest",
-    label: "Budapest",
-    lon: 19.0402,
-    lat: 47.4979,
-  },
-];

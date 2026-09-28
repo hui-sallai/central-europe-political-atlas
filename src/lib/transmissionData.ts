@@ -1,5 +1,5 @@
 import type { Indicator, Observation } from "../types/researchData";
-import { crossCountryParityCountrySlugs, crossCountryTransmissionObservations } from "./crossCountryParityData";
+import { crossCountryTransmissionObservations } from "./crossCountryParityData";
 
 const UPDATED_AT = "2026-08-11";
 
@@ -187,18 +187,3 @@ export const transmissionObservations: Observation[] = [
   ...v4TransmissionObservations.filter((item) => !crossCountryTransmissionObservations.some((candidate) => candidate.id === item.id)),
   ...crossCountryTransmissionObservations,
 ];
-
-export const transmissionDataSummary = {
-  countries: [...new Set([...(Object.keys(countryMeta) as V4Slug[]), ...crossCountryParityCountrySlugs])],
-  indicators: transmissionIndicators.map((indicator) => indicator.id),
-  years: [2023, 2024],
-  observation_count: transmissionObservations.length,
-  source_reliability: "A" as const,
-  fdi_policy: "FDI 年流量只作背景与驱动解释，不进入 v0.70 产业依赖正式权重。",
-};
-
-export function getTransmissionObservations(countrySlug?: string) {
-  return countrySlug
-    ? transmissionObservations.filter((item) => item.country_slug === countrySlug)
-    : transmissionObservations;
-}

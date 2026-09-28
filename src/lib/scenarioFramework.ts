@@ -196,18 +196,6 @@ export const scenarioBacktestRegistry: ScenarioBacktestRecord[] = [
   },
 ];
 
-export const industrialDependencyReadiness = {
-  status: "ready" as const,
-  eligible_countries: ["poland", "hungary", "czechia", "slovakia", "austria", "romania", "slovenia", "croatia", "serbia"],
-  available_inputs: ["manufacturing_share_gdp", "automotive_export_share", "germany_export_dependence", "industrial_electricity_price"],
-  blockers: [
-    "当前最新共同可比年份为 2024，不能将 2025 的待接入值当作零值。",
-    "供应链集中度仍缺少统一可靠口径，未进入正式分数。",
-    "FDI 流入波动和负值不能直接解释为产业依赖，本版权重为 0。",
-  ],
-  decision: "v0.75 已将 Industrial Dependency 输入结构扩展到十国；各国仍按实际完整度决定是否输出，德国自身对德依赖按不适用处理。",
-};
-
 function clamp(value: number, minimum = 0, maximum = 100) {
   return Math.min(maximum, Math.max(minimum, value));
 }
