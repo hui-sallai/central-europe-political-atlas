@@ -32,7 +32,10 @@ authorization = DATA / "var_country_lag_identifiability_phase_a_authorization.js
 phase_a_ok = authorization.exists() and json.loads(authorization.read_text()).get("preregistration_sha256") == PREREG_SHA256
 allowed = {"var_country_lag_identifiability_phase_a_authorization.json"} | ({"var_country_lag_identifiability_results.json"} if phase_a_ok else set())
 results = [p.name for p in DATA.glob("var_country_lag_identifiability_*") if not p.name.endswith(("_preregistration.json", "_design.json", "_metric_definition.json")) and p.name not in allowed]
-results += [p.name for p in DATA.glob("var_phase_b_*") if p.name != "var_phase_b_bootstrap_protocol.json"]
+phase_b_record = DATA / "var_phase_b_authorization.json"
+phase_b_ok = phase_a_ok and phase_b_record.exists() and json.loads(phase_b_record.read_text()).get("protocol_sha256") == sha(DATA / "var_phase_b_bootstrap_protocol.json")
+allowed_b = {"var_phase_b_bootstrap_protocol.json", "var_phase_b_authorization.json"} | ({"var_phase_b_bootstrap_results.json"} if phase_b_ok else set())
+results += [p.name for p in DATA.glob("var_phase_b_*") if p.name not in allowed_b]
 require(results == [], f"country result files present without authorization: {results}")
 if phase_a_ok:
     require(json.loads(authorization.read_text())["phase_B_authorized"] is False, "Phase B must not be authorized by the Phase A record")
