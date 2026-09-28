@@ -1,0 +1,23 @@
+{
+  "schema_version": "var-country-matched-bootstrap-seed-registry-v1.89",
+  "registered_at": "2026-09-28",
+  "namespace": "var_country_matched_bootstrap_v189",
+  "base_entropy": [
+    189,
+    20260928,
+    1
+  ],
+  "generator": "PCG64DXSM via SeedSequence(base_entropy, spawn_key)",
+  "spawn_key_schema": {
+    "data": "(phase_code, cell_index, chunk_index, 0)",
+    "bootstrap": "(phase_code, cell_index, chunk_index, 1), consumed sequentially by the replications of the chunk"
+  },
+  "phase_codes": {
+    "0": "reference fixtures",
+    "1": "engineering smoke (2 cells x 8 reps; determinism and timing only; rejection outcomes not inspected)",
+    "2": "null",
+    "3": "power"
+  },
+  "other_entropy_used": "v1.85 entropy [185,20260927,1] with key (0,97,0) only for generator-equivalence checking; v1.85 never used that key",
+  "reuse_policy": "no spawn key reused; no alternative seeds; completed chunks never recomputed"
+}
