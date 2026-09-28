@@ -1,0 +1,68 @@
+{
+  "schema_version": "var-phase-b-bootstrap-protocol-v1.88",
+  "registered_at": "2026-09-28",
+  "status": "preregistered_not_authorized",
+  "authorization": "Phase B runs only after explicit owner approval; results are evidence for a separate owner decision and never change production automatically",
+  "inherited_procedure": {
+    "source": "v1.86 frozen engine scripts/var-selection-aware-bootstrap/engine.py run_procedure",
+    "engine_sha256": "2318f72e6f29037bc721e39d7f5b885021e700dc49480da2d19396c3b8f6e84a",
+    "family": "recursive_iid_residual (v1.86 selected by preregistered tie rule)",
+    "statistic": "tau = asymptotic chi-square p-value of the adjusted Portmanteau at h=12 for the model's own lag",
+    "synthetic_gate_reference": "v1.86 selected-model-adequacy gate (synthetic only; not an authorization)"
+  },
+  "pipeline": [
+    "observed country effective data (v1.88 design)",
+    "production BIC lag selection (candidate lags 1..10, common sample)",
+    "VAR estimation at the selected lag on the full effective sample",
+    "recursive iid residual bootstrap samples from the fitted VAR under the whiteness null (centred residuals, initial values = first p observations, same calendar months)",
+    "BIC re-selection inside every bootstrap sample with the same policy",
+    "re-estimation and tau* for every bootstrap sample",
+    "bootstrap p-value = (1 + #{tau*_b <= tau}) / (B + 1); decision at 0.05 reported, never applied to readiness"
+  ],
+  "bootstrap_replications_B": 1999,
+  "B_rationale": "single observed series per unit, so a larger B than the synthetic study is affordable; alpha*(B+1) = 100 is an integer (Davidson and MacKinnon 2000)",
+  "month_index_mapping": "engine month index = (calendar_month + 10) mod 12 so that January is the omitted dummy, as in production; the constant + 11 dummies column space is identical under any omitted month, and residual equality with production is checked to 1e-8 before bootstrapping",
+  "rng": {
+    "namespace": "var_phase_b_country_bootstrap_v188",
+    "base_entropy": [
+      188,
+      20260928,
+      1
+    ],
+    "generator": "PCG64DXSM via SeedSequence(base_entropy, spawn_key)",
+    "spawn_key": "(profile_index, unit_index)",
+    "no_alternative_seeds": true,
+    "no_reruns": true
+  },
+  "numerical_failure_rules": {
+    "unstable_or_nonfinite_original_fit": "report 'bootstrap_unavailable' with the engine state; no retry",
+    "nonfinite_bootstrap_statistic": "report 'bootstrap_failed'; no retry, no draw replacement",
+    "singular_design": "least-squares fallback as in the frozen engine"
+  },
+  "convergence_criterion": "the bootstrap is a fixed-B Monte Carlo with no iterative solver; completion = all B statistics finite",
+  "monte_carlo_uncertainty": "binomial standard error sqrt(p(1-p)/B) of the bootstrap p-value and the 99% Clopper-Pearson interval for the underlying exceedance probability; decisions whose 99% interval straddles 0.05 are labelled 'Monte Carlo borderline'",
+  "reporting_format": {
+    "per_unit": [
+      "unit_id",
+      "selected_lag",
+      "tau",
+      "bootstrap_p_value",
+      "mc_standard_error",
+      "clopper_pearson_99",
+      "decision_at_0_05",
+      "monte_carlo_borderline",
+      "bootstrap_selected_lag_distribution",
+      "state",
+      "asymptotic_portmanteau_p_value_for_comparison"
+    ],
+    "labels": [
+      "research evidence, not production readiness",
+      "not a replacement of the production diagnostic"
+    ]
+  },
+  "production_boundary": {
+    "production_changed": false,
+    "readiness_changed": false,
+    "formal_irf_publication": false
+  }
+}

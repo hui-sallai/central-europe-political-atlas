@@ -1,0 +1,126 @@
+{
+  "schema_version": "var-country-lag-identifiability-preregistration-v1.88",
+  "study_id": "var_country_lag_identifiability_v188",
+  "study_title": "v1.88 Country VAR Lag-Identifiability Audit and Phase-B Preregistration",
+  "preregistered_at": "2026-09-28",
+  "starting_commit": "116f2bfb978dc4c1258b4555c12a0d03937c0bbf",
+  "status": "phase_0_preregistration_only",
+  "prior_releases_immutable": [
+    "v1.85",
+    "v1.851",
+    "v1.86",
+    "v1.87"
+  ],
+  "research_question": "For each currently estimable formal country VAR, how much empirical evidence exists for dynamics beyond lag 1, and where does that evidence lie relative to the finite-sample regimes characterized in v1.87?",
+  "separated_components": [
+    "1 descriptive lag-identifiability measurement",
+    "2 selected-model adequacy (existing production asymptotic diagnostic)",
+    "3 bootstrap diagnostic evaluation (Phase B, separate approval)",
+    "4 production readiness (unchanged)"
+  ],
+  "eligible_units": [
+    "baseline_monthly_macro_v1::poland",
+    "baseline_monthly_macro_v1::romania",
+    "baseline_monthly_macro_v2_seasonal_controls::czechia",
+    "baseline_monthly_macro_v2_seasonal_controls::germany",
+    "baseline_monthly_macro_v2_seasonal_controls::hungary"
+  ],
+  "design_reference": {
+    "file": "var_country_lag_identifiability_design.json",
+    "sha256": "5d2890111f28a19252ffc1c562398bae449cff3c8ab863cd1faf03317570a360"
+  },
+  "metric_definition_reference": {
+    "file": "var_country_lag_identifiability_metric_definition.json",
+    "sha256": "59f4af84123c2b85b8255f342c16f0c0906b9dfb7e3c2778cd9145141d4ad230"
+  },
+  "phase_b_protocol_reference": {
+    "file": "var_phase_b_bootstrap_protocol.json",
+    "sha256": "d504c9e0478b6ccfd74b99e9a73b3a84d712a25e72e659e8343aee72605dbf57"
+  },
+  "known_information_disclosure": {
+    "known_before_preregistration": [
+      "published v1.84+ estimable lists (v1: poland, romania; v2: czechia, germany, hungary)",
+      "published fact that the formal dynamic-response-ready country count is zero",
+      "v1.85-v1.87 synthetic results"
+    ],
+    "not_inspected_for_this_preregistration": [
+      "per-country selected lags, BIC values, residual statistics, stability values or readiness blocking reasons (the readiness fields listed as not read in the design were not read or printed while preparing v1.88)"
+    ],
+    "caveat": "earlier releases published per-country readiness details, so prior exposure to some production outcomes cannot be ruled out; v1.88 metrics, mapping bands and categories were fixed without reference to them"
+  },
+  "interpretation_rules": [
+    "ELI is an empirical index, never 'true psi', never a probability that p=2 is true, and psi = 1 is not a cutoff",
+    "v1.87 mapping is descriptive context only",
+    "underselection relative to a larger estimated model is not called misspecification",
+    "asymptotic Portmanteau results are the existing production diagnostic and carry the v1.85 calibration caveat",
+    "no country result changes readiness, BIC, the production diagnostic or IRF availability"
+  ],
+  "stopping_rule": "Phase A (audit) runs once per eligible unit only after explicit owner approval, with no alternative samples, transformations, lag sets or seeds; stop and report. Phase B runs only after a further explicit owner approval.",
+  "prohibited": [
+    "changing BIC, candidate lags, transformations, deterministic terms or raw observations",
+    "activating AIC/HQIC",
+    "adding/removing countries based on outcomes",
+    "using ELI or v1.87 bands as a gate",
+    "tuning metrics or bands after inspecting country outcomes",
+    "publishing formal IRFs",
+    "activating SVAR/BVAR",
+    "modifying v1.85-v1.87 artifacts"
+  ],
+  "production_boundary": {
+    "production_changed": false,
+    "bic_policy_changed": false,
+    "readiness_changed": false,
+    "formal_irf_publication": false,
+    "svar_bvar_activated": false,
+    "phase_A_run": false,
+    "phase_B_run": false
+  },
+  "country_result_files_created": false,
+  "frozen_input_sha256": {
+    "src/lib/varEngine.ts": "0e944a52eba0a295ca7e44b5e9a801579f94a5ada03fef5a7ed9d938de8bf2ac",
+    "src/lib/timeSeriesTransforms.ts": "4a147b33d05e1da41e80b5907810380e50c5de267555f8fb535e9288d8cb6681",
+    "src/lib/varSpecifications.ts": "9ab8780c31644b93000ceb27faae4e09c2c6879df2d537a8e4455d944fde7eae",
+    "src/data/high-frequency/high_frequency_observations.json": "0621d6dbafb98e47ee1bb4c4de04183fd7e9d440cea60764babd8665e5e07ae0",
+    "src/data/macro/var_baseline_v1_readiness.json": "f210b02ec3042c5cf95f975bccbd94f7fead0f403314d59a1e760a2046c5912e",
+    "src/data/macro/var_baseline_v2_readiness.json": "b7fd4bec330ebd4db588ed63bce4de988773556b8cdc572c27f640239a2a1675",
+    "src/data/macro/var_country_readiness.json": "4b8173f8202c72359758b0bf4b05ef08a6c089f2ab47f79b7be359468c97e6b1",
+    "src/data/macro/var_specification_profiles.json": "33ac761974d85f5f167ce4772eedd6e4eec0d4435d7da702d3daad55cae669d6",
+    "scripts/macro/build-var-readiness.mjs": "ccfbcc4c398cf79e89e0d805603ed4170b69e4c8584dd6f9d9aec97f891b3cf3",
+    "src/data/macro/var_residual_diagnostic_calibration_summary.json": "ca917656b7c0109cf0e286573effaae03dd4f8143a042524c8f24ee350073cca",
+    "src/data/macro/var_residual_diagnostic_layerB_selection_decomposition.json": "6f6e1caededf43f1776a4d83aa9e26a1f55ee31cda71b6aac079080c05333602",
+    "src/data/macro/var_residual_diagnostic_method_decision.json": "729c69430e6431e88f477ae24cc73bb3025e2b70fd30d118c671dbf63f40fe5c",
+    "src/data/macro/var_residual_diagnostic_preregistration.json": "f9ddab6a8ff77026b83caeca1024bf8b0379a470792fb5410e3d99607818bb0b",
+    "src/data/macro/var_residual_diagnostic_preregistration_amendment_001.json": "fafab2a5b74677be20b537101efbb44e3f3e0c925ad33cb89f5878a32ac91006",
+    "src/data/macro/var_residual_diagnostic_reference_attempts.json": "5f7e236b42aa001d7bfffca5dc2eb33aea1116f474bd8b9dfd8948e01d8abada",
+    "src/data/macro/var_residual_diagnostic_reference_cases.json": "0c2609797aeafcba66b1a656d4537c2f8e4fc631ba61d97a2138515be379d1f0",
+    "src/data/macro/var_residual_diagnostic_reference_inputs.csv": "024fbeaa6dd49b5cd72de66dc70039938117c481c3d4f32433cf00116a3fcc45",
+    "src/data/macro/var_residual_diagnostic_reference_manifest.json": "06460e94a2db421adbd754655b75e54812f888b972904ca58e5955850b85933e",
+    "src/data/macro/var_residual_diagnostic_reference_validation.json": "684e49a070c932385fba823e95358e812129c840a72afc000a776634f7853026",
+    "src/data/macro/var_residual_diagnostic_research_conclusion.json": "5d60d16a0d78b6d41df72c34e4e7028f8d50c9844bd1df9e3dbaca56d4720021",
+    "src/data/macro/var_residual_diagnostic_research_conclusion_amendment_001.json": "43d8ff9a9b3b1bae5552a5d98f3dbb5ad00aa045077098bf0087252f21323e73",
+    "src/data/macro/var_residual_diagnostic_seed_registry.json": "433f9fdec41d0410b103a35888f4dd894693d3da9ae675df9cf32c2c1225fdd2",
+    "src/data/macro/var_residual_diagnostic_simulation_design.json": "57c741524c37c452f318ce7e9aeff48c9ed547118977393acfdce4bd4a146b73",
+    "src/data/macro/var_residual_diagnostic_simulation_results.json": "04cc4ad5f8395f894a4c9c164fc8374841b6eb20c97dc4a8c4d7098dc6912a7e",
+    "src/data/macro/var_selection_bootstrap_calibration_summary.json": "370109106140aec28a16f41db44c088d357ce43c354cb917b6f1842c9c7467e4",
+    "src/data/macro/var_selection_bootstrap_method_decision.json": "117188dbc77429ea2329df745ce04f39be9a5768e4869186b6c73f449454a1fb",
+    "src/data/macro/var_selection_bootstrap_preregistration.json": "c37a32d53f01e2444c990807780a0aa53781f3c88c706f65035ce0345c790b6f",
+    "src/data/macro/var_selection_bootstrap_reference_validation.json": "a1d9d453f5b0374f58f84a3079ca873283d05f2668e06de441682c4578a040f3",
+    "src/data/macro/var_selection_bootstrap_research_conclusion.json": "e1f137948427aaec6d4bdad26e95df70a20bf8c8787e7df059d97c492634e68f",
+    "src/data/macro/var_selection_bootstrap_seed_registry.json": "6209b349123191ae4b99de572bac359f6d47a196bebf5a0f3c93996440ab99fd",
+    "src/data/macro/var_selection_bootstrap_selection_decomposition.json": "5908403a40736498de6de186be4159425f8b7087e81280cffa0a5ddf052d7d8a",
+    "src/data/macro/var_selection_bootstrap_simulation_design.json": "ee4beaf27640b97874a30c9fada95f3682f700f80b1e8bb39c59a45f3507f35f",
+    "src/data/macro/var_selection_bootstrap_simulation_results.json": "ea93e0aebec28b3b17f50dacc0a8a6578f556f53ee9dfe468e8c02ab8bb44704",
+    "src/data/macro/var_lag_characterization_adequacy_decomposition.json": "ade91683ea4e99ceaf5d5ddccb0b3eedc5491c9658e585122ae3d25166310088",
+    "src/data/macro/var_lag_characterization_lag_selection_results.json": "0f8ca85922a83c92dd720b5d9179b3fde1cc68d269d4e13cf92f032d7725da06",
+    "src/data/macro/var_lag_characterization_mc_uncertainty_summary.json": "f35dbe41018d6685d125a56abfe745133a0bbea2ab11ccca671f167d21822b3c",
+    "src/data/macro/var_lag_characterization_preregistration.json": "956f4114416cd88a221adc991b079df127c8b9dea6e88f1027d050f458dc3a7a",
+    "src/data/macro/var_lag_characterization_reference_validation.json": "99f8244e100d8748babc06c8e0df7b2ad542508a3c632f32d7e7ee378bd425a2",
+    "src/data/macro/var_lag_characterization_research_conclusion.json": "565ee1f5c54edbc074186212af6ffd6ab683ccb1be5757fdc821998961bdda6e",
+    "src/data/macro/var_lag_characterization_signal_strength_decomposition.json": "71eb1d064352371186a04cbb33521e489a32b40d3e93b280737a2d3a2c3cee09",
+    "src/data/macro/var_lag_characterization_simulation_design.json": "7df5b8b4f931e191489c5a7c8f1c84d873102bc0df03b0b84044e1053f98513a",
+    "scripts/var-selection-aware-bootstrap/engine.py": "2318f72e6f29037bc721e39d7f5b885021e700dc49480da2d19396c3b8f6e84a",
+    "scripts/var-residual-diagnostics/simulate.py": "c43722366fb1db375149a119e58e51eaf4cbfdfc0dc2af7fbfe10256440ac2ab",
+    "scripts/var-residual-diagnostics/common.py": "79f81ecd312e305f6df63234d5482a880887336649e49c05fcd573fd204fb8d5",
+    "src/data/panel-local-projections/panel_lp_results.json": "10e7b4f8761523e7b136b9707ac87da1d753a5914e0d11a3f8b980571ab53bdc"
+  }
+}

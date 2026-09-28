@@ -48,6 +48,8 @@
     "var:lag-characterization-summarize": ".venv/bin/python scripts/var-lag-selection-characterization/summarize.py",
     "var:lag-characterization-validate": ".venv/bin/python scripts/var-lag-selection-characterization/validate.py",
     "var:lag-characterization-closure-validate": "node scripts/var-lag-selection-characterization/closure_validate.mjs",
+    "var:country-identifiability-preregister-validate": "python3 scripts/var-country-identifiability/preregister_validate.py",
+    "var:country-identifiability-design-validate": "python3 scripts/var-country-identifiability/design_validate.py",
     "analysis:validate": "node scripts/validation/validate-analysis-registry.mjs && node scripts/validation/validate-ecb-shocks.mjs && node scripts/validation/run-advanced-analysis-validation.mjs",
     "ecb:acquire": "python scripts/acquisition/acquire-ecb-monetary-events.py --refresh",
     "ecb:build": "python scripts/acquisition/acquire-ecb-monetary-events.py",
