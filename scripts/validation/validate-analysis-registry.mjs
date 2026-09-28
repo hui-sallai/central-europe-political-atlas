@@ -18,7 +18,7 @@ const { canonicalAnalysisRegistry: registry, runtimeAnalysisSkills: skills, reso
 const { runAnalysisSkill } = require("../../src/lib/analysisRunner.ts");
 let checks = 0;
 function check(value, message) { checks++; assert.ok(value, message); }
-check(registry.schema_version === "analysis-skill-registry-v1.87", "v1.87 registry schema");
+check(registry.schema_version === "analysis-skill-registry-v1.88", "v1.88 registry schema");
 check(new Set(registry.records.map(r => r.skill_id)).size === registry.records.length, "unique canonical IDs");
 for (const row of registry.records) {
   const ui = skills.find(s => s.skill_id === row.skill_id);

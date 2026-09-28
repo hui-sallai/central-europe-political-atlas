@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.88 Country VAR Lag-Identifiability Audit and Phase-B Bootstrap Evaluation — 2026-09-28
+
+- Preregisters, before any country result, a lag-identifiability audit and Phase-B bootstrap protocol for the five formal estimable country VARs (v1: Poland, Romania; v2: Czechia, Germany, Hungary; 2015-02 to 2026-06, 137 observations, candidate lags 1–10).
+- Phase A (owner-approved): production pipeline reproduced to 4.8e-11. BIC selects lag 2 for Poland, Czechia, Germany and Hungary (empirical lag-identifiability index in the v1.87 intermediate region) and lag 1 for Romania (weak region). The asymptotic h=12 Portmanteau narrowly rejects the four lag-2 models (p 0.021–0.0498) and passes Romania.
+- Phase B (owner-approved): the v1.86 selection-aware recursive iid-residual bootstrap (BIC rerun in every sample, B=1999) does not reject for any country (bootstrap p 0.072–0.391; no Monte Carlo borderline cases).
+- Research evidence only: readiness, BIC, the production diagnostic and formal IRF unavailability are unchanged; the bootstrap may be conservative in the intermediate lag-2 region (v1.87), and any production change would need a separate preregistered decision.
+
 ## v1.87 VAR Lag-Selection Finite-Sample Characterization — 2026-09-28
 
 - Preregisters (before any confirmatory draw) and runs a descriptive finite-sample characterization of the production BIC lag-selection rule: 3.36M synthetic replications over T 96–240, persistence, deterministic terms, K=2/3, innovation covariance and t5 innovations.

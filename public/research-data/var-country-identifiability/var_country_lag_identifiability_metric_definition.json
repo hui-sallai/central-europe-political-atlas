@@ -1,0 +1,107 @@
+{
+  "schema_version": "var-country-lag-identifiability-metric-definition-v1.88",
+  "registered_at": "2026-09-28",
+  "notation": "Y: T_eff x K effective data; K=3; pmax=10; n_c = T_eff - pmax common-sample observations; Sigma_p = MLE residual covariance (divisor = fit observations) of VAR(p); all 'common sample' quantities use rows pmax+1..T_eff exactly as production selectVarLagOrder; 'full sample' fits use production estimateVarModel on all T_eff rows.",
+  "metrics": [
+    {
+      "id": "sample_structure",
+      "fields": [
+        "T_eff",
+        "K",
+        "pmax",
+        "n_common",
+        "deterministic_terms",
+        "start_period",
+        "end_period"
+      ]
+    },
+    {
+      "id": "bic_grid",
+      "definition": "production BIC(p) = log det Sigma_p(common) + ln(n_c)/n_c * (p K^2 + K d), p=1..pmax; d = 1 (constant) or 12 (constant + 11 dummies)",
+      "note": "AIC/HQIC are not computed or reported in v1.88"
+    },
+    {
+      "id": "selected_bic_lag",
+      "definition": "argmin BIC(p), first minimum on ties (production)"
+    },
+    {
+      "id": "delta_bic_2_vs_1",
+      "definition": "BIC(2) - BIC(1) on the common sample; negative favours lag 2"
+    },
+    {
+      "id": "log_likelihood_improvement_2_vs_1",
+      "definition": "LR21 = n_c * (log det Sigma_1 - log det Sigma_2) on the common sample (Gaussian quasi-likelihood ratio); descriptive asymptotic chi-square(K^2) p-value reported with the label 'descriptive, not a gate'"
+    },
+    {
+      "id": "incremental_parameter_count",
+      "definition": "K^2 = 9 autoregressive parameters per added lag (K per equation); parameters per equation K p + d and observations per parameter (T_eff - p)/(K p + d) for p=1,2,selected"
+    },
+    {
+      "id": "lag2_block_norms",
+      "definition": "from the full-sample VAR(2): Frobenius and spectral norms of A_2, and the Wald statistic vec(A_2)' [Sigma_u(df) kron (Z'Z)^-1]_{A2}^-1 vec(A_2) with descriptive chi-square(K^2) p-value"
+    },
+    {
+      "id": "lag2_partial_contribution",
+      "definition": "common sample: system share 1 - det Sigma_2 / det Sigma_1, and per-equation partial R^2 1 - SSR_2,i / SSR_1,i"
+    },
+    {
+      "id": "innovation_covariance",
+      "definition": "Sigma_u (df-corrected, production sigma_u) and correlation matrix for p=1, p=2 and the selected lag (full sample)"
+    },
+    {
+      "id": "stability",
+      "definition": "production varStability max root modulus and stable flag for p=1, p=2 and the selected lag (full sample)"
+    },
+    {
+      "id": "residual_adequacy_asymptotic",
+      "definition": "production portmanteauTest (adjusted, h=12) statistic, df, p-value and status for p=1, p=2 and the selected lag (full sample)",
+      "caveat": "v1.85 showed the asymptotic adjusted Portmanteau is not size-calibrated in these designs (Layer A up to 25% with month dummies); this is reported as the existing production diagnostic, not as a calibrated test"
+    },
+    {
+      "id": "empirical_lag_identifiability_index",
+      "name": "empirical lag-identifiability index (ELI)",
+      "not": "not the true psi of v1.87; the estimated VAR is not treated as the known DGP",
+      "definition": {
+        "eli_raw": "delta_hat / (K^2 ln n_c / n_c), delta_hat = log det Sigma_1 - log det Sigma_2 (common sample); algebraically eli_raw = 1 - delta_bic_2_vs_1 / (K^2 ln n_c / n_c), so eli_raw > 1 exactly when BIC prefers lag 2 over lag 1",
+        "eli_bias_adjusted": "(LR21 - K^2) / (K^2 ln n_c), subtracting the chi-square(K^2) null mean of LR21 (overfitting bias)",
+        "uncertainty": "90% interval for the noncentrality lambda of LR21 ~ noncentral chi-square(K^2, lambda) by test inversion (lower bound 0 when not identified), mapped to lambda / (K^2 ln n_c)"
+      },
+      "restrictions": [
+        "no psi = 1 production cutoff",
+        "not a probability that p=2 is true",
+        "not a pass/fail gate"
+      ]
+    },
+    {
+      "id": "v187_reference_mapping",
+      "definition": "descriptive nearest-region placement against the frozen v1.87 primary lag-selection surface for the same deterministic specification at T in {132, 144}: weak region psi(T) < 0.5, intermediate 0.5 <= psi(T) < 1.5, strong psi(T) >= 1.5; the unit is described as most similar to the region containing eli_bias_adjusted, and all regions overlapped by the 90% interval are listed; the v1.87 BIC recovery rates of the nearest designs are quoted as synthetic context only",
+      "restrictions": [
+        "not a gate",
+        "not a probability statement about the country's true lag",
+        "not a model-selection override"
+      ]
+    },
+    {
+      "id": "selected_model_adequacy_category",
+      "definition": "A: selected lag 1 and asymptotic h=12 Portmanteau p >= 0.05; B: selected lag 1 and p < 0.05; C: selected lag >= 2 and p >= 0.05; C_fail: selected lag >= 2 and p < 0.05; D (overrides): the selected model is unstable (max root modulus >= 1) or fails the parameter-ratio >= 4 gate",
+      "restrictions": [
+        "underselection relative to a larger estimated model is not equated with misspecification",
+        "category is descriptive and does not change readiness"
+      ]
+    }
+  ],
+  "separation": {
+    "1_lag_identifiability_measurement": "bic_grid, delta_bic, LR21, block norms, partial contribution, ELI, v1.87 mapping",
+    "2_selected_model_adequacy": "selected_model_adequacy_category using the production asymptotic diagnostic",
+    "3_bootstrap_diagnostic_evaluation": "Phase B only (var_phase_b_bootstrap_protocol.json), separate owner approval",
+    "4_production_readiness": "unchanged frozen v1.44 readiness; nothing in v1.88 writes readiness"
+  },
+  "numerical_agreement_requirements": {
+    "bic_grid": 1e-08,
+    "coefficients": 1e-08,
+    "residuals": 1e-08,
+    "portmanteau_statistic": 1e-08,
+    "selected_lag": "identical"
+  },
+  "failure_handling": "if production blocks a unit, or the Python/production agreement check fails, the unit is reported as 'audit_unavailable' with the reason; no alternative sample, transformation or lag set is tried"
+}

@@ -1,0 +1,164 @@
+{
+ "schema_version": "var-phase-b-bootstrap-results-v1.88",
+ "generated_at": "2026-09-28",
+ "protocol_sha256": "d504c9e0478b6ccfd74b99e9a73b3a84d712a25e72e659e8343aee72605dbf57",
+ "preregistration_sha256": "b0ecb06288210546cdebff23e05281703ab04b2df3eb873ca63f296ae5715f8f",
+ "bootstrap_replications_B": 1999,
+ "family": "recursive_iid_residual",
+ "engine_composition_equivalent_to_run_procedure_at_B199": true,
+ "units": [
+  {
+   "unit_id": "baseline_monthly_macro_v1::poland",
+   "country": "poland",
+   "profile_id": "baseline_monthly_macro_v1",
+   "selected_lag": 2,
+   "spawn_key": [
+    0,
+    0
+   ],
+   "residual_difference_vs_production": 9.67781410565749e-13,
+   "state": "ok",
+   "tau": 0.02143502405043835,
+   "exceedances": 142,
+   "p_boot": 0.0715,
+   "boot_lag_counts": {
+    "1": 129,
+    "2": 1868,
+    "3": 2
+   },
+   "max_root_modulus": 0.962701109180442,
+   "asymptotic_portmanteau_p_value_for_comparison": 0.021435024050539764,
+   "bootstrap_p_value": 0.0715,
+   "mc_standard_error": 0.0057628534807090195,
+   "clopper_pearson_99": [
+    0.057023749957443734,
+    0.08713319037268867
+   ],
+   "decision_at_0_05": "not_reject",
+   "monte_carlo_borderline": false
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v1::romania",
+   "country": "romania",
+   "profile_id": "baseline_monthly_macro_v1",
+   "selected_lag": 1,
+   "spawn_key": [
+    0,
+    1
+   ],
+   "residual_difference_vs_production": 8.881784197001252e-15,
+   "state": "ok",
+   "tau": 0.27112372917354477,
+   "exceedances": 591,
+   "p_boot": 0.296,
+   "boot_lag_counts": {
+    "1": 1999
+   },
+   "max_root_modulus": 0.94944063808738,
+   "asymptotic_portmanteau_p_value_for_comparison": 0.2711237291735522,
+   "bootstrap_p_value": 0.296,
+   "mc_standard_error": 0.010210001080363827,
+   "clopper_pearson_99": [
+    0.2696227787626093,
+    0.3226570142874491
+   ],
+   "decision_at_0_05": "not_reject",
+   "monte_carlo_borderline": false
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v2_seasonal_controls::czechia",
+   "country": "czechia",
+   "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+   "selected_lag": 2,
+   "spawn_key": [
+    1,
+    2
+   ],
+   "residual_difference_vs_production": 5.10702591327572e-14,
+   "state": "ok",
+   "tau": 0.03154374673831714,
+   "exceedances": 706,
+   "p_boot": 0.3535,
+   "boot_lag_counts": {
+    "1": 561,
+    "2": 1436,
+    "3": 2
+   },
+   "max_root_modulus": 0.9332147038398387,
+   "asymptotic_portmanteau_p_value_for_comparison": 0.03154374673832039,
+   "bootstrap_p_value": 0.3535,
+   "mc_standard_error": 0.010692335480100196,
+   "clopper_pearson_99": [
+    0.3257695125338237,
+    0.3812903492131761
+   ],
+   "decision_at_0_05": "not_reject",
+   "monte_carlo_borderline": false
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v2_seasonal_controls::germany",
+   "country": "germany",
+   "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+   "selected_lag": 2,
+   "spawn_key": [
+    1,
+    3
+   ],
+   "residual_difference_vs_production": 1.3988810110276972e-13,
+   "state": "ok",
+   "tau": 0.025594065606945524,
+   "exceedances": 598,
+   "p_boot": 0.2995,
+   "boot_lag_counts": {
+    "1": 574,
+    "2": 1425
+   },
+   "max_root_modulus": 0.9590931969951498,
+   "asymptotic_portmanteau_p_value_for_comparison": 0.025594065606767358,
+   "bootstrap_p_value": 0.2995,
+   "mc_standard_error": 0.010244625477565678,
+   "clopper_pearson_99": [
+    0.2730268396692997,
+    0.32623954940143235
+   ],
+   "decision_at_0_05": "not_reject",
+   "monte_carlo_borderline": false
+  },
+  {
+   "unit_id": "baseline_monthly_macro_v2_seasonal_controls::hungary",
+   "country": "hungary",
+   "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+   "selected_lag": 2,
+   "spawn_key": [
+    1,
+    4
+   ],
+   "residual_difference_vs_production": 1.1093348462054564e-12,
+   "state": "ok",
+   "tau": 0.04983323425257828,
+   "exceedances": 780,
+   "p_boot": 0.3905,
+   "boot_lag_counts": {
+    "1": 513,
+    "2": 1486
+   },
+   "max_root_modulus": 0.929160708137848,
+   "asymptotic_portmanteau_p_value_for_comparison": 0.04983323425256225,
+   "bootstrap_p_value": 0.3905,
+   "mc_standard_error": 0.010911663814634402,
+   "clopper_pearson_99": [
+    0.3621332520704086,
+    0.41878532275391167
+   ],
+   "decision_at_0_05": "not_reject",
+   "monte_carlo_borderline": false
+  }
+ ],
+ "labels": [
+  "research evidence, not production readiness",
+  "not a replacement of the production diagnostic"
+ ],
+ "production_changed": false,
+ "readiness_changed": false,
+ "formal_irf_publication_available": false
+}

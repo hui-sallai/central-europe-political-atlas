@@ -56,6 +56,8 @@ jobs:
           pnpm var:selection-bootstrap-closure-validate
           pnpm var:lag-characterization-preregister-validate
           pnpm var:lag-characterization-closure-validate
+          pnpm var:country-identifiability-preregister-validate
+          pnpm var:country-identifiability-design-validate
 
       - name: Validate frozen Local Projections
         run: pnpm lp:validate

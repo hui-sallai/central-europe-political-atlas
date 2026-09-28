@@ -2100,6 +2100,11 @@ const varLagExportDir = path.join(outDir, "var-lag-characterization");
 fs.mkdirSync(varLagExportDir, { recursive: true });
 const varLagPublishedFiles = ["preregistration", "simulation_design", "reference_validation", "lag_selection_results", "signal_strength_decomposition", "adequacy_decomposition", "mc_uncertainty_summary", "research_conclusion"].map((name) => `var_lag_characterization_${name}.json`);
 for (const fileName of varLagPublishedFiles) fs.copyFileSync(path.join(canonicalDataDir, "macro", fileName), path.join(varLagExportDir, fileName));
+const varCountryExportDir = path.join(outDir, "var-country-identifiability");
+fs.mkdirSync(varCountryExportDir, { recursive: true });
+const varCountryPublishedFiles = ["var_country_lag_identifiability_preregistration", "var_country_lag_identifiability_design", "var_country_lag_identifiability_metric_definition", "var_phase_b_bootstrap_protocol", "var_country_lag_identifiability_phase_a_authorization", "var_phase_b_authorization", "var_country_lag_identifiability_results", "var_phase_b_bootstrap_results"].map((name) => `${name}.json`);
+for (const fileName of varCountryPublishedFiles) fs.copyFileSync(path.join(canonicalDataDir, "macro", fileName), path.join(varCountryExportDir, fileName));
+const varCountryJson = (name) => JSON.parse(fs.readFileSync(path.join(canonicalDataDir, "macro", `${name}.json`), "utf8"));
 const varLagJson = (name) => JSON.parse(fs.readFileSync(path.join(canonicalDataDir, "macro", `var_lag_characterization_${name}.json`), "utf8"));
 const varBootstrapJson = (name) => JSON.parse(fs.readFileSync(path.join(canonicalDataDir, "macro", `var_selection_bootstrap_${name}.json`), "utf8"));
 const varResidualJson = (name) => JSON.parse(fs.readFileSync(path.join(canonicalDataDir, "macro", `var_residual_diagnostic_${name}.json`), "utf8"));
@@ -2121,7 +2126,7 @@ const panelJson = name => JSON.parse(fs.readFileSync(path.join(panelLpDir, `${na
 const panelValidation = panelJson("panel_lp_validation_summary");
 const currentReleaseVersion = /^v[\d.]+/.exec(platformRelease.version)?.[0];
 const validationIndex = {
-  schema_version: "analysis-validation-index-v1.87",
+  schema_version: "analysis-validation-index-v1.88",
   platform_version: currentReleaseVersion,
   interpretation: "Additive current-release index; legacy validation artifacts retain their original versions and are not relabelled as panel tests.",
   records: [
@@ -2133,6 +2138,7 @@ const validationIndex = {
     { id: "analysis_registry", artifact: "analysis_skill_registry.json", gate: "analysis-registry:validate", artifact_role: "registry_validated_by_gate" },
     { id: "var_readiness", artifact: "var_capability_status.json", gate: "var:readiness-validate", artifact_role: "capability_and_publication_boundary" },
     { id: "var_residual_diagnostic_research_closure", title: "VAR residual diagnostic research closure", artifact: "var-residual-diagnostics/var_residual_diagnostic_research_conclusion.json", gate: "var:residual-closure-validate", artifact_role: "closed_research_conclusion_not_method_pass", research_state: "completed", replacement: "none_eligible", publication_boundary: "enforced", formal_irf_publication_available: false },
+    { id: "var_country_lag_identifiability", title: "Country VAR lag-identifiability audit and Phase-B bootstrap (v1.88)", artifact: "var-country-identifiability/var_phase_b_bootstrap_results.json", gate: "var:country-identifiability-preregister-validate", artifact_role: "country_research_evidence_not_readiness", production_method_changed: false, readiness_changed: false },
     { id: "var_lag_selection_characterization", title: "VAR lag-selection finite-sample characterization (v1.87)", artifact: "var-lag-characterization/var_lag_characterization_research_conclusion.json", gate: "var:lag-characterization-closure-validate", artifact_role: "descriptive_research_result_no_gate", production_method_changed: false },
     { id: "var_selection_aware_bootstrap_research", title: "VAR selection-aware bootstrap research (v1.86)", artifact: "var-selection-bootstrap/var_selection_bootstrap_research_conclusion.json", gate: "var:selection-bootstrap-closure-validate", artifact_role: "synthetic_research_result_not_production_method", disposition: "synthetic_gate_passed_phase_B_requires_owner_approval", phase_B_run: false, production_method_changed: false },
     { id: "var_residual_layerB_selection_decomposition", title: "VAR Layer-B selection decomposition", artifact: "var-residual-diagnostics/var_residual_diagnostic_layerB_selection_decomposition.json", gate: "var:residual-decomposition-validate", artifact_role: "derived_interpretation_not_new_research_draws", research_decision_changed: false },
@@ -2199,7 +2205,7 @@ writeJson("release_manifest.json", {
     trade_network: "trade-network-v1.25-active",
     event_window: "event-window-v1.31",
     high_frequency: "high-frequency-v1.31",
-    analysis_skill_registry: "analysis-skill-registry-v1.87",
+    analysis_skill_registry: "analysis-skill-registry-v1.88",
     high_frequency_definition_registry: "high-frequency-definition-registry-v1.83",
     historical_extension_research_conclusion: "historical-extension-research-conclusion-v1.83",
     panel_lp_path_inference_registry: panelJson("panel_lp_path_inference_registry").schema_version,
@@ -2214,10 +2220,11 @@ writeJson("release_manifest.json", {
     var_engine: "var-engine-v1.44",
     var_specification_profiles: "var-specification-profiles-v1.44",
     var_country_readiness: "var-country-readiness-v1.44",
-    var_capability_status: "var-capability-status-v1.87",
+    var_capability_status: "var-capability-status-v1.88",
     ...Object.fromEntries(Object.entries({ var_residual_diagnostic_preregistration: "preregistration", var_residual_diagnostic_reference: "reference_manifest", var_residual_diagnostic_validation: "reference_validation", var_residual_diagnostic_simulation: "simulation_design", var_residual_diagnostic_calibration: "calibration_summary", var_residual_diagnostic_method_decision: "method_decision", var_residual_diagnostic_research_conclusion: "research_conclusion", var_residual_diagnostic_conclusion_amendment: "research_conclusion_amendment_001", var_residual_diagnostic_layerB_selection_decomposition: "layerB_selection_decomposition" }).map(([key, name]) => [key, varResidualJson(name).schema_version])),
     ...Object.fromEntries(Object.entries({ var_selection_bootstrap_preregistration: "preregistration", var_selection_bootstrap_simulation: "simulation_design", var_selection_bootstrap_calibration: "calibration_summary", var_selection_bootstrap_method_decision: "method_decision", var_selection_bootstrap_research_conclusion: "research_conclusion" }).map(([key, name]) => [key, varBootstrapJson(name).schema_version])),
     ...Object.fromEntries(Object.entries({ var_lag_characterization_preregistration: "preregistration", var_lag_characterization_results: "lag_selection_results", var_lag_characterization_signal: "signal_strength_decomposition", var_lag_characterization_adequacy: "adequacy_decomposition", var_lag_characterization_research_conclusion: "research_conclusion" }).map(([key, name]) => [key, varLagJson(name).schema_version])),
+    ...Object.fromEntries(Object.entries({ var_country_identifiability_preregistration: "var_country_lag_identifiability_preregistration", var_country_identifiability_results: "var_country_lag_identifiability_results", var_phase_b_protocol: "var_phase_b_bootstrap_protocol", var_phase_b_results: "var_phase_b_bootstrap_results" }).map(([key, name]) => [key, varCountryJson(name).schema_version])),
     macro_drivers: "macro-driver-observations-v1.51",
     shock_identification: "shock-identification-registry-v1.62",
     identified_shocks: "monetary-policy-event-observations-v1.6",

@@ -1,0 +1,285 @@
+{
+  "schema_version": "var-country-lag-identifiability-design-v1.88",
+  "registered_at": "2026-09-28",
+  "eligibility_rule": "Every country that is estimable under a formal baseline profile (baseline_monthly_macro_v1, baseline_monthly_macro_v2_seasonal_controls) in the frozen v1.44 readiness files. The exploratory fallback profile is not a formal baseline and is excluded. No country is added or removed on the basis of any lag, diagnostic or readiness outcome.",
+  "units": [
+    {
+      "unit_id": "baseline_monthly_macro_v1::poland",
+      "country": "poland",
+      "profile_id": "baseline_monthly_macro_v1",
+      "profile_index": 0,
+      "deterministic_terms": "constant",
+      "variables": [
+        {
+          "indicator": "hicp_monthly_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level"
+        }
+      ],
+      "start_period": "2015-02",
+      "end_period": "2026-06",
+      "effective_observations": 137,
+      "k": 3,
+      "max_candidate_lag": 10,
+      "common_sample_observations": 127,
+      "unit_index": 0
+    },
+    {
+      "unit_id": "baseline_monthly_macro_v1::romania",
+      "country": "romania",
+      "profile_id": "baseline_monthly_macro_v1",
+      "profile_index": 0,
+      "deterministic_terms": "constant",
+      "variables": [
+        {
+          "indicator": "hicp_monthly_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level"
+        }
+      ],
+      "start_period": "2015-02",
+      "end_period": "2026-06",
+      "effective_observations": 137,
+      "k": 3,
+      "max_candidate_lag": 10,
+      "common_sample_observations": 127,
+      "unit_index": 1
+    },
+    {
+      "unit_id": "baseline_monthly_macro_v2_seasonal_controls::czechia",
+      "country": "czechia",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_index": 1,
+      "deterministic_terms": "constant_month_dummies",
+      "variables": [
+        {
+          "indicator": "hicp_monthly_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level"
+        }
+      ],
+      "start_period": "2015-02",
+      "end_period": "2026-06",
+      "effective_observations": 137,
+      "k": 3,
+      "max_candidate_lag": 10,
+      "common_sample_observations": 127,
+      "unit_index": 2
+    },
+    {
+      "unit_id": "baseline_monthly_macro_v2_seasonal_controls::germany",
+      "country": "germany",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_index": 1,
+      "deterministic_terms": "constant_month_dummies",
+      "variables": [
+        {
+          "indicator": "hicp_monthly_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level"
+        }
+      ],
+      "start_period": "2015-02",
+      "end_period": "2026-06",
+      "effective_observations": 137,
+      "k": 3,
+      "max_candidate_lag": 10,
+      "common_sample_observations": 127,
+      "unit_index": 3
+    },
+    {
+      "unit_id": "baseline_monthly_macro_v2_seasonal_controls::hungary",
+      "country": "hungary",
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "profile_index": 1,
+      "deterministic_terms": "constant_month_dummies",
+      "variables": [
+        {
+          "indicator": "hicp_monthly_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "industrial_production_index",
+          "transformation": "log_difference"
+        },
+        {
+          "indicator": "unemployment_rate_monthly",
+          "transformation": "level"
+        }
+      ],
+      "start_period": "2015-02",
+      "end_period": "2026-06",
+      "effective_observations": 137,
+      "k": 3,
+      "max_candidate_lag": 10,
+      "common_sample_observations": 127,
+      "unit_index": 4
+    }
+  ],
+  "excluded_country_profiles": [
+    {
+      "profile_id": "baseline_monthly_macro_v1",
+      "country": "austria",
+      "reason": "not estimable under the formal profile in the frozen v1.44 readiness (blocked before estimation); eligibility uses the estimable flag only, never diagnostic pass/fail"
+    },
+    {
+      "profile_id": "baseline_monthly_macro_v1",
+      "country": "croatia",
+      "reason": "not estimable under the formal profile in the frozen v1.44 readiness (blocked before estimation); eligibility uses the estimable flag only, never diagnostic pass/fail"
+    },
+    {
+      "profile_id": "baseline_monthly_macro_v1",
+      "country": "czechia",
+      "reason": "not estimable under the formal profile in the frozen v1.44 readiness (blocked before estimation); eligibility uses the estimable flag only, never diagnostic pass/fail"
+    },
+    {
+      "profile_id": "baseline_monthly_macro_v1",
+      "country": "germany",
+      "reason": "not estimable under the formal profile in the frozen v1.44 readiness (blocked before estimation); eligibility uses the estimable flag only, never diagnostic pass/fail"
+    },
+    {
+      "profile_id": "baseline_monthly_macro_v1",
+      "country": "hungary",
+      "reason": "not estimable under the formal profile in the frozen v1.44 readiness (blocked before estimation); eligibility uses the estimable flag only, never diagnostic pass/fail"
+    },
+    {
+      "profile_id": "baseline_monthly_macro_v1",
+      "country": "serbia",
+      "reason": "not estimable under the formal profile in the frozen v1.44 readiness (blocked before estimation); eligibility uses the estimable flag only, never diagnostic pass/fail"
+    },
+    {
+      "profile_id": "baseline_monthly_macro_v1",
+      "country": "slovakia",
+      "reason": "not estimable under the formal profile in the frozen v1.44 readiness (blocked before estimation); eligibility uses the estimable flag only, never diagnostic pass/fail"
+    },
+    {
+      "profile_id": "baseline_monthly_macro_v1",
+      "country": "slovenia",
+      "reason": "not estimable under the formal profile in the frozen v1.44 readiness (blocked before estimation); eligibility uses the estimable flag only, never diagnostic pass/fail"
+    },
+    {
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "country": "austria",
+      "reason": "not estimable under the formal profile in the frozen v1.44 readiness (blocked before estimation); eligibility uses the estimable flag only, never diagnostic pass/fail"
+    },
+    {
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "country": "croatia",
+      "reason": "not estimable under the formal profile in the frozen v1.44 readiness (blocked before estimation); eligibility uses the estimable flag only, never diagnostic pass/fail"
+    },
+    {
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "country": "poland",
+      "reason": "not estimable under the formal profile in the frozen v1.44 readiness (blocked before estimation); eligibility uses the estimable flag only, never diagnostic pass/fail"
+    },
+    {
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "country": "romania",
+      "reason": "not estimable under the formal profile in the frozen v1.44 readiness (blocked before estimation); eligibility uses the estimable flag only, never diagnostic pass/fail"
+    },
+    {
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "country": "serbia",
+      "reason": "not estimable under the formal profile in the frozen v1.44 readiness (blocked before estimation); eligibility uses the estimable flag only, never diagnostic pass/fail"
+    },
+    {
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "country": "slovakia",
+      "reason": "not estimable under the formal profile in the frozen v1.44 readiness (blocked before estimation); eligibility uses the estimable flag only, never diagnostic pass/fail"
+    },
+    {
+      "profile_id": "baseline_monthly_macro_v2_seasonal_controls",
+      "country": "slovenia",
+      "reason": "not estimable under the formal profile in the frozen v1.44 readiness (blocked before estimation); eligibility uses the estimable flag only, never diagnostic pass/fail"
+    }
+  ],
+  "readiness_fields_read_for_design": [
+    "country",
+    "profile_id",
+    "estimable",
+    "start_period",
+    "end_period",
+    "effective_observations",
+    "missing_ratio",
+    "profile.variables",
+    "profile.deterministic_terms",
+    "profile.sample_policy",
+    "profile.lag_policy"
+  ],
+  "readiness_fields_not_read": [
+    "selected_lag",
+    "lag_selection_status",
+    "stability_status",
+    "residual_status",
+    "dynamic_response_ready",
+    "dynamic_response_ready_horizons",
+    "irf_available",
+    "readiness_state",
+    "blocking_reasons",
+    "stationarity_status",
+    "stationarity_detail",
+    "fallback_attempts",
+    "selected_fallback",
+    "selection_reason"
+  ],
+  "sample": {
+    "start_rule": "profile sample_policy start 2015-01; first usable transformed month 2015-02 (log differences lose one month)",
+    "end_cutoff": "2026-06 (latest common observation in the frozen data snapshot)",
+    "data_snapshot": {
+      "path": "src/data/high-frequency/high_frequency_observations.json",
+      "sha256": "0621d6dbafb98e47ee1bb4c4de04183fd7e9d440cea60764babd8665e5e07ae0"
+    },
+    "rule": "the effective sample is exactly the production runReducedFormVar effective sample (contiguous common months after transformation) for start 2015-01 and end 2026-06; if the snapshot hash differs at execution time, the audit must not run without a preregistration amendment"
+  },
+  "transformations": "production timeSeriesTransforms.applyTransformation: hicp_monthly_index log_difference, industrial_production_index log_difference, unemployment_rate_monthly level",
+  "deterministic_specifications": {
+    "baseline_monthly_macro_v1": "constant",
+    "baseline_monthly_macro_v2_seasonal_controls": "constant + 11 month dummies (January omitted in production)"
+  },
+  "candidate_lag_set": "1..min(12, floor((T_eff-4)/(4K+1))) = 1..10 for T_eff=137, K=3 (production maximumAllowedVarLag); common sample of T_eff - 10 = 127 observations",
+  "bic_implementation": "production src/lib/varEngine.ts selectVarLagOrder (statsmodels select_order convention), first-minimum tie rule; engine SHA256 frozen",
+  "execution_plan": [
+    "Node stage: rebuild each unit's effective data matrix with the production transformation and runReducedFormVar sample logic, and record the production BIC grid, selected lag, estimates, stability and h=12 Portmanteau from varEngine.ts exported functions.",
+    "Python stage: recompute the preregistered metrics from the same matrix and require agreement with production (BIC grid, selected lag, coefficients, residuals, Portmanteau statistic) to 1e-8 before any metric is written.",
+    "Phase B (separate owner approval): v1.86 frozen engine bootstrap per var_phase_b_bootstrap_protocol.json."
+  ],
+  "frozen_input_sha256": {
+    "src/lib/varEngine.ts": "0e944a52eba0a295ca7e44b5e9a801579f94a5ada03fef5a7ed9d938de8bf2ac",
+    "src/lib/timeSeriesTransforms.ts": "4a147b33d05e1da41e80b5907810380e50c5de267555f8fb535e9288d8cb6681",
+    "src/lib/varSpecifications.ts": "9ab8780c31644b93000ceb27faae4e09c2c6879df2d537a8e4455d944fde7eae",
+    "src/data/high-frequency/high_frequency_observations.json": "0621d6dbafb98e47ee1bb4c4de04183fd7e9d440cea60764babd8665e5e07ae0",
+    "src/data/macro/var_baseline_v1_readiness.json": "f210b02ec3042c5cf95f975bccbd94f7fead0f403314d59a1e760a2046c5912e",
+    "src/data/macro/var_baseline_v2_readiness.json": "b7fd4bec330ebd4db588ed63bce4de988773556b8cdc572c27f640239a2a1675",
+    "src/data/macro/var_country_readiness.json": "4b8173f8202c72359758b0bf4b05ef08a6c089f2ab47f79b7be359468c97e6b1",
+    "src/data/macro/var_specification_profiles.json": "33ac761974d85f5f167ce4772eedd6e4eec0d4435d7da702d3daad55cae669d6",
+    "scripts/macro/build-var-readiness.mjs": "ccfbcc4c398cf79e89e0d805603ed4170b69e4c8584dd6f9d9aec97f891b3cf3"
+  }
+}

@@ -76,7 +76,7 @@ for (const [file, hash] of Object.entries(conclusion.provenance)) check(sha(`src
 const capability = read("src/data/macro/var_capability_status.json");
 const registry = read("src/data/analysis/analysis_skill_registry.json");
 const skill = registry.records.find((row) => row.skill_id === "reduced_form_var");
-check(capability.schema_version === "var-capability-status-v1.87" && capability.estimator_available === true && capability.coefficient_estimation_available === true, "estimation remains active");
+check(capability.schema_version === "var-capability-status-v1.88" && capability.estimator_available === true && capability.coefficient_estimation_available === true, "estimation remains active");
 check(capability.formal_dynamic_response_ready_country_count === 0 && capability.formal_irf_publication_available === false && capability.irf_uncertainty_available === false && capability.structural_identification_available === false, "publication boundary");
 check(capability.residual_diagnostic_calibration_research === "completed" && capability.residual_diagnostic_replacement === "none_eligible" && capability.phase_B_real_country_comparison === "not_authorized", "capability research status");
 check(capability.current_production_diagnostic_calibration === "failed_preregistered_joint_platform_gate" && capability.fixed_lag_es_calibration === "passed_primary_layer_A" && capability.full_procedure_es_calibration === "failed_joint_layer_A_B", "calibration statuses");

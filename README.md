@@ -4,7 +4,7 @@ Central Europe Political Atlas is a public political-economy research platform f
 
 Public site: https://hy-central-europe-analysis.org/
 
-Current release: **v1.87 VAR Lag-Selection Finite-Sample Characterization**
+Current release: **v1.88 Country VAR Lag-Identifiability Audit and Phase-B Bootstrap Evaluation**
 
 v1.72 preserves the 44 v1.71 baseline models and adds finite-sample Monte Carlo diagnostics, concentration-based shock support, exhaustive eligible shock-month/event deletion audits, and independent full-path covariance checks. Bias correction remains `registry_only`: the official Fed ZIP contains accessible paper assets, not executable replication code. Simulations describe stylized fixed-p designs, not estimated coverage or bias of the real models.
 
@@ -28,6 +28,7 @@ Offline diagnostic regeneration: `pnpm lp:finite-sample` and `pnpm lp:shock-supp
 - v1.851 decomposes the v1.85 Layer-B results by BIC lag selection (derived from the frozen simulation results, no new draws): with a true VAR(2), BIC almost always selects VAR(1), so Layer-B rejection frequencies are joint lag-selection/specification/diagnostic procedure rates rather than pure diagnostic test size. The v1.85 decision is unchanged.
 - v1.86 is a research release: a preregistered selection-aware bootstrap calibration of the h=12 Portmanteau passed its synthetic gate, but it has not been evaluated on real-country data and is not used in production; formal dynamic responses remain unavailable.
 - v1.87 is a descriptive research release characterizing when the production BIC rule recovers a true second lag as a function of lag-2 signal strength; BIC remains the production criterion and nothing in production changed.
+- v1.88 is a research release: a preregistered country audit measured lag-2 evidence for the five formal estimable country VARs and evaluated the research bootstrap diagnostic on them; the results are research evidence only and do not change readiness or the production diagnostic.
 - 4 conditional scenarios with baseline, shock assumption, adjusted input and result traces.
 - Coded political-economy events and verified China-related project records.
 - Deterministic validation, golden cases and a release QA gate.
@@ -72,7 +73,7 @@ Machine-readable files are published under `/research-data/`. See [the research-
 
 ## Citation
 
-Central Europe Political Atlas, version v1.87 VAR Lag-Selection Finite-Sample Characterization, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
+Central Europe Political Atlas, version v1.88 Country VAR Lag-Identifiability Audit and Phase-B Bootstrap Evaluation, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/
 
 ## Official VAR reference environment
 
