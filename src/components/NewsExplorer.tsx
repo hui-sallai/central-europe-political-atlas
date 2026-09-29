@@ -80,55 +80,110 @@ function EventCard({ item }: { item: Event }) {
   );
 }
 
+const CSV_COLUMNS = ["id", "date", "country_slug", "country_name", "event_type", "topic", "title", "summary", "actor", "source_name", "source_url", "confidence", "coding_status"] as const;
+const csvCell = (value: unknown) => `"${String(value ?? "").replaceAll('"', '""')}"`;
+
 export function NewsExplorer() {
   const [countryFilter, setCountryFilter] = useState<CountryFilter>("all");
   const [eventTypeFilter, setEventTypeFilter] = useState<EventTypeFilter>("all");
+  const [topicFilter, setTopicFilter] = useState("all");
+  const [query, setQuery] = useState("");
+  const [dateFrom, setDateFrom] = useState("");
+  const [dateTo, setDateTo] = useState("");
   const [visibleCount, setVisibleCount] = useState(30);
+  const [urlReady, setUrlReady] = useState(false);
+  const topics = useMemo(() => [...new Set(researchEvents.filter((item) => item.data_status === "verified").map((item) => item.topic).filter(Boolean))].sort((a, b) => String(a).localeCompare(String(b), "zh-CN")) as string[], []);
 
   useEffect(() => {
     const timeoutId = window.setTimeout(() => {
       const params = new URLSearchParams(window.location.search);
       const country = params.get("country");
       const type = params.get("type") as EventType | null;
+      const topic = params.get("topic");
+      const isDate = (value: string | null) => value !== null && /^\d{4}-\d{2}-\d{2}$/.test(value);
       if (country && researchCountries.some((item) => item.slug === country)) setCountryFilter(country);
       if (type && Object.prototype.hasOwnProperty.call(eventTypeLabels, type)) setEventTypeFilter(type);
+      if (topic && topics.includes(topic)) setTopicFilter(topic);
+      if (params.get("q")) setQuery(params.get("q") ?? "");
+      if (isDate(params.get("from"))) setDateFrom(params.get("from") ?? "");
+      if (isDate(params.get("to"))) setDateTo(params.get("to") ?? "");
+      setUrlReady(true);
     }, 0);
     return () => window.clearTimeout(timeoutId);
-  }, []);
+  }, [topics]);
 
-  function updateFilter(kind: "country" | "type", value: string) {
-    if (kind === "country") setCountryFilter(value);
-    else setEventTypeFilter(value as EventTypeFilter);
-    setVisibleCount(30);
-    const url = new URL(window.location.href);
-    if (value === "all") url.searchParams.delete(kind);
-    else url.searchParams.set(kind, value);
-    window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
-  }
+  // Filters are mirrored into the URL (keeping any #event anchor) so a filtered view can be shared.
+  useEffect(() => {
+    if (!urlReady) return;
+    const params = new URLSearchParams();
+    if (countryFilter !== "all") params.set("country", countryFilter);
+    if (eventTypeFilter !== "all") params.set("type", eventTypeFilter);
+    if (topicFilter !== "all") params.set("topic", topicFilter);
+    if (query.trim()) params.set("q", query.trim());
+    if (dateFrom) params.set("from", dateFrom);
+    if (dateTo) params.set("to", dateTo);
+    const search = params.toString();
+    const next = `${window.location.pathname}${search ? `?${search}` : ""}${window.location.hash}`;
+    if (next !== `${window.location.pathname}${window.location.search}${window.location.hash}`) window.history.replaceState(null, "", next);
+  }, [urlReady, countryFilter, eventTypeFilter, topicFilter, query, dateFrom, dateTo]);
 
   const eventTypes = Object.keys(eventTypeLabels) as EventType[];
-  const verifiedItems = useMemo(() => researchEvents
-    .filter((item) => item.data_status === "verified")
-    .filter((item) => countryFilter === "all" || item.country_slug === countryFilter)
-    .filter((item) => eventTypeFilter === "all" || item.event_type === eventTypeFilter)
-    .sort((a, b) => b.date.localeCompare(a.date) || a.event_id.localeCompare(b.event_id)), [countryFilter, eventTypeFilter]);
+  const verifiedItems = useMemo(() => {
+    const terms = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    return researchEvents
+      .filter((item) => item.data_status === "verified")
+      .filter((item) => countryFilter === "all" || item.country_slug === countryFilter)
+      .filter((item) => eventTypeFilter === "all" || item.event_type === eventTypeFilter)
+      .filter((item) => topicFilter === "all" || item.topic === topicFilter)
+      .filter((item) => (!dateFrom || item.date >= dateFrom) && (!dateTo || item.date <= dateTo))
+      .filter((item) => { if (!terms.length) return true; const haystack = [item.title, item.summary, item.actor, item.source_name, item.topic, item.country_name].join(" ").toLowerCase(); return terms.every((term) => haystack.includes(term)); })
+      .sort((a, b) => b.date.localeCompare(a.date) || a.event_id.localeCompare(b.event_id));
+  }, [countryFilter, eventTypeFilter, topicFilter, query, dateFrom, dateTo]);
   const sampleCount = researchEvents.filter((item) => item.data_status === "sample").length;
+  const filtered = countryFilter !== "all" || eventTypeFilter !== "all" || topicFilter !== "all" || Boolean(query.trim()) || Boolean(dateFrom) || Boolean(dateTo);
+  const reset = (apply: () => void) => { apply(); setVisibleCount(30); };
+
+  function exportCsv() {
+    const rows = verifiedItems.map((item) => CSV_COLUMNS.map((column) => csvCell((item as unknown as Record<string, unknown>)[column])).join(","));
+    const url = URL.createObjectURL(new Blob([`﻿${[CSV_COLUMNS.join(","), ...rows].join("\n")}`], { type: "text/csv;charset=utf-8" }));
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = `events-${countryFilter}-${eventTypeFilter}-${topicFilter}${dateFrom ? `-from-${dateFrom}` : ""}${dateTo ? `-to-${dateTo}` : ""}.csv`;
+    anchor.click();
+    URL.revokeObjectURL(url);
+  }
 
   return (
     <section className="mt-7 grid gap-8 lg:grid-cols-[230px_1fr]">
       <aside className="h-fit border-t border-[var(--line)] pt-5 lg:sticky lg:top-20">
         <p className="editorial-kicker">Filters</p>
+        <label className="mt-4 block text-xs font-semibold text-[var(--muted)]">关键词
+          <input className="field-control mt-2" type="search" value={query} onChange={(event) => reset(() => setQuery(event.target.value))} placeholder="标题、摘要、主体或来源" />
+        </label>
         <label className="mt-4 block text-xs font-semibold text-[var(--muted)]">Country
-          <select className="field-control mt-2" value={countryFilter} onChange={(event) => updateFilter("country", event.target.value)}><option value="all">全部国家</option>{researchCountries.map((country) => <option key={country.slug} value={country.slug}>{country.name_zh}</option>)}</select>
+          <select className="field-control mt-2" value={countryFilter} onChange={(event) => reset(() => setCountryFilter(event.target.value))}><option value="all">全部国家</option>{researchCountries.map((country) => <option key={country.slug} value={country.slug}>{country.name_zh}</option>)}</select>
         </label>
         <label className="mt-4 block text-xs font-semibold text-[var(--muted)]">Event type
-          <select className="field-control mt-2" value={eventTypeFilter} onChange={(event) => updateFilter("type", event.target.value)}><option value="all">全部类型</option>{eventTypes.map((type) => <option key={type} value={type}>{eventTypeLabels[type]}</option>)}</select>
+          <select className="field-control mt-2" value={eventTypeFilter} onChange={(event) => reset(() => setEventTypeFilter(event.target.value as EventTypeFilter))}><option value="all">全部类型</option>{eventTypes.map((type) => <option key={type} value={type}>{eventTypeLabels[type]}</option>)}</select>
         </label>
+        <label className="mt-4 block text-xs font-semibold text-[var(--muted)]">主题
+          <select className="field-control mt-2" value={topicFilter} onChange={(event) => reset(() => setTopicFilter(event.target.value))}><option value="all">全部主题</option>{topics.map((topic) => <option key={topic} value={topic}>{topic}</option>)}</select>
+        </label>
+        <div className="mt-4 grid grid-cols-2 gap-2">
+          <label className="text-xs font-semibold text-[var(--muted)]">起始日期
+            <input className="field-control mt-2" type="date" value={dateFrom} max={dateTo || undefined} onChange={(event) => reset(() => setDateFrom(event.target.value))} />
+          </label>
+          <label className="text-xs font-semibold text-[var(--muted)]">结束日期
+            <input className="field-control mt-2" type="date" value={dateTo} min={dateFrom || undefined} onChange={(event) => reset(() => setDateTo(event.target.value))} />
+          </label>
+        </div>
+        {filtered ? <button type="button" className="mt-3 text-xs font-semibold text-[var(--accent)] hover:underline" onClick={() => reset(() => { setCountryFilter("all"); setEventTypeFilter("all"); setTopicFilter("all"); setQuery(""); setDateFrom(""); setDateTo(""); })}>清除全部筛选</button> : null}
         <dl className="mt-6 divide-y divide-[var(--line)] border-y border-[var(--line)] text-sm">
-          <div className="flex justify-between py-3"><dt className="text-[var(--muted)]">当前结果</dt><dd className="metric-number font-semibold">{verifiedItems.length}</dd></div>
+          <div className="flex justify-between py-3"><dt className="text-[var(--muted)]">当前结果</dt><dd className="metric-number font-semibold" data-news-count>{verifiedItems.length}</dd></div>
           <div className="flex justify-between py-3"><dt className="text-[var(--muted)]">结构样例</dt><dd className="metric-number font-semibold">{sampleCount}</dd></div>
         </dl>
-        <a href="/research-data/events.json" className="mt-5 inline-flex text-sm font-semibold text-[var(--accent)]">下载全部事件数据（JSON）</a>
+        <button type="button" onClick={exportCsv} disabled={!verifiedItems.length} className="mt-5 inline-flex rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-50">导出当前结果（CSV）</button>
+        <a href="/research-data/events.json" className="mt-3 block text-sm font-semibold text-[var(--accent)]">下载全部事件数据（JSON）</a>
       </aside>
 
       <div>
