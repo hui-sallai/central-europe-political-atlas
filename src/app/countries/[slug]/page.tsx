@@ -2,10 +2,13 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import { CountryResearchProfile } from "@/components/CountryResearchProfile";
+import { CountryComparePanel } from "@/components/CountryComparePanel";
 import { getCountry } from "@/lib/data";
 import { getCountryObservations, getEventsForCountry, getProjectsForCountry, getResearchCountryBySlug, researchCountries } from "@/lib/researchData";
 import { regionalCoverageMatrixV087 } from "@/lib/spatialDataV087";
 import { getModelOutputsForCountry } from "@/lib/modelFramework";
+
+const COMPARE_INDICATORS = new Set(["gdp_current_eur", "gdp_per_capita_eur", "real_gdp_growth", "hicp_inflation", "unemployment_rate", "government_debt_gdp"]);
 
 type CountryPageProps = {
   params: Promise<{
@@ -49,6 +52,13 @@ export default async function CountryPage({ params }: CountryPageProps) {
         projects={getProjectsForCountry(slug)}
         modelOutputs={getModelOutputsForCountry(slug)}
         regionalMapAvailable={Boolean(regionalCoverage?.public_layer_count)}
+      />
+
+      <CountryComparePanel
+        current={slug}
+        countries={researchCountries.map((c) => ({ slug: c.slug, name_zh: c.name_zh }))}
+        mapCountries={regionalCoverageMatrixV087.filter((record) => record.public_layer_count).map((record) => record.country_id)}
+        points={researchCountries.flatMap((c) => getCountryObservations(c.slug).filter((o) => COMPARE_INDICATORS.has(o.indicator)).map((o) => ({ country: c.slug, indicator: o.indicator, year: o.year, value: o.value, unit: o.unit })))}
       />
     </main>
   );
