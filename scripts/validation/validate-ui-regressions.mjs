@@ -137,6 +137,14 @@ for (const [file, label] of [["src/components/DataExplorerV11.tsx", "高频月�
   check(sorsPanel.includes("国家 CPI 不等同于 HICP") && sorsPanel.includes("不进入 VAR、LP 或面板模型") && sorsPanel.includes("data-cross-country"), "SORS monthly panel states CPI is not HICP, model exclusion and comparability");
   const displayAs = /const displayAs = (\{[^}]*\})/.exec(exportScript)?.[1] ?? "";
   check(displayAs.length > 0 && !/hicp/i.test(displayAs), "no SORS series is displayed under an HICP indicator");
+  // Phase 5 usability features stay wired.
+  const news = read("src/components/NewsExplorer.tsx");
+  check(["关键词", "主题", "起始日期", "结束日期", "导出当前结果（CSV）", 'params.set("q"', 'params.set("from"', "window.history.replaceState"].every((needle) => news.includes(needle)), "news: keyword, topic, date range, URL state and CSV export");
+  check(explorer.includes("<CopyCitationButton") && explorer.includes('params.set("sort", "asc")') && explorer.includes("window.history.replaceState"), "data: per-observation citation and URL-synced filters");
+  check(read("src/app/countries/[slug]/page.tsx").includes("<CountryComparePanel"), "country profile: comparison panel");
+  check(spatial.includes('data-map-export={country.country_id}') && spatial.includes('exportCurrentMap("svg")') && spatial.includes('exportCurrentMap("png")') && read("src/lib/mapExport.ts").includes("EuroGeographics") === false && spatial.includes("© EuroGeographics"), "map: SVG/PNG export with legend and boundary attribution");
+  const siteNav = read("src/components/SiteNav.tsx");
+  check(siteNav.includes("aria-expanded={open}") && siteNav.includes('aria-controls="mobile-nav"') && siteNav.includes('event.key === "Escape"'), "mobile navigation is an accessible disclosure");
   const { LocalProjectionWorkbench } = require(path.join(root, "src/components/LocalProjectionWorkbench.tsx"));
   const lpHtml = renderToStaticMarkup(React.createElement(LocalProjectionWorkbench, {}));
   check(/data-axis="x"/.test(lpHtml) && /data-axis="y"/.test(lpHtml) && /data-zero-line="true"/.test(lpHtml), "LP chart renders axes and a zero line");

@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { RegionHistoryTrend } from "@/components/RegionHistoryTrend";
 import { formatNumber as sharedFormatNumber, formatWithUnit } from "@/lib/format";
+import { exportMap } from "@/lib/mapExport";
+import { PLATFORM_NAME, PLATFORM_VERSION } from "@/lib/releaseMetadata";
 
 type Position = [number, number];
 type Polygon = Position[][];
@@ -260,7 +262,7 @@ function MapPane({
       {loadState === "error" ? <div className="grid h-[340px] place-items-center bg-amber-50 p-6 text-center text-sm text-amber-950">空间比较待接入：{country.blocker}</div> : null}
       {loadState === "ready" && project ? (
         <>
-          <svg viewBox={`0 0 ${width} ${height}`} className="h-auto w-full" role="img" aria-label={`${country.country_name_zh}${year ? ` ${year}` : ""} 区域事实地图`}>
+          <svg viewBox={`0 0 ${width} ${height}`} className="h-auto w-full" role="img" aria-label={`${country.country_name_zh}${year ? ` ${year}` : ""} 区域事实地图`} data-map-export={country.country_id}>
             <defs><pattern id={noDataPatternId} width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill={noDataColor} /><line x1="0" y1="0" x2="0" y2="6" stroke="var(--map-hatch)" strokeWidth="2" /></pattern></defs>
             {[...paths].sort((a, b) => Number(selectedRegionIds.includes(a.feature.properties.region_id ?? "")) - Number(selectedRegionIds.includes(b.feature.properties.region_id ?? ""))).map(({ feature, d }) => {
               const regionId = feature.properties.region_id ?? "";
@@ -403,6 +405,21 @@ export function ComparativeSpatialWorkbench({
   const scaleValues = mapObservations.filter((item) => selectedCountries.some((country) => country.country_id === item.country_id) && item.region_indicator_id === effectiveLayer && item.year === effectiveYear).map((item) => item.value);
   const sharedThresholds = mode === "comparison" ? thresholdsFor(scaleValues, classification) : null;
   const legendThresholds = sharedThresholds ?? thresholdsFor(scaleValues, classification);
+  const legendItems = colors.slice(0, legendThresholds.length + 1).map((color, index) => ({ color, label: index === 0 ? `≤ ${formatNumber(legendThresholds[0] ?? scaleValues[0] ?? 0)}` : index <= legendThresholds.length - 1 ? `${formatNumber(legendThresholds[index - 1])}–${formatNumber(legendThresholds[index])}` : `> ${formatNumber(legendThresholds.at(-1) ?? 0)}` }));
+  // Map export (SVG / PNG): the panes on screen plus title, legend and source/boundary attribution; light print palette.
+  const exportCurrentMap = (format: "svg" | "png") => {
+    if (!currentLayer) return;
+    const names = selectedCountries.map((country) => country.country_name_zh).join("、");
+    const accessed = new Date().toLocaleDateString("sv-SE");
+    void exportMap({
+      title: `${currentLayer.name_zh} · ${names}`,
+      subtitle: `${currentLayer.unit} · ${effectiveYear || "年份不适用"} · ${classification === "quantile" ? "分位数分级（Quantile）" : "等距分级（Equal interval）"} · 区域事实描述，不构成排名结论`,
+      legend: legendItems,
+      noDataLabel: "无数据（斜线）",
+      source: `数据：${selectedCountries.map((country) => country.source_name).join(" / ")}；行政边界：© EuroGeographics（Eurostat/GISCO）。导出自 ${PLATFORM_NAME}（${PLATFORM_VERSION.split(" ")[0]}），${accessed}。`,
+      fileName: `atlas-map-${currentLayer.layer_id}-${selectedCountries.map((country) => country.country_id).join("-")}-${effectiveYear || "na"}`,
+    }, format);
+  };
   const selectedRegions = selectedRegionIds.map((id) => regions.find((region) => region.region_id === id)).filter(Boolean) as Region[];
   const activeRegion = regions.find((region) => region.region_id === activeRegionId) ?? selectedRegions[0];
   const selectedProject = projects.find((project) => project.project_location_id === selectedProjectId || project.project_id === selectedProjectId);
@@ -490,7 +507,7 @@ export function ComparativeSpatialWorkbench({
 
       {activeRegion && activeLayerObservation && countryBenchmarkMean !== null && currentLayer?.layer_type === "choropleth" ? <div className="mt-4 border-y border-[var(--line)] bg-[var(--surface)] p-4 text-xs leading-5"><strong>{activeRegion.region_name_zh} · {currentLayer.name_zh}描述性基准：</strong> 区域值 {formatNumber(activeLayerObservation.value)} {activeLayerObservation.unit}；本国同层级区域均值 {formatNumber(countryBenchmarkMean)} {activeLayerObservation.unit}；差距 {formatNumber(activeLayerObservation.value - countryBenchmarkMean)} {activeLayerObservation.unit}。该差距只表示事实位置，不代表风险或政策优劣。</div> : null}
 
-      {currentLayer?.layer_type === "choropleth" ? <div className="mt-4 border-y border-[var(--line)] bg-[var(--surface)] p-4"><div className="flex flex-wrap items-center gap-x-4 gap-y-2"><span className="w-full text-xs font-semibold text-[var(--muted)] sm:w-auto">图例 · {currentLayer.name_zh} · {currentLayer.unit} · {effectiveYear || "年份不适用"} · {classification === "quantile" ? "Quantile" : "Equal interval"}</span>{colors.slice(0, legendThresholds.length + 1).map((color, index) => <span key={color} className="inline-flex items-center gap-1.5 text-xs"><span className="h-3.5 w-6 rounded-sm border border-black/10" style={{ backgroundColor: color }} />{index === 0 ? `≤ ${formatNumber(legendThresholds[0] ?? scaleValues[0] ?? 0)}` : index <= legendThresholds.length - 1 ? `${formatNumber(legendThresholds[index - 1])}–${formatNumber(legendThresholds[index])}` : `> ${formatNumber(legendThresholds.at(-1) ?? 0)}`}</span>)}<span className="inline-flex items-center gap-1.5 text-xs"><span className="h-3.5 w-6 rounded-sm border border-black/10" style={{ background: `repeating-linear-gradient(45deg, ${noDataColor} 0 3px, var(--map-hatch) 3px 5px)` }} />无数据（斜线）</span></div></div> : null}
+      {currentLayer?.layer_type === "choropleth" ? <div className="mt-4 border-y border-[var(--line)] bg-[var(--surface)] p-4"><div className="flex flex-wrap items-center gap-x-4 gap-y-2"><span className="w-full text-xs font-semibold text-[var(--muted)] sm:w-auto">图例 · {currentLayer.name_zh} · {currentLayer.unit} · {effectiveYear || "年份不适用"} · {classification === "quantile" ? "Quantile" : "Equal interval"}</span>{legendItems.map((item) => <span key={item.color} className="inline-flex items-center gap-1.5 text-xs"><span className="h-3.5 w-6 rounded-sm border border-black/10" style={{ backgroundColor: item.color }} />{item.label}</span>)}<span className="inline-flex items-center gap-1.5 text-xs"><span className="h-3.5 w-6 rounded-sm border border-black/10" style={{ background: `repeating-linear-gradient(45deg, ${noDataColor} 0 3px, var(--map-hatch) 3px 5px)` }} />无数据（斜线）</span><span className="ml-auto flex gap-2" data-print="hide"><button type="button" onClick={() => exportCurrentMap("svg")} className="rounded-full border border-[var(--line)] px-3 py-1 text-xs font-semibold text-[var(--accent)] hover:border-[var(--accent)]">导出地图（SVG）</button><button type="button" onClick={() => exportCurrentMap("png")} className="rounded-full border border-[var(--line)] px-3 py-1 text-xs font-semibold text-[var(--accent)] hover:border-[var(--accent)]">导出地图（PNG）</button></span></div></div> : null}
 
       <section className="mt-5 border-y border-[var(--line)] bg-[var(--surface)] p-4">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow">Region Comparison</p><h3 className="mt-2 text-xl font-semibold">区域对比 · 已选 {selectedRegions.length} / 5</h3></div><button type="button" onClick={() => { setSelectedRegionIds([]); setActiveRegionId(""); }} className="text-sm font-semibold text-[var(--accent)]">清空选择</button></div>
