@@ -102,7 +102,7 @@ export function HomeResearchMap({ countries }: { countries: HomeMapCountry[] }) 
           {loadState === "loading" ? <div className="home-map-message">正在加载轻量国家边界…</div> : null}
           {loadState === "error" ? <div className="home-map-message">地图边界暂时不可用。国家档案与数据入口仍可正常访问。</div> : null}
           {loadState === "ready" ? (
-            <svg viewBox={`0 0 ${width} ${height}`} role="img" aria-label="中欧十国互动研究地图">
+            <svg viewBox={`0 0 ${width} ${height}`} role="group" aria-label="中欧十国互动研究地图">
               {paths.map((item) => {
                 const active = item.slug === selectedSlug;
                 const country = countries.find((candidate) => candidate.slug === item.slug);
@@ -120,7 +120,7 @@ export function HomeResearchMap({ countries }: { countries: HomeMapCountry[] }) 
           <h3>{selected.nameZh}</h3>
           <p className="home-country-en">{selected.nameEn}</p>
           <dl className="home-country-metrics">
-            {selected.indicators.map((indicator) => <div key={indicator.id}><dt>{indicator.label}</dt><dd>{indicator.value}</dd><span>{indicator.year}</span></div>)}
+            {selected.indicators.map((indicator) => <div key={indicator.id}><dt>{indicator.label}</dt><dd>{indicator.value}</dd><dd className="home-country-year">{indicator.year}</dd></div>)}
           </dl>
           <div className="home-latest-event">
             <p>Latest verified event</p>

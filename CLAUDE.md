@@ -33,6 +33,8 @@ https://hy-central-europe-analysis.org via `.github/workflows/deploy-pages.yml` 
 | UI wording rules | `pnpm ui-language:qa` |
 | UI regressions (CTA contrast, tables, charts) | `pnpm ui:regression-validate` (needs a fresh `out/`) |
 | Data coverage / history stores | `pnpm data-coverage:validate` · `pnpm historical-annual:validate` · `pnpm historical-monthly:validate` · `pnpm historical-regional:validate` · `pnpm serbia-audit:validate` |
+| Browser UI tests (8 routes × 1440/390: screenshots, axe serious/critical = 0, canonical) | `pnpm build:site && pnpm test:ui` · refresh baselines: `pnpm test:ui:update` |
+| SEO / share previews on `out/` | `pnpm seo:validate` |
 | Weekly news | `pnpm news:validate` |
 | Research-data export | `node scripts/export-research-data.mjs` (rewrites timestamps in `public/research-data/`; revert unrelated files before committing) |
 
@@ -66,6 +68,9 @@ restore the tree with `git checkout -- public/research-data src/data/analysis/ad
 2. Add a dated entry at the top of `CHANGELOG.md`.
 3. Run the full `pnpm build`, then revert incidental timestamp changes under `public/research-data/`.
 4. Commit. Push only with explicit owner approval ("推送上线"); the Pages workflow deploys `main`.
+
+Screenshot baselines are per platform (`tests/ui/__screenshots__/<platform>/`). CI records missing Linux baselines
+instead of failing and uploads them as the `ui-baselines-linux` artifact — commit that folder to turn on Linux comparison.
 
 ## Running locally
 - macOS / Linux: `pnpm install` then `pnpm dev` (or `pnpm build:site` and serve `out/` statically, e.g. `npx serve out`).

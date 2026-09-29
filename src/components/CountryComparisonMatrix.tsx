@@ -151,7 +151,7 @@ export function CountryComparisonMatrix({ data }: { data: ComparisonMatrixData }
         </button>
       </div>
 
-      <div className="mt-5 overflow-x-auto">
+      <div className="mt-5 overflow-x-auto" tabIndex={0} role="region" aria-label="数据表（可横向滚动）">
         <table className="research-data-table w-full min-w-[900px] text-left text-sm">
           <thead>
             <tr>

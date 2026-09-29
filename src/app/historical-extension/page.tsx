@@ -34,7 +34,7 @@ export default function HistoricalExtensionPage() {
       <p className="editorial-kicker">01 / Definitions</p>
       <h2 className="mt-3 text-3xl font-semibold">数据存在，不等于定义兼容</h2>
       <p className="mt-4 text-sm leading-7 text-[var(--muted)]">Eurostat 最新修订序列在 2015 年前已有月度值。HICP 和长期收益率已核清八国历史序列；工业生产指数核清六国；失业率核清奥地利、德国、斯洛文尼亚、捷克、匈牙利和罗马尼亚。波兰、罗马尼亚工业生产及斯洛伐克、波兰失业率的更早延伸明确受阻，不以插值或相邻国家数据填补。</p>
-      <div className="mt-6 overflow-x-auto"><table className="min-w-full text-left text-sm"><thead><tr className="border-b border-[var(--line)]"><th className="py-3 pr-5">指标</th><th className="py-3 pr-5">国家</th><th className="py-3 pr-5">最早有值</th><th className="py-3 pr-5">已核清起点</th></tr></thead><tbody>{outcomes.flatMap((outcome) => countries.map((country) => {
+      <div className="mt-6 overflow-x-auto" tabIndex={0} role="region" aria-label="数据表（可横向滚动）"><table className="min-w-full text-left text-sm"><thead><tr className="border-b border-[var(--line)]"><th className="py-3 pr-5">指标</th><th className="py-3 pr-5">国家</th><th className="py-3 pr-5">最早有值</th><th className="py-3 pr-5">已核清起点</th></tr></thead><tbody>{outcomes.flatMap((outcome) => countries.map((country) => {
         const record = outcome.records.find((item) => item.country === country);
         return <tr key={`${outcome.label}-${country}`} className="border-b border-[var(--line)]"><td className="py-2 pr-5">{outcome.label}</td><td className="py-2 pr-5">{country}</td><td className="py-2 pr-5">{record?.earliest_available ?? "—"}</td><td className="py-2 pr-5">{record?.earliest_definition_compatible ?? "受阻：无可核清起点"}</td></tr>;
       }))}</tbody></table></div>

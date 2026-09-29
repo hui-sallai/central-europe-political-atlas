@@ -132,7 +132,7 @@ export function ResearchTimeSeriesChart({ title, description, series, xKind, xLa
   const latest = latestMarker && series[0] ? [...series[0].points].reverse().find((p) => p.y !== null) : undefined;
   return (
     <figure className={`research-chart ${className ?? ""}`}>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto" tabIndex={0} role="region" aria-label={`${title}（图表，可横向滚动）`}>
         <svg viewBox={`0 0 ${WIDTH} ${height}`} className="h-auto w-full min-w-[520px]" role="img" aria-labelledby={`${titleId}-title`} data-chart="research-time-series">
           <title id={`${titleId}-title`}>{title}</title>
           {description ? <desc>{description}</desc> : null}

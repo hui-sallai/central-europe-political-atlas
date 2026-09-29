@@ -441,7 +441,8 @@
 }
 
 .home-country-metrics dt,
-.home-country-metrics span {
+.home-country-metrics span,
+.home-country-metrics dd.home-country-year {
   color: var(--muted);
   font-size: 0.65rem;
 }
@@ -451,6 +452,13 @@
   font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
   font-size: 0.9rem;
   font-weight: 700;
+}
+
+.home-country-metrics dd.home-country-year {
+  margin-top: 0;
+  font-family: inherit;
+  font-size: 0.65rem;
+  font-weight: 400;
 }
 
 .home-latest-event {

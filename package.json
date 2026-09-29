@@ -102,6 +102,9 @@
     "macro:acquire-drivers": "python scripts/acquisition/acquire-macro-drivers.py && python scripts/acquisition/acquire-ecb-monetary-events.py",
     "release:validate": "node scripts/release/validate-release.mjs",
     "seo:validate": "node scripts/validation/validate-seo.mjs",
+    "test:ui": "playwright test",
+    "test:ui:update": "playwright test --update-snapshots",
+    "serve:out": "node scripts/serve-out.mjs",
     "ui:regression-validate": "node scripts/validation/validate-ui-regressions.mjs",
     "security:scan": "node scripts/security/check-public-secrets.mjs",
     "network:acquire": "node scripts/acquire-comtrade-bilateral.mjs",
@@ -117,6 +120,8 @@
     "react-dom": "19.2.6"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "4.3.0",
     "@types/node": "25.9.1",
     "@types/react": "19.2.15",

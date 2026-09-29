@@ -123,6 +123,36 @@ jobs:
       - name: Build static site
         run: pnpm build:site
 
+      - name: SEO and UI regression checks
+        run: |
+          pnpm seo:validate
+          pnpm ui:regression-validate
+
+      - name: Install Playwright Chromium
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: UI tests (screenshots, accessibility, canonical)
+        run: pnpm test:ui
+
+      - name: Upload UI test diffs
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-test-diffs
+          path: |
+            test-results/
+            playwright-report/
+          retention-days: 14
+
+      - name: Upload recorded Linux screenshot baselines
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-baselines-linux
+          path: tests/ui/__screenshots__/linux/
+          if-no-files-found: ignore
+          retention-days: 30
+
       - name: Release QA
         run: pnpm release:validate
 
