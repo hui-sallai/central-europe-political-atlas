@@ -8,6 +8,8 @@ import { ResearchTimeSeriesChart } from "@/components/ResearchTimeSeriesChart";
 import { monthlyHistoryFor, useMonthlyHistory } from "@/components/useMonthlyHistory";
 import { sorsSeriesLabels, useSerbiaSors } from "@/components/useSerbiaSors";
 import { SerbiaSorsMonthlyPanel } from "@/components/SerbiaSorsMonthlyPanel";
+import { CopyCitationButton } from "@/components/CopyCitationButton";
+import { PLATFORM_NAME, PLATFORM_VERSION } from "@/lib/releaseMetadata";
 import { formatNumber } from "@/lib/format";
 
 const MOBILE_CARD_LIMIT = 120;
@@ -203,23 +205,50 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
   const [includeSors, setIncludeSors] = useState(true);
   const sors = useSerbiaSors(basePath, countrySlug === "serbia");
   const [historyState, setHistoryState] = useState<"loading" | "ready" | "error">("loading");
+  const [urlReady, setUrlReady] = useState(false);
 
   useEffect(() => {
     const timeoutId = window.setTimeout(() => {
       const params = new URLSearchParams(window.location.search);
+      const tab = params.get("tab");
+      if (tab === "annual" || tab === "high_frequency" || tab === "macro_drivers") setDataset(tab);
+      if (params.get("sort") === "asc") setSortDirection("asc");
+      if (params.get("latest") === "1") setLatestOnly(true);
+      if (params.get("history") === "0") setIncludeHistory(false);
+      if (params.get("sors") === "0") setIncludeSors(false);
+      if (params.get("q")) setSearch(params.get("q") ?? "");
       const country = params.get("country");
       const indicator = params.get("indicator");
       const selectedYear = params.get("year");
       const from = params.get("from");
       const to = params.get("to");
       if (country && countries.some((item) => item.slug === country)) setCountrySlug(country);
-      if (indicator && (indicators.some((item) => item.id === indicator) || indicator in historyOnlyIndicatorLabels)) setIndicatorId(indicator);
+      if (indicator && (indicators.some((item) => item.id === indicator) || indicator in historyOnlyIndicatorLabels || indicator in sorsSeriesLabels)) setIndicatorId(indicator);
       if (selectedYear && /^\d{4}$/.test(selectedYear)) { setYearFrom(selectedYear); setYearTo(selectedYear); }
       if (from && /^\d{4}$/.test(from)) setYearFrom(from);
       if (to && /^\d{4}$/.test(to)) setYearTo(to);
+      setUrlReady(true);
     }, 0);
     return () => window.clearTimeout(timeoutId);
   }, [countries, indicators]);
+
+  // Keep the URL in sync with the filters (after the initial read), so a view can be shared or bookmarked.
+  useEffect(() => {
+    if (!urlReady) return;
+    const params = new URLSearchParams();
+    if (dataset !== "annual") params.set("tab", dataset);
+    params.set("country", countrySlug);
+    if (indicatorId !== "all") params.set("indicator", indicatorId);
+    if (yearFrom !== "all") params.set("from", yearFrom);
+    if (yearTo !== "all") params.set("to", yearTo);
+    if (sortDirection === "asc") params.set("sort", "asc");
+    if (latestOnly) params.set("latest", "1");
+    if (!includeHistory) params.set("history", "0");
+    if (!includeSors) params.set("sors", "0");
+    if (search.trim()) params.set("q", search.trim());
+    const next = `${window.location.pathname}?${params.toString()}`;
+    if (next !== `${window.location.pathname}${window.location.search}`) window.history.replaceState(null, "", next);
+  }, [urlReady, dataset, countrySlug, indicatorId, yearFrom, yearTo, sortDirection, latestOnly, includeHistory, includeSors, search]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -270,6 +299,13 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
     );
   }
 
+  // Citation for one observation: source, value with unit and status, source URL, platform version, access date, view URL.
+  const citationFor = (item: AnnualRow) => {
+    const country = countries.find((c) => c.slug === item.country_slug)?.name_zh ?? item.country_slug;
+    const accessed = new Date().toLocaleDateString("sv-SE"); // local calendar date, YYYY-MM-DD
+    const view = typeof window === "undefined" ? "" : window.location.href;
+    return `${item.source_name}. ${country}，${indicatorName(item.indicator)}（${item.indicator}），${item.year}：${displayValue(item)}${item.unit ? ` ${item.unit}` : ""}；状态：${item.status}；数据层：${layerLabels[item.layer]}。来源：${item.source_url}。经 ${PLATFORM_NAME}（${PLATFORM_VERSION.split(" ")[0]}）检索，访问日期 ${accessed}${view ? `，${view}` : ""}。`;
+  };
   const displayValue = (item: AnnualRow) => item.value === null && item.layer === "sors" ? "—" : formatValue(item.value);
   const comparabilityNote = (item: AnnualRow) => item.layer === "sors" && item.cross_country_comparable === false ? <span className="mt-1 block text-[10px] text-[var(--muted)]" data-cross-country="false">不可跨国比较（仅作塞尔维亚描述）</span> : null;
   const layerBadge = (layer: AnnualRow["layer"]) => <span className={layer === "formal" ? "inline-block rounded-full border border-[var(--line)] px-2 py-0.5 text-[10px] font-semibold" : layer === "sors" ? "inline-block rounded-full border border-dotted border-[var(--chart-sors)] px-2 py-0.5 text-[10px] font-semibold text-[var(--chart-sors)]" : "inline-block rounded-full border border-dashed border-[var(--muted)] px-2 py-0.5 text-[10px] font-semibold text-[var(--muted)]"} data-layer={layer}>{layerLabels[layer]}</span>;
@@ -359,13 +395,13 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
 
       <div className="data-table-desktop data-table-viewport mt-5" tabIndex={0} role="region" aria-label="年度观测表（可滚动）">
         <table className="research-data-table w-full min-w-[980px] text-left text-sm">
-          <thead><tr>{["指标", "年份", "数值", "单位", "数据层", "来源", "状态", "更新时间"].map((header) => <th key={header} className="px-3 py-3">{header}</th>)}</tr></thead>
-          <tbody>{rows.map((item) => <tr key={item.id}><td className="px-3 py-3 font-semibold">{indicatorName(item.indicator)}<span className="mt-1 block font-mono text-[10px] font-normal text-[var(--muted)]">{item.indicator}</span></td><td className="metric-number px-3 py-3">{item.year}</td><td className="metric-number px-3 py-3 font-semibold">{displayValue(item)}</td><td className="px-3 py-3">{item.unit}</td><td className="px-3 py-3">{layerBadge(item.layer)}{comparabilityNote(item)}</td><td className="px-3 py-3"><a href={item.source_url} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)] hover:underline">{item.source_name}</a><span className="mt-1 block text-[10px] text-[var(--muted)]">{item.reliability} 级</span></td><td className="px-3 py-3">{item.status}</td><td className="metric-number px-3 py-3 text-xs">{item.updated_at || "—"}</td></tr>)}</tbody>
+          <thead><tr>{["指标", "年份", "数值", "单位", "数据层", "来源", "状态", "更新时间", "引用"].map((header) => <th key={header} className="px-3 py-3">{header}</th>)}</tr></thead>
+          <tbody>{rows.map((item) => <tr key={item.id}><td className="px-3 py-3 font-semibold">{indicatorName(item.indicator)}<span className="mt-1 block font-mono text-[10px] font-normal text-[var(--muted)]">{item.indicator}</span></td><td className="metric-number px-3 py-3">{item.year}</td><td className="metric-number px-3 py-3 font-semibold">{displayValue(item)}</td><td className="px-3 py-3">{item.unit}</td><td className="px-3 py-3">{layerBadge(item.layer)}{comparabilityNote(item)}</td><td className="px-3 py-3"><a href={item.source_url} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)] hover:underline">{item.source_name}</a><span className="mt-1 block text-[10px] text-[var(--muted)]">{item.reliability} 级</span></td><td className="px-3 py-3">{item.status}</td><td className="metric-number px-3 py-3 text-xs">{item.updated_at || "—"}</td><td className="px-3 py-3"><CopyCitationButton text={citationFor(item)} /></td></tr>)}</tbody>
         </table>
       </div>
 
       <div className="data-card-mobile mt-5 grid gap-3">
-        {rows.slice(0, MOBILE_CARD_LIMIT).map((item) => <article key={item.id} className="editorial-panel p-4"><div className="flex items-start justify-between gap-3"><div><h3 className="font-semibold">{indicatorName(item.indicator)}</h3><p className="mt-1 text-xs text-[var(--muted)]">{item.year} · {item.unit}</p></div><p className="metric-number font-semibold text-[var(--accent)]">{displayValue(item)}</p></div><div className="mt-3 flex items-center justify-between gap-3 border-t border-[var(--line)] pt-3 text-xs"><a href={item.source_url} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)]">{item.source_name}</a>{layerBadge(item.layer)}<span>{item.status}</span></div></article>)}
+        {rows.slice(0, MOBILE_CARD_LIMIT).map((item) => <article key={item.id} className="editorial-panel p-4"><div className="flex items-start justify-between gap-3"><div><h3 className="font-semibold">{indicatorName(item.indicator)}</h3><p className="mt-1 text-xs text-[var(--muted)]">{item.year} · {item.unit}</p></div><p className="metric-number font-semibold text-[var(--accent)]">{displayValue(item)}</p></div><div className="mt-3 flex items-center justify-between gap-3 border-t border-[var(--line)] pt-3 text-xs"><a href={item.source_url} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)]">{item.source_name}</a>{layerBadge(item.layer)}<span>{item.status}</span></div><div className="mt-2 flex justify-end"><CopyCitationButton text={citationFor(item)} /></div></article>)}
         {rows.length > MOBILE_CARD_LIMIT ? <p className="text-xs text-[var(--muted)]">移动端显示前 {MOBILE_CARD_LIMIT} 条；完整 {rows.length} 条请缩小年份范围或下载 CSV。</p> : null}
       </div>
 
