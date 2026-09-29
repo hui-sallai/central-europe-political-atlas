@@ -72,6 +72,15 @@ restore the tree with `git checkout -- public/research-data src/data/analysis/ad
 Screenshot baselines are per platform (`tests/ui/__screenshots__/<platform>/`). CI records missing Linux baselines
 instead of failing and uploads them as the `ui-baselines-linux` artifact — commit that folder to turn on Linux comparison.
 
+## Claude Code tooling (`.claude/`)
+- Skills: `weekly-news-update <week-end date>` (weekly event update; the only writer of `src/lib/weeklyNews/**` and
+  `src/data/events/news_*`), `release <version> <title>` (version bump in `src/data/release.json`, CHANGELOG, full build, notes).
+- Agent: `research-boundary-reviewer` — reviews a diff for causal/predictive wording, zero-filled missing values,
+  frozen-data edits and non-comparable comparisons. Run it before committing UI or data-display changes.
+- Hooks (`.claude/settings.json`): editing `src/data/**` or `public/research-data/**` asks for confirmation first;
+  every edited `.ts/.tsx` file is linted with ESLint and errors are fed back.
+- `pnpm news:validate` validates the latest complete week; pass `--week YYYY-MM-DD` for a specific one.
+
 ## Running locally
 - macOS / Linux: `pnpm install` then `pnpm dev` (or `pnpm build:site` and serve `out/` statically, e.g. `npx serve out`).
 - Windows: double-click `run-dev.bat` (dev server) or `run-preview.bat` (production preview); PowerShell users can run

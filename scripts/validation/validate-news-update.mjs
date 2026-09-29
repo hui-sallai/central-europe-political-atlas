@@ -15,10 +15,28 @@ require.extensions[".ts"] = (module, filename) => {
   module._compile(result.outputText, filename);
 };
 
-const { weeklyNews20260905: items } = require(path.join(projectRoot, "src/lib/weeklyNews/2026-09-05.ts"));
-const audit = JSON.parse(fs.readFileSync(path.join(projectRoot, "src/data/events/news_update_2026-09-05_audit.json"), "utf8"));
-const verification = JSON.parse(fs.readFileSync(path.join(projectRoot, "src/data/events/news_source_verification_2026-09-05.json"), "utf8"));
-const screening = JSON.parse(fs.readFileSync(path.join(projectRoot, "src/data/events/news_candidate_screening_2026-09-05.json"), "utf8"));
+// Week to validate: `--week YYYY-MM-DD` (or NEWS_WEEK); otherwise the latest week that has a weekly news module and
+// all three event files (audit, source verification, candidate screening).
+const eventsDir = path.join(projectRoot, "src/data/events");
+const weekFiles = (week) => ({
+  module: path.join(projectRoot, "src/lib/weeklyNews", `${week}.ts`),
+  audit: path.join(eventsDir, `news_update_${week}_audit.json`),
+  verification: path.join(eventsDir, `news_source_verification_${week}.json`),
+  screening: path.join(eventsDir, `news_candidate_screening_${week}.json`),
+});
+const complete = (week) => Object.values(weekFiles(week)).every((file) => fs.existsSync(file));
+const argIndex = process.argv.indexOf("--week");
+const requestedWeek = argIndex > -1 ? process.argv[argIndex + 1] : process.env.NEWS_WEEK;
+const week = requestedWeek ?? fs.readdirSync(eventsDir).map((name) => /^news_update_(\d{4}-\d{2}-\d{2})_audit\.json$/.exec(name)?.[1]).filter(Boolean).filter(complete).sort().at(-1);
+if (!week || !/^\d{4}-\d{2}-\d{2}$/.test(week)) { console.error(`News update validation failed: no week given and none detected (${week ?? "none"}).`); process.exit(1); }
+if (!complete(week)) { console.error(`News update validation failed: week ${week} is missing ${Object.entries(weekFiles(week)).filter(([, file]) => !fs.existsSync(file)).map(([kind]) => kind).join(", ")}.`); process.exit(1); }
+const files = weekFiles(week);
+const weeklyModule = require(files.module);
+const items = weeklyModule[`weeklyNews${week.replaceAll("-", "")}`] ?? Object.values(weeklyModule).find(Array.isArray);
+if (!Array.isArray(items)) { console.error(`News update validation failed: ${files.module} exports no weekly news array.`); process.exit(1); }
+const audit = JSON.parse(fs.readFileSync(files.audit, "utf8"));
+const verification = JSON.parse(fs.readFileSync(files.verification, "utf8"));
+const screening = JSON.parse(fs.readFileSync(files.screening, "utf8"));
 const datePatterns = JSON.parse(fs.readFileSync(path.join(projectRoot, "src/data/events/news_source_date_pattern_registry.json"), "utf8"));
 const allowedCountries = new Set(["hungary", "poland", "czechia", "slovakia", "germany", "romania", "slovenia", "serbia", "austria", "croatia"]);
 const allowedTopics = new Set(["政治", "经济", "欧盟", "能源", "区域", "对华经贸"]);
@@ -86,4 +104,4 @@ if (failures.length) {
   process.exit(1);
 }
 
-console.log(`News update validation passed: ${items.length} accepted, ${audit.rejected_count} rejected, 10 countries.`);
+console.log(`News update validation passed (week ${week}): ${items.length} accepted, ${audit.rejected_count} rejected, 10 countries.`);
