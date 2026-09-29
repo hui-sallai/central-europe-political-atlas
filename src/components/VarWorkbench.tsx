@@ -282,7 +282,7 @@ export function VarWorkbench({ countries, initialCountry }: { countries: Country
           <p>变量顺序：{selected.map((entry, index) => `${index + 1} ${indicatorLabels[entry.indicator] ?? entry.indicator}`).join(" → ")}</p>
         </div>
 
-        <button type="button" onClick={run} disabled={loadState !== "ready" || !preflight.valid} className="mt-5 rounded-lg bg-[var(--foreground)] px-5 py-3 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50">
+        <button type="button" onClick={run} disabled={loadState !== "ready" || !preflight.valid} className="mt-5 rounded-lg cta-dark px-5 py-3 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-50">
           {loadState === "loading" ? "正在加载高频数据…" : loadState === "error" ? "高频数据不可用" : actionLabels.runVar}
         </button>
         {loadState === "error" ? <p className="mt-4 border-l-4 border-[var(--warning)] bg-amber-50 px-4 py-3 text-sm">无法运行 VAR：高频月度数据未能加载。</p> : null}

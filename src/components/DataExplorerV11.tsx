@@ -5,6 +5,8 @@ import type { Country, Indicator, Observation } from "@/types/researchData";
 import { getResearchPackageFilename } from "@/lib/releaseMetadata";
 import { MacroDriverWorkbench } from "@/components/MacroDriverWorkbench";
 
+const MOBILE_CARD_LIMIT = 120;
+
 function csvCell(value: unknown) {
   const text = value === null || value === undefined ? "" : String(value);
   return `"${text.replaceAll('"', '""')}"`;
@@ -76,12 +78,12 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
             ["country", "indicator", "period", "value", "unit", "value_semantics", "seasonal_adjustment", "source", "status"],
             rows.map((row) => [row[1], row[3], row[2], row[4], row[6], row[7], row[8], row[10], row[11]]),
           )} className="rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-50">下载当前高频筛选结果（CSV）</button>
-          <a href={`${basePath}/research-data/${getResearchPackageFilename()}`} className="rounded-full bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-white">下载完整研究数据包（ZIP）</a>
+          <a href={`${basePath}/research-data/${getResearchPackageFilename()}`} className="rounded-full cta-dark px-4 py-2 text-sm font-semibold">下载完整研究数据包（ZIP）</a>
         </div>
       </div>
 
       {loadState === "ready" ? (
-        <div className="data-table-desktop wide-table-scroll mt-5 max-h-[560px] overflow-y-auto">
+        <div className="data-table-desktop data-table-viewport mt-5" tabIndex={0} role="region" aria-label="高频月度观测表（可滚动）">
           <table className="research-data-table w-full min-w-[860px] text-left text-sm">
             <thead><tr>{["国家", "指标", "月份", "数值", "单位", "来源", "状态"].map((header) => <th key={header} className="px-3 py-3">{header}</th>)}</tr></thead>
             <tbody>{rows.map((row) => (
@@ -96,6 +98,13 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
               </tr>
             ))}</tbody>
           </table>
+        </div>
+      ) : null}
+
+      {loadState === "ready" && rows.length ? (
+        <div className="data-card-mobile mt-5 grid gap-3">
+          {rows.slice(0, MOBILE_CARD_LIMIT).map((row) => <article key={row[0]} className="editorial-panel p-4"><div className="flex items-start justify-between gap-3"><div><h3 className="font-semibold">{hfIndicatorLabels[row[3]] ?? row[3]}</h3><p className="mt-1 text-xs text-[var(--muted)]">{row[2]} · {row[6]}</p></div><p className="metric-number font-semibold text-[var(--accent)]">{formatValue(row[4])}</p></div><div className="mt-3 flex items-center justify-between gap-3 border-t border-[var(--line)] pt-3 text-xs"><span>{row[10]}</span><span>{row[11]}</span></div></article>)}
+          {rows.length > MOBILE_CARD_LIMIT ? <p className="text-xs text-[var(--muted)]">移动端显示最近 {MOBILE_CARD_LIMIT} 条；完整 {rows.length} 条请下载 CSV。</p> : null}
         </div>
       ) : null}
 
@@ -181,11 +190,11 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
         <div className="flex flex-wrap gap-2">
           <button type="button" onClick={downloadCurrentView} className="rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)]">下载当前筛选结果（CSV）</button>
           <a href={`${basePath}/research-data/observations.csv`} className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold">下载全部观测数据（CSV）</a>
-          <a href={`${basePath}/research-data/${getResearchPackageFilename()}`} className="rounded-full bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-white">下载完整研究数据包（ZIP）</a>
+          <a href={`${basePath}/research-data/${getResearchPackageFilename()}`} className="rounded-full cta-dark px-4 py-2 text-sm font-semibold">下载完整研究数据包（ZIP）</a>
         </div>
       </div>
 
-      <div className="data-table-desktop wide-table-scroll mt-5">
+      <div className="data-table-desktop data-table-viewport mt-5" tabIndex={0} role="region" aria-label="年度观测表（可滚动）">
         <table className="research-data-table w-full min-w-[920px] text-left text-sm">
           <thead><tr>{["指标", "年份", "数值", "单位", "来源", "状态", "更新时间"].map((header) => <th key={header} className="px-3 py-3">{header}</th>)}</tr></thead>
           <tbody>{rows.map((item) => <tr key={item.id}><td className="px-3 py-3 font-semibold">{indicatorMap.get(item.indicator)?.name_zh ?? item.indicator}<span className="mt-1 block font-mono text-[10px] font-normal text-[var(--muted)]">{item.indicator}</span></td><td className="metric-number px-3 py-3">{item.year}</td><td className="metric-number px-3 py-3 font-semibold">{formatValue(item.value)}</td><td className="px-3 py-3">{item.unit}</td><td className="px-3 py-3"><a href={item.source_url} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)] hover:underline">{item.source_name}</a><span className="mt-1 block text-[10px] text-[var(--muted)]">{item.source_reliability} 级</span></td><td className="px-3 py-3">{item.status}</td><td className="metric-number px-3 py-3 text-xs">{item.updated_at}</td></tr>)}</tbody>

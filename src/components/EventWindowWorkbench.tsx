@@ -184,7 +184,7 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
           </label>
         </div>
         {suggestions.length ? <p className="mt-3 text-xs text-[var(--muted)]">推荐观察指标根据事件类别给出，仅用于导航，不表示因果关系。</p> : null}
-        <button type="button" onClick={run} disabled={!selectedEvent || loadState !== "ready"} className="mt-5 rounded-lg bg-[var(--foreground)] px-5 py-3 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-50">
+        <button type="button" onClick={run} disabled={!selectedEvent || loadState !== "ready"} className="mt-5 rounded-lg cta-dark px-5 py-3 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-50">
           {loadState === "loading" ? "正在加载高频数据…" : loadState === "error" ? "高频数据不可用" : "运行事件窗口分析"}
         </button>
         {loadState === "error" ? <p className="mt-4 border-l-4 border-[var(--warning)] bg-amber-50 px-4 py-3 text-sm">无法运行事件窗口分析：高频月度数据未能加载。请稍后重试，或在研究数据包中查看原始序列。</p> : null}

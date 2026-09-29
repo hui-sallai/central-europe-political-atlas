@@ -106,7 +106,7 @@ function AnalysisWorkbenchContent({ countries, cards, outputs, events }: Workben
             <div className="grid gap-4 md:grid-cols-3">
               <label className="text-xs font-semibold text-[var(--muted)]">{fieldLabels.country}<select className="field-control mt-2" value={countrySlug} onChange={(event) => { setCountrySlug(event.target.value); setResult(null); setDiagnostics(null); setConsistency(null); }}>{countries.map((country) => <option key={country.slug} value={country.slug}>{country.name_zh} / {country.name}</option>)}</select></label>
               <label className="text-xs font-semibold text-[var(--muted)]">{fieldLabels.analysisSkill}<select className="field-control mt-2" value={modelId} onChange={(event) => { setModelId(event.target.value as ModelId); setResult(null); setDiagnostics(null); setConsistency(null); }}>{cards.map((item) => <option key={item.model_id} value={item.model_id}>{item.name_zh}</option>)}</select></label>
-              <div className="flex items-end"><button type="button" onClick={runAnalysis} className="rounded-lg bg-[var(--foreground)] px-4 py-3 text-sm font-semibold text-white">运行分析</button></div>
+              <div className="flex items-end"><button type="button" onClick={runAnalysis} className="rounded-lg cta-dark px-4 py-3 text-sm font-semibold">运行分析</button></div>
             </div>
             <div className="mt-5 grid grid-cols-4 gap-2 text-center text-xs">
               {analysisLabels.workflow.map((step, index) => <div key={step} className={`border-t-2 pt-2 ${result && index > 0 ? "border-[var(--accent)] text-[var(--foreground)]" : index === 0 ? "border-[var(--accent)]" : "border-[var(--line)] text-[var(--muted)]"}`}>{step}</div>)}

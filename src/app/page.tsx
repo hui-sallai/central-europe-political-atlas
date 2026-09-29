@@ -89,7 +89,7 @@ export default function Home() {
           <p className="editorial-kicker">Research Boundary</p>
           <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--muted)]">所有结果必须能回到 observation、来源和方法规则。缺失数据不补零，事件不自动改变分数，复合指标不解释为客观风险真值。</p>
         </div>
-        <Link href="/methodology" className="rounded-full bg-[var(--foreground)] px-5 py-2.5 text-sm font-semibold text-white">阅读方法与限制</Link>
+        <Link href="/methodology" className="rounded-full cta-dark px-5 py-2.5 text-sm font-semibold">阅读方法与限制</Link>
       </section>
     </main>
   );

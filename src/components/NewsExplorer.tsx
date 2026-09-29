@@ -54,7 +54,7 @@ function EventCard({ item }: { item: Event }) {
             {eventWindowEligibility(item).eligible ? (
               <Link
                 href={`/models?tab=run&skill=event_analysis&country=${item.country_slug}&event=${item.event_id}&outcome=${suggestedOutcomes(item.event_type)[0]}`}
-                className="rounded-full bg-[var(--foreground)] px-3 py-1 text-xs font-semibold text-white"
+                className="rounded-full cta-dark px-3 py-1 text-xs font-semibold"
               >
                 分析此事件
               </Link>
