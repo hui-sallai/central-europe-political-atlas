@@ -58,6 +58,10 @@ export function loadSeries() {
   for (const r of read("src/data/panel/panel_observations.json").records) {
     push(`annual_panel|${r.country}|${r.indicator}|level|annual`, { dataset: "annual_panel", file: "src/data/panel/panel_observations.json", country: r.country, indicator: r.indicator, transformation: "level", frequency: "annual", source: r.source, source_dataset: r.source_indicator, source_url: r.source_url }, { id: r.observation_id, period: String(r.year), value: r.value, unit: r.unit, status: r.data_status, definition: r.definition_version });
   }
+  const historyPath = "src/data/historical/annual_descriptive_history.json";
+  if (fs.existsSync(path.join(root, historyPath))) for (const r of read(historyPath).records) {
+    push(`annual_history|${r.country_slug}|${r.indicator}|level|annual`, { dataset: "annual_history", file: historyPath, country: r.country_slug, indicator: r.indicator, transformation: "level", frequency: "annual", source: r.source, source_dataset: r.source_dataset, source_url: r.source_query_url }, { id: r.id, period: String(r.year), value: r.value, unit: r.unit, status: r.value_status, definition: r.definition });
+  }
   for (const file of ["src/data/regional/v086-observations.json", "src/data/regional/v089-observations.json"]) {
     for (const r of read(file).records) {
       // Regional series are summarised per country × indicator; each region is its own sub-series inside the fingerprint.
@@ -218,6 +222,9 @@ function historical(s, allSeries) {
   if (s.dataset === "regional") {
     return { candidate_source: s.source_dataset, evidence: "indicative_not_retrieved", earliest_available: null, proposed_earliest_feasible: null, definition_compatible_floor: null, estimated_new_observations: null, estimate_basis: "not estimated: regional back-series depend on NUTS version", definition_break_risks: ["NUTS 2016 / 2021 / 2024 boundary revisions change region identities", "regional LFS and GDP back-casting depth differs by country"], feasibility: "requires_methodological_review", rationale: "Regional backfill needs a NUTS-version crosswalk before any values can be compared across years." };
   }
+  if (s.dataset === "annual_history") {
+    return { candidate_source: s.source_dataset, evidence: "ingested_phase_g", earliest_available: null, proposed_earliest_feasible: null, definition_compatible_floor: null, estimated_new_observations: 0, estimate_basis: "already ingested as descriptive history (see src/data/historical/annual_history_manifest.json)", definition_break_risks: [], feasibility: "ingested_descriptive_history", rationale: "Phase G safe descriptive backfill; descriptive only, never a model input." };
+  }
   if (s.dataset === "annual_panel") {
     return { candidate_source: `World Bank / Eurostat source behind ${s.source_dataset}`, evidence: "indicative_not_retrieved", earliest_available: null, proposed_earliest_feasible: null, definition_compatible_floor: null, estimated_new_observations: null, estimate_basis: "not estimated: series is a formal estimation frame", definition_break_risks: ["adding years changes every annual panel estimate"], feasibility: "requires_methodological_review", rationale: "This file is the annual panel estimation frame; historical years must go to a separate descriptive store or be excluded by an explicit sample window before ingestion." };
   }
@@ -283,6 +290,8 @@ export function buildAudit() {
   const ordered = [...seriesList].sort((a, b) => Number(Boolean(TRANSFORM_PARENT[a.transformation])) - Number(Boolean(TRANSFORM_PARENT[b.transformation])));
   for (const s of ordered) s.historical = historical(s, seriesList);
   const formal = formalSamples(seriesList);
+  const historyManifestPath = "src/data/historical/annual_history_manifest.json";
+  const phaseG = fs.existsSync(path.join(root, historyManifestPath)) ? new Map(read(historyManifestPath).series.map((x) => [`${x.country}|${x.indicator}`, x])) : new Map();
   const hfDefinitionRegistry = read("src/data/high-frequency/high_frequency_definition_registry.json").records;
   const records = seriesList.sort((a, b) => a.key.localeCompare(b.key)).map((s) => {
     const samples = formal.get(s.key) ?? [];
@@ -296,6 +305,7 @@ export function buildAudit() {
       status_counts: Object.fromEntries([...s.statuses.entries()].sort()),
       definition: { versions: [...s.definitions].sort().slice(0, 5), version_count: s.definitions.size, continuity, registered_transitions: registered?.methodological_transitions ?? [] },
       historical_extension: s.historical,
+      ...(s.dataset === "annual_observations" ? { phase_g_backfill: phaseG.has(`${s.country}|${s.indicator}`) ? (({ status, ingested_years, ingested_count, definition_compatible_floor, overlap_check }) => ({ status, store: "src/data/historical/annual_descriptive_history.json", ingested_years, ingested_count, definition_compatible_floor: definition_compatible_floor ?? null, overlap_check: overlap_check ?? "derived" }))(phaseG.get(`${s.country}|${s.indicator}`)) : { status: s.country === "serbia" ? "excluded_review_queue" : "not_in_phase_g_safe_scope" } } : {}),
       model_usage: { status: samples.some((x) => x.status === "frozen_published") ? "formal_model_input" : samples.length ? "formal_candidate_not_estimated" : "descriptive_only", formal_model_samples: samples },
       fingerprint: { window: [s.coverage.earliest, s.coverage.latest], sha256: seriesFingerprint(s, s.coverage.earliest, s.coverage.latest) },
       null_observation_ids: s.rows.filter((r) => r.value === null).map((r) => r.id).sort(),
@@ -328,6 +338,7 @@ export function buildAudit() {
         likely_safe_pending_retrieval: "same official table/definition as current records; source query still required",
         derived_after_level_backfill: "computed series; recompute after the level backfill",
         requires_methodological_review: "definition break, regime change, blocked v1.83 audit status, or series is a formal estimation frame",
+        ingested_descriptive_history: "Phase G descriptive history store; reproducible from archived official extracts, not a model input",
         requires_source_query: "official table identified but its start date for this country is unknown until queried",
         not_feasible_with_identified_sources: "no candidate official source registered",
       },
