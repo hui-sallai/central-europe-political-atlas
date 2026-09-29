@@ -1,0 +1,1395 @@
+{
+ "schema_version": "serbia-indicator-mapping-v1",
+ "audit_date": "2026-09-30",
+ "allowed_statuses": [
+  "exact_match",
+  "definition_compatible",
+  "descriptive_only",
+  "requires_transformation",
+  "not_comparable",
+  "requires_methodological_review"
+ ],
+ "rule": "Mappings are decided on concept, unit, reference period, population and methodology — never on similar names. Overlap with existing Eurostat Serbia records (2021–2025) is used as evidence where available.",
+ "national_and_monthly": [
+  {
+   "atlas_indicator": "gdp_current_eur",
+   "sors_dataset": "09020104IND01",
+   "selection": {
+    "IDUpotrebaBDP": "00",
+    "IDVrPod": "1"
+   },
+   "frequency": "annual",
+   "original_unit": "mill. RSD, current prices",
+   "status": "requires_transformation",
+   "transformation": "RSD → EUR at the annual average EUR/RSD rate (NBS official middle rate, or the BIS-derived RSD per EUR already in the Atlas); record rate source and value",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": false,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": true,
+    "cross_country_comparable": false
+   },
+   "facts": {
+    "observations": 30,
+    "missing_flagged": 0,
+    "first": "1995",
+    "last": "2024",
+    "break_or_definition_flag_years": [],
+    "definition_compatible_floor": 2000,
+    "observations_2000_latest": 25,
+    "observations_from_floor": 25,
+    "zeros": 0
+   },
+   "note": "ESA 2010 expenditure-approach GDP; Eurostat's Serbia GDP is transmitted by SORS, so concept matches once converted to EUR.",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Gross domestic product by expenditure approach, current and constant prices",
+   "sors_dataset_title_sr": "Бруто домаћи производ према расходном приступу, текуће и сталне цене",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "real_gdp_growth",
+   "sors_dataset": "09020104IND01",
+   "selection": {
+    "IDUpotrebaBDP": "00",
+    "IDVrPod": "5"
+   },
+   "frequency": "annual",
+   "original_unit": "% (SORS measure label reads 'previous year = 100, %', but values are growth rates)",
+   "status": "definition_compatible",
+   "transformation": "none (values are already % growth; verified against Eurostat)",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": true,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": true,
+    "cross_country_comparable": true
+   },
+   "overlap": {
+    "atlas_indicator": "real_gdp_growth",
+    "comparison": "SORS vs existing Eurostat Serbia record (same concept)",
+    "pairs": [
+     {
+      "year": 2021,
+      "atlas_eurostat": 7.9,
+      "sors": 7.9,
+      "abs_diff": 0.0,
+      "within_tolerance": true
+     },
+     {
+      "year": 2022,
+      "atlas_eurostat": 2.7,
+      "sors": 2.7,
+      "abs_diff": 0.0,
+      "within_tolerance": true
+     },
+     {
+      "year": 2023,
+      "atlas_eurostat": 3.7,
+      "sors": 3.7,
+      "abs_diff": 0.0,
+      "within_tolerance": true
+     },
+     {
+      "year": 2024,
+      "atlas_eurostat": 3.9,
+      "sors": 3.9,
+      "abs_diff": 0.0,
+      "within_tolerance": true
+     }
+    ],
+    "tolerance": {
+     "relative": 0.0,
+     "absolute": 0.3
+    },
+    "failed_years": [],
+    "result": "pass"
+   },
+   "facts": {
+    "observations": 30,
+    "missing_flagged": 0,
+    "first": "1995",
+    "last": "2024",
+    "break_or_definition_flag_years": [],
+    "definition_compatible_floor": 2000,
+    "observations_2000_latest": 25,
+    "observations_from_floor": 25,
+    "zeros": 0
+   },
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Gross domestic product by expenditure approach, current and constant prices",
+   "sors_dataset_title_sr": "Бруто домаћи производ према расходном приступу, текуће и сталне цене",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": true
+  },
+  {
+   "atlas_indicator": "gdp_per_capita_eur",
+   "sors_dataset": "09020104IND01 + 18010403IND01",
+   "selection": {
+    "gdp": {
+     "IDUpotrebaBDP": "00",
+     "IDVrPod": "1"
+    },
+    "population": "average of 1 Jan t and t+1, or SORS mid-year estimate"
+   },
+   "frequency": "annual",
+   "original_unit": "derived",
+   "status": "requires_transformation",
+   "transformation": "GDP (EUR) / average population; population basis must match Eurostat nama_10_pc (average population)",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": false,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": false,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "facts": {
+    "observations": 14,
+    "missing_flagged": 0,
+    "first": "2011",
+    "last": "2024",
+    "break_or_definition_flag_years": [],
+    "definition_compatible_floor": 2011,
+    "observations_2000_latest": 14,
+    "observations_from_floor": 14,
+    "zeros": 0
+   },
+   "note": "SORS national totals exclude AP Kosovo and Metohija from 1998 (no SORS data for RS23 units); census revisions produce unflagged level shifts.",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Gross domestic product by expenditure approach, current and constant prices",
+   "sors_dataset_title_sr": "Бруто домаћи производ према расходном приступу, текуће и сталне цене",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "population",
+   "sors_dataset": "18010403IND01",
+   "selection": {
+    "IDTer": "RS",
+    "IDPol": "0",
+    "IDStarost": "0"
+   },
+   "frequency": "annual",
+   "original_unit": "number, 1 January",
+   "status": "definition_compatible",
+   "transformation": "none",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": true,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": true,
+    "cross_country_comparable": true
+   },
+   "overlap": {
+    "atlas_indicator": "population",
+    "comparison": "SORS vs existing Eurostat Serbia record (same concept)",
+    "pairs": [
+     {
+      "year": 2021,
+      "atlas_eurostat": 6870000,
+      "sors": 6871547.0,
+      "abs_diff": 1547.0,
+      "within_tolerance": true
+     },
+     {
+      "year": 2022,
+      "atlas_eurostat": 6800000,
+      "sors": 6687700.0,
+      "abs_diff": 112300.0,
+      "within_tolerance": false
+     },
+     {
+      "year": 2023,
+      "atlas_eurostat": 6640000,
+      "sors": 6641197.0,
+      "abs_diff": 1197.0,
+      "within_tolerance": true
+     },
+     {
+      "year": 2024,
+      "atlas_eurostat": 6610000,
+      "sors": 6605168.0,
+      "abs_diff": 4832.0,
+      "within_tolerance": true
+     },
+     {
+      "year": 2025,
+      "atlas_eurostat": 6570000,
+      "sors": 6567783.0,
+      "abs_diff": 2217.0,
+      "within_tolerance": true
+     }
+    ],
+    "tolerance": {
+     "relative": 0.005,
+     "absolute": 1
+    },
+    "failed_years": [
+     2022
+    ],
+    "result": "pass_except_detected_break_years"
+   },
+   "facts": {
+    "observations": 15,
+    "missing_flagged": 0,
+    "first": "2011",
+    "last": "2025",
+    "break_or_definition_flag_years": [],
+    "definition_compatible_floor": 2011,
+    "observations_2000_latest": 15,
+    "observations_from_floor": 15,
+    "zeros": 0
+   },
+   "level_shifts": [
+    {
+     "year": 2022,
+     "previous": 6871547.0,
+     "value": 6687700.0,
+     "change_pct": -2.68
+    }
+   ],
+   "note": "SORS national totals exclude AP Kosovo and Metohija from 1998 (no SORS data for RS23 units); census revisions produce unflagged level shifts. The 1 January 2022 value already reflects the 2022 census revision; the Atlas's Eurostat record for 2022 is an earlier (rounded) vintage.",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Population estimates on 1 January",
+   "sors_dataset_title_sr": "Процене становништва на дан 1. јануар",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": true
+  },
+  {
+   "atlas_indicator": "population (1961–2010 annual estimates)",
+   "sors_dataset": "180304IND02",
+   "selection": {
+    "IDTer": "RS"
+   },
+   "frequency": "annual",
+   "original_unit": "number (SORS annual estimate)",
+   "status": "descriptive_only",
+   "transformation": "none",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": true,
+    "compatible_reference_period": false,
+    "compatible_geographic_statistical_population": false,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "facts": {
+    "observations": 65,
+    "missing_flagged": 0,
+    "first": "1961",
+    "last": "2025",
+    "break_or_definition_flag_years": [],
+    "definition_compatible_floor": 2000,
+    "observations_2000_latest": 26,
+    "observations_from_floor": 26,
+    "zeros": 0
+   },
+   "level_shifts": [
+    {
+     "year": 1998,
+     "previous": 10047159.0,
+     "value": 7867551.0,
+     "change_pct": -21.69
+    },
+    {
+     "year": 2002,
+     "previous": 7886732.0,
+     "value": 7500031.0,
+     "change_pct": -4.9
+    },
+    {
+     "year": 2022,
+     "previous": 6834326.0,
+     "value": 6664449.0,
+     "change_pct": -2.49
+    }
+   ],
+   "note": "Longer SORS estimate series; reference date and territorial coverage differ from the 1 January Eurostat concept before 2011 and change in 1998. SORS national totals exclude AP Kosovo and Metohija from 1998 (no SORS data for RS23 units); census revisions produce unflagged level shifts.",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Population estimates",
+   "sors_dataset_title_sr": "Процењен број становника",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "hicp_inflation",
+   "sors_dataset": "03010601IND03",
+   "selection": {
+    "IDCOICOP": "0000"
+   },
+   "frequency": "monthly → annual average",
+   "original_unit": "index, same month previous year = 100",
+   "status": "not_comparable",
+   "transformation": "n/a",
+   "gate": {
+    "equivalent_economic_concept": false,
+    "compatible_unit": true,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "note": "National CPI is not HICP. Serbia's HICP already comes from Eurostat; SORS CPI must not replace it.",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Annual indices, same month of the previous year = 100 (m/m-12).",
+   "sors_dataset_title_sr": "Годишњи индекси, исти месец претходне године = 100 (m/m-12)",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "serbia_cpi_annual_rate (Serbia-specific, y/y index IND03)",
+   "sors_dataset": "03010601IND03",
+   "selection": {
+    "IDCOICOP": "0000"
+   },
+   "frequency": "monthly",
+   "original_unit": "index, same month previous year = 100",
+   "status": "descriptive_only",
+   "transformation": "annual rate % = index − 100",
+   "gate": {
+    "equivalent_economic_concept": false,
+    "compatible_unit": true,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "facts": {
+    "observations": 228,
+    "missing_flagged": 0,
+    "first": "2007-01",
+    "last": "2025-12",
+    "break_or_definition_flag_years": [],
+    "definition_compatible_floor": 2007,
+    "observations_2000_latest": 228,
+    "observations_from_floor": 228,
+    "zeros": 0
+   },
+   "note": "Official national CPI (2007+; base 2006=100). Open-data series ends 2025-12; later months need the successor dataset. Pre-2007 CPI (030201IND01, 1999–2010, base 2005) is a different index and is not spliced.",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Annual indices, same month of the previous year = 100 (m/m-12).",
+   "sors_dataset_title_sr": "Годишњи индекси, исти месец претходне године = 100 (m/m-12)",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "unemployment_rate",
+   "sors_dataset": "240003020102IND03",
+   "selection": {
+    "IDPol": "0",
+    "IDStarGrupa": "15-74"
+   },
+   "frequency": "annual",
+   "original_unit": "% (LFS, 15–74)",
+   "status": "definition_compatible",
+   "transformation": "none",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": true,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": true,
+    "cross_country_comparable": true
+   },
+   "overlap": {
+    "atlas_indicator": "unemployment_rate",
+    "comparison": "SORS vs existing Eurostat Serbia record (same concept)",
+    "pairs": [
+     {
+      "year": 2021,
+      "atlas_eurostat": 11.2,
+      "sors": 11.2,
+      "abs_diff": 0.0,
+      "within_tolerance": true
+     },
+     {
+      "year": 2022,
+      "atlas_eurostat": 9.6,
+      "sors": 9.6,
+      "abs_diff": 0.0,
+      "within_tolerance": true
+     },
+     {
+      "year": 2023,
+      "atlas_eurostat": 9.5,
+      "sors": 9.5,
+      "abs_diff": 0.0,
+      "within_tolerance": true
+     },
+     {
+      "year": 2024,
+      "atlas_eurostat": 8.6,
+      "sors": 8.6,
+      "abs_diff": 0.0,
+      "within_tolerance": true
+     },
+     {
+      "year": 2025,
+      "atlas_eurostat": 8.7,
+      "sors": 8.7,
+      "abs_diff": 0.0,
+      "within_tolerance": true
+     }
+    ],
+    "tolerance": {
+     "relative": 0.0,
+     "absolute": 0.3
+    },
+    "failed_years": [],
+    "result": "pass"
+   },
+   "facts": {
+    "observations": 15,
+    "missing_flagged": 0,
+    "first": "2011",
+    "last": "2025",
+    "break_or_definition_flag_years": [],
+    "definition_compatible_floor": 2011,
+    "observations_2000_latest": 15,
+    "observations_from_floor": 15,
+    "zeros": 0
+   },
+   "note": "LFS series revised by SORS to the 2021 methodology back to 2011 (status 'Revised value'); earlier LFS years are a different series.",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "8.5.2 Unemployment rates, by sex and age",
+   "sors_dataset_title_sr": "8.5.2 Стопе незапослености, према полу и старости",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": true
+  },
+  {
+   "atlas_indicator": "employment_rate (Phase G review queue)",
+   "sors_dataset": "240003020102IND02",
+   "selection": {
+    "IDPol": "0",
+    "IDStarGrupa": "20-64"
+   },
+   "frequency": "annual",
+   "original_unit": "% (LFS, 20–64)",
+   "status": "definition_compatible",
+   "transformation": "none",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": true,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": true,
+    "cross_country_comparable": true
+   },
+   "facts": {
+    "observations": 15,
+    "missing_flagged": 0,
+    "first": "2011",
+    "last": "2025",
+    "break_or_definition_flag_years": [],
+    "definition_compatible_floor": 2011,
+    "observations_2000_latest": 15,
+    "observations_from_floor": 15,
+    "zeros": 0
+   },
+   "note": "Same revised 2011+ LFS basis. Cross-country use waits for the employment-rate methodological review that also covers the EU countries.",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Employment rates, by sex and age",
+   "sors_dataset_title_sr": "Стопе запослености, према полу и старости",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": true
+  },
+  {
+   "atlas_indicator": "average_earnings (Serbia-specific)",
+   "sors_dataset": "2403040401IND01 / IND02",
+   "selection": {
+    "IDTer": "RS"
+   },
+   "frequency": "annual (monthly in 2403040101)",
+   "original_unit": "RSD per month (net / gross)",
+   "status": "descriptive_only",
+   "transformation": "none",
+   "gate": {
+    "equivalent_economic_concept": false,
+    "compatible_unit": false,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": false,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "facts": {
+    "observations": 63,
+    "missing_flagged": 0,
+    "first": "1963",
+    "last": "2025",
+    "break_or_definition_flag_years": [
+     1997,
+     2001,
+     2009,
+     2018
+    ],
+    "definition_compatible_floor": 2018,
+    "observations_2000_latest": 26,
+    "observations_from_floor": 8,
+    "zeros": 0
+   },
+   "note": "National earnings statistic (administrative sources); official break flags 1997, 2009, 2018 and 'definition differs' 2001. Not the Eurostat compensation-per-employee concept.",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Average net earnings. Average monthly earnings for the year",
+   "sors_dataset_title_sr": "Просечне нето зараде. Просечне месечне зараде за годину",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "exports_goods_services",
+   "sors_dataset": "09020104IND01",
+   "selection": {
+    "IDUpotrebaBDP": "11",
+    "IDVrPod": "1"
+   },
+   "frequency": "annual",
+   "original_unit": "mill. RSD, current prices",
+   "status": "requires_transformation",
+   "transformation": "RSD → EUR at the annual average rate",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": false,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": true,
+    "cross_country_comparable": false
+   },
+   "facts": {
+    "observations": 30,
+    "missing_flagged": 0,
+    "first": "1995",
+    "last": "2024",
+    "break_or_definition_flag_years": [],
+    "definition_compatible_floor": 2000,
+    "observations_2000_latest": 25,
+    "observations_from_floor": 25,
+    "zeros": 0
+   },
+   "note": "National-accounts exports of goods and services (same concept as Eurostat nama_10_gdp P6).",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Gross domestic product by expenditure approach, current and constant prices",
+   "sors_dataset_title_sr": "Бруто домаћи производ према расходном приступу, текуће и сталне цене",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "imports_goods_services",
+   "sors_dataset": "09020104IND01",
+   "selection": {
+    "IDUpotrebaBDP": "12",
+    "IDVrPod": "1"
+   },
+   "frequency": "annual",
+   "original_unit": "mill. RSD, current prices",
+   "status": "requires_transformation",
+   "transformation": "RSD → EUR at the annual average rate",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": false,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": true,
+    "cross_country_comparable": false
+   },
+   "facts": {
+    "observations": 30,
+    "missing_flagged": 0,
+    "first": "1995",
+    "last": "2024",
+    "break_or_definition_flag_years": [],
+    "definition_compatible_floor": 2000,
+    "observations_2000_latest": 25,
+    "observations_from_floor": 25,
+    "zeros": 0
+   },
+   "note": "National-accounts imports of goods and services (P7).",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Gross domestic product by expenditure approach, current and constant prices",
+   "sors_dataset_title_sr": "Бруто домаћи производ према расходном приступу, текуће и сталне цене",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "trade_balance",
+   "sors_dataset": "09020104IND01",
+   "selection": {
+    "exports": "11",
+    "imports": "12"
+   },
+   "frequency": "annual",
+   "original_unit": "derived",
+   "status": "requires_transformation",
+   "transformation": "exports − imports after EUR conversion",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": false,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": true,
+    "cross_country_comparable": false
+   },
+   "facts": {
+    "observations": 30,
+    "missing_flagged": 0,
+    "first": "1995",
+    "last": "2024",
+    "break_or_definition_flag_years": [],
+    "definition_compatible_floor": 2000,
+    "observations_2000_latest": 25,
+    "observations_from_floor": 25,
+    "zeros": 0
+   },
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Gross domestic product by expenditure approach, current and constant prices",
+   "sors_dataset_title_sr": "Бруто домаћи производ према расходном приступу, текуће и сталне цене",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "goods_trade (Serbia-specific)",
+   "sors_dataset": "1701IND01 / 1702IND01-02",
+   "selection": {
+    "IDVrPod": "EUR (monthly) / USD (annual)"
+   },
+   "frequency": "annual (USD) and monthly (RSD/EUR/USD)",
+   "original_unit": "million USD / EUR / RSD",
+   "status": "descriptive_only",
+   "transformation": "none",
+   "gate": {
+    "equivalent_economic_concept": false,
+    "compatible_unit": false,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "facts": {
+    "observations": 29,
+    "missing_flagged": 0,
+    "first": "1997",
+    "last": "2025",
+    "break_or_definition_flag_years": [],
+    "definition_compatible_floor": 2000,
+    "observations_2000_latest": 26,
+    "observations_from_floor": 26,
+    "zeros": 0
+   },
+   "note": "Merchandise trade statistics (goods only, customs basis) — a different concept from national-accounts exports of goods and services.",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "External trade of goods",
+   "sors_dataset_title_sr": "Спољнотрговинска робна размена",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "manufacturing_share_gdp",
+   "sors_dataset": "0902010301IND01",
+   "selection": {
+    "IDKD08": "C",
+    "IDVrPod": "2"
+   },
+   "frequency": "annual",
+   "original_unit": "% of GDP",
+   "status": "definition_compatible",
+   "transformation": "none",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": true,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": true,
+    "cross_country_comparable": true
+   },
+   "overlap": {
+    "atlas_indicator": "manufacturing_share_gdp",
+    "comparison": "SORS vs existing Eurostat Serbia record (same concept)",
+    "pairs": [
+     {
+      "year": 2021,
+      "atlas_eurostat": 14.5,
+      "sors": 14.5,
+      "abs_diff": 0.0,
+      "within_tolerance": true
+     },
+     {
+      "year": 2022,
+      "atlas_eurostat": 14.8,
+      "sors": 14.8,
+      "abs_diff": 0.0,
+      "within_tolerance": true
+     },
+     {
+      "year": 2023,
+      "atlas_eurostat": 13.3,
+      "sors": 13.3,
+      "abs_diff": 0.0,
+      "within_tolerance": true
+     },
+     {
+      "year": 2024,
+      "atlas_eurostat": 12.7,
+      "sors": 12.7,
+      "abs_diff": 0.0,
+      "within_tolerance": true
+     }
+    ],
+    "tolerance": {
+     "relative": 0.0,
+     "absolute": 0.3
+    },
+    "failed_years": [],
+    "result": "pass"
+   },
+   "facts": {
+    "observations": 30,
+    "missing_flagged": 0,
+    "first": "1995",
+    "last": "2024",
+    "break_or_definition_flag_years": [],
+    "definition_compatible_floor": 2000,
+    "observations_2000_latest": 25,
+    "observations_from_floor": 25,
+    "zeros": 0
+   },
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Gross value added by NACE Rev. 2",
+   "sors_dataset_title_sr": "Бруто додата вредност по делатностима",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": true
+  },
+  {
+   "atlas_indicator": "fiscal_balance_gdp / government_revenue_gdp / government_expenditure_gdp",
+   "sors_dataset": "09020701IND01",
+   "selection": {
+    "IDInstitucionalniSektor": "S.13",
+    "IDTransakcijeESA": "B9 / TR / TE"
+   },
+   "frequency": "annual",
+   "original_unit": "million RSD",
+   "status": "requires_methodological_review",
+   "transformation": "ratio to GDP (current RSD)",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": true,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "note": "ESA-coded general-government accounts, but many cells carry 'Definition differs' and 'not collected' flags; Eurostat EDP-notified values for Serbia are pending, so no overlap check is possible.",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Main aggregates of General Government",
+   "sors_dataset_title_sr": "Основни агрегати сектора државе",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "government_debt_gdp",
+   "sors_dataset": null,
+   "selection": null,
+   "frequency": "annual",
+   "original_unit": null,
+   "status": "requires_methodological_review",
+   "transformation": "n/a",
+   "gate": {
+    "equivalent_economic_concept": false,
+    "compatible_unit": false,
+    "compatible_reference_period": false,
+    "compatible_geographic_statistical_population": false,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "note": "Not in the SORS open-data portal. Public debt is published by the Ministry of Finance (Public Debt Administration) under a national definition, not EDP.",
+   "source_institution": "Ministry of Finance of the Republic of Serbia",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "rd_expenditure_gdp (review queue)",
+   "sors_dataset": "100109IND01",
+   "selection": {
+    "IDTer": "RS"
+   },
+   "frequency": "annual",
+   "original_unit": "% of GDP",
+   "status": "descriptive_only",
+   "transformation": "none",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": true,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "facts": {
+    "observations": 14,
+    "missing_flagged": 0,
+    "first": "2010",
+    "last": "2023",
+    "break_or_definition_flag_years": [],
+    "definition_compatible_floor": 2010,
+    "observations_2000_latest": 14,
+    "observations_from_floor": 14,
+    "zeros": 0
+   },
+   "note": "GERD / GDP; comparable concept but the Atlas has not yet adopted an R&D indicator for any country (Phase G review queue).",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Total RD resources/GDP",
+   "sors_dataset_title_sr": "Укупнa улагања у ИР / БДП",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "energy_import_dependency",
+   "sors_dataset": "040201IND06",
+   "selection": {
+    "IDEnergenti": "0",
+    "IDTokovi2017": "(1020 − 1030) / 1050"
+   },
+   "frequency": "annual",
+   "original_unit": "TJ",
+   "status": "requires_methodological_review",
+   "transformation": "(imports − exports) / gross available energy × 100",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": true,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "overlap": {
+    "atlas_indicator": "energy_import_dependency",
+    "comparison": "SORS vs existing Eurostat Serbia record (same concept)",
+    "pairs": [
+     {
+      "year": 2021,
+      "atlas_eurostat": 34.792,
+      "sors": 35.3897,
+      "abs_diff": 0.5977,
+      "within_tolerance": false
+     },
+     {
+      "year": 2022,
+      "atlas_eurostat": 44.913,
+      "sors": 45.6898,
+      "abs_diff": 0.7768,
+      "within_tolerance": false
+     },
+     {
+      "year": 2023,
+      "atlas_eurostat": 41.947,
+      "sors": 42.6596,
+      "abs_diff": 0.7126,
+      "within_tolerance": false
+     },
+     {
+      "year": 2024,
+      "atlas_eurostat": 40.793,
+      "sors": 41.4842,
+      "abs_diff": 0.6912,
+      "within_tolerance": false
+     }
+    ],
+    "tolerance": {
+     "relative": 0.0,
+     "absolute": 0.3
+    },
+    "failed_years": [
+     2021,
+     2022,
+     2023,
+     2024
+    ],
+    "result": "fail"
+   },
+   "note": "Energy balance 2010–2024; the Eurostat indicator is itself in the Phase G review queue (2019 methodology). A systematic gap to Eurostat indicates a definitional difference in the balance aggregates. Overlap with the Eurostat Serbia record failed tolerance in [2021, 2022, 2023, 2024].",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Annual Energy Statistics and Energy balances, TJ",
+   "sors_dataset_title_sr": "Годишњи подаци статистике енергетике и енергетски биланси , ТЈ",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "fdi_inflow / current_account_gdp",
+   "sors_dataset": null,
+   "selection": null,
+   "frequency": "annual",
+   "original_unit": null,
+   "status": "requires_methodological_review",
+   "transformation": "n/a",
+   "gate": {
+    "equivalent_economic_concept": false,
+    "compatible_unit": false,
+    "compatible_reference_period": false,
+    "compatible_geographic_statistical_population": false,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "note": "Not published by SORS. Balance of payments and FDI are compiled by the National Bank of Serbia (BPM6); requires a separate NBS source audit.",
+   "source_institution": "National Bank of Serbia",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "industrial_production_index",
+   "sors_dataset": "060001IND02",
+   "selection": {
+    "IDKD08": "0"
+   },
+   "frequency": "monthly (and annual)",
+   "original_unit": "index, 2021=100 (not seasonally adjusted)",
+   "status": "definition_compatible",
+   "transformation": "none for descriptive use; seasonal and calendar adjustment would be needed to match the SCA Eurostat series",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": true,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "facts": {
+    "observations": 319,
+    "missing_flagged": 0,
+    "first": "2000-01",
+    "last": "2026-07",
+    "break_or_definition_flag_years": [],
+    "definition_compatible_floor": 2000,
+    "observations_2000_latest": 319,
+    "observations_from_floor": 319,
+    "zeros": 0
+   },
+   "model_role": "formal_model_compatible_candidate",
+   "note": "Serbia's Eurostat IPI (already in the frozen HF data) is transmitted by SORS; the SORS series is a candidate only — no model inclusion is authorised.",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Base industrial production index, by activity",
+   "sors_dataset_title_sr": "Базни индекс индустријске производње, по делатности",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "serbia_cpi_index (Serbia-specific, base 2006=100 IND01)",
+   "sors_dataset": "03010601IND01",
+   "selection": {
+    "IDCOICOP": "0000"
+   },
+   "frequency": "monthly",
+   "original_unit": "index 2006=100; y/y index",
+   "status": "descriptive_only",
+   "transformation": "none",
+   "gate": {
+    "equivalent_economic_concept": false,
+    "compatible_unit": true,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "facts": {
+    "observations": 228,
+    "missing_flagged": 0,
+    "first": "2007-01",
+    "last": "2025-12",
+    "break_or_definition_flag_years": [],
+    "definition_compatible_floor": 2007,
+    "observations_2000_latest": 228,
+    "observations_from_floor": 228,
+    "zeros": 0
+   },
+   "model_role": "descriptive_only",
+   "note": "Not HICP; excluded from HICP-based models.",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Base indices, (2006 = 100)",
+   "sors_dataset_title_sr": "Базни индекси (2006 = 100)",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "lfs_unemployment_quarterly (Serbia-specific)",
+   "sors_dataset": "240003010102IND03",
+   "selection": {
+    "IDPol": "0",
+    "IDStarGrupa": "15-74"
+   },
+   "frequency": "quarterly",
+   "original_unit": "%",
+   "status": "descriptive_only",
+   "transformation": "none",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": true,
+    "compatible_reference_period": false,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": true,
+    "cross_country_comparable": false
+   },
+   "facts": {
+    "observations": 62,
+    "missing_flagged": 0,
+    "first": "2011-K1",
+    "last": "2026-K2",
+    "break_or_definition_flag_years": [],
+    "definition_compatible_floor": 2011,
+    "observations_2000_latest": 62,
+    "observations_from_floor": 62,
+    "zeros": 0
+   },
+   "model_role": "descriptive_only",
+   "note": "Quarterly, not seasonally adjusted; the frozen models use monthly SA unemployment.",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Unemployment rates. Rates of activity, employment, out of labour force and unemployment, by sex and age (from 2011)",
+   "sors_dataset_title_sr": "Стопе незапослености. Стопе активности, запослености, ван радне снаге и незапослености, према полу и старосним групама (од 2011)",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "average_earnings_monthly (Serbia-specific)",
+   "sors_dataset": "2403040101IND01 / IND02",
+   "selection": {
+    "IDTer": "RS"
+   },
+   "frequency": "monthly",
+   "original_unit": "RSD",
+   "status": "descriptive_only",
+   "transformation": "none",
+   "gate": {
+    "equivalent_economic_concept": false,
+    "compatible_unit": false,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": false,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "facts": {
+    "observations": 415,
+    "missing_flagged": 180,
+    "first": "1992-01",
+    "last": "2026-07",
+    "break_or_definition_flag_years": [
+     1997,
+     2001,
+     2009,
+     2018
+    ],
+    "definition_compatible_floor": 2018,
+    "observations_2000_latest": 319,
+    "observations_from_floor": 103,
+    "zeros": 0
+   },
+   "model_role": "descriptive_only",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Average net earnings. Average monthly earnings, total",
+   "sors_dataset_title_sr": "Просечне нето зараде. Просечне месечне зараде, укупно",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "retail_trade_volume (Serbia-specific)",
+   "sors_dataset": "210105IND02",
+   "selection": {
+    "IDKD08STS": "47",
+    "IDDesezoniranjeVS": "Y"
+   },
+   "frequency": "monthly",
+   "original_unit": "index 2021=100, constant prices, SA",
+   "status": "descriptive_only",
+   "transformation": "none",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": true,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "facts": {
+    "observations": 319,
+    "missing_flagged": 0,
+    "first": "2000-01",
+    "last": "2026-07",
+    "break_or_definition_flag_years": [],
+    "definition_compatible_floor": 2000,
+    "observations_2000_latest": 319,
+    "observations_from_floor": 319,
+    "zeros": 0
+   },
+   "model_role": "descriptive_only",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Monthly indices of retail trade turnover (excluding VAT) at constant prices, by activities (Ø 2021 = 100)",
+   "sors_dataset_title_sr": "Месечни индекси промета у трговини на мало (без ПДВ-а), у сталним ценама, по делатностима (Ø 2021= 100)",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "producer_prices_industry (Serbia-specific)",
+   "sors_dataset": "030201010101IND01",
+   "selection": {
+    "IDKD08": "0",
+    "IDIndeksVrsta": "3"
+   },
+   "frequency": "monthly",
+   "original_unit": "index, same month previous year = 100",
+   "status": "descriptive_only",
+   "transformation": "none",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": true,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "facts": {
+    "observations": 188,
+    "missing_flagged": 35,
+    "first": "2011-01",
+    "last": "2026-08",
+    "break_or_definition_flag_years": [],
+    "definition_compatible_floor": 2011,
+    "observations_2000_latest": 188,
+    "observations_from_floor": 188,
+    "zeros": 0
+   },
+   "model_role": "descriptive_only",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Monthly producer price indices of industrial products total by CA2010 (NACE Rev.2)",
+   "sors_dataset_title_sr": "Месечни индекси цена произвођача индустријских производа укупно по КД 2010",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "goods_trade_monthly (Serbia-specific)",
+   "sors_dataset": "1702IND01 / 1702IND02",
+   "selection": {
+    "IDVrPod": "2"
+   },
+   "frequency": "monthly",
+   "original_unit": "EUR million",
+   "status": "descriptive_only",
+   "transformation": "none",
+   "gate": {
+    "equivalent_economic_concept": false,
+    "compatible_unit": true,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "facts": {
+    "observations": 271,
+    "missing_flagged": 0,
+    "first": "2004-01",
+    "last": "2026-07",
+    "break_or_definition_flag_years": [],
+    "definition_compatible_floor": 2004,
+    "observations_2000_latest": 271,
+    "observations_from_floor": 271,
+    "zeros": 0
+   },
+   "model_role": "descriptive_only",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Exports - total, by months",
+   "sors_dataset_title_sr": "Извоз - укупно, по месецима",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "bilateral_fx_local_per_eur / policy_rate",
+   "sors_dataset": null,
+   "selection": null,
+   "frequency": "monthly",
+   "original_unit": null,
+   "status": "definition_compatible",
+   "transformation": "n/a",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": true,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": true,
+    "documented_methodology_compatibility": true,
+    "cross_country_comparable": true
+   },
+   "model_role": "descriptive_only",
+   "note": "Published by the National Bank of Serbia, not SORS. The Atlas already carries these series via BIS (NBS as contributing central bank); keep BIS as the store, use NBS only as a documented cross-check.",
+   "source_institution": "National Bank of Serbia",
+   "cross_country_comparable": true
+  }
+ ],
+ "regional": [
+  {
+   "atlas_indicator": "regional_population",
+   "sors_dataset": "18010403IND01",
+   "selection": {
+    "IDPol": "0",
+    "IDStarost": "0"
+   },
+   "levels": [
+    "NSTJ1",
+    "NSTJ2",
+    "NSTJ3",
+    "municipality"
+   ],
+   "frequency": "annual",
+   "period": "2011–2025",
+   "original_unit": "number, 1 January",
+   "status": "definition_compatible",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": true,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": false,
+    "documented_methodology_compatibility": true,
+    "cross_country_comparable": false
+   },
+   "note": "Same concept as Eurostat regional population; NSTJ units are not NUTS units, so cross-country regional ranking stays off.",
+   "expected_new_observations": 3055,
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Population estimates on 1 January",
+   "sors_dataset_title_sr": "Процене становништва на дан 1. јануар",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "regional_population (long series)",
+   "sors_dataset": "180304IND02",
+   "selection": {},
+   "levels": [
+    "NSTJ1",
+    "NSTJ2",
+    "NSTJ3",
+    "municipality"
+   ],
+   "frequency": "annual",
+   "period": "1961–2025",
+   "original_unit": "number",
+   "status": "descriptive_only",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": true,
+    "compatible_reference_period": false,
+    "compatible_geographic_statistical_population": false,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "note": "Unflagged 1998 coverage change (RS23 units without data) and census level shifts; trends only within segments.",
+   "expected_new_observations": 5202,
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Population estimates",
+   "sors_dataset_title_sr": "Процењен број становника",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "regional_gdp / regional_gdp_per_capita",
+   "sors_dataset": null,
+   "selection": null,
+   "levels": [
+    "NSTJ2",
+    "NSTJ3"
+   ],
+   "frequency": "annual",
+   "period": null,
+   "original_unit": null,
+   "status": "requires_methodological_review",
+   "gate": {
+    "equivalent_economic_concept": false,
+    "compatible_unit": false,
+    "compatible_reference_period": false,
+    "compatible_geographic_statistical_population": false,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "note": "Regional GDP is published by SORS in releases and its statistical database but not in the open-data portal; needs a separate source audit.",
+   "source_institution": "Ministry of Finance of the Republic of Serbia",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "regional_unemployment_rate",
+   "sors_dataset": "240003020304IND01 (2021–2025) / 2400020102IND04 (2014–2020)",
+   "selection": {
+    "IDPol": "0",
+    "IDStarGrupa": "15-74 (2021+) / 15 (2014–2020)"
+   },
+   "levels": [
+    "NSTJ1",
+    "NSTJ2"
+   ],
+   "frequency": "annual",
+   "period": "2014–2025",
+   "original_unit": "%",
+   "status": "descriptive_only",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": true,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": false,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "note": "Official 2021 series-break flag between the two LFS segments; 2014–2020 regional values include many 'low reliability' flags. Segments are not joined.",
+   "expected_new_observations": 247,
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Unemployment rates by sex, region and age",
+   "sors_dataset_title_sr": "Стопе незапослености према полу, региону и старосним групама",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "regional_employment_rate",
+   "sors_dataset": "240003020205IND01 (2021–2025) / 2400020102IND02 (2014–2020)",
+   "selection": {
+    "IDPol": "0",
+    "IDStarGrupa": "20-64 (2021+)"
+   },
+   "levels": [
+    "NSTJ1",
+    "NSTJ2"
+   ],
+   "frequency": "annual",
+   "period": "2014–2025",
+   "original_unit": "%",
+   "status": "descriptive_only",
+   "gate": {
+    "equivalent_economic_concept": true,
+    "compatible_unit": true,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": false,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "note": "Same 2021 break; not joined.",
+   "expected_new_observations": 247,
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Employment rates by sex, region and age",
+   "sors_dataset_title_sr": "Стопе запослености према полу, региону и старосним групама",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false
+  },
+  {
+   "atlas_indicator": "regional_manufacturing_share",
+   "sors_dataset": "240205IND01 (registered employment by activity)",
+   "selection": null,
+   "levels": [
+    "NSTJ3",
+    "municipality"
+   ],
+   "frequency": "annual",
+   "period": "2015–2025",
+   "original_unit": "persons",
+   "status": "not_comparable",
+   "gate": {
+    "equivalent_economic_concept": false,
+    "compatible_unit": false,
+    "compatible_reference_period": true,
+    "compatible_geographic_statistical_population": false,
+    "documented_methodology_compatibility": false,
+    "cross_country_comparable": false
+   },
+   "note": "Only an employment-based structure is available in open data; the Atlas indicator is a GVA share.",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "sors_dataset_title": "Employed at legal entities  persons individually running business, entrepreneurs and their employees, by sections of CA2010 and municipalities of work (NSTJ)",
+   "sors_dataset_title_sr": "Запослени у правним лицима, лица која самостално обављају делатност, предузетници и запослени код њих, по секторима КД2010 и према општини рада (НСТЈ)",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false
+  }
+ ]
+}
