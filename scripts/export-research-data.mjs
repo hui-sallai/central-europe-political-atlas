@@ -2125,6 +2125,20 @@ const varResidualJson = (name) => JSON.parse(fs.readFileSync(path.join(canonical
 fs.copyFileSync(path.join(canonicalDataDir, "high-frequency", "high_frequency_definition_registry.json"), path.join(outDir, "high_frequency_definition_registry.json"));
 fs.copyFileSync(path.join(canonicalDataDir, "historical-extension-audit", "historical_extension_research_conclusion.json"), path.join(outDir, "historical_extension_research_conclusion.json"));
 fs.copyFileSync(path.join(canonicalDataDir, "historical-extension-audit", "historical_extension_readiness.json"), path.join(outDir, "historical_extension_readiness.json"));
+// v2.0 Phase G/J: descriptive-only annual history (never a model input) and the coverage audit it is gated by.
+for (const [dir, fileName] of [["historical", "annual_descriptive_history.json"], ["historical", "annual_history_manifest.json"], ["data-coverage", "descriptive_data_coverage_audit.json"]]) fs.copyFileSync(path.join(canonicalDataDir, dir, fileName), path.join(outDir, fileName));
+{
+  const history = JSON.parse(fs.readFileSync(path.join(canonicalDataDir, "historical", "annual_descriptive_history.json"), "utf8"));
+  const sources = [...new Set(history.records.map((r) => `${r.source_dataset}\u0000${r.source_query_url}`))];
+  const sourceIndex = new Map(sources.map((key, index) => [key, index]));
+  fs.writeFileSync(path.join(outDir, "annual_history_runtime.json"), JSON.stringify({
+    schema_version: "annual-history-runtime-v2.0",
+    descriptive_only: true,
+    row_layout: ["country_slug", "indicator", "year", "value", "unit", "value_status", "source_index"],
+    sources: sources.map((key) => { const [dataset, url] = key.split("\u0000"); return { dataset, url }; }),
+    records: history.records.map((r) => [r.country_slug, r.indicator, r.year, r.value, r.unit, r.value_status, sourceIndex.get(`${r.source_dataset}\u0000${r.source_query_url}`)]),
+  }) + "\n");
+}
 for (const fileName of macroDriverFiles) fs.copyFileSync(path.join(macroDriverDir, fileName), path.join(outDir, fileName));
 for (const fileName of identifiedShockFiles) fs.copyFileSync(path.join(identifiedShockDir, fileName), path.join(outDir, fileName));
 for (const fileName of localProjectionFiles) fs.copyFileSync(path.join(localProjectionDir, fileName), path.join(outDir, fileName));

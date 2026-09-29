@@ -1,0 +1,3088 @@
+{
+  "schema_version": "annual-history-manifest-v2.0",
+  "phase": "v2.0 Phase G — annual historical descriptive expansion",
+  "approval": "Owner approved safe descriptive backfills after reviewing descriptive_data_coverage_audit.json (2026-09-29).",
+  "target": "2000–latest, or the earliest definition-compatible official year",
+  "countries": [
+    "austria",
+    "germany",
+    "slovakia",
+    "slovenia",
+    "czechia",
+    "hungary",
+    "poland",
+    "romania",
+    "croatia"
+  ],
+  "excluded_countries": {
+    "serbia": "requires methodological review (see review_queue)"
+  },
+  "floor_rule": "floor = max(2000, first official value, year of last 'b' break flag, year after last 'd' definition flag)",
+  "overlap_tolerance": {
+    "relative": 0.02,
+    "absolute": 0.3
+  },
+  "tables": [
+    {
+      "table": "nama_10_gdp",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_gdp?format=JSON&lang=en&sinceTimePeriod=1999&unit=CP_MEUR&unit=CLV_PCH_PRE&na_item=B1GQ&na_item=P6&na_item=P7&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR",
+      "http_status": 200,
+      "retrieved_at": "2026-09-29T10:08:34.198Z",
+      "dataset_updated_at": "2026-09-29T11:00:00+0200",
+      "raw_file": "src/data/historical/raw/annual/nama_10_gdp.json",
+      "sha256": "f805e0a3cb7d2c5db17404bf1b4e0dfde9166b67b200e43070de945bb835ee18",
+      "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/nama10_esms.htm",
+      "time_axis": [
+        "1999",
+        "2025"
+      ]
+    },
+    {
+      "table": "nama_10_pc",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_pc?format=JSON&lang=en&sinceTimePeriod=1999&unit=CP_EUR_HAB&unit=CP_PPS_EU27_2020_HAB&na_item=B1GQ&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR",
+      "http_status": 200,
+      "retrieved_at": "2026-09-29T10:08:34.863Z",
+      "dataset_updated_at": "2026-09-29T11:00:00+0200",
+      "raw_file": "src/data/historical/raw/annual/nama_10_pc.json",
+      "sha256": "b0631ba8ae51f0033b0db9cead3f5ae3117be757dc808229711d1196a4e6e635",
+      "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/nama10_esms.htm",
+      "time_axis": [
+        "1999",
+        "2025"
+      ]
+    },
+    {
+      "table": "nama_10_a10",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_a10?format=JSON&lang=en&sinceTimePeriod=1999&unit=PC_GDP&na_item=B1G&nace_r2=C&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR",
+      "http_status": 200,
+      "retrieved_at": "2026-09-29T10:08:36.461Z",
+      "dataset_updated_at": "2026-09-29T11:00:00+0200",
+      "raw_file": "src/data/historical/raw/annual/nama_10_a10.json",
+      "sha256": "faa5627d708331f4bed338cc74c91315d2fd50c3d3e8ea3c220402201c2d06b8",
+      "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/nama10_esms.htm",
+      "time_axis": [
+        "1999",
+        "2025"
+      ]
+    },
+    {
+      "table": "nama_10_lp_ulc",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nama_10_lp_ulc?format=JSON&lang=en&sinceTimePeriod=1999&unit=PCH_PRE&unit=EUR&na_item=RLPR_PER&na_item=D1_SAL_PER&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR",
+      "http_status": 200,
+      "retrieved_at": "2026-09-29T10:08:37.001Z",
+      "dataset_updated_at": "2026-09-29T11:00:00+0200",
+      "raw_file": "src/data/historical/raw/annual/nama_10_lp_ulc.json",
+      "sha256": "c3e5999cd1bf08844b815e86ff14c9cfa4614ff58bf8bb2ce82c03ec109ce55e",
+      "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/nama10_esms.htm",
+      "time_axis": [
+        "1999",
+        "2025"
+      ]
+    },
+    {
+      "table": "prc_hicp_aind",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_aind?format=JSON&lang=en&sinceTimePeriod=1999&unit=RCH_A_AVG&coicop=CP00&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR",
+      "http_status": 200,
+      "retrieved_at": "2026-09-29T10:08:38.115Z",
+      "dataset_updated_at": "2026-02-06T23:00:00+0100",
+      "raw_file": "src/data/historical/raw/annual/prc_hicp_aind.json",
+      "sha256": "e840c1ab362f569a7e413f648da69343182d0d2786fbd75e31fb68763a6e024a",
+      "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/prc_hicp_esms.htm",
+      "time_axis": [
+        "1999",
+        "2025"
+      ]
+    },
+    {
+      "table": "demo_pjan",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/demo_pjan?format=JSON&lang=en&sinceTimePeriod=1999&unit=NR&sex=T&age=TOTAL&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR",
+      "http_status": 200,
+      "retrieved_at": "2026-09-29T10:08:38.583Z",
+      "dataset_updated_at": "2026-09-25T23:00:00+0200",
+      "raw_file": "src/data/historical/raw/annual/demo_pjan.json",
+      "sha256": "51edd0cff9770a0d923d66d4f888db09141467edf12fbfb5ee2df5fe4964ff69",
+      "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/demo_pop_esms.htm",
+      "time_axis": [
+        "1999",
+        "2025"
+      ]
+    },
+    {
+      "table": "gov_10dd_edpt1",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10dd_edpt1?format=JSON&lang=en&sinceTimePeriod=1999&unit=PC_GDP&sector=S13&na_item=B9&na_item=GD&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR",
+      "http_status": 200,
+      "retrieved_at": "2026-09-29T10:08:39.212Z",
+      "dataset_updated_at": "2026-04-22T11:00:00+0200",
+      "raw_file": "src/data/historical/raw/annual/gov_10dd_edpt1.json",
+      "sha256": "665454406f00aac9ff32a8c4a06715eacdd06fad32b66ce474a7e34f7b7104bc",
+      "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/gov_10dd_edpt1_esms.htm",
+      "time_axis": [
+        "1999",
+        "2025"
+      ]
+    },
+    {
+      "table": "gov_10a_main",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gov_10a_main?format=JSON&lang=en&sinceTimePeriod=1999&unit=PC_GDP&sector=S13&na_item=TR&na_item=TE&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR",
+      "http_status": 200,
+      "retrieved_at": "2026-09-29T10:08:39.827Z",
+      "dataset_updated_at": "2026-07-21T11:00:00+0200",
+      "raw_file": "src/data/historical/raw/annual/gov_10a_main.json",
+      "sha256": "dc141bbc1e40f911b3214cc5a8b31b51eceb0760f5df6c3cb53cc70e46e30f0a",
+      "metadata_url": "https://ec.europa.eu/eurostat/cache/metadata/en/gov_10a_main_esms.htm",
+      "time_axis": [
+        "1999",
+        "2025"
+      ]
+    }
+  ],
+  "series": [
+    {
+      "indicator": "gdp_current_eur",
+      "country": "austria",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -8124.63,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_current_eur",
+      "country": "germany",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -28609.40000000001,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_current_eur",
+      "country": "slovakia",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -2037.832,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_current_eur",
+      "country": "slovenia",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -725.2239999999999,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_current_eur",
+      "country": "czechia",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -4920.246,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_current_eur",
+      "country": "hungary",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -3099.434,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_current_eur",
+      "country": "poland",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -11660.028,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_current_eur",
+      "country": "romania",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -4819.732,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_current_eur",
+      "country": "croatia",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -1167.808,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "real_gdp_growth",
+      "country": "austria",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "real_gdp_growth",
+      "country": "germany",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": 0.2,
+      "overlap_check": "fail_definition_or_vintage_mismatch",
+      "ingested_years": null,
+      "ingested_count": 0,
+      "status": "held_for_review"
+    },
+    {
+      "indicator": "real_gdp_growth",
+      "country": "slovakia",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "real_gdp_growth",
+      "country": "slovenia",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": 0.09999999999999992,
+      "overlap_check": "fail_definition_or_vintage_mismatch",
+      "ingested_years": null,
+      "ingested_count": 0,
+      "status": "held_for_review"
+    },
+    {
+      "indicator": "real_gdp_growth",
+      "country": "czechia",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "real_gdp_growth",
+      "country": "hungary",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "real_gdp_growth",
+      "country": "poland",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "real_gdp_growth",
+      "country": "romania",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "real_gdp_growth",
+      "country": "croatia",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_per_capita_eur",
+      "country": "austria",
+      "kind": "official",
+      "table": "nama_10_pc",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -591.98,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_per_capita_eur",
+      "country": "germany",
+      "kind": "official",
+      "table": "nama_10_pc",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": 111.34000000000003,
+      "overlap_check": "fail_definition_or_vintage_mismatch",
+      "ingested_years": null,
+      "ingested_count": 0,
+      "status": "held_for_review"
+    },
+    {
+      "indicator": "gdp_per_capita_eur",
+      "country": "slovakia",
+      "kind": "official",
+      "table": "nama_10_pc",
+      "earliest_available": 1999,
+      "break_flags": [
+        "2001:b",
+        "2011:b",
+        "2021:b"
+      ],
+      "definition_compatible_floor": 2021,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -305.24,
+      "overlap_check": "pass",
+      "ingested_years": null,
+      "ingested_count": 0,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_per_capita_eur",
+      "country": "slovenia",
+      "kind": "official",
+      "table": "nama_10_pc",
+      "earliest_available": 1999,
+      "break_flags": [
+        "2008:b"
+      ],
+      "definition_compatible_floor": 2008,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -360.58000000000004,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2008,
+        2020
+      ],
+      "ingested_count": 13,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_per_capita_eur",
+      "country": "czechia",
+      "kind": "official",
+      "table": "nama_10_pc",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": 72.24000000000001,
+      "overlap_check": "fail_definition_or_vintage_mismatch",
+      "ingested_years": null,
+      "ingested_count": 0,
+      "status": "held_for_review"
+    },
+    {
+      "indicator": "gdp_per_capita_eur",
+      "country": "hungary",
+      "kind": "official",
+      "table": "nama_10_pc",
+      "earliest_available": 1999,
+      "break_flags": [
+        "2012:b"
+      ],
+      "definition_compatible_floor": 2012,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -288.14,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2012,
+        2020
+      ],
+      "ingested_count": 9,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_per_capita_eur",
+      "country": "poland",
+      "kind": "official",
+      "table": "nama_10_pc",
+      "earliest_available": 1999,
+      "break_flags": [
+        "2010:b",
+        "2020:b",
+        "2022:b"
+      ],
+      "definition_compatible_floor": 2022,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": 96.56,
+      "overlap_check": "fail_definition_or_vintage_mismatch",
+      "ingested_years": null,
+      "ingested_count": 0,
+      "status": "held_for_review"
+    },
+    {
+      "indicator": "gdp_per_capita_eur",
+      "country": "romania",
+      "kind": "official",
+      "table": "nama_10_pc",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -211,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_per_capita_eur",
+      "country": "croatia",
+      "kind": "official",
+      "table": "nama_10_pc",
+      "earliest_available": 1999,
+      "break_flags": [
+        "2001:b",
+        "2012:b"
+      ],
+      "definition_compatible_floor": 2012,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -228.98000000000002,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2012,
+        2020
+      ],
+      "ingested_count": 9,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_per_capita_pps",
+      "country": "austria",
+      "kind": "official",
+      "table": "nama_10_pc",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_per_capita_pps",
+      "country": "germany",
+      "kind": "official",
+      "table": "nama_10_pc",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_per_capita_pps",
+      "country": "slovakia",
+      "kind": "official",
+      "table": "nama_10_pc",
+      "earliest_available": 1999,
+      "break_flags": [
+        "2001:b",
+        "2011:b",
+        "2021:b"
+      ],
+      "definition_compatible_floor": 2021,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2021,
+        2025
+      ],
+      "ingested_count": 5,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_per_capita_pps",
+      "country": "slovenia",
+      "kind": "official",
+      "table": "nama_10_pc",
+      "earliest_available": 1999,
+      "break_flags": [
+        "2008:b"
+      ],
+      "definition_compatible_floor": 2008,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2008,
+        2025
+      ],
+      "ingested_count": 18,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_per_capita_pps",
+      "country": "czechia",
+      "kind": "official",
+      "table": "nama_10_pc",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_per_capita_pps",
+      "country": "hungary",
+      "kind": "official",
+      "table": "nama_10_pc",
+      "earliest_available": 1999,
+      "break_flags": [
+        "2012:b"
+      ],
+      "definition_compatible_floor": 2012,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2012,
+        2025
+      ],
+      "ingested_count": 14,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_per_capita_pps",
+      "country": "poland",
+      "kind": "official",
+      "table": "nama_10_pc",
+      "earliest_available": 1999,
+      "break_flags": [
+        "2010:b",
+        "2020:b",
+        "2022:b"
+      ],
+      "definition_compatible_floor": 2022,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2022,
+        2025
+      ],
+      "ingested_count": 4,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_per_capita_pps",
+      "country": "romania",
+      "kind": "official",
+      "table": "nama_10_pc",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "gdp_per_capita_pps",
+      "country": "croatia",
+      "kind": "official",
+      "table": "nama_10_pc",
+      "earliest_available": 1999,
+      "break_flags": [
+        "2001:b",
+        "2012:b"
+      ],
+      "definition_compatible_floor": 2012,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2012,
+        2025
+      ],
+      "ingested_count": 14,
+      "status": "ingested"
+    },
+    {
+      "indicator": "hicp_inflation",
+      "country": "austria",
+      "kind": "official",
+      "table": "prc_hicp_aind",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "hicp_inflation",
+      "country": "germany",
+      "kind": "official",
+      "table": "prc_hicp_aind",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "hicp_inflation",
+      "country": "slovakia",
+      "kind": "official",
+      "table": "prc_hicp_aind",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "hicp_inflation",
+      "country": "slovenia",
+      "kind": "official",
+      "table": "prc_hicp_aind",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "hicp_inflation",
+      "country": "czechia",
+      "kind": "official",
+      "table": "prc_hicp_aind",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "hicp_inflation",
+      "country": "hungary",
+      "kind": "official",
+      "table": "prc_hicp_aind",
+      "earliest_available": 1999,
+      "break_flags": [
+        "1999:d",
+        "2000:d",
+        "2001:d"
+      ],
+      "definition_compatible_floor": 2002,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2002,
+        2020
+      ],
+      "ingested_count": 19,
+      "status": "ingested"
+    },
+    {
+      "indicator": "hicp_inflation",
+      "country": "poland",
+      "kind": "official",
+      "table": "prc_hicp_aind",
+      "earliest_available": 1999,
+      "break_flags": [
+        "1999:d"
+      ],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "hicp_inflation",
+      "country": "romania",
+      "kind": "official",
+      "table": "prc_hicp_aind",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "hicp_inflation",
+      "country": "croatia",
+      "kind": "official",
+      "table": "prc_hicp_aind",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "population",
+      "country": "austria",
+      "kind": "official",
+      "table": "demo_pjan",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -175936,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "population",
+      "country": "germany",
+      "kind": "official",
+      "table": "demo_pjan",
+      "earliest_available": 1999,
+      "break_flags": [
+        "2011:b",
+        "2023:b"
+      ],
+      "definition_compatible_floor": 2023,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -1658231,
+      "overlap_check": "pass",
+      "ingested_years": null,
+      "ingested_count": 0,
+      "status": "ingested"
+    },
+    {
+      "indicator": "population",
+      "country": "slovakia",
+      "kind": "official",
+      "table": "demo_pjan",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -103713,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "population",
+      "country": "slovenia",
+      "kind": "official",
+      "table": "demo_pjan",
+      "earliest_available": 1999,
+      "break_flags": [
+        "2008:b"
+      ],
+      "definition_compatible_floor": 2008,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -38451,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2008,
+        2020
+      ],
+      "ingested_count": 13,
+      "status": "ingested"
+    },
+    {
+      "indicator": "population",
+      "country": "czechia",
+      "kind": "official",
+      "table": "demo_pjan",
+      "earliest_available": 1999,
+      "break_flags": [
+        "2021:b"
+      ],
+      "definition_compatible_floor": 2021,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -204964,
+      "overlap_check": "pass",
+      "ingested_years": null,
+      "ingested_count": 0,
+      "status": "ingested"
+    },
+    {
+      "indicator": "population",
+      "country": "hungary",
+      "kind": "official",
+      "table": "demo_pjan",
+      "earliest_available": 1999,
+      "break_flags": [
+        "2012:b"
+      ],
+      "definition_compatible_floor": 2012,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -186973,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2012,
+        2020
+      ],
+      "ingested_count": 9,
+      "status": "ingested"
+    },
+    {
+      "indicator": "population",
+      "country": "poland",
+      "kind": "official",
+      "table": "demo_pjan",
+      "earliest_available": 1999,
+      "break_flags": [
+        "2000:b",
+        "2010:b",
+        "2021:bep"
+      ],
+      "definition_compatible_floor": 2021,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -727495,
+      "overlap_check": "pass",
+      "ingested_years": null,
+      "ingested_count": 0,
+      "status": "ingested"
+    },
+    {
+      "indicator": "population",
+      "country": "romania",
+      "kind": "official",
+      "table": "demo_pjan",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -376428,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "population",
+      "country": "croatia",
+      "kind": "official",
+      "table": "demo_pjan",
+      "earliest_available": 1999,
+      "break_flags": [
+        "2001:b"
+      ],
+      "definition_compatible_floor": 2001,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -73050,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2001,
+        2020
+      ],
+      "ingested_count": 20,
+      "status": "ingested"
+    },
+    {
+      "indicator": "fiscal_balance_gdp",
+      "country": "austria",
+      "kind": "official",
+      "table": "gov_10dd_edpt1",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "fiscal_balance_gdp",
+      "country": "germany",
+      "kind": "official",
+      "table": "gov_10dd_edpt1",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "fiscal_balance_gdp",
+      "country": "slovakia",
+      "kind": "official",
+      "table": "gov_10dd_edpt1",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "fiscal_balance_gdp",
+      "country": "slovenia",
+      "kind": "official",
+      "table": "gov_10dd_edpt1",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "fiscal_balance_gdp",
+      "country": "czechia",
+      "kind": "official",
+      "table": "gov_10dd_edpt1",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "fiscal_balance_gdp",
+      "country": "hungary",
+      "kind": "official",
+      "table": "gov_10dd_edpt1",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "fiscal_balance_gdp",
+      "country": "poland",
+      "kind": "official",
+      "table": "gov_10dd_edpt1",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "fiscal_balance_gdp",
+      "country": "romania",
+      "kind": "official",
+      "table": "gov_10dd_edpt1",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "fiscal_balance_gdp",
+      "country": "croatia",
+      "kind": "official",
+      "table": "gov_10dd_edpt1",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_debt_gdp",
+      "country": "austria",
+      "kind": "official",
+      "table": "gov_10dd_edpt1",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -1.556,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_debt_gdp",
+      "country": "germany",
+      "kind": "official",
+      "table": "gov_10dd_edpt1",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -1.244,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_debt_gdp",
+      "country": "slovakia",
+      "kind": "official",
+      "table": "gov_10dd_edpt1",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -1.1159999999999999,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_debt_gdp",
+      "country": "slovenia",
+      "kind": "official",
+      "table": "gov_10dd_edpt1",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -1.314,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_debt_gdp",
+      "country": "czechia",
+      "kind": "official",
+      "table": "gov_10dd_edpt1",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.8140000000000001,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_debt_gdp",
+      "country": "hungary",
+      "kind": "official",
+      "table": "gov_10dd_edpt1",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -1.466,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_debt_gdp",
+      "country": "poland",
+      "kind": "official",
+      "table": "gov_10dd_edpt1",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.976,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_debt_gdp",
+      "country": "romania",
+      "kind": "official",
+      "table": "gov_10dd_edpt1",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.9620000000000001,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_debt_gdp",
+      "country": "croatia",
+      "kind": "official",
+      "table": "gov_10dd_edpt1",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -1.126,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_revenue_gdp",
+      "country": "austria",
+      "kind": "official",
+      "table": "gov_10a_main",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.9920000000000001,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_revenue_gdp",
+      "country": "germany",
+      "kind": "official",
+      "table": "gov_10a_main",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.914,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_revenue_gdp",
+      "country": "slovakia",
+      "kind": "official",
+      "table": "gov_10a_main",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.7959999999999999,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_revenue_gdp",
+      "country": "slovenia",
+      "kind": "official",
+      "table": "gov_10a_main",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.88,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_revenue_gdp",
+      "country": "czechia",
+      "kind": "official",
+      "table": "gov_10a_main",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.802,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_revenue_gdp",
+      "country": "hungary",
+      "kind": "official",
+      "table": "gov_10a_main",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.8200000000000001,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_revenue_gdp",
+      "country": "poland",
+      "kind": "official",
+      "table": "gov_10a_main",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.798,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_revenue_gdp",
+      "country": "romania",
+      "kind": "official",
+      "table": "gov_10a_main",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.6559999999999999,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_revenue_gdp",
+      "country": "croatia",
+      "kind": "official",
+      "table": "gov_10a_main",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.904,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_expenditure_gdp",
+      "country": "austria",
+      "kind": "official",
+      "table": "gov_10a_main",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -1.046,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_expenditure_gdp",
+      "country": "germany",
+      "kind": "official",
+      "table": "gov_10a_main",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.9620000000000001,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_expenditure_gdp",
+      "country": "slovakia",
+      "kind": "official",
+      "table": "gov_10a_main",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.8620000000000001,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_expenditure_gdp",
+      "country": "slovenia",
+      "kind": "official",
+      "table": "gov_10a_main",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.93,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_expenditure_gdp",
+      "country": "czechia",
+      "kind": "official",
+      "table": "gov_10a_main",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.8640000000000001,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_expenditure_gdp",
+      "country": "hungary",
+      "kind": "official",
+      "table": "gov_10a_main",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.946,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_expenditure_gdp",
+      "country": "poland",
+      "kind": "official",
+      "table": "gov_10a_main",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.8640000000000001,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_expenditure_gdp",
+      "country": "romania",
+      "kind": "official",
+      "table": "gov_10a_main",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.8,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "government_expenditure_gdp",
+      "country": "croatia",
+      "kind": "official",
+      "table": "gov_10a_main",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.902,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "exports_goods_services",
+      "country": "austria",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -4546.05,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "exports_goods_services",
+      "country": "germany",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -17249.36,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "exports_goods_services",
+      "country": "slovakia",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -1849.574,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "exports_goods_services",
+      "country": "slovenia",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -871.0219999999999,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "exports_goods_services",
+      "country": "czechia",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -3471.236,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "exports_goods_services",
+      "country": "hungary",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -2461.306,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "exports_goods_services",
+      "country": "poland",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -6650.644,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "exports_goods_services",
+      "country": "romania",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -1961.3600000000001,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "exports_goods_services",
+      "country": "croatia",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -581.416,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "imports_goods_services",
+      "country": "austria",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -4474.964,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "imports_goods_services",
+      "country": "germany",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -6938.639999999999,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "imports_goods_services",
+      "country": "slovakia",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -1858.862,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "imports_goods_services",
+      "country": "slovenia",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -788.8719999999986,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "imports_goods_services",
+      "country": "czechia",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -3288.1059999999998,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "imports_goods_services",
+      "country": "hungary",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -2472.6079999999997,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "imports_goods_services",
+      "country": "poland",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -6277.328,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "imports_goods_services",
+      "country": "romania",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -2235.238,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "imports_goods_services",
+      "country": "croatia",
+      "kind": "official",
+      "table": "nama_10_gdp",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -613.586,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "manufacturing_share_gdp",
+      "country": "austria",
+      "kind": "official",
+      "table": "nama_10_a10",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.302,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "manufacturing_share_gdp",
+      "country": "germany",
+      "kind": "official",
+      "table": "nama_10_a10",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.07800000000000284,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "manufacturing_share_gdp",
+      "country": "slovakia",
+      "kind": "official",
+      "table": "nama_10_a10",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.324,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "manufacturing_share_gdp",
+      "country": "slovenia",
+      "kind": "official",
+      "table": "nama_10_a10",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.2720000000000022,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "manufacturing_share_gdp",
+      "country": "czechia",
+      "kind": "official",
+      "table": "nama_10_a10",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.38,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "manufacturing_share_gdp",
+      "country": "hungary",
+      "kind": "official",
+      "table": "nama_10_a10",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.302,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "manufacturing_share_gdp",
+      "country": "poland",
+      "kind": "official",
+      "table": "nama_10_a10",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "manufacturing_share_gdp",
+      "country": "romania",
+      "kind": "official",
+      "table": "nama_10_a10",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "manufacturing_share_gdp",
+      "country": "croatia",
+      "kind": "official",
+      "table": "nama_10_a10",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": 2021,
+      "overlap_years": 5,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "labour_productivity_growth",
+      "country": "austria",
+      "kind": "official",
+      "table": "nama_10_lp_ulc",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "labour_productivity_growth",
+      "country": "germany",
+      "kind": "official",
+      "table": "nama_10_lp_ulc",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "labour_productivity_growth",
+      "country": "slovakia",
+      "kind": "official",
+      "table": "nama_10_lp_ulc",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "labour_productivity_growth",
+      "country": "slovenia",
+      "kind": "official",
+      "table": "nama_10_lp_ulc",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "labour_productivity_growth",
+      "country": "czechia",
+      "kind": "official",
+      "table": "nama_10_lp_ulc",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "labour_productivity_growth",
+      "country": "hungary",
+      "kind": "official",
+      "table": "nama_10_lp_ulc",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "labour_productivity_growth",
+      "country": "poland",
+      "kind": "official",
+      "table": "nama_10_lp_ulc",
+      "earliest_available": 1999,
+      "break_flags": [
+        "2003:b",
+        "2010:b",
+        "2019:b"
+      ],
+      "definition_compatible_floor": 2019,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2019,
+        2025
+      ],
+      "ingested_count": 7,
+      "status": "ingested"
+    },
+    {
+      "indicator": "labour_productivity_growth",
+      "country": "romania",
+      "kind": "official",
+      "table": "nama_10_lp_ulc",
+      "earliest_available": 1999,
+      "break_flags": [
+        "2004:b"
+      ],
+      "definition_compatible_floor": 2004,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2004,
+        2025
+      ],
+      "ingested_count": 22,
+      "status": "ingested"
+    },
+    {
+      "indicator": "labour_productivity_growth",
+      "country": "croatia",
+      "kind": "official",
+      "table": "nama_10_lp_ulc",
+      "earliest_available": 1999,
+      "break_flags": [
+        "2012:b"
+      ],
+      "definition_compatible_floor": 2012,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2012,
+        2025
+      ],
+      "ingested_count": 14,
+      "status": "ingested"
+    },
+    {
+      "indicator": "compensation_per_employee_eur",
+      "country": "austria",
+      "kind": "official",
+      "table": "nama_10_lp_ulc",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "compensation_per_employee_eur",
+      "country": "germany",
+      "kind": "official",
+      "table": "nama_10_lp_ulc",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "compensation_per_employee_eur",
+      "country": "slovakia",
+      "kind": "official",
+      "table": "nama_10_lp_ulc",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "compensation_per_employee_eur",
+      "country": "slovenia",
+      "kind": "official",
+      "table": "nama_10_lp_ulc",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "compensation_per_employee_eur",
+      "country": "czechia",
+      "kind": "official",
+      "table": "nama_10_lp_ulc",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "compensation_per_employee_eur",
+      "country": "hungary",
+      "kind": "official",
+      "table": "nama_10_lp_ulc",
+      "earliest_available": 1999,
+      "break_flags": [],
+      "definition_compatible_floor": 2000,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "compensation_per_employee_eur",
+      "country": "poland",
+      "kind": "official",
+      "table": "nama_10_lp_ulc",
+      "earliest_available": 1999,
+      "break_flags": [
+        "2003:b",
+        "2010:b",
+        "2019:b"
+      ],
+      "definition_compatible_floor": 2019,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2019,
+        2025
+      ],
+      "ingested_count": 7,
+      "status": "ingested"
+    },
+    {
+      "indicator": "compensation_per_employee_eur",
+      "country": "romania",
+      "kind": "official",
+      "table": "nama_10_lp_ulc",
+      "earliest_available": 1999,
+      "break_flags": [
+        "1999:d",
+        "2000:d",
+        "2001:d",
+        "2002:d",
+        "2003:d",
+        "2004:b",
+        "2005:d",
+        "2006:d"
+      ],
+      "definition_compatible_floor": 2007,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2007,
+        2025
+      ],
+      "ingested_count": 19,
+      "status": "ingested"
+    },
+    {
+      "indicator": "compensation_per_employee_eur",
+      "country": "croatia",
+      "kind": "official",
+      "table": "nama_10_lp_ulc",
+      "earliest_available": 1999,
+      "break_flags": [
+        "2012:b"
+      ],
+      "definition_compatible_floor": 2012,
+      "current_first_year": null,
+      "overlap_years": 0,
+      "overlap_max_excess": null,
+      "overlap_check": "not_applicable_new_indicator",
+      "ingested_years": [
+        2012,
+        2025
+      ],
+      "ingested_count": 14,
+      "status": "ingested"
+    },
+    {
+      "indicator": "trade_balance",
+      "country": "austria",
+      "kind": "derived",
+      "formula": "exports_goods_services - imports_goods_services",
+      "current_first_year": 2021,
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "trade_balance",
+      "country": "germany",
+      "kind": "derived",
+      "formula": "exports_goods_services - imports_goods_services",
+      "current_first_year": 2021,
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "trade_balance",
+      "country": "slovakia",
+      "kind": "derived",
+      "formula": "exports_goods_services - imports_goods_services",
+      "current_first_year": 2021,
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "trade_balance",
+      "country": "slovenia",
+      "kind": "derived",
+      "formula": "exports_goods_services - imports_goods_services",
+      "current_first_year": 2021,
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "trade_balance",
+      "country": "czechia",
+      "kind": "derived",
+      "formula": "exports_goods_services - imports_goods_services",
+      "current_first_year": 2021,
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "trade_balance",
+      "country": "hungary",
+      "kind": "derived",
+      "formula": "exports_goods_services - imports_goods_services",
+      "current_first_year": 2021,
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "trade_balance",
+      "country": "poland",
+      "kind": "derived",
+      "formula": "exports_goods_services - imports_goods_services",
+      "current_first_year": 2021,
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "trade_balance",
+      "country": "romania",
+      "kind": "derived",
+      "formula": "exports_goods_services - imports_goods_services",
+      "current_first_year": 2021,
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "trade_balance",
+      "country": "croatia",
+      "kind": "derived",
+      "formula": "exports_goods_services - imports_goods_services",
+      "current_first_year": 2021,
+      "ingested_years": [
+        2000,
+        2020
+      ],
+      "ingested_count": 21,
+      "status": "ingested"
+    },
+    {
+      "indicator": "trade_openness",
+      "country": "austria",
+      "kind": "derived",
+      "formula": "(exports_goods_services + imports_goods_services) / gdp_current_eur * 100",
+      "current_first_year": null,
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "trade_openness",
+      "country": "germany",
+      "kind": "derived",
+      "formula": "(exports_goods_services + imports_goods_services) / gdp_current_eur * 100",
+      "current_first_year": null,
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "trade_openness",
+      "country": "slovakia",
+      "kind": "derived",
+      "formula": "(exports_goods_services + imports_goods_services) / gdp_current_eur * 100",
+      "current_first_year": null,
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "trade_openness",
+      "country": "slovenia",
+      "kind": "derived",
+      "formula": "(exports_goods_services + imports_goods_services) / gdp_current_eur * 100",
+      "current_first_year": null,
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "trade_openness",
+      "country": "czechia",
+      "kind": "derived",
+      "formula": "(exports_goods_services + imports_goods_services) / gdp_current_eur * 100",
+      "current_first_year": null,
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "trade_openness",
+      "country": "hungary",
+      "kind": "derived",
+      "formula": "(exports_goods_services + imports_goods_services) / gdp_current_eur * 100",
+      "current_first_year": null,
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "trade_openness",
+      "country": "poland",
+      "kind": "derived",
+      "formula": "(exports_goods_services + imports_goods_services) / gdp_current_eur * 100",
+      "current_first_year": null,
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "trade_openness",
+      "country": "romania",
+      "kind": "derived",
+      "formula": "(exports_goods_services + imports_goods_services) / gdp_current_eur * 100",
+      "current_first_year": null,
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    },
+    {
+      "indicator": "trade_openness",
+      "country": "croatia",
+      "kind": "derived",
+      "formula": "(exports_goods_services + imports_goods_services) / gdp_current_eur * 100",
+      "current_first_year": null,
+      "ingested_years": [
+        2000,
+        2025
+      ],
+      "ingested_count": 26,
+      "status": "ingested"
+    }
+  ],
+  "review_queue": [
+    {
+      "id": "unemployment_rate",
+      "reason": "LFS series breaks 2004–2011; monthly une_rt_m audit found unexplained 'd' flags (PL, SK)",
+      "candidate": "Eurostat une_rt_a"
+    },
+    {
+      "id": "employment_rate",
+      "reason": "LFS series breaks (2021 IESS regulation, earlier national breaks); same review as unemployment",
+      "candidate": "Eurostat lfsi_emp_a"
+    },
+    {
+      "id": "current_account_gdp",
+      "reason": "BPM5 → BPM6 transition; tipsbp20 depth varies by country",
+      "candidate": "Eurostat tipsbp20 / bop_gdp6_q"
+    },
+    {
+      "id": "fdi_inflow",
+      "reason": "BPM5/BMD3 → BPM6/BMD4 break before 2013; directional vs asset/liability principle",
+      "candidate": "Eurostat bop_fdi6_flow"
+    },
+    {
+      "id": "fdi_outflow",
+      "reason": "same break as FDI inflows",
+      "candidate": "Eurostat bop_fdi6_flow (ASS)"
+    },
+    {
+      "id": "energy_import_dependency",
+      "reason": "energy balance methodology revision (2019)",
+      "candidate": "Eurostat nrg_ind_id"
+    },
+    {
+      "id": "energy_inflation",
+      "reason": "energy aggregate definition vs ECOICOP-2 migration",
+      "candidate": "Eurostat prc_hicp_aind (NRG)"
+    },
+    {
+      "id": "household_electricity_price",
+      "reason": "consumption-band and tax-level redefinition 2017",
+      "candidate": "Eurostat nrg_pc_204"
+    },
+    {
+      "id": "industrial_electricity_price",
+      "reason": "consumption-band redefinition 2017",
+      "candidate": "Eurostat nrg_pc_205"
+    },
+    {
+      "id": "automotive_export_share",
+      "reason": "calculated share; product/NACE classification revisions",
+      "candidate": "Eurostat ext_tec09"
+    },
+    {
+      "id": "germany_export_dependence",
+      "reason": "calculated share; single consistent reporter basis needed",
+      "candidate": "UN Comtrade / Eurostat Comext"
+    },
+    {
+      "id": "rd_expenditure_gdp",
+      "reason": "Frascati Manual revisions and national survey breaks flagged in rd_e_gerdtot",
+      "candidate": "Eurostat rd_e_gerdtot"
+    },
+    {
+      "id": "real_wage_indicators",
+      "reason": "deflator choice and comparability not yet specified",
+      "candidate": "Eurostat nama_10_lp_ulc / earn_nt_net"
+    },
+    {
+      "id": "serbia_all_indicators",
+      "reason": "Serbia outside the EU statistical system; Eurostat back-series partial, national sources need definition mapping",
+      "candidate": "RZS / NBS"
+    }
+  ],
+  "summary": {
+    "ingested_records": 3001,
+    "ingested_by_indicator": {
+      "compensation_per_employee_eur": 196,
+      "exports_goods_services": 189,
+      "fiscal_balance_gdp": 189,
+      "gdp_current_eur": 189,
+      "gdp_per_capita_eur": 73,
+      "gdp_per_capita_pps": 159,
+      "government_debt_gdp": 189,
+      "government_expenditure_gdp": 189,
+      "government_revenue_gdp": 189,
+      "hicp_inflation": 187,
+      "imports_goods_services": 189,
+      "labour_productivity_growth": 199,
+      "manufacturing_share_gdp": 189,
+      "population": 105,
+      "real_gdp_growth": 147,
+      "trade_balance": 189,
+      "trade_openness": 234
+    },
+    "held_for_review": [
+      "real_gdp_growth/germany: held_for_review (excess 0.200)",
+      "real_gdp_growth/slovenia: held_for_review (excess 0.100)",
+      "gdp_per_capita_eur/germany: held_for_review (excess 111.340)",
+      "gdp_per_capita_eur/czechia: held_for_review (excess 72.240)",
+      "gdp_per_capita_eur/poland: held_for_review (excess 96.560)"
+    ]
+  }
+}

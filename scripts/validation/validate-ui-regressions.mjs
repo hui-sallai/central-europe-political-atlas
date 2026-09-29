@@ -79,6 +79,13 @@ for (const [file, label] of [["src/components/DataExplorerV11.tsx", "高频月�
     const source = read(file);
     check(source.includes("<ResearchTimeSeriesChart") && source.includes(`xLabel="${xTitle}"`) && /yLabel=\{/.test(source), `${file} uses the shared chart with x and y titles`);
   }
+  // Phase J: Data Explorer historical usability.
+  const explorer = read("src/components/DataExplorerV11.tsx");
+  for (const [needle, message] of [["起始年份", "year-range start filter"], ["结束年份", "year-range end filter"], ["新 → 旧", "sort direction control"], ["仅显示每个指标的最新值", "latest-only toggle"], ['data-coverage-summary="indicator"', "single-indicator coverage summary"], ['data-coverage-summary="all"', "all-indicator coverage overview"], ['data-coverage-summary="high-frequency"', "high-frequency coverage summary"], ["data-layer={layer}", "formal vs historical layer badge"], ["annual_history_runtime.json", "history loaded at runtime, not inlined in page props"]]) check(explorer.includes(needle), `Data Explorer: ${message}`);
+  check(!/from "@\/data\/historical|annual_descriptive_history/.test(explorer), "Data Explorer does not import the full history store into the page bundle");
+  const { coverageOf } = require(path.join(root, "src/components/DataExplorerV11.tsx"));
+  const cov = coverageOf([{ period: 2000, value: 1 }, { period: 2001, value: null }, { period: 2003, value: 0 }, { period: 2004, value: 2 }]);
+  check(cov.earliest === 2000 && cov.latest === 2004 && JSON.stringify(cov.missing) === "[2001,2002]" && cov.available === 3, "coverage: null and absent years are missing; an official 0 counts as observed");
   const { LocalProjectionWorkbench } = require(path.join(root, "src/components/LocalProjectionWorkbench.tsx"));
   const lpHtml = renderToStaticMarkup(React.createElement(LocalProjectionWorkbench, {}));
   check(/data-axis="x"/.test(lpHtml) && /data-axis="y"/.test(lpHtml) && /data-zero-line="true"/.test(lpHtml), "LP chart renders axes and a zero line");

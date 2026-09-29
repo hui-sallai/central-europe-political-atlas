@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import type { Country, Indicator, Observation } from "@/types/researchData";
 import { getResearchPackageFilename } from "@/lib/releaseMetadata";
 import { MacroDriverWorkbench } from "@/components/MacroDriverWorkbench";
+import { ResearchTimeSeriesChart } from "@/components/ResearchTimeSeriesChart";
 
 const MOBILE_CARD_LIMIT = 120;
 
@@ -26,6 +27,9 @@ const hfIndicatorLabels: Record<string, string> = {
   industrial_production_index: "工业生产指数（季调日历调整）",
 };
 
+// Readable axis titles for Eurostat unit codes in the high-frequency runtime (codes stay in the table and CSV).
+const hfUnitLabels: Record<string, string> = { RCH_A: "同比变化率（%）", I15: "指数（2015=100）", I21: "指数（2021=100）", PC_ACT: "占劳动力比例（%）" };
+
 function downloadCsv(filename: string, headers: string[], rows: unknown[][]) {
   const content = [headers, ...rows].map((row) => row.map(csvCell).join(",")).join("\n");
   const url = URL.createObjectURL(new Blob([content], { type: "text/csv;charset=utf-8" }));
@@ -42,6 +46,9 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
   const [loadState, setLoadState] = useState<"loading" | "ready" | "error">("loading");
   const [countrySlug, setCountrySlug] = useState("hungary");
   const [indicator, setIndicator] = useState("hicp_annual_rate");
+  const [yearFrom, setYearFrom] = useState("all");
+  const [yearTo, setYearTo] = useState("all");
+  const [sortDirection, setSortDirection] = useState<"desc" | "asc">("desc");
 
   useEffect(() => {
     const controller = new AbortController();
@@ -53,20 +60,49 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
   }, [basePath]);
 
   const countryMap = useMemo(() => new Map(countries.map((item) => [item.slug, item])), [countries]);
-  const rows = useMemo(() => records
-    .filter((row) => row[1] === countrySlug && row[3] === indicator && row[4] !== null)
-    .sort((a, b) => b[2].localeCompare(a[2])), [records, countrySlug, indicator]);
+  const series = useMemo(() => records.filter((row) => row[1] === countrySlug && row[3] === indicator), [records, countrySlug, indicator]);
+  const years = useMemo(() => [...new Set(series.map((row) => Number(row[2].slice(0, 4))))].sort((a, b) => a - b), [series]);
+  const rows = useMemo(() => series
+    .filter((row) => row[4] !== null && (yearFrom === "all" || Number(row[2].slice(0, 4)) >= Number(yearFrom)) && (yearTo === "all" || Number(row[2].slice(0, 4)) <= Number(yearTo)))
+    .sort((a, b) => sortDirection === "desc" ? b[2].localeCompare(a[2]) : a[2].localeCompare(b[2])), [series, sortDirection, yearFrom, yearTo]);
+  const monthNumber = (period: string) => Number(period.slice(0, 4)) * 12 + Number(period.slice(5, 7)) - 1;
+  const monthLabel = (n: number) => `${Math.floor(n / 12)}-${String((n % 12) + 1).padStart(2, "0")}`;
+  const coverage = useMemo(() => { const c = coverageOf(series.map((row) => ({ period: monthNumber(row[2]), value: row[4] }))); return { ...c, earliest: c.earliest === null ? null : monthLabel(c.earliest), latest: c.latest === null ? null : monthLabel(c.latest), missing: c.missing.map(monthLabel) }; }, [series]);
+  const chartPoints = useMemo(() => [...rows].sort((a, b) => a[2].localeCompare(b[2])).map((row) => ({ x: row[2], y: row[4] })), [rows]);
 
   return (
     <div className="mt-5">
-      <div className="grid gap-4 border-y border-[var(--line)] py-5 md:grid-cols-2">
+      <div className="grid gap-4 border-y border-[var(--line)] py-5 md:grid-cols-2 xl:grid-cols-4">
         <label className="text-xs font-semibold text-[var(--muted)]">国家
           <select className="field-control mt-2" value={countrySlug} onChange={(event) => setCountrySlug(event.target.value)}>{countries.map((country) => <option key={country.slug} value={country.slug}>{country.name_zh} / {country.name}</option>)}</select>
         </label>
         <label className="text-xs font-semibold text-[var(--muted)]">指标
           <select className="field-control mt-2" value={indicator} onChange={(event) => setIndicator(event.target.value)}>{Object.entries(hfIndicatorLabels).map(([id, label]) => <option key={id} value={id}>{label}</option>)}</select>
         </label>
+        <div className="grid grid-cols-2 gap-2">
+          <label className="text-xs font-semibold text-[var(--muted)]">起始年份
+            <select className="field-control mt-2" value={yearFrom} onChange={(event) => setYearFrom(event.target.value)}><option value="all">最早</option>{years.map((item) => <option key={item} value={item}>{item}</option>)}</select>
+          </label>
+          <label className="text-xs font-semibold text-[var(--muted)]">结束年份
+            <select className="field-control mt-2" value={yearTo} onChange={(event) => setYearTo(event.target.value)}><option value="all">最新</option>{years.map((item) => <option key={item} value={item}>{item}</option>)}</select>
+          </label>
+        </div>
+        <label className="text-xs font-semibold text-[var(--muted)]">排序
+          <select className="field-control mt-2" value={sortDirection} onChange={(event) => setSortDirection(event.target.value as "desc" | "asc")}><option value="desc">月份：新 → 旧</option><option value="asc">月份：旧 → 新</option></select>
+        </label>
       </div>
+
+      {loadState === "ready" && series.length ? (
+        <div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1fr)_280px]" data-coverage-summary="high-frequency">
+          <ResearchTimeSeriesChart title={`${countryMap.get(countrySlug)?.name_zh ?? countrySlug} · ${hfIndicatorLabels[indicator] ?? indicator}`} series={[{ id: "hf", label: hfIndicatorLabels[indicator] ?? indicator, color: "#a3432f", points: chartPoints }]} xKind="month" xLabel="月份" yLabel={(() => { const unit = series.find((row) => row[4] !== null)?.[6] ?? ""; return hfUnitLabels[unit] ? `${hfUnitLabels[unit]} · ${unit}` : unit; })()} latestMarker height={260} legend={false} />
+          <dl className="editorial-panel grid content-start gap-3 p-4 text-sm">
+            <div><dt className="text-xs text-[var(--muted)]">覆盖范围</dt><dd className="metric-number font-semibold">{coverage.earliest ?? "—"} → {coverage.latest ?? "—"}</dd></div>
+            <div><dt className="text-xs text-[var(--muted)]">可用月份</dt><dd className="metric-number font-semibold">{coverage.available}</dd></div>
+            <div><dt className="text-xs text-[var(--muted)]">缺失月份</dt><dd className="metric-number font-semibold">{coverage.missing.length ? coverage.missing.join("、") : "无"}</dd></div>
+            <p className="text-xs leading-5 text-[var(--muted)]">正式高频模型基线自 2015 年起保持冻结；缺失月份不会显示为 0。</p>
+          </dl>
+        </div>
+      ) : null}
 
       <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
         <p className="text-sm text-[var(--muted)]">
@@ -113,13 +149,42 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
   );
 }
 
+// Rows shown in the annual view: formal observations (model inputs) and the Phase G descriptive history.
+type AnnualRow = { id: string; country_slug: string; indicator: string; year: number; value: number | null; unit: string; status: string; source_name: string; source_url: string; reliability: string; updated_at: string; layer: "formal" | "history" };
+type HistoryRuntime = { sources: { dataset: string; url: string }[]; records: [string, string, number, number, string, string, number][] };
+
+const historyOnlyIndicatorLabels: Record<string, string> = {
+  gdp_per_capita_pps: "人均 GDP（购买力标准 PPS）",
+  trade_openness: "贸易开放度（进出口 / GDP）",
+  labour_productivity_growth: "实际劳动生产率增长（每就业者）",
+  compensation_per_employee_eur: "人均雇员报酬（名义，欧元）",
+};
+const valueStatusLabels: Record<string, string> = { official: "官方", provisional: "初步", estimated: "估计", calculated: "计算", low_reliability: "低可靠性" };
+const layerLabels = { formal: "正式观测", history: "历史描述性" } as const;
+
+/** Coverage over a contiguous period axis: missing = periods with no non-null value between first and last. */
+export function coverageOf(periods: { period: number; value: number | null }[]) {
+  const observed = [...new Set(periods.filter((p) => p.value !== null).map((p) => p.period))].sort((a, b) => a - b);
+  if (!observed.length) return { earliest: null, latest: null, available: 0, missing: [] as number[] };
+  const have = new Set(observed);
+  const missing: number[] = [];
+  for (let p = observed[0]; p <= observed.at(-1)!; p += 1) if (!have.has(p)) missing.push(p);
+  return { earliest: observed[0], latest: observed.at(-1)!, available: observed.length, missing };
+}
+
 export function DataExplorerV11({ countries, indicators, observations }: { countries: Country[]; indicators: Indicator[]; observations: Observation[] }) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const [dataset, setDataset] = useState<"annual" | "high_frequency" | "macro_drivers">("annual");
   const [countrySlug, setCountrySlug] = useState("poland");
   const [indicatorId, setIndicatorId] = useState("all");
-  const [year, setYear] = useState("all");
+  const [yearFrom, setYearFrom] = useState("all");
+  const [yearTo, setYearTo] = useState("all");
+  const [sortDirection, setSortDirection] = useState<"desc" | "asc">("desc");
+  const [latestOnly, setLatestOnly] = useState(false);
+  const [includeHistory, setIncludeHistory] = useState(true);
   const [search, setSearch] = useState("");
+  const [history, setHistory] = useState<HistoryRuntime | null>(null);
+  const [historyState, setHistoryState] = useState<"loading" | "ready" | "error">("loading");
 
   useEffect(() => {
     const timeoutId = window.setTimeout(() => {
@@ -127,35 +192,66 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
       const country = params.get("country");
       const indicator = params.get("indicator");
       const selectedYear = params.get("year");
+      const from = params.get("from");
+      const to = params.get("to");
       if (country && countries.some((item) => item.slug === country)) setCountrySlug(country);
-      if (indicator && indicators.some((item) => item.id === indicator)) setIndicatorId(indicator);
-      if (selectedYear && /^\d{4}$/.test(selectedYear)) setYear(selectedYear);
+      if (indicator && (indicators.some((item) => item.id === indicator) || indicator in historyOnlyIndicatorLabels)) setIndicatorId(indicator);
+      if (selectedYear && /^\d{4}$/.test(selectedYear)) { setYearFrom(selectedYear); setYearTo(selectedYear); }
+      if (from && /^\d{4}$/.test(from)) setYearFrom(from);
+      if (to && /^\d{4}$/.test(to)) setYearTo(to);
     }, 0);
     return () => window.clearTimeout(timeoutId);
   }, [countries, indicators]);
 
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch(`${basePath}/research-data/annual_history_runtime.json`, { signal: controller.signal })
+      .then((response) => { if (!response.ok) throw new Error(String(response.status)); return response.json(); })
+      .then((payload: HistoryRuntime) => { setHistory(payload); setHistoryState("ready"); })
+      .catch((loadError) => { if (!(loadError instanceof DOMException && loadError.name === "AbortError")) setHistoryState("error"); });
+    return () => controller.abort();
+  }, [basePath]);
+
   const indicatorMap = useMemo(() => new Map(indicators.map((item) => [item.id, item])), [indicators]);
-  const countryObservations = useMemo(() => observations.filter((item) => item.country_slug === countrySlug), [countrySlug, observations]);
-  const availableIndicatorIds = useMemo(() => [...new Set(countryObservations.map((item) => item.indicator))], [countryObservations]);
-  const availableYears = useMemo(() => [...new Set(countryObservations.map((item) => item.year))].sort((a, b) => b - a), [countryObservations]);
-  const rows = useMemo(() => countryObservations
-    .filter((item) => indicatorId === "all" || item.indicator === indicatorId)
-    .filter((item) => year === "all" || item.year === Number(year))
-    .filter((item) => {
-      const query = search.trim().toLowerCase();
-      if (!query) return true;
-      const indicator = indicatorMap.get(item.indicator);
-      return [indicator?.name_zh, indicator?.name, item.indicator, item.source_name].some((value) => value?.toLowerCase().includes(query));
-    })
-    .sort((a, b) => b.year - a.year || a.indicator.localeCompare(b.indicator)), [countryObservations, indicatorId, indicatorMap, search, year]);
+  const indicatorName = useCallback((id: string) => indicatorMap.get(id)?.name_zh ?? historyOnlyIndicatorLabels[id] ?? id, [indicatorMap]);
+  const countryRows = useMemo<AnnualRow[]>(() => {
+    const formal = observations.filter((item) => item.country_slug === countrySlug).map((item): AnnualRow => ({ id: item.id, country_slug: item.country_slug, indicator: item.indicator, year: item.year, value: item.value, unit: item.unit, status: item.status, source_name: item.source_name, source_url: item.source_url, reliability: item.source_reliability, updated_at: item.updated_at, layer: "formal" }));
+    if (!includeHistory || !history) return formal;
+    const past = history.records.filter((row) => row[0] === countrySlug).map((row): AnnualRow => ({ id: `hist:annual:${row[0]}:${row[1]}:${row[2]}`, country_slug: row[0], indicator: row[1], year: row[2], value: row[3], unit: row[4], status: valueStatusLabels[row[5]] ?? row[5], source_name: history.sources[row[6]].dataset, source_url: history.sources[row[6]].url, reliability: "A", updated_at: "", layer: "history" }));
+    return [...formal, ...past];
+  }, [countrySlug, history, includeHistory, observations]);
+  const availableIndicatorIds = useMemo(() => [...new Set(countryRows.map((item) => item.indicator))].sort((a, b) => indicatorName(a).localeCompare(indicatorName(b), "zh-CN")), [countryRows, indicatorName]);
+  const availableYears = useMemo(() => [...new Set(countryRows.map((item) => item.year))].sort((a, b) => a - b), [countryRows]);
+  const rows = useMemo(() => {
+    const query = search.trim().toLowerCase();
+    const filtered = countryRows
+      .filter((item) => indicatorId === "all" || item.indicator === indicatorId)
+      .filter((item) => (yearFrom === "all" || item.year >= Number(yearFrom)) && (yearTo === "all" || item.year <= Number(yearTo)))
+      .filter((item) => !query || [indicatorMap.get(item.indicator)?.name_zh, indicatorMap.get(item.indicator)?.name, historyOnlyIndicatorLabels[item.indicator], item.indicator, item.source_name].some((value) => value?.toLowerCase().includes(query)));
+    const latest = latestOnly ? new Map<string, number>() : null;
+    if (latest) for (const item of filtered) if (item.value !== null) latest.set(item.indicator, Math.max(latest.get(item.indicator) ?? -Infinity, item.year));
+    return filtered
+      .filter((item) => !latest || latest.get(item.indicator) === item.year)
+      .sort((a, b) => (sortDirection === "desc" ? b.year - a.year : a.year - b.year) || a.indicator.localeCompare(b.indicator));
+  }, [countryRows, indicatorId, indicatorMap, latestOnly, search, sortDirection, yearFrom, yearTo]);
+  const coverage = useMemo(() => {
+    const byIndicator = new Map<string, AnnualRow[]>();
+    for (const item of countryRows) { if (!byIndicator.has(item.indicator)) byIndicator.set(item.indicator, []); byIndicator.get(item.indicator)!.push(item); }
+    return [...byIndicator.entries()].map(([id, items]) => ({ id, unit: items.find((item) => item.value !== null)?.unit ?? items[0].unit, ...coverageOf(items.map((item) => ({ period: item.year, value: item.value }))), pending: items.filter((item) => item.value === null).map((item) => item.year).sort((a, b) => a - b), historyYears: items.filter((item) => item.layer === "history").length, formalYears: items.filter((item) => item.layer === "formal" && item.value !== null).length }))
+      .sort((a, b) => indicatorName(a.id).localeCompare(indicatorName(b.id), "zh-CN"));
+  }, [countryRows, indicatorName]);
+  const selectedCoverage = indicatorId === "all" ? null : coverage.find((item) => item.id === indicatorId) ?? null;
+  const chartRows = indicatorId === "all" ? [] : countryRows.filter((item) => item.indicator === indicatorId).sort((a, b) => a.year - b.year);
 
   function downloadCurrentView() {
     downloadCsv(
-      `observations-${countrySlug}-${indicatorId}-${year}.csv`,
-      ["country", "indicator", "year", "value", "unit", "status", "source", "source_url", "updated_at"],
-      rows.map((item) => [item.country_slug, item.indicator, item.year, item.value, item.unit, item.status, item.source_name, item.source_url, item.updated_at]),
+      `observations-${countrySlug}-${indicatorId}-${yearFrom}-${yearTo}.csv`,
+      ["country", "indicator", "year", "value", "unit", "status", "layer", "source", "source_url", "updated_at"],
+      rows.map((item) => [item.country_slug, item.indicator, item.year, item.value, item.unit, item.status, item.layer === "formal" ? "formal_observation" : "historical_descriptive", item.source_name, item.source_url, item.updated_at]),
     );
   }
+
+  const layerBadge = (layer: AnnualRow["layer"]) => <span className={layer === "formal" ? "inline-block rounded-full border border-[var(--line)] px-2 py-0.5 text-[10px] font-semibold" : "inline-block rounded-full border border-dashed border-[var(--muted)] px-2 py-0.5 text-[10px] font-semibold text-[var(--muted)]"} data-layer={layer}>{layerLabels[layer]}</span>;
 
   return (
     <section className="mt-7">
@@ -175,15 +271,59 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
           <select className="field-control mt-2" value={countrySlug} onChange={(event) => setCountrySlug(event.target.value)}>{countries.map((country) => <option key={country.slug} value={country.slug}>{country.name_zh} / {country.name}</option>)}</select>
         </label>
         <label className="text-xs font-semibold text-[var(--muted)]">指标
-          <select className="field-control mt-2" value={indicatorId} onChange={(event) => setIndicatorId(event.target.value)}><option value="all">全部指标</option>{availableIndicatorIds.map((id) => <option key={id} value={id}>{indicatorMap.get(id)?.name_zh ?? id}</option>)}</select>
+          <select className="field-control mt-2" value={indicatorId} onChange={(event) => setIndicatorId(event.target.value)}><option value="all">全部指标</option>{availableIndicatorIds.map((id) => <option key={id} value={id}>{indicatorName(id)}</option>)}</select>
         </label>
-        <label className="text-xs font-semibold text-[var(--muted)]">年份
-          <select className="field-control mt-2" value={year} onChange={(event) => setYear(event.target.value)}><option value="all">全部年份</option>{availableYears.map((item) => <option key={item} value={item}>{item}</option>)}</select>
-        </label>
+        <div className="grid grid-cols-2 gap-2">
+          <label className="text-xs font-semibold text-[var(--muted)]">起始年份
+            <select className="field-control mt-2" value={yearFrom} onChange={(event) => setYearFrom(event.target.value)}><option value="all">最早</option>{availableYears.map((item) => <option key={item} value={item}>{item}</option>)}</select>
+          </label>
+          <label className="text-xs font-semibold text-[var(--muted)]">结束年份
+            <select className="field-control mt-2" value={yearTo} onChange={(event) => setYearTo(event.target.value)}><option value="all">最新</option>{availableYears.map((item) => <option key={item} value={item}>{item}</option>)}</select>
+          </label>
+        </div>
         <label className="text-xs font-semibold text-[var(--muted)]">搜索
           <input className="field-control mt-2" type="search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="指标或来源" />
         </label>
       </div>
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-3 border-b border-[var(--line)] py-4 text-sm">
+        <label className="flex items-center gap-2 font-semibold">排序
+          <select className="field-control" value={sortDirection} onChange={(event) => setSortDirection(event.target.value as "desc" | "asc")}><option value="desc">年份：新 → 旧</option><option value="asc">年份：旧 → 新</option></select>
+        </label>
+        <label className="flex items-center gap-2 font-semibold"><input type="checkbox" checked={latestOnly} onChange={(event) => setLatestOnly(event.target.checked)} /> 仅显示每个指标的最新值</label>
+        <label className="flex items-center gap-2 font-semibold"><input type="checkbox" checked={includeHistory} onChange={(event) => setIncludeHistory(event.target.checked)} /> 包含历史描述性数据（2000 年起）</label>
+        <span className="text-xs text-[var(--muted)]">{historyState === "loading" ? "正在加载历史数据…" : historyState === "error" ? "历史数据不可用，仅显示正式观测" : "历史描述性数据仅供描述研究，不进入任何模型、指数或情景计算。"}</span>
+      </div>
+
+      {selectedCoverage ? (
+        <div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1fr)_280px]" data-coverage-summary="indicator">
+          <ResearchTimeSeriesChart
+            title={`${countries.find((c) => c.slug === countrySlug)?.name_zh ?? countrySlug} · ${indicatorName(indicatorId)}`}
+            description="年度时间序列；虚线为历史描述性数据，实线为正式观测；缺失年份不连线。"
+            series={[
+              { id: "history", label: `${layerLabels.history}`, color: "#6b7a86", dash: "6 4", points: chartRows.filter((item) => item.layer === "history").map((item) => ({ x: item.year, y: item.value })) },
+              { id: "formal", label: `${layerLabels.formal}`, color: "#a3432f", markers: true, points: chartRows.filter((item) => item.layer === "formal").map((item) => ({ x: item.year, y: item.value })) },
+            ].filter((series) => series.points.length)}
+            xKind="number" xLabel="年份" yLabel={selectedCoverage.unit} formatX={(value) => String(Math.round(value))} height={280}
+          />
+          <dl className="editorial-panel grid content-start gap-3 p-4 text-sm">
+            <div><dt className="text-xs text-[var(--muted)]">覆盖范围</dt><dd className="metric-number font-semibold">{selectedCoverage.earliest ?? "—"} → {selectedCoverage.latest ?? "—"}</dd></div>
+            <div><dt className="text-xs text-[var(--muted)]">可用年份</dt><dd className="metric-number font-semibold">{selectedCoverage.available}（正式 {selectedCoverage.formalYears} · 历史 {selectedCoverage.historyYears}）</dd></div>
+            <div><dt className="text-xs text-[var(--muted)]">缺失年份</dt><dd className="metric-number font-semibold">{selectedCoverage.missing.length ? selectedCoverage.missing.join("、") : "无"}</dd></div>
+            {selectedCoverage.pending.length ? <div><dt className="text-xs text-[var(--muted)]">待接入</dt><dd className="metric-number font-semibold">{selectedCoverage.pending.join("、")}</dd></div> : null}
+            <p className="text-xs leading-5 text-[var(--muted)]">缺失年份不会显示为 0；历史段从定义一致的最早官方年份开始，不跨定义断点拼接。</p>
+          </dl>
+        </div>
+      ) : (
+        <details className="mt-5 editorial-panel p-4" data-coverage-summary="all">
+          <summary className="cursor-pointer text-sm font-semibold">覆盖概览：{coverage.length} 个指标（选择单个指标可查看完整时间序列）</summary>
+          <div className="data-table-viewport mt-3" tabIndex={0} role="region" aria-label="指标覆盖概览（可滚动）">
+            <table className="research-data-table w-full min-w-[640px] text-left text-sm">
+              <thead><tr>{["指标", "最早 → 最新", "可用年份", "缺失年份", "数据层"].map((header) => <th key={header} className="px-3 py-2">{header}</th>)}</tr></thead>
+              <tbody>{coverage.map((item) => <tr key={item.id}><td className="px-3 py-2"><button type="button" className="text-left font-semibold text-[var(--accent)] hover:underline" onClick={() => setIndicatorId(item.id)}>{indicatorName(item.id)}</button></td><td className="metric-number px-3 py-2">{item.earliest ?? "—"} → {item.latest ?? "—"}</td><td className="metric-number px-3 py-2">{item.available}</td><td className="metric-number px-3 py-2">{item.missing.length + item.pending.length}</td><td className="px-3 py-2 text-xs">正式 {item.formalYears} · 历史 {item.historyYears}</td></tr>)}</tbody>
+            </table>
+          </div>
+        </details>
+      )}
 
       <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
         <p className="text-sm text-[var(--muted)]">当前视图 <strong className="text-[var(--foreground)]">{rows.length}</strong> 条观测值</p>
@@ -195,14 +335,15 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
       </div>
 
       <div className="data-table-desktop data-table-viewport mt-5" tabIndex={0} role="region" aria-label="年度观测表（可滚动）">
-        <table className="research-data-table w-full min-w-[920px] text-left text-sm">
-          <thead><tr>{["指标", "年份", "数值", "单位", "来源", "状态", "更新时间"].map((header) => <th key={header} className="px-3 py-3">{header}</th>)}</tr></thead>
-          <tbody>{rows.map((item) => <tr key={item.id}><td className="px-3 py-3 font-semibold">{indicatorMap.get(item.indicator)?.name_zh ?? item.indicator}<span className="mt-1 block font-mono text-[10px] font-normal text-[var(--muted)]">{item.indicator}</span></td><td className="metric-number px-3 py-3">{item.year}</td><td className="metric-number px-3 py-3 font-semibold">{formatValue(item.value)}</td><td className="px-3 py-3">{item.unit}</td><td className="px-3 py-3"><a href={item.source_url} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)] hover:underline">{item.source_name}</a><span className="mt-1 block text-[10px] text-[var(--muted)]">{item.source_reliability} 级</span></td><td className="px-3 py-3">{item.status}</td><td className="metric-number px-3 py-3 text-xs">{item.updated_at}</td></tr>)}</tbody>
+        <table className="research-data-table w-full min-w-[980px] text-left text-sm">
+          <thead><tr>{["指标", "年份", "数值", "单位", "数据层", "来源", "状态", "更新时间"].map((header) => <th key={header} className="px-3 py-3">{header}</th>)}</tr></thead>
+          <tbody>{rows.map((item) => <tr key={item.id}><td className="px-3 py-3 font-semibold">{indicatorName(item.indicator)}<span className="mt-1 block font-mono text-[10px] font-normal text-[var(--muted)]">{item.indicator}</span></td><td className="metric-number px-3 py-3">{item.year}</td><td className="metric-number px-3 py-3 font-semibold">{formatValue(item.value)}</td><td className="px-3 py-3">{item.unit}</td><td className="px-3 py-3">{layerBadge(item.layer)}</td><td className="px-3 py-3"><a href={item.source_url} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)] hover:underline">{item.source_name}</a><span className="mt-1 block text-[10px] text-[var(--muted)]">{item.reliability} 级</span></td><td className="px-3 py-3">{item.status}</td><td className="metric-number px-3 py-3 text-xs">{item.updated_at || "—"}</td></tr>)}</tbody>
         </table>
       </div>
 
       <div className="data-card-mobile mt-5 grid gap-3">
-        {rows.map((item) => <article key={item.id} className="editorial-panel p-4"><div className="flex items-start justify-between gap-3"><div><h3 className="font-semibold">{indicatorMap.get(item.indicator)?.name_zh ?? item.indicator}</h3><p className="mt-1 text-xs text-[var(--muted)]">{item.year} · {item.unit}</p></div><p className="metric-number font-semibold text-[var(--accent)]">{formatValue(item.value)}</p></div><div className="mt-3 flex items-center justify-between gap-3 border-t border-[var(--line)] pt-3 text-xs"><a href={item.source_url} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)]">{item.source_name}</a><span>{item.status}</span></div></article>)}
+        {rows.slice(0, MOBILE_CARD_LIMIT).map((item) => <article key={item.id} className="editorial-panel p-4"><div className="flex items-start justify-between gap-3"><div><h3 className="font-semibold">{indicatorName(item.indicator)}</h3><p className="mt-1 text-xs text-[var(--muted)]">{item.year} · {item.unit}</p></div><p className="metric-number font-semibold text-[var(--accent)]">{formatValue(item.value)}</p></div><div className="mt-3 flex items-center justify-between gap-3 border-t border-[var(--line)] pt-3 text-xs"><a href={item.source_url} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)]">{item.source_name}</a>{layerBadge(item.layer)}<span>{item.status}</span></div></article>)}
+        {rows.length > MOBILE_CARD_LIMIT ? <p className="text-xs text-[var(--muted)]">移动端显示前 {MOBILE_CARD_LIMIT} 条；完整 {rows.length} 条请缩小年份范围或下载 CSV。</p> : null}
       </div>
 
       {!rows.length ? <p className="mt-5 border-y border-[var(--line)] py-8 text-center text-sm text-[var(--muted)]">当前筛选条件没有观测值；缺失记录不会显示为 0。</p> : null}
