@@ -1,0 +1,1554 @@
+{
+  "schema_version": "monthly-history-manifest-v2.0",
+  "phase": "v2.0 Phase H — monthly descriptive history",
+  "approval": "Owner approved safe descriptive backfills (2026-09-29) and Phase H.",
+  "target": "2000-01 up to the first stored month (2015-01)",
+  "floor_rule": "v1.83-audited cells use that audit's definition-compatible floor; other cells use the month of the last official break flag ('b') or the month after the last 'd' flag; never before 2000-01",
+  "overlap_tolerance": {
+    "relative": 0.02,
+    "absolute": 0.3
+  },
+  "sources": [
+    {
+      "source": "eurostat",
+      "dataset": "irt_lt_mcby_m",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/irt_lt_mcby_m?format=JSON&lang=en&int_rt=MCBY&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO",
+      "raw_file": "src/data/historical-extension-audit/raw/irt_lt_mcby_m.json",
+      "sha256": "3fe6ae045cdf08bba755fb2fafb9351cb0a1939ebef69eec24dc64f33803795f",
+      "retrieved_at": "2026-09-26T20:38:33.205Z",
+      "http_status": 200,
+      "note": "archived v1.83 extract, reused unchanged"
+    },
+    {
+      "source": "eurostat",
+      "dataset": "prc_hicp_minr",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_minr?format=JSON&lang=en&unit=I15&coicop18=TOTAL&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO",
+      "raw_file": "src/data/historical-extension-audit/raw/prc_hicp_minr.json",
+      "sha256": "96108e015f12754241971c46f5c9b124806760f025cf12b250567908755dd3f8",
+      "retrieved_at": "2026-09-26T20:38:32.714Z",
+      "http_status": 200,
+      "note": "archived v1.83 extract, reused unchanged"
+    },
+    {
+      "source": "eurostat",
+      "dataset": "sts_inpr_m",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/sts_inpr_m?format=JSON&lang=en&indic_bt=PRD&nace_r2=B-D&s_adj=SCA&unit=I21&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO",
+      "raw_file": "src/data/historical-extension-audit/raw/sts_inpr_m.json",
+      "sha256": "063e4b6c5fd98dec2ed395deb44c1d43e8ec94be17eaf035019d9fde5a4e7a3f",
+      "retrieved_at": "2026-09-26T20:38:32.974Z",
+      "http_status": 200,
+      "note": "archived v1.83 extract, reused unchanged"
+    },
+    {
+      "source": "eurostat",
+      "dataset": "une_rt_m",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/une_rt_m?format=JSON&lang=en&s_adj=SA&age=TOTAL&sex=T&unit=PC_ACT&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO",
+      "raw_file": "src/data/historical-extension-audit/raw/une_rt_m.json",
+      "sha256": "ca84c6538b8f38a9469d49fcac6cf48fd7a8cdd54773202aefa2afb84b401dc6",
+      "retrieved_at": "2026-09-26T20:38:33.083Z",
+      "http_status": 200,
+      "note": "archived v1.83 extract, reused unchanged"
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_CBPOL M.XM",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_CBPOL/1.0/M.XM?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_CBPOL_M_XM.csv",
+      "sha256": "d29ece2172d311cd7d4f01a1029a501d84cb52a34fb509988833271c0886e3b3",
+      "retrieved_at": "2026-09-29T11:29:01.896Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_EER M.N.B.AT",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_EER/1.0/M.N.B.AT?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_EER_M_N_B_AT.csv",
+      "sha256": "2a273cfd794ff164505a8e87327de24300169dd48c80a1806be2a990b41a4ee5",
+      "retrieved_at": "2026-09-29T11:29:02.159Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_EER M.N.B.CZ",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_EER/1.0/M.N.B.CZ?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_EER_M_N_B_CZ.csv",
+      "sha256": "3ea15cc556b6755c2df1f6b1d1c9909c43cfa69eae5efae99058433507aa845a",
+      "retrieved_at": "2026-09-29T11:29:02.340Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_EER M.N.B.DE",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_EER/1.0/M.N.B.DE?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_EER_M_N_B_DE.csv",
+      "sha256": "52b87addccb94d899a00acd3bd1138f8dd9b21234e2414b50acd99083d2b33c6",
+      "retrieved_at": "2026-09-29T11:29:02.203Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_EER M.N.B.HR",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_EER/1.0/M.N.B.HR?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_EER_M_N_B_HR.csv",
+      "sha256": "c9491a6b7e6d5bc434a43067a3c23df32ac8b3b773ef208674087bc6be28dd8b",
+      "retrieved_at": "2026-09-29T11:29:02.554Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_EER M.N.B.HU",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_EER/1.0/M.N.B.HU?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_EER_M_N_B_HU.csv",
+      "sha256": "d9c7bd44993c61946420f4cabe5b0731087ab5ff5676e5098bc83fcb1235bcaa",
+      "retrieved_at": "2026-09-29T11:29:02.388Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_EER M.N.B.PL",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_EER/1.0/M.N.B.PL?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_EER_M_N_B_PL.csv",
+      "sha256": "654862585c12339b319384b445a5fad41c32676cb0ed9d7159f0a1ad503d03d5",
+      "retrieved_at": "2026-09-29T11:29:02.430Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_EER M.N.B.RO",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_EER/1.0/M.N.B.RO?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_EER_M_N_B_RO.csv",
+      "sha256": "3d5bd952dc16732c2a8771802aadfd013cae10105b33f2d1dbdc314564b8b378",
+      "retrieved_at": "2026-09-29T11:29:02.506Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_EER M.N.B.SI",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_EER/1.0/M.N.B.SI?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_EER_M_N_B_SI.csv",
+      "sha256": "363027151b34a834c7df0e8916b84cdd84e3ed2fdef9f2905d83bf991d2e1a1a",
+      "retrieved_at": "2026-09-29T11:29:02.288Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_EER M.N.B.SK",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_EER/1.0/M.N.B.SK?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_EER_M_N_B_SK.csv",
+      "sha256": "a83bf37ba95f33c30fcc1fb63fd5c78a718ad6e5b72d5c0a9aaf66afef4aa0a3",
+      "retrieved_at": "2026-09-29T11:29:02.246Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_EER M.R.B.AT",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_EER/1.0/M.R.B.AT?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_EER_M_R_B_AT.csv",
+      "sha256": "6f88543b244cade249e76c664cea3b9e27d20aeec06374ad9a47fac6536b3975",
+      "retrieved_at": "2026-09-29T11:29:02.598Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_EER M.R.B.CZ",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_EER/1.0/M.R.B.CZ?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_EER_M_R_B_CZ.csv",
+      "sha256": "19f936b08a3fe34b52ed038991ddcc55dd8cabbe961b4416672c83e01b48e1f4",
+      "retrieved_at": "2026-09-29T11:29:02.775Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_EER M.R.B.DE",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_EER/1.0/M.R.B.DE?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_EER_M_R_B_DE.csv",
+      "sha256": "01c6dd0db26ec5921592a7cfc3743c7cbd26e2fda004274e53ce998e217f0caa",
+      "retrieved_at": "2026-09-29T11:29:02.647Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_EER M.R.B.HR",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_EER/1.0/M.R.B.HR?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_EER_M_R_B_HR.csv",
+      "sha256": "d8c88056df493a654620b6d7adfc159abe854948a617c5619ae19c98e18f8e3e",
+      "retrieved_at": "2026-09-29T11:29:03.000Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_EER M.R.B.HU",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_EER/1.0/M.R.B.HU?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_EER_M_R_B_HU.csv",
+      "sha256": "02dc282e48dfa56ae6e50b8299868ae5470adc9f12b6c6800c552982d7644bab",
+      "retrieved_at": "2026-09-29T11:29:02.828Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_EER M.R.B.PL",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_EER/1.0/M.R.B.PL?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_EER_M_R_B_PL.csv",
+      "sha256": "e09cf1361d4e1e5b204bc4f50a6595e429b2ed3725849ed0ad1ce6fd93f50668",
+      "retrieved_at": "2026-09-29T11:29:02.908Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_EER M.R.B.RO",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_EER/1.0/M.R.B.RO?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_EER_M_R_B_RO.csv",
+      "sha256": "77b065e859f1fc7ad4e00548c47885fd00ebf3b7dce3fb73f00ef6c3850869ab",
+      "retrieved_at": "2026-09-29T11:29:02.956Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_EER M.R.B.SI",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_EER/1.0/M.R.B.SI?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_EER_M_R_B_SI.csv",
+      "sha256": "0685f3544532a164a5490a8682f88cb026e55f5004da01c575c3c34c24b11008",
+      "retrieved_at": "2026-09-29T11:29:02.733Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_EER M.R.B.SK",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_EER/1.0/M.R.B.SK?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_EER_M_R_B_SK.csv",
+      "sha256": "066190e44e4231a5b36468862cd44ea0cdb9f155910d85b50287409619bf0331",
+      "retrieved_at": "2026-09-29T11:29:02.688Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_XRU M.CZ.CZK.A",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_XRU/1.0/M.CZ.CZK.A?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_XRU_M_CZ_CZK_A.csv",
+      "sha256": "dcb5443f37c926000e8cb8a2a671ad8a8e2f6b4426d37093bb3be936098416c8",
+      "retrieved_at": "2026-09-29T11:29:01.951Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_XRU M.HU.HUF.A",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_XRU/1.0/M.HU.HUF.A?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_XRU_M_HU_HUF_A.csv",
+      "sha256": "b10c58cf80682f2d334088b79f7b65389fbd0f3f37031c51cc23deab57367d42",
+      "retrieved_at": "2026-09-29T11:29:02.058Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_XRU M.PL.PLN.A",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_XRU/1.0/M.PL.PLN.A?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_XRU_M_PL_PLN_A.csv",
+      "sha256": "309f18b0250f566be2f8a8f605523b05cc3be41022cbe0ac1514ac1668f3ed2e",
+      "retrieved_at": "2026-09-29T11:29:02.110Z",
+      "http_status": 200
+    },
+    {
+      "source": "bis",
+      "dataset": "WS_XRU M.XM.EUR.A",
+      "url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_XRU/1.0/M.XM.EUR.A?startPeriod=1999-01&format=csv",
+      "raw_file": "src/data/historical/raw/monthly/bis_WS_XRU_M_XM_EUR_A.csv",
+      "sha256": "1adfbbb9d54ccd337e86725e0e12cdafeea292d2f37ffa3071a51e4c73f0b6f0",
+      "retrieved_at": "2026-09-29T11:29:02.008Z",
+      "http_status": 200
+    },
+    {
+      "source": "eurostat",
+      "dataset": "irt_lt_mcby_m",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/irt_lt_mcby_m?format=JSON&lang=en&sinceTimePeriod=1999-01&int_rt=MCBY&geo=HR",
+      "raw_file": "src/data/historical/raw/monthly/eurostat_irt_lt_mcby_m_MCBY.json",
+      "sha256": "8ec0bfb5dea49d0fef37007ba26b794ebe6d4f5de523c34ea280bb8920ac3160",
+      "retrieved_at": "2026-09-29T11:29:01.785Z",
+      "http_status": 200,
+      "dataset_updated_at": "2026-09-11T11:00:00+0200"
+    },
+    {
+      "source": "eurostat",
+      "dataset": "prc_hicp_minr",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_minr?format=JSON&lang=en&sinceTimePeriod=1999-01&unit=I15&coicop18=TOTAL&geo=HR",
+      "raw_file": "src/data/historical/raw/monthly/eurostat_prc_hicp_minr_I15_TOTAL.json",
+      "sha256": "78d892c71902982908ac7fc610c408b245ce06d2b99bfaa80c2cae2ab1a8191f",
+      "retrieved_at": "2026-09-29T11:29:00.500Z",
+      "http_status": 200,
+      "dataset_updated_at": "2026-09-17T11:00:00+0200"
+    },
+    {
+      "source": "eurostat",
+      "dataset": "prc_hicp_minr",
+      "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_minr?format=JSON&lang=en&sinceTimePeriod=1999-01&unit=RCH_A&coicop18=TOTAL&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO&geo=HR",
+      "raw_file": "src/data/historical/raw/monthly/eurostat_prc_hicp_minr_RCH_A_TOTAL.json",
+      "sha256": "4a2dbd260ac3b96351c153e8b2f6f340ab00ed4712c3ee6141a03ed8fc49ccfb",
+      "retrieved_at": "2026-09-29T11:29:01.284Z",
+      "http_status": 200,
+      "dataset_updated_at": "2026-09-17T11:00:00+0200"
+    }
+  ],
+  "series": [
+    {
+      "series": "hicp_monthly_index",
+      "country": "austria",
+      "source_raw": "src/data/historical-extension-audit/raw/prc_hicp_minr.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.9696,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "hicp_monthly_index",
+      "country": "germany",
+      "source_raw": "src/data/historical-extension-audit/raw/prc_hicp_minr.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.963,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "hicp_monthly_index",
+      "country": "slovakia",
+      "source_raw": "src/data/historical-extension-audit/raw/prc_hicp_minr.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.9848,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "hicp_monthly_index",
+      "country": "slovenia",
+      "source_raw": "src/data/historical-extension-audit/raw/prc_hicp_minr.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.9664,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "hicp_monthly_index",
+      "country": "czechia",
+      "source_raw": "src/data/historical-extension-audit/raw/prc_hicp_minr.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.9888,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "hicp_monthly_index",
+      "country": "hungary",
+      "source_raw": "src/data/historical-extension-audit/raw/prc_hicp_minr.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.9712,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "hicp_monthly_index",
+      "country": "poland",
+      "source_raw": "src/data/historical-extension-audit/raw/prc_hicp_minr.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.9878,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "hicp_monthly_index",
+      "country": "romania",
+      "source_raw": "src/data/historical-extension-audit/raw/prc_hicp_minr.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.969,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "hicp_monthly_index",
+      "country": "croatia",
+      "source_raw": "src/data/historical/raw/monthly/eurostat_prc_hicp_minr_I15_TOTAL.json",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.9664,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "hicp_annual_rate",
+      "country": "austria",
+      "source_raw": "src/data/historical/raw/monthly/eurostat_prc_hicp_minr_RCH_A_TOTAL.json",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "hicp_annual_rate",
+      "country": "germany",
+      "source_raw": "src/data/historical/raw/monthly/eurostat_prc_hicp_minr_RCH_A_TOTAL.json",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "hicp_annual_rate",
+      "country": "slovakia",
+      "source_raw": "src/data/historical/raw/monthly/eurostat_prc_hicp_minr_RCH_A_TOTAL.json",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "hicp_annual_rate",
+      "country": "slovenia",
+      "source_raw": "src/data/historical/raw/monthly/eurostat_prc_hicp_minr_RCH_A_TOTAL.json",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "hicp_annual_rate",
+      "country": "czechia",
+      "source_raw": "src/data/historical/raw/monthly/eurostat_prc_hicp_minr_RCH_A_TOTAL.json",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "hicp_annual_rate",
+      "country": "hungary",
+      "source_raw": "src/data/historical/raw/monthly/eurostat_prc_hicp_minr_RCH_A_TOTAL.json",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "hicp_annual_rate",
+      "country": "poland",
+      "source_raw": "src/data/historical/raw/monthly/eurostat_prc_hicp_minr_RCH_A_TOTAL.json",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "hicp_annual_rate",
+      "country": "romania",
+      "source_raw": "src/data/historical/raw/monthly/eurostat_prc_hicp_minr_RCH_A_TOTAL.json",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "hicp_annual_rate",
+      "country": "croatia",
+      "source_raw": "src/data/historical/raw/monthly/eurostat_prc_hicp_minr_RCH_A_TOTAL.json",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "industrial_production_index",
+      "country": "austria",
+      "source_raw": "src/data/historical-extension-audit/raw/sts_inpr_m.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 138,
+      "overlap_max_excess": -0.88,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "industrial_production_index",
+      "country": "germany",
+      "source_raw": "src/data/historical-extension-audit/raw/sts_inpr_m.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 138,
+      "overlap_max_excess": -1.422,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "industrial_production_index",
+      "country": "slovakia",
+      "source_raw": "src/data/historical-extension-audit/raw/sts_inpr_m.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2008-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 138,
+      "overlap_max_excess": -1.214,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2008-01",
+        "2014-12"
+      ],
+      "ingested_count": 84,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "industrial_production_index",
+      "country": "slovenia",
+      "source_raw": "src/data/historical-extension-audit/raw/sts_inpr_m.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 138,
+      "overlap_max_excess": -1.412,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "industrial_production_index",
+      "country": "czechia",
+      "source_raw": "src/data/historical-extension-audit/raw/sts_inpr_m.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 138,
+      "overlap_max_excess": -1.4,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "industrial_production_index",
+      "country": "hungary",
+      "source_raw": "src/data/historical-extension-audit/raw/sts_inpr_m.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 138,
+      "overlap_max_excess": -1.23,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "industrial_production_index",
+      "country": "poland",
+      "source_raw": "src/data/historical-extension-audit/raw/sts_inpr_m.json",
+      "decision": "v183_audit_blocked_for_pre2015_extension",
+      "definition_compatible_floor": null,
+      "first_stored_period": "2015-01",
+      "overlap_months": 138,
+      "overlap_max_excess": -1.342,
+      "overlap_check": "pass",
+      "ingested_periods": null,
+      "ingested_count": 0,
+      "instrument_notes": null,
+      "status": "blocked_by_definition_audit"
+    },
+    {
+      "series": "industrial_production_index",
+      "country": "romania",
+      "source_raw": "src/data/historical-extension-audit/raw/sts_inpr_m.json",
+      "decision": "v183_audit_blocked_insufficient_official_date",
+      "definition_compatible_floor": null,
+      "first_stored_period": "2015-01",
+      "overlap_months": 138,
+      "overlap_max_excess": -1.278,
+      "overlap_check": "pass",
+      "ingested_periods": null,
+      "ingested_count": 0,
+      "instrument_notes": null,
+      "status": "blocked_by_definition_audit"
+    },
+    {
+      "series": "unemployment_rate_monthly",
+      "country": "austria",
+      "source_raw": "src/data/historical-extension-audit/raw/une_rt_m.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2004-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 138,
+      "overlap_max_excess": -0.1,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2004-01",
+        "2014-12"
+      ],
+      "ingested_count": 132,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "unemployment_rate_monthly",
+      "country": "germany",
+      "source_raw": "src/data/historical-extension-audit/raw/une_rt_m.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2009-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 138,
+      "overlap_max_excess": -0.2,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2009-01",
+        "2014-12"
+      ],
+      "ingested_count": 72,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "unemployment_rate_monthly",
+      "country": "slovakia",
+      "source_raw": "src/data/historical-extension-audit/raw/une_rt_m.json",
+      "decision": "v183_audit_blocked_for_pre2015_extension",
+      "definition_compatible_floor": null,
+      "first_stored_period": "2015-01",
+      "overlap_months": 138,
+      "overlap_max_excess": -0.2,
+      "overlap_check": "pass",
+      "ingested_periods": null,
+      "ingested_count": 0,
+      "instrument_notes": null,
+      "status": "blocked_by_definition_audit"
+    },
+    {
+      "series": "unemployment_rate_monthly",
+      "country": "slovenia",
+      "source_raw": "src/data/historical-extension-audit/raw/une_rt_m.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2009-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 138,
+      "overlap_max_excess": -0.2,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2009-01",
+        "2014-12"
+      ],
+      "ingested_count": 72,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "unemployment_rate_monthly",
+      "country": "czechia",
+      "source_raw": "src/data/historical-extension-audit/raw/une_rt_m.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 138,
+      "overlap_max_excess": -0.2,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "unemployment_rate_monthly",
+      "country": "hungary",
+      "source_raw": "src/data/historical-extension-audit/raw/une_rt_m.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2011-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 138,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2011-01",
+        "2014-12"
+      ],
+      "ingested_count": 48,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "unemployment_rate_monthly",
+      "country": "poland",
+      "source_raw": "src/data/historical-extension-audit/raw/une_rt_m.json",
+      "decision": "v183_audit_blocked_for_pre2015_extension",
+      "definition_compatible_floor": null,
+      "first_stored_period": "2015-01",
+      "overlap_months": 138,
+      "overlap_max_excess": 0,
+      "overlap_check": "pass",
+      "ingested_periods": null,
+      "ingested_count": 0,
+      "instrument_notes": null,
+      "status": "blocked_by_definition_audit"
+    },
+    {
+      "series": "unemployment_rate_monthly",
+      "country": "romania",
+      "source_raw": "src/data/historical-extension-audit/raw/une_rt_m.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2009-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 138,
+      "overlap_max_excess": 0.2,
+      "overlap_check": "fail_definition_or_vintage_mismatch",
+      "ingested_periods": null,
+      "ingested_count": 0,
+      "instrument_notes": null,
+      "status": "held_for_review"
+    },
+    {
+      "series": "long_term_government_yield",
+      "country": "austria",
+      "source_raw": "src/data/historical-extension-audit/raw/irt_lt_mcby_m.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "long_term_government_yield",
+      "country": "germany",
+      "source_raw": "src/data/historical-extension-audit/raw/irt_lt_mcby_m.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "long_term_government_yield",
+      "country": "slovakia",
+      "source_raw": "src/data/historical-extension-audit/raw/irt_lt_mcby_m.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2001-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2001-01",
+        "2014-12"
+      ],
+      "ingested_count": 168,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "long_term_government_yield",
+      "country": "slovenia",
+      "source_raw": "src/data/historical-extension-audit/raw/irt_lt_mcby_m.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2003-11",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2003-11",
+        "2014-12"
+      ],
+      "ingested_count": 134,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "long_term_government_yield",
+      "country": "czechia",
+      "source_raw": "src/data/historical-extension-audit/raw/irt_lt_mcby_m.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2000-04",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-04",
+        "2014-12"
+      ],
+      "ingested_count": 177,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "long_term_government_yield",
+      "country": "hungary",
+      "source_raw": "src/data/historical-extension-audit/raw/irt_lt_mcby_m.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2001-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2001-01",
+        "2014-12"
+      ],
+      "ingested_count": 168,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "long_term_government_yield",
+      "country": "poland",
+      "source_raw": "src/data/historical-extension-audit/raw/irt_lt_mcby_m.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2001-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2001-01",
+        "2014-12"
+      ],
+      "ingested_count": 168,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "long_term_government_yield",
+      "country": "romania",
+      "source_raw": "src/data/historical-extension-audit/raw/irt_lt_mcby_m.json",
+      "decision": "v183_audit_cleared_floor",
+      "definition_compatible_floor": "2006-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2006-01",
+        "2014-12"
+      ],
+      "ingested_count": 108,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "long_term_government_yield",
+      "country": "croatia",
+      "source_raw": "src/data/historical/raw/monthly/eurostat_irt_lt_mcby_m_MCBY.json",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2005-12",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2005-12",
+        "2014-12"
+      ],
+      "ingested_count": 109,
+      "instrument_notes": null,
+      "status": "ingested"
+    },
+    {
+      "series": "policy_rate",
+      "country": "austria",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_CBPOL_M_XM.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": "From 18 Sep 2024 onwards: official central bank steering rate is the deposit facility rate, fixed rate; from 15 Oct 2008 to 17 Sep 2024: official central bank liquidity providing, main refinancing operations, fixed rate; from 28 Jun 2000 to 14 Oct 2008: official central bank liquidity providing, main refinancing operations, minimum bid rate; from 5 Jan 1999 to 27 Jun 2000: official central bank liquidity providing, main refinancing operations, fixed rate.",
+      "status": "ingested"
+    },
+    {
+      "series": "policy_rate",
+      "country": "germany",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_CBPOL_M_XM.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": "From 18 Sep 2024 onwards: official central bank steering rate is the deposit facility rate, fixed rate; from 15 Oct 2008 to 17 Sep 2024: official central bank liquidity providing, main refinancing operations, fixed rate; from 28 Jun 2000 to 14 Oct 2008: official central bank liquidity providing, main refinancing operations, minimum bid rate; from 5 Jan 1999 to 27 Jun 2000: official central bank liquidity providing, main refinancing operations, fixed rate.",
+      "status": "ingested"
+    },
+    {
+      "series": "bilateral_fx_local_per_eur",
+      "country": "czechia",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_XRU_M_CZ_CZK_A.csv ÷ src/data/historical/raw/monthly/bis_WS_XRU_M_XM_EUR_A.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.468738,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": " Exchange rates against USD Czechia - Czech koruna - Monthly - Average of observations through period",
+      "status": "ingested"
+    },
+    {
+      "series": "bilateral_fx_local_per_eur",
+      "country": "hungary",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_XRU_M_HU_HUF_A.csv ÷ src/data/historical/raw/monthly/bis_WS_XRU_M_XM_EUR_A.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -5.988166,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": " Exchange rates against USD Hungary - Forint - Monthly - Average of observations through period",
+      "status": "ingested"
+    },
+    {
+      "series": "bilateral_fx_local_per_eur",
+      "country": "poland",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_XRU_M_PL_PLN_A.csv ÷ src/data/historical/raw/monthly/bis_WS_XRU_M_XM_EUR_A.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": " Exchange rates against USD Poland - Zloty - Monthly - Average of observations through period",
+      "status": "ingested"
+    },
+    {
+      "series": "eur_usd_common",
+      "country": "euro_area",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_XRU_M_XM_EUR_A.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -0.3,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": " Exchange rates against USD Euro area - Euro - Monthly - Average of observations through period",
+      "status": "ingested"
+    },
+    {
+      "series": "nominal_effective_exchange_rate",
+      "country": "austria",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_EER_M_N_B_AT.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.902,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": "Austria - Nominal - Broad (64 economies)",
+      "status": "ingested"
+    },
+    {
+      "series": "nominal_effective_exchange_rate",
+      "country": "germany",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_EER_M_N_B_DE.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.8316,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": "Germany - Nominal - Broad (64 economies)",
+      "status": "ingested"
+    },
+    {
+      "series": "nominal_effective_exchange_rate",
+      "country": "slovakia",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_EER_M_N_B_SK.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.8788,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": "Slovak Republic - Nominal - Broad (64 economies)",
+      "status": "ingested"
+    },
+    {
+      "series": "nominal_effective_exchange_rate",
+      "country": "slovenia",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_EER_M_N_B_SI.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.8784,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": "Slovenia - Nominal - Broad (64 economies)",
+      "status": "ingested"
+    },
+    {
+      "series": "nominal_effective_exchange_rate",
+      "country": "czechia",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_EER_M_N_B_CZ.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.7682,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": "Czechia - Nominal - Broad (64 economies)",
+      "status": "ingested"
+    },
+    {
+      "series": "nominal_effective_exchange_rate",
+      "country": "hungary",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_EER_M_N_B_HU.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.6628,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": "Hungary - Nominal - Broad (64 economies)",
+      "status": "ingested"
+    },
+    {
+      "series": "nominal_effective_exchange_rate",
+      "country": "poland",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_EER_M_N_B_PL.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.8216,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": "Poland - Nominal - Broad (64 economies)",
+      "status": "ingested"
+    },
+    {
+      "series": "nominal_effective_exchange_rate",
+      "country": "romania",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_EER_M_N_B_RO.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.9602,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": "Romania - Nominal - Broad (64 economies)",
+      "status": "ingested"
+    },
+    {
+      "series": "nominal_effective_exchange_rate",
+      "country": "croatia",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_EER_M_N_B_HR.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.8778,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": "Croatia - Nominal - Broad (64 economies)",
+      "status": "ingested"
+    },
+    {
+      "series": "real_effective_exchange_rate",
+      "country": "austria",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_EER_M_R_B_AT.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.682,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": "Austria - Real - Broad (64 economies)",
+      "status": "ingested"
+    },
+    {
+      "series": "real_effective_exchange_rate",
+      "country": "germany",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_EER_M_R_B_DE.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.895,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": "Germany - Real - Broad (64 economies)",
+      "status": "ingested"
+    },
+    {
+      "series": "real_effective_exchange_rate",
+      "country": "slovakia",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_EER_M_R_B_SK.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.8784,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": "Slovak Republic - Real - Broad (64 economies)",
+      "status": "ingested"
+    },
+    {
+      "series": "real_effective_exchange_rate",
+      "country": "slovenia",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_EER_M_R_B_SI.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.9382,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": "Slovenia - Real - Broad (64 economies)",
+      "status": "ingested"
+    },
+    {
+      "series": "real_effective_exchange_rate",
+      "country": "czechia",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_EER_M_R_B_CZ.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.7182,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": "Czechia - Real - Broad (64 economies)",
+      "status": "ingested"
+    },
+    {
+      "series": "real_effective_exchange_rate",
+      "country": "hungary",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_EER_M_R_B_HU.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.8104,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": "Hungary - Real - Broad (64 economies)",
+      "status": "ingested"
+    },
+    {
+      "series": "real_effective_exchange_rate",
+      "country": "poland",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_EER_M_R_B_PL.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.8702,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": "Poland - Real - Broad (64 economies)",
+      "status": "ingested"
+    },
+    {
+      "series": "real_effective_exchange_rate",
+      "country": "romania",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_EER_M_R_B_RO.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.8988,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": "Romania - Real - Broad (64 economies)",
+      "status": "ingested"
+    },
+    {
+      "series": "real_effective_exchange_rate",
+      "country": "croatia",
+      "source_raw": "src/data/historical/raw/monthly/bis_WS_EER_M_R_B_HR.csv",
+      "decision": "official_flag_floor",
+      "definition_compatible_floor": "2000-01",
+      "first_stored_period": "2015-01",
+      "overlap_months": 139,
+      "overlap_max_excess": -1.9788,
+      "overlap_check": "pass",
+      "ingested_periods": [
+        "2000-01",
+        "2014-12"
+      ],
+      "ingested_count": 180,
+      "instrument_notes": "Croatia - Real - Broad (64 economies)",
+      "status": "ingested"
+    }
+  ],
+  "review_queue": [
+    {
+      "series": "industrial_production_index",
+      "countries": [
+        "poland",
+        "romania",
+        "croatia"
+      ],
+      "reason": "PL 2021 LEU→KAU transition without an official pre-2021 bridge; RO has no exact official comparable start; HR not audited"
+    },
+    {
+      "series": "unemployment_rate_monthly",
+      "countries": [
+        "poland",
+        "slovakia",
+        "croatia"
+      ],
+      "reason": "PL 2009-12 and SK 2011-09 'd' flags unexplained by official documentation; HR LFS breaks not audited"
+    },
+    {
+      "series": "policy_rate",
+      "countries": [
+        "czechia",
+        "hungary",
+        "poland",
+        "romania",
+        "serbia",
+        "slovakia",
+        "slovenia",
+        "croatia"
+      ],
+      "reason": "national instrument/regime changes and pre-euro national regimes (SI < 2007, SK < 2009, HR < 2023)"
+    },
+    {
+      "series": "bilateral_fx_local_per_eur",
+      "countries": [
+        "romania",
+        "serbia"
+      ],
+      "reason": "RON redenomination 2005-07; RSD/YUM changes"
+    },
+    {
+      "series": "all_high_frequency_and_macro_drivers",
+      "countries": [
+        "serbia"
+      ],
+      "reason": "outside the EU statistical system; national definitions need mapping"
+    }
+  ],
+  "summary": {
+    "ingested_records": 10440,
+    "ingested_by_series": {
+      "bilateral_fx_local_per_eur": 540,
+      "eur_usd_common": 180,
+      "hicp_annual_rate": 1620,
+      "hicp_monthly_index": 1620,
+      "industrial_production_index": 984,
+      "long_term_government_yield": 1392,
+      "nominal_effective_exchange_rate": 1620,
+      "policy_rate": 360,
+      "real_effective_exchange_rate": 1620,
+      "unemployment_rate_monthly": 504
+    },
+    "not_ingested": [
+      "industrial_production_index/poland: blocked_by_definition_audit",
+      "industrial_production_index/romania: blocked_by_definition_audit",
+      "unemployment_rate_monthly/slovakia: blocked_by_definition_audit",
+      "unemployment_rate_monthly/poland: blocked_by_definition_audit",
+      "unemployment_rate_monthly/romania: held_for_review (excess 0.2)"
+    ]
+  }
+}

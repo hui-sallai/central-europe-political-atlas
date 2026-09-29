@@ -62,6 +62,14 @@ export function loadSeries() {
   if (fs.existsSync(path.join(root, historyPath))) for (const r of read(historyPath).records) {
     push(`annual_history|${r.country_slug}|${r.indicator}|level|annual`, { dataset: "annual_history", file: historyPath, country: r.country_slug, indicator: r.indicator, transformation: "level", frequency: "annual", source: r.source, source_dataset: r.source_dataset, source_url: r.source_query_url }, { id: r.id, period: String(r.year), value: r.value, unit: r.unit, status: r.value_status, definition: r.definition });
   }
+  const monthlyHistoryPath = "src/data/historical/monthly_descriptive_history.json";
+  if (fs.existsSync(path.join(root, monthlyHistoryPath))) {
+    const monthly = read(monthlyHistoryPath);
+    for (const r of monthly.records) {
+      const src = monthly.series_sources[r.source_ref];
+      push(`monthly_history|${r.country_slug}|${r.series}|level|monthly`, { dataset: "monthly_history", file: monthlyHistoryPath, country: r.country_slug, indicator: r.series, transformation: "level", frequency: "monthly", source: src.source, source_dataset: src.raw_file, source_url: src.source_url }, { id: r.id, period: r.period, value: r.value, unit: src.unit, status: r.value_status, definition: src.definition });
+    }
+  }
   for (const file of ["src/data/regional/v086-observations.json", "src/data/regional/v089-observations.json"]) {
     for (const r of read(file).records) {
       // Regional series are summarised per country × indicator; each region is its own sub-series inside the fingerprint.
@@ -222,6 +230,9 @@ function historical(s, allSeries) {
   if (s.dataset === "regional") {
     return { candidate_source: s.source_dataset, evidence: "indicative_not_retrieved", earliest_available: null, proposed_earliest_feasible: null, definition_compatible_floor: null, estimated_new_observations: null, estimate_basis: "not estimated: regional back-series depend on NUTS version", definition_break_risks: ["NUTS 2016 / 2021 / 2024 boundary revisions change region identities", "regional LFS and GDP back-casting depth differs by country"], feasibility: "requires_methodological_review", rationale: "Regional backfill needs a NUTS-version crosswalk before any values can be compared across years." };
   }
+  if (s.dataset === "monthly_history") {
+    return { candidate_source: s.source_dataset, evidence: "ingested_phase_h", earliest_available: null, proposed_earliest_feasible: null, definition_compatible_floor: null, estimated_new_observations: 0, estimate_basis: "already ingested as descriptive history (see src/data/historical/monthly_history_manifest.json)", definition_break_risks: [], feasibility: "ingested_descriptive_history", rationale: "Phase H safe descriptive backfill; descriptive only, never a model input." };
+  }
   if (s.dataset === "annual_history") {
     return { candidate_source: s.source_dataset, evidence: "ingested_phase_g", earliest_available: null, proposed_earliest_feasible: null, definition_compatible_floor: null, estimated_new_observations: 0, estimate_basis: "already ingested as descriptive history (see src/data/historical/annual_history_manifest.json)", definition_break_risks: [], feasibility: "ingested_descriptive_history", rationale: "Phase G safe descriptive backfill; descriptive only, never a model input." };
   }
@@ -292,6 +303,8 @@ export function buildAudit() {
   const formal = formalSamples(seriesList);
   const historyManifestPath = "src/data/historical/annual_history_manifest.json";
   const phaseG = fs.existsSync(path.join(root, historyManifestPath)) ? new Map(read(historyManifestPath).series.map((x) => [`${x.country}|${x.indicator}`, x])) : new Map();
+  const monthlyManifestPath = "src/data/historical/monthly_history_manifest.json";
+  const phaseH = fs.existsSync(path.join(root, monthlyManifestPath)) ? new Map(read(monthlyManifestPath).series.map((x) => [`${x.country}|${x.series}`, x])) : new Map();
   const hfDefinitionRegistry = read("src/data/high-frequency/high_frequency_definition_registry.json").records;
   const records = seriesList.sort((a, b) => a.key.localeCompare(b.key)).map((s) => {
     const samples = formal.get(s.key) ?? [];
@@ -305,6 +318,7 @@ export function buildAudit() {
       status_counts: Object.fromEntries([...s.statuses.entries()].sort()),
       definition: { versions: [...s.definitions].sort().slice(0, 5), version_count: s.definitions.size, continuity, registered_transitions: registered?.methodological_transitions ?? [] },
       historical_extension: s.historical,
+      ...((s.dataset === "high_frequency" || s.dataset === "macro_drivers") && s.transformation !== "monthly_log_change" && s.transformation !== "12m_log_change" && s.transformation !== "monthly_change_bp" ? { phase_h_backfill: phaseH.has(`${s.country}|${s.indicator}`) ? (({ status, ingested_periods, ingested_count, definition_compatible_floor, overlap_check, decision }) => ({ status, store: "src/data/historical/monthly_descriptive_history.json", ingested_periods, ingested_count, definition_compatible_floor: definition_compatible_floor ?? null, overlap_check, decision }))(phaseH.get(`${s.country}|${s.indicator}`)) : { status: "not_in_phase_h_safe_scope" } } : {}),
       ...(s.dataset === "annual_observations" ? { phase_g_backfill: phaseG.has(`${s.country}|${s.indicator}`) ? (({ status, ingested_years, ingested_count, definition_compatible_floor, overlap_check }) => ({ status, store: "src/data/historical/annual_descriptive_history.json", ingested_years, ingested_count, definition_compatible_floor: definition_compatible_floor ?? null, overlap_check: overlap_check ?? "derived" }))(phaseG.get(`${s.country}|${s.indicator}`)) : { status: s.country === "serbia" ? "excluded_review_queue" : "not_in_phase_g_safe_scope" } } : {}),
       model_usage: { status: samples.some((x) => x.status === "frozen_published") ? "formal_model_input" : samples.length ? "formal_candidate_not_estimated" : "descriptive_only", formal_model_samples: samples },
       fingerprint: { window: [s.coverage.earliest, s.coverage.latest], sha256: seriesFingerprint(s, s.coverage.earliest, s.coverage.latest) },

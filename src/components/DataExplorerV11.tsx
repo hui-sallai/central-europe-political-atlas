@@ -5,6 +5,7 @@ import type { Country, Indicator, Observation } from "@/types/researchData";
 import { getResearchPackageFilename } from "@/lib/releaseMetadata";
 import { MacroDriverWorkbench } from "@/components/MacroDriverWorkbench";
 import { ResearchTimeSeriesChart } from "@/components/ResearchTimeSeriesChart";
+import { monthlyHistoryFor, useMonthlyHistory } from "@/components/useMonthlyHistory";
 
 const MOBILE_CARD_LIMIT = 120;
 
@@ -49,6 +50,8 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
   const [yearFrom, setYearFrom] = useState("all");
   const [yearTo, setYearTo] = useState("all");
   const [sortDirection, setSortDirection] = useState<"desc" | "asc">("desc");
+  const [includeHistory, setIncludeHistory] = useState(true);
+  const monthlyHistory = useMonthlyHistory(basePath);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -60,7 +63,14 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
   }, [basePath]);
 
   const countryMap = useMemo(() => new Map(countries.map((item) => [item.slug, item])), [countries]);
-  const series = useMemo(() => records.filter((row) => row[1] === countrySlug && row[3] === indicator), [records, countrySlug, indicator]);
+  const formalSeries = useMemo(() => records.filter((row) => row[1] === countrySlug && row[3] === indicator), [records, countrySlug, indicator]);
+  // Phase H descriptive history (ids start with "hist:"); shaped like runtime rows so filters, sort and CSV apply alike.
+  const historySeries = useMemo(() => {
+    const template = formalSeries.find((row) => row[4] !== null);
+    return monthlyHistoryFor(monthlyHistory.data, indicator, countrySlug).map((point): HfRuntimeRow => [`hist:monthly:${countrySlug}:${indicator}:${point.period}`, countrySlug, point.period, indicator, point.value, "", point.source.unit, template?.[7] ?? "", template?.[8] ?? "", "", point.source.source, "历史描述性"]);
+  }, [countrySlug, formalSeries, indicator, monthlyHistory.data]);
+  const series = useMemo(() => includeHistory ? [...historySeries, ...formalSeries] : formalSeries, [formalSeries, historySeries, includeHistory]);
+  const isHistory = (row: HfRuntimeRow) => row[0].startsWith("hist:");
   const years = useMemo(() => [...new Set(series.map((row) => Number(row[2].slice(0, 4))))].sort((a, b) => a - b), [series]);
   const rows = useMemo(() => series
     .filter((row) => row[4] !== null && (yearFrom === "all" || Number(row[2].slice(0, 4)) >= Number(yearFrom)) && (yearTo === "all" || Number(row[2].slice(0, 4)) <= Number(yearTo)))
@@ -68,7 +78,8 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
   const monthNumber = (period: string) => Number(period.slice(0, 4)) * 12 + Number(period.slice(5, 7)) - 1;
   const monthLabel = (n: number) => `${Math.floor(n / 12)}-${String((n % 12) + 1).padStart(2, "0")}`;
   const coverage = useMemo(() => { const c = coverageOf(series.map((row) => ({ period: monthNumber(row[2]), value: row[4] }))); return { ...c, earliest: c.earliest === null ? null : monthLabel(c.earliest), latest: c.latest === null ? null : monthLabel(c.latest), missing: c.missing.map(monthLabel) }; }, [series]);
-  const chartPoints = useMemo(() => [...rows].sort((a, b) => a[2].localeCompare(b[2])).map((row) => ({ x: row[2], y: row[4] })), [rows]);
+  const chartPoints = useMemo(() => [...rows].filter((row) => !isHistory(row)).sort((a, b) => a[2].localeCompare(b[2])).map((row) => ({ x: row[2], y: row[4] })), [rows]);
+  const historyPoints = useMemo(() => [...rows].filter(isHistory).sort((a, b) => a[2].localeCompare(b[2])).map((row) => ({ x: row[2], y: row[4] })), [rows]);
 
   return (
     <div className="mt-5">
@@ -92,14 +103,15 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
         </label>
       </div>
 
+      {historySeries.length ? <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-[var(--line)] py-4 text-sm" data-history-layer="high-frequency"><label className="flex items-center gap-2 font-semibold"><input type="checkbox" checked={includeHistory} onChange={(event) => setIncludeHistory(event.target.checked)} /> 包含历史描述性数据（{historySeries[0][2]} – {historySeries.at(-1)![2]}）</label><span className="text-xs text-[var(--muted)]">历史段仅供描述研究，从定义一致的官方起点开始；正式高频模型基线仍为 2015 年起的冻结序列。</span></div> : monthlyHistory.state === "ready" && formalSeries.length ? <p className="border-b border-[var(--line)] py-3 text-xs text-[var(--muted)]">该国家与指标暂无安全的历史描述性回填（定义断点需方法复核）。</p> : null}
       {loadState === "ready" && series.length ? (
         <div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1fr)_280px]" data-coverage-summary="high-frequency">
-          <ResearchTimeSeriesChart title={`${countryMap.get(countrySlug)?.name_zh ?? countrySlug} · ${hfIndicatorLabels[indicator] ?? indicator}`} series={[{ id: "hf", label: hfIndicatorLabels[indicator] ?? indicator, color: "#a3432f", points: chartPoints }]} xKind="month" xLabel="月份" yLabel={(() => { const unit = series.find((row) => row[4] !== null)?.[6] ?? ""; return hfUnitLabels[unit] ? `${hfUnitLabels[unit]} · ${unit}` : unit; })()} latestMarker height={260} legend={false} />
+          <ResearchTimeSeriesChart title={`${countryMap.get(countrySlug)?.name_zh ?? countrySlug} · ${hfIndicatorLabels[indicator] ?? indicator}`} series={[{ id: "hf", label: "正式观测（2015 起，模型冻结基线）", color: "#a3432f", points: chartPoints }, ...(historyPoints.length ? [{ id: "history", label: "历史描述性（2000 起，不进入模型）", color: "#6b7a86", dash: "6 4", points: historyPoints }] : [])]} xKind="month" xLabel="月份" legend={historyPoints.length > 0} yLabel={(() => { const unit = series.find((row) => row[4] !== null)?.[6] ?? ""; return hfUnitLabels[unit] ? `${hfUnitLabels[unit]} · ${unit}` : unit; })()} latestMarker height={260} />
           <dl className="editorial-panel grid content-start gap-3 p-4 text-sm">
             <div><dt className="text-xs text-[var(--muted)]">覆盖范围</dt><dd className="metric-number font-semibold">{coverage.earliest ?? "—"} → {coverage.latest ?? "—"}</dd></div>
             <div><dt className="text-xs text-[var(--muted)]">可用月份</dt><dd className="metric-number font-semibold">{coverage.available}</dd></div>
             <div><dt className="text-xs text-[var(--muted)]">缺失月份</dt><dd className="metric-number font-semibold">{coverage.missing.length ? coverage.missing.join("、") : "无"}</dd></div>
-            <p className="text-xs leading-5 text-[var(--muted)]">正式高频模型基线自 2015 年起保持冻结；缺失月份不会显示为 0。</p>
+            <p className="text-xs leading-5 text-[var(--muted)]">覆盖范围含历史描述性段{includeHistory && historySeries.length ? `（${historySeries.length} 个月）` : "（未包含）"}；正式高频模型基线自 2015 年起保持冻结；缺失月份不会显示为 0。</p>
           </dl>
         </div>
       ) : null}
@@ -111,8 +123,8 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
         <div className="flex flex-wrap gap-2">
           <button type="button" disabled={loadState !== "ready"} onClick={() => downloadCsv(
             `high-frequency-${countrySlug}-${indicator}.csv`,
-            ["country", "indicator", "period", "value", "unit", "value_semantics", "seasonal_adjustment", "source", "status"],
-            rows.map((row) => [row[1], row[3], row[2], row[4], row[6], row[7], row[8], row[10], row[11]]),
+            ["country", "indicator", "period", "value", "unit", "value_semantics", "seasonal_adjustment", "source", "status", "layer"],
+            rows.map((row) => [row[1], row[3], row[2], row[4], row[6], row[7], row[8], row[10], row[11], isHistory(row) ? "historical_descriptive" : "formal_observation"]),
           )} className="rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-50">下载当前高频筛选结果（CSV）</button>
           <a href={`${basePath}/research-data/${getResearchPackageFilename()}`} className="rounded-full cta-dark px-4 py-2 text-sm font-semibold">下载完整研究数据包（ZIP）</a>
         </div>
@@ -130,7 +142,7 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
                 <td className="metric-number px-3 py-2 font-semibold">{formatValue(row[4])}</td>
                 <td className="px-3 py-2">{row[6]}</td>
                 <td className="px-3 py-2">{row[10]}</td>
-                <td className="px-3 py-2">{row[11]}</td>
+                <td className="px-3 py-2">{isHistory(row) ? <span className="inline-block rounded-full border border-dashed border-[var(--muted)] px-2 py-0.5 text-[10px] font-semibold text-[var(--muted)]" data-layer="history">历史描述性</span> : row[11]}</td>
               </tr>
             ))}</tbody>
           </table>

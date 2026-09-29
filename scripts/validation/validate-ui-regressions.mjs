@@ -83,6 +83,17 @@ for (const [file, label] of [["src/components/DataExplorerV11.tsx", "高频月�
   const explorer = read("src/components/DataExplorerV11.tsx");
   for (const [needle, message] of [["起始年份", "year-range start filter"], ["结束年份", "year-range end filter"], ["新 → 旧", "sort direction control"], ["仅显示每个指标的最新值", "latest-only toggle"], ['data-coverage-summary="indicator"', "single-indicator coverage summary"], ['data-coverage-summary="all"', "all-indicator coverage overview"], ['data-coverage-summary="high-frequency"', "high-frequency coverage summary"], ["data-layer={layer}", "formal vs historical layer badge"], ["annual_history_runtime.json", "history loaded at runtime, not inlined in page props"]]) check(explorer.includes(needle), `Data Explorer: ${message}`);
   check(!/from "@\/data\/historical|annual_descriptive_history/.test(explorer), "Data Explorer does not import the full history store into the page bundle");
+  // Phase H: monthly history shown as a labelled, toggleable descriptive layer in both monthly views.
+  const hook = read("src/components/useMonthlyHistory.ts");
+  const macro = read("src/components/MacroDriverWorkbench.tsx");
+  check(hook.includes("monthly_history_runtime.json") && !/monthly_descriptive_history/.test(hook + explorer + macro), "monthly history loaded from the runtime file, not the full store");
+  for (const [name, src, attr] of [["Data Explorer HF view", explorer, 'data-history-layer="high-frequency"'], ["MacroDriverWorkbench", macro, 'data-history-layer="macro"']]) {
+    check(src.includes("useMonthlyHistory(") && src.includes(attr), `${name}: history layer present`);
+    check(/dash: "6 4"/.test(src) && src.includes("历史描述性"), `${name}: history distinguished by dash and label, not colour alone`);
+    check(src.includes("includeHistory"), `${name}: history can be toggled off`);
+    check(/series=\{\[\{ id: "(hf|driver)"/.test(src), `${name}: formal series first so the latest marker stays on the latest formal observation`);
+  }
+  check(/selectedTransformation === "level" \? monthlyHistoryFor/.test(macro), "macro history only attaches to level series (derived changes are not backfilled)");
   const { coverageOf } = require(path.join(root, "src/components/DataExplorerV11.tsx"));
   const cov = coverageOf([{ period: 2000, value: 1 }, { period: 2001, value: null }, { period: 2003, value: 0 }, { period: 2004, value: 2 }]);
   check(cov.earliest === 2000 && cov.latest === 2004 && JSON.stringify(cov.missing) === "[2001,2002]" && cov.available === 3, "coverage: null and absent years are missing; an official 0 counts as observed");
