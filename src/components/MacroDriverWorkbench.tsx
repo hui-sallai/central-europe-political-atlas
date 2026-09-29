@@ -1,5 +1,6 @@
 "use client";
 
+import { ResearchTimeSeriesChart } from "@/components/ResearchTimeSeriesChart";
 import { useEffect, useMemo, useState } from "react";
 import type { Country } from "@/types/Country";
 import type { MacroDriverDefinition, MacroDriverRuntimeRow } from "@/types/MacroDriver";
@@ -10,6 +11,14 @@ const roleLabels: Record<string, string> = {
   domestic_price_outcome: "国内价格结果",
   external_common_driver: "共同外部驱动",
   regional_common_driver: "区域共同驱动",
+};
+
+const transformationLabels: Record<string, string> = {
+  level: "水平值",
+  monthly_log_change: "月度对数变化",
+  "12m_log_change": "12 个月对数变化",
+  yoy_rate: "同比率",
+  monthly_change_bp: "月度变化（基点）",
 };
 
 const identificationLabels: Record<string, string> = {
@@ -87,12 +96,8 @@ export function MacroDriverWorkbench({ countries, compact = false, initialCountr
     .filter((row) => row[7] === selectedTransformation)
     .sort((a, b) => b[4].localeCompare(a[4])), [driverId, records, selectedArea, selectedTransformation]);
   const rows = allRows.filter((row) => row[5] !== null);
-  const chartRows = [...rows].reverse().slice(-120);
-  const values = chartRows.map((row) => row[5] as number);
-  const min = values.length ? Math.min(...values) : 0;
-  const max = values.length ? Math.max(...values) : 1;
-  const range = max - min || 1;
-  const points = chartRows.map((row, index) => `${20 + (index / Math.max(1, chartRows.length - 1)) * 660},${150 - (((row[5] as number) - min) / range) * 120}`).join(" ");
+  const chartPoints = [...allRows].reverse().map((row) => ({ x: row[4], y: row[5] }));
+  const chartUnit = allRows[0]?.[6] ?? "";
   const latest = rows[0] ?? null;
   const mom = selectedTransformation === "level" ? periodChange(rows, 1) : null;
   const yoy = selectedTransformation === "level" ? periodChange(rows, 12) : null;
@@ -107,7 +112,7 @@ export function MacroDriverWorkbench({ countries, compact = false, initialCountr
       <div className="mt-5 grid gap-4 border-y border-[var(--line)] py-5 md:grid-cols-3">
         <label className="text-xs font-semibold text-[var(--muted)]">驱动指标<select className="field-control mt-2" value={driverId} onChange={(event) => setDriverId(event.target.value)}>{dictionary.map((item) => <option key={item.driver_id} value={item.driver_id}>{item.name_zh} / {item.name_en}</option>)}</select></label>
         <label className="text-xs font-semibold text-[var(--muted)]">国家 / 范围<select className="field-control mt-2" value={selectedArea} onChange={(event) => setArea(event.target.value)}>{areas.map(([key, label]) => <option key={key} value={key}>{label}</option>)}</select></label>
-        <label className="text-xs font-semibold text-[var(--muted)]">转换<select className="field-control mt-2" value={selectedTransformation} onChange={(event) => setTransformation(event.target.value)}>{transformations.map((item) => <option key={item} value={item}>{item}</option>)}</select></label>
+        <label className="text-xs font-semibold text-[var(--muted)]">转换<select className="field-control mt-2" value={selectedTransformation} onChange={(event) => setTransformation(event.target.value)}>{transformations.map((item) => <option key={item} value={item}>{transformationLabels[item] ?? item}</option>)}</select></label>
       </div>
       {loadState === "loading" ? <p className="py-10 text-center text-sm text-[var(--muted)]">正在加载宏观驱动数据…</p> : null}
       {loadState === "error" ? <p className="mt-5 border-l-4 border-[var(--warning)] bg-amber-50 px-4 py-3 text-sm">宏观驱动数据暂时无法加载。</p> : null}
@@ -115,7 +120,7 @@ export function MacroDriverWorkbench({ countries, compact = false, initialCountr
         <dl className="mt-5 grid gap-px overflow-hidden border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-4">
           {[["最新时期", latest[4]], ["最新值", `${latest[5]?.toLocaleString("zh-CN", { maximumFractionDigits: 3 })} ${latest[6]}`], ["环比", selectedTransformation === "level" ? signed(mom, "%") : "当前转换已是变动值"], ["同比", selectedTransformation === "level" ? signed(yoy, "%") : "当前转换已是变动值"]].map(([label, value]) => <div key={label} className="bg-white p-3"><dt className="text-xs text-[var(--muted)]">{label}</dt><dd className="metric-number mt-1 text-sm font-semibold">{value}</dd></div>)}
         </dl>
-        <svg viewBox="0 0 700 180" className="mt-5 w-full" role="img" aria-label={`${definition?.name_zh ?? driverId}月度序列`}><line x1="20" y1="150" x2="680" y2="150" stroke="var(--line)"/><polyline points={points} fill="none" stroke="var(--accent)" strokeWidth="2"/><text x="20" y="170" fontSize="10" fill="var(--muted)">{chartRows[0]?.[4]}</text><text x="680" y="170" textAnchor="end" fontSize="10" fill="var(--muted)">{chartRows.at(-1)?.[4]}</text><text x="20" y="15" fontSize="10" fill="var(--muted)">{max.toLocaleString("zh-CN", { maximumFractionDigits: 2 })}</text><text x="20" y="145" fontSize="10" fill="var(--muted)">{min.toLocaleString("zh-CN", { maximumFractionDigits: 2 })}</text></svg>
+        <div className="mt-5"><ResearchTimeSeriesChart title={`${definition?.name_zh ?? driverId}：${areas.find(([key]) => key === selectedArea)?.[1] ?? selectedArea} 月度序列（${transformationLabels[selectedTransformation] ?? selectedTransformation}）`} series={[{ id: "driver", label: `${definition?.name_zh ?? driverId} · ${areas.find(([key]) => key === selectedArea)?.[1] ?? selectedArea}`, color: "var(--accent)", points: chartPoints }]} xKind="month" xLabel="月份" yLabel={`${chartUnit}${chartUnit ? " · " : ""}${transformationLabels[selectedTransformation] ?? selectedTransformation}`} latestMarker height={290} /></div>
         <div className="mt-5 grid gap-4 md:grid-cols-2"><div><p className="text-xs font-semibold text-[var(--muted)]">定义与解释</p><p className="mt-2 text-sm leading-7">{definition?.economic_interpretation}</p><p className="mt-2 text-xs leading-6 text-[var(--muted)]">{definition?.limitations}</p></div><div><p className="text-xs font-semibold text-[var(--muted)]">来源与识别状态</p><p className="mt-2 text-sm"><a href={latest[10]} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)] hover:underline">{latest[9]}</a></p><p className="mt-2 text-xs text-[var(--muted)]">角色：{roleLabels[latest[8]] ?? latest[8]} · 识别：{identificationLabels[latest[11]] ?? latest[11]} · {latest[13]}</p></div></div>
         <p className="mt-4 border-l-2 border-[var(--line)] pl-4 text-xs leading-6 text-[var(--muted)]">时间完整性：有效观测 {rows.length}；变换预热 {warmupCount}；源序列缺口阻断 {gapCount}；制度或定义切换排除 {regimeCount}。{warmupCount ? "预热期是计算窗口要求，不是原始数据缺失。" : ""}{sharedSeries ? ` 当前为共同序列（${latest[18]}），适用于多个国家但不是统计独立冲击。` : ""}</p>
         {driverId === "policy_rate" && selectedArea === "croatia" ? <p className="mt-3 border-l-2 border-[var(--accent)] pl-4 text-xs leading-6 text-[var(--muted)]">克罗地亚政策制度：2015–2022 为克罗地亚国家货币政策制度；2023 年起为 ECB 共同政策制度。2023-01 的跨制度月度变化被排除。</p> : null}

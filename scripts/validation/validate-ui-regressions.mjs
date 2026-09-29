@@ -3,7 +3,9 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
+import { createRequire, Module } from "node:module";
 import { fileURLToPath } from "node:url";
+import ts from "typescript";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const read = (relative) => fs.readFileSync(path.join(root, relative), "utf8");
@@ -48,6 +50,40 @@ for (const [file, label] of [["src/components/DataExplorerV11.tsx", "高频月�
   check(tag.test(source), `${file}: long table must sit in a focusable, labelled data-table-viewport`);
   check(!/wide-table-scroll[^"]*max-h-\[/.test(source) && !/wide-table-scroll[^"]*overflow-y-auto/.test(source), `${file}: no conflicting overflow utilities on wide-table-scroll`);
   check(/data-card-mobile/.test(source), `${file}: mobile card fallback present`);
+}
+
+// --- 4. Charts: axes, ticks, unit titles, gaps for missing values ------------------------------------------
+{
+  const require = createRequire(import.meta.url);
+  const React = require("react");
+  const { renderToStaticMarkup } = require("react-dom/server");
+  const originalResolve = Module._resolveFilename;
+  Module._resolveFilename = function (request, ...args) { return originalResolve.call(this, request.startsWith("@/") ? path.join(root, "src", request.slice(2)) : request, ...args); };
+  for (const ext of [".ts", ".tsx"]) require.extensions[ext] = (module, filename) => module._compile(ts.transpileModule(fs.readFileSync(filename, "utf8"), { compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX, target: ts.ScriptTarget.ES2022, esModuleInterop: true, resolveJsonModule: true } }).outputText, filename);
+  const { ResearchTimeSeriesChart } = require(path.join(root, "src/components/ResearchTimeSeriesChart.tsx"));
+  const months = [];
+  for (let year = 2015; year <= 2026; year += 1) for (let month = 1; month <= 12; month += 1) months.push(`${year}-${String(month).padStart(2, "0")}`);
+  const points = months.map((x, index) => ({ x, y: index === 40 ? null : Math.sin(index / 9) * 3 + 1 }));
+  const html = renderToStaticMarkup(React.createElement(ResearchTimeSeriesChart, { title: "测试序列", series: [{ id: "s", label: "序列", color: "#000", points }], xKind: "month", xLabel: "月份", yLabel: "% p.a. · 水平值", latestMarker: true }));
+  const yTicks = (html.match(/data-tick="y"/g) ?? []).length;
+  const xLabels = [...html.matchAll(/<g data-tick="x">.*?<text[^>]*>([^<]+)<\/text>/g)].map((m) => m[1]);
+  check(/data-axis="x"/.test(html) && /data-axis="y"/.test(html), "chart draws explicit x and y axes");
+  check(yTicks >= 4 && yTicks <= 7, `chart has 4-6 round y ticks (found ${yTicks})`);
+  check(xLabels.length >= 4 && xLabels.every((label) => /^\d{4}$/.test(label)), `monthly axis labels sensible year ticks, not only endpoints (${xLabels.join(",")})`);
+  check(/data-axis-title="y"[^>]*>% p\.a\. · 水平值</.test(html) && /data-axis-title="x"[^>]*>月份</.test(html), "chart shows unit/measure and x-axis titles");
+  check((html.match(/<polyline/g) ?? []).length === 2, "missing value breaks the line (no zero fill)");
+  check(/data-latest-marker="true"/.test(html) && /<title[^>]*>测试序列<\/title>/.test(html), "latest marker and accessible title present");
+  const stepHtml = renderToStaticMarkup(React.createElement(ResearchTimeSeriesChart, { title: "精度", series: [{ id: "p", label: "利率", color: "#000", points: [{ x: "2024-01", y: 13 }, { x: "2026-07", y: 5.75 }] }], xKind: "month", yLabel: "% p.a.", latestMarker: true }));
+  check(/data-latest-marker="true"[\s\S]*?2026-07：5\.75</.test(stepHtml), "latest value label keeps observed precision (not tick-rounded)");
+  for (const [file, xTitle] of [["src/components/MacroDriverWorkbench.tsx", "月份"], ["src/components/LocalProjectionWorkbench.tsx", "冲击后月数"], ["src/components/PanelLocalProjectionWorkbench.tsx", "冲击后月数"]]) {
+    const source = read(file);
+    check(source.includes("<ResearchTimeSeriesChart") && source.includes(`xLabel="${xTitle}"`) && /yLabel=\{/.test(source), `${file} uses the shared chart with x and y titles`);
+  }
+  const { LocalProjectionWorkbench } = require(path.join(root, "src/components/LocalProjectionWorkbench.tsx"));
+  const lpHtml = renderToStaticMarkup(React.createElement(LocalProjectionWorkbench, {}));
+  check(/data-axis="x"/.test(lpHtml) && /data-axis="y"/.test(lpHtml) && /data-zero-line="true"/.test(lpHtml), "LP chart renders axes and a zero line");
+  check(/data-axis-title="y"[^>]*>(累计百分比变化（%）|百分点|百分比)/.test(lpHtml) && /data-axis-title="x"[^>]*>冲击后月数</.test(lpHtml), "LP chart shows unit and horizon titles");
+  Module._resolveFilename = originalResolve;
 }
 
 // --- 3. Built output (when available) ----------------------------------------------------------------------

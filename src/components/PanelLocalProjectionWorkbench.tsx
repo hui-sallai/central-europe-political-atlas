@@ -3,6 +3,7 @@ import { useState } from "react";
 import data from "@/data/panel-local-projections/panel_lp_results.json";
 import readiness from "@/data/panel-local-projections/panel_lp_readiness_registry.json";
 import { PanelCompositionDiagnostics } from "./PanelCompositionDiagnostics";
+import { ResearchTimeSeriesChart } from "./ResearchTimeSeriesChart";
 import composition from "@/data/panel-local-projections/panel_lp_composition_robustness_summary.json";
 import specification from "@/data/panel-local-projections/panel_lp_time_fe_sensitivity_summary.json";
 import modelComparison from "@/data/panel-local-projections/panel_lp_model_comparison.json";
@@ -10,6 +11,8 @@ import definitionRegistry from "@/data/high-frequency/high_frequency_definition_
 
 const names = { euro: "固定四国欧元组", non_euro: "固定四国非欧元组", difference: "欧元组 − 非欧元组" };
 const colors = { euro: "#2563eb", non_euro: "#c2410c", difference: "#7c3aed" };
+// Line style distinguishes the groups without relying on colour alone.
+const dashes = { euro: undefined, non_euro: "8 4", difference: undefined };
 const outcomes: Record<string,string> = { hicp_price_level: "HICP 价格水平", industrial_production: "工业生产", unemployment: "失业率", long_term_yield: "长期国债收益率" };
 export function PanelLocalProjectionWorkbench() {
   const [selected,setSelected] = useState("hicp_price_level");
@@ -31,11 +34,6 @@ export function PanelLocalProjectionWorkbench() {
   const definitionNote = definitionIndicator ? definitionRegistry.records.find(r => r.indicator === definitionIndicator) : null;
   const modelRows = (fitted?.series ?? []).filter(r => r.shock === shock);
   const joint = modelComparison.joint_inference.evidence;
-  const values = [...rows.flatMap(r => series.flatMap(s => r[`${s}_ci${confidence}`])),...(showModel ? modelRows.flatMap(r => series.map(s => r[`model_${s}`])) : [])];
-  const lower = Math.min(0,...values), upper = Math.max(0,...values);
-  const padding = Math.max(.01,(upper-lower)*.08);
-  const x = (h:number) => 65+690*h/model.eligible_horizon;
-  const y = (v:number) => 315-275*(v-lower+padding)/(upper-lower+2*padding);
   const unit = model.response_unit === "cumulative_percent" ? "累计百分比变化（%）" : "百分点";
   return <section className="mt-6 border-t border-[var(--line)] pt-6">
     <h2 className="text-2xl font-semibold">共同 ECB 冲击：固定两组动态响应</h2>
@@ -45,14 +43,15 @@ export function PanelLocalProjectionWorkbench() {
       <label>点态置信水平<select className="ml-2 border p-2" value={confidence} onChange={e => setConfidence(Number(e.target.value) as 90|95)}><option value="90">90%</option><option value="95">95%</option></select></label>
     </div>
     <div role="group" aria-label="响应图视图" className="mt-5 flex flex-wrap gap-3">{[false,true].map(value => <button type="button" key={String(value)} aria-pressed={difference === value} onClick={() => setDifference(value)} className={`border px-4 py-2 ${difference === value ? "border-[var(--accent)] bg-[var(--accent)] text-white" : "border-[var(--line)]"}`}>{value ? "组间差异" : "两组响应"}</button>)}<button type="button" aria-pressed={showModel} onClick={() => setShowModel(!showModel)} className={`border px-4 py-2 ${showModel ? "border-[var(--accent)] bg-[var(--accent)] text-white" : "border-[var(--line)]"}`}>叠加拟合模型路径（描述性）</button></div>
-    <figure className="mt-5 overflow-x-auto"><svg viewBox="0 0 800 370" className="min-w-[640px] w-full" role="img" aria-label={`${difference ? "组间差异" : "两组响应"}与 ${confidence}% 点态置信区间`}>
-      <title>{`${difference ? "组间响应差异" : "固定两组响应"}：${confidence}% 点态区间`}</title>
-      {[0,1,2,3,4].map(i => {const v=lower-padding+i*(upper-lower+2*padding)/4;return <g key={i}><line x1="65" x2="755" y1={y(v)} y2={y(v)} stroke="currentColor" opacity=".12"/><text x="57" y={y(v)+4} textAnchor="end" fill="currentColor" fontSize="12">{v.toFixed(2)}</text></g>;})}
-      <line x1="65" x2="755" y1={y(0)} y2={y(0)} stroke="currentColor" strokeDasharray="5 4"/>
-      {series.map(s => <g key={s}><polygon fill={colors[s]} opacity=".14" points={[...rows.map(r => `${x(r.horizon)},${y(r[`${s}_ci${confidence}`][0])}`),...[...rows].reverse().map(r => `${x(r.horizon)},${y(r[`${s}_ci${confidence}`][1])}`)].join(" ")}/><polyline fill="none" stroke={colors[s]} strokeWidth="2.5" points={rows.map(r => `${x(r.horizon)},${y(r[`${s}_estimate`])}`).join(" ")}/>{showModel && modelRows.length > 0 && <polyline fill="none" stroke={colors[s]} strokeWidth="2" strokeDasharray="2 4" points={modelRows.map(r => `${x(r.horizon)},${y(r[`model_${s}`])}`).join(" ")}/>}</g>)}
-      {rows.filter(r => r.horizon%6===0).map(r => <text key={r.horizon} x={x(r.horizon)} y="337" textAnchor="middle" fill="currentColor" fontSize="12">{r.horizon}</text>)}
-      <text x="410" y="363" textAnchor="middle" fill="currentColor">冲击后月数</text><text x="65" y="24" fill="currentColor">{unit}</text>
-    </svg><figcaption className="flex flex-wrap gap-4 text-sm">{series.map(s => <span key={s} style={{color:colors[s]}}>━ {names[s]}</span>)}<span>阴影为 {confidence}% 点态区间，虚线为零响应。</span>{showModel && <span>点线为拟合模型的总体投影路径（描述性，无区间）。</span>}</figcaption></figure>
+    <div className="mt-5"><ResearchTimeSeriesChart
+      title={`${difference ? "组间响应差异" : "固定两组响应"}：${confidence}% 点态区间`}
+      series={[
+        ...series.map(s => ({ id: s, label: names[s], color: colors[s], dash: dashes[s], width: 2.5, points: rows.map(r => ({ x: r.horizon, y: r[`${s}_estimate`] })), band: rows.map(r => ({ x: r.horizon, lower: r[`${s}_ci${confidence}`][0], upper: r[`${s}_ci${confidence}`][1] })) })),
+        ...(showModel && modelRows.length > 0 ? series.map(s => ({ id: `model-${s}`, label: `${names[s]}（拟合模型路径）`, color: colors[s], dash: "2 4", width: 2, points: modelRows.map(r => ({ x: r.horizon, y: r[`model_${s}`] })) })) : []),
+      ]}
+      xKind="number" xLabel="冲击后月数" xTickValues={[0, 6, 12, 18, 24].filter(h => h <= model.eligible_horizon)}
+      yLabel={unit} zeroLine includeZero zeroDash="5 4" height={340}
+    /><p className="mt-2 text-sm text-[var(--muted)]">阴影为 {confidence}% 点态区间，虚线为零响应。{difference ? "紫色实线为组间差异（欧元组 − 非欧元组）。" : "蓝色实线为欧元组，橙色长虚线为非欧元组。"}{showModel && <span>点线为拟合模型的总体投影路径（描述性，无区间）。</span>}</p></div>
     <p className="mt-5 text-sm leading-7">联合估计 MP 与 CBI，按月份聚类的 t-LAHR 推断。各期有效月份 {Math.min(...rows.map(r => r.effective_time_clusters))}–{Math.max(...rows.map(r => r.effective_time_clusters))}；面板行数 {Math.min(...rows.map(r => r.panel_rows))}–{Math.max(...rows.map(r => r.panel_rows))}。8 国不等于 8 次独立冲击；面板行数不是独立冲击观测数。</p>
     <p className="mt-3 text-sm leading-7">欧元组：奥地利、德国、斯洛伐克、斯洛文尼亚；非欧元组：捷克、匈牙利、波兰、罗马尼亚。不代表整个地区。克罗地亚因 2023 年制度断点排除，塞尔维亚因覆盖不足排除。仅点态推断；整条路径异质性检验、面板同时置信带、国家对国家正式检验及 IK 小样本修正均未启用。</p>
     {definitionNote && <aside aria-label="数据定义说明" className="mt-4 border-l-2 border-[var(--accent)] pl-4 text-sm leading-7"><h3 className="font-semibold">数据定义说明</h3>{selected === "industrial_production" && <p>波兰工业生产序列在 2021 年从 LEU 统计单位切换到 KAU。官方资料认为部分 aggregate 可能存在轻微断点；当前 formal sample 保留，并将其视为非阻断方法学警示，不宣称完全可比。</p>}{selected === "unemployment" && <p>匈牙利月度失业率从 2023 年采用 state-space 估计方法；Eurostat 已将 2011–2022 历史数据回溯修订，当前 formal sample 按 latest-revised series 解释。</p>}{selected === "long_term_yield" && <p>斯洛文尼亚当前 Eurostat 2025 observations 带 estimated-value flag；这是质量标记，不是定义断点。</p>}</aside>}

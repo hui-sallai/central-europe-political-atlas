@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { ResearchTimeSeriesChart } from "@/components/ResearchTimeSeriesChart";
+import { useState } from "react";
 import results from "@/data/local-projections/lp_results.json";
 import validation from "@/data/local-projections/lp_validation_summary.json";
 import lagSensitivity from "@/data/local-projections/lp_lag_sensitivity_results.json";
@@ -51,17 +52,10 @@ export function LocalProjectionWorkbench({ initialCountry }: { initialCountry?: 
   const support = shockSupport.records.find((row) => row.model_id === model.model_id)!;
   const finite = finiteSample.records.find(row => row.model_id === model.model_id)!;
   const rows = model.horizons.filter((row) => row.horizon <= Math.min(chartHorizon, model.maximum_horizon));
-  const chart = useMemo(() => {
-    const width = 760, height = 280, left = 50, right = 18, top = 18, bottom = 36;
-    const values = rows.flatMap((row) => [...intervalValue(row, component, confidence, uncertainty), responseValue(row, component)]);
-    const extent = Math.max(0.01, ...values.map((value) => Math.abs(value))) * 1.08;
-    const x = (h: number) => left + (h / Math.max(1, rows.at(-1)?.horizon ?? 1)) * (width - left - right);
-    const y = (value: number) => top + ((extent - value) / (2 * extent)) * (height - top - bottom);
-    const upper = rows.map((row) => `${x(row.horizon)},${y(intervalValue(row, component, confidence, uncertainty)[1])}`).join(" ");
-    const lower = rows.toReversed().map((row) => `${x(row.horizon)},${y(intervalValue(row, component, confidence, uncertainty)[0])}`).join(" ");
-    const line = rows.map((row) => `${x(row.horizon)},${y(responseValue(row, component))}`).join(" ");
-    return { width, height, left, right, bottom, x, y, extent, band: `${upper} ${lower}`, line };
-  }, [rows, component, confidence, uncertainty]);
+  const maxHorizon = rows.at(-1)?.horizon ?? 0;
+  const responseUnitLabel = model.response_unit === "cumulative_percent" ? "累计百分比变化（%）" : model.response_unit === "percentage_points" ? "百分点" : "百分比（正值 = 本币贬值）";
+  const shockLabel = component === "mp" ? "MP 冲击（紧缩 +25bp）" : "CBI 冲击（+0.25）";
+  const bandLabel = `${confidence}% ${uncertainty === "pointwise" ? "点态区间" : "联合路径带"}`;
 
   return (
     <section className="editorial-panel p-5">
@@ -78,15 +72,13 @@ export function LocalProjectionWorkbench({ initialCountry }: { initialCountry?: 
         <label className="text-xs font-semibold text-[var(--muted)]">置信水平<select className="field-control mt-2" value={confidence} disabled={uncertainty === "simultaneous"} onChange={(event) => setConfidence(event.target.value as Confidence)}><option value="95">95%</option><option value="90">90%</option></select></label>
         <label className="text-xs font-semibold text-[var(--muted)]">图表 horizon<select className="field-control mt-2" value={chartHorizon} onChange={(event) => setChartHorizon(Number(event.target.value))}>{[6, 12, 18, 24].filter((h) => h <= model.maximum_horizon).map((h) => <option key={h} value={h}>h=0…{h}</option>)}</select></label>
       </div>
-      <div className="mt-6 overflow-x-auto">
-        <svg viewBox={`0 0 ${chart.width} ${chart.height}`} className="min-w-[680px]" role="img" aria-label={`${countryNames[country]} ${outcomeNames[validOutcome]} 本地投影响应与${uncertainty === "pointwise" ? "点态置信区间" : "联合路径置信带"}`}>
-          <line x1={chart.left} x2={chart.width - chart.right} y1={chart.y(0)} y2={chart.y(0)} stroke="var(--foreground)" strokeWidth="1" />
-          <polygon points={chart.band} fill="var(--accent)" opacity="0.15" />
-          <polyline points={chart.line} fill="none" stroke="var(--accent)" strokeWidth="2.5" />
-          {rows.map((row) => <circle key={row.horizon} cx={chart.x(row.horizon)} cy={chart.y(responseValue(row, component))} r="2.5" fill="var(--accent)" />)}
-          {[0, 6, 12, 18, 24].filter((h) => h <= (rows.at(-1)?.horizon ?? 0)).map((h) => <g key={h}><line x1={chart.x(h)} x2={chart.x(h)} y1={chart.height - chart.bottom} y2={chart.height - chart.bottom + 5} stroke="var(--muted)" /><text x={chart.x(h)} y={chart.height - 12} textAnchor="middle" fontSize="11" fill="var(--muted)">{h}</text></g>)}
-          <text x={chart.left - 8} y={chart.y(chart.extent) + 4} textAnchor="end" fontSize="10" fill="var(--muted)">{chart.extent.toFixed(2)}</text><text x={chart.left - 8} y={chart.y(0) + 4} textAnchor="end" fontSize="10" fill="var(--muted)">0</text><text x={chart.left - 8} y={chart.y(-chart.extent) + 4} textAnchor="end" fontSize="10" fill="var(--muted)">{(-chart.extent).toFixed(2)}</text>
-        </svg>
+      <div className="mt-6">
+        <ResearchTimeSeriesChart
+          title={`${countryNames[country]} ${outcomeNames[validOutcome]} 本地投影响应与${uncertainty === "pointwise" ? "点态置信区间" : "联合路径置信带"}`}
+          series={[{ id: "lp", label: `${shockLabel}响应 · ${bandLabel}`, color: "var(--accent)", width: 2.5, markers: true, points: rows.map((row) => ({ x: row.horizon, y: responseValue(row, component) })), band: rows.map((row) => { const [lower, upper] = intervalValue(row, component, confidence, uncertainty); return { x: row.horizon, lower, upper }; }), bandOpacity: 0.15 }]}
+          xKind="number" xLabel="冲击后月数" xTickValues={[0, 6, 12, 18, 24].filter((h) => h <= maxHorizon)}
+          yLabel={responseUnitLabel} zeroLine includeZero height={320}
+        />
       </div>
       <div className="mt-5 flex flex-wrap items-center justify-between gap-3 text-xs text-[var(--muted)]"><p>{model.country_shock_interpretation} · selected base p={model.selected_base_lag_order}, actual LP lag blocks={model.lp_lag_count}, augmentation relative to non-augmented LP=+1 · N={model.horizons[0].effective_n}</p><button type="button" className="rounded-lg border border-[var(--line)] px-3 py-2 font-semibold text-[var(--foreground)]" onClick={() => downloadCsv(rows, component, model.model_id, model.response_unit)}>下载当前响应表 CSV</button></div>
       <div className="mt-5 grid gap-3 md:grid-cols-2 xl:grid-cols-4"><div className="metric-card"><p className="text-xs text-[var(--muted)]">Formal baseline</p><p className="mt-1 font-semibold">AIC p={model.selected_base_lag_order}</p></div><div className="metric-card"><p className="text-xs text-[var(--muted)]">Lag sensitivity</p><p className="mt-1 font-semibold">p=2 / p=6 · N={lagRobustness.comparison_common_sample.effective_n}</p></div><div className="metric-card"><p className="text-xs text-[var(--muted)]">Control sensitivity</p><p className="mt-1 font-semibold">predetermined lags · N={controlRobustness.comparison_common_sample.effective_n}</p></div><div className="metric-card"><p className="text-xs text-[var(--muted)]">Shock support</p><p className="mt-1 font-semibold">MP {support.nonzero_mp_months} / CBI {support.nonzero_cbi_months} nonzero months</p></div></div>
