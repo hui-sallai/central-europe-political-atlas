@@ -110,9 +110,11 @@ export function ResearchTimeSeriesChart({ title, description, series, xKind, xLa
   const sx = (value: number) => MARGIN.left + (xMax === xMin ? plotW / 2 : ((value - xMin) / (xMax - xMin)) * plotW);
   const sy = (value: number) => MARGIN.top + (1 - (value - yLow) / (yHigh - yLow)) * plotH;
   const decimals = tickDecimals(step);
-  const fmtY = formatY ?? ((value: number) => value.toLocaleString("zh-CN", { minimumFractionDigits: decimals, maximumFractionDigits: decimals }));
+  // Same display rule as src/lib/format.ts (true minus sign), inlined because this file must stay import-free.
+  const signed = (value: number, options: Intl.NumberFormatOptions) => { const text = Math.abs(value).toLocaleString("zh-CN", options); return value < 0 && Number(text.replace(/,/g, "")) !== 0 ? `−${text}` : text; };
+  const fmtY = formatY ?? ((value: number) => signed(value, { minimumFractionDigits: decimals, maximumFractionDigits: decimals }));
   // Observed values keep their own precision (tick rounding would show 5.75 as "6").
-  const fmtValue = formatY ?? ((value: number) => value.toLocaleString("zh-CN", { maximumFractionDigits: Math.max(3, decimals) }));
+  const fmtValue = formatY ?? ((value: number) => signed(value, { maximumFractionDigits: Math.max(3, decimals) }));
   const xTicks = xKind === "month"
     ? monthTicks(xMin, xMax, 8)
     : (xTickValues ?? niceTicks(xMin, xMax, 6).ticks.filter((v) => v >= xMin && v <= xMax)).map((value) => ({ value, label: formatX ? formatX(value) : String(value) }));

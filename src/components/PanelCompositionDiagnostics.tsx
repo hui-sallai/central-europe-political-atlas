@@ -19,7 +19,7 @@ export function PanelCompositionDiagnostics({outcome,shock,unit}:{outcome:string
   return <section aria-label="组成与规格敏感性" className="mt-5 border p-4">
     <h3 className="text-xl font-semibold">组成与规格敏感性</h3>
     <p className="mt-3 text-sm">以下为固定研究组成的诊断，不替换正式八国 country-FE 基准；不表示某国的因果贡献。</p>
-    <div role="group" aria-label="敏感性视图" className="mt-4 flex flex-wrap gap-3">{[["composition","组成诊断"],["time_fe","time-FE 规格比较"]].map(([id,label]) => <button key={id} type="button" aria-pressed={view === id} onClick={() => setView(id)} className={`border p-3 ${view === id ? "bg-[var(--accent)] text-white" : ""}`}>{label}</button>)}</div>
+    <div role="group" aria-label="敏感性视图" className="mt-4 flex flex-wrap gap-3">{[["composition","组成诊断"],["time_fe","time-FE 规格比较"]].map(([id,label]) => <button key={id} type="button" aria-pressed={view === id} onClick={() => setView(id)} className={`border p-3 ${view === id ? "bg-[var(--accent)] text-[var(--on-accent)]" : ""}`}>{label}</button>)}</div>
     {view === "composition" ? <>
       <p className="mt-4">最大绝对变化对应：{countryNames[group.most_influential_country]}；变化 {group.maximum_absolute_change.toFixed(3)} {unit}（h={group.horizon_of_maximum_change}）。</p>
       <p className="mt-2">符号一致率 {rate(group.sign_agreement_rate)}；95% 点态区间含零分类一致率 {rate(group.zero_classification_agreement_rate)}。分母为 {group.valid_count} 条有效剔除国家 × 预测期记录；无效 {group.invalid_count} 条。</p>

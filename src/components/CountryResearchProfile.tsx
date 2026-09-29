@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Sparkline } from "@/components/ResearchCharts";
 import type { Country as UiCountry } from "@/lib/data";
 import type { Event, ModelOutput, Observation, Project } from "@/types/researchData";
+import { formatWithUnit } from "@/lib/format";
 
 type CountryTab = "overview" | "economy" | "politics" | "external" | "models";
 
@@ -36,8 +37,7 @@ const indicatorLabels: Record<string, string> = {
 const overviewIndicatorIds = ["gdp_current_eur", "gdp_per_capita_eur", "real_gdp_growth", "hicp_inflation", "unemployment_rate", "government_debt_gdp"];
 
 function formatValue(value: number | null, unit: string) {
-  if (value === null) return "待接入";
-  return `${value.toLocaleString("zh-CN", { maximumFractionDigits: unit.includes("欧元") ? 0 : 1 })} ${unit}`.trim();
+  return formatWithUnit(value, unit, { maximumFractionDigits: unit.includes("欧元") ? 0 : 1 });
 }
 
 function latestByIndicator(observations: Observation[], indicatorId: string) {

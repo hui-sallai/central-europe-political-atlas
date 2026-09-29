@@ -30,7 +30,7 @@ export function SerbiaSorsMonthlyPanel({ basePath }: { basePath: string }) {
         </label>
       </div>
       <div className="mt-4 grid gap-5 lg:grid-cols-[minmax(0,1fr)_280px]">
-        <ResearchTimeSeriesChart title={`塞尔维亚 · ${sorsSeriesLabels[selected.key] ?? selected.label}`} series={[{ id: "sors", label: "SORS 官方序列", color: "#2f6f8f", points: selected.points.map((point) => ({ x: quarterToMonth(point[0]), y: point[1] })) }]} xKind="month" xLabel={quarterly ? "季度（按季末月份绘制）" : "月份"} yLabel={selected.unit ?? ""} latestMarker legend={false} height={260} />
+        <ResearchTimeSeriesChart title={`塞尔维亚 · ${sorsSeriesLabels[selected.key] ?? selected.label}`} series={[{ id: "sors", label: "SORS 官方序列", color: "var(--chart-sors)", points: selected.points.map((point) => ({ x: quarterToMonth(point[0]), y: point[1] })) }]} xKind="month" xLabel={quarterly ? "季度（按季末月份绘制）" : "月份"} yLabel={selected.unit ?? ""} latestMarker legend={false} height={260} />
         <dl className="editorial-panel grid content-start gap-3 p-4 text-sm">
           <div><dt className="text-xs text-[var(--muted)]">覆盖范围</dt><dd className="metric-number font-semibold">{observed[0]?.[0] ?? "—"} → {observed.at(-1)?.[0] ?? "—"}</dd></div>
           <div><dt className="text-xs text-[var(--muted)]">观测数</dt><dd className="metric-number font-semibold">{observed.length}</dd></div>

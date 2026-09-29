@@ -61,9 +61,9 @@ export function RegionHistoryTrend({ regionId, countryId, stored }: { regionId: 
               title={`${indicatorLabels.find(([id]) => id === indicator)?.[1] ?? indicator} 历史趋势`}
               description="实线为当前正式快照；虚线为边界代码稳定、无后续官方断点的可比历史；灰点为不可连成趋势的回溯或断点前数值。"
               series={[
-                { id: "current", label: "当前快照（2021 起）", color: "#a3432f", markers: true, points: current.map((item) => ({ x: item.year, y: item.value })) },
-                ...(comparable.length ? [{ id: "comparable", label: "可比历史", color: "#52616b", dash: "6 4", points: comparable.map((item) => ({ x: item.year, y: item.value })) }] : []),
-                ...(notComparable.length ? [{ id: "not-comparable", label: "不可比（仅数值，不连线）", color: "#a7b0b6", width: 0, markers: true, points: notComparable.map((item) => ({ x: item.year, y: item.value })) }] : []),
+                { id: "current", label: "当前快照（2021 起）", color: "var(--chart-accent)", markers: true, points: current.map((item) => ({ x: item.year, y: item.value })) },
+                ...(comparable.length ? [{ id: "comparable", label: "可比历史", color: "var(--chart-muted)", dash: "6 4", points: comparable.map((item) => ({ x: item.year, y: item.value })) }] : []),
+                ...(notComparable.length ? [{ id: "not-comparable", label: "不可比（仅数值，不连线）", color: "var(--chart-faint)", width: 0, markers: true, points: notComparable.map((item) => ({ x: item.year, y: item.value })) }] : []),
               ]}
               xKind="number" xLabel="年份" yLabel={unit} formatX={(value) => String(Math.round(value))} height={240}
             />

@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PLATFORM_BASE_URL, PLATFORM_NAME, PLATFORM_VERSION } from "@/lib/releaseMetadata";
 import { primaryNavItems } from "@/lib/siteStructure";
+import { Geist_Mono } from "next/font/google";
+import { ThemeToggle, themeBootScript } from "@/components/ThemeToggle";
 import "./globals.css";
+
+// Monospace for codes and identifiers; self-hosted by next/font at build time (fills --font-geist-mono in globals.css).
+const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(PLATFORM_BASE_URL),
@@ -28,10 +33,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN">
+    <html lang="zh-CN" className={geistMono.variable} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
+      </head>
       <body>
         <a href="#main-content" className="skip-link">跳到主要内容</a>
-        <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[rgba(245,243,238,0.94)] backdrop-blur">
+        <header className="site-header sticky top-0 z-50 border-b border-[var(--line)] backdrop-blur">
           <nav className="mx-auto flex max-w-[1240px] flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6" aria-label="主导航">
             <Link href="/" className="editorial-headline text-base font-bold tracking-[-0.01em] text-[var(--foreground)]">
               Central Europe <span className="text-[var(--accent)]">Political Atlas</span>
@@ -43,6 +51,7 @@ export default function RootLayout({
                 </Link>
               ))}
             </div>
+            <ThemeToggle />
           </nav>
         </header>
         <div id="main-content" tabIndex={-1}>{children}</div>

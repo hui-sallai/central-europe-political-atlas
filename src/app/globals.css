@@ -15,6 +15,44 @@
   --line: var(--border);
   --accent-soft: #f0dfda;
   --china-econ: #806d56;
+  /* Theme tokens used by components (charts, maps, CTAs, notices). Dark values are defined below. */
+  --paper: #ffffff;
+  --header-bg: rgba(245, 243, 238, 0.94);
+  --cta-bg: var(--ink);
+  --cta-fg: #ffffff;
+  --on-accent: #ffffff;
+  --notice-bg: #fffbeb;
+  --chart-accent: #a3432f;
+  --chart-muted: #6b7a86;
+  --chart-faint: #a7b0b6;
+  --chart-sors: #2f6f8f;
+  --map-border: #ffffff;
+  --map-neutral: #f7f5ef;
+  --map-country: #cbc8bf;
+  --map-nodata: #e6e7e2;
+  --map-hatch: #b9bcb2;
+  color-scheme: light;
+}
+
+/* Dark theme: follows the system unless the reader picked a theme (html[data-theme], set before first paint).
+   Text contrast on --bg: ink ≈ 14:1, muted ≈ 7.5:1, accent ≈ 6:1; chart strokes ≥ 4.5:1. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111417; --surface: #181c20; --surface-muted: #22272c; --ink: #e8e5de; --muted: #a9b2ba; --accent: #e3897c;
+    --positive: #8cc1a8; --warning: #d8ac62; --border: #313840; --accent-soft: #3b2724; --china-econ: #c2ab8e;
+    --paper: #1b2024; --header-bg: rgba(17, 20, 23, 0.94); --cta-bg: #e8e5de; --cta-fg: #111417; --on-accent: #111417; --notice-bg: #2c2518;
+    --chart-accent: #e3897c; --chart-muted: #9aa7b1; --chart-faint: #6c767e; --chart-sors: #74b6d6;
+    --map-border: #111417; --map-neutral: #252a2f; --map-country: #3a4147; --map-nodata: #2a2f34; --map-hatch: #545c63;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111417; --surface: #181c20; --surface-muted: #22272c; --ink: #e8e5de; --muted: #a9b2ba; --accent: #e3897c;
+  --positive: #8cc1a8; --warning: #d8ac62; --border: #313840; --accent-soft: #3b2724; --china-econ: #c2ab8e;
+  --paper: #1b2024; --header-bg: rgba(17, 20, 23, 0.94); --cta-bg: #e8e5de; --cta-fg: #111417; --on-accent: #111417; --notice-bg: #2c2518;
+  --chart-accent: #e3897c; --chart-muted: #9aa7b1; --chart-faint: #6c767e; --chart-sors: #74b6d6;
+  --map-border: #111417; --map-neutral: #252a2f; --map-country: #3a4147; --map-nodata: #2a2f34; --map-hatch: #545c63;
+  color-scheme: dark;
 }
 
 /* Element defaults live in the base layer so Tailwind utilities (e.g. text-white on a dark CTA link)
@@ -66,14 +104,14 @@
    one hover and one focus treatment. Kept in the components layer so utilities can still adjust layout. */
 @layer components {
   .cta-dark {
-    background: var(--foreground);
-    color: #fff;
+    background: var(--cta-bg);
+    color: var(--cta-fg);
     transition: background-color 150ms ease;
   }
 
   .cta-dark:hover {
-    background: color-mix(in srgb, var(--foreground) 80%, var(--accent));
-    color: #fff;
+    background: color-mix(in srgb, var(--cta-bg) 80%, var(--accent));
+    color: var(--cta-fg);
   }
 
   .cta-dark:focus-visible {
@@ -95,8 +133,8 @@
   z-index: 100;
   transform: translateY(-180%);
   border-radius: 999px;
-  background: var(--foreground);
-  color: white;
+  background: var(--cta-bg);
+  color: var(--cta-fg);
   padding: 0.65rem 1rem;
   font-size: 0.875rem;
   font-weight: 700;
@@ -138,7 +176,7 @@
 }
 
 .editorial-panel {
-  background: color-mix(in srgb, var(--surface) 86%, white);
+  background: color-mix(in srgb, var(--surface) 86%, var(--paper));
   border: 1px solid var(--line);
   border-radius: 10px;
   min-width: 0;
@@ -186,7 +224,7 @@
   width: 100%;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: white;
+  background: var(--paper);
   color: var(--ink);
   padding: 0.7rem 0.8rem;
 }
@@ -232,7 +270,7 @@
   min-height: 150px;
   border: 1px dashed var(--line);
   border-radius: 8px;
-  background: linear-gradient(180deg, white, var(--surface));
+  background: linear-gradient(180deg, var(--paper), var(--surface));
   display: grid;
   place-content: center;
   gap: 0.5rem;
@@ -367,7 +405,7 @@
 .home-country-selector button[aria-pressed="true"] {
   border-color: var(--accent);
   background: var(--accent);
-  color: white;
+  color: var(--on-accent);
 }
 
 .home-country-panel {
@@ -712,7 +750,7 @@
 
 .research-data-table th {
   white-space: nowrap;
-  background: color-mix(in srgb, var(--surface) 88%, white);
+  background: color-mix(in srgb, var(--surface) 88%, var(--paper));
   color: color-mix(in srgb, var(--muted) 88%, var(--foreground));
 }
 
@@ -722,11 +760,11 @@
 }
 
 .research-data-table tbody tr:nth-child(even) td {
-  background: color-mix(in srgb, white 42%, transparent);
+  background: color-mix(in srgb, var(--paper) 42%, transparent);
 }
 
 .research-data-table tbody tr:hover td {
-  background: color-mix(in srgb, var(--accent-soft) 42%, white);
+  background: color-mix(in srgb, var(--accent-soft) 42%, var(--paper));
 }
 
 /* Horizontal-only scrolling for wide tables that do not need a vertical limit. */
@@ -895,7 +933,7 @@
   white-space: nowrap;
   border-radius: 0.5rem;
   border: 1px solid color-mix(in srgb, var(--line) 76%, transparent);
-  background: color-mix(in srgb, var(--surface-muted) 64%, white);
+  background: color-mix(in srgb, var(--surface-muted) 64%, var(--paper));
   padding: 0.24rem 0.55rem;
   text-align: right;
   font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Consolas, monospace;
@@ -925,7 +963,7 @@
   white-space: nowrap;
   border-radius: 0.45rem;
   border: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
-  background: color-mix(in srgb, white 72%, var(--surface-muted));
+  background: color-mix(in srgb, var(--paper) 72%, var(--surface-muted));
   padding: 0.22rem 0.55rem;
   font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Consolas, monospace;
   font-size: 0.72rem;
@@ -1049,7 +1087,7 @@
   justify-content: center;
   border-radius: 999px;
   border: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
-  background: color-mix(in srgb, white 78%, var(--surface-muted));
+  background: color-mix(in srgb, var(--paper) 78%, var(--surface-muted));
   padding: 0.28rem 0.65rem;
   font-size: 0.72rem;
   font-weight: 700;
@@ -1075,8 +1113,8 @@
 
 .v4-comparison-panel {
   background:
-    linear-gradient(180deg, rgba(216, 231, 229, 0.58), rgba(251, 250, 246, 0.92) 18%),
-    rgba(251, 250, 246, 0.9);
+    linear-gradient(180deg, color-mix(in srgb, #d8e7e5 58%, transparent), color-mix(in srgb, var(--surface) 92%, transparent) 18%),
+    color-mix(in srgb, var(--surface) 90%, transparent);
   border-color: color-mix(in srgb, var(--accent) 36%, var(--line));
 }
 
@@ -1085,15 +1123,15 @@
 }
 
 .comparison-above {
-  background: color-mix(in srgb, #e7f1f4 58%, white);
+  background: color-mix(in srgb, #7fb4c4 22%, var(--paper));
 }
 
 .comparison-below {
-  background: color-mix(in srgb, #f5eadb 58%, white);
+  background: color-mix(in srgb, #d9a86a 22%, var(--paper));
 }
 
 .comparison-equal {
-  background: color-mix(in srgb, var(--surface-muted) 50%, white);
+  background: color-mix(in srgb, var(--surface-muted) 50%, var(--paper));
 }
 
 .project-timeline-item {
@@ -1157,4 +1195,50 @@
     padding-left: 1rem;
     padding-right: 1rem;
   }
+}
+
+/* Tabular figures wherever numbers are compared in columns. */
+.research-data-table td,
+.research-data-table th,
+[data-chart] text {
+  font-variant-numeric: tabular-nums;
+}
+
+.site-header {
+  background: var(--header-bg);
+}
+
+/* Dark theme: map light-only utilities and literal-coloured widgets onto tokens. */
+:root[data-theme="dark"] .bg-white { background-color: var(--paper); }
+:root[data-theme="dark"] .bg-amber-50 { background-color: var(--notice-bg); }
+:root[data-theme="dark"] .border-black\/10 { border-color: rgba(255, 255, 255, 0.14); }
+:root[data-theme="dark"] .text-emerald-800,
+:root[data-theme="dark"] .text-emerald-700 { color: var(--positive); }
+:root[data-theme="dark"] .text-amber-800,
+:root[data-theme="dark"] .text-amber-700 { color: var(--warning); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .bg-white { background-color: var(--paper); }
+  :root:not([data-theme="light"]) .bg-amber-50 { background-color: var(--notice-bg); }
+}
+
+/* Print (methodology and country profiles are printed or saved as PDF for citation). */
+@media print {
+  :root, :root[data-theme="dark"] {
+    --bg: #ffffff; --surface: #ffffff; --surface-muted: #f3f3f3; --ink: #000000; --muted: #333333; --border: #bbbbbb; --paper: #ffffff;
+    --chart-accent: #a3432f; --chart-muted: #555555; --chart-faint: #999999; --chart-sors: #2f6f8f;
+    --map-border: #ffffff; --map-neutral: #f7f5ef; --map-country: #cbc8bf; --map-nodata: #e6e7e2; --map-hatch: #b9bcb2;
+    color-scheme: light;
+  }
+  body { background: #ffffff; color: #000000; font-size: 11pt; }
+  .site-header, .skip-link, footer nav, [data-print="hide"], .theme-toggle, button, select, input, .cta-dark { display: none !important; }
+  .page-shell { max-width: none; padding: 0; }
+  .sticky { position: static !important; }
+  a:link, a:visited { color: #000000; text-decoration: underline; }
+  main a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8pt; word-break: break-all; color: #333333; }
+  details > *:not(summary) { display: block; }
+  .editorial-panel, figure, table, .research-chart { break-inside: avoid; }
+  h1, h2, h3 { break-after: avoid; }
+  .data-table-viewport { max-height: none; overflow: visible; }
+  .data-table-desktop { display: block !important; }
+  .data-card-mobile { display: none !important; }
 }

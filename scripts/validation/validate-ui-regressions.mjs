@@ -20,8 +20,30 @@ const outsideBase = css.slice(0, baseStart) + css.slice(css.indexOf("\n}\n", bas
 check(!/(^|\n)\s*a\s*\{[^}]*color\s*:/m.test(outsideBase), "no unlayered `a { color }` rule may override Tailwind utilities");
 check(!/(^|\n)a,\s*\n/.test(outsideBase), "no unlayered anchor selector list outside the base layer");
 const cta = /\.cta-dark\s*\{([^}]*)\}/.exec(css)?.[1] ?? "";
-check(/background:\s*var\(--foreground\)/.test(cta) && /color:\s*#fff/.test(cta), ".cta-dark declares a dark background with white foreground");
-check(/\.cta-dark:hover\s*\{[^}]*color:\s*#fff/.test(css) && /\.cta-dark:focus-visible\s*\{[^}]*outline:/.test(css), ".cta-dark keeps readable hover text and a focus-visible outline");
+check(/background:\s*var\(--cta-bg\)/.test(cta) && /color:\s*var\(--cta-fg\)/.test(cta), ".cta-dark uses the themed CTA background/foreground tokens");
+check(/\.cta-dark:hover\s*\{[^}]*color:\s*var\(--cta-fg\)/.test(css) && /\.cta-dark:focus-visible\s*\{[^}]*outline:/.test(css), ".cta-dark keeps readable hover text and a focus-visible outline");
+
+// --- Themes: WCAG contrast of the light and dark token sets (text ≥ 4.5, CTA/body ≥ 7, chart and map strokes ≥ 3) ---------
+{
+  const tokens = (block) => Object.fromEntries([...block.matchAll(/--([a-z-]+):\s*(#[0-9a-f]{6})/gi)].map((m) => [m[1], m[2]]));
+  const light = tokens(/:root \{([\s\S]*?)\n\}/.exec(css)[1]);
+  const dark = tokens(/:root\[data-theme="dark"\] \{([\s\S]*?)\n\}/.exec(css)[1]);
+  const mediaDark = tokens(/@media \(prefers-color-scheme: dark\) \{\s*:root:not\(\[data-theme="light"\]\) \{([\s\S]*?)\}/.exec(css)[1]);
+  check(JSON.stringify(dark) === JSON.stringify(mediaDark), "system-dark and manual-dark token sets are identical");
+  const lum = (hex) => { const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255).map((c) => (c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4)); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
+  const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((m, n) => n - m); return (x + 0.05) / (y + 0.05); };
+  for (const [name, t] of [["light", light], ["dark", { ...light, ...dark }]]) {
+    const ink = t.ink, bg = t.bg;
+    for (const [fg, back, min] of [[ink, bg, 7], [t.muted, bg, 4.5], [t.accent, bg, 4.5], [ink, t.surface, 7], [t.muted, t.surface, 4.5], [t["cta-fg"] ?? "#ffffff", t["cta-bg"] ?? ink, 7], [t["on-accent"], t.accent, 4.5], [t["chart-accent"], bg, 3], [t["chart-muted"], bg, 3], [t["chart-sors"], bg, 3], [t["map-hatch"], t["map-nodata"], 1.5]]) {
+      check(fg && back && ratio(fg, back) >= min, `${name} theme: contrast ${fg} on ${back} is ${ratio(fg ?? "#000000", back ?? "#000000").toFixed(2)} < ${min}`);
+    }
+  }
+  const layout = read("src/app/layout.tsx");
+  check(layout.includes("themeBootScript") && layout.includes("<ThemeToggle />") && layout.includes("suppressHydrationWarning"), "theme applied before first paint and switchable from the header");
+  check(/Geist_Mono\(\{[^}]*variable: "--font-geist-mono"/.test(layout), "--font-geist-mono is backed by a self-hosted next/font");
+  check(/@media print \{[\s\S]*\.site-header[\s\S]*display: none/.test(css), "print stylesheet hides navigation");
+  for (const file of ["src/components/ComparativeSpatialWorkbench.tsx", "src/components/HomeResearchMap.tsx"]) check(!/stroke=\{?"#(?:fff|ffffff|18222d|f7f5ef)"/.test(read(file)), `${file}: map outlines use theme tokens`);
+}
 check(!/!important/.test(cta), "no !important on CTA colours");
 
 const sourceFiles = [];
@@ -38,6 +60,7 @@ for (const file of sourceFiles) {
   }
 }
 check(ctaCount >= 12, `expected at least 12 dark CTAs, found ${ctaCount}`);
+check(!sourceFiles.some((f) => /bg-\[var\(--(?:accent|foreground)\)\][^"'`]*text-white/.test(read(f))), "no white text on theme-dependent backgrounds (use --on-accent / --cta-fg)");
 
 // --- 2. Tables: vertical viewport, horizontal scroll, sticky header, keyboard access --------------------------
 check(!/\.wide-table-scroll\s*\{[^}]*overflow-y\s*:\s*hidden/.test(css), ".wide-table-scroll must not clip vertical scrolling");

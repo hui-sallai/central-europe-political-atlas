@@ -235,7 +235,7 @@ export function VarWorkbench({ countries, initialCountry }: { countries: Country
               const active = selected.some((entry) => entry.indicator === spec.indicator);
               return (
                 <button key={spec.indicator} type="button" onClick={() => toggleVariable(spec.indicator)}
-                  className={active ? "rounded-full bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-white" : "rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold"}>
+                  className={active ? "rounded-full bg-[var(--cta-bg)] px-4 py-2 text-sm font-semibold text-[var(--cta-fg)]" : "rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold"}>
                   {indicatorLabels[spec.indicator] ?? spec.indicator}
                 </button>
               );

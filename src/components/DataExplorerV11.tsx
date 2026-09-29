@@ -8,6 +8,7 @@ import { ResearchTimeSeriesChart } from "@/components/ResearchTimeSeriesChart";
 import { monthlyHistoryFor, useMonthlyHistory } from "@/components/useMonthlyHistory";
 import { sorsSeriesLabels, useSerbiaSors } from "@/components/useSerbiaSors";
 import { SerbiaSorsMonthlyPanel } from "@/components/SerbiaSorsMonthlyPanel";
+import { formatNumber } from "@/lib/format";
 
 const MOBILE_CARD_LIMIT = 120;
 
@@ -17,7 +18,7 @@ function csvCell(value: unknown) {
 }
 
 function formatValue(value: number | null) {
-  return value === null ? "待接入" : value.toLocaleString("zh-CN", { maximumFractionDigits: 3 });
+  return formatNumber(value);
 }
 
 // high_frequency_runtime.json row layout (schema high-frequency-runtime-v1.31)
@@ -108,7 +109,7 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
       {historySeries.length ? <div className="flex flex-wrap items-center gap-x-5 gap-y-2 border-b border-[var(--line)] py-4 text-sm" data-history-layer="high-frequency"><label className="flex items-center gap-2 font-semibold"><input type="checkbox" checked={includeHistory} onChange={(event) => setIncludeHistory(event.target.checked)} /> 包含历史描述性数据（{historySeries[0][2]} – {historySeries.at(-1)![2]}）</label><span className="text-xs text-[var(--muted)]">历史段仅供描述研究，从定义一致的官方起点开始；正式高频模型基线仍为 2015 年起的冻结序列。</span></div> : monthlyHistory.state === "ready" && formalSeries.length ? <p className="border-b border-[var(--line)] py-3 text-xs text-[var(--muted)]">该国家与指标暂无安全的历史描述性回填（定义断点需方法复核）。</p> : null}
       {loadState === "ready" && series.length ? (
         <div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1fr)_280px]" data-coverage-summary="high-frequency">
-          <ResearchTimeSeriesChart title={`${countryMap.get(countrySlug)?.name_zh ?? countrySlug} · ${hfIndicatorLabels[indicator] ?? indicator}`} series={[{ id: "hf", label: "正式观测（2015 起，模型冻结基线）", color: "#a3432f", points: chartPoints }, ...(historyPoints.length ? [{ id: "history", label: "历史描述性（2000 起，不进入模型）", color: "#6b7a86", dash: "6 4", points: historyPoints }] : [])]} xKind="month" xLabel="月份" legend={historyPoints.length > 0} yLabel={(() => { const unit = series.find((row) => row[4] !== null)?.[6] ?? ""; return hfUnitLabels[unit] ? `${hfUnitLabels[unit]} · ${unit}` : unit; })()} latestMarker height={260} />
+          <ResearchTimeSeriesChart title={`${countryMap.get(countrySlug)?.name_zh ?? countrySlug} · ${hfIndicatorLabels[indicator] ?? indicator}`} series={[{ id: "hf", label: "正式观测（2015 起，模型冻结基线）", color: "var(--chart-accent)", points: chartPoints }, ...(historyPoints.length ? [{ id: "history", label: "历史描述性（2000 起，不进入模型）", color: "var(--chart-muted)", dash: "6 4", points: historyPoints }] : [])]} xKind="month" xLabel="月份" legend={historyPoints.length > 0} yLabel={(() => { const unit = series.find((row) => row[4] !== null)?.[6] ?? ""; return hfUnitLabels[unit] ? `${hfUnitLabels[unit]} · ${unit}` : unit; })()} latestMarker height={260} />
           <dl className="editorial-panel grid content-start gap-3 p-4 text-sm">
             <div><dt className="text-xs text-[var(--muted)]">覆盖范围</dt><dd className="metric-number font-semibold">{coverage.earliest ?? "—"} → {coverage.latest ?? "—"}</dd></div>
             <div><dt className="text-xs text-[var(--muted)]">可用月份</dt><dd className="metric-number font-semibold">{coverage.available}</dd></div>
@@ -271,14 +272,14 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
 
   const displayValue = (item: AnnualRow) => item.value === null && item.layer === "sors" ? "—" : formatValue(item.value);
   const comparabilityNote = (item: AnnualRow) => item.layer === "sors" && item.cross_country_comparable === false ? <span className="mt-1 block text-[10px] text-[var(--muted)]" data-cross-country="false">不可跨国比较（仅作塞尔维亚描述）</span> : null;
-  const layerBadge = (layer: AnnualRow["layer"]) => <span className={layer === "formal" ? "inline-block rounded-full border border-[var(--line)] px-2 py-0.5 text-[10px] font-semibold" : layer === "sors" ? "inline-block rounded-full border border-dotted border-[#2f6f8f] px-2 py-0.5 text-[10px] font-semibold text-[#2f6f8f]" : "inline-block rounded-full border border-dashed border-[var(--muted)] px-2 py-0.5 text-[10px] font-semibold text-[var(--muted)]"} data-layer={layer}>{layerLabels[layer]}</span>;
+  const layerBadge = (layer: AnnualRow["layer"]) => <span className={layer === "formal" ? "inline-block rounded-full border border-[var(--line)] px-2 py-0.5 text-[10px] font-semibold" : layer === "sors" ? "inline-block rounded-full border border-dotted border-[var(--chart-sors)] px-2 py-0.5 text-[10px] font-semibold text-[var(--chart-sors)]" : "inline-block rounded-full border border-dashed border-[var(--muted)] px-2 py-0.5 text-[10px] font-semibold text-[var(--muted)]"} data-layer={layer}>{layerLabels[layer]}</span>;
 
   return (
     <section className="mt-7">
       <div className="flex flex-wrap gap-2" role="tablist" aria-label="数据集选择">
         {([["annual", "年度核心数据"], ["high_frequency", "高频国内数据"], ["macro_drivers", "宏观驱动数据"]] as const).map(([id, label]) => (
           <button key={id} type="button" role="tab" aria-selected={dataset === id} onClick={() => setDataset(id)}
-            className={dataset === id ? "rounded-full bg-[var(--foreground)] px-4 py-2 text-sm font-semibold text-white" : "rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold"}>
+            className={dataset === id ? "rounded-full bg-[var(--cta-bg)] px-4 py-2 text-sm font-semibold text-[var(--cta-fg)]" : "rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold"}>
             {label}
           </button>
         ))}
@@ -321,9 +322,9 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
             title={`${countries.find((c) => c.slug === countrySlug)?.name_zh ?? countrySlug} · ${indicatorName(indicatorId)}`}
             description="年度时间序列；虚线为历史描述性数据，实线为正式观测；缺失年份不连线。"
             series={[
-              { id: "history", label: `${layerLabels.history}`, color: "#6b7a86", dash: "6 4", points: chartRows.filter((item) => item.layer === "history").map((item) => ({ x: item.year, y: item.value })) },
-              { id: "sors", label: `${layerLabels.sors}`, color: "#2f6f8f", dash: "2 3", markers: true, points: chartRows.filter((item) => item.layer === "sors").map((item) => ({ x: item.year, y: item.value })) },
-              { id: "formal", label: `${layerLabels.formal}`, color: "#a3432f", markers: true, points: chartRows.filter((item) => item.layer === "formal").map((item) => ({ x: item.year, y: item.value })) },
+              { id: "history", label: `${layerLabels.history}`, color: "var(--chart-muted)", dash: "6 4", points: chartRows.filter((item) => item.layer === "history").map((item) => ({ x: item.year, y: item.value })) },
+              { id: "sors", label: `${layerLabels.sors}`, color: "var(--chart-sors)", dash: "2 3", markers: true, points: chartRows.filter((item) => item.layer === "sors").map((item) => ({ x: item.year, y: item.value })) },
+              { id: "formal", label: `${layerLabels.formal}`, color: "var(--chart-accent)", markers: true, points: chartRows.filter((item) => item.layer === "formal").map((item) => ({ x: item.year, y: item.value })) },
             ].filter((series) => series.points.length)}
             xKind="number" xLabel="年份" yLabel={selectedCoverage.unit} formatX={(value) => String(Math.round(value))} height={280}
           />

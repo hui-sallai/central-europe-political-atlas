@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { Country } from "@/types/Country";
 import type { MacroDriverDefinition, MacroDriverRuntimeRow } from "@/types/MacroDriver";
 import { monthlyHistoryFor, useMonthlyHistory } from "@/components/useMonthlyHistory";
+import { formatNumber, formatWithUnit } from "@/lib/format";
 
 const roleLabels: Record<string, string> = {
   domestic_policy_driver: "国内政策驱动",
@@ -32,7 +33,7 @@ const identificationLabels: Record<string, string> = {
 
 function signed(value: number | null, suffix = "") {
   if (value === null || !Number.isFinite(value)) return "不可计算";
-  return `${value > 0 ? "+" : ""}${value.toLocaleString("zh-CN", { maximumFractionDigits: 2 })}${suffix}`;
+  return `${value > 0 ? "+" : ""}${formatNumber(value, { maximumFractionDigits: 2 })}${suffix}`;
 }
 
 function shiftPeriod(period: string, lag: number) {
@@ -124,10 +125,10 @@ export function MacroDriverWorkbench({ countries, compact = false, initialCountr
       {loadState === "error" ? <p className="mt-5 border-l-4 border-[var(--warning)] bg-amber-50 px-4 py-3 text-sm">宏观驱动数据暂时无法加载。</p> : null}
       {loadState === "ready" && latest ? <>
         <dl className="mt-5 grid gap-px overflow-hidden border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-4">
-          {[["最新时期", latest[4]], ["最新值", `${latest[5]?.toLocaleString("zh-CN", { maximumFractionDigits: 3 })} ${latest[6]}`], ["环比", selectedTransformation === "level" ? signed(mom, "%") : "当前转换已是变动值"], ["同比", selectedTransformation === "level" ? signed(yoy, "%") : "当前转换已是变动值"]].map(([label, value]) => <div key={label} className="bg-white p-3"><dt className="text-xs text-[var(--muted)]">{label}</dt><dd className="metric-number mt-1 text-sm font-semibold">{value}</dd></div>)}
+          {[["最新时期", latest[4]], ["最新值", formatWithUnit(latest[5], latest[6])], ["环比", selectedTransformation === "level" ? signed(mom, "%") : "当前转换已是变动值"], ["同比", selectedTransformation === "level" ? signed(yoy, "%") : "当前转换已是变动值"]].map(([label, value]) => <div key={label} className="bg-white p-3"><dt className="text-xs text-[var(--muted)]">{label}</dt><dd className="metric-number mt-1 text-sm font-semibold">{value}</dd></div>)}
         </dl>
         {historyPoints.length ? <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm" data-history-layer="macro"><label className="flex items-center gap-2 font-semibold"><input type="checkbox" checked={includeHistory} onChange={(event) => setIncludeHistory(event.target.checked)} /> 包含历史描述性数据（{historyPoints[0].period} – {historyPoints.at(-1)!.period}，{historyPoints.length} 个月）</label><span className="text-xs text-[var(--muted)]">历史段仅供描述研究，从定义一致的官方起点开始；正式模型样本仍为 2015 年起的冻结序列。</span></div> : selectedTransformation === "level" && monthlyHistory.state === "ready" ? <p className="mt-5 text-xs text-[var(--muted)]">该序列暂无安全的历史描述性回填（定义断点或制度切换需方法复核）。</p> : null}
-        <div className="mt-5"><ResearchTimeSeriesChart title={`${definition?.name_zh ?? driverId}：${areas.find(([key]) => key === selectedArea)?.[1] ?? selectedArea} 月度序列（${transformationLabels[selectedTransformation] ?? selectedTransformation}）`} series={[{ id: "driver", label: `${definition?.name_zh ?? driverId} · ${areas.find(([key]) => key === selectedArea)?.[1] ?? selectedArea}（正式观测）`, color: "var(--accent)", points: chartPoints }, ...(shownHistory.length ? [{ id: "history", label: "历史描述性（2000 起，不进入模型）", color: "#6b7a86", dash: "6 4", points: shownHistory.map((point) => ({ x: point.period, y: point.value })) }] : [])]} xKind="month" xLabel="月份" yLabel={`${chartUnit}${chartUnit ? " · " : ""}${transformationLabels[selectedTransformation] ?? selectedTransformation}`} latestMarker height={290} /></div>
+        <div className="mt-5"><ResearchTimeSeriesChart title={`${definition?.name_zh ?? driverId}：${areas.find(([key]) => key === selectedArea)?.[1] ?? selectedArea} 月度序列（${transformationLabels[selectedTransformation] ?? selectedTransformation}）`} series={[{ id: "driver", label: `${definition?.name_zh ?? driverId} · ${areas.find(([key]) => key === selectedArea)?.[1] ?? selectedArea}（正式观测）`, color: "var(--accent)", points: chartPoints }, ...(shownHistory.length ? [{ id: "history", label: "历史描述性（2000 起，不进入模型）", color: "var(--chart-muted)", dash: "6 4", points: shownHistory.map((point) => ({ x: point.period, y: point.value })) }] : [])]} xKind="month" xLabel="月份" yLabel={`${chartUnit}${chartUnit ? " · " : ""}${transformationLabels[selectedTransformation] ?? selectedTransformation}`} latestMarker height={290} /></div>
         <div className="mt-5 grid gap-4 md:grid-cols-2"><div><p className="text-xs font-semibold text-[var(--muted)]">定义与解释</p><p className="mt-2 text-sm leading-7">{definition?.economic_interpretation}</p><p className="mt-2 text-xs leading-6 text-[var(--muted)]">{definition?.limitations}</p></div><div><p className="text-xs font-semibold text-[var(--muted)]">来源与识别状态</p><p className="mt-2 text-sm"><a href={latest[10]} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)] hover:underline">{latest[9]}</a></p><p className="mt-2 text-xs text-[var(--muted)]">角色：{roleLabels[latest[8]] ?? latest[8]} · 识别：{identificationLabels[latest[11]] ?? latest[11]} · {latest[13]}</p></div></div>
         <p className="mt-4 border-l-2 border-[var(--line)] pl-4 text-xs leading-6 text-[var(--muted)]">时间完整性：有效观测 {rows.length}；变换预热 {warmupCount}；源序列缺口阻断 {gapCount}；制度或定义切换排除 {regimeCount}。{warmupCount ? "预热期是计算窗口要求，不是原始数据缺失。" : ""}{sharedSeries ? ` 当前为共同序列（${latest[18]}），适用于多个国家但不是统计独立冲击。` : ""}</p>
         {driverId === "policy_rate" && selectedArea === "croatia" ? <p className="mt-3 border-l-2 border-[var(--accent)] pl-4 text-xs leading-6 text-[var(--muted)]">克罗地亚政策制度：2015–2022 为克罗地亚国家货币政策制度；2023 年起为 ECB 共同政策制度。2023-01 的跨制度月度变化被排除。</p> : null}

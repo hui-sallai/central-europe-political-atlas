@@ -11,6 +11,7 @@ import { buildModelComparison, type ModelComparisonResult } from "@/lib/modelCom
 import { modelCards, modelOutputs } from "@/lib/modelFramework";
 import { platformStatus } from "@/lib/platformStatus";
 import { researchCountries, researchEvents } from "@/lib/researchData";
+import { KickerVersion } from "@/components/KickerVersion";
 
 export const metadata: Metadata = pageMetadata({ title: "分析工作台", description: "分析综合指标、面板计量、宏观驱动、简化式 VAR、已识别 ECB 冲击、Local Projections、事件窗口与贸易网络；支持同年、同单位、同定义的年度指标及综合指数比较。", path: "/models/" });
 
@@ -70,7 +71,7 @@ export default function ModelsPage() {
   return (
     <main className="page-shell">
       <header className="max-w-4xl border-b border-[var(--line)] pb-8">
-        <p className="editorial-kicker">分析工作台 / {platformStatus.version}</p>
+        <p className="editorial-kicker">分析工作台 / <KickerVersion version={platformStatus.version} /></p>
         <h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">分析工作台</h1>
         <p className="mt-5 text-base leading-8 text-[var(--muted)]">在同一入口运行透明综合指标、年度面板估计、贸易网络分析、事件窗口分析、逐国简化式 VAR 与已验证的单国 Local Projections，或切换到指标与综合指数比较。各方法只展示通过其预注册数据、识别、样本和推断门禁的组合；SVAR 与 Bayesian VAR 仍未启用。</p>
         <div className="mt-5 flex flex-wrap gap-3"><Link href="/scenarios" className="rounded-lg cta-dark px-4 py-2 text-sm font-semibold">运行情景分析</Link><Link href="/methodology#models" className="rounded-lg border border-[var(--line)] px-4 py-2 text-sm font-semibold">查看方法说明</Link></div>
