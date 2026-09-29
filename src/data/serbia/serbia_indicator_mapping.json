@@ -751,11 +751,11 @@
    "transformation": "exports − imports after EUR conversion",
    "gate": {
     "equivalent_economic_concept": true,
-    "compatible_unit": false,
+    "compatible_unit": true,
     "compatible_reference_period": true,
     "compatible_geographic_statistical_population": true,
     "documented_methodology_compatibility": true,
-    "cross_country_comparable": false
+    "cross_country_comparable": true
    },
    "facts": {
     "observations": 30,
@@ -768,11 +768,52 @@
     "observations_from_floor": 25,
     "zeros": 0
    },
+   "overlap": {
+    "atlas_indicator": "trade_balance",
+    "comparison": "SORS exports − imports (BIS-converted to EUR) vs existing Eurostat Serbia record",
+    "pairs": [
+     {
+      "year": 2021,
+      "eurostat": -4285.1,
+      "converted": -4285.3,
+      "abs_diff": 0.2
+     },
+     {
+      "year": 2022,
+      "eurostat": -6628.8,
+      "converted": -6630.9,
+      "abs_diff": 2.1
+     },
+     {
+      "year": 2023,
+      "eurostat": -3266,
+      "converted": -3266.9,
+      "abs_diff": 0.9
+     },
+     {
+      "year": 2024,
+      "eurostat": -3794.5,
+      "converted": -3795.7,
+      "abs_diff": 1.2
+     }
+    ],
+    "tolerance": {
+     "rule": "both components pass the 2% relative overlap check"
+    },
+    "failed_years": [],
+    "result": "pass"
+   },
+   "owner_decision": {
+    "date": "2026-09-30",
+    "decision": "reclassified as cross-country comparable after BIS EUR conversion",
+    "condition": "exports and imports both pass the ingestion overlap check against Eurostat",
+    "applies_to": "EUR-normalised values only; original RSD values unchanged; years with withheld conversion stay non-comparable"
+   },
    "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
    "sors_dataset_title": "Gross domestic product by expenditure approach, current and constant prices",
    "sors_dataset_title_sr": "Бруто домаћи производ према расходном приступу, текуће и сталне цене",
    "model_role": "descriptive_only",
-   "cross_country_comparable": false
+   "cross_country_comparable": true
   },
   {
    "atlas_indicator": "goods_trade (Serbia-specific)",

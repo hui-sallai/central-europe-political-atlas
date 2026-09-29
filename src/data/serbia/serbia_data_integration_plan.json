@@ -176,7 +176,7 @@
    "status": "requires_transformation",
    "frequency": "annual",
    "model_role": "descriptive_only",
-   "cross_country_comparable": false,
+   "cross_country_comparable": true,
    "earliest_usable": 2000,
    "expected_new_observations": 25,
    "action": "ingest original values; add documented transformation after the conversion source is approved"
@@ -478,6 +478,7 @@
    "employment_rate (Phase G review queue)",
    "exports_goods_services",
    "imports_goods_services",
+   "trade_balance",
    "manufacturing_share_gdp",
    "bilateral_fx_local_per_eur / policy_rate"
   ],

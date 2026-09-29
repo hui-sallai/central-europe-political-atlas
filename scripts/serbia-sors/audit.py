@@ -298,6 +298,17 @@ for m in mappings:
         m["overlap"] = {"atlas_indicator": m["atlas_indicator"], "comparison": "SORS (BIS-converted to EUR) vs existing Eurostat Serbia record", "pairs": check["pairs"], "tolerance": check["tolerance"], "failed_years": check["failed_years"], "result": check["result"]}
         m["owner_decision"] = {"date": "2026-09-30", "decision": "reclassified as cross-country comparable after BIS EUR conversion", "condition": "converted series pass the ingestion overlap check against Eurostat (2% relative)", "applies_to": "EUR-normalised values only; original RSD values unchanged; years with withheld conversion stay non-comparable"}
 
+# Owner decision 2026-09-30 (second): trade balance (exports − imports after BIS conversion) is cross-country comparable,
+# provided both components pass the overlap check; the balance's own differences to Eurostat are attached as evidence.
+tb = ingested.get("trade_balance_rsd") or {}
+components_pass = all(((ingested.get(k) or {}).get("overlap_check") or {}).get("result") == "pass" for k in ("exports_goods_services_rsd", "imports_goods_services_rsd"))
+for m in mappings:
+    if m["atlas_indicator"] == "trade_balance" and components_pass and (tb.get("overlap_check") or {}).get("pairs"):
+        pairs = [{**p, "abs_diff": round(abs(p["converted"] - p["eurostat"]), 1)} for p in tb["overlap_check"]["pairs"]]
+        m["gate"] = {**m["gate"], "compatible_unit": True, "cross_country_comparable": all(v for k, v in m["gate"].items() if k not in ("cross_country_comparable", "compatible_unit"))}
+        m["overlap"] = {"atlas_indicator": "trade_balance", "comparison": "SORS exports − imports (BIS-converted to EUR) vs existing Eurostat Serbia record", "pairs": pairs, "tolerance": {"rule": "both components pass the 2% relative overlap check"}, "failed_years": [], "result": "pass"}
+        m["owner_decision"] = {"date": "2026-09-30", "decision": "reclassified as cross-country comparable after BIS EUR conversion", "condition": "exports and imports both pass the ingestion overlap check against Eurostat", "applies_to": "EUR-normalised values only; original RSD values unchanged; years with withheld conversion stay non-comparable"}
+
 for m in mappings + regional:
     ds = (m.get("sors_dataset") or "").split(" ")[0]
     m["source_institution"] = "Statistical Office of the Republic of Serbia (SORS / RZS)" if m.get("sors_dataset") else ("National Bank of Serbia" if "NBS" in (m.get("note") or "") or "National Bank" in (m.get("note") or "") else "Ministry of Finance of the Republic of Serbia")

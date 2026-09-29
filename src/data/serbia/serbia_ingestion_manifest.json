@@ -1158,7 +1158,7 @@
    "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/09020104IND01/3/json",
    "mapping": "trade_balance",
    "mapping_status": "requires_transformation",
-   "cross_country_comparable": false,
+   "cross_country_comparable": true,
    "model_role": "descriptive_only",
    "ingested": 25,
    "overlap_check": {
