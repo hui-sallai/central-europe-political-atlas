@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { ScenarioPresetWorkbench } from "@/components/ScenarioPresetWorkbench";
 import { modelCards, modelOutputs } from "@/lib/modelFramework";
@@ -7,10 +8,7 @@ import { researchCountries } from "@/lib/researchData";
 import { scenarioDefinitions } from "@/lib/scenarioFramework";
 import { scenarioEvidenceLinks, scenarioRegionalContexts } from "@/lib/scenarioResearch";
 
-export const metadata: Metadata = {
-  title: "情景预设",
-  description: "在透明分析方法上运行条件式冲击预设，并比较基线、结果、传导与证据。",
-};
+export const metadata: Metadata = pageMetadata({ title: "情景预设", description: "在透明分析方法上运行条件式冲击预设，并比较基线、结果、传导与证据。", path: "/scenarios/" });
 
 export default function ScenariosPage() {
   return (

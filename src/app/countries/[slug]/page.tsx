@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { CountryResearchProfile } from "@/components/CountryResearchProfile";
 import { getCountry } from "@/lib/data";
 import { getCountryObservations, getEventsForCountry, getProjectsForCountry, getResearchCountryBySlug, researchCountries } from "@/lib/researchData";
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: CountryPageProps): Promise<Me
   const { slug } = await params;
   const country = getResearchCountryBySlug(slug);
   return country
-    ? { title: `${country.name_zh}国家研究档案`, description: `${country.name_zh}宏观数据、透明模型、区域事实、对华项目与事件研究入口。` }
+    ? pageMetadata({ title: `${country.name_zh}国家研究档案`, description: `${country.name_zh}宏观数据、透明模型、区域事实、对华项目与事件研究入口。`, path: `/countries/${country.slug}/`, image: `/og/countries/${country.slug}.png`, imageAlt: `${country.name} — country research profile` })
     : { title: "国家档案" };
 }
 

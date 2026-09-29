@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { datasetJsonLd, pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { runtimeAnalysisSkills } from "@/lib/analysisSkills";
 import { AnalysisSkillCard } from "@/components/AnalysisSkillCard";
@@ -16,7 +17,7 @@ import selectionBootstrapSummary from "@/data/macro/var_selection_bootstrap_cali
 import layerBDecomposition from "@/data/macro/var_residual_diagnostic_layerB_selection_decomposition.json";
 import { getResearchPackageFilename, platformApaCitation, platformBibtexCitation, platformCitation } from "@/lib/releaseMetadata";
 
-export const metadata: Metadata = { title: "研究方法", description: "数据、模型、事件、空间、验证和引用规则。" };
+export const metadata: Metadata = pageMetadata({ title: "研究方法", description: "数据、模型、事件、空间、验证和引用规则。", path: "/methodology/" });
 
 const pct = (value: number, digits = 2) => `${(value * 100).toFixed(digits)}%`;
 const layerBByLag = layerBDecomposition.layer_B_by_true_lag;
@@ -46,6 +47,7 @@ function Section({ id, label, title, children }: { id: string; label: string; ti
 export default function MethodologyPage() {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   return <main className="page-shell">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetJsonLd({ path: "/methodology/", name: "Central Europe Political Atlas — research data and methodology", description: "Data definitions, analysis methods, inference boundaries, validation and citation rules for the Central Europe Political Atlas research package." })).replace(/</g, "\\u003c") }} />
     <header className="max-w-4xl border-b border-[var(--line)] pb-8"><p className="editorial-kicker">Research / {platformStatus.version}</p><h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">研究方法与边界</h1><p className="mt-5 text-base leading-8 text-[var(--muted)]">本页说明公开研究流程和不能说明什么。完整字典、QA、版本记录与技术字段保留在研究数据包，不再占据主要页面。</p><nav className="mt-5 flex flex-wrap gap-3">{sections.map(([id, label]) => <a key={id} href={`#${id}`} className="text-sm font-semibold text-[var(--accent)]">{label}</a>)}</nav></header>
 
     <Section id="data" label="01 / Data" title="数据如何进入平台"><p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">每条正式观测必须有国家或地区、时间、数值、单位、来源名称、来源链接、可靠性、状态和更新时间。official / verified 可进入相应事实层；pending 保留但不参与比较；sample 与 placeholder 不进入分析。A 级为官方统计或机构，B 级为可核验权威来源，C 级只作线索，D 级排除。</p><p className="mt-3 text-sm leading-7 text-[var(--muted)]">跨国比较只使用同定义、同单位、同层级和共同年份。计算值必须保留分子、分母、公式和来源。</p><Link href="/data" className="mt-4 inline-flex text-sm font-semibold text-[var(--accent)]">打开 Data Explorer</Link></Section>

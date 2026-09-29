@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import hicp from "@/data/historical-extension-audit/historical_hicp_extension_audit.json";
 import ipi from "@/data/historical-extension-audit/historical_ipi_extension_audit.json";
@@ -8,10 +9,7 @@ import baselineDefinition from "@/data/historical-extension-audit/baseline_defin
 import conclusion from "@/data/historical-extension-audit/historical_extension_research_conclusion.json";
 import { getResearchPackageFilename, PLATFORM_VERSION } from "@/lib/releaseMetadata";
 
-export const metadata: Metadata = {
-  title: "历史月度数据延伸审计",
-  description: "八国四指标的历史可用性、定义可比性和信息支持审计；尚未启用历史 Panel LP。",
-};
+export const metadata: Metadata = pageMetadata({ title: "历史月度数据延伸审计", description: "八国四指标的历史可用性、定义可比性和信息支持审计；尚未启用历史 Panel LP。", path: "/historical-extension/" });
 
 const outcomes = [
   { label: "HICP 价格指数", records: hicp.records },

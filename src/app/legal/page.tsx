@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { PLATFORM_CONTACT_EMAIL, PLATFORM_LEGAL_NOTICE_UPDATED, PLATFORM_NAME } from "@/lib/releaseMetadata";
 
-export const metadata: Metadata = {
-  title: "法律、版权与更正说明",
-  description: "平台独立性、研究边界、第三方数据许可、版权、地图署名和更正撤下机制。",
-  alternates: { canonical: "/legal/" },
-};
+export const metadata: Metadata = pageMetadata({ title: "法律、版权与更正说明", description: "平台独立性、研究边界、第三方数据许可、版权、地图署名和更正撤下机制。", path: "/legal/" });
 
 const sections = [
   [

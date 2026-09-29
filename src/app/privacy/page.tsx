@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { PLATFORM_CONTACT_EMAIL, PLATFORM_LEGAL_NOTICE_UPDATED } from "@/lib/releaseMetadata";
 
-export const metadata: Metadata = {
-  title: "隐私说明",
-  description: "平台的数据最小化、托管日志、联系邮件和外部链接隐私说明。",
-  alternates: { canonical: "/privacy/" },
-};
+export const metadata: Metadata = pageMetadata({ title: "隐私说明", description: "平台的数据最小化、托管日志、联系邮件和外部链接隐私说明。", path: "/privacy/" });
 
 export default function PrivacyPage() {
   return (

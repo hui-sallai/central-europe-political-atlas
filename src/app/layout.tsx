@@ -11,14 +11,15 @@ export const metadata: Metadata = {
     template: `%s | ${PLATFORM_NAME}`,
   },
   description: "面向十个中欧国家的政治经济数据、区域事实比较、透明模型与条件式情景分析平台。",
-  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     siteName: PLATFORM_NAME,
     title: `${PLATFORM_NAME} | 中欧政治经济研究平台`,
     description: "Political economy data, spatial comparison and transparent scenario analysis across ten Central European countries.",
     url: PLATFORM_BASE_URL,
+    images: [{ url: "/og/site.png", width: 1200, height: 630, alt: PLATFORM_NAME, type: "image/png" }],
   },
+  twitter: { card: "summary_large_image", images: ["/og/site.png"] },
 };
 
 export default function RootLayout({

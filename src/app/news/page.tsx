@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { NewsExplorer } from "@/components/NewsExplorer";
 import { platformStatus } from "@/lib/platformStatus";
 
-export const metadata: Metadata = {
-  title: "政治经济事件库",
-  description: "经核验事件、编码字段、相关指标、项目和情景解释链。",
-};
+export const metadata: Metadata = pageMetadata({ title: "政治经济事件库", description: "经核验事件、编码字段、相关指标、项目和情景解释链。", path: "/news/" });
 
 export default function NewsPage() {
   return (

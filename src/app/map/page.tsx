@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { ComparativeSpatialWorkbench } from "@/components/ComparativeSpatialWorkbench";
 import { mapDisplayBoundary, platformStatus } from "@/lib/platformStatus";
 import {
@@ -11,10 +12,7 @@ import {
   spatialV089Summary,
 } from "@/lib/spatialResearchV089";
 
-export const metadata: Metadata = {
-  title: "区域事实地图",
-  description: "九国区域事实比较、历史变化、项目位置和来源追溯工作台。",
-};
+export const metadata: Metadata = pageMetadata({ title: "区域事实地图", description: "九国区域事实比较、历史变化、项目位置和来源追溯工作台。", path: "/map/" });
 
 export default function MapPage() {
   return (

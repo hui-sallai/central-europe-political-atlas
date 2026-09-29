@@ -27,3 +27,6 @@ dev-server*.log
 .tmp-jk-author-v162/
 __pycache__/
 *.py[cod]
+
+# generated share images (scripts/build-og-images.mjs)
+public/og/

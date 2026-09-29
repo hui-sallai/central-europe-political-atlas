@@ -1,14 +1,12 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { HomeResearchMap, type HomeMapCountry } from "@/components/HomeResearchMap";
 import { getBasicIndicators } from "@/lib/basicIndicators";
 import { platformStatus } from "@/lib/platformStatus";
 import { getEventsForCountry, researchCountries, researchEvents } from "@/lib/researchData";
 
-export const metadata: Metadata = {
-  title: "中欧政治经济研究平台",
-  description: "十国政治经济数据、区域事实地图、透明分析与事件研究入口。",
-};
+export const metadata: Metadata = pageMetadata({ title: "中欧政治经济研究平台", description: "十国政治经济数据、区域事实地图、透明分析与事件研究入口。", path: "/" });
 
 const primaryEntries = [
   { href: "/countries", label: "Countries", zh: "国家研究" },

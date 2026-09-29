@@ -1,13 +1,11 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { modelOutputs } from "@/lib/modelFramework";
 import { getLatestObservation, researchCountries, researchEvents, researchProjects } from "@/lib/researchData";
 import { regionalCoverageMatrixV087 } from "@/lib/spatialDataV087";
 
-export const metadata: Metadata = {
-  title: "国家研究目录",
-  description: "十国经济、政治事件、项目、模型与区域地图入口。",
-};
+export const metadata: Metadata = pageMetadata({ title: "国家研究目录", description: "十国经济、政治事件、项目、模型与区域地图入口。", path: "/countries/" });
 
 const coreIndicators = [
   ["real_gdp_growth", "GDP 增长"],
