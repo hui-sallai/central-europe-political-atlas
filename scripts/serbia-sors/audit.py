@@ -285,6 +285,19 @@ regional[1]["expected_new_observations"] = regional_count("180304IND02", {})
 regional[3]["expected_new_observations"] = regional_count("240003020304IND01", {"IDPol": "0", "IDStarGrupa": "15-74"}) + regional_count("2400020102IND04", {"IDPol": "0", "IDStarGrupa": "15"})
 regional[4]["expected_new_observations"] = regional_count("240003020205IND01", {"IDPol": "0", "IDStarGrupa": "20-64"}) + regional_count("2400020102IND02", {"IDPol": "0", "IDStarGrupa": "15"})
 
+# Owner decision 2026-09-30: after BIS EUR conversion, GDP, exports and imports are cross-country comparable, provided
+# the converted series still pass the ingestion overlap check against the Eurostat Serbia records.
+OWNER_EUR_COMPARABILITY = {"gdp_current_eur": "gdp_current_rsd", "exports_goods_services": "exports_goods_services_rsd", "imports_goods_services": "imports_goods_services_rsd"}
+ingestion_manifest_path = os.path.join(OUT, "serbia_ingestion_manifest.json")
+ingested = {x["series"]: x for x in json.load(open(ingestion_manifest_path))["series"]} if os.path.exists(ingestion_manifest_path) else {}
+for m in mappings:
+    series_key = OWNER_EUR_COMPARABILITY.get(m["atlas_indicator"])
+    check = (ingested.get(series_key) or {}).get("overlap_check") or {}
+    if series_key and check.get("result") == "pass":
+        m["gate"] = {**m["gate"], "compatible_unit": True, "cross_country_comparable": all(v for k, v in m["gate"].items() if k != "cross_country_comparable" and k != "compatible_unit")}
+        m["overlap"] = {"atlas_indicator": m["atlas_indicator"], "comparison": "SORS (BIS-converted to EUR) vs existing Eurostat Serbia record", "pairs": check["pairs"], "tolerance": check["tolerance"], "failed_years": check["failed_years"], "result": check["result"]}
+        m["owner_decision"] = {"date": "2026-09-30", "decision": "reclassified as cross-country comparable after BIS EUR conversion", "condition": "converted series pass the ingestion overlap check against Eurostat (2% relative)", "applies_to": "EUR-normalised values only; original RSD values unchanged; years with withheld conversion stay non-comparable"}
+
 for m in mappings + regional:
     ds = (m.get("sors_dataset") or "").split(" ")[0]
     m["source_institution"] = "Statistical Office of the Republic of Serbia (SORS / RZS)" if m.get("sors_dataset") else ("National Bank of Serbia" if "NBS" in (m.get("note") or "") or "National Bank" in (m.get("note") or "") else "Ministry of Finance of the Republic of Serbia")

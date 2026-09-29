@@ -24,11 +24,11 @@
    "transformation": "RSD → EUR at the annual average EUR/RSD rate (NBS official middle rate, or the BIS-derived RSD per EUR already in the Atlas); record rate source and value",
    "gate": {
     "equivalent_economic_concept": true,
-    "compatible_unit": false,
+    "compatible_unit": true,
     "compatible_reference_period": true,
     "compatible_geographic_statistical_population": true,
     "documented_methodology_compatibility": true,
-    "cross_country_comparable": false
+    "cross_country_comparable": true
    },
    "facts": {
     "observations": 30,
@@ -42,11 +42,53 @@
     "zeros": 0
    },
    "note": "ESA 2010 expenditure-approach GDP; Eurostat's Serbia GDP is transmitted by SORS, so concept matches once converted to EUR.",
+   "overlap": {
+    "atlas_indicator": "gdp_current_eur",
+    "comparison": "SORS (BIS-converted to EUR) vs existing Eurostat Serbia record",
+    "pairs": [
+     {
+      "year": 2021,
+      "eurostat": 55931.3,
+      "converted": 55932.6,
+      "rel_diff_pct": 0
+     },
+     {
+      "year": 2022,
+      "eurostat": 63512.8,
+      "converted": 63533.3,
+      "rel_diff_pct": 0.03
+     },
+     {
+      "year": 2023,
+      "eurostat": 75205.2,
+      "converted": 75225.7,
+      "rel_diff_pct": 0.03
+     },
+     {
+      "year": 2024,
+      "eurostat": 83257.9,
+      "converted": 83284.8,
+      "rel_diff_pct": 0.03
+     }
+    ],
+    "tolerance": {
+     "relative": 0.02,
+     "absolute": 0
+    },
+    "failed_years": [],
+    "result": "pass"
+   },
+   "owner_decision": {
+    "date": "2026-09-30",
+    "decision": "reclassified as cross-country comparable after BIS EUR conversion",
+    "condition": "converted series pass the ingestion overlap check against Eurostat (2% relative)",
+    "applies_to": "EUR-normalised values only; original RSD values unchanged; years with withheld conversion stay non-comparable"
+   },
    "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
    "sors_dataset_title": "Gross domestic product by expenditure approach, current and constant prices",
    "sors_dataset_title_sr": "Бруто домаћи производ према расходном приступу, текуће и сталне цене",
    "model_role": "descriptive_only",
-   "cross_country_comparable": false
+   "cross_country_comparable": true
   },
   {
    "atlas_indicator": "real_gdp_growth",
@@ -551,11 +593,11 @@
    "transformation": "RSD → EUR at the annual average rate",
    "gate": {
     "equivalent_economic_concept": true,
-    "compatible_unit": false,
+    "compatible_unit": true,
     "compatible_reference_period": true,
     "compatible_geographic_statistical_population": true,
     "documented_methodology_compatibility": true,
-    "cross_country_comparable": false
+    "cross_country_comparable": true
    },
    "facts": {
     "observations": 30,
@@ -569,11 +611,53 @@
     "zeros": 0
    },
    "note": "National-accounts exports of goods and services (same concept as Eurostat nama_10_gdp P6).",
+   "overlap": {
+    "atlas_indicator": "exports_goods_services",
+    "comparison": "SORS (BIS-converted to EUR) vs existing Eurostat Serbia record",
+    "pairs": [
+     {
+      "year": 2021,
+      "eurostat": 29274.7,
+      "converted": 29275.3,
+      "rel_diff_pct": 0
+     },
+     {
+      "year": 2022,
+      "eurostat": 38576.5,
+      "converted": 38588.9,
+      "rel_diff_pct": 0.03
+     },
+     {
+      "year": 2023,
+      "eurostat": 41419,
+      "converted": 41430.2,
+      "rel_diff_pct": 0.03
+     },
+     {
+      "year": 2024,
+      "eurostat": 44612.7,
+      "converted": 44627.1,
+      "rel_diff_pct": 0.03
+     }
+    ],
+    "tolerance": {
+     "relative": 0.02,
+     "absolute": 0
+    },
+    "failed_years": [],
+    "result": "pass"
+   },
+   "owner_decision": {
+    "date": "2026-09-30",
+    "decision": "reclassified as cross-country comparable after BIS EUR conversion",
+    "condition": "converted series pass the ingestion overlap check against Eurostat (2% relative)",
+    "applies_to": "EUR-normalised values only; original RSD values unchanged; years with withheld conversion stay non-comparable"
+   },
    "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
    "sors_dataset_title": "Gross domestic product by expenditure approach, current and constant prices",
    "sors_dataset_title_sr": "Бруто домаћи производ према расходном приступу, текуће и сталне цене",
    "model_role": "descriptive_only",
-   "cross_country_comparable": false
+   "cross_country_comparable": true
   },
   {
    "atlas_indicator": "imports_goods_services",
@@ -588,11 +672,11 @@
    "transformation": "RSD → EUR at the annual average rate",
    "gate": {
     "equivalent_economic_concept": true,
-    "compatible_unit": false,
+    "compatible_unit": true,
     "compatible_reference_period": true,
     "compatible_geographic_statistical_population": true,
     "documented_methodology_compatibility": true,
-    "cross_country_comparable": false
+    "cross_country_comparable": true
    },
    "facts": {
     "observations": 30,
@@ -606,11 +690,53 @@
     "zeros": 0
    },
    "note": "National-accounts imports of goods and services (P7).",
+   "overlap": {
+    "atlas_indicator": "imports_goods_services",
+    "comparison": "SORS (BIS-converted to EUR) vs existing Eurostat Serbia record",
+    "pairs": [
+     {
+      "year": 2021,
+      "eurostat": 33559.8,
+      "converted": 33560.6,
+      "rel_diff_pct": 0
+     },
+     {
+      "year": 2022,
+      "eurostat": 45205.3,
+      "converted": 45219.9,
+      "rel_diff_pct": 0.03
+     },
+     {
+      "year": 2023,
+      "eurostat": 44685,
+      "converted": 44697.2,
+      "rel_diff_pct": 0.03
+     },
+     {
+      "year": 2024,
+      "eurostat": 48407.2,
+      "converted": 48422.8,
+      "rel_diff_pct": 0.03
+     }
+    ],
+    "tolerance": {
+     "relative": 0.02,
+     "absolute": 0
+    },
+    "failed_years": [],
+    "result": "pass"
+   },
+   "owner_decision": {
+    "date": "2026-09-30",
+    "decision": "reclassified as cross-country comparable after BIS EUR conversion",
+    "condition": "converted series pass the ingestion overlap check against Eurostat (2% relative)",
+    "applies_to": "EUR-normalised values only; original RSD values unchanged; years with withheld conversion stay non-comparable"
+   },
    "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
    "sors_dataset_title": "Gross domestic product by expenditure approach, current and constant prices",
    "sors_dataset_title_sr": "Бруто домаћи производ према расходном приступу, текуће и сталне цене",
    "model_role": "descriptive_only",
-   "cross_country_comparable": false
+   "cross_country_comparable": true
   },
   {
    "atlas_indicator": "trade_balance",

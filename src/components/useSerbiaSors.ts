@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 // Serbia official statistics (SORS) runtime (serbia_sors_runtime.json). Serbia-only descriptive series, shown as their
 // own labelled layer; `cross_country_comparable` comes from the audited mapping and gates any cross-country use.
-export type SorsPoint = [period: string, normalized: number | null, original: number, status: string, comparable: 0 | 1];
+export type SorsPoint = [period: string, normalized: number | null, original: number, status: string, comparable: 0 | 1, crossCountry: 0 | 1];
 export type SorsSeries = { key: string; store: "annual" | "monthly"; display_indicator: string; label: string; dataset: string; source_url: string; mapping_status: string; cross_country_comparable: boolean; model_role: string; unit: string | null; original_unit: string | null; status_legend: Record<string, string>; points: SorsPoint[] };
 
 export const sorsSeriesLabels: Record<string, string> = {

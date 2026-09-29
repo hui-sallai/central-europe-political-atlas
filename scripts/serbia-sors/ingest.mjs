@@ -189,7 +189,7 @@ export async function build(options = {}) {
           original_value: r.vrednost, original_unit: spec.unit, normalized_value: spec.toEur ? (eur === null ? null : Number(eur.toFixed(4))) : r.vrednost, normalized_unit: spec.toEur ? spec.unit.replace("RSD", "EUR") : spec.unit,
           ...(spec.toEur ? { transformation: withheld ? { method: "EUR conversion withheld", reason: `BIS RSD per EUR moves ${fxSteps.filter((x) => Number(x.month.slice(0, 4)) === Number(r.god)).map((x) => `${x.change_pct.toFixed(0)}% in ${x.month}`).join(", ")}; a calendar-year average rate is not meaningful` } : { method: "divide by calendar-year average RSD per EUR (BIS)", rate: Number(rsdPerEur[Number(r.god)].toFixed(6)) } } : {}),
           sors_status: r.IDStatusPodatka, comparability_status: lastStart && period < lastStart ? "before_series_break" : "comparable_within_segment", ...(lastStart ? { segment_start: lastStart } : {}),
-          cross_country_comparable: map.cross_country_comparable, source_ref: seriesInfo.length,
+          cross_country_comparable: map.cross_country_comparable && !withheld, source_ref: seriesInfo.length,
         };
         if (spec.regional) { if (!levelOf.has(territory)) municipalities.add(territory); territoryNames[territory] = r.nTer; Object.assign(record, { classification_version: CLASSIFICATION, source_year: sourceYear(extracts[spec.dataset]), observation_year: Number(r.god) }); }
         statusLegend[r.IDStatusPodatka] = r.nStatusPodatka;

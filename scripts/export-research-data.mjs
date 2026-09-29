@@ -2168,7 +2168,7 @@ fs.copyFileSync(path.join(canonicalDataDir, "historical-extension-audit", "histo
       const recs = doc.records.filter((r) => r.source_ref === src.source_ref);
       runtime.series.push({ key: src.series, store, display_indicator: displayAs[src.series] ?? src.series, label: src.label, dataset: src.source_dataset, source_url: src.source_url, mapping_status: src.mapping_status, cross_country_comparable: src.cross_country_comparable, model_role: src.model_role,
         unit: recs[0]?.normalized_unit ?? null, original_unit: recs[0]?.original_unit ?? null, status_legend: doc.sors_status_legend,
-        points: recs.map((r) => [r.period, r.normalized_value, r.original_value, r.sors_status, r.comparability_status === "comparable_within_segment" ? 1 : 0]) });
+        points: recs.map((r) => [r.period, r.normalized_value, r.original_value, r.sors_status, r.comparability_status === "comparable_within_segment" ? 1 : 0, r.cross_country_comparable ? 1 : 0]) });
     }
   }
   fs.writeFileSync(path.join(outDir, "serbia_sors_runtime.json"), JSON.stringify(runtime) + "\n");

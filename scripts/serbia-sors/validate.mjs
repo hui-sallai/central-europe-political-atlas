@@ -57,7 +57,8 @@ for (const [k, doc] of Object.entries(stores)) {
     const m = src && allowedMappings.get(src.mapping);
     check(src && m && src.source_institution && src.source_dataset && src.source_url && src.original_code !== undefined, `${r.id}: provenance resolves to an audited mapping`);
     check(!["requires_methodological_review", "not_comparable"].includes(m.status), `${r.id}: mapping status ${m.status} is not approved for ingestion`);
-    check(r.cross_country_comparable === m.cross_country_comparable, `${r.id}: cross_country_comparable must follow the audited mapping`);
+    const withheld = /withheld/.test(r.transformation?.method ?? "");
+    check(r.cross_country_comparable === (m.cross_country_comparable && !withheld), `${r.id}: cross_country_comparable must follow the audited mapping (false where EUR conversion is withheld)`);
     check(!ids.has(r.id), `${r.id}: duplicate`); ids.add(r.id);
     check(typeof r.original_value === "number" && Number.isFinite(r.original_value), `${r.id}: original value present (SORS missing statuses stay absent)`);
     check(!["O", "M", "L"].includes(r.sors_status) && doc.sors_status_legend[String(r.sors_status).split("/")[0]], `${r.id}: SORS status kept and never a missing-value code`);
