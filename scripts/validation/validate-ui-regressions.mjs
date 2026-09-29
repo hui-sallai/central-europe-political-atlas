@@ -61,6 +61,7 @@ for (const file of sourceFiles) {
 }
 check(ctaCount >= 12, `expected at least 12 dark CTAs, found ${ctaCount}`);
 check(!sourceFiles.some((f) => /bg-\[var\(--(?:accent|foreground)\)\][^"'`]*text-white/.test(read(f))), "no white text on theme-dependent backgrounds (use --on-accent / --cta-fg)");
+check(/\[class\*="bg-white\/"\]/.test(css), "translucent bg-white/NN utilities are themed in dark mode");
 
 // --- 2. Tables: vertical viewport, horizontal scroll, sticky header, keyboard access --------------------------
 check(!/\.wide-table-scroll\s*\{[^}]*overflow-y\s*:\s*hidden/.test(css), ".wide-table-scroll must not clip vertical scrolling");

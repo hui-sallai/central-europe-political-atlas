@@ -27,13 +27,13 @@ https://hy-central-europe-analysis.org via `.github/workflows/deploy-pages.yml` 
 |---|---|
 | Dev server (http://localhost:3000) | `pnpm dev` |
 | Site-only build (fast, no validators) | `pnpm build:site` |
-| Full release build | `pnpm build` — secret scan + ~35 validators + export + `next build` + UI/release checks; several minutes, needs the Python venv |
+| Full release build | `pnpm build` — secret scan + ~35 validators + export + `next build` + UI/SEO/release checks; about 20 s on a warm cache (longer cold), needs the Python venv |
 | Lint / types | `pnpm lint` · `pnpm typecheck` |
 | Release checks on `out/` | `pnpm release:validate` |
 | UI wording rules | `pnpm ui-language:qa` |
 | UI regressions (CTA contrast, tables, charts) | `pnpm ui:regression-validate` (needs a fresh `out/`) |
 | Data coverage / history stores | `pnpm data-coverage:validate` · `pnpm historical-annual:validate` · `pnpm historical-monthly:validate` · `pnpm historical-regional:validate` · `pnpm serbia-audit:validate` |
-| Browser UI tests (8 routes × 1440/390: screenshots, axe serious/critical = 0, canonical) | `pnpm build:site && pnpm test:ui` · refresh baselines: `pnpm test:ui:update` |
+| Browser UI tests (8 routes × 1440/390: screenshots, axe serious/critical = 0 in light and dark, canonical) | `pnpm build:site && pnpm test:ui` · refresh baselines: `pnpm test:ui:update` |
 | SEO / share previews on `out/` | `pnpm seo:validate` |
 | Weekly news | `pnpm news:validate` |
 | Research-data export | `node scripts/export-research-data.mjs` (rewrites timestamps in `public/research-data/`; revert unrelated files before committing) |

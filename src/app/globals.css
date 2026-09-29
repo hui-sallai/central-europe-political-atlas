@@ -1218,6 +1218,7 @@
 
 /* Dark theme: map light-only utilities and literal-coloured widgets onto tokens. */
 :root[data-theme="dark"] .bg-white { background-color: var(--paper); }
+:root[data-theme="dark"] [class*="bg-white/"] { background-color: color-mix(in srgb, var(--paper) 72%, transparent); }
 :root[data-theme="dark"] .bg-amber-50 { background-color: var(--notice-bg); }
 :root[data-theme="dark"] .border-black\/10 { border-color: rgba(255, 255, 255, 0.14); }
 :root[data-theme="dark"] .text-emerald-800,
@@ -1226,6 +1227,7 @@
 :root[data-theme="dark"] .text-amber-700 { color: var(--warning); }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .bg-white { background-color: var(--paper); }
+  :root:not([data-theme="light"]) [class*="bg-white/"] { background-color: color-mix(in srgb, var(--paper) 72%, transparent); }
   :root:not([data-theme="light"]) .bg-amber-50 { background-color: var(--notice-bg); }
 }
 
