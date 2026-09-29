@@ -70,6 +70,17 @@ export function loadSeries() {
       push(`monthly_history|${r.country_slug}|${r.series}|level|monthly`, { dataset: "monthly_history", file: monthlyHistoryPath, country: r.country_slug, indicator: r.series, transformation: "level", frequency: "monthly", source: src.source, source_dataset: src.raw_file, source_url: src.source_url }, { id: r.id, period: r.period, value: r.value, unit: src.unit, status: r.value_status, definition: src.definition });
     }
   }
+  // Serbia official statistics (SORS) descriptive stores — Serbia-only, descriptive, never model inputs.
+  for (const store of ["annual", "monthly", "regional"]) {
+    const file = `src/data/serbia/serbia_descriptive_history_${store}.json`;
+    if (!fs.existsSync(path.join(root, file))) continue;
+    const doc = read(file);
+    for (const r of doc.records) {
+      const src = doc.series_sources.find((x) => x.source_ref === r.source_ref);
+      const frequency = /^\d{4}-Q\d$/.test(r.period) ? "quarterly" : /^\d{4}-\d{2}$/.test(r.period) ? "monthly" : "annual";
+      push(`serbia_sors_${store}|serbia|${r.series}|level|${frequency}`, { dataset: `serbia_sors_${store}`, file, country: "serbia", indicator: r.series, transformation: "level", frequency, source: src.source_institution, source_dataset: src.source_dataset, source_url: src.source_url }, { id: r.id, period: store === "regional" ? String(r.period) : r.period, region: r.territory_code, value: r.original_value, unit: r.original_unit, status: r.sors_status, definition: src.label });
+    }
+  }
   const regionalHistoryPath = "src/data/historical/regional_descriptive_history.json";
   if (fs.existsSync(path.join(root, regionalHistoryPath))) {
     const regional = read(regionalHistoryPath);
@@ -87,7 +98,7 @@ export function loadSeries() {
   return [...series.values()];
 }
 
-const regionalLike = (s) => s.dataset === "regional" || s.dataset === "regional_history";
+const regionalLike = (s) => s.dataset === "regional" || s.dataset === "regional_history" || s.dataset === "serbia_sors_regional";
 const fingerprintRows = (s) => regionalLike(s) ? s.rows.map((r) => ({ period: `${r.period}|${r.region}`, value: r.value })) : s.rows;
 const periodOfFingerprintRow = (s, earliest, latest) => regionalLike(s) ? [`${earliest}|`, `${latest}|￿`] : [earliest, latest];
 export function seriesFingerprint(s, earliest, latest) {
@@ -239,6 +250,9 @@ function historical(s, allSeries) {
   if (s.dataset === "regional") {
     return { candidate_source: s.source_dataset, evidence: "indicative_not_retrieved", earliest_available: null, proposed_earliest_feasible: null, definition_compatible_floor: null, estimated_new_observations: null, estimate_basis: "not estimated: regional back-series depend on NUTS version", definition_break_risks: ["NUTS 2016 / 2021 / 2024 boundary revisions change region identities", "regional LFS and GDP back-casting depth differs by country"], feasibility: "requires_methodological_review", rationale: "Regional backfill needs a NUTS-version crosswalk before any values can be compared across years." };
   }
+  if (s.dataset.startsWith("serbia_sors_")) {
+    return { candidate_source: s.source_dataset, evidence: "ingested_serbia_sors", earliest_available: null, proposed_earliest_feasible: null, definition_compatible_floor: null, estimated_new_observations: 0, estimate_basis: "already ingested (src/data/serbia/serbia_ingestion_manifest.json)", definition_break_risks: ["SORS status flags and detected level shifts recorded per record"], feasibility: "ingested_descriptive_history", rationale: "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input." };
+  }
   if (s.dataset === "regional_history") {
     return { candidate_source: s.source_dataset, evidence: "ingested_phase_i", earliest_available: null, proposed_earliest_feasible: null, definition_compatible_floor: null, estimated_new_observations: 0, estimate_basis: "already ingested as descriptive regional history (see src/data/historical/regional_history_manifest.json)", definition_break_risks: ["per-year comparability_status: comparable_stable_code / backcast_boundary_revision / series_break"], feasibility: "ingested_descriptive_history", rationale: "Phase I descriptive history on NUTS 2024 codes; boundary comparability recorded per year; never a map-classification or model input." };
   }
@@ -304,7 +318,10 @@ export function buildAudit() {
     const periods = [...new Set(s.rows.map((r) => r.period))].sort();
     const observed = new Set(s.rows.filter((r) => r.value !== null).map((r) => r.period));
     const earliest = periods[0], latest = periods.at(-1);
-    const expected = s.frequency === "monthly" ? Array.from({ length: monthIndex(latest) - monthIndex(earliest) + 1 }, (_, i) => addMonths(earliest, i)) : Array.from({ length: Number(latest) - Number(earliest) + 1 }, (_, i) => String(Number(earliest) + i));
+    const quarterIndex = (p) => Number(p.slice(0, 4)) * 4 + Number(p.slice(6)) - 1;
+    const expected = s.frequency === "monthly" ? Array.from({ length: monthIndex(latest) - monthIndex(earliest) + 1 }, (_, i) => addMonths(earliest, i))
+      : s.frequency === "quarterly" ? Array.from({ length: quarterIndex(latest) - quarterIndex(earliest) + 1 }, (_, i) => { const q = quarterIndex(earliest) + i; return `${Math.floor(q / 4)}-Q${(q % 4) + 1}`; })
+      : Array.from({ length: Number(latest) - Number(earliest) + 1 }, (_, i) => String(Number(earliest) + i));
     const missing = expected.filter((p) => !observed.has(p));
     s.coverage = { earliest, latest, record_count: s.rows.length, observation_count: s.rows.filter((r) => r.value !== null).length, null_record_count: s.rows.filter((r) => r.value === null).length, missing_period_count: missing.length, missing_periods: missing, first_observed: [...observed].sort()[0] ?? null, last_observed: [...observed].sort().at(-1) ?? null };
     if (regionalLike(s)) s.coverage.region_count = new Set(s.rows.map((r) => r.region)).size;

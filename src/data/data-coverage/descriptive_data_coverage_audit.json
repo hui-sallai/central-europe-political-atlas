@@ -29,7 +29,7 @@
   },
   "formal_input_note": "Country LP calendars span the full stored series (scripts/local-projections/build-lp-robustness.mjs); only high_frequency has a frozen snapshot. Any historical backfill must therefore go to a separate descriptive store or be excluded by an explicit sample window before models are re-run.",
   "summary": {
-    "series_count": 812,
+    "series_count": 843,
     "datasets": {
       "annual_history": {
         "series": 144,
@@ -305,11 +305,84 @@
         "earliest": "2021",
         "latest": "2024",
         "file": "src/data/regional/v089-observations.json"
+      },
+      "serbia_sors_annual": {
+        "series": 15,
+        "countries": [
+          "serbia"
+        ],
+        "indicators": [
+          "average_gross_earnings",
+          "average_net_earnings",
+          "employment_rate",
+          "exports_goods_services_rsd",
+          "gdp_current_rsd",
+          "goods_exports_usd",
+          "goods_imports_usd",
+          "imports_goods_services_rsd",
+          "manufacturing_share_gdp",
+          "population_1_january",
+          "population_estimate_sors",
+          "rd_expenditure_gdp",
+          "real_gdp_growth",
+          "trade_balance_rsd",
+          "unemployment_rate"
+        ],
+        "records": 339,
+        "observations": 339,
+        "nulls": 0,
+        "earliest": "2000",
+        "latest": "2025",
+        "file": "src/data/serbia/serbia_descriptive_history_annual.json"
+      },
+      "serbia_sors_monthly": {
+        "series": 10,
+        "countries": [
+          "serbia"
+        ],
+        "indicators": [
+          "average_gross_earnings_monthly",
+          "average_net_earnings_monthly",
+          "cpi_annual_index",
+          "cpi_index_2006",
+          "goods_exports_eur_monthly",
+          "goods_imports_eur_monthly",
+          "industrial_producer_prices_yoy",
+          "industrial_production_index",
+          "lfs_unemployment_quarterly",
+          "retail_trade_volume_sa"
+        ],
+        "records": 2524,
+        "observations": 2524,
+        "nulls": 0,
+        "earliest": "2000-01",
+        "latest": "2026-Q2",
+        "file": "src/data/serbia/serbia_descriptive_history_monthly.json"
+      },
+      "serbia_sors_regional": {
+        "series": 6,
+        "countries": [
+          "serbia"
+        ],
+        "indicators": [
+          "regional_employment_rate_2014_2020",
+          "regional_employment_rate_2021",
+          "regional_population_1_january",
+          "regional_population_estimate_sors",
+          "regional_unemployment_rate_2014_2020",
+          "regional_unemployment_rate_2021"
+        ],
+        "records": 8751,
+        "observations": 8751,
+        "nulls": 0,
+        "earliest": "2000",
+        "latest": "2025",
+        "file": "src/data/serbia/serbia_descriptive_history_regional.json"
       }
     },
     "feasibility_counts": {
       "derived_after_level_backfill": 35,
-      "ingested_descriptive_history": 250,
+      "ingested_descriptive_history": 281,
       "likely_safe_pending_retrieval": 156,
       "requires_methodological_review": 336,
       "requires_source_query": 7,
@@ -325,7 +398,7 @@
       "derived_recomputable": 6306
     },
     "formal_model_input_series": 176,
-    "descriptive_only_series": 633
+    "descriptive_only_series": 664
   },
   "records": [
     {
@@ -58196,6 +58269,1994 @@
           "2024"
         ],
         "sha256": "62c03e549081cebd6d1f52e1b5d25aef784a6e20a1f26fb391af3d0c60a7545e"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_annual|serbia|average_gross_earnings|level|annual",
+      "dataset": "serbia_sors_annual",
+      "source_file": "src/data/serbia/serbia_descriptive_history_annual.json",
+      "country": "serbia",
+      "indicator": "average_gross_earnings",
+      "transformation": "level",
+      "frequency": "annual",
+      "unit": "RSD per month",
+      "descriptive_coverage": {
+        "earliest": "2000",
+        "latest": "2025",
+        "record_count": 26,
+        "observation_count": 26,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2000",
+        "last_observed": "2025"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "2403040401IND02",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/2403040401IND02/3/json"
+      },
+      "status_counts": {
+        "A": 23,
+        "B": 2,
+        "D": 1
+      },
+      "definition": {
+        "versions": [
+          "Average monthly gross earnings (annual average)"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "2403040401IND02",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2000",
+          "2025"
+        ],
+        "sha256": "55c024a1444109015938229dba408479c3bb6277579f2877dcf846d793675921"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_annual|serbia|average_net_earnings|level|annual",
+      "dataset": "serbia_sors_annual",
+      "source_file": "src/data/serbia/serbia_descriptive_history_annual.json",
+      "country": "serbia",
+      "indicator": "average_net_earnings",
+      "transformation": "level",
+      "frequency": "annual",
+      "unit": "RSD per month",
+      "descriptive_coverage": {
+        "earliest": "2000",
+        "latest": "2025",
+        "record_count": 26,
+        "observation_count": 26,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2000",
+        "last_observed": "2025"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "2403040401IND01",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/2403040401IND01/3/json"
+      },
+      "status_counts": {
+        "A": 23,
+        "B": 2,
+        "D": 1
+      },
+      "definition": {
+        "versions": [
+          "Average monthly net earnings (annual average)"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "2403040401IND01",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2000",
+          "2025"
+        ],
+        "sha256": "216aae8587a68a59a3634b6e3f02add2e5261039735d2b544bd6a1d7146ec1d8"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_annual|serbia|employment_rate|level|annual",
+      "dataset": "serbia_sors_annual",
+      "source_file": "src/data/serbia/serbia_descriptive_history_annual.json",
+      "country": "serbia",
+      "indicator": "employment_rate",
+      "transformation": "level",
+      "frequency": "annual",
+      "unit": "%",
+      "descriptive_coverage": {
+        "earliest": "2011",
+        "latest": "2025",
+        "record_count": 15,
+        "observation_count": 15,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2011",
+        "last_observed": "2025"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "240003020102IND02",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/240003020102IND02/3/json"
+      },
+      "status_counts": {
+        "A": 3,
+        "R": 12
+      },
+      "definition": {
+        "versions": [
+          "LFS employment rate, 20–64"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "240003020102IND02",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2011",
+          "2025"
+        ],
+        "sha256": "b52873de5c5e98154467b46f11a642460ae783d9426ed50ee08fa6912a41a1a2"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_annual|serbia|exports_goods_services_rsd|level|annual",
+      "dataset": "serbia_sors_annual",
+      "source_file": "src/data/serbia/serbia_descriptive_history_annual.json",
+      "country": "serbia",
+      "indicator": "exports_goods_services_rsd",
+      "transformation": "level",
+      "frequency": "annual",
+      "unit": "mill. RSD",
+      "descriptive_coverage": {
+        "earliest": "2000",
+        "latest": "2024",
+        "record_count": 25,
+        "observation_count": 25,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2000",
+        "last_observed": "2024"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "09020104IND01",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/09020104IND01/3/json"
+      },
+      "status_counts": {
+        "A": 23,
+        "P": 2
+      },
+      "definition": {
+        "versions": [
+          "Exports of goods and services (national accounts)"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "09020104IND01",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2000",
+          "2024"
+        ],
+        "sha256": "f9d484d7c98b109aed784528fae16a9e97365713e4f16570da0746597e4c3b43"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_annual|serbia|gdp_current_rsd|level|annual",
+      "dataset": "serbia_sors_annual",
+      "source_file": "src/data/serbia/serbia_descriptive_history_annual.json",
+      "country": "serbia",
+      "indicator": "gdp_current_rsd",
+      "transformation": "level",
+      "frequency": "annual",
+      "unit": "mill. RSD",
+      "descriptive_coverage": {
+        "earliest": "2000",
+        "latest": "2024",
+        "record_count": 25,
+        "observation_count": 25,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2000",
+        "last_observed": "2024"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "09020104IND01",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/09020104IND01/3/json"
+      },
+      "status_counts": {
+        "A": 23,
+        "P": 2
+      },
+      "definition": {
+        "versions": [
+          "GDP at current prices"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "09020104IND01",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2000",
+          "2024"
+        ],
+        "sha256": "76c32dd20b5b424eced38e21ae1b5880dc19360013d4fa54df60c3b6330ec00e"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_annual|serbia|goods_exports_usd|level|annual",
+      "dataset": "serbia_sors_annual",
+      "source_file": "src/data/serbia/serbia_descriptive_history_annual.json",
+      "country": "serbia",
+      "indicator": "goods_exports_usd",
+      "transformation": "level",
+      "frequency": "annual",
+      "unit": "million USD",
+      "descriptive_coverage": {
+        "earliest": "2000",
+        "latest": "2025",
+        "record_count": 26,
+        "observation_count": 26,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2000",
+        "last_observed": "2025"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "1701IND01",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/1701IND01/3/json"
+      },
+      "status_counts": {
+        "A": 25,
+        "R": 1
+      },
+      "definition": {
+        "versions": [
+          "Merchandise exports (goods, customs basis)"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "1701IND01",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2000",
+          "2025"
+        ],
+        "sha256": "ce19cb7d30055312e088ef33b7af54464c9f22cc975e7c43776dcd5ed59b14ae"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_annual|serbia|goods_imports_usd|level|annual",
+      "dataset": "serbia_sors_annual",
+      "source_file": "src/data/serbia/serbia_descriptive_history_annual.json",
+      "country": "serbia",
+      "indicator": "goods_imports_usd",
+      "transformation": "level",
+      "frequency": "annual",
+      "unit": "million USD",
+      "descriptive_coverage": {
+        "earliest": "2000",
+        "latest": "2025",
+        "record_count": 26,
+        "observation_count": 26,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2000",
+        "last_observed": "2025"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "1701IND01",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/1701IND01/3/json"
+      },
+      "status_counts": {
+        "A": 25,
+        "R": 1
+      },
+      "definition": {
+        "versions": [
+          "Merchandise imports (goods, customs basis)"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "1701IND01",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2000",
+          "2025"
+        ],
+        "sha256": "894cdfa5032bbe9d13408b7b02251eeb3e3a3c29724b879cb348d544d9018be8"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_annual|serbia|imports_goods_services_rsd|level|annual",
+      "dataset": "serbia_sors_annual",
+      "source_file": "src/data/serbia/serbia_descriptive_history_annual.json",
+      "country": "serbia",
+      "indicator": "imports_goods_services_rsd",
+      "transformation": "level",
+      "frequency": "annual",
+      "unit": "mill. RSD",
+      "descriptive_coverage": {
+        "earliest": "2000",
+        "latest": "2024",
+        "record_count": 25,
+        "observation_count": 25,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2000",
+        "last_observed": "2024"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "09020104IND01",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/09020104IND01/3/json"
+      },
+      "status_counts": {
+        "A": 23,
+        "P": 2
+      },
+      "definition": {
+        "versions": [
+          "Imports of goods and services (national accounts)"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "09020104IND01",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2000",
+          "2024"
+        ],
+        "sha256": "876def2f6265499e3927e10d17bb86884c51646f54e1d4b336707636dc48565d"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_annual|serbia|manufacturing_share_gdp|level|annual",
+      "dataset": "serbia_sors_annual",
+      "source_file": "src/data/serbia/serbia_descriptive_history_annual.json",
+      "country": "serbia",
+      "indicator": "manufacturing_share_gdp",
+      "transformation": "level",
+      "frequency": "annual",
+      "unit": "% of GDP",
+      "descriptive_coverage": {
+        "earliest": "2000",
+        "latest": "2024",
+        "record_count": 25,
+        "observation_count": 25,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2000",
+        "last_observed": "2024"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "0902010301IND01",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/0902010301IND01/3/json"
+      },
+      "status_counts": {
+        "A": 23,
+        "P": 2
+      },
+      "definition": {
+        "versions": [
+          "Manufacturing (NACE C) gross value added, % of GDP"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "0902010301IND01",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2000",
+          "2024"
+        ],
+        "sha256": "8d9cde6751a09b8f64e21cc8c0739d6019bb5d1c305b7dc083ef7869804a4379"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_annual|serbia|population_1_january|level|annual",
+      "dataset": "serbia_sors_annual",
+      "source_file": "src/data/serbia/serbia_descriptive_history_annual.json",
+      "country": "serbia",
+      "indicator": "population_1_january",
+      "transformation": "level",
+      "frequency": "annual",
+      "unit": "persons",
+      "descriptive_coverage": {
+        "earliest": "2011",
+        "latest": "2025",
+        "record_count": 15,
+        "observation_count": 15,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2011",
+        "last_observed": "2025"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "18010403IND01",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/18010403IND01/3/json"
+      },
+      "status_counts": {
+        "A": 15
+      },
+      "definition": {
+        "versions": [
+          "Population on 1 January"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "18010403IND01",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2011",
+          "2025"
+        ],
+        "sha256": "f12e1092f90d3ff7e2057e02574984492b6a09b30b3dc8213d57534487d03f68"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_annual|serbia|population_estimate_sors|level|annual",
+      "dataset": "serbia_sors_annual",
+      "source_file": "src/data/serbia/serbia_descriptive_history_annual.json",
+      "country": "serbia",
+      "indicator": "population_estimate_sors",
+      "transformation": "level",
+      "frequency": "annual",
+      "unit": "persons",
+      "descriptive_coverage": {
+        "earliest": "2000",
+        "latest": "2025",
+        "record_count": 26,
+        "observation_count": 26,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2000",
+        "last_observed": "2025"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "180304IND02",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/180304IND02/3/json"
+      },
+      "status_counts": {
+        "A": 26
+      },
+      "definition": {
+        "versions": [
+          "Population estimate (SORS long series)"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "180304IND02",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2000",
+          "2025"
+        ],
+        "sha256": "cb29802ab0e29eb70a0a2b3804f79773706485c6cc78576fe149bbd17a3fd319"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_annual|serbia|rd_expenditure_gdp|level|annual",
+      "dataset": "serbia_sors_annual",
+      "source_file": "src/data/serbia/serbia_descriptive_history_annual.json",
+      "country": "serbia",
+      "indicator": "rd_expenditure_gdp",
+      "transformation": "level",
+      "frequency": "annual",
+      "unit": "% of GDP",
+      "descriptive_coverage": {
+        "earliest": "2010",
+        "latest": "2023",
+        "record_count": 14,
+        "observation_count": 14,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2010",
+        "last_observed": "2023"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "100109IND01",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/100109IND01/3/json"
+      },
+      "status_counts": {
+        "A": 14
+      },
+      "definition": {
+        "versions": [
+          "Total R&D expenditure, % of GDP"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "100109IND01",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2010",
+          "2023"
+        ],
+        "sha256": "c35c56f85c30a3c985ed682da8b43d33216c432698a1349ca737c38bb9805754"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_annual|serbia|real_gdp_growth|level|annual",
+      "dataset": "serbia_sors_annual",
+      "source_file": "src/data/serbia/serbia_descriptive_history_annual.json",
+      "country": "serbia",
+      "indicator": "real_gdp_growth",
+      "transformation": "level",
+      "frequency": "annual",
+      "unit": "%",
+      "descriptive_coverage": {
+        "earliest": "2000",
+        "latest": "2024",
+        "record_count": 25,
+        "observation_count": 25,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2000",
+        "last_observed": "2024"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "09020104IND01",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/09020104IND01/3/json"
+      },
+      "status_counts": {
+        "A": 23,
+        "P": 2
+      },
+      "definition": {
+        "versions": [
+          "Real GDP growth (SORS, % vs previous year)"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "09020104IND01",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2000",
+          "2024"
+        ],
+        "sha256": "c33beb51017c9db43bf30b3e0e641274c15703331a4cecaeda6fcccbd9929eb5"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_annual|serbia|trade_balance_rsd|level|annual",
+      "dataset": "serbia_sors_annual",
+      "source_file": "src/data/serbia/serbia_descriptive_history_annual.json",
+      "country": "serbia",
+      "indicator": "trade_balance_rsd",
+      "transformation": "level",
+      "frequency": "annual",
+      "unit": "mill. RSD",
+      "descriptive_coverage": {
+        "earliest": "2000",
+        "latest": "2024",
+        "record_count": 25,
+        "observation_count": 25,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2000",
+        "last_observed": "2024"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "09020104IND01 (derived)",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/09020104IND01/3/json"
+      },
+      "status_counts": {
+        "A/A": 23,
+        "P/P": 2
+      },
+      "definition": {
+        "versions": [
+          "Exports − imports of goods and services"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "09020104IND01 (derived)",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2000",
+          "2024"
+        ],
+        "sha256": "a909c27b12d5ca01c43acf40f8f491d6e04a2913b5c2f838dce20c82a5de7481"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_annual|serbia|unemployment_rate|level|annual",
+      "dataset": "serbia_sors_annual",
+      "source_file": "src/data/serbia/serbia_descriptive_history_annual.json",
+      "country": "serbia",
+      "indicator": "unemployment_rate",
+      "transformation": "level",
+      "frequency": "annual",
+      "unit": "%",
+      "descriptive_coverage": {
+        "earliest": "2011",
+        "latest": "2025",
+        "record_count": 15,
+        "observation_count": 15,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2011",
+        "last_observed": "2025"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "240003020102IND03",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/240003020102IND03/3/json"
+      },
+      "status_counts": {
+        "A": 3,
+        "R": 12
+      },
+      "definition": {
+        "versions": [
+          "LFS unemployment rate, 15–74"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "240003020102IND03",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2011",
+          "2025"
+        ],
+        "sha256": "56bb7e2f15aa910bba855e02a01d3073f46aa67361c5d8088f132ca11333a2ad"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_monthly|serbia|average_gross_earnings_monthly|level|monthly",
+      "dataset": "serbia_sors_monthly",
+      "source_file": "src/data/serbia/serbia_descriptive_history_monthly.json",
+      "country": "serbia",
+      "indicator": "average_gross_earnings_monthly",
+      "transformation": "level",
+      "frequency": "monthly",
+      "unit": "RSD",
+      "descriptive_coverage": {
+        "earliest": "2000-01",
+        "latest": "2026-07",
+        "record_count": 319,
+        "observation_count": 319,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2000-01",
+        "last_observed": "2026-07"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "2403040101IND02",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/2403040101IND02/3/json"
+      },
+      "status_counts": {
+        "A": 316,
+        "B": 2,
+        "D": 1
+      },
+      "definition": {
+        "versions": [
+          "Average gross earnings, monthly"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "2403040101IND02",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2000-01",
+          "2026-07"
+        ],
+        "sha256": "22d094fc2e111d45d5de78dbf3cf59ca195f5783ded52b28edf14d9d2d6f6e83"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_monthly|serbia|average_net_earnings_monthly|level|monthly",
+      "dataset": "serbia_sors_monthly",
+      "source_file": "src/data/serbia/serbia_descriptive_history_monthly.json",
+      "country": "serbia",
+      "indicator": "average_net_earnings_monthly",
+      "transformation": "level",
+      "frequency": "monthly",
+      "unit": "RSD",
+      "descriptive_coverage": {
+        "earliest": "2000-01",
+        "latest": "2026-07",
+        "record_count": 319,
+        "observation_count": 319,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2000-01",
+        "last_observed": "2026-07"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "2403040101IND01",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/2403040101IND01/3/json"
+      },
+      "status_counts": {
+        "A": 316,
+        "B": 2,
+        "D": 1
+      },
+      "definition": {
+        "versions": [
+          "Average net earnings, monthly"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "2403040101IND01",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2000-01",
+          "2026-07"
+        ],
+        "sha256": "6218339617419ef496bcbc59e7a445fb782110ce13eb63c40cecb84e1e6973d2"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_monthly|serbia|cpi_annual_index|level|monthly",
+      "dataset": "serbia_sors_monthly",
+      "source_file": "src/data/serbia/serbia_descriptive_history_monthly.json",
+      "country": "serbia",
+      "indicator": "cpi_annual_index",
+      "transformation": "level",
+      "frequency": "monthly",
+      "unit": "index, same month previous year = 100",
+      "descriptive_coverage": {
+        "earliest": "2007-01",
+        "latest": "2025-12",
+        "record_count": 228,
+        "observation_count": 228,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2007-01",
+        "last_observed": "2025-12"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "03010601IND03",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/03010601IND03/3/json"
+      },
+      "status_counts": {
+        "A": 228
+      },
+      "definition": {
+        "versions": [
+          "Consumer prices, same month previous year = 100 (national CPI, not HICP)"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "03010601IND03",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2007-01",
+          "2025-12"
+        ],
+        "sha256": "96a5d7ab03fd2c4a77adf8318fe10bb27446938c0511a89aeb27e6f4c20bb440"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_monthly|serbia|cpi_index_2006|level|monthly",
+      "dataset": "serbia_sors_monthly",
+      "source_file": "src/data/serbia/serbia_descriptive_history_monthly.json",
+      "country": "serbia",
+      "indicator": "cpi_index_2006",
+      "transformation": "level",
+      "frequency": "monthly",
+      "unit": "index 2006=100",
+      "descriptive_coverage": {
+        "earliest": "2007-01",
+        "latest": "2025-12",
+        "record_count": 228,
+        "observation_count": 228,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2007-01",
+        "last_observed": "2025-12"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "03010601IND01",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/03010601IND01/3/json"
+      },
+      "status_counts": {
+        "A": 228
+      },
+      "definition": {
+        "versions": [
+          "Consumer price index, total (national CPI, not HICP)"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "03010601IND01",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2007-01",
+          "2025-12"
+        ],
+        "sha256": "fddb2fb6432340b93c429e696f75fb59bfa22e53f35370f88ecd93d35bc8824d"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_monthly|serbia|goods_exports_eur_monthly|level|monthly",
+      "dataset": "serbia_sors_monthly",
+      "source_file": "src/data/serbia/serbia_descriptive_history_monthly.json",
+      "country": "serbia",
+      "indicator": "goods_exports_eur_monthly",
+      "transformation": "level",
+      "frequency": "monthly",
+      "unit": "EUR million",
+      "descriptive_coverage": {
+        "earliest": "2004-01",
+        "latest": "2026-07",
+        "record_count": 271,
+        "observation_count": 271,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2004-01",
+        "last_observed": "2026-07"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "1702IND01",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/1702IND01/3/json"
+      },
+      "status_counts": {
+        "A": 252,
+        "P": 7,
+        "R": 12
+      },
+      "definition": {
+        "versions": [
+          "Merchandise exports, monthly"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "1702IND01",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2004-01",
+          "2026-07"
+        ],
+        "sha256": "072799b1f2e75628527397d32ca267251abdf0b59d5fd167b3d63c4c3a0fb596"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_monthly|serbia|goods_imports_eur_monthly|level|monthly",
+      "dataset": "serbia_sors_monthly",
+      "source_file": "src/data/serbia/serbia_descriptive_history_monthly.json",
+      "country": "serbia",
+      "indicator": "goods_imports_eur_monthly",
+      "transformation": "level",
+      "frequency": "monthly",
+      "unit": "EUR million",
+      "descriptive_coverage": {
+        "earliest": "2004-01",
+        "latest": "2026-07",
+        "record_count": 271,
+        "observation_count": 271,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2004-01",
+        "last_observed": "2026-07"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "1702IND02",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/1702IND02/3/json"
+      },
+      "status_counts": {
+        "A": 252,
+        "P": 7,
+        "R": 12
+      },
+      "definition": {
+        "versions": [
+          "Merchandise imports, monthly"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "1702IND02",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2004-01",
+          "2026-07"
+        ],
+        "sha256": "2df4f852d275424bcf8203d5c8a116b633689284c2d3c7885f47970f68af1484"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_monthly|serbia|industrial_producer_prices_yoy|level|monthly",
+      "dataset": "serbia_sors_monthly",
+      "source_file": "src/data/serbia/serbia_descriptive_history_monthly.json",
+      "country": "serbia",
+      "indicator": "industrial_producer_prices_yoy",
+      "transformation": "level",
+      "frequency": "monthly",
+      "unit": "index, same month previous year = 100",
+      "descriptive_coverage": {
+        "earliest": "2011-01",
+        "latest": "2026-08",
+        "record_count": 188,
+        "observation_count": 188,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2011-01",
+        "last_observed": "2026-08"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "030201010101IND01",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/030201010101IND01/3/json"
+      },
+      "status_counts": {
+        "A": 188
+      },
+      "definition": {
+        "versions": [
+          "Industrial producer prices, total"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "030201010101IND01",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2011-01",
+          "2026-08"
+        ],
+        "sha256": "d6bfba0816deae7ede1ac6511e4e9eefce58f658e3a0130ae8247a26fd549cb7"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_monthly|serbia|industrial_production_index|level|monthly",
+      "dataset": "serbia_sors_monthly",
+      "source_file": "src/data/serbia/serbia_descriptive_history_monthly.json",
+      "country": "serbia",
+      "indicator": "industrial_production_index",
+      "transformation": "level",
+      "frequency": "monthly",
+      "unit": "index 2021=100 (NSA)",
+      "descriptive_coverage": {
+        "earliest": "2000-01",
+        "latest": "2026-07",
+        "record_count": 319,
+        "observation_count": 319,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2000-01",
+        "last_observed": "2026-07"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "060001IND02",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/060001IND02/3/json"
+      },
+      "status_counts": {
+        "A": 318,
+        "P": 1
+      },
+      "definition": {
+        "versions": [
+          "Industrial production, total (not seasonally adjusted)"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "060001IND02",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2000-01",
+          "2026-07"
+        ],
+        "sha256": "4ebee7aecf9493e60ef3494fce59a88cb58181dc8150e2fe1ab193c2abf7f093"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_monthly|serbia|lfs_unemployment_quarterly|level|quarterly",
+      "dataset": "serbia_sors_monthly",
+      "source_file": "src/data/serbia/serbia_descriptive_history_monthly.json",
+      "country": "serbia",
+      "indicator": "lfs_unemployment_quarterly",
+      "transformation": "level",
+      "frequency": "quarterly",
+      "unit": "%",
+      "descriptive_coverage": {
+        "earliest": "2011-Q1",
+        "latest": "2026-Q2",
+        "record_count": 62,
+        "observation_count": 62,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2011-Q1",
+        "last_observed": "2026-Q2"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "240003010102IND03",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/240003010102IND03/3/json"
+      },
+      "status_counts": {
+        "A": 10,
+        "R": 52
+      },
+      "definition": {
+        "versions": [
+          "LFS unemployment rate 15–74, quarterly (NSA)"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "240003010102IND03",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2011-Q1",
+          "2026-Q2"
+        ],
+        "sha256": "232dce41aa5eeb8a6e179ce5b9317a1f237822d24bc727767ed08e29aa340304"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_monthly|serbia|retail_trade_volume_sa|level|monthly",
+      "dataset": "serbia_sors_monthly",
+      "source_file": "src/data/serbia/serbia_descriptive_history_monthly.json",
+      "country": "serbia",
+      "indicator": "retail_trade_volume_sa",
+      "transformation": "level",
+      "frequency": "monthly",
+      "unit": "index 2021=100 (constant prices, SA)",
+      "descriptive_coverage": {
+        "earliest": "2000-01",
+        "latest": "2026-07",
+        "record_count": 319,
+        "observation_count": 319,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2000-01",
+        "last_observed": "2026-07"
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "210105IND02",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/210105IND02/3/json"
+      },
+      "status_counts": {
+        "A": 318,
+        "P": 1
+      },
+      "definition": {
+        "versions": [
+          "Retail trade turnover volume, seasonally adjusted"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "210105IND02",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2000-01",
+          "2026-07"
+        ],
+        "sha256": "49858086f91f0fe1f3e139af2e41ed4caa35db7dbc7a9f90cf19686d33434f05"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_regional|serbia|regional_employment_rate_2014_2020|level|annual",
+      "dataset": "serbia_sors_regional",
+      "source_file": "src/data/serbia/serbia_descriptive_history_regional.json",
+      "country": "serbia",
+      "indicator": "regional_employment_rate_2014_2020",
+      "transformation": "level",
+      "frequency": "annual",
+      "unit": "%",
+      "descriptive_coverage": {
+        "earliest": "2014",
+        "latest": "2020",
+        "record_count": 217,
+        "observation_count": 217,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2014",
+        "last_observed": "2020",
+        "region_count": 31
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "2400020102IND02",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/2400020102IND02/3/json"
+      },
+      "status_counts": {
+        "A": 217
+      },
+      "definition": {
+        "versions": [
+          "LFS employment rate 15+ (2014–2020)"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "2400020102IND02",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2014",
+          "2020"
+        ],
+        "sha256": "ab1439f1681aa3e7c8ea15309d17c56ca90be8e98318515b451f8fbe985076bb"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_regional|serbia|regional_employment_rate_2021|level|annual",
+      "dataset": "serbia_sors_regional",
+      "source_file": "src/data/serbia/serbia_descriptive_history_regional.json",
+      "country": "serbia",
+      "indicator": "regional_employment_rate_2021",
+      "transformation": "level",
+      "frequency": "annual",
+      "unit": "%",
+      "descriptive_coverage": {
+        "earliest": "2021",
+        "latest": "2025",
+        "record_count": 30,
+        "observation_count": 30,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2021",
+        "last_observed": "2025",
+        "region_count": 6
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "240003020205IND01",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/240003020205IND01/3/json"
+      },
+      "status_counts": {
+        "A": 18,
+        "B": 6,
+        "R": 6
+      },
+      "definition": {
+        "versions": [
+          "LFS employment rate 20–64 (2021+)"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "240003020205IND01",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2021",
+          "2025"
+        ],
+        "sha256": "9742e1eec97da3d5116ce3520f5ca2cfbd3b29dfd23c59079cb09e641f7a5b09"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_regional|serbia|regional_population_1_january|level|annual",
+      "dataset": "serbia_sors_regional",
+      "source_file": "src/data/serbia/serbia_descriptive_history_regional.json",
+      "country": "serbia",
+      "indicator": "regional_population_1_january",
+      "transformation": "level",
+      "frequency": "annual",
+      "unit": "persons",
+      "descriptive_coverage": {
+        "earliest": "2011",
+        "latest": "2025",
+        "record_count": 3055,
+        "observation_count": 3055,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2011",
+        "last_observed": "2025",
+        "region_count": 205
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "18010403IND01",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/18010403IND01/3/json"
+      },
+      "status_counts": {
+        "A": 3055
+      },
+      "definition": {
+        "versions": [
+          "Population on 1 January"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "18010403IND01",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2011",
+          "2025"
+        ],
+        "sha256": "c5e6f5345be8d5e6ac1dcf8bec19852b6854142681250046043330caa9f8f5ec"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_regional|serbia|regional_population_estimate_sors|level|annual",
+      "dataset": "serbia_sors_regional",
+      "source_file": "src/data/serbia/serbia_descriptive_history_regional.json",
+      "country": "serbia",
+      "indicator": "regional_population_estimate_sors",
+      "transformation": "level",
+      "frequency": "annual",
+      "unit": "persons",
+      "descriptive_coverage": {
+        "earliest": "2000",
+        "latest": "2025",
+        "record_count": 5202,
+        "observation_count": 5202,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2000",
+        "last_observed": "2025",
+        "region_count": 205
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "180304IND02",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/180304IND02/3/json"
+      },
+      "status_counts": {
+        "A": 5202
+      },
+      "definition": {
+        "versions": [
+          "Population estimate (SORS long series)"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "180304IND02",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2000",
+          "2025"
+        ],
+        "sha256": "2543f8cf3bef4b010fda3316cd2058e7d7be939d67e2f0747bddd5e29a2f5e5f"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_regional|serbia|regional_unemployment_rate_2014_2020|level|annual",
+      "dataset": "serbia_sors_regional",
+      "source_file": "src/data/serbia/serbia_descriptive_history_regional.json",
+      "country": "serbia",
+      "indicator": "regional_unemployment_rate_2014_2020",
+      "transformation": "level",
+      "frequency": "annual",
+      "unit": "%",
+      "descriptive_coverage": {
+        "earliest": "2014",
+        "latest": "2020",
+        "record_count": 217,
+        "observation_count": 217,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2014",
+        "last_observed": "2020",
+        "region_count": 31
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "2400020102IND04",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/2400020102IND04/3/json"
+      },
+      "status_counts": {
+        "A": 217
+      },
+      "definition": {
+        "versions": [
+          "LFS unemployment rate 15+ (2014–2020)"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "2400020102IND04",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2014",
+          "2020"
+        ],
+        "sha256": "3194e3414247adec290bfc89167cd606a3f5e91b7bb486f8a8a2e4bdb4710e78"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "serbia_sors_regional|serbia|regional_unemployment_rate_2021|level|annual",
+      "dataset": "serbia_sors_regional",
+      "source_file": "src/data/serbia/serbia_descriptive_history_regional.json",
+      "country": "serbia",
+      "indicator": "regional_unemployment_rate_2021",
+      "transformation": "level",
+      "frequency": "annual",
+      "unit": "%",
+      "descriptive_coverage": {
+        "earliest": "2021",
+        "latest": "2025",
+        "record_count": 30,
+        "observation_count": 30,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2021",
+        "last_observed": "2025",
+        "region_count": 6
+      },
+      "source": {
+        "name": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+        "dataset": "240003020304IND01",
+        "url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/240003020304IND01/3/json"
+      },
+      "status_counts": {
+        "A": 18,
+        "B": 6,
+        "R": 6
+      },
+      "definition": {
+        "versions": [
+          "LFS unemployment rate 15–74 (2021+)"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "240003020304IND01",
+        "evidence": "ingested_serbia_sors",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested (src/data/serbia/serbia_ingestion_manifest.json)",
+        "definition_break_risks": [
+          "SORS status flags and detected level shifts recorded per record"
+        ],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Owner-approved Serbia official-statistics descriptive store; cross_country_comparable per audited mapping; never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2021",
+          "2025"
+        ],
+        "sha256": "04864a967cac17f8e6d2f79063ba6a107d9d6a9e4b97904098389c86a597bb4d"
       },
       "null_observation_ids": []
     }

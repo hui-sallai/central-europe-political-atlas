@@ -1,0 +1,488 @@
+{
+ "schema_version": "serbia-data-integration-plan-v1",
+ "audit_date": "2026-09-30",
+ "state": "plan_for_owner_review",
+ "prohibitions": [
+  "No platform version change.",
+  "No change to any formal model sample or readiness state.",
+  "Serbia is not added to VAR, LP, Panel LP or panel models; any candidate flag is informational only.",
+  "SORS CPI never replaces HICP.",
+  "Missing values stay missing; nothing is encoded as zero."
+ ],
+ "stores": {
+  "national_annual": "src/data/serbia/serbia_descriptive_history_annual.json (separate from observations.json)",
+  "monthly_quarterly": "src/data/serbia/serbia_descriptive_history_monthly.json (separate from the frozen 2015+ HF/macro files)",
+  "regional": "src/data/serbia/serbia_descriptive_history_regional.json (NSTJ codes)"
+ },
+ "record_fields": [
+  "source_institution",
+  "source_dataset",
+  "original_code",
+  "original_unit",
+  "original_value",
+  "normalized_value",
+  "transformation",
+  "retrieved_at",
+  "source_url",
+  "raw_snapshot_sha256",
+  "status (SORS status code and label)",
+  "cross_country_comparable"
+ ],
+ "cross_country_gate": [
+  "equivalent economic concept",
+  "compatible unit",
+  "compatible reference period",
+  "compatible geographic / statistical population",
+  "documented methodology compatibility"
+ ],
+ "target_period": "2000–latest where official and definition-compatible; earlier SORS values may be kept with documentation, never force-harmonised",
+ "neutrality_note": "Regional units follow the territorial classification used by the source institution. Their inclusion or labeling in this dataset does not constitute a political or legal position on territorial status.",
+ "national_and_monthly": [
+  {
+   "atlas_indicator": "gdp_current_eur",
+   "sors_dataset": "09020104IND01",
+   "status": "requires_transformation",
+   "frequency": "annual",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false,
+   "earliest_usable": 2000,
+   "expected_new_observations": 25,
+   "action": "ingest original values; add documented transformation after the conversion source is approved"
+  },
+  {
+   "atlas_indicator": "real_gdp_growth",
+   "sors_dataset": "09020104IND01",
+   "status": "definition_compatible",
+   "frequency": "annual",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": true,
+   "earliest_usable": 2000,
+   "expected_new_observations": 25,
+   "action": "ingest to Serbia descriptive store after owner approval"
+  },
+  {
+   "atlas_indicator": "gdp_per_capita_eur",
+   "sors_dataset": "09020104IND01 + 18010403IND01",
+   "status": "requires_transformation",
+   "frequency": "annual",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false,
+   "earliest_usable": 2011,
+   "expected_new_observations": 14,
+   "action": "ingest original values; add documented transformation after the conversion source is approved"
+  },
+  {
+   "atlas_indicator": "population",
+   "sors_dataset": "18010403IND01",
+   "status": "definition_compatible",
+   "frequency": "annual",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": true,
+   "earliest_usable": 2011,
+   "expected_new_observations": 15,
+   "action": "ingest to Serbia descriptive store after owner approval"
+  },
+  {
+   "atlas_indicator": "population (1961–2010 annual estimates)",
+   "sors_dataset": "180304IND02",
+   "status": "descriptive_only",
+   "frequency": "annual",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false,
+   "earliest_usable": 2000,
+   "expected_new_observations": 26,
+   "action": "ingest as Serbia-specific series (cross_country_comparable = false) after owner approval"
+  },
+  {
+   "atlas_indicator": "hicp_inflation",
+   "sors_dataset": "03010601IND03",
+   "status": "not_comparable",
+   "frequency": "monthly → annual average",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false,
+   "earliest_usable": null,
+   "expected_new_observations": null,
+   "action": "do not map to this Atlas indicator"
+  },
+  {
+   "atlas_indicator": "serbia_cpi_annual_rate (Serbia-specific, y/y index IND03)",
+   "sors_dataset": "03010601IND03",
+   "status": "descriptive_only",
+   "frequency": "monthly",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false,
+   "earliest_usable": 2007,
+   "expected_new_observations": 228,
+   "action": "ingest as Serbia-specific series (cross_country_comparable = false) after owner approval"
+  },
+  {
+   "atlas_indicator": "unemployment_rate",
+   "sors_dataset": "240003020102IND03",
+   "status": "definition_compatible",
+   "frequency": "annual",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": true,
+   "earliest_usable": 2011,
+   "expected_new_observations": 15,
+   "action": "ingest to Serbia descriptive store after owner approval"
+  },
+  {
+   "atlas_indicator": "employment_rate (Phase G review queue)",
+   "sors_dataset": "240003020102IND02",
+   "status": "definition_compatible",
+   "frequency": "annual",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": true,
+   "earliest_usable": 2011,
+   "expected_new_observations": 15,
+   "action": "ingest to Serbia descriptive store after owner approval"
+  },
+  {
+   "atlas_indicator": "average_earnings (Serbia-specific)",
+   "sors_dataset": "2403040401IND01 / IND02",
+   "status": "descriptive_only",
+   "frequency": "annual (monthly in 2403040101)",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false,
+   "earliest_usable": 2000,
+   "expected_new_observations": 26,
+   "action": "ingest as Serbia-specific series (cross_country_comparable = false) after owner approval"
+  },
+  {
+   "atlas_indicator": "exports_goods_services",
+   "sors_dataset": "09020104IND01",
+   "status": "requires_transformation",
+   "frequency": "annual",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false,
+   "earliest_usable": 2000,
+   "expected_new_observations": 25,
+   "action": "ingest original values; add documented transformation after the conversion source is approved"
+  },
+  {
+   "atlas_indicator": "imports_goods_services",
+   "sors_dataset": "09020104IND01",
+   "status": "requires_transformation",
+   "frequency": "annual",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false,
+   "earliest_usable": 2000,
+   "expected_new_observations": 25,
+   "action": "ingest original values; add documented transformation after the conversion source is approved"
+  },
+  {
+   "atlas_indicator": "trade_balance",
+   "sors_dataset": "09020104IND01",
+   "status": "requires_transformation",
+   "frequency": "annual",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false,
+   "earliest_usable": 2000,
+   "expected_new_observations": 25,
+   "action": "ingest original values; add documented transformation after the conversion source is approved"
+  },
+  {
+   "atlas_indicator": "goods_trade (Serbia-specific)",
+   "sors_dataset": "1701IND01 / 1702IND01-02",
+   "status": "descriptive_only",
+   "frequency": "annual (USD) and monthly (RSD/EUR/USD)",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false,
+   "earliest_usable": 2000,
+   "expected_new_observations": 26,
+   "action": "ingest as Serbia-specific series (cross_country_comparable = false) after owner approval"
+  },
+  {
+   "atlas_indicator": "manufacturing_share_gdp",
+   "sors_dataset": "0902010301IND01",
+   "status": "definition_compatible",
+   "frequency": "annual",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": true,
+   "earliest_usable": 2000,
+   "expected_new_observations": 25,
+   "action": "ingest to Serbia descriptive store after owner approval"
+  },
+  {
+   "atlas_indicator": "fiscal_balance_gdp / government_revenue_gdp / government_expenditure_gdp",
+   "sors_dataset": "09020701IND01",
+   "status": "requires_methodological_review",
+   "frequency": "annual",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false,
+   "earliest_usable": null,
+   "expected_new_observations": null,
+   "action": "no ingestion until reviewed"
+  },
+  {
+   "atlas_indicator": "government_debt_gdp",
+   "sors_dataset": null,
+   "status": "requires_methodological_review",
+   "frequency": "annual",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false,
+   "earliest_usable": null,
+   "expected_new_observations": null,
+   "action": "no ingestion until reviewed"
+  },
+  {
+   "atlas_indicator": "rd_expenditure_gdp (review queue)",
+   "sors_dataset": "100109IND01",
+   "status": "descriptive_only",
+   "frequency": "annual",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false,
+   "earliest_usable": 2010,
+   "expected_new_observations": 14,
+   "action": "ingest as Serbia-specific series (cross_country_comparable = false) after owner approval"
+  },
+  {
+   "atlas_indicator": "energy_import_dependency",
+   "sors_dataset": "040201IND06",
+   "status": "requires_methodological_review",
+   "frequency": "annual",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false,
+   "earliest_usable": null,
+   "expected_new_observations": null,
+   "action": "no ingestion until reviewed"
+  },
+  {
+   "atlas_indicator": "fdi_inflow / current_account_gdp",
+   "sors_dataset": null,
+   "status": "requires_methodological_review",
+   "frequency": "annual",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false,
+   "earliest_usable": null,
+   "expected_new_observations": null,
+   "action": "no ingestion until reviewed"
+  },
+  {
+   "atlas_indicator": "industrial_production_index",
+   "sors_dataset": "060001IND02",
+   "status": "definition_compatible",
+   "frequency": "monthly (and annual)",
+   "model_role": "formal_model_compatible_candidate",
+   "cross_country_comparable": false,
+   "earliest_usable": 2000,
+   "expected_new_observations": 319,
+   "action": "ingest to Serbia descriptive store after owner approval"
+  },
+  {
+   "atlas_indicator": "serbia_cpi_index (Serbia-specific, base 2006=100 IND01)",
+   "sors_dataset": "03010601IND01",
+   "status": "descriptive_only",
+   "frequency": "monthly",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false,
+   "earliest_usable": 2007,
+   "expected_new_observations": 228,
+   "action": "ingest as Serbia-specific series (cross_country_comparable = false) after owner approval"
+  },
+  {
+   "atlas_indicator": "lfs_unemployment_quarterly (Serbia-specific)",
+   "sors_dataset": "240003010102IND03",
+   "status": "descriptive_only",
+   "frequency": "quarterly",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false,
+   "earliest_usable": 2011,
+   "expected_new_observations": 62,
+   "action": "ingest as Serbia-specific series (cross_country_comparable = false) after owner approval"
+  },
+  {
+   "atlas_indicator": "average_earnings_monthly (Serbia-specific)",
+   "sors_dataset": "2403040101IND01 / IND02",
+   "status": "descriptive_only",
+   "frequency": "monthly",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false,
+   "earliest_usable": 2000,
+   "expected_new_observations": 319,
+   "action": "ingest as Serbia-specific series (cross_country_comparable = false) after owner approval"
+  },
+  {
+   "atlas_indicator": "retail_trade_volume (Serbia-specific)",
+   "sors_dataset": "210105IND02",
+   "status": "descriptive_only",
+   "frequency": "monthly",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false,
+   "earliest_usable": 2000,
+   "expected_new_observations": 319,
+   "action": "ingest as Serbia-specific series (cross_country_comparable = false) after owner approval"
+  },
+  {
+   "atlas_indicator": "producer_prices_industry (Serbia-specific)",
+   "sors_dataset": "030201010101IND01",
+   "status": "descriptive_only",
+   "frequency": "monthly",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false,
+   "earliest_usable": 2011,
+   "expected_new_observations": 188,
+   "action": "ingest as Serbia-specific series (cross_country_comparable = false) after owner approval"
+  },
+  {
+   "atlas_indicator": "goods_trade_monthly (Serbia-specific)",
+   "sors_dataset": "1702IND01 / 1702IND02",
+   "status": "descriptive_only",
+   "frequency": "monthly",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": false,
+   "earliest_usable": 2004,
+   "expected_new_observations": 271,
+   "action": "ingest as Serbia-specific series (cross_country_comparable = false) after owner approval"
+  },
+  {
+   "atlas_indicator": "bilateral_fx_local_per_eur / policy_rate",
+   "sors_dataset": null,
+   "status": "definition_compatible",
+   "frequency": "monthly",
+   "model_role": "descriptive_only",
+   "cross_country_comparable": true,
+   "earliest_usable": null,
+   "expected_new_observations": null,
+   "action": "ingest to Serbia descriptive store after owner approval"
+  }
+ ],
+ "regional": [
+  {
+   "atlas_indicator": "regional_population",
+   "sors_dataset": "18010403IND01",
+   "levels": [
+    "NSTJ1",
+    "NSTJ2",
+    "NSTJ3",
+    "municipality"
+   ],
+   "period": "2011–2025",
+   "status": "definition_compatible",
+   "cross_country_comparable": false,
+   "expected_new_observations": 3055,
+   "note": "Same concept as Eurostat regional population; NSTJ units are not NUTS units, so cross-country regional ranking stays off."
+  },
+  {
+   "atlas_indicator": "regional_population (long series)",
+   "sors_dataset": "180304IND02",
+   "levels": [
+    "NSTJ1",
+    "NSTJ2",
+    "NSTJ3",
+    "municipality"
+   ],
+   "period": "1961–2025",
+   "status": "descriptive_only",
+   "cross_country_comparable": false,
+   "expected_new_observations": 5202,
+   "note": "Unflagged 1998 coverage change (RS23 units without data) and census level shifts; trends only within segments."
+  },
+  {
+   "atlas_indicator": "regional_gdp / regional_gdp_per_capita",
+   "sors_dataset": null,
+   "levels": [
+    "NSTJ2",
+    "NSTJ3"
+   ],
+   "period": null,
+   "status": "requires_methodological_review",
+   "cross_country_comparable": false,
+   "expected_new_observations": null,
+   "note": "Regional GDP is published by SORS in releases and its statistical database but not in the open-data portal; needs a separate source audit."
+  },
+  {
+   "atlas_indicator": "regional_unemployment_rate",
+   "sors_dataset": "240003020304IND01 (2021–2025) / 2400020102IND04 (2014–2020)",
+   "levels": [
+    "NSTJ1",
+    "NSTJ2"
+   ],
+   "period": "2014–2025",
+   "status": "descriptive_only",
+   "cross_country_comparable": false,
+   "expected_new_observations": 247,
+   "note": "Official 2021 series-break flag between the two LFS segments; 2014–2020 regional values include many 'low reliability' flags. Segments are not joined."
+  },
+  {
+   "atlas_indicator": "regional_employment_rate",
+   "sors_dataset": "240003020205IND01 (2021–2025) / 2400020102IND02 (2014–2020)",
+   "levels": [
+    "NSTJ1",
+    "NSTJ2"
+   ],
+   "period": "2014–2025",
+   "status": "descriptive_only",
+   "cross_country_comparable": false,
+   "expected_new_observations": 247,
+   "note": "Same 2021 break; not joined."
+  },
+  {
+   "atlas_indicator": "regional_manufacturing_share",
+   "sors_dataset": "240205IND01 (registered employment by activity)",
+   "levels": [
+    "NSTJ3",
+    "municipality"
+   ],
+   "period": "2015–2025",
+   "status": "not_comparable",
+   "cross_country_comparable": false,
+   "expected_new_observations": null,
+   "note": "Only an employment-based structure is available in open data; the Atlas indicator is a GVA share."
+  }
+ ],
+ "summary": {
+  "safe_for_immediate_descriptive_integration": [
+   "real_gdp_growth",
+   "population",
+   "unemployment_rate",
+   "employment_rate (Phase G review queue)",
+   "manufacturing_share_gdp",
+   "industrial_production_index",
+   "bilateral_fx_local_per_eur / policy_rate"
+  ],
+  "serbia_specific_descriptive": [
+   "population (1961–2010 annual estimates)",
+   "serbia_cpi_annual_rate (Serbia-specific, y/y index IND03)",
+   "average_earnings (Serbia-specific)",
+   "goods_trade (Serbia-specific)",
+   "rd_expenditure_gdp (review queue)",
+   "serbia_cpi_index (Serbia-specific, base 2006=100 IND01)",
+   "lfs_unemployment_quarterly (Serbia-specific)",
+   "average_earnings_monthly (Serbia-specific)",
+   "retail_trade_volume (Serbia-specific)",
+   "producer_prices_industry (Serbia-specific)",
+   "goods_trade_monthly (Serbia-specific)"
+  ],
+  "requires_transformation": [
+   "gdp_current_eur",
+   "gdp_per_capita_eur",
+   "exports_goods_services",
+   "imports_goods_services",
+   "trade_balance"
+  ],
+  "not_comparable": [
+   "hicp_inflation"
+  ],
+  "requires_methodological_review": [
+   "fiscal_balance_gdp / government_revenue_gdp / government_expenditure_gdp",
+   "government_debt_gdp",
+   "energy_import_dependency",
+   "fdi_inflow / current_account_gdp"
+  ],
+  "could_join_cross_country_comparisons": [
+   "real_gdp_growth",
+   "population",
+   "unemployment_rate",
+   "employment_rate (Phase G review queue)",
+   "manufacturing_share_gdp",
+   "bilateral_fx_local_per_eur / policy_rate"
+  ],
+  "expected_new_observations": {
+   "safe_national_and_monthly": 414,
+   "serbia_specific_descriptive": 1707,
+   "regional_descriptive": 8751,
+   "requires_transformation_pending_fx_source": 114
+  }
+ }
+}

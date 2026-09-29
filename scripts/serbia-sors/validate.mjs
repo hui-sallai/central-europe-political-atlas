@@ -39,11 +39,42 @@ check(registry.units.filter((u) => u.statistical_level === "NSTJ3").length >= 25
 check(plan.prohibitions.some((p) => /version/.test(p)) && plan.prohibitions.some((p) => /formal model sample/.test(p)) && plan.prohibitions.some((p) => /VAR, LP/.test(p)), "plan restates the version, sample and model prohibitions");
 check(plan.summary.safe_for_immediate_descriptive_integration.every((name) => { const m = mapping.national_and_monthly.find((x) => x.atlas_indicator === name); return m && (!m.overlap || m.overlap.result !== "fail"); }), "safe list only contains mappings with non-failing overlap evidence");
 
-// Audit only: no Serbia descriptive store yet, and no model/scenario code references the Serbia files.
-check(!fs.readdirSync(dir).some((f) => /descriptive_history/.test(f)), "no Serbia descriptive store before owner approval");
-const offenders = [];
-const walk = (d) => { for (const e of fs.readdirSync(path.join(root, d), { withFileTypes: true })) { const rel = path.join(d, e.name); if (e.isDirectory()) { if (!["node_modules", "raw", "snapshots"].includes(e.name)) walk(rel); } else if (/\.(m?js|ts|tsx|py)$/.test(e.name) && /src\/data\/serbia|serbia_indicator_mapping|serbia_data_integration_plan/.test(fs.readFileSync(path.join(root, rel), "utf8"))) offenders.push(rel); } };
-walk("src"); walk("scripts");
-check(offenders.every((f) => f.startsWith("scripts/serbia-sors/")), `only the Serbia audit scripts reference the Serbia audit: ${offenders.join(", ")}`);
+// --- Stores (owner-approved 2026-09-30): reproducible, faithful to SORS, no zero-fill, isolated from models ----------
+const { build, STORES, MANIFEST } = await import("./ingest.mjs");
+const manifest = JSON.parse(fs.readFileSync(path.join(root, MANIFEST), "utf8"));
+const crypto = await import("node:crypto");
+for (const src of manifest.sources) check(crypto.createHash("sha256").update(fs.readFileSync(path.join(root, src.extract_file))).digest("hex") === src.extract_sha256 && src.retrieved_at, `${src.dataset_id}: archived extract unchanged and retrieval recorded`);
+const rebuilt = await build({ offline: true });
+const stores = Object.fromEntries(Object.entries(STORES).map(([k, f]) => [k, JSON.parse(fs.readFileSync(path.join(root, f), "utf8"))]));
+for (const k of Object.keys(STORES)) check(JSON.stringify(rebuilt.stores[k].records) === JSON.stringify(stores[k].records), `${k} store does not reproduce exactly from the archived extracts`);
+const allowedMappings = new Map([...mapping.national_and_monthly, ...mapping.regional].map((m) => [m.atlas_indicator, m]));
+const levels = new Set(registry.units.map((u) => u.source_territorial_code));
+for (const [k, doc] of Object.entries(stores)) {
+  check(doc.descriptive_only === true && /does not change any formal sample/.test(doc.model_boundary), `${k}: descriptive-only boundary stated`);
+  const ids = new Set();
+  for (const r of doc.records) {
+    const src = doc.series_sources.find((x) => x.source_ref === r.source_ref);
+    const m = src && allowedMappings.get(src.mapping);
+    check(src && m && src.source_institution && src.source_dataset && src.source_url && src.original_code !== undefined, `${r.id}: provenance resolves to an audited mapping`);
+    check(!["requires_methodological_review", "not_comparable"].includes(m.status), `${r.id}: mapping status ${m.status} is not approved for ingestion`);
+    check(r.cross_country_comparable === m.cross_country_comparable, `${r.id}: cross_country_comparable must follow the audited mapping`);
+    check(!ids.has(r.id), `${r.id}: duplicate`); ids.add(r.id);
+    check(typeof r.original_value === "number" && Number.isFinite(r.original_value), `${r.id}: original value present (SORS missing statuses stay absent)`);
+    check(!["O", "M", "L"].includes(r.sors_status) && doc.sors_status_legend[String(r.sors_status).split("/")[0]], `${r.id}: SORS status kept and never a missing-value code`);
+    check(r.normalized_value !== null || /withheld/.test(r.transformation?.method ?? ""), `${r.id}: normalised value only missing where EUR conversion is explicitly withheld`);
+    if (r.transformation && !/withheld/.test(r.transformation.method)) check(Number.isFinite(r.transformation.rate), `${r.id}: conversion rate recorded`);
+    if (k === "regional") check(r.statistical_level && r.classification_version && Number.isInteger(r.source_year) && Number.isInteger(r.observation_year) && r.comparability_status && (levels.has(r.territory_code) || r.statistical_level === "municipality_or_city") && !/NUTS/.test(r.statistical_level), `${r.id}: regional record carries territorial code, classification version, level, source and observation year, comparability`);
+  }
+}
+check(stores.regional.neutrality_note === NOTE, "regional store carries the neutrality note verbatim");
+check(![...stores.annual.records, ...stores.monthly.records].some((r) => /hicp/i.test(r.series)), "Serbian CPI is never stored as HICP");
+check(manifest.fx.eur_conversion_withheld_years.every((y) => stores.annual.records.filter((r) => r.period === String(y) && r.transformation).every((r) => r.normalized_value === null)), "EUR conversion withheld in years with >50% one-month FX steps");
 
-console.log(JSON.stringify({ status: "pass", checks, datasets: audit.datasets.length, mappings: mapping.national_and_monthly.length + mapping.regional.length, nstj_units: registry.units.length }));
+// No model, scenario or index code reads the Serbia stores or audit.
+const offenders = [];
+const walk = (d) => { for (const e of fs.readdirSync(path.join(root, d), { withFileTypes: true })) { const rel = path.join(d, e.name); if (e.isDirectory()) { if (!["node_modules", "raw", "snapshots"].includes(e.name)) walk(rel); } else if (/\.(m?js|ts|tsx|py)$/.test(e.name) && /serbia_descriptive_history|src\/data\/serbia|serbia_indicator_mapping|serbia_data_integration_plan/.test(fs.readFileSync(path.join(root, rel), "utf8"))) offenders.push(rel); } };
+walk("src"); walk("scripts");
+const allowedReaders = [/^scripts\/serbia-sors\//, /^scripts\/data-coverage\//, /^scripts\/export-research-data\.mjs$/, /^scripts\/validation\//, /^src\/components\//, /^src\/app\//];
+check(offenders.every((f) => allowedReaders.some((re) => re.test(f))), `model/scenario code must not read the Serbia data: ${offenders.filter((f) => !allowedReaders.some((re) => re.test(f))).join(", ")}`);
+
+console.log(JSON.stringify({ status: "pass", checks, datasets: audit.datasets.length, mappings: mapping.national_and_monthly.length + mapping.regional.length, nstj_units: registry.units.length, records: Object.fromEntries(Object.entries(stores).map(([k, d]) => [k, d.records.length])) }));

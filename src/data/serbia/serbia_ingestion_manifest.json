@@ -1,0 +1,1255 @@
+{
+ "schema_version": "serbia-ingestion-manifest-v1",
+ "approval": "Owner approved safe descriptive ingestion and BIS for EUR conversion (2026-09-30).",
+ "not_ingested_by_design": [
+  "hicp_inflation: not_comparable",
+  "fiscal_balance_gdp / government_revenue_gdp / government_expenditure_gdp: requires_methodological_review",
+  "government_debt_gdp: requires_methodological_review",
+  "energy_import_dependency: requires_methodological_review",
+  "fdi_inflow / current_account_gdp: requires_methodological_review",
+  "regional_gdp / regional_gdp_per_capita: requires_methodological_review",
+  "regional_manufacturing_share: not_comparable"
+ ],
+ "sources": [
+  {
+   "dataset_id": "09020104IND01",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/09020104IND01/3/json",
+   "retrieved_at": "2026-09-29T17:59:40.527Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 1164968,
+   "response_sha256": "f24edd8db9900c8375363988d57e0cc0ef2616e5895a51ed65d707382be07779",
+   "response_record_count": 2550,
+   "extract_file": "src/data/serbia/raw/09020104IND01.extract.json",
+   "extract_sha256": "91b159cb78a0458514d6a1591be9f913b264a38e2b3ac209d4c082353896834a",
+   "extract_record_count": 120
+  },
+  {
+   "dataset_id": "0902010301IND01",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/0902010301IND01/3/json",
+   "retrieved_at": "2026-09-29T17:59:42.828Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 6805170,
+   "response_sha256": "fe1fe050682759c2dd07988683b1a87e97aba25e3afe1085f3533bf5da24a7dc",
+   "response_record_count": 16500,
+   "extract_file": "src/data/serbia/raw/0902010301IND01.extract.json",
+   "extract_sha256": "91dc6df5b66665d165c324bb131c58469ace821d745f4fcca6e5d0728bc72c2d",
+   "extract_record_count": 30
+  },
+  {
+   "dataset_id": "240003020102IND03",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/240003020102IND03/3/json",
+   "retrieved_at": "2026-09-29T17:59:43.030Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 112314,
+   "response_sha256": "660b384643c99859e57ae843b95fa7e285fdf67743f9fd82245873bab9871103",
+   "response_record_count": 315,
+   "extract_file": "src/data/serbia/raw/240003020102IND03.extract.json",
+   "extract_sha256": "5586a37af1aa5cd1fe25fbac5a5d25091313d3e45840f49f523b7feaf9a66ed8",
+   "extract_record_count": 15
+  },
+  {
+   "dataset_id": "240003020102IND02",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/240003020102IND02/3/json",
+   "retrieved_at": "2026-09-29T17:59:43.130Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 109870,
+   "response_sha256": "2d930a4f2bbb18008cf84120658bc8987fca21255c0f7095da7c67c48e2b2e85",
+   "response_record_count": 315,
+   "extract_file": "src/data/serbia/raw/240003020102IND02.extract.json",
+   "extract_sha256": "6883acff1be5abcc30a118d1891deefb812347774ad81a6f728c50015db4a751",
+   "extract_record_count": 15
+  },
+  {
+   "dataset_id": "18010403IND01",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/18010403IND01/3/json",
+   "retrieved_at": "2026-09-29T18:00:07.161Z",
+   "http_status": 200,
+   "response_container": "zip",
+   "response_bytes": 13043080,
+   "response_sha256": "fc48ce13f9914b2386b0f18a295c1a2a57b9ebb59cde264955fee4e61402b811",
+   "response_record_count": 801270,
+   "extract_file": "src/data/serbia/raw/18010403IND01.extract.json",
+   "extract_sha256": "8d58cc5345a38fd2d333d50cecf596dac2138f0250b4875e5af0ddf8a6d26fe4",
+   "extract_record_count": 3070
+  },
+  {
+   "dataset_id": "180304IND02",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/180304IND02/3/json",
+   "retrieved_at": "2026-09-29T18:00:08.313Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 4134445,
+   "response_sha256": "a8b93dd8d892c31ba6d6073a4fa2e2b4d1f2e0a684fc99cfefc785974cb13571",
+   "response_record_count": 15665,
+   "extract_file": "src/data/serbia/raw/180304IND02.extract.json",
+   "extract_sha256": "1d5c9ec51720fb2d4162337f85006456a026f4a80ab8143dbdd84a9d26fd0838",
+   "extract_record_count": 15665
+  },
+  {
+   "dataset_id": "2403040401IND01",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/2403040401IND01/3/json",
+   "retrieved_at": "2026-09-29T18:00:08.442Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 16932,
+   "response_sha256": "48f7abe821ef350c2b81602ec7ca495d6699e7349cffd75e445c47f0e8849929",
+   "response_record_count": 63,
+   "extract_file": "src/data/serbia/raw/2403040401IND01.extract.json",
+   "extract_sha256": "9d1471d4dbe510422d8558a0362e415fc95b70c29a4ce410b482b7f91eee619b",
+   "extract_record_count": 63
+  },
+  {
+   "dataset_id": "2403040401IND02",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/2403040401IND02/3/json",
+   "retrieved_at": "2026-09-29T18:00:08.520Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 17610,
+   "response_sha256": "fdfd17c1a4672b0fa29c3f2de7c8a4e80a98717dd29d0f6e4bfd66a7f72b91e1",
+   "response_record_count": 63,
+   "extract_file": "src/data/serbia/raw/2403040401IND02.extract.json",
+   "extract_sha256": "07d30635312d733042a1acadbd0e04cbc757811dc913f97aac873b4913f3af12",
+   "extract_record_count": 63
+  },
+  {
+   "dataset_id": "1701IND01",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/1701IND01/3/json",
+   "retrieved_at": "2026-09-29T18:00:08.602Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 23535,
+   "response_sha256": "52a2e562d93e0df6982ae4bc8f0a41144dd485ac0e6c6eea4718036ef51f5858",
+   "response_record_count": 87,
+   "extract_file": "src/data/serbia/raw/1701IND01.extract.json",
+   "extract_sha256": "1d208cd90789a35f22b4fd21738923b02d2ee351123b34fa459cee41ae4b94c7",
+   "extract_record_count": 58
+  },
+  {
+   "dataset_id": "100109IND01",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/100109IND01/3/json",
+   "retrieved_at": "2026-09-29T18:00:08.690Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 3654,
+   "response_sha256": "ce64eb5a2b4b253079aa35b44884ce123881b9651662be4b3bf22926d0f10232",
+   "response_record_count": 14,
+   "extract_file": "src/data/serbia/raw/100109IND01.extract.json",
+   "extract_sha256": "efc0ec1e168ad516ce0a871d1ff4d52b2cbd3bef5dcb4d5847dffbcf48101cbf",
+   "extract_record_count": 14
+  },
+  {
+   "dataset_id": "060001IND02",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/060001IND02/3/json",
+   "retrieved_at": "2026-09-29T18:00:09.742Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 4145127,
+   "response_sha256": "29b3cdc7bda4f9a0da6b9a2dd535c1291eb5d5ff108ac17bc23861991668e4c2",
+   "response_record_count": 11385,
+   "extract_file": "src/data/serbia/raw/060001IND02.extract.json",
+   "extract_sha256": "f145b0655c95dfdc9e9961c10951e919e9f20c9746cfde636e63251fc0ce0ad6",
+   "extract_record_count": 345
+  },
+  {
+   "dataset_id": "03010601IND01",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/03010601IND01/3/json",
+   "retrieved_at": "2026-09-29T18:00:13.410Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 10314843,
+   "response_sha256": "b428aa42ff64e1338f503a54406f4bf2f2a4d4e0712a567fbced301a7d7f1c60",
+   "response_record_count": 29880,
+   "extract_file": "src/data/serbia/raw/03010601IND01.extract.json",
+   "extract_sha256": "1dd8fb941e9be60ef4baf2c49a000dcfa3d9558ca66b388bd65878cab5fc02fb",
+   "extract_record_count": 228
+  },
+  {
+   "dataset_id": "03010601IND03",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/03010601IND03/3/json",
+   "retrieved_at": "2026-09-29T18:00:16.903Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 12381968,
+   "response_sha256": "a0fb04c3037df9f4fdcda34836db48bee22c69e3eb78c4db0e32f767887c5f93",
+   "response_record_count": 29978,
+   "extract_file": "src/data/serbia/raw/03010601IND03.extract.json",
+   "extract_sha256": "745ee40b33c2d01fa312b9268c2996c6fb5f2eee364a6481180ca033d37b9868",
+   "extract_record_count": 228
+  },
+  {
+   "dataset_id": "240003010102IND03",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/240003010102IND03/3/json",
+   "retrieved_at": "2026-09-29T18:00:17.200Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 435615,
+   "response_sha256": "65ec122c69fd125ee930fa3a3a5bdd8d2d7fce353e0e886cbec6289c0f5c8a25",
+   "response_record_count": 1302,
+   "extract_file": "src/data/serbia/raw/240003010102IND03.extract.json",
+   "extract_sha256": "519167382f0255bf0706fbfdb301c14c22d7e395fb9de7aba326b5ec1fe541f9",
+   "extract_record_count": 62
+  },
+  {
+   "dataset_id": "2403040101IND01",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/2403040101IND01/3/json",
+   "retrieved_at": "2026-09-29T18:00:17.322Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 159927,
+   "response_sha256": "c0621270d05b0057c70c52e591c97dbbf5fada6b626d346d740b28ab4f7326f6",
+   "response_record_count": 595,
+   "extract_file": "src/data/serbia/raw/2403040101IND01.extract.json",
+   "extract_sha256": "ec531b96b594539a53ae178593e1b03ca1245b734b78f83800e442d536019f49",
+   "extract_record_count": 595
+  },
+  {
+   "dataset_id": "2403040101IND02",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/2403040101IND02/3/json",
+   "retrieved_at": "2026-09-29T18:00:17.420Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 167339,
+   "response_sha256": "a362f6c011d88050cb0bc85dc3d4ccde6b42a72abde16263c9a753a305f23f8a",
+   "response_record_count": 595,
+   "extract_file": "src/data/serbia/raw/2403040101IND02.extract.json",
+   "extract_sha256": "85072fe8bfccfa74a7551c7e8f23ffe384c39664e7ce5f45ddde88035fda01d4",
+   "extract_record_count": 595
+  },
+  {
+   "dataset_id": "210105IND02",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/210105IND02/3/json",
+   "retrieved_at": "2026-09-29T18:00:18.152Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 2528615,
+   "response_sha256": "f140d24ff54af67c7398bf8ea42454266fb40fd12e9ae776490e6a3a0a289142",
+   "response_record_count": 4785,
+   "extract_file": "src/data/serbia/raw/210105IND02.extract.json",
+   "extract_sha256": "8284faba960e6d74d3aa1a487bc74a60b83e566b6eddcc369f29653c5cd4134b",
+   "extract_record_count": 319
+  },
+  {
+   "dataset_id": "030201010101IND01",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/030201010101IND01/3/json",
+   "retrieved_at": "2026-09-29T18:00:25.052Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 21011781,
+   "response_sha256": "9475739c5b5243ae5132675ca9e317a0094cacb50781529eb695ce7175762146",
+   "response_record_count": 43112,
+   "extract_file": "src/data/serbia/raw/030201010101IND01.extract.json",
+   "extract_sha256": "0204d0c10d7cd22a10c8d2f6f8fcecd3c5c664a468fb2094069ae3bcb2771013",
+   "extract_record_count": 223
+  },
+  {
+   "dataset_id": "1702IND01",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/1702IND01/3/json",
+   "retrieved_at": "2026-09-29T18:00:25.354Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 234528,
+   "response_sha256": "a77156222c45b31d7c0049fc25421a220b17ce2a3f62430c5ed30b290c4947b4",
+   "response_record_count": 879,
+   "extract_file": "src/data/serbia/raw/1702IND01.extract.json",
+   "extract_sha256": "252fefad3b71c85b522a729f277fb4f91b3ef7ab001c890bbddbd4729d7ae3b4",
+   "extract_record_count": 293
+  },
+  {
+   "dataset_id": "1702IND02",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/1702IND02/3/json",
+   "retrieved_at": "2026-09-29T18:00:25.505Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 234761,
+   "response_sha256": "f587afd070d4e29e5ea72f9ef790878232fe15558f850a1e25e4bcc145f15c6c",
+   "response_record_count": 879,
+   "extract_file": "src/data/serbia/raw/1702IND02.extract.json",
+   "extract_sha256": "647db648435a2f6da31a49344bc2a4d33d21930780858a8902f1b2d9f2e45450",
+   "extract_record_count": 293
+  },
+  {
+   "dataset_id": "240003020304IND01",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/240003020304IND01/3/json",
+   "retrieved_at": "2026-09-29T18:00:25.642Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 347845,
+   "response_sha256": "cb196851b5be43911d45f13114ee113af3087aa890d599a7822945b36949f47f",
+   "response_record_count": 960,
+   "extract_file": "src/data/serbia/raw/240003020304IND01.extract.json",
+   "extract_sha256": "16c6d3f0d13e3e39efff071daa380475c26d25e31d2eb9d802fb0af953bf682b",
+   "extract_record_count": 40
+  },
+  {
+   "dataset_id": "2400020102IND04",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/2400020102IND04/3/json",
+   "retrieved_at": "2026-09-29T18:00:25.924Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 833606,
+   "response_sha256": "9e0d4965a6da0e30c8c1fcc68475f91cde512b3ada4a3271b8139d310ce37ea9",
+   "response_record_count": 2394,
+   "extract_file": "src/data/serbia/raw/2400020102IND04.extract.json",
+   "extract_sha256": "87e14d5c001661e4f79f6d50b389f17936c03f08a4671a9c03118fb205fef5cf",
+   "extract_record_count": 266
+  },
+  {
+   "dataset_id": "240003020205IND01",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/240003020205IND01/3/json",
+   "retrieved_at": "2026-09-29T18:00:26.066Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 346249,
+   "response_sha256": "3a1064f894a5b5dcea3297a706d1e2cb3b3b7a51e0b73e71a1b9ad6ec937fc39",
+   "response_record_count": 960,
+   "extract_file": "src/data/serbia/raw/240003020205IND01.extract.json",
+   "extract_sha256": "60f936f35b7a12378f6cec0ab0b31af6eb4ad59702ef72f729b4dc418e4fcab5",
+   "extract_record_count": 40
+  },
+  {
+   "dataset_id": "2400020102IND02",
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/2400020102IND02/3/json",
+   "retrieved_at": "2026-09-29T18:00:26.362Z",
+   "http_status": 200,
+   "response_container": "json",
+   "response_bytes": 829057,
+   "response_sha256": "8482c375b42c036d32cacc726aa91cd26906d61b2b0357cacd41703ca4674c88",
+   "response_record_count": 2394,
+   "extract_file": "src/data/serbia/raw/2400020102IND02.extract.json",
+   "extract_sha256": "82af46c399101628c75343b3fcc4e17992816e155c70c3d96ec76f07943ffd14",
+   "extract_record_count": 266
+  },
+  {
+   "dataset_id": "BIS WS_XRU M.RS.RSD.A / M.XM.EUR.A",
+   "source_url": "https://stats.bis.org/api/v2/data/dataflow/BIS/WS_XRU/1.0/M.RS.RSD.A?startPeriod=1999-01&format=csv ; https://stats.bis.org/api/v2/data/dataflow/BIS/WS_XRU/1.0/M.XM.EUR.A?startPeriod=1999-01&format=csv",
+   "retrieved_at": "2026-09-29T18:00:26.536Z",
+   "extract_file": "src/data/serbia/raw/bis_rsd_per_eur.extract.json",
+   "extract_sha256": "9075fee8eae110d5a98069fe0e2c5909d7848ac2c35cf490b2d18db0d51cd6d0",
+   "response_sha256": "1ef8068edbb34be968a1f871cb493e8cb67e05a031f0697063d134c5550e0cc3 ; 1adfbbb9d54ccd337e86725e0e12cdafeea292d2f37ffa3071a51e4c73f0b6f0",
+   "note": "EUR conversion rate (owner decision 2026-09-30: use BIS)"
+  }
+ ],
+ "fx": {
+  "method": "calendar-year mean of 12 BIS monthly averages",
+  "rsd_per_eur": {
+   "1999": 11.718894,
+   "2000": 15.24432,
+   "2001": 59.392476,
+   "2002": 60.668767,
+   "2003": 65.056912,
+   "2004": 72.568649,
+   "2005": 82.841141,
+   "2006": 84.154734,
+   "2007": 79.976235,
+   "2008": 81.403772,
+   "2009": 93.928138,
+   "2010": 102.86527,
+   "2011": 101.944671,
+   "2012": 112.952567,
+   "2013": 113.074287,
+   "2014": 117.206369,
+   "2015": 120.668274,
+   "2016": 123.075763,
+   "2017": 121.342458,
+   "2018": 118.242094,
+   "2019": 117.822551,
+   "2020": 117.559994,
+   "2021": 117.570534,
+   "2022": 117.420983,
+   "2023": 117.219394,
+   "2024": 117.047284,
+   "2025": 117.191224
+  },
+  "one_month_steps_over_50pct": [
+   {
+    "month": "2000-12",
+    "change_pct": 359.1
+   }
+  ],
+  "eur_conversion_withheld_years": [
+   2000
+  ]
+ },
+ "series": [
+  {
+   "source_ref": 0,
+   "series": "real_gdp_growth",
+   "label": "Real GDP growth (SORS, % vs previous year)",
+   "store": "annual",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "09020104IND01",
+   "original_code": {
+    "IDUpotrebaBDP": "00",
+    "IDVrPod": "5"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/09020104IND01/3/json",
+   "mapping": "real_gdp_growth",
+   "mapping_status": "definition_compatible",
+   "cross_country_comparable": true,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 25,
+   "missing_status_records": 0,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 1,
+   "series": "gdp_current_rsd",
+   "label": "GDP at current prices",
+   "store": "annual",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "09020104IND01",
+   "original_code": {
+    "IDUpotrebaBDP": "00",
+    "IDVrPod": "1"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/09020104IND01/3/json",
+   "mapping": "gdp_current_eur",
+   "mapping_status": "requires_transformation",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 25,
+   "missing_status_records": 0,
+   "overlap_check": {
+    "pairs": [
+     {
+      "year": 2021,
+      "eurostat": 55931.3,
+      "converted": 55932.6,
+      "rel_diff_pct": 0
+     },
+     {
+      "year": 2022,
+      "eurostat": 63512.8,
+      "converted": 63533.3,
+      "rel_diff_pct": 0.03
+     },
+     {
+      "year": 2023,
+      "eurostat": 75205.2,
+      "converted": 75225.7,
+      "rel_diff_pct": 0.03
+     },
+     {
+      "year": 2024,
+      "eurostat": 83257.9,
+      "converted": 83284.8,
+      "rel_diff_pct": 0.03
+     }
+    ],
+    "tolerance": {
+     "relative": 0.02,
+     "absolute": 0
+    },
+    "failed_years": [],
+    "result": "pass"
+   },
+   "status": "ingested"
+  },
+  {
+   "source_ref": 2,
+   "series": "exports_goods_services_rsd",
+   "label": "Exports of goods and services (national accounts)",
+   "store": "annual",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "09020104IND01",
+   "original_code": {
+    "IDVrPod": "1",
+    "IDUpotrebaBDP": "11"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/09020104IND01/3/json",
+   "mapping": "exports_goods_services",
+   "mapping_status": "requires_transformation",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 25,
+   "missing_status_records": 0,
+   "overlap_check": {
+    "pairs": [
+     {
+      "year": 2021,
+      "eurostat": 29274.7,
+      "converted": 29275.3,
+      "rel_diff_pct": 0
+     },
+     {
+      "year": 2022,
+      "eurostat": 38576.5,
+      "converted": 38588.9,
+      "rel_diff_pct": 0.03
+     },
+     {
+      "year": 2023,
+      "eurostat": 41419,
+      "converted": 41430.2,
+      "rel_diff_pct": 0.03
+     },
+     {
+      "year": 2024,
+      "eurostat": 44612.7,
+      "converted": 44627.1,
+      "rel_diff_pct": 0.03
+     }
+    ],
+    "tolerance": {
+     "relative": 0.02,
+     "absolute": 0
+    },
+    "failed_years": [],
+    "result": "pass"
+   },
+   "status": "ingested"
+  },
+  {
+   "source_ref": 3,
+   "series": "imports_goods_services_rsd",
+   "label": "Imports of goods and services (national accounts)",
+   "store": "annual",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "09020104IND01",
+   "original_code": {
+    "IDVrPod": "1",
+    "IDUpotrebaBDP": "12"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/09020104IND01/3/json",
+   "mapping": "imports_goods_services",
+   "mapping_status": "requires_transformation",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 25,
+   "missing_status_records": 0,
+   "overlap_check": {
+    "pairs": [
+     {
+      "year": 2021,
+      "eurostat": 33559.8,
+      "converted": 33560.6,
+      "rel_diff_pct": 0
+     },
+     {
+      "year": 2022,
+      "eurostat": 45205.3,
+      "converted": 45219.9,
+      "rel_diff_pct": 0.03
+     },
+     {
+      "year": 2023,
+      "eurostat": 44685,
+      "converted": 44697.2,
+      "rel_diff_pct": 0.03
+     },
+     {
+      "year": 2024,
+      "eurostat": 48407.2,
+      "converted": 48422.8,
+      "rel_diff_pct": 0.03
+     }
+    ],
+    "tolerance": {
+     "relative": 0.02,
+     "absolute": 0
+    },
+    "failed_years": [],
+    "result": "pass"
+   },
+   "status": "ingested"
+  },
+  {
+   "source_ref": 4,
+   "series": "manufacturing_share_gdp",
+   "label": "Manufacturing (NACE C) gross value added, % of GDP",
+   "store": "annual",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "0902010301IND01",
+   "original_code": {
+    "IDKD08": "C",
+    "IDVrPod": "2"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/0902010301IND01/3/json",
+   "mapping": "manufacturing_share_gdp",
+   "mapping_status": "definition_compatible",
+   "cross_country_comparable": true,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 25,
+   "missing_status_records": 0,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 5,
+   "series": "unemployment_rate",
+   "label": "LFS unemployment rate, 15–74",
+   "store": "annual",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "240003020102IND03",
+   "original_code": {
+    "IDPol": "0",
+    "IDStarGrupa": "15-74"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/240003020102IND03/3/json",
+   "mapping": "unemployment_rate",
+   "mapping_status": "definition_compatible",
+   "cross_country_comparable": true,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 15,
+   "missing_status_records": 0,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 6,
+   "series": "employment_rate",
+   "label": "LFS employment rate, 20–64",
+   "store": "annual",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "240003020102IND02",
+   "original_code": {
+    "IDPol": "0",
+    "IDStarGrupa": "20-64"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/240003020102IND02/3/json",
+   "mapping": "employment_rate (Phase G review queue)",
+   "mapping_status": "definition_compatible",
+   "cross_country_comparable": true,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 15,
+   "missing_status_records": 0,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 7,
+   "series": "population_1_january",
+   "label": "Population on 1 January",
+   "store": "annual",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "18010403IND01",
+   "original_code": {
+    "IDPol": "0",
+    "IDStarost": "0"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/18010403IND01/3/json",
+   "mapping": "population",
+   "mapping_status": "definition_compatible",
+   "cross_country_comparable": true,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 15,
+   "missing_status_records": 0,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 8,
+   "series": "population_estimate_sors",
+   "label": "Population estimate (SORS long series)",
+   "store": "annual",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "180304IND02",
+   "original_code": {},
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/180304IND02/3/json",
+   "mapping": "population (1961–2010 annual estimates)",
+   "mapping_status": "descriptive_only",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 26,
+   "missing_status_records": 0,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 9,
+   "series": "average_net_earnings",
+   "label": "Average monthly net earnings (annual average)",
+   "store": "annual",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "2403040401IND01",
+   "original_code": {},
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/2403040401IND01/3/json",
+   "mapping": "average_earnings (Serbia-specific)",
+   "mapping_status": "descriptive_only",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 26,
+   "missing_status_records": 0,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 10,
+   "series": "average_gross_earnings",
+   "label": "Average monthly gross earnings (annual average)",
+   "store": "annual",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "2403040401IND02",
+   "original_code": {},
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/2403040401IND02/3/json",
+   "mapping": "average_earnings (Serbia-specific)",
+   "mapping_status": "descriptive_only",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 26,
+   "missing_status_records": 0,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 11,
+   "series": "goods_exports_usd",
+   "label": "Merchandise exports (goods, customs basis)",
+   "store": "annual",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "1701IND01",
+   "original_code": {
+    "IDVrPod": "1"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/1701IND01/3/json",
+   "mapping": "goods_trade (Serbia-specific)",
+   "mapping_status": "descriptive_only",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 26,
+   "missing_status_records": 0,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 12,
+   "series": "goods_imports_usd",
+   "label": "Merchandise imports (goods, customs basis)",
+   "store": "annual",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "1701IND01",
+   "original_code": {
+    "IDVrPod": "2"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/1701IND01/3/json",
+   "mapping": "goods_trade (Serbia-specific)",
+   "mapping_status": "descriptive_only",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 26,
+   "missing_status_records": 0,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 13,
+   "series": "rd_expenditure_gdp",
+   "label": "Total R&D expenditure, % of GDP",
+   "store": "annual",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "100109IND01",
+   "original_code": {},
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/100109IND01/3/json",
+   "mapping": "rd_expenditure_gdp (review queue)",
+   "mapping_status": "descriptive_only",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 14,
+   "missing_status_records": 0,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 14,
+   "series": "industrial_production_index",
+   "label": "Industrial production, total (not seasonally adjusted)",
+   "store": "monthly",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "060001IND02",
+   "original_code": {
+    "IDKD08": "0"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/060001IND02/3/json",
+   "mapping": "industrial_production_index",
+   "mapping_status": "definition_compatible",
+   "cross_country_comparable": false,
+   "model_role": "formal_model_compatible_candidate",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 319,
+   "missing_status_records": 0,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 15,
+   "series": "cpi_index_2006",
+   "label": "Consumer price index, total (national CPI, not HICP)",
+   "store": "monthly",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "03010601IND01",
+   "original_code": {
+    "IDCOICOP": "0000"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/03010601IND01/3/json",
+   "mapping": "serbia_cpi_index (Serbia-specific, base 2006=100 IND01)",
+   "mapping_status": "descriptive_only",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 228,
+   "missing_status_records": 0,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 16,
+   "series": "cpi_annual_index",
+   "label": "Consumer prices, same month previous year = 100 (national CPI, not HICP)",
+   "store": "monthly",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "03010601IND03",
+   "original_code": {
+    "IDCOICOP": "0000"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/03010601IND03/3/json",
+   "mapping": "serbia_cpi_annual_rate (Serbia-specific, y/y index IND03)",
+   "mapping_status": "descriptive_only",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 228,
+   "missing_status_records": 0,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 17,
+   "series": "lfs_unemployment_quarterly",
+   "label": "LFS unemployment rate 15–74, quarterly (NSA)",
+   "store": "monthly",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "240003010102IND03",
+   "original_code": {
+    "IDPol": "0",
+    "IDStarGrupa": "15-74"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/240003010102IND03/3/json",
+   "mapping": "lfs_unemployment_quarterly (Serbia-specific)",
+   "mapping_status": "descriptive_only",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 62,
+   "missing_status_records": 0,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 18,
+   "series": "average_net_earnings_monthly",
+   "label": "Average net earnings, monthly",
+   "store": "monthly",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "2403040101IND01",
+   "original_code": {},
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/2403040101IND01/3/json",
+   "mapping": "average_earnings_monthly (Serbia-specific)",
+   "mapping_status": "descriptive_only",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 319,
+   "missing_status_records": 0,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 19,
+   "series": "average_gross_earnings_monthly",
+   "label": "Average gross earnings, monthly",
+   "store": "monthly",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "2403040101IND02",
+   "original_code": {},
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/2403040101IND02/3/json",
+   "mapping": "average_earnings_monthly (Serbia-specific)",
+   "mapping_status": "descriptive_only",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 319,
+   "missing_status_records": 0,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 20,
+   "series": "retail_trade_volume_sa",
+   "label": "Retail trade turnover volume, seasonally adjusted",
+   "store": "monthly",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "210105IND02",
+   "original_code": {
+    "IDKD08STS": "47",
+    "IDDesezoniranjeVS": "Y"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/210105IND02/3/json",
+   "mapping": "retail_trade_volume (Serbia-specific)",
+   "mapping_status": "descriptive_only",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 319,
+   "missing_status_records": 0,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 21,
+   "series": "industrial_producer_prices_yoy",
+   "label": "Industrial producer prices, total",
+   "store": "monthly",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "030201010101IND01",
+   "original_code": {
+    "IDKD08": "0",
+    "IDIndeksVrsta": "3"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/030201010101IND01/3/json",
+   "mapping": "producer_prices_industry (Serbia-specific)",
+   "mapping_status": "descriptive_only",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 188,
+   "missing_status_records": 35,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 22,
+   "series": "goods_exports_eur_monthly",
+   "label": "Merchandise exports, monthly",
+   "store": "monthly",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "1702IND01",
+   "original_code": {
+    "IDVrPod": "2"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/1702IND01/3/json",
+   "mapping": "goods_trade_monthly (Serbia-specific)",
+   "mapping_status": "descriptive_only",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 271,
+   "missing_status_records": 0,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 23,
+   "series": "goods_imports_eur_monthly",
+   "label": "Merchandise imports, monthly",
+   "store": "monthly",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "1702IND02",
+   "original_code": {
+    "IDVrPod": "2"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/1702IND02/3/json",
+   "mapping": "goods_trade_monthly (Serbia-specific)",
+   "mapping_status": "descriptive_only",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 1,
+   "ingested": 271,
+   "missing_status_records": 0,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 24,
+   "series": "regional_population_1_january",
+   "label": "Population on 1 January",
+   "store": "regional",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "18010403IND01",
+   "original_code": {
+    "IDPol": "0",
+    "IDStarost": "0"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/18010403IND01/3/json",
+   "mapping": "regional_population",
+   "mapping_status": "definition_compatible",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 205,
+   "ingested": 3055,
+   "missing_status_records": 0,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 25,
+   "series": "regional_population_estimate_sors",
+   "label": "Population estimate (SORS long series)",
+   "store": "regional",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "180304IND02",
+   "original_code": {},
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/180304IND02/3/json",
+   "mapping": "regional_population (long series)",
+   "mapping_status": "descriptive_only",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": null,
+   "territorial_units": 240,
+   "ingested": 5202,
+   "missing_status_records": 1038,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 26,
+   "series": "regional_unemployment_rate_2021",
+   "label": "LFS unemployment rate 15–74 (2021+)",
+   "store": "regional",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "240003020304IND01",
+   "original_code": {
+    "IDPol": "0",
+    "IDStarGrupa": "15-74"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/240003020304IND01/3/json",
+   "mapping": "regional_unemployment_rate",
+   "mapping_status": "descriptive_only",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": "LFS 2021 methodology, 15–74",
+   "territorial_units": 7,
+   "ingested": 30,
+   "missing_status_records": 5,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 27,
+   "series": "regional_unemployment_rate_2014_2020",
+   "label": "LFS unemployment rate 15+ (2014–2020)",
+   "store": "regional",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "2400020102IND04",
+   "original_code": {
+    "IDPol": "0",
+    "IDStarGrupa": "15"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/2400020102IND04/3/json",
+   "mapping": "regional_unemployment_rate",
+   "mapping_status": "descriptive_only",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": "LFS 2014–2020, 15+",
+   "territorial_units": 37,
+   "ingested": 217,
+   "missing_status_records": 42,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 28,
+   "series": "regional_employment_rate_2021",
+   "label": "LFS employment rate 20–64 (2021+)",
+   "store": "regional",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "240003020205IND01",
+   "original_code": {
+    "IDPol": "0",
+    "IDStarGrupa": "20-64"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/240003020205IND01/3/json",
+   "mapping": "regional_employment_rate",
+   "mapping_status": "descriptive_only",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": "LFS 2021 methodology, 20–64",
+   "territorial_units": 7,
+   "ingested": 30,
+   "missing_status_records": 5,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 29,
+   "series": "regional_employment_rate_2014_2020",
+   "label": "LFS employment rate 15+ (2014–2020)",
+   "store": "regional",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "2400020102IND02",
+   "original_code": {
+    "IDPol": "0",
+    "IDStarGrupa": "15"
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/2400020102IND02/3/json",
+   "mapping": "regional_employment_rate",
+   "mapping_status": "descriptive_only",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "segment": "LFS 2014–2020, 15+",
+   "territorial_units": 37,
+   "ingested": 217,
+   "missing_status_records": 42,
+   "overlap_check": null,
+   "status": "ingested"
+  },
+  {
+   "source_ref": 30,
+   "series": "trade_balance_rsd",
+   "label": "Exports − imports of goods and services",
+   "store": "annual",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "09020104IND01 (derived)",
+   "original_code": {
+    "derived_from": [
+     {
+      "IDVrPod": "1",
+      "IDUpotrebaBDP": "11"
+     },
+     {
+      "IDVrPod": "1",
+      "IDUpotrebaBDP": "12"
+     }
+    ]
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/09020104IND01/3/json",
+   "mapping": "trade_balance",
+   "mapping_status": "requires_transformation",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "ingested": 25,
+   "overlap_check": {
+    "pairs": [
+     {
+      "year": 2021,
+      "eurostat": -4285.1,
+      "converted": -4285.3
+     },
+     {
+      "year": 2022,
+      "eurostat": -6628.8,
+      "converted": -6630.9
+     },
+     {
+      "year": 2023,
+      "eurostat": -3266,
+      "converted": -3266.9
+     },
+     {
+      "year": 2024,
+      "eurostat": -3794.5,
+      "converted": -3795.7
+     }
+    ],
+    "note": "balance of two converted aggregates; relative tolerance not meaningful for a small difference, shown for transparency"
+   },
+   "status": "ingested"
+  },
+  {
+   "source_ref": 31,
+   "series": "gdp_per_capita_eur",
+   "label": "GDP per capita, EUR",
+   "store": "annual",
+   "source_institution": "Statistical Office of the Republic of Serbia (SORS / RZS)",
+   "source_dataset": "09020104IND01 + 18010403IND01 (derived)",
+   "original_code": {
+    "derived_from": [
+     "gdp_current_rsd",
+     "population_1_january"
+    ]
+   },
+   "source_url": "https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/09020104IND01/3/json ; https://opendata.stat.gov.rs/data/WcfJsonRestService.Service1.svc/dataset/18010403IND01/3/json",
+   "mapping": "gdp_per_capita_eur",
+   "mapping_status": "requires_transformation",
+   "cross_country_comparable": false,
+   "model_role": "descriptive_only",
+   "ingested": 0,
+   "overlap_check": {
+    "pairs": [
+     {
+      "year": 2021,
+      "eurostat": 8140,
+      "converted": 8250.1,
+      "rel_diff_pct": 1.35
+     },
+     {
+      "year": 2022,
+      "eurostat": 9344,
+      "converted": 9533.16,
+      "rel_diff_pct": 2.02
+     },
+     {
+      "year": 2023,
+      "eurostat": 11324,
+      "converted": 11357.94,
+      "rel_diff_pct": 0.3
+     },
+     {
+      "year": 2024,
+      "eurostat": 12605,
+      "converted": 12644.82,
+      "rel_diff_pct": 0.32
+     }
+    ],
+    "tolerance": {
+     "relative": 0.02,
+     "absolute": 0
+    },
+    "failed_years": [
+     2022
+    ],
+    "result": "fail"
+   },
+   "status": "held_overlap_failed"
+  }
+ ],
+ "municipality_codes_seen": 174,
+ "summary": {
+  "annual": 339,
+  "monthly": 2524,
+  "regional": 8751
+ }
+}

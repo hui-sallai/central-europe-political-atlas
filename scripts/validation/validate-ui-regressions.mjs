@@ -105,6 +105,15 @@ for (const [file, label] of [["src/components/DataExplorerV11.tsx", "高频月�
   check(trend.includes("regional-history/${countryId}.json") && /id: "not-comparable"[^}]*width: 0/.test(trend) && /status === "comparable_stable_code"/.test(trend), "Region trend: per-country runtime, only comparable years form the dashed trend, others are points");
   check(trend.includes("data-trend-status") && trend.includes("不可连成趋势") && trend.includes("未合并不同 NUTS 版本"), "Region trend states non-comparability and the no-merge boundary policy in the UI");
   check(spatial.includes("<RegionHistoryTrend") && !/regional-history|regional_descriptive_history/.test(spatial), "map/choropleth code does not read the regional history (trend component only)");
+  // Serbia (SORS): own labelled layer, Serbia-only loading, comparability note, CPI never shown as HICP.
+  const sorsHook = read("src/components/useSerbiaSors.ts");
+  const sorsPanel = read("src/components/SerbiaSorsMonthlyPanel.tsx");
+  const exportScript = read("scripts/export-research-data.mjs");
+  check(explorer.includes('useSerbiaSors(basePath, countrySlug === "serbia")') && sorsHook.includes("if (!enabled || series) return;"), "SORS runtime is only fetched when Serbia is selected");
+  check(explorer.includes('data-sors-layer="annual"') && explorer.includes('data-cross-country="false"') && explorer.includes('layer: "sors"'), "Data Explorer shows SORS as a separate layer with a cross-country note");
+  check(sorsPanel.includes("国家 CPI 不等同于 HICP") && sorsPanel.includes("不进入 VAR、LP 或面板模型") && sorsPanel.includes("data-cross-country"), "SORS monthly panel states CPI is not HICP, model exclusion and comparability");
+  const displayAs = /const displayAs = (\{[^}]*\})/.exec(exportScript)?.[1] ?? "";
+  check(displayAs.length > 0 && !/hicp/i.test(displayAs), "no SORS series is displayed under an HICP indicator");
   const { LocalProjectionWorkbench } = require(path.join(root, "src/components/LocalProjectionWorkbench.tsx"));
   const lpHtml = renderToStaticMarkup(React.createElement(LocalProjectionWorkbench, {}));
   check(/data-axis="x"/.test(lpHtml) && /data-axis="y"/.test(lpHtml) && /data-zero-line="true"/.test(lpHtml), "LP chart renders axes and a zero line");

@@ -2153,6 +2153,26 @@ fs.copyFileSync(path.join(canonicalDataDir, "historical-extension-audit", "histo
     }) + "\n");
   }
 }
+{
+  // Serbia official statistics (SORS): Serbia-only descriptive stores, audit documents and a compact runtime.
+  const serbiaDir = path.join(canonicalDataDir, "serbia");
+  const serbiaOut = path.join(outDir, "serbia");
+  fs.mkdirSync(serbiaOut, { recursive: true });
+  for (const name of fs.readdirSync(serbiaDir).filter((f) => f.endsWith(".json"))) fs.copyFileSync(path.join(serbiaDir, name), path.join(serbiaOut, name));
+  // Display grouping: SORS series that share an Atlas concept are shown under that indicator (as a separate SORS layer).
+  const displayAs = { real_gdp_growth: "real_gdp_growth", gdp_current_rsd: "gdp_current_eur", exports_goods_services_rsd: "exports_goods_services", imports_goods_services_rsd: "imports_goods_services", trade_balance_rsd: "trade_balance", manufacturing_share_gdp: "manufacturing_share_gdp", unemployment_rate: "unemployment_rate", population_1_january: "population" };
+  const runtime = { schema_version: "serbia-sors-runtime-v1", descriptive_only: true, attribution: "Source: Statistical Office of the Republic of Serbia (SORS), opendata.stat.gov.rs", series: [] };
+  for (const store of ["annual", "monthly"]) {
+    const doc = JSON.parse(fs.readFileSync(path.join(serbiaDir, `serbia_descriptive_history_${store}.json`), "utf8"));
+    for (const src of doc.series_sources.filter((x) => x.status === "ingested")) {
+      const recs = doc.records.filter((r) => r.source_ref === src.source_ref);
+      runtime.series.push({ key: src.series, store, display_indicator: displayAs[src.series] ?? src.series, label: src.label, dataset: src.source_dataset, source_url: src.source_url, mapping_status: src.mapping_status, cross_country_comparable: src.cross_country_comparable, model_role: src.model_role,
+        unit: recs[0]?.normalized_unit ?? null, original_unit: recs[0]?.original_unit ?? null, status_legend: doc.sors_status_legend,
+        points: recs.map((r) => [r.period, r.normalized_value, r.original_value, r.sors_status, r.comparability_status === "comparable_within_segment" ? 1 : 0]) });
+    }
+  }
+  fs.writeFileSync(path.join(outDir, "serbia_sors_runtime.json"), JSON.stringify(runtime) + "\n");
+}
 // v2.0 Phase G/J: descriptive-only annual history (never a model input) and the coverage audit it is gated by.
 for (const [dir, fileName] of [["historical", "annual_descriptive_history.json"], ["historical", "annual_history_manifest.json"], ["historical", "monthly_descriptive_history.json"], ["historical", "monthly_history_manifest.json"], ["historical", "regional_descriptive_history.json"], ["historical", "regional_history_manifest.json"], ["data-coverage", "descriptive_data_coverage_audit.json"]]) fs.copyFileSync(path.join(canonicalDataDir, dir, fileName), path.join(outDir, fileName));
 {
