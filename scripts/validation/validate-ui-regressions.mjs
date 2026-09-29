@@ -97,6 +97,14 @@ for (const [file, label] of [["src/components/DataExplorerV11.tsx", "高频月�
   const { coverageOf } = require(path.join(root, "src/components/DataExplorerV11.tsx"));
   const cov = coverageOf([{ period: 2000, value: 1 }, { period: 2001, value: null }, { period: 2003, value: 0 }, { period: 2004, value: 2 }]);
   check(cov.earliest === 2000 && cov.latest === 2004 && JSON.stringify(cov.missing) === "[2001,2002]" && cov.available === 3, "coverage: null and absent years are missing; an official 0 counts as observed");
+  // Phase I: regional trend never connects non-comparable years; map classification never reads the history.
+  const pointsOnly = renderToStaticMarkup(React.createElement(ResearchTimeSeriesChart, { title: "点", series: [{ id: "a", label: "可比", color: "#000", points: [{ x: 2010, y: 1 }, { x: 2011, y: 2 }] }, { id: "b", label: "不可比", color: "#999", width: 0, markers: true, points: [{ x: 2001, y: 3 }, { x: 2002, y: 4 }] }], xKind: "number", yLabel: "人" }));
+  check((pointsOnly.match(/<polyline/g) ?? []).length === 1 && (pointsOnly.match(/<circle/g) ?? []).length >= 2, "points-only series draws markers but no connecting line");
+  const trend = read("src/components/RegionHistoryTrend.tsx");
+  const spatial = read("src/components/ComparativeSpatialWorkbench.tsx");
+  check(trend.includes("regional-history/${countryId}.json") && /id: "not-comparable"[^}]*width: 0/.test(trend) && /status === "comparable_stable_code"/.test(trend), "Region trend: per-country runtime, only comparable years form the dashed trend, others are points");
+  check(trend.includes("data-trend-status") && trend.includes("不可连成趋势") && trend.includes("未合并不同 NUTS 版本"), "Region trend states non-comparability and the no-merge boundary policy in the UI");
+  check(spatial.includes("<RegionHistoryTrend") && !/regional-history|regional_descriptive_history/.test(spatial), "map/choropleth code does not read the regional history (trend component only)");
   const { LocalProjectionWorkbench } = require(path.join(root, "src/components/LocalProjectionWorkbench.tsx"));
   const lpHtml = renderToStaticMarkup(React.createElement(LocalProjectionWorkbench, {}));
   check(/data-axis="x"/.test(lpHtml) && /data-axis="y"/.test(lpHtml) && /data-zero-line="true"/.test(lpHtml), "LP chart renders axes and a zero line");

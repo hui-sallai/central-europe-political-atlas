@@ -70,6 +70,14 @@ export function loadSeries() {
       push(`monthly_history|${r.country_slug}|${r.series}|level|monthly`, { dataset: "monthly_history", file: monthlyHistoryPath, country: r.country_slug, indicator: r.series, transformation: "level", frequency: "monthly", source: src.source, source_dataset: src.raw_file, source_url: src.source_url }, { id: r.id, period: r.period, value: r.value, unit: src.unit, status: r.value_status, definition: src.definition });
     }
   }
+  const regionalHistoryPath = "src/data/historical/regional_descriptive_history.json";
+  if (fs.existsSync(path.join(root, regionalHistoryPath))) {
+    const regional = read(regionalHistoryPath);
+    for (const r of regional.records) {
+      const country = regional.regions[r.region_id].country_id;
+      push(`regional_history|${country}|${r.indicator}|level|annual`, { dataset: "regional_history", file: regionalHistoryPath, country, indicator: r.indicator, transformation: "level", frequency: "annual", source: "Eurostat", source_dataset: regional.indicators[r.indicator].definition, source_url: regional.sources[regional.indicators[r.indicator].source_refs[0]].url }, { id: r.id, period: String(r.statistical_year), region: r.region_id, value: r.value, unit: regional.indicators[r.indicator].unit, status: r.comparability_status, definition: regional.indicators[r.indicator].definition });
+    }
+  }
   for (const file of ["src/data/regional/v086-observations.json", "src/data/regional/v089-observations.json"]) {
     for (const r of read(file).records) {
       // Regional series are summarised per country × indicator; each region is its own sub-series inside the fingerprint.
@@ -79,8 +87,9 @@ export function loadSeries() {
   return [...series.values()];
 }
 
-const fingerprintRows = (s) => s.dataset === "regional" ? s.rows.map((r) => ({ period: `${r.period}|${r.region}`, value: r.value })) : s.rows;
-const periodOfFingerprintRow = (s, earliest, latest) => s.dataset === "regional" ? [`${earliest}|`, `${latest}|￿`] : [earliest, latest];
+const regionalLike = (s) => s.dataset === "regional" || s.dataset === "regional_history";
+const fingerprintRows = (s) => regionalLike(s) ? s.rows.map((r) => ({ period: `${r.period}|${r.region}`, value: r.value })) : s.rows;
+const periodOfFingerprintRow = (s, earliest, latest) => regionalLike(s) ? [`${earliest}|`, `${latest}|￿`] : [earliest, latest];
 export function seriesFingerprint(s, earliest, latest) {
   const [a, b] = periodOfFingerprintRow(s, earliest, latest);
   return windowFingerprint(fingerprintRows(s), a, b);
@@ -230,6 +239,9 @@ function historical(s, allSeries) {
   if (s.dataset === "regional") {
     return { candidate_source: s.source_dataset, evidence: "indicative_not_retrieved", earliest_available: null, proposed_earliest_feasible: null, definition_compatible_floor: null, estimated_new_observations: null, estimate_basis: "not estimated: regional back-series depend on NUTS version", definition_break_risks: ["NUTS 2016 / 2021 / 2024 boundary revisions change region identities", "regional LFS and GDP back-casting depth differs by country"], feasibility: "requires_methodological_review", rationale: "Regional backfill needs a NUTS-version crosswalk before any values can be compared across years." };
   }
+  if (s.dataset === "regional_history") {
+    return { candidate_source: s.source_dataset, evidence: "ingested_phase_i", earliest_available: null, proposed_earliest_feasible: null, definition_compatible_floor: null, estimated_new_observations: 0, estimate_basis: "already ingested as descriptive regional history (see src/data/historical/regional_history_manifest.json)", definition_break_risks: ["per-year comparability_status: comparable_stable_code / backcast_boundary_revision / series_break"], feasibility: "ingested_descriptive_history", rationale: "Phase I descriptive history on NUTS 2024 codes; boundary comparability recorded per year; never a map-classification or model input." };
+  }
   if (s.dataset === "monthly_history") {
     return { candidate_source: s.source_dataset, evidence: "ingested_phase_h", earliest_available: null, proposed_earliest_feasible: null, definition_compatible_floor: null, estimated_new_observations: 0, estimate_basis: "already ingested as descriptive history (see src/data/historical/monthly_history_manifest.json)", definition_break_risks: [], feasibility: "ingested_descriptive_history", rationale: "Phase H safe descriptive backfill; descriptive only, never a model input." };
   }
@@ -295,7 +307,7 @@ export function buildAudit() {
     const expected = s.frequency === "monthly" ? Array.from({ length: monthIndex(latest) - monthIndex(earliest) + 1 }, (_, i) => addMonths(earliest, i)) : Array.from({ length: Number(latest) - Number(earliest) + 1 }, (_, i) => String(Number(earliest) + i));
     const missing = expected.filter((p) => !observed.has(p));
     s.coverage = { earliest, latest, record_count: s.rows.length, observation_count: s.rows.filter((r) => r.value !== null).length, null_record_count: s.rows.filter((r) => r.value === null).length, missing_period_count: missing.length, missing_periods: missing, first_observed: [...observed].sort()[0] ?? null, last_observed: [...observed].sort().at(-1) ?? null };
-    if (s.dataset === "regional") s.coverage.region_count = new Set(s.rows.map((r) => r.region)).size;
+    if (regionalLike(s)) s.coverage.region_count = new Set(s.rows.map((r) => r.region)).size;
   }
   // Levels before derived transformations so derived records can inherit.
   const ordered = [...seriesList].sort((a, b) => Number(Boolean(TRANSFORM_PARENT[a.transformation])) - Number(Boolean(TRANSFORM_PARENT[b.transformation])));
@@ -305,6 +317,9 @@ export function buildAudit() {
   const phaseG = fs.existsSync(path.join(root, historyManifestPath)) ? new Map(read(historyManifestPath).series.map((x) => [`${x.country}|${x.indicator}`, x])) : new Map();
   const monthlyManifestPath = "src/data/historical/monthly_history_manifest.json";
   const phaseH = fs.existsSync(path.join(root, monthlyManifestPath)) ? new Map(read(monthlyManifestPath).series.map((x) => [`${x.country}|${x.series}`, x])) : new Map();
+  const regionalManifestPath = "src/data/historical/regional_history_manifest.json";
+  const phaseI = new Map();
+  if (fs.existsSync(path.join(root, regionalManifestPath))) for (const p of read(regionalManifestPath).pairs) { const k = `${p.country_id ?? ""}|${p.indicator}`; const e = phaseI.get(k) ?? { regions: 0, ingested_regions: 0, records: 0, comparable_records: 0, statuses: {} }; e.regions += 1; if (p.status === "ingested") e.ingested_regions += 1; e.records += p.ingested_count ?? 0; e.comparable_records += p.comparable_years ?? 0; e.statuses[p.status] = (e.statuses[p.status] ?? 0) + 1; phaseI.set(k, e); }
   const hfDefinitionRegistry = read("src/data/high-frequency/high_frequency_definition_registry.json").records;
   const records = seriesList.sort((a, b) => a.key.localeCompare(b.key)).map((s) => {
     const samples = formal.get(s.key) ?? [];
@@ -319,6 +334,7 @@ export function buildAudit() {
       definition: { versions: [...s.definitions].sort().slice(0, 5), version_count: s.definitions.size, continuity, registered_transitions: registered?.methodological_transitions ?? [] },
       historical_extension: s.historical,
       ...((s.dataset === "high_frequency" || s.dataset === "macro_drivers") && s.transformation !== "monthly_log_change" && s.transformation !== "12m_log_change" && s.transformation !== "monthly_change_bp" ? { phase_h_backfill: phaseH.has(`${s.country}|${s.indicator}`) ? (({ status, ingested_periods, ingested_count, definition_compatible_floor, overlap_check, decision }) => ({ status, store: "src/data/historical/monthly_descriptive_history.json", ingested_periods, ingested_count, definition_compatible_floor: definition_compatible_floor ?? null, overlap_check, decision }))(phaseH.get(`${s.country}|${s.indicator}`)) : { status: "not_in_phase_h_safe_scope" } } : {}),
+      ...(s.dataset === "regional" ? { phase_i_backfill: phaseI.has(`${s.country}|${s.indicator}`) ? { store: "src/data/historical/regional_descriptive_history.json", ...phaseI.get(`${s.country}|${s.indicator}`) } : { status: /change/.test(s.indicator) ? "derived_change_not_backfilled" : "not_in_phase_i_scope" } } : {}),
       ...(s.dataset === "annual_observations" ? { phase_g_backfill: phaseG.has(`${s.country}|${s.indicator}`) ? (({ status, ingested_years, ingested_count, definition_compatible_floor, overlap_check }) => ({ status, store: "src/data/historical/annual_descriptive_history.json", ingested_years, ingested_count, definition_compatible_floor: definition_compatible_floor ?? null, overlap_check: overlap_check ?? "derived" }))(phaseG.get(`${s.country}|${s.indicator}`)) : { status: s.country === "serbia" ? "excluded_review_queue" : "not_in_phase_g_safe_scope" } } : {}),
       model_usage: { status: samples.some((x) => x.status === "frozen_published") ? "formal_model_input" : samples.length ? "formal_candidate_not_estimated" : "descriptive_only", formal_model_samples: samples },
       fingerprint: { window: [s.coverage.earliest, s.coverage.latest], sha256: seriesFingerprint(s, s.coverage.earliest, s.coverage.latest) },

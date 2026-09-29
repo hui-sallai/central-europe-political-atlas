@@ -69,7 +69,7 @@ export interface ChartSeries {
   points: ChartPoint[];
   /** SVG dash pattern; use line style (not only colour) to separate series. */
   dash?: string;
-  width?: number;
+  width?: number; // 0 = points only (no connecting line), e.g. values that must not form a trend
   markers?: boolean;
   band?: ChartBandPoint[];
   bandOpacity?: number;
@@ -155,7 +155,7 @@ export function ResearchTimeSeriesChart({ title, description, series, xKind, xLa
           {series.map((s) => s.band?.length ? (
             <polygon key={`band-${s.id}`} fill={s.color} opacity={s.bandOpacity ?? 0.14} points={[...s.band.map((b) => `${sx(toX(b.x))},${sy(b.upper)}`), ...[...s.band].reverse().map((b) => `${sx(toX(b.x))},${sy(b.lower)}`)].join(" ")} />
           ) : null)}
-          {series.map((s) => segments(s.points).map((segment, index) => (
+          {series.filter((s) => s.width !== 0).map((s) => segments(s.points).map((segment, index) => (
             <polyline key={`line-${s.id}-${index}`} fill="none" stroke={s.color} strokeWidth={s.width ?? 2.2} strokeDasharray={s.dash} strokeLinejoin="round" points={segment.map((p) => `${sx(toX(p.x))},${sy(p.y as number)}`).join(" ")} />
           )))}
           {series.filter((s) => s.markers).map((s) => s.points.filter((p) => p.y !== null).map((p) => (
@@ -173,7 +173,7 @@ export function ResearchTimeSeriesChart({ title, description, series, xKind, xLa
         <figcaption className="mt-2 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs text-[var(--muted)]">
           {series.map((s) => (
             <span key={`legend-${s.id}`} className="inline-flex items-center gap-2">
-              <svg width="28" height="10" aria-hidden="true"><line x1="1" x2="27" y1="5" y2="5" stroke={s.color} style={{ strokeWidth: s.width ?? 2.2, strokeDasharray: s.dash }} /></svg>
+              <svg width="28" height="10" aria-hidden="true">{s.width === 0 ? <circle cx="14" cy="5" r="3" fill={s.color} /> : <line x1="1" x2="27" y1="5" y2="5" stroke={s.color} style={{ strokeWidth: s.width ?? 2.2, strokeDasharray: s.dash }} />}</svg>
               <span className="text-[var(--foreground)]">{s.label}</span>
               {s.band?.length ? <span>（阴影为区间）</span> : null}
             </span>

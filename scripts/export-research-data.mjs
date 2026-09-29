@@ -2135,8 +2135,26 @@ fs.copyFileSync(path.join(canonicalDataDir, "historical-extension-audit", "histo
     records: monthly.records.map((r) => [r.country_slug, r.series, r.period, r.value, r.value_status, r.source_ref]),
   }) + "\n");
 }
+{
+  // v2.0 Phase I: per-country regional history runtime for the Region Profile (descriptive only).
+  const regional = JSON.parse(fs.readFileSync(path.join(canonicalDataDir, "historical", "regional_descriptive_history.json"), "utf8"));
+  const regionalDir = path.join(outDir, "regional-history");
+  fs.mkdirSync(regionalDir, { recursive: true });
+  const statusCode = { comparable_stable_code: 0, series_break: 1, backcast_boundary_revision: 2 };
+  for (const country of [...new Set(Object.values(regional.regions).map((r) => r.country_id))]) {
+    const records = regional.records.filter((r) => regional.regions[r.region_id].country_id === country);
+    fs.writeFileSync(path.join(regionalDir, `${country}.json`), JSON.stringify({
+      schema_version: "regional-history-runtime-v2.0", descriptive_only: true, country_id: country,
+      status_codes: ["comparable_stable_code", "series_break", "backcast_boundary_revision"],
+      row_layout: ["region_id", "indicator", "statistical_year", "value", "status_code", "nuts_version_in_force", "break_year", "source_year"],
+      indicators: regional.indicators, sources: regional.sources,
+      regions: Object.fromEntries(Object.entries(regional.regions).filter(([, r]) => r.country_id === country)),
+      records: records.map((r) => [r.region_id, r.indicator, r.statistical_year, r.value, statusCode[r.comparability_status], r.nuts_version_in_force, r.break_year ?? null, r.source_year]),
+    }) + "\n");
+  }
+}
 // v2.0 Phase G/J: descriptive-only annual history (never a model input) and the coverage audit it is gated by.
-for (const [dir, fileName] of [["historical", "annual_descriptive_history.json"], ["historical", "annual_history_manifest.json"], ["historical", "monthly_descriptive_history.json"], ["historical", "monthly_history_manifest.json"], ["data-coverage", "descriptive_data_coverage_audit.json"]]) fs.copyFileSync(path.join(canonicalDataDir, dir, fileName), path.join(outDir, fileName));
+for (const [dir, fileName] of [["historical", "annual_descriptive_history.json"], ["historical", "annual_history_manifest.json"], ["historical", "monthly_descriptive_history.json"], ["historical", "monthly_history_manifest.json"], ["historical", "regional_descriptive_history.json"], ["historical", "regional_history_manifest.json"], ["data-coverage", "descriptive_data_coverage_audit.json"]]) fs.copyFileSync(path.join(canonicalDataDir, dir, fileName), path.join(outDir, fileName));
 {
   const history = JSON.parse(fs.readFileSync(path.join(canonicalDataDir, "historical", "annual_descriptive_history.json"), "utf8"));
   const sources = [...new Set(history.records.map((r) => `${r.source_dataset}\u0000${r.source_query_url}`))];
