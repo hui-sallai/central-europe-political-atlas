@@ -92,6 +92,8 @@ for (const u of selected) {
 const writes = [];
 for (const u of selected) {
   for (const f of u.files) {
+    // Model-linked files are never written; a timestamp-only rewrite of one (e.g. the legacy var_readiness.json) is left as is.
+    if (UNITS[u.unit].modelLinked.includes(f.file) && f.change === "timestamp_only") continue;
     if (FORBIDDEN_TARGETS.includes(f.file) || !UNITS[u.unit].writeSet.some((p) => (p.endsWith("/") ? f.file.startsWith(p) : f.file === p))) fail(`${f.file} is outside the ${u.unit} write-set`);
     if (fileSha(path.join(root, f.file)) !== f.canonical_sha256) fail(`${f.file} changed since the plan was made — re-run the plan`);
     if (fileSha(path.join(stage, f.file)) !== f.staged_sha256) fail(`staged ${f.file} changed after planning — re-run the plan`);
