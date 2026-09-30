@@ -29,7 +29,7 @@
   },
   "formal_input_note": "Country LP calendars span the full stored series (scripts/local-projections/build-lp-robustness.mjs); only high_frequency has a frozen snapshot. Any historical backfill must therefore go to a separate descriptive store or be excluded by an explicit sample window before models are re-run.",
   "summary": {
-    "series_count": 843,
+    "series_count": 844,
     "datasets": {
       "annual_history": {
         "series": 144,
@@ -171,11 +171,11 @@
           "industrial_production_index",
           "unemployment_rate_monthly"
         ],
-        "records": 5411,
-        "observations": 5402,
-        "nulls": 9,
+        "records": 5460,
+        "observations": 5441,
+        "nulls": 19,
         "earliest": "2015-01",
-        "latest": "2026-07",
+        "latest": "2026-08",
         "file": "src/data/high-frequency/high_frequency_observations.json"
       },
       "macro_drivers": {
@@ -215,7 +215,7 @@
         "file": "src/data/macro-drivers/macro_driver_observations.json"
       },
       "monthly_history": {
-        "series": 62,
+        "series": 63,
         "countries": [
           "austria",
           "croatia",
@@ -240,8 +240,8 @@
           "real_effective_exchange_rate",
           "unemployment_rate_monthly"
         ],
-        "records": 10440,
-        "observations": 10440,
+        "records": 10512,
+        "observations": 10512,
         "nulls": 0,
         "earliest": "2000-01",
         "latest": "2014-12",
@@ -382,7 +382,7 @@
     },
     "feasibility_counts": {
       "derived_after_level_backfill": 35,
-      "ingested_descriptive_history": 281,
+      "ingested_descriptive_history": 282,
       "likely_safe_pending_retrieval": 156,
       "requires_methodological_review": 336,
       "requires_source_query": 7,
@@ -398,7 +398,7 @@
       "derived_recomputable": 6306
     },
     "formal_model_input_series": 176,
-    "descriptive_only_series": 664
+    "descriptive_only_series": 665
   },
   "records": [
     {
@@ -34942,14 +34942,14 @@
       "unit": "RCH_A",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 139,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 140,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2015-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Eurostat",
@@ -34957,7 +34957,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -35001,9 +35001,9 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "0af1ec04ef808206b97c9d3f8dea3d1781443838119cf61bd17aba5ac25db660"
+        "sha256": "776fad73f3c28ef4cc918e57c34986dd36ffecd5364d8315e24fe242feef7e34"
       },
       "null_observation_ids": []
     },
@@ -35018,14 +35018,14 @@
       "unit": "I15",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 139,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 140,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2015-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Eurostat",
@@ -35033,7 +35033,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -35108,9 +35108,9 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "9986b05320d625e11c5798619874137a5daebffbcc1544ffc0a6951160169a3b"
+        "sha256": "3f5e2debf626cbb9dd22880c7d656ad195db748cbef941668fccb4d21fa814e8"
       },
       "null_observation_ids": []
     },
@@ -35125,14 +35125,16 @@
       "unit": "I21",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-06",
-        "record_count": 138,
-        "observation_count": 138,
-        "null_record_count": 0,
-        "missing_period_count": 0,
-        "missing_periods": [],
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 139,
+        "null_record_count": 1,
+        "missing_period_count": 1,
+        "missing_periods": [
+          "2026-08"
+        ],
         "first_observed": "2015-01",
-        "last_observed": "2026-06"
+        "last_observed": "2026-07"
       },
       "source": {
         "name": "Eurostat",
@@ -35140,7 +35142,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/sts_inpr_m/default/table"
       },
       "status_counts": {
-        "official": 138
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -35215,11 +35217,13 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-06"
+          "2026-08"
         ],
-        "sha256": "850585486d96123a3cd663c7f70fe868d32419d69984abbabfb84f7c76276e68"
+        "sha256": "38504b8b30fa9f8156eeb54a043072f7474ac795610edad05daddea765373a4e"
       },
-      "null_observation_ids": []
+      "null_observation_ids": [
+        "hf:austria:industrial_production_index:2026-08"
+      ]
     },
     {
       "series_key": "high_frequency|austria|unemployment_rate_monthly|level|monthly",
@@ -35232,16 +35236,16 @@
       "unit": "PC_ACT",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 138,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 139,
         "null_record_count": 1,
         "missing_period_count": 1,
         "missing_periods": [
-          "2026-07"
+          "2026-08"
         ],
         "first_observed": "2015-01",
-        "last_observed": "2026-06"
+        "last_observed": "2026-07"
       },
       "source": {
         "name": "Eurostat",
@@ -35249,7 +35253,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -35326,12 +35330,12 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "ffd7b59d5032b9d33139a0eb5b89b60df144f6d58e7f8551f3b92d82370ec02b"
+        "sha256": "5af302fa9f5b6e40cf15aa5b3158a2f57039f3d9a2c32ccfff5beaa7cff2172e"
       },
       "null_observation_ids": [
-        "hf:austria:unemployment_rate_monthly:2026-07"
+        "hf:austria:unemployment_rate_monthly:2026-08"
       ]
     },
     {
@@ -35345,14 +35349,14 @@
       "unit": "RCH_A",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 139,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 140,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2015-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Eurostat",
@@ -35360,7 +35364,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -35405,9 +35409,9 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "3225fc715c11dc472ee3bf58389b877483e06a06ee34abe69a095476385edb00"
+        "sha256": "d04dc01b625dabaa2f8c9686aefe9d51d0e213c3514e10db300266e4125e64a0"
       },
       "null_observation_ids": []
     },
@@ -35422,14 +35426,14 @@
       "unit": "I15",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 139,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 140,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2015-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Eurostat",
@@ -35437,7 +35441,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -35493,9 +35497,9 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "72bc15b212704de7705202a4da0785fe63eed910941821c077698d9ab7d4869c"
+        "sha256": "fc77dd0845e3b94911a382d60e1c93d3535d65ce16cbcc5f266f6ad803cf22ea"
       },
       "null_observation_ids": []
     },
@@ -35510,14 +35514,16 @@
       "unit": "I21",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-06",
-        "record_count": 138,
-        "observation_count": 138,
-        "null_record_count": 0,
-        "missing_period_count": 0,
-        "missing_periods": [],
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 139,
+        "null_record_count": 1,
+        "missing_period_count": 1,
+        "missing_periods": [
+          "2026-08"
+        ],
         "first_observed": "2015-01",
-        "last_observed": "2026-06"
+        "last_observed": "2026-07"
       },
       "source": {
         "name": "Eurostat",
@@ -35525,7 +35531,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/sts_inpr_m/default/table"
       },
       "status_counts": {
-        "official": 138
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -35571,11 +35577,13 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-06"
+          "2026-08"
         ],
-        "sha256": "c4d2e004d0569112070d2ac6b9974793d72be9d9f51d85cc3c6fd19f9aa655a2"
+        "sha256": "a45ec35cdb24602d60b519422414f446ddd82fc00138324406b34577e83052a9"
       },
-      "null_observation_ids": []
+      "null_observation_ids": [
+        "hf:croatia:industrial_production_index:2026-08"
+      ]
     },
     {
       "series_key": "high_frequency|croatia|unemployment_rate_monthly|level|monthly",
@@ -35588,16 +35596,16 @@
       "unit": "PC_ACT",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 138,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 139,
         "null_record_count": 1,
         "missing_period_count": 1,
         "missing_periods": [
-          "2026-07"
+          "2026-08"
         ],
         "first_observed": "2015-01",
-        "last_observed": "2026-06"
+        "last_observed": "2026-07"
       },
       "source": {
         "name": "Eurostat",
@@ -35605,7 +35613,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -35651,12 +35659,12 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "71a1d685993e16d0c1f86c9a44479f94ae9c468af6ca02533d85dc96ee45a0c9"
+        "sha256": "540041e1063df4fbc33900aee44ccea1056f2d6c9d9ec45c699eb5ffa8732593"
       },
       "null_observation_ids": [
-        "hf:croatia:unemployment_rate_monthly:2026-07"
+        "hf:croatia:unemployment_rate_monthly:2026-08"
       ]
     },
     {
@@ -35670,14 +35678,14 @@
       "unit": "RCH_A",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 139,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 140,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2015-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Eurostat",
@@ -35685,7 +35693,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -35729,9 +35737,9 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "97a5ca3429c31794650c27c80271fe3bf0365c5f253e732ebf79bacbbcda19fd"
+        "sha256": "f40c581e72259f6786d94f2aa686352c0dd6f30b3902332dd5da7c9901016f52"
       },
       "null_observation_ids": []
     },
@@ -35746,14 +35754,14 @@
       "unit": "I15",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 139,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 140,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2015-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Eurostat",
@@ -35761,7 +35769,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -35836,9 +35844,9 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "a684d600ac5e57014f93b707bed6caa8d0c7d38f9a09089215b033043076e0bb"
+        "sha256": "e9caa44b0079848b7d90e588fb437e467de804497de6feebffbcba805107f552"
       },
       "null_observation_ids": []
     },
@@ -35853,14 +35861,16 @@
       "unit": "I21",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-06",
-        "record_count": 138,
-        "observation_count": 138,
-        "null_record_count": 0,
-        "missing_period_count": 0,
-        "missing_periods": [],
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 139,
+        "null_record_count": 1,
+        "missing_period_count": 1,
+        "missing_periods": [
+          "2026-08"
+        ],
         "first_observed": "2015-01",
-        "last_observed": "2026-06"
+        "last_observed": "2026-07"
       },
       "source": {
         "name": "Eurostat",
@@ -35868,7 +35878,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/sts_inpr_m/default/table"
       },
       "status_counts": {
-        "official": 138
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -35943,11 +35953,13 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-06"
+          "2026-08"
         ],
-        "sha256": "820fa67c85ecb4b148f5efed5d0a3068d27bfc7d8f7724949f6fc5030af47013"
+        "sha256": "1ee95ab74fefe751f29ad48c7cc5e17bcab42b8e1b790d7cb2640da7672c73dc"
       },
-      "null_observation_ids": []
+      "null_observation_ids": [
+        "hf:czechia:industrial_production_index:2026-08"
+      ]
     },
     {
       "series_key": "high_frequency|czechia|unemployment_rate_monthly|level|monthly",
@@ -35960,16 +35972,16 @@
       "unit": "PC_ACT",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 138,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 139,
         "null_record_count": 1,
         "missing_period_count": 1,
         "missing_periods": [
-          "2026-07"
+          "2026-08"
         ],
         "first_observed": "2015-01",
-        "last_observed": "2026-06"
+        "last_observed": "2026-07"
       },
       "source": {
         "name": "Eurostat",
@@ -35977,7 +35989,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -36052,12 +36064,12 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "d2928fd5a75f10f67f3ff50f1321392f6a6feb83d604100208ceb32ef91fc92e"
+        "sha256": "becdcbb0e16f9eba30dc58ba89fbc6239b57514298d109f610b331b5a8a53553"
       },
       "null_observation_ids": [
-        "hf:czechia:unemployment_rate_monthly:2026-07"
+        "hf:czechia:unemployment_rate_monthly:2026-08"
       ]
     },
     {
@@ -36071,14 +36083,14 @@
       "unit": "RCH_A",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 139,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 140,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2015-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Eurostat",
@@ -36086,7 +36098,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -36130,9 +36142,9 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "ab34b2c06aa1486204650486ddbeae6a35ae0840a30d011a669c4f9f10e49adc"
+        "sha256": "fa432d4e728a814cee082a7b823d3f7794afa9dd100259484dc27d6d680584b1"
       },
       "null_observation_ids": []
     },
@@ -36147,14 +36159,14 @@
       "unit": "I15",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 139,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 140,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2015-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Eurostat",
@@ -36162,7 +36174,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -36237,9 +36249,9 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "406800fdf4e2f74c768ba3fbd20cafd73ff6b17dc8b4817865015ce363768ebb"
+        "sha256": "eae45b524e8427d91d53e1defeddad08296fa36c2a46f4efd5a23e597cd02a81"
       },
       "null_observation_ids": []
     },
@@ -36254,14 +36266,16 @@
       "unit": "I21",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-06",
-        "record_count": 138,
-        "observation_count": 138,
-        "null_record_count": 0,
-        "missing_period_count": 0,
-        "missing_periods": [],
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 139,
+        "null_record_count": 1,
+        "missing_period_count": 1,
+        "missing_periods": [
+          "2026-08"
+        ],
         "first_observed": "2015-01",
-        "last_observed": "2026-06"
+        "last_observed": "2026-07"
       },
       "source": {
         "name": "Eurostat",
@@ -36269,7 +36283,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/sts_inpr_m/default/table"
       },
       "status_counts": {
-        "official": 138
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -36344,11 +36358,13 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-06"
+          "2026-08"
         ],
-        "sha256": "2547051d6001bb2ccae1ae8dbe879bbed5e448a2b124887d102c968e114a5e1d"
+        "sha256": "eb1743aee89fc938ec7aaa8e714c95e331f447a906df62d812a49ff2c8a62545"
       },
-      "null_observation_ids": []
+      "null_observation_ids": [
+        "hf:germany:industrial_production_index:2026-08"
+      ]
     },
     {
       "series_key": "high_frequency|germany|unemployment_rate_monthly|level|monthly",
@@ -36361,16 +36377,16 @@
       "unit": "PC_ACT",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 138,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 139,
         "null_record_count": 1,
         "missing_period_count": 1,
         "missing_periods": [
-          "2026-07"
+          "2026-08"
         ],
         "first_observed": "2015-01",
-        "last_observed": "2026-06"
+        "last_observed": "2026-07"
       },
       "source": {
         "name": "Eurostat",
@@ -36378,7 +36394,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -36456,12 +36472,12 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "f09fb52cc3e56b8619a3b78b5e4e1b361ea8e6780857158063f8d5669727d1d0"
+        "sha256": "4ac7de3cfd0ea3f5b44831930d86cc0a785ebb528617701be82f8d06e209c553"
       },
       "null_observation_ids": [
-        "hf:germany:unemployment_rate_monthly:2026-07"
+        "hf:germany:unemployment_rate_monthly:2026-08"
       ]
     },
     {
@@ -36475,14 +36491,14 @@
       "unit": "RCH_A",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 139,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 140,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2015-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Eurostat",
@@ -36490,7 +36506,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -36534,9 +36550,9 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "bd0ba866d2a368091a345909778dbecc3796bb513399e68961b71b5b05e68930"
+        "sha256": "5bc945efe8db1f2a38767d772e5f96c19a813a9416175fbd2ddf3924a643d051"
       },
       "null_observation_ids": []
     },
@@ -36551,14 +36567,14 @@
       "unit": "I15",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 139,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 140,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2015-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Eurostat",
@@ -36566,7 +36582,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -36641,9 +36657,9 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "d617c957aa5c3f36301d5f2217bbc46f9b6b11687e58b07a329b73b4aa4d167b"
+        "sha256": "15c616f056b7035091dab8f4b0ee6f62c1274eadaa9e7555f3d745c75773553f"
       },
       "null_observation_ids": []
     },
@@ -36658,14 +36674,16 @@
       "unit": "I21",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-06",
-        "record_count": 138,
-        "observation_count": 138,
-        "null_record_count": 0,
-        "missing_period_count": 0,
-        "missing_periods": [],
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 139,
+        "null_record_count": 1,
+        "missing_period_count": 1,
+        "missing_periods": [
+          "2026-08"
+        ],
         "first_observed": "2015-01",
-        "last_observed": "2026-06"
+        "last_observed": "2026-07"
       },
       "source": {
         "name": "Eurostat",
@@ -36673,7 +36691,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/sts_inpr_m/default/table"
       },
       "status_counts": {
-        "official": 138
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -36748,11 +36766,13 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-06"
+          "2026-08"
         ],
-        "sha256": "feac196618c3cb2223ac8433818d9715c5f62361df822fbe1cec62aef3cd3f21"
+        "sha256": "b05747ec4cda0d50b4ba9240bc5439469a7008aeab7533462ab44c608d6dd3ff"
       },
-      "null_observation_ids": []
+      "null_observation_ids": [
+        "hf:hungary:industrial_production_index:2026-08"
+      ]
     },
     {
       "series_key": "high_frequency|hungary|unemployment_rate_monthly|level|monthly",
@@ -36765,16 +36785,16 @@
       "unit": "PC_ACT",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 138,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 139,
         "null_record_count": 1,
         "missing_period_count": 1,
         "missing_periods": [
-          "2026-07"
+          "2026-08"
         ],
         "first_observed": "2015-01",
-        "last_observed": "2026-06"
+        "last_observed": "2026-07"
       },
       "source": {
         "name": "Eurostat",
@@ -36782,7 +36802,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -36867,12 +36887,12 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "11958c3f339cdd2a858f87aa9796faebdb478ad432e40af335bef8b988b493d7"
+        "sha256": "29abc90d953f496735d807d6c2df2442c92708c947a667145c99584228ebf6a9"
       },
       "null_observation_ids": [
-        "hf:hungary:unemployment_rate_monthly:2026-07"
+        "hf:hungary:unemployment_rate_monthly:2026-08"
       ]
     },
     {
@@ -36886,14 +36906,14 @@
       "unit": "RCH_A",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 139,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 140,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2015-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Eurostat",
@@ -36901,7 +36921,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -36945,9 +36965,9 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "849f17c3968e730f1656d1acdcf48456d486c808653236da30e1bed34ba29798"
+        "sha256": "8ce23a8df385da90a553197febf6e564f7a2d3602d2d36a12b7b2ee0ac1eee58"
       },
       "null_observation_ids": []
     },
@@ -36962,14 +36982,14 @@
       "unit": "I15",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 139,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 140,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2015-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Eurostat",
@@ -36977,7 +36997,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -37052,9 +37072,9 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "d452f0c08b1f7af8f7dc6b338f0e14010d2ae20533f6bbdfdf63ac79f09e6554"
+        "sha256": "c7be22c976c80713911bfcc6e7509334865c0e2f4d3066f7c868791702a7738a"
       },
       "null_observation_ids": []
     },
@@ -37069,14 +37089,16 @@
       "unit": "I21",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-06",
-        "record_count": 138,
-        "observation_count": 138,
-        "null_record_count": 0,
-        "missing_period_count": 0,
-        "missing_periods": [],
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 139,
+        "null_record_count": 1,
+        "missing_period_count": 1,
+        "missing_periods": [
+          "2026-08"
+        ],
         "first_observed": "2015-01",
-        "last_observed": "2026-06"
+        "last_observed": "2026-07"
       },
       "source": {
         "name": "Eurostat",
@@ -37084,7 +37106,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/sts_inpr_m/default/table"
       },
       "status_counts": {
-        "official": 138
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -37166,11 +37188,13 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-06"
+          "2026-08"
         ],
-        "sha256": "1ba5334673a20e35a42abbb7e747a2e625c97521ccb3b86ae4c915a666f23dda"
+        "sha256": "c3b305e4a41878b8f2ebec12d64e2fda977b5dfe5c45189c3e3c04357ba08623"
       },
-      "null_observation_ids": []
+      "null_observation_ids": [
+        "hf:poland:industrial_production_index:2026-08"
+      ]
     },
     {
       "series_key": "high_frequency|poland|unemployment_rate_monthly|level|monthly",
@@ -37183,16 +37207,16 @@
       "unit": "PC_ACT",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 138,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 139,
         "null_record_count": 1,
         "missing_period_count": 1,
         "missing_periods": [
-          "2026-07"
+          "2026-08"
         ],
         "first_observed": "2015-01",
-        "last_observed": "2026-06"
+        "last_observed": "2026-07"
       },
       "source": {
         "name": "Eurostat",
@@ -37200,7 +37224,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -37276,12 +37300,12 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "6e0e47d119a148f7ead69be49b4c1f2877b0342b1df25b4a7bd9744aac5ad094"
+        "sha256": "32ce6739d47f67ec7c0889abb1b552345bc6108c210d3aabf59566a5ae801c2e"
       },
       "null_observation_ids": [
-        "hf:poland:unemployment_rate_monthly:2026-07"
+        "hf:poland:unemployment_rate_monthly:2026-08"
       ]
     },
     {
@@ -37295,14 +37319,14 @@
       "unit": "RCH_A",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 139,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 140,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2015-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Eurostat",
@@ -37310,7 +37334,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -37354,9 +37378,9 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "e2413ec5b3132e1c430dbaef6e1f20fd33fabe7385793d5b5df70e122f1cfa38"
+        "sha256": "eb210fb2d9efa04fe75b21d6e690a989c4ea8ed6d59057522d5d2a23e6c0544b"
       },
       "null_observation_ids": []
     },
@@ -37371,14 +37395,14 @@
       "unit": "I15",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 139,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 140,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2015-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Eurostat",
@@ -37386,7 +37410,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -37461,9 +37485,9 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "5bb90b07444ab73e40545f67111eaa135a03568d70ba43268905d9713c74df99"
+        "sha256": "29f633901ed81a0c77f76153571ce4dd73cf983e39f1516266db6a57545dbf53"
       },
       "null_observation_ids": []
     },
@@ -37478,14 +37502,16 @@
       "unit": "I21",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-06",
-        "record_count": 138,
-        "observation_count": 138,
-        "null_record_count": 0,
-        "missing_period_count": 0,
-        "missing_periods": [],
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 139,
+        "null_record_count": 1,
+        "missing_period_count": 1,
+        "missing_periods": [
+          "2026-08"
+        ],
         "first_observed": "2015-01",
-        "last_observed": "2026-06"
+        "last_observed": "2026-07"
       },
       "source": {
         "name": "Eurostat",
@@ -37493,7 +37519,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/sts_inpr_m/default/table"
       },
       "status_counts": {
-        "official": 138
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -37567,11 +37593,13 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-06"
+          "2026-08"
         ],
-        "sha256": "125b19707a601202c1ff53e3ce7baf8e3324f2f1edbcac3cd1e7c20f08fa8beb"
+        "sha256": "04a67151f99a5d5fb7eb27be3c073459cd905fdc5e5cd856beb7b8737ed390b6"
       },
-      "null_observation_ids": []
+      "null_observation_ids": [
+        "hf:romania:industrial_production_index:2026-08"
+      ]
     },
     {
       "series_key": "high_frequency|romania|unemployment_rate_monthly|level|monthly",
@@ -37584,16 +37612,16 @@
       "unit": "PC_ACT",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 138,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 139,
         "null_record_count": 1,
         "missing_period_count": 1,
         "missing_periods": [
-          "2026-07"
+          "2026-08"
         ],
         "first_observed": "2015-01",
-        "last_observed": "2026-06"
+        "last_observed": "2026-07"
       },
       "source": {
         "name": "Eurostat",
@@ -37601,7 +37629,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -37630,12 +37658,15 @@
         "rationale": "v1.83 historical audit cleared a definition-compatible floor at 2009-01; values before the floor need methodological review."
       },
       "phase_h_backfill": {
-        "status": "held_for_review",
+        "status": "ingested",
         "store": "src/data/historical/monthly_descriptive_history.json",
-        "ingested_periods": null,
-        "ingested_count": 0,
+        "ingested_periods": [
+          "2009-01",
+          "2014-12"
+        ],
+        "ingested_count": 72,
         "definition_compatible_floor": "2009-01",
-        "overlap_check": "fail_definition_or_vintage_mismatch",
+        "overlap_check": "pass",
         "decision": "v183_audit_cleared_floor"
       },
       "model_usage": {
@@ -37675,12 +37706,12 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "c0ddc5ccdb19c11f38f9c7ab78393a492dd8d2ad97f9364ba7c2e00011cbc418"
+        "sha256": "7a820d5140e0c04bcfa2666a19450ddda4562145737a6d9bc183d8b22de9068c"
       },
       "null_observation_ids": [
-        "hf:romania:unemployment_rate_monthly:2026-07"
+        "hf:romania:unemployment_rate_monthly:2026-08"
       ]
     },
     {
@@ -37694,14 +37725,14 @@
       "unit": "RCH_A",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 139,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 140,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2015-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Eurostat",
@@ -37709,7 +37740,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -37744,9 +37775,9 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "6b0925e46442acef7dfb440107df34132dc72e83c4c91010984a084e838b2aa2"
+        "sha256": "532c64e72ab1103177c616b2e81fa582c96d0afcc44499076157db836dd6e15f"
       },
       "null_observation_ids": []
     },
@@ -37761,14 +37792,14 @@
       "unit": "I15",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 139,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 140,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2015-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Eurostat",
@@ -37776,7 +37807,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -37832,9 +37863,9 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "d650906a2ae9433807891dc2bf5846ee129710e149ae4d63f9fec253898e45bf"
+        "sha256": "dd1aa7ecf284b23d0a9e7d2beae4c29fbab096928d3e7dbf516906bdd79fd3e8"
       },
       "null_observation_ids": []
     },
@@ -37849,14 +37880,16 @@
       "unit": "I21",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-06",
-        "record_count": 138,
-        "observation_count": 138,
-        "null_record_count": 0,
-        "missing_period_count": 0,
-        "missing_periods": [],
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 139,
+        "null_record_count": 1,
+        "missing_period_count": 1,
+        "missing_periods": [
+          "2026-08"
+        ],
         "first_observed": "2015-01",
-        "last_observed": "2026-06"
+        "last_observed": "2026-07"
       },
       "source": {
         "name": "Eurostat",
@@ -37864,7 +37897,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/sts_inpr_m/default/table"
       },
       "status_counts": {
-        "official": 138
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -37920,11 +37953,13 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-06"
+          "2026-08"
         ],
-        "sha256": "53770a84394368bdff5edff8520382db0f2b6eda87416342a2c75d4a697c2ebf"
+        "sha256": "ea8bccf73a7cab0659f0c2d83224645f5f80b250001e9515fcc893320fd9e556"
       },
-      "null_observation_ids": []
+      "null_observation_ids": [
+        "hf:serbia:industrial_production_index:2026-08"
+      ]
     },
     {
       "series_key": "high_frequency|slovakia|hicp_annual_rate|yoy_rate|monthly",
@@ -37937,14 +37972,14 @@
       "unit": "RCH_A",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 139,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 140,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2015-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Eurostat",
@@ -37952,7 +37987,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -37996,9 +38031,9 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "c4de4a7d006657158c2a8fb8b43443157366cb2a4514a4f30123ef2327082b31"
+        "sha256": "c66315cb29931f486ecadfddb70969086f75c18ccf02fde51359a306f2218638"
       },
       "null_observation_ids": []
     },
@@ -38013,14 +38048,14 @@
       "unit": "I15",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 139,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 140,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2015-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Eurostat",
@@ -38028,7 +38063,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -38103,9 +38138,9 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "6aa62e9073a1623ae0aed24fe1b334a7b5d8ffdd1fd24d066de18f024ba56fea"
+        "sha256": "7c783253a2c0e4e2190ababcab192fac787752bc370e7c1e0d40349a94567431"
       },
       "null_observation_ids": []
     },
@@ -38120,14 +38155,16 @@
       "unit": "I21",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-06",
-        "record_count": 138,
-        "observation_count": 138,
-        "null_record_count": 0,
-        "missing_period_count": 0,
-        "missing_periods": [],
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 139,
+        "null_record_count": 1,
+        "missing_period_count": 1,
+        "missing_periods": [
+          "2026-08"
+        ],
         "first_observed": "2015-01",
-        "last_observed": "2026-06"
+        "last_observed": "2026-07"
       },
       "source": {
         "name": "Eurostat",
@@ -38135,7 +38172,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/sts_inpr_m/default/table"
       },
       "status_counts": {
-        "official": 138
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -38210,11 +38247,13 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-06"
+          "2026-08"
         ],
-        "sha256": "1c73c3edb787373e317c6c6c88ebebe1db6661a4db7179d6c698c8e8d3294dd2"
+        "sha256": "b7710c6eb47dd65c9de85c59fb04b876b1c05481e0a61c436481fb23c671db05"
       },
-      "null_observation_ids": []
+      "null_observation_ids": [
+        "hf:slovakia:industrial_production_index:2026-08"
+      ]
     },
     {
       "series_key": "high_frequency|slovakia|unemployment_rate_monthly|level|monthly",
@@ -38227,16 +38266,16 @@
       "unit": "PC_ACT",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 138,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 139,
         "null_record_count": 1,
         "missing_period_count": 1,
         "missing_periods": [
-          "2026-07"
+          "2026-08"
         ],
         "first_observed": "2015-01",
-        "last_observed": "2026-06"
+        "last_observed": "2026-07"
       },
       "source": {
         "name": "Eurostat",
@@ -38244,7 +38283,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -38320,12 +38359,12 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "78b4f8c52c6bc4eb82524c895e8a56e655e4d913fc584e3df49170806b5f6661"
+        "sha256": "488588dfea7030cd9658b86388369ad48d2e5fe9602c05ab1471949758e3c28f"
       },
       "null_observation_ids": [
-        "hf:slovakia:unemployment_rate_monthly:2026-07"
+        "hf:slovakia:unemployment_rate_monthly:2026-08"
       ]
     },
     {
@@ -38339,14 +38378,14 @@
       "unit": "RCH_A",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 139,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 140,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2015-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Eurostat",
@@ -38354,7 +38393,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -38398,9 +38437,9 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "576971bf845ca0a46568ce0bfe8fe47c5e2307d2c83281e0f004ee28bf3a98f0"
+        "sha256": "846df0b3b9cbeaebef5316bfbd29813fdd10213eaf40de8e1b5432580f5cbb46"
       },
       "null_observation_ids": []
     },
@@ -38415,14 +38454,14 @@
       "unit": "I15",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 139,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 140,
         "null_record_count": 0,
         "missing_period_count": 0,
         "missing_periods": [],
         "first_observed": "2015-01",
-        "last_observed": "2026-07"
+        "last_observed": "2026-08"
       },
       "source": {
         "name": "Eurostat",
@@ -38430,7 +38469,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/prc_hicp_minr/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -38505,9 +38544,9 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "41c788cbeeda770b34502487fbb3697c2f4e83d28c03351aaac2024aa6807085"
+        "sha256": "f4063543300b4fafa0d7631d6a93a40ad42d0544103ae3a1d7de9c4987081115"
       },
       "null_observation_ids": []
     },
@@ -38522,14 +38561,16 @@
       "unit": "I21",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-06",
-        "record_count": 138,
-        "observation_count": 138,
-        "null_record_count": 0,
-        "missing_period_count": 0,
-        "missing_periods": [],
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 139,
+        "null_record_count": 1,
+        "missing_period_count": 1,
+        "missing_periods": [
+          "2026-08"
+        ],
         "first_observed": "2015-01",
-        "last_observed": "2026-06"
+        "last_observed": "2026-07"
       },
       "source": {
         "name": "Eurostat",
@@ -38537,7 +38578,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/sts_inpr_m/default/table"
       },
       "status_counts": {
-        "official": 138
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -38612,11 +38653,13 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-06"
+          "2026-08"
         ],
-        "sha256": "7ee6f58fa763307d5d6d18802c35b06e39f10a6fec17171e006d4a4d354da044"
+        "sha256": "e16289514e3f0fed426c853f887e148089aa0b1598ff5e702b139836f7bb2c41"
       },
-      "null_observation_ids": []
+      "null_observation_ids": [
+        "hf:slovenia:industrial_production_index:2026-08"
+      ]
     },
     {
       "series_key": "high_frequency|slovenia|unemployment_rate_monthly|level|monthly",
@@ -38629,16 +38672,16 @@
       "unit": "PC_ACT",
       "descriptive_coverage": {
         "earliest": "2015-01",
-        "latest": "2026-07",
-        "record_count": 139,
-        "observation_count": 138,
+        "latest": "2026-08",
+        "record_count": 140,
+        "observation_count": 139,
         "null_record_count": 1,
         "missing_period_count": 1,
         "missing_periods": [
-          "2026-07"
+          "2026-08"
         ],
         "first_observed": "2015-01",
-        "last_observed": "2026-06"
+        "last_observed": "2026-07"
       },
       "source": {
         "name": "Eurostat",
@@ -38646,7 +38689,7 @@
         "url": "https://ec.europa.eu/eurostat/databrowser/view/une_rt_m/default/table"
       },
       "status_counts": {
-        "official": 139
+        "official": 140
       },
       "definition": {
         "versions": [
@@ -38723,12 +38766,12 @@
       "fingerprint": {
         "window": [
           "2015-01",
-          "2026-07"
+          "2026-08"
         ],
-        "sha256": "18acc3983b9fd1fb65072e5b1ab40be1f080b12290f7ed677eb88870d7ef44f1"
+        "sha256": "f908686fae36d242a6f7625a0c399671e51976fbb845101b05ece340717f1470"
       },
       "null_observation_ids": [
-        "hf:slovenia:unemployment_rate_monthly:2026-07"
+        "hf:slovenia:unemployment_rate_monthly:2026-08"
       ]
     },
     {
@@ -49960,6 +50003,67 @@
           "2014-12"
         ],
         "sha256": "282ab1ddad1944c51e3f55ed7dc443dba4ed83be9e6e9458e0f01aad8a43ffef"
+      },
+      "null_observation_ids": []
+    },
+    {
+      "series_key": "monthly_history|romania|unemployment_rate_monthly|level|monthly",
+      "dataset": "monthly_history",
+      "source_file": "src/data/historical/monthly_descriptive_history.json",
+      "country": "romania",
+      "indicator": "unemployment_rate_monthly",
+      "transformation": "level",
+      "frequency": "monthly",
+      "unit": "PC_ACT",
+      "descriptive_coverage": {
+        "earliest": "2009-01",
+        "latest": "2014-12",
+        "record_count": 72,
+        "observation_count": 72,
+        "null_record_count": 0,
+        "missing_period_count": 0,
+        "missing_periods": [],
+        "first_observed": "2009-01",
+        "last_observed": "2014-12"
+      },
+      "source": {
+        "name": "Eurostat",
+        "dataset": "src/data/historical-extension-audit/raw/une_rt_m.json",
+        "url": "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/une_rt_m?format=JSON&lang=en&s_adj=SA&age=TOTAL&sex=T&unit=PC_ACT&geo=AT&geo=DE&geo=SK&geo=SI&geo=CZ&geo=HU&geo=PL&geo=RO"
+      },
+      "status_counts": {
+        "official": 72
+      },
+      "definition": {
+        "versions": [
+          "Unemployment rate, % of active population (SA)"
+        ],
+        "version_count": 1,
+        "continuity": "single_definition_in_window",
+        "registered_transitions": []
+      },
+      "historical_extension": {
+        "candidate_source": "src/data/historical-extension-audit/raw/une_rt_m.json",
+        "evidence": "ingested_phase_h",
+        "earliest_available": null,
+        "proposed_earliest_feasible": null,
+        "definition_compatible_floor": null,
+        "estimated_new_observations": 0,
+        "estimate_basis": "already ingested as descriptive history (see src/data/historical/monthly_history_manifest.json)",
+        "definition_break_risks": [],
+        "feasibility": "ingested_descriptive_history",
+        "rationale": "Phase H safe descriptive backfill; descriptive only, never a model input."
+      },
+      "model_usage": {
+        "status": "descriptive_only",
+        "formal_model_samples": []
+      },
+      "fingerprint": {
+        "window": [
+          "2009-01",
+          "2014-12"
+        ],
+        "sha256": "5feed37911d6ba38163d2d596e84631c1ebe061847586954a841416668a9ff98"
       },
       "null_observation_ids": []
     },
