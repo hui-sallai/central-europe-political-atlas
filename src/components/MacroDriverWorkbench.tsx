@@ -6,6 +6,8 @@ import type { Country } from "@/types/Country";
 import type { MacroDriverDefinition, MacroDriverRuntimeRow } from "@/types/MacroDriver";
 import { monthlyHistoryFor, useMonthlyHistory } from "@/components/useMonthlyHistory";
 import { formatNumber, formatWithUnit } from "@/lib/format";
+import { ResearchSnapshotExport } from "@/components/ResearchSnapshotExport";
+import { currentSnapshotUrl, sourceInstitution } from "@/lib/researchSnapshot";
 
 const roleLabels: Record<string, string> = {
   domestic_policy_driver: "国内政策驱动",
@@ -61,6 +63,18 @@ export function MacroDriverWorkbench({ countries, compact = false, initialCountr
   const [transformation, setTransformation] = useState("level");
   const [includeHistory, setIncludeHistory] = useState(true);
   const monthlyHistory = useMonthlyHistory(basePath);
+  const [urlReady, setUrlReady] = useState(false);
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("driver")) setDriverId(params.get("driver")!);
+      if (params.get("area")) setArea(params.get("area")!);
+      if (params.get("transformation")) setTransformation(params.get("transformation")!);
+      if (params.get("history") === "0") setIncludeHistory(false);
+      setUrlReady(true);
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -93,6 +107,12 @@ export function MacroDriverWorkbench({ countries, compact = false, initialCountr
 
   const selectedArea = areas.some(([key]) => key === area) ? area : (areas[0]?.[0] ?? area);
   const selectedTransformation = transformations.includes(transformation) ? transformation : (transformations[0] ?? transformation);
+  useEffect(() => {
+    if (!urlReady || loadState !== "ready") return;
+    const url = new URL(window.location.href);
+    for (const [key, value] of Object.entries({ ...(compact ? { tab: "macro_drivers" } : {}), driver: driverId, area: selectedArea, transformation: selectedTransformation, history: includeHistory ? "1" : "0" })) url.searchParams.set(key, value);
+    window.history.replaceState(null, "", url);
+  }, [urlReady, loadState, compact, driverId, selectedArea, selectedTransformation, includeHistory]);
 
   const allRows = useMemo(() => records
     .filter((row) => row[1] === driverId)
@@ -114,7 +134,7 @@ export function MacroDriverWorkbench({ countries, compact = false, initialCountr
   const sharedSeries = Boolean(latest?.[21]);
 
   return (
-    <section className={compact ? "mt-5" : "editorial-panel mt-6 p-5"}>
+    <section className={compact ? "mt-5" : "editorial-panel mt-6 p-5"} data-snapshot-scope="macro-drivers">
       {!compact ? <><p className="editorial-kicker">Macro Drivers · descriptive data layer</p><h2 className="mt-2 text-2xl font-semibold">宏观驱动工作台</h2><p className="mt-2 max-w-4xl text-sm leading-7 text-[var(--muted)]">浏览国内政策、金融条件、国内价格结果与共同外部驱动。这里不输出风险分数、因果效应、预测或冲击响应。</p></> : null}
       <div className="mt-5 grid gap-4 border-y border-[var(--line)] py-5 md:grid-cols-3">
         <label className="text-xs font-semibold text-[var(--muted)]">驱动指标<select className="field-control mt-2" value={driverId} onChange={(event) => setDriverId(event.target.value)}>{dictionary.map((item) => <option key={item.driver_id} value={item.driver_id}>{item.name_zh} / {item.name_en}</option>)}</select></label>
@@ -123,6 +143,17 @@ export function MacroDriverWorkbench({ countries, compact = false, initialCountr
       </div>
       {loadState === "loading" ? <p className="py-10 text-center text-sm text-[var(--muted)]">正在加载宏观驱动数据…</p> : null}
       {loadState === "error" ? <p className="mt-5 border-l-4 border-[var(--warning)] bg-amber-50 px-4 py-3 text-sm">宏观驱动数据暂时无法加载。</p> : null}
+      {loadState === "ready" ? <div className="mt-4"><ResearchSnapshotExport disabled={includeHistory && monthlyHistory.state === "loading"} chart create={() => ({
+        title: `${definition?.name_zh ?? driverId} · ${selectedArea}`, view_type: "macro_drivers", page_path: window.location.pathname, shareable_view_url: currentSnapshotUrl(window.location.pathname), countries: [selectedArea], indicators: [driverId],
+        filters: { driver: driverId, area: selectedArea, transformation: selectedTransformation, history: includeHistory, sort: "period_desc_formal_then_history" },
+        limitations: [definition?.limitations ?? "", "共同序列保留适用范围与共享标记，不构成独立国家观测。"].filter(Boolean),
+        rows: [
+          ...allRows.map((row) => ({ id: row[0], country: row[2] ?? row[3], indicator: row[1], period: row[4], value: row[5], unit: row[6], layer: "formal_observation", status: row[15] ?? row[11], transformation: row[7], applicability_scope: row[19], shared_series: row[21], definition_version: row[12], availability_reason: row[16],
+            source: { institution: sourceInstitution(row[9], row[10]), dataset: row[9], source_url: row[10], source_code: row[18], unit: row[6], definition: row[12], status: row[15] ?? "", source_layer: "formal_observation" } })),
+          ...[...shownHistory].reverse().map((point) => ({ id: `hist:${driverId}:${selectedArea}:${point.period}`, country: selectedArea, indicator: driverId, period: point.period, value: point.value, unit: point.source.unit, layer: "historical_descriptive", status: point.status, transformation: "level",
+            source: { institution: sourceInstitution(point.source.source, point.source.source_url), dataset: point.source.source, source_url: point.source.source_url, unit: point.source.unit, definition: point.source.definition, source_layer: "historical_descriptive" } })),
+        ],
+      })} /></div> : null}
       {loadState === "ready" && latest ? <>
         <dl className="mt-5 grid gap-px overflow-hidden border border-[var(--line)] bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-4">
           {[["最新时期", latest[4]], ["最新值", formatWithUnit(latest[5], latest[6])], ["环比", selectedTransformation === "level" ? signed(mom, "%") : "当前转换已是变动值"], ["同比", selectedTransformation === "level" ? signed(yoy, "%") : "当前转换已是变动值"]].map(([label, value]) => <div key={label} className="bg-white p-3"><dt className="text-xs text-[var(--muted)]">{label}</dt><dd className="metric-number mt-1 text-sm font-semibold">{value}</dd></div>)}

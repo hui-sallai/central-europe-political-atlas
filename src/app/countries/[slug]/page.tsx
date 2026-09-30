@@ -58,7 +58,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
         current={slug}
         countries={researchCountries.map((c) => ({ slug: c.slug, name_zh: c.name_zh }))}
         mapCountries={regionalCoverageMatrixV087.filter((record) => record.public_layer_count).map((record) => record.country_id)}
-        points={researchCountries.flatMap((c) => getCountryObservations(c.slug).filter((o) => COMPARE_INDICATORS.has(o.indicator)).map((o) => ({ country: c.slug, indicator: o.indicator, year: o.year, value: o.value, unit: o.unit })))}
+        points={researchCountries.flatMap((c) => getCountryObservations(c.slug).filter((o) => COMPARE_INDICATORS.has(o.indicator)).map((o) => ({ country: c.slug, indicator: o.indicator, year: o.year, value: o.value, unit: o.unit, source_name: o.source_name, source_url: o.source_url, source_reliability: o.source_reliability, updated_at: o.updated_at, status: o.status })))}
       />
     </main>
   );

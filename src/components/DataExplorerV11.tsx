@@ -11,6 +11,8 @@ import { SerbiaSorsMonthlyPanel } from "@/components/SerbiaSorsMonthlyPanel";
 import { CopyCitationButton } from "@/components/CopyCitationButton";
 import { PLATFORM_NAME, PLATFORM_VERSION } from "@/lib/releaseMetadata";
 import { formatNumber } from "@/lib/format";
+import { ResearchSnapshotExport } from "@/components/ResearchSnapshotExport";
+import { currentSnapshotUrl, sourceInstitution } from "@/lib/researchSnapshot";
 
 const MOBILE_CARD_LIMIT = 120;
 
@@ -57,6 +59,28 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
   const [sortDirection, setSortDirection] = useState<"desc" | "asc">("desc");
   const [includeHistory, setIncludeHistory] = useState(true);
   const monthlyHistory = useMonthlyHistory(basePath);
+  const [urlReady, setUrlReady] = useState(false);
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      const params = new URLSearchParams(window.location.search);
+      if (countries.some((item) => item.slug === params.get("country"))) setCountrySlug(params.get("country")!);
+      if (params.get("indicator")! in hfIndicatorLabels) setIndicator(params.get("indicator")!);
+      if (/^\d{4}$/.test(params.get("from") ?? "")) setYearFrom(params.get("from")!);
+      if (/^\d{4}$/.test(params.get("to") ?? "")) setYearTo(params.get("to")!);
+      if (params.get("sort") === "asc") setSortDirection("asc");
+      if (params.get("history") === "0") setIncludeHistory(false);
+      setUrlReady(true);
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, [countries]);
+  useEffect(() => {
+    if (!urlReady) return;
+    const url = new URL(window.location.href);
+    const sorsSeries = url.searchParams.get("sors_series");
+    url.search = new URLSearchParams({ tab: "high_frequency", country: countrySlug, indicator, from: yearFrom, to: yearTo, sort: sortDirection, history: includeHistory ? "1" : "0" }).toString();
+    if (sorsSeries && countrySlug === "serbia") url.searchParams.set("sors_series", sorsSeries);
+    window.history.replaceState(null, "", url);
+  }, [urlReady, countrySlug, indicator, yearFrom, yearTo, sortDirection, includeHistory]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -87,7 +111,7 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
   const historyPoints = useMemo(() => [...rows].filter(isHistory).sort((a, b) => a[2].localeCompare(b[2])).map((row) => ({ x: row[2], y: row[4] })), [rows]);
 
   return (
-    <div className="mt-5">
+    <div className="mt-5" data-snapshot-scope="high-frequency">
       <div className="grid gap-4 border-y border-[var(--line)] py-5 md:grid-cols-2 xl:grid-cols-4">
         <label className="text-xs font-semibold text-[var(--muted)]">国家
           <select className="field-control mt-2" value={countrySlug} onChange={(event) => setCountrySlug(event.target.value)}>{countries.map((country) => <option key={country.slug} value={country.slug}>{country.name_zh} / {country.name}</option>)}</select>
@@ -126,6 +150,19 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
           {loadState === "loading" ? "正在加载高频数据…" : loadState === "error" ? "高频数据不可用" : <>当前视图 <strong className="text-[var(--foreground)]">{rows.length}</strong> 条月度观测</>}
         </p>
         <div className="flex flex-wrap gap-2">
+          <ResearchSnapshotExport disabled={loadState !== "ready" || (includeHistory && monthlyHistory.state === "loading")} chart create={() => ({
+            title: `${countryMap.get(countrySlug)?.name_zh ?? countrySlug} · ${hfIndicatorLabels[indicator]}`, view_type: "high_frequency", page_path: "/data/",
+            shareable_view_url: currentSnapshotUrl("/data/"), countries: [countrySlug], indicators: [indicator],
+            filters: { country: countrySlug, indicator, from: yearFrom, to: yearTo, sort: sortDirection, history: includeHistory, eligible_rows: "non_null_visible_rows" },
+            limitations: monthlyHistory.state === "error" ? ["历史数据加载失败；本快照只含当前已显示的正式观测。"] : [],
+            rows: rows.map((row) => {
+              const point = isHistory(row) ? monthlyHistoryFor(monthlyHistory.data, indicator, countrySlug).find((item) => item.period === row[2]) : undefined;
+              const dataset = row[10].replace(/^Eurostat\s+/, "");
+              const url = point?.source.source_url ?? `https://ec.europa.eu/eurostat/databrowser/view/${encodeURIComponent(dataset)}/default/table`;
+              return { id: row[0], country: row[1], indicator: row[3], period: row[2], value: row[4], unit: row[6], layer: isHistory(row) ? "historical_descriptive" : "formal_observation", status: row[11], value_semantics: row[7], seasonal_adjustment: row[8],
+                source: { institution: sourceInstitution(row[10], url), dataset, source_url: url, source_code: row[9], unit: row[6], definition: point?.source.definition ?? row[7], status: row[11], source_layer: isHistory(row) ? "historical_descriptive" : "formal_observation" } };
+            }),
+          })} />
           <button type="button" disabled={loadState !== "ready"} onClick={() => downloadCsv(
             `high-frequency-${countrySlug}-${indicator}.csv`,
             ["country", "indicator", "period", "value", "unit", "value_semantics", "seasonal_adjustment", "source", "status", "layer"],
@@ -168,7 +205,7 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
 }
 
 // Rows shown in the annual view: formal observations (model inputs) and the Phase G descriptive history.
-type AnnualRow = { id: string; country_slug: string; indicator: string; year: number; value: number | null; unit: string; status: string; source_name: string; source_url: string; reliability: string; updated_at: string; layer: "formal" | "history" | "sors"; cross_country_comparable?: boolean };
+type AnnualRow = { id: string; country_slug: string; indicator: string; year: number; value: number | null; unit: string; status: string; source_name: string; source_url: string; reliability: string; updated_at: string; layer: "formal" | "history" | "sors"; cross_country_comparable?: boolean; source_code?: string; original_unit?: string | null; original_value?: number; comparable_within_segment?: boolean };
 type HistoryRuntime = { sources: { dataset: string; url: string }[]; records: [string, string, number, number, string, string, number][] };
 
 const historyOnlyIndicatorLabels: Record<string, string> = {
@@ -234,7 +271,7 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
 
   // Keep the URL in sync with the filters (after the initial read), so a view can be shared or bookmarked.
   useEffect(() => {
-    if (!urlReady) return;
+    if (!urlReady || dataset !== "annual") return;
     const params = new URLSearchParams();
     if (dataset !== "annual") params.set("tab", dataset);
     params.set("country", countrySlug);
@@ -265,7 +302,7 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
     const formal = observations.filter((item) => item.country_slug === countrySlug).map((item): AnnualRow => ({ id: item.id, country_slug: item.country_slug, indicator: item.indicator, year: item.year, value: item.value, unit: item.unit, status: item.status, source_name: item.source_name, source_url: item.source_url, reliability: item.source_reliability, updated_at: item.updated_at, layer: "formal" }));
     const past = includeHistory && history ? history.records.filter((row) => row[0] === countrySlug).map((row): AnnualRow => ({ id: `hist:annual:${row[0]}:${row[1]}:${row[2]}`, country_slug: row[0], indicator: row[1], year: row[2], value: row[3], unit: row[4], status: valueStatusLabels[row[5]] ?? row[5], source_name: history.sources[row[6]].dataset, source_url: history.sources[row[6]].url, reliability: "A", updated_at: "", layer: "history" })) : [];
     // Serbia: SORS annual series as their own layer (Serbia-only, cross-country flag from the audited mapping).
-    const official = countrySlug === "serbia" && includeSors && sors.series ? sors.series.filter((item) => item.store === "annual").flatMap((item) => item.points.map((point): AnnualRow => ({ id: `serbia:${item.key}:${point[0]}`, country_slug: "serbia", indicator: item.display_indicator, year: Number(point[0]), value: point[1], unit: item.unit ?? "", status: point[1] === null ? "欧元换算暂缓（汇率断点）" : `${item.status_legend[point[3]] ?? point[3]}${point[4] ? "" : " · 序列断点前"}`, source_name: `SORS ${item.dataset}`, source_url: item.source_url, reliability: "A", updated_at: "", layer: "sors", cross_country_comparable: point[5] === 1 }))) : [];
+    const official = countrySlug === "serbia" && includeSors && sors.series ? sors.series.filter((item) => item.store === "annual").flatMap((item) => item.points.map((point): AnnualRow => ({ id: `serbia:${item.key}:${point[0]}`, country_slug: "serbia", indicator: item.display_indicator, year: Number(point[0]), value: point[1], unit: item.unit ?? "", status: point[1] === null ? "欧元换算暂缓（汇率断点）" : `${item.status_legend[point[3]] ?? point[3]}${point[4] ? "" : " · 序列断点前"}`, source_name: `SORS ${item.dataset}`, source_url: item.source_url, reliability: "A", updated_at: "", layer: "sors", cross_country_comparable: point[5] === 1, source_code: item.key, original_unit: item.original_unit, original_value: point[2], comparable_within_segment: point[4] === 1 }))) : [];
     return [...formal, ...past, ...official];
   }, [countrySlug, history, includeHistory, includeSors, observations, sors.series]);
   const availableIndicatorIds = useMemo(() => [...new Set(countryRows.map((item) => item.indicator))].sort((a, b) => indicatorName(a).localeCompare(indicatorName(b), "zh-CN")), [countryRows, indicatorName]);
@@ -289,7 +326,7 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
       .sort((a, b) => indicatorName(a.id).localeCompare(indicatorName(b.id), "zh-CN"));
   }, [countryRows, indicatorName]);
   const selectedCoverage = indicatorId === "all" ? null : coverage.find((item) => item.id === indicatorId) ?? null;
-  const chartRows = indicatorId === "all" ? [] : countryRows.filter((item) => item.indicator === indicatorId).sort((a, b) => a.year - b.year);
+  const chartRows = indicatorId === "all" ? [] : [...rows].sort((a, b) => a.year - b.year);
 
   function downloadCurrentView() {
     downloadCsv(
@@ -311,7 +348,7 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
   const layerBadge = (layer: AnnualRow["layer"]) => <span className={layer === "formal" ? "inline-block rounded-full border border-[var(--line)] px-2 py-0.5 text-[10px] font-semibold" : layer === "sors" ? "inline-block rounded-full border border-dotted border-[var(--chart-sors)] px-2 py-0.5 text-[10px] font-semibold text-[var(--chart-sors)]" : "inline-block rounded-full border border-dashed border-[var(--muted)] px-2 py-0.5 text-[10px] font-semibold text-[var(--muted)]"} data-layer={layer}>{layerLabels[layer]}</span>;
 
   return (
-    <section className="mt-7">
+    <section className="mt-7" data-snapshot-scope="annual">
       <div className="flex flex-wrap gap-2" role="tablist" aria-label="数据集选择">
         {([["annual", "年度核心数据"], ["high_frequency", "高频国内数据"], ["macro_drivers", "宏观驱动数据"]] as const).map(([id, label]) => (
           <button key={id} type="button" role="tab" aria-selected={dataset === id} onClick={() => setDataset(id)}
@@ -387,6 +424,14 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
       <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
         <p className="text-sm text-[var(--muted)]">当前视图 <strong className="text-[var(--foreground)]">{rows.length}</strong> 条观测值</p>
         <div className="flex flex-wrap gap-2">
+          <ResearchSnapshotExport chart={indicatorId !== "all"} disabled={(includeHistory && historyState === "loading") || (countrySlug === "serbia" && includeSors && !sors.snapshotReady)} create={() => ({
+            title: `${countries.find((country) => country.slug === countrySlug)?.name_zh ?? countrySlug} · 年度描述性视图`, view_type: "annual", page_path: "/data/", shareable_view_url: currentSnapshotUrl("/data/"),
+            countries: [countrySlug], indicators: [...new Set(rows.map((item) => item.indicator))], filters: { country: countrySlug, indicator: indicatorId, from: yearFrom, to: yearTo, latest: latestOnly, history: includeHistory, sors: includeSors, q: search, sort: sortDirection },
+            limitations: ["历史段与正式观测并列保留各自数据层；不同定义或单位不合并。", ...(historyState === "error" ? ["历史数据加载失败，仅导出当前显示的记录。"] : [])],
+            rows: rows.map((item) => ({ id: item.id, country: item.country_slug, indicator: item.indicator, period: String(item.year), value: item.value, unit: item.unit, status: item.status, layer: item.layer === "sors" ? "serbia_sors_descriptive" : item.layer === "history" ? "historical_descriptive" : "formal_observation", cross_country_comparable: item.cross_country_comparable,
+              original_value: item.original_value, original_unit: item.original_unit, comparable_within_segment: item.comparable_within_segment,
+              source: { institution: sourceInstitution(item.source_name, item.source_url), dataset: item.source_name, source_url: item.source_url, source_code: item.layer === "sors" ? sors.series?.find((series) => series.key === item.source_code)?.original_code ?? item.source_code : item.source_code, updated_at: item.updated_at, unit: item.unit, original_unit: item.original_unit ?? undefined, reliability: item.reliability, status: item.status, source_layer: item.layer } })),
+          })} />
           <button type="button" onClick={downloadCurrentView} className="rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)]">下载当前筛选结果（CSV）</button>
           <a href={`${basePath}/research-data/observations.csv`} className="rounded-full border border-[var(--line)] bg-white px-4 py-2 text-sm font-semibold">下载全部观测数据（CSV）</a>
           <a href={`${basePath}/research-data/${getResearchPackageFilename()}`} className="rounded-full cta-dark px-4 py-2 text-sm font-semibold">下载完整研究数据包（ZIP）</a>

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 // Serbia official statistics (SORS) runtime (serbia_sors_runtime.json). Serbia-only descriptive series, shown as their
 // own labelled layer; `cross_country_comparable` comes from the audited mapping and gates any cross-country use.
 export type SorsPoint = [period: string, normalized: number | null, original: number, status: string, comparable: 0 | 1, crossCountry: 0 | 1];
-export type SorsSeries = { key: string; store: "annual" | "monthly"; display_indicator: string; label: string; dataset: string; source_url: string; mapping_status: string; cross_country_comparable: boolean; model_role: string; unit: string | null; original_unit: string | null; status_legend: Record<string, string>; points: SorsPoint[] };
+export type SorsSeries = { key: string; store: "annual" | "monthly"; display_indicator: string; label: string; dataset: string; source_url: string; mapping_status: string; cross_country_comparable: boolean; model_role: string; unit: string | null; original_unit: string | null; status_legend: Record<string, string>; points: SorsPoint[]; original_code?: string; retrieved_at?: string };
 
 export const sorsSeriesLabels: Record<string, string> = {
   population_estimate_sors: "人口估计（SORS 长序列）",
@@ -35,9 +35,24 @@ export function useSerbiaSors(basePath: string, enabled: boolean) {
     const controller = new AbortController();
     fetch(`${basePath}/research-data/serbia_sors_runtime.json`, { signal: controller.signal })
       .then((response) => { if (!response.ok) throw new Error(String(response.status)); return response.json(); })
-      .then((payload: { series: SorsSeries[] }) => setSeries(payload.series))
+      .then(async (payload: { series: SorsSeries[] }) => {
+        // Preserve archived SORS query codes in exports without changing the compact runtime or canonical stores.
+        const metadata = await Promise.all(["annual", "monthly"].map(async (store) => {
+          const response = await fetch(`${basePath}/research-data/serbia/serbia_descriptive_history_${store}.json`, { signal: controller.signal });
+          if (!response.ok) throw new Error(String(response.status));
+          return response.json() as Promise<{ series_sources: { series: string; original_code?: unknown; retrieved_at?: string }[] }>;
+        })).catch(() => null);
+        if (controller.signal.aborted) return;
+        // Optional export metadata must not make the existing descriptive display unavailable.
+        // Bundle controls stay disabled if archived original codes could not be verified.
+        if (!metadata) { setSeries(payload.series); return; }
+        setSeries(payload.series.map((item) => {
+          const source = metadata[item.store === "annual" ? 0 : 1].series_sources.find((source) => source.series === item.key);
+          return { ...item, original_code: source?.original_code === undefined ? undefined : JSON.stringify(source.original_code), retrieved_at: source?.retrieved_at };
+        }));
+      })
       .catch((error) => { if (!(error instanceof DOMException && error.name === "AbortError")) setFailed(true); });
     return () => controller.abort();
   }, [basePath, enabled, series]);
-  return { series, state: failed ? "error" : series ? "ready" : enabled ? "loading" : "idle" } as const;
+  return { series, snapshotReady: !!series && series.every((item) => !!item.original_code), state: failed ? "error" : series ? "ready" : enabled ? "loading" : "idle" } as const;
 }

@@ -4,8 +4,10 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { RegionHistoryTrend } from "@/components/RegionHistoryTrend";
 import { formatNumber as sharedFormatNumber, formatWithUnit } from "@/lib/format";
-import { exportMap } from "@/lib/mapExport";
+import { buildMapSvg, exportMap } from "@/lib/mapExport";
 import { PLATFORM_NAME, PLATFORM_VERSION } from "@/lib/releaseMetadata";
+import { ResearchSnapshotExport } from "@/components/ResearchSnapshotExport";
+import { currentSnapshotUrl, sourceInstitution, type SnapshotRow } from "@/lib/researchSnapshot";
 
 type Position = [number, number];
 type Polygon = Position[][];
@@ -321,6 +323,7 @@ export function ComparativeSpatialWorkbench({
   const [statusFilter, setStatusFilter] = useState("all");
   const [urlReady, setUrlReady] = useState(false);
   const [loadedObservations, setLoadedObservations] = useState<Observation[]>(observations);
+  const [loadedCountryKey, setLoadedCountryKey] = useState("");
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -341,6 +344,8 @@ export function ComparativeSpatialWorkbench({
       setSelectedRegionIds(requestedRegions);
       setActiveRegionId(requestedRegions[0] ?? "");
       setSelectedProjectId(params.get("project") ?? "");
+      setSectorFilter(params.get("sector") ?? "all");
+      setStatusFilter(params.get("status") ?? "all");
       setUrlReady(true);
     }, 0);
     return () => window.clearTimeout(timer);
@@ -359,7 +364,7 @@ export function ComparativeSpatialWorkbench({
           return response.json();
         })
         .then((payload) => payload.records as Observation[]),
-    )).then((groups) => setLoadedObservations(groups.flat())).catch((error) => {
+    )).then((groups) => { setLoadedObservations(groups.flat()); setLoadedCountryKey(selectedCountryKey); }).catch((error) => {
       if (!(error instanceof DOMException && error.name === "AbortError")) setLoadedObservations([]);
     });
     return () => controller.abort();
@@ -391,8 +396,10 @@ export function ComparativeSpatialWorkbench({
     url.searchParams.set("classification", classification);
     if (selectedRegionIds.length) url.searchParams.set("regions", selectedRegionIds.join(",")); else url.searchParams.delete("regions");
     if (selectedProjectId) url.searchParams.set("project", selectedProjectId); else url.searchParams.delete("project");
+    if (sectorFilter !== "all") url.searchParams.set("sector", sectorFilter); else url.searchParams.delete("sector");
+    if (statusFilter !== "all") url.searchParams.set("status", statusFilter); else url.searchParams.delete("status");
     window.history.replaceState({}, "", url);
-  }, [classification, effectiveLayer, effectiveYear, mode, selectedCountries, selectedProjectId, selectedRegionIds, urlReady]);
+  }, [classification, effectiveLayer, effectiveYear, mode, selectedCountries, selectedProjectId, selectedRegionIds, sectorFilter, statusFilter, urlReady]);
 
   const filteredProjects = projects.filter((project) =>
     ["high", "medium"].includes(project.confidence) &&
@@ -407,18 +414,39 @@ export function ComparativeSpatialWorkbench({
   const legendThresholds = sharedThresholds ?? thresholdsFor(scaleValues, classification);
   const legendItems = colors.slice(0, legendThresholds.length + 1).map((color, index) => ({ color, label: index === 0 ? `≤ ${formatNumber(legendThresholds[0] ?? scaleValues[0] ?? 0)}` : index <= legendThresholds.length - 1 ? `${formatNumber(legendThresholds[index - 1])}–${formatNumber(legendThresholds[index])}` : `> ${formatNumber(legendThresholds.at(-1) ?? 0)}` }));
   // Map export (SVG / PNG): the panes on screen plus title, legend and source/boundary attribution; light print palette.
-  const exportCurrentMap = (format: "svg" | "png") => {
-    if (!currentLayer) return;
+  const currentMapSpec = () => {
+    if (!currentLayer) throw new Error("No selected map layer");
     const names = selectedCountries.map((country) => country.country_name_zh).join("、");
     const accessed = new Date().toLocaleDateString("sv-SE");
-    void exportMap({
+    return {
       title: `${currentLayer.name_zh} · ${names}`,
       subtitle: `${currentLayer.unit} · ${effectiveYear || "年份不适用"} · ${classification === "quantile" ? "分位数分级（Quantile）" : "等距分级（Equal interval）"} · 区域事实描述，不构成排名结论`,
       legend: legendItems,
       noDataLabel: "无数据（斜线）",
-      source: `数据：${selectedCountries.map((country) => country.source_name).join(" / ")}；行政边界：© EuroGeographics（Eurostat/GISCO）。导出自 ${PLATFORM_NAME}（${PLATFORM_VERSION.split(" ")[0]}），${accessed}。`,
+      source: `数据：${selectedCountries.map((country) => country.source_name).join(" / ")}；行政边界：${selectedCountries.map((country) => country.attribution).join(" / ")}。导出自 ${PLATFORM_NAME}（${PLATFORM_VERSION.split(" ")[0]}），${accessed}。`,
       fileName: `atlas-map-${currentLayer.layer_id}-${selectedCountries.map((country) => country.country_id).join("-")}-${effectiveYear || "na"}`,
-    }, format);
+    };
+  };
+  const exportCurrentMap = (format: "svg" | "png") => { void exportMap(currentMapSpec(), format); };
+  const mapSnapshot = () => {
+    const paneCountries = [...document.querySelectorAll<SVGSVGElement>("svg[data-map-export]")].map((svg) => svg.dataset.mapExport);
+    if (selectedCountries.some((country) => !paneCountries.includes(country.country_id))) throw new Error("Map geometry not ready");
+    const visibleObservations = mapObservations.filter((item) => selectedCountries.some((country) => country.country_id === item.country_id) && item.region_indicator_id === effectiveLayer && item.year === effectiveYear);
+    const snapshotRows: SnapshotRow[] = currentLayer?.layer_type === "choropleth" ? regions.filter((region) => selectedCountries.some((country) => country.country_id === region.country_id)).map((region) => {
+      const record = visibleObservations.find((item) => item.region_id === region.region_id);
+      const country = selectedCountries.find((item) => item.country_id === region.country_id)!;
+      return { id: record?.region_observation_id ?? `${region.region_id}:${effectiveLayer}:${effectiveYear}`, country: region.country_id, indicator: effectiveLayer, period: effectiveYear, value: record?.value ?? null, unit: record?.unit ?? currentLayer?.unit ?? "", layer: "regional_descriptive", status: record?.value_status ?? "missing", region_id: region.region_id, region_name: region.region_name_zh, region_code: region.admin_code, classification_system: country.classification_system, admin_level: country.admin_level, selected_region: selectedRegionIds.includes(region.region_id), definition: currentLayer?.definition,
+        source: { institution: sourceInstitution(record?.source_name ?? country.source_name, record?.source_url ?? country.source_url), dataset: record?.source_name ?? country.source_name, source_url: record?.source_url ?? country.source_url, updated_at: record?.last_updated, unit: record?.unit ?? currentLayer?.unit, reliability: record?.source_reliability, definition: currentLayer?.definition, source_layer: "regional_descriptive" } };
+    }) : effectiveLayer === "china_project_locations" ? filteredProjects.map((item) => ({ id: item.project_location_id, country: item.country_id, indicator: effectiveLayer, period: item.year, value: item.amount, unit: item.currency ?? "", layer: "project_location_descriptive", status: item.project_status, region_id: item.region_id, project_name: item.project_name, confidence: item.confidence, location_precision: item.location_precision, source: { institution: "原始项目来源（见链接）", dataset: item.project_name, source_url: item.source_url, reliability: item.source_reliability, source_layer: "project_location_descriptive" } })) : regions.filter((region) => selectedCountries.some((country) => country.country_id === region.country_id)).map((region) => {
+      const country = selectedCountries.find((item) => item.country_id === region.country_id)!;
+      return { id: region.region_id, country: region.country_id, indicator: "regional_boundary", period: "", value: null, unit: "", layer: "geography_descriptive", status: "boundary_only", region_code: region.admin_code, classification_system: country.classification_system, admin_level: country.admin_level, selected_region: selectedRegionIds.includes(region.region_id), source: { institution: country.source_name, dataset: country.classification_system, source_url: country.source_url, source_layer: "geography_descriptive" } };
+    });
+    return { title: currentMapSpec().title, view_type: "regional_map" as const, page_path: "/map/", shareable_view_url: currentSnapshotUrl("/map/"), countries: selectedCountries.map((country) => country.country_id), indicators: [effectiveLayer], rows: snapshotRows,
+      filters: { mode, layer: effectiveLayer, year: effectiveYear, classification, selected_regions: selectedRegionIds, project: selectedProjectId, sector: sectorFilter, status: statusFilter }, comparison: { scale: mode === "comparison" ? "shared" : "national", thresholds: legendThresholds },
+      comparability_status: mode === "comparison" ? "same_level_definition_unit_year" : "within_country_geography_only",
+      limitations: [currentLayer?.interpretation_boundary ?? "", "区域选择只作高亮；快照保留地图上全部区域，包括斜线缺失区域。", ...selectedCountries.map((country) => `${country.country_id}: ${country.classification_system} / ${country.admin_level}; ${country.attribution}`)].filter(Boolean),
+      figure: { name: "map.svg" as const, svg: buildMapSvg(currentMapSpec()), metadata: { layer: effectiveLayer, year: effectiveYear, classification, thresholds: legendThresholds, legend: legendItems, palette: "neutral_print", geographies: selectedCountries.map((country) => ({ country: country.country_id, classification: country.classification_system, level: country.admin_level, attribution: country.attribution })) } },
+    };
   };
   const selectedRegions = selectedRegionIds.map((id) => regions.find((region) => region.region_id === id)).filter(Boolean) as Region[];
   const activeRegion = regions.find((region) => region.region_id === activeRegionId) ?? selectedRegions[0];
@@ -475,6 +503,7 @@ export function ComparativeSpatialWorkbench({
       </div>
 
       <div className="spatial-control-rail mt-5 grid gap-3">
+        <ResearchSnapshotExport disabled={!currentLayer || loadedCountryKey !== selectedCountryKey} create={mapSnapshot} />
         <label className="text-xs font-semibold text-[var(--muted)]">国家
           {mode === "country" ? <select value={selectedCountries[0]?.country_id ?? ""} onChange={(event) => setSingleCountry(event.target.value)} className="mt-2 w-full rounded-xl border border-[var(--line)] bg-white px-3 py-2 text-sm text-[var(--foreground)]">{countries.map((country) => <option key={country.country_id} value={country.country_id} disabled={!country.approved_layers.includes("regional_boundary")}>{country.country_name_zh}{country.approved_layers.includes("regional_boundary") ? "" : " · 待接入"}</option>)}</select> : <span className="mt-2 block rounded-xl border border-[var(--line)] bg-white px-3 py-2 text-sm text-[var(--foreground)]">{selectedCountries.map((country) => country.country_name_zh).join(" / ")}</span>}
         </label>
