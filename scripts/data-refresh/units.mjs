@@ -23,6 +23,11 @@ export const UNITS = {
     family: "ECB / BIS",
     command: ["python", "scripts/acquisition/acquire-macro-drivers.py"],
     offline: null,
+    // Owner decision 2026-09-30: not refreshable by this workflow. The only registered acquisition is the v1.51 builder;
+    // it rewrites lp_readiness_registry (v1.72 → v1.51), shock_identification_registry (v1.62 → v1.51) and
+    // v16_identification_readiness, and the observations are hash-pinned by frozen LP/panel-LP outputs without a snapshot.
+    // Refreshing macro drivers needs a deliberate release (observations-only acquisition + research snapshot).
+    blocked: "not refreshable by routine refresh: the v1.51 acquisition would roll back LP/identification registries and the observations are pinned by frozen LP/panel-LP outputs (owner decision 2026-09-30)",
     stores: [{ path: "src/data/macro-drivers/macro_driver_observations.json", kind: "md" }],
     writeSet: ["src/data/macro-drivers/"],
     modelLinked: ["src/data/macro-drivers/lp_readiness_registry.json", "src/data/macro-drivers/v16_identification_readiness.json", "src/data/macro-drivers/driver_applicability_registry.json", "src/data/macro-drivers/shock_identification_registry.json"],

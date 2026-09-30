@@ -39,6 +39,7 @@ const requested = arg("units") ? arg("units").split(",") : plan.units.filter((u)
 const selected = plan.units.filter((u) => requested.includes(u.unit));
 if (!selected.length) { console.log("Nothing to apply (no unit with changes selected)."); process.exit(0); }
 for (const u of selected) {
+  if (UNITS[u.unit].blocked) fail(`${u.unit} is blocked: ${UNITS[u.unit].blocked}`);
   if (u.run.status !== "ok") fail(`${u.unit}: acquisition ${u.run.status}`);
   if (u.proposed_action === "hold_for_owner_review" && !acceptStop) fail(`${u.unit} is held for owner review:\n  ${u.stops.join("\n  ")}\nPass --accept-stop "<owner decision>" only after the owner has reviewed and accepted these points.`);
   if (u.proposed_action === "no_change") fail(`${u.unit} has no changes`);

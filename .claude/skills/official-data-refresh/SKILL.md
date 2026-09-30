@@ -23,16 +23,23 @@ and not a re-estimation. Tooling: `scripts/data-refresh/` (`plan.mjs`, `apply.mj
 ## Modes and units (`scripts/data-refresh/units.mjs`)
 | Mode | Units | Notes |
 |---|---|---|
-| `monthly` | eurostat-high-frequency, macro-drivers, serbia-sors | live series only; historical descriptive stores are preserved |
+| `monthly` | eurostat-high-frequency, macro-drivers (blocked), serbia-sors | live series only; historical descriptive stores are preserved |
 | `annual` | annual-history (+ source-ahead check of `observations.json`) | backfill store refreshed; `observations.json` is a formal model input — newer years/revisions are **reported only** |
 | `regional` | regional-history | NUTS 2024 dissemination; GISCO code lists decide comparability per year; v0.86/v0.89 map files untouched |
 | `serbia` | serbia-sors | annual + monthly/quarterly + regional stores, applied as one unit (offline-rebuild validator) |
 | `all-descriptive` | all of the above + monthly-history (revision audit) | |
 
-Expected findings you must not "fix": `macro_driver_observations.json` is hash-pinned by frozen LP/panel-LP outputs and
-has no research snapshot → any change is a **formal model impact → STOP**. The high-frequency live file is refreshable
-because published uses are frozen to `src/data/high-frequency/snapshots/`; but `acquire-eurostat-monthly.mjs` also
-rewrites the legacy `src/data/analysis/var_readiness.json` — a substantive change there is a readiness change → STOP.
+Expected findings you must not "fix":
+- `macro-drivers` is **blocked** (owner decision 2026-09-30) and reported as `blocked_by_owner_decision`: its only
+  acquisition script is the v1.51 builder, which would roll `lp_readiness_registry`, `shock_identification_registry` and
+  `v16_identification_readiness` back to v1.51, and the observations are hash-pinned by frozen LP/panel-LP outputs with no
+  research snapshot. Refreshing macro drivers requires a deliberate release, never this workflow.
+- The high-frequency live file is refreshable because published uses are frozen to `src/data/high-frequency/snapshots/`;
+  `acquire-eurostat-monthly.mjs` also rewrites the legacy `src/data/analysis/var_readiness.json` — a timestamp-only
+  rewrite is left untouched, a substantive change is a readiness change → STOP.
+- Revisions of the high-frequency file interact with other stores: `monthly-history` re-derives its overlap gate from it
+  (apply both together; a series' admission can flip), and any revision inside the audited window requires re-running
+  `pnpm data-coverage:audit` (owner-approved) before `pnpm data-coverage:validate` passes.
 
 ## Steps
 1. **Plan (read-only).** `pnpm data-refresh:plan -- --mode <mode>` (add `--offline` to replay archived raw responses;

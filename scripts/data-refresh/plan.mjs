@@ -59,6 +59,7 @@ const canonicalSnapshot = Object.fromEntries(PROTECTED.flatMap((d) => listFiles(
 const runs = {};
 for (const id of unitIds) {
   const unit = UNITS[id];
+  if (unit.blocked) { runs[id] = { status: "blocked", reason: unit.blocked }; continue; }
   if (previousPlan) { runs[id] = previousPlan.units.find((u) => u.unit === id)?.run ?? { status: "skipped", reason: `not in run ${fromStage}` }; continue; }
   let [cmd, ...cmdArgs] = unit.command;
   if (cmd === "python") cmd = venv ? path.join(stage, ".venv/bin/python") : "python3";
@@ -148,7 +149,7 @@ for (const id of unitIds) {
   const run = runs[id];
   const entry = { unit: id, label: unit.label, family: unit.family, run, stores: [], files: [], provenance: null, stops: [], warnings: [], validators: unit.validators, note: unit.note ?? null };
   units.push(entry);
-  if (run.status !== "ok") { entry.proposed_action = run.status === "skipped" ? "not_checked" : "hold_acquisition_failed"; if (run.status === "failed") entry.stops.push(`acquisition failed (exit ${run.exit_code}); see ${run.log}`); continue; }
+  if (run.status !== "ok") { entry.proposed_action = run.status === "skipped" ? "not_checked" : run.status === "blocked" ? "blocked_by_owner_decision" : "hold_acquisition_failed"; if (run.status === "failed") entry.stops.push(`acquisition failed (exit ${run.exit_code}); see ${run.log}`); continue; }
   const tolerance = toleranceFor(unit);
   entry.files = changed.filter((c) => ownerOf(c.file) === id).map((c) => ({ ...c, canonical_sha256: fileSha(path.join(root, c.file)), staged_sha256: fileSha(path.join(stage, c.file)), canonical_git_blob: gitBlobId(path.join(root, c.file)) }));
   for (const store of unit.stores) {

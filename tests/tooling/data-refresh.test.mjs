@@ -109,3 +109,8 @@ test("an empty placeholder month that gets its first value is a routine new peri
   assert.equal(s.new_observations.length, 1);
   assert.deepEqual(seriesFlags(s), []);
 });
+
+test("macro-drivers is blocked (owner decision): never run or applied by routine refresh", () => {
+  assert.match(UNITS["macro-drivers"].blocked, /not refreshable/);
+  for (const [id, unit] of Object.entries(UNITS)) if (id !== "macro-drivers") assert.equal(unit.blocked, undefined, id);
+});
