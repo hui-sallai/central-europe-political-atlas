@@ -51,7 +51,7 @@ for (const q of REVIEW_QUEUE) check(!history.records.some((r) => r.indicator ===
 
 // --- Isolation from formal models ---------------------------------------------------------------------------
 // Publishing (export) and UI display are allowed; estimation, scenario and index code is not.
-const allowed = [/^scripts\/export-research-data\.mjs$/, /^scripts\/historical-annual\//, /^scripts\/data-coverage\//, /^scripts\/validation\//, /^src\/components\//, /^src\/app\//];
+const allowed = [/^scripts\/export-research-data\.mjs$/, /^scripts\/data-refresh\//, /^scripts\/historical-annual\//, /^scripts\/data-coverage\//, /^scripts\/validation\//, /^src\/components\//, /^src\/app\//];
 const offenders = [];
 const walk = (dir) => { for (const e of fs.readdirSync(path.join(root, dir), { withFileTypes: true })) { const rel = path.join(dir, e.name); if (e.isDirectory()) { if (!["node_modules", "raw", "snapshots"].includes(e.name)) walk(rel); } else if (/\.(m?js|ts|tsx|py)$/.test(e.name) && fs.readFileSync(path.join(root, rel), "utf8").includes("annual_descriptive_history")) offenders.push(rel); } };
 walk("src"); walk("scripts");

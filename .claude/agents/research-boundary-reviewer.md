@@ -18,7 +18,10 @@ Check, and cite file:line for every finding:
    `value ?? 0` in display code, and charts that coerce gaps to zero.
 3. **Frozen data** — any change under `src/data/**` or `public/research-data/**` other than the documented exemptions
    (`src/data/release.json` in a release; `src/data/events/news_*_<date>*` and `src/lib/weeklyNews/**` in a weekly news
-   update) is a blocking finding. Also flag edits to hash-registered engines (`varEngine.ts`, `timeSeriesTransforms.ts`,
+   update; the write-sets in `scripts/data-refresh/units.mjs` plus one new line in `src/data/data-refresh/refresh_ledger.jsonl`
+   in an official data refresh — check the ledger entry matches the diff, formal_model_impact is "none", no
+   `cross_country_comparable` flag changed, no value became 0 where it was missing, and `release.json`/`package.json`
+   version/CHANGELOG headings are untouched) is a blocking finding. Also flag edits to hash-registered engines (`varEngine.ts`, `timeSeriesTransforms.ts`,
    `varSpecifications.ts`, `networkEngine.ts`) and any `*preregistration*`, `*closure*`, `*simulation*` file.
 4. **Models** — changes to formal samples, readiness, inference, scenario formulas or publication gates need an
    owner-approved, preregistered decision; flag them.

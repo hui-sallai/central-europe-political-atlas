@@ -34,3 +34,6 @@ public/og/
 # Playwright
 test-results/
 playwright-report/
+
+# staged official-data refresh runs (scripts/data-refresh)
+.tmp-data-refresh/

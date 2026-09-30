@@ -2,10 +2,12 @@ import { defineConfig, devices } from "@playwright/test";
 
 // UI tests against the static export (run `pnpm build:site` first). Two viewports per route: 1440 desktop, 390 mobile.
 // Screenshots are compared per platform (baselines live in tests/ui/__screenshots__/<platform>/<project>/).
+// updateSnapshots "none": a missing or mismatching baseline fails. Only `pnpm test:ui:update` (--update-snapshots) writes baselines.
 export default defineConfig({
   testDir: "tests/ui",
   outputDir: "test-results",
   fullyParallel: true,
+  updateSnapshots: "none",
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI ? [["list"], ["html", { open: "never", outputFolder: "playwright-report" }]] : [["list"]],
   snapshotPathTemplate: "{testDir}/__screenshots__/{platform}/{projectName}/{arg}{ext}",

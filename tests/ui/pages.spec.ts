@@ -6,8 +6,9 @@ import { expect, test } from "@playwright/test";
 //  - visual comparison of the first viewport against the committed baseline for this platform;
 //  - axe (WCAG 2.x A/AA): no serious or critical violations;
 //  - exactly one canonical link pointing at the route itself.
-// A platform without baselines yet (e.g. the first Linux CI run) records them instead of failing; the recorded files
-// are uploaded as a CI artifact so they can be committed.
+// Baseline policy (frozen): a mismatch fails and a MISSING baseline also fails. Baselines are only created or refreshed
+// deliberately — locally with `pnpm test:ui:update`, or in CI with the "record-ui-baselines" workflow_dispatch mode, which
+// uploads the recorded files as an artifact to review and commit (that mode never deploys).
 const ROUTES = ["/", "/countries/", "/countries/poland/", "/data/", "/map/", "/models/", "/news/", "/methodology/"];
 const CANONICAL_BASE = "https://hy-central-europe-analysis.org";
 
@@ -19,13 +20,10 @@ for (const route of ROUTES) {
 
     const name = `${route === "/" ? "home" : route.replace(/^\/|\/$/g, "").replace(/\//g, "-")}.png`;
     const baseline = testInfo.snapshotPath(name);
-    if (fs.existsSync(baseline)) {
-      await expect(page).toHaveScreenshot(name);
-    } else {
-      fs.mkdirSync(baseline.slice(0, baseline.lastIndexOf("/")), { recursive: true });
-      await page.screenshot({ path: baseline, animations: "disabled", caret: "hide", scale: "css" });
-      testInfo.annotations.push({ type: "baseline-recorded", description: baseline });
+    if (!fs.existsSync(baseline) && testInfo.config.updateSnapshots === "none") {
+      throw new Error(`Missing screenshot baseline ${baseline}. New or changed routes need a deliberate baseline: run \`pnpm test:ui:update\` (or the record-ui-baselines CI mode for Linux) and commit the reviewed files.`);
     }
+    await expect(page).toHaveScreenshot(name);
 
     const results = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"]).analyze();
     const blocking = results.violations.filter((v) => v.impact === "serious" || v.impact === "critical");

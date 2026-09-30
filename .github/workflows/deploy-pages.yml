@@ -4,6 +4,12 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      ui_baselines:
+        description: "UI screenshot baselines: 'verify' (default; missing or mismatching baselines fail) or 'record' (update Linux baselines, upload them as an artifact to review and commit; this mode never deploys)"
+        type: choice
+        options: [verify, record]
+        default: verify
 
 permissions:
   contents: read
@@ -105,6 +111,9 @@ jobs:
       - name: Typecheck
         run: pnpm typecheck
 
+      - name: Research-data guard and data-refresh tooling tests
+        run: pnpm tooling:test
+
       - name: Scan tracked files for secrets and local artifacts
         run: pnpm security:scan
 
@@ -132,7 +141,22 @@ jobs:
         run: pnpm exec playwright install --with-deps chromium
 
       - name: UI tests (screenshots, accessibility, canonical)
+        if: inputs.ui_baselines != 'record'
         run: pnpm test:ui
+
+      - name: Fail if the UI tests wrote screenshot baselines
+        if: inputs.ui_baselines != 'record'
+        run: |
+          changes="$(git status --porcelain -- tests/ui/__screenshots__)"
+          if [ -n "$changes" ]; then
+            echo "UI tests modified committed baselines (baselines are only written in the record mode):"
+            echo "$changes"
+            exit 1
+          fi
+
+      - name: Record Linux screenshot baselines (deliberate mode)
+        if: inputs.ui_baselines == 'record'
+        run: pnpm test:ui:update
 
       - name: Upload UI test diffs
         if: failure()
@@ -145,12 +169,11 @@ jobs:
           retention-days: 14
 
       - name: Upload recorded Linux screenshot baselines
-        if: always()
+        if: inputs.ui_baselines == 'record'
         uses: actions/upload-artifact@v4
         with:
           name: ui-baselines-linux
           path: tests/ui/__screenshots__/linux/
-          if-no-files-found: ignore
           retention-days: 30
 
       - name: Release QA
@@ -169,6 +192,7 @@ jobs:
           include-hidden-files: true
 
   deploy:
+    if: inputs.ui_baselines != 'record'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

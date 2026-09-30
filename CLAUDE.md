@@ -33,9 +33,11 @@ https://hy-central-europe-analysis.org via `.github/workflows/deploy-pages.yml` 
 | UI wording rules | `pnpm ui-language:qa` |
 | UI regressions (CTA contrast, tables, charts) | `pnpm ui:regression-validate` (needs a fresh `out/`) |
 | Data coverage / history stores | `pnpm data-coverage:validate` · `pnpm historical-annual:validate` · `pnpm historical-monthly:validate` · `pnpm historical-regional:validate` · `pnpm serbia-audit:validate` |
-| Browser UI tests (8 routes × 1440/390: screenshots, axe serious/critical = 0 in light and dark, canonical) | `pnpm build:site && pnpm test:ui` · refresh baselines: `pnpm test:ui:update` |
+| Browser UI tests (8 routes × 1440/390: screenshots, axe serious/critical = 0 in light and dark, canonical) | `pnpm build:site && pnpm test:ui` · create/refresh baselines (deliberate only): `pnpm test:ui:update` |
 | SEO / share previews on `out/` | `pnpm seo:validate` |
 | Weekly news | `pnpm news:validate` |
+| Official data refresh (staged, read-only plan → apply) | `pnpm data-refresh:plan -- --mode <mode> [--offline]` · `pnpm data-refresh:apply -- --run <id>` |
+| Guard + refresh tooling tests | `pnpm tooling:test` |
 | Research-data export | `node scripts/export-research-data.mjs` (rewrites timestamps in `public/research-data/`; revert unrelated files before committing) |
 
 Per-change gate used in this repo: `pnpm lint && pnpm typecheck && pnpm build:site && pnpm release:validate`.
@@ -54,7 +56,9 @@ restore the tree with `git checkout -- public/research-data src/data/analysis/ad
 ## Frozen / do-not-edit
 - Everything under `src/data/**` and `public/research-data/**`, except:
   - `src/data/release.json` — only when cutting a release (see below);
-  - `src/data/events/**` and `src/lib/weeklyNews/**` — only through the weekly news workflow.
+  - `src/data/events/**` and `src/lib/weeklyNews/**` — only through the weekly news workflow;
+  - the descriptive stores registered in `scripts/data-refresh/units.mjs` and `src/data/data-refresh/refresh_ledger.jsonl`
+    — only through the official-data-refresh workflow (`apply.mjs`, after a plan and owner confirmation).
 - Hash-registered outputs: `src/data/analysis/v173_frozen_output_hashes.json` (86 records, e.g. `varEngine.ts`,
   `timeSeriesTransforms.ts`, `varSpecifications.ts`, `networkEngine.ts`), `src/data/high-frequency/snapshots/snapshot_manifest.json`,
   and every `*preregistration*`, `*closure*`, `*simulation*` file and SHA-256 registry under `src/data/` and `scripts/`.
@@ -69,16 +73,43 @@ restore the tree with `git checkout -- public/research-data src/data/analysis/ad
 3. Run the full `pnpm build`, then revert incidental timestamp changes under `public/research-data/`.
 4. Commit. Push only with explicit owner approval ("推送上线"); the Pages workflow deploys `main`.
 
-Screenshot baselines are per platform (`tests/ui/__screenshots__/<platform>/`). CI records missing Linux baselines
-instead of failing and uploads them as the `ui-baselines-linux` artifact — commit that folder to turn on Linux comparison.
+Routine official-data refreshes are not releases: they stay under the current platform version (no `release.json`,
+`package.json` version or CHANGELOG release heading changes) unless the owner explicitly asks for a release.
+
+## Screenshot baselines (frozen policy)
+Baselines are per platform (`tests/ui/__screenshots__/<platform>/<project>/`). `pnpm test:ui` never writes them: a
+mismatch **or a missing baseline** fails (Playwright `updateSnapshots: "none"`), and CI also fails if a run leaves
+changes in that folder. Create/refresh baselines only deliberately: locally `pnpm test:ui:update`
+(`--update-snapshots=changed`), for Linux the Pages workflow's manual `ui_baselines: record` mode (never deploys;
+uploads the `ui-baselines-linux` artifact to review and commit).
 
 ## Claude Code tooling (`.claude/`)
 - Skills: `weekly-news-update <week-end date>` (weekly event update; the only writer of `src/lib/weeklyNews/**` and
   `src/data/events/news_*`), `release <version> <title>` (version bump in `src/data/release.json`, CHANGELOG, full build, notes).
 - Agent: `research-boundary-reviewer` — reviews a diff for causal/predictive wording, zero-filled missing values,
   frozen-data edits and non-comparable comparisons. Run it before committing UI or data-display changes.
-- Hooks (`.claude/settings.json`): editing `src/data/**` or `public/research-data/**` asks for confirmation first;
-  every edited `.ts/.tsx` file is linted with ESLint and errors are fed back.
+- Skill `official-data-refresh <mode>`: routine Eurostat / ECB·BIS / SORS descriptive refresh (plan → owner review →
+  apply → validators → reviewer); modes monthly · annual · regional · serbia · all-descriptive. Never a release.
+- Hooks (`.claude/settings.json`): every edited `.ts/.tsx` file is linted with ESLint and errors are fed back; research
+  data is protected as below. `pnpm tooling:test` tests the guard and the refresh tooling (also in CI).
+
+## Research-data write protection (`src/data/**`, `public/research-data/**`)
+1. **PreToolUse guard** (`.claude/hooks/guard-research-data.mjs`, logic in `hooks/lib/research-data-guard.mjs`) returns
+   "ask" (owner confirmation) for: Edit/Write/MultiEdit/NotebookEdit on a protected path; Bash with redirection, `tee`,
+   `cp/mv/rm/ln/rsync/touch/mkdir/…`, `sed -i`/`perl -i`, `find -delete/-exec`, `tar/unzip/curl/wget` output, inline
+   `node -e`/`python -c`/heredoc code, or a `cd` into a protected tree; git operations that would rewrite protected
+   files (`checkout/restore -- <path>`, `reset --hard`/`stash`/`clean` with dirty research data, switching to a ref whose
+   research data differs, `pull`/`am`/`apply`); and programs that write research data — `pnpm`/`npm` scripts are expanded
+   recursively and every script is scanned (with its local imports and spawned scripts) for a write whose target is a
+   protected path, following path variables and writer helpers. `.claude/hooks/research-data-writers.json` lists known
+   writers as a backstop and reviewed read-only validators. Read-only commands and validators run silently.
+2. **PostToolUse detector** (`detect-research-data-changes.mjs`) compares `git status` + size/mtime of the protected trees
+   before and after every Bash call and reports any change to Claude and the owner — so a write the static analysis did
+   not foresee (e.g. an arbitrary binary) is never silent. It reports; it cannot undo (use `git diff` / restore).
+3. Limits: gitignored files under the protected trees are not tracked by the detector; commands outside Claude Code
+   (your own terminal) are not intercepted — the validators and CI remain the final gate.
+Approved workflows (release, weekly news, official data refresh, the per-change export regeneration) still run after
+confirming the prompt.
 - `pnpm news:validate` validates the latest complete week; pass `--week YYYY-MM-DD` for a specific one.
 
 ## Running locally

@@ -75,7 +75,7 @@ check(manifest.fx.eur_conversion_withheld_years.every((y) => stores.annual.recor
 const offenders = [];
 const walk = (d) => { for (const e of fs.readdirSync(path.join(root, d), { withFileTypes: true })) { const rel = path.join(d, e.name); if (e.isDirectory()) { if (!["node_modules", "raw", "snapshots"].includes(e.name)) walk(rel); } else if (/\.(m?js|ts|tsx|py)$/.test(e.name) && /serbia_descriptive_history|src\/data\/serbia|serbia_indicator_mapping|serbia_data_integration_plan/.test(fs.readFileSync(path.join(root, rel), "utf8"))) offenders.push(rel); } };
 walk("src"); walk("scripts");
-const allowedReaders = [/^scripts\/serbia-sors\//, /^scripts\/data-coverage\//, /^scripts\/export-research-data\.mjs$/, /^scripts\/validation\//, /^src\/components\//, /^src\/app\//];
+const allowedReaders = [/^scripts\/serbia-sors\//, /^scripts\/data-refresh\//, /^scripts\/data-coverage\//, /^scripts\/export-research-data\.mjs$/, /^scripts\/validation\//, /^src\/components\//, /^src\/app\//];
 check(offenders.every((f) => allowedReaders.some((re) => re.test(f))), `model/scenario code must not read the Serbia data: ${offenders.filter((f) => !allowedReaders.some((re) => re.test(f))).join(", ")}`);
 
 console.log(JSON.stringify({ status: "pass", checks, datasets: audit.datasets.length, mappings: mapping.national_and_monthly.length + mapping.regional.length, nstj_units: registry.units.length, records: Object.fromEntries(Object.entries(stores).map(([k, d]) => [k, d.records.length])) }));
