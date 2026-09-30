@@ -5,7 +5,8 @@
 // 3. Diffs the staged stores against the canonical ones record by record (new / revised / removed observations, unit,
 //    definition, territorial, comparability and cross-country-status changes), checks side effects outside each unit's
 //    write-set, provenance, formal-model-input exposure and Serbia-specific preservation rules.
-// 4. Writes .tmp-data-refresh/<run>/data_refresh_plan.json and data_refresh_report.md, and prints the report path.
+// 4. Runs every descriptive validator inside the stage (cross-store couplings) and classifies coverage-audit failures.
+// 5. Writes .tmp-data-refresh/<run>/data_refresh_plan.json and data_refresh_report.md, and prints the report path.
 //
 // Usage: node scripts/data-refresh/plan.mjs --mode monthly|annual|regional|serbia|all-descriptive [--offline] [--units a,b]
 //        [--run <id>] [--timeout-min 30] [--from-stage <earlier-run-id>]
@@ -16,7 +17,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { compareFiles, DECLARED_FORMAL_INPUTS, seriesFlags, DEFAULT_TOLERANCE, diffStore, fileSha, findHashPins, gitBlobId, jsonStatSeries, listFiles, readJson, snapshotCoverage, TOOL_VERSION } from "./lib.mjs";
-import { FORBIDDEN_TARGETS, inWriteSet, MODES, UNITS } from "./units.mjs";
+import { FORBIDDEN_TARGETS, inWriteSet, MODES, STAGE_VALIDATORS, UNITS } from "./units.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const args = process.argv.slice(2);
@@ -40,8 +41,9 @@ const PROTECTED = ["src/data", "public/research-data"];
 if (fs.existsSync(runDir)) { console.error(`Run directory exists: ${rel(runDir)} — pass a new --run id.`); process.exit(1); }
 fs.mkdirSync(path.join(runDir, "logs"), { recursive: true });
 const clone = (from, to) => fromStage ? undefined : fs.cpSync(path.join(root, from), path.join(stage, to ?? from), { recursive: true, preserveTimestamps: true, mode: fs.constants.COPYFILE_FICLONE });
-// public/data (boundaries, region code maps) is read by the regional acquisition; it is staged but not diffed.
-for (const dir of ["scripts", "src/data", "src/lib", "public/research-data", "public/data"]) clone(dir);
+// All of src/ and docs/ are staged because the validators also read UI and engine sources; public/data (boundaries,
+// region code maps) is read by the regional acquisition. Only src/data and public/research-data are diffed.
+for (const dir of ["scripts", "src", "docs", "public/research-data", "public/data"]) if (fs.existsSync(path.join(root, dir))) clone(dir);
 const venv = [path.join(root, ".venv"), process.env.DATA_REFRESH_VENV].find((p) => p && fs.existsSync(path.join(p, "bin/python")));
 if (!fromStage) {
   fs.copyFileSync(path.join(root, "package.json"), path.join(stage, "package.json"));
@@ -263,6 +265,34 @@ if (unitIds.includes("annual-history") && runs["annual-history"]?.status === "ok
 }
 
 // ---------------------------------------------------------------------------------------------------------------
+// 5b. Validators inside the stage. Every descriptive validator runs (not only the mode's units): stores are coupled —
+//     e.g. monthly-history re-derives its overlap gate from the high-frequency file, and the coverage audit
+//     fingerprints every audited window — so a routine-looking unit can break another store's validator.
+// ---------------------------------------------------------------------------------------------------------------
+const anyAcquired = Object.values(runs).some((r) => r.status === "ok");
+const stageValidators = anyAcquired ? STAGE_VALIDATORS.map((command) => {
+  const [bin, ...rest] = command.split(" ");
+  const result = spawnSync(bin === "pnpm" ? "pnpm" : bin, bin === "pnpm" ? ["-s", ...rest] : rest, { cwd: stage, encoding: "utf8", timeout: timeoutMs, maxBuffer: 64 * 1024 * 1024 });
+  const output = `${result.stdout ?? ""}${result.stderr ?? ""}`;
+  return { command, status: result.status === 0 ? "pass" : "fail", message: result.status === 0 ? null : (output.match(/AssertionError[^\n]*|Error:[^\n]*/)?.[0] ?? output.trim().split("\n").slice(-3).join(" ")).slice(0, 400) };
+}) : [];
+// A coverage-audit failure is re-tested after regenerating the audit in the stage (then restored), so the plan can say
+// whether an owner-approved re-audit resolves it.
+let coverageReaudit = "not_needed";
+if (stageValidators.find((v) => v.command === "pnpm data-coverage:validate")?.status === "fail") {
+  const auditFile = path.join(stage, "src/data/data-coverage/descriptive_data_coverage_audit.json");
+  const saved = fs.readFileSync(auditFile);
+  const audit = spawnSync("node", ["scripts/data-coverage/audit.mjs"], { cwd: stage, encoding: "utf8", timeout: timeoutMs });
+  const recheck = audit.status === 0 ? spawnSync("node", ["scripts/data-coverage/validate.mjs"], { cwd: stage, encoding: "utf8", timeout: timeoutMs }) : null;
+  const before = readJson(path.join(root, "src/data/data-coverage/descriptive_data_coverage_audit.json"));
+  const after = audit.status === 0 ? JSON.parse(fs.readFileSync(auditFile, "utf8")) : null;
+  const formalBefore = before.summary?.formal_model_input_series ?? before.summary?.formal_input_series;
+  const formalAfter = after?.summary?.formal_model_input_series ?? after?.summary?.formal_input_series;
+  coverageReaudit = recheck?.status === 0 ? (formalBefore === formalAfter ? "required_passes_after_reaudit" : "reaudit_changes_formal_input_series") : "fails_even_after_reaudit";
+  fs.writeFileSync(auditFile, saved);
+}
+
+// ---------------------------------------------------------------------------------------------------------------
 // 6. Plan + report
 // ---------------------------------------------------------------------------------------------------------------
 const forbidden = changed.filter((c) => FORBIDDEN_TARGETS.includes(c.file));
@@ -270,6 +300,9 @@ const globalStops = [
   ...unregistered.map((c) => `unregistered side effect: ${c.file} (${c.change})`),
   ...formalImpact.map((f) => `formal model impact: ${f.file} — ${f.declared_formal_input ?? (f.model_linked_file ? "model readiness/registry file" : `pinned by ${f.pinned_by.slice(0, 3).join(", ")}`)}`),
   ...forbidden.map((c) => `release file touched: ${c.file}`),
+  ...stageValidators.filter((v) => v.status === "fail" && !(v.command === "pnpm data-coverage:validate" && coverageReaudit === "required_passes_after_reaudit")).map((v) => `validator fails in the stage: ${v.command} — ${v.message}`),
+  ...(coverageReaudit === "required_passes_after_reaudit" ? ["coverage re-audit required: revisions inside audited windows; data-coverage:validate passes after `data-coverage:audit` (apply runs it when the owner accepts)"] : []),
+  ...(coverageReaudit === "reaudit_changes_formal_input_series" ? ["coverage re-audit would change the formal-input series count (not overridable)"] : []),
 ];
 const stop = globalStops.length > 0 || units.some((u) => u.stops.length);
 const plan = {
@@ -290,6 +323,8 @@ const plan = {
   units,
   rows,
   annual_source_ahead_of_observations_json: { note: "observations.json is a formal national model input with no registered refresh writer; newer official years and revisions are reported for owner decision and never written by this workflow.", records: sourceAhead },
+  stage_validators: stageValidators,
+  coverage_reaudit: coverageReaudit,
   unregistered_side_effects: unregistered,
   changed_files: changed,
 };
@@ -329,6 +364,10 @@ const lines = [
   "",
   "## Serbia",
   ...(units.find((u) => u.unit === "serbia-sors") ? (units.find((u) => u.unit === "serbia-sors").serbia_checks?.issues.length ? units.find((u) => u.unit === "serbia-sors").serbia_checks.issues.map((i) => `- ${i}`) : ["- original SORS codes, source URLs, units and cross-country flags preserved; no series promoted to cross-country comparison"]) : ["- not in this mode"]),
+  "",
+  "## Validators in the stage",
+  ...(stageValidators.length ? stageValidators.map((v) => `- ${v.status === "pass" ? "pass" : "FAIL"} \`${v.command}\`${v.message ? ` — ${v.message}` : ""}`) : ["- not run (no acquisition succeeded)"]),
+  `- coverage re-audit: ${coverageReaudit}`,
   "",
   "## Formal model impact",
   ...(formalExposure.length ? formalExposure.map((f) => `- ${f.file}: ${f.impact}`) : ["- none"]),

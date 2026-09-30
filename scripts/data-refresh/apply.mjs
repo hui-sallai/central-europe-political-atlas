@@ -9,11 +9,12 @@
 // overwritten file, revised values, retrieval provenance), so historical revisions stay traceable.
 //
 // Usage: node scripts/data-refresh/apply.mjs --run <run-id> [--units a,b] [--accept-stop "<owner decision, date>"]
+import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { compareFiles, DECLARED_FORMAL_INPUTS, DEFAULT_TOLERANCE, diffStore, fileSha, findHashPins, LEDGER_PATH, NON_OVERRIDABLE, readJson, seriesFlags, sha256, snapshotCoverage, TOOL_VERSION, verifyLedger } from "./lib.mjs";
-import { FORBIDDEN_TARGETS, UNITS } from "./units.mjs";
+import { FORBIDDEN_TARGETS, STAGE_VALIDATORS, UNITS } from "./units.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const args = process.argv.slice(2);
@@ -35,6 +36,13 @@ if (plan.formal_model_impact !== "none") fail(`formal model impact is not none (
 if (plan.unregistered_side_effects.length) fail(`unregistered side effects: ${plan.unregistered_side_effects.map((c) => c.file).join(", ")}`);
 if (plan.changed_files.some((c) => FORBIDDEN_TARGETS.includes(c.file))) fail("the staged run touched release files");
 
+// Validators ran in the stage on the combined result of all units; failures there are never applied.
+const stageFailures = (plan.stage_validators ?? []).filter((v) => v.status === "fail" && !(v.command === "pnpm data-coverage:validate" && plan.coverage_reaudit === "required_passes_after_reaudit"));
+if (stageFailures.length) fail(`validators failed in the stage: ${stageFailures.map((v) => `${v.command} (${v.message})`).join("; ")}`);
+if (["fails_even_after_reaudit", "reaudit_changes_formal_input_series"].includes(plan.coverage_reaudit)) fail(`coverage audit: ${plan.coverage_reaudit}`);
+if (plan.coverage_reaudit === "required_passes_after_reaudit" && !acceptStop) fail("the refresh revises audited observations: the coverage re-audit needs the owner's --accept-stop");
+if (!plan.stage_validators) fail("plan predates stage validation — re-run the plan");
+
 const requested = arg("units") ? arg("units").split(",") : plan.units.filter((u) => u.proposed_action === "apply_after_confirmation" || (acceptStop && u.proposed_action === "hold_for_owner_review")).map((u) => u.unit);
 const selected = plan.units.filter((u) => requested.includes(u.unit));
 if (!selected.length) { console.log("Nothing to apply (no unit with changes selected)."); process.exit(0); }
@@ -45,6 +53,10 @@ for (const u of selected) {
   if (u.proposed_action === "no_change") fail(`${u.unit} has no changes`);
 }
 
+// Stage validation covered the combined state of every changed unit, so all of them are applied together.
+const changedUnits = plan.units.filter((u) => u.run.status === "ok" && u.proposed_action !== "no_change").map((u) => u.unit);
+const missing = changedUnits.filter((id) => !selected.some((u) => u.unit === id));
+if (missing.length) fail(`stage validation covered ${changedUnits.join(", ")} together; also apply ${missing.join(", ")} or re-plan with --units`);
 for (const u of selected) {
   for (const dep of UNITS[u.unit].dependsOn ?? []) {
     const d = plan.units.find((x) => x.unit === dep);
@@ -107,6 +119,18 @@ for (const w of writes) {
   else { fs.mkdirSync(path.dirname(target), { recursive: true }); fs.copyFileSync(path.join(stage, w.file), target); }
 }
 
+// Owner-accepted coverage re-audit (descriptive audit only; the plan verified the formal-input series count is unchanged).
+const AUDIT = "src/data/data-coverage/descriptive_data_coverage_audit.json";
+let reaudit = null;
+if (plan.coverage_reaudit === "required_passes_after_reaudit") {
+  const previous = { sha256: fileSha(path.join(root, AUDIT)), formal: readJson(path.join(root, AUDIT)).summary.formal_model_input_series };
+  const run = spawnSync("node", ["scripts/data-coverage/audit.mjs"], { cwd: root, encoding: "utf8" });
+  if (run.status !== 0) console.error(`WARNING: coverage re-audit failed: ${run.stderr.trim().split("\n").at(-1)}`);
+  const formal = readJson(path.join(root, AUDIT)).summary.formal_model_input_series;
+  reaudit = { file: AUDIT, previous_sha256: previous.sha256, new_sha256: fileSha(path.join(root, AUDIT)), formal_model_input_series: [previous.formal, formal], status: run.status === 0 ? "regenerated" : "failed" };
+  if (formal !== previous.formal) console.error(`WARNING: formal_model_input_series changed ${previous.formal} → ${formal}; restore ${AUDIT} and review`);
+}
+
 const entry = {
   schema_version: "data-refresh-ledger-entry-v1",
   tool_version: TOOL_VERSION,
@@ -118,6 +142,8 @@ const entry = {
   repository_head_at_plan: plan.repository_head,
   owner_acceptance_of_stop_conditions: acceptStop ?? null,
   formal_model_impact: "none",
+  stage_validators: plan.stage_validators,
+  coverage_reaudit: reaudit,
   units: selected.map((u) => ({
     unit: u.unit,
     source_family: u.family,
@@ -136,6 +162,15 @@ fs.mkdirSync(path.dirname(ledgerFile), { recursive: true });
 fs.appendFileSync(ledgerFile, `${JSON.stringify(entry)}\n`);
 
 console.log(`Applied ${writes.length} file(s) from ${selected.map((u) => u.unit).join(", ")}; ledger entry ${ledger.entries + 1} appended to ${LEDGER_PATH}.`);
-console.log("Next: run the unit validators first:");
-for (const v of [...new Set(selected.flatMap((u) => u.validators))]) console.log(`  ${v}`);
-console.log("then: pnpm data-coverage:validate && pnpm ui-language:qa && pnpm lint && pnpm typecheck && pnpm build:site && pnpm test:ui");
+if (reaudit) console.log(`Coverage audit regenerated (formal input series ${reaudit.formal_model_input_series.join(" → ")}).`);
+// Validators on the real tree (they passed in the stage; this confirms the applied state).
+let failed = 0;
+for (const command of STAGE_VALIDATORS) {
+  const [, ...rest] = command.split(" ");
+  const result = spawnSync("pnpm", ["-s", ...rest], { cwd: root, encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
+  if (result.status !== 0) failed += 1;
+  console.log(`${result.status === 0 ? "pass" : "FAIL"}  ${command}`);
+}
+if (failed) console.error(`${failed} validator(s) failed after apply — review with git diff; previous files are recorded in the ledger (git cat-file -p <previous_git_blob>).`);
+console.log("Next: pnpm ui-language:qa && pnpm lint && pnpm typecheck && pnpm build:site && pnpm test:ui, then the research-boundary-reviewer.");
+process.exit(failed ? 1 : 0);

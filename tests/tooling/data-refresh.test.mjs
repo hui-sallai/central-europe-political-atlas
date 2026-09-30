@@ -5,7 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 import { compareFiles, diffStore, jsonStatSeries, NON_OVERRIDABLE, seriesFlags, sha256, verifyLedger } from "../../scripts/data-refresh/lib.mjs";
-import { MODES, UNITS } from "../../scripts/data-refresh/units.mjs";
+import { MODES, STAGE_VALIDATORS, UNITS } from "../../scripts/data-refresh/units.mjs";
 
 const hf = (period, value, extra = {}) => ({ observation_id: `hf:poland:hicp:${period}`, country: "poland", indicator: "hicp", period, value, unit: "RCH_A", source: "Eurostat", source_dataset: "prc_hicp_minr", definition_version: "v1", classification_version: "ECOICOP-2", index_reference: null, seasonal_adjustment: "NSA", transformation: "yoy", series_break_status: "none_recorded", ...extra });
 const doc = (records) => ({ records });
@@ -113,4 +113,9 @@ test("an empty placeholder month that gets its first value is a routine new peri
 test("macro-drivers is blocked (owner decision): never run or applied by routine refresh", () => {
   assert.match(UNITS["macro-drivers"].blocked, /not refreshable/);
   for (const [id, unit] of Object.entries(UNITS)) if (id !== "macro-drivers") assert.equal(unit.blocked, undefined, id);
+});
+
+test("stage validators cover every refreshable store (cross-unit couplings), never the blocked model validators", () => {
+  for (const v of ["pnpm data-coverage:validate", "pnpm historical-monthly:validate", "pnpm historical-annual:validate", "pnpm historical-regional:validate", "pnpm serbia-audit:validate", "pnpm var:readiness-validate"]) assert.ok(STAGE_VALIDATORS.includes(v), v);
+  assert.ok(!STAGE_VALIDATORS.some((v) => /lp:|panel-lp:/.test(v)));
 });

@@ -104,3 +104,7 @@ export const MODES = {
 export const FORBIDDEN_TARGETS = ["src/data/release.json", "package.json", "CHANGELOG.md"];
 
 export const inWriteSet = (unit, rel) => unit.writeSet.some((p) => (p.endsWith("/") ? rel.startsWith(p) : rel === p));
+
+// Read-only validators run inside the stage by plan.mjs, whatever the mode (stores are coupled across units).
+// Blocked units' model validators (lp:*, panel-lp:*) are not needed: those units never run.
+export const STAGE_VALIDATORS = [...new Set(Object.values(UNITS).filter((u) => !u.blocked).flatMap((u) => u.validators))];

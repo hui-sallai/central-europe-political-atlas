@@ -38,8 +38,8 @@ Expected findings you must not "fix":
   `acquire-eurostat-monthly.mjs` also rewrites the legacy `src/data/analysis/var_readiness.json` — a timestamp-only
   rewrite is left untouched, a substantive change is a readiness change → STOP.
 - Revisions of the high-frequency file interact with other stores: `monthly-history` re-derives its overlap gate from it
-  (apply both together; a series' admission can flip), and any revision inside the audited window requires re-running
-  `pnpm data-coverage:audit` (owner-approved) before `pnpm data-coverage:validate` passes.
+  (apply both together; a series' admission can flip), and any revision inside the audited window requires the coverage
+  re-audit. The stage validators catch both automatically.
 
 ## Steps
 1. **Plan (read-only).** `pnpm data-refresh:plan -- --mode <mode>` (add `--offline` to replay archived raw responses;
@@ -49,6 +49,10 @@ Expected findings you must not "fix":
    The macro-driver acquisition needs `openpyxl` (`scripts/acquisition/requirements-macro-drivers.txt`); if Python
    reports `CERTIFICATE_VERIFY_FAILED` (python.org builds on macOS), set `SSL_CERT_FILE` to certifi's bundle.
    `--from-stage <run>` re-evaluates an earlier staged run without fetching again (e.g. to review one mode).
+   The plan also runs **every** descriptive validator inside the stage (not only the mode's units — stores are coupled)
+   and reports them under "Validators in the stage"; a failure there is a STOP that apply never overrides. When
+   revisions touch audited windows it re-tests `data-coverage:validate` after a trial re-audit and reports
+   `coverage_reaudit: required_passes_after_reaudit` — apply then regenerates the audit itself once the owner accepts.
 2. **Read the report and plan.** Per series: source, dataset, country, indicator, current vs source latest period,
    new / revised (within and beyond the registered overlap tolerance) / removed counts, definition/break changes,
    proposed action; per unit: provenance (endpoint, HTTP status, retrieval time, dataset update time, checksum,
@@ -63,14 +67,14 @@ Expected findings you must not "fix":
    `--accept-stop "<owner decision + date>"`, which is recorded in the ledger — only after the owner explicitly accepts.
 4. **Confirm routine additions** with the owner (new periods, revisions within tolerance), then
    `pnpm data-refresh:apply -- --run <run-id>` (the research-data guard asks before it runs). It re-checks that nothing
-   changed since planning, copies the unit write-sets, and appends a hash-chained entry to
+   changed since planning, requires every changed unit of the plan to be applied together (that is the state the stage
+   validators checked), copies the unit write-sets, runs the coverage re-audit if required, runs all stage validators on
+   the real tree, and appends a hash-chained entry to
    `src/data/data-refresh/refresh_ledger.jsonl` (previous SHA-256 + git blob of every overwritten file, revised values,
    provenance). Provenance is never overwritten silently: raw archives replaced by the apply are listed with their
    previous blob (`git cat-file -p <blob>` restores them).
-5. **Validate.** First the unit validators the apply prints (e.g. `pnpm serbia-audit:validate`,
-   `pnpm historical-annual:validate`), then:
+5. **Validate.** Apply already ran the store validators on the real tree (it exits 1 if any failed); then:
    `pnpm data-coverage:validate && pnpm ui-language:qa && pnpm lint && pnpm typecheck && pnpm build:site && pnpm test:ui`.
-   A `data-coverage:validate` fingerprint failure means an audited observation changed — that is a stop condition.
    Run the full `pnpm build` only after the owner accepts the refresh; then restore incidental export changes
    (`git checkout -- public/research-data src/data/analysis/advanced_analysis_validation_summary.json`).
 6. **Review.** Run the `research-boundary-reviewer` agent on the final diff (data diffs are expected only inside the
