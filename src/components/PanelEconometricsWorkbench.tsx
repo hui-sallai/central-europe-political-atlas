@@ -1,4 +1,5 @@
 "use client";
+import { LocalizedContent } from "@/i18n/LocalizedContent";
 
 import { useEffect, useState } from "react";
 import { runAnalysisSkill } from "@/lib/analysisRunner";
@@ -75,7 +76,7 @@ export function PanelEconometricsWorkbench({ countries }: { countries: Country[]
 
   const coefficientScale = result ? Math.max(...result.coefficients.flatMap((item) => [Math.abs(item.ci_95_low), Math.abs(item.ci_95_high)]), 0.001) : 1;
 
-  return (
+  return <LocalizedContent>{(
     <div className="mt-6 grid gap-6">
       <section className="editorial-panel p-5">
         <div className="flex flex-wrap items-start justify-between gap-4"><div><p className="editorial-kicker">年度面板 2015–2025</p><h2 className="mt-2 text-2xl font-semibold">面板计量 Panel Econometrics</h2><p className="mt-2 max-w-3xl text-sm leading-7 text-[var(--muted)]">仅使用 A 级、official / verified 且口径可比的观测。CPI 不冒充 HICP，部分可比的财政与能源代理不会进入估计。</p></div><span className="rounded-full border border-[var(--positive)] px-3 py-1 text-xs font-semibold text-[var(--positive)]">{panelGate.qualified_key_variables} 个关键变量通过准入</span></div>
@@ -103,5 +104,5 @@ export function PanelEconometricsWorkbench({ countries }: { countries: Country[]
         <details className="advanced-disclosure mt-5"><summary>数据溯源（{result.data_trace.length} 条观测 ID）</summary><p className="mt-3 break-words font-mono text-[10px] leading-5 text-[var(--muted)]">{result.data_trace.join(" · ")}</p></details>
       </section> : null}
     </div>
-  );
+  )}</LocalizedContent>;
 }

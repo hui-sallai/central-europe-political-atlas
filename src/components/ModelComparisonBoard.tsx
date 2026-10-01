@@ -1,4 +1,5 @@
 "use client";
+import { LocalizedContent } from "@/i18n/LocalizedContent";
 
 import { useMemo, useState } from "react";
 import { BarMeter } from "@/components/ResearchCharts";
@@ -86,7 +87,7 @@ export function ModelComparisonBoard({ comparisons }: { comparisons: ModelCompar
     })),
   };
 
-  return (
+  return <LocalizedContent>{(
     <section className="editorial-panel mt-6 p-5" aria-label="十国模型得分横向对比">
       <div className="flex flex-wrap items-start justify-between gap-4 border-b border-[var(--line)] pb-5">
         <div>
@@ -193,5 +194,5 @@ export function ModelComparisonBoard({ comparisons }: { comparisons: ModelCompar
         比较门控：同一 model_id / model_version（{gate.same_model_version}）/ formula_version（{gate.same_formula_version}）/ weight_version（{gate.same_weight_version}）/ input_year（{gate.comparison_year ?? "无"}）。不同年份的结果不会进入同一排名。排序不构成评级或预测。
       </p>
     </section>
-  );
+  )}</LocalizedContent>;
 }

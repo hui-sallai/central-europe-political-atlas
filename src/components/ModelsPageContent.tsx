@@ -1,7 +1,6 @@
 import Link from "next/link";
+import { LocalizedContent } from "@/i18n/LocalizedContent";
 import { Suspense } from "react";
-import type { Metadata } from "next";
-import { pageMetadata } from "@/lib/seo";
 import { AnalysisWorkbench } from "@/components/AnalysisWorkbench";
 import { CountryComparisonMatrix, type ComparisonMatrixData, type MatrixCell, type MatrixColumnMeta } from "@/components/CountryComparisonMatrix";
 import { ModelComparisonBoard } from "@/components/ModelComparisonBoard";
@@ -13,7 +12,6 @@ import { platformStatus } from "@/lib/platformStatus";
 import { researchCountries, researchEvents } from "@/lib/researchData";
 import { KickerVersion } from "@/components/KickerVersion";
 
-export const metadata: Metadata = pageMetadata({ title: "分析工作台", description: "分析综合指标、面板计量、宏观驱动、简化式 VAR、已识别 ECB 冲击、Local Projections、事件窗口与贸易网络；支持同年、同单位、同定义的年度指标及综合指数比较。", path: "/models/" });
 
 const matrixIndicatorIds = ["real_gdp_growth", "hicp_inflation", "unemployment_rate", "gdp_per_capita_eur"] as const;
 
@@ -64,11 +62,11 @@ function buildMatrixData(comparisons: ModelComparisonResult[]): ComparisonMatrix
   return { columns, rows };
 }
 
-export default function ModelsPage() {
+export function ModelsPageContent() {
   const comparisons = modelCards.map((card) => buildModelComparison(card, researchCountries));
   const matrixData = buildMatrixData(comparisons);
 
-  return (
+  return <LocalizedContent>{(
     <main className="page-shell">
       <header className="max-w-4xl border-b border-[var(--line)] pb-8">
         <p className="editorial-kicker">分析工作台 / <KickerVersion version={platformStatus.version} /></p>
@@ -93,5 +91,5 @@ export default function ModelsPage() {
         />
       </Suspense>
     </main>
-  );
+  )}</LocalizedContent>;
 }

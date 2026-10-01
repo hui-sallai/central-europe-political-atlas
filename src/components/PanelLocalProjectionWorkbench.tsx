@@ -1,4 +1,5 @@
 "use client";
+import { LocalizedContent } from "@/i18n/LocalizedContent";
 import { useState } from "react";
 import data from "@/data/panel-local-projections/panel_lp_results.json";
 import readiness from "@/data/panel-local-projections/panel_lp_readiness_registry.json";
@@ -24,7 +25,7 @@ export function PanelLocalProjectionWorkbench() {
   const model = data.records.find(r => r.outcome_id === selected);
   const gate = readiness.records.find(r => r.outcome_id === selected);
   // Protect direct mounting as well as the canonical route.
-  if (!gate?.publication_ready || !model) return <section className="mt-6 border p-6"><h2>Panel Local Projections 尚未发布</h2><p>离线数值验证通过不等于发布批准；完成全部发布门禁前不展示正式结果。</p></section>;
+  if (!gate?.publication_ready || !model) return <LocalizedContent>{<section className="mt-6 border p-6"><h2>Panel Local Projections 尚未发布</h2><p>离线数值验证通过不等于发布批准；完成全部发布门禁前不展示正式结果。</p></section>}</LocalizedContent>;
   const rows = model.records.filter(r => r.shock === shock);
   const compositionSummary = composition.records.find(r => r.outcome === selected && r.shock === shock);
   const specificationSummary = specification.records.find(r => r.outcome === selected && r.shock === shock);
@@ -35,7 +36,7 @@ export function PanelLocalProjectionWorkbench() {
   const modelRows = (fitted?.series ?? []).filter(r => r.shock === shock);
   const joint = modelComparison.joint_inference.evidence;
   const unit = model.response_unit === "cumulative_percent" ? "累计百分比变化（%）" : "百分点";
-  return <section className="mt-6 border-t border-[var(--line)] pt-6">
+  return <LocalizedContent>{<section className="mt-6 border-t border-[var(--line)] pt-6">
     <h2 className="text-2xl font-semibold">共同 ECB 冲击：固定两组动态响应</h2>
     <div className="mt-5 flex flex-wrap gap-5">
       <label>结果变量<select className="ml-2 border p-2" value={selected} onChange={e => setSelected(e.target.value)}>{Object.entries(outcomes).map(([id,label]) => <option value={id} key={id}>{label}</option>)}</select></label>
@@ -78,5 +79,5 @@ export function PanelLocalProjectionWorkbench() {
     <details className="mt-5"><summary>逐期数值与样本诊断</summary><div className="overflow-x-auto" tabIndex={0} role="region" aria-label="数据表（可横向滚动）"><table className="research-data-table w-full text-left text-sm"><thead><tr>{["月数","欧元组","非欧元组","差异","差异 p 值","有效月份","行数","滞后数","样本"].map(v => <th className="p-2" key={v}>{v}</th>)}</tr></thead><tbody>{rows.map(r => <tr key={r.horizon}><td className="p-2">{r.horizon}</td><td>{r.euro_estimate.toFixed(3)}</td><td>{r.non_euro_estimate.toFixed(3)}</td><td>{r.difference_estimate.toFixed(3)}</td><td>{r.difference_p_value.toFixed(4)}</td><td>{r.effective_time_clusters}</td><td>{r.panel_rows}</td><td>{r.p_h}</td><td className="whitespace-nowrap">{r.sample_start}–{r.sample_end}</td></tr>)}</tbody></table></div></details>
     <button type="button" aria-expanded={advanced} onClick={() => setAdvanced(!advanced)} className="mt-5 border px-4 py-3">{advanced ? "收起" : "展开"}组成与规格敏感性</button>
     {advanced && <PanelCompositionDiagnostics outcome={selected} shock={shock} unit={unit}/>}
-  </section>;
+  </section>}</LocalizedContent>;
 }

@@ -1,4 +1,7 @@
 "use client";
+import { LocalizedContent } from "@/i18n/LocalizedContent";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { englishText } from "@/i18n/reviewedText";
 
 import { useEffect, useMemo, useState } from "react";
 import { attachOverlappingEvents, buildLineSegments, computeEventWindow, eventWindowEligibility, suggestedOutcomes, type HighFrequencyPoint } from "@/lib/eventWindowEngine";
@@ -64,6 +67,7 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
   initialEvent?: string;
   initialOutcome?: string;
 }) {
+  const locale = useLocale();
   const [series, setSeries] = useState<HighFrequencyPoint[]>([]);
   const [loadState, setLoadState] = useState<"loading" | "ready" | "error">("loading");
   const [country, setCountry] = useState(initialCountry ?? "hungary");
@@ -150,11 +154,12 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
   const policyRegimes = new Set(resultSeries.map((item) => item.policy_regime_id).filter(Boolean));
   const regimeWarning = policyRegimes.size > 1 || resultSeries.some((item) => item.temporal_alignment_status === "regime_break" || item.derivation_status === "regime_blocked");
 
-  return (
+  return <LocalizedContent>{(
     <div className="mt-6 grid gap-6">
       <section className="editorial-panel p-5">
         <p className="editorial-kicker">Descriptive level 1 · 月度高频与宏观驱动数据</p>
         <h2 className="mt-2 text-2xl font-semibold">事件窗口分析 Event Window Analysis</h2>
+        {locale === "en" ? <p className="mt-3 text-xs text-[var(--muted)]">Event titles remain in their original language (Chinese where applicable); no automatic translation is applied.</p> : null}
         <p className="mt-2 max-w-3xl text-sm leading-7 text-[var(--muted)]">描述已核验事件前后的国内高频结果或宏观驱动变化：事件前均值、事件期数值、事件后均值与变化幅度。事件月单独报告，不计入事件后统计。宏观驱动关联只表示研究相关性；这不是因果事件研究，输出不构成因果效应。</p>
         <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <label className="text-xs font-semibold text-[var(--muted)]">国家
@@ -166,7 +171,7 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
             <select className="field-control mt-2" value={eventId} onChange={(event) => { setEventId(event.target.value); setResult(null); }}>
               <option value="">请选择事件</option>
               {countryEvents.map(({ event, eligibility }) => (
-                <option key={event.event_id} value={event.event_id} disabled={!eligibility.eligible} title={eligibility.reason ?? undefined}>
+                <option lang="zh-CN" data-original-language="zh-CN" key={event.event_id} value={event.event_id} disabled={!eligibility.eligible} title={eligibility.reason ?? undefined}>
                   {event.date} · {event.title}{eligibility.eligible ? "" : "（不可分析）"}
                 </option>
               ))}
@@ -194,7 +199,7 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
         <section className="editorial-panel p-5">
           <div className="border-b border-[var(--line)] pb-4">
             <p className="editorial-kicker">{result.event_date} · {countries.find((item) => item.slug === result.country)?.name_zh ?? result.country}</p>
-            <h3 className="mt-2 text-xl font-semibold">{result.event_title}</h3>
+            <h3 lang="zh-CN" data-original-language="zh-CN" className="mt-2 text-xl font-semibold">{result.event_title}</h3>
             <p className="mt-1 text-sm text-[var(--muted)]">观察指标：{outcomeLabels[result.outcome] ?? result.outcome} · 窗口：-{result.window.pre_months} / +{result.window.post_months} 个月</p>
           </div>
 
@@ -209,13 +214,13 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
                   <p className="font-semibold">同期其他事件（{result.overlapping_events.length}）</p>
                   <p className="mt-1">{result.overlapping_event_warning}</p>
                   <ul className="mt-2 grid gap-1 text-xs">
-                    {result.overlapping_events.map((overlap) => <li key={overlap.event_id}>{overlap.date} · {overlap.event_type} · {overlap.title}</li>)}
+                    {result.overlapping_events.map((overlap) => <li lang="zh-CN" data-original-language="zh-CN" key={overlap.event_id}>{overlap.date} · {overlap.event_type} · {overlap.title}</li>)}
                   </ul>
                 </div>
               ) : null}
 
               <div className="mt-6">
-                <svg viewBox="0 0 680 200" className="w-full" role="img" aria-label={`${result.event_title} 的事件窗口图：${outcomeLabels[result.outcome] ?? result.outcome} 在事件前后各 ${result.window.pre_months} 个月的变化`}>
+                <svg viewBox="0 0 680 200" className="w-full" role="img" aria-label={locale === "en" ? `Event-window chart: ${englishText(outcomeLabels[result.outcome] ?? result.outcome)}, ${result.window.pre_months} months before and ${result.window.post_months} months after the event` : `${result.event_title} 的事件窗口图：${outcomeLabels[result.outcome] ?? result.outcome} 在事件前后各 ${result.window.pre_months} 个月的变化`}>
                   {[chartMin, chartMin + chartRange / 2, chartMax].map((tick) => (
                     <g key={tick}>
                       <line x1={plotLeft} y1={pointY(tick)} x2={plotRight} y2={pointY(tick)} stroke="var(--line)" strokeWidth="0.5" />
@@ -283,5 +288,5 @@ export function EventWindowWorkbench({ countries, events, initialCountry, initia
         <p className="mt-2 text-sm leading-7 text-[var(--muted)]">正式因果事件研究需要对照组设计与识别策略，当前保持 registry_only，不输出任何估计。</p>
       </section>
     </div>
-  );
+  )}</LocalizedContent>;
 }

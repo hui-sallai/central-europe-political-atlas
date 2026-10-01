@@ -1,4 +1,7 @@
 "use client";
+import { LocalizedContent } from "@/i18n/LocalizedContent";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { englishText } from "@/i18n/reviewedText";
 
 import { useEffect, useMemo, useState } from "react";
 import type { NetworkMetric } from "@/types/NetworkAnalysis";
@@ -59,6 +62,7 @@ function coverageRatioOf(group: UiPackGroup) {
 }
 
 export function TradeNetworkWorkbench({ countries, initialCountry }: { countries: Country[]; initialCountry?: string }) {
+  const locale = useLocale();
   const [pack, setPack] = useState<UiPack | null>(null);
   const [loadState, setLoadState] = useState<"loading" | "ready" | "error">("loading");
   const [country, setCountry] = useState(initialCountry ?? "hungary");
@@ -109,7 +113,7 @@ export function TradeNetworkWorkbench({ countries, initialCountry }: { countries
     );
   }
 
-  return (
+  return <LocalizedContent>{(
     <div className="mt-6 grid gap-6">
       <section className="editorial-panel p-5">
         <p className="editorial-kicker">UN Comtrade · TOTAL goods · 2015–2025</p>
@@ -157,7 +161,7 @@ export function TradeNetworkWorkbench({ countries, initialCountry }: { countries
           <div className="mt-6 grid gap-6 lg:grid-cols-2">
             <div>
               <p className="text-sm font-semibold">贸易伙伴网络图（连线宽度 = 贸易份额）</p>
-              <svg viewBox="0 0 380 380" className="mt-3 w-full max-w-[420px]" role="img" aria-label={`${countryName(country)} ${year} 年${flow === "exports" ? "出口" : "进口"}伙伴网络图`}>
+              <svg viewBox="0 0 380 380" className="mt-3 w-full max-w-[420px]" role="img" aria-label={locale === "en" ? `${englishText(countryName(country))} ${year} ${flow} partner network diagram` : `${countryName(country)} ${year} 年${flow === "exports" ? "出口" : "进口"}伙伴网络图`}>
                 {graphNodes.map((partner, index) => {
                   const angle = (index / graphNodes.length) * 2 * Math.PI - Math.PI / 2;
                   const x = graphCenter + graphRadius * Math.cos(angle);
@@ -231,5 +235,5 @@ export function TradeNetworkWorkbench({ countries, initialCountry }: { countries
         </section>
       ) : null}
     </div>
-  );
+  )}</LocalizedContent>;
 }

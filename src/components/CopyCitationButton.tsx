@@ -1,4 +1,5 @@
 "use client";
+import { LocalizedContent } from "@/i18n/LocalizedContent";
 
 import { useState } from "react";
 
@@ -23,8 +24,8 @@ export function CopyCitationButton({ text, label = "复制引用" }: { text: str
   }
 
   return (
-    <button type="button" onClick={copy} className="whitespace-nowrap rounded-full border border-[var(--line)] px-2.5 py-1 text-[11px] font-semibold text-[var(--accent)] hover:border-[var(--accent)]" aria-live="polite" title={text}>
+    <LocalizedContent>{<button type="button" onClick={copy} className="whitespace-nowrap rounded-full border border-[var(--line)] px-2.5 py-1 text-[11px] font-semibold text-[var(--accent)] hover:border-[var(--accent)]" aria-live="polite" title={text}>
       {state === "copied" ? "已复制" : state === "failed" ? "复制失败" : label}
-    </button>
+    </button>}</LocalizedContent>
   );
 }

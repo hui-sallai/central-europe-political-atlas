@@ -4,12 +4,16 @@ import Link from "next/link";
 import { type ReactNode, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { primaryNavItems } from "@/lib/siteStructure";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { localizedRoute, unlocalizedPath } from "@/i18n/config";
+const englishLabels: Record<string, string> = { "/": "Home", "/countries": "Countries", "/data": "Data", "/models": "Models", "/scenarios": "Scenarios", "/news": "Events", "/map": "Map", "/methodology": "Methodology" };
 
 // Primary navigation: inline links from `sm` up; below that a "菜单" button that expands a vertical list.
 // The list closes on navigation and on Escape. Links are rendered in both states, so crawlers see them.
 export function SiteNav({ children }: { children?: ReactNode }) {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
+  const locale = useLocale();
+  const pathname = unlocalizedPath(usePathname() ?? "/");
   const isCurrent = (href: string) => (href === "/" ? pathname === "/" : pathname?.startsWith(href));
 
   useEffect(() => {
@@ -20,9 +24,9 @@ export function SiteNav({ children }: { children?: ReactNode }) {
   }, [open]);
 
   const links = (className: string) => primaryNavItems.map((item) => (
-    <Link key={item.href} href={item.href} onClick={() => setOpen(false)} aria-current={isCurrent(item.href) ? "page" : undefined}
+    <Link key={item.href} href={localizedRoute(item.href, locale)} onClick={() => setOpen(false)} aria-current={isCurrent(item.href) ? "page" : undefined}
       className={`${className} ${isCurrent(item.href) ? "text-[var(--accent)]" : "hover:text-[var(--accent)]"}`}>
-      {item.label}
+      {locale === "en" ? englishLabels[item.href.replace(/\/$/, "") || "/"] : item.label}
     </Link>
   ));
 
@@ -31,7 +35,7 @@ export function SiteNav({ children }: { children?: ReactNode }) {
       <div className="flex items-center gap-2 sm:gap-4">
         <div className="hidden gap-x-4 py-1 text-sm font-semibold text-[var(--muted)] sm:flex">{links("whitespace-nowrap")}</div>
         <button type="button" className="rounded-full border border-[var(--line)] px-3 py-1 text-xs font-semibold text-[var(--foreground)] sm:hidden" aria-expanded={open} aria-controls="mobile-nav" onClick={() => setOpen((value) => !value)}>
-          {open ? "关闭菜单" : "菜单"}
+          {locale === "en" ? (open ? "Close menu" : "Menu") : (open ? "关闭菜单" : "菜单")}
         </button>
         {children}
       </div>

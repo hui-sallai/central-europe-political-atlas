@@ -1,4 +1,7 @@
 "use client";
+import { LocalizedContent } from "@/i18n/LocalizedContent";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { analysisNames } from "@/i18n/presentation";
 
 import { useMemo, useState } from "react";
 import dynamic from "next/dynamic";
@@ -61,9 +64,10 @@ function outputsMatch(runtime: ModelOutput, reference: ModelOutput) {
 type WorkbenchProps = { countries: Country[]; cards: ModelCard[]; outputs: ModelOutput[]; events: Event[] };
 export function AnalysisWorkbench(props: WorkbenchProps) {
   const query = useSearchParams();
-  return <AnalysisWorkbenchContent key={query.toString()} {...props} />;
+  return <LocalizedContent>{<AnalysisWorkbenchContent key={query.toString()} {...props} />}</LocalizedContent>;
 }
 function AnalysisWorkbenchContent({ countries, cards, outputs, events }: WorkbenchProps) {
+  const locale = useLocale();
   const searchParams = useSearchParams();
   const requestedSkill = searchParams.get("skill");
   const route = resolveAnalysisRoute(requestedSkill, searchParams.get("country"), countries.map((c) => c.slug));
@@ -90,7 +94,7 @@ function AnalysisWorkbenchContent({ countries, cards, outputs, events }: Workben
     setResultTab("results");
   }
 
-  return (
+  return <LocalizedContent>{(
     <section className="mt-8">
       {route.notices.map((notice) => <p key={notice} role="status" className="my-4 text-sm">{notice}</p>)}
       <div className="mb-4 flex flex-wrap gap-4 text-sm">{(["active", "registry_only", "blocked"] as const).map((state) => <button key={state} onClick={() => setSelectedSkillId(runtimeAnalysisSkills.find((s) => s.state === state)!.skill_id)}>{methodStateLabels[state]} {runtimeAnalysisSkills.filter((s) => s.state === state).length}</button>)}</div>
@@ -98,7 +102,7 @@ function AnalysisWorkbenchContent({ countries, cards, outputs, events }: Workben
         {categories.map((item) => <button key={item} type="button" role="tab" className="research-tab" aria-selected={category === item} onClick={() => { setCategory(item); setResult(null); setDiagnostics(null); setConsistency(null); }}>{analysisCategoryLabels[item]}</button>)}
       </div>
 
-      <div className="mt-4 flex flex-wrap gap-3">{skills.map((skill) => <button key={skill.skill_id} className="research-tab" aria-pressed={skill.skill_id === selectedSkillId} onClick={() => setSelectedSkillId(skill.skill_id)}>{skill.name}</button>)}</div>
+      <div className="mt-4 flex flex-wrap gap-3">{skills.map((skill) => <button key={skill.skill_id} className="research-tab" aria-pressed={skill.skill_id === selectedSkillId} onClick={() => setSelectedSkillId(skill.skill_id)}>{locale === "en" ? analysisNames[skill.skill_id] : skill.name}</button>)}</div>
       <AnalysisSkillCard skill={selectedSkill} />
       {selectedSkill.state !== "active" ? null : category === "composite_indicators" ? (
         <div className="mt-6 grid gap-6">
@@ -155,5 +159,5 @@ function AnalysisWorkbenchContent({ countries, cards, outputs, events }: Workben
         <div className="divide-y divide-[var(--line)] border-y border-[var(--line)] mt-6">{skills.map((skill) => <article key={skill.skill_id} className="grid gap-3 py-5 md:grid-cols-[220px_1fr_auto] md:items-start"><div><p className="editorial-kicker">{skill.calculation_mode.replaceAll("_", " ")}</p><h2 className="mt-2 text-xl font-semibold">{skill.name}</h2></div><p className="text-sm leading-7 text-[var(--muted)]">{skill.description}</p><span className="text-xs font-semibold text-[var(--warning)]">{statusLabels[skill.calculation_mode]}</span><details className="advanced-disclosure md:col-span-3"><summary>登记的需求与诊断</summary><p className="mt-3 text-xs text-[var(--muted)]">Required: {skill.required_data.join(" / ")}</p><p className="mt-2 text-xs text-[var(--muted)]">Diagnostics: {skill.diagnostics.join(" / ")}</p></details></article>)}</div>
       )}
     </section>
-  );
+  )}</LocalizedContent>;
 }

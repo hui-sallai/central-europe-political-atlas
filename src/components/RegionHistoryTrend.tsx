@@ -1,4 +1,5 @@
 "use client";
+import { LocalizedContent } from "@/i18n/LocalizedContent";
 
 import { useEffect, useMemo, useState } from "react";
 import { ResearchTimeSeriesChart } from "@/components/ResearchTimeSeriesChart";
@@ -47,7 +48,7 @@ export function RegionHistoryTrend({ regionId, countryId, stored }: { regionId: 
   const available = indicatorLabels.filter(([id]) => stored.some((item) => item.region_indicator_id === id));
 
   return (
-    <div className="mt-4 rounded-xl border border-[var(--line)] p-3" data-region-history="trend">
+    <LocalizedContent>{<div className="mt-4 rounded-xl border border-[var(--line)] p-3" data-region-history="trend">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p className="text-xs font-semibold text-[var(--muted)]">历史趋势（描述性）</p>
         <select className="field-control max-w-[12rem] py-1 text-xs" value={indicator} onChange={(event) => setIndicator(event.target.value)} aria-label="历史趋势指标">{available.map(([id, label]) => <option key={id} value={id}>{label}</option>)}</select>
@@ -85,6 +86,6 @@ export function RegionHistoryTrend({ regionId, countryId, stored }: { regionId: 
           </details>
         </>
       )}
-    </div>
+    </div>}</LocalizedContent>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 // Appearance switch: follow the system, or force light / dark. The resolved theme is written to html[data-theme]
 // (the inline script in layout.tsx does the same before first paint, so there is no flash of the wrong theme).
@@ -19,6 +20,8 @@ function apply(preference: Preference) {
 }
 
 export function ThemeToggle() {
+  const locale = useLocale();
+  const displayLabels = locale === "en" ? { system: "System", light: "Light", dark: "Dark" } : labels;
   const [preference, setPreference] = useState<Preference>("system");
 
   useEffect(() => {
@@ -37,8 +40,8 @@ export function ThemeToggle() {
   }
 
   return (
-    <button type="button" onClick={cycle} className="theme-toggle whitespace-nowrap rounded-full border border-[var(--line)] px-3 py-1 text-xs font-semibold text-[var(--muted)] hover:text-[var(--accent)]" aria-label={`外观：${labels[preference]}（点击切换）`} data-theme-preference={preference}>
-      外观：{labels[preference]}
+    <button type="button" onClick={cycle} className="theme-toggle whitespace-nowrap rounded-full border border-[var(--line)] px-3 py-1 text-xs font-semibold text-[var(--muted)] hover:text-[var(--accent)]" aria-label={locale === "en" ? `Appearance: ${displayLabels[preference]} (click to switch)` : `外观：${displayLabels[preference]}（点击切换）`} data-theme-preference={preference}>
+      {locale === "en" ? "Appearance: " : "外观："}{displayLabels[preference]}
     </button>
   );
 }

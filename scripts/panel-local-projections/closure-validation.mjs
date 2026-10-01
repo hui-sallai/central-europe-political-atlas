@@ -61,7 +61,7 @@ export function validatePanelClosure({root,preExport=false}) {
   check(workbench.includes("useState(false)")&&workbench.includes("叠加拟合模型路径（描述性）"),"descriptive model overlay must remain opt-in");
   check(workbench.includes("不能合起来当作整条反应路径")&&workbench.includes("不提供联合置信带")&&workbench.includes("不提供整条路径的显著性检验"),"workbench joint-inference boundary text missing");
   check(!/simultaneous|bootstrap|global_path_p_value/i.test(workbench.match(/from ["'][^"']+\.json["']/g)?.join("\n")??""),"workbench must not import inference-band outputs");
-  const methodology=fs.readFileSync(path.join(root,"src/app/methodology/page.tsx"),"utf8");
+  const methodology=fs.readFileSync(path.join(root,"src/app/(zh)/methodology/page.tsx"),"utf8");
   for(const phrase of ["Panel LP Whole-Path Inference Research Outcome","不能合起来当整条路径置信带","跨预测期联合推断已经研究","未达到 95% 联合覆盖门槛","2.51–2.92","3.71–5.18","90.0%","88.6–91.4%","NOT CONFIRMED"])
     check(methodology.includes(phrase),`methodology boundary missing: ${phrase}`);
 

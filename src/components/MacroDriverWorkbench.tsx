@@ -1,4 +1,6 @@
 "use client";
+import { LocalizedContent } from "@/i18n/LocalizedContent";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 import { ResearchTimeSeriesChart } from "@/components/ResearchTimeSeriesChart";
 import { useEffect, useMemo, useState } from "react";
@@ -54,6 +56,7 @@ function periodChange(rows: MacroDriverRuntimeRow[], lag: number) {
 }
 
 export function MacroDriverWorkbench({ countries, compact = false, initialCountry }: { countries: Country[]; compact?: boolean; initialCountry?: string }) {
+  const locale = useLocale();
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const [records, setRecords] = useState<MacroDriverRuntimeRow[]>([]);
   const [dictionary, setDictionary] = useState<MacroDriverDefinition[]>([]);
@@ -98,11 +101,11 @@ export function MacroDriverWorkbench({ countries, compact = false, initialCountr
       const key = row[2] ?? `scope:${row[3]}`;
       const country = countries.find((item) => item.slug === row[2]);
       values.set(key, country
-        ? `${country.name_zh} / ${country.name}${driverId === "policy_rate" && row[21] ? " · 欧洲央行共同政策利率" : ""}`
+        ? `${locale === "en" ? country.name : `${country.name_zh} / ${country.name}`}${driverId === "policy_rate" && row[21] ? " · 欧洲央行共同政策利率" : ""}`
         : `${row[3]}（共同范围）`);
     }
     return [...values.entries()].sort((a, b) => a[1].localeCompare(b[1]));
-  }, [countries, driverId, records]);
+  }, [countries, driverId, records, locale]);
   const transformations = useMemo(() => [...new Set(records.filter((row) => row[1] === driverId).map((row) => row[7]))], [driverId, records]);
 
   const selectedArea = areas.some(([key]) => key === area) ? area : (areas[0]?.[0] ?? area);
@@ -134,7 +137,7 @@ export function MacroDriverWorkbench({ countries, compact = false, initialCountr
   const sharedSeries = Boolean(latest?.[21]);
 
   return (
-    <section className={compact ? "mt-5" : "editorial-panel mt-6 p-5"} data-snapshot-scope="macro-drivers">
+    <LocalizedContent>{<section className={compact ? "mt-5" : "editorial-panel mt-6 p-5"} data-snapshot-scope="macro-drivers">
       {!compact ? <><p className="editorial-kicker">Macro Drivers · descriptive data layer</p><h2 className="mt-2 text-2xl font-semibold">宏观驱动工作台</h2><p className="mt-2 max-w-4xl text-sm leading-7 text-[var(--muted)]">浏览国内政策、金融条件、国内价格结果与共同外部驱动。这里不输出风险分数、因果效应、预测或冲击响应。</p></> : null}
       <div className="mt-5 grid gap-4 border-y border-[var(--line)] py-5 md:grid-cols-3">
         <label className="text-xs font-semibold text-[var(--muted)]">驱动指标<select className="field-control mt-2" value={driverId} onChange={(event) => setDriverId(event.target.value)}>{dictionary.map((item) => <option key={item.driver_id} value={item.driver_id}>{item.name_zh} / {item.name_en}</option>)}</select></label>
@@ -166,6 +169,6 @@ export function MacroDriverWorkbench({ countries, compact = false, initialCountr
         {compact ? <div className="data-table-desktop data-table-viewport mt-5" tabIndex={0} role="region" aria-label="宏观驱动观测表（可滚动）"><table className="research-data-table w-full min-w-[1120px] text-left text-sm"><thead><tr>{["驱动指标", "国家 / 范围", "时期", "值", "单位", "角色", "来源", "识别状态", "时间 / 制度状态"].map((header) => <th key={header} className="px-3 py-3">{header}</th>)}</tr></thead><tbody>{allRows.map((row) => <tr key={row[0]}><td className="px-3 py-2 font-semibold">{definition?.name_zh ?? row[1]}<span className="mt-1 block font-mono text-[10px] font-normal text-[var(--muted)]">{row[1]} · {row[7]}</span></td><td className="px-3 py-2">{countries.find((item) => item.slug === row[2])?.name_zh ?? row[3]}{row[21] ? <span className="mt-1 block text-[10px] text-[var(--muted)]">共同序列，不构成独立国家冲击</span> : null}</td><td className="metric-number px-3 py-2">{row[4]}</td><td className="metric-number px-3 py-2 font-semibold">{row[5] === null ? "—" : row[5].toLocaleString("zh-CN", { maximumFractionDigits: 3 })}</td><td className="px-3 py-2">{row[6]}</td><td className="px-3 py-2">{roleLabels[row[8]] ?? row[8]}</td><td className="px-3 py-2"><a href={row[10]} target="_blank" rel="noreferrer" className="text-[var(--accent)]">{row[9]}</a></td><td className="px-3 py-2">{identificationLabels[row[11]] ?? row[11]}</td><td className="px-3 py-2">{row[15] === "warmup" ? "变换预热" : row[15] === "gap_blocked" ? "源序列缺口" : row[15] === "regime_blocked" ? "制度切换排除" : row[15] === "definition_blocked" ? "定义切换排除" : "连续 / 可用"}{row[16] ? <span className="mt-1 block text-[10px] text-[var(--muted)]">{row[16]}</span> : null}</td></tr>)}{[...shownHistory].reverse().map((point) => <tr key={`hist-${point.period}`} data-layer="history"><td className="px-3 py-2 font-semibold">{definition?.name_zh ?? driverId}<span className="mt-1 block font-mono text-[10px] font-normal text-[var(--muted)]">{driverId} · level</span></td><td className="px-3 py-2">{areas.find(([key]) => key === selectedArea)?.[1] ?? selectedArea}</td><td className="metric-number px-3 py-2">{point.period}</td><td className="metric-number px-3 py-2 font-semibold">{point.value.toLocaleString("zh-CN", { maximumFractionDigits: 3 })}</td><td className="px-3 py-2">{point.source.unit}</td><td className="px-3 py-2"><span className="inline-block rounded-full border border-dashed border-[var(--muted)] px-2 py-0.5 text-[10px] font-semibold text-[var(--muted)]">历史描述性</span></td><td className="px-3 py-2"><a href={point.source.source_url} target="_blank" rel="noreferrer" className="text-[var(--accent)]">{point.source.source}</a></td><td className="px-3 py-2">不进入模型</td><td className="px-3 py-2">定义一致起点 {point.source.definition_compatible_floor}</td></tr>)}</tbody></table></div> : null}
         {compact && allRows.length ? <div className="data-card-mobile mt-5 grid gap-3">{allRows.slice(0, 120).map((row) => <article key={row[0]} className="editorial-panel p-4"><div className="flex items-start justify-between gap-3"><div><h3 className="font-semibold">{definition?.name_zh ?? row[1]}</h3><p className="mt-1 text-xs text-[var(--muted)]">{row[4]} · {row[6]}</p></div><p className="metric-number font-semibold text-[var(--accent)]">{row[5] === null ? "—" : row[5].toLocaleString("zh-CN", { maximumFractionDigits: 3 })}</p></div><p className="mt-3 border-t border-[var(--line)] pt-3 text-xs text-[var(--muted)]">{countries.find((item) => item.slug === row[2])?.name_zh ?? row[3]} · {row[9]}</p></article>)}{allRows.length > 120 ? <p className="text-xs text-[var(--muted)]">移动端显示最近 120 条；完整 {allRows.length} 条请下载数据。</p> : null}</div> : null}
       </> : null}
-    </section>
+    </section>}</LocalizedContent>
   );
 }

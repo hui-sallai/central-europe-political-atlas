@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { PLATFORM_BASE_URL, PLATFORM_RELEASE_DATE } from "@/lib/releaseMetadata";
+import { localizedRoute } from "@/i18n/config";
 
 export const dynamic = "force-static";
 
@@ -28,10 +29,15 @@ const routes = [
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return routes.map((route) => ({
+  return routes.flatMap((route) => route === "historical-extension/" ? [route] : [route, `en/${route}`]).map((route) => ({
     url: new URL(route, PLATFORM_BASE_URL).toString(),
     lastModified: PLATFORM_RELEASE_DATE,
     changeFrequency: route === "" ? "weekly" : "monthly",
     priority: route === "" ? 1 : route === "data/" || route === "methodology/" ? 0.9 : 0.7,
+    ...(route === "historical-extension/" ? {} : { alternates: { languages: {
+      "zh-CN": new URL(localizedRoute(`/${route}`, "zh-CN").slice(1), PLATFORM_BASE_URL).toString(),
+      en: new URL(localizedRoute(`/${route}`, "en").slice(1), PLATFORM_BASE_URL).toString(),
+      "x-default": new URL(localizedRoute(`/${route}`, "zh-CN").slice(1), PLATFORM_BASE_URL).toString(),
+    } } }),
   }));
 }

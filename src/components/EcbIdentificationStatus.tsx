@@ -1,4 +1,5 @@
 import acquisition from "@/data/identified-shocks/ecb_monetary_event_data_acquisition_manifest.json";
+import { LocalizedContent } from "@/i18n/LocalizedContent";
 import factors from "@/data/identified-shocks/ecb_policy_factor_registry.json";
 import informationEffects from "@/data/identified-shocks/monetary_policy_information_effect_registry.json";
 import overlap from "@/data/identified-shocks/ecb_event_dataset_overlap_registry.json";
@@ -14,7 +15,7 @@ export function EcbIdentificationStatus() {
   const directFactors = factors.records.filter((factor) => factor.workbook_presence === "official_field_present");
   const blockedFactors = factors.records.filter((factor) => factor.causal_status === "blocked");
 
-  return (
+  return <LocalizedContent>{(
     <section className="editorial-panel p-5">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
@@ -61,5 +62,5 @@ export function EcbIdentificationStatus() {
         </div>
       </details>
     </section>
-  );
+  )}</LocalizedContent>;
 }

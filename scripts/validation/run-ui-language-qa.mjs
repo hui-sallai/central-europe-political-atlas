@@ -42,6 +42,9 @@ function walk(dir) {
 }
 
 function scanFile(file) {
+  // English routes intentionally use English interaction labels. Keep the original
+  // Chinese/shared-component prohibition intact; i18n:validate audits English output.
+  if (file.startsWith(path.join(root, "src", "app", "(english)") + path.sep)) return;
   const content = fs.readFileSync(file, "utf8");
   for (const phrase of forbidden) {
     const asJsxText = new RegExp(`>${phrase}<`);

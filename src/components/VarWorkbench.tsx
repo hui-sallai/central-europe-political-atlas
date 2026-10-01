@@ -1,4 +1,6 @@
 "use client";
+import { LocalizedContent } from "@/i18n/LocalizedContent";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
@@ -42,6 +44,7 @@ function downloadJson(value: unknown, fileName: string) {
 }
 
 export function VarWorkbench({ countries, initialCountry }: { countries: Country[]; initialCountry?: string }) {
+  const locale = useLocale();
   const [series, setSeries] = useState<HighFrequencyPoint[]>([]);
   const [baselineReadiness, setBaselineReadiness] = useState<VarCountryReadiness[]>([]);
   const [baselineV2Readiness, setBaselineV2Readiness] = useState<VarCountryReadiness[]>([]);
@@ -192,7 +195,7 @@ export function VarWorkbench({ countries, initialCountry }: { countries: Country
     });
   }
 
-  return (
+  return <LocalizedContent>{(
     <div className="mt-6 grid gap-6">
       <section className="editorial-panel p-5">
         <p className="editorial-kicker">{varLabels.workbenchKicker}</p>
@@ -204,7 +207,7 @@ export function VarWorkbench({ countries, initialCountry }: { countries: Country
         <div className="mt-5 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <label className="text-xs font-semibold text-[var(--muted)]">国家
             <select className="field-control mt-2" value={country} onChange={(event) => chooseCountry(event.target.value)}>
-              {countries.map((item) => <option key={item.slug} value={item.slug}>{item.name_zh} / {item.name}</option>)}
+              {countries.map((item) => <option key={item.slug} value={item.slug}>{locale === "en" ? item.name : `${item.name_zh} / ${item.name}`}</option>)}
             </select>
           </label>
           <label className="text-xs font-semibold text-[var(--muted)]">{varLabels.icCriterion}
@@ -302,7 +305,7 @@ export function VarWorkbench({ countries, initialCountry }: { countries: Country
       {result ? (
         <section className="editorial-panel p-5">
           <div className="flex flex-wrap items-start justify-between gap-4 border-b border-[var(--line)] pb-4">
-            <div>
+            <div className="min-w-0 max-w-full [overflow-wrap:anywhere]">
               <p className="editorial-kicker">{countries.find((item) => item.slug === result.country)?.name_zh ?? result.country} · {result.sample.start_period} — {result.sample.end_period}</p>
               <h3 className="mt-2 text-xl font-semibold">{varLabels.workbenchTitle} · {result.variables.length} 变量 · 滞后 {result.selected_lag}</h3>
               <p className="mt-1 text-sm text-[var(--muted)]">变量顺序：{result.variable_order.map((id) => indicatorLabels[id] ?? id).join(" → ")}</p>
@@ -462,5 +465,5 @@ export function VarWorkbench({ countries, initialCountry }: { countries: Country
         </section>
       ) : null}
     </div>
-  );
+  )}</LocalizedContent>;
 }

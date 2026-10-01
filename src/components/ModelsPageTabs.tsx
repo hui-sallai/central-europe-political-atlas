@@ -1,4 +1,5 @@
 "use client";
+import { LocalizedContent } from "@/i18n/LocalizedContent";
 
 import { useState, type ReactNode } from "react";
 import { useSearchParams } from "next/navigation";
@@ -14,7 +15,7 @@ export function ModelsPageTabs({ runAnalysis, compareCountries }: { runAnalysis:
   const searchParams = useSearchParams();
   const [tab, setTab] = useState<TabId>(searchParams.get("tab") === "compare" ? "compare" : "run");
 
-  return (
+  return <LocalizedContent>{(
     <section className="mt-8">
       <div className="research-tabs" role="tablist" aria-label="分析工作台导航">
         {tabs.map((item) => (
@@ -32,5 +33,5 @@ export function ModelsPageTabs({ runAnalysis, compareCountries }: { runAnalysis:
       </div>
       <div className="mt-2">{tab === "run" ? runAnalysis : compareCountries}</div>
     </section>
-  );
+  )}</LocalizedContent>;
 }

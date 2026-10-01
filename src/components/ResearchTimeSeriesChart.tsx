@@ -1,3 +1,7 @@
+"use client";
+import { LocalizedContent } from "@/i18n/LocalizedContent";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { localeNumber } from "@/i18n/config";
 // Shared research time-series chart: explicit axes, round ticks, gridlines, unit titles, optional zero line,
 // confidence bands, point markers, multiple series and an accessible title. Pure render (no state hooks), so it
 // works in server rendering and in the SSR-based UI validators.
@@ -99,10 +103,11 @@ const WIDTH = 760;
 const MARGIN = { top: 34, right: 22, bottom: 50, left: 66 };
 
 export function ResearchTimeSeriesChart({ title, description, series, xKind, xLabel, yLabel, zeroLine = "auto", zeroDash = "5 4", includeZero = false, xTickValues, latestMarker = false, height = 300, legend = true, formatX, formatY, className }: Props) {
+  const locale = useLocale();
   const toX = (value: number | string) => (typeof value === "string" ? monthIndex(value) : value);
   const allX = series.flatMap((s) => s.points.map((p) => toX(p.x)));
   const allY = series.flatMap((s) => [...s.points.flatMap((p) => (p.y === null || !Number.isFinite(p.y) ? [] : [p.y])), ...(s.band ?? []).flatMap((b) => [b.lower, b.upper])]);
-  if (!allX.length || !allY.length) return <p className="text-sm text-[var(--muted)]">没有可绘制的观测值（缺失值不会显示为 0）。</p>;
+  if (!allX.length || !allY.length) return <LocalizedContent>{<p className="text-sm text-[var(--muted)]">没有可绘制的观测值（缺失值不会显示为 0）。</p>}</LocalizedContent>;
   const xMin = Math.min(...allX), xMax = Math.max(...allX);
   const yMinRaw = Math.min(...allY, ...(includeZero ? [0] : [])), yMaxRaw = Math.max(...allY, ...(includeZero ? [0] : []));
   const { ticks: yTicks, domain: [yLow, yHigh], step } = niceTicks(yMinRaw, yMaxRaw, 5);
@@ -110,8 +115,8 @@ export function ResearchTimeSeriesChart({ title, description, series, xKind, xLa
   const sx = (value: number) => MARGIN.left + (xMax === xMin ? plotW / 2 : ((value - xMin) / (xMax - xMin)) * plotW);
   const sy = (value: number) => MARGIN.top + (1 - (value - yLow) / (yHigh - yLow)) * plotH;
   const decimals = tickDecimals(step);
-  // Same display rule as src/lib/format.ts (true minus sign), inlined because this file must stay import-free.
-  const signed = (value: number, options: Intl.NumberFormatOptions) => { const text = Math.abs(value).toLocaleString("zh-CN", options); return value < 0 && Number(text.replace(/,/g, "")) !== 0 ? `−${text}` : text; };
+  // Locale affects display only, never chart coordinates or numerical inference.
+  const signed = (value: number, options: Intl.NumberFormatOptions) => localeNumber(value, locale, options);
   const fmtY = formatY ?? ((value: number) => signed(value, { minimumFractionDigits: decimals, maximumFractionDigits: decimals }));
   // Observed values keep their own precision (tick rounding would show 5.75 as "6").
   const fmtValue = formatY ?? ((value: number) => signed(value, { maximumFractionDigits: Math.max(3, decimals) }));
@@ -131,7 +136,7 @@ export function ResearchTimeSeriesChart({ title, description, series, xKind, xLa
   };
   const latest = latestMarker && series[0] ? [...series[0].points].reverse().find((p) => p.y !== null) : undefined;
   return (
-    <figure className={`research-chart ${className ?? ""}`}>
+    <LocalizedContent>{<figure className={`research-chart ${className ?? ""}`}>
       <div className="overflow-x-auto" tabIndex={0} role="region" aria-label={`${title}（图表，可横向滚动）`}>
         <svg viewBox={`0 0 ${WIDTH} ${height}`} className="h-auto w-full min-w-[520px]" role="img" aria-labelledby={`${titleId}-title`} data-chart="research-time-series">
           <title id={`${titleId}-title`}>{title}</title>
@@ -183,6 +188,6 @@ export function ResearchTimeSeriesChart({ title, description, series, xKind, xLa
           {showZero ? <span className="inline-flex items-center gap-2"><svg width="28" height="10" aria-hidden="true"><line x1="1" x2="27" y1="5" y2="5" stroke="var(--foreground)" style={{ strokeWidth: 1.2, strokeDasharray: zeroDash }} /></svg>零值参考线</span> : null}
         </figcaption>
       ) : null}
-    </figure>
+    </figure>}</LocalizedContent>
   );
 }

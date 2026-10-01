@@ -1,4 +1,5 @@
 "use client";
+import { LocalizedContent } from "@/i18n/LocalizedContent";
 
 import { useMemo, useState } from "react";
 
@@ -132,7 +133,7 @@ export function CountryComparisonMatrix({ data }: { data: ComparisonMatrixData }
     })),
   };
 
-  return (
+  return <LocalizedContent>{(
     <section className="editorial-panel mt-6 p-5" aria-label="国家指标与模型得分对比矩阵">
       <div className="flex flex-wrap items-start justify-between gap-4 border-b border-[var(--line)] pb-5">
         <div>
@@ -214,5 +215,5 @@ export function CountryComparisonMatrix({ data }: { data: ComparisonMatrixData }
         单元格颜色深浅仅表示该列在同一共同年份、同一单位与同一定义下的相对位置（深 = 该列中数值高），不构成绝对评价、风险判断或预测。“—” 表示该国在共同年份没有有效观测，缺失值不会被推测或补零。
       </p>
     </section>
-  );
+  )}</LocalizedContent>;
 }

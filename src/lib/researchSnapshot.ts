@@ -1,5 +1,7 @@
 import { PLATFORM_BASE_URL, PLATFORM_NAME, PLATFORM_VERSION, platformCitation } from "./releaseMetadata";
+import { englishUnit } from "@/i18n/presentation";
 import type { ZipFile } from "./clientZip";
+import type { Locale } from "@/i18n/config";
 
 export type SnapshotSource = {
   institution: string; dataset: string; source_url: string; source_code?: string;
@@ -12,6 +14,7 @@ export type SnapshotRow = {
   cross_country_comparable?: boolean; [key: string]: unknown;
 };
 export type SnapshotInput = {
+  locale?: Locale;
   title: string; view_type: "annual" | "high_frequency" | "macro_drivers" | "country_comparison" | "regional_map" | "serbia_sors";
   page_path: string; shareable_view_url: string; countries: string[]; indicators: string[];
   filters: Record<string, unknown>; comparison?: Record<string, unknown>; rows: SnapshotRow[];
@@ -42,6 +45,9 @@ export function sanitizeFilename(value: string): string {
 }
 const sourceFields = ["source_id", "institution", "dataset", "source_url", "source_code", "retrieved_at", "updated_at", "unit", "original_unit", "definition", "reliability", "status", "source_layer"];
 export function buildSnapshot(input: SnapshotInput, generatedAt = new Date().toISOString()) {
+  const locale = input.locale ?? "zh-CN";
+  const en = locale === "en";
+  const localizedBoundary = en ? "A descriptive snapshot of the current observations. Formal-observation labels identify the source data layer, not publication of model results. Historical and SORS descriptive data are excluded from models. This snapshot provides no causal, forecasting or policy-evaluation conclusions." : boundary;
   if (!Number.isFinite(new Date(generatedAt).getTime())) throw new Error("Invalid snapshot date");
   if (input.view_type === "country_comparison" && input.rows.some((row) => row.cross_country_comparable === false)) throw new Error("Non-comparable country observations");
   const sources: Record<string, unknown>[] = [];
@@ -63,16 +69,16 @@ export function buildSnapshot(input: SnapshotInput, generatedAt = new Date().toI
   const layers = [...new Set(input.rows.map((row) => row.layer))];
   const date = generatedAt.slice(0, 10);
   const canonicalUrl = new URL(input.page_path, PLATFORM_BASE_URL).href;
-  const citation = `${platformCitation(date)}\n${input.title}，当前描述性视图，${periods[0] ?? "无时期"}–${periods.at(-1) ?? "无时期"}，${input.rows.length} 条观测。导出日期 ${date}。\n${input.shareable_view_url}\n`;
+  const citation = en ? `${PLATFORM_NAME}. ${PLATFORM_VERSION}. Accessed ${date}. ${canonicalUrl}\n${input.title}, current descriptive view, ${periods[0] ?? "no period"}–${periods.at(-1) ?? "no period"}, ${input.rows.length} observations. Exported ${date}.\n${input.shareable_view_url}\n` : `${platformCitation(date)}\n${input.title}，当前描述性视图，${periods[0] ?? "无时期"}–${periods.at(-1) ?? "无时期"}，${input.rows.length} 条观测。导出日期 ${date}。\n${input.shareable_view_url}\n`;
   const limitations = [...new Set([
-    "缺失值在 CSV 中留空；缺失状态保留，不补零、不插值。",
-    "当前筛选结果是访问时的数据版本；日后官方修订可能改变同一链接的数据。",
-    ...(input.rows.some((row) => row.cross_country_comparable === false) ? ["包含不可跨国比较的记录；仅在原国家与原定义内描述。"] : []),
+    en ? "Missing CSV values are blank; explicit missing status is retained. No zero-filling or interpolation." : "缺失值在 CSV 中留空；缺失状态保留，不补零、不插值。",
+    en ? "The filtered view reflects the data version at access time. Subsequent official revisions may change data at the same link." : "当前筛选结果是访问时的数据版本；日后官方修订可能改变同一链接的数据。",
+    ...(input.rows.some((row) => row.cross_country_comparable === false) ? [en ? "Contains records that are not cross-country comparable; describe only within their original country and definition." : "包含不可跨国比较的记录；仅在原国家与原定义内描述。"] : []),
     ...(input.limitations ?? []),
   ])];
   const inventory = ["README.md", "manifest.json", "data.csv", "sources.csv", "citation.txt", "view-url.txt", ...(input.figure ? [input.figure.name] : [])];
   const manifest = {
-    schema: SNAPSHOT_SCHEMA, title: input.title, generated_at: generatedAt,
+    schema: SNAPSHOT_SCHEMA, locale, title: input.title, generated_at: generatedAt,
     platform_name: PLATFORM_NAME, platform_version: PLATFORM_VERSION, view_type: input.view_type,
     filters: input.filters, comparison: input.comparison ?? {}, countries: input.countries, indicators: input.indicators,
     time_range: { from: periods[0] ?? null, to: periods.at(-1) ?? null }, units,
@@ -81,11 +87,11 @@ export function buildSnapshot(input: SnapshotInput, generatedAt = new Date().toI
     source_ids: sources.map((source) => source.source_id), sources,
     comparability_status: input.comparability_status ?? "within_selected_series_only",
     missing_value_policy: "blank_csv_value_with_explicit_status_never_zero_filled",
-    methodology_boundary: boundary, known_limitations: limitations,
+    methodology_boundary: localizedBoundary, known_limitations: limitations,
     canonical_url: canonicalUrl, shareable_view_url: input.shareable_view_url,
     citation, figure: input.figure?.metadata ?? null, files: inventory,
   };
-  const readme = `# ${input.title}\n\n${boundary}\n\n- 国家 / 范围：${input.countries.join("、")}\n- 指标：${input.indicators.join("、")}\n- 时期：${periods[0] ?? "无"}–${periods.at(-1) ?? "无"}\n- 单位：${units.join(" / ")}\n- 观测数：${input.rows.length}\n- 数据层：${layers.join(" / ")}\n- 来源机构：${[...new Set(sources.map((source) => source.institution))].join(" / ")}\n- 跨国可比状态：${manifest.comparability_status}\n- 访问 / 导出日期：${generatedAt}\n- Atlas：${canonicalUrl}\n- 当前视图：${input.shareable_view_url}\n\n## 比较与覆盖限制\n\n${limitations.map((note) => `- ${note}`).join("\n")}\n\n## 文件\n\n${inventory.map((name) => `- ${name}`).join("\n")}\n\n筛选、排序、数据层与图形元数据记录在 manifest.json；data.csv 的 source_id 对应 sources.csv。来源元数据未知时留空。\n`;
+  const readme = en ? `# ${input.title}\n\n${localizedBoundary}\n\n- Countries / scope: ${input.countries.join(", ")}\n- Indicators: ${input.indicators.join(", ")}\n- Period: ${periods[0] ?? "none"}–${periods.at(-1) ?? "none"}\n- Units (English labels): ${units.map(englishUnit).join(" / ")}\n- Observation count: ${input.rows.length}\n- Data layers: ${layers.join(" / ")}\n- Source institutions: ${[...new Set(sources.map(source => source.institution))].join(" / ")}\n- Comparability: ${manifest.comparability_status}\n- Access / export date: ${generatedAt}\n- Atlas: ${canonicalUrl}\n- Current view: ${input.shareable_view_url}\n\n## Comparison and coverage limitations\n\n${limitations.map(note => `- ${note}`).join("\n")}\n\n## Files\n\n${inventory.map(name => `- ${name}`).join("\n")}\n\nFilters, sorting, data layers and figure metadata are recorded in manifest.json. The source_id in data.csv refers to sources.csv. Unknown source metadata are blank. Raw CSV and manifest units, source metadata and provenance are retained without translation; the unit labels above are presentation-only.\n` : `# ${input.title}\n\n${boundary}\n\n- 国家 / 范围：${input.countries.join("、")}\n- 指标：${input.indicators.join("、")}\n- 时期：${periods[0] ?? "无"}–${periods.at(-1) ?? "无"}\n- 单位：${units.join(" / ")}\n- 观测数：${input.rows.length}\n- 数据层：${layers.join(" / ")}\n- 来源机构：${[...new Set(sources.map((source) => source.institution))].join(" / ")}\n- 跨国可比状态：${manifest.comparability_status}\n- 访问 / 导出日期：${generatedAt}\n- Atlas：${canonicalUrl}\n- 当前视图：${input.shareable_view_url}\n\n## 比较与覆盖限制\n\n${limitations.map((note) => `- ${note}`).join("\n")}\n\n## 文件\n\n${inventory.map((name) => `- ${name}`).join("\n")}\n\n筛选、排序、数据层与图形元数据记录在 manifest.json；data.csv 的 source_id 对应 sources.csv。来源元数据未知时留空。\n`;
   const files: ZipFile[] = [
     { name: "README.md", content: readme }, { name: "manifest.json", content: JSON.stringify(manifest, null, 2) + "\n" },
     { name: "data.csv", content: toCsv(headers, dataRows) }, { name: "sources.csv", content: toCsv(sourceFields, sources) },

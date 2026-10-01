@@ -5,6 +5,9 @@ import { useEffect, useState } from "react";
 import { formatWithUnit } from "@/lib/format";
 import { ResearchSnapshotExport } from "@/components/ResearchSnapshotExport";
 import { currentSnapshotUrl, sourceInstitution } from "@/lib/researchSnapshot";
+import { LocalizedContent } from "@/i18n/LocalizedContent";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { englishText } from "@/i18n/reviewedText";
 
 // Side-by-side view of the headline indicators for this country and one other. Each pair uses the latest year in which
 // both countries have an official value with the same unit; otherwise "—". Descriptive comparison only.
@@ -13,6 +16,7 @@ export type ComparePoint = { country: string; indicator: string; year: number; v
 const INDICATORS: [string, string][] = [["gdp_current_eur", "GDP"], ["gdp_per_capita_eur", "人均 GDP"], ["real_gdp_growth", "GDP 实际增长"], ["hicp_inflation", "HICP 通胀率"], ["unemployment_rate", "失业率"], ["government_debt_gdp", "政府债务/GDP"]];
 
 export function CountryComparePanel({ current, countries, points, mapCountries }: { current: string; countries: { slug: string; name_zh: string }[]; points: ComparePoint[]; mapCountries: string[] }) {
+  const locale = useLocale();
   const others = countries.filter((c) => c.slug !== current);
   const [other, setOther] = useState(others[0]?.slug ?? "");
   const [urlReady, setUrlReady] = useState(false);
@@ -38,7 +42,7 @@ export function CountryComparePanel({ current, countries, points, mapCountries }
   };
 
   return (
-    <section className="editorial-panel mt-8 p-5" aria-labelledby="compare-title" data-country-compare>
+    <LocalizedContent><section className="editorial-panel mt-8 p-5" aria-labelledby="compare-title" data-country-compare>
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <p className="editorial-kicker">Compare</p>
@@ -63,7 +67,7 @@ export function CountryComparePanel({ current, countries, points, mapCountries }
         <Link href="/models?tab=compare">查看十国指标矩阵</Link>
         <Link href={`/countries/${other}`}>打开{nameOf(other)}档案</Link>
         <ResearchSnapshotExport create={() => ({
-          title: `${nameOf(current)}与${nameOf(other)} · 描述性比较`, view_type: "country_comparison", page_path: `/countries/${current}/`, shareable_view_url: currentSnapshotUrl(`/countries/${current}/`), countries: [current, other], indicators: INDICATORS.map(([id]) => id),
+          title: locale === "en" ? `${englishText(nameOf(current))} and ${englishText(nameOf(other))} · Descriptive comparison` : `${nameOf(current)}与${nameOf(other)} · 描述性比较`, view_type: "country_comparison", page_path: `/countries/${current}/`, shareable_view_url: currentSnapshotUrl(`/countries/${current}/`), countries: [current, other], indicators: INDICATORS.map(([id]) => id),
           filters: { country: current, compare: other }, comparison: { reference_period: "latest_common_year_per_indicator", matching: "same_indicator_year_unit_official_observations", ranking: false }, comparability_status: "same_indicator_year_unit_per_pair",
           limitations: ["各指标使用各自最新共同年份，指标之间的参照年份可能不同；未匹配的单元格保留缺失。"],
           rows: INDICATORS.flatMap(([id]) => {
@@ -76,6 +80,6 @@ export function CountryComparePanel({ current, countries, points, mapCountries }
           }),
         })} />
       </div>
-    </section>
+    </section></LocalizedContent>
   );
 }

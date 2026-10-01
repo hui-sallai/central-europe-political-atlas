@@ -1,4 +1,5 @@
 "use client";
+import { LocalizedContent } from "@/i18n/LocalizedContent";
 
 import { useEffect, useState } from "react";
 import { ResearchTimeSeriesChart } from "@/components/ResearchTimeSeriesChart";
@@ -25,12 +26,12 @@ export function SerbiaSorsMonthlyPanel({ basePath }: { basePath: string }) {
     url.searchParams.set("sors_series", selected.key);
     window.history.replaceState(null, "", url);
   }, [selected]);
-  if (sors.state === "error") return <p className="mt-6 text-xs text-[var(--muted)]">塞尔维亚官方统计暂不可用。</p>;
-  if (!selected) return <p className="mt-6 text-xs text-[var(--muted)]">正在加载塞尔维亚官方统计…</p>;
+  if (sors.state === "error") return <LocalizedContent>{<p className="mt-6 text-xs text-[var(--muted)]">塞尔维亚官方统计暂不可用。</p>}</LocalizedContent>;
+  if (!selected) return <LocalizedContent>{<p className="mt-6 text-xs text-[var(--muted)]">正在加载塞尔维亚官方统计…</p>}</LocalizedContent>;
   const observed = selected.points.filter((point) => point[1] !== null);
   const quarterly = /-Q\d$/.test(selected.points[0]?.[0] ?? "");
   return (
-    <section className="mt-8 border-t border-[var(--line)] pt-6" data-sors-layer="monthly" data-snapshot-scope="sors-monthly">
+    <LocalizedContent>{<section className="mt-8 border-t border-[var(--line)] pt-6" data-sors-layer="monthly" data-snapshot-scope="sors-monthly">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <p className="editorial-kicker">塞尔维亚官方统计（SORS）</p>
@@ -63,6 +64,6 @@ export function SerbiaSorsMonthlyPanel({ basePath }: { basePath: string }) {
           <tbody>{[...selected.points].reverse().map((point) => <tr key={point[0]}><td className="metric-number px-3 py-2">{point[0]}</td><td className="metric-number px-3 py-2 font-semibold">{point[1] === null ? "—" : point[1].toLocaleString("zh-CN", { maximumFractionDigits: 3 })}</td><td className="px-3 py-2">{selected.unit}</td><td className="px-3 py-2">{selected.status_legend[point[3]] ?? point[3]}{point[4] ? "" : " · 序列断点前"}</td></tr>)}</tbody>
         </table>
       </div>
-    </section>
+    </section>}</LocalizedContent>
   );
 }

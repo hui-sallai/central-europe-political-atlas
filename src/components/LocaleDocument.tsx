@@ -1,10 +1,14 @@
+/* eslint-disable @next/next/no-head-element -- This shared component is the document root of both App Router root layouts, not a nested page head. */
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PLATFORM_BASE_URL, PLATFORM_NAME, PLATFORM_VERSION } from "@/lib/releaseMetadata";
 import { SiteNav } from "@/components/SiteNav";
 import { Geist_Mono } from "next/font/google";
 import { ThemeToggle, themeBootScript } from "@/components/ThemeToggle";
-import "./globals.css";
+import "@/app/globals.css";
+import { LocaleProvider } from "@/i18n/LocaleProvider";
+import { LanguageSwitcher } from "@/i18n/LanguageSwitcher";
+import { localizedRoute, type Locale } from "@/i18n/config";
 
 // Monospace for codes and identifiers; self-hosted by next/font at build time (fills --font-geist-mono in globals.css).
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
@@ -27,25 +31,29 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", images: ["/og/site.png"] },
 };
 
-export default function RootLayout({
-  children,
+export default function LocaleDocument({
+  children, locale,
 }: Readonly<{
   children: React.ReactNode;
+  locale: Locale;
 }>) {
+  const en = locale === "en";
   return (
-    <html lang="zh-CN" className={geistMono.variable} suppressHydrationWarning>
+    <html lang={locale} className={geistMono.variable} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
       </head>
       <body>
-        <a href="#main-content" className="skip-link">跳到主要内容</a>
+        <LocaleProvider locale={locale}>
+        <a href="#main-content" className="skip-link">{en ? "Skip to main content" : "跳到主要内容"}</a>
         <header className="site-header sticky top-0 z-50 border-b border-[var(--line)] backdrop-blur">
-          <nav className="mx-auto flex max-w-[1240px] flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6" aria-label="主导航">
-            <Link href="/" className="editorial-headline text-base font-bold tracking-[-0.01em] text-[var(--foreground)]">
+          <nav className="mx-auto flex max-w-[1240px] flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6" aria-label={en ? "Main navigation" : "主导航"}>
+            <Link href={localizedRoute("/", locale)} className="editorial-headline text-base font-bold tracking-[-0.01em] text-[var(--foreground)]">
               Central Europe <span className="text-[var(--accent)]">Political Atlas</span>
             </Link>
             <SiteNav>
               <ThemeToggle />
+              <LanguageSwitcher />
             </SiteNav>
           </nav>
         </header>
@@ -54,15 +62,16 @@ export default function RootLayout({
           <div className="mx-auto grid max-w-[1240px] gap-3 px-6 py-7 text-xs leading-5 text-[var(--muted)] md:grid-cols-[1fr_auto] md:items-center">
             <div>
               <p>{PLATFORM_NAME} · {PLATFORM_VERSION}</p>
-              <p>独立非商业研究项目，与欧盟、各国政府、政党、企业及数据提供方无隶属或背书关系。</p>
+              <p>{en ? "An independent, non-commercial research project. Not affiliated with or endorsed by the EU, governments, political parties, companies or data providers." : "独立非商业研究项目，与欧盟、各国政府、政党、企业及数据提供方无隶属或背书关系。"}</p>
             </div>
-            <nav className="flex flex-wrap gap-x-4 gap-y-2 md:justify-end" aria-label="法律与隐私">
-              <Link href="/legal" className="hover:text-[var(--foreground)]">法律与版权</Link>
-              <Link href="/privacy" className="hover:text-[var(--foreground)]">隐私说明</Link>
-              <Link href="/methodology" className="hover:text-[var(--foreground)]">方法论</Link>
+            <nav className="flex flex-wrap gap-x-4 gap-y-2 md:justify-end" aria-label={en ? "Legal and privacy" : "法律与隐私"}>
+              <Link href={localizedRoute("/legal/", locale)} className="hover:text-[var(--foreground)]">{en ? "Legal and copyright" : "法律与版权"}</Link>
+              <Link href={localizedRoute("/privacy/", locale)} className="hover:text-[var(--foreground)]">{en ? "Privacy" : "隐私说明"}</Link>
+              <Link href={localizedRoute("/methodology/", locale)} className="hover:text-[var(--foreground)]">{en ? "Methodology" : "方法论"}</Link>
             </nav>
           </div>
         </footer>
+        </LocaleProvider>
       </body>
     </html>
   );

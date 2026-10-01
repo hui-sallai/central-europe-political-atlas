@@ -5,6 +5,8 @@ import { useEffect, useMemo, useState } from "react";
 import { getResearchIndicator, getResearchProject, researchCountries, researchEvents } from "@/lib/researchData";
 import { eventWindowEligibility, suggestedOutcomes } from "@/lib/eventWindowEngine";
 import type { Event, EventType } from "@/types/researchData";
+import { LocalizedContent } from "@/i18n/LocalizedContent";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 type CountryFilter = "all" | string;
 type EventTypeFilter = "all" | EventType;
@@ -37,9 +39,10 @@ const confidenceLabels: Record<Event["confidence"], string> = {
 };
 
 function EventCard({ item }: { item: Event }) {
+  const locale = useLocale();
   const topics = [...new Set([item.topic, ...item.affected_indicator.map((id) => getResearchIndicator(id)?.name_zh ?? id)])];
   return (
-    <article id={item.id} className="scroll-mt-24 border-t border-[var(--line)] py-5 first:border-t-0">
+    <LocalizedContent><article id={item.id} className="scroll-mt-24 border-t border-[var(--line)] py-5 first:border-t-0">
       <div className="grid gap-4 md:grid-cols-[120px_1fr]">
         <div>
           <p className="metric-number text-xs text-[var(--muted)]">{item.date}</p>
@@ -47,10 +50,11 @@ function EventCard({ item }: { item: Event }) {
           <p className="mt-1 text-xs text-[var(--accent)]">{eventTypeLabels[item.event_type]}</p>
         </div>
         <div>
-          <h3 className="text-xl font-semibold leading-7">{item.title}</h3>
-          <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.summary}</p>
+          {locale === "en" && <p className="mb-2 text-xs text-[var(--muted)]">Original event summary (Chinese; untranslated)</p>}
+          <div lang="zh-CN" data-original-language="zh-CN"><h3 className="text-xl font-semibold leading-7">{item.title}</h3>
+          <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.summary}</p></div>
           <div className="mt-4 flex flex-wrap items-center gap-2">
-            {topics.filter(Boolean).map((topic) => <span key={topic} className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">{topic}</span>)}
+            {topics.filter(Boolean).map((topic) => <span key={topic} lang="zh-CN" data-original-language="zh-CN" className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">{topic}</span>)}
             {eventWindowEligibility(item).eligible ? (
               <Link
                 href={`/models?tab=run&skill=event_analysis&country=${item.country_slug}&event=${item.event_id}&outcome=${suggestedOutcomes(item.event_type)[0]}`}
@@ -59,7 +63,7 @@ function EventCard({ item }: { item: Event }) {
                 分析此事件
               </Link>
             ) : null}
-            {item.source_url ? <a href={item.source_url} target="_blank" rel="noreferrer" className="ml-auto text-xs font-semibold text-[var(--accent)] hover:underline">{item.source_name} ↗</a> : <span className="ml-auto text-xs text-[var(--muted)]">{item.source_name}</span>}
+            {item.source_url ? <a href={item.source_url} target="_blank" rel="noreferrer" className="ml-auto text-xs font-semibold text-[var(--accent)] hover:underline"><span lang="zh-CN" data-original-language="zh-CN">{item.source_name}</span> ↗</a> : <span lang="zh-CN" data-original-language="zh-CN" className="ml-auto text-xs text-[var(--muted)]">{item.source_name}</span>}
           </div>
           <details className="advanced-disclosure mt-4">
             <summary>研究字段</summary>
@@ -69,14 +73,14 @@ function EventCard({ item }: { item: Event }) {
                 ["Direction", directionLabels[item.direction]],
                 ["Confidence", confidenceLabels[item.confidence]],
                 ["Affected indicators", item.affected_indicator.map((id) => getResearchIndicator(id)?.name_zh ?? id).join(" / ") || "待编码"],
-              ].map(([label, value]) => <div key={label}><dt className="text-xs text-[var(--muted)]">{label}</dt><dd className="mt-1 font-semibold leading-6">{value}</dd></div>)}
+              ].map(([label, value]) => <div key={label}><dt className="text-xs text-[var(--muted)]">{label}</dt><dd className="mt-1 font-semibold leading-6">{label === "Actor" ? <span lang="zh-CN" data-original-language="zh-CN">{value}</span> : value}</dd></div>)}
             </dl>
-            {item.related_project_ids.length ? <div className="mt-4 flex flex-wrap gap-2"><span className="text-xs font-semibold text-[var(--muted)]">相关项目</span>{item.related_project_ids.map((id) => <Link key={id} href={`/data?country=${item.country_slug}`} className="text-xs font-semibold text-[var(--accent)]">{getResearchProject(id)?.name ?? id}</Link>)}</div> : null}
+            {item.related_project_ids.length ? <div className="mt-4 flex flex-wrap gap-2"><span className="text-xs font-semibold text-[var(--muted)]">相关项目</span>{item.related_project_ids.map((id) => <Link key={id} href={`/data?country=${item.country_slug}`} className="text-xs font-semibold text-[var(--accent)]"><span lang="zh-CN" data-original-language="zh-CN">{getResearchProject(id)?.name ?? id}</span></Link>)}</div> : null}
             <p className="mt-4 text-xs leading-5 text-[var(--muted)]">方向与置信度是研究编码，不是预测或因果判断。完整 raw record 可在 research data package 中下载。</p>
           </details>
         </div>
       </div>
-    </article>
+    </article></LocalizedContent>
   );
 }
 
@@ -154,7 +158,7 @@ export function NewsExplorer() {
   }
 
   return (
-    <section className="mt-7 grid gap-8 lg:grid-cols-[230px_1fr]">
+    <LocalizedContent><section className="mt-7 grid gap-8 lg:grid-cols-[230px_1fr]">
       <aside className="h-fit border-t border-[var(--line)] pt-5 lg:sticky lg:top-20">
         <p className="editorial-kicker">Filters</p>
         <label className="mt-4 block text-xs font-semibold text-[var(--muted)]">关键词
@@ -167,7 +171,7 @@ export function NewsExplorer() {
           <select className="field-control mt-2" value={eventTypeFilter} onChange={(event) => reset(() => setEventTypeFilter(event.target.value as EventTypeFilter))}><option value="all">全部类型</option>{eventTypes.map((type) => <option key={type} value={type}>{eventTypeLabels[type]}</option>)}</select>
         </label>
         <label className="mt-4 block text-xs font-semibold text-[var(--muted)]">主题
-          <select className="field-control mt-2" value={topicFilter} onChange={(event) => reset(() => setTopicFilter(event.target.value))}><option value="all">全部主题</option>{topics.map((topic) => <option key={topic} value={topic}>{topic}</option>)}</select>
+          <select className="field-control mt-2" value={topicFilter} onChange={(event) => reset(() => setTopicFilter(event.target.value))}><option value="all">全部主题</option>{topics.map((topic) => <option key={topic} value={topic} lang="zh-CN" data-original-language="zh-CN">{topic}</option>)}</select>
         </label>
         <div className="mt-4 grid grid-cols-2 gap-2">
           <label className="text-xs font-semibold text-[var(--muted)]">起始日期
@@ -193,6 +197,6 @@ export function NewsExplorer() {
         {!verifiedItems.length ? <p className="py-10 text-center text-sm text-[var(--muted)]">当前筛选条件没有正式事件。</p> : null}
         {sampleCount ? <details className="advanced-disclosure mt-8"><summary>结构样例记录（默认隐藏，不进入分析）</summary><p className="mt-3 text-sm leading-6 text-[var(--muted)]">结构样例只保留在原始数据导出中，不进入公开事件流、模型或情景分数。</p></details> : null}
       </div>
-    </section>
+    </section></LocalizedContent>
   );
 }

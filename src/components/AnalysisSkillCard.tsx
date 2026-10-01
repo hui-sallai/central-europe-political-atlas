@@ -1,10 +1,15 @@
+"use client";
 import Link from "next/link";
+import { useLocale } from "@/i18n/LocaleProvider";
+import { LocalizedContent } from "@/i18n/LocalizedContent";
+import { englishAnalysisSkill } from "@/i18n/analysisPresentation";
 import { methodStateLabels } from "@/lib/analysisSkills";
 import { getResearchPackageFilename } from "@/lib/releaseMetadata";
 import type { AnalysisSkillRuntimeManifest } from "@/types/AnalysisSkill";
 
-export function AnalysisSkillCard({ skill }: { skill: AnalysisSkillRuntimeManifest }) {
-  return <article className="editorial-panel mt-6 p-5" id={skill.skill_id}>
+export function AnalysisSkillCard({ skill: canonicalSkill }: { skill: AnalysisSkillRuntimeManifest }) {
+  const skill = useLocale() === "en" ? englishAnalysisSkill(canonicalSkill) : canonicalSkill;
+  return <LocalizedContent><article className="editorial-panel mt-6 p-5" id={skill.skill_id}>
     <p className="editorial-kicker">{skill.method_kind} · {methodStateLabels[skill.state]}</p>
     <h2 className="mt-3 text-2xl font-semibold">{skill.name}</h2>
     <p className="mt-3 text-sm leading-7">{skill.description}</p>
@@ -21,5 +26,5 @@ export function AnalysisSkillCard({ skill }: { skill: AnalysisSkillRuntimeManife
       <a href="/research-data/analysis_skill_registry.json">机器可读方法登记</a>
       <a href={`/research-data/${getResearchPackageFilename()}`}>研究数据包</a>
     </div>
-  </article>;
+  </article></LocalizedContent>;
 }

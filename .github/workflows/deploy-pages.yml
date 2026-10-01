@@ -134,6 +134,7 @@ jobs:
 
       - name: SEO and UI regression checks
         run: |
+          pnpm i18n:validate
           pnpm seo:validate
           pnpm ui:regression-validate
 

@@ -38,7 +38,7 @@ check(/\.cta-dark:hover\s*\{[^}]*color:\s*var\(--cta-fg\)/.test(css) && /\.cta-d
       check(fg && back && ratio(fg, back) >= min, `${name} theme: contrast ${fg} on ${back} is ${ratio(fg ?? "#000000", back ?? "#000000").toFixed(2)} < ${min}`);
     }
   }
-  const layout = read("src/app/layout.tsx");
+  const layout = read("src/components/LocaleDocument.tsx");
   check(layout.includes("themeBootScript") && layout.includes("<ThemeToggle />") && layout.includes("suppressHydrationWarning"), "theme applied before first paint and switchable from the header");
   check(/Geist_Mono\(\{[^}]*variable: "--font-geist-mono"/.test(layout), "--font-geist-mono is backed by a self-hosted next/font");
   check(/@media print \{[\s\S]*\.site-header[\s\S]*display: none/.test(css), "print stylesheet hides navigation");
@@ -142,7 +142,7 @@ for (const [file, label] of [["src/components/DataExplorerV11.tsx", "高频月�
   const news = read("src/components/NewsExplorer.tsx");
   check(["关键词", "主题", "起始日期", "结束日期", "导出当前结果（CSV）", 'params.set("q"', 'params.set("from"', "window.history.replaceState"].every((needle) => news.includes(needle)), "news: keyword, topic, date range, URL state and CSV export");
   check(explorer.includes("<CopyCitationButton") && explorer.includes('params.set("sort", "asc")') && explorer.includes("window.history.replaceState"), "data: per-observation citation and URL-synced filters");
-  check(read("src/app/countries/[slug]/page.tsx").includes("<CountryComparePanel"), "country profile: comparison panel");
+  check(read("src/app/(zh)/countries/[slug]/page.tsx").includes("<CountryComparePanel"), "country profile: comparison panel");
   check(spatial.includes('data-map-export={country.country_id}') && spatial.includes('exportCurrentMap("svg")') && spatial.includes('exportCurrentMap("png")') && read("src/lib/mapExport.ts").includes("EuroGeographics") === false && spatial.includes('selectedCountries.map((country) => country.attribution)') && spatial.includes('legend: legendItems') && spatial.includes('buildMapSvg(currentMapSpec())'), "map: SVG/PNG and bundle share current legend and selected-country boundary attribution");
   const siteNav = read("src/components/SiteNav.tsx");
   check(siteNav.includes("aria-expanded={open}") && siteNav.includes('aria-controls="mobile-nav"') && siteNav.includes('event.key === "Escape"'), "mobile navigation is an accessible disclosure");

@@ -1,4 +1,6 @@
 "use client";
+import { LocalizedContent } from "@/i18n/LocalizedContent";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { Country, Indicator, Observation } from "@/types/researchData";
@@ -49,6 +51,7 @@ function downloadCsv(filename: string, headers: string[], rows: unknown[][]) {
 }
 
 function HighFrequencyDataView({ countries }: { countries: Country[] }) {
+  const locale = useLocale();
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const [records, setRecords] = useState<HfRuntimeRow[]>([]);
   const [loadState, setLoadState] = useState<"loading" | "ready" | "error">("loading");
@@ -111,10 +114,10 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
   const historyPoints = useMemo(() => [...rows].filter(isHistory).sort((a, b) => a[2].localeCompare(b[2])).map((row) => ({ x: row[2], y: row[4] })), [rows]);
 
   return (
-    <div className="mt-5" data-snapshot-scope="high-frequency">
+    <LocalizedContent>{<div className="mt-5" data-snapshot-scope="high-frequency">
       <div className="grid gap-4 border-y border-[var(--line)] py-5 md:grid-cols-2 xl:grid-cols-4">
         <label className="text-xs font-semibold text-[var(--muted)]">国家
-          <select className="field-control mt-2" value={countrySlug} onChange={(event) => setCountrySlug(event.target.value)}>{countries.map((country) => <option key={country.slug} value={country.slug}>{country.name_zh} / {country.name}</option>)}</select>
+          <select className="field-control mt-2" value={countrySlug} onChange={(event) => setCountrySlug(event.target.value)}>{countries.map((country) => <option key={country.slug} value={country.slug}>{locale === "en" ? country.name : `${country.name_zh} / ${country.name}`}</option>)}</select>
         </label>
         <label className="text-xs font-semibold text-[var(--muted)]">指标
           <select className="field-control mt-2" value={indicator} onChange={(event) => setIndicator(event.target.value)}>{Object.entries(hfIndicatorLabels).map(([id, label]) => <option key={id} value={id}>{label}</option>)}</select>
@@ -200,7 +203,7 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
 
       {loadState === "ready" && !rows.length ? <p className="mt-5 border-y border-[var(--line)] py-8 text-center text-sm text-[var(--muted)]">当前筛选条件没有观测值；缺失月份不会显示为 0。</p> : null}
       {countrySlug === "serbia" ? <SerbiaSorsMonthlyPanel basePath={basePath} /> : null}
-    </div>
+    </div>}</LocalizedContent>
   );
 }
 
@@ -228,6 +231,7 @@ export function coverageOf(periods: { period: number; value: number | null }[]) 
 }
 
 export function DataExplorerV11({ countries, indicators, observations }: { countries: Country[]; indicators: Indicator[]; observations: Observation[] }) {
+  const locale = useLocale();
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const [dataset, setDataset] = useState<"annual" | "high_frequency" | "macro_drivers">("annual");
   const [countrySlug, setCountrySlug] = useState("poland");
@@ -283,8 +287,8 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
     if (!includeHistory) params.set("history", "0");
     if (!includeSors) params.set("sors", "0");
     if (search.trim()) params.set("q", search.trim());
-    const next = `${window.location.pathname}?${params.toString()}`;
-    if (next !== `${window.location.pathname}${window.location.search}`) window.history.replaceState(null, "", next);
+    const next = `${window.location.pathname}?${params.toString()}${window.location.hash}`;
+    if (next !== `${window.location.pathname}${window.location.search}${window.location.hash}`) window.history.replaceState(null, "", next);
   }, [urlReady, dataset, countrySlug, indicatorId, yearFrom, yearTo, sortDirection, latestOnly, includeHistory, includeSors, search]);
 
   useEffect(() => {
@@ -348,7 +352,7 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
   const layerBadge = (layer: AnnualRow["layer"]) => <span className={layer === "formal" ? "inline-block rounded-full border border-[var(--line)] px-2 py-0.5 text-[10px] font-semibold" : layer === "sors" ? "inline-block rounded-full border border-dotted border-[var(--chart-sors)] px-2 py-0.5 text-[10px] font-semibold text-[var(--chart-sors)]" : "inline-block rounded-full border border-dashed border-[var(--muted)] px-2 py-0.5 text-[10px] font-semibold text-[var(--muted)]"} data-layer={layer}>{layerLabels[layer]}</span>;
 
   return (
-    <section className="mt-7" data-snapshot-scope="annual">
+    <LocalizedContent>{<section className="mt-7" data-snapshot-scope="annual">
       <div className="flex flex-wrap gap-2" role="tablist" aria-label="数据集选择">
         {([["annual", "年度核心数据"], ["high_frequency", "高频国内数据"], ["macro_drivers", "宏观驱动数据"]] as const).map(([id, label]) => (
           <button key={id} type="button" role="tab" aria-selected={dataset === id} onClick={() => setDataset(id)}
@@ -362,7 +366,7 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
         <>
       <div className="grid gap-4 border-y border-[var(--line)] py-5 md:grid-cols-2 xl:grid-cols-4">
         <label className="text-xs font-semibold text-[var(--muted)]">国家
-          <select className="field-control mt-2" value={countrySlug} onChange={(event) => setCountrySlug(event.target.value)}>{countries.map((country) => <option key={country.slug} value={country.slug}>{country.name_zh} / {country.name}</option>)}</select>
+          <select className="field-control mt-2" value={countrySlug} onChange={(event) => setCountrySlug(event.target.value)}>{countries.map((country) => <option key={country.slug} value={country.slug}>{locale === "en" ? country.name : `${country.name_zh} / ${country.name}`}</option>)}</select>
         </label>
         <label className="text-xs font-semibold text-[var(--muted)]">指标
           <select className="field-control mt-2" value={indicatorId} onChange={(event) => setIndicatorId(event.target.value)}><option value="all">全部指标</option>{availableIndicatorIds.map((id) => <option key={id} value={id}>{indicatorName(id)}</option>)}</select>
@@ -454,6 +458,6 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
         </>
       )}
 
-    </section>
+    </section>}</LocalizedContent>
   );
 }

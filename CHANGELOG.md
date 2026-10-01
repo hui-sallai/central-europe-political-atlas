@@ -1,5 +1,11 @@
 # Changelog
 
+## Core English Edition — 2026-10-01 (platform remains v2.0)
+
+- Adds 20 bilingual route pairs with English under `/en/`, preserving existing Chinese URLs and shared research downloads. Static documents, language switching, navigation, accessibility, canonical/hreflang, OpenGraph and sitemap are locale-aware.
+- Adds reviewed presentation dictionaries and stable-ID overlays; English snapshots localize documentation and figures while retaining identical numeric CSV rows and original provenance. Original event/project prose is explicitly marked, not automatically translated.
+- Adds bilingual coverage, dynamic-method, snapshot-parity and visual tests. Formal samples, estimates, readiness, inference gates, scenario formulas and frozen research conclusions are unchanged. No version bump or new runtime dependency.
+
 ## v2.0 VAR Dynamic-Response Publication-Gate Consolidation — 2026-09-29
 
 - Version renamed from v1.91 to v2.0 on 2026-09-29 to mark the first major milestone; the content is identical to the release first published as v1.91 (research package research-data-v1.91.zip).

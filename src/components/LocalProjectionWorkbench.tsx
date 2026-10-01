@@ -1,4 +1,5 @@
 "use client";
+import { LocalizedContent } from "@/i18n/LocalizedContent";
 
 import { ResearchTimeSeriesChart } from "@/components/ResearchTimeSeriesChart";
 import { useState } from "react";
@@ -57,7 +58,7 @@ export function LocalProjectionWorkbench({ initialCountry }: { initialCountry?: 
   const shockLabel = component === "mp" ? "MP 冲击（紧缩 +25bp）" : "CBI 冲击（+0.25）";
   const bandLabel = `${confidence}% ${uncertainty === "pointwise" ? "点态区间" : "联合路径带"}`;
 
-  return (
+  return <LocalizedContent>{(
     <section className="editorial-panel p-5">
       {initialCountry && !countries.includes(initialCountry) ? <p role="status" className="mb-4 text-sm">所选国家暂无通过准入的 LP 输出，已展示一个可用国家。</p> : null}
       <div className="flex flex-wrap items-start justify-between gap-4">
@@ -101,5 +102,5 @@ export function LocalProjectionWorkbench({ initialCountry }: { initialCountry?: 
         <div className="mt-3 flex flex-wrap gap-4 text-sm text-[var(--accent)]"><a href="/research-data/lp_finite_sample_robustness_summary.json">下载诊断摘要</a><a href="/research-data/lp_leave_one_shock_month_results.json">下载逐月删除结果</a><a href="/research-data/lp_leave_one_event_results.json">下载逐事件结果</a><a href="/research-data/lp_finite_sample_simulation_results.json">下载模拟结果</a></div>
       </details>}
     </section>
-  );
+  )}</LocalizedContent>;
 }
