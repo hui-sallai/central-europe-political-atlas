@@ -47,7 +47,7 @@ All Notebook controls have typed Chinese/English parity. Reviewed Atlas labels c
 
 `pnpm notebook:validate` exercises actual model/export/adapters, nine types, strict import, language-independent deduplication, exact notes, SORS/null/zero, source identity, method states, URL safety, CSV protection, export inventory, canonical-data isolation and version/frozen-file checks. Browser tests cover all six surfaces, note editing, bilingual persistence, ZIP integrity/inventory, clear/import, corruption/future schema, storage denial/quota, malicious strings/URLs, reorder/filter/remove, no network writes, accessibility and desktop/mobile light/dark.
 
-Screenshot baselines are deliberately reviewed platform-specific evidence; ordinary test runs must not create/update missing baselines. Linux Notebook baselines and deployment validation require a later expressly authorized publication workflow, not an automatic push in this phase.
+Screenshot baselines are deliberately reviewed platform-specific evidence; ordinary test runs must not create/update missing baselines. After the owner's publication authorization, no-deploy Linux run [36885899870](https://github.com/hui-sallai/central-europe-political-atlas/actions/runs/36885899870) passed all 190 browser tests, full research checks, Release QA and generated-public-site privacy checks. Eight new Notebook and 27 expected header/collection-control Linux images were reviewed and imported; unrelated baselines stayed unchanged. Deployment verification is a separate subsequent gate.
 
 Final local validation on 2026-10-02: Notebook 93 checks PASS; Workspaces 657 PASS; i18n 1,119 PASS (26 route pairs); UI-language QA PASS; lint PASS; typecheck PASS; static site build PASS (57 entries); SEO 337 PASS; candidate public-secret scan 1,195 PASS; candidate plus static-output scan 2,130 PASS; diff whitespace check PASS. Independent research-boundary reviewer completed the final incremental review with PASS.
 
@@ -67,4 +67,4 @@ One notebook per browser origin/profile; no merge, cloud, collaboration, rich te
 
 ## 10. Frozen platform and release boundary
 
-Platform stays **v2.0**. Canonical research data, formal samples, readiness, registered engines, frozen outputs and package dependencies are unchanged relative to the deployed baseline. No frozen research program was rerun. This implementation stops locally; commit, push, Linux release checks and deployment require a subsequent user request.
+Platform stays **v2.0**. Canonical research data, formal samples, readiness, registered engines, frozen outputs and package dependencies are unchanged relative to the deployed baseline. No frozen research program was rerun. Implementation initially stopped locally; the owner subsequently authorized commit, push and publication on 2026-10-02. The no-deploy Linux gate passed before updating main; successful recording alone is not a deployment claim.
