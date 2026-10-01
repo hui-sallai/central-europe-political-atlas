@@ -28,6 +28,7 @@ const routes = [
   "legal/",
   "privacy/",
   "workspaces/",
+  "notebook/",
   ...workspaceIds.map(id => `workspaces/${id}/`),
 ] as const;
 

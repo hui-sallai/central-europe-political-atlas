@@ -35,6 +35,9 @@ for (const route of implementedRoutes) test(`static locale, SEO and accessibilit
     const html = fs.readFileSync(`out${target}index.html`, "utf8");
     expect(html).toContain(`<html lang="${locale}"`);
     await page.goto(target, { waitUntil: "networkidle" });
+    // React may briefly expose streamed metadata twice before hydration hoists it.
+    // Require exactly one canonical link, then inspect that unique element.
+    await expect(page.locator('link[rel="canonical"]')).toHaveCount(1);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://hy-central-europe-analysis.org${target}`);
     for (const language of ["zh-CN", "en", "x-default"]) await expect(page.locator(`link[rel="alternate"][hreflang="${language}"]`)).toHaveCount(1);
     await expect(page.locator('meta[property="og:locale"]')).toHaveAttribute("content", locale === "en" ? "en_GB" : "zh_CN");

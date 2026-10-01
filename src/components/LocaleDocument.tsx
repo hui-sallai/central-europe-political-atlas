@@ -9,6 +9,8 @@ import "@/app/globals.css";
 import { LocaleProvider } from "@/i18n/LocaleProvider";
 import { LanguageSwitcher } from "@/i18n/LanguageSwitcher";
 import { localizedRoute, type Locale } from "@/i18n/config";
+import { ResearchNotebookProvider } from "./ResearchNotebookProvider";
+import { NotebookEntry } from "./NotebookCollect";
 
 // Monospace for codes and identifiers; self-hosted by next/font at build time (fills --font-geist-mono in globals.css).
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
@@ -45,6 +47,7 @@ export default function LocaleDocument({
       </head>
       <body>
         <LocaleProvider locale={locale}>
+        <ResearchNotebookProvider>
         <a href="#main-content" className="skip-link">{en ? "Skip to main content" : "跳到主要内容"}</a>
         <header className="site-header sticky top-0 z-50 border-b border-[var(--line)] backdrop-blur">
           <nav className="mx-auto flex max-w-[1240px] flex-wrap items-center justify-between gap-3 px-4 py-3 sm:px-6" aria-label={en ? "Main navigation" : "主导航"}>
@@ -52,6 +55,7 @@ export default function LocaleDocument({
               Central Europe <span className="text-[var(--accent)]">Political Atlas</span>
             </Link>
             <SiteNav>
+              <NotebookEntry />
               <ThemeToggle />
               <LanguageSwitcher />
             </SiteNav>
@@ -71,6 +75,7 @@ export default function LocaleDocument({
             </nav>
           </div>
         </footer>
+        </ResearchNotebookProvider>
         </LocaleProvider>
       </body>
     </html>

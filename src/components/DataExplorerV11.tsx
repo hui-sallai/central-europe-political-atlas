@@ -1,6 +1,7 @@
 "use client";
 import { LocalizedContent } from "@/i18n/LocalizedContent";
 import { useLocale } from "@/i18n/LocaleProvider";
+import { englishText } from "@/i18n/reviewedText";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import type { Country, Indicator, Observation } from "@/types/researchData";
@@ -15,6 +16,7 @@ import { PLATFORM_NAME, PLATFORM_VERSION } from "@/lib/releaseMetadata";
 import { formatNumber } from "@/lib/format";
 import { ResearchSnapshotExport } from "@/components/ResearchSnapshotExport";
 import { currentSnapshotUrl, sourceInstitution } from "@/lib/researchSnapshot";
+import { NotebookCollect } from "./NotebookCollect";
 
 const MOBILE_CARD_LIMIT = 120;
 
@@ -341,6 +343,13 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
   }
 
   // Citation for one observation: source, value with unit and status, source URL, platform version, access date, view URL.
+  const collectObservation = async (item: AnnualRow) => {
+    const { notebookObservation } = await import("./notebookEvidence");
+    const layer = item.layer === "sors" ? "serbia_sors_descriptive" : item.layer === "history" ? "historical_descriptive" : "formal_observation";
+    const params = new URLSearchParams({ tab: "annual", country: item.country_slug, indicator: item.indicator, from: String(item.year), to: String(item.year), history: item.layer === "history" ? "1" : "0", sors: item.layer === "sors" ? "1" : "0" });
+    const title = `${indicatorName(item.indicator)} · ${item.country_slug} · ${item.year}`;
+    return { ...notebookObservation({ id: item.id, country: item.country_slug, indicator: item.indicator, period: String(item.year), value: item.value, unit: item.unit, layer, status: item.status, cross_country_comparable: item.cross_country_comparable, source: { institution: sourceInstitution(item.source_name,item.source_url), dataset: item.source_name, source_url: item.source_url, source_layer: layer, unit: item.unit, original_unit: item.original_unit ?? undefined, updated_at: item.updated_at, source_code: item.layer === "sors" ? sors.series?.find(s => s.key === item.source_code)?.original_code : item.source_code } }, currentSnapshotUrl(`${locale === "en" ? "/en" : ""}/data/`) .split("?")[0] + `?${params}`, title), labels: { "zh-CN": title, en: englishText(title) } };
+  };
   const citationFor = (item: AnnualRow) => {
     const country = countries.find((c) => c.slug === item.country_slug)?.name_zh ?? item.country_slug;
     const accessed = new Date().toLocaleDateString("sv-SE"); // local calendar date, YYYY-MM-DD
@@ -445,12 +454,12 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
       <div className="data-table-desktop data-table-viewport mt-5" tabIndex={0} role="region" aria-label="年度观测表（可滚动）">
         <table className="research-data-table w-full min-w-[980px] text-left text-sm">
           <thead><tr>{["指标", "年份", "数值", "单位", "数据层", "来源", "状态", "更新时间", "引用"].map((header) => <th key={header} className="px-3 py-3">{header}</th>)}</tr></thead>
-          <tbody>{rows.map((item) => <tr key={item.id}><td className="px-3 py-3 font-semibold">{indicatorName(item.indicator)}<span className="mt-1 block font-mono text-[10px] font-normal text-[var(--muted)]">{item.indicator}</span></td><td className="metric-number px-3 py-3">{item.year}</td><td className="metric-number px-3 py-3 font-semibold">{displayValue(item)}</td><td className="px-3 py-3">{item.unit}</td><td className="px-3 py-3">{layerBadge(item.layer)}{comparabilityNote(item)}</td><td className="px-3 py-3"><a href={item.source_url} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)] hover:underline">{item.source_name}</a><span className="mt-1 block text-[10px] text-[var(--muted)]">{item.reliability} 级</span></td><td className="px-3 py-3">{item.status}</td><td className="metric-number px-3 py-3 text-xs">{item.updated_at || "—"}</td><td className="px-3 py-3"><CopyCitationButton text={citationFor(item)} /></td></tr>)}</tbody>
+          <tbody>{rows.map((item) => <tr key={item.id}><td className="px-3 py-3 font-semibold">{indicatorName(item.indicator)}<span className="mt-1 block font-mono text-[10px] font-normal text-[var(--muted)]">{item.indicator}</span></td><td className="metric-number px-3 py-3">{item.year}</td><td className="metric-number px-3 py-3 font-semibold">{displayValue(item)}</td><td className="px-3 py-3">{item.unit}</td><td className="px-3 py-3">{layerBadge(item.layer)}{comparabilityNote(item)}</td><td className="px-3 py-3"><a href={item.source_url} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)] hover:underline">{item.source_name}</a><span className="mt-1 block text-[10px] text-[var(--muted)]">{item.reliability} 级</span></td><td className="px-3 py-3">{item.status}</td><td className="metric-number px-3 py-3 text-xs">{item.updated_at || "—"}</td><td className="px-3 py-3"><CopyCitationButton text={citationFor(item)} /><NotebookCollect create={() => collectObservation(item)} /></td></tr>)}</tbody>
         </table>
       </div>
 
       <div className="data-card-mobile mt-5 grid gap-3">
-        {rows.slice(0, MOBILE_CARD_LIMIT).map((item) => <article key={item.id} className="editorial-panel p-4"><div className="flex items-start justify-between gap-3"><div><h3 className="font-semibold">{indicatorName(item.indicator)}</h3><p className="mt-1 text-xs text-[var(--muted)]">{item.year} · {item.unit}</p></div><p className="metric-number font-semibold text-[var(--accent)]">{displayValue(item)}</p></div><div className="mt-3 flex items-center justify-between gap-3 border-t border-[var(--line)] pt-3 text-xs"><a href={item.source_url} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)]">{item.source_name}</a>{layerBadge(item.layer)}<span>{item.status}</span></div><div className="mt-2 flex justify-end"><CopyCitationButton text={citationFor(item)} /></div></article>)}
+        {rows.slice(0, MOBILE_CARD_LIMIT).map((item) => <article key={item.id} className="editorial-panel p-4"><div className="flex items-start justify-between gap-3"><div><h3 className="font-semibold">{indicatorName(item.indicator)}</h3><p className="mt-1 text-xs text-[var(--muted)]">{item.year} · {item.unit}</p></div><p className="metric-number font-semibold text-[var(--accent)]">{displayValue(item)}</p></div><div className="mt-3 flex items-center justify-between gap-3 border-t border-[var(--line)] pt-3 text-xs"><a href={item.source_url} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)]">{item.source_name}</a>{layerBadge(item.layer)}<span>{item.status}</span></div><div className="mt-2 flex justify-end"><CopyCitationButton text={citationFor(item)} /><NotebookCollect create={() => collectObservation(item)} /></div></article>)}
         {rows.length > MOBILE_CARD_LIMIT ? <p className="text-xs text-[var(--muted)]">移动端显示前 {MOBILE_CARD_LIMIT} 条；完整 {rows.length} 条请缩小年份范围或下载 CSV。</p> : null}
       </div>
 

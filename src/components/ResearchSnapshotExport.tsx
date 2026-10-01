@@ -7,6 +7,7 @@ import { currentChartSvg } from "@/lib/researchFigure";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { englishText } from "@/i18n/reviewedText";
 import { localizedRoute } from "@/i18n/config";
+import { NotebookSnapshotCollect } from "./NotebookSnapshotCollect";
 
 export function ResearchSnapshotExport({ create, disabled = false, chart = false }: { create: () => SnapshotInput; disabled?: boolean; chart?: boolean }) {
   const locale = useLocale();
@@ -42,5 +43,5 @@ export function ResearchSnapshotExport({ create, disabled = false, chart = false
       setStatus("done");
     } catch { setStatus("error"); }
   }
-  return <span className="inline-flex flex-wrap items-center gap-2"><button ref={button} type="button" onClick={() => void download()} disabled={disabled || busy} aria-busy={busy} className="rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-50">{locale === "en" ? "Export research snapshot" : "导出研究快照"}</button><span role="status" className="text-xs text-[var(--muted)]">{labels[status]}</span></span>;
+  return <span className="inline-flex flex-wrap items-center gap-2"><button ref={button} type="button" onClick={() => void download()} disabled={disabled || busy} aria-busy={busy} className="rounded-full border border-[var(--accent)] px-4 py-2 text-sm font-semibold text-[var(--accent)] disabled:cursor-not-allowed disabled:opacity-50">{locale === "en" ? "Export research snapshot" : "导出研究快照"}</button><span role="status" className="text-xs text-[var(--muted)]">{labels[status]}</span><NotebookSnapshotCollect create={create} disabled={disabled || busy} /></span>;
 }

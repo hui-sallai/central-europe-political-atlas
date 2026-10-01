@@ -6,6 +6,9 @@ import { localizedRoute } from "@/i18n/config";
 import { workspaceMessages } from "@/content/workspaceMessages";
 import type { WorkspacePayload, WorkspaceEvidenceCard } from "@/components/workspaceEvidence";
 import { comparisonAllowed, evidenceLink, periodsInRange, workspaceLinks, workspaceToolLink, type WorkspaceSelection } from "@/components/workspaceLinks";
+import { NotebookCollect } from "./NotebookCollect";
+import { notebookMessages } from "@/content/notebookMessages";
+import { PLATFORM_BASE_URL } from "@/lib/releaseMetadata";
 
 export function ResearchWorkspace({ payload, locale }: { payload: WorkspacePayload; locale: Locale }) {
   const m = workspaceMessages[locale];
@@ -79,6 +82,12 @@ export function ResearchWorkspace({ payload, locale }: { payload: WorkspacePaylo
     } catch { setExportStatus("error"); }
   }
   return <main className="page-shell" data-research-workspace={payload.id}>
+    <div className="mb-4"><NotebookCollect disabled={!ready || !validRange} label={notebookMessages[locale].addWorkspace} create={async () => {
+      const { researchWorkspaces } = await import("@/content/researchWorkspaces"); const definition = researchWorkspaces.find(w => w.id === payload.id)!;
+      const visible = payload.cards.filter(card => card.coverage.some(row => selection.countries.includes(row.country) && periodsInRange(row.periods,selection).length));
+      const sources = visible.flatMap(card => card.coverage.filter(row => selection.countries.includes(row.country)).flatMap(row => row.sources.filter(s => periodsInRange(s.periods ?? row.periods,selection).length).map(s => ({ institution: "", dataset: s.name, url: s.url, layer: s.layer }))));
+      return { type: "workspace", title: payload.title, labels: definition.title, url: new URL(window.location.pathname + window.location.search + window.location.hash, PLATFORM_BASE_URL).href, canonical_ids: [payload.id, ...new Set(visible.map(c => c.targetId))], countries: selection.countries, periods: [String(from),String(to)], sources: [...new Map(sources.map(s => [JSON.stringify(s),s])).values()], layer: "workspace_setup", comparability: "setup_only_no_combined_dataset", warnings: definition.warnings.map(w => w["zh-CN"]), warning_labels: { "zh-CN": definition.warnings.map(w => w["zh-CN"]), en: definition.warnings.map(w => w.en) }, metadata: { filters: { countries: selection.countries, from, to }, evidence_categories: [...new Set(visible.map(c => c.layer))] } };
+    }} /></div>
     <Link href={localizedRoute("/workspaces/", locale)} className="text-sm text-[var(--accent)]">← {m.all}</Link>
     <header className="mt-5 max-w-4xl border-b border-[var(--line)] pb-7"><p className="editorial-kicker">{m.title}</p><h1 className="mt-4 text-4xl font-semibold tracking-[-0.035em] sm:text-5xl">{payload.title}</h1><p className="mt-5 leading-8 text-[var(--muted)]">{payload.introduction}</p></header>
     <section className="card mt-7 p-5" aria-labelledby="workspace-controls"><h2 id="workspace-controls" className="text-xl font-semibold">{m.select}</h2><div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

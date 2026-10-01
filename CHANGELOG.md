@@ -1,5 +1,11 @@
 # Changelog
 
+### Research Notebook / Evidence Collection — 2026-10-02 (platform remains v2.0)
+
+- Adds browser-local bilingual Notebook pages and compact count access, with evidence collection from Data, country comparison, verified events, maps, registered methods and question-first Workspaces.
+- Adds strict JSON restoration, seven-file ZIP export, provenance, exact personal notes, stable deduplication, explicit clearing/replacement and corruption/quota protection. No server storage, tracking or automatic conclusions.
+- Adds Notebook validation and bilingual desktop/mobile coverage. Formal samples, canonical data, estimates, readiness, inference gates and frozen outputs are unchanged. No version bump or runtime dependency.
+
 ### Core English Edition — 2026-10-01 (platform remains v2.0)
 
 - Adds 20 bilingual route pairs with English under `/en/`, preserving existing Chinese URLs and shared research downloads. Static documents, language switching, navigation, accessibility, canonical/hreflang, OpenGraph and sitemap are locale-aware.

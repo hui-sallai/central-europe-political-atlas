@@ -7,6 +7,8 @@ import { eventWindowEligibility, suggestedOutcomes } from "@/lib/eventWindowEngi
 import type { Event, EventType } from "@/types/researchData";
 import { LocalizedContent } from "@/i18n/LocalizedContent";
 import { useLocale } from "@/i18n/LocaleProvider";
+import { NotebookCollect } from "./NotebookCollect";
+import { PLATFORM_BASE_URL } from "@/lib/releaseMetadata";
 
 type CountryFilter = "all" | string;
 type EventTypeFilter = "all" | EventType;
@@ -54,6 +56,7 @@ function EventCard({ item }: { item: Event }) {
           <div lang="zh-CN" data-original-language="zh-CN"><h3 className="text-xl font-semibold leading-7">{item.title}</h3>
           <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.summary}</p></div>
           <div className="mt-4 flex flex-wrap items-center gap-2">
+            {item.data_status === "verified" && item.source_url ? <NotebookCollect create={() => ({ type: "event", title: item.title, url: `${PLATFORM_BASE_URL.replace(/\/$/, "")}${locale === "en" ? "/en" : ""}/news/?country=${item.country_slug}&type=${item.event_type}&from=${item.date}&to=${item.date}#${item.id}`, canonical_ids: [item.id], countries: [item.country_slug], periods: [item.date], sources: [{ institution: item.source_name, dataset: item.source_name, url: item.source_url!, layer: "verified_event" }], layer: "verified_event", comparability: "event_context_not_a_comparable_numeric_observation", warnings: [item.model_note, "Verified event context, not an inferred causal effect."].filter(Boolean), metadata: { event_type: item.event_type, topic: item.topic, original_language: "zh-CN", status: item.data_status, entersModel: item.enters_model } })} /> : null}
             {topics.filter(Boolean).map((topic) => <span key={topic} lang="zh-CN" data-original-language="zh-CN" className="rounded-full bg-[var(--surface-muted)] px-3 py-1 text-xs font-semibold text-[var(--muted)]">{topic}</span>)}
             {eventWindowEligibility(item).eligible ? (
               <Link
