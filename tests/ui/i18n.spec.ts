@@ -27,6 +27,9 @@ test("bilingual snapshot numeric and provenance parity", () => {
 
 const implementedRoutes = ["/", "/countries/", "/data/", "/map/", "/models/", "/scenarios/", "/methodology/", "/countries/hungary/", "/legal/", "/privacy/"];
 for (const route of implementedRoutes) test(`static locale, SEO and accessibility: ${route}`, async ({ page }) => {
+  // Four full axe scans of the large data table exceed 30s on the two-core CI runner.
+  // Increase execution time only; keep both locales/themes and every assertion.
+  if (route === "/data/") test.slow();
   for (const locale of ["zh-CN", "en"] as const) {
     const target = localizedRoute(route, locale);
     const html = fs.readFileSync(`out${target}index.html`, "utf8");
