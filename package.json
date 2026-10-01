@@ -18,6 +18,7 @@
     "historical-regional:acquire": "node scripts/historical-regional/acquire.mjs",
     "historical-regional:validate": "node scripts/historical-regional/validate.mjs",
     "serbia-audit:validate": "node scripts/serbia-sors/validate.mjs",
+    "political-audit:validate": "node scripts/political-data-audit/validate.mjs",
     "historical-extension:validate": "node scripts/historical-monthly-extension/validate.mjs",
     "historical-extension:closure-validate": "node scripts/historical-monthly-extension/closure-validate.mjs",
     "baseline-definition:validate": "node scripts/historical-monthly-extension/validate-baseline-definition.mjs",

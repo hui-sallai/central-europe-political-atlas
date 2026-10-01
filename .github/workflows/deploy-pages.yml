@@ -91,6 +91,7 @@ jobs:
       - name: Validate news and identified shocks
         run: |
           pnpm news:validate
+          pnpm political-audit:validate
           pnpm jk:validate
           pnpm information-effect:validate
 

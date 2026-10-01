@@ -1,0 +1,72 @@
+{
+  "schema_version": "party-identity-model-v0.1",
+  "state": "design_only",
+  "audit_date": "2026-10-02",
+  "purpose": "Stable, name-independent identity for political actors across sources and time, solved before any bulk ingestion.",
+  "entity_kinds": {
+    "party": "A registered political party or movement (legal entity in the national register, where one exists). ID pp-<cc>-<NNNN>.",
+    "electoral_contestant": "What appears on one ballot: a party's own list, a joint list, an electoral alliance/coalition, an electoral committee, a leader-named list, a minority list. Election-specific. ID ct-<cc>-<NNNN>.",
+    "parliamentary_group": "A group (klub, Fraktion, poslanecký klub) in one legislature. ID pg-<cc>-<NNNN>.",
+    "ep_national_party": "The EP's per-term national party code (e.g. HU12 in 2024-2029, EP Open Data org/NNN). Mapped via the crosswalk, never an Atlas entity of its own.",
+    "ep_political_group": "European Parliament political group (EP org identifier). ID epg-<id>."
+  },
+  "party_record": {
+    "required": ["atlas_party_id", "country", "valid_from", "valid_to", "provenance"],
+    "linked_tables": {
+      "names": "party_names: canonical (native official), English (official or source-provided, marked), abbreviation, aliases, transliterations — each dated and sourced",
+      "relations": "party_relations (types below)",
+      "contestants": "contestant_members (which ballots the party ran under)",
+      "groups": "parliamentary_groups.constituent_parties (dated)",
+      "source_ids": "party_identity_crosswalk (ČSÚ VSTRANA, EP party IDs, ParlGov party_id, CHES party_id, Manifesto party code, national register numbers)",
+      "evidence": "every relation and crosswalk row cites a source document"
+    },
+    "display_rule": "Display the name valid at the record's date in the record's language; never relabel history with the current name."
+  },
+  "relation_types": [
+    { "type": "renamed", "meaning": "Same legal entity, new official name.", "identity_effect": "same atlas_party_id; new party_names row", "evidence_required": "registry entry or official party/registry announcement" },
+    { "type": "legal_successor", "meaning": "New legal entity designated as legal successor of another.", "identity_effect": "new atlas_party_id; relation links both", "evidence_required": "court/registry document" },
+    { "type": "merged_into", "meaning": "Entity A ceased and joined entity B (B continues).", "identity_effect": "A gets valid_to; B unchanged", "evidence_required": "registry or official merger decision" },
+    { "type": "merger_formed", "meaning": "Entities A and B ceased and formed new entity C.", "identity_effect": "new atlas_party_id for C", "evidence_required": "registry" },
+    { "type": "split_from", "meaning": "Entity B was founded by members leaving A; A continues.", "identity_effect": "new atlas_party_id for B; no continuity with A", "evidence_required": "documented founding; not inferred from shared politicians" },
+    { "type": "dissolved", "meaning": "Entity ceased without successor.", "identity_effect": "valid_to set", "evidence_required": "registry" },
+    { "type": "alliance_member", "meaning": "Party ran within a joint list/alliance in one election.", "identity_effect": "contestant_members row; party identity unchanged", "evidence_required": "official list registration or ballot" },
+    { "type": "group_member", "meaning": "Party's MPs sat in a parliamentary group.", "identity_effect": "dated parliamentary_groups membership", "evidence_required": "parliament records" },
+    { "type": "disputed_continuity", "meaning": "Sources disagree whether two entities are the same.", "identity_effect": "two IDs kept; relation status 'disputed' with both sources cited", "evidence_required": "both source positions recorded" }
+  ],
+  "never_infer": [
+    "continuity from similar or identical names",
+    "continuity from shared leaders or MPs",
+    "that an electoral alliance, joint list or committee is a party",
+    "that a parliamentary group is a party",
+    "that a merged list's votes belong to one member party",
+    "a party family, ideology or EU stance from coalition participation, EP group or news reporting"
+  ],
+  "vote_attribution_rules": [
+    "Votes and vote shares belong to the contestant that appeared on the ballot (party list or joint list), never split across member parties.",
+    "Seats may be attributed to member parties only where the official or EP source does so (e.g. EP seats-breakdown-parties), recorded with that source.",
+    "Party-level time series across elections are only shown where the contestant was the party's own list in each election; otherwise the series breaks and the joint-list contestant is shown."
+  ],
+  "crosswalk_match_basis": {
+    "official_code": "Source code issued by the authority and stable across elections (e.g. ČSÚ VSTRANA).",
+    "registry_number": "National party register number.",
+    "documented_rename": "Rename documented by registry/official announcement.",
+    "manual_review": "Reviewer decision with written note; status provisional until second review.",
+    "forbidden": "string similarity, fuzzy matching or translation equivalence as sole basis"
+  },
+  "worked_cases_from_audit": [
+    { "case": "Czech list 'ČSSD – Česká suverenita sociální demokracie' (ČSÚ VSTRANA 759, verified_live in ps2025 vysledky.xml) in 2025 vs the historical ČSSD, renamed SOCDEM in 2023 (background_to_verify)", "handling": "Do not link by name. Resolve VSTRANA continuity and the 2023 rename from the ČSÚ party register and the Ministry of the Interior register; until then status 'unmatched'." },
+    { "case": "EP 2024: HU01 'Fidesz-KDNP' (COALITION, votes 44.82%) with seats on HU12 (10) and HU13 (1)", "handling": "HU01 → electoral_contestant (joint list) with members pp-hu-NNNN (Fidesz) and pp-hu-NNNN (KDNP) — opaque IDs, names only for illustration; votes on the contestant; seats on member parties per EP source." },
+    { "case": "EP 2024: 'Die Linke' coded as COALITION with two member IDs (DE24|DE23)", "handling": "Record as published; flag for manual review; do not merge or split automatically." },
+    { "case": "Germany: CDU and CSU", "handling": "Two parties; one Bundestag parliamentary group; national result rows remain per party as published by the Bundeswahlleiterin." },
+    { "case": "Poland: electoral committees (e.g. KO, Trzecia Droga, Lewica) vs member parties", "handling": "Committees are contestants; member parties via contestant_members from PKW registration documents." },
+    { "case": "Serbia: leader-named lists (list names change every election)", "handling": "Each list is a contestant; lead party via source-documented list registration; no cross-election continuity without evidence." },
+    { "case": "EP per-term party IDs (HU01 in 2004 ≠ HU01 in 2024)", "handling": "Crosswalk keyed by (source, term, party ID)." }
+  ],
+  "review_workflow": [
+    "1. Load source party lists into a staging crosswalk with match_status 'unmatched'.",
+    "2. Auto-confirm only on official_code or registry_number agreement.",
+    "3. Everything else goes to a review queue with the evidence documents.",
+    "4. Disputed cases keep two IDs and a 'disputed_continuity' relation.",
+    "5. A validator rejects any crosswalk row whose match_basis is missing or forbidden."
+  ]
+}

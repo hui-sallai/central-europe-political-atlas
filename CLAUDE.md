@@ -21,6 +21,8 @@ https://hy-central-europe-analysis.org via `.github/workflows/deploy-pages.yml` 
 - `scripts/` — acquisition, research pipelines and the validation chain (`validation/`, `release/`, `security/`,
   `data-coverage/`, `historical-*/`, `serbia-sors/`, `var-*`, `panel-local-projections/`, `local-projections/`, …).
 - `docs/` — longer methodology notes. `CHANGELOG.md` — release history.
+- `docs/political-data/` — political institutions & elections audit/design (no canonical political data yet; owner
+  review gate open). `pnpm political-audit:validate` checks the package and blocks premature `src/data` political stores.
 
 ## Commands
 | Task | Command |

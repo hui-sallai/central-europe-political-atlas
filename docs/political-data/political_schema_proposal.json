@@ -1,0 +1,667 @@
+{
+  "schema_version": "political-schema-proposal-v0.1",
+  "state": "proposal_only_no_canonical_files",
+  "audit_date": "2026-10-02",
+  "principles": [
+    "One store per concept — no generic politics.json.",
+    "Every record has a stable opaque or deterministic ID that never encodes a display name.",
+    "Every record has explicit temporal validity (valid_from / valid_to, or the event date/interval it describes); open intervals use null, never a sentinel date.",
+    "Every factual field carries provenance (source_id, source record ID, URL, retrieval time, raw snapshot checksum, published-or-derived flag).",
+    "Facts and measurements are separate layers; measurement values never appear as attributes of factual entities.",
+    "Missing values are null with a status; never 0. Derived values record the formula and inputs.",
+    "Election results are immutable once certified; later composition changes live in a separate store."
+  ],
+  "proposed_store_root": "src/data/political/ (NOT created in this phase; requires owner approval and the ingestion gate)",
+  "id_conventions": {
+    "country_key": "Atlas country slug (e.g. 'czechia'); ISO alpha-2 lower case inside IDs",
+    "party": "pp-<cc>-<NNNN> — opaque sequence per country, assigned once, never reused, never derived from a name (e.g. pp-cz-0042)",
+    "contestant": "ct-<cc>-<NNNN> — opaque; electoral alliances, joint lists and electoral committees that are not parties",
+    "parliamentary_group": "pg-<cc>-<NNNN> — opaque",
+    "person": "pe-<cc>-<NNNNN> — opaque; public-office holders only",
+    "election": "el-<cc>-<chamber>-<YYYY-MM-DD> — deterministic from country, chamber code and first polling day (e.g. el-cz-ps-2025-10-03); the date is a fact, not a name",
+    "legislature": "lg-<cc>-<chamber>-<term> — official term number where one exists (e.g. lg-pl-sejm-10), else lg-<cc>-<chamber>-<YYYY-MM-DD> of the constituent sitting",
+    "cabinet": "cb-<cc>-<NNNN> — opaque; ordered by start date in the store",
+    "ep_group": "epg-<EP org identifier> (e.g. epg-1533) — EP Open Data identifier is itself stable",
+    "measurement": "pm-<source>-<wave>-<source party id>-<variable>",
+    "source": "src-<slug> (see political_source_registry)",
+    "chamber_codes": {
+      "austria": "nr",
+      "croatia": "sabor",
+      "czechia": "ps",
+      "germany": "bt",
+      "hungary": "ogy",
+      "poland": "sejm",
+      "romania": "cd",
+      "serbia": "ns",
+      "slovakia": "nrsr",
+      "slovenia": "dz",
+      "european_parliament": "ep"
+    }
+  },
+  "provenance_object": {
+    "fields": {
+      "source_id": "src-… (registry key)",
+      "source_dataset": "dataset/page title as published",
+      "source_url": "exact URL of the file or page",
+      "source_record_id": "identifier inside the source (e.g. ČSÚ VSTRANA, EP PARTY_ID, ParlGov party_id), or null",
+      "retrieved_at": "ISO 8601 timestamp of retrieval",
+      "raw_snapshot": "{ path, sha256 } of the archived raw response",
+      "fields_covered": "list of fields this source supplies on the record",
+      "official_status": "official | harmonized_academic | measurement | secondary",
+      "value_origin": "published | derived",
+      "derivation": "formula and input record IDs when value_origin = derived, else null",
+      "parser_version": "acquisition script + SHA-256"
+    },
+    "rule": "A record may cite several sources (e.g. official value + ParlGov cross-check); the published value always comes from the highest-tier source, and disagreements are kept as reconciliation records, not overwritten."
+  },
+  "stores": [
+    {
+      "store": "political_source_registry",
+      "file": "political_source_registry.json",
+      "purpose": "Registry of every political source and its terms.",
+      "key": "source_id",
+      "fields": [
+        "source_id",
+        "institution",
+        "institution_native",
+        "country (or 'eu' / 'international')",
+        "tier: tier1_official | tier2_harmonized_academic | measurement_*",
+        "official_status",
+        "dataset",
+        "url",
+        "formats[]",
+        "coverage",
+        "licence {name, url, status, reviewed_at}",
+        "update_frequency",
+        "archive_availability",
+        "access_notes",
+        "fields_supplied[]"
+      ],
+      "readiness": "safe_for_ingestion (metadata only; licences flagged individually)"
+    },
+    {
+      "store": "political_parties",
+      "file": "political_parties.json",
+      "purpose": "Party entities (registered political parties/movements only).",
+      "key": "atlas_party_id",
+      "fields": [
+        "atlas_party_id",
+        "country",
+        "entity_kind = 'party'",
+        "valid_from",
+        "valid_to",
+        "dissolution_basis (source-supported) | null",
+        "registry_ids[] (e.g. national party register number)",
+        "provenance[]"
+      ],
+      "excluded_fields": [
+        "ideology",
+        "family",
+        "left_right",
+        "eu_position",
+        "populism",
+        "extremism",
+        "any score"
+      ],
+      "readiness": "requires_manual_review (identity decisions per country)"
+    },
+    {
+      "store": "party_names",
+      "file": "party_names.json",
+      "purpose": "Time-valid names; historically valid display labels.",
+      "key": "name_id",
+      "fields": [
+        "name_id",
+        "atlas_party_id",
+        "name_type: official_native | official_english | short | abbreviation | alias | transliteration",
+        "value",
+        "language (BCP 47)",
+        "script (Latn/Cyrl)",
+        "valid_from",
+        "valid_to",
+        "provenance"
+      ],
+      "rule": "Display uses the name valid on the record's date; current names never relabel historical records.",
+      "readiness": "safe_with_crosswalk"
+    },
+    {
+      "store": "electoral_contestants",
+      "file": "electoral_contestants.json",
+      "purpose": "Things that appear on ballots but are not parties: electoral alliances, joint lists, electoral committees, leader-named lists, independent lists.",
+      "key": "contestant_id",
+      "fields": [
+        "contestant_id",
+        "country",
+        "contestant_kind: party_list | joint_list | electoral_alliance | electoral_committee | minority_list | independent_list",
+        "election_id (contestants are election-specific)",
+        "registered_label_native",
+        "abbreviation",
+        "lead_party_id | null",
+        "provenance"
+      ],
+      "readiness": "safe_with_crosswalk"
+    },
+    {
+      "store": "contestant_members",
+      "file": "contestant_members.json",
+      "purpose": "Which parties formed a joint list/alliance/committee in one election — source-documented only.",
+      "key": [
+        "contestant_id",
+        "atlas_party_id"
+      ],
+      "fields": [
+        "contestant_id",
+        "atlas_party_id",
+        "membership_basis: official_registration | official_ballot | source_list (e.g. EP COALITION_MEMBERS)",
+        "provenance"
+      ],
+      "readiness": "requires_manual_review"
+    },
+    {
+      "store": "party_relations",
+      "file": "party_relations.json",
+      "purpose": "Explicit, dated relations between party entities (see party_identity_model.json for types).",
+      "key": "relation_id",
+      "fields": [
+        "relation_id",
+        "relation_type",
+        "from_party_id",
+        "to_party_id",
+        "effective_date",
+        "evidence_summary (short, factual)",
+        "status: source_documented | disputed | requires_review",
+        "provenance[]"
+      ],
+      "readiness": "requires_manual_review"
+    },
+    {
+      "store": "party_identity_crosswalk",
+      "file": "party_identity_crosswalk.json",
+      "purpose": "Mapping of source-specific party IDs to Atlas IDs.",
+      "key": [
+        "source_id",
+        "source_party_id",
+        "valid_from"
+      ],
+      "fields": [
+        "source_id",
+        "source_party_id",
+        "source_label",
+        "valid_from",
+        "valid_to",
+        "target_kind: party | contestant | parliamentary_group | ep_national_party",
+        "target_id",
+        "match_basis: official_code | registry_number | documented_rename | manual_review",
+        "match_status: confirmed | provisional | disputed | unmatched",
+        "reviewer_note",
+        "reviewed_at"
+      ],
+      "rule": "Name similarity alone is never a match basis.",
+      "readiness": "requires_manual_review"
+    },
+    {
+      "store": "electoral_systems",
+      "file": "electoral_systems.json",
+      "purpose": "Disclosure of the electoral rules valid for each election (needed when vote and seat shares are shown together).",
+      "key": [
+        "country",
+        "chamber",
+        "valid_from"
+      ],
+      "fields": [
+        "country",
+        "chamber",
+        "valid_from",
+        "valid_to",
+        "system_family (source-defined)",
+        "tiers[] (e.g. list PR, SMD, compensation)",
+        "seat_formula",
+        "district_count",
+        "thresholds[] {applies_to, value, unit}",
+        "legal_basis {title, url}",
+        "provenance"
+      ],
+      "readiness": "requires_manual_review"
+    },
+    {
+      "store": "elections",
+      "file": "elections.json",
+      "purpose": "Election events.",
+      "key": "election_id",
+      "fields": [
+        "election_id",
+        "country",
+        "election_type: national_lower_house | european_parliament",
+        "chamber",
+        "polling_start_date",
+        "polling_end_date",
+        "round (null | 1 | 2)",
+        "legislature_id (the legislature it elected)",
+        "previous_election_id",
+        "electoral_system_ref",
+        "status: scheduled | held | certified | annulled",
+        "certification_date",
+        "provenance"
+      ],
+      "readiness": "safe_with_crosswalk until dates are reconciled against the official authority; requires_manual_review where harmonized dates conflict (PL 2007, SK 2016, SI 2022) and for Serbia"
+    },
+    {
+      "store": "election_turnout",
+      "file": "election_turnout.json",
+      "key": [
+        "election_id",
+        "tier",
+        "geography_level",
+        "geography_code"
+      ],
+      "fields": [
+        "election_id",
+        "tier",
+        "geography_level: national | electoral_district | reporting_unit",
+        "geography_code (official code)",
+        "registered_electorate",
+        "ballots_issued",
+        "ballots_cast",
+        "valid_votes",
+        "invalid_votes",
+        "turnout_pct",
+        "turnout_definition (source wording)",
+        "value_origin per field",
+        "provenance"
+      ],
+      "readiness": "safe_for_ingestion where the official source publishes national totals"
+    },
+    {
+      "store": "election_results",
+      "file": "election_results.json",
+      "key": [
+        "election_id",
+        "tier",
+        "geography_level",
+        "geography_code",
+        "contestant_ref"
+      ],
+      "fields": [
+        "election_id",
+        "tier: list_pr | constituency | national_list | minority | second_vote (DE) | …",
+        "geography_level",
+        "geography_code",
+        "contestant_ref (party_id or contestant_id)",
+        "source_party_label (verbatim)",
+        "votes",
+        "vote_share",
+        "vote_share_basis: valid_votes | votes_cast",
+        "seats",
+        "seat_share",
+        "result_status: provisional | final | certified",
+        "value_origin per field (published | derived)",
+        "derivation",
+        "comparability_flags[]",
+        "provenance"
+      ],
+      "rule": "Certified results are never overwritten by later composition changes.",
+      "readiness": "safe_with_crosswalk (CZ, DE, PL, SK, AT); requires_manual_review (HR, HU, RO, RS, SI)"
+    },
+    {
+      "store": "legislatures",
+      "file": "legislatures.json",
+      "key": "legislature_id",
+      "fields": [
+        "legislature_id",
+        "country",
+        "chamber",
+        "term_number | null",
+        "start_date (constituent sitting)",
+        "end_date | null",
+        "total_seats",
+        "election_id",
+        "provenance"
+      ],
+      "readiness": "safe_with_crosswalk"
+    },
+    {
+      "store": "parliamentary_groups",
+      "file": "parliamentary_groups.json",
+      "key": "group_id",
+      "fields": [
+        "group_id",
+        "legislature_id",
+        "native_name",
+        "valid_from",
+        "valid_to",
+        "constituent_parties[] (dated, source-documented)",
+        "provenance"
+      ],
+      "rule": "A parliamentary group is not a party; CDU/CSU-style shared groups and technical groups are modelled as groups.",
+      "readiness": "requires_manual_review"
+    },
+    {
+      "store": "parliamentary_composition",
+      "file": "parliamentary_composition.json",
+      "key": [
+        "legislature_id",
+        "unit_ref",
+        "effective_date"
+      ],
+      "fields": [
+        "legislature_id",
+        "unit_ref (group_id or atlas_party_id)",
+        "unit_kind",
+        "seats",
+        "vacancies | null",
+        "effective_date",
+        "change_reason: constituent | defection | group_split | group_merger | vacancy | replacement | by_election | court_decision | other_source_documented | null",
+        "provenance"
+      ],
+      "rule": "Separate from election_results; snapshots by effective date; never back-filled into election results.",
+      "readiness": "requires_manual_review"
+    },
+    {
+      "store": "political_persons",
+      "file": "political_persons.json",
+      "key": "person_id",
+      "fields": [
+        "person_id",
+        "country",
+        "name (as officially published)",
+        "name_variants[]",
+        "source_ids[]",
+        "provenance"
+      ],
+      "excluded_fields": [
+        "birth date",
+        "birth place",
+        "email",
+        "image",
+        "private contact data"
+      ],
+      "readiness": "safe_with_crosswalk (public-office identity only)"
+    },
+    {
+      "store": "cabinets",
+      "file": "cabinets.json",
+      "key": "cabinet_id",
+      "fields": [
+        "cabinet_id",
+        "country",
+        "official_name | null",
+        "head_of_government_person_id",
+        "appointment_date",
+        "start_date (taking office)",
+        "end_date | null",
+        "termination_date | null (if distinct)",
+        "end_reason (source wording/category) | null",
+        "caretaker_period {from, to} | null",
+        "previous_cabinet_id",
+        "provenance"
+      ],
+      "source_defined_attributes": "government type (majority/minority, single-party/coalition, technocratic) only as cabinet_classification_measurement rows with source and definition",
+      "readiness": "safe_with_crosswalk (2000–2023 official + ParlGov cross-check); requires_manual_review after 2023 and for Serbia"
+    },
+    {
+      "store": "cabinet_parties",
+      "file": "cabinet_parties.json",
+      "key": [
+        "cabinet_id",
+        "atlas_party_id",
+        "valid_from"
+      ],
+      "fields": [
+        "cabinet_id",
+        "atlas_party_id",
+        "valid_from",
+        "valid_to",
+        "role: head_of_government_party | coalition_member | support_without_ministers (only if source-defined)",
+        "provenance"
+      ],
+      "rule": "Coalition participation is never used as ideological evidence.",
+      "readiness": "safe_with_crosswalk"
+    },
+    {
+      "store": "ep_terms_and_groups",
+      "file": "ep_political_groups.json",
+      "key": "ep_group_id",
+      "fields": [
+        "ep_group_id (EP org id)",
+        "acronym_by_term[]",
+        "name_by_term[]",
+        "valid_from",
+        "valid_to",
+        "provenance"
+      ],
+      "readiness": "safe_with_crosswalk"
+    },
+    {
+      "store": "ep_national_party_results",
+      "file": "ep_national_party_results.json",
+      "key": [
+        "election_id",
+        "contestant_ref"
+      ],
+      "fields": [
+        "election_id (el-<cc>-ep-YYYY-MM-DD)",
+        "contestant_ref",
+        "ep_party_id_in_term (e.g. HU01)",
+        "vote_share",
+        "seats",
+        "group_at_constitutive_session (ep_group_id)",
+        "update_status",
+        "provenance"
+      ],
+      "readiness": "safe_with_crosswalk (2009–2024); 2004 vote shares missing → null with status"
+    },
+    {
+      "store": "party_ep_group_affiliation",
+      "file": "party_ep_group_affiliation.json",
+      "key": [
+        "atlas_party_id",
+        "ep_group_id",
+        "valid_from"
+      ],
+      "fields": [
+        "atlas_party_id",
+        "ep_group_id",
+        "valid_from",
+        "valid_to",
+        "basis: constitutive_session_seats | mep_membership_aggregate | official_statement",
+        "mep_count_basis",
+        "provenance"
+      ],
+      "rule": "Dated relation; a party's later group never labels earlier terms; split delegations are represented as several concurrent rows.",
+      "readiness": "safe_with_crosswalk"
+    },
+    {
+      "store": "party_position_measurements",
+      "file": "measurements/party_position_measurements.json",
+      "layer": "analytical_measurement (separate from facts)",
+      "key": "measurement_id",
+      "fields": [
+        "measurement_id",
+        "atlas_party_id | null",
+        "source_id (src-ches | src-manifesto)",
+        "source_party_id",
+        "wave_or_version",
+        "survey_instrument (e.g. CHES 2024 Europe, CHES 2019 candidate)",
+        "variable (source-native name, e.g. lrgen)",
+        "variable_label (source wording)",
+        "value",
+        "scale {min, max, direction as defined by source}",
+        "uncertainty {sd, n_experts} | null",
+        "methodology: expert_survey | manifesto_coding",
+        "citation",
+        "licence_status"
+      ],
+      "rule": "Never joined into political_parties; never averaged across sources; never re-scaled into an Atlas score.",
+      "readiness": "license_review_required"
+    },
+    {
+      "store": "party_classification_measurements",
+      "file": "measurements/party_classification_measurements.json",
+      "layer": "analytical_measurement",
+      "key": "classification_id",
+      "fields": [
+        "classification_id",
+        "atlas_party_id",
+        "source_id",
+        "classification_system (e.g. 'ParlGov party family', 'CHES family', 'Manifesto parfam')",
+        "category (source label verbatim)",
+        "wave_or_version",
+        "valid_for_period | null",
+        "citation"
+      ],
+      "rule": "No 'correct' family; presentation names the system ('ParlGov family: …').",
+      "readiness": "descriptive_only (ParlGov, CC0); license_review_required (CHES, Manifesto)"
+    },
+    {
+      "store": "cabinet_classification_measurements",
+      "file": "measurements/cabinet_classification_measurements.json",
+      "layer": "analytical_measurement",
+      "fields": [
+        "cabinet_id",
+        "source_id",
+        "attribute (e.g. caretaker, majority_status)",
+        "value (source label)",
+        "definition (source wording)",
+        "version",
+        "citation"
+      ],
+      "readiness": "descriptive_only"
+    },
+    {
+      "store": "reconciliation_log",
+      "file": "reconciliation_log.json",
+      "purpose": "Disagreements between sources (e.g. ParlGov date vs official date) and their resolution.",
+      "fields": [
+        "record_ref",
+        "field",
+        "values_by_source[]",
+        "resolution: official_value_used | unresolved",
+        "note",
+        "reviewed_at"
+      ],
+      "readiness": "safe_for_ingestion"
+    }
+  ],
+  "prohibited_fields_and_scores": {
+    "never_create": [
+      "atlas_left_right_score",
+      "atlas_populism_score",
+      "atlas_pro_eu_score",
+      "atlas_extremism_score",
+      "democratic_quality_score",
+      "government_performance_score",
+      "political_risk_score",
+      "party_ranking",
+      "election_win_probability",
+      "voter_preference_estimate"
+    ],
+    "never_as_factual_party_attribute": [
+      "ideology",
+      "left_right",
+      "eu_position",
+      "galtan",
+      "party_family",
+      "populist",
+      "extreme",
+      "pro_european",
+      "anti_european"
+    ],
+    "rule": "A future synthetic measure requires a separately approved methodology document; this proposal defines none."
+  },
+  "temporal_integrity_rules": [
+    "Every query is evaluated as of a date: names, groups, affiliations and memberships are selected by validity interval at that date.",
+    "A cabinet is not shown before its start_date; an elected legislature is not shown as sitting before its start_date.",
+    "EP group affiliation is per term and dated; the current group never labels a past record.",
+    "Renamed parties keep the historically valid name in historical views.",
+    "Validator: intervals must not overlap where exclusivity is required (e.g. one head of government per country per day; one valid official name per party per language)."
+  ],
+  "readiness_classification": {
+    "classes": [
+      "safe_for_ingestion",
+      "safe_with_crosswalk",
+      "descriptive_only",
+      "requires_manual_review",
+      "license_review_required",
+      "not_ready"
+    ],
+    "rule": "requires_manual_review and license_review_required records are never ingested automatically.",
+    "datasets": [
+      {
+        "dataset": "political_source_registry",
+        "class": "safe_for_ingestion"
+      },
+      {
+        "dataset": "elections (national lower house, official dates)",
+        "class": "safe_with_crosswalk",
+        "except": "poland, slovakia, slovenia (date conflicts) and serbia → requires_manual_review"
+      },
+      {
+        "dataset": "election_turnout national (AT, CZ, DE, PL, SK)",
+        "class": "safe_for_ingestion",
+        "licence_gate": "all except DE are license_review_required first"
+      },
+      {
+        "dataset": "election_results national (AT, CZ, DE, PL, SK)",
+        "class": "safe_with_crosswalk"
+      },
+      {
+        "dataset": "election_results (HR, HU, RO, RS, SI)",
+        "class": "requires_manual_review"
+      },
+      {
+        "dataset": "ep_national_party_results 2009–2024",
+        "class": "safe_with_crosswalk",
+        "licence_gate": "license_review_required (EP legal notice)"
+      },
+      {
+        "dataset": "party_ep_group_affiliation (EP Open Data)",
+        "class": "safe_with_crosswalk",
+        "licence_gate": "license_review_required"
+      },
+      {
+        "dataset": "political_parties / party_relations / crosswalk",
+        "class": "requires_manual_review"
+      },
+      {
+        "dataset": "legislatures",
+        "class": "safe_with_crosswalk"
+      },
+      {
+        "dataset": "parliamentary_composition",
+        "class": "requires_manual_review"
+      },
+      {
+        "dataset": "cabinets 2000–2023 (9 EU countries)",
+        "class": "safe_with_crosswalk"
+      },
+      {
+        "dataset": "cabinets after 2023 and Serbia",
+        "class": "requires_manual_review"
+      },
+      {
+        "dataset": "ParlGov party family / cabinet attributes",
+        "class": "descriptive_only"
+      },
+      {
+        "dataset": "CHES positions",
+        "class": "license_review_required"
+      },
+      {
+        "dataset": "Manifesto measures",
+        "class": "license_review_required"
+      },
+      {
+        "dataset": "constituency results and geometries",
+        "class": "not_ready"
+      },
+      {
+        "dataset": "presidential elections",
+        "class": "not_ready (later module)"
+      },
+      {
+        "dataset": "opinion polling",
+        "class": "not_ready (excluded)"
+      }
+    ]
+  }
+}

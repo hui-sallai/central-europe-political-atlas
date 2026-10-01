@@ -1,0 +1,1041 @@
+{
+  "schema_version": "political-national-election-source-registry-v0.1-audit",
+  "state": "audit_only_no_ingestion",
+  "audit_date": "2026-10-02",
+  "scope": "National lower-house (or unicameral) parliamentary elections, ten Atlas countries, target horizon 2000–latest. Presidential, local, regional and referendum votes are out of scope for the first production pass.",
+  "verification_legend": {
+    "verified_live": "Fetched from the named URL during this audit (2026-10-02); the stated format/field was observed in the response.",
+    "verified_harmonized": "Taken from a harmonized academic dataset (ParlGov development 2023-11-04 / stable 2024 release); must be reconciled with the official source before ingestion.",
+    "verified_secondary": "Reported by press or encyclopaedic sources; not yet confirmed against the official authority.",
+    "background_to_verify": "Background knowledge of electoral law/structure; must be confirmed against the cited legal or official source before ingestion.",
+    "not_located": "Searched for in this audit but not found; absence is not evidence that it does not exist."
+  },
+  "field_legend": {
+    "fields_available": "Fields observed in the official machine-readable source (true), absent (false) or not checked (null).",
+    "national_total": "true when the official source publishes a national total row; 'derived' when national totals must be summed from districts (derivation must then be recorded)."
+  },
+  "countries": [
+    {
+      "country": "austria",
+      "iso3": "AUT",
+      "chamber": {
+        "name_native": "Nationalrat",
+        "name_en": "National Council",
+        "seats": 183,
+        "seats_verification": "verified_live (BMI Nationalratswahlen page: 183 Abgeordnete)"
+      },
+      "authoritative_source": {
+        "institution": "Bundesministerium für Inneres (BMI) — Bundeswahlbehörde",
+        "role": "national election authority; final result determined by the Bundeswahlbehörde",
+        "url": "https://www.bmi.gv.at/412/Nationalratswahlen/"
+      },
+      "elections_2000_latest": [
+        {
+          "date": "2002-11-24",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2006-10-01",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2008-09-28",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2013-09-29",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2017-10-15",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2019-09-29",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2024-09-29",
+          "verification": "background_to_verify (BMI page nationalratswahl_2024 verified_live; date to read from the final result decision)"
+        }
+      ],
+      "result_sources": [
+        {
+          "coverage": "2024",
+          "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_16102024.xlsx",
+          "format": "XLSX (plus signed PDF and PDF seat table endgueltiger_mandatsspiegel)",
+          "levels": [
+            "federal",
+            "Land",
+            "Bezirk/Gemeinde (GKZ)",
+            "postal-vote pseudo-units (Wahlkarten)"
+          ],
+          "verification": "verified_live",
+          "fields_available": {
+            "registered_electorate": true,
+            "ballots_cast": true,
+            "invalid_votes": true,
+            "valid_votes": true,
+            "party_votes": true,
+            "vote_share": true,
+            "seats": false,
+            "seat_share": false,
+            "turnout": "derived"
+          },
+          "notes": "Seats are in the separate final seat-table PDF (Mandatsspiegel), not in the XLSX. Rows coded 'Wahlkarten - <unit>' have electorate 0 and are postal-vote counting units, not geography."
+        },
+        {
+          "coverage": "1995–2019",
+          "url": "https://www.bmi.gv.at/412/Nationalratswahlen/",
+          "format": "per-election pages (nationalratswahl_1995 … nationalratswahl_2019) — file formats not checked per election",
+          "verification": "verified_live (index of election pages only)"
+        }
+      ],
+      "machine_readable": "partial: XLSX for 2024 verified; earlier elections to be checked election by election",
+      "constituency_level": {
+        "available": true,
+        "levels": "9 Landeswahlkreise, 39 Regionalwahlkreise (verified_live from BMI page); municipal rows in result file"
+      },
+      "national_total": true,
+      "threshold": {
+        "value": "4% of valid votes nationally, or one Regionalwahlkreis basic mandate",
+        "verification": "background_to_verify (Nationalrats-Wahlordnung 1992)"
+      },
+      "licensing": {
+        "terms": "not located on the result page",
+        "status": "license_review_required",
+        "note": "Austrian official works may be exempt from copyright (§7 UrhG); reuse terms of the BMI site still to be confirmed."
+      },
+      "stable_urls": "per-election directory under /412/nationalratswahlen/nationalratswahl_YYYY/; file names embed the decision date",
+      "known_definition_issues": [
+        "vote_share in source is % of valid votes",
+        "postal votes counted in separate pseudo-units",
+        "seat allocation in three tiers (Regional-, Landes-, Bundeswahlkreis) — national seat totals must come from the official seat table"
+      ],
+      "recommended_production_source": "BMI final-result files per election (XLSX where published) + official seat table",
+      "fallback_source": "ParlGov stable 2024 release (CC0) for 2002–2019 cross-check only; never as the published value",
+      "unresolved_risks": [
+        "pre-2024 file formats unverified",
+        "BMI reuse terms not located"
+      ],
+      "readiness": {
+        "elections": "safe_with_crosswalk",
+        "results": "safe_with_crosswalk",
+        "turnout": "safe_for_ingestion",
+        "licence_gate": "license_review_required",
+        "elections_note": "dates are harmonized/secondary until reconciled against the official authority"
+      }
+    },
+    {
+      "country": "croatia",
+      "iso3": "HRV",
+      "chamber": {
+        "name_native": "Hrvatski sabor",
+        "name_en": "Croatian Parliament",
+        "seats": "151 (2024; varies 100–160 by law)",
+        "seats_verification": "background_to_verify"
+      },
+      "authoritative_source": {
+        "institution": "Državno izborno povjerenstvo Republike Hrvatske (DIP / State Electoral Commission)",
+        "url": "https://www.izbori.hr/"
+      },
+      "elections_2000_latest": [
+        {
+          "date": "2000-01-03",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2003-11-23",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2007-11-25",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2011-12-04",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2015-11-08",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2016-09-11",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2020-07-05",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2024-04-17",
+          "verification": "verified_secondary (final results published by DIP 2024-04-29)"
+        }
+      ],
+      "result_sources": [
+        {
+          "coverage": "2000, 2003, 2007, 2011, 2015, 2016, 2020",
+          "url": "https://data.gov.hr/ckan/dataset/izbori-za-zastupnike-u-hrvatski-sabor",
+          "format": "ZIP of CSV per electoral district (e.g. 2020 CSV/02_01_rezultati.csv, _inozemstvo, _posebna)",
+          "levels": [
+            "electoral district (I–X)",
+            "diaspora (XI)",
+            "national minorities (XII)",
+            "polling station (2000 RezultatiPoBM)"
+          ],
+          "verification": "verified_live (data.gov.hr package listing 7 ZIPs; 2000 and 2020 archives downloaded and listed)",
+          "fields_available": {
+            "registered_electorate": null,
+            "ballots_cast": null,
+            "invalid_votes": null,
+            "valid_votes": null,
+            "party_votes": true,
+            "vote_share": null,
+            "seats": null,
+            "seat_share": null,
+            "turnout": null
+          }
+        },
+        {
+          "coverage": "2024",
+          "url": "https://sabor.hr/sites/default/files/uploads/inline-files/DIP_Konacni_rezultati_parl_izbora_29_4_2024.pdf",
+          "format": "PDF (final results decision); DIP site has an 'Rezultati izbora - otvoreni podaci' section rendered by script",
+          "verification": "verified_secondary (PDF located by search; machine-readable 2024 files not_located)"
+        }
+      ],
+      "machine_readable": "CSV archives 2000–2020 verified; 2024 machine-readable files not located",
+      "constituency_level": {
+        "available": true,
+        "levels": "10 territorial districts (14 seats each), diaspora district XI, minority district XII",
+        "verification": "background_to_verify"
+      },
+      "national_total": "derived",
+      "threshold": {
+        "value": "5% per electoral district",
+        "verification": "background_to_verify (Zakon o izborima zastupnika u Hrvatski sabor)"
+      },
+      "licensing": {
+        "terms": "data.gov.hr package has no licence field",
+        "status": "license_review_required",
+        "note": "Croatian right to access and re-use information applies; terms to confirm with DIP."
+      },
+      "stable_urls": "archive pattern /arhiva-izbora/data/parlament/YYYY/zip/rezultati.zip (2000–2016); 2020 under /site/UserDocsImages/…",
+      "known_definition_issues": [
+        "no national list: national vote totals and shares must be summed across districts I–X (+XI) and the derivation recorded",
+        "minority district XII votes are not comparable with list votes",
+        "district-level coalitions differ in composition"
+      ],
+      "recommended_production_source": "DIP CSV archives per district; DIP final decision for 2024 once machine-readable data are located",
+      "fallback_source": "ParlGov stable 2024 release for 2000–2020 national aggregates (cross-check only)",
+      "unresolved_risks": [
+        "2024 machine-readable data not located",
+        "district coalitions vs national party identity",
+        "national aggregation is derived"
+      ],
+      "readiness": {
+        "elections": "safe_with_crosswalk",
+        "results": "requires_manual_review",
+        "turnout": "requires_manual_review",
+        "licence_gate": "license_review_required",
+        "elections_note": "dates are harmonized/secondary until reconciled against the official authority"
+      }
+    },
+    {
+      "country": "czechia",
+      "iso3": "CZE",
+      "chamber": {
+        "name_native": "Poslanecká sněmovna Parlamentu ČR",
+        "name_en": "Chamber of Deputies",
+        "seats": 200,
+        "seats_verification": "background_to_verify"
+      },
+      "authoritative_source": {
+        "institution": "Český statistický úřad (ČSÚ) — results processing; Státní volební komise — certification",
+        "url": "https://volby.gov.cz/"
+      },
+      "elections_2000_latest": [
+        {
+          "date": "2002-06-14/15",
+          "verification": "verified_harmonized (ParlGov 2002-06-15; two-day election)"
+        },
+        {
+          "date": "2006-06-02/03",
+          "verification": "verified_harmonized (ParlGov 2006-06-03)"
+        },
+        {
+          "date": "2010-05-28/29",
+          "verification": "verified_harmonized (ParlGov 2010-05-29)"
+        },
+        {
+          "date": "2013-10-25/26",
+          "verification": "verified_harmonized (ParlGov 2013-10-25)"
+        },
+        {
+          "date": "2017-10-20/21",
+          "verification": "verified_harmonized (ParlGov 2017-10-21)"
+        },
+        {
+          "date": "2021-10-08/09",
+          "verification": "verified_harmonized (ParlGov 2021-10-09)"
+        },
+        {
+          "date": "2025-10-03/04",
+          "verification": "verified_live (ps2025 open data generated 2025-10-05T02:26); exact polling days background_to_verify"
+        }
+      ],
+      "result_sources": [
+        {
+          "coverage": "2002, 2006, 2010, 2013, 2017, 2021, 2025",
+          "url": "https://volby.gov.cz/opendata/opendata.htm",
+          "format": "XML (XSD documented) for 2002–2025; 2025 also CSV (CSVW), JSON and XLSX zip packages",
+          "levels": [
+            "national",
+            "kraj (region = electoral district)",
+            "okres",
+            "obec",
+            "okrsek (polling district)",
+            "abroad"
+          ],
+          "verification": "verified_live",
+          "fields_available": {
+            "registered_electorate": true,
+            "ballots_cast": true,
+            "invalid_votes": "derived (issued vs valid envelopes)",
+            "valid_votes": true,
+            "party_votes": true,
+            "vote_share": true,
+            "seats": true,
+            "seat_share": true,
+            "turnout": true
+          },
+          "source_ids": "VSTRANA = ČSÚ registered party/movement code (stable across elections); KSTRANA = ballot number for one election only"
+        }
+      ],
+      "machine_readable": "yes, all elections since 2002 (XML); richest formats for 2025",
+      "constituency_level": {
+        "available": true,
+        "levels": "14 regions as electoral districts; municipal and polling-district results"
+      },
+      "national_total": true,
+      "threshold": {
+        "value": "5% single party; 8% two-party coalition; 11% three or more (since 2021 reform)",
+        "verification": "background_to_verify (Act 247/1995 as amended 2021)"
+      },
+      "licensing": {
+        "terms": "ČSÚ publishes 'Podmínky pro využívání a další zveřejňování statistických údajů ČSÚ' (terms located, clauses not reviewed)",
+        "status": "license_review_required",
+        "url": "https://csu.gov.cz/otevrena_data"
+      },
+      "stable_urls": "/opendata/psYYYY/… and /appdata/psYYYY/odata/vysledky.xml",
+      "known_definition_issues": [
+        "two-day elections: election_date must be a start/end interval",
+        "coalition lists (e.g. SPOLU, PirSTAN) are contestants distinct from member parties",
+        "name reuse: a 2025 list 'ČSSD – Česká suverenita sociální demokracie' (VSTRANA 759) must not be assumed identical to the historical ČSSD renamed SOCDEM in 2023 without registry evidence"
+      ],
+      "recommended_production_source": "ČSÚ open data XML/CSVW per election",
+      "fallback_source": "ParlGov stable 2024 release (cross-check 2002–2021)",
+      "unresolved_risks": [
+        "licence clauses not yet reviewed",
+        "VSTRANA continuity across renames to be confirmed against the Ministry of the Interior party register"
+      ],
+      "readiness": {
+        "elections": "safe_with_crosswalk",
+        "results": "safe_with_crosswalk",
+        "turnout": "safe_for_ingestion",
+        "licence_gate": "license_review_required",
+        "elections_note": "dates are harmonized/secondary until reconciled against the official authority"
+      }
+    },
+    {
+      "country": "germany",
+      "iso3": "DEU",
+      "chamber": {
+        "name_native": "Deutscher Bundestag",
+        "name_en": "Federal Diet",
+        "seats": "variable before 2025 (overhang/levelling seats); 630 from 2025 under the 2023 electoral law",
+        "seats_verification": "background_to_verify"
+      },
+      "authoritative_source": {
+        "institution": "Die Bundeswahlleiterin (Federal Returning Officer), with Destatis",
+        "url": "https://www.bundeswahlleiterin.de/"
+      },
+      "elections_2000_latest": [
+        {
+          "date": "2002-09-22",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2005-09-18",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2009-09-27",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2013-09-22",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2017-09-24",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2021-09-26",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2025-02-23",
+          "verification": "background_to_verify (2025 open-data page verified_live)"
+        }
+      ],
+      "result_sources": [
+        {
+          "coverage": "1949–2025, national and Länder",
+          "url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+          "format": "CSV (UTF-8 with BOM, ';')",
+          "levels": [
+            "federal",
+            "Land"
+          ],
+          "verification": "verified_live (header: 'Wahlberechtigte, Wählende, Stimmabgabe und Sitzverteilung bei den Bundestagswahlen seit 1949 nach Ländern'; licence line dl-de/by-2-0)",
+          "fields_available": {
+            "registered_electorate": true,
+            "ballots_cast": true,
+            "invalid_votes": true,
+            "valid_votes": true,
+            "party_votes": true,
+            "vote_share": null,
+            "seats": true,
+            "seat_share": null,
+            "turnout": null
+          }
+        },
+        {
+          "coverage": "2013, 2017, 2021, 2025 (Wahlkreis level)",
+          "url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2025/ergebnisse/opendata.html",
+          "format": "CSV (kerg.csv, kerg2.csv) and XML (gesamtergebnis, sitze)",
+          "levels": [
+            "federal",
+            "Land",
+            "Wahlkreis",
+            "Wahlbezirk (2025 btw25_wbz.zip)"
+          ],
+          "verification": "verified_live"
+        }
+      ],
+      "machine_readable": "yes",
+      "constituency_level": {
+        "available": true,
+        "levels": "299 Wahlkreise (boundaries revised between elections)"
+      },
+      "national_total": true,
+      "threshold": {
+        "value": "5% of second votes or 3 constituency seats (basic-mandate clause retained after the 2024 Federal Constitutional Court ruling)",
+        "verification": "background_to_verify (BWahlG)"
+      },
+      "licensing": {
+        "terms": "Datenlizenz Deutschland – Namensnennung – Version 2.0; reuse for commercial and non-commercial purposes with source 'Die Bundeswahlleiterin, Wiesbaden'",
+        "status": "verified_open_licence",
+        "url": "https://www.govdata.de/dl-de/by-2-0"
+      },
+      "stable_urls": "/bundestagswahlen/YYYY/ergebnisse/…; dam/jcr UUID paths for files",
+      "known_definition_issues": [
+        "party vote share must be based on second votes (Zweitstimmen); first-vote (Erststimmen) results are a separate tier",
+        "CDU and CSU are separate parties forming one Bundestag parliamentary group — contestants, parties and group must stay distinct",
+        "seat totals vary by election before 2025 (overhang/levelling seats)"
+      ],
+      "recommended_production_source": "btw_ab49_datenbank_ergebnisse.csv for national/Länder totals; per-election kerg files for checks",
+      "fallback_source": "ParlGov stable 2024 release (cross-check)",
+      "unresolved_risks": [
+        "Wahlkreis boundary changes across elections (constituency layer not_ready)"
+      ],
+      "readiness": {
+        "elections": "safe_with_crosswalk",
+        "results": "safe_with_crosswalk",
+        "turnout": "safe_for_ingestion",
+        "licence_gate": "verified_open_licence",
+        "elections_note": "dates are harmonized/secondary until reconciled against the official authority"
+      }
+    },
+    {
+      "country": "hungary",
+      "iso3": "HUN",
+      "chamber": {
+        "name_native": "Országgyűlés",
+        "name_en": "National Assembly",
+        "seats": "386 (until 2010); 199 (from 2014)",
+        "seats_verification": "background_to_verify"
+      },
+      "authoritative_source": {
+        "institution": "Nemzeti Választási Iroda (NVI) / Nemzeti Választási Bizottság (NVB)",
+        "url": "https://www.valasztas.hu/"
+      },
+      "elections_2000_latest": [
+        {
+          "date": "2002-04-07/21",
+          "verification": "verified_harmonized (ParlGov 2002-04-21; two rounds until 2010)"
+        },
+        {
+          "date": "2006-04-09/23",
+          "verification": "verified_harmonized (ParlGov 2006-04-09)"
+        },
+        {
+          "date": "2010-04-11/25",
+          "verification": "verified_harmonized (ParlGov 2010-04-25)"
+        },
+        {
+          "date": "2014-04-06",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2018-04-08",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2022-04-03",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2026-04-12",
+          "verification": "verified_secondary (press coverage of NVI results; results app vtr.valasztas.hu/ogy2026 verified_live)"
+        }
+      ],
+      "result_sources": [
+        {
+          "coverage": "2014–2026",
+          "url": "https://vtr.valasztas.hu/ogy2026",
+          "format": "results web application (JavaScript); bulk download not_located in this audit",
+          "levels": [
+            "national list",
+            "single-member districts",
+            "polling station"
+          ],
+          "verification": "verified_live (application shell only)"
+        },
+        {
+          "coverage": "2002–2010",
+          "url": "https://www.valasztas.hu/",
+          "format": "archive pages (orszaggyulesi-valasztasok); formats not checked",
+          "verification": "not_located"
+        }
+      ],
+      "machine_readable": "unverified",
+      "constituency_level": {
+        "available": true,
+        "levels": "106 single-member districts from 2014 (176 before); national list tier; nationality lists",
+        "verification": "background_to_verify"
+      },
+      "national_total": true,
+      "threshold": {
+        "value": "5% single party; 10% two-party joint list; 15% three or more",
+        "verification": "background_to_verify (Act CCIII of 2011)"
+      },
+      "licensing": {
+        "terms": "not located",
+        "status": "license_review_required"
+      },
+      "stable_urls": "per-election application paths (ogy2018, ogy2022, ogy2026)",
+      "known_definition_issues": [
+        "mixed system: list votes, SMD votes and surplus/fragment votes are different tiers; national list vote share is the comparable tier",
+        "joint lists (e.g. Fidesz–KDNP) are contestants distinct from member parties",
+        "2002–2010 two-round system with regional lists",
+        "nationality (minority) lists and preferential quota"
+      ],
+      "recommended_production_source": "NVI official results, once a bulk machine-readable export is identified",
+      "fallback_source": "ParlGov stable 2024 release (2002–2022, cross-check only)",
+      "unresolved_risks": [
+        "no verified bulk format",
+        "tier choice must be fixed before ingestion",
+        "2026 results only verified via secondary sources so far"
+      ],
+      "readiness": {
+        "elections": "safe_with_crosswalk",
+        "results": "requires_manual_review",
+        "turnout": "requires_manual_review",
+        "licence_gate": "license_review_required",
+        "elections_note": "dates are harmonized/secondary until reconciled against the official authority"
+      }
+    },
+    {
+      "country": "poland",
+      "iso3": "POL",
+      "chamber": {
+        "name_native": "Sejm Rzeczypospolitej Polskiej",
+        "name_en": "Sejm",
+        "seats": 460,
+        "seats_verification": "background_to_verify"
+      },
+      "authoritative_source": {
+        "institution": "Państwowa Komisja Wyborcza (PKW) / Krajowe Biuro Wyborcze",
+        "url": "https://pkw.gov.pl/"
+      },
+      "elections_2000_latest": [
+        {
+          "date": "2001-09-23",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2005-09-25",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2007-10-21",
+          "verification": "verified_harmonized (ParlGov 2007-10-19 — date conflict to reconcile with PKW)"
+        },
+        {
+          "date": "2011-10-09",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2015-10-25",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2019-10-13",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2023-10-15",
+          "verification": "verified_live (sejmsenat2023.pkw.gov.pl)"
+        }
+      ],
+      "result_sources": [
+        {
+          "coverage": "2023",
+          "url": "https://sejmsenat2023.pkw.gov.pl/sejmsenat2023/pl/dane_w_arkuszach",
+          "format": "ZIP of UTF-8 CSV and XLSX (e.g. data/csv/wyniki_gl_na_listy_po_okregach_sejm_csv.zip, …po_gminach…)",
+          "levels": [
+            "national",
+            "Sejm district (41)",
+            "gmina",
+            "polling station"
+          ],
+          "verification": "verified_live (CSV header: Nr okręgu; Liczba wyborców uprawnionych do głosowania; …)",
+          "fields_available": {
+            "registered_electorate": true,
+            "ballots_cast": true,
+            "invalid_votes": true,
+            "valid_votes": true,
+            "party_votes": true,
+            "vote_share": null,
+            "seats": null,
+            "seat_share": null,
+            "turnout": null
+          }
+        },
+        {
+          "coverage": "2001–2019",
+          "url": "https://pkw.gov.pl/wybory-i-referenda",
+          "format": "per-election archive sites (formats vary; not checked)",
+          "verification": "verified_live (archive index)"
+        }
+      ],
+      "machine_readable": "yes for 2023; earlier elections to be checked per archive site",
+      "constituency_level": {
+        "available": true,
+        "levels": "41 Sejm districts; gmina; polling station"
+      },
+      "national_total": true,
+      "threshold": {
+        "value": "5% electoral committee; 8% coalition committee; exemption for national-minority committees",
+        "verification": "background_to_verify (Kodeks wyborczy)"
+      },
+      "licensing": {
+        "terms": "not located",
+        "status": "license_review_required"
+      },
+      "stable_urls": "election-specific subdomains (sejmsenat2023.pkw.gov.pl, sejmsenat2019.pkw.gov.pl, …)",
+      "known_definition_issues": [
+        "contestants are electoral committees (komitety), which may be coalitions of parties (e.g. KO, Trzecia Droga) — committee ≠ party",
+        "minority committees exempt from threshold"
+      ],
+      "recommended_production_source": "PKW CSV/XLSX per election",
+      "fallback_source": "ParlGov stable 2024 release (2001–2019 cross-check)",
+      "unresolved_risks": [
+        "archive formats 2001–2019 unverified",
+        "committee-to-party crosswalk"
+      ],
+      "readiness": {
+        "elections": "requires_manual_review",
+        "results": "safe_with_crosswalk",
+        "turnout": "safe_for_ingestion",
+        "licence_gate": "license_review_required",
+        "elections_note": "harmonized date conflicts with expected official date; reconcile against Tier 1 first"
+      }
+    },
+    {
+      "country": "romania",
+      "iso3": "ROU",
+      "chamber": {
+        "name_native": "Camera Deputaților",
+        "name_en": "Chamber of Deputies (lower chamber of a bicameral parliament)",
+        "seats": "varies by election (incl. national-minority seats)",
+        "seats_verification": "background_to_verify"
+      },
+      "authoritative_source": {
+        "institution": "Biroul Electoral Central (BEC) — results; Autoritatea Electorală Permanentă (AEP) — archive/open data",
+        "url": "https://www.roaep.ro/"
+      },
+      "elections_2000_latest": [
+        {
+          "date": "2000-11-26",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2004-11-28",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2008-11-30",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2012-12-09",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2016-12-11",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2020-12-06",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2024-12-01",
+          "verification": "background_to_verify (date inferred from the AEP URL path parlamentare01122024; portal returned HTTP 418, BEC site HTTP 503)"
+        }
+      ],
+      "result_sources": [
+        {
+          "coverage": "2012, 2016",
+          "url": "https://data.gov.ro/dataset/alegeri_parlamentare_2016",
+          "format": "CSV, XLS/XLSX on data.gov.ro (publisher AEP)",
+          "verification": "verified_live (package metadata)",
+          "licence": "OGL-ROU-1.0"
+        },
+        {
+          "coverage": "2020, 2024",
+          "url": "https://prezenta.roaep.ro/parlamentare01122024/",
+          "format": "AEP results/turnout portal",
+          "verification": "access_blocked_from_audit_environment (HTTP 418); parlamentare2024.bec.ro returned HTTP 503"
+        }
+      ],
+      "machine_readable": "partial: 2012/2016 verified; 2020/2024 not reachable by automated client",
+      "constituency_level": {
+        "available": true,
+        "levels": "43 constituencies (41 counties, Bucharest, diaspora)",
+        "verification": "background_to_verify"
+      },
+      "national_total": true,
+      "threshold": {
+        "value": "5% party; higher sliding thresholds for alliances; minority organisations under special rules",
+        "verification": "background_to_verify (Law 208/2015)"
+      },
+      "licensing": {
+        "terms": "OGL-ROU-1.0 for AEP datasets on data.gov.ro",
+        "status": "verified_open_licence (2012, 2016 only)"
+      },
+      "stable_urls": "unstable: per-election subdomains; bot protection",
+      "known_definition_issues": [
+        "electoral system changed 2008 (uninominal colleges) and 2016 (return to list PR)",
+        "Chamber vs Senate results must not be mixed",
+        "minority organisations' seats allocated outside the threshold"
+      ],
+      "recommended_production_source": "BEC/AEP official results; manual archival retrieval for 2020 and 2024",
+      "fallback_source": "ParlGov stable 2024 release (2000–2020 cross-check)",
+      "unresolved_risks": [
+        "automated access blocked",
+        "pre-2012 formats unknown",
+        "system changes break comparability"
+      ],
+      "readiness": {
+        "elections": "safe_with_crosswalk",
+        "results": "requires_manual_review",
+        "turnout": "requires_manual_review",
+        "licence_gate": "partial (2012/2016 verified)",
+        "elections_note": "dates are harmonized/secondary until reconciled against the official authority"
+      }
+    },
+    {
+      "country": "serbia",
+      "iso3": "SRB",
+      "chamber": {
+        "name_native": "Народна скупштина Републике Србије / Narodna skupština",
+        "name_en": "National Assembly",
+        "seats": 250,
+        "seats_verification": "background_to_verify"
+      },
+      "authoritative_source": {
+        "institution": "Републичка изборна комисија (RIK / Republic Electoral Commission)",
+        "url": "https://www.rik.parlament.gov.rs/"
+      },
+      "elections_2000_latest": [
+        {
+          "date": "2000-12-23",
+          "verification": "background_to_verify"
+        },
+        {
+          "date": "2003-12-28",
+          "verification": "background_to_verify"
+        },
+        {
+          "date": "2007-01-21",
+          "verification": "background_to_verify"
+        },
+        {
+          "date": "2008-05-11",
+          "verification": "background_to_verify"
+        },
+        {
+          "date": "2012-05-06",
+          "verification": "background_to_verify"
+        },
+        {
+          "date": "2014-03-16",
+          "verification": "background_to_verify"
+        },
+        {
+          "date": "2016-04-24",
+          "verification": "background_to_verify"
+        },
+        {
+          "date": "2020-06-21",
+          "verification": "verified_live (RIK page 'izbori-za-narodne-poslanike-narodne-skupstine-21-jun-2020-godine')"
+        },
+        {
+          "date": "2022-04-03",
+          "verification": "verified_live (RIK forms page for elections called for 3 April 2022)"
+        },
+        {
+          "date": "2023-12-17",
+          "verification": "background_to_verify"
+        }
+      ],
+      "result_sources": [
+        {
+          "coverage": "per election",
+          "url": "https://www.rik.parlament.gov.rs/",
+          "format": "HTML/PDF result reports (Cyrillic); no bulk machine-readable export located",
+          "verification": "verified_live (site and election pages); data.gov.rs search returned no election datasets"
+        }
+      ],
+      "machine_readable": "not_located",
+      "constituency_level": {
+        "available": "polling-station reports may exist; single nationwide constituency",
+        "verification": "background_to_verify"
+      },
+      "national_total": true,
+      "threshold": {
+        "value": "3% of votes cast since 2020 (5% before); national-minority lists exempt",
+        "verification": "background_to_verify"
+      },
+      "licensing": {
+        "terms": "not located",
+        "status": "license_review_required"
+      },
+      "stable_urls": "numeric /tekst/<id>/ paths; unstable",
+      "known_definition_issues": [
+        "electoral lists are typically named after a leader or coalition and change between elections — list ≠ party",
+        "minority lists exempt from threshold",
+        "ParlGov does not cover Serbia (no harmonized fallback)",
+        "Serbia outside the EU: no European Parliament layer"
+      ],
+      "recommended_production_source": "RIK official reports, manually transcribed with document-level provenance",
+      "fallback_source": "none harmonized; Serbia SORS statistical releases to be checked as a secondary official source",
+      "unresolved_risks": [
+        "no machine-readable source",
+        "heavy list/coalition identity ambiguity",
+        "no ParlGov cross-check"
+      ],
+      "readiness": {
+        "elections": "requires_manual_review",
+        "results": "requires_manual_review",
+        "turnout": "requires_manual_review",
+        "licence_gate": "license_review_required"
+      }
+    },
+    {
+      "country": "slovakia",
+      "iso3": "SVK",
+      "chamber": {
+        "name_native": "Národná rada Slovenskej republiky",
+        "name_en": "National Council",
+        "seats": 150,
+        "seats_verification": "background_to_verify"
+      },
+      "authoritative_source": {
+        "institution": "Štatistický úrad SR (results processing) / Štátna komisia pre voľby a kontrolu financovania politických strán",
+        "url": "https://volby.statistics.sk/"
+      },
+      "elections_2000_latest": [
+        {
+          "date": "2002-09-20/21",
+          "verification": "verified_harmonized (ParlGov 2002-09-21)"
+        },
+        {
+          "date": "2006-06-17",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2010-06-12",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2012-03-10",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2016-03-05",
+          "verification": "verified_harmonized (ParlGov 2016-03-06 — date to reconcile)"
+        },
+        {
+          "date": "2020-02-29",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2023-09-30",
+          "verification": "background_to_verify (nrsr2023 site verified_live)"
+        }
+      ],
+      "result_sources": [
+        {
+          "coverage": "2020, 2023",
+          "url": "https://volby.statistics.sk/nrsr/nrsr2023/files/NRSR2023_SK_csv.zip",
+          "format": "ZIP of CSV (also XLSX, ODS for 2020)",
+          "verification": "verified_live (2023 ZIP 42.6 MB, 2020 ZIP 32.6 MB downloadable; contents not parsed)"
+        },
+        {
+          "coverage": "1994–2016",
+          "url": "https://volby.statistics.sk/",
+          "format": "per-election sites nrsr1994 … nrsr2016 (formats not checked)",
+          "verification": "verified_live (index links)"
+        }
+      ],
+      "machine_readable": "yes for 2020/2023; earlier to check",
+      "constituency_level": {
+        "available": true,
+        "levels": "single nationwide constituency; results by region, district, municipality, polling district"
+      },
+      "national_total": true,
+      "threshold": {
+        "value": "5% party; 7% coalition of 2–3; 10% coalition of 4+",
+        "verification": "background_to_verify"
+      },
+      "licensing": {
+        "terms": "not located",
+        "status": "license_review_required"
+      },
+      "stable_urls": "/nrsr/nrsrYYYY/files/… (file naming differs between 2020 and 2023)",
+      "known_definition_issues": [
+        "coalition lists vs parties",
+        "file naming inconsistent across years"
+      ],
+      "recommended_production_source": "ŠÚ SR CSV packages per election",
+      "fallback_source": "ParlGov stable 2024 release (2002–2020 cross-check)",
+      "unresolved_risks": [
+        "file contents not yet parsed",
+        "licence not located"
+      ],
+      "readiness": {
+        "elections": "requires_manual_review",
+        "results": "safe_with_crosswalk",
+        "turnout": "safe_for_ingestion",
+        "licence_gate": "license_review_required",
+        "elections_note": "harmonized date conflicts with expected official date; reconcile against Tier 1 first"
+      }
+    },
+    {
+      "country": "slovenia",
+      "iso3": "SVN",
+      "chamber": {
+        "name_native": "Državni zbor Republike Slovenije",
+        "name_en": "National Assembly",
+        "seats": "90 (88 general + 1 Italian + 1 Hungarian minority seat)",
+        "seats_verification": "background_to_verify"
+      },
+      "authoritative_source": {
+        "institution": "Državna volilna komisija (DVK / National Electoral Commission)",
+        "url": "https://www.dvk-rs.si/"
+      },
+      "elections_2000_latest": [
+        {
+          "date": "2000-10-15",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2004-10-03",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2008-09-21",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2011-12-04",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2014-07-13",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2018-06-03",
+          "verification": "verified_harmonized"
+        },
+        {
+          "date": "2022-04-24",
+          "verification": "background_to_verify (ParlGov development lists 2022-04-22 — conflict to resolve against DVK)"
+        },
+        {
+          "date": "2026-03-22",
+          "verification": "verified_secondary (DVK 2026 page verified_live; date from secondary sources)"
+        }
+      ],
+      "result_sources": [
+        {
+          "coverage": "2026",
+          "url": "https://www.dvk-rs.si/volitve-in-referendumi/drzavni-zbor-rs/volitve-drzavnega-zbora-rs/volitve-v-drzavni-zbor/",
+          "format": "data files linked from DVK page: mandati.csv, kandidati_rezultat.json, izvoz.xlsx, Statistika_volilne_udelezbe.xlsx, plus a document describing the data files",
+          "verification": "verified_live (links observed; contents not parsed); results host volitve.dvk-rs.si returned HTTP 403 to automated client"
+        }
+      ],
+      "machine_readable": "partial: 2026 files linked; earlier elections to check in DVK archive",
+      "constituency_level": {
+        "available": true,
+        "levels": "8 electoral units × 11 districts; 2 minority units",
+        "verification": "background_to_verify"
+      },
+      "national_total": true,
+      "threshold": {
+        "value": "4% of valid votes nationally",
+        "verification": "background_to_verify"
+      },
+      "licensing": {
+        "terms": "not located",
+        "status": "license_review_required"
+      },
+      "stable_urls": "/fileadmin/user_upload/… (file names reused across elections — snapshot and checksum required)",
+      "known_definition_issues": [
+        "minority seats elected separately (Borda count) — not comparable with list seats",
+        "reused file names (mandati.csv) across elections"
+      ],
+      "recommended_production_source": "DVK official data files per election",
+      "fallback_source": "ParlGov stable 2024 release (2000–2022 cross-check)",
+      "unresolved_risks": [
+        "2022 date conflict",
+        "archive formats unverified",
+        "results host blocks automated access"
+      ],
+      "readiness": {
+        "elections": "requires_manual_review",
+        "results": "requires_manual_review",
+        "turnout": "requires_manual_review",
+        "licence_gate": "license_review_required",
+        "elections_note": "harmonized date conflicts with expected official date; reconcile against Tier 1 first"
+      }
+    }
+  ]
+}

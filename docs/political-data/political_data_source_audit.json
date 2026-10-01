@@ -1,0 +1,144 @@
+{
+  "schema_version": "political-data-source-audit-v0.1",
+  "state": "audit_only_no_ingestion",
+  "audit_date": "2026-10-02",
+  "platform_version": "v2.0 (unchanged)",
+  "scope": { "countries": ["austria", "croatia", "czechia", "germany", "hungary", "poland", "romania", "serbia", "slovakia", "slovenia"], "horizon": "2000–latest; earlier records only where cleanly available" },
+  "neutrality_boundary": "Facts and source-specific measurements only. No platform-created judgments, scores, rankings, win probabilities, predictions, voter-preference or motive inference, or synthetic ideology indices. Contested measures keep their source and methodology.",
+  "national_election_sources": "See national_election_source_registry.json (one entry per country).",
+  "cross_country_sources": [
+    {
+      "source_id": "ep_open_data",
+      "institution": "European Parliament",
+      "dataset": "European Parliament Open Data Portal — API v2 (MEPs, memberships, corporate bodies)",
+      "url": "https://data.europarl.europa.eu/api/v2/",
+      "tier": "tier1_official",
+      "official_status": "official",
+      "factual_fields": ["parliamentary terms", "MEP person records", "represented country", "national political group membership (EP code, dated)", "European political group membership (dated)"],
+      "verification": "verified_live: /api/v2/meps returns JSON-LD; a person record carries hasMembership entries classified def/ep-entities/NATIONAL_POLITICAL_GROUP and def/ep-entities/EU_POLITICAL_GROUP, each with memberDuring startDate/endDate; /meps/show-current?country-of-representation=HU returns api:political-group (e.g. PfE).",
+      "formats": ["JSON-LD", "RDF"],
+      "update_frequency": "continuous (current composition)",
+      "archive_availability": "historical memberships embedded per person since 1979",
+      "licence": { "terms": "not checked on the portal in this audit", "status": "license_review_required" },
+      "use": "Dated national-party ↔ EP-group relation, derived from MEP memberships with the derivation recorded; never a permanent party attribute.",
+      "privacy": "MEP records include birth date, place of birth and image; the Atlas needs only identifier, name, country, and dated memberships."
+    },
+    {
+      "source_id": "ep_election_results",
+      "institution": "European Parliament (results compiled by Verian for the EP)",
+      "dataset": "European election results — download datasheets (digitally signed CSV)",
+      "url": "https://results.elections.europa.eu/en/tools/download-datasheets/",
+      "tier": "tier1_official",
+      "official_status": "official (EP compilation of national results)",
+      "factual_fields": ["parties.csv (per-term party/coalition IDs, labels, coalition members)", "results-parties-<cc>.csv (VOTES_PERCENT, status)", "seats-breakdown-parties/<cc>.csv (SEATS_TOTAL, GROUP_ID at constitutive session)", "seats-breakdown-groups", "turnout-country.csv"],
+      "coverage_terms": ["1979-1984", "1984-1989", "1989-1994", "1994-1999", "1999-2004", "2004-2009", "2009-2014", "2014-2019", "2019-2024", "2024-2029"],
+      "verification": "verified_live. Vote-share completeness (rows with VOTES_PERCENT / party rows): 2004-2009 = 0 for AT, CZ, DE, HU, PL, SI, SK (blank); 2009–2029 complete for listed parties; HR from 2014-2019 (2013 by-election not in the 2009-2014 files); RO from 2009-2014. Files list mainly seat-winning parties; raw vote counts are not included.",
+      "formats": ["CSV (;) with .sig signatures"],
+      "licence": { "terms": "EP legal notice (elections.europa.eu/en/legal-notice) — reuse clause not confirmed in this audit", "status": "license_review_required" },
+      "known_issues": ["party IDs (e.g. HU01) are local to one term — crosswalk required", "lists (TYPE=COALITION, e.g. HU01 Fidesz-KDNP) carry votes while member parties (HU12, HU13) carry seats", "source idiosyncrasies (e.g. 'Die Linke' coded as COALITION of two members in 2024) must be reviewed, not resolved automatically", "2004 vote shares missing; full results incl. non-seat parties come from national authorities"]
+    },
+    {
+      "source_id": "parlgov",
+      "institution": "ParlGov project (Döring, Huber, Manow)",
+      "dataset": "ParlGov stable 2024 release (Harvard Dataverse) and development version",
+      "url": "https://doi.org/10.7910/DVN/2VZ5ZC",
+      "development_url": "https://www.parlgov.org/data-info/",
+      "tier": "tier2_harmonized_academic",
+      "official_status": "harmonized_academic — NOT an official government source",
+      "factual_fields": ["parties (with cross-references: cmp, chess, ees, castles_mair, …)", "elections (parliament, ep) with vote_share and seats", "cabinets (start date, caretaker flag, cabinet_party, prime_minister)"],
+      "licence": { "terms": "CC0 1.0 (Dataverse record for the 2024 release)", "status": "verified_open_licence" },
+      "maintenance": "Retired: the maintainer announced retirement on 2024-10-01; the site stays online with data until 2023, security updates only.",
+      "verification": "verified_live (development CSVs downloaded 2026-10-02: view_election, view_party, view_cabinet; SHA-256 prefixes 4b318c36…, df757e62…, bd39f733…)",
+      "coverage_findings": {
+        "serbia": "not covered (no SRB rows)",
+        "last_parliamentary_election_covered": { "austria": "2019-09-29", "croatia": "2020-07-05", "czechia": "2021-10-09", "germany": "2021-09-26", "hungary": "2022-04-03", "poland": "2019-10-13", "romania": "2020-12-06", "slovakia": "2020-02-29", "slovenia": "2022-04-22" },
+        "last_cabinet_covered": { "austria": "Nehammer 2021-12-06", "croatia": "Plenkovic III 2020-07-23", "czechia": "Fiala 2021-12-17", "germany": "Scholz 2021-12-08", "hungary": "Orban V 2022-05-16", "poland": "Morawiecki II 2019-11-15", "romania": "Ciuca 2021-11-25", "slovakia": "Odor 2023-05-15", "slovenia": "Golob 2022-06-01" },
+        "ep_elections": "up to 2019; 2024 not covered",
+        "parliamentary_elections_2000_plus": { "austria": 6, "croatia": 7, "czechia": 6, "germany": 6, "hungary": 6, "poland": 6, "romania": 6, "slovakia": 6, "slovenia": 7 },
+        "cabinets_2000_plus": { "austria": 14, "croatia": 13, "czechia": 13, "germany": 7, "hungary": 9, "poland": 13, "romania": 21, "slovakia": 13, "slovenia": 14 },
+        "party_records": { "austria": 41, "croatia": 45, "czechia": 47, "germany": 59, "hungary": 26, "poland": 56, "romania": 48, "slovakia": 59, "slovenia": 54 },
+        "reconciliation_conflicts_found": ["Slovenia 2022 election dated 2022-04-22 in ParlGov development data; official date to confirm with DVK", "Poland 2007 dated 2007-10-19; official date to confirm with PKW", "Slovakia 2016 dated 2016-03-06; official date to confirm with ŠÚ SR", "Romania cabinet label 'Ciuca ' has trailing whitespace"]
+      },
+      "role": "Reconciliation and cross-check for 2000–2023 (parties, elections, cabinets); source of ParlGov party family and ParlGov-defined cabinet attributes as source-labelled measurements. Never the published value where an official source exists; never used after its coverage end.",
+      "fixed_snapshot_rule": "Cite and archive the stable 2024 Dataverse release (immutable DOI); the development CSVs change without versioning."
+    },
+    {
+      "source_id": "ches",
+      "institution": "Chapel Hill Expert Survey (CHES)",
+      "dataset": "CHES Europe waves 1999–2024 and trend file; candidate-country surveys 2007 and 2019",
+      "url": "https://www.chesdata.eu/ches-europe",
+      "tier": "measurement_expert_survey",
+      "official_status": "academic expert survey — measurement, not fact",
+      "verification": "verified_live: 2024 wave fielded Oct–Dec 2024, 31 countries, 279 parties (all EU members except Luxembourg plus IS, NO, CH, TR, UK); Serbia only in the 2007 candidate survey (BA, HR, MK, RS, TR) and the 2019 candidate survey (fielded Jul–Sep 2020; AL, BA, XK, ME, MK, RS; 58 parties). Files distributed as GitHub releases of chesdata/chesdata.github.io (release ches-europe published 2026-08-04).",
+      "variables_examples": ["lrgen", "lrecon", "galtan", "eu_position"],
+      "citation": "Rovny et al. 2025, 'The 2024 Chapel Hill Expert Survey on political party positioning in Europe: Twenty-five years of party positional data', Electoral Studies 97, doi:10.1016/j.electstud.2025.102981",
+      "licence": { "terms": "no licence stated on the site or the GitHub repository (repository licence: none); citation requested", "status": "license_review_required" },
+      "comparability_notes": ["candidate surveys are separate instruments; not pooled with EU waves without a documented methodology", "expert-mean values carry expert counts and dispersion that must be retained"],
+      "role": "Future party_position_measurement layer only; never factual party attributes."
+    },
+    {
+      "source_id": "manifesto_project",
+      "institution": "Manifesto Project (WZB Berlin Social Science Center)",
+      "dataset": "Manifesto Project Dataset (latest core version listed by API: MPDS2025a) and Manifesto Corpus",
+      "url": "https://manifesto-project.wzb.eu/",
+      "tier": "measurement_content_analysis",
+      "official_status": "academic coded content analysis — measurement, not fact",
+      "verification": "verified_live: list_core_versions returns MPDS2012a … MPDS2025a without a key; get_core, metadata and texts require an API key from a user account. Country coverage for the ten Atlas countries (incl. Serbia) not checked because it requires the key.",
+      "licence": { "terms": "Project Terms of Use: data provided for scientific research; 'Redistribution of the provided data is forbidden except when redistribution is authorized in writing by the Manifesto Project'; citation required", "status": "license_review_required (public re-publication on a static site requires written authorisation)" },
+      "role": "Future Manifesto-specific measurement layer (coded emphasis per election programme), kept source-native; no Atlas recoding."
+    }
+  ],
+  "parliament_and_government_sources": {
+    "note": "Candidate Tier-1 sources for legislatures, parliamentary composition and cabinets. HTTP reachability checked 2026-10-02; content and reuse terms still to be reviewed per country before ingestion.",
+    "records": [
+      { "country": "austria", "parliament": "https://www.parlament.gv.at/recherchieren/open-data/ (open-data section reachable)", "government": "https://www.bundeskanzleramt.gv.at/ (reachable; list of federal governments to locate)" },
+      { "country": "croatia", "parliament": "https://www.sabor.hr/ (reachable)", "government": "https://vlada.gov.hr/ (reachable)" },
+      { "country": "czechia", "parliament": "https://www.psp.cz/sqw/hp.sqw?k=1300 (Chamber open-data page reachable)", "government": "https://vlada.gov.cz/ (history-of-governments URL tried returned 404; to locate)" },
+      { "country": "germany", "parliament": "https://www.bundestag.de/services/opendata (reachable; Stammdaten of members)", "government": "https://www.bundesregierung.de/ (to locate cabinet history)" },
+      { "country": "hungary", "parliament": "https://www.parlament.hu/ (reachable)", "government": "https://kormany.hu/ (to locate)" },
+      { "country": "poland", "parliament": "https://api.sejm.gov.pl/sejm/term10/MP (JSON API reachable; records include club per MP)", "government": "https://www.gov.pl/web/premier (reachable)" },
+      { "country": "romania", "parliament": "https://www.cdep.ro/ (reachable)", "government": "https://gov.ro/ (reachable)" },
+      { "country": "serbia", "parliament": "http://www.parlament.gov.rs/ (reachable)", "government": "https://www.srbija.gov.rs/ (reachable)" },
+      { "country": "slovakia", "parliament": "https://www.nrsr.sk/web/ (reachable)", "government": "https://www.vlada.gov.sk/ (reachable)" },
+      { "country": "slovenia", "parliament": "https://www.dz-rs.si/ (reachable)", "government": "https://www.gov.si/ (reachable)" }
+    ],
+    "privacy_rule": "Parliament APIs expose personal data (e.g. Sejm API: birthDate, birthLocation, email). Party-level composition must never require storing such fields; person records are limited to public-office identity (name, source ID, office, dates)."
+  },
+  "country_summary": [
+    { "country": "austria", "authoritative_source": "BMI Bundeswahlbehörde", "coverage": "official pages 1995–2024; ParlGov to 2019", "machine_readable": "XLSX verified for 2024", "historical_completeness": "2000–2024 expected complete; pre-2024 formats unverified", "licence": "license_review_required", "definition_issues": "three-tier seat allocation; postal pseudo-units", "recommended_production_source": "BMI final results + seat table", "fallback_source": "ParlGov 2024 (≤2019, cross-check)", "unresolved_risks": "pre-2024 formats; reuse terms" },
+    { "country": "croatia", "authoritative_source": "DIP", "coverage": "CSV archives 2000–2020; 2024 PDF", "machine_readable": "CSV 2000–2020", "historical_completeness": "complete to 2020; 2024 machine-readable missing", "licence": "license_review_required", "definition_issues": "no national list; national totals derived", "recommended_production_source": "DIP district CSVs", "fallback_source": "ParlGov 2024 (≤2020)", "unresolved_risks": "2024 data; district coalitions" },
+    { "country": "czechia", "authoritative_source": "ČSÚ (volby.cz)", "coverage": "XML 2002–2025", "machine_readable": "yes (XML; 2025 also CSVW/JSON/XLSX)", "historical_completeness": "complete 2002–2025", "licence": "license_review_required (ČSÚ terms located)", "definition_issues": "two-day elections; coalition lists; name reuse (ČSSD/SOCDEM)", "recommended_production_source": "ČSÚ open data", "fallback_source": "ParlGov 2024 (≤2021)", "unresolved_risks": "licence clauses" },
+    { "country": "germany", "authoritative_source": "Bundeswahlleiterin", "coverage": "CSV 1949–2025 (national/Länder)", "machine_readable": "yes", "historical_completeness": "complete", "licence": "dl-de/by-2-0 verified", "definition_issues": "second-vote basis; CDU/CSU; variable seat totals pre-2025", "recommended_production_source": "btw_ab49 historical CSV", "fallback_source": "ParlGov 2024 (≤2021)", "unresolved_risks": "constituency boundary changes" },
+    { "country": "hungary", "authoritative_source": "NVI/NVB", "coverage": "results app 2014–2026", "machine_readable": "unverified", "historical_completeness": "unknown pre-2014 format", "licence": "license_review_required", "definition_issues": "mixed system tiers; joint lists; 2002–2010 two-round system", "recommended_production_source": "NVI export once located", "fallback_source": "ParlGov 2024 (≤2022)", "unresolved_risks": "no bulk format; 2026 only secondary-verified" },
+    { "country": "poland", "authoritative_source": "PKW", "coverage": "CSV/XLSX 2023; archive sites 2001–2019", "machine_readable": "yes 2023", "historical_completeness": "archive formats unverified", "licence": "license_review_required", "definition_issues": "committees ≠ parties; minority exemption", "recommended_production_source": "PKW CSV per election", "fallback_source": "ParlGov 2024 (≤2019)", "unresolved_risks": "2001–2019 formats; 2007 date conflict" },
+    { "country": "romania", "authoritative_source": "BEC / AEP", "coverage": "data.gov.ro 2012, 2016; portal blocked for 2020/2024", "machine_readable": "partial", "historical_completeness": "gaps 2000–2008, 2020, 2024 in machine-readable form", "licence": "OGL-ROU-1.0 (2012/2016)", "definition_issues": "2008 and 2016 system changes; minority seats", "recommended_production_source": "BEC/AEP with manual archival retrieval", "fallback_source": "ParlGov 2024 (≤2020)", "unresolved_risks": "bot protection; formats" },
+    { "country": "serbia", "authoritative_source": "RIK", "coverage": "HTML/PDF per election", "machine_readable": "not located", "historical_completeness": "requires document-level transcription", "licence": "license_review_required", "definition_issues": "leader-named lists; minority exemption; no ParlGov", "recommended_production_source": "RIK reports, manual transcription with document provenance", "fallback_source": "none harmonized", "unresolved_risks": "identity ambiguity; transcription effort" },
+    { "country": "slovakia", "authoritative_source": "ŠÚ SR", "coverage": "CSV 2020, 2023; sites 1994–2016", "machine_readable": "yes 2020/2023", "historical_completeness": "earlier formats unverified", "licence": "license_review_required", "definition_issues": "coalition thresholds; file naming", "recommended_production_source": "ŠÚ SR CSV packages", "fallback_source": "ParlGov 2024 (≤2020)", "unresolved_risks": "contents unparsed; 2016 date conflict" },
+    { "country": "slovenia", "authoritative_source": "DVK", "coverage": "2026 data files linked; archive unverified", "machine_readable": "partial", "historical_completeness": "unknown pre-2026", "licence": "license_review_required", "definition_issues": "minority seats; reused file names", "recommended_production_source": "DVK data files", "fallback_source": "ParlGov 2024 (≤2022)", "unresolved_risks": "2022 date conflict; 403 on results host" }
+  ],
+  "constituency_geography_audit": {
+    "decision": "No constituency maps in this phase. Electoral geographies are separate from NUTS/NSTJ statistical geographies and are never joined by name.",
+    "records": [
+      { "country": "austria", "levels": "9 Landeswahlkreise, 39 Regionalwahlkreise; municipal results (GKZ)", "boundary_vintage": "statutory (NRWO); stable recent decades — to verify", "geometry_compatibility": "municipal GKZ results could join official municipal boundaries by code (not name); not NUTS" },
+      { "country": "croatia", "levels": "10 territorial districts + diaspora + minority", "boundary_vintage": "district boundaries redrawn by law (2023 revision before the 2024 election) — to verify", "geometry_compatibility": "district geometries not part of Atlas map architecture" },
+      { "country": "czechia", "levels": "14 regions (= NUTS 3 kraje), okres, obec, okrsek", "boundary_vintage": "regions stable; polling districts change", "geometry_compatibility": "kraj codes align with NUTS 3 only by official code mapping, never by name" },
+      { "country": "germany", "levels": "299 Wahlkreise; Wahlbezirke", "boundary_vintage": "redrawn before most elections (election-specific vintage)", "geometry_compatibility": "Bundeswahlleiterin publishes Wahlkreis geometries per election — separate vintage layer" },
+      { "country": "hungary", "levels": "106 SMDs (from 2014), counties for lists before 2014", "boundary_vintage": "redistricting by law (2011, later amendments) — to verify", "geometry_compatibility": "separate electoral layer" },
+      { "country": "poland", "levels": "41 Sejm districts; gmina; obwód", "boundary_vintage": "statutory; changes between elections possible", "geometry_compatibility": "gmina TERYT codes ≠ NUTS; join only by official code tables" },
+      { "country": "romania", "levels": "43 constituencies (counties, Bucharest, diaspora)", "boundary_vintage": "county-based", "geometry_compatibility": "county = NUTS 3 by official code only" },
+      { "country": "serbia", "levels": "single national constituency; polling stations", "boundary_vintage": "n/a", "geometry_compatibility": "NSTJ statistical units are not electoral units" },
+      { "country": "slovakia", "levels": "single national constituency; results by kraj/okres/obec", "boundary_vintage": "n/a for seats", "geometry_compatibility": "reporting units only" },
+      { "country": "slovenia", "levels": "8 electoral units × 11 districts + 2 minority units", "boundary_vintage": "districts revised by law (2021 Constitutional Court-driven reform) — to verify", "geometry_compatibility": "separate electoral layer" }
+    ]
+  },
+  "coverage_matrix_expected": {
+    "note": "Expected national lower-house elections 2000–latest from the registry (dates partly harmonized/secondary). EP elections from the EP datasheets.",
+    "national_lower_house": { "austria": 7, "croatia": 8, "czechia": 7, "germany": 7, "hungary": 7, "poland": 7, "romania": 7, "serbia": 10, "slovakia": 7, "slovenia": 8, "total": 75 },
+    "european_parliament": { "austria": "2004, 2009, 2014, 2019, 2024", "croatia": "2013, 2014, 2019, 2024", "czechia": "2004–2024 (5)", "germany": "2004–2024 (5)", "hungary": "2004–2024 (5)", "poland": "2004–2024 (5)", "romania": "2007, 2009, 2014, 2019, 2024", "slovakia": "2004–2024 (5)", "slovenia": "2004–2024 (5)", "serbia": "not applicable (non-member)", "total": 44 }
+  },
+  "licensing_summary": {
+    "verified_open_licence": ["germany (dl-de/by-2-0)", "romania 2012/2016 (OGL-ROU-1.0)", "parlgov 2024 (CC0 1.0)"],
+    "license_review_required": ["austria", "croatia", "czechia (terms located)", "hungary", "poland", "romania 2020/2024", "serbia", "slovakia", "slovenia", "ep_open_data", "ep_election_results", "ches (no licence stated)"],
+    "redistribution_restricted": ["manifesto_project (written authorisation needed for redistribution)"]
+  }
+}
