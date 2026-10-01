@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { PLATFORM_BASE_URL, PLATFORM_RELEASE_DATE } from "@/lib/releaseMetadata";
 import { localizedRoute } from "@/i18n/config";
+import { workspaceIds } from "@/content/researchWorkspaces";
 
 export const dynamic = "force-static";
 
@@ -26,6 +27,8 @@ const routes = [
   "historical-extension/",
   "legal/",
   "privacy/",
+  "workspaces/",
+  ...workspaceIds.map(id => `workspaces/${id}/`),
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

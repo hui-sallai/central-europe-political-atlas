@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
+    "workspaces:validate": "node scripts/validation/validate-workspaces.mjs",
     "i18n:validate": "node scripts/validation/validate-i18n.mjs",
     "historical-extension:audit": "node scripts/historical-monthly-extension/audit.mjs",
     "data-coverage:audit": "node scripts/data-coverage/audit.mjs",

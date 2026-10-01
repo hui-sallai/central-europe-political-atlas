@@ -1,12 +1,12 @@
 export const locales = ["zh-CN", "en"] as const;
 export type Locale = typeof locales[number];
-export const bilingualRoutes = ["/", "/countries/", "/data/", "/map/", "/models/", "/scenarios/", "/methodology/", "/legal/", "/privacy/", "/news/"] as const;
+export const bilingualRoutes = ["/", "/countries/", "/data/", "/map/", "/models/", "/scenarios/", "/methodology/", "/legal/", "/privacy/", "/news/", "/workspaces/"] as const;
 export function unlocalizedPath(path: string): string { return path.replace(/^\/en(?=\/|$)/, "") || "/"; }
 export function localizedRoute(href: string, locale: Locale): string {
   if (!href.startsWith("/") || href.startsWith("//") || /^\/(research-data|geo|og|_next)\//.test(href)) return href;
   const path = unlocalizedPath(href);
   const pathname = path.split(/[?#]/, 1)[0].replace(/\/$/, "") || "/";
-  const isPage = bilingualRoutes.some(route => (route.replace(/\/$/, "") || "/") === pathname) || /^\/countries\/[a-z]+$/.test(pathname);
+  const isPage = bilingualRoutes.some(route => (route.replace(/\/$/, "") || "/") === pathname) || /^\/countries\/[a-z]+$/.test(pathname) || /^\/workspaces\/[a-z_]+$/.test(pathname);
   if (!isPage) return path;
   return locale === "en" ? `/en${path === "/" ? "/" : path}` : path;
 }

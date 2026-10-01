@@ -1,0 +1,4 @@
+import type { Locale } from "./config";
+const zh = { title: "十国政治经济研究入口", intro: "点击国家查看最新宏观观测和事件，再进入单国档案或完整区域地图。", loading: "正在加载轻量国家边界…", error: "地图边界暂时不可用。国家档案与数据入口仍可正常访问。", map: "中欧十国互动研究地图", select: "选择", shortcuts: "国家快捷选择", noEvent: "当前无已核验事件。", profile: "国家档案", events: "相关事件", fullMap: "完整地图" };
+const en: typeof zh = { title: "Political-economy research across ten countries", intro: "Select a country to inspect macroeconomic observations, then open its profile or the regional map.", loading: "Loading country boundaries…", error: "Map boundaries are unavailable. Country profiles and data remain accessible.", map: "Interactive research map of ten countries", select: "Select ", shortcuts: "Country shortcuts", noEvent: "See verified records in the Event Library.", profile: "Country profile", events: "Related events", fullMap: "Full map" };
+export const homeMapMessages: Record<Locale, typeof zh> = { "zh-CN": zh, en };

@@ -43,6 +43,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Validate question-first registry before generated release exports
+        run: pnpm workspaces:validate -- --source-only
+
       - name: Setup Python reference runtime
         uses: actions/setup-python@v6
         with:

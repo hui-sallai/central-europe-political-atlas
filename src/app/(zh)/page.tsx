@@ -6,11 +6,13 @@ import { getBasicIndicators } from "@/lib/basicIndicators";
 import { platformStatus } from "@/lib/platformStatus";
 import { getEventsForCountry, researchCountries, researchEvents } from "@/lib/researchData";
 import eventsDataset from "@/data/events/events.json";
+import { WorkspaceEntrySection } from "@/components/WorkspaceIndex";
 
 export const metadata: Metadata = pageMetadata({ title: "中欧政治经济研究平台", description: "十国政治经济数据、区域事实地图、透明分析与事件研究入口。", path: "/" });
 
 const primaryEntries = [
   { href: "/countries", label: "Countries", zh: "国家研究" },
+  { href: "/workspaces/", label: "Workspaces", zh: "研究问题" },
   { href: "/data", label: "Data", zh: "数据浏览" },
   { href: "/models", label: "Analysis", zh: "分析工作台" },
   { href: "/scenarios", label: "Scenarios", zh: "条件情景" },
@@ -66,6 +68,8 @@ export default function Home() {
           {latestSignals.map((event) => <article key={event.id}><p>{event.date} · {event.country_name}</p><h3><Link href={`/news?country=${event.country_slug}#${event.id}`}>{event.title}</Link></h3><span>{event.event_type} · {event.source_name}</span></article>)}
         </div>
       </section>
+
+      <WorkspaceEntrySection locale="zh-CN" />
 
       <section className="mt-10">
         <div className="flex flex-wrap items-end justify-between gap-3">

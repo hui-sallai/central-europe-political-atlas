@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { localizedRoute, type Locale } from "@/i18n/config";
+import { homeMapMessages } from "@/i18n/homeMapMessages";
 
 type Position = [number, number];
 type Polygon = Position[][];
@@ -57,7 +59,9 @@ function pathFor(feature: MapFeature, project: (position: Position) => Position)
   }).join(" ")} Z`).join(" ")).join(" ");
 }
 
-export function HomeResearchMap({ countries }: { countries: HomeMapCountry[] }) {
+export function HomeResearchMap({ countries, locale = "zh-CN" }: { countries: HomeMapCountry[]; locale?: Locale }) {
+  const en = locale === "en";
+  const m = homeMapMessages[locale];
   const [features, setFeatures] = useState<MapFeature[]>([]);
   const [loadState, setLoadState] = useState<"loading" | "ready" | "error">("loading");
   const [selectedSlug, setSelectedSlug] = useState("poland");
@@ -94,39 +98,39 @@ export function HomeResearchMap({ countries }: { countries: HomeMapCountry[] }) 
   return (
     <section className="home-map-section" aria-labelledby="home-map-title">
       <div className="home-map-heading">
-        <div><p className="editorial-kicker">Interactive Research Map</p><h2 id="home-map-title" className="mt-2 text-3xl font-semibold">十国政治经济研究入口</h2></div>
-        <p>点击国家查看最新宏观观测和事件，再进入单国档案或完整区域地图。</p>
+        <div><p className="editorial-kicker">Interactive Research Map</p><h2 id="home-map-title" className="mt-2 text-3xl font-semibold">{m.title}</h2></div>
+        <p>{m.intro}</p>
       </div>
       <div className="home-map-grid">
         <div className="home-map-canvas">
-          {loadState === "loading" ? <div className="home-map-message">正在加载轻量国家边界…</div> : null}
-          {loadState === "error" ? <div className="home-map-message">地图边界暂时不可用。国家档案与数据入口仍可正常访问。</div> : null}
+          {loadState === "loading" ? <div className="home-map-message">{m.loading}</div> : null}
+          {loadState === "error" ? <div className="home-map-message">{m.error}</div> : null}
           {loadState === "ready" ? (
-            <svg viewBox={`0 0 ${width} ${height}`} role="group" aria-label="中欧十国互动研究地图">
+            <svg viewBox={`0 0 ${width} ${height}`} role="group" aria-label={m.map}>
               {paths.map((item) => {
                 const active = item.slug === selectedSlug;
                 const country = countries.find((candidate) => candidate.slug === item.slug);
                 const fill = active ? "var(--accent)" : neutralCountryFill;
-                return <path key={item.key} d={item.d} fill={fill} stroke="var(--map-border)" strokeWidth="1.4" className={`home-country-shape${active ? " is-selected" : ""}`} role="button" tabIndex={0} aria-label={`选择${country?.nameZh ?? item.slug}`} onClick={() => setSelectedSlug(item.slug)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") setSelectedSlug(item.slug); }}><title>{country?.nameZh ?? item.slug}</title></path>;
+                return <path key={item.key} d={item.d} fill={fill} stroke="var(--map-border)" strokeWidth="1.4" className={`home-country-shape${active ? " is-selected" : ""}`} role="button" tabIndex={0} aria-label={`${m.select}${en ? country?.nameEn ?? item.slug : country?.nameZh ?? item.slug}`} onClick={() => setSelectedSlug(item.slug)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") setSelectedSlug(item.slug); }}><title>{en ? country?.nameEn ?? item.slug : country?.nameZh ?? item.slug}</title></path>;
               })}
             </svg>
           ) : null}
-          <div className="home-country-selector" aria-label="国家快捷选择">
+          <div className="home-country-selector" aria-label={m.shortcuts}>
             {countries.map((country) => <button key={country.slug} type="button" aria-pressed={country.slug === selectedSlug} onClick={() => setSelectedSlug(country.slug)}>{country.iso2}</button>)}
           </div>
         </div>
         <aside className="home-country-panel">
           <p className="editorial-kicker">Selected Country</p>
-          <h3>{selected.nameZh}</h3>
+          <h3>{en ? selected.nameEn : selected.nameZh}</h3>
           <p className="home-country-en">{selected.nameEn}</p>
           <dl className="home-country-metrics">
             {selected.indicators.map((indicator) => <div key={indicator.id}><dt>{indicator.label}</dt><dd>{indicator.value}</dd><dd className="home-country-year">{indicator.year}</dd></div>)}
           </dl>
           <div className="home-latest-event">
             <p>Latest verified event</p>
-            {selected.latestEvent ? <Link href={`/news?country=${selected.slug}#${selected.latestEvent.id}`}><span>{selected.latestEvent.date}</span>{selected.latestEvent.title}</Link> : <span>当前无已核验事件。</span>}
+            {selected.latestEvent ? <Link href={localizedRoute(`/news?country=${selected.slug}#${selected.latestEvent.id}`, locale)}><span>{selected.latestEvent.date}</span>{en ? <div lang="zh-CN" data-original-language="zh-CN">{selected.latestEvent.title}</div> : selected.latestEvent.title}</Link> : <span>{m.noEvent}</span>}
           </div>
-          <div className="home-map-actions"><Link href={`/countries/${selected.slug}`}>国家档案</Link><Link href={`/news?country=${selected.slug}`}>相关事件</Link><Link href={`/map?country=${selected.slug}`}>完整地图</Link></div>
+          <div className="home-map-actions"><Link href={localizedRoute(`/countries/${selected.slug}`, locale)}>{m.profile}</Link><Link href={localizedRoute(`/news?country=${selected.slug}`, locale)}>{m.events}</Link><Link href={localizedRoute(`/map?country=${selected.slug}`, locale)}>{m.fullMap}</Link></div>
         </aside>
       </div>
     </section>

@@ -7,7 +7,8 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..")
 const out = path.join(root, "out");
 const base = JSON.parse(fs.readFileSync(path.join(root, "src/data/release.json"), "utf8")).canonical_url.replace(/\/$/, "");
 const countries = JSON.parse(fs.readFileSync(path.join(root, "src/data/countries/countries.json"), "utf8")).records.map(country => country.slug);
-const routes = ["/", "/countries/", "/data/", "/map/", "/models/", "/scenarios/", "/methodology/", "/legal/", "/privacy/", "/news/", ...countries.map(slug => `/countries/${slug}/`)];
+const workspaceIds = ["inflation_monetary_policy", "trade_external_exposure", "fiscal_macro_conditions", "regional_development"];
+const routes = ["/", "/countries/", "/data/", "/map/", "/models/", "/scenarios/", "/methodology/", "/legal/", "/privacy/", "/news/", "/workspaces/", ...workspaceIds.map(id => `/workspaces/${id}/`), ...countries.map(slug => `/countries/${slug}/`)];
 const failures = [];
 let checks = 0;
 const check = (condition, message) => { checks++; if (!condition) failures.push(message); };
