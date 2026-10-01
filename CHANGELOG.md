@@ -1,6 +1,6 @@
 # Changelog
 
-## Core English Edition — 2026-10-01 (platform remains v2.0)
+### Core English Edition — 2026-10-01 (platform remains v2.0)
 
 - Adds 20 bilingual route pairs with English under `/en/`, preserving existing Chinese URLs and shared research downloads. Static documents, language switching, navigation, accessibility, canonical/hreflang, OpenGraph and sitemap are locale-aware.
 - Adds reviewed presentation dictionaries and stable-ID overlays; English snapshots localize documentation and figures while retaining identical numeric CSV rows and original provenance. Original event/project prose is explicitly marked, not automatically translated.

@@ -1,6 +1,6 @@
 # Core English Edition — architecture decision
 
-Status: local Core English implementation and acceptance complete; platform remains v2.0. No research data or method-state migration. Linux CI screenshot recording and full release-package generation remain release prerequisites; see [acceptance and handoff](core-english-validation.md).
+Status: local Core English implementation and acceptance complete; platform remains v2.0. No research data or method-state migration. The authorized full release build passed local release validation; Linux recording passed all 130 browser tests and its English baselines were reviewed. Normal deployment CI and live-site verification remain pending; see [acceptance and handoff](core-english-validation.md).
 
 Use multiple root layouts: `app/(zh)/layout.tsx` for existing Chinese URLs and `app/(english)/en/layout.tsx` for English URLs. Both delegate to one locale-explicit document shell. The build writes `<html lang="zh-CN">` or `<html lang="en">` into the actual static HTML. There is no top-level root layout, middleware, request-time locale detection, cookie dependency or server runtime.
 
