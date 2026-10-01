@@ -18,6 +18,9 @@ Module._load = function (request, ...args) {
   return result;
 };
 require.extensions[".tsx"] = (module,filename) => module._compile(ts.transpileModule(fs.readFileSync(filename,"utf8"),{compilerOptions:{module:ts.ModuleKind.CommonJS,jsx:ts.JsxEmit.ReactJSX,target:ts.ScriptTarget.ES2020,esModuleInterop:true}}).outputText,filename);
+// Shared presentation components now import extensionless .ts dictionaries.
+// Register the same loader for those modules; all structural assertions remain unchanged.
+require.extensions[".ts"] = require.extensions[".tsx"];
 const componentPath = path.join(root,"src/components/PanelLocalProjectionWorkbench.tsx");
 function render() {
   cursor = 0;
