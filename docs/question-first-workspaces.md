@@ -60,7 +60,7 @@ All four workspaces are bilingual from day one, share the same evidence builder 
 
 Sixteen new Darwin screenshots deliberately cover index and representative regional detail in both languages, two viewports and both themes. Four English-home Darwin screenshots were deliberately refreshed for the restored interactive map. Representative full-page/viewport screenshots were reviewed. Chinese screenshot baselines and unrelated English screenshots remain unchanged. Ordinary tests never create or update baselines.
 
-Linux workspace baselines and updated Linux English-home baselines still require an explicitly authorized no-deploy recording run, review and commit before any future deployment. This implementation does not push merely to obtain those artifacts and does not claim deployment CI has passed.
+After the owner's deployment authorization, no-deploy Linux recording run 36839996961 passed all 166 browser tests, Release QA and public-secret scans. Its sixteen new workspace and four updated English-home baselines were reviewed and imported; unrelated Linux baselines remain unchanged. Deployment verification is a separate subsequent gate.
 
 ## 7. Validation
 
