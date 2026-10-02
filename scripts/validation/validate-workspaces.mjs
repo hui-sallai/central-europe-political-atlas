@@ -3,6 +3,7 @@ import path from "node:path";
 import ts from "typescript";
 import { createRequire } from "node:module";
 import { execFileSync } from "node:child_process";
+import { unapprovedFrozenChanges } from "../political-data/germany/frozen-boundary.mjs";
 const root = process.cwd();
 const sourceOnly = process.argv.includes("--source-only");
 const nodeRequire = createRequire(import.meta.url);
@@ -63,7 +64,7 @@ for (const workspace of researchWorkspaces) {
   }
 }
 const frozen = execFileSync("git", ["diff", "--name-only", "0ba4462f88a94cbd56b85bd8879939ab151c55f3", "--", "src/data", "public/research-data", "src/lib/varEngine.ts", "src/lib/networkEngine.ts", "src/lib/timeSeriesTransforms.ts", "src/lib/localProjectionEngine.ts", "src/lib/panelEngine.ts", "pnpm-lock.yaml"], { cwd: root, encoding: "utf8" });
-check(frozen.trim() === "", "Canonical data / registered engines / lockfile changed");
+check(unapprovedFrozenChanges(frozen,"0ba4462f88a94cbd56b85bd8879939ab151c55f3").length === 0, "Canonical data / registered engines / lockfile changed outside approved additive Germany stores");
 check(load("@/data/release.json").version.startsWith("v2.0 "), "Platform v2.0 unchanged");
 console.log(JSON.stringify({ status: failures.length ? "fail" : "pass", checks, workspaces: researchWorkspaces.length, failures }, null, 2));
 if (failures.length) process.exitCode = 1;

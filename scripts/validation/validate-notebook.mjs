@@ -3,6 +3,7 @@ import path from "node:path";
 import ts from "typescript";
 import { createRequire } from "node:module";
 import { execFileSync } from "node:child_process";
+import { unapprovedFrozenChanges } from "../political-data/germany/frozen-boundary.mjs";
 const root = process.cwd(), nativeRequire = createRequire(import.meta.url), cache = new Map();
 function load(request, parent = root) {
   if (!request.startsWith(".") && !request.startsWith("@/")) return nativeRequire(request);
@@ -65,5 +66,5 @@ for(const file of notebookFiles){const code=fs.readFileSync(file,"utf8");check(!
 check(!fs.existsSync("src/app/api"),"No server API endpoint");
 check(fs.readFileSync("src/components/ResearchNotebookProvider.tsx","utf8").includes('["loading", "corrupt"]'),"Malformed stored state cannot be silently overwritten");
 for(const route of ["src/app/(zh)/notebook/page.tsx","src/app/(english)/en/notebook/page.tsx"])check(fs.existsSync(route),`${route}: static page`);
-const frozen=execFileSync("git",["diff","d83a6166072c0c295e7d385d25378cb710053a54","--name-only","--","src/data","public/research-data","pnpm-lock.yaml","src/lib/varEngine.ts","src/lib/panelEngine.ts","src/lib/localProjectionEngine.ts","src/lib/networkEngine.ts","src/lib/timeSeriesTransforms.ts"],{encoding:"utf8"});check(!frozen.trim(),"Canonical data / formal engines / dependencies unchanged");check(version.startsWith("v2.0 ") && JSON.parse(fs.readFileSync("package.json","utf8")).version==="2.0.0","Platform remains v2.0");
+const frozen=execFileSync("git",["diff","d83a6166072c0c295e7d385d25378cb710053a54","--name-only","--","src/data","public/research-data","pnpm-lock.yaml","src/lib/varEngine.ts","src/lib/panelEngine.ts","src/lib/localProjectionEngine.ts","src/lib/networkEngine.ts","src/lib/timeSeriesTransforms.ts"],{encoding:"utf8"});check(unapprovedFrozenChanges(frozen,"d83a6166072c0c295e7d385d25378cb710053a54").length===0,"Canonical data / formal engines / dependencies unchanged outside approved additive Germany stores");check(version.startsWith("v2.0 ") && JSON.parse(fs.readFileSync("package.json","utf8")).version==="2.0.0","Platform remains v2.0");
 console.log(JSON.stringify({status:failures.length?"fail":"pass",checks,typical_serialized_bytes:Buffer.byteLength(n.serializeNotebook(state)),maximum_fixture_bytes:Buffer.byteLength(n.serializeNotebook(maximum)),failures},null,2));if(failures.length)process.exitCode=1;

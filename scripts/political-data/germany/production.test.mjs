@@ -3,6 +3,15 @@ import assert from 'node:assert/strict';
 import { buildProductionCandidate } from './production.mjs';
 import { validatePolitical } from './validate.mjs';
 import {politicalExportFiles} from './export.mjs';
+import {unapprovedFrozenChanges} from './frozen-boundary.mjs';
+
+test('additive exception cannot exempt economics, unknown political files or earlier frozen data',()=>{
+  const baseline='d83a6166072c0c295e7d385d25378cb710053a54';
+  const approved='src/data/political/germany/elections.json';
+  assert.deepEqual(unapprovedFrozenChanges(approved,baseline),[]);
+  assert.deepEqual(unapprovedFrozenChanges('src/data/release.json\nsrc/data/political/germany/extra.json',baseline),['src/data/release.json','src/data/political/germany/extra.json']);
+  assert.throws(()=>unapprovedFrozenChanges(approved,'HEAD'),/additive/);
+});
 
 test('CSV preserves missing versus zero and neutralizes spreadsheet formulas',()=>{
   const data=buildProductionCandidate();
