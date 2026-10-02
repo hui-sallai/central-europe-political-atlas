@@ -1,0 +1,45 @@
+{
+  "schema_version": "germany-production-data-acceptance-v1",
+  "state": "approved_data_only_ui_release_pending",
+  "country": "germany",
+  "years": [
+    2002,
+    2005,
+    2009,
+    2013,
+    2017,
+    2021,
+    2025
+  ],
+  "owner_authorization": "German National Election Production Slice 1A + Political Explorer Alpha",
+  "independent_reviewer": "germany_source_review",
+  "reviewed_at": "2026-10-02",
+  "verdict": "ACCEPT_DATA_SCOPED",
+  "accepted": {
+    "election_specific_contestants": 209,
+    "party_entities_2025": 29,
+    "own_list_memberships_2025": 29,
+    "historical_display_corrections_2021": 3
+  },
+  "excluded": {
+    "historical_party_relations_unresolved": 180,
+    "continuous_party_series": 0,
+    "formation_or_dissolution_dates": false,
+    "current_parliamentary_composition": false,
+    "other_countries": false
+  },
+  "evidence_sha256": {
+    "germany_identity_review_queue.json": "f4066b713c2d51e2be7aa2a23ea22398dbe9da7a11fe721c4e28d90435d23654",
+    "germany_historical_label_review.json": "091e9fbeb4a51422d80f572c71840d15d20c9a9267b5347c835228d095a04031",
+    "germany_public_evidence_index.json": "e54513a9233431ec5ea97377293d0e6fb631777bcf72bc39eef4e29a938a43e1",
+    "germany_2002_membership_review.json": "ebe1c2232f96148e4b3056e2d62800c0308cbfad5bdbd29f1af630291c757926",
+    "germany_2005_membership_review.json": "50a9eaffbd00109850d77eef661b583d7b6e2ccbff1a3e71b9c8620518f6fc25",
+    "germany_2009_membership_review.json": "e105a83280b23acc29b42b92b87f89687313da4a855abdf138da37e9c1526414",
+    "germany_2013_membership_review.json": "6739f18c30e11982495a163e21b5259cd268fb14905ff410087ec1136e8fb36a",
+    "germany_2017_membership_review.json": "693360fa8af2f15bb4996e1d74410acb2541dc301a689985c68c23df2844b66a",
+    "germany_2021_membership_review.json": "43bb543fa86482912381c11578fc1a2c777106a1b6810f13b49054bf7c083f02",
+    "germany_name_difference_resolution.json": "21df4ed64804bf9ead6a556a1b36d4123259e52ed7a6632eb025eda9fcd711c7"
+  },
+  "decision": "Official same-election evidence accepted. 2025 pp IDs are observed party entities, not a legal-lifecycle or cross-election continuity decision. Historical relations remain null/requires_manual_review. Original staging provisional decisions remain unchanged. Full HTML/PDF redistribution is not approved; only metadata, hashes and reviewed factual extracts are published. UI and release gates remain pending.",
+  "test_followup": "Production tests updated to distinguish 180 unresolved relations from seven academic reconciliation records; both tests pass."
+}

@@ -1,0 +1,267 @@
+{
+  "schema_version": "germany-public-evidence-index-v1",
+  "scope": "Metadata, hashes and independently reviewed factual records; non-cleared full HTML/PDF retained locally, not publicly redistributed",
+  "sources": [
+    {
+      "source_id": "src-de-bwl-historical-results",
+      "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+      "raw_sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484",
+      "raw_path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+      "retrieved_at": "2026-10-01T23:20:00.007Z",
+      "raw_redistribution": "verified_open_licence"
+    },
+    {
+      "source_id": "src-de-bwl-final-archive",
+      "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+      "raw_sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512",
+      "raw_path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+      "retrieved_at": "2026-10-01T23:21:39.584Z",
+      "raw_redistribution": "verified_open_licence"
+    },
+    {
+      "source_id": "src-de-bwl-historical-results-report-2025",
+      "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/397735e3-0585-46f6-a0b5-2c60c5b83de6/btw_ab49_gesamt.pdf",
+      "raw_sha256": "c2d2bb5daa111cb3e960549c1a3983196a0b428b40173c8ec0eb971f025327a1",
+      "raw_path": "docs/political-data/raw/germany/identity_historical-results-report-2025/source.pdf",
+      "retrieved_at": "2026-10-02T09:49:47.035Z",
+      "raw_redistribution": "not_reviewed_local_archive_only"
+    },
+    {
+      "source_id": "src-de-bwl-participation-2013",
+      "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2013/wahlbewerber.html",
+      "raw_sha256": "1e7c2d0c575fc2bbd68862bdd348a6d3f13486dbbb0df33fd7eb6db5d93e1c29",
+      "raw_path": "docs/political-data/raw/germany/identity_participation-2013/source.html",
+      "retrieved_at": "2026-10-02T09:49:45.884Z",
+      "raw_redistribution": "not_reviewed_local_archive_only"
+    },
+    {
+      "source_id": "src-de-bwl-participation-2017",
+      "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2017/wahlbewerber.html",
+      "raw_sha256": "921e62b053178a9f32bfd87e48255d52b71809a686611cae1e97810a5114fa04",
+      "raw_path": "docs/political-data/raw/germany/identity_participation-2017/source.html",
+      "retrieved_at": "2026-10-02T09:49:45.850Z",
+      "raw_redistribution": "not_reviewed_local_archive_only"
+    },
+    {
+      "source_id": "src-de-bwl-results-report-2002",
+      "source_url": "https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/DEHeft_derivate_00063162/15_Wahl_DB_2002_Heft_5.pdf",
+      "raw_sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+      "raw_path": "docs/political-data/raw/germany/identity_results-report-2002/source.pdf",
+      "retrieved_at": "2026-10-02T09:56:58.971Z",
+      "raw_redistribution": "not_reviewed_local_archive_only"
+    },
+    {
+      "source_id": "src-de-bwl-results-report-2005",
+      "source_url": "https://www.statistischebibliothek.de/mir/servlets/MCRFileNodeServlet/DEHeft_derivate_00016115/Heft_5.pdf",
+      "raw_sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+      "raw_path": "docs/political-data/raw/germany/identity_results-report-2005/source.pdf",
+      "retrieved_at": "2026-10-02T09:54:30.964Z",
+      "raw_redistribution": "not_reviewed_local_archive_only"
+    },
+    {
+      "source_id": "src-de-bwl-results-report-2009",
+      "source_url": "https://www.bundeswahlleiter.de/dam/jcr/97eabb5b-77d7-44f8-828d-5c4740cc535d/btw09_heft5.pdf",
+      "raw_sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+      "raw_path": "docs/political-data/raw/germany/identity_results-report-2009/source.pdf",
+      "retrieved_at": "2026-10-02T09:49:46.922Z",
+      "raw_redistribution": "not_reviewed_local_archive_only"
+    },
+    {
+      "source_id": "src-parlgov-2024-election",
+      "source_url": "https://dataverse.harvard.edu/api/access/datafile/10437092?format=original",
+      "raw_sha256": "a421fb7060f57f8203af6ccd0dce8d79dfee953db8702837f4c5390ef6b23fb6",
+      "raw_path": "docs/political-data/raw/germany/parlgov-2024/view_election.tab",
+      "retrieved_at": "2026-10-02T10:35:51.501Z",
+      "raw_redistribution": "verified_open_licence"
+    },
+    {
+      "source_id": "src-de-bwl-election-2002",
+      "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2002.html",
+      "raw_sha256": "3907a6800ca997c52ea4bb958be3c745b458d72b00bf008cc40c966413d57048",
+      "raw_path": "docs/political-data/raw/germany/production_election-2002/source.html",
+      "retrieved_at": "2026-10-02T10:25:25.576Z",
+      "raw_redistribution": "not_reviewed_local_archive_only",
+      "official_term": 15,
+      "official_election_date": "2002-09-22",
+      "fact_basis": "Official main heading: Wahl zum [term]. Deutschen Bundestag; factual term number only, not page text reproduction"
+    },
+    {
+      "source_id": "src-de-bwl-election-2005",
+      "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2005.html",
+      "raw_sha256": "6e0f442957441330e8938ccf6209ec545982baaaad88be15ae38d5739b2093a4",
+      "raw_path": "docs/political-data/raw/germany/production_election-2005/source.html",
+      "retrieved_at": "2026-10-02T10:25:25.701Z",
+      "raw_redistribution": "not_reviewed_local_archive_only",
+      "official_term": 16,
+      "official_election_date": "2005-09-18",
+      "fact_basis": "Official main heading: Wahl zum [term]. Deutschen Bundestag; factual term number only, not page text reproduction"
+    },
+    {
+      "source_id": "src-de-bwl-election-2009",
+      "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2009.html",
+      "raw_sha256": "c252191bbde5cf564c00d8f893507bc53e60dec240d515a6c3aa83e112ec952f",
+      "raw_path": "docs/political-data/raw/germany/production_election-2009/source.html",
+      "retrieved_at": "2026-10-02T10:25:25.741Z",
+      "raw_redistribution": "not_reviewed_local_archive_only",
+      "official_term": 17,
+      "official_election_date": "2009-09-27",
+      "fact_basis": "Official main heading: Wahl zum [term]. Deutschen Bundestag; factual term number only, not page text reproduction"
+    },
+    {
+      "source_id": "src-de-bwl-election-2013",
+      "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2013.html",
+      "raw_sha256": "da4cfeacbdeff0b2122f80da124cd8c08efb3675300321eb52eeb33fd3c12443",
+      "raw_path": "docs/political-data/raw/germany/production_election-2013/source.html",
+      "retrieved_at": "2026-10-02T10:25:25.781Z",
+      "raw_redistribution": "not_reviewed_local_archive_only",
+      "official_term": 18,
+      "official_election_date": "2013-09-22",
+      "fact_basis": "Official main heading: Wahl zum [term]. Deutschen Bundestag; factual term number only, not page text reproduction"
+    },
+    {
+      "source_id": "src-de-bwl-election-2017",
+      "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2017.html",
+      "raw_sha256": "bade58c2875354c9fb5b2212bd82df3a71021296ae231a18c65d5251ecd40116",
+      "raw_path": "docs/political-data/raw/germany/production_election-2017/source.html",
+      "retrieved_at": "2026-10-02T10:25:25.819Z",
+      "raw_redistribution": "not_reviewed_local_archive_only",
+      "official_term": 19,
+      "official_election_date": "2017-09-24",
+      "fact_basis": "Official main heading: Wahl zum [term]. Deutschen Bundestag; factual term number only, not page text reproduction"
+    },
+    {
+      "source_id": "src-de-bwl-election-2021",
+      "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2021.html",
+      "raw_sha256": "dabecc37babf7233d2d062a35ff380cb656d95f5b873d5a3d2e96e88953994da",
+      "raw_path": "docs/political-data/raw/germany/production_election-2021/source.html",
+      "retrieved_at": "2026-10-02T10:25:25.858Z",
+      "raw_redistribution": "not_reviewed_local_archive_only",
+      "official_term": 20,
+      "official_election_date": "2021-09-26",
+      "fact_basis": "Official main heading: Wahl zum [term]. Deutschen Bundestag; factual term number only, not page text reproduction"
+    },
+    {
+      "source_id": "src-de-bwl-election-2025",
+      "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2025.html",
+      "raw_sha256": "cbeca6e6ed53c7df36f6007bc0289da267856e6ea1ed7028f55a2f0f36cb5b43",
+      "raw_path": "docs/political-data/raw/germany/production_election-2025/source.html",
+      "retrieved_at": "2026-10-02T10:25:25.899Z",
+      "raw_redistribution": "not_reviewed_local_archive_only",
+      "official_term": 21,
+      "official_election_date": "2025-02-23",
+      "fact_basis": "Official main heading: Wahl zum [term]. Deutschen Bundestag; factual term number only, not page text reproduction"
+    },
+    {
+      "source_id": "src-de-bwl-hare-niemeyer",
+      "source_url": "https://www.bundeswahlleiterin.de/service/glossar/h/hare-niemeyer.html",
+      "raw_sha256": "31a164d79e4f6ba9229bc3f51f0bff0fcf80bc49b360c63bdfb462df0c430158",
+      "raw_path": "docs/political-data/raw/germany/production_hare-niemeyer/source.html",
+      "retrieved_at": "2026-10-02T10:25:58.176Z",
+      "raw_redistribution": "not_reviewed_local_archive_only"
+    },
+    {
+      "source_id": "src-de-bwl-late-poll",
+      "source_url": "https://www.bundeswahlleiterin.de/service/glossar/n/nachwahl.html",
+      "raw_sha256": "f051806b3010f09ddb7747efdf941af28258a2b251a4e121bd7868da4b878835",
+      "raw_path": "docs/political-data/raw/germany/production_late-poll/source.html",
+      "retrieved_at": "2026-10-02T10:33:26.693Z",
+      "raw_redistribution": "not_reviewed_local_archive_only"
+    },
+    {
+      "source_id": "src-de-bwl-overhang",
+      "source_url": "https://www.bundeswahlleiterin.de/service/glossar/u/ueberhangmandate.html",
+      "raw_sha256": "8e2caa0faa45b1dbd8f16abc58e5510f47ced3bb4649587154c9cc0d5bfbdd5c",
+      "raw_path": "docs/political-data/raw/germany/production_overhang/source.html",
+      "retrieved_at": "2026-10-02T10:26:23.125Z",
+      "raw_redistribution": "not_reviewed_local_archive_only"
+    },
+    {
+      "source_id": "src-de-bwl-sainte-lague",
+      "source_url": "https://www.bundeswahlleiterin.de/service/glossar/s/sainte-lague-schepers.html",
+      "raw_sha256": "cbdf0abd79b870f67d9789ea3b1e24402824b805d188245fab409a97ac2a0e22",
+      "raw_path": "docs/political-data/raw/germany/production_sainte-lague/source.html",
+      "retrieved_at": "2026-10-02T10:25:58.220Z",
+      "raw_redistribution": "not_reviewed_local_archive_only"
+    },
+    {
+      "source_id": "src-de-bwl-system-2017",
+      "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2017/informationen-waehler/wahlsystem.html",
+      "raw_sha256": "db36d661ff94de86c82949e1f640d4ef550ec56c7da128c57501a18d5bcc7458",
+      "raw_path": "docs/political-data/raw/germany/production_system-2017/source.html",
+      "retrieved_at": "2026-10-02T10:25:58.054Z",
+      "raw_redistribution": "not_reviewed_local_archive_only"
+    },
+    {
+      "source_id": "src-de-bwl-system-2021",
+      "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2021/informationen-waehler/wahlsystem.html",
+      "raw_sha256": "7ac13246f3851aa51b23a4699614b0b50f247b5f38d3cc04963f9b5c46ce4b87",
+      "raw_path": "docs/political-data/raw/germany/production_system-2021/source.html",
+      "retrieved_at": "2026-10-02T10:25:58.097Z",
+      "raw_redistribution": "not_reviewed_local_archive_only"
+    },
+    {
+      "source_id": "src-de-bwl-system-2025",
+      "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2025/informationen-waehler/wahlsystem.html",
+      "raw_sha256": "92a82c80327d40e877a76b123ec3e0f40f78ebf206e1b1c9575e0e86968eb596",
+      "raw_path": "docs/political-data/raw/germany/production_system-2025/source.html",
+      "retrieved_at": "2026-10-02T10:25:58.139Z",
+      "raw_redistribution": "not_reviewed_local_archive_only"
+    },
+    {
+      "source_id": "src-de-bwl-system-size",
+      "source_url": "https://www.bundeswahlleiterin.de/service/glossar/w/wahlsysteme.html",
+      "raw_sha256": "a55a7c9a8bee18686fc371d192b1c77a4da4a16071ac9c3412ec1c361bab64d0",
+      "raw_path": "docs/political-data/raw/germany/production_system-size/source.html",
+      "retrieved_at": "2026-10-02T10:25:58.261Z",
+      "raw_redistribution": "not_reviewed_local_archive_only"
+    },
+    {
+      "source_id": "src-de-bwl-threshold",
+      "source_url": "https://www.bundeswahlleiterin.de/service/glossar/s/sperrklausel.html",
+      "raw_sha256": "3019dd70881c4f04e6f3e28175cc346f6a8085d9c3a3634685d79787ff0de5d9",
+      "raw_path": "docs/political-data/raw/germany/production_threshold/source.html",
+      "retrieved_at": "2026-10-02T10:33:26.731Z",
+      "raw_redistribution": "not_reviewed_local_archive_only"
+    },
+    {
+      "source_id": "src-de-bwl-recognition-2013",
+      "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2013/2013-07-05-38-parteien-koennen-an-der-bundestagswahl-2013-teilnehmen.html",
+      "raw_sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+      "raw_path": "docs/political-data/raw/germany/recognition_2013/recognition.html",
+      "retrieved_at": "2026-10-02T09:41:54.242Z",
+      "raw_redistribution": "not_reviewed_local_archive_only"
+    },
+    {
+      "source_id": "src-de-bwl-recognition-2017",
+      "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2017/05_17_parteien_teilnahme.html",
+      "raw_sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+      "raw_path": "docs/political-data/raw/germany/recognition_2017/recognition.html",
+      "retrieved_at": "2026-10-02T09:41:42.668Z",
+      "raw_redistribution": "not_reviewed_local_archive_only"
+    },
+    {
+      "source_id": "src-de-bwl-recognition-2021",
+      "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2021/17_21_beschluss-bverfg.html",
+      "raw_sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+      "raw_path": "docs/political-data/raw/germany/recognition_2021/recognition.html",
+      "retrieved_at": "2026-10-02T09:37:09.945Z",
+      "raw_redistribution": "not_reviewed_local_archive_only"
+    },
+    {
+      "source_id": "src-de-bwl-recognition-2025",
+      "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+      "raw_sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525",
+      "raw_path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+      "retrieved_at": "2026-10-02T08:48:27.174Z",
+      "raw_redistribution": "not_reviewed_local_archive_only"
+    },
+    {
+      "source_id": "src-de-bwl-publisher-terms",
+      "source_url": "https://www.bundeswahlleiterin.de/info/impressum.html",
+      "raw_sha256": "1fb04ec5a6ff6b7f224836d779914a4cbf68cf3d3dbb69efcf18ef1c4b9d9fd5",
+      "raw_path": "docs/political-data/raw/germany/terms_1fb04ec5a6ff6b7f/publisher-terms.html",
+      "retrieved_at": "2026-10-02T08:29:09.736Z",
+      "raw_redistribution": "not_reviewed_local_archive_only"
+    }
+  ]
+}

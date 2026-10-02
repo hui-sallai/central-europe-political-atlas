@@ -13,7 +13,7 @@ const atlasOrigin = "https://hy-central-europe-analysis.org";
 const countries = new Set(["hungary", "poland", "czechia", "slovakia", "germany", "austria", "romania", "slovenia", "croatia", "serbia"]);
 const metadataKeys = new Set(["filters", "row_count", "coverage", "status", "event_type", "topic", "original_language", "entersModel", "state", "purpose", "supported_data", "readiness", "classification", "legend", "geography", "selected_regions", "evidence_categories", "reference"]);
 export function safeNotebookUrl(value: string, atlas = false): boolean {
-  try { const u = new URL(value); return u.protocol === "https:" && !u.username && !u.password && value.length <= 4096 && (!atlas || (u.origin === atlasOrigin && /^\/(?:en\/)?(?:data|countries|news|models|methodology|map|workspaces|notebook)(?:\/|$)/.test(u.pathname))) && ![...u.searchParams.keys()].some(k => /^(api[_-]?key|token|secret|password)$/i.test(k)); } catch { return false; }
+  try { const u = new URL(value); return u.protocol === "https:" && !u.username && !u.password && value.length <= 4096 && (!atlas || (u.origin === atlasOrigin && /^\/(?:en\/)?(?:data|countries|news|models|methodology|map|workspaces|notebook|politics)(?:\/|$)/.test(u.pathname))) && ![...u.searchParams.keys()].some(k => /^(api[_-]?key|token|secret|password)$/i.test(k)); } catch { return false; }
 }
 function stable(value: unknown): string {
   if (Array.isArray(value)) return `[${value.map(stable).join(",")}]`;

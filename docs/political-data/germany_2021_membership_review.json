@@ -1,0 +1,1288 @@
+{
+  "schema_version": "germany-election-specific-membership-review-v1",
+  "state": "staging_only",
+  "canonical_promotion": false,
+  "election_year": 2021,
+  "rows": [
+    {
+      "contestant_id": "ct-de-0141",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Christlich Demokratische Union Deutschlands",
+      "active_source_label": "Christlich Demokratische Union Deutschlands",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:21",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:21",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:1:row:2",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0142",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Sozialdemokratische Partei Deutschlands",
+      "active_source_label": "Sozialdemokratische Partei Deutschlands",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:25",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:25",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:1:row:3",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0143",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Alternative für Deutschland",
+      "active_source_label": "Alternative für Deutschland",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:29",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:29",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:1:row:8",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0144",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Freie Demokratische Partei",
+      "active_source_label": "Freie Demokratische Partei",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:33",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:33",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:1:row:7",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0145",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "DIE LINKE",
+      "active_source_label": "DIE LINKE",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:37",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:37",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:1:row:4",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0146",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "BÜNDNIS 90/DIE GRÜNEN",
+      "active_source_label": "BÜNDNIS 90/DIE GRÜNEN",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:41",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:41",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:1:row:5",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0147",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Christlich-Soziale Union in Bayern e.V.",
+      "active_source_label": "Christlich-Soziale Union in Bayern e.V.",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:45",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:45",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:1:row:6",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0148",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "FREIE WÄHLER",
+      "active_source_label": "FREIE WÄHLER",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:49",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:49",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:2:row:2",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0149",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+      "active_source_label": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:53",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:53",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:5",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0150",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+      "active_source_label": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:57",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:57",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:18",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0151",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Nationaldemokratische Partei Deutschlands",
+      "active_source_label": "Die Heimat (2021: Nationaldemokratische Partei Deutschlands)",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:61",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:61",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:30",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0152",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Piratenpartei Deutschland",
+      "active_source_label": "Piratenpartei Deutschland",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:65",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:65",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:27",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0153",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Ökologisch-Demokratische Partei",
+      "active_source_label": "Ökologisch-Demokratische Partei",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:69",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:69",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:20",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0154",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "V-Partei³ - Partei für Veränderung, Vegetarier und Veganer",
+      "active_source_label": "V-Partei³ - Partei für Veränderung, Vegetarier und Veganer",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:73",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:73",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:28",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0155",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "DEMOKRATIE IN BEWEGUNG",
+      "active_source_label": "DEMOKRATIE IN BEWEGUNG",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:77",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:77",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:29",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0156",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Bayernpartei",
+      "active_source_label": "Bayernpartei",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:81",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:81",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:6",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0157",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Allianz für Menschenrechte, Tier- und Naturschutz",
+      "active_source_label": "Allianz für Menschenrechte, Tier- und Naturschutz",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:85",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:85",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:4",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0158",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Marxistisch-Leninistische Partei Deutschlands",
+      "active_source_label": "Marxistisch-Leninistische Partei Deutschlands",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:89",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:89",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:9",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0159",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Partei für Gesundheitsforschung",
+      "active_source_label": "Partei für schulmedizinische Verjüngungsforschung (2021: Partei für Gesundheitsforschung)",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:93",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:93",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:25",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0160",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Menschliche Welt - für das Wohl und Glücklichsein aller",
+      "active_source_label": "Menschliche Welt - für das Wohl und Glücklichsein aller",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:97",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:97",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:3",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0161",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Deutsche Kommunistische Partei",
+      "active_source_label": "Deutsche Kommunistische Partei",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:101",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:101",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:2",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0162",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Die Grauen – Für alle Generationen",
+      "active_source_label": "Die Grauen – Für alle Generationen",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:105",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:105",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:34",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0163",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Bürgerrechtsbewegung Solidarität",
+      "active_source_label": "Bürgerrechtsbewegung Solidarität",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:109",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:109",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:21",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0164",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Partei der Humanisten",
+      "active_source_label": "Partei der Humanisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:113",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:113",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:15",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0165",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Gartenpartei",
+      "active_source_label": "Gartenpartei",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:117",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:117",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:7",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0166",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Die Urbane. Eine HipHop Partei",
+      "active_source_label": "Die Urbane. Eine HipHop Partei",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:121",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:121",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:40",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0167",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Sozialistische Gleichheitspartei, Vierte Internationale",
+      "active_source_label": "Sozialistische Gleichheitspartei, Vierte Internationale",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:125",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:125",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:38",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0168",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Basisdemokratische Partei Deutschland",
+      "active_source_label": "Basisdemokratische Partei Deutschland",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:129",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:129",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:16",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0169",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Bündnis C - Christen für Deutschland",
+      "active_source_label": "Bündnis C - Christen für Deutschland",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:133",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:133",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:13",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0170",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Bürgerbewegung für Fortschritt und Wandel",
+      "active_source_label": "Bürgerbewegung für Fortschritt und Wandel",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:137",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:137",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:41",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0171",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "DER DRITTE WEG",
+      "active_source_label": "DER DRITTE WEG",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:141",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:141",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:10",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0172",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "diePinken/BÜNDNIS21",
+      "active_source_label": "diePinken/BÜNDNIS21",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:145",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:145",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:26",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0173",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Europäische Partei LIEBE",
+      "active_source_label": "Europäische Partei LIEBE",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:149",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:149",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:12",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0174",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Liberal-Konservative Reformer",
+      "active_source_label": "Wir Bürger (2021: Liberal-Konservative Reformer)",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:153",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:153",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:37",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0175",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Partei des Fortschritts",
+      "active_source_label": "Partei des Fortschritts",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:157",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:157",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:32",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0176",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": ">> Partei für Kinder, Jugendliche und Familien <<  – Lobbyisten für Kinder –",
+      "active_source_label": ">> Partei für Kinder, Jugendliche und Familien <<  – Lobbyisten für Kinder –",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:161",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:161",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:42",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0177",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Südschleswigscher Wählerverband",
+      "active_source_label": "Südschleswigscher Wählerverband",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:165",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:165",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:11",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0178",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Team Todenhöfer – Die Gerechtigkeitspartei",
+      "active_source_label": "Team Todenhöfer – Die Gerechtigkeitspartei",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:169",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:169",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:19",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0179",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "UNABHÄNGIGE für bürgernahe Demokratie",
+      "active_source_label": "UNABHÄNGIGE für bürgernahe Demokratie",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:173",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:173",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:14",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    },
+    {
+      "contestant_id": "ct-de-0180",
+      "election_year": 2021,
+      "contestant_kind": "party",
+      "membership_basis": "own_party_list_for_this_election_only",
+      "historical_display_label": "Volt Deutschland",
+      "active_source_label": "Volt Deutschland",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "reviewed_at": "2026-10-02",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:177",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "note": "Corrected final results; numeric values stay in this source vintage"
+        },
+        {
+          "source_record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:177",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "note": "Original 2021 election-specific header; original numeric values are not substituted"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2021:table:3:row:17",
+          "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+          "note": "Official party recognition after constitutional-court decisions; not a durable legal-entity identifier"
+        }
+      ],
+      "note": "Manual binding uses the authority's express party recognition and same-election result header. Whitespace differences are recorded as typography only. No link to 2025 entities, merger, rename or continuous party series is inferred."
+    }
+  ]
+}

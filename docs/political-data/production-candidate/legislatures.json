@@ -1,0 +1,373 @@
+[
+  {
+    "legislature_id": "lg-de-bt-15",
+    "country": "germany",
+    "chamber": "Bundestag",
+    "official_term": 15,
+    "election_id": "el-de-bt-2002-09-22",
+    "total_seats": 603,
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "result_vintage": "final",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-election-2002",
+        "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2002.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:25.576Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_election-2002/source.html",
+          "sha256": "3907a6800ca997c52ea4bb958be3c745b458d72b00bf008cc40c966413d57048"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "official_term",
+          "chamber"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-86",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "total_seats",
+          "valid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4,
+          79
+        ]
+      }
+    ]
+  },
+  {
+    "legislature_id": "lg-de-bt-16",
+    "country": "germany",
+    "chamber": "Bundestag",
+    "official_term": 16,
+    "election_id": "el-de-bt-2005-09-18",
+    "total_seats": 614,
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "result_vintage": "final",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-election-2005",
+        "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2005.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:25.701Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_election-2005/source.html",
+          "sha256": "6e0f442957441330e8938ccf6209ec545982baaaad88be15ae38d5739b2093a4"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "official_term",
+          "chamber"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-87",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "total_seats",
+          "valid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4,
+          79
+        ]
+      }
+    ]
+  },
+  {
+    "legislature_id": "lg-de-bt-17",
+    "country": "germany",
+    "chamber": "Bundestag",
+    "official_term": 17,
+    "election_id": "el-de-bt-2009-09-27",
+    "total_seats": 622,
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "result_vintage": "final",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-election-2009",
+        "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2009.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:25.741Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_election-2009/source.html",
+          "sha256": "c252191bbde5cf564c00d8f893507bc53e60dec240d515a6c3aa83e112ec952f"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "official_term",
+          "chamber"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-88",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "total_seats",
+          "valid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4,
+          79
+        ]
+      }
+    ]
+  },
+  {
+    "legislature_id": "lg-de-bt-18",
+    "country": "germany",
+    "chamber": "Bundestag",
+    "official_term": 18,
+    "election_id": "el-de-bt-2013-09-22",
+    "total_seats": 631,
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "result_vintage": "final",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-election-2013",
+        "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2013.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:25.781Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_election-2013/source.html",
+          "sha256": "da4cfeacbdeff0b2122f80da124cd8c08efb3675300321eb52eeb33fd3c12443"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "official_term",
+          "chamber"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-89",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "total_seats",
+          "valid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4,
+          79
+        ]
+      }
+    ]
+  },
+  {
+    "legislature_id": "lg-de-bt-19",
+    "country": "germany",
+    "chamber": "Bundestag",
+    "official_term": 19,
+    "election_id": "el-de-bt-2017-09-24",
+    "total_seats": 709,
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "result_vintage": "final",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-election-2017",
+        "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2017.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:25.819Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_election-2017/source.html",
+          "sha256": "bade58c2875354c9fb5b2212bd82df3a71021296ae231a18c65d5251ecd40116"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "official_term",
+          "chamber"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-90",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "total_seats",
+          "valid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4,
+          79
+        ]
+      }
+    ]
+  },
+  {
+    "legislature_id": "lg-de-bt-20",
+    "country": "germany",
+    "chamber": "Bundestag",
+    "official_term": 20,
+    "election_id": "el-de-bt-2021-09-26",
+    "total_seats": 735,
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "result_vintage": "corrected_final_after_2024_02_11_repeat",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-election-2021",
+        "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2021.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:25.858Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_election-2021/source.html",
+          "sha256": "dabecc37babf7233d2d062a35ff380cb656d95f5b873d5a3d2e96e88953994da"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "official_term",
+          "chamber"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-91",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "total_seats",
+          "valid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4,
+          79
+        ]
+      }
+    ]
+  },
+  {
+    "legislature_id": "lg-de-bt-21",
+    "country": "germany",
+    "chamber": "Bundestag",
+    "official_term": 21,
+    "election_id": "el-de-bt-2025-02-23",
+    "total_seats": 630,
+    "seat_count_basis": "election_result_vintage_not_current_composition",
+    "result_vintage": "final",
+    "start_date": null,
+    "end_date": null,
+    "date_status": "not_acquired_not_asserted",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-election-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2025.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:25.899Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_election-2025/source.html",
+          "sha256": "cbeca6e6ed53c7df36f6007bc0289da267856e6ea1ed7028f55a2f0f36cb5b43"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "official_term",
+          "chamber"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-92",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "total_seats",
+          "valid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4,
+          79
+        ]
+      }
+    ]
+  }
+]

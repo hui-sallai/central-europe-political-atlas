@@ -2,6 +2,37 @@
   "schema_version": "political-national-election-source-registry-v0.1-audit",
   "state": "audit_only_no_ingestion",
   "audit_date": "2026-10-02",
+  "germany_production_slice_1a": {
+    "owner_authorized_at": "2026-10-02",
+    "approved_country": "germany",
+    "approved_elections": [2002, 2005, 2009, 2013, 2017, 2021, 2025],
+    "state": "germany_scoped_production_data_accepted_ui_release_pending",
+    "current_acceptance": "docs/political-data/germany_production_acceptance.json",
+    "other_countries_authorized": false,
+    "historical_csv_licence": {
+      "status": "verified_open_licence",
+      "licence": "dl-de/by-2-0",
+      "basis": "Explicit licence header in actual downloaded official CSV; publisher download-product reuse terms reviewed.",
+      "terms_url": "https://www.bundeswahlleiterin.de/info/impressum.html",
+      "licence_url": "https://www.govdata.de/dl-de/by-2-0",
+      "dataset_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+      "attribution": "Die Bundeswahlleiterin, Wiesbaden; dl-de/by-2-0; dataset URI; disclose extraction, normalization and calculated fields.",
+      "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484",
+      "retrieved_at": "2026-10-01T23:20:00.007Z",
+      "source_updated_at": "2026-01-08T13:40:32Z"
+    },
+    "final_archive": {
+      "url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+      "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512",
+      "retrieved_at": "2026-10-01T23:21:39.584Z",
+      "licence_status": "license_review_required",
+      "note": "General downloadable-product reuse permission reviewed; retain product-header evidence before promoting each actual member. Includes original and corrected 2021 result revisions."
+    },
+    "inspection": "docs/political-data/germany_source_inspection.json",
+    "implementation_register": "docs/political-data/germany-production-progress.md",
+    "confirmed_definition": "Owner confirmed 2026-10-02: use currently valid corrected 2021 final results after the 2024-02-11 partial Berlin repeat election (735 seats); preserve original final results (736 seats) as an archived revision and disclose election-result and legislature-seat vintage explicitly.",
+    "platform_version": "v2.0"
+  },
   "scope": "National lower-house (or unicameral) parliamentary elections, ten Atlas countries, target horizon 2000–latest. Presidential, local, regional and referendum votes are out of scope for the first production pass.",
   "verification_legend": {
     "verified_live": "Fetched from the named URL during this audit (2026-10-02); the stated format/field was observed in the response.",

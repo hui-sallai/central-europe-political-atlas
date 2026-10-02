@@ -1,0 +1,821 @@
+[
+  {
+    "election_id": "el-de-bt-2002-09-22",
+    "country": "germany",
+    "geography": "national",
+    "vote_type": "second_vote",
+    "result_vintage": "final",
+    "eligible_voters": 61432868,
+    "voters": 48582761,
+    "valid_second_votes": 47996480,
+    "invalid_second_votes": 586281,
+    "published_turnout": 79.1,
+    "derived_turnout": 79.08268420741808,
+    "turnout_definition": "Atlas calculation: voters / eligible voters × 100; published turnout retained separately",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-23",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "eligible_voters"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-44",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "voters",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4,
+          6
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-65",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "invalid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-86",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "valid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4,
+          79
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-44",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "derived_turnout",
+          "turnout_definition"
+        ],
+        "published_or_derived": "derived",
+        "formula": "100 * voters / eligible_voters",
+        "input_fields": [
+          "voters",
+          "eligible_voters"
+        ]
+      }
+    ]
+  },
+  {
+    "election_id": "el-de-bt-2005-09-18",
+    "country": "germany",
+    "geography": "national",
+    "vote_type": "second_vote",
+    "result_vintage": "final",
+    "eligible_voters": 61870711,
+    "voters": 48044134,
+    "valid_second_votes": 47287988,
+    "invalid_second_votes": 756146,
+    "published_turnout": 77.7,
+    "derived_turnout": 77.65246790197708,
+    "turnout_definition": "Atlas calculation: voters / eligible voters × 100; published turnout retained separately",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-24",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "eligible_voters"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-45",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "voters",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4,
+          6
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-66",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "invalid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-87",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "valid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4,
+          79
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-45",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "derived_turnout",
+          "turnout_definition"
+        ],
+        "published_or_derived": "derived",
+        "formula": "100 * voters / eligible_voters",
+        "input_fields": [
+          "voters",
+          "eligible_voters"
+        ]
+      }
+    ]
+  },
+  {
+    "election_id": "el-de-bt-2009-09-27",
+    "country": "germany",
+    "geography": "national",
+    "vote_type": "second_vote",
+    "result_vintage": "final",
+    "eligible_voters": 62168489,
+    "voters": 44005575,
+    "valid_second_votes": 43371190,
+    "invalid_second_votes": 634385,
+    "published_turnout": 70.8,
+    "derived_turnout": 70.7843727712282,
+    "turnout_definition": "Atlas calculation: voters / eligible voters × 100; published turnout retained separately",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-25",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "eligible_voters"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-46",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "voters",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4,
+          6
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-67",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "invalid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-88",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "valid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4,
+          79
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-46",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "derived_turnout",
+          "turnout_definition"
+        ],
+        "published_or_derived": "derived",
+        "formula": "100 * voters / eligible_voters",
+        "input_fields": [
+          "voters",
+          "eligible_voters"
+        ]
+      }
+    ]
+  },
+  {
+    "election_id": "el-de-bt-2013-09-22",
+    "country": "germany",
+    "geography": "national",
+    "vote_type": "second_vote",
+    "result_vintage": "final",
+    "eligible_voters": 61946900,
+    "voters": 44309925,
+    "valid_second_votes": 43726856,
+    "invalid_second_votes": 583069,
+    "published_turnout": 71.5,
+    "derived_turnout": 71.52888199409495,
+    "turnout_definition": "Atlas calculation: voters / eligible voters × 100; published turnout retained separately",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-26",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "eligible_voters"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-47",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "voters",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4,
+          6
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-68",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "invalid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-89",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "valid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4,
+          79
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-47",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "derived_turnout",
+          "turnout_definition"
+        ],
+        "published_or_derived": "derived",
+        "formula": "100 * voters / eligible_voters",
+        "input_fields": [
+          "voters",
+          "eligible_voters"
+        ]
+      }
+    ]
+  },
+  {
+    "election_id": "el-de-bt-2017-09-24",
+    "country": "germany",
+    "geography": "national",
+    "vote_type": "second_vote",
+    "result_vintage": "final",
+    "eligible_voters": 61688485,
+    "voters": 46976341,
+    "valid_second_votes": 46515492,
+    "invalid_second_votes": 460849,
+    "published_turnout": 76.2,
+    "derived_turnout": 76.15090725603004,
+    "turnout_definition": "Atlas calculation: voters / eligible voters × 100; published turnout retained separately",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-27",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "eligible_voters"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-48",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "voters",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4,
+          6
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-69",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "invalid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-90",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "valid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4,
+          79
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-48",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "derived_turnout",
+          "turnout_definition"
+        ],
+        "published_or_derived": "derived",
+        "formula": "100 * voters / eligible_voters",
+        "input_fields": [
+          "voters",
+          "eligible_voters"
+        ]
+      }
+    ]
+  },
+  {
+    "election_id": "el-de-bt-2021-09-26",
+    "country": "germany",
+    "geography": "national",
+    "vote_type": "second_vote",
+    "result_vintage": "corrected_final_after_2024_02_11_repeat",
+    "eligible_voters": 61172771,
+    "voters": 46707343,
+    "valid_second_votes": 46298387,
+    "invalid_second_votes": 408956,
+    "published_turnout": 76.4,
+    "derived_turnout": 76.35315882617121,
+    "turnout_definition": "Atlas calculation: voters / eligible voters × 100; published turnout retained separately",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-28",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "eligible_voters"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-49",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "voters",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4,
+          6
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-70",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "invalid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-91",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "valid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4,
+          79
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-49",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "derived_turnout",
+          "turnout_definition"
+        ],
+        "published_or_derived": "derived",
+        "formula": "100 * voters / eligible_voters",
+        "input_fields": [
+          "voters",
+          "eligible_voters"
+        ]
+      }
+    ]
+  },
+  {
+    "election_id": "el-de-bt-2025-02-23",
+    "country": "germany",
+    "geography": "national",
+    "vote_type": "second_vote",
+    "result_vintage": "final",
+    "eligible_voters": 60510631,
+    "voters": 49928653,
+    "valid_second_votes": 49649512,
+    "invalid_second_votes": 279141,
+    "published_turnout": 82.5,
+    "derived_turnout": 82.51220021156283,
+    "turnout_definition": "Atlas calculation: voters / eligible voters × 100; published turnout retained separately",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-29",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "eligible_voters"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-50",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "voters",
+          "published_turnout"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4,
+          6
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-71",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "invalid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-92",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "valid_second_votes"
+        ],
+        "published_or_derived": "published",
+        "columns": [
+          4,
+          79
+        ]
+      },
+      {
+        "source_id": "src-de-bwl-historical-results",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/24d8e745-920d-431a-893a-12805bc7ef40/btw_ab49_datenbank_ergebnisse.csv",
+        "source_record_id": "csv-record-50",
+        "retrieved_at": "2026-10-01T23:20:00.007Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+          "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "derived_turnout",
+          "turnout_definition"
+        ],
+        "published_or_derived": "derived",
+        "formula": "100 * voters / eligible_voters",
+        "input_fields": [
+          "voters",
+          "eligible_voters"
+        ]
+      }
+    ]
+  }
+]

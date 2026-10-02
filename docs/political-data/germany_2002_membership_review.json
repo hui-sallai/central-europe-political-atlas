@@ -1,0 +1,609 @@
+{
+  "schema_version": "germany-election-specific-membership-review-v1",
+  "state": "staging_only",
+  "election_year": 2002,
+  "canonical_promotion": false,
+  "transcription_method": "visual_manual_from_archived_official_pdf",
+  "rows": [
+    {
+      "contestant_id": "ct-de-0001",
+      "election_year": 2002,
+      "source_label": "SPD",
+      "source_published_full_name": "Sozialdemokratische Partei Deutschlands",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:10",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:1",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0002",
+      "election_year": 2002,
+      "source_label": "CDU",
+      "source_published_full_name": "Christlich Demokratische Union Deutschlands",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:12",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:2",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0003",
+      "election_year": 2002,
+      "source_label": "CSU",
+      "source_published_full_name": "Christlich-Soziale Union in Bayern e.V.",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:14",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:3",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0004",
+      "election_year": 2002,
+      "source_label": "GRÜNE",
+      "source_published_full_name": "BÜNDNIS 90/DIE GRÜNEN",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:16",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:4",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0005",
+      "election_year": 2002,
+      "source_label": "FDP",
+      "source_published_full_name": "Freie Demokratische Partei",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:18",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:5",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0006",
+      "election_year": 2002,
+      "source_label": "PDS",
+      "source_published_full_name": "Partei des Demokratischen Sozialismus",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:20",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:6",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0007",
+      "election_year": 2002,
+      "source_label": "REP",
+      "source_published_full_name": "DIE REPUBLIKANER",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:22",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:7",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0008",
+      "election_year": 2002,
+      "source_label": "GRAUE",
+      "source_published_full_name": "DIE GRAUEN – Graue Panther",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:24",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:8",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0009",
+      "election_year": 2002,
+      "source_label": "Tierschutz",
+      "source_published_full_name": "Mensch Umwelt Tierschutz",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:26",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:9",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0010",
+      "election_year": 2002,
+      "source_label": "NPD",
+      "source_published_full_name": "Nationaldemokratische Partei Deutschlands",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:28",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:10",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0011",
+      "election_year": 2002,
+      "source_label": "ödp",
+      "source_published_full_name": "Ökologisch-Demokratische Partei",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:30",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:11",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0012",
+      "election_year": 2002,
+      "source_label": "PBC",
+      "source_published_full_name": "Partei Bibeltreuer Christen",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:32",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:12",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0013",
+      "election_year": 2002,
+      "source_label": "DIE FRAUEN",
+      "source_published_full_name": "Feministische Partei DIE FRAUEN",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:34",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:13",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0014",
+      "election_year": 2002,
+      "source_label": "BP",
+      "source_published_full_name": "Bayernpartei",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:36",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:14",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0015",
+      "election_year": 2002,
+      "source_label": "FAMILIE",
+      "source_published_full_name": "FAMILIEN-PARTEI DEUTSCHLANDS",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:38",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:15",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0016",
+      "election_year": 2002,
+      "source_label": "CM",
+      "source_published_full_name": "CHRISTLICHE MITTE – Für ein Deutschland nach GOTTES Geboten",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:40",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:16",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0017",
+      "election_year": 2002,
+      "source_label": "BüSo",
+      "source_published_full_name": "Bürgerrechtsbewegung Solidarität",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:42",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:17",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0018",
+      "election_year": 2002,
+      "source_label": "HP",
+      "source_published_full_name": "Humanistische Partei",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:44",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:18",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0019",
+      "election_year": 2002,
+      "source_label": "Violetten",
+      "source_published_full_name": "Alternative spirituelle Politik im neuen Zeitalter – Die Violetten",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:46",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:19",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0020",
+      "election_year": 2002,
+      "source_label": "AUFBRUCH",
+      "source_published_full_name": "Aufbruch für Bürgerrechte, Freiheit und Gesundheit",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:48",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:20",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0021",
+      "election_year": 2002,
+      "source_label": "ZENTRUM",
+      "source_published_full_name": "Deutsche Zentrumspartei – Älteste Partei Deutschlands gegründet 1870",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:50",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:21",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0022",
+      "election_year": 2002,
+      "source_label": "KPD",
+      "source_published_full_name": "KOMMUNISTISCHE PARTEI DEUTSCHLANDS",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:52",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:22",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0023",
+      "election_year": 2002,
+      "source_label": "PRG",
+      "source_published_full_name": "Partei für RentenGerechtigkeit und Familie",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:54",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:23",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0024",
+      "election_year": 2002,
+      "source_label": "Schill",
+      "source_published_full_name": "Partei Rechtsstaatlicher Offensive",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:56",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2002:pdf-page:18:table:2:row:24",
+          "sha256": "052f83393c0c197a26c1ee7a6a60693558fb759edb89f92ff5e95ba7fc8d1d73",
+          "note": "Visually checked historical full name and Landesliste participation; printed page 18; OCR is not identity validation"
+        }
+      ],
+      "review_note": "Election-specific manual membership only. PDF wraps words across lines; transcription rejoins them without changing historical wording. Result header Tierschutz corresponds to the table's Die Tierschutzpartei and Violetten to its historical full-name row; these explicit manual decisions require independent visual review. PDS is not relabelled Die Linke; no cross-year or legal continuity inference. Four following first-vote-only rows are excluded."
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "schema_version": "germany-political-export-v1",
+  "country": "germany",
+  "years": [
+    2002,
+    2005,
+    2009,
+    2013,
+    2017,
+    2021,
+    2025
+  ],
+  "continuous_party_series": 0,
+  "files": [
+    {
+      "name": "political_source_registry.json",
+      "url": "/research-data/political/germany/political_source_registry.json",
+      "sha256": "c1f059ac1cf648e81dd8f32472b7bc3e3fe84ab48666eb5eff2fce7ff0401df6"
+    },
+    {
+      "name": "political_source_registry.csv",
+      "url": "/research-data/political/germany/political_source_registry.csv",
+      "sha256": "aa45908413b327919a50d0a7115883fb5b891a9d5ee1a9963ed7a396c92f28e8"
+    },
+    {
+      "name": "political_parties.json",
+      "url": "/research-data/political/germany/political_parties.json",
+      "sha256": "65327c5ad1a02a3ce5a8f60321690f1e93b1a719e90e9cdcba24f7b3d019deb1"
+    },
+    {
+      "name": "political_parties.csv",
+      "url": "/research-data/political/germany/political_parties.csv",
+      "sha256": "ca8854401a172a775228458c47092816a5b292cf12d159b17390591f1edcab09"
+    },
+    {
+      "name": "party_names.json",
+      "url": "/research-data/political/germany/party_names.json",
+      "sha256": "4288316f11e8f30c4510961cef98863d634d04d226521733deb959dd5fa82b73"
+    },
+    {
+      "name": "party_names.csv",
+      "url": "/research-data/political/germany/party_names.csv",
+      "sha256": "8456a528dc196d553292c02231e86c4409e67cc6d527bca2752e08c244fe1bb7"
+    },
+    {
+      "name": "electoral_contestants.json",
+      "url": "/research-data/political/germany/electoral_contestants.json",
+      "sha256": "d2d5b4330bda17c64de8a567e3bc2bc217b58d8e76e4d5b951aa932ac4524b16"
+    },
+    {
+      "name": "electoral_contestants.csv",
+      "url": "/research-data/political/germany/electoral_contestants.csv",
+      "sha256": "400decd4cd9d78cf38c55519900e14b4749ff9a9a6384ad93ca3e5d43b355944"
+    },
+    {
+      "name": "contestant_members.json",
+      "url": "/research-data/political/germany/contestant_members.json",
+      "sha256": "763fb4f28a83d071278ebeea8ebdb24149ee781f7626096978cdf9a469a9cd44"
+    },
+    {
+      "name": "contestant_members.csv",
+      "url": "/research-data/political/germany/contestant_members.csv",
+      "sha256": "4d1c9d6a6450076ed882a5a08fb7de22787b96e07cb6033c01774775bbc05771"
+    },
+    {
+      "name": "party_identity_crosswalk.json",
+      "url": "/research-data/political/germany/party_identity_crosswalk.json",
+      "sha256": "4bbb441da5c9c949d7abff07b74eb069fcdfb4627690060759f3146907087f82"
+    },
+    {
+      "name": "party_identity_crosswalk.csv",
+      "url": "/research-data/political/germany/party_identity_crosswalk.csv",
+      "sha256": "629aadb278dfad5c4cc2cc9e8074a9ca47e80e4d48d3701f8caa6528568b25c5"
+    },
+    {
+      "name": "electoral_systems.json",
+      "url": "/research-data/political/germany/electoral_systems.json",
+      "sha256": "d02d31935fb5be4967989729f3529861e24c94ff1ec6f4b93c640ec9e1ce59fa"
+    },
+    {
+      "name": "electoral_systems.csv",
+      "url": "/research-data/political/germany/electoral_systems.csv",
+      "sha256": "8a202b3fbe37dfa228348e7ce7b37e91fc6be7d2a30f2f99c27b5901e9117b2a"
+    },
+    {
+      "name": "elections.json",
+      "url": "/research-data/political/germany/elections.json",
+      "sha256": "2f98cee7a0aa15c21d803531c61900d43a2bf2e0c07ea2f276089d788af3f2b4"
+    },
+    {
+      "name": "elections.csv",
+      "url": "/research-data/political/germany/elections.csv",
+      "sha256": "3548662b0cfe0f418d3ba15563c4affbdd479cacaad5ce9ab3f2d76f023a0fa7"
+    },
+    {
+      "name": "election_turnout.json",
+      "url": "/research-data/political/germany/election_turnout.json",
+      "sha256": "7ad5b2fc2a4248e1cd816862f6b778c8f8bfa3bc0e9bd8473ad348650f821949"
+    },
+    {
+      "name": "election_turnout.csv",
+      "url": "/research-data/political/germany/election_turnout.csv",
+      "sha256": "a016c4d4a539476ebd3002ca69e2c6dfa55f7d36134bfc14e7f351b579d87325"
+    },
+    {
+      "name": "election_results.json",
+      "url": "/research-data/political/germany/election_results.json",
+      "sha256": "b2280738439cd92ba512c5fcbcb29421ab07dfd603d491bbcfe4d8e836198f2d"
+    },
+    {
+      "name": "election_results.csv",
+      "url": "/research-data/political/germany/election_results.csv",
+      "sha256": "2c358df5e3e0fc87b9056eb52316070fcd89202b4ceea4beb8f7315a1df10115"
+    },
+    {
+      "name": "legislatures.json",
+      "url": "/research-data/political/germany/legislatures.json",
+      "sha256": "927a3a2fb09d2f3dacdf567affad72dfbf284417e926b8214cf82eceabe9bf3b"
+    },
+    {
+      "name": "legislatures.csv",
+      "url": "/research-data/political/germany/legislatures.csv",
+      "sha256": "869bc4d9508f14fd165535d37b133e9ca793ee92c86e2f9990cc63a4f5e04071"
+    },
+    {
+      "name": "reconciliation_log.json",
+      "url": "/research-data/political/germany/reconciliation_log.json",
+      "sha256": "7acbd28327ff5ba88c0d921b794a8b5630dd7debd8c0b8456722d07e0982d45e"
+    },
+    {
+      "name": "reconciliation_log.csv",
+      "url": "/research-data/political/germany/reconciliation_log.csv",
+      "sha256": "5266e1974195a74f76e65f8625d0e38e05cf9639e76b5531235f88a2760f3985"
+    },
+    {
+      "name": "README.md",
+      "url": "/research-data/political/germany/README.md",
+      "sha256": "c8e6eb4a264c662f8dc1b807ed2ec17ae390b0cfcbc61238476074ab20671470"
+    }
+  ],
+  "original_source_files_redistributed": false
+}

@@ -1,5 +1,11 @@
 # Changelog
 
+### Germany National Election Slice 1A / Political Explorer Alpha — 2026-10-02 (platform remains v2.0)
+
+- Adds seven official Bundestag elections (2002–2025), second votes, published and derived shares, election seats and turnout in twelve Germany-only stores with field provenance and JSON/CSV exports.
+- Adds bilingual Politics pages, source/rule/vintage disclosure, a Germany profile entry and existing-type Notebook collection. 2021 explicitly uses the corrected 735-seat result after the Berlin repeat; original 736-seat evidence is preserved.
+- Confirms only election-specific identity decisions. Historical party relations remain under review; no continuous party series, current composition, forecasts or scores. Research Snapshot integration is deferred without changing its schema. Other-country political ingestion and all frozen economic/model outputs remain unchanged.
+
 ### Research Notebook / Evidence Collection — 2026-10-02 (platform remains v2.0)
 
 - Adds browser-local bilingual Notebook pages and compact count access, with evidence collection from Data, country comparison, verified events, maps, registered methods and question-first Workspaces.

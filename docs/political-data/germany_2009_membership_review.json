@@ -1,0 +1,710 @@
+{
+  "schema_version": "germany-election-specific-membership-review-v1",
+  "state": "staging_only",
+  "election_year": 2009,
+  "canonical_promotion": false,
+  "rows": [
+    {
+      "contestant_id": "ct-de-0050",
+      "election_year": 2009,
+      "source_label": "SPD",
+      "source_published_full_name": "Sozialdemokratische Partei Deutschlands",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:21",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:1",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0051",
+      "election_year": 2009,
+      "source_label": "CDU",
+      "source_published_full_name": "Christlich Demokratische Union Deutschlands",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:25",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:2",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0052",
+      "election_year": 2009,
+      "source_label": "FDP",
+      "source_published_full_name": "Freie Demokratische Partei",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:29",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:3",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0053",
+      "election_year": 2009,
+      "source_label": "DIE LINKE",
+      "source_published_full_name": "DIE LINKE",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:33",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:4",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0054",
+      "election_year": 2009,
+      "source_label": "GRÜNE",
+      "source_published_full_name": "BÜNDNIS 90/DIE GRÜNEN",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:37",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:5",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0055",
+      "election_year": 2009,
+      "source_label": "CSU",
+      "source_published_full_name": "Christlich-Soziale Union in Bayern e.V.",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:41",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:6",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0056",
+      "election_year": 2009,
+      "source_label": "NPD",
+      "source_published_full_name": "Nationaldemokratische Partei Deutschlands",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:45",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:7",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0057",
+      "election_year": 2009,
+      "source_label": "REP",
+      "source_published_full_name": "DIE REPUBLIKANER",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:49",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:8",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0058",
+      "election_year": 2009,
+      "source_label": "FAMILIE",
+      "source_published_full_name": "Familien-Partei Deutschlands",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:53",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:9",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0059",
+      "election_year": 2009,
+      "source_label": "Die Tierschutzpartei",
+      "source_published_full_name": "Mensch Umwelt Tierschutz",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:57",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:10",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0060",
+      "election_year": 2009,
+      "source_label": "PBC",
+      "source_published_full_name": "Partei Bibeltreuer Christen",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:61",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:11",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0061",
+      "election_year": 2009,
+      "source_label": "MLPD",
+      "source_published_full_name": "Marxistisch-Leninistische Partei Deutschlands",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:65",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:12",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0062",
+      "election_year": 2009,
+      "source_label": "BüSo",
+      "source_published_full_name": "Bürgerrechtsbewegung Solidarität",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:69",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:13",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0063",
+      "election_year": 2009,
+      "source_label": "BP",
+      "source_published_full_name": "Bayernpartei",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:73",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:14",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0064",
+      "election_year": 2009,
+      "source_label": "PSG",
+      "source_published_full_name": "Partei für Soziale Gleichheit, Sektion der Vierten Internationale",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:77",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:15",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0065",
+      "election_year": 2009,
+      "source_label": "Volksabstimmung",
+      "source_published_full_name": "Ab jetzt…Bündnis für Deutschland, für Demokratie durch Volksabstimmung",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:81",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:16",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0066",
+      "election_year": 2009,
+      "source_label": "ZENTRUM",
+      "source_published_full_name": "Deutsche Zentrumspartei – Älteste Partei Deutschlands gegründet 1870",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:85",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:17",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0067",
+      "election_year": 2009,
+      "source_label": "ADM",
+      "source_published_full_name": "Allianz der Mitte",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:89",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:18",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0068",
+      "election_year": 2009,
+      "source_label": "CM",
+      "source_published_full_name": "CHRISTLICHE MITTE – Für ein Deutschland nach GOTTES Geboten",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:93",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:19",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0069",
+      "election_year": 2009,
+      "source_label": "DKP",
+      "source_published_full_name": "Deutsche Kommunistische Partei",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:97",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:20",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0070",
+      "election_year": 2009,
+      "source_label": "DVU",
+      "source_published_full_name": "DEUTSCHE VOLKSUNION",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:101",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:21",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0071",
+      "election_year": 2009,
+      "source_label": "DIE VIOLETTEN",
+      "source_published_full_name": "Die Violetten; für spirituelle Politik",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:105",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:22",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0072",
+      "election_year": 2009,
+      "source_label": "FWD",
+      "source_published_full_name": "Freie Wähler Deutschland",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:109",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:23",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0073",
+      "election_year": 2009,
+      "source_label": "ödp",
+      "source_published_full_name": "Ökologisch-Demokratische Partei",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:113",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:24",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0074",
+      "election_year": 2009,
+      "source_label": "PIRATEN",
+      "source_published_full_name": "Piratenpartei Deutschland",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:117",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:25",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0075",
+      "election_year": 2009,
+      "source_label": "RRP",
+      "source_published_full_name": "Rentnerinnen und Rentner Partei",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:121",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:26",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    },
+    {
+      "contestant_id": "ct-de-0076",
+      "election_year": 2009,
+      "source_label": "RENTNER",
+      "source_published_full_name": "Rentner-Partei-Deutschland",
+      "contestant_kind": "party",
+      "membership_basis": "official_table_of_parties_with_own_landeslisten",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_requires_independent_review_and_entity_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:125",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "note": "Official national second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2009:pdf-page:18:table:3:row:27",
+          "sha256": "34aeabcf3dbda280c8169d538a968828a98d9bd056949bc3ea50fd8a4cab2793",
+          "note": "Same-election participating-party table, printed page 17; full name, abbreviation and Landesliste column visually verified"
+        }
+      ],
+      "review_note": "Same-election party/own-list membership only. Historical full names retained; no current-name replacement, merger or legal continuity inferred. Freie Union is absent from national second-vote bindings because its table row states no Landesliste."
+    }
+  ]
+}

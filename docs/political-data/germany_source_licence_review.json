@@ -1,0 +1,173 @@
+{
+  "schema_version": "germany-result-source-review-v1",
+  "scope": "Germany Bundestag Slice 1A only",
+  "terms_url": "https://www.bundeswahlleiterin.de/info/impressum.html",
+  "terms_retrieved_at": "2026-10-02T08:32:42.263Z",
+  "terms_snapshot": {
+    "path": "docs/political-data/raw/germany/terms_1fb04ec5a6ff6b7f/publisher-terms.html",
+    "sha256": "1fb04ec5a6ff6b7f224836d779914a4cbf68cf3d3dbb69efcf18ef1c4b9d9fd5"
+  },
+  "reviews": [
+    {
+      "year": 2002,
+      "member": "btw2002_kerg.csv",
+      "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+      "encoding": "cp1252",
+      "result_status": "final",
+      "licence_status": "verified_open_licence",
+      "licence": "publisher_attribution_reuse_terms",
+      "licence_url": "https://www.bundeswahlleiterin.de/info/impressum.html",
+      "evidence_basis": "Publisher terms explicitly cover its downloadable data products unless a product exception is indicated. Actual member header checked and no different terms indicated; permission comes from the archived general downloadable-product terms, not an assumed member copyright line.",
+      "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+      "raw_snapshot": {
+        "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+        "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+      },
+      "terms_snapshot": {
+        "path": "docs/political-data/raw/germany/terms_1fb04ec5a6ff6b7f/publisher-terms.html",
+        "sha256": "1fb04ec5a6ff6b7f224836d779914a4cbf68cf3d3dbb69efcf18ef1c4b9d9fd5"
+      },
+      "reviewed_at": "2026-10-02T08:32:42.263Z",
+      "attribution": "Die Bundeswahlleiterin, Wiesbaden",
+      "changes_disclosure": "Atlas national second-vote extraction and normalized representation; calculations explicitly labelled derived; original source-native labels retained."
+    },
+    {
+      "year": 2005,
+      "member": "btw2005_kerg.csv",
+      "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+      "encoding": "cp1252",
+      "result_status": "final",
+      "licence_status": "verified_open_licence",
+      "licence": "publisher_attribution_reuse_terms",
+      "licence_url": "https://www.bundeswahlleiterin.de/info/impressum.html",
+      "evidence_basis": "Publisher terms explicitly cover its downloadable data products unless a product exception is indicated. Actual member header checked and no different terms indicated; permission comes from the archived general downloadable-product terms, not an assumed member copyright line.",
+      "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+      "raw_snapshot": {
+        "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+        "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+      },
+      "terms_snapshot": {
+        "path": "docs/political-data/raw/germany/terms_1fb04ec5a6ff6b7f/publisher-terms.html",
+        "sha256": "1fb04ec5a6ff6b7f224836d779914a4cbf68cf3d3dbb69efcf18ef1c4b9d9fd5"
+      },
+      "reviewed_at": "2026-10-02T08:32:42.263Z",
+      "attribution": "Die Bundeswahlleiterin, Wiesbaden",
+      "changes_disclosure": "Atlas national second-vote extraction and normalized representation; calculations explicitly labelled derived; original source-native labels retained."
+    },
+    {
+      "year": 2009,
+      "member": "btw2009_kerg.csv",
+      "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+      "encoding": "cp1252",
+      "result_status": "final",
+      "licence_status": "verified_open_licence",
+      "licence": "publisher_attribution_reuse_terms",
+      "licence_url": "https://www.bundeswahlleiterin.de/info/impressum.html",
+      "evidence_basis": "Publisher terms explicitly cover its downloadable data products unless a product exception is indicated. Actual member header checked and no different terms indicated; permission comes from the archived general downloadable-product terms, not an assumed member copyright line.",
+      "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+      "raw_snapshot": {
+        "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+        "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+      },
+      "terms_snapshot": {
+        "path": "docs/political-data/raw/germany/terms_1fb04ec5a6ff6b7f/publisher-terms.html",
+        "sha256": "1fb04ec5a6ff6b7f224836d779914a4cbf68cf3d3dbb69efcf18ef1c4b9d9fd5"
+      },
+      "reviewed_at": "2026-10-02T08:32:42.263Z",
+      "attribution": "Die Bundeswahlleiterin, Wiesbaden",
+      "changes_disclosure": "Atlas national second-vote extraction and normalized representation; calculations explicitly labelled derived; original source-native labels retained."
+    },
+    {
+      "year": 2013,
+      "member": "btw2013_kerg.csv",
+      "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+      "encoding": "cp1252",
+      "result_status": "final",
+      "licence_status": "verified_open_licence",
+      "licence": "publisher_attribution_reuse_terms",
+      "licence_url": "https://www.bundeswahlleiterin.de/info/impressum.html",
+      "evidence_basis": "Publisher terms explicitly cover its downloadable data products unless a product exception is indicated. Actual member header checked and no different terms indicated; permission comes from the archived general downloadable-product terms, not an assumed member copyright line.",
+      "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+      "raw_snapshot": {
+        "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+        "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+      },
+      "terms_snapshot": {
+        "path": "docs/political-data/raw/germany/terms_1fb04ec5a6ff6b7f/publisher-terms.html",
+        "sha256": "1fb04ec5a6ff6b7f224836d779914a4cbf68cf3d3dbb69efcf18ef1c4b9d9fd5"
+      },
+      "reviewed_at": "2026-10-02T08:32:42.263Z",
+      "attribution": "Die Bundeswahlleiterin, Wiesbaden",
+      "changes_disclosure": "Atlas national second-vote extraction and normalized representation; calculations explicitly labelled derived; original source-native labels retained."
+    },
+    {
+      "year": 2017,
+      "member": "btw2017_kerg.csv",
+      "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+      "encoding": "utf-8-sig",
+      "result_status": "final",
+      "licence_status": "verified_open_licence",
+      "licence": "publisher_attribution_reuse_terms",
+      "licence_url": "https://www.bundeswahlleiterin.de/info/impressum.html",
+      "evidence_basis": "Publisher terms explicitly cover its downloadable data products unless a product exception is indicated. Actual member header checked and no different terms indicated; permission comes from the archived general downloadable-product terms, not an assumed member copyright line.",
+      "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+      "raw_snapshot": {
+        "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+        "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+      },
+      "terms_snapshot": {
+        "path": "docs/political-data/raw/germany/terms_1fb04ec5a6ff6b7f/publisher-terms.html",
+        "sha256": "1fb04ec5a6ff6b7f224836d779914a4cbf68cf3d3dbb69efcf18ef1c4b9d9fd5"
+      },
+      "reviewed_at": "2026-10-02T08:32:42.263Z",
+      "attribution": "Die Bundeswahlleiterin, Wiesbaden",
+      "changes_disclosure": "Atlas national second-vote extraction and normalized representation; calculations explicitly labelled derived; original source-native labels retained."
+    },
+    {
+      "year": 2021,
+      "member": "btw2021-w_kerg.csv",
+      "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+      "encoding": "utf-8-sig",
+      "result_status": "final",
+      "licence_status": "verified_open_licence",
+      "licence": "publisher_attribution_reuse_terms",
+      "licence_url": "https://www.bundeswahlleiterin.de/info/impressum.html",
+      "evidence_basis": "Publisher terms explicitly cover its downloadable data products unless a product exception is indicated. Actual member header checked and no different terms indicated; permission comes from the archived general downloadable-product terms, not an assumed member copyright line.",
+      "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+      "raw_snapshot": {
+        "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+        "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+      },
+      "terms_snapshot": {
+        "path": "docs/political-data/raw/germany/terms_1fb04ec5a6ff6b7f/publisher-terms.html",
+        "sha256": "1fb04ec5a6ff6b7f224836d779914a4cbf68cf3d3dbb69efcf18ef1c4b9d9fd5"
+      },
+      "reviewed_at": "2026-10-02T08:32:42.263Z",
+      "attribution": "Die Bundeswahlleiterin, Wiesbaden",
+      "changes_disclosure": "Atlas national second-vote extraction and normalized representation; calculations explicitly labelled derived; original source-native labels retained."
+    },
+    {
+      "year": 2025,
+      "member": "btw2025_kerg.csv",
+      "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+      "encoding": "utf-8-sig",
+      "result_status": "final",
+      "licence_status": "verified_open_licence",
+      "licence": "dl-de/by-2-0",
+      "licence_url": "https://www.govdata.de/dl-de/by-2-0",
+      "evidence_basis": "Licence explicitly embedded in this member header",
+      "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+      "raw_snapshot": {
+        "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+        "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+      },
+      "terms_snapshot": {
+        "path": "docs/political-data/raw/germany/terms_1fb04ec5a6ff6b7f/publisher-terms.html",
+        "sha256": "1fb04ec5a6ff6b7f224836d779914a4cbf68cf3d3dbb69efcf18ef1c4b9d9fd5"
+      },
+      "reviewed_at": "2026-10-02T08:32:42.263Z",
+      "attribution": "Die Bundeswahlleiterin, Wiesbaden",
+      "changes_disclosure": "Atlas national second-vote extraction and normalized representation; calculations explicitly labelled derived; original source-native labels retained."
+    }
+  ]
+}

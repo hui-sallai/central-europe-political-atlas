@@ -92,6 +92,8 @@ jobs:
         run: |
           pnpm news:validate
           pnpm political-audit:validate
+          pnpm political-data:validate
+          pnpm political-data:test
           pnpm jk:validate
           pnpm information-effect:validate
 

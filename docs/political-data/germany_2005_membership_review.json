@@ -1,0 +1,634 @@
+{
+  "schema_version": "germany-election-specific-membership-review-v1",
+  "state": "staging_only",
+  "election_year": 2005,
+  "canonical_promotion": false,
+  "transcription_method": "visual_manual_from_archived_official_pdf",
+  "rows": [
+    {
+      "contestant_id": "ct-de-0025",
+      "election_year": 2005,
+      "source_label": "SPD",
+      "source_published_full_name": "Sozialdemokratische Partei Deutschlands",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:21",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:1",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0026",
+      "election_year": 2005,
+      "source_label": "CDU",
+      "source_published_full_name": "Christlich Demokratische Union Deutschlands",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:25",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:2",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0027",
+      "election_year": 2005,
+      "source_label": "CSU",
+      "source_published_full_name": "Christlich-Soziale Union in Bayern e.V.",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:29",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:3",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0028",
+      "election_year": 2005,
+      "source_label": "GRÜNE",
+      "source_published_full_name": "BÜNDNIS 90/DIE GRÜNEN",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:33",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:4",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0029",
+      "election_year": 2005,
+      "source_label": "FDP",
+      "source_published_full_name": "Freie Demokratische Partei",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:37",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:5",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0030",
+      "election_year": 2005,
+      "source_label": "Die Linke.",
+      "source_published_full_name": "Die Linkspartei.",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:41",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:6",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0031",
+      "election_year": 2005,
+      "source_label": "Offensive D",
+      "source_published_full_name": "Partei Rechtsstaatlicher Offensive",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:45",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:7",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0032",
+      "election_year": 2005,
+      "source_label": "REP",
+      "source_published_full_name": "DIE REPUBLIKANER",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:49",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:8",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0033",
+      "election_year": 2005,
+      "source_label": "NPD",
+      "source_published_full_name": "Nationaldemokratische Partei Deutschlands",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:53",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:9",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0034",
+      "election_year": 2005,
+      "source_label": "Die Tierschutzpartei",
+      "source_published_full_name": "Mensch Umwelt Tierschutz",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:57",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:10",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0035",
+      "election_year": 2005,
+      "source_label": "GRAUE",
+      "source_published_full_name": "DIE GRAUEN – Graue Panther",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:61",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:11",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0036",
+      "election_year": 2005,
+      "source_label": "PBC",
+      "source_published_full_name": "Partei Bibeltreuer Christen",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:65",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:12",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0037",
+      "election_year": 2005,
+      "source_label": "DIE FRAUEN",
+      "source_published_full_name": "Feministische Partei DIE FRAUEN",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:69",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:13",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0038",
+      "election_year": 2005,
+      "source_label": "FAMILIE",
+      "source_published_full_name": "FAMILIEN-PARTEI DEUTSCHLANDS",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:73",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:14",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0039",
+      "election_year": 2005,
+      "source_label": "BüSo",
+      "source_published_full_name": "Bürgerrechtsbewegung Solidarität",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:77",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:15",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0040",
+      "election_year": 2005,
+      "source_label": "BP",
+      "source_published_full_name": "Bayernpartei",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:81",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:16",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0041",
+      "election_year": 2005,
+      "source_label": "ZENTRUM",
+      "source_published_full_name": "Deutsche Zentrumspartei – Älteste Partei Deutschlands gegründet 1870",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:85",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:17",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0042",
+      "election_year": 2005,
+      "source_label": "Deutschland",
+      "source_published_full_name": "Ab jetzt ... Bündnis für Deutschland Partei für Volksabstimmung und gegen Zuwanderung ins „Soziale Netz“",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:89",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:18",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0043",
+      "election_year": 2005,
+      "source_label": "AGFG",
+      "source_published_full_name": "Allianz für Gesundheit, Frieden und soziale Gerechtigkeit",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:93",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:19",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0044",
+      "election_year": 2005,
+      "source_label": "APPD",
+      "source_published_full_name": "Anarchistische Pogo-Partei Deutschlands",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:97",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:20",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0045",
+      "election_year": 2005,
+      "source_label": "50Plus",
+      "source_published_full_name": "50Plus-Bürger- und Wählerinitiative für Brandenburg",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:101",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:21",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0046",
+      "election_year": 2005,
+      "source_label": "MLPD",
+      "source_published_full_name": "Marxistisch-Leninistische Partei Deutschlands",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:105",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:22",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0047",
+      "election_year": 2005,
+      "source_label": "Die PARTEI",
+      "source_published_full_name": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:109",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:23",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0048",
+      "election_year": 2005,
+      "source_label": "PSG",
+      "source_published_full_name": "Partei für Soziale Gleichheit, Sektion der Vierten Internationale",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:113",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:24",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    },
+    {
+      "contestant_id": "ct-de-0049",
+      "election_year": 2005,
+      "source_label": "Pro DM",
+      "source_published_full_name": "Pro Deutsche Mitte – Initiative Pro D-Mark",
+      "contestant_kind": "party",
+      "membership_basis": "official_same_election_party_landesliste_table",
+      "atlas_party_id": null,
+      "review_status": "provisional_visual_transcription_requires_independent_review",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:117",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "note": "Official final national second-vote column"
+        },
+        {
+          "source_record_id": "src-de-bwl-results-report-2005:pdf-page:19:table:2:row:25",
+          "sha256": "50c5b8da13796d7ae4c85124edb54582b360c76b5984ab113d756eadbe45eed9",
+          "note": "Visual transcription of raster party-name cell and Landesliste participation, printed page 18; not OCR/text validation"
+        }
+      ],
+      "review_note": "Same-election own-list membership only. Printed historical name retained, including 2005 Die Linkspartei.; no PDS/2007 merger or later identity decision. The report's six following first-vote-only party rows are excluded."
+    }
+  ]
+}

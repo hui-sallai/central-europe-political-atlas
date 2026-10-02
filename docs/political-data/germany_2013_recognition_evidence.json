@@ -1,0 +1,286 @@
+{
+  "schema_version": "germany-historical-recognition-evidence-v1",
+  "state": "staging_only",
+  "canonical_promotion": false,
+  "election_year": 2013,
+  "source": {
+    "source_id": "src-de-bwl-recognition-2013",
+    "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2013/2013-07-05-38-parteien-koennen-an-der-bundestagswahl-2013-teilnehmen.html",
+    "source_published_at": "2013-07-05",
+    "retrieved_at": "2026-10-02T09:41:54.242Z",
+    "raw_path": "docs/political-data/raw/germany/recognition_2013/recognition.html",
+    "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+    "bytes": 24464,
+    "purpose": "Same-election eligibility evidence only; not durable party identity",
+    "licence_status": "evidence_archive_not_canonical_redistribution_review"
+  },
+  "parties": [
+    {
+      "list": 1,
+      "item": 1,
+      "verbatim": "Christlich Demokratische Union Deutschlands (CDU),",
+      "party_name_and_additional_name": "Christlich Demokratische Union Deutschlands",
+      "abbreviation": "CDU"
+    },
+    {
+      "list": 1,
+      "item": 2,
+      "verbatim": "Sozialdemokratische Partei Deutschlands (SPD),",
+      "party_name_and_additional_name": "Sozialdemokratische Partei Deutschlands",
+      "abbreviation": "SPD"
+    },
+    {
+      "list": 1,
+      "item": 3,
+      "verbatim": "Freie Demokratische Partei (FDP),",
+      "party_name_and_additional_name": "Freie Demokratische Partei",
+      "abbreviation": "FDP"
+    },
+    {
+      "list": 1,
+      "item": 4,
+      "verbatim": "DIE LINKE (DIE LINKE),",
+      "party_name_and_additional_name": "DIE LINKE",
+      "abbreviation": "DIE LINKE"
+    },
+    {
+      "list": 1,
+      "item": 5,
+      "verbatim": "BÜNDNIS 90/DIE GRÜNEN (GRÜNE),",
+      "party_name_and_additional_name": "BÜNDNIS 90/DIE GRÜNEN",
+      "abbreviation": "GRÜNE"
+    },
+    {
+      "list": 1,
+      "item": 6,
+      "verbatim": "Christlich-Soziale Union in Bayern e.V. (CSU).",
+      "party_name_and_additional_name": "Christlich-Soziale Union in Bayern e.V.",
+      "abbreviation": "CSU"
+    },
+    {
+      "list": 2,
+      "item": 1,
+      "verbatim": "FREIE WÄHLER (FREIE WÄHLER),",
+      "party_name_and_additional_name": "FREIE WÄHLER",
+      "abbreviation": "FREIE WÄHLER"
+    },
+    {
+      "list": 2,
+      "item": 2,
+      "verbatim": "Nationaldemokratische Partei Deutschlands (NPD),",
+      "party_name_and_additional_name": "Nationaldemokratische Partei Deutschlands",
+      "abbreviation": "NPD"
+    },
+    {
+      "list": 2,
+      "item": 3,
+      "verbatim": "Piratenpartei Deutschland (PIRATEN).",
+      "party_name_and_additional_name": "Piratenpartei Deutschland",
+      "abbreviation": "PIRATEN"
+    },
+    {
+      "list": 3,
+      "item": 1,
+      "verbatim": "Die Violetten (DIE VIOLETTEN)",
+      "party_name_and_additional_name": "Die Violetten",
+      "abbreviation": "DIE VIOLETTEN"
+    },
+    {
+      "list": 3,
+      "item": 2,
+      "verbatim": "Bayernpartei (BP)",
+      "party_name_and_additional_name": "Bayernpartei",
+      "abbreviation": "BP"
+    },
+    {
+      "list": 3,
+      "item": 3,
+      "verbatim": "CHRISTLICHE MITTE – Für ein Deutschland nach GOTTES Geboten (CM)",
+      "party_name_and_additional_name": "CHRISTLICHE MITTE – Für ein Deutschland nach GOTTES Geboten",
+      "abbreviation": "CM"
+    },
+    {
+      "list": 3,
+      "item": 4,
+      "verbatim": "Ab jetzt…Demokratie durch Volksabstimmung (Volksabstimmung)",
+      "party_name_and_additional_name": "Ab jetzt…Demokratie durch Volksabstimmung",
+      "abbreviation": "Volksabstimmung"
+    },
+    {
+      "list": 3,
+      "item": 5,
+      "verbatim": "PARTEI MENSCH UMWELT TIERSCHUTZ (Tierschutzpartei)",
+      "party_name_and_additional_name": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+      "abbreviation": "Tierschutzpartei"
+    },
+    {
+      "list": 3,
+      "item": 6,
+      "verbatim": "Familien-Partei Deutschlands (FAMILIE)",
+      "party_name_and_additional_name": "Familien-Partei Deutschlands",
+      "abbreviation": "FAMILIE"
+    },
+    {
+      "list": 3,
+      "item": 7,
+      "verbatim": "RENTNER Partei Deutschland (RENTNER)",
+      "party_name_and_additional_name": "RENTNER Partei Deutschland",
+      "abbreviation": "RENTNER"
+    },
+    {
+      "list": 3,
+      "item": 8,
+      "verbatim": "DIE REPUBLIKANER (REP)",
+      "party_name_and_additional_name": "DIE REPUBLIKANER",
+      "abbreviation": "REP"
+    },
+    {
+      "list": 3,
+      "item": 9,
+      "verbatim": "Bündnis 21/RRP (Bündnis 21/RRP)",
+      "party_name_and_additional_name": "Bündnis 21/RRP",
+      "abbreviation": "Bündnis 21/RRP"
+    },
+    {
+      "list": 3,
+      "item": 10,
+      "verbatim": "Bürgerbewegung pro Deutschland (pro Deutschland)",
+      "party_name_and_additional_name": "Bürgerbewegung pro Deutschland",
+      "abbreviation": "pro Deutschland"
+    },
+    {
+      "list": 3,
+      "item": 11,
+      "verbatim": "Kommunistische Partei Deutschlands (KPD)",
+      "party_name_and_additional_name": "Kommunistische Partei Deutschlands",
+      "abbreviation": "KPD"
+    },
+    {
+      "list": 3,
+      "item": 12,
+      "verbatim": "DIE RECHTE (keine Kurzbezeichnung)",
+      "party_name_and_additional_name": "DIE RECHTE",
+      "abbreviation": "keine Kurzbezeichnung"
+    },
+    {
+      "list": 3,
+      "item": 13,
+      "verbatim": "NEIN!-Idee (NEIN!)",
+      "party_name_and_additional_name": "NEIN!-Idee",
+      "abbreviation": "NEIN!"
+    },
+    {
+      "list": 3,
+      "item": 14,
+      "verbatim": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative (Die PARTEI)",
+      "party_name_and_additional_name": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+      "abbreviation": "Die PARTEI"
+    },
+    {
+      "list": 3,
+      "item": 15,
+      "verbatim": "Ökologisch-Demokratische Partei (ÖDP)",
+      "party_name_and_additional_name": "Ökologisch-Demokratische Partei",
+      "abbreviation": "ÖDP"
+    },
+    {
+      "list": 3,
+      "item": 16,
+      "verbatim": "Bund für Gesamtdeutschland (BGD)",
+      "party_name_and_additional_name": "Bund für Gesamtdeutschland",
+      "abbreviation": "BGD"
+    },
+    {
+      "list": 3,
+      "item": 17,
+      "verbatim": "Bürgerrechtsbewegung Solidarität (BüSo)",
+      "party_name_and_additional_name": "Bürgerrechtsbewegung Solidarität",
+      "abbreviation": "BüSo"
+    },
+    {
+      "list": 3,
+      "item": 18,
+      "verbatim": "Partei Bibeltreuer Christen (PBC)",
+      "party_name_and_additional_name": "Partei Bibeltreuer Christen",
+      "abbreviation": "PBC"
+    },
+    {
+      "list": 3,
+      "item": 19,
+      "verbatim": "Alternative für Deutschland (AfD)",
+      "party_name_and_additional_name": "Alternative für Deutschland",
+      "abbreviation": "AfD"
+    },
+    {
+      "list": 3,
+      "item": 20,
+      "verbatim": "Bündnis für Innovation & Gerechtigkeit (BIG)",
+      "party_name_and_additional_name": "Bündnis für Innovation & Gerechtigkeit",
+      "abbreviation": "BIG"
+    },
+    {
+      "list": 3,
+      "item": 21,
+      "verbatim": "Partei Gesunder Menschenverstand Deutschland (GMD)",
+      "party_name_and_additional_name": "Partei Gesunder Menschenverstand Deutschland",
+      "abbreviation": "GMD"
+    },
+    {
+      "list": 3,
+      "item": 22,
+      "verbatim": "Deutsche Kommunistische Partei (DKP)",
+      "party_name_and_additional_name": "Deutsche Kommunistische Partei",
+      "abbreviation": "DKP"
+    },
+    {
+      "list": 3,
+      "item": 23,
+      "verbatim": "Marxistisch-Leninistische Partei Deutschlands (MLPD)",
+      "party_name_and_additional_name": "Marxistisch-Leninistische Partei Deutschlands",
+      "abbreviation": "MLPD"
+    },
+    {
+      "list": 3,
+      "item": 24,
+      "verbatim": "Partei für Soziale Gleichheit, Sektion der Vierten Internationale (PSG)",
+      "party_name_and_additional_name": "Partei für Soziale Gleichheit, Sektion der Vierten Internationale",
+      "abbreviation": "PSG"
+    },
+    {
+      "list": 3,
+      "item": 25,
+      "verbatim": "Bergpartei, die \"ÜberPartei\" (B)",
+      "party_name_and_additional_name": "Bergpartei, die \"ÜberPartei\"",
+      "abbreviation": "B"
+    },
+    {
+      "list": 3,
+      "item": 26,
+      "verbatim": "Partei der Nichtwähler (keine Kurzbezeichnung)",
+      "party_name_and_additional_name": "Partei der Nichtwähler",
+      "abbreviation": "keine Kurzbezeichnung"
+    },
+    {
+      "list": 3,
+      "item": 27,
+      "verbatim": "Partei der Vernunft (PARTEI DER VERNUNFT)",
+      "party_name_and_additional_name": "Partei der Vernunft",
+      "abbreviation": "PARTEI DER VERNUNFT"
+    },
+    {
+      "list": 3,
+      "item": 28,
+      "verbatim": "Feministische Partei DIE FRAUEN (DIE FRAUEN)",
+      "party_name_and_additional_name": "Feministische Partei DIE FRAUEN",
+      "abbreviation": "DIE FRAUEN"
+    },
+    {
+      "list": 3,
+      "item": 29,
+      "verbatim": "NEUE MITTE (NM)",
+      "party_name_and_additional_name": "NEUE MITTE",
+      "abbreviation": "NM"
+    }
+  ],
+  "note": "Eligible parties are distinct from actual second-vote contestants. Semicolon additional names remain verbatim, not silently stripped; no cross-year identity inferred."
+}

@@ -6,6 +6,8 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { stores, buildApprovedProduction } from '../political-data/germany/production.mjs';
+import { validatePolitical } from '../political-data/germany/validate.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const dir = path.join(root, "docs/political-data");
@@ -80,13 +82,24 @@ const relationTypes = identity.relation_types.map((r) => r.type);
 for (const t of ["renamed", "merged_into", "split_from", "alliance_member", "group_member", "disputed_continuity"]) check(relationTypes.includes(t), `identity model relation ${t}`);
 check(/similarity/.test(identity.crosswalk_match_basis.forbidden), "name similarity must be a forbidden match basis");
 
-// Stop gate: no canonical political datasets yet.
+// Explicit owner-approved Germany production exception. All other ingestion remains blocked.
+const approved=fs.existsSync(path.join(dir,'germany_production_acceptance.json'));
+if(approved){
+  const data=Object.fromEntries(stores.map(s=>[s,JSON.parse(fs.readFileSync(path.join(root,'src/data/political/germany',`${s}.json`)))]));
+  validatePolitical(data,buildApprovedProduction());
+}
 const offenders = [];
 for (const base of ["src/data", "public/research-data"]) {
   const political = /^(politic|election|legislature|cabinet|parliament|party_|parties|ep_)/i;
-  const walk = (d) => { for (const e of fs.readdirSync(path.join(root, d), { withFileTypes: true })) { const rel = `${d}/${e.name}`; if (political.test(e.name)) offenders.push(rel); else if (e.isDirectory()) walk(rel); } };
+  const walk = (d) => { for (const e of fs.readdirSync(path.join(root, d), { withFileTypes: true })) { const rel = `${d}/${e.name}`;
+    if(approved&&rel===`${base}/political`){
+      check(JSON.stringify(fs.readdirSync(path.join(root,rel)).sort())===JSON.stringify(['germany']),'Only Germany production allowed');
+      const allowed=base==='src/data'?stores.map(s=>`${s}.json`):[...stores.flatMap(s=>[`${s}.json`,`${s}.csv`]),'manifest.json','README.md'];
+      check(JSON.stringify(fs.readdirSync(path.join(root,rel,'germany')).sort())===JSON.stringify(allowed.sort()),'Exact approved political store/export inventory');
+    } else if (political.test(e.name)) offenders.push(rel); else if (e.isDirectory()) walk(rel);
+  } };
   if (fs.existsSync(path.join(root, base))) walk(base);
 }
 check(offenders.length === 0, `audit phase: canonical political data must not exist yet: ${offenders.join(", ")}`);
 
-console.log(JSON.stringify({ status: "pass", checks, countries: registry.countries.length, cross_country_sources: audit.cross_country_sources.length, proposed_stores: storeNames.length, stop_gate: "no canonical political stores" }));
+console.log(JSON.stringify({ status: "pass", checks, countries: registry.countries.length, cross_country_sources: audit.cross_country_sources.length, proposed_stores: storeNames.length, stop_gate: approved?"Germany Slice 1A only; all other countries blocked":"no canonical political stores" }));

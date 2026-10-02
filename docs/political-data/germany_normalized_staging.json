@@ -1,0 +1,3647 @@
+{
+  "schema_version": "germany-national-election-staging-v1",
+  "country": "germany",
+  "scope": "national Bundestag second votes only",
+  "state": "staging_requires_crosswalk_and_licence_review",
+  "parser_version": "germany-kerg-v1",
+  "parser_sha256": "4db5b29665b37b1b8863c47482c72c6e28c892c79d706515fd1384d7cff5e998",
+  "elections": [
+    {
+      "year": 2002,
+      "national_record_ordinal": 340,
+      "valid_second_votes": 47996480,
+      "columns": [
+        {
+          "label": "Ungültige",
+          "column": 6,
+          "raw": "586281",
+          "value": 586281
+        },
+        {
+          "label": "Gültige",
+          "column": 8,
+          "raw": "47996480",
+          "value": 47996480
+        },
+        {
+          "label": "SPD",
+          "column": 10,
+          "raw": "18488668",
+          "value": 18488668
+        },
+        {
+          "label": "CDU",
+          "column": 12,
+          "raw": "14167561",
+          "value": 14167561
+        },
+        {
+          "label": "CSU",
+          "column": 14,
+          "raw": "4315080",
+          "value": 4315080
+        },
+        {
+          "label": "GRÜNE",
+          "column": 16,
+          "raw": "4110355",
+          "value": 4110355
+        },
+        {
+          "label": "FDP",
+          "column": 18,
+          "raw": "3538815",
+          "value": 3538815
+        },
+        {
+          "label": "PDS",
+          "column": 20,
+          "raw": "1916702",
+          "value": 1916702
+        },
+        {
+          "label": "REP",
+          "column": 22,
+          "raw": "280671",
+          "value": 280671
+        },
+        {
+          "label": "GRAUE",
+          "column": 24,
+          "raw": "114224",
+          "value": 114224
+        },
+        {
+          "label": "Tierschutz",
+          "column": 26,
+          "raw": "159655",
+          "value": 159655
+        },
+        {
+          "label": "NPD",
+          "column": 28,
+          "raw": "215232",
+          "value": 215232
+        },
+        {
+          "label": "ödp",
+          "column": 30,
+          "raw": "56898",
+          "value": 56898
+        },
+        {
+          "label": "PBC",
+          "column": 32,
+          "raw": "101645",
+          "value": 101645
+        },
+        {
+          "label": "DIE FRAUEN",
+          "column": 34,
+          "raw": "36832",
+          "value": 36832
+        },
+        {
+          "label": "BP",
+          "column": 36,
+          "raw": "9379",
+          "value": 9379
+        },
+        {
+          "label": "FAMILIE",
+          "column": 38,
+          "raw": "30045",
+          "value": 30045
+        },
+        {
+          "label": "CM",
+          "column": 40,
+          "raw": "15440",
+          "value": 15440
+        },
+        {
+          "label": "BüSo",
+          "column": 42,
+          "raw": "16958",
+          "value": 16958
+        },
+        {
+          "label": "HP",
+          "column": 44,
+          "raw": "2485",
+          "value": 2485
+        },
+        {
+          "label": "Violetten",
+          "column": 46,
+          "raw": "2412",
+          "value": 2412
+        },
+        {
+          "label": "AUFBRUCH",
+          "column": 48,
+          "raw": "4697",
+          "value": 4697
+        },
+        {
+          "label": "ZENTRUM",
+          "column": 50,
+          "raw": "3127",
+          "value": 3127
+        },
+        {
+          "label": "KPD",
+          "column": 52,
+          "raw": "1624",
+          "value": 1624
+        },
+        {
+          "label": "PRG",
+          "column": 54,
+          "raw": "7499",
+          "value": 7499
+        },
+        {
+          "label": "Schill",
+          "column": 56,
+          "raw": "400476",
+          "value": 400476
+        }
+      ],
+      "contestants": [
+        {
+          "label": "SPD",
+          "column": 10,
+          "raw": "18488668",
+          "value": 18488668
+        },
+        {
+          "label": "CDU",
+          "column": 12,
+          "raw": "14167561",
+          "value": 14167561
+        },
+        {
+          "label": "CSU",
+          "column": 14,
+          "raw": "4315080",
+          "value": 4315080
+        },
+        {
+          "label": "GRÜNE",
+          "column": 16,
+          "raw": "4110355",
+          "value": 4110355
+        },
+        {
+          "label": "FDP",
+          "column": 18,
+          "raw": "3538815",
+          "value": 3538815
+        },
+        {
+          "label": "PDS",
+          "column": 20,
+          "raw": "1916702",
+          "value": 1916702
+        },
+        {
+          "label": "REP",
+          "column": 22,
+          "raw": "280671",
+          "value": 280671
+        },
+        {
+          "label": "GRAUE",
+          "column": 24,
+          "raw": "114224",
+          "value": 114224
+        },
+        {
+          "label": "Tierschutz",
+          "column": 26,
+          "raw": "159655",
+          "value": 159655
+        },
+        {
+          "label": "NPD",
+          "column": 28,
+          "raw": "215232",
+          "value": 215232
+        },
+        {
+          "label": "ödp",
+          "column": 30,
+          "raw": "56898",
+          "value": 56898
+        },
+        {
+          "label": "PBC",
+          "column": 32,
+          "raw": "101645",
+          "value": 101645
+        },
+        {
+          "label": "DIE FRAUEN",
+          "column": 34,
+          "raw": "36832",
+          "value": 36832
+        },
+        {
+          "label": "BP",
+          "column": 36,
+          "raw": "9379",
+          "value": 9379
+        },
+        {
+          "label": "FAMILIE",
+          "column": 38,
+          "raw": "30045",
+          "value": 30045
+        },
+        {
+          "label": "CM",
+          "column": 40,
+          "raw": "15440",
+          "value": 15440
+        },
+        {
+          "label": "BüSo",
+          "column": 42,
+          "raw": "16958",
+          "value": 16958
+        },
+        {
+          "label": "HP",
+          "column": 44,
+          "raw": "2485",
+          "value": 2485
+        },
+        {
+          "label": "Violetten",
+          "column": 46,
+          "raw": "2412",
+          "value": 2412
+        },
+        {
+          "label": "AUFBRUCH",
+          "column": 48,
+          "raw": "4697",
+          "value": 4697
+        },
+        {
+          "label": "ZENTRUM",
+          "column": 50,
+          "raw": "3127",
+          "value": 3127
+        },
+        {
+          "label": "KPD",
+          "column": 52,
+          "raw": "1624",
+          "value": 1624
+        },
+        {
+          "label": "PRG",
+          "column": 54,
+          "raw": "7499",
+          "value": 7499
+        },
+        {
+          "label": "Schill",
+          "column": 56,
+          "raw": "400476",
+          "value": 400476
+        }
+      ],
+      "member": "btw2002_kerg.csv",
+      "encoding": "cp1252",
+      "member_sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+      "source_id": "src-de-bwl-final-archive",
+      "raw_snapshot": {
+        "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+        "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+      },
+      "retrieved_at": "2026-10-01T23:21:39.584Z",
+      "historical_snapshot": {
+        "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+        "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+      },
+      "result_vintage": "final",
+      "party_identity_status": "requires_manual_review",
+      "canonical_promotion": false
+    },
+    {
+      "year": 2005,
+      "national_record_ordinal": 340,
+      "valid_second_votes": 47287988,
+      "columns": [
+        {
+          "label": "Wahlberechtigte",
+          "column": 5,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Wähler",
+          "column": 9,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Ungültige",
+          "column": 13,
+          "raw": "756146",
+          "value": 756146
+        },
+        {
+          "label": "Gültige",
+          "column": 17,
+          "raw": "47287988",
+          "value": 47287988
+        },
+        {
+          "label": "SPD",
+          "column": 21,
+          "raw": "16194665",
+          "value": 16194665
+        },
+        {
+          "label": "CDU",
+          "column": 25,
+          "raw": "13136740",
+          "value": 13136740
+        },
+        {
+          "label": "CSU",
+          "column": 29,
+          "raw": "3494309",
+          "value": 3494309
+        },
+        {
+          "label": "GRÜNE",
+          "column": 33,
+          "raw": "3838326",
+          "value": 3838326
+        },
+        {
+          "label": "FDP",
+          "column": 37,
+          "raw": "4648144",
+          "value": 4648144
+        },
+        {
+          "label": "Die Linke.",
+          "column": 41,
+          "raw": "4118194",
+          "value": 4118194
+        },
+        {
+          "label": "Offensive D",
+          "column": 45,
+          "raw": "3338",
+          "value": 3338
+        },
+        {
+          "label": "REP",
+          "column": 49,
+          "raw": "266101",
+          "value": 266101
+        },
+        {
+          "label": "NPD",
+          "column": 53,
+          "raw": "748568",
+          "value": 748568
+        },
+        {
+          "label": "Die Tierschutzpartei",
+          "column": 57,
+          "raw": "110603",
+          "value": 110603
+        },
+        {
+          "label": "GRAUE",
+          "column": 61,
+          "raw": "198601",
+          "value": 198601
+        },
+        {
+          "label": "PBC",
+          "column": 65,
+          "raw": "108605",
+          "value": 108605
+        },
+        {
+          "label": "DIE FRAUEN",
+          "column": 69,
+          "raw": "27497",
+          "value": 27497
+        },
+        {
+          "label": "FAMILIE",
+          "column": 73,
+          "raw": "191842",
+          "value": 191842
+        },
+        {
+          "label": "BüSo",
+          "column": 77,
+          "raw": "35649",
+          "value": 35649
+        },
+        {
+          "label": "BP",
+          "column": 81,
+          "raw": "35543",
+          "value": 35543
+        },
+        {
+          "label": "ZENTRUM",
+          "column": 85,
+          "raw": "4010",
+          "value": 4010
+        },
+        {
+          "label": "Deutschland",
+          "column": 89,
+          "raw": "9643",
+          "value": 9643
+        },
+        {
+          "label": "AGFG",
+          "column": 93,
+          "raw": "21350",
+          "value": 21350
+        },
+        {
+          "label": "APPD",
+          "column": 97,
+          "raw": "4233",
+          "value": 4233
+        },
+        {
+          "label": "50Plus",
+          "column": 101,
+          "raw": "10536",
+          "value": 10536
+        },
+        {
+          "label": "MLPD",
+          "column": 105,
+          "raw": "45238",
+          "value": 45238
+        },
+        {
+          "label": "Die PARTEI",
+          "column": 109,
+          "raw": "10379",
+          "value": 10379
+        },
+        {
+          "label": "PSG",
+          "column": 113,
+          "raw": "15605",
+          "value": 15605
+        },
+        {
+          "label": "Pro DM",
+          "column": 117,
+          "raw": "10269",
+          "value": 10269
+        },
+        {
+          "label": "CM",
+          "column": 121,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "DSU",
+          "column": 125,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "HP",
+          "column": 129,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "HUMANWIRTSCHAFTS- PARTEI",
+          "column": 133,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "STATT Partei",
+          "column": 137,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "UNABHÄNGIGE",
+          "column": 141,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Übrige",
+          "column": 145,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Übrige",
+          "column": 147,
+          "raw": "",
+          "value": null
+        }
+      ],
+      "contestants": [
+        {
+          "label": "SPD",
+          "column": 21,
+          "raw": "16194665",
+          "value": 16194665
+        },
+        {
+          "label": "CDU",
+          "column": 25,
+          "raw": "13136740",
+          "value": 13136740
+        },
+        {
+          "label": "CSU",
+          "column": 29,
+          "raw": "3494309",
+          "value": 3494309
+        },
+        {
+          "label": "GRÜNE",
+          "column": 33,
+          "raw": "3838326",
+          "value": 3838326
+        },
+        {
+          "label": "FDP",
+          "column": 37,
+          "raw": "4648144",
+          "value": 4648144
+        },
+        {
+          "label": "Die Linke.",
+          "column": 41,
+          "raw": "4118194",
+          "value": 4118194
+        },
+        {
+          "label": "Offensive D",
+          "column": 45,
+          "raw": "3338",
+          "value": 3338
+        },
+        {
+          "label": "REP",
+          "column": 49,
+          "raw": "266101",
+          "value": 266101
+        },
+        {
+          "label": "NPD",
+          "column": 53,
+          "raw": "748568",
+          "value": 748568
+        },
+        {
+          "label": "Die Tierschutzpartei",
+          "column": 57,
+          "raw": "110603",
+          "value": 110603
+        },
+        {
+          "label": "GRAUE",
+          "column": 61,
+          "raw": "198601",
+          "value": 198601
+        },
+        {
+          "label": "PBC",
+          "column": 65,
+          "raw": "108605",
+          "value": 108605
+        },
+        {
+          "label": "DIE FRAUEN",
+          "column": 69,
+          "raw": "27497",
+          "value": 27497
+        },
+        {
+          "label": "FAMILIE",
+          "column": 73,
+          "raw": "191842",
+          "value": 191842
+        },
+        {
+          "label": "BüSo",
+          "column": 77,
+          "raw": "35649",
+          "value": 35649
+        },
+        {
+          "label": "BP",
+          "column": 81,
+          "raw": "35543",
+          "value": 35543
+        },
+        {
+          "label": "ZENTRUM",
+          "column": 85,
+          "raw": "4010",
+          "value": 4010
+        },
+        {
+          "label": "Deutschland",
+          "column": 89,
+          "raw": "9643",
+          "value": 9643
+        },
+        {
+          "label": "AGFG",
+          "column": 93,
+          "raw": "21350",
+          "value": 21350
+        },
+        {
+          "label": "APPD",
+          "column": 97,
+          "raw": "4233",
+          "value": 4233
+        },
+        {
+          "label": "50Plus",
+          "column": 101,
+          "raw": "10536",
+          "value": 10536
+        },
+        {
+          "label": "MLPD",
+          "column": 105,
+          "raw": "45238",
+          "value": 45238
+        },
+        {
+          "label": "Die PARTEI",
+          "column": 109,
+          "raw": "10379",
+          "value": 10379
+        },
+        {
+          "label": "PSG",
+          "column": 113,
+          "raw": "15605",
+          "value": 15605
+        },
+        {
+          "label": "Pro DM",
+          "column": 117,
+          "raw": "10269",
+          "value": 10269
+        }
+      ],
+      "member": "btw2005_kerg.csv",
+      "encoding": "cp1252",
+      "member_sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+      "source_id": "src-de-bwl-final-archive",
+      "raw_snapshot": {
+        "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+        "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+      },
+      "retrieved_at": "2026-10-01T23:21:39.584Z",
+      "historical_snapshot": {
+        "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+        "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+      },
+      "result_vintage": "final",
+      "party_identity_status": "requires_manual_review",
+      "canonical_promotion": false
+    },
+    {
+      "year": 2009,
+      "national_record_ordinal": 340,
+      "valid_second_votes": 43371190,
+      "columns": [
+        {
+          "label": "Wahlberechtigte",
+          "column": 5,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Wähler",
+          "column": 9,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Ungültige",
+          "column": 13,
+          "raw": "634385",
+          "value": 634385
+        },
+        {
+          "label": "Gültige",
+          "column": 17,
+          "raw": "43371190",
+          "value": 43371190
+        },
+        {
+          "label": "SPD",
+          "column": 21,
+          "raw": "9990488",
+          "value": 9990488
+        },
+        {
+          "label": "CDU",
+          "column": 25,
+          "raw": "11828277",
+          "value": 11828277
+        },
+        {
+          "label": "FDP",
+          "column": 29,
+          "raw": "6316080",
+          "value": 6316080
+        },
+        {
+          "label": "DIE LINKE",
+          "column": 33,
+          "raw": "5155933",
+          "value": 5155933
+        },
+        {
+          "label": "GRÜNE",
+          "column": 37,
+          "raw": "4643272",
+          "value": 4643272
+        },
+        {
+          "label": "CSU",
+          "column": 41,
+          "raw": "2830238",
+          "value": 2830238
+        },
+        {
+          "label": "NPD",
+          "column": 45,
+          "raw": "635525",
+          "value": 635525
+        },
+        {
+          "label": "REP",
+          "column": 49,
+          "raw": "193396",
+          "value": 193396
+        },
+        {
+          "label": "FAMILIE",
+          "column": 53,
+          "raw": "120718",
+          "value": 120718
+        },
+        {
+          "label": "Die Tierschutzpartei",
+          "column": 57,
+          "raw": "230872",
+          "value": 230872
+        },
+        {
+          "label": "PBC",
+          "column": 61,
+          "raw": "40370",
+          "value": 40370
+        },
+        {
+          "label": "MLPD",
+          "column": 65,
+          "raw": "29261",
+          "value": 29261
+        },
+        {
+          "label": "BüSo",
+          "column": 69,
+          "raw": "38706",
+          "value": 38706
+        },
+        {
+          "label": "BP",
+          "column": 73,
+          "raw": "48311",
+          "value": 48311
+        },
+        {
+          "label": "PSG",
+          "column": 77,
+          "raw": "2957",
+          "value": 2957
+        },
+        {
+          "label": "Volksabstimmung",
+          "column": 81,
+          "raw": "23015",
+          "value": 23015
+        },
+        {
+          "label": "ZENTRUM",
+          "column": 85,
+          "raw": "6087",
+          "value": 6087
+        },
+        {
+          "label": "ADM",
+          "column": 89,
+          "raw": "2889",
+          "value": 2889
+        },
+        {
+          "label": "CM",
+          "column": 93,
+          "raw": "6826",
+          "value": 6826
+        },
+        {
+          "label": "DKP",
+          "column": 97,
+          "raw": "1894",
+          "value": 1894
+        },
+        {
+          "label": "DVU",
+          "column": 101,
+          "raw": "45752",
+          "value": 45752
+        },
+        {
+          "label": "DIE VIOLETTEN",
+          "column": 105,
+          "raw": "31957",
+          "value": 31957
+        },
+        {
+          "label": "FWD",
+          "column": 109,
+          "raw": "11243",
+          "value": 11243
+        },
+        {
+          "label": "ödp",
+          "column": 113,
+          "raw": "132249",
+          "value": 132249
+        },
+        {
+          "label": "PIRATEN",
+          "column": 117,
+          "raw": "847870",
+          "value": 847870
+        },
+        {
+          "label": "RRP",
+          "column": 121,
+          "raw": "100605",
+          "value": 100605
+        },
+        {
+          "label": "RENTNER",
+          "column": 125,
+          "raw": "56399",
+          "value": 56399
+        },
+        {
+          "label": "Freie Union",
+          "column": 129,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Übrige",
+          "column": 133,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Übrige",
+          "column": 135,
+          "raw": "",
+          "value": null
+        }
+      ],
+      "contestants": [
+        {
+          "label": "SPD",
+          "column": 21,
+          "raw": "9990488",
+          "value": 9990488
+        },
+        {
+          "label": "CDU",
+          "column": 25,
+          "raw": "11828277",
+          "value": 11828277
+        },
+        {
+          "label": "FDP",
+          "column": 29,
+          "raw": "6316080",
+          "value": 6316080
+        },
+        {
+          "label": "DIE LINKE",
+          "column": 33,
+          "raw": "5155933",
+          "value": 5155933
+        },
+        {
+          "label": "GRÜNE",
+          "column": 37,
+          "raw": "4643272",
+          "value": 4643272
+        },
+        {
+          "label": "CSU",
+          "column": 41,
+          "raw": "2830238",
+          "value": 2830238
+        },
+        {
+          "label": "NPD",
+          "column": 45,
+          "raw": "635525",
+          "value": 635525
+        },
+        {
+          "label": "REP",
+          "column": 49,
+          "raw": "193396",
+          "value": 193396
+        },
+        {
+          "label": "FAMILIE",
+          "column": 53,
+          "raw": "120718",
+          "value": 120718
+        },
+        {
+          "label": "Die Tierschutzpartei",
+          "column": 57,
+          "raw": "230872",
+          "value": 230872
+        },
+        {
+          "label": "PBC",
+          "column": 61,
+          "raw": "40370",
+          "value": 40370
+        },
+        {
+          "label": "MLPD",
+          "column": 65,
+          "raw": "29261",
+          "value": 29261
+        },
+        {
+          "label": "BüSo",
+          "column": 69,
+          "raw": "38706",
+          "value": 38706
+        },
+        {
+          "label": "BP",
+          "column": 73,
+          "raw": "48311",
+          "value": 48311
+        },
+        {
+          "label": "PSG",
+          "column": 77,
+          "raw": "2957",
+          "value": 2957
+        },
+        {
+          "label": "Volksabstimmung",
+          "column": 81,
+          "raw": "23015",
+          "value": 23015
+        },
+        {
+          "label": "ZENTRUM",
+          "column": 85,
+          "raw": "6087",
+          "value": 6087
+        },
+        {
+          "label": "ADM",
+          "column": 89,
+          "raw": "2889",
+          "value": 2889
+        },
+        {
+          "label": "CM",
+          "column": 93,
+          "raw": "6826",
+          "value": 6826
+        },
+        {
+          "label": "DKP",
+          "column": 97,
+          "raw": "1894",
+          "value": 1894
+        },
+        {
+          "label": "DVU",
+          "column": 101,
+          "raw": "45752",
+          "value": 45752
+        },
+        {
+          "label": "DIE VIOLETTEN",
+          "column": 105,
+          "raw": "31957",
+          "value": 31957
+        },
+        {
+          "label": "FWD",
+          "column": 109,
+          "raw": "11243",
+          "value": 11243
+        },
+        {
+          "label": "ödp",
+          "column": 113,
+          "raw": "132249",
+          "value": 132249
+        },
+        {
+          "label": "PIRATEN",
+          "column": 117,
+          "raw": "847870",
+          "value": 847870
+        },
+        {
+          "label": "RRP",
+          "column": 121,
+          "raw": "100605",
+          "value": 100605
+        },
+        {
+          "label": "RENTNER",
+          "column": 125,
+          "raw": "56399",
+          "value": 56399
+        }
+      ],
+      "member": "btw2009_kerg.csv",
+      "encoding": "cp1252",
+      "member_sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+      "source_id": "src-de-bwl-final-archive",
+      "raw_snapshot": {
+        "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+        "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+      },
+      "retrieved_at": "2026-10-01T23:21:39.584Z",
+      "historical_snapshot": {
+        "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+        "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+      },
+      "result_vintage": "final",
+      "party_identity_status": "requires_manual_review",
+      "canonical_promotion": false
+    },
+    {
+      "year": 2013,
+      "national_record_ordinal": 340,
+      "valid_second_votes": 43726856,
+      "columns": [
+        {
+          "label": "Wahlberechtigte",
+          "column": 5,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Wähler",
+          "column": 9,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Ungültige",
+          "column": 13,
+          "raw": "583069",
+          "value": 583069
+        },
+        {
+          "label": "Gültige",
+          "column": 17,
+          "raw": "43726856",
+          "value": 43726856
+        },
+        {
+          "label": "CDU",
+          "column": 21,
+          "raw": "14921877",
+          "value": 14921877
+        },
+        {
+          "label": "SPD",
+          "column": 25,
+          "raw": "11252215",
+          "value": 11252215
+        },
+        {
+          "label": "FDP",
+          "column": 29,
+          "raw": "2083533",
+          "value": 2083533
+        },
+        {
+          "label": "DIE LINKE",
+          "column": 33,
+          "raw": "3755699",
+          "value": 3755699
+        },
+        {
+          "label": "GRÜNE",
+          "column": 37,
+          "raw": "3694057",
+          "value": 3694057
+        },
+        {
+          "label": "CSU",
+          "column": 41,
+          "raw": "3243569",
+          "value": 3243569
+        },
+        {
+          "label": "PIRATEN",
+          "column": 45,
+          "raw": "959177",
+          "value": 959177
+        },
+        {
+          "label": "NPD",
+          "column": 49,
+          "raw": "560828",
+          "value": 560828
+        },
+        {
+          "label": "Tierschutzpartei",
+          "column": 53,
+          "raw": "140366",
+          "value": 140366
+        },
+        {
+          "label": "REP",
+          "column": 57,
+          "raw": "91193",
+          "value": 91193
+        },
+        {
+          "label": "ÖDP",
+          "column": 61,
+          "raw": "127088",
+          "value": 127088
+        },
+        {
+          "label": "FAMILIE",
+          "column": 65,
+          "raw": "7449",
+          "value": 7449
+        },
+        {
+          "label": "Bündnis 21/RRP",
+          "column": 69,
+          "raw": "8578",
+          "value": 8578
+        },
+        {
+          "label": "RENTNER",
+          "column": 73,
+          "raw": "25134",
+          "value": 25134
+        },
+        {
+          "label": "BP",
+          "column": 77,
+          "raw": "57395",
+          "value": 57395
+        },
+        {
+          "label": "PBC",
+          "column": 81,
+          "raw": "18542",
+          "value": 18542
+        },
+        {
+          "label": "BüSo",
+          "column": 85,
+          "raw": "12814",
+          "value": 12814
+        },
+        {
+          "label": "DIE VIOLETTEN",
+          "column": 89,
+          "raw": "8211",
+          "value": 8211
+        },
+        {
+          "label": "MLPD",
+          "column": 93,
+          "raw": "24219",
+          "value": 24219
+        },
+        {
+          "label": "Volksabstimmung",
+          "column": 97,
+          "raw": "28654",
+          "value": 28654
+        },
+        {
+          "label": "PSG",
+          "column": 101,
+          "raw": "4564",
+          "value": 4564
+        },
+        {
+          "label": "AfD",
+          "column": 105,
+          "raw": "2056985",
+          "value": 2056985
+        },
+        {
+          "label": "BIG",
+          "column": 109,
+          "raw": "17743",
+          "value": 17743
+        },
+        {
+          "label": "pro Deutschland",
+          "column": 113,
+          "raw": "73854",
+          "value": 73854
+        },
+        {
+          "label": "DIE RECHTE",
+          "column": 117,
+          "raw": "2245",
+          "value": 2245
+        },
+        {
+          "label": "DIE FRAUEN",
+          "column": 121,
+          "raw": "12148",
+          "value": 12148
+        },
+        {
+          "label": "FREIE WÄHLER",
+          "column": 125,
+          "raw": "423977",
+          "value": 423977
+        },
+        {
+          "label": "Nichtwähler",
+          "column": 129,
+          "raw": "11349",
+          "value": 11349
+        },
+        {
+          "label": "PARTEI DER VERNUNFT",
+          "column": 133,
+          "raw": "24719",
+          "value": 24719
+        },
+        {
+          "label": "Die PARTEI",
+          "column": 137,
+          "raw": "78674",
+          "value": 78674
+        },
+        {
+          "label": "B",
+          "column": 141,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "BGD",
+          "column": 145,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "DKP",
+          "column": 149,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "NEIN!",
+          "column": 153,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Übrige",
+          "column": 157,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Übrige",
+          "column": 159,
+          "raw": "",
+          "value": null
+        }
+      ],
+      "contestants": [
+        {
+          "label": "CDU",
+          "column": 21,
+          "raw": "14921877",
+          "value": 14921877
+        },
+        {
+          "label": "SPD",
+          "column": 25,
+          "raw": "11252215",
+          "value": 11252215
+        },
+        {
+          "label": "FDP",
+          "column": 29,
+          "raw": "2083533",
+          "value": 2083533
+        },
+        {
+          "label": "DIE LINKE",
+          "column": 33,
+          "raw": "3755699",
+          "value": 3755699
+        },
+        {
+          "label": "GRÜNE",
+          "column": 37,
+          "raw": "3694057",
+          "value": 3694057
+        },
+        {
+          "label": "CSU",
+          "column": 41,
+          "raw": "3243569",
+          "value": 3243569
+        },
+        {
+          "label": "PIRATEN",
+          "column": 45,
+          "raw": "959177",
+          "value": 959177
+        },
+        {
+          "label": "NPD",
+          "column": 49,
+          "raw": "560828",
+          "value": 560828
+        },
+        {
+          "label": "Tierschutzpartei",
+          "column": 53,
+          "raw": "140366",
+          "value": 140366
+        },
+        {
+          "label": "REP",
+          "column": 57,
+          "raw": "91193",
+          "value": 91193
+        },
+        {
+          "label": "ÖDP",
+          "column": 61,
+          "raw": "127088",
+          "value": 127088
+        },
+        {
+          "label": "FAMILIE",
+          "column": 65,
+          "raw": "7449",
+          "value": 7449
+        },
+        {
+          "label": "Bündnis 21/RRP",
+          "column": 69,
+          "raw": "8578",
+          "value": 8578
+        },
+        {
+          "label": "RENTNER",
+          "column": 73,
+          "raw": "25134",
+          "value": 25134
+        },
+        {
+          "label": "BP",
+          "column": 77,
+          "raw": "57395",
+          "value": 57395
+        },
+        {
+          "label": "PBC",
+          "column": 81,
+          "raw": "18542",
+          "value": 18542
+        },
+        {
+          "label": "BüSo",
+          "column": 85,
+          "raw": "12814",
+          "value": 12814
+        },
+        {
+          "label": "DIE VIOLETTEN",
+          "column": 89,
+          "raw": "8211",
+          "value": 8211
+        },
+        {
+          "label": "MLPD",
+          "column": 93,
+          "raw": "24219",
+          "value": 24219
+        },
+        {
+          "label": "Volksabstimmung",
+          "column": 97,
+          "raw": "28654",
+          "value": 28654
+        },
+        {
+          "label": "PSG",
+          "column": 101,
+          "raw": "4564",
+          "value": 4564
+        },
+        {
+          "label": "AfD",
+          "column": 105,
+          "raw": "2056985",
+          "value": 2056985
+        },
+        {
+          "label": "BIG",
+          "column": 109,
+          "raw": "17743",
+          "value": 17743
+        },
+        {
+          "label": "pro Deutschland",
+          "column": 113,
+          "raw": "73854",
+          "value": 73854
+        },
+        {
+          "label": "DIE RECHTE",
+          "column": 117,
+          "raw": "2245",
+          "value": 2245
+        },
+        {
+          "label": "DIE FRAUEN",
+          "column": 121,
+          "raw": "12148",
+          "value": 12148
+        },
+        {
+          "label": "FREIE WÄHLER",
+          "column": 125,
+          "raw": "423977",
+          "value": 423977
+        },
+        {
+          "label": "Nichtwähler",
+          "column": 129,
+          "raw": "11349",
+          "value": 11349
+        },
+        {
+          "label": "PARTEI DER VERNUNFT",
+          "column": 133,
+          "raw": "24719",
+          "value": 24719
+        },
+        {
+          "label": "Die PARTEI",
+          "column": 137,
+          "raw": "78674",
+          "value": 78674
+        }
+      ],
+      "member": "btw2013_kerg.csv",
+      "encoding": "cp1252",
+      "member_sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+      "source_id": "src-de-bwl-final-archive",
+      "raw_snapshot": {
+        "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+        "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+      },
+      "retrieved_at": "2026-10-01T23:21:39.584Z",
+      "historical_snapshot": {
+        "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+        "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+      },
+      "result_vintage": "final",
+      "party_identity_status": "requires_manual_review",
+      "canonical_promotion": false
+    },
+    {
+      "year": 2017,
+      "national_record_ordinal": 340,
+      "valid_second_votes": 46515492,
+      "columns": [
+        {
+          "label": "Wahlberechtigte",
+          "column": 5,
+          "raw": "61688485",
+          "value": 61688485
+        },
+        {
+          "label": "Wähler",
+          "column": 9,
+          "raw": "46976341",
+          "value": 46976341
+        },
+        {
+          "label": "Ungültige",
+          "column": 13,
+          "raw": "460849",
+          "value": 460849
+        },
+        {
+          "label": "Gültige",
+          "column": 17,
+          "raw": "46515492",
+          "value": 46515492
+        },
+        {
+          "label": "Christlich Demokratische Union Deutschlands",
+          "column": 21,
+          "raw": "12447656",
+          "value": 12447656
+        },
+        {
+          "label": "Sozialdemokratische Partei Deutschlands",
+          "column": 25,
+          "raw": "9539381",
+          "value": 9539381
+        },
+        {
+          "label": "DIE LINKE",
+          "column": 29,
+          "raw": "4297270",
+          "value": 4297270
+        },
+        {
+          "label": "BÜNDNIS 90/DIE GRÜNEN",
+          "column": 33,
+          "raw": "4158400",
+          "value": 4158400
+        },
+        {
+          "label": "Christlich-Soziale Union in Bayern e.V.",
+          "column": 37,
+          "raw": "2869688",
+          "value": 2869688
+        },
+        {
+          "label": "Freie Demokratische Partei",
+          "column": 41,
+          "raw": "4999449",
+          "value": 4999449
+        },
+        {
+          "label": "Alternative für Deutschland",
+          "column": 45,
+          "raw": "5878115",
+          "value": 5878115
+        },
+        {
+          "label": "Piratenpartei Deutschland",
+          "column": 49,
+          "raw": "173476",
+          "value": 173476
+        },
+        {
+          "label": "Nationaldemokratische Partei Deutschlands",
+          "column": 53,
+          "raw": "176020",
+          "value": 176020
+        },
+        {
+          "label": "FREIE WÄHLER",
+          "column": 57,
+          "raw": "463292",
+          "value": 463292
+        },
+        {
+          "label": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+          "column": 61,
+          "raw": "374179",
+          "value": 374179
+        },
+        {
+          "label": "Ökologisch-Demokratische Partei",
+          "column": 65,
+          "raw": "144809",
+          "value": 144809
+        },
+        {
+          "label": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+          "column": 69,
+          "raw": "454349",
+          "value": 454349
+        },
+        {
+          "label": "Bayernpartei",
+          "column": 73,
+          "raw": "58037",
+          "value": 58037
+        },
+        {
+          "label": "Ab jetzt...Demokratie durch Volksabstimmung",
+          "column": 77,
+          "raw": "9631",
+          "value": 9631
+        },
+        {
+          "label": "Partei der Vernunft",
+          "column": 81,
+          "raw": "533",
+          "value": 533
+        },
+        {
+          "label": "Marxistisch-Leninistische Partei Deutschlands",
+          "column": 85,
+          "raw": "29785",
+          "value": 29785
+        },
+        {
+          "label": "Bürgerrechtsbewegung Solidarität",
+          "column": 89,
+          "raw": "6693",
+          "value": 6693
+        },
+        {
+          "label": "Sozialistische Gleichheitspartei, Vierte Internationale",
+          "column": 93,
+          "raw": "1291",
+          "value": 1291
+        },
+        {
+          "label": "DIE RECHTE",
+          "column": 97,
+          "raw": "2054",
+          "value": 2054
+        },
+        {
+          "label": "Allianz Deutscher Demokraten",
+          "column": 101,
+          "raw": "41251",
+          "value": 41251
+        },
+        {
+          "label": "Allianz für Menschenrechte, Tier- und Naturschutz",
+          "column": 105,
+          "raw": "32221",
+          "value": 32221
+        },
+        {
+          "label": "bergpartei, die überpartei",
+          "column": 109,
+          "raw": "911",
+          "value": 911
+        },
+        {
+          "label": "Bündnis Grundeinkommen",
+          "column": 113,
+          "raw": "97539",
+          "value": 97539
+        },
+        {
+          "label": "DEMOKRATIE IN BEWEGUNG",
+          "column": 117,
+          "raw": "60914",
+          "value": 60914
+        },
+        {
+          "label": "Deutsche Kommunistische Partei",
+          "column": 121,
+          "raw": "11558",
+          "value": 11558
+        },
+        {
+          "label": "Deutsche Mitte",
+          "column": 125,
+          "raw": "63203",
+          "value": 63203
+        },
+        {
+          "label": "Die Grauen – Für alle Generationen",
+          "column": 129,
+          "raw": "10009",
+          "value": 10009
+        },
+        {
+          "label": "Die Urbane. Eine HipHop Partei",
+          "column": 133,
+          "raw": "3032",
+          "value": 3032
+        },
+        {
+          "label": "Magdeburger Gartenpartei",
+          "column": 137,
+          "raw": "5617",
+          "value": 5617
+        },
+        {
+          "label": "Menschliche Welt",
+          "column": 141,
+          "raw": "11661",
+          "value": 11661
+        },
+        {
+          "label": "Partei der Humanisten",
+          "column": 145,
+          "raw": "5991",
+          "value": 5991
+        },
+        {
+          "label": "Partei für Gesundheitsforschung",
+          "column": 149,
+          "raw": "23404",
+          "value": 23404
+        },
+        {
+          "label": "V-Partei³ - Partei für Veränderung, Vegetarier und Veganer",
+          "column": 153,
+          "raw": "64073",
+          "value": 64073
+        },
+        {
+          "label": "Bündnis C - Christen für Deutschland",
+          "column": 157,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "DIE EINHEIT",
+          "column": 161,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Die Violetten",
+          "column": 165,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Familien-Partei Deutschlands",
+          "column": 169,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Feministische Partei DIE FRAUEN",
+          "column": 173,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Mieterpartei",
+          "column": 177,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Neue Liberale – Die Sozialliberalen",
+          "column": 181,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "UNABHÄNGIGE für bürgernahe Demokratie",
+          "column": 185,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Übrige",
+          "column": 189,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Übrige",
+          "column": 191,
+          "raw": "",
+          "value": null
+        }
+      ],
+      "contestants": [
+        {
+          "label": "Christlich Demokratische Union Deutschlands",
+          "column": 21,
+          "raw": "12447656",
+          "value": 12447656
+        },
+        {
+          "label": "Sozialdemokratische Partei Deutschlands",
+          "column": 25,
+          "raw": "9539381",
+          "value": 9539381
+        },
+        {
+          "label": "DIE LINKE",
+          "column": 29,
+          "raw": "4297270",
+          "value": 4297270
+        },
+        {
+          "label": "BÜNDNIS 90/DIE GRÜNEN",
+          "column": 33,
+          "raw": "4158400",
+          "value": 4158400
+        },
+        {
+          "label": "Christlich-Soziale Union in Bayern e.V.",
+          "column": 37,
+          "raw": "2869688",
+          "value": 2869688
+        },
+        {
+          "label": "Freie Demokratische Partei",
+          "column": 41,
+          "raw": "4999449",
+          "value": 4999449
+        },
+        {
+          "label": "Alternative für Deutschland",
+          "column": 45,
+          "raw": "5878115",
+          "value": 5878115
+        },
+        {
+          "label": "Piratenpartei Deutschland",
+          "column": 49,
+          "raw": "173476",
+          "value": 173476
+        },
+        {
+          "label": "Nationaldemokratische Partei Deutschlands",
+          "column": 53,
+          "raw": "176020",
+          "value": 176020
+        },
+        {
+          "label": "FREIE WÄHLER",
+          "column": 57,
+          "raw": "463292",
+          "value": 463292
+        },
+        {
+          "label": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+          "column": 61,
+          "raw": "374179",
+          "value": 374179
+        },
+        {
+          "label": "Ökologisch-Demokratische Partei",
+          "column": 65,
+          "raw": "144809",
+          "value": 144809
+        },
+        {
+          "label": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+          "column": 69,
+          "raw": "454349",
+          "value": 454349
+        },
+        {
+          "label": "Bayernpartei",
+          "column": 73,
+          "raw": "58037",
+          "value": 58037
+        },
+        {
+          "label": "Ab jetzt...Demokratie durch Volksabstimmung",
+          "column": 77,
+          "raw": "9631",
+          "value": 9631
+        },
+        {
+          "label": "Partei der Vernunft",
+          "column": 81,
+          "raw": "533",
+          "value": 533
+        },
+        {
+          "label": "Marxistisch-Leninistische Partei Deutschlands",
+          "column": 85,
+          "raw": "29785",
+          "value": 29785
+        },
+        {
+          "label": "Bürgerrechtsbewegung Solidarität",
+          "column": 89,
+          "raw": "6693",
+          "value": 6693
+        },
+        {
+          "label": "Sozialistische Gleichheitspartei, Vierte Internationale",
+          "column": 93,
+          "raw": "1291",
+          "value": 1291
+        },
+        {
+          "label": "DIE RECHTE",
+          "column": 97,
+          "raw": "2054",
+          "value": 2054
+        },
+        {
+          "label": "Allianz Deutscher Demokraten",
+          "column": 101,
+          "raw": "41251",
+          "value": 41251
+        },
+        {
+          "label": "Allianz für Menschenrechte, Tier- und Naturschutz",
+          "column": 105,
+          "raw": "32221",
+          "value": 32221
+        },
+        {
+          "label": "bergpartei, die überpartei",
+          "column": 109,
+          "raw": "911",
+          "value": 911
+        },
+        {
+          "label": "Bündnis Grundeinkommen",
+          "column": 113,
+          "raw": "97539",
+          "value": 97539
+        },
+        {
+          "label": "DEMOKRATIE IN BEWEGUNG",
+          "column": 117,
+          "raw": "60914",
+          "value": 60914
+        },
+        {
+          "label": "Deutsche Kommunistische Partei",
+          "column": 121,
+          "raw": "11558",
+          "value": 11558
+        },
+        {
+          "label": "Deutsche Mitte",
+          "column": 125,
+          "raw": "63203",
+          "value": 63203
+        },
+        {
+          "label": "Die Grauen – Für alle Generationen",
+          "column": 129,
+          "raw": "10009",
+          "value": 10009
+        },
+        {
+          "label": "Die Urbane. Eine HipHop Partei",
+          "column": 133,
+          "raw": "3032",
+          "value": 3032
+        },
+        {
+          "label": "Magdeburger Gartenpartei",
+          "column": 137,
+          "raw": "5617",
+          "value": 5617
+        },
+        {
+          "label": "Menschliche Welt",
+          "column": 141,
+          "raw": "11661",
+          "value": 11661
+        },
+        {
+          "label": "Partei der Humanisten",
+          "column": 145,
+          "raw": "5991",
+          "value": 5991
+        },
+        {
+          "label": "Partei für Gesundheitsforschung",
+          "column": 149,
+          "raw": "23404",
+          "value": 23404
+        },
+        {
+          "label": "V-Partei³ - Partei für Veränderung, Vegetarier und Veganer",
+          "column": 153,
+          "raw": "64073",
+          "value": 64073
+        }
+      ],
+      "member": "btw2017_kerg.csv",
+      "encoding": "utf-8-sig",
+      "member_sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+      "source_id": "src-de-bwl-final-archive",
+      "raw_snapshot": {
+        "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+        "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+      },
+      "retrieved_at": "2026-10-01T23:21:39.584Z",
+      "historical_snapshot": {
+        "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+        "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+      },
+      "result_vintage": "final",
+      "party_identity_status": "requires_manual_review",
+      "canonical_promotion": false
+    },
+    {
+      "year": 2021,
+      "national_record_ordinal": 337,
+      "valid_second_votes": 46298387,
+      "columns": [
+        {
+          "label": "Wahlberechtigte",
+          "column": 5,
+          "raw": "61172771",
+          "value": 61172771
+        },
+        {
+          "label": "Wählende",
+          "column": 9,
+          "raw": "46707343",
+          "value": 46707343
+        },
+        {
+          "label": "Ungültige Stimmen",
+          "column": 13,
+          "raw": "408956",
+          "value": 408956
+        },
+        {
+          "label": "Gültige Stimmen",
+          "column": 17,
+          "raw": "46298387",
+          "value": 46298387
+        },
+        {
+          "label": "Christlich Demokratische Union Deutschlands",
+          "column": 21,
+          "raw": "8774920",
+          "value": 8774920
+        },
+        {
+          "label": "Sozialdemokratische Partei Deutschlands",
+          "column": 25,
+          "raw": "11901558",
+          "value": 11901558
+        },
+        {
+          "label": "Alternative für Deutschland",
+          "column": 29,
+          "raw": "4809233",
+          "value": 4809233
+        },
+        {
+          "label": "Freie Demokratische Partei",
+          "column": 33,
+          "raw": "5291013",
+          "value": 5291013
+        },
+        {
+          "label": "DIE LINKE",
+          "column": 37,
+          "raw": "2255864",
+          "value": 2255864
+        },
+        {
+          "label": "BÜNDNIS 90/DIE GRÜNEN",
+          "column": 41,
+          "raw": "6814408",
+          "value": 6814408
+        },
+        {
+          "label": "Christlich-Soziale Union in Bayern e.V.",
+          "column": 45,
+          "raw": "2402827",
+          "value": 2402827
+        },
+        {
+          "label": "FREIE WÄHLER",
+          "column": 49,
+          "raw": "1125667",
+          "value": 1125667
+        },
+        {
+          "label": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+          "column": 53,
+          "raw": "460431",
+          "value": 460431
+        },
+        {
+          "label": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+          "column": 57,
+          "raw": "673669",
+          "value": 673669
+        },
+        {
+          "label": "Die Heimat (2021: Nationaldemokratische Partei Deutschlands)",
+          "column": 61,
+          "raw": "64360",
+          "value": 64360
+        },
+        {
+          "label": "Piratenpartei Deutschland",
+          "column": 65,
+          "raw": "169587",
+          "value": 169587
+        },
+        {
+          "label": "Ökologisch-Demokratische Partei",
+          "column": 69,
+          "raw": "112129",
+          "value": 112129
+        },
+        {
+          "label": "V-Partei³ - Partei für Veränderung, Vegetarier und Veganer",
+          "column": 73,
+          "raw": "31763",
+          "value": 31763
+        },
+        {
+          "label": "DEMOKRATIE IN BEWEGUNG",
+          "column": 77,
+          "raw": "7184",
+          "value": 7184
+        },
+        {
+          "label": "Bayernpartei",
+          "column": 81,
+          "raw": "32790",
+          "value": 32790
+        },
+        {
+          "label": "Allianz für Menschenrechte, Tier- und Naturschutz",
+          "column": 85,
+          "raw": "13672",
+          "value": 13672
+        },
+        {
+          "label": "Marxistisch-Leninistische Partei Deutschlands",
+          "column": 89,
+          "raw": "17820",
+          "value": 17820
+        },
+        {
+          "label": "Partei für schulmedizinische Verjüngungsforschung (2021: Partei für Gesundheitsforschung)",
+          "column": 93,
+          "raw": "48496",
+          "value": 48496
+        },
+        {
+          "label": "Menschliche Welt - für das Wohl und Glücklichsein aller",
+          "column": 97,
+          "raw": "3786",
+          "value": 3786
+        },
+        {
+          "label": "Deutsche Kommunistische Partei",
+          "column": 101,
+          "raw": "14957",
+          "value": 14957
+        },
+        {
+          "label": "Die Grauen – Für alle Generationen",
+          "column": 105,
+          "raw": "17304",
+          "value": 17304
+        },
+        {
+          "label": "Bürgerrechtsbewegung Solidarität",
+          "column": 109,
+          "raw": "665",
+          "value": 665
+        },
+        {
+          "label": "Partei der Humanisten",
+          "column": 113,
+          "raw": "47524",
+          "value": 47524
+        },
+        {
+          "label": "Gartenpartei",
+          "column": 117,
+          "raw": "7611",
+          "value": 7611
+        },
+        {
+          "label": "Die Urbane. Eine HipHop Partei",
+          "column": 121,
+          "raw": "17738",
+          "value": 17738
+        },
+        {
+          "label": "Sozialistische Gleichheitspartei, Vierte Internationale",
+          "column": 125,
+          "raw": "1399",
+          "value": 1399
+        },
+        {
+          "label": "Basisdemokratische Partei Deutschland",
+          "column": 129,
+          "raw": "630153",
+          "value": 630153
+        },
+        {
+          "label": "Bündnis C - Christen für Deutschland",
+          "column": 133,
+          "raw": "39868",
+          "value": 39868
+        },
+        {
+          "label": "Bürgerbewegung für Fortschritt und Wandel",
+          "column": 137,
+          "raw": "7491",
+          "value": 7491
+        },
+        {
+          "label": "DER DRITTE WEG",
+          "column": 141,
+          "raw": "7832",
+          "value": 7832
+        },
+        {
+          "label": "diePinken/BÜNDNIS21",
+          "column": 145,
+          "raw": "3488",
+          "value": 3488
+        },
+        {
+          "label": "Europäische Partei LIEBE",
+          "column": 149,
+          "raw": "12967",
+          "value": 12967
+        },
+        {
+          "label": "Wir Bürger (2021: Liberal-Konservative Reformer)",
+          "column": 153,
+          "raw": "11328",
+          "value": 11328
+        },
+        {
+          "label": "Partei des Fortschritts",
+          "column": 157,
+          "raw": "3228",
+          "value": 3228
+        },
+        {
+          "label": ">> Partei für Kinder, Jugendliche und Familien <<  – Lobbyisten für Kinder –",
+          "column": 161,
+          "raw": "9189",
+          "value": 9189
+        },
+        {
+          "label": "Südschleswigscher Wählerverband",
+          "column": 165,
+          "raw": "55578",
+          "value": 55578
+        },
+        {
+          "label": "Team Todenhöfer – Die Gerechtigkeitspartei",
+          "column": 169,
+          "raw": "211854",
+          "value": 211854
+        },
+        {
+          "label": "UNABHÄNGIGE für bürgernahe Demokratie",
+          "column": 173,
+          "raw": "22736",
+          "value": 22736
+        },
+        {
+          "label": "Volt Deutschland",
+          "column": 177,
+          "raw": "164300",
+          "value": 164300
+        },
+        {
+          "label": "Ab jetzt...Demokratie durch Volksabstimmung - Politik für die Menschen",
+          "column": 181,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "bergpartei, die überpartei - ökoanarchistisch-realdadaistisches sammelbecken",
+          "column": 185,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "DIE SONSTIGEN - X",
+          "column": 189,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Familien-Partei Deutschlands",
+          "column": 193,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Graue Panther",
+          "column": 197,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Klimaliste Baden-Württemberg",
+          "column": 201,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Thüringer Heimatpartei",
+          "column": 205,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Übrige",
+          "column": 209,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Übrige",
+          "column": 211,
+          "raw": "",
+          "value": null
+        }
+      ],
+      "contestants": [
+        {
+          "label": "Christlich Demokratische Union Deutschlands",
+          "column": 21,
+          "raw": "8774920",
+          "value": 8774920
+        },
+        {
+          "label": "Sozialdemokratische Partei Deutschlands",
+          "column": 25,
+          "raw": "11901558",
+          "value": 11901558
+        },
+        {
+          "label": "Alternative für Deutschland",
+          "column": 29,
+          "raw": "4809233",
+          "value": 4809233
+        },
+        {
+          "label": "Freie Demokratische Partei",
+          "column": 33,
+          "raw": "5291013",
+          "value": 5291013
+        },
+        {
+          "label": "DIE LINKE",
+          "column": 37,
+          "raw": "2255864",
+          "value": 2255864
+        },
+        {
+          "label": "BÜNDNIS 90/DIE GRÜNEN",
+          "column": 41,
+          "raw": "6814408",
+          "value": 6814408
+        },
+        {
+          "label": "Christlich-Soziale Union in Bayern e.V.",
+          "column": 45,
+          "raw": "2402827",
+          "value": 2402827
+        },
+        {
+          "label": "FREIE WÄHLER",
+          "column": 49,
+          "raw": "1125667",
+          "value": 1125667
+        },
+        {
+          "label": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+          "column": 53,
+          "raw": "460431",
+          "value": 460431
+        },
+        {
+          "label": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+          "column": 57,
+          "raw": "673669",
+          "value": 673669
+        },
+        {
+          "label": "Die Heimat (2021: Nationaldemokratische Partei Deutschlands)",
+          "column": 61,
+          "raw": "64360",
+          "value": 64360
+        },
+        {
+          "label": "Piratenpartei Deutschland",
+          "column": 65,
+          "raw": "169587",
+          "value": 169587
+        },
+        {
+          "label": "Ökologisch-Demokratische Partei",
+          "column": 69,
+          "raw": "112129",
+          "value": 112129
+        },
+        {
+          "label": "V-Partei³ - Partei für Veränderung, Vegetarier und Veganer",
+          "column": 73,
+          "raw": "31763",
+          "value": 31763
+        },
+        {
+          "label": "DEMOKRATIE IN BEWEGUNG",
+          "column": 77,
+          "raw": "7184",
+          "value": 7184
+        },
+        {
+          "label": "Bayernpartei",
+          "column": 81,
+          "raw": "32790",
+          "value": 32790
+        },
+        {
+          "label": "Allianz für Menschenrechte, Tier- und Naturschutz",
+          "column": 85,
+          "raw": "13672",
+          "value": 13672
+        },
+        {
+          "label": "Marxistisch-Leninistische Partei Deutschlands",
+          "column": 89,
+          "raw": "17820",
+          "value": 17820
+        },
+        {
+          "label": "Partei für schulmedizinische Verjüngungsforschung (2021: Partei für Gesundheitsforschung)",
+          "column": 93,
+          "raw": "48496",
+          "value": 48496
+        },
+        {
+          "label": "Menschliche Welt - für das Wohl und Glücklichsein aller",
+          "column": 97,
+          "raw": "3786",
+          "value": 3786
+        },
+        {
+          "label": "Deutsche Kommunistische Partei",
+          "column": 101,
+          "raw": "14957",
+          "value": 14957
+        },
+        {
+          "label": "Die Grauen – Für alle Generationen",
+          "column": 105,
+          "raw": "17304",
+          "value": 17304
+        },
+        {
+          "label": "Bürgerrechtsbewegung Solidarität",
+          "column": 109,
+          "raw": "665",
+          "value": 665
+        },
+        {
+          "label": "Partei der Humanisten",
+          "column": 113,
+          "raw": "47524",
+          "value": 47524
+        },
+        {
+          "label": "Gartenpartei",
+          "column": 117,
+          "raw": "7611",
+          "value": 7611
+        },
+        {
+          "label": "Die Urbane. Eine HipHop Partei",
+          "column": 121,
+          "raw": "17738",
+          "value": 17738
+        },
+        {
+          "label": "Sozialistische Gleichheitspartei, Vierte Internationale",
+          "column": 125,
+          "raw": "1399",
+          "value": 1399
+        },
+        {
+          "label": "Basisdemokratische Partei Deutschland",
+          "column": 129,
+          "raw": "630153",
+          "value": 630153
+        },
+        {
+          "label": "Bündnis C - Christen für Deutschland",
+          "column": 133,
+          "raw": "39868",
+          "value": 39868
+        },
+        {
+          "label": "Bürgerbewegung für Fortschritt und Wandel",
+          "column": 137,
+          "raw": "7491",
+          "value": 7491
+        },
+        {
+          "label": "DER DRITTE WEG",
+          "column": 141,
+          "raw": "7832",
+          "value": 7832
+        },
+        {
+          "label": "diePinken/BÜNDNIS21",
+          "column": 145,
+          "raw": "3488",
+          "value": 3488
+        },
+        {
+          "label": "Europäische Partei LIEBE",
+          "column": 149,
+          "raw": "12967",
+          "value": 12967
+        },
+        {
+          "label": "Wir Bürger (2021: Liberal-Konservative Reformer)",
+          "column": 153,
+          "raw": "11328",
+          "value": 11328
+        },
+        {
+          "label": "Partei des Fortschritts",
+          "column": 157,
+          "raw": "3228",
+          "value": 3228
+        },
+        {
+          "label": ">> Partei für Kinder, Jugendliche und Familien <<  – Lobbyisten für Kinder –",
+          "column": 161,
+          "raw": "9189",
+          "value": 9189
+        },
+        {
+          "label": "Südschleswigscher Wählerverband",
+          "column": 165,
+          "raw": "55578",
+          "value": 55578
+        },
+        {
+          "label": "Team Todenhöfer – Die Gerechtigkeitspartei",
+          "column": 169,
+          "raw": "211854",
+          "value": 211854
+        },
+        {
+          "label": "UNABHÄNGIGE für bürgernahe Demokratie",
+          "column": 173,
+          "raw": "22736",
+          "value": 22736
+        },
+        {
+          "label": "Volt Deutschland",
+          "column": 177,
+          "raw": "164300",
+          "value": 164300
+        }
+      ],
+      "member": "btw2021-w_kerg.csv",
+      "encoding": "utf-8-sig",
+      "member_sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+      "source_id": "src-de-bwl-final-archive",
+      "raw_snapshot": {
+        "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+        "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+      },
+      "retrieved_at": "2026-10-01T23:21:39.584Z",
+      "historical_snapshot": {
+        "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+        "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+      },
+      "result_vintage": "corrected_final_after_2024_02_11_repeat",
+      "party_identity_status": "requires_manual_review",
+      "canonical_promotion": false
+    },
+    {
+      "year": 2025,
+      "national_record_ordinal": 340,
+      "valid_second_votes": 49649512,
+      "columns": [
+        {
+          "label": "Wahlberechtigte",
+          "column": 6,
+          "raw": "60510631",
+          "value": 60510631
+        },
+        {
+          "label": "Wählende",
+          "column": 10,
+          "raw": "49928653",
+          "value": 49928653
+        },
+        {
+          "label": "Ungültige Stimmen",
+          "column": 14,
+          "raw": "279141",
+          "value": 279141
+        },
+        {
+          "label": "Gültige Stimmen",
+          "column": 18,
+          "raw": "49649512",
+          "value": 49649512
+        },
+        {
+          "label": "Sozialdemokratische Partei Deutschlands",
+          "column": 22,
+          "raw": "8149124",
+          "value": 8149124
+        },
+        {
+          "label": "Christlich Demokratische Union Deutschlands",
+          "column": 26,
+          "raw": "11196374",
+          "value": 11196374
+        },
+        {
+          "label": "BÜNDNIS 90/DIE GRÜNEN",
+          "column": 30,
+          "raw": "5762380",
+          "value": 5762380
+        },
+        {
+          "label": "Freie Demokratische Partei",
+          "column": 34,
+          "raw": "2148757",
+          "value": 2148757
+        },
+        {
+          "label": "Alternative für Deutschland",
+          "column": 38,
+          "raw": "10328780",
+          "value": 10328780
+        },
+        {
+          "label": "Christlich-Soziale Union in Bayern e.V.",
+          "column": 42,
+          "raw": "2964028",
+          "value": 2964028
+        },
+        {
+          "label": "Die Linke",
+          "column": 46,
+          "raw": "4356532",
+          "value": 4356532
+        },
+        {
+          "label": "FREIE WÄHLER",
+          "column": 50,
+          "raw": "769279",
+          "value": 769279
+        },
+        {
+          "label": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+          "column": 54,
+          "raw": "482201",
+          "value": 482201
+        },
+        {
+          "label": "Basisdemokratische Partei Deutschland",
+          "column": 58,
+          "raw": "85373",
+          "value": 85373
+        },
+        {
+          "label": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+          "column": 62,
+          "raw": "242741",
+          "value": 242741
+        },
+        {
+          "label": "Die Gerechtigkeitspartei – Team Todenhöfer",
+          "column": 66,
+          "raw": "24553",
+          "value": 24553
+        },
+        {
+          "label": "Piratenpartei Deutschland",
+          "column": 70,
+          "raw": "13800",
+          "value": 13800
+        },
+        {
+          "label": "Volt Deutschland",
+          "column": 74,
+          "raw": "355262",
+          "value": 355262
+        },
+        {
+          "label": "Ökologisch-Demokratische Partei - Die Naturschutzpartei",
+          "column": 78,
+          "raw": "49764",
+          "value": 49764
+        },
+        {
+          "label": "Südschleswigscher Wählerverband",
+          "column": 82,
+          "raw": "76138",
+          "value": 76138
+        },
+        {
+          "label": "Partei für Verjüngungsforschung",
+          "column": 86,
+          "raw": "303",
+          "value": 303
+        },
+        {
+          "label": "Partei der Humanisten - Fakten, Freiheit, Fortschritt",
+          "column": 90,
+          "raw": "14294",
+          "value": 14294
+        },
+        {
+          "label": "Bündnis C - Christen für Deutschland",
+          "column": 94,
+          "raw": "11768",
+          "value": 11768
+        },
+        {
+          "label": "Bayernpartei",
+          "column": 98,
+          "raw": "12278",
+          "value": 12278
+        },
+        {
+          "label": "Marxistisch-Leninistische Partei Deutschlands",
+          "column": 102,
+          "raw": "19551",
+          "value": 19551
+        },
+        {
+          "label": "Menschliche Welt - für das Wohl und Glücklichsein aller",
+          "column": 106,
+          "raw": "694",
+          "value": 694
+        },
+        {
+          "label": "Partei des Fortschritts",
+          "column": 110,
+          "raw": "21388",
+          "value": 21388
+        },
+        {
+          "label": "Sozialistische Gleichheitspartei, Vierte Internationale",
+          "column": 114,
+          "raw": "425",
+          "value": 425
+        },
+        {
+          "label": "Bürgerrechtsbewegung Solidarität",
+          "column": 118,
+          "raw": "676",
+          "value": 676
+        },
+        {
+          "label": "BÜNDNIS DEUTSCHLAND",
+          "column": 122,
+          "raw": "76372",
+          "value": 76372
+        },
+        {
+          "label": "Bündnis Sahra Wagenknecht - Vernunft und Gerechtigkeit",
+          "column": 126,
+          "raw": "2472947",
+          "value": 2472947
+        },
+        {
+          "label": "MERA25 - Gemeinsam für Europäische Unabhängigkeit",
+          "column": 130,
+          "raw": "6994",
+          "value": 6994
+        },
+        {
+          "label": "WerteUnion",
+          "column": 134,
+          "raw": "6736",
+          "value": 6736
+        },
+        {
+          "label": "Übrige",
+          "column": 138,
+          "raw": "",
+          "value": null
+        },
+        {
+          "label": "Übrige",
+          "column": 140,
+          "raw": "",
+          "value": null
+        }
+      ],
+      "contestants": [
+        {
+          "label": "Sozialdemokratische Partei Deutschlands",
+          "column": 22,
+          "raw": "8149124",
+          "value": 8149124
+        },
+        {
+          "label": "Christlich Demokratische Union Deutschlands",
+          "column": 26,
+          "raw": "11196374",
+          "value": 11196374
+        },
+        {
+          "label": "BÜNDNIS 90/DIE GRÜNEN",
+          "column": 30,
+          "raw": "5762380",
+          "value": 5762380
+        },
+        {
+          "label": "Freie Demokratische Partei",
+          "column": 34,
+          "raw": "2148757",
+          "value": 2148757
+        },
+        {
+          "label": "Alternative für Deutschland",
+          "column": 38,
+          "raw": "10328780",
+          "value": 10328780
+        },
+        {
+          "label": "Christlich-Soziale Union in Bayern e.V.",
+          "column": 42,
+          "raw": "2964028",
+          "value": 2964028
+        },
+        {
+          "label": "Die Linke",
+          "column": 46,
+          "raw": "4356532",
+          "value": 4356532
+        },
+        {
+          "label": "FREIE WÄHLER",
+          "column": 50,
+          "raw": "769279",
+          "value": 769279
+        },
+        {
+          "label": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+          "column": 54,
+          "raw": "482201",
+          "value": 482201
+        },
+        {
+          "label": "Basisdemokratische Partei Deutschland",
+          "column": 58,
+          "raw": "85373",
+          "value": 85373
+        },
+        {
+          "label": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+          "column": 62,
+          "raw": "242741",
+          "value": 242741
+        },
+        {
+          "label": "Die Gerechtigkeitspartei – Team Todenhöfer",
+          "column": 66,
+          "raw": "24553",
+          "value": 24553
+        },
+        {
+          "label": "Piratenpartei Deutschland",
+          "column": 70,
+          "raw": "13800",
+          "value": 13800
+        },
+        {
+          "label": "Volt Deutschland",
+          "column": 74,
+          "raw": "355262",
+          "value": 355262
+        },
+        {
+          "label": "Ökologisch-Demokratische Partei - Die Naturschutzpartei",
+          "column": 78,
+          "raw": "49764",
+          "value": 49764
+        },
+        {
+          "label": "Südschleswigscher Wählerverband",
+          "column": 82,
+          "raw": "76138",
+          "value": 76138
+        },
+        {
+          "label": "Partei für Verjüngungsforschung",
+          "column": 86,
+          "raw": "303",
+          "value": 303
+        },
+        {
+          "label": "Partei der Humanisten - Fakten, Freiheit, Fortschritt",
+          "column": 90,
+          "raw": "14294",
+          "value": 14294
+        },
+        {
+          "label": "Bündnis C - Christen für Deutschland",
+          "column": 94,
+          "raw": "11768",
+          "value": 11768
+        },
+        {
+          "label": "Bayernpartei",
+          "column": 98,
+          "raw": "12278",
+          "value": 12278
+        },
+        {
+          "label": "Marxistisch-Leninistische Partei Deutschlands",
+          "column": 102,
+          "raw": "19551",
+          "value": 19551
+        },
+        {
+          "label": "Menschliche Welt - für das Wohl und Glücklichsein aller",
+          "column": 106,
+          "raw": "694",
+          "value": 694
+        },
+        {
+          "label": "Partei des Fortschritts",
+          "column": 110,
+          "raw": "21388",
+          "value": 21388
+        },
+        {
+          "label": "Sozialistische Gleichheitspartei, Vierte Internationale",
+          "column": 114,
+          "raw": "425",
+          "value": 425
+        },
+        {
+          "label": "Bürgerrechtsbewegung Solidarität",
+          "column": 118,
+          "raw": "676",
+          "value": 676
+        },
+        {
+          "label": "BÜNDNIS DEUTSCHLAND",
+          "column": 122,
+          "raw": "76372",
+          "value": 76372
+        },
+        {
+          "label": "Bündnis Sahra Wagenknecht - Vernunft und Gerechtigkeit",
+          "column": 126,
+          "raw": "2472947",
+          "value": 2472947
+        },
+        {
+          "label": "MERA25 - Gemeinsam für Europäische Unabhängigkeit",
+          "column": 130,
+          "raw": "6994",
+          "value": 6994
+        },
+        {
+          "label": "WerteUnion",
+          "column": 134,
+          "raw": "6736",
+          "value": 6736
+        }
+      ],
+      "member": "btw2025_kerg.csv",
+      "encoding": "utf-8-sig",
+      "member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+      "source_id": "src-de-bwl-final-archive",
+      "raw_snapshot": {
+        "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+        "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+      },
+      "retrieved_at": "2026-10-01T23:21:39.584Z",
+      "historical_snapshot": {
+        "path": "docs/political-data/raw/germany/2026-10-01T23-20-00-007Z_9efffc24b559679a/results.csv",
+        "sha256": "9efffc24b559679ade291d8da63462e5523b43ac62064e759737c3ae01418484"
+      },
+      "result_vintage": "final",
+      "party_identity_status": "requires_manual_review",
+      "canonical_promotion": false
+    }
+  ],
+  "original_2021_revision": {
+    "year": 2021,
+    "national_record_ordinal": 337,
+    "valid_second_votes": 46442023,
+    "columns": [
+      {
+        "label": "Wahlberechtigte",
+        "column": 5,
+        "raw": "61181072",
+        "value": 61181072
+      },
+      {
+        "label": "Wählende",
+        "column": 9,
+        "raw": "46854508",
+        "value": 46854508
+      },
+      {
+        "label": "Ungültige Stimmen",
+        "column": 13,
+        "raw": "412485",
+        "value": 412485
+      },
+      {
+        "label": "Gültige Stimmen",
+        "column": 17,
+        "raw": "46442023",
+        "value": 46442023
+      },
+      {
+        "label": "Christlich Demokratische Union Deutschlands",
+        "column": 21,
+        "raw": "8775471",
+        "value": 8775471
+      },
+      {
+        "label": "Sozialdemokratische Partei Deutschlands",
+        "column": 25,
+        "raw": "11955434",
+        "value": 11955434
+      },
+      {
+        "label": "Alternative für Deutschland",
+        "column": 29,
+        "raw": "4803902",
+        "value": 4803902
+      },
+      {
+        "label": "Freie Demokratische Partei",
+        "column": 33,
+        "raw": "5319952",
+        "value": 5319952
+      },
+      {
+        "label": "DIE LINKE",
+        "column": 37,
+        "raw": "2270906",
+        "value": 2270906
+      },
+      {
+        "label": "BÜNDNIS 90/DIE GRÜNEN",
+        "column": 41,
+        "raw": "6852206",
+        "value": 6852206
+      },
+      {
+        "label": "Christlich-Soziale Union in Bayern e.V.",
+        "column": 45,
+        "raw": "2402827",
+        "value": 2402827
+      },
+      {
+        "label": "FREIE WÄHLER",
+        "column": 49,
+        "raw": "1127784",
+        "value": 1127784
+      },
+      {
+        "label": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+        "column": 53,
+        "raw": "461570",
+        "value": 461570
+      },
+      {
+        "label": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+        "column": 57,
+        "raw": "675353",
+        "value": 675353
+      },
+      {
+        "label": "Nationaldemokratische Partei Deutschlands",
+        "column": 61,
+        "raw": "64574",
+        "value": 64574
+      },
+      {
+        "label": "Piratenpartei Deutschland",
+        "column": 65,
+        "raw": "169923",
+        "value": 169923
+      },
+      {
+        "label": "Ökologisch-Demokratische Partei",
+        "column": 69,
+        "raw": "112314",
+        "value": 112314
+      },
+      {
+        "label": "V-Partei³ - Partei für Veränderung, Vegetarier und Veganer",
+        "column": 73,
+        "raw": "31884",
+        "value": 31884
+      },
+      {
+        "label": "DEMOKRATIE IN BEWEGUNG",
+        "column": 77,
+        "raw": "7184",
+        "value": 7184
+      },
+      {
+        "label": "Bayernpartei",
+        "column": 81,
+        "raw": "32790",
+        "value": 32790
+      },
+      {
+        "label": "Allianz für Menschenrechte, Tier- und Naturschutz",
+        "column": 85,
+        "raw": "13672",
+        "value": 13672
+      },
+      {
+        "label": "Marxistisch-Leninistische Partei Deutschlands",
+        "column": 89,
+        "raw": "17799",
+        "value": 17799
+      },
+      {
+        "label": "Partei für Gesundheitsforschung",
+        "column": 93,
+        "raw": "49349",
+        "value": 49349
+      },
+      {
+        "label": "Menschliche Welt - für das Wohl und Glücklichsein aller",
+        "column": 97,
+        "raw": "3786",
+        "value": 3786
+      },
+      {
+        "label": "Deutsche Kommunistische Partei",
+        "column": 101,
+        "raw": "14925",
+        "value": 14925
+      },
+      {
+        "label": "Die Grauen – Für alle Generationen",
+        "column": 105,
+        "raw": "19443",
+        "value": 19443
+      },
+      {
+        "label": "Bürgerrechtsbewegung Solidarität",
+        "column": 109,
+        "raw": "727",
+        "value": 727
+      },
+      {
+        "label": "Partei der Humanisten",
+        "column": 113,
+        "raw": "47711",
+        "value": 47711
+      },
+      {
+        "label": "Gartenpartei",
+        "column": 117,
+        "raw": "7611",
+        "value": 7611
+      },
+      {
+        "label": "Die Urbane. Eine HipHop Partei",
+        "column": 121,
+        "raw": "17811",
+        "value": 17811
+      },
+      {
+        "label": "Sozialistische Gleichheitspartei, Vierte Internationale",
+        "column": 125,
+        "raw": "1417",
+        "value": 1417
+      },
+      {
+        "label": "Basisdemokratische Partei Deutschland",
+        "column": 129,
+        "raw": "630153",
+        "value": 630153
+      },
+      {
+        "label": "Bündnis C - Christen für Deutschland",
+        "column": 133,
+        "raw": "39868",
+        "value": 39868
+      },
+      {
+        "label": "Bürgerbewegung für Fortschritt und Wandel",
+        "column": 137,
+        "raw": "7491",
+        "value": 7491
+      },
+      {
+        "label": "DER DRITTE WEG",
+        "column": 141,
+        "raw": "7832",
+        "value": 7832
+      },
+      {
+        "label": "diePinken/BÜNDNIS21",
+        "column": 145,
+        "raw": "3488",
+        "value": 3488
+      },
+      {
+        "label": "Europäische Partei LIEBE",
+        "column": 149,
+        "raw": "12967",
+        "value": 12967
+      },
+      {
+        "label": "Liberal-Konservative Reformer",
+        "column": 153,
+        "raw": "11159",
+        "value": 11159
+      },
+      {
+        "label": "Partei des Fortschritts",
+        "column": 157,
+        "raw": "3228",
+        "value": 3228
+      },
+      {
+        "label": ">> Partei für Kinder, Jugendliche und Familien <<  – Lobbyisten für Kinder –",
+        "column": 161,
+        "raw": "9189",
+        "value": 9189
+      },
+      {
+        "label": "Südschleswigscher Wählerverband",
+        "column": 165,
+        "raw": "55578",
+        "value": 55578
+      },
+      {
+        "label": "Team Todenhöfer – Die Gerechtigkeitspartei",
+        "column": 169,
+        "raw": "214535",
+        "value": 214535
+      },
+      {
+        "label": "UNABHÄNGIGE für bürgernahe Demokratie",
+        "column": 173,
+        "raw": "22736",
+        "value": 22736
+      },
+      {
+        "label": "Volt Deutschland",
+        "column": 177,
+        "raw": "165474",
+        "value": 165474
+      },
+      {
+        "label": "Ab jetzt...Demokratie durch Volksabstimmung - Politik für die Menschen",
+        "column": 181,
+        "raw": "",
+        "value": null
+      },
+      {
+        "label": "bergpartei, die überpartei - ökoanarchistisch-realdadaistisches sammelbecken",
+        "column": 185,
+        "raw": "",
+        "value": null
+      },
+      {
+        "label": "DIE SONSTIGEN - X",
+        "column": 189,
+        "raw": "",
+        "value": null
+      },
+      {
+        "label": "Familien-Partei Deutschlands",
+        "column": 193,
+        "raw": "",
+        "value": null
+      },
+      {
+        "label": "Graue Panther",
+        "column": 197,
+        "raw": "",
+        "value": null
+      },
+      {
+        "label": "Klimaliste Baden-Württemberg",
+        "column": 201,
+        "raw": "",
+        "value": null
+      },
+      {
+        "label": "Thüringer Heimatpartei",
+        "column": 205,
+        "raw": "",
+        "value": null
+      },
+      {
+        "label": "Übrige",
+        "column": 209,
+        "raw": "",
+        "value": null
+      },
+      {
+        "label": "Übrige",
+        "column": 211,
+        "raw": "",
+        "value": null
+      }
+    ],
+    "contestants": [
+      {
+        "label": "Christlich Demokratische Union Deutschlands",
+        "column": 21,
+        "raw": "8775471",
+        "value": 8775471
+      },
+      {
+        "label": "Sozialdemokratische Partei Deutschlands",
+        "column": 25,
+        "raw": "11955434",
+        "value": 11955434
+      },
+      {
+        "label": "Alternative für Deutschland",
+        "column": 29,
+        "raw": "4803902",
+        "value": 4803902
+      },
+      {
+        "label": "Freie Demokratische Partei",
+        "column": 33,
+        "raw": "5319952",
+        "value": 5319952
+      },
+      {
+        "label": "DIE LINKE",
+        "column": 37,
+        "raw": "2270906",
+        "value": 2270906
+      },
+      {
+        "label": "BÜNDNIS 90/DIE GRÜNEN",
+        "column": 41,
+        "raw": "6852206",
+        "value": 6852206
+      },
+      {
+        "label": "Christlich-Soziale Union in Bayern e.V.",
+        "column": 45,
+        "raw": "2402827",
+        "value": 2402827
+      },
+      {
+        "label": "FREIE WÄHLER",
+        "column": 49,
+        "raw": "1127784",
+        "value": 1127784
+      },
+      {
+        "label": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+        "column": 53,
+        "raw": "461570",
+        "value": 461570
+      },
+      {
+        "label": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+        "column": 57,
+        "raw": "675353",
+        "value": 675353
+      },
+      {
+        "label": "Nationaldemokratische Partei Deutschlands",
+        "column": 61,
+        "raw": "64574",
+        "value": 64574
+      },
+      {
+        "label": "Piratenpartei Deutschland",
+        "column": 65,
+        "raw": "169923",
+        "value": 169923
+      },
+      {
+        "label": "Ökologisch-Demokratische Partei",
+        "column": 69,
+        "raw": "112314",
+        "value": 112314
+      },
+      {
+        "label": "V-Partei³ - Partei für Veränderung, Vegetarier und Veganer",
+        "column": 73,
+        "raw": "31884",
+        "value": 31884
+      },
+      {
+        "label": "DEMOKRATIE IN BEWEGUNG",
+        "column": 77,
+        "raw": "7184",
+        "value": 7184
+      },
+      {
+        "label": "Bayernpartei",
+        "column": 81,
+        "raw": "32790",
+        "value": 32790
+      },
+      {
+        "label": "Allianz für Menschenrechte, Tier- und Naturschutz",
+        "column": 85,
+        "raw": "13672",
+        "value": 13672
+      },
+      {
+        "label": "Marxistisch-Leninistische Partei Deutschlands",
+        "column": 89,
+        "raw": "17799",
+        "value": 17799
+      },
+      {
+        "label": "Partei für Gesundheitsforschung",
+        "column": 93,
+        "raw": "49349",
+        "value": 49349
+      },
+      {
+        "label": "Menschliche Welt - für das Wohl und Glücklichsein aller",
+        "column": 97,
+        "raw": "3786",
+        "value": 3786
+      },
+      {
+        "label": "Deutsche Kommunistische Partei",
+        "column": 101,
+        "raw": "14925",
+        "value": 14925
+      },
+      {
+        "label": "Die Grauen – Für alle Generationen",
+        "column": 105,
+        "raw": "19443",
+        "value": 19443
+      },
+      {
+        "label": "Bürgerrechtsbewegung Solidarität",
+        "column": 109,
+        "raw": "727",
+        "value": 727
+      },
+      {
+        "label": "Partei der Humanisten",
+        "column": 113,
+        "raw": "47711",
+        "value": 47711
+      },
+      {
+        "label": "Gartenpartei",
+        "column": 117,
+        "raw": "7611",
+        "value": 7611
+      },
+      {
+        "label": "Die Urbane. Eine HipHop Partei",
+        "column": 121,
+        "raw": "17811",
+        "value": 17811
+      },
+      {
+        "label": "Sozialistische Gleichheitspartei, Vierte Internationale",
+        "column": 125,
+        "raw": "1417",
+        "value": 1417
+      },
+      {
+        "label": "Basisdemokratische Partei Deutschland",
+        "column": 129,
+        "raw": "630153",
+        "value": 630153
+      },
+      {
+        "label": "Bündnis C - Christen für Deutschland",
+        "column": 133,
+        "raw": "39868",
+        "value": 39868
+      },
+      {
+        "label": "Bürgerbewegung für Fortschritt und Wandel",
+        "column": 137,
+        "raw": "7491",
+        "value": 7491
+      },
+      {
+        "label": "DER DRITTE WEG",
+        "column": 141,
+        "raw": "7832",
+        "value": 7832
+      },
+      {
+        "label": "diePinken/BÜNDNIS21",
+        "column": 145,
+        "raw": "3488",
+        "value": 3488
+      },
+      {
+        "label": "Europäische Partei LIEBE",
+        "column": 149,
+        "raw": "12967",
+        "value": 12967
+      },
+      {
+        "label": "Liberal-Konservative Reformer",
+        "column": 153,
+        "raw": "11159",
+        "value": 11159
+      },
+      {
+        "label": "Partei des Fortschritts",
+        "column": 157,
+        "raw": "3228",
+        "value": 3228
+      },
+      {
+        "label": ">> Partei für Kinder, Jugendliche und Familien <<  – Lobbyisten für Kinder –",
+        "column": 161,
+        "raw": "9189",
+        "value": 9189
+      },
+      {
+        "label": "Südschleswigscher Wählerverband",
+        "column": 165,
+        "raw": "55578",
+        "value": 55578
+      },
+      {
+        "label": "Team Todenhöfer – Die Gerechtigkeitspartei",
+        "column": 169,
+        "raw": "214535",
+        "value": 214535
+      },
+      {
+        "label": "UNABHÄNGIGE für bürgernahe Demokratie",
+        "column": 173,
+        "raw": "22736",
+        "value": 22736
+      },
+      {
+        "label": "Volt Deutschland",
+        "column": 177,
+        "raw": "165474",
+        "value": 165474
+      }
+    ],
+    "member": "btw2021_kerg.csv",
+    "member_sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+    "status": "archived_superseded_final_not_active"
+  }
+}

@@ -1,0 +1,926 @@
+{
+  "schema_version": "germany-historical-membership-review-v1",
+  "state": "staging_only",
+  "canonical_promotion": false,
+  "election_year": 2017,
+  "rows": [
+    {
+      "contestant_id": "ct-de-0107",
+      "election_year": 2017,
+      "source_label": "Christlich Demokratische Union Deutschlands",
+      "recognition_verbatim": "Christlich Demokratische Union Deutschlands (CDU)",
+      "recognition_name": "Christlich Demokratische Union Deutschlands",
+      "recognition_abbreviation": "CDU",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:21",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:1:item:1",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0108",
+      "election_year": 2017,
+      "source_label": "Sozialdemokratische Partei Deutschlands",
+      "recognition_verbatim": "Sozialdemokratische Partei Deutschlands (SPD)",
+      "recognition_name": "Sozialdemokratische Partei Deutschlands",
+      "recognition_abbreviation": "SPD",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:25",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:1:item:2",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0109",
+      "election_year": 2017,
+      "source_label": "DIE LINKE",
+      "recognition_verbatim": "DIE LINKE (DIE LINKE)",
+      "recognition_name": "DIE LINKE",
+      "recognition_abbreviation": "DIE LINKE",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:29",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:1:item:3",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0110",
+      "election_year": 2017,
+      "source_label": "BÜNDNIS 90/DIE GRÜNEN",
+      "recognition_verbatim": "BÜNDNIS 90/DIE GRÜNEN (GRÜNE)",
+      "recognition_name": "BÜNDNIS 90/DIE GRÜNEN",
+      "recognition_abbreviation": "GRÜNE",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:33",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:1:item:4",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0111",
+      "election_year": 2017,
+      "source_label": "Christlich-Soziale Union in Bayern e.V.",
+      "recognition_verbatim": "Christlich-Soziale Union in Bayern e.V. (CSU)",
+      "recognition_name": "Christlich-Soziale Union in Bayern e.V.",
+      "recognition_abbreviation": "CSU",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:37",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:1:item:5",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0112",
+      "election_year": 2017,
+      "source_label": "Freie Demokratische Partei",
+      "recognition_verbatim": "Freie Demokratische Partei (FDP)",
+      "recognition_name": "Freie Demokratische Partei",
+      "recognition_abbreviation": "FDP",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:41",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:2:item:1",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0113",
+      "election_year": 2017,
+      "source_label": "Alternative für Deutschland",
+      "recognition_verbatim": "Alternative für Deutschland (AfD)",
+      "recognition_name": "Alternative für Deutschland",
+      "recognition_abbreviation": "AfD",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:45",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:2:item:2",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0114",
+      "election_year": 2017,
+      "source_label": "Piratenpartei Deutschland",
+      "recognition_verbatim": "Piratenpartei Deutschland (PIRATEN)",
+      "recognition_name": "Piratenpartei Deutschland",
+      "recognition_abbreviation": "PIRATEN",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:49",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:35",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0115",
+      "election_year": 2017,
+      "source_label": "Nationaldemokratische Partei Deutschlands",
+      "recognition_verbatim": "Nationaldemokratische Partei Deutschlands (NPD)",
+      "recognition_name": "Nationaldemokratische Partei Deutschlands",
+      "recognition_abbreviation": "NPD",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:53",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:24",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0116",
+      "election_year": 2017,
+      "source_label": "FREIE WÄHLER",
+      "recognition_verbatim": "FREIE WÄHLER (FREIE WÄHLER)",
+      "recognition_name": "FREIE WÄHLER",
+      "recognition_abbreviation": "FREIE WÄHLER",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:57",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:2:item:3",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0117",
+      "election_year": 2017,
+      "source_label": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+      "recognition_verbatim": "PARTEI MENSCH UMWELT TIERSCHUTZ (Tierschutzpartei)",
+      "recognition_name": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+      "recognition_abbreviation": "Tierschutzpartei",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:61",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:11",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0118",
+      "election_year": 2017,
+      "source_label": "Ökologisch-Demokratische Partei",
+      "recognition_verbatim": "Ökologisch-Demokratische Partei (ÖDP)",
+      "recognition_name": "Ökologisch-Demokratische Partei",
+      "recognition_abbreviation": "ÖDP",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:65",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:17",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0119",
+      "election_year": 2017,
+      "source_label": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+      "recognition_verbatim": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative (Die PARTEI)",
+      "recognition_name": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+      "recognition_abbreviation": "Die PARTEI",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:69",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:12",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0120",
+      "election_year": 2017,
+      "source_label": "Bayernpartei",
+      "recognition_verbatim": "Bayernpartei (BP)",
+      "recognition_name": "Bayernpartei",
+      "recognition_abbreviation": "BP",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:73",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:14",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0121",
+      "election_year": 2017,
+      "source_label": "Ab jetzt...Demokratie durch Volksabstimmung",
+      "recognition_verbatim": "Ab jetzt…Demokratie durch Volksabstimmung; Politik für die Menschen (Volksabstimmung)",
+      "recognition_name": "Ab jetzt…Demokratie durch Volksabstimmung; Politik für die Menschen",
+      "recognition_abbreviation": "Volksabstimmung",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "unresolved_label_difference",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:77",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:22",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Proposed document location only. Verbatim labels differ (additional name, typography or source spelling); no fuzzy match or suffix removal accepted. Further same-election official ballot/name evidence required before membership acceptance."
+    },
+    {
+      "contestant_id": "ct-de-0122",
+      "election_year": 2017,
+      "source_label": "Partei der Vernunft",
+      "recognition_verbatim": "Partei der Vernunft (PDV)",
+      "recognition_name": "Partei der Vernunft",
+      "recognition_abbreviation": "PDV",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:81",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:37",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0123",
+      "election_year": 2017,
+      "source_label": "Marxistisch-Leninistische Partei Deutschlands",
+      "recognition_verbatim": "Marxistisch-Leninistische Partei Deutschlands (MLPD)",
+      "recognition_name": "Marxistisch-Leninistische Partei Deutschlands",
+      "recognition_abbreviation": "MLPD",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:85",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:5",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0124",
+      "election_year": 2017,
+      "source_label": "Bürgerrechtsbewegung Solidarität",
+      "recognition_verbatim": "Bürgerrechtsbewegung Solidarität (BüSo)",
+      "recognition_name": "Bürgerrechtsbewegung Solidarität",
+      "recognition_abbreviation": "BüSo",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:89",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:10",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0125",
+      "election_year": 2017,
+      "source_label": "Sozialistische Gleichheitspartei, Vierte Internationale",
+      "recognition_verbatim": "Sozialistische Gleichheitspartei, Vierte Internationale (SGP)",
+      "recognition_name": "Sozialistische Gleichheitspartei, Vierte Internationale",
+      "recognition_abbreviation": "SGP",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:93",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:39",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0126",
+      "election_year": 2017,
+      "source_label": "DIE RECHTE",
+      "recognition_verbatim": "DIE RECHTE (DIE RECHTE)",
+      "recognition_name": "DIE RECHTE",
+      "recognition_abbreviation": "DIE RECHTE",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:97",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:6",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0127",
+      "election_year": 2017,
+      "source_label": "Allianz Deutscher Demokraten",
+      "recognition_verbatim": "Allianz Deutscher Demokraten (keine Kurzbezeichnung)",
+      "recognition_name": "Allianz Deutscher Demokraten",
+      "recognition_abbreviation": "keine Kurzbezeichnung",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:101",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:33",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0128",
+      "election_year": 2017,
+      "source_label": "Allianz für Menschenrechte, Tier- und Naturschutz",
+      "recognition_verbatim": "Allianz für Menschenrechte, Tier- und Naturschutz (Tierschutzallianz)",
+      "recognition_name": "Allianz für Menschenrechte, Tier- und Naturschutz",
+      "recognition_abbreviation": "Tierschutzallianz",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:105",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:1",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0129",
+      "election_year": 2017,
+      "source_label": "bergpartei, die überpartei",
+      "recognition_verbatim": "bergpartei, die überpartei; ökoanarchistisch-realdadaistisches sammelbecken (B*)",
+      "recognition_name": "bergpartei, die überpartei; ökoanarchistisch-realdadaistisches sammelbecken",
+      "recognition_abbreviation": "B*",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "unresolved_label_difference",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:109",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:13",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Proposed document location only. Verbatim labels differ (additional name, typography or source spelling); no fuzzy match or suffix removal accepted. Further same-election official ballot/name evidence required before membership acceptance."
+    },
+    {
+      "contestant_id": "ct-de-0130",
+      "election_year": 2017,
+      "source_label": "Bündnis Grundeinkommen",
+      "recognition_verbatim": "Bündnis Grundeinkommen; Die Grundeinkommenspartei (BGE)",
+      "recognition_name": "Bündnis Grundeinkommen; Die Grundeinkommenspartei",
+      "recognition_abbreviation": "BGE",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "unresolved_label_difference",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:113",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:26",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Proposed document location only. Verbatim labels differ (additional name, typography or source spelling); no fuzzy match or suffix removal accepted. Further same-election official ballot/name evidence required before membership acceptance."
+    },
+    {
+      "contestant_id": "ct-de-0131",
+      "election_year": 2017,
+      "source_label": "DEMOKRATIE IN BEWEGUNG",
+      "recognition_verbatim": "DEMOKRATIE IN BEWEGUNG (DiB)",
+      "recognition_name": "DEMOKRATIE IN BEWEGUNG",
+      "recognition_abbreviation": "DiB",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:117",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:21",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0132",
+      "election_year": 2017,
+      "source_label": "Deutsche Kommunistische Partei",
+      "recognition_verbatim": "Deutsche Kommunistische Partei (DKP)",
+      "recognition_name": "Deutsche Kommunistische Partei",
+      "recognition_abbreviation": "DKP",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:121",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:4",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0133",
+      "election_year": 2017,
+      "source_label": "Deutsche Mitte",
+      "recognition_verbatim": "Deutsche Mitte; Politik geht anders… (DM)",
+      "recognition_name": "Deutsche Mitte; Politik geht anders…",
+      "recognition_abbreviation": "DM",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "unresolved_label_difference",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:125",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:18",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Proposed document location only. Verbatim labels differ (additional name, typography or source spelling); no fuzzy match or suffix removal accepted. Further same-election official ballot/name evidence required before membership acceptance."
+    },
+    {
+      "contestant_id": "ct-de-0134",
+      "election_year": 2017,
+      "source_label": "Die Grauen – Für alle Generationen",
+      "recognition_verbatim": "Die Grauen – Für alle Generationen (Die Grauen)",
+      "recognition_name": "Die Grauen – Für alle Generationen",
+      "recognition_abbreviation": "Die Grauen",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:129",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:36",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0135",
+      "election_year": 2017,
+      "source_label": "Die Urbane. Eine HipHop Partei",
+      "recognition_verbatim": "Die Urbane. Eine HipHop Partei (du.)",
+      "recognition_name": "Die Urbane. Eine HipHop Partei",
+      "recognition_abbreviation": "du.",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:133",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:30",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0136",
+      "election_year": 2017,
+      "source_label": "Magdeburger Gartenpartei",
+      "recognition_verbatim": "Magdeburger Gartenpartei; ökologisch, sozial und ökonomisch (MG)",
+      "recognition_name": "Magdeburger Gartenpartei; ökologisch, sozial und ökonomisch",
+      "recognition_abbreviation": "MG",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "unresolved_label_difference",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:137",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:3",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Proposed document location only. Verbatim labels differ (additional name, typography or source spelling); no fuzzy match or suffix removal accepted. Further same-election official ballot/name evidence required before membership acceptance."
+    },
+    {
+      "contestant_id": "ct-de-0137",
+      "election_year": 2017,
+      "source_label": "Menschliche Welt",
+      "recognition_verbatim": "Menschliche Welt; für das Wohl und Glücklich-Sein aller (MENSCHLICHE WELT)",
+      "recognition_name": "Menschliche Welt; für das Wohl und Glücklich-Sein aller",
+      "recognition_abbreviation": "MENSCHLICHE WELT",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "unresolved_label_difference",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:141",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:15",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Proposed document location only. Verbatim labels differ (additional name, typography or source spelling); no fuzzy match or suffix removal accepted. Further same-election official ballot/name evidence required before membership acceptance."
+    },
+    {
+      "contestant_id": "ct-de-0138",
+      "election_year": 2017,
+      "source_label": "Partei der Humanisten",
+      "recognition_verbatim": "Partei der Humanisten (Die Humanisten)",
+      "recognition_name": "Partei der Humanisten",
+      "recognition_abbreviation": "Die Humanisten",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:145",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:23",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0139",
+      "election_year": 2017,
+      "source_label": "Partei für Gesundheitsforschung",
+      "recognition_verbatim": "Partei für Gesundheitsforschung (Gesundheitsforschung)",
+      "recognition_name": "Partei für Gesundheitsforschung",
+      "recognition_abbreviation": "Gesundheitsforschung",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:149",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:28",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0140",
+      "election_year": 2017,
+      "source_label": "V-Partei³ - Partei für Veränderung, Vegetarier und Veganer",
+      "recognition_verbatim": "V-Partei³ - Partei für Veränderung, Vegetarier und Veganer (V-Partei³)",
+      "recognition_name": "V-Partei³ - Partei für Veränderung, Vegetarier und Veganer",
+      "recognition_abbreviation": "V-Partei³",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:153",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2017:list:3:item:27",
+          "sha256": "02e581f2b7aaf8915d477809cc72b3baa916de5535ed806b819e1a5855bb450c",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    }
+  ]
+}

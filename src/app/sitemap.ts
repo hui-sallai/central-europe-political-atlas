@@ -20,6 +20,7 @@ const routes = [
   "countries/croatia/",
   "countries/serbia/",
   "data/",
+  "politics/",
   "news/",
   "models/",
   "scenarios/",

@@ -1,0 +1,397 @@
+{
+  "schema_version": "germany-recognition-evidence-v1",
+  "state": "staging_evidence_only",
+  "canonical_promotion": false,
+  "source": {
+    "source_id": "src-de-bwl-recognition-2021",
+    "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2021/17_21_beschluss-bverfg.html",
+    "retrieved_at": "2026-10-02T09:37:09.945Z",
+    "source_published_at": "2021-07-30",
+    "sha256": "ab1e12bc50286356002a51b764da3c87d573d4ee7285da6f88644eb59ed70b93",
+    "raw_path": "docs/political-data/raw/germany/recognition_2021/recognition.html",
+    "bytes": 27993,
+    "purpose": "Party recognition after constitutional-court decisions, including DKP; no continuity or durable registry IDs",
+    "licence_status": "evidence_archive_not_canonical_redistribution_review"
+  },
+  "parties": [
+    {
+      "table": 1,
+      "row": 2,
+      "abbreviation": "CDU",
+      "party_name": "Christlich Demokratische Union Deutschlands",
+      "additional_name": null
+    },
+    {
+      "table": 1,
+      "row": 3,
+      "abbreviation": "SPD",
+      "party_name": "Sozialdemokratische Partei Deutschlands",
+      "additional_name": null
+    },
+    {
+      "table": 1,
+      "row": 4,
+      "abbreviation": "DIE LINKE",
+      "party_name": "DIE LINKE",
+      "additional_name": null
+    },
+    {
+      "table": 1,
+      "row": 5,
+      "abbreviation": "GRÜNE",
+      "party_name": "BÜNDNIS 90/DIE GRÜNEN",
+      "additional_name": null
+    },
+    {
+      "table": 1,
+      "row": 6,
+      "abbreviation": "CSU",
+      "party_name": "Christlich-Soziale Union in Bayern e.V.",
+      "additional_name": null
+    },
+    {
+      "table": 1,
+      "row": 7,
+      "abbreviation": "FDP",
+      "party_name": "Freie Demokratische Partei",
+      "additional_name": null
+    },
+    {
+      "table": 1,
+      "row": 8,
+      "abbreviation": "AfD",
+      "party_name": "Alternative für Deutschland",
+      "additional_name": null
+    },
+    {
+      "table": 2,
+      "row": 2,
+      "abbreviation": "FREIE WÄHLER",
+      "party_name": "FREIE WÄHLER",
+      "additional_name": null
+    },
+    {
+      "table": 2,
+      "row": 3,
+      "abbreviation": "BVB/FREIE WÄHLER",
+      "party_name": "Brandenburger Vereinigte Bürgerbewegungen / Freie Wähler",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 2,
+      "abbreviation": "DKP",
+      "party_name": "Deutsche Kommunistische Partei",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 3,
+      "abbreviation": "MENSCHLICHE WELT",
+      "party_name": "Menschliche Welt",
+      "additional_name": "für das Wohl und Glücklichsein aller"
+    },
+    {
+      "table": 3,
+      "row": 4,
+      "abbreviation": "Tierschutzallianz",
+      "party_name": "Allianz für Menschenrechte, Tier- und Naturschutz",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 5,
+      "abbreviation": "Die PARTEI",
+      "party_name": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 6,
+      "abbreviation": "BP",
+      "party_name": "Bayernpartei",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 7,
+      "abbreviation": "Gartenpartei",
+      "party_name": "Gartenpartei",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 8,
+      "abbreviation": "Deutsche Konservative",
+      "party_name": "DEUTSCHE KONSERVATIVE",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 9,
+      "abbreviation": "MLPD",
+      "party_name": "Marxistisch-Leninistische Partei Deutschlands",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 10,
+      "abbreviation": "III. Weg",
+      "party_name": "DER DRITTE WEG",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 11,
+      "abbreviation": "SSW",
+      "party_name": "Südschleswigscher Wählerverband",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 12,
+      "abbreviation": "LIEBE",
+      "party_name": "Europäische Partei LIEBE",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 13,
+      "abbreviation": "Bündnis C",
+      "party_name": "Bündnis C - Christen für Deutschland",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 14,
+      "abbreviation": "UNABHÄNGIGE",
+      "party_name": "UNABHÄNGIGE für bürgernahe Demokratie",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 15,
+      "abbreviation": "Die Humanisten",
+      "party_name": "Partei der Humanisten",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 16,
+      "abbreviation": "dieBasis",
+      "party_name": "Basisdemokratische Partei Deutschland",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 17,
+      "abbreviation": "Volt",
+      "party_name": "Volt Deutschland",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 18,
+      "abbreviation": "Tierschutzpartei",
+      "party_name": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 19,
+      "abbreviation": "Team Todenhöfer",
+      "party_name": "Team Todenhöfer – Die Gerechtigkeitspartei",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 20,
+      "abbreviation": "ÖDP",
+      "party_name": "Ökologisch-Demokratische Partei",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 21,
+      "abbreviation": "BüSo",
+      "party_name": "Bürgerrechtsbewegung Solidarität",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 22,
+      "abbreviation": "LD",
+      "party_name": "Liberale Demokraten – Die Sozialliberalen",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 23,
+      "abbreviation": "WiR2020",
+      "party_name": "WiR2020",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 24,
+      "abbreviation": "FAMILIE",
+      "party_name": "Familien-Partei Deutschlands",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 25,
+      "abbreviation": "Gesundheitsforschung",
+      "party_name": "Partei für Gesundheitsforschung",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 26,
+      "abbreviation": "BÜNDNIS21",
+      "party_name": "diePinken/BÜNDNIS21",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 27,
+      "abbreviation": "PIRATEN",
+      "party_name": "Piratenpartei Deutschland",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 28,
+      "abbreviation": "V-Partei³",
+      "party_name": "V-Partei³ - Partei für Veränderung, Vegetarier und Veganer",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 29,
+      "abbreviation": "DiB",
+      "party_name": "DEMOKRATIE IN BEWEGUNG",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 30,
+      "abbreviation": "NPD",
+      "party_name": "Nationaldemokratische Partei Deutschlands",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 31,
+      "abbreviation": "SGV",
+      "party_name": "SGV – Solidarität, Gerechtigkeit, Veränderung",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 32,
+      "abbreviation": "PdF",
+      "party_name": "Partei des Fortschritts",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 33,
+      "abbreviation": "B*",
+      "party_name": "bergpartei, die überpartei",
+      "additional_name": "ökoanarchistisch-realdadaistisches sammelbecken"
+    },
+    {
+      "table": 3,
+      "row": 34,
+      "abbreviation": "Die Grauen",
+      "party_name": "Die Grauen – Für alle Generationen",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 35,
+      "abbreviation": "Graue Panther",
+      "party_name": "Graue Panther",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 36,
+      "abbreviation": "THP",
+      "party_name": "Thüringer Heimatpartei",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 37,
+      "abbreviation": "LKR",
+      "party_name": "Liberal-Konservative Reformer",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 38,
+      "abbreviation": "SGP",
+      "party_name": "Sozialistische Gleichheitspartei, Vierte Internationale",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 39,
+      "abbreviation": "Volksabstimmung",
+      "party_name": "Ab jetzt…Demokratie durch Volksabstimmung",
+      "additional_name": "Politik für die Menschen"
+    },
+    {
+      "table": 3,
+      "row": 40,
+      "abbreviation": "du.",
+      "party_name": "Die Urbane. Eine HipHop Partei",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 41,
+      "abbreviation": "BÜRGERBEWEGUNG",
+      "party_name": "Bürgerbewegung für Fortschritt und Wandel",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 42,
+      "abbreviation": "LfK",
+      "party_name": ">> Partei für Kinder, Jugendliche und Familien << – Lobbyisten für Kinder –",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 43,
+      "abbreviation": "DM",
+      "party_name": "Deutsche Mitte",
+      "additional_name": "Politik geht anders…"
+    },
+    {
+      "table": 3,
+      "row": 44,
+      "abbreviation": "KlimalisteBW",
+      "party_name": "Klimaliste Baden-Württemberg",
+      "additional_name": null
+    },
+    {
+      "table": 3,
+      "row": 45,
+      "abbreviation": "sonstige",
+      "party_name": "DIE SONSTIGEN",
+      "additional_name": "X"
+    },
+    {
+      "table": 3,
+      "row": 46,
+      "abbreviation": "Wir2020",
+      "party_name": "Wir2020",
+      "additional_name": null
+    }
+  ],
+  "note": "54 recognised/eligible parties, not 40 national second-vote contestants. DKP included after court decision; never reuse an earlier 53-party gate."
+}

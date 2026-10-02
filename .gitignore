@@ -35,5 +35,11 @@ public/og/
 test-results/
 playwright-report/
 
+# Political evidence originals without individually cleared redistribution.
+# Hashes, metadata and reviewed factual extracts remain versioned.
+docs/political-data/raw/germany/**/*.html
+docs/political-data/raw/germany/**/*.pdf
+!docs/political-data/raw/germany/**/final-results.zip
+
 # staged official-data refresh runs (scripts/data-refresh)
 .tmp-data-refresh/

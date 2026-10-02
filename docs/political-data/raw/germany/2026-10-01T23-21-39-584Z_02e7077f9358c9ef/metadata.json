@@ -1,0 +1,33 @@
+{
+  "source_id": "src-de-bwl-final-archive",
+  "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+  "retrieved_at": "2026-10-01T23:21:39.584Z",
+  "source_publication_status": "official_historical_compilation_final_results",
+  "source_updated_at": "Fri, 14 Mar 2025 10:12:28 GMT",
+  "source_etag": null,
+  "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512",
+  "bytes": 2035332,
+  "file_format": "ZIP of final official constituency-result CSV files",
+  "raw_path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+  "election_years_in_production_scope": [
+    2002,
+    2005,
+    2009,
+    2013,
+    2017,
+    2021,
+    2025
+  ],
+  "parser_version": "germany-historical-csv-v1",
+  "licence": {
+    "name": "Publisher attribution reuse terms (product exceptions pending inspection)",
+    "url": "https://www.bundeswahlleiterin.de/info/impressum.html",
+    "status": "license_review_required",
+    "reviewed_at": "2026-10-01T23:21:39.584Z",
+    "basis": "Official results page links this ZIP. General publisher terms allow result-data reuse with attribution; inspect actual product headers for exceptions before canonical writes.",
+    "publisher_terms_url": "https://www.bundeswahlleiterin.de/info/impressum.html",
+    "attribution": "Die Bundeswahlleiterin, Wiesbaden; dl-de/by-2-0; original dataset URL. Atlas extracts national second-vote records and calculates only separately labelled derived shares."
+  },
+  "canonical_write_authorized": false,
+  "note": "Raw historical file includes years and regional/first-vote fields outside the approved production slice. These must not enter canonical production stores or the alpha national series."
+}

@@ -2,6 +2,7 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import crypto from 'node:crypto';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const publicCandidateFiles = execFileSync("git", ["ls-files", "-z", "--cached", "--others", "--exclude-standard"], { cwd: root })
@@ -39,11 +40,18 @@ const contentPatterns = [
 ];
 
 const failures = [];
+// One individually reviewed, immutable official data archive; not a general ZIP exception.
+const officialArchive='docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip';
+function archiveText(name,bytes){
+  if(name!==officialArchive)return null;
+  if(crypto.createHash('sha256').update(bytes).digest('hex')!=='02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512')throw Error('Unreviewed official archive revision');
+  return execFileSync('python3',['-c',"import sys,io,zipfile; z=zipfile.ZipFile(io.BytesIO(sys.stdin.buffer.read())); assert z.testzip() is None; assert sum(i.file_size for i in z.infolist()) < 32000000;\nfor n in z.namelist():\n assert n.endswith('.csv'); b=z.read(n)\n try:t=b.decode('utf-8-sig')\n except UnicodeDecodeError:t=b.decode('cp1252')\n print(t)"],{input:bytes,maxBuffer:64*1024*1024}).toString('utf8');
+}
 
 for (const file of publicCandidateFiles) {
   if (file === "scripts/security/check-public-secrets.mjs") continue;
   if (trackedFiles.has(file) && /(^|\/)\.DS_Store$/.test(file)) failures.push(`${file}: tracked local metadata`);
-  if (forbiddenTrackedNames.some((pattern) => pattern.test(file))) {
+  if (file!==officialArchive&&forbiddenTrackedNames.some((pattern) => pattern.test(file))) {
     failures.push(`${file}: forbidden sensitive or local artifact type`);
     continue;
   }
@@ -53,8 +61,9 @@ for (const file of publicCandidateFiles) {
 
   let content;
   try {
-    content = fs.readFileSync(absolutePath, "utf8");
+    const bytes=fs.readFileSync(absolutePath);content=archiveText(file,bytes)??bytes.toString('utf8');
   } catch {
+    if(file===officialArchive)failures.push(`${file}: invalid or unreadable pinned official archive`);
     continue;
   }
 
@@ -81,9 +90,9 @@ if (process.argv.includes("--outgoing")) {
         const oid = execFileSync("git",["rev-parse",`${commit}:${name}`],{cwd:root}).toString().trim();
         if (seen.has(oid)) continue;
         seen.add(oid); outgoingBlobs++;
-        if (forbiddenTrackedNames.some(pattern => pattern.test(name)) || /(^|\/)\.DS_Store$/.test(name)) failures.push(`${name}: forbidden outgoing artifact`);
+        if ((name!==officialArchive&&forbiddenTrackedNames.some(pattern => pattern.test(name))) || /(^|\/)\.DS_Store$/.test(name)) failures.push(`${name}: forbidden outgoing artifact`);
         if (name === "scripts/security/check-public-secrets.mjs") continue;
-        const content = execFileSync("git",["cat-file","blob",oid],{cwd:root,maxBuffer:64*1024*1024}).toString("utf8");
+        const bytes=execFileSync("git",["cat-file","blob",oid],{cwd:root,maxBuffer:64*1024*1024});const content=archiveText(name,bytes)??bytes.toString('utf8');
         for (const [label,pattern] of contentPatterns) if (pattern.test(content)) failures.push(`${name}: possible ${label} in outgoing history`);
       }
     }

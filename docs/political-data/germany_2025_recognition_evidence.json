@@ -1,0 +1,388 @@
+{
+  "schema_version": "germany-recognition-evidence-v1",
+  "state": "staging_evidence_only",
+  "canonical_promotion": false,
+  "source": {
+    "source_id": "src-de-bwl-recognition-2025",
+    "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+    "retrieved_at": "2026-10-02T08:48:27.174Z",
+    "source_published_at": "2025-01-14",
+    "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525",
+    "raw_path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+    "bytes": 29247,
+    "purpose": "Election-specific party recognition evidence, not durable registry numbers or cross-election continuity",
+    "licence_status": "evidence_archive_not_canonical_redistribution_review"
+  },
+  "parties": [
+    {
+      "table": 1,
+      "row": 2,
+      "source_order": "1.",
+      "abbreviation": "SPD",
+      "party_name": "Sozialdemokratische Partei Deutschlands",
+      "additional_name": null,
+      "recognition_basis": "represented_party_section_18_4_1"
+    },
+    {
+      "table": 1,
+      "row": 3,
+      "source_order": "2.",
+      "abbreviation": "CDU",
+      "party_name": "Christlich Demokratische Union Deutschlands",
+      "additional_name": null,
+      "recognition_basis": "represented_party_section_18_4_1"
+    },
+    {
+      "table": 1,
+      "row": 4,
+      "source_order": "3.",
+      "abbreviation": "GRÜNE",
+      "party_name": "BÜNDNIS 90/DIE GRÜNEN",
+      "additional_name": null,
+      "recognition_basis": "represented_party_section_18_4_1"
+    },
+    {
+      "table": 1,
+      "row": 5,
+      "source_order": "4.",
+      "abbreviation": "FDP",
+      "party_name": "Freie Demokratische Partei",
+      "additional_name": null,
+      "recognition_basis": "represented_party_section_18_4_1"
+    },
+    {
+      "table": 1,
+      "row": 6,
+      "source_order": "5.",
+      "abbreviation": "AfD",
+      "party_name": "Alternative für Deutschland",
+      "additional_name": null,
+      "recognition_basis": "represented_party_section_18_4_1"
+    },
+    {
+      "table": 1,
+      "row": 7,
+      "source_order": "6.",
+      "abbreviation": "CSU",
+      "party_name": "Christlich-Soziale Union in Bayern e.V.",
+      "additional_name": null,
+      "recognition_basis": "represented_party_section_18_4_1"
+    },
+    {
+      "table": 1,
+      "row": 8,
+      "source_order": "7.",
+      "abbreviation": "Die Linke",
+      "party_name": "Die Linke",
+      "additional_name": null,
+      "recognition_basis": "represented_party_section_18_4_1"
+    },
+    {
+      "table": 2,
+      "row": 2,
+      "source_order": "8.",
+      "abbreviation": "BÜNDNIS DEUTSCHLAND",
+      "party_name": "BÜNDNIS DEUTSCHLAND",
+      "additional_name": null,
+      "recognition_basis": "represented_party_section_18_4_1"
+    },
+    {
+      "table": 2,
+      "row": 3,
+      "source_order": "9.",
+      "abbreviation": "BSW",
+      "party_name": "Bündnis Sahra Wagenknecht - Vernunft und Gerechtigkeit",
+      "additional_name": null,
+      "recognition_basis": "represented_party_section_18_4_1"
+    },
+    {
+      "table": 2,
+      "row": 4,
+      "source_order": "10.",
+      "abbreviation": "FREIE WÄHLER",
+      "party_name": "FREIE WÄHLER",
+      "additional_name": null,
+      "recognition_basis": "represented_party_section_18_4_1"
+    },
+    {
+      "table": 3,
+      "row": 2,
+      "source_order": "1.",
+      "abbreviation": "BP",
+      "party_name": "Bayernpartei",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 3,
+      "source_order": "2.",
+      "abbreviation": "MLPD",
+      "party_name": "Marxistisch-Leninistische Partei Deutschlands",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 4,
+      "source_order": "3.",
+      "abbreviation": "BüSo",
+      "party_name": "Bürgerrechtsbewegung Solidarität",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 5,
+      "source_order": "4.",
+      "abbreviation": "Gartenpartei",
+      "party_name": "Gartenpartei",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 6,
+      "source_order": "5.",
+      "abbreviation": "PdH",
+      "party_name": "Partei der Humanisten",
+      "additional_name": "Fakten, Freiheit, Fortschritt",
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 7,
+      "source_order": "6.",
+      "abbreviation": "dieBasis",
+      "party_name": "Basisdemokratische Partei Deutschland",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 8,
+      "source_order": "7.",
+      "abbreviation": "–",
+      "party_name": "Die Gerechtigkeitspartei – Team Todenhöfer",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 9,
+      "source_order": "8.",
+      "abbreviation": "MENSCHLICHE WELT",
+      "party_name": "Menschliche Welt",
+      "additional_name": "für das Wohl und Glücklichsein aller",
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 10,
+      "source_order": "9.",
+      "abbreviation": "Bündnis C",
+      "party_name": "Bündnis C - Christen für Deutschland",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 11,
+      "source_order": "10.",
+      "abbreviation": "UNABHÄNGIGE",
+      "party_name": "UNABHÄNGIGE für bürgernahe Demokratie",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 12,
+      "source_order": "11.",
+      "abbreviation": "Die PARTEI",
+      "party_name": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 13,
+      "source_order": "12.",
+      "abbreviation": "FREIE SACHSEN",
+      "party_name": "FREIE SACHSEN",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 14,
+      "source_order": "13.",
+      "abbreviation": "Tierschutzpartei",
+      "party_name": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 15,
+      "source_order": "14.",
+      "abbreviation": "Volksabstimmung",
+      "party_name": "Ab jetzt…Demokratie durch Volksabstimmung",
+      "additional_name": "Politik für die Menschen",
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 16,
+      "source_order": "15.",
+      "abbreviation": "CSC",
+      "party_name": "Cannabis Social Club",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 17,
+      "source_order": "16.",
+      "abbreviation": "MERA25",
+      "party_name": "MERA25 - Gemeinsam für Europäische Unabhängigkeit",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 18,
+      "source_order": "17.",
+      "abbreviation": "ÖDP",
+      "party_name": "Ökologisch-Demokratische Partei",
+      "additional_name": "Die Naturschutzpartei",
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 19,
+      "source_order": "18.",
+      "abbreviation": "SSW",
+      "party_name": "Südschleswigscher Wählerverband",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 20,
+      "source_order": "19.",
+      "abbreviation": "LD",
+      "party_name": "Liberale Demokraten – Die Sozialliberalen",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 21,
+      "source_order": "20.",
+      "abbreviation": "Die LIEBE",
+      "party_name": "Die LIEBE Europäische Partei",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 22,
+      "source_order": "21.",
+      "abbreviation": "Volt",
+      "party_name": "Volt Deutschland",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 23,
+      "source_order": "22.",
+      "abbreviation": "WerteUnion",
+      "party_name": "WerteUnion",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 24,
+      "source_order": "23.",
+      "abbreviation": "DAVA",
+      "party_name": "Demokratische Allianz für Vielfalt und Aufbruch",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 25,
+      "source_order": "24.",
+      "abbreviation": "SGP",
+      "party_name": "Sozialistische Gleichheitspartei, Vierte Internationale",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 26,
+      "source_order": "25.",
+      "abbreviation": "Verjüngungsforschung",
+      "party_name": "Partei für Verjüngungsforschung",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 27,
+      "source_order": "26.",
+      "abbreviation": "PdF",
+      "party_name": "Partei des Fortschritts",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 28,
+      "source_order": "27.",
+      "abbreviation": "sonstige",
+      "party_name": "DIE SONSTIGEN",
+      "additional_name": "X",
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 29,
+      "source_order": "28.",
+      "abbreviation": "DrA",
+      "party_name": "Dr. Ansay Partei",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 30,
+      "source_order": "29.",
+      "abbreviation": "DIE NEUE MITTE",
+      "party_name": "DIE NEUE MITTE",
+      "additional_name": "Zurück zur Vernunft.",
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 31,
+      "source_order": "30.",
+      "abbreviation": "V-Partei³",
+      "party_name": "V-Partei³ - Partei für Veränderung, Vegetarier und Veganer",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    },
+    {
+      "table": 3,
+      "row": 32,
+      "source_order": "31.",
+      "abbreviation": "PIRATEN",
+      "party_name": "Piratenpartei Deutschland",
+      "additional_name": null,
+      "recognition_basis": "recognised_party_section_18_4_2"
+    }
+  ],
+  "note": "Eligibility recognition does not establish actual ballot participation, votes or durable legal identity. Source row numbers are not party IDs."
+}

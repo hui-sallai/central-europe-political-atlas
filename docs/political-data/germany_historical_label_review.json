@@ -1,0 +1,3797 @@
+{
+  "schema_version": "germany-historical-label-review-v1",
+  "state": "staging_only",
+  "canonical_promotion": false,
+  "scope": "Election-specific display labels, not legal-party identity or continuity",
+  "rows": [
+    {
+      "contestant_id": "ct-de-0001",
+      "election_year": 2002,
+      "source_label": "SPD",
+      "historical_display_label": "SPD",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 10,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:10"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0002",
+      "election_year": 2002,
+      "source_label": "CDU",
+      "historical_display_label": "CDU",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 12,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:12"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0003",
+      "election_year": 2002,
+      "source_label": "CSU",
+      "historical_display_label": "CSU",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 14,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:14"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0004",
+      "election_year": 2002,
+      "source_label": "GRÜNE",
+      "historical_display_label": "GRÜNE",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 16,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:16"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0005",
+      "election_year": 2002,
+      "source_label": "FDP",
+      "historical_display_label": "FDP",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 18,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:18"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0006",
+      "election_year": 2002,
+      "source_label": "PDS",
+      "historical_display_label": "PDS",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 20,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:20"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0007",
+      "election_year": 2002,
+      "source_label": "REP",
+      "historical_display_label": "REP",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 22,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:22"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0008",
+      "election_year": 2002,
+      "source_label": "GRAUE",
+      "historical_display_label": "GRAUE",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 24,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:24"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0009",
+      "election_year": 2002,
+      "source_label": "Tierschutz",
+      "historical_display_label": "Tierschutz",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 26,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:26"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0010",
+      "election_year": 2002,
+      "source_label": "NPD",
+      "historical_display_label": "NPD",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 28,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:28"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0011",
+      "election_year": 2002,
+      "source_label": "ödp",
+      "historical_display_label": "ödp",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 30,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:30"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0012",
+      "election_year": 2002,
+      "source_label": "PBC",
+      "historical_display_label": "PBC",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 32,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:32"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0013",
+      "election_year": 2002,
+      "source_label": "DIE FRAUEN",
+      "historical_display_label": "DIE FRAUEN",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 34,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:34"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0014",
+      "election_year": 2002,
+      "source_label": "BP",
+      "historical_display_label": "BP",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 36,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:36"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0015",
+      "election_year": 2002,
+      "source_label": "FAMILIE",
+      "historical_display_label": "FAMILIE",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 38,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:38"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0016",
+      "election_year": 2002,
+      "source_label": "CM",
+      "historical_display_label": "CM",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 40,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:40"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0017",
+      "election_year": 2002,
+      "source_label": "BüSo",
+      "historical_display_label": "BüSo",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 42,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:42"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0018",
+      "election_year": 2002,
+      "source_label": "HP",
+      "historical_display_label": "HP",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 44,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:44"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0019",
+      "election_year": 2002,
+      "source_label": "Violetten",
+      "historical_display_label": "Violetten",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 46,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:46"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0020",
+      "election_year": 2002,
+      "source_label": "AUFBRUCH",
+      "historical_display_label": "AUFBRUCH",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 48,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:48"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0021",
+      "election_year": 2002,
+      "source_label": "ZENTRUM",
+      "historical_display_label": "ZENTRUM",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 50,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:50"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0022",
+      "election_year": 2002,
+      "source_label": "KPD",
+      "historical_display_label": "KPD",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 52,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:52"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0023",
+      "election_year": 2002,
+      "source_label": "PRG",
+      "historical_display_label": "PRG",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 54,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:54"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0024",
+      "election_year": 2002,
+      "source_label": "Schill",
+      "historical_display_label": "Schill",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2002_kerg.csv",
+          "sha256": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5",
+          "column": 56,
+          "record_id": "2407b62efac5c001dd189d58489c955c4a8d07dfab797d985d1d56fe2ecf9cb5:btw2002_kerg.csv:340:56"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0025",
+      "election_year": 2005,
+      "source_label": "SPD",
+      "historical_display_label": "SPD",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 21,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:21"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0026",
+      "election_year": 2005,
+      "source_label": "CDU",
+      "historical_display_label": "CDU",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 25,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:25"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0027",
+      "election_year": 2005,
+      "source_label": "CSU",
+      "historical_display_label": "CSU",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 29,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:29"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0028",
+      "election_year": 2005,
+      "source_label": "GRÜNE",
+      "historical_display_label": "GRÜNE",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 33,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:33"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0029",
+      "election_year": 2005,
+      "source_label": "FDP",
+      "historical_display_label": "FDP",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 37,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:37"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0030",
+      "election_year": 2005,
+      "source_label": "Die Linke.",
+      "historical_display_label": "Die Linke.",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 41,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:41"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0031",
+      "election_year": 2005,
+      "source_label": "Offensive D",
+      "historical_display_label": "Offensive D",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 45,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:45"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0032",
+      "election_year": 2005,
+      "source_label": "REP",
+      "historical_display_label": "REP",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 49,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:49"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0033",
+      "election_year": 2005,
+      "source_label": "NPD",
+      "historical_display_label": "NPD",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 53,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:53"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0034",
+      "election_year": 2005,
+      "source_label": "Die Tierschutzpartei",
+      "historical_display_label": "Die Tierschutzpartei",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 57,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:57"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0035",
+      "election_year": 2005,
+      "source_label": "GRAUE",
+      "historical_display_label": "GRAUE",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 61,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:61"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0036",
+      "election_year": 2005,
+      "source_label": "PBC",
+      "historical_display_label": "PBC",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 65,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:65"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0037",
+      "election_year": 2005,
+      "source_label": "DIE FRAUEN",
+      "historical_display_label": "DIE FRAUEN",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 69,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:69"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0038",
+      "election_year": 2005,
+      "source_label": "FAMILIE",
+      "historical_display_label": "FAMILIE",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 73,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:73"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0039",
+      "election_year": 2005,
+      "source_label": "BüSo",
+      "historical_display_label": "BüSo",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 77,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:77"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0040",
+      "election_year": 2005,
+      "source_label": "BP",
+      "historical_display_label": "BP",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 81,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:81"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0041",
+      "election_year": 2005,
+      "source_label": "ZENTRUM",
+      "historical_display_label": "ZENTRUM",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 85,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:85"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0042",
+      "election_year": 2005,
+      "source_label": "Deutschland",
+      "historical_display_label": "Deutschland",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 89,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:89"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0043",
+      "election_year": 2005,
+      "source_label": "AGFG",
+      "historical_display_label": "AGFG",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 93,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:93"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0044",
+      "election_year": 2005,
+      "source_label": "APPD",
+      "historical_display_label": "APPD",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 97,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:97"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0045",
+      "election_year": 2005,
+      "source_label": "50Plus",
+      "historical_display_label": "50Plus",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 101,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:101"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0046",
+      "election_year": 2005,
+      "source_label": "MLPD",
+      "historical_display_label": "MLPD",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 105,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:105"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0047",
+      "election_year": 2005,
+      "source_label": "Die PARTEI",
+      "historical_display_label": "Die PARTEI",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 109,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:109"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0048",
+      "election_year": 2005,
+      "source_label": "PSG",
+      "historical_display_label": "PSG",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 113,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:113"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0049",
+      "election_year": 2005,
+      "source_label": "Pro DM",
+      "historical_display_label": "Pro DM",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2005_kerg.csv",
+          "sha256": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0",
+          "column": 117,
+          "record_id": "995e59d1e6aadaa37bc453bf3c82f736fc99d3cdf0fc0b976f938dcd800b82c0:btw2005_kerg.csv:340:117"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0050",
+      "election_year": 2009,
+      "source_label": "SPD",
+      "historical_display_label": "SPD",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 21,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:21"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0051",
+      "election_year": 2009,
+      "source_label": "CDU",
+      "historical_display_label": "CDU",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 25,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:25"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0052",
+      "election_year": 2009,
+      "source_label": "FDP",
+      "historical_display_label": "FDP",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 29,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:29"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0053",
+      "election_year": 2009,
+      "source_label": "DIE LINKE",
+      "historical_display_label": "DIE LINKE",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 33,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:33"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0054",
+      "election_year": 2009,
+      "source_label": "GRÜNE",
+      "historical_display_label": "GRÜNE",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 37,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:37"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0055",
+      "election_year": 2009,
+      "source_label": "CSU",
+      "historical_display_label": "CSU",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 41,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:41"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0056",
+      "election_year": 2009,
+      "source_label": "NPD",
+      "historical_display_label": "NPD",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 45,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:45"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0057",
+      "election_year": 2009,
+      "source_label": "REP",
+      "historical_display_label": "REP",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 49,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:49"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0058",
+      "election_year": 2009,
+      "source_label": "FAMILIE",
+      "historical_display_label": "FAMILIE",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 53,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:53"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0059",
+      "election_year": 2009,
+      "source_label": "Die Tierschutzpartei",
+      "historical_display_label": "Die Tierschutzpartei",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 57,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:57"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0060",
+      "election_year": 2009,
+      "source_label": "PBC",
+      "historical_display_label": "PBC",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 61,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:61"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0061",
+      "election_year": 2009,
+      "source_label": "MLPD",
+      "historical_display_label": "MLPD",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 65,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:65"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0062",
+      "election_year": 2009,
+      "source_label": "BüSo",
+      "historical_display_label": "BüSo",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 69,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:69"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0063",
+      "election_year": 2009,
+      "source_label": "BP",
+      "historical_display_label": "BP",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 73,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:73"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0064",
+      "election_year": 2009,
+      "source_label": "PSG",
+      "historical_display_label": "PSG",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 77,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:77"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0065",
+      "election_year": 2009,
+      "source_label": "Volksabstimmung",
+      "historical_display_label": "Volksabstimmung",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 81,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:81"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0066",
+      "election_year": 2009,
+      "source_label": "ZENTRUM",
+      "historical_display_label": "ZENTRUM",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 85,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:85"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0067",
+      "election_year": 2009,
+      "source_label": "ADM",
+      "historical_display_label": "ADM",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 89,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:89"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0068",
+      "election_year": 2009,
+      "source_label": "CM",
+      "historical_display_label": "CM",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 93,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:93"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0069",
+      "election_year": 2009,
+      "source_label": "DKP",
+      "historical_display_label": "DKP",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 97,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:97"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0070",
+      "election_year": 2009,
+      "source_label": "DVU",
+      "historical_display_label": "DVU",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 101,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:101"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0071",
+      "election_year": 2009,
+      "source_label": "DIE VIOLETTEN",
+      "historical_display_label": "DIE VIOLETTEN",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 105,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:105"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0072",
+      "election_year": 2009,
+      "source_label": "FWD",
+      "historical_display_label": "FWD",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 109,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:109"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0073",
+      "election_year": 2009,
+      "source_label": "ödp",
+      "historical_display_label": "ödp",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 113,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:113"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0074",
+      "election_year": 2009,
+      "source_label": "PIRATEN",
+      "historical_display_label": "PIRATEN",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 117,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:117"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0075",
+      "election_year": 2009,
+      "source_label": "RRP",
+      "historical_display_label": "RRP",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 121,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:121"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0076",
+      "election_year": 2009,
+      "source_label": "RENTNER",
+      "historical_display_label": "RENTNER",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2009_kerg.csv",
+          "sha256": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89",
+          "column": 125,
+          "record_id": "6d6ea227b02a7407c594634f335b64604f1e4ec64686996cb21b4c24010a2e89:btw2009_kerg.csv:340:125"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0077",
+      "election_year": 2013,
+      "source_label": "CDU",
+      "historical_display_label": "CDU",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 21,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:21"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0078",
+      "election_year": 2013,
+      "source_label": "SPD",
+      "historical_display_label": "SPD",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 25,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:25"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0079",
+      "election_year": 2013,
+      "source_label": "FDP",
+      "historical_display_label": "FDP",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 29,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:29"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0080",
+      "election_year": 2013,
+      "source_label": "DIE LINKE",
+      "historical_display_label": "DIE LINKE",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 33,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:33"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0081",
+      "election_year": 2013,
+      "source_label": "GRÜNE",
+      "historical_display_label": "GRÜNE",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 37,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:37"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0082",
+      "election_year": 2013,
+      "source_label": "CSU",
+      "historical_display_label": "CSU",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 41,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:41"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0083",
+      "election_year": 2013,
+      "source_label": "PIRATEN",
+      "historical_display_label": "PIRATEN",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 45,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:45"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0084",
+      "election_year": 2013,
+      "source_label": "NPD",
+      "historical_display_label": "NPD",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 49,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:49"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0085",
+      "election_year": 2013,
+      "source_label": "Tierschutzpartei",
+      "historical_display_label": "Tierschutzpartei",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 53,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:53"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0086",
+      "election_year": 2013,
+      "source_label": "REP",
+      "historical_display_label": "REP",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 57,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:57"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0087",
+      "election_year": 2013,
+      "source_label": "ÖDP",
+      "historical_display_label": "ÖDP",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 61,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:61"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0088",
+      "election_year": 2013,
+      "source_label": "FAMILIE",
+      "historical_display_label": "FAMILIE",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 65,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:65"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0089",
+      "election_year": 2013,
+      "source_label": "Bündnis 21/RRP",
+      "historical_display_label": "Bündnis 21/RRP",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 69,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:69"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0090",
+      "election_year": 2013,
+      "source_label": "RENTNER",
+      "historical_display_label": "RENTNER",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 73,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:73"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0091",
+      "election_year": 2013,
+      "source_label": "BP",
+      "historical_display_label": "BP",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 77,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:77"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0092",
+      "election_year": 2013,
+      "source_label": "PBC",
+      "historical_display_label": "PBC",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 81,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:81"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0093",
+      "election_year": 2013,
+      "source_label": "BüSo",
+      "historical_display_label": "BüSo",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 85,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:85"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0094",
+      "election_year": 2013,
+      "source_label": "DIE VIOLETTEN",
+      "historical_display_label": "DIE VIOLETTEN",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 89,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:89"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0095",
+      "election_year": 2013,
+      "source_label": "MLPD",
+      "historical_display_label": "MLPD",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 93,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:93"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0096",
+      "election_year": 2013,
+      "source_label": "Volksabstimmung",
+      "historical_display_label": "Volksabstimmung",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 97,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:97"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0097",
+      "election_year": 2013,
+      "source_label": "PSG",
+      "historical_display_label": "PSG",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 101,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:101"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0098",
+      "election_year": 2013,
+      "source_label": "AfD",
+      "historical_display_label": "AfD",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 105,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:105"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0099",
+      "election_year": 2013,
+      "source_label": "BIG",
+      "historical_display_label": "BIG",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 109,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:109"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0100",
+      "election_year": 2013,
+      "source_label": "pro Deutschland",
+      "historical_display_label": "pro Deutschland",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 113,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:113"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0101",
+      "election_year": 2013,
+      "source_label": "DIE RECHTE",
+      "historical_display_label": "DIE RECHTE",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 117,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:117"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0102",
+      "election_year": 2013,
+      "source_label": "DIE FRAUEN",
+      "historical_display_label": "DIE FRAUEN",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 121,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:121"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0103",
+      "election_year": 2013,
+      "source_label": "FREIE WÄHLER",
+      "historical_display_label": "FREIE WÄHLER",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 125,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:125"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0104",
+      "election_year": 2013,
+      "source_label": "Nichtwähler",
+      "historical_display_label": "Nichtwähler",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 129,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:129"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0105",
+      "election_year": 2013,
+      "source_label": "PARTEI DER VERNUNFT",
+      "historical_display_label": "PARTEI DER VERNUNFT",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 133,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:133"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0106",
+      "election_year": 2013,
+      "source_label": "Die PARTEI",
+      "historical_display_label": "Die PARTEI",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2013_kerg.csv",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "column": 137,
+          "record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:137"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0107",
+      "election_year": 2017,
+      "source_label": "Christlich Demokratische Union Deutschlands",
+      "historical_display_label": "Christlich Demokratische Union Deutschlands",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 21,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:21"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0108",
+      "election_year": 2017,
+      "source_label": "Sozialdemokratische Partei Deutschlands",
+      "historical_display_label": "Sozialdemokratische Partei Deutschlands",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 25,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:25"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0109",
+      "election_year": 2017,
+      "source_label": "DIE LINKE",
+      "historical_display_label": "DIE LINKE",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 29,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:29"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0110",
+      "election_year": 2017,
+      "source_label": "BÜNDNIS 90/DIE GRÜNEN",
+      "historical_display_label": "BÜNDNIS 90/DIE GRÜNEN",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 33,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:33"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0111",
+      "election_year": 2017,
+      "source_label": "Christlich-Soziale Union in Bayern e.V.",
+      "historical_display_label": "Christlich-Soziale Union in Bayern e.V.",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 37,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:37"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0112",
+      "election_year": 2017,
+      "source_label": "Freie Demokratische Partei",
+      "historical_display_label": "Freie Demokratische Partei",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 41,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:41"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0113",
+      "election_year": 2017,
+      "source_label": "Alternative für Deutschland",
+      "historical_display_label": "Alternative für Deutschland",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 45,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:45"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0114",
+      "election_year": 2017,
+      "source_label": "Piratenpartei Deutschland",
+      "historical_display_label": "Piratenpartei Deutschland",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 49,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:49"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0115",
+      "election_year": 2017,
+      "source_label": "Nationaldemokratische Partei Deutschlands",
+      "historical_display_label": "Nationaldemokratische Partei Deutschlands",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 53,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:53"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0116",
+      "election_year": 2017,
+      "source_label": "FREIE WÄHLER",
+      "historical_display_label": "FREIE WÄHLER",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 57,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:57"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0117",
+      "election_year": 2017,
+      "source_label": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+      "historical_display_label": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 61,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:61"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0118",
+      "election_year": 2017,
+      "source_label": "Ökologisch-Demokratische Partei",
+      "historical_display_label": "Ökologisch-Demokratische Partei",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 65,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:65"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0119",
+      "election_year": 2017,
+      "source_label": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+      "historical_display_label": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 69,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:69"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0120",
+      "election_year": 2017,
+      "source_label": "Bayernpartei",
+      "historical_display_label": "Bayernpartei",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 73,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:73"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0121",
+      "election_year": 2017,
+      "source_label": "Ab jetzt...Demokratie durch Volksabstimmung",
+      "historical_display_label": "Ab jetzt...Demokratie durch Volksabstimmung",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 77,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:77"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0122",
+      "election_year": 2017,
+      "source_label": "Partei der Vernunft",
+      "historical_display_label": "Partei der Vernunft",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 81,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:81"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0123",
+      "election_year": 2017,
+      "source_label": "Marxistisch-Leninistische Partei Deutschlands",
+      "historical_display_label": "Marxistisch-Leninistische Partei Deutschlands",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 85,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:85"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0124",
+      "election_year": 2017,
+      "source_label": "Bürgerrechtsbewegung Solidarität",
+      "historical_display_label": "Bürgerrechtsbewegung Solidarität",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 89,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:89"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0125",
+      "election_year": 2017,
+      "source_label": "Sozialistische Gleichheitspartei, Vierte Internationale",
+      "historical_display_label": "Sozialistische Gleichheitspartei, Vierte Internationale",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 93,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:93"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0126",
+      "election_year": 2017,
+      "source_label": "DIE RECHTE",
+      "historical_display_label": "DIE RECHTE",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 97,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:97"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0127",
+      "election_year": 2017,
+      "source_label": "Allianz Deutscher Demokraten",
+      "historical_display_label": "Allianz Deutscher Demokraten",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 101,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:101"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0128",
+      "election_year": 2017,
+      "source_label": "Allianz für Menschenrechte, Tier- und Naturschutz",
+      "historical_display_label": "Allianz für Menschenrechte, Tier- und Naturschutz",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 105,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:105"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0129",
+      "election_year": 2017,
+      "source_label": "bergpartei, die überpartei",
+      "historical_display_label": "bergpartei, die überpartei",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 109,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:109"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0130",
+      "election_year": 2017,
+      "source_label": "Bündnis Grundeinkommen",
+      "historical_display_label": "Bündnis Grundeinkommen",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 113,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:113"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0131",
+      "election_year": 2017,
+      "source_label": "DEMOKRATIE IN BEWEGUNG",
+      "historical_display_label": "DEMOKRATIE IN BEWEGUNG",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 117,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:117"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0132",
+      "election_year": 2017,
+      "source_label": "Deutsche Kommunistische Partei",
+      "historical_display_label": "Deutsche Kommunistische Partei",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 121,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:121"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0133",
+      "election_year": 2017,
+      "source_label": "Deutsche Mitte",
+      "historical_display_label": "Deutsche Mitte",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 125,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:125"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0134",
+      "election_year": 2017,
+      "source_label": "Die Grauen – Für alle Generationen",
+      "historical_display_label": "Die Grauen – Für alle Generationen",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 129,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:129"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0135",
+      "election_year": 2017,
+      "source_label": "Die Urbane. Eine HipHop Partei",
+      "historical_display_label": "Die Urbane. Eine HipHop Partei",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 133,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:133"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0136",
+      "election_year": 2017,
+      "source_label": "Magdeburger Gartenpartei",
+      "historical_display_label": "Magdeburger Gartenpartei",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 137,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:137"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0137",
+      "election_year": 2017,
+      "source_label": "Menschliche Welt",
+      "historical_display_label": "Menschliche Welt",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 141,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:141"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0138",
+      "election_year": 2017,
+      "source_label": "Partei der Humanisten",
+      "historical_display_label": "Partei der Humanisten",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 145,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:145"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0139",
+      "election_year": 2017,
+      "source_label": "Partei für Gesundheitsforschung",
+      "historical_display_label": "Partei für Gesundheitsforschung",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 149,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:149"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0140",
+      "election_year": 2017,
+      "source_label": "V-Partei³ - Partei für Veränderung, Vegetarier und Veganer",
+      "historical_display_label": "V-Partei³ - Partei für Veränderung, Vegetarier und Veganer",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2017_kerg.csv",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "column": 153,
+          "record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:153"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0141",
+      "election_year": 2021,
+      "source_label": "Christlich Demokratische Union Deutschlands",
+      "historical_display_label": "Christlich Demokratische Union Deutschlands",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 21,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:21"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0142",
+      "election_year": 2021,
+      "source_label": "Sozialdemokratische Partei Deutschlands",
+      "historical_display_label": "Sozialdemokratische Partei Deutschlands",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 25,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:25"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0143",
+      "election_year": 2021,
+      "source_label": "Alternative für Deutschland",
+      "historical_display_label": "Alternative für Deutschland",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 29,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:29"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0144",
+      "election_year": 2021,
+      "source_label": "Freie Demokratische Partei",
+      "historical_display_label": "Freie Demokratische Partei",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 33,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:33"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0145",
+      "election_year": 2021,
+      "source_label": "DIE LINKE",
+      "historical_display_label": "DIE LINKE",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 37,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:37"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0146",
+      "election_year": 2021,
+      "source_label": "BÜNDNIS 90/DIE GRÜNEN",
+      "historical_display_label": "BÜNDNIS 90/DIE GRÜNEN",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 41,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:41"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0147",
+      "election_year": 2021,
+      "source_label": "Christlich-Soziale Union in Bayern e.V.",
+      "historical_display_label": "Christlich-Soziale Union in Bayern e.V.",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 45,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:45"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0148",
+      "election_year": 2021,
+      "source_label": "FREIE WÄHLER",
+      "historical_display_label": "FREIE WÄHLER",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 49,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:49"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0149",
+      "election_year": 2021,
+      "source_label": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+      "historical_display_label": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 53,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:53"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0150",
+      "election_year": 2021,
+      "source_label": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+      "historical_display_label": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 57,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:57"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0151",
+      "election_year": 2021,
+      "source_label": "Die Heimat (2021: Nationaldemokratische Partei Deutschlands)",
+      "historical_display_label": "Nationaldemokratische Partei Deutschlands",
+      "label_basis": "manual_review_of_explicit_2021_annotation_and_original_header",
+      "review_status": "provisional_requires_second_review",
+      "reviewed_at": "2026-10-02",
+      "reviewer": "atlas-primary-review",
+      "review_note": "Corrected official header explicitly states the 2021 name, corroborated by the archived original header. Only the display label is selected: original votes are not substituted and legal-entity continuity is not inferred.",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 61,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:61"
+        },
+        {
+          "member": "btw2021_kerg.csv",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "column": 61,
+          "record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:61"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0152",
+      "election_year": 2021,
+      "source_label": "Piratenpartei Deutschland",
+      "historical_display_label": "Piratenpartei Deutschland",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 65,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:65"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0153",
+      "election_year": 2021,
+      "source_label": "Ökologisch-Demokratische Partei",
+      "historical_display_label": "Ökologisch-Demokratische Partei",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 69,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:69"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0154",
+      "election_year": 2021,
+      "source_label": "V-Partei³ - Partei für Veränderung, Vegetarier und Veganer",
+      "historical_display_label": "V-Partei³ - Partei für Veränderung, Vegetarier und Veganer",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 73,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:73"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0155",
+      "election_year": 2021,
+      "source_label": "DEMOKRATIE IN BEWEGUNG",
+      "historical_display_label": "DEMOKRATIE IN BEWEGUNG",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 77,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:77"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0156",
+      "election_year": 2021,
+      "source_label": "Bayernpartei",
+      "historical_display_label": "Bayernpartei",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 81,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:81"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0157",
+      "election_year": 2021,
+      "source_label": "Allianz für Menschenrechte, Tier- und Naturschutz",
+      "historical_display_label": "Allianz für Menschenrechte, Tier- und Naturschutz",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 85,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:85"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0158",
+      "election_year": 2021,
+      "source_label": "Marxistisch-Leninistische Partei Deutschlands",
+      "historical_display_label": "Marxistisch-Leninistische Partei Deutschlands",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 89,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:89"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0159",
+      "election_year": 2021,
+      "source_label": "Partei für schulmedizinische Verjüngungsforschung (2021: Partei für Gesundheitsforschung)",
+      "historical_display_label": "Partei für Gesundheitsforschung",
+      "label_basis": "manual_review_of_explicit_2021_annotation_and_original_header",
+      "review_status": "provisional_requires_second_review",
+      "reviewed_at": "2026-10-02",
+      "reviewer": "atlas-primary-review",
+      "review_note": "Corrected official header explicitly states the 2021 name, corroborated by the archived original header. Only the display label is selected: original votes are not substituted and legal-entity continuity is not inferred.",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 93,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:93"
+        },
+        {
+          "member": "btw2021_kerg.csv",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "column": 93,
+          "record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:93"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0160",
+      "election_year": 2021,
+      "source_label": "Menschliche Welt - für das Wohl und Glücklichsein aller",
+      "historical_display_label": "Menschliche Welt - für das Wohl und Glücklichsein aller",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 97,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:97"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0161",
+      "election_year": 2021,
+      "source_label": "Deutsche Kommunistische Partei",
+      "historical_display_label": "Deutsche Kommunistische Partei",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 101,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:101"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0162",
+      "election_year": 2021,
+      "source_label": "Die Grauen – Für alle Generationen",
+      "historical_display_label": "Die Grauen – Für alle Generationen",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 105,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:105"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0163",
+      "election_year": 2021,
+      "source_label": "Bürgerrechtsbewegung Solidarität",
+      "historical_display_label": "Bürgerrechtsbewegung Solidarität",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 109,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:109"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0164",
+      "election_year": 2021,
+      "source_label": "Partei der Humanisten",
+      "historical_display_label": "Partei der Humanisten",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 113,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:113"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0165",
+      "election_year": 2021,
+      "source_label": "Gartenpartei",
+      "historical_display_label": "Gartenpartei",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 117,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:117"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0166",
+      "election_year": 2021,
+      "source_label": "Die Urbane. Eine HipHop Partei",
+      "historical_display_label": "Die Urbane. Eine HipHop Partei",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 121,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:121"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0167",
+      "election_year": 2021,
+      "source_label": "Sozialistische Gleichheitspartei, Vierte Internationale",
+      "historical_display_label": "Sozialistische Gleichheitspartei, Vierte Internationale",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 125,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:125"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0168",
+      "election_year": 2021,
+      "source_label": "Basisdemokratische Partei Deutschland",
+      "historical_display_label": "Basisdemokratische Partei Deutschland",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 129,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:129"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0169",
+      "election_year": 2021,
+      "source_label": "Bündnis C - Christen für Deutschland",
+      "historical_display_label": "Bündnis C - Christen für Deutschland",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 133,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:133"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0170",
+      "election_year": 2021,
+      "source_label": "Bürgerbewegung für Fortschritt und Wandel",
+      "historical_display_label": "Bürgerbewegung für Fortschritt und Wandel",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 137,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:137"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0171",
+      "election_year": 2021,
+      "source_label": "DER DRITTE WEG",
+      "historical_display_label": "DER DRITTE WEG",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 141,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:141"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0172",
+      "election_year": 2021,
+      "source_label": "diePinken/BÜNDNIS21",
+      "historical_display_label": "diePinken/BÜNDNIS21",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 145,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:145"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0173",
+      "election_year": 2021,
+      "source_label": "Europäische Partei LIEBE",
+      "historical_display_label": "Europäische Partei LIEBE",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 149,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:149"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0174",
+      "election_year": 2021,
+      "source_label": "Wir Bürger (2021: Liberal-Konservative Reformer)",
+      "historical_display_label": "Liberal-Konservative Reformer",
+      "label_basis": "manual_review_of_explicit_2021_annotation_and_original_header",
+      "review_status": "provisional_requires_second_review",
+      "reviewed_at": "2026-10-02",
+      "reviewer": "atlas-primary-review",
+      "review_note": "Corrected official header explicitly states the 2021 name, corroborated by the archived original header. Only the display label is selected: original votes are not substituted and legal-entity continuity is not inferred.",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 153,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:153"
+        },
+        {
+          "member": "btw2021_kerg.csv",
+          "sha256": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec",
+          "column": 153,
+          "record_id": "c69c9f441fb4e16c99bff0f9dfd16a13ba7c657b9a75b0850fe781fa1deeacec:btw2021_kerg.csv:337:153"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0175",
+      "election_year": 2021,
+      "source_label": "Partei des Fortschritts",
+      "historical_display_label": "Partei des Fortschritts",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 157,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:157"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0176",
+      "election_year": 2021,
+      "source_label": ">> Partei für Kinder, Jugendliche und Familien <<  – Lobbyisten für Kinder –",
+      "historical_display_label": ">> Partei für Kinder, Jugendliche und Familien <<  – Lobbyisten für Kinder –",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 161,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:161"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0177",
+      "election_year": 2021,
+      "source_label": "Südschleswigscher Wählerverband",
+      "historical_display_label": "Südschleswigscher Wählerverband",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 165,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:165"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0178",
+      "election_year": 2021,
+      "source_label": "Team Todenhöfer – Die Gerechtigkeitspartei",
+      "historical_display_label": "Team Todenhöfer – Die Gerechtigkeitspartei",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 169,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:169"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0179",
+      "election_year": 2021,
+      "source_label": "UNABHÄNGIGE für bürgernahe Demokratie",
+      "historical_display_label": "UNABHÄNGIGE für bürgernahe Demokratie",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 173,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:173"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0180",
+      "election_year": 2021,
+      "source_label": "Volt Deutschland",
+      "historical_display_label": "Volt Deutschland",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2021-w_kerg.csv",
+          "sha256": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8",
+          "column": 177,
+          "record_id": "ac5d62cc9df7c681cb39baecb6602a8a766e43fea3000c50fb434225cc007ca8:btw2021-w_kerg.csv:337:177"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0181",
+      "election_year": 2025,
+      "source_label": "Sozialdemokratische Partei Deutschlands",
+      "historical_display_label": "Sozialdemokratische Partei Deutschlands",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 22,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:22"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0182",
+      "election_year": 2025,
+      "source_label": "Christlich Demokratische Union Deutschlands",
+      "historical_display_label": "Christlich Demokratische Union Deutschlands",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 26,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:26"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0183",
+      "election_year": 2025,
+      "source_label": "BÜNDNIS 90/DIE GRÜNEN",
+      "historical_display_label": "BÜNDNIS 90/DIE GRÜNEN",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 30,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:30"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0184",
+      "election_year": 2025,
+      "source_label": "Freie Demokratische Partei",
+      "historical_display_label": "Freie Demokratische Partei",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 34,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:34"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0185",
+      "election_year": 2025,
+      "source_label": "Alternative für Deutschland",
+      "historical_display_label": "Alternative für Deutschland",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 38,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:38"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0186",
+      "election_year": 2025,
+      "source_label": "Christlich-Soziale Union in Bayern e.V.",
+      "historical_display_label": "Christlich-Soziale Union in Bayern e.V.",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 42,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:42"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0187",
+      "election_year": 2025,
+      "source_label": "Die Linke",
+      "historical_display_label": "Die Linke",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 46,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:46"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0188",
+      "election_year": 2025,
+      "source_label": "FREIE WÄHLER",
+      "historical_display_label": "FREIE WÄHLER",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 50,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:50"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0189",
+      "election_year": 2025,
+      "source_label": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+      "historical_display_label": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 54,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:54"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0190",
+      "election_year": 2025,
+      "source_label": "Basisdemokratische Partei Deutschland",
+      "historical_display_label": "Basisdemokratische Partei Deutschland",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 58,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:58"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0191",
+      "election_year": 2025,
+      "source_label": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+      "historical_display_label": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 62,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:62"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0192",
+      "election_year": 2025,
+      "source_label": "Die Gerechtigkeitspartei – Team Todenhöfer",
+      "historical_display_label": "Die Gerechtigkeitspartei – Team Todenhöfer",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 66,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:66"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0193",
+      "election_year": 2025,
+      "source_label": "Piratenpartei Deutschland",
+      "historical_display_label": "Piratenpartei Deutschland",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 70,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:70"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0194",
+      "election_year": 2025,
+      "source_label": "Volt Deutschland",
+      "historical_display_label": "Volt Deutschland",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 74,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:74"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0195",
+      "election_year": 2025,
+      "source_label": "Ökologisch-Demokratische Partei - Die Naturschutzpartei",
+      "historical_display_label": "Ökologisch-Demokratische Partei - Die Naturschutzpartei",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 78,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:78"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0196",
+      "election_year": 2025,
+      "source_label": "Südschleswigscher Wählerverband",
+      "historical_display_label": "Südschleswigscher Wählerverband",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 82,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:82"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0197",
+      "election_year": 2025,
+      "source_label": "Partei für Verjüngungsforschung",
+      "historical_display_label": "Partei für Verjüngungsforschung",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 86,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:86"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0198",
+      "election_year": 2025,
+      "source_label": "Partei der Humanisten - Fakten, Freiheit, Fortschritt",
+      "historical_display_label": "Partei der Humanisten - Fakten, Freiheit, Fortschritt",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 90,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:90"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0199",
+      "election_year": 2025,
+      "source_label": "Bündnis C - Christen für Deutschland",
+      "historical_display_label": "Bündnis C - Christen für Deutschland",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 94,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:94"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0200",
+      "election_year": 2025,
+      "source_label": "Bayernpartei",
+      "historical_display_label": "Bayernpartei",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 98,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:98"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0201",
+      "election_year": 2025,
+      "source_label": "Marxistisch-Leninistische Partei Deutschlands",
+      "historical_display_label": "Marxistisch-Leninistische Partei Deutschlands",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 102,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:102"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0202",
+      "election_year": 2025,
+      "source_label": "Menschliche Welt - für das Wohl und Glücklichsein aller",
+      "historical_display_label": "Menschliche Welt - für das Wohl und Glücklichsein aller",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 106,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:106"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0203",
+      "election_year": 2025,
+      "source_label": "Partei des Fortschritts",
+      "historical_display_label": "Partei des Fortschritts",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 110,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:110"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0204",
+      "election_year": 2025,
+      "source_label": "Sozialistische Gleichheitspartei, Vierte Internationale",
+      "historical_display_label": "Sozialistische Gleichheitspartei, Vierte Internationale",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 114,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:114"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0205",
+      "election_year": 2025,
+      "source_label": "Bürgerrechtsbewegung Solidarität",
+      "historical_display_label": "Bürgerrechtsbewegung Solidarität",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 118,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:118"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0206",
+      "election_year": 2025,
+      "source_label": "BÜNDNIS DEUTSCHLAND",
+      "historical_display_label": "BÜNDNIS DEUTSCHLAND",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 122,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:122"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0207",
+      "election_year": 2025,
+      "source_label": "Bündnis Sahra Wagenknecht - Vernunft und Gerechtigkeit",
+      "historical_display_label": "Bündnis Sahra Wagenknecht - Vernunft und Gerechtigkeit",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 126,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:126"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0208",
+      "election_year": 2025,
+      "source_label": "MERA25 - Gemeinsam für Europäische Unabhängigkeit",
+      "historical_display_label": "MERA25 - Gemeinsam für Europäische Unabhängigkeit",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 130,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:130"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    },
+    {
+      "contestant_id": "ct-de-0209",
+      "election_year": 2025,
+      "source_label": "WerteUnion",
+      "historical_display_label": "WerteUnion",
+      "label_basis": "verbatim_election_specific_source",
+      "review_status": "no_transformation",
+      "evidence": [
+        {
+          "member": "btw2025_kerg.csv",
+          "sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+          "column": 134,
+          "record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:134"
+        }
+      ],
+      "party_identity_status": "unmatched",
+      "continuous_series_eligible": false
+    }
+  ]
+}

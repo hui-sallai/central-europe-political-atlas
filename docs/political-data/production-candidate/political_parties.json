@@ -1,0 +1,1452 @@
+[
+  {
+    "atlas_party_id": "pp-de-0001",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:1:row:2",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:22",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 22,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0002",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:1:row:3",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:26",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 26,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0003",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:1:row:4",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:30",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 30,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0004",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:1:row:5",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:34",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 34,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0005",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:1:row:6",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:38",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 38,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0006",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:1:row:7",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:42",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 42,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0007",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:1:row:8",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:46",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 46,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0008",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:2:row:4",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:50",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 50,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0009",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:3:row:14",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:54",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 54,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0010",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:3:row:7",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:58",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 58,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0011",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:3:row:12",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:62",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 62,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0012",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:3:row:8",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:66",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 66,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0013",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:3:row:32",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:70",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 70,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0014",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:3:row:22",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:74",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 74,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0015",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:3:row:18",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:78",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 78,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0016",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:3:row:19",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:82",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 82,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0017",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:3:row:26",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:86",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 86,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0018",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:3:row:6",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:90",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 90,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0019",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:3:row:10",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:94",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 94,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0020",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:3:row:2",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:98",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 98,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0021",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:3:row:3",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:102",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 102,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0022",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:3:row:9",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:106",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 106,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0023",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:3:row:27",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:110",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 110,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0024",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:3:row:25",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:114",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 114,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0025",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:3:row:4",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:118",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 118,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0026",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:2:row:2",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:122",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 122,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0027",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:2:row:3",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:126",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 126,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0028",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:3:row:17",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:130",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 130,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  },
+  {
+    "atlas_party_id": "pp-de-0029",
+    "country": "germany",
+    "entity_kind": "party",
+    "valid_from": null,
+    "valid_to": null,
+    "observed_at": "2025-02-23",
+    "interval_basis": "formation and dissolution dates not established; observed as a recognised party at the 2025 election",
+    "registry_ids": [],
+    "continuous_series_eligible": false,
+    "identity_status": "provisional_requires_production_second_review",
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-recognition-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/info/presse/mitteilungen/bundestagswahl-2025/06_25_ergebnisse_1bwa.html",
+        "source_record_id": "src-de-bwl-recognition-2025:table:3:row:23",
+        "retrieved_at": "2026-10-02T08:48:27.174Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/recognition_2025/recognition.html",
+          "sha256": "776b492087425d7bd6dd134235d2f975faa454bb1a241d0216d473237fb9b525"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "entity_kind"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-final-archive",
+        "source_url": "https://www.bundeswahlleiterin.de/dam/jcr/ce2d2b6a-f211-4355-8eea-355c98cd4e47/btw_kerg.zip",
+        "source_record_id": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731:btw2025_kerg.csv:340:134",
+        "retrieved_at": "2026-10-01T23:21:39.584Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/2026-10-01T23-21-39-584Z_02e7077f9358c9ef/final-results.zip",
+          "sha256": "02e7077f9358c9ef408741ee5d17123a43c28ea766b26a7ab338c08fcaeb7512"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "observed_at"
+        ],
+        "published_or_derived": "published",
+        "source_member": "btw2025_kerg.csv",
+        "source_member_sha256": "31ab27391d5753a6a972936d436092879f5c9cca11570272cd72e3e272d16731",
+        "source_column": 134,
+        "observation_basis": "actual participation at dated election"
+      }
+    ]
+  }
+]

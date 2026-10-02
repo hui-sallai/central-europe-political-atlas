@@ -1,0 +1,188 @@
+{
+  "schema_version": "germany-name-difference-resolution-v1",
+  "state": "staging_only",
+  "canonical_promotion": false,
+  "rows": [
+    {
+      "contestant_id": "ct-de-0121",
+      "election_year": 2017,
+      "source_label": "Ab jetzt...Demokratie durch Volksabstimmung",
+      "official_full_name": "Ab jetzt…Demokratie durch Volksabstimmung",
+      "official_additional_name": "Politik für die Menschen",
+      "atlas_party_id": null,
+      "contestant_kind": "party",
+      "review_status": "provisional_same_election_name_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:77",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Election-specific second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-participation-2017:table:1:row:16",
+          "sha256": "921e62b053178a9f32bfd87e48255d52b71809a686611cae1e97810a5114fa04",
+          "note": "Same-election actual-participation page: official full name and separately published additional name"
+        }
+      ],
+      "decision": "The authority's same-election participation table uses one ellipsis character; result file uses three full stops. Record this exact typographical equivalence only; keep the source label unchanged."
+    },
+    {
+      "contestant_id": "ct-de-0129",
+      "election_year": 2017,
+      "source_label": "bergpartei, die überpartei",
+      "official_full_name": "bergpartei, die überpartei",
+      "official_additional_name": "ökoanarchistisch-realdadaistisches sammelbecken",
+      "atlas_party_id": null,
+      "contestant_kind": "party",
+      "review_status": "provisional_same_election_name_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:109",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Election-specific second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-participation-2017:table:1:row:24",
+          "sha256": "921e62b053178a9f32bfd87e48255d52b71809a686611cae1e97810a5114fa04",
+          "note": "Same-election actual-participation page: official full name and separately published additional name"
+        }
+      ],
+      "decision": "The same-election participation table separates the full party name from its additional name. The result header reproduces the full name alone; keep additional name separately, not inferred from suffix stripping."
+    },
+    {
+      "contestant_id": "ct-de-0130",
+      "election_year": 2017,
+      "source_label": "Bündnis Grundeinkommen",
+      "official_full_name": "Bündnis Grundeinkommen",
+      "official_additional_name": "Die Grundeinkommenspartei",
+      "atlas_party_id": null,
+      "contestant_kind": "party",
+      "review_status": "provisional_same_election_name_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:113",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Election-specific second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-participation-2017:table:1:row:25",
+          "sha256": "921e62b053178a9f32bfd87e48255d52b71809a686611cae1e97810a5114fa04",
+          "note": "Same-election actual-participation page: official full name and separately published additional name"
+        }
+      ],
+      "decision": "The same-election participation table separates the full party name from its additional name. The result header reproduces the full name alone; keep additional name separately, not inferred from suffix stripping."
+    },
+    {
+      "contestant_id": "ct-de-0133",
+      "election_year": 2017,
+      "source_label": "Deutsche Mitte",
+      "official_full_name": "Deutsche Mitte",
+      "official_additional_name": "Politik geht anders…",
+      "atlas_party_id": null,
+      "contestant_kind": "party",
+      "review_status": "provisional_same_election_name_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:125",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Election-specific second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-participation-2017:table:1:row:28",
+          "sha256": "921e62b053178a9f32bfd87e48255d52b71809a686611cae1e97810a5114fa04",
+          "note": "Same-election actual-participation page: official full name and separately published additional name"
+        }
+      ],
+      "decision": "The same-election participation table separates the full party name from its additional name. The result header reproduces the full name alone; keep additional name separately, not inferred from suffix stripping."
+    },
+    {
+      "contestant_id": "ct-de-0136",
+      "election_year": 2017,
+      "source_label": "Magdeburger Gartenpartei",
+      "official_full_name": "Magdeburger Gartenpartei",
+      "official_additional_name": "ökologisch, sozial und ökonomisch",
+      "atlas_party_id": null,
+      "contestant_kind": "party",
+      "review_status": "provisional_same_election_name_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:137",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Election-specific second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-participation-2017:table:1:row:31",
+          "sha256": "921e62b053178a9f32bfd87e48255d52b71809a686611cae1e97810a5114fa04",
+          "note": "Same-election actual-participation page: official full name and separately published additional name"
+        }
+      ],
+      "decision": "The same-election participation table separates the full party name from its additional name. The result header reproduces the full name alone; keep additional name separately, not inferred from suffix stripping."
+    },
+    {
+      "contestant_id": "ct-de-0137",
+      "election_year": 2017,
+      "source_label": "Menschliche Welt",
+      "official_full_name": "Menschliche Welt",
+      "official_additional_name": "für das Wohl und Glücklich-Sein aller",
+      "atlas_party_id": null,
+      "contestant_kind": "party",
+      "review_status": "provisional_same_election_name_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f:btw2017_kerg.csv:340:141",
+          "sha256": "d5d5009b8cbe5cc2e4a75760a057bda2b29f656a41b157e28557aa47b0e34c4f",
+          "note": "Election-specific second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-participation-2017:table:1:row:32",
+          "sha256": "921e62b053178a9f32bfd87e48255d52b71809a686611cae1e97810a5114fa04",
+          "note": "Same-election actual-participation page: official full name and separately published additional name"
+        }
+      ],
+      "decision": "The same-election participation table separates the full party name from its additional name. The result header reproduces the full name alone; keep additional name separately, not inferred from suffix stripping."
+    },
+    {
+      "contestant_id": "ct-de-0104",
+      "election_year": 2013,
+      "source_label": "Nichtwähler",
+      "official_full_name": "Partei der Nichtwähler",
+      "official_additional_name": null,
+      "atlas_party_id": null,
+      "contestant_kind": "party",
+      "review_status": "provisional_same_election_name_resolution",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:129",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Election-specific second-vote result column"
+        },
+        {
+          "source_record_id": "src-de-bwl-participation-2013:table:1:row:28",
+          "sha256": "1e7c2d0c575fc2bbd68862bdd348a6d3f13486dbbb0df33fd7eb6db5d93e1c29",
+          "note": "Same-election actual-participation page: official full name and separately published additional name"
+        },
+        {
+          "source_record_id": "src-de-bwl-historical-results-report-2025:pdf-page:146:abbreviation:Nichtwähler",
+          "sha256": "c2d2bb5daa111cb3e960549c1a3983196a0b428b40173c8ec0eb971f025327a1",
+          "note": "Explicit published abbreviation explanation for the 2013 election; not legal continuity evidence"
+        }
+      ],
+      "decision": "The authority explicitly expands Nichtwähler as Partei der Nichtwähler for 2013; the actual-participation page corroborates that full name. No cross-year or current-name replacement."
+    }
+  ],
+  "note": "Supplemental evidence: earlier unresolved reviews are preserved unchanged. Only election-specific name/membership resolution; no legal-entity or cross-year identity approval."
+}

@@ -21,8 +21,8 @@ https://hy-central-europe-analysis.org via `.github/workflows/deploy-pages.yml` 
 - `scripts/` — acquisition, research pipelines and the validation chain (`validation/`, `release/`, `security/`,
   `data-coverage/`, `historical-*/`, `serbia-sors/`, `var-*`, `panel-local-projections/`, `local-projections/`, …).
 - `docs/` — longer methodology notes. `CHANGELOG.md` — release history.
-- `docs/political-data/` — political institutions & elections audit/design (no canonical political data yet; owner
-  review gate open). `pnpm political-audit:validate` checks the package and blocks premature `src/data` political stores.
+- `docs/political-data/` — audit/design plus independently reviewed Germany Slice 1A production evidence.
+  `src/data/political/germany/` contains exactly twelve owner-approved descriptive stores. Other-country ingestion remains blocked. `pnpm political-audit:validate` enforces the scoped gate; `pnpm political-data:validate` checks exact reproduction and public exports.
 
 ## Commands
 | Task | Command |
@@ -57,6 +57,7 @@ restore the tree with `git checkout -- public/research-data src/data/analysis/ad
 
 ## Frozen / do-not-edit
 - Everything under `src/data/**` and `public/research-data/**`, except:
+  - `src/data/political/germany/` and its matching public exports — only through the owner-approved Germany production generator and independent acceptance ledger; no continuous party series or other countries.
   - `src/data/release.json` — only when cutting a release (see below);
   - `src/data/events/**` and `src/lib/weeklyNews/**` — only through the weekly news workflow;
   - the descriptive stores registered in `scripts/data-refresh/units.mjs` and `src/data/data-refresh/refresh_ledger.jsonl`

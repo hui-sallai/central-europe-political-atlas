@@ -12,6 +12,7 @@ const closureFailures = validatePanelClosure({ root, preExport: false });
 if (closureFailures.length) throw new Error(`Panel LP closure gate failed before package build:\n${closureFailures.join("\n")}`);
 
 const groups = {
+  political: fs.readdirSync(path.join(sourceDir,'political/germany')).map(name=>`political/germany/${name}`),
   data: ["observations.json", "observations.csv", "comparison_eligibility.json", "transmission_channels.json"],
   countries: ["countries.json", "countries.csv"],
   regions: ["regions.json", "regional_observations.json", "regional_comparison_eligibility.json", "regional_geometry_qa.json"],
@@ -84,7 +85,7 @@ const entries = [];
 for (const [directory, files] of Object.entries(groups)) {
   for (const fileName of files) {
     const file = path.join(sourceDir, fileName);
-    if (fs.existsSync(file)) entries.push({ name: `${directory}/${fileName}`, data: fs.readFileSync(file) });
+    if (fs.existsSync(file)) entries.push({ name: directory === 'political' ? fileName : `${directory}/${fileName}`, data: fs.readFileSync(file) });
   }
 }
 

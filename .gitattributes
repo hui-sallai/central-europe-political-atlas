@@ -1,0 +1,5 @@
+# Preserve evidence bytes and checksummed CSV exports across checkout platforms.
+docs/political-data/raw/germany/**/*.csv -text whitespace=cr-at-eol
+docs/political-data/raw/germany/**/*.tab -text whitespace=cr-at-eol
+docs/political-data/raw/germany/**/*.zip -text
+public/research-data/political/germany/*.csv -text whitespace=cr-at-eol

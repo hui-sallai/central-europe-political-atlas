@@ -1,0 +1,818 @@
+{
+  "schema_version": "germany-historical-membership-review-v1",
+  "state": "staging_only",
+  "canonical_promotion": false,
+  "election_year": 2013,
+  "rows": [
+    {
+      "contestant_id": "ct-de-0077",
+      "election_year": 2013,
+      "source_label": "CDU",
+      "recognition_verbatim": "Christlich Demokratische Union Deutschlands (CDU),",
+      "recognition_name": "Christlich Demokratische Union Deutschlands",
+      "recognition_abbreviation": "CDU",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:21",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:1:item:1",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0078",
+      "election_year": 2013,
+      "source_label": "SPD",
+      "recognition_verbatim": "Sozialdemokratische Partei Deutschlands (SPD),",
+      "recognition_name": "Sozialdemokratische Partei Deutschlands",
+      "recognition_abbreviation": "SPD",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:25",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:1:item:2",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0079",
+      "election_year": 2013,
+      "source_label": "FDP",
+      "recognition_verbatim": "Freie Demokratische Partei (FDP),",
+      "recognition_name": "Freie Demokratische Partei",
+      "recognition_abbreviation": "FDP",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:29",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:1:item:3",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0080",
+      "election_year": 2013,
+      "source_label": "DIE LINKE",
+      "recognition_verbatim": "DIE LINKE (DIE LINKE),",
+      "recognition_name": "DIE LINKE",
+      "recognition_abbreviation": "DIE LINKE",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:33",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:1:item:4",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0081",
+      "election_year": 2013,
+      "source_label": "GRÜNE",
+      "recognition_verbatim": "BÜNDNIS 90/DIE GRÜNEN (GRÜNE),",
+      "recognition_name": "BÜNDNIS 90/DIE GRÜNEN",
+      "recognition_abbreviation": "GRÜNE",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:37",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:1:item:5",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0082",
+      "election_year": 2013,
+      "source_label": "CSU",
+      "recognition_verbatim": "Christlich-Soziale Union in Bayern e.V. (CSU).",
+      "recognition_name": "Christlich-Soziale Union in Bayern e.V.",
+      "recognition_abbreviation": "CSU",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:41",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:1:item:6",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0083",
+      "election_year": 2013,
+      "source_label": "PIRATEN",
+      "recognition_verbatim": "Piratenpartei Deutschland (PIRATEN).",
+      "recognition_name": "Piratenpartei Deutschland",
+      "recognition_abbreviation": "PIRATEN",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:45",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:2:item:3",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0084",
+      "election_year": 2013,
+      "source_label": "NPD",
+      "recognition_verbatim": "Nationaldemokratische Partei Deutschlands (NPD),",
+      "recognition_name": "Nationaldemokratische Partei Deutschlands",
+      "recognition_abbreviation": "NPD",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:49",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:2:item:2",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0085",
+      "election_year": 2013,
+      "source_label": "Tierschutzpartei",
+      "recognition_verbatim": "PARTEI MENSCH UMWELT TIERSCHUTZ (Tierschutzpartei)",
+      "recognition_name": "PARTEI MENSCH UMWELT TIERSCHUTZ",
+      "recognition_abbreviation": "Tierschutzpartei",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:53",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:3:item:5",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0086",
+      "election_year": 2013,
+      "source_label": "REP",
+      "recognition_verbatim": "DIE REPUBLIKANER (REP)",
+      "recognition_name": "DIE REPUBLIKANER",
+      "recognition_abbreviation": "REP",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:57",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:3:item:8",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0087",
+      "election_year": 2013,
+      "source_label": "ÖDP",
+      "recognition_verbatim": "Ökologisch-Demokratische Partei (ÖDP)",
+      "recognition_name": "Ökologisch-Demokratische Partei",
+      "recognition_abbreviation": "ÖDP",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:61",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:3:item:15",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0088",
+      "election_year": 2013,
+      "source_label": "FAMILIE",
+      "recognition_verbatim": "Familien-Partei Deutschlands (FAMILIE)",
+      "recognition_name": "Familien-Partei Deutschlands",
+      "recognition_abbreviation": "FAMILIE",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:65",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:3:item:6",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0089",
+      "election_year": 2013,
+      "source_label": "Bündnis 21/RRP",
+      "recognition_verbatim": "Bündnis 21/RRP (Bündnis 21/RRP)",
+      "recognition_name": "Bündnis 21/RRP",
+      "recognition_abbreviation": "Bündnis 21/RRP",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:69",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:3:item:9",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0090",
+      "election_year": 2013,
+      "source_label": "RENTNER",
+      "recognition_verbatim": "RENTNER Partei Deutschland (RENTNER)",
+      "recognition_name": "RENTNER Partei Deutschland",
+      "recognition_abbreviation": "RENTNER",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:73",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:3:item:7",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0091",
+      "election_year": 2013,
+      "source_label": "BP",
+      "recognition_verbatim": "Bayernpartei (BP)",
+      "recognition_name": "Bayernpartei",
+      "recognition_abbreviation": "BP",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:77",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:3:item:2",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0092",
+      "election_year": 2013,
+      "source_label": "PBC",
+      "recognition_verbatim": "Partei Bibeltreuer Christen (PBC)",
+      "recognition_name": "Partei Bibeltreuer Christen",
+      "recognition_abbreviation": "PBC",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:81",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:3:item:18",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0093",
+      "election_year": 2013,
+      "source_label": "BüSo",
+      "recognition_verbatim": "Bürgerrechtsbewegung Solidarität (BüSo)",
+      "recognition_name": "Bürgerrechtsbewegung Solidarität",
+      "recognition_abbreviation": "BüSo",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:85",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:3:item:17",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0094",
+      "election_year": 2013,
+      "source_label": "DIE VIOLETTEN",
+      "recognition_verbatim": "Die Violetten (DIE VIOLETTEN)",
+      "recognition_name": "Die Violetten",
+      "recognition_abbreviation": "DIE VIOLETTEN",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:89",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:3:item:1",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0095",
+      "election_year": 2013,
+      "source_label": "MLPD",
+      "recognition_verbatim": "Marxistisch-Leninistische Partei Deutschlands (MLPD)",
+      "recognition_name": "Marxistisch-Leninistische Partei Deutschlands",
+      "recognition_abbreviation": "MLPD",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:93",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:3:item:23",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0096",
+      "election_year": 2013,
+      "source_label": "Volksabstimmung",
+      "recognition_verbatim": "Ab jetzt…Demokratie durch Volksabstimmung (Volksabstimmung)",
+      "recognition_name": "Ab jetzt…Demokratie durch Volksabstimmung",
+      "recognition_abbreviation": "Volksabstimmung",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:97",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:3:item:4",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0097",
+      "election_year": 2013,
+      "source_label": "PSG",
+      "recognition_verbatim": "Partei für Soziale Gleichheit, Sektion der Vierten Internationale (PSG)",
+      "recognition_name": "Partei für Soziale Gleichheit, Sektion der Vierten Internationale",
+      "recognition_abbreviation": "PSG",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:101",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:3:item:24",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0098",
+      "election_year": 2013,
+      "source_label": "AfD",
+      "recognition_verbatim": "Alternative für Deutschland (AfD)",
+      "recognition_name": "Alternative für Deutschland",
+      "recognition_abbreviation": "AfD",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:105",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:3:item:19",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0099",
+      "election_year": 2013,
+      "source_label": "BIG",
+      "recognition_verbatim": "Bündnis für Innovation & Gerechtigkeit (BIG)",
+      "recognition_name": "Bündnis für Innovation & Gerechtigkeit",
+      "recognition_abbreviation": "BIG",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:109",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:3:item:20",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0100",
+      "election_year": 2013,
+      "source_label": "pro Deutschland",
+      "recognition_verbatim": "Bürgerbewegung pro Deutschland (pro Deutschland)",
+      "recognition_name": "Bürgerbewegung pro Deutschland",
+      "recognition_abbreviation": "pro Deutschland",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:113",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:3:item:10",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0101",
+      "election_year": 2013,
+      "source_label": "DIE RECHTE",
+      "recognition_verbatim": "DIE RECHTE (keine Kurzbezeichnung)",
+      "recognition_name": "DIE RECHTE",
+      "recognition_abbreviation": "keine Kurzbezeichnung",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:117",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:3:item:12",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0102",
+      "election_year": 2013,
+      "source_label": "DIE FRAUEN",
+      "recognition_verbatim": "Feministische Partei DIE FRAUEN (DIE FRAUEN)",
+      "recognition_name": "Feministische Partei DIE FRAUEN",
+      "recognition_abbreviation": "DIE FRAUEN",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:121",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:3:item:28",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0103",
+      "election_year": 2013,
+      "source_label": "FREIE WÄHLER",
+      "recognition_verbatim": "FREIE WÄHLER (FREIE WÄHLER),",
+      "recognition_name": "FREIE WÄHLER",
+      "recognition_abbreviation": "FREIE WÄHLER",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:125",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:2:item:1",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0104",
+      "election_year": 2013,
+      "source_label": "Nichtwähler",
+      "recognition_verbatim": "Partei der Nichtwähler (keine Kurzbezeichnung)",
+      "recognition_name": "Partei der Nichtwähler",
+      "recognition_abbreviation": "keine Kurzbezeichnung",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "unresolved_label_difference",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:129",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:3:item:26",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Proposed document location only. Verbatim labels differ (additional name, typography or source spelling); no fuzzy match or suffix removal accepted. Further same-election official ballot/name evidence required before membership acceptance."
+    },
+    {
+      "contestant_id": "ct-de-0105",
+      "election_year": 2013,
+      "source_label": "PARTEI DER VERNUNFT",
+      "recognition_verbatim": "Partei der Vernunft (PARTEI DER VERNUNFT)",
+      "recognition_name": "Partei der Vernunft",
+      "recognition_abbreviation": "PARTEI DER VERNUNFT",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:133",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:3:item:27",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    },
+    {
+      "contestant_id": "ct-de-0106",
+      "election_year": 2013,
+      "source_label": "Die PARTEI",
+      "recognition_verbatim": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative (Die PARTEI)",
+      "recognition_name": "Partei für Arbeit, Rechtsstaat, Tierschutz, Elitenförderung und basisdemokratische Initiative",
+      "recognition_abbreviation": "Die PARTEI",
+      "proposed_contestant_kind": "party",
+      "atlas_party_id": null,
+      "match_basis": "manual_review",
+      "review_status": "provisional_same_election_membership",
+      "canonical_promotion": false,
+      "continuous_series_eligible": false,
+      "evidence": [
+        {
+          "source_record_id": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe:btw2013_kerg.csv:340:137",
+          "sha256": "af1d7f449974be160ffbbcc359bee00b73fb538a279f7ded5ea99b5b13bfcfbe",
+          "note": "Official national second-vote result header"
+        },
+        {
+          "source_record_id": "src-de-bwl-recognition-2013:list:3:item:14",
+          "sha256": "f6225ec25ade267119b4407d531d33a969296ff08eadafb9ffbbb7a6246ebc48",
+          "note": "Official same-election recognition declaration; list ordering is not a durable identifier"
+        }
+      ],
+      "review_note": "Explicit manual document-location decision supported by same-election party recognition and final result column. Exact name/abbreviation corroborates the decision but does not establish cross-election legal identity."
+    }
+  ]
+}

@@ -44,6 +44,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
       <h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">{countryRecord.name_zh}</h1>
       <p className="mt-3 text-lg text-[var(--muted)]">{countryRecord.name} · {country.capitalZh} · {country.currency}</p>
       <p className="mt-5 max-w-3xl text-sm leading-7 text-[var(--muted)]">{countryRecord.summary_zh}</p>
+      {slug === "germany" ? <p className="mt-4 text-sm"><a href="/politics/" className="text-[var(--accent)] underline">政治制度／联邦议会选举：2002—2025年官方结果</a></p> : null}
 
       <CountryResearchProfile
         country={country}

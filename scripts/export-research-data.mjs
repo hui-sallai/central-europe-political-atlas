@@ -8,6 +8,7 @@ import { validatePanelClosure } from "./panel-local-projections/closure-validati
 
 const require = createRequire(import.meta.url);
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+execFileSync(process.execPath,[path.join(projectRoot,'scripts/political-data/germany/export.mjs')],{stdio:'inherit'});
 const outDir = path.join(projectRoot, "public", "research-data");
 const canonicalDataDir = path.join(projectRoot, "src", "data");
 const generatedAt = "2026-08-12";

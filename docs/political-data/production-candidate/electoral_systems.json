@@ -1,0 +1,565 @@
+[
+  {
+    "electoral_system_id": "es-de-bt-2002",
+    "country": "germany",
+    "election_id": "el-de-bt-2002-09-22",
+    "valid_from": "2002-09-22",
+    "valid_to": "2002-09-22",
+    "interval_basis": "election-specific rule observation, not legal enactment dates",
+    "system_family": "personalised proportional representation",
+    "vote_type": "second_vote",
+    "allocation_method": "Hare/Niemeyer",
+    "base_seats": 598,
+    "notes": {
+      "en": "598 base seats; Hare/Niemeyer allocation. Additional overhang seats were possible.",
+      "zh-CN": "基础席位598席；采用Hare/Niemeyer分配方法，可产生额外超额席位。"
+    },
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-hare-niemeyer",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/h/hare-niemeyer.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:58.176Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_hare-niemeyer/source.html",
+          "sha256": "31a164d79e4f6ba9229bc3f51f0bff0fcf80bc49b360c63bdfb462df0c430158"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-system-size",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/w/wahlsysteme.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:58.261Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_system-size/source.html",
+          "sha256": "a55a7c9a8bee18686fc371d192b1c77a4da4a16071ac9c3412ec1c361bab64d0"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-overhang",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/u/ueberhangmandate.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:26:23.125Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_overhang/source.html",
+          "sha256": "8e2caa0faa45b1dbd8f16abc58e5510f47ced3bb4649587154c9cc0d5bfbdd5c"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "electoral_system_id": "es-de-bt-2005",
+    "country": "germany",
+    "election_id": "el-de-bt-2005-09-18",
+    "valid_from": "2005-09-18",
+    "valid_to": "2005-09-18",
+    "interval_basis": "election-specific rule observation, not legal enactment dates",
+    "system_family": "personalised proportional representation",
+    "vote_type": "second_vote",
+    "allocation_method": "Hare/Niemeyer",
+    "base_seats": 598,
+    "notes": {
+      "en": "598 base seats; Hare/Niemeyer allocation. Additional overhang seats were possible. Main poll: 18 September; Dresden I voted later on 2 October 2005.",
+      "zh-CN": "基础席位598席；采用Hare/Niemeyer分配方法，可产生额外超额席位。主要投票日为9月18日；Dresden I于2005年10月2日延后投票。"
+    },
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-hare-niemeyer",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/h/hare-niemeyer.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:58.176Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_hare-niemeyer/source.html",
+          "sha256": "31a164d79e4f6ba9229bc3f51f0bff0fcf80bc49b360c63bdfb462df0c430158"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-system-size",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/w/wahlsysteme.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:58.261Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_system-size/source.html",
+          "sha256": "a55a7c9a8bee18686fc371d192b1c77a4da4a16071ac9c3412ec1c361bab64d0"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-overhang",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/u/ueberhangmandate.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:26:23.125Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_overhang/source.html",
+          "sha256": "8e2caa0faa45b1dbd8f16abc58e5510f47ced3bb4649587154c9cc0d5bfbdd5c"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-late-poll",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/n/nachwahl.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:33:26.693Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_late-poll/source.html",
+          "sha256": "f051806b3010f09ddb7747efdf941af28258a2b251a4e121bd7868da4b878835"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "electoral_system_id": "es-de-bt-2009",
+    "country": "germany",
+    "election_id": "el-de-bt-2009-09-27",
+    "valid_from": "2009-09-27",
+    "valid_to": "2009-09-27",
+    "interval_basis": "election-specific rule observation, not legal enactment dates",
+    "system_family": "personalised proportional representation",
+    "vote_type": "second_vote",
+    "allocation_method": "Sainte-Laguë/Schepers",
+    "base_seats": 598,
+    "notes": {
+      "en": "598 base seats; Sainte-Laguë/Schepers allocation. Overhang seats were not fully compensated under this election’s rules.",
+      "zh-CN": "基础席位598席；采用Sainte-Laguë/Schepers分配方法。本届规则未对超额席位实施全面补偿。"
+    },
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-sainte-lague",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/s/sainte-lague-schepers.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:58.220Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_sainte-lague/source.html",
+          "sha256": "cbdf0abd79b870f67d9789ea3b1e24402824b805d188245fab409a97ac2a0e22"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-system-size",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/w/wahlsysteme.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:58.261Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_system-size/source.html",
+          "sha256": "a55a7c9a8bee18686fc371d192b1c77a4da4a16071ac9c3412ec1c361bab64d0"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-overhang",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/u/ueberhangmandate.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:26:23.125Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_overhang/source.html",
+          "sha256": "8e2caa0faa45b1dbd8f16abc58e5510f47ced3bb4649587154c9cc0d5bfbdd5c"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "electoral_system_id": "es-de-bt-2013",
+    "country": "germany",
+    "election_id": "el-de-bt-2013-09-22",
+    "valid_from": "2013-09-22",
+    "valid_to": "2013-09-22",
+    "interval_basis": "election-specific rule observation, not legal enactment dates",
+    "system_family": "personalised proportional representation",
+    "vote_type": "second_vote",
+    "allocation_method": "Sainte-Laguë/Schepers",
+    "base_seats": 598,
+    "notes": {
+      "en": "598 base seats; Sainte-Laguë/Schepers allocation. Overhangs were compensated by increasing the chamber size.",
+      "zh-CN": "基础席位598席；采用Sainte-Laguë/Schepers分配方法；通过增加议会规模补偿超额席位。"
+    },
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-sainte-lague",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/s/sainte-lague-schepers.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:58.220Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_sainte-lague/source.html",
+          "sha256": "cbdf0abd79b870f67d9789ea3b1e24402824b805d188245fab409a97ac2a0e22"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-system-size",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/w/wahlsysteme.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:58.261Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_system-size/source.html",
+          "sha256": "a55a7c9a8bee18686fc371d192b1c77a4da4a16071ac9c3412ec1c361bab64d0"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-overhang",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/u/ueberhangmandate.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:26:23.125Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_overhang/source.html",
+          "sha256": "8e2caa0faa45b1dbd8f16abc58e5510f47ced3bb4649587154c9cc0d5bfbdd5c"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "electoral_system_id": "es-de-bt-2017",
+    "country": "germany",
+    "election_id": "el-de-bt-2017-09-24",
+    "valid_from": "2017-09-24",
+    "valid_to": "2017-09-24",
+    "interval_basis": "election-specific rule observation, not legal enactment dates",
+    "system_family": "personalised proportional representation",
+    "vote_type": "second_vote",
+    "allocation_method": "Sainte-Laguë/Schepers",
+    "base_seats": 598,
+    "notes": {
+      "en": "598 base seats; Sainte-Laguë/Schepers allocation. Overhangs were compensated by increasing the chamber size.",
+      "zh-CN": "基础席位598席；采用Sainte-Laguë/Schepers分配方法；通过增加议会规模补偿超额席位。"
+    },
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-system-2017",
+        "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2017/informationen-waehler/wahlsystem.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:58.054Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_system-2017/source.html",
+          "sha256": "db36d661ff94de86c82949e1f640d4ef550ec56c7da128c57501a18d5bcc7458"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-system-size",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/w/wahlsysteme.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:58.261Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_system-size/source.html",
+          "sha256": "a55a7c9a8bee18686fc371d192b1c77a4da4a16071ac9c3412ec1c361bab64d0"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-overhang",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/u/ueberhangmandate.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:26:23.125Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_overhang/source.html",
+          "sha256": "8e2caa0faa45b1dbd8f16abc58e5510f47ced3bb4649587154c9cc0d5bfbdd5c"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "electoral_system_id": "es-de-bt-2021",
+    "country": "germany",
+    "election_id": "el-de-bt-2021-09-26",
+    "valid_from": "2021-09-26",
+    "valid_to": "2021-09-26",
+    "interval_basis": "election-specific rule observation, not legal enactment dates",
+    "system_family": "personalised proportional representation",
+    "vote_type": "second_vote",
+    "allocation_method": "Sainte-Laguë/Schepers",
+    "base_seats": 598,
+    "notes": {
+      "en": "598 base seats; Sainte-Laguë/Schepers allocation; up to three overhang seats could remain uncompensated. Displayed results include the 11 February 2024 partial Berlin repeat: 735 seats, not the original 736-seat final result.",
+      "zh-CN": "基础席位598席；采用Sainte-Laguë/Schepers分配方法；最多三个超额席位可不补偿。此处采用2024年2月11日柏林部分重选后的更正结果（735席），不是原始最终结果的736席。"
+    },
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-system-2021",
+        "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2021/informationen-waehler/wahlsystem.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:58.097Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_system-2021/source.html",
+          "sha256": "7ac13246f3851aa51b23a4699614b0b50f247b5f38d3cc04963f9b5c46ce4b87"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-system-size",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/w/wahlsysteme.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:58.261Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_system-size/source.html",
+          "sha256": "a55a7c9a8bee18686fc371d192b1c77a4da4a16071ac9c3412ec1c361bab64d0"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-overhang",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/u/ueberhangmandate.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:26:23.125Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_overhang/source.html",
+          "sha256": "8e2caa0faa45b1dbd8f16abc58e5510f47ced3bb4649587154c9cc0d5bfbdd5c"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  },
+  {
+    "electoral_system_id": "es-de-bt-2025",
+    "country": "germany",
+    "election_id": "el-de-bt-2025-02-23",
+    "valid_from": "2025-02-23",
+    "valid_to": "2025-02-23",
+    "interval_basis": "election-specific rule observation, not legal enactment dates",
+    "system_family": "personalised proportional representation",
+    "vote_type": "second_vote",
+    "allocation_method": "Sainte-Laguë/Schepers",
+    "base_seats": 630,
+    "notes": {
+      "en": "Fixed 630 seats; Sainte-Laguë/Schepers allocation and second-vote coverage for party constituency winners. The 5% rule is applied with the three-constituency exception ordered by the Constitutional Court in 2024; national-minority parties are exempt. Rounded published shares do not establish qualification for seat allocation.",
+      "zh-CN": "固定630席；采用Sainte-Laguë/Schepers分配方法，政党选区胜出者须获第二票覆盖。5%规则依2024年宪法法院裁决保留三个选区例外；民族少数政党获豁免。四舍五入票率不能用于判断议席分配资格。"
+    },
+    "provenance": [
+      {
+        "source_id": "src-de-bwl-system-2025",
+        "source_url": "https://www.bundeswahlleiterin.de/bundestagswahlen/2025/informationen-waehler/wahlsystem.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:58.139Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_system-2025/source.html",
+          "sha256": "92a82c80327d40e877a76b123ec3e0f40f78ebf206e1b1c9575e0e86968eb596"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-system-size",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/w/wahlsysteme.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:25:58.261Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_system-size/source.html",
+          "sha256": "a55a7c9a8bee18686fc371d192b1c77a4da4a16071ac9c3412ec1c361bab64d0"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-overhang",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/u/ueberhangmandate.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:26:23.125Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_overhang/source.html",
+          "sha256": "8e2caa0faa45b1dbd8f16abc58e5510f47ced3bb4649587154c9cc0d5bfbdd5c"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      },
+      {
+        "source_id": "src-de-bwl-threshold",
+        "source_url": "https://www.bundeswahlleiterin.de/service/glossar/s/sperrklausel.html",
+        "source_record_id": "main article",
+        "retrieved_at": "2026-10-02T10:33:26.731Z",
+        "raw_snapshot": {
+          "path": "docs/political-data/raw/germany/production_threshold/source.html",
+          "sha256": "3019dd70881c4f04e6f3e28175cc346f6a8085d9c3a3634685d79787ff0de5d9"
+        },
+        "parser_version": "germany-production-v1",
+        "parser_sha256": "2a8eb3487f392ef83303e7fb9ff246e4c111a7e64a469a6aa9eb21461ae9b1a0",
+        "fields_covered": [
+          "system_family",
+          "allocation_method",
+          "base_seats",
+          "notes"
+        ],
+        "published_or_derived": "published"
+      }
+    ]
+  }
+]
