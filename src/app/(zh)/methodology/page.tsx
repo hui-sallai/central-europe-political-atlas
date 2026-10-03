@@ -1,3 +1,4 @@
+import { BIS_TRANSLATION_NOTICE_ZH } from "@/lib/sourceAttribution";
 import type { Metadata } from "next";
 import { datasetJsonLd, jsonLdHtml, pageMetadata } from "@/lib/seo";
 import Link from "next/link";
@@ -143,6 +144,7 @@ export default function MethodologyPage() {
 
     <Section id="macro-drivers" label="03c / Macro Drivers & Identification" title="宏观驱动与冲击识别边界">
       <p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">v1.51 将 macro_driver_observations 与 high_frequency_observations 逻辑关联、概念分离。政策利率来自 BIS，长期政府债券收益率与 HICP Energy 来自 Eurostat，汇率与有效汇率来自 BIS，Brent 与欧洲天然气月价来自 World Bank Pink Sheet。每条记录保留频率、时间、单位、转换、来源、定义版本、修订状态、月度聚合方式、经济角色与识别状态；缺失值不插值。</p>
+      <p className="mt-2 max-w-4xl text-xs leading-6 text-[var(--muted)]" data-translation-notice="bis">{BIS_TRANSLATION_NOTICE_ZH}</p>
       <div className="mt-5 grid gap-4 md:grid-cols-2">
         <div className="border-l-2 border-[var(--accent)] pl-5"><h3 className="font-semibold">数据定义</h3><p className="mt-2 text-sm leading-7 text-[var(--muted)]">Policy rate ≠ market rate；bond yield ≠ policy rate；bilateral FX ≠ effective FX；HICP Energy ≠ wholesale energy price。非欧元区双边汇率统一为每 1 欧元对应的本币单位，上升表示本币贬值；欧元区只登记共同 EUR/USD 外部变量，不伪造国家专属汇率。政策利率使用月末值，债券收益率、BIS 汇率与商品价格按来源登记月均值。</p></div>
         <div className="border-l-2 border-[var(--line)] pl-5"><h3 className="font-semibold">识别状态</h3><p className="mt-2 text-sm leading-7 text-[var(--muted)]">Observed driver ≠ identified shock。Policy-rate change ≠ monetary-policy shock；energy-price movement ≠ energy-supply shock；exchange-rate movement ≠ external shock。只有外部工具、高频意外、叙事识别或充分的时间/符号设计通过登记和验证后，序列才可以标记 identified_shock。当前 identified_shock 数量为 0。</p></div>

@@ -1,7 +1,7 @@
 {
   "schema_version": "atlas-owner-confirmations-v1",
   "kind": "OWNER DECISION — internal; never rendered publicly",
-  "note": "null = OWNER_CONFIRMATION_REQUIRED. The publisher-contact readiness gate stays NOT_READY until the required items are true.",
+  "note": "null = OWNER_CONFIRMATION_REQUIRED. Only the owner supplies values (in chat or by editing this file). An item may be true only with a matching evidence entry {confirmed_on, owner_statement}. The publisher-contact gate stays NOT_READY until the required items are true. Mapping from answers to edits: owner_controller_questionnaire.md.",
   "items": {
     "controller_identity_confirmed": null,
     "controller_establishment_confirmed": null,
@@ -14,6 +14,26 @@
     "github_enforce_https_verified": null,
     "github_mfa_verified": null,
     "registrar_mfa_verified": null,
-    "dns_reviewed": null
-  }
+    "dns_reviewed": null,
+    "github_recovery_reviewed": null,
+    "registrar_lock_verified": null,
+    "dangling_dns_reviewed": null,
+    "github_actions_permissions_reviewed": null,
+    "repository_admins_reviewed": null,
+    "branch_protection_verified": null
+  },
+  "answers": {
+    "controller_type": null,
+    "public_controller_name": null,
+    "establishment_country": null,
+    "public_contact_email": null,
+    "noncommercial": null,
+    "advertising": null,
+    "sponsorship": null,
+    "paid_access": null,
+    "paid_api": null,
+    "analytics_or_tracking": null,
+    "official_institutional_project": null
+  },
+  "evidence": {}
 }

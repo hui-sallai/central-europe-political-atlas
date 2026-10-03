@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "description": "Publisher attribution used by the web source panels, Research Snapshots and export READMEs. registry_source_id links to docs/legal-security/source_rights_registry.json.",
+  "translation_notices": {
+    "bis": {
+      "zh": "BIS 数据的中文名称、标签与说明由本平台翻译呈现，并非 BIS 官方翻译；如有歧义，以 BIS 英文原文为准。引用 BIS 数据不代表 BIS 认可本平台。",
+      "en": "Chinese-language names, labels and explanations of BIS data are Atlas presentation translations, not official BIS translations; the BIS English original prevails. Use of BIS data does not imply BIS endorsement."
+    }
+  },
+  "sources": [
+    {
+      "id": "gisco",
+      "registry_source_id": "src-gisco",
+      "match": "GISCO|EuroGeographics",
+      "match_flags": "i",
+      "en": "Source: European Commission - Eurostat/GISCO; Administrative boundaries: © EuroGeographics",
+      "zh": "来源：European Commission - Eurostat/GISCO；行政边界：© EuroGeographics",
+      "licence_url": "https://ec.europa.eu/eurostat/web/gisco/geodata/administrative-units",
+      "zh_translation_notice": null
+    },
+    {
+      "id": "eurostat",
+      "registry_source_id": "src-eurostat",
+      "match": "Eurostat|ec\\.europa\\.eu\\/eurostat",
+      "match_flags": "i",
+      "en": "Source: Eurostat (reuse authorised with source acknowledgement)",
+      "zh": "来源：Eurostat（按来源注明条件再利用）",
+      "licence_url": "https://ec.europa.eu/eurostat/help/copyright-notice",
+      "zh_translation_notice": null
+    },
+    {
+      "id": "bis",
+      "registry_source_id": "src-bis",
+      "match": "\\bBIS\\b|bis\\.org",
+      "match_flags": "",
+      "en": "Source: BIS (Bank for International Settlements) statistics",
+      "zh": "来源：BIS（国际清算银行）统计",
+      "licence_url": "https://www.bis.org/terms_statistics.htm",
+      "zh_translation_notice": "bis"
+    },
+    {
+      "id": "sors",
+      "registry_source_id": "src-sors",
+      "match": "\\bSORS\\b|stat\\.gov\\.rs|Statistical Office of the Republic of Serbia",
+      "match_flags": "i",
+      "en": "Source: Statistical Office of the Republic of Serbia (SORS)",
+      "zh": "来源：塞尔维亚共和国统计局（SORS）",
+      "licence_url": "https://opendata.stat.gov.rs/",
+      "zh_translation_notice": null
+    },
+    {
+      "id": "bundeswahlleiterin",
+      "registry_source_id": "src-de-bundeswahlleiterin",
+      "match": "Bundeswahlleiter",
+      "match_flags": "i",
+      "en": "Source: © Die Bundeswahlleiterin, Wiesbaden; Data licence Germany – attribution – Version 2.0 (dl-de/by-2-0); shares derived by the Atlas",
+      "zh": "来源：© Die Bundeswahlleiterin, Wiesbaden；德国数据许可 署名 2.0（dl-de/by-2-0）；份额由本平台计算",
+      "licence_url": "https://www.govdata.de/dl-de/by-2-0",
+      "zh_translation_notice": null
+    },
+    {
+      "id": "parlgov",
+      "registry_source_id": "src-parlgov-2024",
+      "match": "ParlGov",
+      "match_flags": "i",
+      "en": "Source: ParlGov (Döring, Huber and Manow), CC0",
+      "zh": "来源：ParlGov（Döring、Huber、Manow），CC0",
+      "licence_url": "https://www.parlgov.org/",
+      "zh_translation_notice": null
+    },
+    {
+      "id": "ecb",
+      "registry_source_id": "src-ecb",
+      "match": "\\bECB\\b|European Central Bank|ecb\\.europa\\.eu",
+      "match_flags": "i",
+      "en": "Source: ECB; values transformed by the Atlas where stated",
+      "zh": "来源：欧洲央行（ECB）；经本平台变换之处已注明",
+      "licence_url": "https://www.ecb.europa.eu/services/disclaimer/html/index.en.html",
+      "zh_translation_notice": null
+    },
+    {
+      "id": "worldbank",
+      "registry_source_id": "src-worldbank",
+      "match": "World Bank|worldbank\\.org",
+      "match_flags": "i",
+      "en": "Source: World Bank (CC BY 4.0); changes by the Atlas indicated",
+      "zh": "来源：世界银行（CC BY 4.0）；本平台的改动已注明",
+      "licence_url": "https://datacatalog.worldbank.org/public-licenses",
+      "zh_translation_notice": null
+    },
+    {
+      "id": "un-comtrade",
+      "registry_source_id": "src-un-comtrade",
+      "match": "Comtrade",
+      "match_flags": "i",
+      "en": "Source: UN Comtrade (United Nations Statistics Division)",
+      "zh": "来源：UN Comtrade（联合国统计司）",
+      "licence_url": "https://uncomtrade.org/docs/faqs-on-use-and-re-dissemination/",
+      "zh_translation_notice": null
+    },
+    {
+      "id": "oecd",
+      "registry_source_id": "src-oecd",
+      "match": "\\bOECD\\b|oecd\\.org",
+      "match_flags": "i",
+      "en": "Source: OECD (CC BY 4.0); changes by the Atlas indicated; no OECD endorsement",
+      "zh": "来源：OECD（CC BY 4.0）；本平台的改动已注明；不代表 OECD 认可",
+      "licence_url": "https://www.oecd.org/en/about/oecd-open-by-default-policy.html",
+      "zh_translation_notice": null
+    },
+    {
+      "id": "geoboundaries",
+      "registry_source_id": "src-geoboundaries",
+      "match": "geoBoundaries",
+      "match_flags": "i",
+      "en": "Boundaries: geoBoundaries (www.geoboundaries.org); per-boundary sources: © OpenStreetMap contributors, ODbL 1.0 (Poland, Serbia, Slovakia, Croatia); BEV Austria, CC BY-SA 2.0; ČÚZK, CC BY 4.0; World Bank, CC BY 4.0; Eurostat, CC BY 4.0; © BKG, dl-de/by-2-0",
+      "zh": "边界：geoBoundaries（www.geoboundaries.org）；分边界来源：© OpenStreetMap contributors，ODbL 1.0（波兰、塞尔维亚、斯洛伐克、克罗地亚）；奥地利 BEV，CC BY-SA 2.0；捷克 ČÚZK，CC BY 4.0；世界银行，CC BY 4.0；Eurostat，CC BY 4.0；© BKG，dl-de/by-2-0",
+      "licence_url": "https://www.geoboundaries.org/",
+      "zh_translation_notice": null
+    }
+  ]
+}

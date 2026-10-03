@@ -52,6 +52,9 @@ export const BLOCKED_FIELD_PATTERNS = [
   ['election forecast', new RegExp(`${t('election', 'vote', 'seat', 'poll', 'party' + SEP + 'support', 'approval')}${SEP}${t('forecast', 'projection', 'prediction', 'nowcast', 'model')}`, 'i')],
   ['profiling', new RegExp(`${t('psychograph\\w*', 'micro' + SEP + 'target\\w*', 'political' + SEP + 'target\\w*', 'voter' + SEP + 'profil\\w*', 'politician' + SEP + 'profil\\w*', 'stance' + SEP + 'extract\\w*', 'speech' + SEP + t('class\\w*', 'sentiment'), 'behaviou?ral' + SEP + 'cluster\\w*')}`, 'i')],
   ['stance', new RegExp(`(?:^|[_\\-.])(?:stance|stances)(?:$|[_\\-.])`, 'i')],
+  ['future behaviour prediction', new RegExp(`${t('future', 'predicted', 'inferred', 'forecast')}${SEP}${t('political' + SEP + 'behaviou?r', 'behaviou?r', 'voting', 'vote' + SEP + 'choice', 'party' + SEP + 'choice', 'turnout' + SEP + 'intention')}`, 'i')],
+  // "expected_behavior" is a test-registry term; only political behaviour is blocked after "expected".
+  ['expected political behaviour', new RegExp(`expected${SEP}${t('political' + SEP + 'behaviou?r', 'voting', 'vote' + SEP + 'choice', 'party' + SEP + 'choice', 'turnout' + SEP + 'intention')}`, 'i')],
 ];
 export function blockedFieldReason(name) {
   const normal = String(name).replace(/([a-z])([A-Z])/g, '$1_$2');
@@ -77,6 +80,7 @@ const CLEARED = new Set(['cleared', 'cleared_noncommercial', 'cleared_with_condi
 export function canExport(source, kind) {
   if (!source) return { ok: false, reason: 'unknown source — fail closed' };
   if (source.review_status === 'blocked') return { ok: false, reason: 'blocked source' };
+  if (source.review_status === 'rights_conflict_reported') return { ok: false, reason: 'open rights conflict — owner decision required' };
   if (kind === 'normalized') return CLEARED.has(source.normalized_republication) ? { ok: true } : { ok: false, reason: `normalized republication ${source.normalized_republication}` };
   if (kind === 'derived') return CLEARED.has(source.derived_values) ? { ok: true } : { ok: false, reason: `derived values ${source.derived_values}` };
   if (kind === 'raw') return CLEARED.has(source.raw_redistribution) ? { ok: true } : { ok: false, reason: `raw redistribution ${source.raw_redistribution}` };

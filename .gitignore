@@ -43,3 +43,12 @@ docs/political-data/raw/germany/**/*.pdf
 
 # staged official-data refresh runs (scripts/data-refresh)
 .tmp-data-refresh/
+
+# Publisher / authority correspondence stays private local owner evidence
+# (docs/legal-security/publisher_correspondence_policy.md). Only redacted outcome records are versioned.
+*.eml
+*.msg
+*.mbox
+**/correspondence/
+**/inbox/
+owner-evidence/

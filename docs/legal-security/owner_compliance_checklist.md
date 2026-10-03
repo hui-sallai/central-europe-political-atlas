@@ -21,6 +21,8 @@ item is confirmed it stays `OWNER_CONFIRMATION_REQUIRED` internally; public page
 ## Gates the owner controls
 - [ ] Publisher contact: send nothing until `publisher_contact_release_checklist.md` reads READY.
 - [ ] Hungarian media-registration question (media_registration_watch.md): decide whether to seek advice.
-- [ ] Dependency upgrade of `next` (third_party_dependency_licences.md).
-- [ ] BIS translation disclaimer for the Chinese UI (source_rights_registry.json, `bis`).
-- [ ] Re-check of legacy licences (World Bank, UN Comtrade, OECD, ECB, geoBoundaries) at the next refresh.
+- [x] Dependency upgrade of `next` (done: 16.3.6).
+- [x] BIS translation disclaimer for the Chinese UI (done).
+- [x] Re-check of legacy licences (done 2026-10-04).
+- [ ] Decide the geoBoundaries and ECB-annex rights conflicts (source_rights_registry.json `open_rights_issue`).
+- [ ] Answer owner_controller_questionnaire.md and work through owner_domain_security_verification.md.

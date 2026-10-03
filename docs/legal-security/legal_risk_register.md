@@ -15,7 +15,9 @@ Machine-readable copy: `legal_risk_register.json`. Residual levels are engineeri
 | L9 | copyright | Copied news text or images in Event Library | LAW / EXTERNAL LICENCE | own-words summaries, links only | copyright_content_policy.md | low |
 | L10 | defamation | Factual claims about named people/organisations | LAW / EXTERNAL LICENCE | attribution, boundary paragraph, takedown route | correction_takedown_policy.md | low-medium |
 | L11 | security | Front-end injection / CSV formula injection | ENGINEERING CONTROL | sink scan, jsonLdHtml escaping, csvCell guard | security_policy.md | low |
-| L12 | security | Build-time dependency advisories | ENGINEERING CONTROL | static export; upgrade pending owner approval | third_party_dependency_licences.md | medium |
+| L12 | security | Build-time dependency advisories | ENGINEERING CONTROL | next 16.3.6; prod audit clean; 1 dev-only braces advisory without patch | third_party_dependency_licences.md | low |
 | L13 | commercial | Commercial use breaking non-commercial licences | OWNER DECISION | operating-mode kill switch | commercialisation_gate.md | low |
 | L14 | media-law | Hungarian media registration | LAW / EXTERNAL LICENCE | watch only, no conclusion | media_registration_watch.md | unknown |
 | L15 | incident | Personal-data breach notification duties | LAW / EXTERNAL LICENCE | incident plan; owner decides | incident_response_plan.md | low |
+| L16 | licence | geoBoundaries per-boundary licences (ODbL / CC BY-SA 2.0 share-alike) misrecorded and unattributed on map and home page | LAW / EXTERNAL LICENCE | rights_conflict_reported; new export blocked; owner decision (attribute, replace with GISCO, or withdraw) | public_asset_rights_audit.md | medium |
+| L17 | licence | Author-named ECB Working Paper annex data (EA-MPD/EA-EMPD) republished at event level | LAW / EXTERNAL LICENCE | rights_conflict_reported (probable); owner decision (permission, drop as-is fields, or legal review) | source_licence_policy.md | medium |

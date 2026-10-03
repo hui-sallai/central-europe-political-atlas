@@ -23,7 +23,8 @@ test('2. left-right / populism / euroscepticism scale scores are blocked', () =>
   for (const k of ['left_right', 'lrgen', 'galtan', 'populism_score', 'euroscepticism', 'pro_russia']) assert.ok(blockedFieldReason(k), k);
 });
 test('3. inferred or predicted person attributes are blocked', () => {
-  for (const k of ['inferred_orientation', 'predicted_vote', 'vote_intention', 'win_probability']) assert.ok(blockedFieldReason(k), k);
+  for (const k of ['inferred_orientation', 'predicted_vote', 'predicted_support', 'vote_intention', 'win_probability', 'future_behaviour', 'predicted_behavior', 'expected_voting', 'party_support_forecast', 'candidate_probability', 'government_formation_probability']) assert.ok(blockedFieldReason(k), k);
+  assert.equal(blockedFieldReason('expected_behavior'), null, 'test-registry term stays allowed');
 });
 test('4. forecasting, profiling and microtargeting fields are blocked', () => {
   for (const k of ['election_forecast', 'seat_projection', 'psychographic_segment', 'microtarget_group', 'voter_profile', 'stance_extraction']) assert.ok(blockedFieldReason(k), k);
@@ -64,9 +65,10 @@ test('12. export fails closed for unknown, blocked or uncleared sources', () => 
   assert.equal(canExport(source('src-cz-volby'), 'derived').ok, false);
   assert.equal(canExport(source('src-de-bundeswahlleiterin'), 'derived').ok, true);
   assert.equal(canExport(source('src-de-bundeswahlleiterin'), 'bogus').ok, false);
+  assert.equal(canExport(source('src-geoboundaries'), 'derived').ok, false, 'open rights conflict blocks new export');
 });
 test('13. every rights-registry source has a review status', () => {
-  for (const s of rights.sources) assert.ok(['verified', 'documented', 'legacy_review_due', 'blocked', 'pending_publisher'].includes(s.review_status), s.source_id);
+  for (const s of rights.sources) assert.ok(['verified', 'documented', 'legacy_review_due', 'blocked', 'rights_conflict_reported'].includes(s.review_status), s.source_id);
 });
 test('14. unknown hosts are blocked for acquisition', () => {
   assert.equal(canAcquire(registry, 'https://unknown.example.org/data.csv', 'automated').ok, false);
@@ -103,4 +105,43 @@ test('20. source-level legal-security gate passes and pages carry the exact no-p
   }
   const r = spawnSync(process.execPath, [path.join(root, 'scripts/legal-security/validate.mjs'), '--source-only'], { encoding: 'utf8' });
   assert.equal(r.status, 0, r.stdout + r.stderr);
+});
+
+// Pre-contact closure controls
+test('21. shared attribution data links every entry to the rights registry and carries the BIS translation notice', async () => {
+  const data = json('src/content/sourceAttributions.json');
+  for (const e of data.sources) assert.ok(rights.sources.some((s) => s.source_id === e.registry_source_id), e.id);
+  assert.match(data.translation_notices.bis.zh, /并非 BIS 官方翻译/);
+  assert.equal(data.sources.find((e) => e.id === 'bis').zh_translation_notice, 'bis');
+});
+test('22. owner confirmations stay fail-closed: no item true without owner evidence', () => {
+  const o = json('docs/legal-security/owner_confirmations.json');
+  for (const [k, v] of Object.entries(o.items)) if (v === true) assert.ok(o.evidence?.[k]?.owner_statement, k);
+  for (const k of ['controller_identity_confirmed', 'public_contact_email_confirmed', 'noncommercial_status_confirmed', 'no_institutional_affiliation_claimed', 'legal_notice_reviewed', 'privacy_notice_reviewed']) assert.notEqual(o.items[k], undefined, k);
+});
+test('23. publisher response records allow outcome fields only', () => {
+  const r = json('docs/legal-security/publisher_response_records.json');
+  assert.deepEqual(r.allowed_fields.sort(), ['country', 'decision_outcome', 'evidence_reference', 'evidence_sha256', 'institution', 'permission_wording', 'redaction_note', 'response_date']);
+  for (const rec of r.records) for (const k of Object.keys(rec)) assert.ok(r.allowed_fields.includes(k), k);
+  const gi = fs.readFileSync(path.join(root, '.gitignore'), 'utf8');
+  for (const p of ['*.eml', '*.msg', '**/correspondence/', 'owner-evidence/']) assert.ok(gi.includes(p), p);
+});
+test('24. security.txt is not stale: Expires more than 30 days and less than a year ahead', () => {
+  const sec = fs.readFileSync(path.join(root, 'public/.well-known/security.txt'), 'utf8');
+  const expires = Date.parse(/^Expires: (.+)$/m.exec(sec)[1]);
+  assert.ok(expires - Date.now() > 30 * 864e5 && expires - Date.now() < 366 * 864e5);
+  assert.match(sec, /^Policy: https:\/\/github\.com\/.+\/SECURITY\.md$/m);
+});
+test('25. every tracked public binary or geometry asset is registered with a rights state', () => {
+  const reg = json('docs/legal-security/public_asset_registry.json').assets.map((a) => new RegExp(a.pattern));
+  const tracked = spawnSync('git', ['ls-files', 'public'], { cwd: root, encoding: 'utf8' }).stdout.split('\n').filter((f) => /\.(geojson|png|jpe?g|svg|ico|woff2?|pdf|zip)$/i.test(f));
+  for (const f of tracked) assert.ok(reg.some((re) => re.test(f)), f);
+});
+test('26. open rights conflicts block new exports and are recorded for owner decision', () => {
+  for (const id of ['src-geoboundaries', 'src-ecb-wp-annex-datasets']) {
+    const s = source(id);
+    assert.equal(s.review_status, 'rights_conflict_reported');
+    assert.match(s.open_rights_issue.action, /OWNER DECISION/);
+    assert.equal(canExport(s, 'normalized').ok, false);
+  }
 });

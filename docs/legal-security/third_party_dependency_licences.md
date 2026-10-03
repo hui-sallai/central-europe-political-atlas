@@ -1,8 +1,8 @@
-# Third-party dependencies, licences and vulnerability status (audited 2026-10-04)
+# Third-party dependencies, licences and vulnerability status (re-audited 2026-10-04 after maintenance)
 
 | Package | Version | Licence | Runtime / dev | Purpose |
 |---|---|---|---|---|
-| next | 16.2.6 | MIT | runtime (build-time static export) | framework, static export, OG images |
+| next | 16.3.6 (was 16.2.6) | MIT | runtime (build-time static export) | framework, static export, OG images |
 | react | 19.2.6 | MIT | runtime | UI |
 | react-dom | 19.2.6 | MIT | runtime | UI |
 | @axe-core/playwright | 4.13.0 | MPL-2.0 | dev | accessibility tests |
@@ -11,12 +11,35 @@
 | tailwindcss | 4.3.0 | MIT | dev | CSS build |
 | @types/node, @types/react, @types/react-dom | 25.9.1 / 19.2.15 / 19.2.3 | MIT | dev | types |
 | eslint | 9.39.1 | MIT | dev | lint |
-| eslint-config-next | 16.2.6 | MIT | dev | lint |
+| eslint-config-next | 16.3.6 (was 16.2.6) | MIT | dev | lint |
 | typescript | 6.0.3 | Apache-2.0 | dev | typecheck |
 
 MPL-2.0 (axe-core) is used unmodified as a dev tool and is not distributed in the site bundle.
 
-## `pnpm audit` (2026-10-04)
+## Dependency maintenance (2026-10-04)
+
+- **Before:** `next` 16.2.6 with bundled postcss 8.4.31 and sharp 0.34.5. `pnpm audit` reported 35 advisories (3 critical, 22 high,
+  10 moderate). The production tree (`--prod`) had 21.
+- **Change:**
+  - `next` and `eslint-config-next` → **16.3.6**, the smallest release that fixes every recorded Next.js advisory. It pulls
+    postcss 8.5.23 and sharp 0.35.x.
+  - Transitive `browserslist`, `baseline-browser-mapping`, `brace-expansion` and `js-yaml` were refreshed within their
+    existing semver ranges (`pnpm update --depth Infinity …`; lockfile only).
+  - No new runtime dependency. App Router, static export and React 19.2.6 are unchanged.
+  - Next.js regenerated `next-env.d.ts`, which now references `root-params.d.ts`.
+- **After:**
+  - `pnpm audit --prod` reports **no known vulnerabilities**.
+  - `pnpm audit` (all) reports **1 high**: `braces` ≤3.0.3, stack-exhaustion DoS, **no patched version published**.
+    Path: `eslint-config-next > @next/eslint-plugin-next > fast-glob > micromatch > braces`. It is dev-only, used by lint
+    on repository-controlled globs, has no runtime relevance and low build-time relevance. Re-check when a fix ships.
+- **Verified after the upgrade:**
+  - lint, typecheck and `build:site`;
+  - `test:ui` (202 passed);
+  - `seo:validate`, `legal-security:validate` and `political-person-safety:validate`.
+
+## Historical audit before maintenance
+
+### `pnpm audit` before maintenance (2026-10-04)
 
 - **All dependencies:** 35 advisories (3 critical, 22 high, 10 moderate).
 - **Production tree (`--prod`):** 21 advisories.
@@ -41,7 +64,4 @@ The site is a **static export on GitHub Pages**:
 No advisory is reachable by visitors in the deployed site. They remain a **build-environment and supply-chain risk** (for
 example, untrusted input at build time or a compromised CI).
 
-**Action (OWNER DECISION, separate maintenance task):** upgrade `next` to ≥16.3.6 (and its transitive postcss/sharp) in a
-dedicated dependency-maintenance change. That change must re-baseline the lockfile pin in the source-closure checkpoint,
-pass the full UI and screenshot gate, and must not change the platform version. It is not done in this governance phase,
-because the dependency set and lockfile are locked by the validators.
+**Action:** completed in the pre-contact closure (see Dependency maintenance above).

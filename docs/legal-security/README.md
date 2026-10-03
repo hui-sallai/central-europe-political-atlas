@@ -37,3 +37,11 @@ pnpm legal-security:validate            # full governance gate (needs a fresh ou
 ```
 
 Private correspondence, controller identity details and audit originals are **never** committed.
+
+## Pre-contact closure additions (2026-10-04)
+
+- `owner_domain_security_verification.md`: exact owner steps and evidence for domain, GitHub and registrar security.
+- `owner_controller_questionnaire.md`: minimal owner questionnaire and the exact `owner_confirmations.json` edits.
+- `publisher_correspondence_policy.md` and `publisher_response_records.json`: private originals, public outcome records only.
+- `public_asset_registry.json` and `public_asset_rights_audit.md`: rights state of every public binary or geometry asset.
+- Shared attribution data: `src/content/sourceAttributions.json` (web source panels, Research Snapshot, research package README).

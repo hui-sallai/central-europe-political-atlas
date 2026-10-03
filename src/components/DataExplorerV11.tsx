@@ -1,4 +1,5 @@
 "use client";
+import { SourceAttributionNote } from "@/components/SourceAttributionNote";
 import { LocalizedContent } from "@/i18n/LocalizedContent";
 import { useLocale } from "@/i18n/LocaleProvider";
 import { englishText } from "@/i18n/reviewedText";
@@ -195,6 +196,8 @@ function HighFrequencyDataView({ countries }: { countries: Country[] }) {
           </table>
         </div>
       ) : null}
+
+      {loadState === "ready" && rows.length ? <SourceAttributionNote className="mt-3" sources={[...new Set(rows.map((row) => String(row[10])))]} /> : null}
 
       {loadState === "ready" && rows.length ? (
         <div className="data-card-mobile mt-5 grid gap-3">
@@ -462,6 +465,8 @@ export function DataExplorerV11({ countries, indicators, observations }: { count
         {rows.slice(0, MOBILE_CARD_LIMIT).map((item) => <article key={item.id} className="editorial-panel p-4"><div className="flex items-start justify-between gap-3"><div><h3 className="font-semibold">{indicatorName(item.indicator)}</h3><p className="mt-1 text-xs text-[var(--muted)]">{item.year} · {item.unit}</p></div><p className="metric-number font-semibold text-[var(--accent)]">{displayValue(item)}</p></div><div className="mt-3 flex items-center justify-between gap-3 border-t border-[var(--line)] pt-3 text-xs"><a href={item.source_url} target="_blank" rel="noreferrer" className="font-semibold text-[var(--accent)]">{item.source_name}</a>{layerBadge(item.layer)}<span>{item.status}</span></div><div className="mt-2 flex justify-end"><CopyCitationButton text={citationFor(item)} /><NotebookCollect create={() => collectObservation(item)} /></div></article>)}
         {rows.length > MOBILE_CARD_LIMIT ? <p className="text-xs text-[var(--muted)]">移动端显示前 {MOBILE_CARD_LIMIT} 条；完整 {rows.length} 条请缩小年份范围或下载 CSV。</p> : null}
       </div>
+
+      {rows.length ? <SourceAttributionNote className="mt-3" sources={[...new Set(rows.flatMap((item) => [item.source_name, item.source_url]))]} /> : null}
 
       {!rows.length ? <p className="mt-5 border-y border-[var(--line)] py-8 text-center text-sm text-[var(--muted)]">当前筛选条件没有观测值；缺失记录不会显示为 0。</p> : null}
         </>

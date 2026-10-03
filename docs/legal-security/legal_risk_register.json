@@ -106,9 +106,9 @@
       "area": "security",
       "risk": "Build-time dependency advisories",
       "basis": "ENGINEERING CONTROL",
-      "control": "static export; upgrade pending owner approval",
+      "control": "next 16.3.6; prod audit clean; 1 dev-only braces advisory without patch",
       "doc": "third_party_dependency_licences.md",
-      "residual": "medium"
+      "residual": "low"
     },
     {
       "id": "L13",
@@ -136,6 +136,24 @@
       "control": "incident plan; owner decides",
       "doc": "incident_response_plan.md",
       "residual": "low"
+    },
+    {
+      "id": "L16",
+      "area": "licence",
+      "risk": "geoBoundaries per-boundary licences (ODbL / CC BY-SA 2.0 share-alike) misrecorded and unattributed on map and home page",
+      "basis": "LAW / EXTERNAL LICENCE",
+      "control": "rights_conflict_reported; new export blocked; owner decision (attribute, replace with GISCO, or withdraw)",
+      "doc": "public_asset_rights_audit.md",
+      "residual": "medium"
+    },
+    {
+      "id": "L17",
+      "area": "licence",
+      "risk": "Author-named ECB Working Paper annex data (EA-MPD/EA-EMPD) republished at event level",
+      "basis": "LAW / EXTERNAL LICENCE",
+      "control": "rights_conflict_reported (probable); owner decision (permission, drop as-is fields, or legal review)",
+      "doc": "source_licence_policy.md",
+      "residual": "medium"
     }
   ]
 }

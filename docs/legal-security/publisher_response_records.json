@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "rule": "Public outcome records of publisher/authority replies (CZSO, ŠÚ SR, PKW/KBW, BMI/Bundeswahlbehörde). Original correspondence stays in private local owner evidence (owner-evidence/ or local-evidence/, gitignored). Only the allowed fields may appear; legal-security:validate rejects anything else, e-mail addresses and message headers.",
+  "allowed_fields": ["institution", "country", "response_date", "decision_outcome", "permission_wording", "evidence_reference", "evidence_sha256", "redaction_note"],
+  "decision_outcomes": ["permission_granted", "permission_granted_with_conditions", "permission_refused", "no_licence_position", "referred_elsewhere", "no_reply"],
+  "records": []
+}
