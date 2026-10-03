@@ -1,0 +1,200 @@
+{
+  "schema_version": "atlas-network-acquisition-registry-v1",
+  "state": "enforced_by_legal-security_validator",
+  "rule": "Unknown host = block. Blocked host = block before request. No user-agent spoofing, proxy rotation, CAPTCHA/auth bypass, rate-limit evasion, robots evasion or hidden-endpoint discovery.",
+  "checked_at": "2026-10-03",
+  "hosts": [
+    {
+      "host": "ec.europa.eu",
+      "purpose": "Eurostat dissemination API",
+      "automation_allowed": true,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-03",
+      "robots_note": "no AI-agent rule; disallowed paths unrelated to /eurostat/api",
+      "status": "allowed"
+    },
+    {
+      "host": "gisco-services.ec.europa.eu",
+      "purpose": "GISCO boundaries / NUTS code lists",
+      "automation_allowed": true,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-03",
+      "robots_note": "robots.txt 404",
+      "status": "allowed"
+    },
+    {
+      "host": "data.bis.org",
+      "purpose": "BIS bulk downloads",
+      "automation_allowed": true,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-03",
+      "robots_note": "disallows only query-parameter views (filter/sort/rows/cols); /static/bulk not disallowed",
+      "status": "allowed"
+    },
+    {
+      "host": "stats.bis.org",
+      "purpose": "BIS SDMX API",
+      "automation_allowed": true,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-03",
+      "robots_note": "robots redirects (301)",
+      "status": "allowed_review_due"
+    },
+    {
+      "host": "www.ecb.europa.eu",
+      "purpose": "ECB monetary events",
+      "automation_allowed": true,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-03",
+      "robots_note": "disallows only language content pages",
+      "status": "allowed"
+    },
+    {
+      "host": "comtradeapi.un.org",
+      "purpose": "UN Comtrade API",
+      "automation_allowed": true,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-03",
+      "robots_note": "robots.txt 404; API terms and data licence to verify",
+      "status": "allowed_licence_review_due"
+    },
+    {
+      "host": "opendata.stat.gov.rs",
+      "purpose": "SORS open data",
+      "automation_allowed": true,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-03",
+      "robots_note": "blocks only named bots (IbouBot, Baiduspider, BLP_bbot)",
+      "status": "allowed"
+    },
+    {
+      "host": "www.bundeswahlleiterin.de",
+      "purpose": "German election results (dl-de/by-2-0)",
+      "automation_allowed": true,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-03",
+      "robots_note": "robots.txt 404",
+      "status": "allowed"
+    },
+    {
+      "host": "thedocs.worldbank.org",
+      "purpose": "World Bank commodity prices",
+      "automation_allowed": true,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-03",
+      "robots_note": "robots.txt 404",
+      "status": "allowed_licence_review_due"
+    },
+    {
+      "host": "api.worldbank.org",
+      "purpose": "World Bank API",
+      "automation_allowed": true,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-03",
+      "robots_note": "robots.txt 404",
+      "status": "allowed_licence_review_due"
+    },
+    {
+      "host": "sdmx.oecd.org",
+      "purpose": "OECD SDMX",
+      "automation_allowed": true,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-03",
+      "robots_note": "robots.txt 404",
+      "status": "allowed_licence_review_due"
+    },
+    {
+      "host": "dataverse.harvard.edu",
+      "purpose": "ParlGov 2024 stable release (CC0)",
+      "automation_allowed": true,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-03",
+      "robots_note": "robots returned 202 (no rules read); single archived download",
+      "status": "allowed_review_due"
+    },
+    {
+      "host": "www.geoboundaries.org",
+      "purpose": "geoBoundaries",
+      "automation_allowed": true,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-03",
+      "robots_note": "Crawl-delay: 10 — must be respected",
+      "rate_policy": ">=10 s between requests",
+      "status": "allowed"
+    },
+    {
+      "host": "volby.gov.cz",
+      "purpose": "Czech election open data (evidence/index pages only)",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-03",
+      "robots_note": "disallows /pls/ only; production acquisition pending CZSO reply",
+      "status": "evidence_only_pending_publisher"
+    },
+    {
+      "host": "danewyborcze.kbw.gov.pl",
+      "purpose": "Polish election archive (evidence/index pages only)",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-03",
+      "robots_note": "robots.txt 404; production acquisition pending KBW reply",
+      "status": "evidence_only_pending_publisher"
+    },
+    {
+      "host": "static.slov-lex.sk",
+      "purpose": "Slovak Collection of Laws (dates)",
+      "automation_allowed": true,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-03",
+      "robots_note": "www.slov-lex.sk robots: Disallow empty (all allowed)",
+      "status": "allowed"
+    },
+    {
+      "host": "statistics.sk",
+      "include_subdomains": true,
+      "purpose": "Slovak Statistical Office",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "terms_checked_at": "2026-10-03",
+      "reason": "terms expressly prohibit robots, spiders, crawlers and similar tools",
+      "status": "blocked"
+    },
+    {
+      "host": "www.bmi.gv.at",
+      "purpose": "Austrian election results",
+      "automation_allowed": false,
+      "manual_allowed": true,
+      "robots_checked_at": "2026-10-03",
+      "reason": "robots.txt disallows AI agents (Anthropic-ai, Claude-Web, ChatGPT-User)",
+      "status": "blocked"
+    }
+  ],
+  "reference_hosts": {
+    "note": "Hosts that scripts cite as documentation or metadata links only; never fetched by acquisition code.",
+    "hosts": [
+      "github.com",
+      "creativecommons.org",
+      "opensource.org",
+      "doi.org",
+      "www.statsmodels.org",
+      "library.virginia.edu",
+      "sscc.wisc.edu",
+      "example.com",
+      "www.govdata.de",
+      "www.federalreserve.gov",
+      "www.statistischebibliothek.de",
+      "www.bundeswahlleiter.de",
+      "hy-central-europe-analysis.org",
+      "comtradeplus.un.org",
+      "www.stat.gov.rs",
+      "www.nbs.rs",
+      "www.mfin.gov.rs",
+      "data.stat.gov.rs",
+      "data.gov.rs",
+      "csu.gov.cz"
+    ]
+  },
+  "blocked_host_exception_paths": [
+    "docs/political-data/source-closure/"
+  ]
+}

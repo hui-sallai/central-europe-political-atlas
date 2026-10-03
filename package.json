@@ -22,6 +22,8 @@
     "political-source-closure:validate": "node docs/political-data/source-closure/validate.mjs",
     "political-data:validate": "node scripts/political-data/germany/validate.mjs && node scripts/political-data/germany/export-cli.mjs --check",
     "political-data:test": "node --test scripts/political-data/germany/explorer.test.mjs scripts/political-data/germany/production.test.mjs",
+    "legal-security:validate": "node scripts/legal-security/validate.mjs",
+    "political-person-safety:validate": "node scripts/legal-security/person-safety.mjs",
     "historical-extension:validate": "node scripts/historical-monthly-extension/validate.mjs",
     "historical-extension:closure-validate": "node scripts/historical-monthly-extension/closure-validate.mjs",
     "baseline-definition:validate": "node scripts/historical-monthly-extension/validate-baseline-definition.mjs",

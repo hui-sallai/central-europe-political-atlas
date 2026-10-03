@@ -33,8 +33,12 @@ export function sourceInstitution(label: string, url: string): string {
   return label;
 }
 const boundary = "当前视图的描述性观测快照；正式观测标签标识数据层来源，不代表本快照发布模型结果。历史与 SORS 描述性数据不进入模型。快照不提供因果、预测或政策评价结论。";
+// Spreadsheet formula-injection guard: text cells starting with = + - @ or a control character get a leading
+// apostrophe. Numbers and numeric strings are left unchanged; missing values stay empty.
+const numericText = /^[+-]?(\d+([.,]\d+)?|[.,]\d+)([eE][+-]?\d+)?$/;
 export function csvCell(value: unknown): string {
-  const text = value === null || value === undefined ? "" : String(value);
+  let text = value === null || value === undefined ? "" : String(value);
+  if (typeof value === "string" && !numericText.test(value.trim()) && /^[\s]*[=+@-]|^[\t\r\n]/.test(value)) text = `'${text}`;
   return `"${text.replaceAll('"', '""')}"`;
 }
 export function toCsv(headers: string[], rows: Record<string, unknown>[]): string {

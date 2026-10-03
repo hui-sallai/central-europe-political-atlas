@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "reviewed": "2026-10-04",
+  "risks": [
+    {
+      "id": "L1",
+      "area": "privacy",
+      "risk": "GDPR transparency: notice must reflect actual processing",
+      "basis": "LAW / EXTERNAL LICENCE",
+      "control": "privacy pages describe hosting, e-mail, localStorage keys, no cookies/analytics/profiling",
+      "doc": "privacy_data_inventory.md",
+      "residual": "medium"
+    },
+    {
+      "id": "L2",
+      "area": "privacy",
+      "risk": "Controller identity / legal basis unconfirmed",
+      "basis": "OWNER DECISION",
+      "control": "no guessed controller; owner_confirmations.json",
+      "doc": "owner_compliance_checklist.md",
+      "residual": "medium"
+    },
+    {
+      "id": "L3",
+      "area": "political-data",
+      "risk": "Special-category inference of individual political opinions (GDPR Art. 9)",
+      "basis": "LAW / EXTERNAL LICENCE",
+      "control": "P0–P5 classes; no-person-inference validator; public no-profiling statement",
+      "doc": "political_person_data_policy.md",
+      "residual": "low"
+    },
+    {
+      "id": "L4",
+      "area": "political-data",
+      "risk": "Forecasting / voter modelling / microtargeting",
+      "basis": "ATLAS POLICY",
+      "control": "blocked fields and result-status enum without prediction values",
+      "doc": "political_analysis_boundary.md",
+      "residual": "low"
+    },
+    {
+      "id": "L5",
+      "area": "licence",
+      "risk": "Reuse without a licence (election portals)",
+      "basis": "LAW / EXTERNAL LICENCE",
+      "control": "rights registry fail-closed canExport; only germany political store",
+      "doc": "source_licence_policy.md",
+      "residual": "low"
+    },
+    {
+      "id": "L6",
+      "area": "licence",
+      "risk": "Missing attribution (GISCO, Bundeswahlleiterin, Eurostat, BIS)",
+      "basis": "LAW / EXTERNAL LICENCE",
+      "control": "built-output attribution checks",
+      "doc": "source_licence_policy.md",
+      "residual": "low"
+    },
+    {
+      "id": "L7",
+      "area": "database-right",
+      "risk": "Substantial extraction from protected databases",
+      "basis": "LAW / EXTERNAL LICENCE",
+      "control": "series-level storage; blocked sources",
+      "doc": "database_right_policy.md",
+      "residual": "low"
+    },
+    {
+      "id": "L8",
+      "area": "network",
+      "risk": "Automated access against terms/robots",
+      "basis": "LAW / EXTERNAL LICENCE",
+      "control": "network registry; unknown host = block",
+      "doc": "network_access_policy.md",
+      "residual": "low"
+    },
+    {
+      "id": "L9",
+      "area": "copyright",
+      "risk": "Copied news text or images in Event Library",
+      "basis": "LAW / EXTERNAL LICENCE",
+      "control": "own-words summaries, links only",
+      "doc": "copyright_content_policy.md",
+      "residual": "low"
+    },
+    {
+      "id": "L10",
+      "area": "defamation",
+      "risk": "Factual claims about named people/organisations",
+      "basis": "LAW / EXTERNAL LICENCE",
+      "control": "attribution, boundary paragraph, takedown route",
+      "doc": "correction_takedown_policy.md",
+      "residual": "low-medium"
+    },
+    {
+      "id": "L11",
+      "area": "security",
+      "risk": "Front-end injection / CSV formula injection",
+      "basis": "ENGINEERING CONTROL",
+      "control": "sink scan, jsonLdHtml escaping, csvCell guard",
+      "doc": "security_policy.md",
+      "residual": "low"
+    },
+    {
+      "id": "L12",
+      "area": "security",
+      "risk": "Build-time dependency advisories",
+      "basis": "ENGINEERING CONTROL",
+      "control": "static export; upgrade pending owner approval",
+      "doc": "third_party_dependency_licences.md",
+      "residual": "medium"
+    },
+    {
+      "id": "L13",
+      "area": "commercial",
+      "risk": "Commercial use breaking non-commercial licences",
+      "basis": "OWNER DECISION",
+      "control": "operating-mode kill switch",
+      "doc": "commercialisation_gate.md",
+      "residual": "low"
+    },
+    {
+      "id": "L14",
+      "area": "media-law",
+      "risk": "Hungarian media registration",
+      "basis": "LAW / EXTERNAL LICENCE",
+      "control": "watch only, no conclusion",
+      "doc": "media_registration_watch.md",
+      "residual": "unknown"
+    },
+    {
+      "id": "L15",
+      "area": "incident",
+      "risk": "Personal-data breach notification duties",
+      "basis": "LAW / EXTERNAL LICENCE",
+      "control": "incident plan; owner decides",
+      "doc": "incident_response_plan.md",
+      "residual": "low"
+    }
+  ]
+}

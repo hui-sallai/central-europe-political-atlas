@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
-import { PLATFORM_CONTACT_EMAIL, PLATFORM_LEGAL_NOTICE_UPDATED, PLATFORM_NAME } from "@/lib/releaseMetadata";
+import { PLATFORM_CONTACT_EMAIL, PLATFORM_NAME } from "@/lib/releaseMetadata";
+import { LEGAL_NOTICES_UPDATED } from "@/content/legalNotices";
 
 export const metadata: Metadata = pageMetadata({ title: "法律、版权与更正说明", description: "平台独立性、研究边界、第三方数据许可、版权、地图署名和更正撤下机制。", path: "/legal/" });
 
@@ -24,7 +25,7 @@ const sections = [
   ],
   [
     "政治人物、政党与个人数据",
-    <p key="people">平台只处理与公共职务和研究问题直接相关、具有明确公开来源且必要的信息。未经核验的姓名、政治立场或党派关系保持待核验；不从社交媒体推断个人政治观点，不建立选民或普通个人画像，也不提供针对个人的政治定向功能。</p>,
+    <div key="people" className="grid gap-2"><p>平台不建立个人政治观点画像，不根据个人言论、投票行为、社交媒体、党派关系或其他信息推断自然人的政治观点、意识形态、投票意向或未来政治行为。</p><p>平台只处理与公共职务和研究问题直接相关、具有明确公开来源且必要的信息。对政党、选举结果和议会构成的汇总分析属于集体层面的研究，不同于针对个人的画像，也不会被转化为对具体个人政治观点的判断。平台不提供选举预测、选民建模或针对个人的政治定向功能。</p></div>,
   ],
   [
     "商标与名称",
@@ -41,7 +42,7 @@ export default function LegalPage() {
     <main className="page-shell">
       <p className="eyebrow">Legal, Copyright & Corrections</p>
       <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">法律、版权与更正说明</h1>
-      <p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">更新日期：{PLATFORM_LEGAL_NOTICE_UPDATED}。本页说明平台的公开研究边界和处理规则，不替代针对具体司法辖区的专业法律意见。</p>
+      <p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">更新日期：{LEGAL_NOTICES_UPDATED}。本页说明平台的公开研究边界和处理规则，不替代针对具体司法辖区的专业法律意见。</p>
 
       <div className="mt-7 grid gap-4">
         {sections.map(([title, body]) => (

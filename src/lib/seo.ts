@@ -18,6 +18,11 @@ export function pageMetadata({ title, description, path, image = "/og/site.png",
 }
 
 // JSON-LD for the dataset pages (Data Explorer, Methodology): the site plus the downloadable research package.
+/** JSON-LD for an inline <script>: escapes characters that could end the element or break parsing. */
+export function jsonLdHtml(value: unknown): string {
+  return JSON.stringify(value).replace(/</g, "\\u003c").replace(/>/g, "\\u003e").replace(/&/g, "\\u0026").replace(/\u2028/g, "\\u2028").replace(/\u2029/g, "\\u2029");
+}
+
 export function datasetJsonLd({ path, name, description, locale = "zh-CN" }: { path: string; name: string; description: string; locale?: Locale }) {
   const url = `${PLATFORM_BASE_URL.replace(/\/$/, "")}${path}`;
   return [

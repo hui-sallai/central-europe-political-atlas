@@ -1,0 +1,9 @@
+{
+  "schema_version": "atlas-site-operating-mode-v1",
+  "kind": "OWNER DECISION",
+  "site_operating_mode": "noncommercial_research",
+  "set_by": "owner (recorded 2026-10-04 from the existing public Legal notice: independent, non-commercial public research project)",
+  "owner_confirmation_status": "OWNER_CONFIRMATION_REQUIRED",
+  "rule": "Any advertising, paid subscription, paid API, paid client delivery, commercial SaaS or sponsorship tied to service access requires site_operating_mode = COMMERCIAL_MODE_REVIEW_REQUIRED and a completed review (GISCO/EuroGeographics, publisher licences, privacy, media registration, dependency licences, business/tax) before deployment.",
+  "commercial_review": null
+}

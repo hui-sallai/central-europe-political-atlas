@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { datasetJsonLd, pageMetadata } from "@/lib/seo";
+import { datasetJsonLd, jsonLdHtml, pageMetadata } from "@/lib/seo";
 import { DataExplorerV11 } from "@/components/DataExplorerV11";
 import { researchCountries, researchIndicators, researchObservations } from "@/lib/researchData";
 
@@ -8,7 +8,7 @@ export const metadata: Metadata = pageMetadata({ title: "Data Explorer", descrip
 export default function DataPage() {
   return (
     <main className="page-shell">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(datasetJsonLd({ path: "/data/", name: "Central Europe Political Atlas — research data", description: "Traceable official observations for ten Central European countries: annual national indicators, high-frequency and macro-driver series, descriptive historical coverage and regional facts, with sources and status for every value." })).replace(/</g, "\\u003c") }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdHtml(datasetJsonLd({ path: "/data/", name: "Central Europe Political Atlas — research data", description: "Traceable official observations for ten Central European countries: annual national indicators, high-frequency and macro-driver series, descriptive historical coverage and regional facts, with sources and status for every value." })) }} />
       <header className="max-w-4xl border-b border-[var(--line)] pb-8">
         <p className="editorial-kicker">Data Explorer</p>
         <h1 className="mt-4 text-5xl font-semibold tracking-[-0.04em]">研究数据浏览</h1>

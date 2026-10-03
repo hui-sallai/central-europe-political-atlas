@@ -49,6 +49,11 @@ jobs:
       - name: Validate local research notebook before generated release exports
         run: pnpm notebook:validate
 
+      - name: Political person-safety and source-level legal/security gate
+        run: |
+          pnpm political-person-safety:validate
+          node scripts/legal-security/validate.mjs --source-only
+
       - name: Setup Python reference runtime
         uses: actions/setup-python@v6
         with:
@@ -140,6 +145,9 @@ jobs:
 
       - name: Build static site
         run: pnpm build:site
+
+      - name: Legal, privacy and security gate on built output
+        run: pnpm legal-security:validate
 
       - name: SEO and UI regression checks
         run: |

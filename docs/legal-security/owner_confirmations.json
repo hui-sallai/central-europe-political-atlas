@@ -1,0 +1,19 @@
+{
+  "schema_version": "atlas-owner-confirmations-v1",
+  "kind": "OWNER DECISION — internal; never rendered publicly",
+  "note": "null = OWNER_CONFIRMATION_REQUIRED. The publisher-contact readiness gate stays NOT_READY until the required items are true.",
+  "items": {
+    "controller_identity_confirmed": null,
+    "controller_establishment_confirmed": null,
+    "public_contact_email_confirmed": null,
+    "noncommercial_status_confirmed": null,
+    "no_institutional_affiliation_claimed": null,
+    "legal_notice_reviewed": null,
+    "privacy_notice_reviewed": null,
+    "github_custom_domain_verified": null,
+    "github_enforce_https_verified": null,
+    "github_mfa_verified": null,
+    "registrar_mfa_verified": null,
+    "dns_reviewed": null
+  }
+}
