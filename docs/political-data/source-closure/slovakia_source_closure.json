@@ -1,0 +1,684 @@
+{
+  "schema_version": "political-source-closure-v1",
+  "state": "blocked_checkpoint_not_completed_audit",
+  "country": "slovakia",
+  "platform_version": "v2.0",
+  "canonical_write_authorized": false,
+  "licence_gate": "written_confirmation_required",
+  "licence_blocker": "The publisher principles state CC BY 4.0 and third-party exclusions but expressly prohibit robots/spiders and similar collection tools. Further automated retrieval is stopped. Confirm lawful acquisition route and election-file applicability in writing before ingestion.",
+  "recommendation": "BLOCKED_BY_MULTIPLE_GATES",
+  "gate_matrix": {
+    "country": "slovakia",
+    "publisher": "Štatistický úrad SR (ŠÚ SR)",
+    "gates": {
+      "reuse_right": {
+        "status": "open",
+        "value": "supported_pending_scope_confirmation",
+        "closes_by": "publisher_reply",
+        "basis": "Terms page (last update 26.10.2020): information 'released by the Statistical Office of the SR through the website www.statistics.sk' may be disseminated, used and used commercially under CC BY 4.0. API help: 'All information is subject to the license terms of the Creative Commons Attribution License (cc-by) 4.0.' The election dataset list on volby.statistics.sk names all seven files under its open-government dataset statement. Remaining gap: the operative text names www.statistics.sk; the files are on volby.statistics.sk, and the election-specific open-data sentence is no longer on the live portal (portal restructured 2026-09-15)."
+      },
+      "normalized_republication": {
+        "status": "open",
+        "value": "supported_pending_scope_confirmation",
+        "closes_by": "publisher_reply",
+        "basis": "Terms permit dissemination and use under CC BY 4.0; applies if the election files are covered."
+      },
+      "raw_redistribution": {
+        "status": "open",
+        "value": "supported_pending_scope_confirmation",
+        "closes_by": "publisher_reply",
+        "basis": "Terms explicitly allow 'copied, distributed and communicated to the public' — the same scope question applies. Third-party IP exclusion clause noted."
+      },
+      "automated_acquisition": {
+        "status": "blocked",
+        "value": "prohibited_by_publisher_terms",
+        "closes_by": "publisher_reply",
+        "basis": "'Use of robots, spiders, crawlers and similar data gathering and extraction tools is expressly prohibited.' No further automated retrieval; the evidence script refuses statistics.sk hosts."
+      },
+      "manual_acquisition": {
+        "status": "partial",
+        "value": "not_prohibited_public_download",
+        "closes_by": "publisher_reply",
+        "basis": "Files are published for download; terms prohibit tools, not human download. Confirmation requested."
+      },
+      "source_files_complete": {
+        "status": "partial",
+        "value": null,
+        "closes_by": "owner_manual_action",
+        "basis": "Seven national vote files archived; national summary (turnout) and seat-allocation tables are identified by name in the dataset list but not acquired."
+      },
+      "national_definition_complete": {
+        "status": "partial",
+        "value": null,
+        "closes_by": "owner_manual_action",
+        "basis": "Published shares reproduce votes ÷ sum of party valid votes within 0.01 pp in all seven files; official national valid-vote total (summary table) not yet compared."
+      },
+      "same_election_identity_complete": {
+        "status": "open",
+        "value": null,
+        "closes_by": "owner_manual_action",
+        "basis": "Subject lists identified (2016 tab20, 2020 tab0a, 2023 tab0a); none for 2002–2012 in the list; subject numbers are election-local."
+      },
+      "electoral_system_metadata_complete": {
+        "status": "partial",
+        "value": null,
+        "closes_by": "documentary_work",
+        "basis": "2016 date verified from Zbierka zákonov 307/2015 Z. z. (5 March 2016); thresholds/allocation per election not reviewed."
+      },
+      "vintage_decisions_complete": {
+        "status": "partial",
+        "value": null,
+        "closes_by": "documentary_work",
+        "basis": "Final national files only; no correction notice found in reviewed material."
+      }
+    },
+    "mandatory_gate_status": {
+      "reuse_right": "open",
+      "normalized_republication": "open",
+      "acquisition_route": "partial",
+      "source_files_complete": "partial",
+      "national_definition_complete": "partial",
+      "same_election_identity_complete": "open",
+      "electoral_system_metadata_complete": "partial",
+      "vintage_decisions_complete": "partial"
+    },
+    "open_mandatory_gates": [
+      "reuse_right",
+      "normalized_republication",
+      "acquisition_route",
+      "source_files_complete",
+      "national_definition_complete",
+      "same_election_identity_complete",
+      "electoral_system_metadata_complete",
+      "vintage_decisions_complete"
+    ],
+    "overall_readiness": "NOT_READY",
+    "variant_eligibility": {
+      "1B-A_full_normalized": false,
+      "1B-B_normalized_without_raw": false,
+      "1B-manual": false
+    }
+  },
+  "rights_gates": {
+    "reuse_right": {
+      "value": "supported_pending_scope_confirmation",
+      "status": "open",
+      "closes_by": "publisher_reply",
+      "basis": "Terms page (last update 26.10.2020): information 'released by the Statistical Office of the SR through the website www.statistics.sk' may be disseminated, used and used commercially under CC BY 4.0. API help: 'All information is subject to the license terms of the Creative Commons Attribution License (cc-by) 4.0.' The election dataset list on volby.statistics.sk names all seven files under its open-government dataset statement. Remaining gap: the operative text names www.statistics.sk; the files are on volby.statistics.sk, and the election-specific open-data sentence is no longer on the live portal (portal restructured 2026-09-15).",
+      "evidence": [
+        {
+          "path": "local-evidence/e4a3ebc357fe7e117abb0957217b1307293966b0f9395b9b02dd8381b6faaed8.raw",
+          "sha256": "e4a3ebc357fe7e117abb0957217b1307293966b0f9395b9b02dd8381b6faaed8",
+          "note": "volby.statistics.sk/tree.html dataset list naming the seven files"
+        },
+        {
+          "path": "manual-browser-review:https://slovak.statistics.sk/wps/portal/ext/aboutus/webpage/terms/",
+          "sha256": null,
+          "note": "viewed 2026-10-03 by the agent in the interactive browser pane (single documentation page view, no data download); quoted, not archived — owner may re-confirm and archive manually"
+        },
+        {
+          "path": "manual-browser-review:data.statistics.sk/api/html/help-en.html",
+          "sha256": null,
+          "note": "viewed 2026-10-03 in browser; quoted, not archived"
+        }
+      ]
+    },
+    "normalized_factual_republication_right": {
+      "value": "supported_pending_scope_confirmation",
+      "status": "open",
+      "closes_by": "publisher_reply",
+      "basis": "Terms permit dissemination and use under CC BY 4.0; applies if the election files are covered."
+    },
+    "raw_redistribution_right": {
+      "value": "supported_pending_scope_confirmation",
+      "status": "open",
+      "closes_by": "publisher_reply",
+      "basis": "Terms explicitly allow 'copied, distributed and communicated to the public' — the same scope question applies. Third-party IP exclusion clause noted."
+    },
+    "automated_acquisition_permission": {
+      "value": "prohibited_by_publisher_terms",
+      "status": "blocked",
+      "closes_by": "publisher_reply",
+      "basis": "'Use of robots, spiders, crawlers and similar data gathering and extraction tools is expressly prohibited.' No further automated retrieval; the evidence script refuses statistics.sk hosts."
+    },
+    "manual_acquisition_permission": {
+      "value": "not_prohibited_public_download",
+      "status": "partial",
+      "closes_by": "publisher_reply",
+      "basis": "Files are published for download; terms prohibit tools, not human download. Confirmation requested."
+    },
+    "attribution_requirements": {
+      "value": "documented_if_terms_apply",
+      "status": "partial",
+      "closes_by": "publisher_reply",
+      "basis": "Terms wording (if they cover the election files): SO SR indicated as source without implying endorsement; mention CC BY 4.0 terms, preferably by direct link to www.statistics.sk."
+    },
+    "transformation_disclosure_requirements": {
+      "value": "documented_by_licence",
+      "status": "partial",
+      "basis": "CC BY 4.0 requires indicating changes; no publisher-specific wording found."
+    }
+  },
+  "future_production_elections": [],
+  "expected_record_counts": null,
+  "manual_work": [
+    "Subject numbers are election-local; never inferred durable legal party IDs.",
+    "2006/2010/2012 national result CSVs have no explicit subject-code column. Same-election registration crosswalk is still required.",
+    "2016 nan and 2020/2023 empty seat cells remain missing, not zero.",
+    "Exact dated electoral law review and final national totals/seat/turnout verification remain required after a lawful source acquisition route is confirmed."
+  ],
+  "elections": [
+    {
+      "country": "slovakia",
+      "year": 2002,
+      "date": "2002-09-20",
+      "date_status": "candidate_date_requires_file_confirmation",
+      "election_id_proposal": "el-sk-nrsr-2002-09-20",
+      "authority": "Štatistický úrad SR",
+      "dataset_or_file_title": "NRSR_2002_tab03.csv",
+      "file_url": "https://volby.statistics.sk/opendata/nrsr/2002/NRSR_2002_tab03.csv",
+      "file_status": "retrieved_not_production_reviewed",
+      "index_evidence": {
+        "url": "https://volby.statistics.sk/opendata/nrsr/2002/NRSR_2002_tab03.csv",
+        "final_url": "https://volby.statistics.sk/opendata/nrsr/2002/NRSR_2002_tab03.csv",
+        "status": 200,
+        "content_type": "text/csv",
+        "retrieved_at": "2026-10-03T10:06:06.284Z",
+        "bytes": 1339,
+        "sha256": "02823a10d7f695e4bf4f003b33a191ed52dac8b189aff5d65f6c2ae3a7b551d0",
+        "archive_path": "local-evidence/02823a10d7f695e4bf4f003b33a191ed52dac8b189aff5d65f6c2ae3a7b551d0.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "CSV",
+      "national_result_level": "national",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": "Politická strana číslo",
+      "vote_field": "Počet \nplatných\n hlasov",
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": {
+        "url": "https://volby.statistics.sk/opendata/nrsr/2002/NRSR_2002_tab03.csv",
+        "final_url": "https://volby.statistics.sk/opendata/nrsr/2002/NRSR_2002_tab03.csv",
+        "status": 200,
+        "content_type": "text/csv",
+        "retrieved_at": "2026-10-03T10:06:06.284Z",
+        "bytes": 1339,
+        "sha256": "02823a10d7f695e4bf4f003b33a191ed52dac8b189aff5d65f6c2ae3a7b551d0",
+        "archive_path": "local-evidence/02823a10d7f695e4bf4f003b33a191ed52dac8b189aff5d65f6c2ae3a7b551d0.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": {
+        "encoding": "windows-1250",
+        "delimiter": ";",
+        "headers": [
+          "Splnená podmienka pre pridelenie mandátu do Národnej rady",
+          "Politická strana číslo",
+          "Politická strana názov",
+          "Počet \nplatných\n hlasov",
+          "Podiel \n platných\n hlasov v %"
+        ],
+        "source_result_rows": 25,
+        "vote_field": "Počet \nplatných\n hlasov",
+        "seat_field": null,
+        "id_field": "Politická strana číslo",
+        "empty_and_nan_seats": "preserve_null_no_zero_imputation",
+        "national_totals_reconciled": false
+      },
+      "notes": [
+        "All seven small national-vote CSV files were retrieved before the automated-acquisition prohibition was discovered. Originals are local only. No further Slovak download is authorized by this checkpoint.",
+        "National CSV headers, delimiters, encodings and missing-seat representations vary across elections.",
+        "Subject numbers are election-local; never inferred durable legal party IDs.",
+        "2006/2010/2012 national result CSVs have no explicit subject-code column. Same-election registration crosswalk is still required.",
+        "2016 nan and 2020/2023 empty seat cells remain missing, not zero."
+      ]
+    },
+    {
+      "country": "slovakia",
+      "year": 2006,
+      "date": "2006-06-17",
+      "date_status": "candidate_date_requires_file_confirmation",
+      "election_id_proposal": "el-sk-nrsr-2006-06-17",
+      "authority": "Štatistický úrad SR",
+      "dataset_or_file_title": "NRSR_2006_tab05.csv",
+      "file_url": "https://volby.statistics.sk/opendata/nrsr/2006/NRSR_2006_tab05.csv",
+      "file_status": "retrieved_not_production_reviewed",
+      "index_evidence": {
+        "url": "https://volby.statistics.sk/opendata/nrsr/2006/NRSR_2006_tab05.csv",
+        "final_url": "https://volby.statistics.sk/opendata/nrsr/2006/NRSR_2006_tab05.csv",
+        "status": 200,
+        "content_type": "text/csv",
+        "retrieved_at": "2026-10-03T10:06:06.412Z",
+        "bytes": 1083,
+        "sha256": "52be0e3d282a4f5618705c5a4a99dcef585b244f3a5a72603ec50c7e23727983",
+        "archive_path": "local-evidence/52be0e3d282a4f5618705c5a4a99dcef585b244f3a5a72603ec50c7e23727983.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "CSV",
+      "national_result_level": "national",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": "Počet platných hlasov",
+      "valid_vote_denominator": null,
+      "seat_field": "Počet pridelených mandátov",
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": {
+        "url": "https://volby.statistics.sk/opendata/nrsr/2006/NRSR_2006_tab05.csv",
+        "final_url": "https://volby.statistics.sk/opendata/nrsr/2006/NRSR_2006_tab05.csv",
+        "status": 200,
+        "content_type": "text/csv",
+        "retrieved_at": "2026-10-03T10:06:06.412Z",
+        "bytes": 1083,
+        "sha256": "52be0e3d282a4f5618705c5a4a99dcef585b244f3a5a72603ec50c7e23727983",
+        "archive_path": "local-evidence/52be0e3d282a4f5618705c5a4a99dcef585b244f3a5a72603ec50c7e23727983.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": {
+        "encoding": "utf-8",
+        "delimiter": ",",
+        "headers": [
+          "Názov politického subjektu",
+          "Počet platných hlasov",
+          "Podiel platných hlasov",
+          "Počet pridelených mandátov"
+        ],
+        "source_result_rows": 21,
+        "vote_field": "Počet platných hlasov",
+        "seat_field": "Počet pridelených mandátov",
+        "id_field": null,
+        "empty_and_nan_seats": "preserve_null_no_zero_imputation",
+        "national_totals_reconciled": false
+      },
+      "notes": [
+        "All seven small national-vote CSV files were retrieved before the automated-acquisition prohibition was discovered. Originals are local only. No further Slovak download is authorized by this checkpoint.",
+        "National CSV headers, delimiters, encodings and missing-seat representations vary across elections.",
+        "Subject numbers are election-local; never inferred durable legal party IDs.",
+        "2006/2010/2012 national result CSVs have no explicit subject-code column. Same-election registration crosswalk is still required.",
+        "2016 nan and 2020/2023 empty seat cells remain missing, not zero."
+      ]
+    },
+    {
+      "country": "slovakia",
+      "year": 2010,
+      "date": "2010-06-12",
+      "date_status": "candidate_date_requires_file_confirmation",
+      "election_id_proposal": "el-sk-nrsr-2010-06-12",
+      "authority": "Štatistický úrad SR",
+      "dataset_or_file_title": "NRSR_2010_tab09.csv",
+      "file_url": "https://volby.statistics.sk/opendata/nrsr/2010/NRSR_2010_tab09.csv",
+      "file_status": "retrieved_not_production_reviewed",
+      "index_evidence": {
+        "url": "https://volby.statistics.sk/opendata/nrsr/2010/NRSR_2010_tab09.csv",
+        "final_url": "https://volby.statistics.sk/opendata/nrsr/2010/NRSR_2010_tab09.csv",
+        "status": 200,
+        "content_type": "text/csv",
+        "retrieved_at": "2026-10-03T10:06:06.448Z",
+        "bytes": 985,
+        "sha256": "67ec053a625a946affb9058757c5c3ab9edc6d49fb92e883a1aa81976f1d02a6",
+        "archive_path": "local-evidence/67ec053a625a946affb9058757c5c3ab9edc6d49fb92e883a1aa81976f1d02a6.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "CSV",
+      "national_result_level": "national",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": "Počet platných hlasov",
+      "valid_vote_denominator": null,
+      "seat_field": "Počet pridelených mandátov",
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": {
+        "url": "https://volby.statistics.sk/opendata/nrsr/2010/NRSR_2010_tab09.csv",
+        "final_url": "https://volby.statistics.sk/opendata/nrsr/2010/NRSR_2010_tab09.csv",
+        "status": 200,
+        "content_type": "text/csv",
+        "retrieved_at": "2026-10-03T10:06:06.448Z",
+        "bytes": 985,
+        "sha256": "67ec053a625a946affb9058757c5c3ab9edc6d49fb92e883a1aa81976f1d02a6",
+        "archive_path": "local-evidence/67ec053a625a946affb9058757c5c3ab9edc6d49fb92e883a1aa81976f1d02a6.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": {
+        "encoding": "utf-8",
+        "delimiter": ",",
+        "headers": [
+          "Názov politického subjektu",
+          "Počet platných hlasov",
+          "Podiel platných hlasov",
+          "Počet pridelených mandátov"
+        ],
+        "source_result_rows": 18,
+        "vote_field": "Počet platných hlasov",
+        "seat_field": "Počet pridelených mandátov",
+        "id_field": null,
+        "empty_and_nan_seats": "preserve_null_no_zero_imputation",
+        "national_totals_reconciled": false
+      },
+      "notes": [
+        "All seven small national-vote CSV files were retrieved before the automated-acquisition prohibition was discovered. Originals are local only. No further Slovak download is authorized by this checkpoint.",
+        "National CSV headers, delimiters, encodings and missing-seat representations vary across elections.",
+        "Subject numbers are election-local; never inferred durable legal party IDs.",
+        "2006/2010/2012 national result CSVs have no explicit subject-code column. Same-election registration crosswalk is still required.",
+        "2016 nan and 2020/2023 empty seat cells remain missing, not zero."
+      ]
+    },
+    {
+      "country": "slovakia",
+      "year": 2012,
+      "date": "2012-03-10",
+      "date_status": "candidate_date_requires_file_confirmation",
+      "election_id_proposal": "el-sk-nrsr-2012-03-10",
+      "authority": "Štatistický úrad SR",
+      "dataset_or_file_title": "NRSR_2012_tab09.csv",
+      "file_url": "https://volby.statistics.sk/opendata/nrsr/2012/NRSR_2012_tab09.csv",
+      "file_status": "retrieved_not_production_reviewed",
+      "index_evidence": {
+        "url": "https://volby.statistics.sk/opendata/nrsr/2012/NRSR_2012_tab09.csv",
+        "final_url": "https://volby.statistics.sk/opendata/nrsr/2012/NRSR_2012_tab09.csv",
+        "status": 200,
+        "content_type": "text/csv",
+        "retrieved_at": "2026-10-03T10:06:06.485Z",
+        "bytes": 1268,
+        "sha256": "bca69f1264ef04bd399acca4430f4163e9f1e4e0c862dae472b85e5ec4d8475b",
+        "archive_path": "local-evidence/bca69f1264ef04bd399acca4430f4163e9f1e4e0c862dae472b85e5ec4d8475b.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "CSV",
+      "national_result_level": "national",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": "Počet platných hlasov",
+      "valid_vote_denominator": null,
+      "seat_field": "Počet pridelených mandátov",
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": {
+        "url": "https://volby.statistics.sk/opendata/nrsr/2012/NRSR_2012_tab09.csv",
+        "final_url": "https://volby.statistics.sk/opendata/nrsr/2012/NRSR_2012_tab09.csv",
+        "status": 200,
+        "content_type": "text/csv",
+        "retrieved_at": "2026-10-03T10:06:06.485Z",
+        "bytes": 1268,
+        "sha256": "bca69f1264ef04bd399acca4430f4163e9f1e4e0c862dae472b85e5ec4d8475b",
+        "archive_path": "local-evidence/bca69f1264ef04bd399acca4430f4163e9f1e4e0c862dae472b85e5ec4d8475b.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": {
+        "encoding": "utf-8",
+        "delimiter": ",",
+        "headers": [
+          "Názov politického subjektu",
+          "Počet platných hlasov",
+          "Podiel platných hlasov",
+          "Počet pridelených mandátov"
+        ],
+        "source_result_rows": 26,
+        "vote_field": "Počet platných hlasov",
+        "seat_field": "Počet pridelených mandátov",
+        "id_field": null,
+        "empty_and_nan_seats": "preserve_null_no_zero_imputation",
+        "national_totals_reconciled": false
+      },
+      "notes": [
+        "All seven small national-vote CSV files were retrieved before the automated-acquisition prohibition was discovered. Originals are local only. No further Slovak download is authorized by this checkpoint.",
+        "National CSV headers, delimiters, encodings and missing-seat representations vary across elections.",
+        "Subject numbers are election-local; never inferred durable legal party IDs.",
+        "2006/2010/2012 national result CSVs have no explicit subject-code column. Same-election registration crosswalk is still required.",
+        "2016 nan and 2020/2023 empty seat cells remain missing, not zero."
+      ]
+    },
+    {
+      "country": "slovakia",
+      "year": 2016,
+      "date": "2016-03-05",
+      "date_status": "tier1_legal_document_verified_307_2015_ZZ",
+      "election_id_proposal": "el-sk-nrsr-2016-03-05",
+      "authority": "Štatistický úrad SR",
+      "dataset_or_file_title": "NRSR_2016_tab13.csv",
+      "file_url": "https://volby.statistics.sk/opendata/nrsr/2016/NRSR_2016_tab13.csv",
+      "file_status": "retrieved_not_production_reviewed",
+      "index_evidence": {
+        "url": "https://volby.statistics.sk/opendata/nrsr/2016/NRSR_2016_tab13.csv",
+        "final_url": "https://volby.statistics.sk/opendata/nrsr/2016/NRSR_2016_tab13.csv",
+        "status": 200,
+        "content_type": "text/csv",
+        "retrieved_at": "2026-10-03T10:06:06.517Z",
+        "bytes": 1411,
+        "sha256": "0a9ef5ec2fba9a5cc8b71a0669991429978b467593e5a781ab25f9a861bf5bbd",
+        "archive_path": "local-evidence/0a9ef5ec2fba9a5cc8b71a0669991429978b467593e5a781ab25f9a861bf5bbd.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "CSV",
+      "national_result_level": "national",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": "Číslo politického subjektu",
+      "vote_field": "Počet platných hlasov",
+      "valid_vote_denominator": null,
+      "seat_field": "Počet pridelených mandátov",
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": {
+        "url": "https://volby.statistics.sk/opendata/nrsr/2016/NRSR_2016_tab13.csv",
+        "final_url": "https://volby.statistics.sk/opendata/nrsr/2016/NRSR_2016_tab13.csv",
+        "status": 200,
+        "content_type": "text/csv",
+        "retrieved_at": "2026-10-03T10:06:06.517Z",
+        "bytes": 1411,
+        "sha256": "0a9ef5ec2fba9a5cc8b71a0669991429978b467593e5a781ab25f9a861bf5bbd",
+        "archive_path": "local-evidence/0a9ef5ec2fba9a5cc8b71a0669991429978b467593e5a781ab25f9a861bf5bbd.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": {
+        "encoding": "utf-8",
+        "delimiter": ",",
+        "headers": [
+          "Číslo politického subjektu",
+          "Politický subjekt",
+          "Počet platných hlasov",
+          "Podiel platných hlasov    v %",
+          "Počet pridelených mandátov"
+        ],
+        "source_result_rows": 23,
+        "vote_field": "Počet platných hlasov",
+        "seat_field": "Počet pridelených mandátov",
+        "id_field": "Číslo politického subjektu",
+        "empty_and_nan_seats": "preserve_null_no_zero_imputation",
+        "national_totals_reconciled": false
+      },
+      "notes": [
+        "All seven small national-vote CSV files were retrieved before the automated-acquisition prohibition was discovered. Originals are local only. No further Slovak download is authorized by this checkpoint.",
+        "National CSV headers, delimiters, encodings and missing-seat representations vary across elections.",
+        "Subject numbers are election-local; never inferred durable legal party IDs.",
+        "2006/2010/2012 national result CSVs have no explicit subject-code column. Same-election registration crosswalk is still required.",
+        "2016 nan and 2020/2023 empty seat cells remain missing, not zero."
+      ]
+    },
+    {
+      "country": "slovakia",
+      "year": 2020,
+      "date": "2020-02-29",
+      "date_status": "candidate_date_requires_file_confirmation",
+      "election_id_proposal": "el-sk-nrsr-2020-02-29",
+      "authority": "Štatistický úrad SR",
+      "dataset_or_file_title": "NRSR_2020_tab03a.csv",
+      "file_url": "https://volby.statistics.sk/opendata/nrsr/2020/NRSR_2020_tab03a.csv",
+      "file_status": "retrieved_not_production_reviewed",
+      "index_evidence": {
+        "url": "https://volby.statistics.sk/opendata/nrsr/2020/NRSR_2020_tab03a.csv",
+        "final_url": "https://volby.statistics.sk/opendata/nrsr/2020/NRSR_2020_tab03a.csv",
+        "status": 200,
+        "content_type": "text/csv",
+        "retrieved_at": "2026-10-03T10:06:06.549Z",
+        "bytes": 1678,
+        "sha256": "bca99840d8d864218020a2953abf7a8b7a01842a573d90aa65bfb26aac60ea63",
+        "archive_path": "local-evidence/bca99840d8d864218020a2953abf7a8b7a01842a573d90aa65bfb26aac60ea63.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "CSV",
+      "national_result_level": "national",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": "Číslo politického subjektu",
+      "vote_field": "Počet platných hlasov",
+      "valid_vote_denominator": null,
+      "seat_field": "Počet získaných mandátov",
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": {
+        "url": "https://volby.statistics.sk/opendata/nrsr/2020/NRSR_2020_tab03a.csv",
+        "final_url": "https://volby.statistics.sk/opendata/nrsr/2020/NRSR_2020_tab03a.csv",
+        "status": 200,
+        "content_type": "text/csv",
+        "retrieved_at": "2026-10-03T10:06:06.549Z",
+        "bytes": 1678,
+        "sha256": "bca99840d8d864218020a2953abf7a8b7a01842a573d90aa65bfb26aac60ea63",
+        "archive_path": "local-evidence/bca99840d8d864218020a2953abf7a8b7a01842a573d90aa65bfb26aac60ea63.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": {
+        "encoding": "utf-8",
+        "delimiter": ",",
+        "headers": [
+          "Číslo politického subjektu",
+          "Názov politického subjektu",
+          "Počet platných hlasov",
+          "Podiel platných hlasov v %",
+          "Počet voličov, ktorí využili právo prednostného hlasovania",
+          "Podiel voličov, ktorí využili právo prednostného hlasovania v %",
+          "Počet získaných mandátov"
+        ],
+        "source_result_rows": 24,
+        "vote_field": "Počet platných hlasov",
+        "seat_field": "Počet získaných mandátov",
+        "id_field": "Číslo politického subjektu",
+        "empty_and_nan_seats": "preserve_null_no_zero_imputation",
+        "national_totals_reconciled": false
+      },
+      "notes": [
+        "All seven small national-vote CSV files were retrieved before the automated-acquisition prohibition was discovered. Originals are local only. No further Slovak download is authorized by this checkpoint.",
+        "National CSV headers, delimiters, encodings and missing-seat representations vary across elections.",
+        "Subject numbers are election-local; never inferred durable legal party IDs.",
+        "2006/2010/2012 national result CSVs have no explicit subject-code column. Same-election registration crosswalk is still required.",
+        "2016 nan and 2020/2023 empty seat cells remain missing, not zero."
+      ]
+    },
+    {
+      "country": "slovakia",
+      "year": 2023,
+      "date": "2023-09-30",
+      "date_status": "candidate_date_requires_file_confirmation",
+      "election_id_proposal": "el-sk-nrsr-2023-09-30",
+      "authority": "Štatistický úrad SR",
+      "dataset_or_file_title": "NRSR2023_SK_tab03a.csv",
+      "file_url": "https://volby.statistics.sk/opendata/nrsr/2023/NRSR2023_SK_tab03a.csv",
+      "file_status": "retrieved_not_production_reviewed",
+      "index_evidence": {
+        "url": "https://volby.statistics.sk/opendata/nrsr/2023/NRSR2023_SK_tab03a.csv",
+        "final_url": "https://volby.statistics.sk/opendata/nrsr/2023/NRSR2023_SK_tab03a.csv",
+        "status": 200,
+        "content_type": "text/csv",
+        "retrieved_at": "2026-10-03T10:06:06.692Z",
+        "bytes": 1946,
+        "sha256": "97f5660514a8572f1d76a1afa9e4b70a33fcd78f633134b720d3cc99cc3cd3ff",
+        "archive_path": "local-evidence/97f5660514a8572f1d76a1afa9e4b70a33fcd78f633134b720d3cc99cc3cd3ff.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "CSV",
+      "national_result_level": "national",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": "Číslo politického subjektu",
+      "vote_field": "Počet platných hlasov",
+      "valid_vote_denominator": null,
+      "seat_field": "Počet získaných mandátov",
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": {
+        "url": "https://volby.statistics.sk/opendata/nrsr/2023/NRSR2023_SK_tab03a.csv",
+        "final_url": "https://volby.statistics.sk/opendata/nrsr/2023/NRSR2023_SK_tab03a.csv",
+        "status": 200,
+        "content_type": "text/csv",
+        "retrieved_at": "2026-10-03T10:06:06.692Z",
+        "bytes": 1946,
+        "sha256": "97f5660514a8572f1d76a1afa9e4b70a33fcd78f633134b720d3cc99cc3cd3ff",
+        "archive_path": "local-evidence/97f5660514a8572f1d76a1afa9e4b70a33fcd78f633134b720d3cc99cc3cd3ff.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": {
+        "encoding": "utf-8",
+        "delimiter": ",",
+        "headers": [
+          "Číslo politického subjektu",
+          "Názov politického subjektu",
+          "Počet platných hlasov",
+          "Podiel platných hlasov v %",
+          "Počet voličov, ktorí využili právo prednostného hlasovania",
+          "Podiel voličov, ktorí využili právo prednostného hlasovania v %",
+          "Počet získaných mandátov"
+        ],
+        "source_result_rows": 25,
+        "vote_field": "Počet platných hlasov",
+        "seat_field": "Počet získaných mandátov",
+        "id_field": "Číslo politického subjektu",
+        "empty_and_nan_seats": "preserve_null_no_zero_imputation",
+        "national_totals_reconciled": false
+      },
+      "notes": [
+        "All seven small national-vote CSV files were retrieved before the automated-acquisition prohibition was discovered. Originals are local only. No further Slovak download is authorized by this checkpoint.",
+        "National CSV headers, delimiters, encodings and missing-seat representations vary across elections.",
+        "Subject numbers are election-local; never inferred durable legal party IDs.",
+        "2006/2010/2012 national result CSVs have no explicit subject-code column. Same-election registration crosswalk is still required.",
+        "2016 nan and 2020/2023 empty seat cells remain missing, not zero."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2579 @@
+{
+  "schema_version": "political-documentary-review-v1",
+  "generated_at": "2026-10-03",
+  "method": "archived local evidence only; no network access in this script",
+  "czechia": {
+    "elections": [
+      {
+        "year": 2002,
+        "index": {
+          "url": "https://volby.gov.cz/opendata/ps2002/ps2002_opendata.htm",
+          "sha256": "70bb2c225b0f6dc70f40fac71847af93b21f1cde5d911b9a7f4b548b5dbabaaf",
+          "retrieved_at": "2026-10-03T10:06:06.017Z"
+        },
+        "file_count": 18,
+        "files": [
+          {
+            "url": "https://volby.gov.cz/opendata/ps2002/PS2002_reg_20230428_xml.zip",
+            "title": "Registry - XML soubory",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20230428"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2002/PS2002_reg_20230428_xlsx.zip",
+            "title": "Excel soubory",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20230428"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2002/PS2002_reg_20230428_csv.zip",
+            "title": "CSV (CSVW)",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20230428"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2002/PSregPopis.pdf",
+            "title": "PDF",
+            "kind": "registry",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2002/PSregPopis.htm",
+            "title": "HTML",
+            "kind": "registry",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2002/PS2002_reg_xsd.zip",
+            "title": "XSD",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2002/PS2002_cisel_20230224_xml.zip",
+            "title": "Číselníky - XML soubory",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2002/PS2002_cisel_20230224_xlsx.zip",
+            "title": "Excel soubory",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2002/PS2002_cisel_20230224_csv.zip",
+            "title": "CSV (CSVW)",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2002/PSciselnikyPopis.pdf",
+            "title": "PDF",
+            "kind": "code_lists",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2002/PSciselnikyPopis.htm",
+            "title": "HTML",
+            "kind": "code_lists",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2002/PS2002_cisel_xsd.zip",
+            "title": "XSD",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2002/PS2002_data_20230224_xml.zip",
+            "title": "XML",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2002/PS2002_data_20230224_xlsx.zip",
+            "title": "Excel",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2002/PS2002_data_20230224_csv.zip",
+            "title": "CSV (CSVW)",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2002/PS_datovaveta.pdf",
+            "title": "PDF",
+            "kind": "result_data",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2002/PS_datovaveta.htm",
+            "title": "HTML",
+            "kind": "result_data",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2002/PS2002_data_xsd.zip",
+            "title": "XSD",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": null
+          }
+        ],
+        "vintage_subpages": null,
+        "package_vintages": [
+          "20230224",
+          "20230428"
+        ],
+        "retrospective_packages": true,
+        "vintage_notes": []
+      },
+      {
+        "year": 2006,
+        "index": {
+          "url": "https://volby.gov.cz/opendata/ps2006/ps2006_opendata.htm",
+          "sha256": "298c35aaf602d7d4f10bd20f68b2632f20e57fec4ebddb614496a72bdce05dd6",
+          "retrieved_at": "2026-10-03T10:06:06.041Z"
+        },
+        "file_count": 22,
+        "files": [
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PS2006_XML.pdf",
+            "title": "PDF",
+            "kind": "xml_documentation",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PS2006_XML.htm",
+            "title": "HTML",
+            "kind": "xml_documentation",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PS_nuts.pdf",
+            "title": "číselníku (PDF)",
+            "kind": "nuts_code_list",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PS_nuts.htm",
+            "title": "HTML",
+            "kind": "nuts_code_list",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PS2006_reg_20230428_xml.zip",
+            "title": "Registry - XML soubory",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20230428"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PS2006_reg_20230428_xlsx.zip",
+            "title": "Excel soubory",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20230428"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PS2006_reg_20230428_csv.zip",
+            "title": "CSV (CSVW)",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20230428"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PSregPopis.pdf",
+            "title": "PDF",
+            "kind": "registry",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PSregPopis.htm",
+            "title": "HTML",
+            "kind": "registry",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PS2006_reg_xsd.zip",
+            "title": "XSD",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PS2006_cisel_20230224_xml.zip",
+            "title": "Číselníky - XML soubory",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PS2006_cisel_20230224_xlsx.zip",
+            "title": "Excel soubory",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PS2006_cisel_20230224_csv.zip",
+            "title": "CSV (CSVW)",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PSciselnikyPopis.pdf",
+            "title": "PDF",
+            "kind": "code_lists",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PSciselnikyPopis.htm",
+            "title": "HTML",
+            "kind": "code_lists",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PS2006_cisel_xsd.zip",
+            "title": "XSD",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PS2006_data_20230224_xml.zip",
+            "title": "XML",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PS2006_data_20230224_xlsx.zip",
+            "title": "Excel",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PS2006_data_20230224_csv.zip",
+            "title": "CSV (CSVW)",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PS_datovaveta.pdf",
+            "title": "PDF",
+            "kind": "result_data",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PS_datovaveta.htm",
+            "title": "HTML",
+            "kind": "result_data",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2006/PS2006_data_xsd.zip",
+            "title": "XSD",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": null
+          }
+        ],
+        "vintage_subpages": null,
+        "package_vintages": [
+          "20230224",
+          "20230428"
+        ],
+        "retrospective_packages": true,
+        "vintage_notes": []
+      },
+      {
+        "year": 2010,
+        "index": {
+          "url": "https://volby.gov.cz/opendata/ps2010/ps2010_opendata.htm",
+          "sha256": "a1c2880ac6d8972996b2552ec21ec46f43a30e6b9ac92e0773eeee1f61e6af12",
+          "retrieved_at": "2026-10-03T10:06:06.068Z"
+        },
+        "file_count": 22,
+        "files": [
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PS2010_XML.pdf",
+            "title": "PDF",
+            "kind": "xml_documentation",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PS2010_XML.htm",
+            "title": "HTML",
+            "kind": "xml_documentation",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PS_nuts.pdf",
+            "title": "číselníku (PDF)",
+            "kind": "nuts_code_list",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PS_nuts.htm",
+            "title": "HTML",
+            "kind": "nuts_code_list",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_xml.zip",
+            "title": "Registry - XML soubory",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20230428"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_xlsx.zip",
+            "title": "Excel soubory",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20230428"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_20230428_csv.zip",
+            "title": "CSV (CSVW)",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20230428"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PSregPopis.pdf",
+            "title": "PDF",
+            "kind": "registry",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PSregPopis.htm",
+            "title": "HTML",
+            "kind": "registry",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PS2010_reg_xsd.zip",
+            "title": "XSD",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PS2010_cisel_20230224_xml.zip",
+            "title": "Číselníky - XML soubory",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PS2010_cisel_20230224_xlsx.zip",
+            "title": "Excel soubory",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PS2010_cisel_20230224_csv.zip",
+            "title": "CSV (CSVW)",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PSciselnikyPopis.pdf",
+            "title": "PDF",
+            "kind": "code_lists",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PSciselnikyPopis.htm",
+            "title": "HTML",
+            "kind": "code_lists",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PS2010_cisel_xsd.zip",
+            "title": "XSD",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_xml.zip",
+            "title": "XML",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_xlsx.zip",
+            "title": "Excel",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_csv.zip",
+            "title": "CSV (CSVW)",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PS_datovaveta.pdf",
+            "title": "PDF",
+            "kind": "result_data",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PS_datovaveta.htm",
+            "title": "HTML",
+            "kind": "result_data",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_xsd.zip",
+            "title": "XSD",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": null
+          }
+        ],
+        "vintage_subpages": null,
+        "package_vintages": [
+          "20230224",
+          "20230428"
+        ],
+        "retrospective_packages": true,
+        "vintage_notes": []
+      },
+      {
+        "year": 2013,
+        "index": {
+          "url": "https://volby.gov.cz/opendata/ps2013/ps2013_opendata.htm",
+          "sha256": "8efc9f444dd7e832eb20b890c701eb80f90694f0ac222272a4284141d205d0c2",
+          "retrieved_at": "2026-10-03T10:06:06.090Z"
+        },
+        "file_count": 22,
+        "files": [
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PS2013_XML.pdf",
+            "title": "PDF",
+            "kind": "xml_documentation",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PS2013_XML.htm",
+            "title": "HTML",
+            "kind": "xml_documentation",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PS_nuts.pdf",
+            "title": "číselníku (PDF)",
+            "kind": "nuts_code_list",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PS_nuts.htm",
+            "title": "HTML",
+            "kind": "nuts_code_list",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_xml.zip",
+            "title": "Registry - XML soubory",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20230428"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_xlsx.zip",
+            "title": "Excel soubory",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20230428"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_20230428_csv.zip",
+            "title": "CSV (CSVW)",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20230428"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PSregPopis.pdf",
+            "title": "PDF",
+            "kind": "registry",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PSregPopis.htm",
+            "title": "HTML",
+            "kind": "registry",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PS2013_reg_xsd.zip",
+            "title": "XSD",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PS2013_cisel_20230224_xml.zip",
+            "title": "Číselníky - XML soubory",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PS2013_cisel_20230224_xlsx.zip",
+            "title": "Excel soubory",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PS2013_cisel_20230224_csv.zip",
+            "title": "CSV (CSVW)",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PSciselnikyPopis.pdf",
+            "title": "PDF",
+            "kind": "code_lists",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PSciselnikyPopis.htm",
+            "title": "HTML",
+            "kind": "code_lists",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PS2013_cisel_xsd.zip",
+            "title": "XSD",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_xml.zip",
+            "title": "XML",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_xlsx.zip",
+            "title": "Excel",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_csv.zip",
+            "title": "CSV (CSVW)",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": "20230224"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PS_datovaveta.pdf",
+            "title": "PDF",
+            "kind": "result_data",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PS_datovaveta.htm",
+            "title": "HTML",
+            "kind": "result_data",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_xsd.zip",
+            "title": "XSD",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": null
+          }
+        ],
+        "vintage_subpages": null,
+        "package_vintages": [
+          "20230224",
+          "20230428"
+        ],
+        "retrospective_packages": true,
+        "vintage_notes": []
+      },
+      {
+        "year": 2017,
+        "index": {
+          "url": "https://volby.gov.cz/opendata/ps2017/ps2017odata.htm",
+          "sha256": "81465a2aa59c950d7f6b6605c1ed7b962190a702f475d0d4ba988d0763c80ec5",
+          "retrieved_at": "2026-10-03T10:06:06.118Z"
+        },
+        "file_count": 64,
+        "files": [
+          {
+            "url": "https://www.volby.cz/cz/ps2017nss_usneseni_58_2017.pdf",
+            "title": "Usnesení Vol 58/2017 - 173",
+            "kind": "court_resolution",
+            "format": "pdf",
+            "vintage": null
+          }
+        ],
+        "vintage_subpages": [
+          {
+            "vintage": "recalculated_NSS_Vol_58_2017",
+            "index": {
+              "url": "https://volby.gov.cz/opendata/ps2017nss/ps2017nss_opendata.htm",
+              "sha256": "366b4af3d965045eb56f2bc5d7333f777c3671b6ec0d4fcdf0121f221e8ce38b",
+              "retrieved_at": "2026-10-03T10:59:19.586Z"
+            },
+            "files": [
+              {
+                "url": "https://www.volby.cz/cz/ps2017nss_usneseni_58_2017.pdf",
+                "title": "Usnesení Vol 58/2017 - 173",
+                "kind": "court_resolution",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017_XML.pdf",
+                "title": "PDF",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017_XML.htm",
+                "title": "HTML",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS_nuts.pdf",
+                "title": "číselníku (PDF)",
+                "kind": "nuts_code_list",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS_nuts.htm",
+                "title": "HTML",
+                "kind": "nuts_code_list",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017_XML.pdf",
+                "title": "PDF",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017_XML.htm",
+                "title": "HTML",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017_XML.pdf",
+                "title": "PDF",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017_XML.htm",
+                "title": "HTML",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017_XML.pdf",
+                "title": "PDF",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017_XML.htm",
+                "title": "HTML",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017_XML.pdf",
+                "title": "PDF",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017_XML.htm",
+                "title": "HTML",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017_XML.pdf",
+                "title": "PDF",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017_XML.htm",
+                "title": "HTML",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017reg20171122.zip",
+                "title": "Registry - XML soubory",
+                "kind": "registry",
+                "vintage": "20171122"
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017reg20171122_xlsx.zip",
+                "title": "Excel",
+                "kind": "registry",
+                "vintage": "20171122"
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017reg20171122_csv.zip",
+                "title": "CSV (CSVW)",
+                "kind": "registry",
+                "vintage": "20171122"
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017regPopis.pdf",
+                "title": "PDF",
+                "kind": "registry",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017regPopis.htm",
+                "title": "HTML",
+                "kind": "registry",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017regXSD.zip",
+                "title": "XSD",
+                "kind": "court_resolution",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017data20171122.zip",
+                "title": "Okrsková - XML soubory",
+                "kind": "result_data",
+                "vintage": "20171122"
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017data20171122_xlsx.zip",
+                "title": "Excel soubory",
+                "kind": "result_data",
+                "vintage": "20171122"
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017data20171122_csv.zip",
+                "title": "CSV soubory (CSVW)",
+                "kind": "result_data",
+                "vintage": "20171122"
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017_datovaveta.pdf",
+                "title": "PDF",
+                "kind": "result_data",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017_datovaveta.htm",
+                "title": "HTML",
+                "kind": "result_data",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017_datovaveta_xsd.zip",
+                "title": "XSD",
+                "kind": "result_data",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017ciselniky20170905.zip",
+                "title": "Číselníky XML a Excel",
+                "kind": "code_lists",
+                "vintage": "20170905"
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017ciselniky20170905_csv.zip",
+                "title": "CSV (CSVW)",
+                "kind": "code_lists",
+                "vintage": "20170905"
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017ciselnikyPopis.pdf",
+                "title": "PDF",
+                "kind": "code_lists",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017ciselnikyPopis.htm",
+                "title": "HTML",
+                "kind": "code_lists",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017nss/PS2017ciselnikyXSD.zip",
+                "title": "XSD",
+                "kind": "code_lists",
+                "vintage": null
+              }
+            ]
+          },
+          {
+            "vintage": "original_precinct_commission_results",
+            "index": {
+              "url": "https://volby.gov.cz/opendata/ps2017/ps2017_opendata.htm",
+              "sha256": "42c50ae10f65d5a01f90416295040043cbee75e95d468731c45d69049a0d4fde",
+              "retrieved_at": "2026-10-03T10:59:19.613Z"
+            },
+            "files": [
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017_XML.pdf",
+                "title": "PDF",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017_XML.htm",
+                "title": "HTML",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS_nuts.pdf",
+                "title": "číselníku (PDF)",
+                "kind": "nuts_code_list",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS_nuts.htm",
+                "title": "HTML",
+                "kind": "nuts_code_list",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017_XML.pdf",
+                "title": "PDF",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017_XML.htm",
+                "title": "HTML",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017_XML.pdf",
+                "title": "PDF",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017_XML.htm",
+                "title": "HTML",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017_XML.pdf",
+                "title": "PDF",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017_XML.htm",
+                "title": "HTML",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017_XML.pdf",
+                "title": "PDF",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017_XML.htm",
+                "title": "HTML",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017_XML.pdf",
+                "title": "PDF",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017_XML.htm",
+                "title": "HTML",
+                "kind": "xml_documentation",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017reg20171021.zip",
+                "title": "Registry - XML soubory",
+                "kind": "registry",
+                "vintage": "20171021"
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017reg20171021_xlsx.zip",
+                "title": "Excel",
+                "kind": "registry",
+                "vintage": "20171021"
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017reg20171021_csv.zip",
+                "title": "CSV (CSVW)",
+                "kind": "registry",
+                "vintage": "20171021"
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017regPopis.pdf",
+                "title": "PDF",
+                "kind": "registry",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017regPopis.htm",
+                "title": "HTML",
+                "kind": "registry",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017regXSD.zip",
+                "title": "XSD",
+                "kind": "other",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017data20171021.zip",
+                "title": "Okrsková - XML soubory",
+                "kind": "result_data",
+                "vintage": "20171021"
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017data20171021_xlsx.zip",
+                "title": "Excel soubory",
+                "kind": "result_data",
+                "vintage": "20171021"
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017data20171021_csv.zip",
+                "title": "CSV soubory (CSVW)",
+                "kind": "result_data",
+                "vintage": "20171021"
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017_datovaveta.pdf",
+                "title": "PDF",
+                "kind": "result_data",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017_datovaveta.htm",
+                "title": "HTML",
+                "kind": "result_data",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017_datovaveta_xsd.zip",
+                "title": "XSD",
+                "kind": "result_data",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017ciselniky20170905.zip",
+                "title": "Číselníky XML a Excel",
+                "kind": "code_lists",
+                "vintage": "20170905"
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017ciselniky20170905_csv.zip",
+                "title": "CSV (CSVW)",
+                "kind": "code_lists",
+                "vintage": "20170905"
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017ciselnikyPopis.pdf",
+                "title": "PDF",
+                "kind": "code_lists",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017ciselnikyPopis.htm",
+                "title": "HTML",
+                "kind": "code_lists",
+                "vintage": null
+              },
+              {
+                "url": "https://volby.gov.cz/opendata/ps2017/PS2017ciselnikyXSD.zip",
+                "title": "XSD",
+                "kind": "code_lists",
+                "vintage": null
+              }
+            ]
+          }
+        ],
+        "package_vintages": [],
+        "retrospective_packages": false,
+        "vintage_notes": [
+          "Two official sub-pages: results recalculated under Supreme Administrative Court resolution Vol 58/2017-173 (19 Nov 2017; changes made 22 Nov 2017) and original results taken over from precinct commissions. Both are provided for continuity. A production definition must choose one explicitly; the recalculated vintage is the legally corrected result.",
+          "Index text confirms recalculated vs original wording."
+        ]
+      },
+      {
+        "year": 2021,
+        "index": {
+          "url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+          "sha256": "398e5940f8d8abfb70c678483c88e6df3457266796c607bc17a243ce726ad6f4",
+          "retrieved_at": "2026-10-03T10:06:06.141Z"
+        },
+        "file_count": 29,
+        "files": [
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021_XML.pdf",
+            "title": "PDF",
+            "kind": "xml_documentation",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021_XML.htm",
+            "title": "HTML",
+            "kind": "xml_documentation",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS_nuts.xlsx",
+            "title": "číselníku NUTS (MS Excel)",
+            "kind": "nuts_code_list",
+            "format": "xlsx",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS_nuts.htm",
+            "title": "HTML",
+            "kind": "nuts_code_list",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata_seznam.htm",
+            "title": "Registry, číselníky a okrsková data - jednotlivé soubory ke stažení",
+            "kind": "other",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://www.volby.cz/prg/PS2021_NSS_102_2021_38.pdf",
+            "title": "Vol 102/2021",
+            "kind": "court_resolution",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021reg20211111.zip",
+            "title": "Registry (balík) - XML soubor",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20211111"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021reg20211111_xlsx.zip",
+            "title": "Excel",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20211111"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021reg20211111_csv.zip",
+            "title": "CSV (CSVW)",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20211111"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021regPopis.pdf",
+            "title": "PDF",
+            "kind": "registry",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021regPopis.htm",
+            "title": "HTML",
+            "kind": "registry",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021regPopis_xsd.zip",
+            "title": "XSD",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021reg20211010.zip",
+            "title": "Registry (balík) - XML soubor",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20211010"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021reg20211010_xlsx.zip",
+            "title": "Excel",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20211010"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021reg20211010_csv.zip",
+            "title": "CSV (CSVW)",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20211010"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021_data_20211010_xml.zip",
+            "title": "XML",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": "20211010"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021_data_20211010_xlsx.zip",
+            "title": "Excel",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": "20211010"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021_data_20211010_csv.zip",
+            "title": "CSV (CSVW)",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": "20211010"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021_datovaveta.pdf",
+            "title": "PDF",
+            "kind": "result_data",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021_datovaveta.htm",
+            "title": "HTML",
+            "kind": "result_data",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021_datovavetaXSD.zip",
+            "title": "XSD",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/volby2021_covid_okrsky.pdf",
+            "title": "Informace ke speciálním volebním okrskům - covid okrsky",
+            "kind": "other",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021ciselniky20211006.zip",
+            "title": "Číselníky (balík) - XML a Excel",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": "20211006"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021ciselniky20211006_csv.zip",
+            "title": "CSV (CSVW)",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": "20211006"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021ciselnikyPopis.pdf",
+            "title": "PDF",
+            "kind": "code_lists",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021ciselnikyPopis.htm",
+            "title": "HTML",
+            "kind": "code_lists",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/PS2021ciselnikyPopis_xsd.zip",
+            "title": "XSD",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/RozdelovaniMandatuPS2021_Popis.pdf",
+            "title": "Způsob",
+            "kind": "seat_allocation_method",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2021/RozdelovaniMandatuPS21_Priklad.pdf",
+            "title": "Příklad",
+            "kind": "seat_allocation_method",
+            "format": "pdf",
+            "vintage": null
+          }
+        ],
+        "vintage_subpages": null,
+        "package_vintages": [
+          "20211006",
+          "20211010",
+          "20211111"
+        ],
+        "retrospective_packages": false,
+        "vintage_notes": [
+          "Register packages exist in two vintages (20211010 and 20211111) next to Supreme Administrative Court decision Vol 102/2021-38; data packages are dated 20211010. The register change must be reviewed before identity work."
+        ]
+      },
+      {
+        "year": 2025,
+        "index": {
+          "url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata.htm",
+          "sha256": "a474dcfe6ce4fa5660cb634e1c6de4f2f3495666a256be6562ba16e4516c2044",
+          "retrieved_at": "2026-10-03T10:04:49.309Z"
+        },
+        "file_count": 36,
+        "files": [
+          {
+            "url": "https://volby.gov.cz/index.htm",
+            "title": "",
+            "kind": "other",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/index.htm",
+            "title": "Domů",
+            "kind": "other",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025_XML.pdf",
+            "title": "PDF",
+            "kind": "xml_documentation",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025_XML.htm",
+            "title": "HTML",
+            "kind": "xml_documentation",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/appdata/ps2025/odata/vysledky.xml",
+            "title": "XML data - celkové výsledky za ČR a kraje",
+            "kind": "live_result_xml",
+            "format": "xml",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/appdata/ps2025/odata/okresy/vysledky_okres_CZXXXX.xml",
+            "title": "XML data - výsledky za okresy a obce",
+            "kind": "live_result_xml",
+            "format": "xml",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS_nuts.xlsx",
+            "title": "číselníku NUTS (MS Excel)",
+            "kind": "nuts_code_list",
+            "format": "xlsx",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS_nuts.htm",
+            "title": "HTML",
+            "kind": "nuts_code_list",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/appdata/ps2025/odata/vysledky_krajmesta.xml",
+            "title": "XML data - výsledky za kraje a krajská města",
+            "kind": "live_result_xml",
+            "format": "xml",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/appdata/ps2025/odata/vysledky_zahranici.xml",
+            "title": "XML data - výsledky za zahraničí, kontinenty, státy",
+            "kind": "live_result_xml",
+            "format": "xml",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/appdata/ps2025/odata/vysledky_kandid.xml",
+            "title": "XML data - přednostní hlasy pro jednotlivé kandidáty",
+            "kind": "live_result_xml",
+            "format": "xml",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/appdata/ps2025/odata/okrsky/vysledky_okrsky_00000.xml",
+            "title": "XML data - výsledky za okrsky (dávky)",
+            "kind": "live_result_xml",
+            "format": "xml",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/appdata/ps2025/odata/obce_d/vysledky_obce_00000.xml",
+            "title": "XML data - výsledky za obce (dávky)",
+            "kind": "live_result_xml",
+            "format": "xml",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/appdata/ps2025/odata/okresy_d/vysledky_okresy_00000.xml",
+            "title": "XML data - výsledky za okresy (dávky)",
+            "kind": "live_result_xml",
+            "format": "xml",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata_seznam.htm",
+            "title": "Registry, číselníky a okrsková data - jednotlivé soubory ke stažení",
+            "kind": "other",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025reg20251005_xml.zip",
+            "title": "XML soubory",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20251005"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025reg20251005_xlsx.zip",
+            "title": "Excel",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20251005"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025reg20251005_csv.zip",
+            "title": "CSV (CSVW)",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20251005"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025reg20251005_json.zip",
+            "title": "JSON",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": "20251005"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025regPopis.pdf",
+            "title": "PDF",
+            "kind": "registry",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025regPopis.htm",
+            "title": "HTML",
+            "kind": "registry",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025regPopis_xsd.zip",
+            "title": "XSD",
+            "kind": "registry",
+            "format": "zip",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025ciselniky20251005_xml.zip",
+            "title": "XML soubory",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": "20251005"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025ciselniky20251005_xlsx.zip",
+            "title": "Excel",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": "20251005"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025ciselniky20251005_csv.zip",
+            "title": "CSV (CSVW)",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": "20251005"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025ciselniky20251005_json.zip",
+            "title": "JSON",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": "20251005"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025ciselnikyPopis.pdf",
+            "title": "PDF",
+            "kind": "code_lists",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025ciselnikyPopis.htm",
+            "title": "HTML",
+            "kind": "code_lists",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025ciselnikyPopis_xsd.zip",
+            "title": "XSD",
+            "kind": "code_lists",
+            "format": "zip",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025data20251005_xml.zip",
+            "title": "XML soubory",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": "20251005"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025data20251005_xlsx.zip",
+            "title": "Excel",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": "20251005"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025data20251005_csv.zip",
+            "title": "CSV (CSVW)",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": "20251005"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025data20251005_json.zip",
+            "title": "JSON",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": "20251005"
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025_datovaveta.pdf",
+            "title": "PDF",
+            "kind": "result_data",
+            "format": "pdf",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025_datovaveta.htm",
+            "title": "HTML",
+            "kind": "result_data",
+            "format": "htm",
+            "vintage": null
+          },
+          {
+            "url": "https://volby.gov.cz/opendata/ps2025/PS2025dataPopis_xsd.zip",
+            "title": "XSD",
+            "kind": "result_data",
+            "format": "zip",
+            "vintage": null
+          }
+        ],
+        "vintage_subpages": null,
+        "package_vintages": [
+          "20251005"
+        ],
+        "retrospective_packages": false,
+        "vintage_notes": []
+      }
+    ],
+    "definitions": {
+      "observed_2025_vysledky_xml": {
+        "observed_at": "2026-10-02 (political audit; not archived)",
+        "url": "https://volby.gov.cz/appdata/ps2025/odata/vysledky.xml",
+        "turnout": "UCAST_PROC = VYDANE_OBALKY / ZAPSANI_VOLICI (e.g. Prague 645322/903298 = 71.44%)",
+        "vote_share": "PROC_HLASU = HLASY / PLATNE_HLASY (e.g. SPD Prague 33292/636042 = 5.23%)",
+        "seat_share": "PROC_MANDATU = MANDATY / regional seat total (POCMANDATU)",
+        "postal": "2025 adds DORUCOVACI_OBALKY / DORUCOVACI_ODLOZENE (postal envelopes); foreign votes are reported in separate areas — no double counting"
+      },
+      "not_yet_inspected": [
+        "PS_datovaveta (2002–2013), PS2021_datovaveta, PS2025_datovaveta record definitions",
+        "XML documentation PS20xx_XML for each year"
+      ],
+      "code_list_semantics": {
+        "source": {
+          "url": "https://volby.gov.cz/opendata/ps2025/PS2025ciselnikyPopis.htm",
+          "sha256": "14486f07c5629a30bc75277057331e6a5f27ed8819cb9a87f817f8b505556499",
+          "retrieved_at": "2026-10-03T10:04:52.422Z"
+        },
+        "CVS": "Číselník volebních stran — every electoral contestant (political parties, movements, their coalitions or associations with independent candidates) that appeared in any election since 1998; enables comparison across election types and years (not legal continuity).",
+        "VSTRANA": "CVS: 'Kód volební strany'; CVS_SLOZENI: 'Vylosované číslo strany' — the two descriptions conflict; to be clarified before VSTRANA is used as a stable key.",
+        "TYPVS": "S = political party/movement, K = coalition, N = independent candidate, M = association of independents, D = association of independents and parties",
+        "SLOZENI": "member NSTRANA codes (normalised in CVS_SLOZENI)",
+        "CNS": "NSTRANA — nominating party code",
+        "CPP": "PSTRANA — political affiliation of candidates",
+        "KSTRANA": "ballot number within one election"
+      },
+      "identity_plan": [
+        "Per election: join results (KSTRANA) to the election register (VSTRANA, TYPVS, SLOZENI) from the same package vintage.",
+        "Coalitions (TYPVS=K/D) remain contestants; members only via CVS_SLOZENI → CNS for that election; no vote allocation to members.",
+        "No cross-election continuity from VSTRANA alone; legal continuity needs the Ministry of the Interior party register.",
+        "Historical ČSSD/SOCDEM and 2025 “ČSSD – Česká suverenita sociální demokracie” stay separate until registry evidence exists."
+      ]
+    }
+  },
+  "slovakia": {
+    "elections": [
+      {
+        "year": 2002,
+        "file": "NRSR_2002_tab03.csv",
+        "sha256": "02823a10d7f695e4bf4f003b33a191ed52dac8b189aff5d65f6c2ae3a7b551d0",
+        "encoding": "windows-1250",
+        "delimiter": ";",
+        "headers": [
+          "Splnená podmienka pre pridelenie mandátu do Národnej rady",
+          "Politická strana číslo",
+          "Politická strana názov",
+          "Počet platných hlasov",
+          "Podiel platných hlasov v %"
+        ],
+        "result_rows": 25,
+        "subject_number_field": "Politická strana číslo",
+        "subject_number_locality": "election-local ballot/subject number; never a durable party identifier",
+        "vote_field": "Počet platných hlasov",
+        "share_field": "Podiel platných hlasov v %",
+        "seat_field": null,
+        "threshold_flag_field": "Splnená podmienka pre pridelenie mandátu do Národnej rady",
+        "seat_representation": "no seat column in this file (2002: first column is a 0/1 seat-allocation-condition flag, not seats)",
+        "seat_total_positive": null,
+        "missing_seat_rule": "explicit 0, nan marker and empty cell are recorded distinctly; nan/empty are never converted to 0",
+        "valid_vote_denominator": {
+          "party_valid_vote_sum": 2875081,
+          "published_share_reproduction_max_abs_diff_pp": 0.01,
+          "finding": "Published shares equal votes ÷ sum of party valid votes within rounding; the official national valid-vote total is in the summary table (not acquired) and must be compared before production."
+        },
+        "turnout_field": null,
+        "related_official_tables": [
+          {
+            "file": "NRSR_2002_tab02.csv",
+            "title": "Súhrnné výsledky hlasovania podľa okresov",
+            "size": "5,03 KB",
+            "role": "turnout/summary (registered, ballots, valid votes)"
+          },
+          {
+            "file": "NRSR_2002_tab04.csv",
+            "title": "Pridelenie mandátov politickým stranám",
+            "size": "903,0 B",
+            "role": "seat allocation"
+          },
+          {
+            "file": "NRSR_2002_tab07.csv",
+            "title": "Zvolení poslanci Národnej rady Slovenskej republiky",
+            "size": "3,46 KB",
+            "role": "elected members"
+          }
+        ],
+        "acquisition_note": "Related tables identified from the archived official dataset list only; not downloaded (automated collection prohibited; manual route pending publisher reply)."
+      },
+      {
+        "year": 2006,
+        "file": "NRSR_2006_tab05.csv",
+        "sha256": "52be0e3d282a4f5618705c5a4a99dcef585b244f3a5a72603ec50c7e23727983",
+        "encoding": "utf-8",
+        "delimiter": ",",
+        "headers": [
+          "Názov politického subjektu",
+          "Počet platných hlasov",
+          "Podiel platných hlasov",
+          "Počet pridelených mandátov"
+        ],
+        "result_rows": 21,
+        "subject_number_field": null,
+        "subject_number_locality": "election-local ballot/subject number; never a durable party identifier",
+        "vote_field": "Počet platných hlasov",
+        "share_field": "Podiel platných hlasov",
+        "seat_field": "Počet pridelených mandátov",
+        "threshold_flag_field": null,
+        "seat_representation": {
+          "explicit_zero": 15,
+          "positive": 6,
+          "nan_marker": 0,
+          "empty_cell": 0
+        },
+        "seat_total_positive": 150,
+        "missing_seat_rule": "explicit 0, nan marker and empty cell are recorded distinctly; nan/empty are never converted to 0",
+        "valid_vote_denominator": {
+          "party_valid_vote_sum": 2303139,
+          "published_share_reproduction_max_abs_diff_pp": 0.01,
+          "finding": "Published shares equal votes ÷ sum of party valid votes within rounding; the official national valid-vote total is in the summary table (not acquired) and must be compared before production."
+        },
+        "turnout_field": null,
+        "related_official_tables": [
+          {
+            "file": "NRSR_2006_tab02.csv",
+            "title": "Súhrnné výsledky hlasovania podľa obvodov",
+            "size": "4,14 KB",
+            "role": "turnout/summary (registered, ballots, valid votes)"
+          },
+          {
+            "file": "NRSR_2006_tab03.csv",
+            "title": "Súhrnné výsledky hlasovania podľa okresov",
+            "size": "6,05 KB",
+            "role": "turnout/summary (registered, ballots, valid votes)"
+          }
+        ],
+        "acquisition_note": "Related tables identified from the archived official dataset list only; not downloaded (automated collection prohibited; manual route pending publisher reply)."
+      },
+      {
+        "year": 2010,
+        "file": "NRSR_2010_tab09.csv",
+        "sha256": "67ec053a625a946affb9058757c5c3ab9edc6d49fb92e883a1aa81976f1d02a6",
+        "encoding": "utf-8",
+        "delimiter": ",",
+        "headers": [
+          "Názov politického subjektu",
+          "Počet platných hlasov",
+          "Podiel platných hlasov",
+          "Počet pridelených mandátov"
+        ],
+        "result_rows": 18,
+        "subject_number_field": null,
+        "subject_number_locality": "election-local ballot/subject number; never a durable party identifier",
+        "vote_field": "Počet platných hlasov",
+        "share_field": "Podiel platných hlasov",
+        "seat_field": "Počet pridelených mandátov",
+        "threshold_flag_field": null,
+        "seat_representation": {
+          "explicit_zero": 12,
+          "positive": 6,
+          "nan_marker": 0,
+          "empty_cell": 0
+        },
+        "seat_total_positive": 150,
+        "missing_seat_rule": "explicit 0, nan marker and empty cell are recorded distinctly; nan/empty are never converted to 0",
+        "valid_vote_denominator": {
+          "party_valid_vote_sum": 2529385,
+          "published_share_reproduction_max_abs_diff_pp": 0.01,
+          "finding": "Published shares equal votes ÷ sum of party valid votes within rounding; the official national valid-vote total is in the summary table (not acquired) and must be compared before production."
+        },
+        "turnout_field": null,
+        "related_official_tables": [
+          {
+            "file": "NRSR_2010_tab02.csv",
+            "title": "Súhrnné výsledky hlasovania podľa obvodov",
+            "size": "4,79 KB",
+            "role": "turnout/summary (registered, ballots, valid votes)"
+          },
+          {
+            "file": "NRSR_2010_tab03.csv",
+            "title": "Súhrnné výsledky hlasovania podľa okresov",
+            "size": "6,63 KB",
+            "role": "turnout/summary (registered, ballots, valid votes)"
+          },
+          {
+            "file": "NRSR_2010_tab08.csv",
+            "title": "Súhrnné výsledky hlasovania podľa krajov",
+            "size": "1,16 KB",
+            "role": "turnout/summary (registered, ballots, valid votes)"
+          }
+        ],
+        "acquisition_note": "Related tables identified from the archived official dataset list only; not downloaded (automated collection prohibited; manual route pending publisher reply)."
+      },
+      {
+        "year": 2012,
+        "file": "NRSR_2012_tab09.csv",
+        "sha256": "bca69f1264ef04bd399acca4430f4163e9f1e4e0c862dae472b85e5ec4d8475b",
+        "encoding": "utf-8",
+        "delimiter": ",",
+        "headers": [
+          "Názov politického subjektu",
+          "Počet platných hlasov",
+          "Podiel platných hlasov",
+          "Počet pridelených mandátov"
+        ],
+        "result_rows": 26,
+        "subject_number_field": null,
+        "subject_number_locality": "election-local ballot/subject number; never a durable party identifier",
+        "vote_field": "Počet platných hlasov",
+        "share_field": "Podiel platných hlasov",
+        "seat_field": "Počet pridelených mandátov",
+        "threshold_flag_field": null,
+        "seat_representation": {
+          "explicit_zero": 20,
+          "positive": 6,
+          "nan_marker": 0,
+          "empty_cell": 0
+        },
+        "seat_total_positive": 150,
+        "missing_seat_rule": "explicit 0, nan marker and empty cell are recorded distinctly; nan/empty are never converted to 0",
+        "valid_vote_denominator": {
+          "party_valid_vote_sum": 2553726,
+          "published_share_reproduction_max_abs_diff_pp": 0.01,
+          "finding": "Published shares equal votes ÷ sum of party valid votes within rounding; the official national valid-vote total is in the summary table (not acquired) and must be compared before production."
+        },
+        "turnout_field": null,
+        "related_official_tables": [
+          {
+            "file": "NRSR_2012_tab02.csv",
+            "title": "Súhrnné výsledky hlasovania podľa obvodov",
+            "size": "4,72 KB",
+            "role": "turnout/summary (registered, ballots, valid votes)"
+          },
+          {
+            "file": "NRSR_2012_tab03.csv",
+            "title": "Súhrnné výsledky hlasovania podľa okresov",
+            "size": "6,63 KB",
+            "role": "turnout/summary (registered, ballots, valid votes)"
+          },
+          {
+            "file": "NRSR_2012_tab08.csv",
+            "title": "Súhrnné výsledky hlasovania podľa krajov",
+            "size": "1,17 KB",
+            "role": "turnout/summary (registered, ballots, valid votes)"
+          }
+        ],
+        "acquisition_note": "Related tables identified from the archived official dataset list only; not downloaded (automated collection prohibited; manual route pending publisher reply)."
+      },
+      {
+        "year": 2016,
+        "file": "NRSR_2016_tab13.csv",
+        "sha256": "0a9ef5ec2fba9a5cc8b71a0669991429978b467593e5a781ab25f9a861bf5bbd",
+        "encoding": "utf-8",
+        "delimiter": ",",
+        "headers": [
+          "Číslo politického subjektu",
+          "Politický subjekt",
+          "Počet platných hlasov",
+          "Podiel platných hlasov v %",
+          "Počet pridelených mandátov"
+        ],
+        "result_rows": 23,
+        "subject_number_field": "Číslo politického subjektu",
+        "subject_number_locality": "election-local ballot/subject number; never a durable party identifier",
+        "vote_field": "Počet platných hlasov",
+        "share_field": "Podiel platných hlasov v %",
+        "seat_field": "Počet pridelených mandátov",
+        "threshold_flag_field": null,
+        "seat_representation": {
+          "explicit_zero": 0,
+          "positive": 8,
+          "nan_marker": 15,
+          "empty_cell": 0
+        },
+        "seat_total_positive": 150,
+        "missing_seat_rule": "explicit 0, nan marker and empty cell are recorded distinctly; nan/empty are never converted to 0",
+        "valid_vote_denominator": {
+          "party_valid_vote_sum": 2607750,
+          "published_share_reproduction_max_abs_diff_pp": 0.009,
+          "finding": "Published shares equal votes ÷ sum of party valid votes within rounding; the official national valid-vote total is in the summary table (not acquired) and must be compared before production."
+        },
+        "turnout_field": null,
+        "related_official_tables": [
+          {
+            "file": "NRSR_2016_tab03.csv",
+            "title": "Súhrnné výsledky hlasovania podľa krajov",
+            "size": "1,2 KB",
+            "role": "turnout/summary (registered, ballots, valid votes)"
+          },
+          {
+            "file": "NRSR_2016_tab06.csv",
+            "title": "Súhrnné výsledky hlasovania podľa okresov",
+            "size": "6,54 KB",
+            "role": "turnout/summary (registered, ballots, valid votes)"
+          },
+          {
+            "file": "NRSR_2016_tab20.csv",
+            "title": "Zoznam politických subjektov",
+            "size": "1,25 KB",
+            "role": "same-election subject list (identity)"
+          },
+          {
+            "file": "NRSR_2016_tab21.csv",
+            "title": "Zvolení poslanci do Národnej rady Slovenskej republiky",
+            "size": "5,3 KB",
+            "role": "elected members"
+          }
+        ],
+        "acquisition_note": "Related tables identified from the archived official dataset list only; not downloaded (automated collection prohibited; manual route pending publisher reply)."
+      },
+      {
+        "year": 2020,
+        "file": "NRSR_2020_tab03a.csv",
+        "sha256": "bca99840d8d864218020a2953abf7a8b7a01842a573d90aa65bfb26aac60ea63",
+        "encoding": "utf-8",
+        "delimiter": ",",
+        "headers": [
+          "Číslo politického subjektu",
+          "Názov politického subjektu",
+          "Počet platných hlasov",
+          "Podiel platných hlasov v %",
+          "Počet voličov, ktorí využili právo prednostného hlasovania",
+          "Podiel voličov, ktorí využili právo prednostného hlasovania v %",
+          "Počet získaných mandátov"
+        ],
+        "result_rows": 24,
+        "subject_number_field": "Číslo politického subjektu",
+        "subject_number_locality": "election-local ballot/subject number; never a durable party identifier",
+        "vote_field": "Počet platných hlasov",
+        "share_field": "Podiel platných hlasov v %",
+        "seat_field": "Počet získaných mandátov",
+        "threshold_flag_field": null,
+        "seat_representation": {
+          "explicit_zero": 0,
+          "positive": 6,
+          "nan_marker": 0,
+          "empty_cell": 18
+        },
+        "seat_total_positive": 150,
+        "missing_seat_rule": "explicit 0, nan marker and empty cell are recorded distinctly; nan/empty are never converted to 0",
+        "valid_vote_denominator": {
+          "party_valid_vote_sum": 2881511,
+          "published_share_reproduction_max_abs_diff_pp": 0.01,
+          "finding": "Published shares equal votes ÷ sum of party valid votes within rounding; the official national valid-vote total is in the summary table (not acquired) and must be compared before production."
+        },
+        "turnout_field": null,
+        "related_official_tables": [
+          {
+            "file": "NRSR_2020_tab01.csv",
+            "title": "Súhrnné výsledky hlasovania za SR",
+            "size": "680,0 B",
+            "role": "turnout/summary (registered, ballots, valid votes)"
+          },
+          {
+            "file": "NRSR_2020_tab04.csv",
+            "title": "Pridelenie mandátov politickým subjektom",
+            "size": "679,0 B",
+            "role": "seat allocation"
+          },
+          {
+            "file": "NRSR_2020_tab04x.csv",
+            "title": "Súhrnné údaje k prideľovaniu mandátov",
+            "size": "185,0 B",
+            "role": "turnout/summary (registered, ballots, valid votes)"
+          },
+          {
+            "file": "NRSR_2020_tab06.csv",
+            "title": "Zvolení poslanci Národnej rady Slovenskej republiky",
+            "size": "11,26 KB",
+            "role": "elected members"
+          },
+          {
+            "file": "NRSR_2020_tab0a.csv",
+            "title": "Zoznam kandidujúcich politických subjektov",
+            "size": "1,54 KB",
+            "role": "same-election subject list (identity)"
+          }
+        ],
+        "acquisition_note": "Related tables identified from the archived official dataset list only; not downloaded (automated collection prohibited; manual route pending publisher reply)."
+      },
+      {
+        "year": 2023,
+        "file": "NRSR2023_SK_tab03a.csv",
+        "sha256": "97f5660514a8572f1d76a1afa9e4b70a33fcd78f633134b720d3cc99cc3cd3ff",
+        "encoding": "utf-8",
+        "delimiter": ",",
+        "headers": [
+          "Číslo politického subjektu",
+          "Názov politického subjektu",
+          "Počet platných hlasov",
+          "Podiel platných hlasov v %",
+          "Počet voličov, ktorí využili právo prednostného hlasovania",
+          "Podiel voličov, ktorí využili právo prednostného hlasovania v %",
+          "Počet získaných mandátov"
+        ],
+        "result_rows": 25,
+        "subject_number_field": "Číslo politického subjektu",
+        "subject_number_locality": "election-local ballot/subject number; never a durable party identifier",
+        "vote_field": "Počet platných hlasov",
+        "share_field": "Podiel platných hlasov v %",
+        "seat_field": "Počet získaných mandátov",
+        "threshold_flag_field": null,
+        "seat_representation": {
+          "explicit_zero": 0,
+          "positive": 7,
+          "nan_marker": 0,
+          "empty_cell": 18
+        },
+        "seat_total_positive": 150,
+        "missing_seat_rule": "explicit 0, nan marker and empty cell are recorded distinctly; nan/empty are never converted to 0",
+        "valid_vote_denominator": {
+          "party_valid_vote_sum": 2967896,
+          "published_share_reproduction_max_abs_diff_pp": 0.01,
+          "finding": "Published shares equal votes ÷ sum of party valid votes within rounding; the official national valid-vote total is in the summary table (not acquired) and must be compared before production."
+        },
+        "turnout_field": null,
+        "related_official_tables": [
+          {
+            "file": "NRSR2023_SK_tab01.csv",
+            "title": "Súhrnné výsledky hlasovania za SR",
+            "size": "405,0 B",
+            "role": "turnout/summary (registered, ballots, valid votes)"
+          },
+          {
+            "file": "NRSR2023_SK_tab04.csv",
+            "title": "Pridelenie mandátov politickým subjektom",
+            "size": "832,0 B",
+            "role": "seat allocation"
+          },
+          {
+            "file": "NRSR2023_SK_tab04x.csv",
+            "title": "Súhrnné údaje k prideľovaniu mandátov politickým subjektom",
+            "size": "186,0 B",
+            "role": "turnout/summary (registered, ballots, valid votes)"
+          },
+          {
+            "file": "NRSR2023_SK_tab06.csv",
+            "title": "Zvolení poslanci Národnej rady Slovenskej republiky",
+            "size": "10,1 KB",
+            "role": "elected members"
+          },
+          {
+            "file": "NRSR2023_SK_tab0a.csv",
+            "title": "Zoznam kandidujúcich politických subjektov",
+            "size": "1,49 KB",
+            "role": "same-election subject list (identity)"
+          }
+        ],
+        "acquisition_note": "Related tables identified from the archived official dataset list only; not downloaded (automated collection prohibited; manual route pending publisher reply)."
+      }
+    ],
+    "election_date_2016": {
+      "status": "verified_tier1_legal_document",
+      "date": "2016-03-05",
+      "document": "Rozhodnutie predsedu NR SR č. 307/2015 Z. z. o vyhlásení volieb do NR SR (12.11.2015)",
+      "evidence": [
+        {
+          "url": "https://static.slov-lex.sk/pdf/SK/ZZ/2015/307/ZZ_2015_307_20151112.pdf",
+          "sha256": "b550b6942b3132fc48e34d96f5f45962382ff761a3cd18bc9bb5b980139bb9d1",
+          "retrieved_at": "2026-10-03T10:52:37.168Z"
+        },
+        {
+          "url": "https://static.slov-lex.sk/static/SK/ZZ/2015/307/vyhlasene_znenie.html",
+          "sha256": "976ceba987cef4adee6e5f66ce44af3555f48cc8aba5e3c0825a2cf40932418b",
+          "retrieved_at": "2026-10-03T10:52:37.727Z"
+        }
+      ],
+      "resolves": "ParlGov 2016-03-06 conflict"
+    },
+    "dataset_list": {
+      "source": {
+        "url": "https://volby.statistics.sk/tree.html",
+        "sha256": "e4a3ebc357fe7e117abb0957217b1307293966b0f9395b9b02dd8381b6faaed8",
+        "retrieved_at": "2026-10-03T10:04:56.237Z"
+      },
+      "statement": "Údaje na stiahnutie — dataset list compiled under Government Resolution No. 59 of 11 Feb 2015 (Open Government Partnership action plan 2015); all seven national files are listed by exact name and size."
+    }
+  },
+  "poland": {
+    "elections": [
+      {
+        "year": 2001,
+        "pages": [
+          {
+            "url": "https://danewyborcze.kbw.gov.pl/indexbb32.html?title=Parlament_2001",
+            "sha256": "6136125bc36a02052b12a0a893969ab327ae97345a05c1c60301ca107b80757a",
+            "retrieved_at": "2026-10-03T10:06:06.919Z"
+          },
+          {
+            "url": "https://danewyborcze.kbw.gov.pl/index2a07.html?title=Wybory_do_Sejmu_w_2001_r.",
+            "sha256": "028ae8f6cf4d3a4a9656b0adc573437691074a8811474a443a649984733f32d6",
+            "retrieved_at": "2026-10-03T10:54:09.939Z"
+          }
+        ],
+        "district_list_results": [
+          "https://danewyborcze.kbw.gov.pl/dane/2001/sejm/okr-lis-2001.xls"
+        ],
+        "district_definition_files": [
+          "https://danewyborcze.kbw.gov.pl/dane/2001/sejm/okr%c4%99gi2001sejm.xls"
+        ],
+        "finer_list_results": [
+          "https://danewyborcze.kbw.gov.pl/dane/2001/sejm/sejm2001-lis-gm.xls",
+          "https://danewyborcze.kbw.gov.pl/dane/2001/sejm/sejm2001-lis-pow.xls"
+        ],
+        "committee_or_list_registry": [
+          "https://danewyborcze.kbw.gov.pl/dane/2001/sejm/kandsejm2001kom.xls"
+        ],
+        "national_total_file": null,
+        "national_total_status": "not located in the KBW archive pages; candidate Tier-1 source: the PKW results announcement (obwieszczenie) — to be located; national totals are never summed until 41-district completeness and denominators are documented",
+        "date_evidence": null
+      },
+      {
+        "year": 2005,
+        "pages": [
+          {
+            "url": "https://danewyborcze.kbw.gov.pl/index0cff.html?title=Wybory_do_Sejmu_w_2005_r.",
+            "sha256": "26c2afaa61a602814df96e9586c5610df7d05d877ba1e1c268138f455b94b665",
+            "retrieved_at": "2026-10-03T10:54:09.996Z"
+          },
+          {
+            "url": "https://danewyborcze.kbw.gov.pl/index4736.html?title=Parlament_2005",
+            "sha256": "901389eed460f0905b05f7ef4a65904f3569931b848a10bc4b6ebc00fb0abeca",
+            "retrieved_at": "2026-10-03T10:06:06.973Z"
+          }
+        ],
+        "district_list_results": [
+          "https://danewyborcze.kbw.gov.pl/dane/2005/sejm/sejm2005-lis-okr.xls"
+        ],
+        "district_definition_files": [
+          "https://danewyborcze.kbw.gov.pl/dane/2005/sejm/okregi2005sejm.xls"
+        ],
+        "finer_list_results": [],
+        "committee_or_list_registry": [
+          "https://danewyborcze.kbw.gov.pl/dane/2005/sejm/kandsejm2005kom.xls"
+        ],
+        "national_total_file": null,
+        "national_total_status": "not located in the KBW archive pages; candidate Tier-1 source: the PKW results announcement (obwieszczenie) — to be located; national totals are never summed until 41-district completeness and denominators are documented",
+        "date_evidence": null
+      },
+      {
+        "year": 2007,
+        "pages": [
+          {
+            "url": "https://danewyborcze.kbw.gov.pl/indexa8cd.html?title=Wybory_do_Sejmu_w_2007_r.",
+            "sha256": "864978621ff8d5fe93610030d0aa85a5ae76644fc936dfbec072e46bb6688e32",
+            "retrieved_at": "2026-10-03T10:54:10.052Z"
+          },
+          {
+            "url": "https://danewyborcze.kbw.gov.pl/index8e7b.html?title=Parlament_2007",
+            "sha256": "fff69beed2394b9d5872de22c65d117d203d4990e5e33f9b2b5c67a4843fd388",
+            "retrieved_at": "2026-10-03T10:06:07.026Z"
+          }
+        ],
+        "district_list_results": [],
+        "district_definition_files": [
+          "https://danewyborcze.kbw.gov.pl/dane/2007/sejm/okr%c4%99gi2007sejm.xls"
+        ],
+        "finer_list_results": [
+          "https://danewyborcze.kbw.gov.pl/dane/2007/sejm/sejm2007-gm-listy.xls",
+          "https://danewyborcze.kbw.gov.pl/dane/2007/sejm/sejm2007-pow-listy.xls"
+        ],
+        "committee_or_list_registry": [
+          "https://danewyborcze.kbw.gov.pl/dane/2007/sejm/kandsejm2007.xls"
+        ],
+        "national_total_file": null,
+        "national_total_status": "not located in the KBW archive pages; candidate Tier-1 source: the PKW results announcement (obwieszczenie) — to be located; national totals are never summed until 41-district completeness and denominators are documented",
+        "date_evidence": "KBW archive confirms 21 October 2007"
+      },
+      {
+        "year": 2011,
+        "pages": [
+          {
+            "url": "https://danewyborcze.kbw.gov.pl/index9d55.html?title=Parlament_2011",
+            "sha256": "539cc65f7511f0dbf3b63861ee3c64ad3fc9abe10bce9a355c8f9f4a31c17f37",
+            "retrieved_at": "2026-10-03T10:06:07.083Z"
+          }
+        ],
+        "district_list_results": [],
+        "district_definition_files": [
+          "https://danewyborcze.kbw.gov.pl/dane/2011/sejmsenat/parl2011okr%c4%99gi.xlsx"
+        ],
+        "finer_list_results": [
+          "https://danewyborcze.kbw.gov.pl/dane/2011/sejmsenat/2011-gl-lis-gm.xls",
+          "https://danewyborcze.kbw.gov.pl/dane/2011/sejmsenat/2011-sejm-pow-listy.xls"
+        ],
+        "committee_or_list_registry": [
+          "https://danewyborcze.kbw.gov.pl/dane/2011/sejmsenat/komitety.zip",
+          "https://danewyborcze.kbw.gov.pl/dane/2011/sejmsenat/2011-kand-sejm.xls"
+        ],
+        "national_total_file": null,
+        "national_total_status": "not located in the KBW archive pages; candidate Tier-1 source: the PKW results announcement (obwieszczenie) — to be located; national totals are never summed until 41-district completeness and denominators are documented",
+        "date_evidence": null
+      },
+      {
+        "year": 2015,
+        "pages": [
+          {
+            "url": "https://danewyborcze.kbw.gov.pl/indexb73b.html?title=Parlament_2015",
+            "sha256": "ac7f985c7f6df39368315a371f458e1fbe282f62027206ae17ef291bdd77c3c7",
+            "retrieved_at": "2026-10-03T10:06:07.136Z"
+          },
+          {
+            "url": "https://danewyborcze.kbw.gov.pl/index4ca9.html?title=Wybory_do_Sejmu_w_2015_r.",
+            "sha256": "422aa63eda81cb42ddd090091330f302e225260abed09b8c70e17c2f9b73c3bf",
+            "retrieved_at": "2026-10-03T10:54:10.106Z"
+          }
+        ],
+        "district_list_results": [
+          "https://danewyborcze.kbw.gov.pl/dane/2015/sejm/2015-gl-lis-okr.zip"
+        ],
+        "district_definition_files": [],
+        "finer_list_results": [
+          "https://danewyborcze.kbw.gov.pl/dane/2015/sejm/2015-gl-lis-gm.zip",
+          "https://danewyborcze.kbw.gov.pl/dane/2015/sejm/2015-gl-lis-pow.zip",
+          "https://danewyborcze.kbw.gov.pl/dane/2015/sejm/2015-gl-lis-woj.zip"
+        ],
+        "committee_or_list_registry": [
+          "https://danewyborcze.kbw.gov.pl/dane/2015/sejm/2015-kand-sejm.xls"
+        ],
+        "national_total_file": null,
+        "national_total_status": "not located in the KBW archive pages; candidate Tier-1 source: the PKW results announcement (obwieszczenie) — to be located; national totals are never summed until 41-district completeness and denominators are documented",
+        "date_evidence": null
+      },
+      {
+        "year": 2019,
+        "pages": [
+          {
+            "url": "https://danewyborcze.kbw.gov.pl/indexe16b.html?title=Parlament_2019",
+            "sha256": "ae614a67a8e78720527c3028c45cff5196180f269d6cf5f456afd9b0dc38109a",
+            "retrieved_at": "2026-10-03T10:06:07.188Z"
+          }
+        ],
+        "district_list_results": [
+          "https://danewyborcze.kbw.gov.pl/dane/2019/sejmsenat/wyniki_gl_na_listy_po_okregach_sejm_csv.zip"
+        ],
+        "district_definition_files": [
+          "https://danewyborcze.kbw.gov.pl/dane/2019/sejmsenat/okregi_sejm_csv.zip",
+          "https://danewyborcze.kbw.gov.pl/dane/2019/sejmsenat/okregi_sejm_xlsx.zip"
+        ],
+        "finer_list_results": [
+          "https://danewyborcze.kbw.gov.pl/dane/2019/sejmsenat/wyniki_gl_na_listy_po_gminach_sejm_csv.zip",
+          "https://danewyborcze.kbw.gov.pl/dane/2019/sejmsenat/wyniki_gl_na_listy_po_gminach_sejm_xlsx.zip",
+          "https://danewyborcze.kbw.gov.pl/dane/2019/sejmsenat/wyniki_gl_na_listy_po_powiatach_sejm_csv.zip",
+          "https://danewyborcze.kbw.gov.pl/dane/2019/sejmsenat/wyniki_gl_na_listy_po_powiatach_sejm_xlsx.zip",
+          "https://danewyborcze.kbw.gov.pl/dane/2019/sejmsenat/wyniki_gl_na_listy_po_wojewodztwach_sejm_csv.zip",
+          "https://danewyborcze.kbw.gov.pl/dane/2019/sejmsenat/wyniki_gl_na_listy_po_wojewodztwach_sejm_xlsx.zip"
+        ],
+        "committee_or_list_registry": [
+          "https://danewyborcze.kbw.gov.pl/dane/2019/sejmsenat/wykaz_list_sejm_csv.zip"
+        ],
+        "national_total_file": null,
+        "national_total_status": "not located in the KBW archive pages; candidate Tier-1 source: the PKW results announcement (obwieszczenie) — to be located; national totals are never summed until 41-district completeness and denominators are documented",
+        "date_evidence": null
+      },
+      {
+        "year": 2023,
+        "pages": [
+          {
+            "url": "https://danewyborcze.kbw.gov.pl/indexc6e4.html?title=Parlament_2023",
+            "sha256": "cb0a22035161640c541041102d1604713ae023259e5c56c48faff368dc7bc60f",
+            "retrieved_at": "2026-10-03T10:06:07.244Z"
+          }
+        ],
+        "district_list_results": [
+          "https://danewyborcze.kbw.gov.pl/dane/2023/sejmsenat/wyniki_gl_na_listy_po_okregach_sejm_csv.zip"
+        ],
+        "district_definition_files": [
+          "https://danewyborcze.kbw.gov.pl/dane/2023/sejmsenat/okregi_sejm_csv.zip",
+          "https://danewyborcze.kbw.gov.pl/dane/2023/sejmsenat/okregi_sejm_xlsx.zip"
+        ],
+        "finer_list_results": [
+          "https://danewyborcze.kbw.gov.pl/dane/2023/sejmsenat/wyniki_gl_na_listy_po_gminach_sejm_csv.zip",
+          "https://danewyborcze.kbw.gov.pl/dane/2023/sejmsenat/wyniki_gl_na_listy_po_gminach_sejm_xlsx.zip",
+          "https://danewyborcze.kbw.gov.pl/dane/2023/sejmsenat/wyniki_gl_na_listy_po_powiatach_sejm_csv.zip",
+          "https://danewyborcze.kbw.gov.pl/dane/2023/sejmsenat/wyniki_gl_na_listy_po_powiatach_sejm_xlsx.zip",
+          "https://danewyborcze.kbw.gov.pl/dane/2023/sejmsenat/wyniki_gl_na_listy_po_wojewodztwach_sejm_csv.zip",
+          "https://danewyborcze.kbw.gov.pl/dane/2023/sejmsenat/wyniki_gl_na_listy_po_wojewodztwach_sejm_xlsx.zip"
+        ],
+        "committee_or_list_registry": [
+          "https://danewyborcze.kbw.gov.pl/dane/2023/sejmsenat/wykaz_list_sejm_csv.zip"
+        ],
+        "national_total_file": null,
+        "national_total_status": "not located in the KBW archive pages; candidate Tier-1 source: the PKW results announcement (obwieszczenie) — to be located; national totals are never summed until 41-district completeness and denominators are documented",
+        "date_evidence": null
+      }
+    ],
+    "semantics": [
+      "Contestants are electoral committees (komitety wyborcze); coalition committees and voter committees are not parties.",
+      "Minority committees may be exempt from the threshold; exemption must be read from the official committee registration, not inferred.",
+      "District files hold committee list numbers per district; national aggregation requires all 41 districts and a documented denominator."
+    ]
+  },
+  "austria": {
+    "elections": [
+      {
+        "year": 2002,
+        "index": {
+          "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/",
+          "sha256": "164da09854db2d0dc1398cd938b66cb492c7b1804c7897de835e405acac336af",
+          "retrieved_at": "2026-10-03T10:06:07.386Z"
+        },
+        "result_workbooks": [
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/files/nrw02_e_dl.zip",
+            "title": "komprimierte MS-EXCEL-Datei",
+            "vintage_label": "unlabelled"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/files/nrw02_multi.zip",
+            "title": "Wahlergebnis in speziellen Formaten",
+            "vintage_label": "unlabelled"
+          }
+        ],
+        "seat_documents": [
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/files/nrw02_brosch_mandate_bund.pdf",
+            "title": "Mandatsverteilung - Bundesgebiet-Haupt&uuml;bersicht",
+            "vintage_label": "unlabelled"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/files/nrw02_brosch_mandate_1em.pdf",
+            "title": "Mandatsvergabe im 1. Ermittlungsverfahren",
+            "vintage_label": "unlabelled"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/files/nrw02_brosch_weitere_mandate.pdf",
+            "title": "Fehlende Parteistimmen zur Erreichung eines (weiteren) Mandates nach Abschluss des 1. Ermittlungsverfahrens",
+            "vintage_label": "unlabelled"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/files/nrw02_brosch_mandate_2em.pdf",
+            "title": "Mandatsvergabe im 2. Ermittlungsverfahren",
+            "vintage_label": "unlabelled"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/files/nrw02_brosch_mandate_3em.pdf",
+            "title": "Mandatsvergabe im 3. Ermittlungsverfahren",
+            "vintage_label": "unlabelled"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/files/nrw02_brosch_mandate_dhondt.pdf",
+            "title": "Mandatsverteilung nach dem d&acute;Hondtschen H&ouml;chstzahlenverfahren",
+            "vintage_label": "unlabelled"
+          }
+        ],
+        "inspection": "contents not inspected by the agent (bmi.gv.at robots.txt disallows AI agents); owner-performed manual download required"
+      },
+      {
+        "year": 2006,
+        "index": {
+          "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2006/",
+          "sha256": "fe9f46cf818c3e28ae30bca600677d96afe9fa09ec6e2023f025fb3bb4385202",
+          "retrieved_at": "2026-10-03T10:06:07.424Z"
+        },
+        "result_workbooks": [
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2006/files/nrw_06_endergebnise.xls",
+            "title": "Hier wird das endg&uuml;ltige Gesamtergebnis als MS-EXCEL-Datei zum Download angeboten",
+            "vintage_label": "final_label"
+          }
+        ],
+        "seat_documents": [
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2006/files/nrw_06_mandatsspiegelv.pdf",
+            "title": "Mandatsspiegel",
+            "vintage_label": "possibly_provisional_filename_suffix"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2006/files/nrw_06_mandatsspiegelv.pdf",
+            "title": "Mandatsverteilung - Bundesgebiet - Haupt&uuml;bersicht",
+            "vintage_label": "possibly_provisional_filename_suffix"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2006/files/nrw_06_mandate_1.pdf",
+            "title": "Mandatsvergabe im 1. Ermittlungsverfahren",
+            "vintage_label": "unlabelled"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2006/files/nrw_06_mandate_1_fehl.pdf",
+            "title": "Fehlende Parteistimmen zur Erreichung eines (weiteren) Mandates nach Abschluss des 1. Ermittlungsverfahrens",
+            "vintage_label": "unlabelled"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2006/files/nrw_06_mandate_2.pdf",
+            "title": "Mandatsvergabe im 2. Ermittlungsverfahren",
+            "vintage_label": "unlabelled"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2006/files/nrw_06_mandate_2_fehl.pdf",
+            "title": "Unausgen&uuml;tzte Parteistimmen nach dem 2. Ermittlungsverfahren",
+            "vintage_label": "unlabelled"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2006/files/nrw_06_mandate_3.pdf",
+            "title": "Mandatsvergabe im 3. Ermittlungsverfahren",
+            "vintage_label": "unlabelled"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2006/files/nrw_06_mandatsverteilung.pdf",
+            "title": "History - Mandatsverteilung der Nationalratswahlen seit 1945",
+            "vintage_label": "unlabelled"
+          }
+        ],
+        "inspection": "contents not inspected by the agent (bmi.gv.at robots.txt disallows AI agents); owner-performed manual download required"
+      },
+      {
+        "year": 2008,
+        "index": {
+          "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2008/",
+          "sha256": "2d233ddc64c3d844ed1904df58a46aa04fb594105096c11489971f8942982597",
+          "retrieved_at": "2026-10-03T10:06:07.464Z"
+        },
+        "result_workbooks": [
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2008/files/ergebnis_end.zip",
+            "title": "Hier wird das endg&uuml;ltige Gesamtergebnis als gepackte MS-EXCEL-Datei zum Download angeboten",
+            "vintage_label": "final_label"
+          }
+        ],
+        "seat_documents": [
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2008/files/mandatsspiegel8_tag_vorl_nrw08.pdf",
+            "title": "Mandatsspiegel",
+            "vintage_label": "provisional_label"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2008/files/broschuere/nrw_08_mandatsspiegel.pdf",
+            "title": "Mandatsverteilung - Bundesgebiet - Haupt&uuml;bersicht",
+            "vintage_label": "unlabelled"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2008/files/broschuere/nrw_08_mandate1erm.pdf",
+            "title": "Mandatsvergabe im 1. Ermittlungsverfahren",
+            "vintage_label": "unlabelled"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2008/files/broschuere/nrw_08_mandate2erm.pdf",
+            "title": "Mandatsvergabe im 2. Ermittlungsverfahren",
+            "vintage_label": "unlabelled"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2008/files/history/nrw_08_mandatsvertseit1945.pdf",
+            "title": "History - Mandatsverteilung der Nationalratswahlen seit 1945",
+            "vintage_label": "unlabelled"
+          }
+        ],
+        "inspection": "contents not inspected by the agent (bmi.gv.at robots.txt disallows AI agents); owner-performed manual download required"
+      },
+      {
+        "year": 2013,
+        "index": {
+          "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/",
+          "sha256": "5bfa37129a4656d86c9f4ecadfc968b403edfcc93281ff78b599d92ae2f69e88",
+          "retrieved_at": "2026-10-03T10:06:07.507Z"
+        },
+        "result_workbooks": [
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/nrw13_endgueltiges_gesamtergebnis.xlsx",
+            "title": "Hier wird das Gesamtergebnis als xlsx-Datei zum Download angeboten",
+            "vintage_label": "final_label"
+          }
+        ],
+        "seat_documents": [
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/mandatsspiegel_nrw_2013_4_tag_nach_wahltag_wahlkarten_vorl.pdf",
+            "title": "Mandatsspiegel",
+            "vintage_label": "provisional_label"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw13.pdf",
+            "title": "Verlautbarung der Bundeswahlbeh&ouml;rde vom 16. Oktober 2013",
+            "vintage_label": "final_label"
+          }
+        ],
+        "inspection": "contents not inspected by the agent (bmi.gv.at robots.txt disallows AI agents); owner-performed manual download required"
+      },
+      {
+        "year": 2017,
+        "index": {
+          "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/",
+          "sha256": "de248dccef73b50a046e98335d7f7940a67182abf5b3b7cb8a486bb75ae3559e",
+          "retrieved_at": "2026-10-03T10:06:07.543Z"
+        },
+        "result_workbooks": [
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/nrw17_endgueltiges_gesamtergebnis.xlsx",
+            "title": "xlsx-Datei",
+            "vintage_label": "final_label"
+          }
+        ],
+        "seat_documents": [
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/mandatsspiegel_nrw2017_inklusivewahlkarten.pdf",
+            "title": "Mandatsspiegel",
+            "vintage_label": "unlabelled"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/verlautbarung_bwb_endgerg_inkl_3_ermittlungsverfahren_nrw17.pdf",
+            "title": "Verlautbarung der Bundeswahlbeh&ouml;rde vom 31. Oktober 2017",
+            "vintage_label": "final_label"
+          }
+        ],
+        "inspection": "contents not inspected by the agent (bmi.gv.at robots.txt disallows AI agents); owner-performed manual download required"
+      },
+      {
+        "year": 2019,
+        "index": {
+          "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/",
+          "sha256": "e97a5af8f969d5d1e141b58b5ebf47091906aa90c7934ffeb6c2401395efbaae",
+          "retrieved_at": "2026-10-03T10:06:07.604Z"
+        },
+        "result_workbooks": [
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/endgultiges_gesamtergebnis_nrw19_16102019.xlsx",
+            "title": "xlsx-Datei",
+            "vintage_label": "final_label"
+          }
+        ],
+        "seat_documents": [
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/mandatsspiegel_17102019.pdf",
+            "title": "Mandatsspiegel",
+            "vintage_label": "unlabelled"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/verlautbarung_endgueltiges_ergebnis.pdf",
+            "title": "Verlautbarung der Bundeswahlbeh&ouml;rde vom 16. Oktober 2019",
+            "vintage_label": "final_label"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/verlautbarung_kundmachung.pdf",
+            "title": "Kundmachung der Bundeswahlbeh&ouml;rde vom 14. August 2019",
+            "vintage_label": "final_label"
+          }
+        ],
+        "inspection": "contents not inspected by the agent (bmi.gv.at robots.txt disallows AI agents); owner-performed manual download required"
+      },
+      {
+        "year": 2024,
+        "index": {
+          "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/",
+          "sha256": "5ee02a3fe7527bdb48630512b2f4edb70318b0a427787b13baa8cc51a95ef61c",
+          "retrieved_at": "2026-10-03T10:06:07.648Z"
+        },
+        "result_workbooks": [
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_16102024.xlsx",
+            "title": "MS Excel-Datei",
+            "vintage_label": "final_label"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/wahlberechtigte_endgueltig_16102024.xlsx",
+            "title": "MS Excel-Datei",
+            "vintage_label": "final_label"
+          }
+        ],
+        "seat_documents": [
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiger_mandatsspiegel_bf_24102024.pdf",
+            "title": "Mandatsspiegel",
+            "vintage_label": "final_label"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/verlautbarung_der_bundeswahlbehoerde_16102024_bf.pdf",
+            "title": "Verlautbarung der Bundeswahlbeh&ouml;rde vom 16. Oktober 2024",
+            "vintage_label": "final_label"
+          },
+          {
+            "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/verlautbarung_bundeswahlbehoerde_bf_20240816.pdf",
+            "title": "Kundmachung der Bundeswahlbeh&ouml;rde vom 16. August 2024",
+            "vintage_label": "final_label"
+          }
+        ],
+        "inspection": "contents not inspected by the agent (bmi.gv.at robots.txt disallows AI agents); owner-performed manual download required"
+      }
+    ],
+    "observed_2024_workbook": {
+      "observed_at": "2026-10-02 (political audit; not archived; retrieval preceded the robots finding)",
+      "national_row": "GKZ G00000 Österreich",
+      "fields": [
+        "Wahlberechtigte",
+        "Abgegebene",
+        "Ungültige",
+        "Gültige",
+        "party votes",
+        "party % (of valid votes)"
+      ],
+      "seats": "not in workbook; in the final Mandatsspiegel PDF",
+      "pseudo_units": "Wahlkarten rows (electorate 0) are postal counting units, not geography"
+    },
+    "semantics": [
+      "Wahlwerbende Gruppe (list) need not be a party under the Parteiengesetz.",
+      "Seats are allocated in three Ermittlungsverfahren (Regional-, Landes-, Bundeswahlkreis); the final national seat total comes from the Verlautbarung/endgültiger Mandatsspiegel, never from summing rows."
+    ]
+  }
+}

@@ -1,0 +1,322 @@
+{
+  "schema_version": "political-licence-evidence-v1",
+  "state": "written_confirmation_required_no_licence_gate_closed",
+  "records": [
+    {
+      "country": "czechia",
+      "publisher": "Český statistický úřad",
+      "status": "written_confirmation_required",
+      "terms_url": "https://csu.gov.cz/podminky_pro_vyuzivani_a_dalsi_zverejnovani_statistickych_udaju_csu",
+      "terms_name": "CZSO statistical reuse terms, CC BY 4.0 stated",
+      "terms_version": "CC BY 4.0 stated; election applicability unclosed",
+      "archived_terms": {
+        "url": "https://csu.gov.cz/podminky_pro_vyuzivani_a_dalsi_zverejnovani_statistickych_udaju_csu",
+        "final_url": "https://csu.gov.cz/podminky_pro_vyuzivani_a_dalsi_zverejnovani_statistickych_udaju_csu",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "retrieved_at": "2026-10-03T10:04:45.101Z",
+        "bytes": 64368,
+        "sha256": "5ddd322892a662f6d979cea4521343b4c011fe2d44dc493e78e7d4b5221d03b7",
+        "archive_path": "local-evidence/5ddd322892a662f6d979cea4521343b4c011fe2d44dc493e78e7d4b5221d03b7.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "raw_redistribution": "not_cleared",
+      "factual_extracts": "not_cleared",
+      "attribution_required_if_permission_confirmed": "Český statistický úřad",
+      "derived_data_disclosure_required": true,
+      "third_party_exclusions": "Dataset-specific exclusions not verified",
+      "applicability_verified": false,
+      "blocker": "Election download pages link the CZSO terms, but their operative scope names csu.gov.cz. Obtain a dataset-specific licence statement or publisher confirmation for the actual volby.gov.cz files. No domain extension is assumed.",
+      "gates": {
+        "reuse_right": {
+          "value": "supported_pending_scope_confirmation",
+          "status": "open",
+          "closes_by": "publisher_reply",
+          "basis": "ČSÚ terms: 'Statistické informace Českého statistického úřadu zveřejněné prostřednictvím internetových stránek https://csu.gov.cz jsou licencovány v souladu s CC BY 4.0'. The volby.gov.cz open-data index links these terms in its footer, but the operative sentence names csu.gov.cz, not volby.gov.cz.",
+          "evidence": [
+            {
+              "path": "local-evidence/5ddd322892a662f6d979cea4521343b4c011fe2d44dc493e78e7d4b5221d03b7.raw",
+              "sha256": "5ddd322892a662f6d979cea4521343b4c011fe2d44dc493e78e7d4b5221d03b7",
+              "note": "CZSO terms page, retrieved 2026-10-03"
+            },
+            {
+              "path": "local-evidence/157435aa7c2966f308f89601e14def573daa839647c4d122b830c940f70637a0.raw",
+              "sha256": "157435aa7c2966f308f89601e14def573daa839647c4d122b830c940f70637a0",
+              "note": "volby.gov.cz/opendata/opendata.htm, footer links the CZSO terms"
+            }
+          ]
+        },
+        "normalized_factual_republication_right": {
+          "value": "supported_pending_scope_confirmation",
+          "status": "open",
+          "closes_by": "publisher_reply",
+          "basis": "Would follow from CC BY 4.0 if the terms cover volby.gov.cz files."
+        },
+        "raw_redistribution_right": {
+          "value": "supported_pending_scope_confirmation",
+          "status": "open",
+          "closes_by": "publisher_reply",
+          "basis": "CC BY 4.0 permits redistribution only if it applies to these files; not inferred from factual reuse."
+        },
+        "automated_acquisition_permission": {
+          "value": "not_prohibited_no_explicit_permission",
+          "status": "partial",
+          "closes_by": "publisher_reply",
+          "basis": "volby.gov.cz robots.txt disallows only /pls/; CZSO terms contain no crawler clause. Absence of a prohibition is not a permission."
+        },
+        "manual_acquisition_permission": {
+          "value": "not_prohibited_public_download",
+          "status": "partial",
+          "closes_by": "publisher_reply",
+          "basis": "Public download pages; no restriction found."
+        },
+        "attribution_requirements": {
+          "value": "documented_if_terms_apply",
+          "status": "partial",
+          "basis": "Distributors must state the licence terms, preferably by linking the terms page (ČSÚ terms, 'Další podmínky')."
+        },
+        "transformation_disclosure_requirements": {
+          "value": "documented_if_terms_apply",
+          "status": "partial",
+          "basis": "'upravené nebo odvozené údaje musí být označeny jako upravené nebo odvozené a nesmí být prezentovány jako nezměněné oficiální statistiky' (ČSÚ terms)."
+        }
+      }
+    },
+    {
+      "country": "slovakia",
+      "publisher": "Štatistický úrad SR",
+      "status": "written_confirmation_required",
+      "terms_url": "https://slovak.statistics.sk/wps/portal/ext/services/infoservis/principles/",
+      "terms_name": "Principles of Release and Provision of Statistical Information, CC BY 4.0 stated",
+      "terms_version": "CC BY 4.0 stated; election applicability unclosed",
+      "archived_terms": null,
+      "raw_redistribution": "not_cleared",
+      "factual_extracts": "not_cleared",
+      "attribution_required_if_permission_confirmed": "Štatistický úrad SR",
+      "derived_data_disclosure_required": true,
+      "third_party_exclusions": "Explicit third-party IP exclusion",
+      "applicability_verified": false,
+      "blocker": "The publisher principles state CC BY 4.0 and third-party exclusions but expressly prohibit robots/spiders and similar collection tools. Further automated retrieval is stopped. Confirm lawful acquisition route and election-file applicability in writing before ingestion.",
+      "gates": {
+        "reuse_right": {
+          "value": "supported_pending_scope_confirmation",
+          "status": "open",
+          "closes_by": "publisher_reply",
+          "basis": "Terms page (last update 26.10.2020): information 'released by the Statistical Office of the SR through the website www.statistics.sk' may be disseminated, used and used commercially under CC BY 4.0. API help: 'All information is subject to the license terms of the Creative Commons Attribution License (cc-by) 4.0.' The election dataset list on volby.statistics.sk names all seven files under its open-government dataset statement. Remaining gap: the operative text names www.statistics.sk; the files are on volby.statistics.sk, and the election-specific open-data sentence is no longer on the live portal (portal restructured 2026-09-15).",
+          "evidence": [
+            {
+              "path": "local-evidence/e4a3ebc357fe7e117abb0957217b1307293966b0f9395b9b02dd8381b6faaed8.raw",
+              "sha256": "e4a3ebc357fe7e117abb0957217b1307293966b0f9395b9b02dd8381b6faaed8",
+              "note": "volby.statistics.sk/tree.html dataset list naming the seven files"
+            },
+            {
+              "path": "manual-browser-review:https://slovak.statistics.sk/wps/portal/ext/aboutus/webpage/terms/",
+              "sha256": null,
+              "note": "viewed 2026-10-03 by the agent in the interactive browser pane (single documentation page view, no data download); quoted, not archived — owner may re-confirm and archive manually"
+            },
+            {
+              "path": "manual-browser-review:data.statistics.sk/api/html/help-en.html",
+              "sha256": null,
+              "note": "viewed 2026-10-03 in browser; quoted, not archived"
+            }
+          ]
+        },
+        "normalized_factual_republication_right": {
+          "value": "supported_pending_scope_confirmation",
+          "status": "open",
+          "closes_by": "publisher_reply",
+          "basis": "Terms permit dissemination and use under CC BY 4.0; applies if the election files are covered."
+        },
+        "raw_redistribution_right": {
+          "value": "supported_pending_scope_confirmation",
+          "status": "open",
+          "closes_by": "publisher_reply",
+          "basis": "Terms explicitly allow 'copied, distributed and communicated to the public' — the same scope question applies. Third-party IP exclusion clause noted."
+        },
+        "automated_acquisition_permission": {
+          "value": "prohibited_by_publisher_terms",
+          "status": "blocked",
+          "closes_by": "publisher_reply",
+          "basis": "'Use of robots, spiders, crawlers and similar data gathering and extraction tools is expressly prohibited.' No further automated retrieval; the evidence script refuses statistics.sk hosts."
+        },
+        "manual_acquisition_permission": {
+          "value": "not_prohibited_public_download",
+          "status": "partial",
+          "closes_by": "publisher_reply",
+          "basis": "Files are published for download; terms prohibit tools, not human download. Confirmation requested."
+        },
+        "attribution_requirements": {
+          "value": "documented_if_terms_apply",
+          "status": "partial",
+          "closes_by": "publisher_reply",
+          "basis": "Terms wording (if they cover the election files): SO SR indicated as source without implying endorsement; mention CC BY 4.0 terms, preferably by direct link to www.statistics.sk."
+        },
+        "transformation_disclosure_requirements": {
+          "value": "documented_by_licence",
+          "status": "partial",
+          "basis": "CC BY 4.0 requires indicating changes; no publisher-specific wording found."
+        }
+      }
+    },
+    {
+      "country": "poland",
+      "publisher": "Państwowa Komisja Wyborcza / Krajowe Biuro Wyborcze",
+      "status": "written_confirmation_required",
+      "terms_url": "https://danewyborcze.kbw.gov.pl/indexa114.html?title=Dane_Wyborcze:Informacje_prawne",
+      "terms_name": "DANE WYBORCZE legal-information page (no operative licence found)",
+      "terms_version": null,
+      "archived_terms": {
+        "url": "https://danewyborcze.kbw.gov.pl/indexa114.html?title=Dane_Wyborcze:Informacje_prawne",
+        "final_url": "https://danewyborcze.kbw.gov.pl/indexa114.html?title=Dane_Wyborcze:Informacje_prawne",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "retrieved_at": "2026-10-03T10:08:41.847Z",
+        "bytes": 10465,
+        "sha256": "3d80457b90cf40367be2a5f865fbd5eee4b476e86b8c6cf411a7c35586b1c6fe",
+        "archive_path": "local-evidence/3d80457b90cf40367be2a5f865fbd5eee4b476e86b8c6cf411a7c35586b1c6fe.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "raw_redistribution": "not_cleared",
+      "factual_extracts": "not_cleared",
+      "attribution_required_if_permission_confirmed": "Państwowa Komisja Wyborcza / Krajowe Biuro Wyborcze",
+      "derived_data_disclosure_required": true,
+      "third_party_exclusions": "Dataset-specific exclusions not verified",
+      "applicability_verified": false,
+      "blocker": "DANE WYBORCZE legal-information page was retrieved but supplies no operative election-file reuse licence. A general public-information law or a different ministry licence is not substituted for dataset terms.",
+      "gates": {
+        "reuse_right": {
+          "value": "unresolved",
+          "status": "open",
+          "closes_by": "publisher_reply",
+          "basis": "DANE WYBORCZE 'Informacje prawne' page has no content ('Ta strona nie posiada jeszcze zawartości'). No operative dataset terms found; another ministry's terms are not substituted.",
+          "evidence": [
+            {
+              "path": "local-evidence/3d80457b90cf40367be2a5f865fbd5eee4b476e86b8c6cf411a7c35586b1c6fe.raw",
+              "sha256": "3d80457b90cf40367be2a5f865fbd5eee4b476e86b8c6cf411a7c35586b1c6fe",
+              "note": "empty legal-information page, retrieved 2026-10-03"
+            }
+          ]
+        },
+        "normalized_factual_republication_right": {
+          "value": "unresolved",
+          "status": "open",
+          "closes_by": "publisher_reply",
+          "basis": "No terms located."
+        },
+        "raw_redistribution_right": {
+          "value": "not_cleared",
+          "status": "open",
+          "closes_by": "publisher_reply",
+          "basis": "No terms located."
+        },
+        "automated_acquisition_permission": {
+          "value": "not_prohibited_no_explicit_permission",
+          "status": "partial",
+          "closes_by": "publisher_reply",
+          "basis": "danewyborcze.kbw.gov.pl has no robots.txt (HTTP 404); pkw.gov.pl robots.txt has no disallow rules. No permission statement."
+        },
+        "manual_acquisition_permission": {
+          "value": "not_prohibited_public_download",
+          "status": "partial",
+          "closes_by": "publisher_reply",
+          "basis": "Public download pages."
+        },
+        "attribution_requirements": {
+          "value": "unknown",
+          "status": "open",
+          "closes_by": "publisher_reply",
+          "basis": "No terms located."
+        },
+        "transformation_disclosure_requirements": {
+          "value": "unknown",
+          "status": "open",
+          "closes_by": "publisher_reply",
+          "basis": "No terms located; Atlas labels derived values regardless."
+        }
+      }
+    },
+    {
+      "country": "austria",
+      "publisher": "BMI / Bundeswahlbehörde",
+      "status": "written_confirmation_required",
+      "terms_url": "https://www.bmi.gv.at/impressum/",
+      "terms_name": "BMI Impressum, attributed noncommercial contributions",
+      "terms_version": null,
+      "archived_terms": {
+        "url": "https://www.bmi.gv.at/impressum/",
+        "final_url": "https://www.bmi.gv.at/impressum/",
+        "status": 200,
+        "content_type": "text/html",
+        "retrieved_at": "2026-10-03T10:05:00.676Z",
+        "bytes": 55506,
+        "sha256": "d3f42c254b0f55302833b68754e633912ca8a0d9931097616d1aa4ed4ed4c355",
+        "archive_path": "local-evidence/d3f42c254b0f55302833b68754e633912ca8a0d9931097616d1aa4ed4ed4c355.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "raw_redistribution": "not_cleared",
+      "factual_extracts": "not_cleared",
+      "attribution_required_if_permission_confirmed": "BMI / Bundeswahlbehörde",
+      "derived_data_disclosure_required": true,
+      "third_party_exclusions": "Dataset-specific exclusions not verified",
+      "applicability_verified": false,
+      "blocker": "BMI Impressum permits attributed reuse of contributions except commercial purposes. Applicability to each result workbook, factual extracts, and official-work exclusions is unresolved. Do not claim an open licence or unrestricted raw redistribution.",
+      "gates": {
+        "reuse_right": {
+          "value": "restricted_noncommercial_pending_applicability",
+          "status": "open",
+          "closes_by": "publisher_reply",
+          "basis": "BMI Impressum: 'Die Übernahme von Beiträgen ist – unter Quellenangabe – gestattet (außer für kommerzielle Zwecke).' Whether 'Beiträge' covers the official result workbooks is unresolved.",
+          "evidence": [
+            {
+              "path": "local-evidence/d3f42c254b0f55302833b68754e633912ca8a0d9931097616d1aa4ed4ed4c355.raw",
+              "sha256": "d3f42c254b0f55302833b68754e633912ca8a0d9931097616d1aa4ed4ed4c355",
+              "note": "BMI Impressum, retrieved 2026-10-03"
+            }
+          ]
+        },
+        "normalized_factual_republication_right": {
+          "value": "restricted_noncommercial_pending_applicability",
+          "status": "open",
+          "closes_by": "publisher_reply",
+          "basis": "Same clause; non-commercial limitation to be confirmed for data."
+        },
+        "raw_redistribution_right": {
+          "value": "not_cleared",
+          "status": "open",
+          "closes_by": "publisher_reply",
+          "basis": "Not inferred from 'Übernahme von Beiträgen'."
+        },
+        "automated_acquisition_permission": {
+          "value": "prohibited_for_ai_agents_by_robots",
+          "status": "blocked",
+          "closes_by": "publisher_reply",
+          "basis": "bmi.gv.at robots.txt section '2. BLOCK ALL AI TRAINING SCRAPERS, LLM CRAWLERS & DISCOVERY ENGINES' disallows / for user agents including Anthropic-ai, Claude-Web and ChatGPT-User (observed 2026-10-03). Earlier AI-driven retrievals (2026-10-02 audit; 2026-10-03 checkpoint) are audit-only; no further BMI requests.",
+          "evidence": [
+            {
+              "path": "local-evidence/d262ff9a3e93789d700a40bfb3d5cc1aab6660a9f337f0a4240b763c4f231f14.raw",
+              "sha256": "d262ff9a3e93789d700a40bfb3d5cc1aab6660a9f337f0a4240b763c4f231f14",
+              "note": "bmi.gv.at/robots.txt, retrieved 2026-10-03T10:57Z"
+            }
+          ]
+        },
+        "manual_acquisition_permission": {
+          "value": "not_prohibited_public_download",
+          "status": "partial",
+          "closes_by": "publisher_reply",
+          "basis": "Owner-performed browser download is not restricted by robots.txt; confirmation requested."
+        },
+        "attribution_requirements": {
+          "value": "documented_for_beitraege",
+          "status": "partial",
+          "basis": "'unter Quellenangabe' — source attribution; exact form for data to confirm."
+        },
+        "transformation_disclosure_requirements": {
+          "value": "unknown",
+          "status": "open",
+          "closes_by": "publisher_reply",
+          "basis": "No wording found."
+        }
+      }
+    }
+  ]
+}

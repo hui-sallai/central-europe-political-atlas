@@ -1,0 +1,491 @@
+{
+  "schema_version": "political-source-closure-v1",
+  "state": "blocked_checkpoint_not_completed_audit",
+  "country": "poland",
+  "platform_version": "v2.0",
+  "canonical_write_authorized": false,
+  "licence_gate": "written_confirmation_required",
+  "licence_blocker": "DANE WYBORCZE legal-information page was retrieved but supplies no operative election-file reuse licence. A general public-information law or a different ministry licence is not substituted for dataset terms.",
+  "recommendation": "BLOCKED_BY_MULTIPLE_GATES",
+  "gate_matrix": {
+    "country": "poland",
+    "publisher": "Państwowa Komisja Wyborcza / Krajowe Biuro Wyborcze",
+    "gates": {
+      "reuse_right": {
+        "status": "open",
+        "value": "unresolved",
+        "closes_by": "publisher_reply",
+        "basis": "DANE WYBORCZE 'Informacje prawne' page has no content ('Ta strona nie posiada jeszcze zawartości'). No operative dataset terms found; another ministry's terms are not substituted."
+      },
+      "normalized_republication": {
+        "status": "open",
+        "value": "unresolved",
+        "closes_by": "publisher_reply",
+        "basis": "No terms located."
+      },
+      "raw_redistribution": {
+        "status": "open",
+        "value": "not_cleared",
+        "closes_by": "publisher_reply",
+        "basis": "No terms located."
+      },
+      "automated_acquisition": {
+        "status": "partial",
+        "value": "not_prohibited_no_explicit_permission",
+        "closes_by": "publisher_reply",
+        "basis": "danewyborcze.kbw.gov.pl has no robots.txt (HTTP 404); pkw.gov.pl robots.txt has no disallow rules. No permission statement."
+      },
+      "manual_acquisition": {
+        "status": "partial",
+        "value": "not_prohibited_public_download",
+        "closes_by": "publisher_reply",
+        "basis": "Public download pages."
+      },
+      "source_files_complete": {
+        "status": "partial",
+        "value": null,
+        "closes_by": "documentary_work_after_acquisition_clearance",
+        "basis": "Official list-result files located for all seven elections: district (okręg) level for 2001, 2005, 2015, 2019 and 2023; powiat level only for 2007 and 2011 (documentary_review.json). None acquired; national-total source (PKW results announcement) not located in the archive."
+      },
+      "national_definition_complete": {
+        "status": "open",
+        "value": null,
+        "closes_by": "documentary_work_after_acquisition_clearance",
+        "basis": "National totals require either the official PKW announcement or a documented 41-district aggregation; neither performed."
+      },
+      "same_election_identity_complete": {
+        "status": "open",
+        "value": null,
+        "closes_by": "documentary_work_after_acquisition_clearance",
+        "basis": "Committee lists located (2011 komitety.zip; 2019/2023 wykaz_list_sejm); committees ≠ parties."
+      },
+      "electoral_system_metadata_complete": {
+        "status": "open",
+        "value": null,
+        "closes_by": "documentary_work",
+        "basis": "No dated threshold/minority-exemption review; 2007 date confirmed 21 October by KBW archive."
+      },
+      "vintage_decisions_complete": {
+        "status": "open",
+        "value": null,
+        "closes_by": "documentary_work",
+        "basis": "Not reviewed."
+      }
+    },
+    "mandatory_gate_status": {
+      "reuse_right": "open",
+      "normalized_republication": "open",
+      "acquisition_route": "partial",
+      "source_files_complete": "partial",
+      "national_definition_complete": "open",
+      "same_election_identity_complete": "open",
+      "electoral_system_metadata_complete": "open",
+      "vintage_decisions_complete": "open"
+    },
+    "open_mandatory_gates": [
+      "reuse_right",
+      "normalized_republication",
+      "acquisition_route",
+      "source_files_complete",
+      "national_definition_complete",
+      "same_election_identity_complete",
+      "electoral_system_metadata_complete",
+      "vintage_decisions_complete"
+    ],
+    "overall_readiness": "NOT_READY",
+    "variant_eligibility": {
+      "1B-A_full_normalized": false,
+      "1B-B_normalized_without_raw": false,
+      "1B-manual": false
+    }
+  },
+  "rights_gates": {
+    "reuse_right": {
+      "value": "unresolved",
+      "status": "open",
+      "closes_by": "publisher_reply",
+      "basis": "DANE WYBORCZE 'Informacje prawne' page has no content ('Ta strona nie posiada jeszcze zawartości'). No operative dataset terms found; another ministry's terms are not substituted.",
+      "evidence": [
+        {
+          "path": "local-evidence/3d80457b90cf40367be2a5f865fbd5eee4b476e86b8c6cf411a7c35586b1c6fe.raw",
+          "sha256": "3d80457b90cf40367be2a5f865fbd5eee4b476e86b8c6cf411a7c35586b1c6fe",
+          "note": "empty legal-information page, retrieved 2026-10-03"
+        }
+      ]
+    },
+    "normalized_factual_republication_right": {
+      "value": "unresolved",
+      "status": "open",
+      "closes_by": "publisher_reply",
+      "basis": "No terms located."
+    },
+    "raw_redistribution_right": {
+      "value": "not_cleared",
+      "status": "open",
+      "closes_by": "publisher_reply",
+      "basis": "No terms located."
+    },
+    "automated_acquisition_permission": {
+      "value": "not_prohibited_no_explicit_permission",
+      "status": "partial",
+      "closes_by": "publisher_reply",
+      "basis": "danewyborcze.kbw.gov.pl has no robots.txt (HTTP 404); pkw.gov.pl robots.txt has no disallow rules. No permission statement."
+    },
+    "manual_acquisition_permission": {
+      "value": "not_prohibited_public_download",
+      "status": "partial",
+      "closes_by": "publisher_reply",
+      "basis": "Public download pages."
+    },
+    "attribution_requirements": {
+      "value": "unknown",
+      "status": "open",
+      "closes_by": "publisher_reply",
+      "basis": "No terms located."
+    },
+    "transformation_disclosure_requirements": {
+      "value": "unknown",
+      "status": "open",
+      "closes_by": "publisher_reply",
+      "basis": "No terms located; Atlas labels derived values regardless."
+    }
+  },
+  "future_production_elections": [],
+  "expected_record_counts": null,
+  "manual_work": [
+    "Electoral committee is not a legal party. Coalition committees, minority committees and renamed committees require same-election registration evidence.",
+    "KO, Trzecia Droga and Lewica votes remain committee results, not allocated party votes.",
+    "Exact dated electoral law review and final national totals/seat/turnout verification remain required after a lawful source acquisition route is confirmed."
+  ],
+  "elections": [
+    {
+      "country": "poland",
+      "year": 2001,
+      "date": "2001-09-23",
+      "date_status": "official_archive_index_verified",
+      "election_id_proposal": "el-pl-sejm-2001-09-23",
+      "authority": "Państwowa Komisja Wyborcza / Krajowe Biuro Wyborcze",
+      "dataset_or_file_title": "Wyniki głosowania na listy kandydatów w układzie okręgów wyborczych",
+      "file_url": "https://danewyborcze.kbw.gov.pl/dane/2001/sejm/okr-lis-2001.xls",
+      "file_status": "official_link_observed_file_not_retrieved",
+      "index_evidence": {
+        "url": "https://danewyborcze.kbw.gov.pl/indexbb32.html?title=Parlament_2001",
+        "final_url": "https://danewyborcze.kbw.gov.pl/indexbb32.html?title=Parlament_2001",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "retrieved_at": "2026-10-03T10:06:06.919Z",
+        "bytes": 11519,
+        "sha256": "6136125bc36a02052b12a0a893969ab327ae97345a05c1c60301ca107b80757a",
+        "archive_path": "local-evidence/6136125bc36a02052b12a0a893969ab327ae97345a05c1c60301ca107b80757a.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "XLS",
+      "national_result_level": "not_confirmed_from_actual_file",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": null,
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": null,
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": null,
+      "notes": [
+        "2007 official KBW national archive index confirms 21 October, resolving the historical 19 October ParlGov discrepancy for audit metadata only.",
+        "Several older KBW landing pages lead to separate Sejm archives; absence of files on a landing page is not proof of unavailable data.",
+        "2019/2023 national candidate votes can be derived from 41 district files only after complete coverage and denominator reconciliation; not performed at this checkpoint.",
+        "Electoral committee is not a legal party. Coalition committees, minority committees and renamed committees require same-election registration evidence.",
+        "KO, Trzecia Droga and Lewica votes remain committee results, not allocated party votes."
+      ]
+    },
+    {
+      "country": "poland",
+      "year": 2005,
+      "date": "2005-09-25",
+      "date_status": "official_archive_index_verified",
+      "election_id_proposal": "el-pl-sejm-2005-09-25",
+      "authority": "Państwowa Komisja Wyborcza / Krajowe Biuro Wyborcze",
+      "dataset_or_file_title": "Głosy oddane na listy kandydatów na posłów wg okręgów wyborczych",
+      "file_url": "https://danewyborcze.kbw.gov.pl/dane/2005/sejm/sejm2005-lis-okr.xls",
+      "file_status": "official_link_observed_file_not_retrieved",
+      "index_evidence": {
+        "url": "https://danewyborcze.kbw.gov.pl/index4736.html?title=Parlament_2005",
+        "final_url": "https://danewyborcze.kbw.gov.pl/index4736.html?title=Parlament_2005",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "retrieved_at": "2026-10-03T10:06:06.973Z",
+        "bytes": 11775,
+        "sha256": "901389eed460f0905b05f7ef4a65904f3569931b848a10bc4b6ebc00fb0abeca",
+        "archive_path": "local-evidence/901389eed460f0905b05f7ef4a65904f3569931b848a10bc4b6ebc00fb0abeca.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "XLS",
+      "national_result_level": "not_confirmed_from_actual_file",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": null,
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": null,
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": null,
+      "notes": [
+        "2007 official KBW national archive index confirms 21 October, resolving the historical 19 October ParlGov discrepancy for audit metadata only.",
+        "Several older KBW landing pages lead to separate Sejm archives; absence of files on a landing page is not proof of unavailable data.",
+        "2019/2023 national candidate votes can be derived from 41 district files only after complete coverage and denominator reconciliation; not performed at this checkpoint.",
+        "Electoral committee is not a legal party. Coalition committees, minority committees and renamed committees require same-election registration evidence.",
+        "KO, Trzecia Droga and Lewica votes remain committee results, not allocated party votes."
+      ]
+    },
+    {
+      "country": "poland",
+      "year": 2007,
+      "date": "2007-10-21",
+      "date_status": "official_archive_index_verified",
+      "election_id_proposal": "el-pl-sejm-2007-10-21",
+      "authority": "Państwowa Komisja Wyborcza / Krajowe Biuro Wyborcze",
+      "dataset_or_file_title": "Dane dotyczące wyników głosowania na listy kandydatów w wyborach do Sejmu RP w roku 2007 według powiatów w ujęciu liczbowym",
+      "file_url": "https://danewyborcze.kbw.gov.pl/dane/2007/sejm/sejm2007-pow-listy.xls",
+      "file_status": "official_link_observed_file_not_retrieved",
+      "index_evidence": {
+        "url": "https://danewyborcze.kbw.gov.pl/index8e7b.html?title=Parlament_2007",
+        "final_url": "https://danewyborcze.kbw.gov.pl/index8e7b.html?title=Parlament_2007",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "retrieved_at": "2026-10-03T10:06:07.026Z",
+        "bytes": 11507,
+        "sha256": "fff69beed2394b9d5872de22c65d117d203d4990e5e33f9b2b5c67a4843fd388",
+        "archive_path": "local-evidence/fff69beed2394b9d5872de22c65d117d203d4990e5e33f9b2b5c67a4843fd388.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "XLS",
+      "national_result_level": "not_confirmed_from_actual_file",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": null,
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": null,
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": null,
+      "notes": [
+        "2007 official KBW national archive index confirms 21 October, resolving the historical 19 October ParlGov discrepancy for audit metadata only.",
+        "Several older KBW landing pages lead to separate Sejm archives; absence of files on a landing page is not proof of unavailable data.",
+        "2019/2023 national candidate votes can be derived from 41 district files only after complete coverage and denominator reconciliation; not performed at this checkpoint.",
+        "Electoral committee is not a legal party. Coalition committees, minority committees and renamed committees require same-election registration evidence.",
+        "KO, Trzecia Droga and Lewica votes remain committee results, not allocated party votes."
+      ]
+    },
+    {
+      "country": "poland",
+      "year": 2011,
+      "date": "2011-10-09",
+      "date_status": "official_archive_index_verified",
+      "election_id_proposal": "el-pl-sejm-2011-10-09",
+      "authority": "Państwowa Komisja Wyborcza / Krajowe Biuro Wyborcze",
+      "dataset_or_file_title": "Wyniki głosowania na listy kandydatów na posłów na poziomie powiatów",
+      "file_url": "https://danewyborcze.kbw.gov.pl/dane/2011/sejmsenat/2011-sejm-pow-listy.xls",
+      "file_status": "official_link_observed_file_not_retrieved",
+      "index_evidence": {
+        "url": "https://danewyborcze.kbw.gov.pl/index9d55.html?title=Parlament_2011",
+        "final_url": "https://danewyborcze.kbw.gov.pl/index9d55.html?title=Parlament_2011",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "retrieved_at": "2026-10-03T10:06:07.083Z",
+        "bytes": 16521,
+        "sha256": "539cc65f7511f0dbf3b63861ee3c64ad3fc9abe10bce9a355c8f9f4a31c17f37",
+        "archive_path": "local-evidence/539cc65f7511f0dbf3b63861ee3c64ad3fc9abe10bce9a355c8f9f4a31c17f37.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "XLS",
+      "national_result_level": "not_confirmed_from_actual_file",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": null,
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": null,
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": null,
+      "notes": [
+        "2007 official KBW national archive index confirms 21 October, resolving the historical 19 October ParlGov discrepancy for audit metadata only.",
+        "Several older KBW landing pages lead to separate Sejm archives; absence of files on a landing page is not proof of unavailable data.",
+        "2019/2023 national candidate votes can be derived from 41 district files only after complete coverage and denominator reconciliation; not performed at this checkpoint.",
+        "Electoral committee is not a legal party. Coalition committees, minority committees and renamed committees require same-election registration evidence.",
+        "KO, Trzecia Droga and Lewica votes remain committee results, not allocated party votes."
+      ]
+    },
+    {
+      "country": "poland",
+      "year": 2015,
+      "date": "2015-10-25",
+      "date_status": "official_archive_index_verified",
+      "election_id_proposal": "el-pl-sejm-2015-10-25",
+      "authority": "Państwowa Komisja Wyborcza / Krajowe Biuro Wyborcze",
+      "dataset_or_file_title": "Głosowanie na listy kandydatów na posłów w ujęciu liczbowym na poziomie okręgów",
+      "file_url": "https://danewyborcze.kbw.gov.pl/dane/2015/sejm/2015-gl-lis-okr.zip",
+      "file_status": "official_link_observed_file_not_retrieved",
+      "index_evidence": {
+        "url": "https://danewyborcze.kbw.gov.pl/indexb73b.html?title=Parlament_2015",
+        "final_url": "https://danewyborcze.kbw.gov.pl/indexb73b.html?title=Parlament_2015",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "retrieved_at": "2026-10-03T10:06:07.136Z",
+        "bytes": 11848,
+        "sha256": "ac7f985c7f6df39368315a371f458e1fbe282f62027206ae17ef291bdd77c3c7",
+        "archive_path": "local-evidence/ac7f985c7f6df39368315a371f458e1fbe282f62027206ae17ef291bdd77c3c7.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "ZIP",
+      "national_result_level": "not_confirmed_from_actual_file",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": null,
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": null,
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": null,
+      "notes": [
+        "2007 official KBW national archive index confirms 21 October, resolving the historical 19 October ParlGov discrepancy for audit metadata only.",
+        "Several older KBW landing pages lead to separate Sejm archives; absence of files on a landing page is not proof of unavailable data.",
+        "2019/2023 national candidate votes can be derived from 41 district files only after complete coverage and denominator reconciliation; not performed at this checkpoint.",
+        "Electoral committee is not a legal party. Coalition committees, minority committees and renamed committees require same-election registration evidence.",
+        "KO, Trzecia Droga and Lewica votes remain committee results, not allocated party votes."
+      ]
+    },
+    {
+      "country": "poland",
+      "year": 2019,
+      "date": "2019-10-13",
+      "date_status": "official_archive_index_verified",
+      "election_id_proposal": "el-pl-sejm-2019-10-13",
+      "authority": "Państwowa Komisja Wyborcza / Krajowe Biuro Wyborcze",
+      "dataset_or_file_title": "po okręgach CSV",
+      "file_url": "https://danewyborcze.kbw.gov.pl/dane/2019/sejmsenat/wyniki_gl_na_listy_po_okregach_sejm_csv.zip",
+      "file_status": "official_link_observed_file_not_retrieved",
+      "index_evidence": {
+        "url": "https://danewyborcze.kbw.gov.pl/indexe16b.html?title=Parlament_2019",
+        "final_url": "https://danewyborcze.kbw.gov.pl/indexe16b.html?title=Parlament_2019",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "retrieved_at": "2026-10-03T10:06:07.188Z",
+        "bytes": 19127,
+        "sha256": "ae614a67a8e78720527c3028c45cff5196180f269d6cf5f456afd9b0dc38109a",
+        "archive_path": "local-evidence/ae614a67a8e78720527c3028c45cff5196180f269d6cf5f456afd9b0dc38109a.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "ZIP",
+      "national_result_level": "not_confirmed_from_actual_file",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": null,
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": null,
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": null,
+      "notes": [
+        "2007 official KBW national archive index confirms 21 October, resolving the historical 19 October ParlGov discrepancy for audit metadata only.",
+        "Several older KBW landing pages lead to separate Sejm archives; absence of files on a landing page is not proof of unavailable data.",
+        "2019/2023 national candidate votes can be derived from 41 district files only after complete coverage and denominator reconciliation; not performed at this checkpoint.",
+        "Electoral committee is not a legal party. Coalition committees, minority committees and renamed committees require same-election registration evidence.",
+        "KO, Trzecia Droga and Lewica votes remain committee results, not allocated party votes."
+      ]
+    },
+    {
+      "country": "poland",
+      "year": 2023,
+      "date": "2023-10-15",
+      "date_status": "official_archive_index_verified",
+      "election_id_proposal": "el-pl-sejm-2023-10-15",
+      "authority": "Państwowa Komisja Wyborcza / Krajowe Biuro Wyborcze",
+      "dataset_or_file_title": "po okręgach CSV",
+      "file_url": "https://danewyborcze.kbw.gov.pl/dane/2023/sejmsenat/wyniki_gl_na_listy_po_okregach_sejm_csv.zip",
+      "file_status": "official_link_observed_file_not_retrieved",
+      "index_evidence": {
+        "url": "https://danewyborcze.kbw.gov.pl/indexc6e4.html?title=Parlament_2023",
+        "final_url": "https://danewyborcze.kbw.gov.pl/indexc6e4.html?title=Parlament_2023",
+        "status": 200,
+        "content_type": "text/html; charset=utf-8",
+        "retrieved_at": "2026-10-03T10:06:07.244Z",
+        "bytes": 20019,
+        "sha256": "cb0a22035161640c541041102d1604713ae023259e5c56c48faff368dc7bc60f",
+        "archive_path": "local-evidence/cb0a22035161640c541041102d1604713ae023259e5c56c48faff368dc7bc60f.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "ZIP",
+      "national_result_level": "not_confirmed_from_actual_file",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": null,
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": null,
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": null,
+      "notes": [
+        "2007 official KBW national archive index confirms 21 October, resolving the historical 19 October ParlGov discrepancy for audit metadata only.",
+        "Several older KBW landing pages lead to separate Sejm archives; absence of files on a landing page is not proof of unavailable data.",
+        "2019/2023 national candidate votes can be derived from 41 district files only after complete coverage and denominator reconciliation; not performed at this checkpoint.",
+        "Electoral committee is not a legal party. Coalition committees, minority committees and renamed committees require same-election registration evidence.",
+        "KO, Trzecia Droga and Lewica votes remain committee results, not allocated party votes."
+      ]
+    }
+  ]
+}

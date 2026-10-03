@@ -1,0 +1,397 @@
+{
+  "schema_version": "political-production-1b-gate-matrix-v1",
+  "state": "blocked_owner_review_checkpoint",
+  "matrix_gates": [
+    "reuse_right",
+    "normalized_republication",
+    "raw_redistribution",
+    "automated_acquisition",
+    "manual_acquisition",
+    "source_files_complete",
+    "national_definition_complete",
+    "same_election_identity_complete",
+    "electoral_system_metadata_complete",
+    "vintage_decisions_complete"
+  ],
+  "mandatory_gates": [
+    "reuse_right",
+    "normalized_republication",
+    "acquisition_route",
+    "source_files_complete",
+    "national_definition_complete",
+    "same_election_identity_complete",
+    "electoral_system_metadata_complete",
+    "vintage_decisions_complete"
+  ],
+  "rule": "A country is READY_FOR_OWNER_APPROVAL only when every mandatory gate is closed; acquisition_route is closed when manual or automated acquisition is closed. Raw redistribution is optional (variant 1B-B). Readiness never implies ingestion approval.",
+  "countries": [
+    {
+      "country": "czechia",
+      "publisher": "Český statistický úřad (ČSÚ)",
+      "gates": {
+        "reuse_right": {
+          "status": "open",
+          "value": "supported_pending_scope_confirmation",
+          "closes_by": "publisher_reply",
+          "basis": "ČSÚ terms: 'Statistické informace Českého statistického úřadu zveřejněné prostřednictvím internetových stránek https://csu.gov.cz jsou licencovány v souladu s CC BY 4.0'. The volby.gov.cz open-data index links these terms in its footer, but the operative sentence names csu.gov.cz, not volby.gov.cz."
+        },
+        "normalized_republication": {
+          "status": "open",
+          "value": "supported_pending_scope_confirmation",
+          "closes_by": "publisher_reply",
+          "basis": "Would follow from CC BY 4.0 if the terms cover volby.gov.cz files."
+        },
+        "raw_redistribution": {
+          "status": "open",
+          "value": "supported_pending_scope_confirmation",
+          "closes_by": "publisher_reply",
+          "basis": "CC BY 4.0 permits redistribution only if it applies to these files; not inferred from factual reuse."
+        },
+        "automated_acquisition": {
+          "status": "partial",
+          "value": "not_prohibited_no_explicit_permission",
+          "closes_by": "publisher_reply",
+          "basis": "volby.gov.cz robots.txt disallows only /pls/; CZSO terms contain no crawler clause. Absence of a prohibition is not a permission."
+        },
+        "manual_acquisition": {
+          "status": "partial",
+          "value": "not_prohibited_public_download",
+          "closes_by": "publisher_reply",
+          "basis": "Public download pages; no restriction found."
+        },
+        "source_files_complete": {
+          "status": "partial",
+          "value": null,
+          "closes_by": "documentary_work_after_acquisition_clearance",
+          "basis": "Exact per-election package inventory complete for 2002–2025 (documentary_review.json); packages not acquired."
+        },
+        "national_definition_complete": {
+          "status": "partial",
+          "value": null,
+          "closes_by": "documentary_work_after_acquisition_clearance",
+          "basis": "2025 vysledky.xml observed 2026-10-02: PROC_HLASU = HLASY / PLATNE_HLASY; UCAST_PROC = VYDANE_OBALKY / ZAPSANI_VOLICI. 2002–2021 data-record definitions (PS_datovaveta) not inspected."
+        },
+        "same_election_identity_complete": {
+          "status": "open",
+          "value": null,
+          "closes_by": "documentary_work_after_acquisition_clearance",
+          "basis": "Method documented (CVS.TYPVS, CVS_SLOZENI → CNS.NSTRANA); not executed. VSTRANA is described both as contestant code (CVS) and as ballot number drawn by lot (CVS_SLOZENI) — needs clarification."
+        },
+        "electoral_system_metadata_complete": {
+          "status": "open",
+          "value": null,
+          "closes_by": "documentary_work",
+          "basis": "No dated review of thresholds/allocation per election; 2021 mandate-allocation description (RozdelovaniMandatuPS2021_Popis.pdf) linked but not inspected."
+        },
+        "vintage_decisions_complete": {
+          "status": "open",
+          "value": null,
+          "closes_by": "owner_decision",
+          "basis": "2017: original vs results recalculated under NSS resolution Vol 58/2017-173 (changes 2017-11-22). 2021: register packages 20211010 and 20211111 with NSS Vol 102/2021 linked."
+        }
+      },
+      "mandatory_gate_status": {
+        "reuse_right": "open",
+        "normalized_republication": "open",
+        "acquisition_route": "partial",
+        "source_files_complete": "partial",
+        "national_definition_complete": "partial",
+        "same_election_identity_complete": "open",
+        "electoral_system_metadata_complete": "open",
+        "vintage_decisions_complete": "open"
+      },
+      "open_mandatory_gates": [
+        "reuse_right",
+        "normalized_republication",
+        "acquisition_route",
+        "source_files_complete",
+        "national_definition_complete",
+        "same_election_identity_complete",
+        "electoral_system_metadata_complete",
+        "vintage_decisions_complete"
+      ],
+      "overall_readiness": "NOT_READY",
+      "variant_eligibility": {
+        "1B-A_full_normalized": false,
+        "1B-B_normalized_without_raw": false,
+        "1B-manual": false
+      }
+    },
+    {
+      "country": "slovakia",
+      "publisher": "Štatistický úrad SR (ŠÚ SR)",
+      "gates": {
+        "reuse_right": {
+          "status": "open",
+          "value": "supported_pending_scope_confirmation",
+          "closes_by": "publisher_reply",
+          "basis": "Terms page (last update 26.10.2020): information 'released by the Statistical Office of the SR through the website www.statistics.sk' may be disseminated, used and used commercially under CC BY 4.0. API help: 'All information is subject to the license terms of the Creative Commons Attribution License (cc-by) 4.0.' The election dataset list on volby.statistics.sk names all seven files under its open-government dataset statement. Remaining gap: the operative text names www.statistics.sk; the files are on volby.statistics.sk, and the election-specific open-data sentence is no longer on the live portal (portal restructured 2026-09-15)."
+        },
+        "normalized_republication": {
+          "status": "open",
+          "value": "supported_pending_scope_confirmation",
+          "closes_by": "publisher_reply",
+          "basis": "Terms permit dissemination and use under CC BY 4.0; applies if the election files are covered."
+        },
+        "raw_redistribution": {
+          "status": "open",
+          "value": "supported_pending_scope_confirmation",
+          "closes_by": "publisher_reply",
+          "basis": "Terms explicitly allow 'copied, distributed and communicated to the public' — the same scope question applies. Third-party IP exclusion clause noted."
+        },
+        "automated_acquisition": {
+          "status": "blocked",
+          "value": "prohibited_by_publisher_terms",
+          "closes_by": "publisher_reply",
+          "basis": "'Use of robots, spiders, crawlers and similar data gathering and extraction tools is expressly prohibited.' No further automated retrieval; the evidence script refuses statistics.sk hosts."
+        },
+        "manual_acquisition": {
+          "status": "partial",
+          "value": "not_prohibited_public_download",
+          "closes_by": "publisher_reply",
+          "basis": "Files are published for download; terms prohibit tools, not human download. Confirmation requested."
+        },
+        "source_files_complete": {
+          "status": "partial",
+          "value": null,
+          "closes_by": "owner_manual_action",
+          "basis": "Seven national vote files archived; national summary (turnout) and seat-allocation tables are identified by name in the dataset list but not acquired."
+        },
+        "national_definition_complete": {
+          "status": "partial",
+          "value": null,
+          "closes_by": "owner_manual_action",
+          "basis": "Published shares reproduce votes ÷ sum of party valid votes within 0.01 pp in all seven files; official national valid-vote total (summary table) not yet compared."
+        },
+        "same_election_identity_complete": {
+          "status": "open",
+          "value": null,
+          "closes_by": "owner_manual_action",
+          "basis": "Subject lists identified (2016 tab20, 2020 tab0a, 2023 tab0a); none for 2002–2012 in the list; subject numbers are election-local."
+        },
+        "electoral_system_metadata_complete": {
+          "status": "partial",
+          "value": null,
+          "closes_by": "documentary_work",
+          "basis": "2016 date verified from Zbierka zákonov 307/2015 Z. z. (5 March 2016); thresholds/allocation per election not reviewed."
+        },
+        "vintage_decisions_complete": {
+          "status": "partial",
+          "value": null,
+          "closes_by": "documentary_work",
+          "basis": "Final national files only; no correction notice found in reviewed material."
+        }
+      },
+      "mandatory_gate_status": {
+        "reuse_right": "open",
+        "normalized_republication": "open",
+        "acquisition_route": "partial",
+        "source_files_complete": "partial",
+        "national_definition_complete": "partial",
+        "same_election_identity_complete": "open",
+        "electoral_system_metadata_complete": "partial",
+        "vintage_decisions_complete": "partial"
+      },
+      "open_mandatory_gates": [
+        "reuse_right",
+        "normalized_republication",
+        "acquisition_route",
+        "source_files_complete",
+        "national_definition_complete",
+        "same_election_identity_complete",
+        "electoral_system_metadata_complete",
+        "vintage_decisions_complete"
+      ],
+      "overall_readiness": "NOT_READY",
+      "variant_eligibility": {
+        "1B-A_full_normalized": false,
+        "1B-B_normalized_without_raw": false,
+        "1B-manual": false
+      }
+    },
+    {
+      "country": "poland",
+      "publisher": "Państwowa Komisja Wyborcza / Krajowe Biuro Wyborcze",
+      "gates": {
+        "reuse_right": {
+          "status": "open",
+          "value": "unresolved",
+          "closes_by": "publisher_reply",
+          "basis": "DANE WYBORCZE 'Informacje prawne' page has no content ('Ta strona nie posiada jeszcze zawartości'). No operative dataset terms found; another ministry's terms are not substituted."
+        },
+        "normalized_republication": {
+          "status": "open",
+          "value": "unresolved",
+          "closes_by": "publisher_reply",
+          "basis": "No terms located."
+        },
+        "raw_redistribution": {
+          "status": "open",
+          "value": "not_cleared",
+          "closes_by": "publisher_reply",
+          "basis": "No terms located."
+        },
+        "automated_acquisition": {
+          "status": "partial",
+          "value": "not_prohibited_no_explicit_permission",
+          "closes_by": "publisher_reply",
+          "basis": "danewyborcze.kbw.gov.pl has no robots.txt (HTTP 404); pkw.gov.pl robots.txt has no disallow rules. No permission statement."
+        },
+        "manual_acquisition": {
+          "status": "partial",
+          "value": "not_prohibited_public_download",
+          "closes_by": "publisher_reply",
+          "basis": "Public download pages."
+        },
+        "source_files_complete": {
+          "status": "partial",
+          "value": null,
+          "closes_by": "documentary_work_after_acquisition_clearance",
+          "basis": "Official list-result files located for all seven elections: district (okręg) level for 2001, 2005, 2015, 2019 and 2023; powiat level only for 2007 and 2011 (documentary_review.json). None acquired; national-total source (PKW results announcement) not located in the archive."
+        },
+        "national_definition_complete": {
+          "status": "open",
+          "value": null,
+          "closes_by": "documentary_work_after_acquisition_clearance",
+          "basis": "National totals require either the official PKW announcement or a documented 41-district aggregation; neither performed."
+        },
+        "same_election_identity_complete": {
+          "status": "open",
+          "value": null,
+          "closes_by": "documentary_work_after_acquisition_clearance",
+          "basis": "Committee lists located (2011 komitety.zip; 2019/2023 wykaz_list_sejm); committees ≠ parties."
+        },
+        "electoral_system_metadata_complete": {
+          "status": "open",
+          "value": null,
+          "closes_by": "documentary_work",
+          "basis": "No dated threshold/minority-exemption review; 2007 date confirmed 21 October by KBW archive."
+        },
+        "vintage_decisions_complete": {
+          "status": "open",
+          "value": null,
+          "closes_by": "documentary_work",
+          "basis": "Not reviewed."
+        }
+      },
+      "mandatory_gate_status": {
+        "reuse_right": "open",
+        "normalized_republication": "open",
+        "acquisition_route": "partial",
+        "source_files_complete": "partial",
+        "national_definition_complete": "open",
+        "same_election_identity_complete": "open",
+        "electoral_system_metadata_complete": "open",
+        "vintage_decisions_complete": "open"
+      },
+      "open_mandatory_gates": [
+        "reuse_right",
+        "normalized_republication",
+        "acquisition_route",
+        "source_files_complete",
+        "national_definition_complete",
+        "same_election_identity_complete",
+        "electoral_system_metadata_complete",
+        "vintage_decisions_complete"
+      ],
+      "overall_readiness": "NOT_READY",
+      "variant_eligibility": {
+        "1B-A_full_normalized": false,
+        "1B-B_normalized_without_raw": false,
+        "1B-manual": false
+      }
+    },
+    {
+      "country": "austria",
+      "publisher": "Bundesministerium für Inneres (BMI) / Bundeswahlbehörde",
+      "gates": {
+        "reuse_right": {
+          "status": "open",
+          "value": "restricted_noncommercial_pending_applicability",
+          "closes_by": "publisher_reply",
+          "basis": "BMI Impressum: 'Die Übernahme von Beiträgen ist – unter Quellenangabe – gestattet (außer für kommerzielle Zwecke).' Whether 'Beiträge' covers the official result workbooks is unresolved."
+        },
+        "normalized_republication": {
+          "status": "open",
+          "value": "restricted_noncommercial_pending_applicability",
+          "closes_by": "publisher_reply",
+          "basis": "Same clause; non-commercial limitation to be confirmed for data."
+        },
+        "raw_redistribution": {
+          "status": "open",
+          "value": "not_cleared",
+          "closes_by": "publisher_reply",
+          "basis": "Not inferred from 'Übernahme von Beiträgen'."
+        },
+        "automated_acquisition": {
+          "status": "blocked",
+          "value": "prohibited_for_ai_agents_by_robots",
+          "closes_by": "publisher_reply",
+          "basis": "bmi.gv.at robots.txt section '2. BLOCK ALL AI TRAINING SCRAPERS, LLM CRAWLERS & DISCOVERY ENGINES' disallows / for user agents including Anthropic-ai, Claude-Web and ChatGPT-User (observed 2026-10-03). Earlier AI-driven retrievals (2026-10-02 audit; 2026-10-03 checkpoint) are audit-only; no further BMI requests."
+        },
+        "manual_acquisition": {
+          "status": "partial",
+          "value": "not_prohibited_public_download",
+          "closes_by": "publisher_reply",
+          "basis": "Owner-performed browser download is not restricted by robots.txt; confirmation requested."
+        },
+        "source_files_complete": {
+          "status": "partial",
+          "value": null,
+          "closes_by": "owner_manual_action",
+          "basis": "Per-election result-file links observed (2002 ZIP, 2006 XLS, 2008 zipped Excel, 2013–2024 XLSX); contents not inspected by the agent."
+        },
+        "national_definition_complete": {
+          "status": "open",
+          "value": null,
+          "closes_by": "owner_manual_action",
+          "basis": "2024 workbook (audit observation 2026-10-02): national row G00000 with Wahlberechtigte, Abgegebene, Ungültige, Gültige, party votes and %; seats only in the separate Mandatsspiegel. Earlier years uninspected."
+        },
+        "same_election_identity_complete": {
+          "status": "open",
+          "value": null,
+          "closes_by": "owner_manual_action",
+          "basis": "Wahlwerbende Gruppe ≠ party; list abbreviations per election."
+        },
+        "electoral_system_metadata_complete": {
+          "status": "open",
+          "value": null,
+          "closes_by": "documentary_work",
+          "basis": "Three-tier allocation (Regional-, Landes-, Bundeswahlkreis); dated review not done."
+        },
+        "vintage_decisions_complete": {
+          "status": "open",
+          "value": null,
+          "closes_by": "owner_manual_action",
+          "basis": "Some linked seat tables are labelled provisional; final certified vintage per election to be identified."
+        }
+      },
+      "mandatory_gate_status": {
+        "reuse_right": "open",
+        "normalized_republication": "open",
+        "acquisition_route": "partial",
+        "source_files_complete": "partial",
+        "national_definition_complete": "open",
+        "same_election_identity_complete": "open",
+        "electoral_system_metadata_complete": "open",
+        "vintage_decisions_complete": "open"
+      },
+      "open_mandatory_gates": [
+        "reuse_right",
+        "normalized_republication",
+        "acquisition_route",
+        "source_files_complete",
+        "national_definition_complete",
+        "same_election_identity_complete",
+        "electoral_system_metadata_complete",
+        "vintage_decisions_complete"
+      ],
+      "overall_readiness": "NOT_READY",
+      "variant_eligibility": {
+        "1B-A_full_normalized": false,
+        "1B-B_normalized_without_raw": false,
+        "1B-manual": false
+      }
+    }
+  ]
+}

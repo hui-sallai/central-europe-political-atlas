@@ -19,6 +19,7 @@
     "historical-regional:validate": "node scripts/historical-regional/validate.mjs",
     "serbia-audit:validate": "node scripts/serbia-sors/validate.mjs",
     "political-audit:validate": "node scripts/political-data-audit/validate.mjs",
+    "political-source-closure:validate": "node docs/political-data/source-closure/validate.mjs",
     "political-data:validate": "node scripts/political-data/germany/validate.mjs && node scripts/political-data/germany/export-cli.mjs --check",
     "political-data:test": "node --test scripts/political-data/germany/explorer.test.mjs scripts/political-data/germany/production.test.mjs",
     "historical-extension:validate": "node scripts/historical-monthly-extension/validate.mjs",

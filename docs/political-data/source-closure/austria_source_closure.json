@@ -1,0 +1,490 @@
+{
+  "schema_version": "political-source-closure-v1",
+  "state": "blocked_checkpoint_not_completed_audit",
+  "country": "austria",
+  "platform_version": "v2.0",
+  "canonical_write_authorized": false,
+  "licence_gate": "written_confirmation_required",
+  "licence_blocker": "BMI Impressum permits attributed reuse of contributions except commercial purposes. Applicability to each result workbook, factual extracts, and official-work exclusions is unresolved. Do not claim an open licence or unrestricted raw redistribution.",
+  "recommendation": "BLOCKED_BY_MULTIPLE_GATES",
+  "gate_matrix": {
+    "country": "austria",
+    "publisher": "Bundesministerium für Inneres (BMI) / Bundeswahlbehörde",
+    "gates": {
+      "reuse_right": {
+        "status": "open",
+        "value": "restricted_noncommercial_pending_applicability",
+        "closes_by": "publisher_reply",
+        "basis": "BMI Impressum: 'Die Übernahme von Beiträgen ist – unter Quellenangabe – gestattet (außer für kommerzielle Zwecke).' Whether 'Beiträge' covers the official result workbooks is unresolved."
+      },
+      "normalized_republication": {
+        "status": "open",
+        "value": "restricted_noncommercial_pending_applicability",
+        "closes_by": "publisher_reply",
+        "basis": "Same clause; non-commercial limitation to be confirmed for data."
+      },
+      "raw_redistribution": {
+        "status": "open",
+        "value": "not_cleared",
+        "closes_by": "publisher_reply",
+        "basis": "Not inferred from 'Übernahme von Beiträgen'."
+      },
+      "automated_acquisition": {
+        "status": "blocked",
+        "value": "prohibited_for_ai_agents_by_robots",
+        "closes_by": "publisher_reply",
+        "basis": "bmi.gv.at robots.txt section '2. BLOCK ALL AI TRAINING SCRAPERS, LLM CRAWLERS & DISCOVERY ENGINES' disallows / for user agents including Anthropic-ai, Claude-Web and ChatGPT-User (observed 2026-10-03). Earlier AI-driven retrievals (2026-10-02 audit; 2026-10-03 checkpoint) are audit-only; no further BMI requests."
+      },
+      "manual_acquisition": {
+        "status": "partial",
+        "value": "not_prohibited_public_download",
+        "closes_by": "publisher_reply",
+        "basis": "Owner-performed browser download is not restricted by robots.txt; confirmation requested."
+      },
+      "source_files_complete": {
+        "status": "partial",
+        "value": null,
+        "closes_by": "owner_manual_action",
+        "basis": "Per-election result-file links observed (2002 ZIP, 2006 XLS, 2008 zipped Excel, 2013–2024 XLSX); contents not inspected by the agent."
+      },
+      "national_definition_complete": {
+        "status": "open",
+        "value": null,
+        "closes_by": "owner_manual_action",
+        "basis": "2024 workbook (audit observation 2026-10-02): national row G00000 with Wahlberechtigte, Abgegebene, Ungültige, Gültige, party votes and %; seats only in the separate Mandatsspiegel. Earlier years uninspected."
+      },
+      "same_election_identity_complete": {
+        "status": "open",
+        "value": null,
+        "closes_by": "owner_manual_action",
+        "basis": "Wahlwerbende Gruppe ≠ party; list abbreviations per election."
+      },
+      "electoral_system_metadata_complete": {
+        "status": "open",
+        "value": null,
+        "closes_by": "documentary_work",
+        "basis": "Three-tier allocation (Regional-, Landes-, Bundeswahlkreis); dated review not done."
+      },
+      "vintage_decisions_complete": {
+        "status": "open",
+        "value": null,
+        "closes_by": "owner_manual_action",
+        "basis": "Some linked seat tables are labelled provisional; final certified vintage per election to be identified."
+      }
+    },
+    "mandatory_gate_status": {
+      "reuse_right": "open",
+      "normalized_republication": "open",
+      "acquisition_route": "partial",
+      "source_files_complete": "partial",
+      "national_definition_complete": "open",
+      "same_election_identity_complete": "open",
+      "electoral_system_metadata_complete": "open",
+      "vintage_decisions_complete": "open"
+    },
+    "open_mandatory_gates": [
+      "reuse_right",
+      "normalized_republication",
+      "acquisition_route",
+      "source_files_complete",
+      "national_definition_complete",
+      "same_election_identity_complete",
+      "electoral_system_metadata_complete",
+      "vintage_decisions_complete"
+    ],
+    "overall_readiness": "NOT_READY",
+    "variant_eligibility": {
+      "1B-A_full_normalized": false,
+      "1B-B_normalized_without_raw": false,
+      "1B-manual": false
+    }
+  },
+  "rights_gates": {
+    "reuse_right": {
+      "value": "restricted_noncommercial_pending_applicability",
+      "status": "open",
+      "closes_by": "publisher_reply",
+      "basis": "BMI Impressum: 'Die Übernahme von Beiträgen ist – unter Quellenangabe – gestattet (außer für kommerzielle Zwecke).' Whether 'Beiträge' covers the official result workbooks is unresolved.",
+      "evidence": [
+        {
+          "path": "local-evidence/d3f42c254b0f55302833b68754e633912ca8a0d9931097616d1aa4ed4ed4c355.raw",
+          "sha256": "d3f42c254b0f55302833b68754e633912ca8a0d9931097616d1aa4ed4ed4c355",
+          "note": "BMI Impressum, retrieved 2026-10-03"
+        }
+      ]
+    },
+    "normalized_factual_republication_right": {
+      "value": "restricted_noncommercial_pending_applicability",
+      "status": "open",
+      "closes_by": "publisher_reply",
+      "basis": "Same clause; non-commercial limitation to be confirmed for data."
+    },
+    "raw_redistribution_right": {
+      "value": "not_cleared",
+      "status": "open",
+      "closes_by": "publisher_reply",
+      "basis": "Not inferred from 'Übernahme von Beiträgen'."
+    },
+    "automated_acquisition_permission": {
+      "value": "prohibited_for_ai_agents_by_robots",
+      "status": "blocked",
+      "closes_by": "publisher_reply",
+      "basis": "bmi.gv.at robots.txt section '2. BLOCK ALL AI TRAINING SCRAPERS, LLM CRAWLERS & DISCOVERY ENGINES' disallows / for user agents including Anthropic-ai, Claude-Web and ChatGPT-User (observed 2026-10-03). Earlier AI-driven retrievals (2026-10-02 audit; 2026-10-03 checkpoint) are audit-only; no further BMI requests.",
+      "evidence": [
+        {
+          "path": "local-evidence/d262ff9a3e93789d700a40bfb3d5cc1aab6660a9f337f0a4240b763c4f231f14.raw",
+          "sha256": "d262ff9a3e93789d700a40bfb3d5cc1aab6660a9f337f0a4240b763c4f231f14",
+          "note": "bmi.gv.at/robots.txt, retrieved 2026-10-03T10:57Z"
+        }
+      ]
+    },
+    "manual_acquisition_permission": {
+      "value": "not_prohibited_public_download",
+      "status": "partial",
+      "closes_by": "publisher_reply",
+      "basis": "Owner-performed browser download is not restricted by robots.txt; confirmation requested."
+    },
+    "attribution_requirements": {
+      "value": "documented_for_beitraege",
+      "status": "partial",
+      "basis": "'unter Quellenangabe' — source attribution; exact form for data to confirm."
+    },
+    "transformation_disclosure_requirements": {
+      "value": "unknown",
+      "status": "open",
+      "closes_by": "publisher_reply",
+      "basis": "No wording found."
+    }
+  },
+  "future_production_elections": [],
+  "expected_record_counts": null,
+  "manual_work": [
+    "Wahlwerbende Gruppe need not be a legal party under the Parteiengesetz. Election-specific contestant identity is separate from legal party continuity.",
+    "National totals must not combine national rows with Land/region/municipal or postal pseudo-units.",
+    "Exact dated electoral law review and final national totals/seat/turnout verification remain required after a lawful source acquisition route is confirmed."
+  ],
+  "elections": [
+    {
+      "country": "austria",
+      "year": 2002,
+      "date": "2002-11-24",
+      "date_status": "candidate_date_requires_file_confirmation",
+      "election_id_proposal": "el-at-nr-2002-11-24",
+      "authority": "BMI / Bundeswahlbehörde",
+      "dataset_or_file_title": "komprimierte MS-EXCEL-Datei",
+      "file_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/files/nrw02_e_dl.zip",
+      "file_status": "official_link_observed_file_not_retrieved",
+      "index_evidence": {
+        "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/",
+        "final_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2002/",
+        "status": 200,
+        "content_type": "text/html",
+        "retrieved_at": "2026-10-03T10:06:07.386Z",
+        "bytes": 117626,
+        "sha256": "164da09854db2d0dc1398cd938b66cb492c7b1804c7897de835e405acac336af",
+        "archive_path": "local-evidence/164da09854db2d0dc1398cd938b66cb492c7b1804c7897de835e405acac336af.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "ZIP",
+      "national_result_level": "not_confirmed_from_actual_file",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": null,
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": null,
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": null,
+      "notes": [
+        "2002 offers ZIPs including special result formats; 2006 XLS, 2008 zipped Excel, 2013/2017/2019/2024 XLSX links are observed. Actual workbook contents remain uninspected behind the licence stop.",
+        "Some seat-table filenames explicitly say provisional; the page being official does not certify that linked vintage.",
+        "Wahlwerbende Gruppe need not be a legal party under the Parteiengesetz. Election-specific contestant identity is separate from legal party continuity.",
+        "National totals must not combine national rows with Land/region/municipal or postal pseudo-units."
+      ]
+    },
+    {
+      "country": "austria",
+      "year": 2006,
+      "date": "2006-10-01",
+      "date_status": "candidate_date_requires_file_confirmation",
+      "election_id_proposal": "el-at-nr-2006-10-01",
+      "authority": "BMI / Bundeswahlbehörde",
+      "dataset_or_file_title": "Hier wird das endg&uuml;ltige Gesamtergebnis als MS-EXCEL-Datei zum Download angeboten",
+      "file_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2006/files/nrw_06_endergebnise.xls",
+      "file_status": "official_link_observed_file_not_retrieved",
+      "index_evidence": {
+        "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2006/",
+        "final_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2006/",
+        "status": 200,
+        "content_type": "text/html",
+        "retrieved_at": "2026-10-03T10:06:07.424Z",
+        "bytes": 99009,
+        "sha256": "fe9f46cf818c3e28ae30bca600677d96afe9fa09ec6e2023f025fb3bb4385202",
+        "archive_path": "local-evidence/fe9f46cf818c3e28ae30bca600677d96afe9fa09ec6e2023f025fb3bb4385202.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "XLS",
+      "national_result_level": "not_confirmed_from_actual_file",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": null,
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": null,
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": null,
+      "notes": [
+        "2002 offers ZIPs including special result formats; 2006 XLS, 2008 zipped Excel, 2013/2017/2019/2024 XLSX links are observed. Actual workbook contents remain uninspected behind the licence stop.",
+        "Some seat-table filenames explicitly say provisional; the page being official does not certify that linked vintage.",
+        "Wahlwerbende Gruppe need not be a legal party under the Parteiengesetz. Election-specific contestant identity is separate from legal party continuity.",
+        "National totals must not combine national rows with Land/region/municipal or postal pseudo-units."
+      ]
+    },
+    {
+      "country": "austria",
+      "year": 2008,
+      "date": "2008-09-28",
+      "date_status": "candidate_date_requires_file_confirmation",
+      "election_id_proposal": "el-at-nr-2008-09-28",
+      "authority": "BMI / Bundeswahlbehörde",
+      "dataset_or_file_title": "Hier wird das endg&uuml;ltige Gesamtergebnis als gepackte MS-EXCEL-Datei zum Download angeboten",
+      "file_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2008/files/ergebnis_end.zip",
+      "file_status": "official_link_observed_file_not_retrieved",
+      "index_evidence": {
+        "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2008/",
+        "final_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2008/",
+        "status": 200,
+        "content_type": "text/html",
+        "retrieved_at": "2026-10-03T10:06:07.464Z",
+        "bytes": 105865,
+        "sha256": "2d233ddc64c3d844ed1904df58a46aa04fb594105096c11489971f8942982597",
+        "archive_path": "local-evidence/2d233ddc64c3d844ed1904df58a46aa04fb594105096c11489971f8942982597.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "ZIP",
+      "national_result_level": "not_confirmed_from_actual_file",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": null,
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": null,
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": null,
+      "notes": [
+        "2002 offers ZIPs including special result formats; 2006 XLS, 2008 zipped Excel, 2013/2017/2019/2024 XLSX links are observed. Actual workbook contents remain uninspected behind the licence stop.",
+        "Some seat-table filenames explicitly say provisional; the page being official does not certify that linked vintage.",
+        "Wahlwerbende Gruppe need not be a legal party under the Parteiengesetz. Election-specific contestant identity is separate from legal party continuity.",
+        "National totals must not combine national rows with Land/region/municipal or postal pseudo-units."
+      ]
+    },
+    {
+      "country": "austria",
+      "year": 2013,
+      "date": "2013-09-29",
+      "date_status": "candidate_date_requires_file_confirmation",
+      "election_id_proposal": "el-at-nr-2013-09-29",
+      "authority": "BMI / Bundeswahlbehörde",
+      "dataset_or_file_title": "Hier wird das Gesamtergebnis als xlsx-Datei zum Download angeboten",
+      "file_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/files/nrw13_endgueltiges_gesamtergebnis.xlsx",
+      "file_status": "official_link_observed_file_not_retrieved",
+      "index_evidence": {
+        "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/",
+        "final_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2013/",
+        "status": 200,
+        "content_type": "text/html",
+        "retrieved_at": "2026-10-03T10:06:07.507Z",
+        "bytes": 99998,
+        "sha256": "5bfa37129a4656d86c9f4ecadfc968b403edfcc93281ff78b599d92ae2f69e88",
+        "archive_path": "local-evidence/5bfa37129a4656d86c9f4ecadfc968b403edfcc93281ff78b599d92ae2f69e88.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "XLSX",
+      "national_result_level": "not_confirmed_from_actual_file",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": null,
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": null,
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": null,
+      "notes": [
+        "2002 offers ZIPs including special result formats; 2006 XLS, 2008 zipped Excel, 2013/2017/2019/2024 XLSX links are observed. Actual workbook contents remain uninspected behind the licence stop.",
+        "Some seat-table filenames explicitly say provisional; the page being official does not certify that linked vintage.",
+        "Wahlwerbende Gruppe need not be a legal party under the Parteiengesetz. Election-specific contestant identity is separate from legal party continuity.",
+        "National totals must not combine national rows with Land/region/municipal or postal pseudo-units."
+      ]
+    },
+    {
+      "country": "austria",
+      "year": 2017,
+      "date": "2017-10-15",
+      "date_status": "candidate_date_requires_file_confirmation",
+      "election_id_proposal": "el-at-nr-2017-10-15",
+      "authority": "BMI / Bundeswahlbehörde",
+      "dataset_or_file_title": "xlsx-Datei",
+      "file_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/files/nrw17_endgueltiges_gesamtergebnis.xlsx",
+      "file_status": "official_link_observed_file_not_retrieved",
+      "index_evidence": {
+        "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/",
+        "final_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2017/",
+        "status": 200,
+        "content_type": "text/html",
+        "retrieved_at": "2026-10-03T10:06:07.543Z",
+        "bytes": 102812,
+        "sha256": "de248dccef73b50a046e98335d7f7940a67182abf5b3b7cb8a486bb75ae3559e",
+        "archive_path": "local-evidence/de248dccef73b50a046e98335d7f7940a67182abf5b3b7cb8a486bb75ae3559e.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "XLSX",
+      "national_result_level": "not_confirmed_from_actual_file",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": null,
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": null,
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": null,
+      "notes": [
+        "2002 offers ZIPs including special result formats; 2006 XLS, 2008 zipped Excel, 2013/2017/2019/2024 XLSX links are observed. Actual workbook contents remain uninspected behind the licence stop.",
+        "Some seat-table filenames explicitly say provisional; the page being official does not certify that linked vintage.",
+        "Wahlwerbende Gruppe need not be a legal party under the Parteiengesetz. Election-specific contestant identity is separate from legal party continuity.",
+        "National totals must not combine national rows with Land/region/municipal or postal pseudo-units."
+      ]
+    },
+    {
+      "country": "austria",
+      "year": 2019,
+      "date": "2019-09-29",
+      "date_status": "candidate_date_requires_file_confirmation",
+      "election_id_proposal": "el-at-nr-2019-09-29",
+      "authority": "BMI / Bundeswahlbehörde",
+      "dataset_or_file_title": "xlsx-Datei",
+      "file_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/files/endgultiges_gesamtergebnis_nrw19_16102019.xlsx",
+      "file_status": "official_link_observed_file_not_retrieved",
+      "index_evidence": {
+        "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/",
+        "final_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2019/",
+        "status": 200,
+        "content_type": "text/html",
+        "retrieved_at": "2026-10-03T10:06:07.604Z",
+        "bytes": 87810,
+        "sha256": "e97a5af8f969d5d1e141b58b5ebf47091906aa90c7934ffeb6c2401395efbaae",
+        "archive_path": "local-evidence/e97a5af8f969d5d1e141b58b5ebf47091906aa90c7934ffeb6c2401395efbaae.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "XLSX",
+      "national_result_level": "not_confirmed_from_actual_file",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": null,
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": null,
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": null,
+      "notes": [
+        "2002 offers ZIPs including special result formats; 2006 XLS, 2008 zipped Excel, 2013/2017/2019/2024 XLSX links are observed. Actual workbook contents remain uninspected behind the licence stop.",
+        "Some seat-table filenames explicitly say provisional; the page being official does not certify that linked vintage.",
+        "Wahlwerbende Gruppe need not be a legal party under the Parteiengesetz. Election-specific contestant identity is separate from legal party continuity.",
+        "National totals must not combine national rows with Land/region/municipal or postal pseudo-units."
+      ]
+    },
+    {
+      "country": "austria",
+      "year": 2024,
+      "date": "2024-09-29",
+      "date_status": "candidate_date_requires_file_confirmation",
+      "election_id_proposal": "el-at-nr-2024-09-29",
+      "authority": "BMI / Bundeswahlbehörde",
+      "dataset_or_file_title": "MS Excel-Datei",
+      "file_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/files/endgueltiges_ergebnis_beschluss_bundeswahlbehoerde_16102024.xlsx",
+      "file_status": "official_link_observed_file_not_retrieved",
+      "index_evidence": {
+        "url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/",
+        "final_url": "https://www.bmi.gv.at/412/nationalratswahlen/nationalratswahl_2024/",
+        "status": 200,
+        "content_type": "text/html",
+        "retrieved_at": "2026-10-03T10:06:07.648Z",
+        "bytes": 89217,
+        "sha256": "5ee02a3fe7527bdb48630512b2f4edb70318b0a427787b13baa8cc51a95ef61c",
+        "archive_path": "local-evidence/5ee02a3fe7527bdb48630512b2f4edb70318b0a427787b13baa8cc51a95ef61c.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "XLSX",
+      "national_result_level": "not_confirmed_from_actual_file",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": null,
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": null,
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": null,
+      "notes": [
+        "2002 offers ZIPs including special result formats; 2006 XLS, 2008 zipped Excel, 2013/2017/2019/2024 XLSX links are observed. Actual workbook contents remain uninspected behind the licence stop.",
+        "Some seat-table filenames explicitly say provisional; the page being official does not certify that linked vintage.",
+        "Wahlwerbende Gruppe need not be a legal party under the Parteiengesetz. Election-specific contestant identity is separate from legal party continuity.",
+        "National totals must not combine national rows with Land/region/municipal or postal pseudo-units."
+      ]
+    }
+  ]
+}

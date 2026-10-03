@@ -1,0 +1,524 @@
+{
+  "schema_version": "political-source-closure-v1",
+  "state": "blocked_checkpoint_not_completed_audit",
+  "country": "czechia",
+  "platform_version": "v2.0",
+  "canonical_write_authorized": false,
+  "licence_gate": "written_confirmation_required",
+  "licence_blocker": "Election download pages link the CZSO terms, but their operative scope names csu.gov.cz. Obtain a dataset-specific licence statement or publisher confirmation for the actual volby.gov.cz files. No domain extension is assumed.",
+  "recommendation": "BLOCKED_BY_MULTIPLE_GATES",
+  "gate_matrix": {
+    "country": "czechia",
+    "publisher": "Český statistický úřad (ČSÚ)",
+    "gates": {
+      "reuse_right": {
+        "status": "open",
+        "value": "supported_pending_scope_confirmation",
+        "closes_by": "publisher_reply",
+        "basis": "ČSÚ terms: 'Statistické informace Českého statistického úřadu zveřejněné prostřednictvím internetových stránek https://csu.gov.cz jsou licencovány v souladu s CC BY 4.0'. The volby.gov.cz open-data index links these terms in its footer, but the operative sentence names csu.gov.cz, not volby.gov.cz."
+      },
+      "normalized_republication": {
+        "status": "open",
+        "value": "supported_pending_scope_confirmation",
+        "closes_by": "publisher_reply",
+        "basis": "Would follow from CC BY 4.0 if the terms cover volby.gov.cz files."
+      },
+      "raw_redistribution": {
+        "status": "open",
+        "value": "supported_pending_scope_confirmation",
+        "closes_by": "publisher_reply",
+        "basis": "CC BY 4.0 permits redistribution only if it applies to these files; not inferred from factual reuse."
+      },
+      "automated_acquisition": {
+        "status": "partial",
+        "value": "not_prohibited_no_explicit_permission",
+        "closes_by": "publisher_reply",
+        "basis": "volby.gov.cz robots.txt disallows only /pls/; CZSO terms contain no crawler clause. Absence of a prohibition is not a permission."
+      },
+      "manual_acquisition": {
+        "status": "partial",
+        "value": "not_prohibited_public_download",
+        "closes_by": "publisher_reply",
+        "basis": "Public download pages; no restriction found."
+      },
+      "source_files_complete": {
+        "status": "partial",
+        "value": null,
+        "closes_by": "documentary_work_after_acquisition_clearance",
+        "basis": "Exact per-election package inventory complete for 2002–2025 (documentary_review.json); packages not acquired."
+      },
+      "national_definition_complete": {
+        "status": "partial",
+        "value": null,
+        "closes_by": "documentary_work_after_acquisition_clearance",
+        "basis": "2025 vysledky.xml observed 2026-10-02: PROC_HLASU = HLASY / PLATNE_HLASY; UCAST_PROC = VYDANE_OBALKY / ZAPSANI_VOLICI. 2002–2021 data-record definitions (PS_datovaveta) not inspected."
+      },
+      "same_election_identity_complete": {
+        "status": "open",
+        "value": null,
+        "closes_by": "documentary_work_after_acquisition_clearance",
+        "basis": "Method documented (CVS.TYPVS, CVS_SLOZENI → CNS.NSTRANA); not executed. VSTRANA is described both as contestant code (CVS) and as ballot number drawn by lot (CVS_SLOZENI) — needs clarification."
+      },
+      "electoral_system_metadata_complete": {
+        "status": "open",
+        "value": null,
+        "closes_by": "documentary_work",
+        "basis": "No dated review of thresholds/allocation per election; 2021 mandate-allocation description (RozdelovaniMandatuPS2021_Popis.pdf) linked but not inspected."
+      },
+      "vintage_decisions_complete": {
+        "status": "open",
+        "value": null,
+        "closes_by": "owner_decision",
+        "basis": "2017: original vs results recalculated under NSS resolution Vol 58/2017-173 (changes 2017-11-22). 2021: register packages 20211010 and 20211111 with NSS Vol 102/2021 linked."
+      }
+    },
+    "mandatory_gate_status": {
+      "reuse_right": "open",
+      "normalized_republication": "open",
+      "acquisition_route": "partial",
+      "source_files_complete": "partial",
+      "national_definition_complete": "partial",
+      "same_election_identity_complete": "open",
+      "electoral_system_metadata_complete": "open",
+      "vintage_decisions_complete": "open"
+    },
+    "open_mandatory_gates": [
+      "reuse_right",
+      "normalized_republication",
+      "acquisition_route",
+      "source_files_complete",
+      "national_definition_complete",
+      "same_election_identity_complete",
+      "electoral_system_metadata_complete",
+      "vintage_decisions_complete"
+    ],
+    "overall_readiness": "NOT_READY",
+    "variant_eligibility": {
+      "1B-A_full_normalized": false,
+      "1B-B_normalized_without_raw": false,
+      "1B-manual": false
+    }
+  },
+  "rights_gates": {
+    "reuse_right": {
+      "value": "supported_pending_scope_confirmation",
+      "status": "open",
+      "closes_by": "publisher_reply",
+      "basis": "ČSÚ terms: 'Statistické informace Českého statistického úřadu zveřejněné prostřednictvím internetových stránek https://csu.gov.cz jsou licencovány v souladu s CC BY 4.0'. The volby.gov.cz open-data index links these terms in its footer, but the operative sentence names csu.gov.cz, not volby.gov.cz.",
+      "evidence": [
+        {
+          "path": "local-evidence/5ddd322892a662f6d979cea4521343b4c011fe2d44dc493e78e7d4b5221d03b7.raw",
+          "sha256": "5ddd322892a662f6d979cea4521343b4c011fe2d44dc493e78e7d4b5221d03b7",
+          "note": "CZSO terms page, retrieved 2026-10-03"
+        },
+        {
+          "path": "local-evidence/157435aa7c2966f308f89601e14def573daa839647c4d122b830c940f70637a0.raw",
+          "sha256": "157435aa7c2966f308f89601e14def573daa839647c4d122b830c940f70637a0",
+          "note": "volby.gov.cz/opendata/opendata.htm, footer links the CZSO terms"
+        }
+      ]
+    },
+    "normalized_factual_republication_right": {
+      "value": "supported_pending_scope_confirmation",
+      "status": "open",
+      "closes_by": "publisher_reply",
+      "basis": "Would follow from CC BY 4.0 if the terms cover volby.gov.cz files."
+    },
+    "raw_redistribution_right": {
+      "value": "supported_pending_scope_confirmation",
+      "status": "open",
+      "closes_by": "publisher_reply",
+      "basis": "CC BY 4.0 permits redistribution only if it applies to these files; not inferred from factual reuse."
+    },
+    "automated_acquisition_permission": {
+      "value": "not_prohibited_no_explicit_permission",
+      "status": "partial",
+      "closes_by": "publisher_reply",
+      "basis": "volby.gov.cz robots.txt disallows only /pls/; CZSO terms contain no crawler clause. Absence of a prohibition is not a permission."
+    },
+    "manual_acquisition_permission": {
+      "value": "not_prohibited_public_download",
+      "status": "partial",
+      "closes_by": "publisher_reply",
+      "basis": "Public download pages; no restriction found."
+    },
+    "attribution_requirements": {
+      "value": "documented_if_terms_apply",
+      "status": "partial",
+      "basis": "Distributors must state the licence terms, preferably by linking the terms page (ČSÚ terms, 'Další podmínky')."
+    },
+    "transformation_disclosure_requirements": {
+      "value": "documented_if_terms_apply",
+      "status": "partial",
+      "basis": "'upravené nebo odvozené údaje musí být označeny jako upravené nebo odvozené a nesmí být prezentovány jako nezměněné oficiální statistiky' (ČSÚ terms)."
+    }
+  },
+  "future_production_elections": [],
+  "expected_record_counts": null,
+  "manual_work": [
+    "VSTRANA identifies electoral contestants, including coalitions, not exclusively registered legal parties. CVS offers comparisons since 1998 but does not prove legal continuity.",
+    "CNS.NSTRANA, CPP.PSTRANA, CVS.VSTRANA and election ballot KSTRANA are distinct concepts.",
+    "Historical ČSSD/SOCDEM and 2025 ČSSD – Česká suverenita sociální demokracie must not be joined by name.",
+    "2021 and 2025 coalitions require election-specific registered composition; votes are never allocated to member parties.",
+    "Exact dated electoral law review and final national totals/seat/turnout verification remain required after a lawful source acquisition route is confirmed."
+  ],
+  "elections": [
+    {
+      "country": "czechia",
+      "year": 2002,
+      "date": "2002-06-14",
+      "date_status": "candidate_date_requires_file_confirmation",
+      "election_id_proposal": "el-cz-ps-2002-06-14",
+      "authority": "Český statistický úřad",
+      "dataset_or_file_title": "XML",
+      "file_url": "https://volby.gov.cz/opendata/ps2002/PS2002_data_20230224_xml.zip",
+      "file_status": "official_link_observed_file_not_retrieved",
+      "index_evidence": {
+        "url": "https://volby.gov.cz/opendata/ps2002/ps2002_opendata.htm",
+        "final_url": "https://volby.gov.cz/opendata/ps2002/ps2002_opendata.htm",
+        "status": 200,
+        "content_type": "text/html",
+        "retrieved_at": "2026-10-03T10:06:06.017Z",
+        "bytes": 5547,
+        "sha256": "70bb2c225b0f6dc70f40fac71847af93b21f1cde5d911b9a7f4b548b5dbabaaf",
+        "archive_path": "local-evidence/70bb2c225b0f6dc70f40fac71847af93b21f1cde5d911b9a7f4b548b5dbabaaf.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "ZIP",
+      "national_result_level": "not_confirmed_from_actual_file",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": null,
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": null,
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [
+        "https://volby.gov.cz/opendata/ps2025/PS2025ciselnikyPopis.htm"
+      ],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": null,
+      "notes": [
+        "2017 official index distinguishes original and court-recalculated results published 2017-11-22. Preserve both; a future production definition must select its vintage explicitly.",
+        "2002–2013 pages now link retrospective 2023 XML/CSVW packages, not the live XML endpoint pattern for recent elections.",
+        "2025 XML documentation introduces postal-envelope fields and four foreign reporting areas. No double counting of overseas votes.",
+        "VSTRANA identifies electoral contestants, including coalitions, not exclusively registered legal parties. CVS offers comparisons since 1998 but does not prove legal continuity.",
+        "CNS.NSTRANA, CPP.PSTRANA, CVS.VSTRANA and election ballot KSTRANA are distinct concepts.",
+        "Historical ČSSD/SOCDEM and 2025 ČSSD – Česká suverenita sociální demokracie must not be joined by name.",
+        "2021 and 2025 coalitions require election-specific registered composition; votes are never allocated to member parties."
+      ]
+    },
+    {
+      "country": "czechia",
+      "year": 2006,
+      "date": "2006-06-02",
+      "date_status": "candidate_date_requires_file_confirmation",
+      "election_id_proposal": "el-cz-ps-2006-06-02",
+      "authority": "Český statistický úřad",
+      "dataset_or_file_title": "XML",
+      "file_url": "https://volby.gov.cz/opendata/ps2006/PS2006_data_20230224_xml.zip",
+      "file_status": "official_link_observed_file_not_retrieved",
+      "index_evidence": {
+        "url": "https://volby.gov.cz/opendata/ps2006/ps2006_opendata.htm",
+        "final_url": "https://volby.gov.cz/opendata/ps2006/ps2006_opendata.htm",
+        "status": 200,
+        "content_type": "text/html",
+        "retrieved_at": "2026-10-03T10:06:06.041Z",
+        "bytes": 6781,
+        "sha256": "298c35aaf602d7d4f10bd20f68b2632f20e57fec4ebddb614496a72bdce05dd6",
+        "archive_path": "local-evidence/298c35aaf602d7d4f10bd20f68b2632f20e57fec4ebddb614496a72bdce05dd6.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "ZIP",
+      "national_result_level": "not_confirmed_from_actual_file",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": null,
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": null,
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [
+        "https://volby.gov.cz/opendata/ps2025/PS2025ciselnikyPopis.htm"
+      ],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": null,
+      "notes": [
+        "2017 official index distinguishes original and court-recalculated results published 2017-11-22. Preserve both; a future production definition must select its vintage explicitly.",
+        "2002–2013 pages now link retrospective 2023 XML/CSVW packages, not the live XML endpoint pattern for recent elections.",
+        "2025 XML documentation introduces postal-envelope fields and four foreign reporting areas. No double counting of overseas votes.",
+        "VSTRANA identifies electoral contestants, including coalitions, not exclusively registered legal parties. CVS offers comparisons since 1998 but does not prove legal continuity.",
+        "CNS.NSTRANA, CPP.PSTRANA, CVS.VSTRANA and election ballot KSTRANA are distinct concepts.",
+        "Historical ČSSD/SOCDEM and 2025 ČSSD – Česká suverenita sociální demokracie must not be joined by name.",
+        "2021 and 2025 coalitions require election-specific registered composition; votes are never allocated to member parties."
+      ]
+    },
+    {
+      "country": "czechia",
+      "year": 2010,
+      "date": "2010-05-28",
+      "date_status": "candidate_date_requires_file_confirmation",
+      "election_id_proposal": "el-cz-ps-2010-05-28",
+      "authority": "Český statistický úřad",
+      "dataset_or_file_title": "XML",
+      "file_url": "https://volby.gov.cz/opendata/ps2010/PS2010_data_20230224_xml.zip",
+      "file_status": "official_link_observed_file_not_retrieved",
+      "index_evidence": {
+        "url": "https://volby.gov.cz/opendata/ps2010/ps2010_opendata.htm",
+        "final_url": "https://volby.gov.cz/opendata/ps2010/ps2010_opendata.htm",
+        "status": 200,
+        "content_type": "text/html",
+        "retrieved_at": "2026-10-03T10:06:06.068Z",
+        "bytes": 6781,
+        "sha256": "a1c2880ac6d8972996b2552ec21ec46f43a30e6b9ac92e0773eeee1f61e6af12",
+        "archive_path": "local-evidence/a1c2880ac6d8972996b2552ec21ec46f43a30e6b9ac92e0773eeee1f61e6af12.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "ZIP",
+      "national_result_level": "not_confirmed_from_actual_file",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": null,
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": null,
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [
+        "https://volby.gov.cz/opendata/ps2025/PS2025ciselnikyPopis.htm"
+      ],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": null,
+      "notes": [
+        "2017 official index distinguishes original and court-recalculated results published 2017-11-22. Preserve both; a future production definition must select its vintage explicitly.",
+        "2002–2013 pages now link retrospective 2023 XML/CSVW packages, not the live XML endpoint pattern for recent elections.",
+        "2025 XML documentation introduces postal-envelope fields and four foreign reporting areas. No double counting of overseas votes.",
+        "VSTRANA identifies electoral contestants, including coalitions, not exclusively registered legal parties. CVS offers comparisons since 1998 but does not prove legal continuity.",
+        "CNS.NSTRANA, CPP.PSTRANA, CVS.VSTRANA and election ballot KSTRANA are distinct concepts.",
+        "Historical ČSSD/SOCDEM and 2025 ČSSD – Česká suverenita sociální demokracie must not be joined by name.",
+        "2021 and 2025 coalitions require election-specific registered composition; votes are never allocated to member parties."
+      ]
+    },
+    {
+      "country": "czechia",
+      "year": 2013,
+      "date": "2013-10-25",
+      "date_status": "candidate_date_requires_file_confirmation",
+      "election_id_proposal": "el-cz-ps-2013-10-25",
+      "authority": "Český statistický úřad",
+      "dataset_or_file_title": "XML",
+      "file_url": "https://volby.gov.cz/opendata/ps2013/PS2013_data_20230224_xml.zip",
+      "file_status": "official_link_observed_file_not_retrieved",
+      "index_evidence": {
+        "url": "https://volby.gov.cz/opendata/ps2013/ps2013_opendata.htm",
+        "final_url": "https://volby.gov.cz/opendata/ps2013/ps2013_opendata.htm",
+        "status": 200,
+        "content_type": "text/html",
+        "retrieved_at": "2026-10-03T10:06:06.090Z",
+        "bytes": 6781,
+        "sha256": "8efc9f444dd7e832eb20b890c701eb80f90694f0ac222272a4284141d205d0c2",
+        "archive_path": "local-evidence/8efc9f444dd7e832eb20b890c701eb80f90694f0ac222272a4284141d205d0c2.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "ZIP",
+      "national_result_level": "not_confirmed_from_actual_file",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": null,
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": null,
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [
+        "https://volby.gov.cz/opendata/ps2025/PS2025ciselnikyPopis.htm"
+      ],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": null,
+      "notes": [
+        "2017 official index distinguishes original and court-recalculated results published 2017-11-22. Preserve both; a future production definition must select its vintage explicitly.",
+        "2002–2013 pages now link retrospective 2023 XML/CSVW packages, not the live XML endpoint pattern for recent elections.",
+        "2025 XML documentation introduces postal-envelope fields and four foreign reporting areas. No double counting of overseas votes.",
+        "VSTRANA identifies electoral contestants, including coalitions, not exclusively registered legal parties. CVS offers comparisons since 1998 but does not prove legal continuity.",
+        "CNS.NSTRANA, CPP.PSTRANA, CVS.VSTRANA and election ballot KSTRANA are distinct concepts.",
+        "Historical ČSSD/SOCDEM and 2025 ČSSD – Česká suverenita sociální demokracie must not be joined by name.",
+        "2021 and 2025 coalitions require election-specific registered composition; votes are never allocated to member parties."
+      ]
+    },
+    {
+      "country": "czechia",
+      "year": 2017,
+      "date": "2017-10-20",
+      "date_status": "candidate_date_requires_file_confirmation",
+      "election_id_proposal": "el-cz-ps-2017-10-20",
+      "authority": "Český statistický úřad",
+      "dataset_or_file_title": null,
+      "file_url": null,
+      "file_status": "not_located_at_this_checkpoint",
+      "index_evidence": {
+        "url": "https://volby.gov.cz/opendata/ps2017/ps2017odata.htm",
+        "final_url": "https://volby.gov.cz/opendata/ps2017/ps2017odata.htm",
+        "status": 200,
+        "content_type": "text/html",
+        "retrieved_at": "2026-10-03T10:06:06.118Z",
+        "bytes": 4634,
+        "sha256": "81465a2aa59c950d7f6b6605c1ed7b962190a702f475d0d4ba988d0763c80ec5",
+        "archive_path": "local-evidence/81465a2aa59c950d7f6b6605c1ed7b962190a702f475d0d4ba988d0763c80ec5.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": null,
+      "national_result_level": "not_confirmed_from_actual_file",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": null,
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": null,
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [
+        "https://volby.gov.cz/opendata/ps2025/PS2025ciselnikyPopis.htm"
+      ],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": null,
+      "notes": [
+        "2017 official index distinguishes original and court-recalculated results published 2017-11-22. Preserve both; a future production definition must select its vintage explicitly.",
+        "2002–2013 pages now link retrospective 2023 XML/CSVW packages, not the live XML endpoint pattern for recent elections.",
+        "2025 XML documentation introduces postal-envelope fields and four foreign reporting areas. No double counting of overseas votes.",
+        "VSTRANA identifies electoral contestants, including coalitions, not exclusively registered legal parties. CVS offers comparisons since 1998 but does not prove legal continuity.",
+        "CNS.NSTRANA, CPP.PSTRANA, CVS.VSTRANA and election ballot KSTRANA are distinct concepts.",
+        "Historical ČSSD/SOCDEM and 2025 ČSSD – Česká suverenita sociální demokracie must not be joined by name.",
+        "2021 and 2025 coalitions require election-specific registered composition; votes are never allocated to member parties."
+      ]
+    },
+    {
+      "country": "czechia",
+      "year": 2021,
+      "date": "2021-10-08",
+      "date_status": "candidate_date_requires_file_confirmation",
+      "election_id_proposal": "el-cz-ps-2021-10-08",
+      "authority": "Český statistický úřad",
+      "dataset_or_file_title": "XML",
+      "file_url": "https://volby.gov.cz/opendata/ps2021/PS2021_data_20211010_xml.zip",
+      "file_status": "official_link_observed_file_not_retrieved",
+      "index_evidence": {
+        "url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "final_url": "https://volby.gov.cz/opendata/ps2021/ps2021_opendata.htm",
+        "status": 200,
+        "content_type": "text/html",
+        "retrieved_at": "2026-10-03T10:06:06.141Z",
+        "bytes": 9669,
+        "sha256": "398e5940f8d8abfb70c678483c88e6df3457266796c607bc17a243ce726ad6f4",
+        "archive_path": "local-evidence/398e5940f8d8abfb70c678483c88e6df3457266796c607bc17a243ce726ad6f4.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "ZIP",
+      "national_result_level": "not_confirmed_from_actual_file",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": null,
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": null,
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [
+        "https://volby.gov.cz/opendata/ps2025/PS2025ciselnikyPopis.htm"
+      ],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": null,
+      "notes": [
+        "2017 official index distinguishes original and court-recalculated results published 2017-11-22. Preserve both; a future production definition must select its vintage explicitly.",
+        "2002–2013 pages now link retrospective 2023 XML/CSVW packages, not the live XML endpoint pattern for recent elections.",
+        "2025 XML documentation introduces postal-envelope fields and four foreign reporting areas. No double counting of overseas votes.",
+        "VSTRANA identifies electoral contestants, including coalitions, not exclusively registered legal parties. CVS offers comparisons since 1998 but does not prove legal continuity.",
+        "CNS.NSTRANA, CPP.PSTRANA, CVS.VSTRANA and election ballot KSTRANA are distinct concepts.",
+        "Historical ČSSD/SOCDEM and 2025 ČSSD – Česká suverenita sociální demokracie must not be joined by name.",
+        "2021 and 2025 coalitions require election-specific registered composition; votes are never allocated to member parties."
+      ]
+    },
+    {
+      "country": "czechia",
+      "year": 2025,
+      "date": "2025-10-03",
+      "date_status": "candidate_date_requires_file_confirmation",
+      "election_id_proposal": "el-cz-ps-2025-10-03",
+      "authority": "Český statistický úřad",
+      "dataset_or_file_title": "XML data - celkové výsledky za ČR a kraje",
+      "file_url": "https://volby.gov.cz/appdata/ps2025/odata/vysledky.xml",
+      "file_status": "official_link_observed_file_not_retrieved",
+      "index_evidence": {
+        "url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata.htm",
+        "final_url": "https://volby.gov.cz/opendata/ps2025/ps2025_opendata.htm",
+        "status": 200,
+        "content_type": "text/html",
+        "retrieved_at": "2026-10-03T10:04:49.309Z",
+        "bytes": 18062,
+        "sha256": "a474dcfe6ce4fa5660cb634e1c6de4f2f3495666a256be6562ba16e4516c2044",
+        "archive_path": "local-evidence/a474dcfe6ce4fa5660cb634e1c6de4f2f3495666a256be6562ba16e4516c2044.raw",
+        "raw_redistribution": "not_cleared_local_only"
+      },
+      "format": "XML",
+      "national_result_level": "not_confirmed_from_actual_file",
+      "result_status": "not_certified_by_this_audit",
+      "schema_version": null,
+      "party_list_id_field": null,
+      "vote_field": null,
+      "valid_vote_denominator": null,
+      "seat_field": null,
+      "turnout_field": null,
+      "licence_status": "written_confirmation_required",
+      "raw_redistribution": "not_cleared",
+      "factual_extracts_republication": "not_cleared",
+      "retrieval": null,
+      "identity_status": "identity_evidence_incomplete",
+      "identity_evidence_refs": [
+        "https://volby.gov.cz/opendata/ps2025/PS2025ciselnikyPopis.htm"
+      ],
+      "electoral_system_evidence_status": "not_reviewed_per_election",
+      "ingestion_ready": false,
+      "field_audit": null,
+      "notes": [
+        "2017 official index distinguishes original and court-recalculated results published 2017-11-22. Preserve both; a future production definition must select its vintage explicitly.",
+        "2002–2013 pages now link retrospective 2023 XML/CSVW packages, not the live XML endpoint pattern for recent elections.",
+        "2025 XML documentation introduces postal-envelope fields and four foreign reporting areas. No double counting of overseas votes.",
+        "VSTRANA identifies electoral contestants, including coalitions, not exclusively registered legal parties. CVS offers comparisons since 1998 but does not prove legal continuity.",
+        "CNS.NSTRANA, CPP.PSTRANA, CVS.VSTRANA and election ballot KSTRANA are distinct concepts.",
+        "Historical ČSSD/SOCDEM and 2025 ČSSD – Česká suverenita sociální demokracie must not be joined by name.",
+        "2021 and 2025 coalitions require election-specific registered composition; votes are never allocated to member parties."
+      ]
+    }
+  ]
+}

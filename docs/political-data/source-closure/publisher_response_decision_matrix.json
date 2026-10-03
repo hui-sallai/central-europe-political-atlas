@@ -1,0 +1,393 @@
+{
+  "schema_version": "political-publisher-response-decision-matrix-v1",
+  "state": "prepared_not_sent",
+  "rule": "Each question maps to explicitly named open gates. A gate changes only on a written answer that matches a listed outcome; anything else leaves it open. Answers are archived (text + date + sender role) before any gate is changed.",
+  "global_rules": [
+    {
+      "id": "G1",
+      "if": "answer is vague (e.g. 'the data are public', 'you may use our data') without naming the files and the permitted uses",
+      "then": {
+        "all_rights_gates": "unchanged (unresolved)"
+      }
+    },
+    {
+      "id": "G2",
+      "if": "authority confirms normalized factual republication under a named licence or written permission",
+      "then": {
+        "normalized_factual_republication_right": "closed (cleared)",
+        "reuse_right": "closed if the same statement covers reuse of the files"
+      }
+    },
+    {
+      "id": "G3",
+      "if": "original files may not be redistributed",
+      "then": {
+        "raw_redistribution_right": "blocked",
+        "effect": "normalized factual production may still proceed only if G2 is separately satisfied (variant 1B-B)"
+      }
+    },
+    {
+      "id": "G4",
+      "if": "automated retrieval prohibited but manual download permitted",
+      "then": {
+        "automated_acquisition_permission": "blocked",
+        "manual_acquisition_permission": "closed",
+        "acquisition_mode": "manual_only",
+        "effect": "production may use archived, owner-downloaded, owner-reviewed inputs (variant 1B-manual)"
+      }
+    },
+    {
+      "id": "G5",
+      "if": "commercial use is prohibited",
+      "then": {
+        "record": "non_commercial_restriction",
+        "assessment": "owner must confirm the Atlas deployment is non-commercial (no paid access, advertising or commercial licensing of outputs); if confirmed, the gate may close as 'restricted_noncommercial_cleared' — never recorded as unrestricted open reuse, and the restriction is shown with the data"
+      }
+    },
+    {
+      "id": "G6",
+      "if": "a licence is confirmed only for some years/files",
+      "then": {
+        "effect": "gates close per election/file; other elections stay open"
+      }
+    },
+    {
+      "id": "G7",
+      "if": "no reply",
+      "then": {
+        "all_rights_gates": "unchanged; no production"
+      }
+    },
+    {
+      "id": "G8",
+      "if": "answer refers to a general public-sector-information law without dataset-specific confirmation",
+      "then": {
+        "effect": "recorded as context; gates unchanged unless the authority states the files are available for re-use under that law without further conditions"
+      }
+    }
+  ],
+  "countries": {
+    "czechia": {
+      "open_gates_addressed": [
+        "reuse_right",
+        "normalized_factual_republication_right",
+        "raw_redistribution_right",
+        "manual_acquisition_permission",
+        "automated_acquisition_permission",
+        "attribution_requirements",
+        "transformation_disclosure_requirements"
+      ],
+      "questions": [
+        {
+          "id": "CZ1",
+          "gates": [
+            "reuse_right"
+          ],
+          "question": "Do the CZSO terms (CC BY 4.0) published at csu.gov.cz apply to the Chamber of Deputies election result files published on volby.gov.cz (opendata/psYYYY and appdata/psYYYY/odata)?",
+          "yes": {
+            "reuse_right": "closed"
+          },
+          "no": {
+            "reuse_right": "blocked",
+            "effect": "ask for the applicable terms"
+          },
+          "insufficient": "a link to the general terms without confirming the election files"
+        },
+        {
+          "id": "CZ2",
+          "gates": [
+            "manual_acquisition_permission"
+          ],
+          "question": "May we download the official XML/CSV/XLSX result packages manually?",
+          "yes": {
+            "manual_acquisition_permission": "closed"
+          },
+          "no": {
+            "manual_acquisition_permission": "blocked"
+          }
+        },
+        {
+          "id": "CZ3",
+          "gates": [
+            "automated_acquisition_permission"
+          ],
+          "question": "May a script retrieve the static final-result packages (low rate, once per election)?",
+          "yes": {
+            "automated_acquisition_permission": "closed"
+          },
+          "no": {
+            "automated_acquisition_permission": "blocked",
+            "effect": "G4 if CZ2 = yes"
+          }
+        },
+        {
+          "id": "CZ4",
+          "gates": [
+            "normalized_factual_republication_right"
+          ],
+          "question": "May we publish normalized factual extracts (votes, vote shares, seats, turnout, contestant identifiers) and clearly labelled derived values?",
+          "yes": {
+            "normalized_factual_republication_right": "closed"
+          },
+          "no": {
+            "normalized_factual_republication_right": "blocked"
+          }
+        },
+        {
+          "id": "CZ5",
+          "gates": [
+            "raw_redistribution_right"
+          ],
+          "question": "May we redistribute the original files, or only keep them privately for reproducibility?",
+          "yes": {
+            "raw_redistribution_right": "closed"
+          },
+          "no": {
+            "raw_redistribution_right": "blocked",
+            "effect": "G3"
+          }
+        },
+        {
+          "id": "CZ6",
+          "gates": [
+            "attribution_requirements",
+            "transformation_disclosure_requirements"
+          ],
+          "question": "Is attribution 'Český statistický úřad' with a link to the terms, and labelling derived values as derived, sufficient?",
+          "yes": {
+            "attribution_requirements": "closed",
+            "transformation_disclosure_requirements": "closed"
+          },
+          "conditional": {
+            "effect": "record the exact wording required"
+          }
+        }
+      ]
+    },
+    "slovakia": {
+      "open_gates_addressed": [
+        "reuse_right",
+        "normalized_factual_republication_right",
+        "raw_redistribution_right",
+        "manual_acquisition_permission",
+        "automated_acquisition_permission",
+        "transformation_disclosure_requirements"
+      ],
+      "questions": [
+        {
+          "id": "SK1",
+          "gates": [
+            "reuse_right",
+            "normalized_factual_republication_right",
+            "raw_redistribution_right"
+          ],
+          "question": "Are the election-result CSV files on volby.statistics.sk/opendata (e.g. NRSR_2016_tab13.csv) covered by the CC BY 4.0 terms of 'Conditions for use and further dissemination of the SO SR statistical information'?",
+          "yes": {
+            "reuse_right": "closed",
+            "normalized_factual_republication_right": "closed",
+            "raw_redistribution_right": "closed (the terms text itself permits copying and distribution)"
+          },
+          "no": {
+            "reuse_right": "blocked"
+          },
+          "insufficient": "a general statement that all SO SR data are CC BY without naming the election files or volby.statistics.sk",
+          "note": "A yes closes raw redistribution only if the reply also confirms no third-party IP exclusion applies to these files."
+        },
+        {
+          "id": "SK2",
+          "gates": [
+            "manual_acquisition_permission"
+          ],
+          "question": "Is manual browser download of final historical CSV files permitted?",
+          "yes": {
+            "manual_acquisition_permission": "closed"
+          },
+          "no": {
+            "manual_acquisition_permission": "blocked"
+          }
+        },
+        {
+          "id": "SK3",
+          "gates": [
+            "automated_acquisition_permission"
+          ],
+          "question": "Does the robots/spiders prohibition apply to scripted retrieval of a small number of static final files, or is there an approved API/endpoint?",
+          "yes_prohibited": {
+            "automated_acquisition_permission": "blocked",
+            "effect": "G4 if SK2 = yes"
+          },
+          "approved_route": {
+            "automated_acquisition_permission": "closed for the named route only"
+          }
+        },
+        {
+          "id": "SK4",
+          "gates": [
+            "attribution_requirements",
+            "transformation_disclosure_requirements"
+          ],
+          "question": "Please confirm the attribution (SO SR as source, CC BY 4.0 named, link to the conditions page, no implied endorsement) and how modifications and derived values should be indicated.",
+          "conditional": {
+            "effect": "record wording; close attribution_requirements and transformation_disclosure_requirements"
+          }
+        }
+      ]
+    },
+    "poland": {
+      "open_gates_addressed": [
+        "reuse_right",
+        "normalized_factual_republication_right",
+        "raw_redistribution_right",
+        "manual_acquisition_permission",
+        "automated_acquisition_permission",
+        "attribution_requirements",
+        "transformation_disclosure_requirements"
+      ],
+      "questions": [
+        {
+          "id": "PL1",
+          "gates": [
+            "reuse_right"
+          ],
+          "question": "May the Sejm election result files published on danewyborcze.kbw.gov.pl (2001–2023) be reused, and under which conditions?",
+          "yes": {
+            "reuse_right": "closed"
+          },
+          "no": {
+            "reuse_right": "blocked"
+          },
+          "insufficient": "reference to the general PSI law without stating the files are available for re-use without further conditions (G8)"
+        },
+        {
+          "id": "PL2",
+          "gates": [
+            "normalized_factual_republication_right"
+          ],
+          "question": "May we publish normalized factual extracts and derived vote/seat shares labelled as derived?",
+          "yes": {
+            "normalized_factual_republication_right": "closed"
+          },
+          "no": {
+            "normalized_factual_republication_right": "blocked"
+          }
+        },
+        {
+          "id": "PL3",
+          "gates": [
+            "raw_redistribution_right"
+          ],
+          "question": "May original files be redistributed, or only archived locally for reproducibility?",
+          "yes": {
+            "raw_redistribution_right": "closed"
+          },
+          "no": {
+            "raw_redistribution_right": "blocked",
+            "effect": "G3"
+          }
+        },
+        {
+          "id": "PL4",
+          "gates": [
+            "manual_acquisition_permission",
+            "automated_acquisition_permission"
+          ],
+          "question": "Are there conditions on manual or automated download?",
+          "conditional": {
+            "effect": "G4 or close both gates as stated"
+          }
+        },
+        {
+          "id": "PL5",
+          "gates": [
+            "attribution_requirements",
+            "transformation_disclosure_requirements"
+          ],
+          "question": "Required attribution and transformation disclosure?",
+          "conditional": {
+            "effect": "record wording; close both gates"
+          }
+        }
+      ]
+    },
+    "austria": {
+      "open_gates_addressed": [
+        "reuse_right",
+        "normalized_factual_republication_right",
+        "raw_redistribution_right",
+        "manual_acquisition_permission",
+        "attribution_requirements",
+        "transformation_disclosure_requirements"
+      ],
+      "questions": [
+        {
+          "id": "AT1",
+          "gates": [
+            "reuse_right"
+          ],
+          "question": "Does the Impressum clause ('Übernahme von Beiträgen … unter Quellenangabe … außer für kommerzielle Zwecke') apply to the official Nationalratswahl result workbooks and data files, or is there a more specific licence for election data?",
+          "yes": {
+            "reuse_right": "closed_with_noncommercial_restriction",
+            "effect": "G5"
+          },
+          "specific_licence": {
+            "reuse_right": "closed per that licence"
+          },
+          "insufficient": "confirmation that the pages are public"
+        },
+        {
+          "id": "AT2",
+          "gates": [
+            "normalized_factual_republication_right"
+          ],
+          "question": "May normalized factual extracts and derived vote/seat shares be published on a non-commercial public research website?",
+          "yes": {
+            "normalized_factual_republication_right": "closed (non-commercial if so stated)"
+          },
+          "no": {
+            "normalized_factual_republication_right": "blocked"
+          }
+        },
+        {
+          "id": "AT3",
+          "gates": [
+            "raw_redistribution_right"
+          ],
+          "question": "May the original XLS/XLSX/ZIP files be redistributed?",
+          "yes": {
+            "raw_redistribution_right": "closed"
+          },
+          "no": {
+            "raw_redistribution_right": "blocked",
+            "effect": "G3"
+          }
+        },
+        {
+          "id": "AT4",
+          "gates": [
+            "manual_acquisition_permission"
+          ],
+          "question": "Is manual download by a person permitted (automated AI agents are disallowed by robots.txt)?",
+          "yes": {
+            "manual_acquisition_permission": "closed",
+            "automated_acquisition_permission": "remains blocked",
+            "effect": "G4"
+          },
+          "no": {
+            "manual_acquisition_permission": "blocked"
+          }
+        },
+        {
+          "id": "AT5",
+          "gates": [
+            "attribution_requirements",
+            "transformation_disclosure_requirements"
+          ],
+          "question": "Required source attribution wording and indication of changes?",
+          "conditional": {
+            "effect": "record wording; close both gates"
+          }
+        }
+      ]
+    }
+  }
+}

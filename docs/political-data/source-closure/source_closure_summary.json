@@ -1,0 +1,92 @@
+{
+  "schema_version": "political-source-closure-summary-v1",
+  "state": "blocked_owner_review_checkpoint",
+  "audit_complete": false,
+  "platform_version": "v2.0",
+  "scope": [
+    "czechia",
+    "slovakia",
+    "poland",
+    "austria"
+  ],
+  "elections_registered": 28,
+  "production_ready_elections": 0,
+  "production_1b_recommendation": null,
+  "owner_approval_required": true,
+  "canonical_writes": 0,
+  "public_export_writes": 0,
+  "ui_changes": 0,
+  "pushes": 0,
+  "deployments": 0,
+  "countries": [
+    {
+      "country": "czechia",
+      "recommendation": "BLOCKED_BY_MULTIPLE_GATES",
+      "licence_status": "written_confirmation_required",
+      "overall_readiness": "NOT_READY",
+      "open_mandatory_gates": [
+        "reuse_right",
+        "normalized_republication",
+        "acquisition_route",
+        "source_files_complete",
+        "national_definition_complete",
+        "same_election_identity_complete",
+        "electoral_system_metadata_complete",
+        "vintage_decisions_complete"
+      ]
+    },
+    {
+      "country": "slovakia",
+      "recommendation": "BLOCKED_BY_MULTIPLE_GATES",
+      "licence_status": "written_confirmation_required",
+      "overall_readiness": "NOT_READY",
+      "open_mandatory_gates": [
+        "reuse_right",
+        "normalized_republication",
+        "acquisition_route",
+        "source_files_complete",
+        "national_definition_complete",
+        "same_election_identity_complete",
+        "electoral_system_metadata_complete",
+        "vintage_decisions_complete"
+      ]
+    },
+    {
+      "country": "poland",
+      "recommendation": "BLOCKED_BY_MULTIPLE_GATES",
+      "licence_status": "written_confirmation_required",
+      "overall_readiness": "NOT_READY",
+      "open_mandatory_gates": [
+        "reuse_right",
+        "normalized_republication",
+        "acquisition_route",
+        "source_files_complete",
+        "national_definition_complete",
+        "same_election_identity_complete",
+        "electoral_system_metadata_complete",
+        "vintage_decisions_complete"
+      ]
+    },
+    {
+      "country": "austria",
+      "recommendation": "BLOCKED_BY_MULTIPLE_GATES",
+      "licence_status": "written_confirmation_required",
+      "overall_readiness": "NOT_READY",
+      "open_mandatory_gates": [
+        "reuse_right",
+        "normalized_republication",
+        "acquisition_route",
+        "source_files_complete",
+        "national_definition_complete",
+        "same_election_identity_complete",
+        "electoral_system_metadata_complete",
+        "vintage_decisions_complete"
+      ]
+    }
+  ],
+  "remaining_work": [
+    "Resolve exact-file licence applicability and lawful acquisition conditions without contacting authorities unless owner authorizes it.",
+    "Retrieve/inspect the actual candidate files only through a permitted route; close missing file URLs and all national totals, schema, identity and dated electoral-rule evidence.",
+    "Run strict complete-audit validation after all 28 records have documentary support. A checkpoint validation does not mean ingestion readiness."
+  ]
+}
