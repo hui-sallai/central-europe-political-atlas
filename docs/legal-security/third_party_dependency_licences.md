@@ -37,6 +37,40 @@ MPL-2.0 (axe-core) is used unmodified as a dev tool and is not distributed in th
   - `test:ui` (202 passed);
   - `seo:validate`, `legal-security:validate` and `political-person-safety:validate`.
 
+### Frozen-boundary exception
+
+The research validators (`notebook:validate`, `workspaces:validate`, `political-source-closure:validate --checkpoint`) freeze
+`pnpm-lock.yaml`. This upgrade passes them **only** through the owner-approved exception `dep-sec-2026-10-next-16-3-6`
+in `dependency_maintenance_exceptions.json`. The exception:
+- pins the exact lockfile sha256 `c106f318…8c93`;
+- allows only the two package/version pairs listed;
+- forbids any version or other dependency-tooling change;
+- has every research, model, political and release flag set to false.
+
+It is enforced once, in `scripts/political-data/germany/frozen-boundary.mjs`. Any later lockfile change needs a new entry.
+
+### Next.js advisories removed by 16.3.6
+
+The 16.3.6 upgrade (with bundled postcss 8.5.23 and sharp 0.35.x) removed these advisories:
+- Server Actions DoS, SSRF and unbounded payload;
+- Middleware/Proxy bypass;
+- SSRF in rewrites;
+- Image Optimization API RCE (AVIF) and DoS (SVG);
+- RCE on Windows-hosted servers;
+- cache confusion (×2);
+- Server Function endpoint disclosure;
+- `next/og` ImageResponse RCE;
+- postcss source-map file read and `</style>` XSS;
+- sharp libvips/libheif CVEs.
+
+Static GitHub Pages exposure has no Next.js server runtime, Server Actions, middleware or image-optimisation endpoint.
+Build-time risk remains limited to the dev-only `braces` advisory, which has no patch.
+
+| Audit | Total | Critical | High | Moderate | Production tree |
+|---|---|---|---|---|---|
+| before (16.2.6) | 35 | 3 | 22 | 10 | 21 |
+| after (16.3.6 + in-range refresh) | 1 | 0 | 1 | 0 | 0 |
+
 ## Historical audit before maintenance
 
 ### `pnpm audit` before maintenance (2026-10-04)

@@ -1,0 +1,26 @@
+{
+  "schema_version": "atlas-dependency-maintenance-exceptions-v1",
+  "rule": "Additive governance record, not a new research baseline. The original frozen baselines stay authoritative. scripts/political-data/germany/frozen-boundary.mjs accepts a pnpm-lock.yaml that differs from a baseline only when its sha256 equals new_lockfile_sha256 of an approved entry AND package.json differs from the baseline only by the listed package/version pairs AND no other dependency-tooling file changed. Any later lockfile change needs a new owner-approved entry.",
+  "exceptions": [
+    {
+      "exception_id": "dep-sec-2026-10-next-16-3-6",
+      "status": "approved_local_maintenance",
+      "approved_by": "owner (explicit chat instruction, 2026-10-04)",
+      "reason": "Security maintenance only: Next.js advisories fixed in 16.2.11 / 16.3.3 / 16.3.6 (bundled postcss and sharp advisories included); in-range transitive refresh of browserslist, baseline-browser-mapping, brace-expansion and js-yaml.",
+      "approved_scope": {
+        "package_changes": [
+          { "package": "next", "from": "16.2.6", "to": "16.3.6" },
+          { "package": "eslint-config-next", "from": "16.2.6", "to": "16.3.6" }
+        ],
+        "allowed_files": ["package.json", "pnpm-lock.yaml"]
+      },
+      "new_lockfile_sha256": "c106f318c1c614978618898ce3f51b1e4595bfda046ca329f4d2de2720818c93",
+      "research_data_change_allowed": false,
+      "model_output_change_allowed": false,
+      "political_data_change_allowed": false,
+      "release_version_change_allowed": false,
+      "created_at": "2026-10-04",
+      "notes": "Exact one-time dependency maintenance exception. See docs/legal-security/third_party_dependency_licences.md."
+    }
+  ]
+}

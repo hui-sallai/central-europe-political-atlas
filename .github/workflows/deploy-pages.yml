@@ -54,6 +54,9 @@ jobs:
           pnpm political-person-safety:validate
           node scripts/legal-security/validate.mjs --source-only
 
+      - name: Political source-closure checkpoint (CZ/SK/PL/AT stay blocked; Germany frozen)
+        run: pnpm political-source-closure:validate --checkpoint
+
       - name: Setup Python reference runtime
         uses: actions/setup-python@v6
         with:
