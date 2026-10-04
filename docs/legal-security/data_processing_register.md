@@ -1,6 +1,6 @@
 # Data processing register (internal; actual current processing)
 
-Controller / operator identity and establishment: **OWNER_CONFIRMATION_REQUIRED** (not published until confirmed).
+Controller / operator: **Sallai Zhang**, natural person (owner-confirmed 2026-10-05; published on the Legal and Privacy pages). Establishment: **unresolved by design**. The owner reports operational connections to China and Hungary, and no single legal establishment determination has been made (internal only).
 Legal-basis assessment per activity: **OWNER_CONFIRMATION_REQUIRED** — candidate bases are listed for the owner's review,
 not asserted.
 

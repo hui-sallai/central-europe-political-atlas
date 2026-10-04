@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { PLATFORM_CONTACT_EMAIL } from "@/lib/releaseMetadata";
-import { LEGAL_NOTICES_UPDATED } from "@/content/legalNotices";
+import { CONTROLLER_NAME, LEGAL_NOTICES_UPDATED } from "@/content/legalNotices";
 
 export const metadata: Metadata = pageMetadata({ title: "隐私说明", description: "平台的数据最小化、托管日志、联系邮件和外部链接隐私说明。", path: "/privacy/" });
 
@@ -12,6 +12,7 @@ export default function PrivacyPage() {
       <p className="eyebrow">Privacy Notice</p>
       <h1 className="mt-4 text-4xl font-semibold tracking-[-0.03em]">隐私说明</h1>
       <p className="mt-4 max-w-4xl text-sm leading-7 text-[var(--muted)]">更新日期：{LEGAL_NOTICES_UPDATED}。平台采用数据最小化原则，当前不提供账户、评论、上传、订阅或个性化政治定向功能。</p>
+      <section className="mt-6 card p-6" data-controller="true"><h2 className="text-xl font-semibold">控制者与联系方式</h2><p className="mt-3 text-sm leading-7 text-[var(--muted)]">本网站的控制者／运营者为 {CONTROLLER_NAME}（自然人），以独立、非商业研究项目的形式运营 Central Europe Political Atlas（中欧政治图谱）。联系邮箱：<a className="text-[var(--accent)] underline" href={`mailto:${PLATFORM_CONTACT_EMAIL}`}>{PLATFORM_CONTACT_EMAIL}</a>。本项目不是任何大学或其他机构的官方项目，也未获其赞助或背书。</p></section>
 
       <div className="mt-7 grid gap-4 md:grid-cols-2">
         <section className="card p-6"><h2 className="text-xl font-semibold">浏览器本地存储</h2><p className="mt-3 text-sm leading-7 text-[var(--muted)]">平台只使用两个 localStorage 键：研究笔记（central-europe-atlas:research-notebook:v1）和外观偏好（atlas-theme，仅记录浅色或深色主题）。研究笔记仅保存在当前浏览器中，除非你主动导出；不上传到服务器，不同步、不追踪，不声称加密保护。平台不使用 Cookie、sessionStorage 或 IndexedDB。共用浏览器的其他使用者可能看到笔记；清除浏览器数据会丢失本地笔记。可在研究笔记页面明确清空，或先导出备份。</p><Link href="/notebook/" className="mt-3 inline-flex text-sm text-[var(--accent)]">研究笔记</Link></section>

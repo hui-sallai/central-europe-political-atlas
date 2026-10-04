@@ -248,9 +248,13 @@ for (const [k, v] of Object.entries(owner)) {
 }
 for (const [k, v] of Object.entries(ownerFile.answers ?? {})) if (v !== null) check(ownerFile.evidence?.[`answer:${k}`]?.owner_statement, `owner answer ${k} set without owner evidence`);
 const required = ['controller_identity_confirmed', 'public_contact_email_confirmed', 'noncommercial_status_confirmed', 'no_institutional_affiliation_claimed', 'legal_notice_reviewed', 'privacy_notice_reviewed'];
+// Scheduled owner re-checks (reported, not failing): e.g. registrar transfer lock after the 60-day post-registration period.
+const rechecksDue = [];
+const registrarState = ownerFile.registrar_state ?? {};
+if (registrarState.recheck_registrar_lock_on_or_after && Date.now() >= Date.parse(registrarState.recheck_registrar_lock_on_or_after) && !(ownerFile.evidence?.registrar_lock_verified?.confirmed_on >= registrarState.recheck_registrar_lock_on_or_after)) rechecksDue.push(`registrar_lock_verified: re-verify the Cloudflare transfer lock (post-registration protection ended ${registrarState.recheck_registrar_lock_on_or_after})`);
 const gate = required.every((k) => owner[k] === true) && failures.length === 0 ? 'READY_FOR_OWNER_TO_CONTACT_PUBLISHERS' : 'NOT_READY_FOR_OWNER_TO_CONTACT_PUBLISHERS';
 const checklist = exists('docs/legal-security/publisher_contact_release_checklist.md') ? read('docs/legal-security/publisher_contact_release_checklist.md') : '';
 check(checklist.includes(`Current status: ${gate}`), `publisher_contact_release_checklist.md must state the computed status ${gate}`);
 
-console.log(JSON.stringify({ status: failures.length ? 'fail' : 'pass', checks, mode: sourceOnly ? 'source-only' : 'full', person_safety: ps.scanned, publisher_contact_gate: gate, open_rights_issues: openRightsIssues, failures: failures.slice(0, 40), total_failures: failures.length }, null, 1));
+console.log(JSON.stringify({ status: failures.length ? 'fail' : 'pass', checks, mode: sourceOnly ? 'source-only' : 'full', person_safety: ps.scanned, publisher_contact_gate: gate, owner_rechecks_due: rechecksDue, open_rights_issues: openRightsIssues, failures: failures.slice(0, 40), total_failures: failures.length }, null, 1));
 if (failures.length) process.exitCode = 1;

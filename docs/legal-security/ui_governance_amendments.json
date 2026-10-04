@@ -148,6 +148,45 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-05"
+    },
+    {
+      "amendment_id": "ui-controller-identity-2026-10",
+      "status": "owner_approved",
+      "approved_by": "owner (explicit chat instruction: publish controller/operator identity, 2026-10-05)",
+      "purpose": "Controller/operator identity (Sallai Zhang, natural person) and contact on the Legal and Privacy pages; no postal address or other personal details",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/app/(zh)/privacy/page.tsx",
+          "sha256": "641f292f6c39b0697b6ee8bc863007e289689e9036bfd17035a99e3810364fc2",
+          "classification": "PRIVACY_NOTICE",
+          "change": "controller and contact section / operator sentence"
+        },
+        {
+          "path": "src/app/(english)/en/privacy/page.tsx",
+          "sha256": "a3daa9999718452b9d62395ee3032bca51fce456a22de08b63e5a3777fedb58d",
+          "classification": "PRIVACY_NOTICE",
+          "change": "controller and contact section / operator sentence"
+        },
+        {
+          "path": "src/app/(zh)/legal/page.tsx",
+          "sha256": "d4d0e37bde00b332e18410f90072d32c20a4c7f7502457aab57904a85eb3c118",
+          "classification": "LEGAL_NOTICE",
+          "change": "controller and contact section / operator sentence"
+        },
+        {
+          "path": "src/app/(english)/en/legal/page.tsx",
+          "sha256": "88fb047ef2b6d4beeb91426f1348a02c47fdc5cb9b1654a07b9a04ac69e8e816",
+          "classification": "LEGAL_NOTICE",
+          "change": "controller and contact section / operator sentence"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-05"
     }
   ]
 }

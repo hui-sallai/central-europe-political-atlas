@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import { PLATFORM_CONTACT_EMAIL, PLATFORM_NAME } from "@/lib/releaseMetadata";
-import { LEGAL_NOTICES_UPDATED } from "@/content/legalNotices";
+import { CONTROLLER_NAME, LEGAL_NOTICES_UPDATED } from "@/content/legalNotices";
 
 export const metadata: Metadata = pageMetadata({ title: "法律、版权与更正说明", description: "平台独立性、研究边界、第三方数据许可、版权、地图署名和更正撤下机制。", path: "/legal/" });
 
 const sections = [
   [
     "独立性与研究目的",
-    <p key="independence">{PLATFORM_NAME} 是独立、非商业的公开研究项目，与欧盟机构、任何国家政府、政党、候选人、企业、新闻机构或数据提供方不存在隶属、授权或背书关系。平台内容用于政治经济研究、事实比较和方法展示，不构成法律、投资、商业或政策建议。</p>,
+    <p key="independence">{PLATFORM_NAME} 由 {CONTROLLER_NAME}（自然人）运营，是独立、非商业的公开研究项目，不是任何大学或其他机构的官方项目，与欧盟机构、任何国家政府、政党、候选人、企业、新闻机构或数据提供方不存在隶属、授权或背书关系。平台内容用于政治经济研究、事实比较和方法展示，不构成法律、投资、商业或政策建议。</p>,
   ],
   [
     "原创内容与第三方权利",

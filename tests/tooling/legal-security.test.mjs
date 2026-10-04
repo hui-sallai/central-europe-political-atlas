@@ -92,12 +92,17 @@ test('18. CSV formula injection is neutralised but numbers are kept', () => {
   assert.equal(csvFormulaSafe('@SUM(A1)'), `'@SUM(A1)`);
   assert.equal(csvFormulaSafe('-1.5'), '-1.5');
 });
-test('19. operating mode is non-commercial and the publisher gate stays NOT_READY without owner confirmations', () => {
+test('19. operating mode is non-commercial and the publisher gate follows evidenced owner confirmations', () => {
   const mode = json('docs/legal-security/site_operating_mode.json');
   assert.ok(SITE_OPERATING_MODES.includes(mode.site_operating_mode));
   assert.equal(mode.site_operating_mode, 'noncommercial_research');
   const checklist = fs.readFileSync(path.join(root, 'docs/legal-security/publisher_contact_release_checklist.md'), 'utf8');
-  assert.match(checklist, /Current status: NOT_READY_FOR_OWNER_TO_CONTACT_PUBLISHERS/);
+  const o = json('docs/legal-security/owner_confirmations.json');
+  const required = ['controller_identity_confirmed', 'public_contact_email_confirmed', 'noncommercial_status_confirmed', 'no_institutional_affiliation_claimed', 'legal_notice_reviewed', 'privacy_notice_reviewed'];
+  const expected = required.every((k) => o.items[k] === true && o.evidence?.[k]?.owner_statement) ? 'READY_FOR_OWNER_TO_CONTACT_PUBLISHERS' : 'NOT_READY_FOR_OWNER_TO_CONTACT_PUBLISHERS';
+  assert.match(checklist, new RegExp(`Current status: ${expected}`), 'checklist status follows evidenced owner confirmations');
+  assert.equal(o.items.controller_establishment_confirmed, null, 'establishment stays unresolved');
+  assert.equal(o.answers.establishment_country, null);
 });
 test('20. source-level legal-security gate passes and pages carry the exact no-profiling statements', () => {
   for (const [f, s] of [['src/app/(zh)/privacy/page.tsx', NO_PROFILING_ZH], ['src/app/(zh)/legal/page.tsx', NO_PROFILING_ZH], ['src/app/(english)/en/privacy/page.tsx', NO_PROFILING_EN], ['src/app/(english)/en/legal/page.tsx', NO_PROFILING_EN]]) {
