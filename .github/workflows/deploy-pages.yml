@@ -57,6 +57,9 @@ jobs:
       - name: Political source-closure checkpoint (CZ/SK/PL/AT stay blocked; Germany frozen)
         run: pnpm political-source-closure:validate --checkpoint
 
+      - name: Committed public research exports match canonical data (check mode, no writes)
+        run: pnpm research-export:check
+
       - name: Setup Python reference runtime
         uses: actions/setup-python@v6
         with:

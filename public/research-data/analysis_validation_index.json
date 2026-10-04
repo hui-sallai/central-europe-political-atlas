@@ -1,6 +1,6 @@
 {
-  "schema_version": "analysis-validation-index-v1.91",
-  "platform_version": "v1.91",
+  "schema_version": "analysis-validation-index-v2.0",
+  "platform_version": "v2.0",
   "interpretation": "Additive current-release index; legacy validation artifacts retain their original versions and are not relabelled as panel tests.",
   "records": [
     {
@@ -55,7 +55,7 @@
     },
     {
       "id": "var_publication_boundary",
-      "title": "VAR dynamic-response publication boundary (v1.91)",
+      "title": "VAR dynamic-response publication boundary (v2.0)",
       "artifact": "var-publication-boundary/var_dynamic_response_publication_boundary.json",
       "gate": "var:publication-boundary-validate",
       "artifact_role": "governance_boundary_not_a_diagnostic",

@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { checkFrozenFiles, approvedUiFiles } from '../../docs/political-data/source-closure/ui-amendments.mjs';
+import { checkFrozenFiles, approvedUiFiles, approvedMirrorFiles } from '../../docs/political-data/source-closure/ui-amendments.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const record = JSON.parse(fs.readFileSync(path.join(root, 'docs/legal-security/ui_governance_amendments.json'), 'utf8'));
@@ -80,4 +80,32 @@ test('zip exclusion keeps the UI exact-hash amendment and the dependency excepti
   const r = (approvedLock) => checkFrozenFiles({ baselineFiles: lockBase, currentFiles: [...Object.keys(hashes), 'pnpm-lock.yaml'], hashOf: (p) => (p === 'pnpm-lock.yaml' ? H('0') : hashes[p]), amendments: [amendment], lockfileApproved: () => approvedLock, isUntrackedIgnored: (p) => p === ZIP });
   assert.equal(r(false).ok, false, 'unapproved lockfile still fails');
   assert.equal(r(true).ok, true, 'approved lockfile passes');
+});
+
+// Owner-approved export mirror sync (Decision B)
+const sync = { sync_id: 'test-sync', status: 'owner_approved', verification: 'research-export:check', canonical_data_change_allowed: false, political_data_change_allowed: false, model_change_allowed: false, release_version_change_allowed: false, new_research_decision: false, files: [{ path: 'public/research-data/x.csv', sha256: H('d') }] };
+const runSync = (overrides, syncs = [sync]) => {
+  const h = { ...hashes, ...overrides };
+  return checkFrozenFiles({ baselineFiles, currentFiles: Object.keys(h), hashOf: (p) => h[p], amendments: [amendment], mirrorSyncs: syncs });
+};
+test('mirror sync: exact listed public mirror hash passes; other hashes and unlisted mirrors fail', () => {
+  assert.deepEqual(runSync({ 'public/research-data/x.csv': H('d') }).failures, []);
+  assert.equal(runSync({ 'public/research-data/x.csv': H('f') }).ok, false);
+  assert.equal(runSync({ 'public/research-data/x.csv': H('d'), 'public/research-data/y.json': H('d') }).ok, false, 'new unlisted public file');
+});
+test('mirror sync can never cover src/data, political stores, engines or permissive records', () => {
+  for (const p of ['src/data/observations.json', 'public/research-data/political/germany/election_results.csv', 'src/lib/varEngine.ts', 'public/research-data/*.json']) {
+    assert.ok(approvedMirrorFiles([{ ...sync, files: [{ path: p, sha256: H('d') }] }]).problems.length > 0, p);
+  }
+  for (const flag of ['canonical_data_change_allowed', 'political_data_change_allowed', 'model_change_allowed', 'release_version_change_allowed', 'new_research_decision']) {
+    assert.equal(runSync({ 'public/research-data/x.csv': H('d') }, [{ ...sync, [flag]: true }]).ok, false, flag);
+  }
+  assert.equal(runSync({ 'public/research-data/x.csv': H('d') }, [{ ...sync, verification: 'none' }]).ok, false);
+  assert.equal(runSync({ 'public/research-data/x.csv': H('d') }, [{ ...sync, files: [{ path: 'public/research-data/x.csv' }] }]).ok, false, 'missing sha256');
+});
+test('committed mirror-sync record lists the 11 public mirrors with exact hashes', () => {
+  const rec = JSON.parse(fs.readFileSync(path.join(root, 'docs/legal-security/export_mirror_sync_records.json'), 'utf8'));
+  const { approved, problems } = approvedMirrorFiles(rec.syncs);
+  assert.deepEqual(problems, []);
+  assert.equal(approved.size, 11);
 });

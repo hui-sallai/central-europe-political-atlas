@@ -38,12 +38,36 @@ export function approvedUiFiles(amendments) {
 // path, untracked and gitignored only).
 export const BUILD_ARTIFACT_EXCLUSIONS = ['public/research-data/research-data-v2.0.zip', 'public/research-data/deployment_provenance.json'];
 
+// Owner-approved export mirror syncs (docs/legal-security/export_mirror_sync_records.json): exact-hash public mirrors that
+// research-export:check proves are regenerated from already-committed canonical src/data. Never src/data, never political
+// stores, never the zip; each file pinned to its exact sha256.
+export const MIRROR_SYNC_FILE = 'docs/legal-security/export_mirror_sync_records.json';
+const MIRROR_FALSE_FLAGS = ['canonical_data_change_allowed', 'political_data_change_allowed', 'model_change_allowed', 'release_version_change_allowed', 'new_research_decision'];
+export function mirrorSyncPath(file) {
+  return /^public\/research-data\/[^*?[\]{}]+\.(json|csv)$/.test(file) && !/^public\/research-data\/political\//.test(file);
+}
+export function approvedMirrorFiles(records) {
+  const approved = new Map(), problems = [];
+  for (const r of records ?? []) {
+    if (r.status !== 'owner_approved') continue;
+    for (const flag of MIRROR_FALSE_FLAGS) if (r[flag] !== false) problems.push(`${r.sync_id}: ${flag} must be false`);
+    if (r.verification !== 'research-export:check') problems.push(`${r.sync_id}: verification must be research-export:check`);
+    for (const f of r.files ?? []) {
+      if (!mirrorSyncPath(f.path ?? '')) problems.push(`${r.sync_id}: ${f.path} is not a syncable public mirror`);
+      if (!/^[0-9a-f]{64}$/.test(f.sha256 ?? '')) problems.push(`${r.sync_id}: ${f.path} missing exact sha256`);
+      approved.set(f.path, f.sha256);
+    }
+  }
+  return { approved, problems };
+}
+
 // baselineFiles: {path -> sha256}; currentFiles: [path]; hashOf(path) -> sha256; lockfileApproved(): boolean;
 // isUntrackedIgnored(path): boolean (git state of an excluded build artifact).
-export function checkFrozenFiles({ baselineFiles, currentFiles, hashOf, amendments, lockfileApproved = () => false, isUntrackedIgnored = () => false }) {
+export function checkFrozenFiles({ baselineFiles, currentFiles, hashOf, amendments, lockfileApproved = () => false, isUntrackedIgnored = () => false, mirrorSyncs = [] }) {
   const { approved, problems } = approvedUiFiles(amendments);
-  const failures = [...problems], amended = [];
-  if (problems.length) return { ok: false, failures, amended };
+  const mirrors = approvedMirrorFiles(mirrorSyncs);
+  const failures = [...problems, ...mirrors.problems], amended = [];
+  if (failures.length) return { ok: false, failures, amended };
   const excluded = new Set(BUILD_ARTIFACT_EXCLUSIONS.filter((p) => isUntrackedIgnored(p)));
   baselineFiles = Object.fromEntries(Object.entries(baselineFiles).filter(([p]) => !excluded.has(p)));
   currentFiles = currentFiles.filter((p) => !excluded.has(p));
@@ -56,6 +80,7 @@ export function checkFrozenFiles({ baselineFiles, currentFiles, hashOf, amendmen
     if (baseHash && actual === baseHash) continue;
     if (name === 'pnpm-lock.yaml' && lockfileApproved()) continue;
     if (approved.has(name) && amendablePath(name) && approved.get(name) === actual) { amended.push(name); continue; }
+    if (baseHash && mirrors.approved.has(name) && mirrorSyncPath(name) && mirrors.approved.get(name) === actual) { amended.push(name); continue; }
     failures.push(baseHash ? `Frozen file changed: ${name}` : `No new production, public, UI, model or economic files permitted: ${name}`);
   }
   return { ok: failures.length === 0, failures, amended };

@@ -1,9 +1,9 @@
 {
   "name": "Central Europe Political Atlas",
-  "version": "v1.91 VAR Dynamic-Response Publication-Gate Consolidation",
+  "version": "v2.0 VAR Dynamic-Response Publication-Gate Consolidation",
   "release_date": "2026-09-29",
   "stage": "Validated Reduced-form VAR coefficient estimation; the dynamic-response residual publication gate is unresolved after finite-sample calibration research (v1.85-v1.90), so formal dynamic responses remain unavailable; the VAR diagnostic research program is frozen.",
-  "schema_version": "release-metadata-v1.91",
+  "schema_version": "release-metadata-v2.0",
   "canonical_url": "https://hy-central-europe-analysis.org/",
   "public_contact_email": "sallaizhang@outlook.com",
   "legal_notice_updated": "2026-08-20",
@@ -32,8 +32,8 @@
     "var-phase-b-bootstrap-results-v1.88",
     "var-country-matched-bootstrap-research-conclusion-v1.89",
     "var-residual-attribution-research-conclusion-v1.90",
-    "var-dynamic-response-publication-boundary-v1.91",
-    "var-diagnostic-research-program-closure-v1.91",
+    "var-dynamic-response-publication-boundary-v2.0",
+    "var-diagnostic-research-program-closure-v2.0",
     "var-lag-characterization-research-conclusion-v1.87",
     "var-selection-bootstrap-research-conclusion-v1.86",
     "var-residual-diagnostic-research-conclusion-v1.85",
@@ -47,7 +47,7 @@
     "lp-validation-summary-v1.71",
     "lp-inference-registry-v1.71",
     "lp-model-diagnostic-summary-v1.71",
-    "analysis-skill-registry-v1.91",
+    "analysis-skill-registry-v2.0",
     "panel-lp-model-comparison-v1",
     "panel-lp-path-inference-registry-v1.82",
     "panel-lp-joint-inference-research-conclusion-v1.82"
@@ -66,7 +66,7 @@
     "The v1.89 country-matched calibration found the research bootstrap diagnostic materially conservative with weak power in the intermediate lag-2 region; it does not support production adoption, and no production change is authorized.",
     "The v1.90 residual attribution study is descriptive: residual dependence in the five formal country VARs is weak and diffuse, and its diagnostic-only probes are not specifications; no production change is authorized."
   ],
-  "citation": "Central Europe Political Atlas, version v1.91 VAR Dynamic-Response Publication-Gate Consolidation, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
+  "citation": "Central Europe Political Atlas, version v2.0 VAR Dynamic-Response Publication-Gate Consolidation, accessed YYYY-MM-DD. https://hy-central-europe-analysis.org/",
   "data_status_enum": [
     "official",
     "verified",

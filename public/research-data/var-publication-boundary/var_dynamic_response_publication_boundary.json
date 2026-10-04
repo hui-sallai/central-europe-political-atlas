@@ -1,5 +1,5 @@
 {
-  "schema_version": "var-dynamic-response-publication-boundary-v1.91",
+  "schema_version": "var-dynamic-response-publication-boundary-v2.0",
   "generated_at": "2026-09-29",
   "role": "current publication-boundary registry; supplements (does not relabel) var_capability_status.json, which keeps its historical v1.88 schema",
   "estimator_available": true,
@@ -217,7 +217,7 @@
     }
   ],
   "program_status": {
-    "state": "frozen_after_v1_91",
+    "state": "frozen_after_v2_0",
     "reopening_requires": [
       "genuinely new methodological evidence or a separately preregistered research question",
       "owner approval"

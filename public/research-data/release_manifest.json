@@ -1,16 +1,17 @@
 {
-  "schema_version": "release-metadata-v1.91",
-  "platform_version": "v1.91 VAR Dynamic-Response Publication-Gate Consolidation",
+  "schema_version": "release-metadata-v2.0",
+  "platform_version": "v2.0 VAR Dynamic-Response Publication-Gate Consolidation",
   "release_date": "2026-09-29",
   "source_commit": "local-working-tree",
   "build_context": "local",
   "workflow_run_id": null,
-  "generated_at": "2026-09-28T19:43:25.469Z",
+  "generated_at": null,
+  "deployment_provenance_file": "deployment_provenance.json",
   "research_package": {
-    "filename": "research-data-v1.91.zip",
-    "sha256": "5c0921011e2f2309d8eb342c5dca3d3279e1c3e0dfcc8ab87ae076f3d9c7f92a",
-    "generated_at": "2026-09-28T19:43:27.305Z",
-    "status": "built"
+    "filename": "research-data-v2.0.zip",
+    "sha256": null,
+    "generated_at": null,
+    "status": "pending_package_build"
   },
   "data_export_version": "research-data-v0.1",
   "canonical_data_version": "data-foundation-v0.76",
@@ -90,7 +91,7 @@
     "trade_network": "trade-network-v1.25-active",
     "event_window": "event-window-v1.31",
     "high_frequency": "high-frequency-v1.31",
-    "analysis_skill_registry": "analysis-skill-registry-v1.91",
+    "analysis_skill_registry": "analysis-skill-registry-v2.0",
     "high_frequency_definition_registry": "high-frequency-definition-registry-v1.83",
     "historical_extension_research_conclusion": "historical-extension-research-conclusion-v1.83",
     "panel_lp_path_inference_registry": "panel-lp-path-inference-registry-v1.82",
@@ -144,8 +145,8 @@
     "var_residual_attribution_preregistration": "var-residual-attribution-preregistration-v1.90",
     "var_portmanteau_attribution": "var-portmanteau-attribution-v1.90",
     "var_residual_attribution_conclusion": "var-residual-attribution-research-conclusion-v1.90",
-    "var_dynamic_response_publication_boundary": "var-dynamic-response-publication-boundary-v1.91",
-    "var_diagnostic_research_program_closure": "var-diagnostic-research-program-closure-v1.91",
+    "var_dynamic_response_publication_boundary": "var-dynamic-response-publication-boundary-v2.0",
+    "var_diagnostic_research_program_closure": "var-diagnostic-research-program-closure-v2.0",
     "macro_drivers": "macro-driver-observations-v1.51",
     "shock_identification": "shock-identification-registry-v1.62",
     "identified_shocks": "monetary-policy-event-observations-v1.6",
@@ -171,7 +172,7 @@
     "note": "Historical v0.91 golden cases remain the core research regression suite."
   },
   "advanced_analysis_validation": {
-    "stage": "v1.91 advanced analysis validation",
+    "stage": "v2.0 advanced analysis validation",
     "legacy_summary_reference": "advanced_analysis_validation_summary.json",
     "validation_index": "analysis_validation_index.json",
     "status": "passed",
@@ -224,7 +225,7 @@
     "validation_index": "analysis_validation_index.json"
   },
   "release_validation": {
-    "stage": "v1.91 release validation",
+    "stage": "v2.0 release validation",
     "status": "required_after_static_build",
     "gates": [
       "security_scan",
@@ -245,9 +246,7 @@
       "panel-lp:validate",
       "panel-lp:ui-validate",
       "panel-lp:robustness-validate"
-    ],
-    "package_checksum": "5c0921011e2f2309d8eb342c5dca3d3279e1c3e0dfcc8ab87ae076f3d9c7f92a",
-    "package_filename": "research-data-v1.91.zip"
+    ]
   },
   "legacy_validation_summary_v091": {
     "stage": "v0.91 Model & Scenario Validation",
