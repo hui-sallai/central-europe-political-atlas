@@ -6,7 +6,7 @@ import {fileURLToPath} from 'node:url';
 import {execFileSync,spawnSync} from 'node:child_process';
 import {COUNTRY_GATES,RIGHTS_GATES,PRODUCTION_GATES,MATRIX_GATES,VALUES,STATUSES,countryMatrix} from './gates.mjs';
 import {matchDependencyException,DEPENDENCY_EXCEPTIONS_FILE} from '../../../scripts/political-data/germany/frozen-boundary.mjs';
-import {checkFrozenFiles,UI_AMENDMENTS_FILE,MIRROR_SYNC_FILE} from './ui-amendments.mjs';
+import {checkFrozenFiles,checkPrivateEvidence,UI_AMENDMENTS_FILE,MIRROR_SYNC_FILE} from './ui-amendments.mjs';
 
 const dir=path.dirname(fileURLToPath(import.meta.url));
 const root=path.resolve(dir,'../../..');
@@ -30,6 +30,8 @@ const uiAmendments=fs.existsSync(path.join(root,UI_AMENDMENTS_FILE))?JSON.parse(
 const frozenCheck=checkFrozenFiles({baselineFiles:baseline.files,currentFiles:currentFiles.sort(),hashOf:name=>sha(fs.readFileSync(path.join(root,name))),amendments:uiAmendments,mirrorSyncs:fs.existsSync(path.join(root,MIRROR_SYNC_FILE))?JSON.parse(fs.readFileSync(path.join(root,MIRROR_SYNC_FILE),'utf8')).syncs:[],lockfileApproved:lockfileUnderException,isUntrackedIgnored:p=>spawnSync('git',['ls-files','--error-unmatch','--',p],{cwd:root}).status!==0&&spawnSync('git',['check-ignore','-q','--no-index','--',p],{cwd:root}).status===0});
 assert.deepEqual(frozenCheck.failures,[],'No new production, public, UI, model or economic files permitted');
 if(frozenCheck.amended.length)process.stderr.write(`Approved UI governance amendment applied to ${frozenCheck.amended.length} exact-hash file(s): ${frozenCheck.amended.join(', ')}\n`);
+const evidenceStatus={verified:0,absent_private_evidence:0};
+const evidence=(archivePath,expected)=>{evidenceStatus[checkPrivateEvidence({archivePath,sha256:expected,exists:p=>fs.existsSync(path.join(dir,p)),hashOf:p=>sha(fs.readFileSync(path.join(dir,p))),isUntrackedIgnored:p=>{const rel=path.relative(root,path.join(dir,p));return spawnSync('git',['ls-files','--error-unmatch','--',rel],{cwd:root}).status!==0&&spawnSync('git',['check-ignore','-q','--no-index','--',rel],{cwd:root}).status===0;}})]++;};
 const before=JSON.parse(execFileSync('git',['show','HEAD:package.json'],{cwd:root,encoding:'utf8'}));
 const after=JSON.parse(fs.readFileSync(path.join(root,'package.json'),'utf8'));
 assert.equal(after.scripts['political-source-closure:validate'],'node docs/political-data/source-closure/validate.mjs');
@@ -54,12 +56,12 @@ for(const country of summary.scope){
  const licence=licences.find(l=>l.country===country);assert.ok(licence);
  assert.ok(permitted.includes(licence.status));
  if(!licence.applicability_verified)assert.ok(['written_confirmation_required','not_verified'].includes(licence.status));
- if(licence.archived_terms){const m=licence.archived_terms;assert.equal(sha(fs.readFileSync(path.join(dir,m.archive_path))),m.sha256);}
+ if(licence.archived_terms){const m=licence.archived_terms;evidence(m.archive_path,m.sha256);}
  for(const f of countryRows){
   assert.equal(f.ingestion_ready,false,'No unsupported production promotion');
   assert.ok(['identity_ready','identity_ready_with_manual_crosswalk','contestant_only_safe','identity_evidence_incomplete','not_ready'].includes(f.identity_status));
   if(f.file_url)assert.match(f.file_url,/^https:\/\//);
-  if(f.retrieval){assert.equal(f.retrieval.status,200);assert.equal(f.file_url,f.retrieval.url);assert.equal(sha(fs.readFileSync(path.join(dir,f.retrieval.archive_path))),f.retrieval.sha256);}
+  if(f.retrieval){assert.equal(f.retrieval.status,200);assert.equal(f.file_url,f.retrieval.url);evidence(f.retrieval.archive_path,f.retrieval.sha256);}
   if(!f.file_url||!f.retrieval||f.result_status==='not_certified_by_this_audit'||!f.valid_vote_denominator||f.identity_status==='identity_evidence_incomplete'||f.electoral_system_evidence_status!=='reviewed'||!licence.applicability_verified)unresolved.push(f.election_id_proposal);
  }
  assert.ok(!closure.recommendation.startsWith('READY'),'Blocked checkpoint cannot approve production');
@@ -126,5 +128,5 @@ assert.equal(review.slovakia.election_date_2016.status,'verified_tier1_legal_doc
 for(const r of review.slovakia.elections)if(typeof r.seat_representation==='object')assert.ok('nan_marker' in r.seat_representation&&'empty_cell' in r.seat_representation&&'explicit_zero' in r.seat_representation);
 for(const p of review.poland.elections)assert.equal(p.national_total_file,null,'no fabricated Polish national totals');
 
-console.log(JSON.stringify({checkpoint_integrity:'pass',gate_checks:gateChecks,countries_ready:gateMatrix.countries.filter(c=>c.overall_readiness!=='NOT_READY').length,contact_packets:summary.scope.length,frozen_files_checked:Object.keys(baseline.files).length,germany_files_unchanged:38,elections_registered:28,elections_with_open_gates:unresolved.length,audit_complete:summary.audit_complete,production_ready:0}));
+console.log(JSON.stringify({checkpoint_integrity:'pass',private_evidence:evidenceStatus,gate_checks:gateChecks,countries_ready:gateMatrix.countries.filter(c=>c.overall_readiness!=='NOT_READY').length,contact_packets:summary.scope.length,frozen_files_checked:Object.keys(baseline.files).length,germany_files_unchanged:38,elections_registered:28,elections_with_open_gates:unresolved.length,audit_complete:summary.audit_complete,production_ready:0}));
 if(!process.argv.includes('--checkpoint')&&unresolved.length){console.error('CLOSURE BLOCKED: exact-file licence/acquisition, file, identity, totals and dated electoral-rule gates remain open. --checkpoint checks evidence integrity only, not closure.');process.exitCode=1;}

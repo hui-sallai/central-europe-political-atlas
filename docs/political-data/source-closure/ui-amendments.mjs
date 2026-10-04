@@ -85,3 +85,18 @@ export function checkFrozenFiles({ baselineFiles, currentFiles, hashOf, amendmen
   }
   return { ok: failures.length === 0, failures, amended };
 }
+
+// Owner-approved (2026-10-05): private publisher evidence lives only in the gitignored local-evidence/ folder and is
+// never committed. Where the file is present (owner machine) its sha256 is verified exactly; in a clean checkout (CI)
+// the record must still point into local-evidence/, be gitignored, untracked and carry a well-formed sha256.
+// Returns 'verified' | 'absent_private_evidence'; throws on any violation.
+export function checkPrivateEvidence({ archivePath, sha256, exists, hashOf, isUntrackedIgnored }) {
+  if (!/^local-evidence\/[0-9a-f]{64}\.raw$/.test(archivePath ?? '')) throw new Error(`evidence path must be local-evidence/<sha256>.raw: ${archivePath}`);
+  if (!/^[0-9a-f]{64}$/.test(sha256 ?? '')) throw new Error(`evidence sha256 malformed for ${archivePath}`);
+  if (!isUntrackedIgnored(archivePath)) throw new Error(`private evidence must be gitignored and untracked: ${archivePath}`);
+  if (exists(archivePath)) {
+    if (hashOf(archivePath) !== sha256) throw new Error(`private evidence hash mismatch: ${archivePath}`);
+    return 'verified';
+  }
+  return 'absent_private_evidence';
+}

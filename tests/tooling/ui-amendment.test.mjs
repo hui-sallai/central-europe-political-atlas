@@ -109,3 +109,17 @@ test('committed mirror-sync record lists the 11 public mirrors with exact hashes
   assert.deepEqual(problems, []);
   assert.equal(approved.size, 11);
 });
+
+// Owner-approved private-evidence rule (2026-10-05)
+import { checkPrivateEvidence } from '../../docs/political-data/source-closure/ui-amendments.mjs';
+const EV = `local-evidence/${H('a')}.raw`;
+const ev = (o = {}) => checkPrivateEvidence({ archivePath: EV, sha256: H('a'), exists: () => true, hashOf: () => H('a'), isUntrackedIgnored: () => true, ...o });
+test('private evidence: present file is re-hashed exactly; absent file is accepted only as gitignored local evidence', () => {
+  assert.equal(ev(), 'verified');
+  assert.throws(() => ev({ hashOf: () => H('b') }), /hash mismatch/);
+  assert.equal(ev({ exists: () => false }), 'absent_private_evidence');
+  assert.throws(() => ev({ exists: () => false, isUntrackedIgnored: () => false }), /gitignored/);
+  assert.throws(() => ev({ archivePath: 'public/research-data/x.raw', exists: () => false }), /local-evidence/);
+  assert.throws(() => ev({ archivePath: 'local-evidence/../x.raw', exists: () => false }), /local-evidence/);
+  assert.throws(() => ev({ sha256: 'abc', exists: () => false }), /malformed/);
+});
