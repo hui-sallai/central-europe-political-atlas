@@ -31,11 +31,20 @@ export function approvedUiFiles(amendments) {
   return { approved, problems };
 }
 
-// baselineFiles: {path -> sha256}; currentFiles: [path]; hashOf(path) -> sha256; lockfileApproved(): boolean.
-export function checkFrozenFiles({ baselineFiles, currentFiles, hashOf, amendments, lockfileApproved = () => false }) {
+// Owner-approved (2026-10-05): the research package zip is a gitignored build artifact created after the checkpoint runs;
+// it is validated by the package build, not as a pre-existing repository file. Exact path only, and only while the path
+// is untracked and gitignored — a tracked or non-ignored file at this path stays fully frozen.
+export const BUILD_ARTIFACT_EXCLUSIONS = ['public/research-data/research-data-v2.0.zip'];
+
+// baselineFiles: {path -> sha256}; currentFiles: [path]; hashOf(path) -> sha256; lockfileApproved(): boolean;
+// isUntrackedIgnored(path): boolean (git state of an excluded build artifact).
+export function checkFrozenFiles({ baselineFiles, currentFiles, hashOf, amendments, lockfileApproved = () => false, isUntrackedIgnored = () => false }) {
   const { approved, problems } = approvedUiFiles(amendments);
   const failures = [...problems], amended = [];
   if (problems.length) return { ok: false, failures, amended };
+  const excluded = new Set(BUILD_ARTIFACT_EXCLUSIONS.filter((p) => isUntrackedIgnored(p)));
+  baselineFiles = Object.fromEntries(Object.entries(baselineFiles).filter(([p]) => !excluded.has(p)));
+  currentFiles = currentFiles.filter((p) => !excluded.has(p));
   const current = new Set(currentFiles);
   for (const name of Object.keys(baselineFiles)) if (!current.has(name)) failures.push(`Frozen file removed: ${name}`);
   for (const name of currentFiles) {

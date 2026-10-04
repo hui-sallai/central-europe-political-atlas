@@ -3,7 +3,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 import {fileURLToPath} from 'node:url';
-import {execFileSync} from 'node:child_process';
+import {execFileSync,spawnSync} from 'node:child_process';
 import {COUNTRY_GATES,RIGHTS_GATES,PRODUCTION_GATES,MATRIX_GATES,VALUES,STATUSES,countryMatrix} from './gates.mjs';
 import {matchDependencyException,DEPENDENCY_EXCEPTIONS_FILE} from '../../../scripts/political-data/germany/frozen-boundary.mjs';
 import {checkFrozenFiles,UI_AMENDMENTS_FILE} from './ui-amendments.mjs';
@@ -27,7 +27,7 @@ const lockfileUnderException=()=>matchDependencyException({
  pkgAfter:JSON.parse(fs.readFileSync(path.join(root,'package.json'),'utf8')),
 }).ok;
 const uiAmendments=fs.existsSync(path.join(root,UI_AMENDMENTS_FILE))?JSON.parse(fs.readFileSync(path.join(root,UI_AMENDMENTS_FILE),'utf8')).amendments:[];
-const frozenCheck=checkFrozenFiles({baselineFiles:baseline.files,currentFiles:currentFiles.sort(),hashOf:name=>sha(fs.readFileSync(path.join(root,name))),amendments:uiAmendments,lockfileApproved:lockfileUnderException});
+const frozenCheck=checkFrozenFiles({baselineFiles:baseline.files,currentFiles:currentFiles.sort(),hashOf:name=>sha(fs.readFileSync(path.join(root,name))),amendments:uiAmendments,lockfileApproved:lockfileUnderException,isUntrackedIgnored:p=>spawnSync('git',['ls-files','--error-unmatch','--',p],{cwd:root}).status!==0&&spawnSync('git',['check-ignore','-q','--no-index','--',p],{cwd:root}).status===0});
 assert.deepEqual(frozenCheck.failures,[],'No new production, public, UI, model or economic files permitted');
 if(frozenCheck.amended.length)process.stderr.write(`Approved UI governance amendment applied to ${frozenCheck.amended.length} exact-hash file(s): ${frozenCheck.amended.join(', ')}\n`);
 const before=JSON.parse(execFileSync('git',['show','HEAD:package.json'],{cwd:root,encoding:'utf8'}));

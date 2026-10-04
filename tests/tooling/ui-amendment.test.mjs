@@ -52,3 +52,32 @@ test('the committed amendment lists exact hashes for presentation files only', (
   assert.equal(approved.size, 14);
   for (const [p] of approved) assert.match(p, /^src\/(app|components|lib)\//);
 });
+
+// Owner-approved exact build-artifact exclusion (research package zip)
+const ZIP = 'public/research-data/research-data-v2.0.zip';
+const withZip = { ...baselineFiles, [ZIP]: H('9') };
+const runZip = ({ overrides = {}, drop = [], untrackedIgnored = true, amendments = [amendment], lockfileApproved = () => false } = {}) => {
+  const h = { ...hashes, ...overrides };
+  for (const p of drop) delete h[p];
+  return checkFrozenFiles({ baselineFiles: withZip, currentFiles: Object.keys(h), hashOf: (p) => h[p], amendments, lockfileApproved, isUntrackedIgnored: (p) => untrackedIgnored && p === ZIP });
+};
+test('zip exclusion: missing or changed untracked gitignored zip passes; everything else stays frozen', () => {
+  assert.deepEqual(runZip().failures, []);
+  assert.deepEqual(runZip({ overrides: { [ZIP]: H('8') } }).failures, []);
+  assert.equal(runZip({ overrides: { 'public/research-data/x.csv': H('e') } }).ok, false, 'tracked public/research-data change');
+  assert.equal(runZip({ overrides: { 'src/data/observations.json': H('e') } }).ok, false, 'src/data change');
+  assert.equal(runZip({ overrides: { 'src/data/political/germany/elections.json': H('e') } }).ok, false, 'Germany store change');
+  assert.equal(runZip({ overrides: { 'src/data/political/czechia/elections.json': H('e') } }).ok, false, 'extra political production file');
+  assert.equal(runZip({ drop: ['public/research-data/x.csv'] }).ok, false, 'arbitrary missing baseline file');
+});
+test('zip exclusion applies only while the zip is untracked and gitignored', () => {
+  assert.equal(runZip({ untrackedIgnored: false, drop: [ZIP] }).ok, false);
+  assert.equal(runZip({ untrackedIgnored: false, overrides: { [ZIP]: H('8') } }).ok, false);
+});
+test('zip exclusion keeps the UI exact-hash amendment and the dependency exception in force', () => {
+  assert.equal(runZip({ overrides: { 'src/app/(zh)/legal/page.tsx': H('c') } }).ok, false, 'UI hash drift still fails');
+  const lockBase = { ...withZip, 'pnpm-lock.yaml': H('7') };
+  const r = (approvedLock) => checkFrozenFiles({ baselineFiles: lockBase, currentFiles: [...Object.keys(hashes), 'pnpm-lock.yaml'], hashOf: (p) => (p === 'pnpm-lock.yaml' ? H('0') : hashes[p]), amendments: [amendment], lockfileApproved: () => approvedLock, isUntrackedIgnored: (p) => p === ZIP });
+  assert.equal(r(false).ok, false, 'unapproved lockfile still fails');
+  assert.equal(r(true).ok, true, 'approved lockfile passes');
+});
