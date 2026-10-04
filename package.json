@@ -25,6 +25,7 @@
     "legal-security:validate": "node scripts/legal-security/validate.mjs",
     "political-person-safety:validate": "node scripts/legal-security/person-safety.mjs",
     "research-export:check": "node scripts/validation/research-export-check.mjs",
+    "research-package:validate": "node scripts/release/validate-package-contents.mjs",
     "historical-extension:validate": "node scripts/historical-monthly-extension/validate.mjs",
     "historical-extension:closure-validate": "node scripts/historical-monthly-extension/closure-validate.mjs",
     "baseline-definition:validate": "node scripts/historical-monthly-extension/validate-baseline-definition.mjs",

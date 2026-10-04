@@ -124,6 +124,7 @@ jobs:
         run: |
           node scripts/panel-local-projections/test-publication.mjs
           pnpm package:research-data
+          pnpm research-package:validate
 
       - name: Lint
         run: pnpm lint

@@ -7,6 +7,7 @@ import {root} from './acquire.mjs';
 import {stores,buildApprovedProduction} from './production.mjs';
 import {validatePolitical} from './validate.mjs';
 import {politicalExportFiles} from './export.mjs';
+import {approvedMirrorFiles,mirrorSyncPath,MIRROR_SYNC_FILE} from '../../../docs/political-data/source-closure/ui-amendments.mjs';
 
 export const DEPENDENCY_EXCEPTIONS_FILE='docs/legal-security/dependency_maintenance_exceptions.json';
 // Dependency-tooling files other than package.json / pnpm-lock.yaml that no exception may touch.
@@ -55,6 +56,15 @@ function dependencyExceptionApplies(baseline){
   return result.ok;
 }
 
+function mirrorSyncApplies(file){
+  if(!mirrorSyncPath(file))return false;
+  const recordPath=path.join(root,MIRROR_SYNC_FILE);
+  if(!fs.existsSync(recordPath)||!fs.existsSync(path.join(root,file)))return false;
+  const {approved,problems}=approvedMirrorFiles(JSON.parse(fs.readFileSync(recordPath,'utf8')).syncs);
+  if(problems.length||!approved.has(file))return false;
+  return approved.get(file)===crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex');
+}
+
 // Explicit owner-approved additive exception, not a general src/data exemption.
 export function unapprovedFrozenChanges(changed,baseline){
   const data=buildApprovedProduction();validatePolitical(data,data);
@@ -65,6 +75,9 @@ export function unapprovedFrozenChanges(changed,baseline){
     // The lockfile may differ from the research baseline only under an exact owner-approved dependency exception;
     // research data, engines and political stores keep the original rules below.
     if(file==='pnpm-lock.yaml'){if(!dependencyExceptionApplies(baseline))unexpected.push(file);continue;}
+    // Owner-approved export mirror sync: a public mirror may differ only at its exact recorded sha256
+    // (docs/legal-security/export_mirror_sync_records.json, reproduced by research-export:check); src/data never.
+    if(mirrorSyncApplies(file))continue;
     if(!files.has(file)){unexpected.push(file);continue;}
     // A historical frozen file can never be silently reclassified as new politics.
     const prior=execFileSync('git',['ls-tree','--name-only',baseline,'--',file],{cwd:root,encoding:'utf8'});
