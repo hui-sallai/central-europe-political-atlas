@@ -1,3 +1,4 @@
+import { readReleaseManifest } from "./release-provenance.mjs";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -115,7 +116,7 @@ for (const file of htmlFiles) {
 }
 
 const metadata = readJson("platform_metadata.json");
-const manifest = readJson("release_manifest.json");
+const manifest = readReleaseManifest(researchOut);
 const validationExport = readJson("validation_registry.json");
 const goldenExport = readJson("golden_test_cases.json");
 const varReadiness = readJson("var_country_readiness.json");

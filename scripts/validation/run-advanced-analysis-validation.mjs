@@ -767,7 +767,14 @@ const advancedValidationSummary = {
   },
   failures: errors,
 };
-fs.writeFileSync(path.join(root, "src", "data", "analysis", "advanced_analysis_validation_summary.json"), `${JSON.stringify(advancedValidationSummary, null, 2)}\n`);
+// Keep the recorded validation time when the results are unchanged, so a build never rewrites tracked canonical data
+// solely because of the wall clock; any change in counts, status or failures records a new generated_at.
+const summaryFile = path.join(root, "src", "data", "analysis", "advanced_analysis_validation_summary.json");
+const previousSummary = fs.existsSync(summaryFile) ? JSON.parse(fs.readFileSync(summaryFile, "utf8")) : null;
+const withoutTimestamp = (summary) => JSON.stringify({ ...summary, generated_at: null });
+if (previousSummary && withoutTimestamp(previousSummary) === withoutTimestamp(advancedValidationSummary)) advancedValidationSummary.generated_at = previousSummary.generated_at;
+const summaryText = `${JSON.stringify(advancedValidationSummary, null, 2)}\n`;
+if (!fs.existsSync(summaryFile) || fs.readFileSync(summaryFile, "utf8") !== summaryText) fs.writeFileSync(summaryFile, summaryText);
 console.log(`Advanced analysis validation: panel=${panelTests} tests; network=${networkTests} tests; hf=${hfTests} tests; event=${eventTests} tests; var=${varTests} tests; macro_driver=${macroDriverTests} tests; identified_shocks=${identifiedShockTests} tests; local_projections=${localProjectionTests} tests; author_reference=${authorReferenceTests} tests; failures=${errors.length}.`);
 if (errors.length) {
   errors.forEach((error) => console.error(`ADVANCED ANALYSIS ERROR: ${error}`));

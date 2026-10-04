@@ -1,8 +1,9 @@
 import fs from "node:fs";
 import assert from "node:assert/strict";
 import { validatePanelPublication as validate } from "./publication-validation.mjs";
+import { readReleaseManifest } from "../release/release-provenance.mjs";
 const directory = "public/research-data";
-const manifest = JSON.parse(fs.readFileSync(`${directory}/release_manifest.json`, "utf8"));
+const manifest = readReleaseManifest(directory);
 const index = JSON.parse(fs.readFileSync(`${directory}/analysis_validation_index.json`, "utf8"));
 assert.deepEqual(validate(manifest,index,directory), []);
 const local = {...manifest,build_context:"local",source_commit:"local-working-tree",workflow_run_id:null};

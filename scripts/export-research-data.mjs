@@ -1,3 +1,4 @@
+import { buildProvenance, LOCAL_PROVENANCE, PROVENANCE_FILE } from "./release/release-provenance.mjs";
 import { createRequire } from "node:module";
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
@@ -2260,10 +2261,10 @@ writeJson("release_manifest.json", {
   schema_version: platformRelease.schema_version,
   platform_version: platformRelease.version,
   release_date: platformRelease.release_date,
-  source_commit: process.env.GITHUB_SHA ?? process.env.RELEASE_COMMIT_SHA ?? "local-working-tree",
-  build_context: process.env.GITHUB_SHA || process.env.RELEASE_COMMIT_SHA ? "github-actions" : "local",
-  workflow_run_id: process.env.GITHUB_RUN_ID ?? null,
-  generated_at: new Date().toISOString(),
+  // Deterministic research manifest: per-build identity lives in deployment_provenance.json (scripts/release/release-provenance.mjs).
+  ...LOCAL_PROVENANCE,
+  generated_at: null,
+  deployment_provenance_file: PROVENANCE_FILE,
   research_package: { filename: `research-data-${/^v[\d.]+/.exec(platformRelease.version)?.[0] ?? "local"}.zip`, sha256: null, generated_at: null, status: "pending_package_build" },
   data_export_version: schemaVersion,
   canonical_data_version: canonicalSchemaVersion,
@@ -2365,6 +2366,7 @@ writeJson("release_manifest.json", {
   legacy_validation_summary_v091: validationSummary,
   public_display_boundaries: platformRelease.limitations,
 });
+writeJson(PROVENANCE_FILE, buildProvenance());
 writeLayer("china_exposure_variables", chinaExposureVariables, {
   schema_version: "china-economic-exposure-v0.82",
   primary_key: "variable_id + country_slug",

@@ -1,3 +1,4 @@
+import { PROVENANCE_FILE } from "./release-provenance.mjs";
 import fs from "node:fs";
 import crypto from "node:crypto";
 import path from "node:path";
@@ -23,7 +24,7 @@ const groups = {
   dictionaries: ["indicators.json", "indicators.csv", "sources.json", "sources.csv", "region_indicator_dictionary.json", "region_sources.json"],
   qa: ["validation_registry.json", "golden_test_cases.json", "data_quality_checks.json", "regional_geometry_qa.json", "comparison_eligibility.json"],
   methodology: ["methodology_rules.json"],
-  release: ["platform_metadata.json", "release_manifest.json"],
+  release: ["platform_metadata.json", "release_manifest.json", PROVENANCE_FILE],
 };
 
 const crcTable = Array.from({ length: 256 }, (_, value) => {
@@ -288,19 +289,12 @@ fs.mkdirSync(sourceDir, { recursive: true });
 fs.writeFileSync(outputFile, zipStore(entries));
 const packageBuffer = fs.readFileSync(outputFile);
 const packageSha256 = crypto.createHash("sha256").update(packageBuffer).digest("hex");
-const manifestFile = path.join(sourceDir, "release_manifest.json");
-if (fs.existsSync(manifestFile)) {
-  const manifest = JSON.parse(fs.readFileSync(manifestFile, "utf8"));
-  manifest.research_package = {
-    filename: path.basename(outputFile),
-    sha256: packageSha256,
-    generated_at: new Date().toISOString(),
-    status: "built",
-  };
-  if (manifest.release_validation) {
-    manifest.release_validation.package_checksum = packageSha256;
-    manifest.release_validation.package_filename = path.basename(outputFile);
-  }
-  fs.writeFileSync(manifestFile, JSON.stringify(manifest, null, 2));
+const provenanceFile = path.join(sourceDir, PROVENANCE_FILE);
+if (fs.existsSync(provenanceFile)) {
+  // Per-build package identity goes to the gitignored deployment provenance, never into the committed manifest.
+  const provenance = JSON.parse(fs.readFileSync(provenanceFile, "utf8"));
+  provenance.research_package = { filename: path.basename(outputFile), sha256: packageSha256, generated_at: new Date().toISOString(), status: "built" };
+  provenance.release_validation_package = { package_checksum: packageSha256, package_filename: path.basename(outputFile) };
+  fs.writeFileSync(provenanceFile, `${JSON.stringify(provenance, null, 2)}\n`);
 }
 console.log(`Research package created: ${path.relative(root, outputFile)} (${entries.length} entries)`);

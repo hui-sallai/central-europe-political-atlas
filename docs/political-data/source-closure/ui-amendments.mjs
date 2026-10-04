@@ -34,7 +34,9 @@ export function approvedUiFiles(amendments) {
 // Owner-approved (2026-10-05): the research package zip is a gitignored build artifact created after the checkpoint runs;
 // it is validated by the package build, not as a pre-existing repository file. Exact path only, and only while the path
 // is untracked and gitignored — a tracked or non-ignored file at this path stays fully frozen.
-export const BUILD_ARTIFACT_EXCLUSIONS = ['public/research-data/research-data-v2.0.zip'];
+// deployment_provenance.json is the per-build provenance split out of the committed release manifest (same rule: exact
+// path, untracked and gitignored only).
+export const BUILD_ARTIFACT_EXCLUSIONS = ['public/research-data/research-data-v2.0.zip', 'public/research-data/deployment_provenance.json'];
 
 // baselineFiles: {path -> sha256}; currentFiles: [path]; hashOf(path) -> sha256; lockfileApproved(): boolean;
 // isUntrackedIgnored(path): boolean (git state of an excluded build artifact).
