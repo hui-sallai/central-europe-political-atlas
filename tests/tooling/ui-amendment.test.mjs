@@ -107,7 +107,7 @@ test('committed mirror-sync record lists the 11 public mirrors with exact hashes
   const rec = JSON.parse(fs.readFileSync(path.join(root, 'docs/legal-security/export_mirror_sync_records.json'), 'utf8'));
   const { approved, problems } = approvedMirrorFiles(rec.syncs);
   assert.deepEqual(problems, []);
-  assert.equal(approved.size, 11);
+  assert.equal(approved.size, 12);
 });
 
 // Owner-approved private-evidence rule (2026-10-05)
