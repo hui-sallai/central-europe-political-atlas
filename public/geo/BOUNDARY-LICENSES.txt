@@ -1,0 +1,30 @@
+Boundary data licences — Central Europe Political Atlas
+
+The ADM1 files in /geo/adm1/ and the simplified country outlines in /geo/home-countries-simplified.geojson
+(derived from them by scripts/build-home-country-map.mjs) come from geoBoundaries gbOpen
+(www.geoboundaries.org; Runfola et al. 2020, PLoS ONE 15(4): e0231866). Per-boundary licences, as stated in the
+geoBoundaries API metadata (read 2026-10-04):
+
+  Poland, Serbia, Slovakia, Croatia
+      Source: OpenStreetMap (via geoBoundaries / Wambacher)
+      © OpenStreetMap contributors. This data is made available under the Open Database License (ODbL) 1.0:
+      https://opendatacommons.org/licenses/odbl/1-0/ — see https://www.openstreetmap.org/copyright
+      Any redistributed or adapted database of these boundaries (including the simplified outlines) is offered
+      under the ODbL 1.0.
+  Austria
+      Source: geoBoundaries; Federal Office of Metrology and Surveying (BEV), Austria
+      Licence: Creative Commons Attribution-ShareAlike 2.0 (CC BY-SA 2.0):
+      https://creativecommons.org/licenses/by-sa/2.0/ — adapted outlines are offered under the same licence.
+  Czechia      Source: Czech Office for Surveying, Mapping and Cadastre (ČÚZK); CC BY 4.0
+  Romania      Source: World Bank; CC BY 4.0
+  Slovenia     Source: Eurostat - European Commission; CC BY 4.0
+  Germany      Source: © Federal Agency for Cartography and Geodesy (BKG); Data licence Germany – attribution –
+               Version 2.0 (dl-de/by-2-0)
+  Hungary      Source: geoBoundaries, Wikimedia Commons; CC0 1.0
+
+Changes by the Atlas: for the home map, ADM1 geometries are simplified (Douglas–Peucker, tolerance 0.025°) and
+tagged with their country. Each country feature keeps its own source and licence (feature properties
+boundary_source / boundary_license); the file is a collection of separately licensed features, not a merged database.
+
+The regional maps use Eurostat/GISCO NUTS 2024 (© EuroGeographics) for all countries except Poland, whose
+administrative layer uses the geoBoundaries ODbL boundaries above (files in /data/boundaries/v086/).

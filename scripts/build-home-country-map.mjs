@@ -6,6 +6,19 @@ const sourceDir = path.join(root, "public", "geo", "adm1");
 const outputFile = path.join(root, "public", "geo", "home-countries-simplified.geojson");
 const countrySlugs = ["germany", "poland", "hungary", "romania", "czechia", "slovakia", "slovenia", "serbia", "austria", "croatia"];
 const tolerance = 0.025;
+// Per-boundary sources and licences (geoBoundaries gbOpen ADM1 API metadata, read 2026-10-04); see public/geo/BOUNDARY-LICENSES.txt.
+const boundaryLicences = {
+  poland: ["OpenStreetMap contributors (via geoBoundaries)", "ODbL-1.0"],
+  serbia: ["OpenStreetMap contributors (via geoBoundaries)", "ODbL-1.0"],
+  slovakia: ["OpenStreetMap contributors (via geoBoundaries)", "ODbL-1.0"],
+  croatia: ["OpenStreetMap contributors (via geoBoundaries)", "ODbL-1.0"],
+  austria: ["geoBoundaries; Federal Office of Metrology and Surveying (BEV)", "CC-BY-SA-2.0"],
+  czechia: ["Czech Office for Surveying, Mapping and Cadastre (via geoBoundaries)", "CC-BY-4.0"],
+  romania: ["World Bank (via geoBoundaries)", "CC-BY-4.0"],
+  slovenia: ["Eurostat - European Commission (via geoBoundaries)", "CC-BY-4.0"],
+  germany: ["Federal Agency for Cartography and Geodesy (BKG) (via geoBoundaries)", "dl-de/by-2-0"],
+  hungary: ["geoBoundaries, Wikimedia Commons", "CC0-1.0"],
+};
 
 function squaredDistance(a, b) {
   const dx = a[0] - b[0];
@@ -75,12 +88,13 @@ for (const countrySlug of countrySlugs) {
     if (!feature.geometry) continue;
     features.push({
       type: "Feature",
-      properties: { countrySlug },
+      properties: { countrySlug, boundary_source: boundaryLicences[countrySlug][0], boundary_license: boundaryLicences[countrySlug][1] },
       geometry: simplifyGeometry(feature.geometry),
     });
   }
 }
 
 await mkdir(path.dirname(outputFile), { recursive: true });
-await writeFile(outputFile, `${JSON.stringify({ type: "FeatureCollection", features })}\n`, "utf8");
+const license_notice = "Simplified country outlines derived from geoBoundaries gbOpen ADM1 (www.geoboundaries.org). Each feature keeps its own source and licence (boundary_source, boundary_license); ODbL-1.0 features: © OpenStreetMap contributors, Open Database License; CC-BY-SA-2.0 feature: share-alike. Details: /geo/BOUNDARY-LICENSES.txt";
+await writeFile(outputFile, `${JSON.stringify({ type: "FeatureCollection", license_notice, features })}\n`, "utf8");
 console.log(`Home country map: ${features.length} simplified features -> ${path.relative(root, outputFile)}`);

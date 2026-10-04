@@ -307,22 +307,34 @@
       "reuse_right": "cleared_with_conditions",
       "normalized_republication": "cleared_with_conditions",
       "derived_values": "cleared_with_conditions",
-      "raw_redistribution": "not_cleared",
+      "raw_redistribution": "cleared_with_conditions",
       "commercial_use": "cleared_with_conditions",
       "noncommercial_only": false,
       "manual_acquisition": "cleared",
       "automated_acquisition": "cleared_with_conditions",
       "third_party_rights_possible": true,
       "attribution_required": true,
-      "required_attribution_text": "Boundaries: geoBoundaries (www.geoboundaries.org), per-boundary sources: © OpenStreetMap contributors (ODbL 1.0) for POL, SRB, SVK, HRV; BEV Austria (CC BY-SA 2.0); ČÚZK (CC BY 4.0); World Bank (CC BY 4.0); Eurostat (CC BY 4.0); © BKG (dl-de/by-2-0)",
+      "required_attribution_text": "Boundaries: geoBoundaries (www.geoboundaries.org); per-boundary: © OpenStreetMap contributors, ODbL 1.0 (POL, SRB, SVK, HRV); BEV, CC BY-SA 2.0 (AUT); ČÚZK / World Bank / Eurostat, CC BY 4.0 (CZE, ROU, SVN); © BKG, dl-de/by-2-0 (DEU); CC0 (HUN)",
       "modification_disclosure_required": true,
       "database_right_status": "ODbL: redistributed database or derivative database must remain under ODbL with attribution; produced works (maps) need an ODbL notice",
       "publisher_confirmation_required": false,
       "evidence_reference": null,
       "evidence_sha256": null,
-      "reviewed_at": "2026-10-04",
-      "review_status": "rights_conflict_reported",
-      "open_rights_issue": {
+      "reviewed_at": "2026-10-05",
+      "review_status": "verified",
+      "per_boundary_licences": {
+        "POL": "ODbL 1.0 (OpenStreetMap, Wambacher)",
+        "SRB": "ODbL 1.0 (OpenStreetMap, Wambacher)",
+        "SVK": "ODbL 1.0 (OpenStreetMap, Wambacher)",
+        "HRV": "ODbL 1.0 (OpenStreetMap, Wambacher)",
+        "AUT": "CC BY-SA 2.0 (geoBoundaries; Federal Office for Metrology and Survey, Austria)",
+        "CZE": "CC BY 4.0 (Czech Office for Surveying)",
+        "ROU": "CC BY 4.0 (World Bank)",
+        "SVN": "CC BY 4.0 (Eurostat - European Commission)",
+        "DEU": "dl-de/by-2-0 (Federal Agency for Cartography and Geodesy)",
+        "HUN": "CC0 1.0 (geoBoundaries, Wikimedia Commons)"
+      },
+      "resolved_rights_issue": {
         "severity": "concrete",
         "summary": "geoBoundaries API metadata (2026-10-04) gives per-boundary licences: ODbL 1.0 / OpenStreetMap for POL, SRB, SVK, HRV; CC BY-SA 2.0 for AUT; CC BY 4.0 for CZE, ROU, SVN; dl-de/by-2-0 for DEU; CC0 for HUN. The Atlas (1) records POL/SRB as CC BY 4.0 and shows only \"geoBoundaries (CC BY 4.0)\" on the regional map (Poland ADM1 displayed), and (2) redistributes all ten ADM1 GeoJSON files and a derived home-page outline (home-countries-simplified.geojson) with no attribution on the home page. Share-alike terms (ODbL, CC BY-SA 2.0) apply to the redistributed and derived files.",
         "published_paths": [
@@ -341,19 +353,9 @@
           "public/geo/adm1/slovenia.geojson",
           "public/geo/home-countries-simplified.geojson"
         ],
-        "action": "OWNER DECISION before any change: (a) add per-boundary attribution and ODbL / CC BY-SA licence notices on the home and map pages and beside the GeoJSON files, correcting the licence record in a separate reviewed spatial change; (b) replace the home outline and Poland layer with GISCO geometry (already licensed and attributed); or (c) withdraw the files. No deletion or replacement has been made."
-      },
-      "per_boundary_licences": {
-        "POL": "ODbL 1.0 (OpenStreetMap, Wambacher)",
-        "SRB": "ODbL 1.0 (OpenStreetMap, Wambacher)",
-        "SVK": "ODbL 1.0 (OpenStreetMap, Wambacher)",
-        "HRV": "ODbL 1.0 (OpenStreetMap, Wambacher)",
-        "AUT": "CC BY-SA 2.0 (geoBoundaries; Federal Office for Metrology and Survey, Austria)",
-        "CZE": "CC BY 4.0 (Czech Office for Surveying)",
-        "ROU": "CC BY 4.0 (World Bank)",
-        "SVN": "CC BY 4.0 (Eurostat - European Commission)",
-        "DEU": "dl-de/by-2-0 (Federal Agency for Cartography and Geodesy)",
-        "HUN": "CC0 1.0 (geoBoundaries, Wikimedia Commons)"
+        "action": "OWNER DECISION before any change: (a) add per-boundary attribution and ODbL / CC BY-SA licence notices on the home and map pages and beside the GeoJSON files, correcting the licence record in a separate reviewed spatial change; (b) replace the home outline and Poland layer with GISCO geometry (already licensed and attributed); or (c) withdraw the files. No deletion or replacement has been made.",
+        "resolved_on": "2026-10-05",
+        "resolution": "Owner-requested attribution fix (option a): per-boundary attribution on the home map (HomeResearchMap) and via the corrected licence record on the regional map, map export and snapshots; public/geo/BOUNDARY-LICENSES.txt and public/data/boundaries/v086/BOUNDARY-LICENSES.txt beside the GeoJSON files; home outline features carry boundary_source/boundary_license and an ODbL/CC BY-SA licence notice; shared-license-records.json corrected to ODbL 1.0. No geometry deleted or replaced. Share-alike files are offered under their original licences; the collective-database reading for the multi-licence home outline is an interpretive point (legal review optional)."
       }
     },
     {

@@ -100,6 +100,27 @@
       "model_change_allowed": false,
       "release_change_allowed": false,
       "created_at": "2026-10-04"
+    },
+    {
+      "amendment_id": "ui-geoboundaries-attribution-2026-10",
+      "status": "owner_approved",
+      "approved_by": "owner (explicit chat instruction: fix the geoBoundaries attribution conflict, 2026-10-05)",
+      "purpose": "Per-boundary geoBoundaries / OpenStreetMap ODbL attribution under the home map",
+      "baseline": "d68d0e10fa0c83b57e044af02e352379aa9e9d2d",
+      "files": [
+        {
+          "path": "src/components/HomeResearchMap.tsx",
+          "sha256": "e63f0beb97b3cba3540b63d49d3137f234938f712656ca615796d325deb08eac",
+          "classification": "SOURCE_ATTRIBUTION_UI",
+          "change": "attribution line and licence-notice link below the home map"
+        }
+      ],
+      "canonical_data_change_allowed": false,
+      "public_research_data_change_allowed": false,
+      "political_data_change_allowed": false,
+      "model_change_allowed": false,
+      "release_change_allowed": false,
+      "created_at": "2026-10-05"
     }
   ]
 }

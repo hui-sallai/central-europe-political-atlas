@@ -118,6 +118,7 @@ export function HomeResearchMap({ countries, locale = "zh-CN" }: { countries: Ho
           <div className="home-country-selector" aria-label={m.shortcuts}>
             {countries.map((country) => <button key={country.slug} type="button" aria-pressed={country.slug === selectedSlug} onClick={() => setSelectedSlug(country.slug)}>{country.iso2}</button>)}
           </div>
+          <p className="mt-2 text-[11px] leading-5 text-[var(--muted)]" data-source-attribution="geoboundaries">{m.boundaryAttribution} <a className="underline" href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/geo/BOUNDARY-LICENSES.txt`}>{m.boundaryLicences}</a></p>
         </div>
         <aside className="home-country-panel">
           <p className="editorial-kicker">Selected Country</p>

@@ -22,4 +22,4 @@ Notes:
 - The files use the geoBoundaries simplified GeoJSON links returned by the API.
 - The Hungary ADM1 simplified file contains 19 county polygons and does not include Budapest as a polygon in this layer. The app adds Budapest as a supplemental point marker until a better authoritative ADM1 geometry source is integrated.
 - Slovenia ADM1 in geoBoundaries is represented as two cohesion regions. The 12 statistical regions can be reintroduced later as a separate statistical geography layer rather than the current ADM1 map layer.
-- Attribution is required when using geoBoundaries data.
+- Attribution and per-boundary licences: see `BOUNDARY-LICENSES.txt` (ODbL 1.0 for Poland, Serbia, Slovakia and Croatia; CC BY-SA 2.0 for Austria; CC BY 4.0 for Czechia, Romania and Slovenia; dl-de/by-2-0 for Germany; CC0 for Hungary).

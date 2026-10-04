@@ -192,6 +192,7 @@ if (!sourceOnly) {
       }
     }
     for (const r of ['map', 'en/map']) check(read(`out/${r}/index.html`).includes('EuroGeographics'), `out/${r}: EuroGeographics attribution missing`);
+    for (const r of ['map', 'en/map', '', 'en']) check(/OpenStreetMap contributors/.test(read(`out/${r ? r + '/' : ''}index.html`)) && /ODbL/.test(read(`out/${r ? r + '/' : ''}index.html`)), `out/${r || 'index'}: geoBoundaries / OpenStreetMap ODbL attribution missing`);
     for (const r of ['politics', 'en/politics']) { const t = read(`out/${r}/index.html`); check(t.includes('Die Bundeswahlleiterin'), `out/${r}: Bundeswahlleiterin attribution missing`); }
     for (const [r, needle] of [['privacy', NO_PROFILING_ZH], ['en/privacy', NO_PROFILING_EN], ['legal', NO_PROFILING_ZH], ['en/legal', NO_PROFILING_EN]]) check(read(`out/${r}/index.html`).replace(/&#x27;|&#39;|&apos;/g, "'").includes(needle), `out/${r}: no-profiling statement missing`);
     check(exists('out/.well-known/security.txt'), 'out/.well-known/security.txt missing');
@@ -214,6 +215,14 @@ const ci = read('.github/workflows/deploy-pages.yml');
 check(/run: pnpm research-export:check\s*$/m.test(ci) && ci.indexOf('pnpm research-export:check') < ci.indexOf('pnpm export:research-data'), 'CI must run research-export:check before the export step');
 check(/run: pnpm political-source-closure:validate --checkpoint\s*$/m.test(ci) && !/political-source-closure:validate\s*$/m.test(ci), 'CI must run political-source-closure:validate --checkpoint');
 for (const e of json('docs/legal-security/dependency_maintenance_exceptions.json').exceptions) check(/^[0-9a-f]{64}$/.test(e.new_lockfile_sha256) && ['research_data_change_allowed', 'model_output_change_allowed', 'political_data_change_allowed', 'release_version_change_allowed'].every((k) => e[k] === false), `dependency exception ${e.exception_id}: exact hash and all research/model/political/release flags false required`);
+// geoBoundaries per-boundary licences (resolved 2026-10-05): notices beside the files, corrected licence record,
+// licence-tagged home outline features.
+for (const f of ['public/geo/BOUNDARY-LICENSES.txt', 'public/data/boundaries/v086/BOUNDARY-LICENSES.txt']) check(exists(f) && /ODbL/.test(read(f)) && /CC BY-SA 2\.0/.test(read(f)) && /OpenStreetMap contributors/.test(read(f)), `${f}: per-boundary licence notice missing`);
+const gbRecord = json('public/data/boundaries/v087/shared-license-records.json').records.find((r) => r.license_record_id === 'geoboundaries_gbopen_cc_by_4');
+check(gbRecord && /OpenStreetMap contributors/.test(gbRecord.attribution) && /ODbL/.test(gbRecord.attribution) && !/CC BY 4\.0/.test(gbRecord.attribution), 'geoBoundaries licence record must carry the OpenStreetMap ODbL attribution');
+const homeOutline = json('public/geo/home-countries-simplified.geojson');
+check(/ODbL/.test(homeOutline.license_notice ?? '') && homeOutline.features.every((f) => f.properties?.boundary_license && f.properties?.boundary_source), 'home outline features must carry boundary_source / boundary_license');
+check(/boundaryAttribution/.test(read('src/components/HomeResearchMap.tsx')), 'home map must render the boundary attribution');
 // Shared attribution architecture: one JSON, linked to the rights registry, used by web, snapshot and package README.
 check(/BIS/.test(BIS_NOTICE_ZH) && /并非 BIS 官方翻译/.test(BIS_NOTICE_ZH), 'BIS Chinese translation notice missing from sourceAttributions.json');
 for (const entry of attributionData.sources) check(rights.sources.some((s) => s.source_id === entry.registry_source_id), `attribution ${entry.id}: unknown registry source ${entry.registry_source_id}`);
